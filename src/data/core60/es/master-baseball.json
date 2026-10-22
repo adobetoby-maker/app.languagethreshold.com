@@ -1,0 +1,2898 @@
+{
+  "version": 1,
+  "module": "master-baseball",
+  "baseModule": "baseball",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Baseball / Béisbol Master 20",
+  "threshold": "By Lesson 20, you can teach a play and check it with a teach-back, handle a hidden sore arm or a lost starter, say no to a parent's unsafe request, call a lightning stoppage, and write the day's report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.172Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Teach a Transfer Our Cutoff and Relay System",
+      "objective": "Explain step by step where each fielder goes on a relay and why, then have the player teach it back.",
+      "words": [
+        {
+          "en": "the cutoff man",
+          "es": "el hombre de corte",
+          "kind": "term"
+        },
+        {
+          "en": "the double cut",
+          "es": "el doble relevo",
+          "kind": "term"
+        },
+        {
+          "en": "the throwing line",
+          "es": "la línea de tiro",
+          "kind": "term"
+        },
+        {
+          "en": "center field",
+          "es": "el jardín central",
+          "kind": "term"
+        },
+        {
+          "en": "the gap",
+          "es": "el callejón",
+          "kind": "term",
+          "note": "The space between two outfielders, as in el callejón del derecho."
+        },
+        {
+          "en": "the outfield wall",
+          "es": "la barda",
+          "kind": "term",
+          "note": "Mexican usage; Venezuelans and Caribbean players often say la cerca."
+        },
+        {
+          "en": "the lead runner",
+          "es": "el corredor delantero",
+          "kind": "term"
+        },
+        {
+          "en": "the chest",
+          "es": "el pecho",
+          "kind": "term"
+        },
+        {
+          "en": "the glove side",
+          "es": "el lado del guante",
+          "kind": "term"
+        },
+        {
+          "en": "the third baseman",
+          "es": "el antesalista",
+          "kind": "term",
+          "note": "Common in Mexico and the Caribbean; also el tercera base."
+        },
+        {
+          "en": "the double",
+          "es": "el doble",
+          "kind": "term"
+        },
+        {
+          "en": "the triple",
+          "es": "el triple",
+          "kind": "term"
+        },
+        {
+          "en": "the (verbal) call",
+          "es": "la llamada",
+          "kind": "term"
+        },
+        {
+          "en": "cut!",
+          "es": "¡corta!",
+          "kind": "term",
+          "note": "Call to the cutoff man to catch the throw and stop it."
+        },
+        {
+          "en": "let it go through!",
+          "es": "¡déjala pasar!",
+          "kind": "term"
+        },
+        {
+          "en": "First, you line up between the outfielder and third.",
+          "es": "Primero, te pones en línea entre el jardinero y tercera.",
+          "kind": "phrase",
+          "note": "Informal tú, normal from a manager to a player."
+        },
+        {
+          "en": "Then you raise your arms to give him a target.",
+          "es": "Luego levantas los brazos para darle un blanco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We do it this way because the short throw gets there faster.",
+          "es": "Lo hacemos así porque el tiro corto llega más rápido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why you don't stay glued to the base.",
+          "es": "Por eso no te quedas pegado a la base.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In Venezuela they did it differently, right?",
+          "es": "En Venezuela lo hacían diferente, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you hear cut!, you catch it and throw it home.",
+          "es": "Si oyes ¡corta!, la agarras y la tiras a home.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain the double cut to me, step by step.",
+          "es": "Ahora explícame tú el doble relevo, paso por paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI is Tomás Herrera, a transfer shortstop: walk him through where each fielder goes on a relay and why, using primero, luego, porque and por eso, then have him teach the system back to you.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero sales hacia el callejón, y luego te alineas con tercera.",
+            "en": "First you go out toward the gap, and then you line up with third."
+          },
+          {
+            "es": "El tiro corto es más preciso; por eso usamos al hombre de corte.",
+            "en": "The short throw is more accurate; that's why we use the cutoff man."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why Every Fielder Backs Up the Throw",
+      "objective": "Explain why fielders back up every throw to young outfielders and answer a parent who doubts it.",
+      "words": [
+        {
+          "en": "the backup (on a throw)",
+          "es": "el respaldo",
+          "kind": "term"
+        },
+        {
+          "en": "the loose ball",
+          "es": "la pelota suelta",
+          "kind": "term"
+        },
+        {
+          "en": "the wild throw",
+          "es": "el tiro desviado",
+          "kind": "term"
+        },
+        {
+          "en": "the extra base",
+          "es": "la base extra",
+          "kind": "term"
+        },
+        {
+          "en": "the bounce",
+          "es": "el rebote",
+          "kind": "term"
+        },
+        {
+          "en": "the angle",
+          "es": "el ángulo",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "the center fielder",
+          "es": "el center",
+          "kind": "term",
+          "note": "Common in Cuba and Miami; also el jardinero central."
+        },
+        {
+          "en": "the habit",
+          "es": "el hábito",
+          "kind": "term"
+        },
+        {
+          "en": "focus",
+          "es": "la concentración",
+          "kind": "term"
+        },
+        {
+          "en": "the fielding error",
+          "es": "el error de fildeo",
+          "kind": "term"
+        },
+        {
+          "en": "the stands",
+          "es": "las gradas",
+          "kind": "term"
+        },
+        {
+          "en": "behind",
+          "es": "detrás",
+          "kind": "term"
+        },
+        {
+          "en": "just in case",
+          "es": "por si acaso",
+          "kind": "term"
+        },
+        {
+          "en": "at full speed",
+          "es": "a toda velocidad",
+          "kind": "term"
+        },
+        {
+          "en": "Kevin, Ariel: run behind every throw, always.",
+          "es": "Kevin, Ariel: corran detrás de cada tiro, siempre.",
+          "kind": "phrase",
+          "note": "Plural ustedes command for the two players."
+        },
+        {
+          "en": "Here every throw gets backed up, no exceptions.",
+          "es": "Aquí se respalda cada tiro, sin excepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If nobody backs up, an extra base is given away.",
+          "es": "Si nadie respalda, se regala una base extra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Vega, they're not running for nothing; let me explain.",
+          "es": "Señora Vega, no corren por gusto; déjeme explicarle.",
+          "kind": "phrase",
+          "note": "Formal usted with a parent."
+        },
+        {
+          "en": "9 out of 10 times nothing happens, but the tenth time it does.",
+          "es": "9 de cada 10 veces no pasa nada, pero la décima sí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ariel, explain to Kevin why you run behind.",
+          "es": "Ariel, explícale a Kevin por qué se corre detrás.",
+          "kind": "phrase",
+          "note": "Informal tú with a player."
+        },
+        {
+          "en": "That's how games are won: with the details.",
+          "es": "Así se ganan los juegos: con los detalles.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the travel-ball coach, and the AI is Marisol Vega, a parent: explain why Kevin and Ariel back up every throw, using impersonal se and si + present (si la pelota se escapa, el corredor avanza), and answer her questions politely with usted.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (si la pelota se escapa, el corredor avanza)",
+        "examples": [
+          {
+            "es": "Si la pelota se escapa, el corredor avanza.",
+            "en": "If the ball gets away, the runner advances."
+          },
+          {
+            "es": "Si el center no respalda, se pierde una carrera.",
+            "en": "If the center fielder doesn't back up, a run is lost."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Bullpen Catcher on Gear Fit",
+      "objective": "Train a new bullpen catcher to put on and check his protective gear, then have him explain it back.",
+      "words": [
+        {
+          "en": "the catcher's mask",
+          "es": "la careta",
+          "kind": "term"
+        },
+        {
+          "en": "the throat guard",
+          "es": "el protector de garganta",
+          "kind": "term"
+        },
+        {
+          "en": "the chest protector",
+          "es": "el peto",
+          "kind": "term"
+        },
+        {
+          "en": "the shin guards",
+          "es": "las espinilleras",
+          "kind": "term"
+        },
+        {
+          "en": "the straps",
+          "es": "las correas",
+          "kind": "term"
+        },
+        {
+          "en": "the buckle",
+          "es": "la hebilla",
+          "kind": "term"
+        },
+        {
+          "en": "the padding",
+          "es": "el acolchado",
+          "kind": "term"
+        },
+        {
+          "en": "the protective cup",
+          "es": "la copa protectora",
+          "kind": "term"
+        },
+        {
+          "en": "the catcher's mitt",
+          "es": "la mascota",
+          "kind": "term",
+          "note": "The catcher's or first baseman's mitt; a fielder's is el guante."
+        },
+        {
+          "en": "the back of the head",
+          "es": "la nuca",
+          "kind": "term"
+        },
+        {
+          "en": "the chin",
+          "es": "la barbilla",
+          "kind": "term"
+        },
+        {
+          "en": "the fit",
+          "es": "el ajuste",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term",
+          "note": "Agrees with the noun: la careta está floja."
+        },
+        {
+          "en": "the team policy",
+          "es": "la política del equipo",
+          "kind": "term"
+        },
+        {
+          "en": "hydration",
+          "es": "la hidratación",
+          "kind": "term"
+        },
+        {
+          "en": "Put it on again and adjust it well.",
+          "es": "Póntela otra vez y ajústala bien.",
+          "kind": "phrase",
+          "note": "Informal tú, coach to catcher; la = la careta."
+        },
+        {
+          "en": "Those straps are loose; tighten them until it doesn't move.",
+          "es": "Esas correas están flojas; apriétalas hasta que no se mueva.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Move your head; if the mask moves, it's loose.",
+          "es": "Mueve la cabeza; si la careta se mueve, está floja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't take it off, even if it's hot.",
+          "es": "No te lo quites, aunque haga calor.",
+          "kind": "phrase",
+          "note": "Lo = el protector de garganta."
+        },
+        {
+          "en": "It's team policy: nobody catches here without a mask.",
+          "es": "Es política del equipo: aquí nadie cacha sin careta.",
+          "kind": "phrase",
+          "note": "Cachar is the everyday baseball verb for catching in Mexico and the US."
+        },
+        {
+          "en": "Drink water between each pitcher, okay?",
+          "es": "Toma agua entre cada lanzador, ¿sí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let me know if something doesn't fit before you catch.",
+          "es": "Avísame si algo no te queda antes de recibir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain to me how you put it on and check it.",
+          "es": "Ahora explícame tú cómo te la pones y la revisas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the bullpen coach, and the AI is Iván Rosales, a new bullpen catcher: walk him through putting on and checking his mask, throat guard and chest protector with commands like póntela, ajústala and no te lo quites, then have him explain the gear check back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (póntelo, ajústala, no te la quites)",
+        "examples": [
+          {
+            "es": "Ajústala hasta que no se mueva cuando giras la cabeza.",
+            "en": "Adjust it until it doesn't move when you turn your head."
+          },
+          {
+            "es": "Póntelo y no te lo quites durante el calentamiento.",
+            "en": "Put it on and don't take it off during the warm-up."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Check the Bat Stamp at Tournament Check-In",
+      "objective": "Read the tournament bat rule aloud, explain it to a player and his family, and point out what is missing.",
+      "words": [
+        {
+          "en": "the certification stamp",
+          "es": "el sello de certificación",
+          "kind": "term"
+        },
+        {
+          "en": "the check-in table",
+          "es": "la mesa de registro",
+          "kind": "term"
+        },
+        {
+          "en": "the tournament rules",
+          "es": "las normas del torneo",
+          "kind": "term"
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the handle",
+          "es": "el mango",
+          "kind": "term"
+        },
+        {
+          "en": "the barrel",
+          "es": "el barril",
+          "kind": "term"
+        },
+        {
+          "en": "the drop (length-to-weight difference)",
+          "es": "el drop",
+          "kind": "term",
+          "note": "English loanword used in US youth baseball."
+        },
+        {
+          "en": "the approved list",
+          "es": "la lista aprobada",
+          "kind": "term"
+        },
+        {
+          "en": "the spare bat",
+          "es": "el bate de repuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the gift",
+          "es": "el regalo",
+          "kind": "term"
+        },
+        {
+          "en": "the first pitch",
+          "es": "el primer pitcheo",
+          "kind": "term",
+          "note": "Pitcheo is common in Mexico and the US."
+        },
+        {
+          "en": "the tournament director",
+          "es": "el director del torneo",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the brand",
+          "es": "la marca",
+          "kind": "term"
+        },
+        {
+          "en": "approved",
+          "es": "aprobado",
+          "kind": "term"
+        },
+        {
+          "en": "According to the tournament rules, every bat needs this stamp.",
+          "es": "Según las normas del torneo, cada bate necesita este sello.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mateo, your bat doesn't have the stamp; it can't be used today.",
+          "es": "Mateo, tu bate no tiene el sello; hoy no se puede usar.",
+          "kind": "phrase",
+          "note": "Informal tú with the young player."
+        },
+        {
+          "en": "I'm very sorry, but the bat doesn't pass inspection.",
+          "es": "Lo siento mucho, pero el bate no pasa la inspección.",
+          "kind": "phrase",
+          "note": "Polite tone for the family; use usted or ustedes with them."
+        },
+        {
+          "en": "Before deciding anything, let's read the rule together.",
+          "es": "Antes de decidir nada, leamos juntos la regla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Daniela, can you ask the tournament director?",
+          "es": "Daniela, ¿le puedes preguntar al director del torneo?",
+          "kind": "phrase",
+          "note": "Informal tú between coaches."
+        },
+        {
+          "en": "After talking to the director, we'll confirm with you.",
+          "es": "Después de hablar con el director, les confirmamos.",
+          "kind": "phrase",
+          "note": "Les = ustedes, the family (formal)."
+        },
+        {
+          "en": "Meanwhile, he can use a team bat that is approved.",
+          "es": "Mientras tanto, puede usar un bate del equipo que sí está aprobado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the coach at the check-in table, and the AI is Mateo's father: read the tournament bat rule aloud, explain it using antes de / después de + infinitive and hay que, point out what Mateo's bat is missing, and offer an approved team bat.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de entrar al dugout hay que revisar el sello del bate)",
+        "examples": [
+          {
+            "es": "Antes de entrar al dugout, hay que revisar el sello del bate.",
+            "en": "Before going into the dugout, you have to check the bat's stamp."
+          },
+          {
+            "es": "Después de revisar los bates, hay que firmar la hoja de registro.",
+            "en": "After checking the bats, you have to sign the check-in sheet."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "The Ace Admits He Hid a Sore Elbow",
+      "objective": "Get the pitcher's story of the pain, then propose a plan to him and his mother until a doctor sees him.",
+      "words": [
+        {
+          "en": "the elbow",
+          "es": "el codo",
+          "kind": "term"
+        },
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term"
+        },
+        {
+          "en": "the discomfort",
+          "es": "la molestia",
+          "kind": "term"
+        },
+        {
+          "en": "the swelling",
+          "es": "la hinchazón",
+          "kind": "term"
+        },
+        {
+          "en": "the tingling",
+          "es": "el hormigueo",
+          "kind": "term",
+          "note": "Ask about it in the fingers or hand: ¿sentías hormigueo en los dedos?"
+        },
+        {
+          "en": "the medical evaluation",
+          "es": "la evaluación médica",
+          "kind": "term"
+        },
+        {
+          "en": "the sports doctor",
+          "es": "el médico deportivo",
+          "kind": "term",
+          "note": "For a woman doctor: la médica deportiva."
+        },
+        {
+          "en": "the medical clearance",
+          "es": "la autorización médica",
+          "kind": "term"
+        },
+        {
+          "en": "the rest (medical)",
+          "es": "el reposo",
+          "kind": "term"
+        },
+        {
+          "en": "the scout showcase",
+          "es": "el showcase",
+          "kind": "term",
+          "note": "Common loanword in Puerto Rican baseball."
+        },
+        {
+          "en": "the scout",
+          "es": "el escucha",
+          "kind": "term",
+          "note": "Caribbean baseball word for a scout; la escucha for a woman."
+        },
+        {
+          "en": "the spot (on a roster or list)",
+          "es": "el puesto",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "since when? / how long?",
+          "es": "¿desde cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "Rafael, when did the pain start and what did you feel when you threw?",
+          "es": "Rafael, ¿cuándo empezó el dolor y qué sentías al lanzar?",
+          "kind": "phrase",
+          "note": "Informal (tú) with the player. Preterite for when it started, imperfect for what he used to feel."
+        },
+        {
+          "en": "Did it also hurt when you weren't pitching?",
+          "es": "¿Te dolía también cuando no lanzabas?",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "You did the right thing telling me; now we'll sort it out together.",
+          "es": "Hiciste bien en decírmelo; ahora lo resolvemos juntos.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Mrs. Méndez, I would ask for a medical evaluation this very week.",
+          "es": "Señora Méndez, yo pediría una evaluación médica esta misma semana.",
+          "kind": "phrase",
+          "note": "Formal (usted). The conditional makes a proposal sound respectful, not like an order."
+        },
+        {
+          "en": "In the meantime, I wouldn't put him in to pitch.",
+          "es": "Mientras tanto, yo no lo pondría a lanzar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand your concern about the showcase, ma'am.",
+          "es": "Entiendo su preocupación por el showcase, señora.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Without medical clearance, Rafael doesn't go back to the mound.",
+          "es": "Sin autorización médica, Rafael no vuelve al montículo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With your permission, I would talk to the scout about another date.",
+          "es": "Con su permiso, yo hablaría con el escucha sobre otra fecha.",
+          "kind": "phrase",
+          "note": "Formal (usted). Ask the family before you share anything with a scout."
+        }
+      ],
+      "speaking": "You are the coach, and the AI is pitcher Rafael Méndez, then his mother Lucía: get Rafael's story of the pain with questions like ¿te dolía cuando lanzabas?, then propose a plan to Lucía with yo pediría and yo no lo pondría a lanzar until a doctor sees him.",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (le dolía desde hacía semanas; yo pediría una evaluación médica)",
+        "examples": [
+          {
+            "es": "Le dolía desde hacía semanas, pero no dijo nada.",
+            "en": "It had been hurting for weeks, but he didn't say anything."
+          },
+          {
+            "es": "Yo pediría una evaluación médica antes del showcase.",
+            "en": "I would ask for a medical evaluation before the showcase."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Two Starters Down: Rebuild the Weekend Rotation",
+      "objective": "Compare available arms with the pitching coach and announce who will start each game this weekend.",
+      "words": [
+        {
+          "en": "the pitching staff",
+          "es": "el staff",
+          "kind": "term",
+          "note": "Common loanword in Dominican and US baseball Spanish."
+        },
+        {
+          "en": "the rookie",
+          "es": "el novato",
+          "kind": "term"
+        },
+        {
+          "en": "the start (a pitcher's start)",
+          "es": "la apertura",
+          "kind": "term"
+        },
+        {
+          "en": "the rest day",
+          "es": "el día de descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the workload",
+          "es": "la carga de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the innings pitched",
+          "es": "las entradas lanzadas",
+          "kind": "term"
+        },
+        {
+          "en": "the ERA",
+          "es": "la efectividad",
+          "kind": "term",
+          "note": "Caribbean baseball Spanish for ERA; lower is better."
+        },
+        {
+          "en": "the strikeouts",
+          "es": "los ponches",
+          "kind": "term"
+        },
+        {
+          "en": "the command (of pitches)",
+          "es": "el comando",
+          "kind": "term",
+          "note": "Putting the pitch exactly where you want it."
+        },
+        {
+          "en": "the flu",
+          "es": "la gripe",
+          "kind": "term"
+        },
+        {
+          "en": "Sunday's game",
+          "es": "el juego del domingo",
+          "kind": "term"
+        },
+        {
+          "en": "rested",
+          "es": "descansado",
+          "kind": "term"
+        },
+        {
+          "en": "the option",
+          "es": "la opción",
+          "kind": "term"
+        },
+        {
+          "en": "the depth (of the staff)",
+          "es": "la profundidad",
+          "kind": "term"
+        },
+        {
+          "en": "Carmen, who is more rested, Ramos or Soto?",
+          "es": "Carmen, ¿quién está más descansado, Ramos o Soto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ramos has better command than Soto, but he pitched 2 times this week.",
+          "es": "Ramos tiene mejor comando que Soto, pero lanzó 2 veces esta semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Soto throws harder, but he has less experience than Ramos.",
+          "es": "Soto tira más duro, pero tiene menos experiencia que Ramos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which of the 2 has a better ERA this year?",
+          "es": "¿Cuál de los 2 tiene mejor efectividad este año?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ramos is going to start Saturday, but only for 3 innings.",
+          "es": "Ramos va a abrir el sábado, pero solo por 3 entradas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Kelvin, you're going to start Sunday; we trust you.",
+          "es": "Kelvin, tú vas a abrir el domingo; confiamos en ti.",
+          "kind": "phrase",
+          "note": "Informal (tú) with a young player."
+        },
+        {
+          "en": "Guys, listen: this is how the weekend rotation will look.",
+          "es": "Señores, escuchen: así va a quedar la rotación del fin de semana.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the whole team."
+        },
+        {
+          "en": "If anyone else feels sick, let Carmen know right away.",
+          "es": "Si alguien más se siente mal, avísenle a Carmen enseguida.",
+          "kind": "phrase",
+          "note": "Plural ustedes command."
+        }
+      ],
+      "speaking": "You are the manager, and the AI is pitching coach Carmen Ortega: compare Ramos and Soto with más... que and mejor... que, decide who starts each game this weekend, and announce it with va a abrir and abrirá.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (Ramos tiene mejor control que Soto; va a abrir el sábado)",
+        "examples": [
+          {
+            "es": "Ramos tiene más experiencia que Soto, pero Soto está más descansado.",
+            "en": "Ramos has more experience than Soto, but Soto is more rested."
+          },
+          {
+            "es": "El domingo Soto abrirá y tendrá a todo el bullpen detrás.",
+            "en": "On Sunday Soto will start and will have the whole bullpen behind him."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "A Scout Behind the Backstop Wants Numbers Fast",
+      "objective": "Give a scout a player's season story and stats quickly and correctly, and decline to share medical details.",
+      "words": [
+        {
+          "en": "the batting average",
+          "es": "el promedio de bateo",
+          "kind": "term"
+        },
+        {
+          "en": "the RBIs (runs batted in)",
+          "es": "las carreras impulsadas",
+          "kind": "term"
+        },
+        {
+          "en": "the home runs",
+          "es": "los jonrones",
+          "kind": "term"
+        },
+        {
+          "en": "the on-base percentage",
+          "es": "el porcentaje de embasarse",
+          "kind": "term"
+        },
+        {
+          "en": "the fielding percentage",
+          "es": "el porcentaje de fildeo",
+          "kind": "term"
+        },
+        {
+          "en": "the walks",
+          "es": "los boletos",
+          "kind": "term",
+          "note": "Walks (bases on balls) in US and Caribbean baseball Spanish."
+        },
+        {
+          "en": "the stats",
+          "es": "las estadísticas",
+          "kind": "term"
+        },
+        {
+          "en": "the stat sheet",
+          "es": "la hoja de estadísticas",
+          "kind": "term"
+        },
+        {
+          "en": "the home-to-first time",
+          "es": "el tiempo a primera",
+          "kind": "term"
+        },
+        {
+          "en": "the stopwatch",
+          "es": "el cronómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the consent",
+          "es": "el consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the medical history",
+          "es": "el historial médico",
+          "kind": "term"
+        },
+        {
+          "en": "the privacy",
+          "es": "la privacidad",
+          "kind": "term"
+        },
+        {
+          "en": "exactly",
+          "es": "exactamente",
+          "kind": "term"
+        },
+        {
+          "en": "Andrés hit .312 and got on base in almost every game.",
+          "es": "Andrés bateó .312 y se embasó en casi todos los juegos.",
+          "kind": "phrase",
+          "note": "Say .312 as trescientos doce."
+        },
+        {
+          "en": "He drove in 41 runs and stole 18 bases.",
+          "es": "Impulsó 41 carreras y se robó 18 bases.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, it wasn't 14 RBIs; it was 41.",
+          "es": "Perdón, no fueron 14 carreras impulsadas; fueron 41.",
+          "kind": "phrase",
+          "note": "Stress the corrected number: cuarenta y uno."
+        },
+        {
+          "en": "He started slow, but in May he hit like never before.",
+          "es": "Empezó lento, pero en mayo bateó como nunca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "His time to first was 4.2 seconds, by our stopwatch.",
+          "es": "Su tiempo a primera fue de 4.2 segundos, según nuestro cronómetro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Without the family's permission, I can't talk about his health.",
+          "es": "Sin permiso de la familia, no puedo hablar de su salud.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll give you his parents' contact so you can ask them.",
+          "es": "Le doy el contacto de sus padres para que les pregunte.",
+          "kind": "phrase",
+          "note": "Formal (usted) with the scout."
+        },
+        {
+          "en": "Do you want me to email you the stat sheet?",
+          "es": "¿Quiere que le mande la hoja de estadísticas por correo?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the coach, and the AI is area scout Gabriel Navarro: tell Andrés Colón's season in the preterite (bateó, impulsó, se robó), give each number clearly, and politely keep his medical history private without the family's consent.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (bateó .312, impulsó 41 carreras, se robó 18 bases)",
+        "examples": [
+          {
+            "es": "En abril bateó solo .250, pero terminó en .312.",
+            "en": "In April he hit only .250, but he finished at .312."
+          },
+          {
+            "es": "Conectó 7 jonrones y se robó 18 bases en 30 juegos.",
+            "en": "He hit 7 home runs and stole 18 bases in 30 games."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: A Father Wants His Son to Pitch Again",
+      "objective": "Refuse a parent's request to pitch a tired boy, explain the league rule, and offer what the boy can do instead.",
+      "words": [
+        {
+          "en": "the doubleheader",
+          "es": "el doble juego",
+          "kind": "term",
+          "note": "Many US players also say el doubleheader."
+        },
+        {
+          "en": "the morning game",
+          "es": "el juego de la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the required rest",
+          "es": "el descanso obligatorio",
+          "kind": "term"
+        },
+        {
+          "en": "the league rules",
+          "es": "las reglas de la liga",
+          "kind": "term"
+        },
+        {
+          "en": "the rest chart",
+          "es": "la tabla de descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the pitch count log",
+          "es": "la hoja de lanzamientos",
+          "kind": "term"
+        },
+        {
+          "en": "the official record",
+          "es": "el registro oficial",
+          "kind": "term"
+        },
+        {
+          "en": "the scorekeeper",
+          "es": "el anotador",
+          "kind": "term",
+          "note": "For a woman: la anotadora."
+        },
+        {
+          "en": "the league president",
+          "es": "el presidente de la liga",
+          "kind": "term",
+          "note": "For a woman: la presidenta de la liga."
+        },
+        {
+          "en": "the eligibility",
+          "es": "la elegibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the exception",
+          "es": "la excepción",
+          "kind": "term"
+        },
+        {
+          "en": "the wear and tear",
+          "es": "el desgaste",
+          "kind": "term"
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "in the long run",
+          "es": "a largo plazo",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Salinas, I don't recommend that Benji pitch today.",
+          "es": "Señor Salinas, no recomiendo que Benji lance hoy.",
+          "kind": "phrase",
+          "note": "No recomiendo que + subjunctive (lance, not lanza)."
+        },
+        {
+          "en": "Don't ask him to pitch; he already pitched this morning.",
+          "es": "No le pida que lance; ya lanzó esta mañana.",
+          "kind": "phrase",
+          "note": "Formal (usted) negative command."
+        },
+        {
+          "en": "According to the league rules, Benji has to rest today.",
+          "es": "Según las reglas de la liga, Benji tiene que descansar hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Here's the pitch count log; see it for yourself.",
+          "es": "Aquí está la hoja de lanzamientos; véala usted mismo.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Don't take it the wrong way; I'm doing it to protect his arm.",
+          "es": "No me lo tome a mal; lo hago para cuidar su brazo.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "This afternoon Benji can bat and play the outfield.",
+          "es": "Esta tarde Benji puede batear y jugar en el jardín.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Benji, don't feel bad; today it's your turn to rest your arm.",
+          "es": "Benji, no te sientas mal; hoy te toca descansar el brazo.",
+          "kind": "phrase",
+          "note": "Informal (tú) with the boy."
+        },
+        {
+          "en": "If you want, we can talk to the league president.",
+          "es": "Si quiere, hablamos con el presidente de la liga.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the coach, and the AI is Héctor Salinas, Benji's father: refuse to let Benji pitch the second game using no recomiendo que lance and negative commands like no le pida, explain the league rule, and offer what Benji can do instead.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no le pida que lance; no recomiendo que lance hoy)",
+        "examples": [
+          {
+            "es": "No lo presione, por favor; ya lanzó en el juego de la mañana.",
+            "en": "Please don't pressure him; he already pitched in the morning game."
+          },
+          {
+            "es": "No recomiendo que Benji lance hasta que termine su descanso.",
+            "en": "I don't recommend that Benji pitch until his rest is over."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback After a Jog to First That Cost a Run",
+      "objective": "Give a veteran clear, respectful feedback about effort and agree on what you expect from him.",
+      "words": [
+        {
+          "en": "the grounder",
+          "es": "el rodado",
+          "kind": "term",
+          "note": "In Mexico you also hear la rola for a grounder."
+        },
+        {
+          "en": "the jog",
+          "es": "el trote",
+          "kind": "term"
+        },
+        {
+          "en": "the second baseman",
+          "es": "el intermedista",
+          "kind": "term",
+          "note": "Common in Mexican baseball; a woman is la intermedista."
+        },
+        {
+          "en": "the boot (fielding blunder)",
+          "es": "la pifia",
+          "kind": "term",
+          "note": "Verb: pifiar (pifió la bola = he booted the ball)."
+        },
+        {
+          "en": "the unearned run",
+          "es": "la carrera sucia",
+          "kind": "term",
+          "note": "The opposite is la carrera limpia (earned run)."
+        },
+        {
+          "en": "the routine play",
+          "es": "la jugada rutinaria",
+          "kind": "term"
+        },
+        {
+          "en": "the expectations",
+          "es": "las expectativas",
+          "kind": "term"
+        },
+        {
+          "en": "the commitment",
+          "es": "el compromiso",
+          "kind": "term"
+        },
+        {
+          "en": "the example",
+          "es": "el ejemplo",
+          "kind": "term",
+          "note": "Dar el ejemplo = to set the example."
+        },
+        {
+          "en": "the veteran",
+          "es": "el veterano",
+          "kind": "term"
+        },
+        {
+          "en": "the young players",
+          "es": "los jóvenes",
+          "kind": "term"
+        },
+        {
+          "en": "the attitude",
+          "es": "la actitud",
+          "kind": "term"
+        },
+        {
+          "en": "the intensity",
+          "es": "la intensidad",
+          "kind": "term"
+        },
+        {
+          "en": "the standard",
+          "es": "el estándar",
+          "kind": "term"
+        },
+        {
+          "en": "in private",
+          "es": "en privado",
+          "kind": "term"
+        },
+        {
+          "en": "all-out, full effort",
+          "es": "al cien",
+          "kind": "term",
+          "note": "Informal Mexican: correr al cien = run all-out."
+        },
+        {
+          "en": "Óscar, do you have a minute? I want to talk to you in private.",
+          "es": "Óscar, ¿tienes un minuto? Quiero hablar contigo en privado.",
+          "kind": "phrase",
+          "note": "Informal tú: manager to a veteran player."
+        },
+        {
+          "en": "You jogged on that grounder, and the boot cost us a run.",
+          "es": "En ese rodado trotaste, y la pifia nos costó una carrera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I know a lot of guys jog on routine plays, but not here.",
+          "es": "Sé que muchos trotan en jugadas de rutina, pero aquí no.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need you to run all-out, even if it looks like a sure out.",
+          "es": "Necesito que corras al cien, aunque parezca out seguro.",
+          "kind": "phrase",
+          "note": "Necesito que + subjunctive (corras); aunque + subjunctive (parezca)."
+        },
+        {
+          "en": "I recommend you think about the young guys; they copy everything you do.",
+          "es": "Te recomiendo que pienses en los jóvenes; ellos te copian todo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm telling you because I respect you and I need you.",
+          "es": "Te lo digo porque te respeto y te necesito.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you need from me to make this work?",
+          "es": "¿Qué necesitas de mí para que esto funcione?",
+          "kind": "phrase",
+          "note": "Para que always takes the subjunctive."
+        },
+        {
+          "en": "So we agree: every ball, all-out to first.",
+          "es": "Entonces quedamos así: cada bola, al cien hasta primera.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI is veteran outfielder Óscar Valdez: give him private, respectful feedback about jogging on the grounder, state your expectations with quiero que, necesito que and te recomiendo que, and agree on a clear commitment.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que corras cada bola; te recomiendo que...)",
+        "examples": [
+          {
+            "es": "Quiero que corras cada bola hasta primera, Óscar.",
+            "en": "I want you to run every ball out to first, Óscar."
+          },
+          {
+            "es": "Te recomiendo que no trotes ni en las jugadas rutinarias.",
+            "en": "I recommend you don't jog even on routine plays."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Pitcher and Catcher Blame Each Other for a Big Inning",
+      "objective": "Hear both sides of a pitch-calling dispute, report what each said, and get them to agree on a plan.",
+      "words": [
+        {
+          "en": "the video room",
+          "es": "la sala de video",
+          "kind": "term"
+        },
+        {
+          "en": "the pitch sequence",
+          "es": "la secuencia de lanzamientos",
+          "kind": "term"
+        },
+        {
+          "en": "the game plan",
+          "es": "el plan de juego",
+          "kind": "term"
+        },
+        {
+          "en": "the big inning (cluster of runs)",
+          "es": "el racimo de carreras",
+          "kind": "term",
+          "note": "Broadcast usage: le hicieron un racimo de 5 carreras."
+        },
+        {
+          "en": "the breaking pitch",
+          "es": "el pitcheo de rompimiento",
+          "kind": "term"
+        },
+        {
+          "en": "slow motion",
+          "es": "la cámara lenta",
+          "kind": "term",
+          "note": "Say en cámara lenta: Mírenlo en cámara lenta."
+        },
+        {
+          "en": "the version (each side's account)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the communication",
+          "es": "la comunicación",
+          "kind": "term"
+        },
+        {
+          "en": "the pattern",
+          "es": "el patrón",
+          "kind": "term"
+        },
+        {
+          "en": "the sign system",
+          "es": "el sistema de señas",
+          "kind": "term"
+        },
+        {
+          "en": "the scouting report on the opponent",
+          "es": "el reporte del rival",
+          "kind": "term"
+        },
+        {
+          "en": "the mound visit",
+          "es": "la visita al montículo",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term",
+          "note": "Echarle la culpa a alguien = to blame someone."
+        },
+        {
+          "en": "predictable",
+          "es": "predecible",
+          "kind": "term"
+        },
+        {
+          "en": "partly",
+          "es": "en parte",
+          "kind": "term"
+        },
+        {
+          "en": "Diego, tell me what happened in the sixth inning, from your side.",
+          "es": "Diego, cuéntame qué pasó en la sexta entrada, según tú.",
+          "kind": "phrase",
+          "note": "Informal tú: coach to a college player."
+        },
+        {
+          "en": "Julián, Diego says you kept calling fastballs one after another.",
+          "es": "Julián, Diego dice que le pedías rectas una tras otra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Diego, Julián told me you kept shaking off his curveballs.",
+          "es": "Diego, Julián me contó que le negabas las curvas.",
+          "kind": "phrase",
+          "note": "Negar la seña = to shake off the sign."
+        },
+        {
+          "en": "Look at the screen: you 2 are both partly right.",
+          "es": "Miren la pantalla: los 2 tienen razón en parte.",
+          "kind": "phrase",
+          "note": "Miren is the ustedes command, for both players."
+        },
+        {
+          "en": "Julián, here you called 4 fastballs in a row and got predictable.",
+          "es": "Julián, aquí pediste 4 rectas seguidas y te volviste predecible.",
+          "kind": "phrase"
+        },
+        {
+          "en": "And here, Diego, you shook off the sign 3 times.",
+          "es": "Y aquí, Diego, le dijiste que no a la seña 3 veces.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody here is looking for someone to blame; we're looking for a plan.",
+          "es": "Aquí nadie busca culpables; buscamos un plan.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you don't agree, call time and talk on the mound.",
+          "es": "Si no están de acuerdo, pidan tiempo y hablen en el montículo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the head coach, and the AI plays pitcher Diego Castillo and catcher Julián Peña in turn: hear both sides, report each version with dijo que plus the imperfect (pedía, negaba), point to what the tape shows, and get them to agree on a plan.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (dijo que siempre pedía rectas; él decía que no veía las señas)",
+        "examples": [
+          {
+            "es": "Diego dijo que Julián siempre pedía rectas.",
+            "en": "Diego said that Julián always called fastballs."
+          },
+          {
+            "es": "Julián decía que Diego le negaba cada curva.",
+            "en": "Julián kept saying that Diego shook off every curveball."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping the Team Going Through a Losing Streak",
+      "objective": "Lift a frustrated team on the road with honest words and concrete commitments for the next series.",
+      "words": [
+        {
+          "en": "the losing streak",
+          "es": "la racha perdedora",
+          "kind": "term"
+        },
+        {
+          "en": "the series",
+          "es": "la serie",
+          "kind": "term"
+        },
+        {
+          "en": "the road trip",
+          "es": "la gira",
+          "kind": "term"
+        },
+        {
+          "en": "the morale",
+          "es": "la moral",
+          "kind": "term",
+          "note": "La moral del equipo = team morale; el moral is a different word."
+        },
+        {
+          "en": "the playoff spot",
+          "es": "la clasificación",
+          "kind": "term",
+          "note": "In the Venezuelan league: clasificar al round robin."
+        },
+        {
+          "en": "the fan base, the fans",
+          "es": "la fanaticada",
+          "kind": "term",
+          "note": "Very common in Venezuelan baseball."
+        },
+        {
+          "en": "the clutch hit",
+          "es": "el hit oportuno",
+          "kind": "term"
+        },
+        {
+          "en": "the day off",
+          "es": "el día libre",
+          "kind": "term"
+        },
+        {
+          "en": "the guys, the boys",
+          "es": "los muchachos",
+          "kind": "term",
+          "note": "Warm, informal way a manager addresses the team."
+        },
+        {
+          "en": "the frustration",
+          "es": "la frustración",
+          "kind": "term"
+        },
+        {
+          "en": "the pride",
+          "es": "el orgullo",
+          "kind": "term"
+        },
+        {
+          "en": "the comeback",
+          "es": "la remontada",
+          "kind": "term"
+        },
+        {
+          "en": "the record (wins and losses)",
+          "es": "el récord",
+          "kind": "term"
+        },
+        {
+          "en": "one game at a time",
+          "es": "un juego a la vez",
+          "kind": "term"
+        },
+        {
+          "en": "honest",
+          "es": "honesto",
+          "kind": "term"
+        },
+        {
+          "en": "together",
+          "es": "juntos",
+          "kind": "term"
+        },
+        {
+          "en": "Guys, 7 straight losses hurt; I'm not going to lie to you.",
+          "es": "Muchachos, 7 derrotas seguidas duelen; no les voy a mentir.",
+          "kind": "phrase",
+          "note": "Ustedes: speaking to the whole team."
+        },
+        {
+          "en": "Luis, I hear you, but the season isn't over.",
+          "es": "Luis, te escucho, pero la temporada no se ha acabado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are still 12 games left and the playoff spot is still open.",
+          "es": "Todavía quedan 12 juegos y la clasificación sigue abierta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we'll get there early and work on defense.",
+          "es": "Mañana llegaremos temprano y trabajaremos la defensa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll talk with each one of you before the game.",
+          "es": "Hablaré con cada uno de ustedes antes del juego.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luis, the guys follow you; I need you up front, not in the back.",
+          "es": "Luis, los muchachos te siguen; te necesito adelante, no atrás.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The Maracaibo fans are going to see a different team.",
+          "es": "La fanaticada de Maracaibo va a ver otro equipo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Chin up, guys! We're going to come through this together.",
+          "es": "¡Ánimo, muchachos! Vamos a salir adelante juntos.",
+          "kind": "phrase",
+          "note": "Salir adelante = to pull through, a very common encouragement."
+        }
+      ],
+      "speaking": "You are the manager, and the AI is veteran Luis Aponte on the team bus: speak honestly to the team after the seventh straight loss, make concrete commitments with the future (practicaremos, hablaré), and lift them with vamos a salir adelante and ¡ánimo, muchachos!",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana practicaremos..., vamos a salir adelante, ¡ánimo, muchachos!)",
+        "examples": [
+          {
+            "es": "Mañana practicaremos los toques antes del juego.",
+            "en": "Tomorrow we'll practice bunts before the game."
+          },
+          {
+            "es": "Cada uno hará su parte y saldremos de esta racha.",
+            "en": "Each of us will do our part and we'll get out of this streak."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Coach a Rookie on Talking to Host Family, GM and Press",
+      "objective": "Model how to speak to a host mother, the GM, a reporter and teammates, then have the rookie practice each one.",
+      "words": [
+        {
+          "en": "the host family",
+          "es": "la familia anfitriona",
+          "kind": "term"
+        },
+        {
+          "en": "the host mother",
+          "es": "la mamá anfitriona",
+          "kind": "term"
+        },
+        {
+          "en": "the general manager (woman)",
+          "es": "la gerente general",
+          "kind": "term",
+          "note": "For a man: el gerente general."
+        },
+        {
+          "en": "the reporter",
+          "es": "el reportero",
+          "kind": "term",
+          "note": "A woman is la reportera."
+        },
+        {
+          "en": "the interview",
+          "es": "la entrevista",
+          "kind": "term"
+        },
+        {
+          "en": "the press conference",
+          "es": "la rueda de prensa",
+          "kind": "term"
+        },
+        {
+          "en": "the microphone",
+          "es": "el micrófono",
+          "kind": "term"
+        },
+        {
+          "en": "using usted (formal address)",
+          "es": "el trato de usted",
+          "kind": "term"
+        },
+        {
+          "en": "using tú (informal address)",
+          "es": "el tuteo",
+          "kind": "term",
+          "note": "Verb: tutear (no tutees a la gerente)."
+        },
+        {
+          "en": "the courtesy",
+          "es": "la cortesía",
+          "kind": "term"
+        },
+        {
+          "en": "the teammates",
+          "es": "los compañeros de equipo",
+          "kind": "term"
+        },
+        {
+          "en": "the first impression",
+          "es": "la primera impresión",
+          "kind": "term"
+        },
+        {
+          "en": "the gratitude, the thanks",
+          "es": "el agradecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "formal",
+          "es": "formal",
+          "kind": "term"
+        },
+        {
+          "en": "informal",
+          "es": "informal",
+          "kind": "term"
+        },
+        {
+          "en": "Wilmer, with Ms. Lugo you always use usted.",
+          "es": "Wilmer, con la señora Lugo siempre se usa usted.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ms. Lugo, I'd like to speak with you for a moment, please.",
+          "es": "Señora Lugo, quisiera hablar con usted un momento, por favor.",
+          "kind": "phrase",
+          "note": "Formal: to the general manager."
+        },
+        {
+          "en": "Doña Rosa, I'd like to help you with dinner tonight.",
+          "es": "Doña Rosa, me gustaría ayudarle con la cena esta noche.",
+          "kind": "phrase",
+          "note": "Formal but warm: doña + first name shows respect."
+        },
+        {
+          "en": "Thanks for the question; I'm happy to be playing here.",
+          "es": "Gracias por la pregunta; estoy contento de jugar aquí.",
+          "kind": "phrase",
+          "note": "Formal: to a reporter."
+        },
+        {
+          "en": "Could you repeat the question, please?",
+          "es": "¿Podría repetir la pregunta, por favor?",
+          "kind": "phrase",
+          "note": "Formal: to a reporter."
+        },
+        {
+          "en": "Hey, Miguel, can you pass me the helmet?",
+          "es": "Oye, Miguel, ¿me pasas el casco?",
+          "kind": "phrase",
+          "note": "Informal tú: between teammates."
+        },
+        {
+          "en": "Now it's your turn: greet me as if I were the GM.",
+          "es": "Ahora te toca: salúdame como si yo fuera la gerente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With Doña Rosa you can be affectionate, but respectful.",
+          "es": "Con doña Rosa puedes ser cariñoso, pero con respeto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI is rookie Wilmer Báez: model how to talk to his host mother, the GM, a reporter and his teammates, then have him practice each one, coaching usted vs. tú and softeners like quisiera, ¿podría...? and me gustaría.",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿podría...?, me gustaría)",
+        "examples": [
+          {
+            "es": "Señora Lugo, ¿podría darme un minuto después del juego?",
+            "en": "Ms. Lugo, could you give me a minute after the game?"
+          },
+          {
+            "es": "Doña Rosa, quisiera darle las gracias por todo.",
+            "en": "Doña Rosa, I'd like to thank you for everything."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Incident Report: Batter Hit in the Helmet",
+      "objective": "Write and read back a clear timeline of the hit-by-pitch, the care given, and who was told, in order.",
+      "words": [
+        {
+          "en": "the incident report",
+          "es": "el reporte de incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the hit-by-pitch",
+          "es": "el pelotazo",
+          "kind": "term",
+          "note": "Everyday word on the field. The official scoring term is golpeado por lanzamiento."
+        },
+        {
+          "en": "the athletic trainer",
+          "es": "el entrenador atlético",
+          "kind": "term",
+          "note": "For a woman, say la entrenadora atlética."
+        },
+        {
+          "en": "the athletic director (woman)",
+          "es": "la directora de deportes",
+          "kind": "term"
+        },
+        {
+          "en": "the timeline",
+          "es": "la cronología",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the symptoms",
+          "es": "los síntomas",
+          "kind": "term"
+        },
+        {
+          "en": "the dizziness",
+          "es": "el mareo",
+          "kind": "term"
+        },
+        {
+          "en": "the loss of consciousness",
+          "es": "la pérdida de conocimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the concussion protocol",
+          "es": "el protocolo de conmoción cerebral",
+          "kind": "term"
+        },
+        {
+          "en": "first aid",
+          "es": "los primeros auxilios",
+          "kind": "term"
+        },
+        {
+          "en": "the witnesses",
+          "es": "los testigos",
+          "kind": "term"
+        },
+        {
+          "en": "the statement",
+          "es": "la declaración",
+          "kind": "term"
+        },
+        {
+          "en": "conscious",
+          "es": "consciente",
+          "kind": "term"
+        },
+        {
+          "en": "right away",
+          "es": "enseguida",
+          "kind": "term"
+        },
+        {
+          "en": "At 4:10, Tomás was hit by a pitch on the helmet.",
+          "es": "A las 4:10, Tomás recibió un pelotazo en el casco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I called time right away and called the athletic trainer.",
+          "es": "Enseguida pedí tiempo y llamé al entrenador atlético.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamé al entrenador."
+        },
+        {
+          "en": "While we waited for him, Tomás was conscious and talking normally.",
+          "es": "Mientras lo esperábamos, Tomás estaba consciente y hablaba bien.",
+          "kind": "phrase",
+          "note": "Use the imperfect for background (estaba, hablaba) and the preterite for events (pegó, llamé)."
+        },
+        {
+          "en": "The athletic trainer reached the field a few minutes later.",
+          "es": "El entrenador atlético llegó al campo unos minutos después.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Ramírez, let's go over the exact time together, please.",
+          "es": "Señor Ramírez, revisemos juntos la hora exacta, por favor.",
+          "kind": "phrase",
+          "note": "Formal: use usted with a parent."
+        },
+        {
+          "en": "Following the school's protocol, Tomás did not go back into the game.",
+          "es": "Según el protocolo de la escuela, Tomás no volvió a jugar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Marta, should we also write down the witnesses' names?",
+          "es": "Marta, ¿anotamos también los nombres de los testigos?",
+          "kind": "phrase",
+          "note": "Informal: coworkers often use first names and tú."
+        },
+        {
+          "en": "I'll read you the full timeline, and you correct me if anything is missing.",
+          "es": "Le leo la cronología completa, y usted me corrige si falta algo.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the coach, and the AI is athletic director Marta Ibáñez: read back the full timeline of the hit-by-pitch, the care given and who was told, in order, using a las 4:10, enseguida, unos minutos después and mientras, with the player's father in the room.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las 4:10, enseguida, unos minutos después, mientras)",
+        "examples": [
+          {
+            "es": "A las 4:10 el lanzamiento le pegó en el casco; enseguida pedí tiempo.",
+            "en": "At 4:10 the pitch hit him on the helmet; I called time right away."
+          },
+          {
+            "es": "Mientras el entrenador lo revisaba, yo llamé a su papá.",
+            "en": "While the trainer was checking him, I called his dad."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: A Bat Flies Toward the Waiting Kids",
+      "objective": "Talk through a near miss in the cage without blame and agree with staff on what changes starting today.",
+      "words": [
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term",
+          "note": "Common in workplace safety talk. Some safety forms say el cuasi accidente."
+        },
+        {
+          "en": "the safety net",
+          "es": "la red de protección",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting area",
+          "es": "la zona de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the grip",
+          "es": "el agarre",
+          "kind": "term"
+        },
+        {
+          "en": "the batting gloves",
+          "es": "los guantes de bateo",
+          "kind": "term"
+        },
+        {
+          "en": "the gap",
+          "es": "el hueco",
+          "kind": "term"
+        },
+        {
+          "en": "the line (of people)",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the staff",
+          "es": "el personal",
+          "kind": "term"
+        },
+        {
+          "en": "the measures",
+          "es": "las medidas",
+          "kind": "term"
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the tape on the floor",
+          "es": "la cinta en el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the safety meeting",
+          "es": "la reunión de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the distance",
+          "es": "la distancia",
+          "kind": "term"
+        },
+        {
+          "en": "starting today",
+          "es": "a partir de hoy",
+          "kind": "term"
+        },
+        {
+          "en": "The bat almost hit Sofi in the head.",
+          "es": "El bate por poco le pega a Sofi en la cabeza.",
+          "kind": "phrase",
+          "note": "Por poco takes the present tense but describes the past: por poco le pega = it almost hit her."
+        },
+        {
+          "en": "If she had been one step closer, she could have gotten hurt.",
+          "es": "Si hubiera estado un paso más cerca, podría haberse lastimado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nicolás, nobody is blaming you; we want to understand what happened.",
+          "es": "Nicolás, nadie te está culpando; queremos entender qué pasó.",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker."
+        },
+        {
+          "en": "If the line had been farther back, nothing would have happened.",
+          "es": "Si la fila hubiera estado más atrás, no habría pasado nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What would you all change so it doesn't happen again?",
+          "es": "¿Qué cambiarían ustedes para que no vuelva a pasar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Starting today, the kids wait behind the tape.",
+          "es": "A partir de hoy, los niños esperan detrás de la cinta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Check the grip and the gloves before every turn.",
+          "es": "Revisen el agarre y los guantes antes de cada turno.",
+          "kind": "phrase",
+          "note": "Ustedes command to the staff."
+        },
+        {
+          "en": "Mrs. Kowalski, Sofi is fine, but we want to tell you what happened.",
+          "es": "Señora Kowalski, Sofi está bien, pero queremos contarle lo que pasó.",
+          "kind": "phrase",
+          "note": "Formal: usted with a parent."
+        }
+      ],
+      "speaking": "You are the facility coach, and the AI is assistant Nicolás Ferrer: talk through the near miss in the cage without blame, using por poco, casi and si hubiera… podría haber, then agree on what changes starting today.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco le pega; si hubiera estado más cerca, podría haberse lastimado)",
+        "examples": [
+          {
+            "es": "El bate casi se mete por el hueco de la red.",
+            "en": "The bat almost got through the gap in the net."
+          },
+          {
+            "es": "Si no hubiéramos tenido la red, el bate podría haber llegado a la fila.",
+            "en": "If we hadn't had the net, the bat could have reached the line."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Lightning Call: Clear the Field and the Stands",
+      "objective": "Call a lightning stoppage by radio and phone, give short clear orders, and hold firm when pushed to keep playing.",
+      "words": [
+        {
+          "en": "the lightning flash",
+          "es": "el relámpago",
+          "kind": "term"
+        },
+        {
+          "en": "the thunder",
+          "es": "el trueno",
+          "kind": "term"
+        },
+        {
+          "en": "the lightning strike",
+          "es": "el rayo",
+          "kind": "term"
+        },
+        {
+          "en": "the thunderstorm",
+          "es": "la tormenta eléctrica",
+          "kind": "term"
+        },
+        {
+          "en": "the lightning policy",
+          "es": "la política de rayos",
+          "kind": "term"
+        },
+        {
+          "en": "the lightning detector",
+          "es": "el detector de rayos",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting period",
+          "es": "el tiempo de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the stoppage",
+          "es": "la suspensión",
+          "kind": "term"
+        },
+        {
+          "en": "the shelter",
+          "es": "el refugio",
+          "kind": "term"
+        },
+        {
+          "en": "the vehicles",
+          "es": "los vehículos",
+          "kind": "term"
+        },
+        {
+          "en": "the loudspeaker",
+          "es": "el altavoz",
+          "kind": "term"
+        },
+        {
+          "en": "the two-way radio",
+          "es": "el radio",
+          "kind": "term",
+          "note": "In Mexico and the US, el radio is the device; la radio is the broadcast."
+        },
+        {
+          "en": "the grounds crew",
+          "es": "el personal de mantenimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the crowd",
+          "es": "el público",
+          "kind": "term"
+        },
+        {
+          "en": "the restart of play",
+          "es": "la reanudación",
+          "kind": "term"
+        },
+        {
+          "en": "now!",
+          "es": "¡ya!",
+          "kind": "term"
+        },
+        {
+          "en": "Alberto, get your people off the field, now!",
+          "es": "¡Alberto, saca a tu gente del campo, ya!",
+          "kind": "phrase",
+          "note": "Informal: tú on the radio with a coworker."
+        },
+        {
+          "en": "Everyone into the building, now! Nobody stays in the dugout.",
+          "es": "¡Todos al edificio, ya! Nadie se queda en el dugout.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sir, I saw lightning; I'm asking to stop the game now.",
+          "es": "Señor árbitro, vi un relámpago; pido suspender el juego ahora.",
+          "kind": "phrase",
+          "note": "Formal: address the umpire as usted."
+        },
+        {
+          "en": "If there's another thunderclap, the count starts over, per the policy.",
+          "es": "Si suena otro trueno, el conteo empieza de nuevo, según la política.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the detector shows lightning nearby, nobody will go out on the field.",
+          "es": "Si el detector marca rayos cerca, nadie saldrá al campo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Coach Miller, it's not raining anymore, but the lightning is still close.",
+          "es": "Entrenador Miller, ya no llueve, pero los rayos siguen cerca.",
+          "kind": "phrase",
+          "note": "Formal: usted with the opposing coach."
+        },
+        {
+          "en": "I'm sorry, coach; the decision stands and follows the policy.",
+          "es": "Lo siento, entrenador; la decisión es firme y sigue la política.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Announce on the loudspeaker: everyone to their vehicles or the building.",
+          "es": "Anuncien por el altavoz: todos a sus vehículos o al edificio.",
+          "kind": "phrase",
+          "note": "Ustedes command to the staff."
+        }
+      ],
+      "speaking": "You are the manager, and the AI is grounds-crew chief Alberto Quiroga, then the umpire: call the lightning stoppage by radio and phone with short commands like ¡todos al edificio, ya! and si + present → future (si suena otro trueno, nadie saldrá), following the league's lightning policy.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si suena otro trueno, nadie saldrá; ¡todos al edificio, ya!)",
+        "examples": [
+          {
+            "es": "Si suena otro trueno, nadie saldrá del edificio.",
+            "en": "If there's another thunderclap, nobody will leave the building."
+          },
+          {
+            "es": "¡Dejen la lona y entren al edificio, ya!",
+            "en": "Leave the tarp and get into the building, now!"
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "A Testing Officer Arrives at the Clubhouse",
+      "objective": "Receive an anti-doping officer formally, explain the steps to the selected player, and protect his privacy.",
+      "words": [
+        {
+          "en": "the testing officer (woman)",
+          "es": "la oficial antidopaje",
+          "kind": "term",
+          "note": "For a man, say el oficial antidopaje."
+        },
+        {
+          "en": "the drug test",
+          "es": "el control antidopaje",
+          "kind": "term"
+        },
+        {
+          "en": "the urine sample",
+          "es": "la muestra de orina",
+          "kind": "term"
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the chaperone",
+          "es": "el chaperón",
+          "kind": "term",
+          "note": "For a woman, say la chaperona. This person stays with the player until the test."
+        },
+        {
+          "en": "the testing room",
+          "es": "la sala de control",
+          "kind": "term"
+        },
+        {
+          "en": "the sealed container",
+          "es": "el envase sellado",
+          "kind": "term"
+        },
+        {
+          "en": "the supplements",
+          "es": "los suplementos",
+          "kind": "term"
+        },
+        {
+          "en": "the medications",
+          "es": "los medicamentos",
+          "kind": "term"
+        },
+        {
+          "en": "confidentiality",
+          "es": "la confidencialidad",
+          "kind": "term"
+        },
+        {
+          "en": "the rights",
+          "es": "los derechos",
+          "kind": "term"
+        },
+        {
+          "en": "the representative",
+          "es": "el representante",
+          "kind": "term"
+        },
+        {
+          "en": "the shower",
+          "es": "la ducha",
+          "kind": "term"
+        },
+        {
+          "en": "selected",
+          "es": "seleccionado",
+          "kind": "term"
+        },
+        {
+          "en": "Welcome, Ms. Salazar; may I see your ID?",
+          "es": "Bienvenida, señora Salazar; ¿me permite ver su identificación?",
+          "kind": "phrase",
+          "note": "Formal: usted with an official."
+        },
+        {
+          "en": "Emilio, you've been selected for a drug test tonight.",
+          "es": "Emilio, te seleccionaron para un control antidopaje esta noche.",
+          "kind": "phrase",
+          "note": "Informal: managers usually use tú with their players."
+        },
+        {
+          "en": "First you're notified, and then the form is signed.",
+          "es": "Primero se te notifica, y luego se firma el formulario.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Under the program's protocol, you can't shower first.",
+          "es": "Según el protocolo del programa, no te puedes duchar antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From now on, someone stays with you until the testing room.",
+          "es": "Desde ahora, se te acompaña hasta la sala de control.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The medications and supplements you take are listed here.",
+          "es": "Aquí se anotan los medicamentos y suplementos que tomas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, this is private; go back to your lockers, please.",
+          "es": "Muchachos, esto es privado; vuelvan a sus casilleros, por favor.",
+          "kind": "phrase",
+          "note": "Ustedes command to the team."
+        },
+        {
+          "en": "Do you need anything else from us to get started, ma'am?",
+          "es": "¿Necesita algo más de nosotros para empezar, señora?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the manager, and the AI is testing officer Verónica Salazar, then pitcher Emilio Cruz: welcome the officer formally with usted, then explain the steps to Emilio with passive se (se notifica al jugador, se firma el formulario, se le acompaña), keeping his privacy.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se notifica al jugador, se firma el formulario, se le acompaña)",
+        "examples": [
+          {
+            "es": "Se notifica al jugador y se firma el formulario.",
+            "en": "The player is notified and the form is signed."
+          },
+          {
+            "es": "La muestra se sella delante del jugador, según el protocolo.",
+            "en": "The sample is sealed in front of the player, according to the protocol."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Write the Series Report for the Farm Director",
+      "objective": "Write a formal report on the series: results, player usage, roster needs and an ejection.",
+      "words": [
+        {
+          "en": "the series report",
+          "es": "el informe de la serie",
+          "kind": "term",
+          "note": "In formal writing, informe sounds more formal than reporte."
+        },
+        {
+          "en": "the farm director",
+          "es": "el director de ligas menores",
+          "kind": "term"
+        },
+        {
+          "en": "the subject line",
+          "es": "el asunto",
+          "kind": "term",
+          "note": "The subject line at the top of a formal email; keep it short and specific."
+        },
+        {
+          "en": "the summary",
+          "es": "el resumen",
+          "kind": "term"
+        },
+        {
+          "en": "the performance",
+          "es": "el rendimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the pitching usage",
+          "es": "el manejo del pitcheo",
+          "kind": "term"
+        },
+        {
+          "en": "the left-handed reliever",
+          "es": "el relevista zurdo",
+          "kind": "term"
+        },
+        {
+          "en": "the hitting coach",
+          "es": "el coach de bateo",
+          "kind": "term",
+          "note": "El entrenador de bateo is also common."
+        },
+        {
+          "en": "the disciplinary penalty",
+          "es": "la sanción",
+          "kind": "term"
+        },
+        {
+          "en": "the coaching staff",
+          "es": "el cuerpo técnico",
+          "kind": "term"
+        },
+        {
+          "en": "the roster needs",
+          "es": "las necesidades del roster",
+          "kind": "term",
+          "note": "Roster is standard loanword usage in pro baseball."
+        },
+        {
+          "en": "the request",
+          "es": "la solicitud",
+          "kind": "term"
+        },
+        {
+          "en": "regarding",
+          "es": "en cuanto a",
+          "kind": "term",
+          "note": "Becomes en cuanto al before a masculine noun: en cuanto al bullpen."
+        },
+        {
+          "en": "however",
+          "es": "sin embargo",
+          "kind": "term",
+          "note": "Put a comma after it at the start of a sentence."
+        },
+        {
+          "en": "therefore",
+          "es": "por lo tanto",
+          "kind": "term"
+        },
+        {
+          "en": "Dear Mr. Arango, I'm sending you the series report.",
+          "es": "Estimado señor Arango, le envío el informe de la serie.",
+          "kind": "phrase",
+          "note": "Formal written opening."
+        },
+        {
+          "en": "We won the series 2 to 1 in Albuquerque.",
+          "es": "Ganamos la serie 2 a 1 en Albuquerque.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As for the pitchers, the bullpen worked 14 innings.",
+          "es": "En cuanto a los lanzadores, el bullpen trabajó 14 entradas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In addition, Ramón Toledo was ejected in the seventh inning.",
+          "es": "Además, Ramón Toledo fue expulsado en la séptima entrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We take responsibility: we should have argued more calmly.",
+          "es": "Asumimos la responsabilidad: debimos reclamar con más calma.",
+          "kind": "phrase",
+          "note": "Report the facts without blaming the umpire."
+        },
+        {
+          "en": "However, we lack a reliable lefty in the bullpen.",
+          "es": "Sin embargo, nos falta un zurdo confiable en el bullpen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, I request the call-up of a left-handed reliever.",
+          "es": "Por lo tanto, solicito el ascenso de un relevista zurdo.",
+          "kind": "phrase",
+          "note": "Formal: solicito sounds more formal in writing than pido."
+        },
+        {
+          "en": "I remain at your disposal for any questions.",
+          "es": "Quedo a sus órdenes para cualquier pregunta.",
+          "kind": "phrase",
+          "note": "Standard formal closing in Mexico."
+        }
+      ],
+      "speaking": "You are the manager, and the AI is farm director Felipe Arango: present your series report on results, pitching usage and Ramón Toledo's ejection without blaming the umpire, then request a lefty reliever, using en cuanto a, además, sin embargo and por lo tanto.",
+      "grammar": {
+        "focus": "Written register; report connectors (en cuanto a, además, sin embargo, por lo tanto)",
+        "examples": [
+          {
+            "es": "En cuanto al cuerpo técnico, Ramón Toledo recibió una sanción de la liga.",
+            "en": "Regarding the coaching staff, Ramón Toledo received a penalty from the league."
+          },
+          {
+            "es": "Ganamos 2 de 3 juegos; sin embargo, el bullpen terminó agotado.",
+            "en": "We won 2 of 3 games; however, the bullpen ended up worn out."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Calls and Texts When the Team Bus Breaks Down",
+      "objective": "Call the host school and the umpire assignor, and text families a clear update with polite requests.",
+      "words": [
+        {
+          "en": "the breakdown",
+          "es": "la descompostura",
+          "kind": "term",
+          "note": "Mexican usage; the verb is descomponerse: se descompuso el autobús."
+        },
+        {
+          "en": "the rest stop",
+          "es": "el área de descanso",
+          "kind": "term",
+          "note": "Feminine noun with el in the singular: el área, las áreas."
+        },
+        {
+          "en": "the tow truck",
+          "es": "la grúa",
+          "kind": "term"
+        },
+        {
+          "en": "the mechanic",
+          "es": "el mecánico",
+          "kind": "term"
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term",
+          "note": "Mexican stress: chofer."
+        },
+        {
+          "en": "the replacement bus",
+          "es": "el autobús de reemplazo",
+          "kind": "term"
+        },
+        {
+          "en": "the athletic director",
+          "es": "la directora atlética",
+          "kind": "term",
+          "note": "Use la directora for a woman such as Irene Paz."
+        },
+        {
+          "en": "the umpire assignor",
+          "es": "el coordinador de árbitros",
+          "kind": "term"
+        },
+        {
+          "en": "the forfeit",
+          "es": "el forfeit",
+          "kind": "term",
+          "note": "Common loanword in US leagues: perder por forfeit."
+        },
+        {
+          "en": "the arrival time",
+          "es": "la hora de llegada",
+          "kind": "term"
+        },
+        {
+          "en": "the parent group",
+          "es": "el grupo de padres",
+          "kind": "term"
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the update",
+          "es": "la actualización",
+          "kind": "term"
+        },
+        {
+          "en": "approximately",
+          "es": "aproximadamente",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, this is the visiting team's coach speaking.",
+          "es": "Buenas tardes, le habla el entrenador del equipo visitante.",
+          "kind": "phrase",
+          "note": "Formal phone opener: le habla..."
+        },
+        {
+          "en": "Our bus broke down near Laredo.",
+          "es": "Se nos descompuso el autobús cerca de Laredo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would it be possible to start the game an hour later?",
+          "es": "¿Sería posible empezar el juego una hora más tarde?",
+          "kind": "phrase",
+          "note": "Formal; the conditional softens the request."
+        },
+        {
+          "en": "I'd appreciate it if you let the umpires know, Mr. Garza.",
+          "es": "Le agradecería que avisara a los árbitros, señor Garza.",
+          "kind": "phrase",
+          "note": "Le agradecería que + past subjunctive (avisara)."
+        },
+        {
+          "en": "I'll leave you my number so you can call me back.",
+          "es": "Le dejo mi número para que me devuelva la llamada.",
+          "kind": "phrase",
+          "note": "Formal; typical voicemail line."
+        },
+        {
+          "en": "Families: the boys are fine and we're waiting for another bus.",
+          "es": "Familias: los muchachos están bien y esperamos otro autobús.",
+          "kind": "phrase",
+          "note": "Text style: short, calm, facts first."
+        },
+        {
+          "en": "Mrs. Treviño, I don't have an exact time yet; I'll let you all know as soon as I do.",
+          "es": "Señora Treviño, aún no tengo hora exacta; les aviso en cuanto sepa.",
+          "kind": "phrase",
+          "note": "Formal; en cuanto + subjunctive for a future moment."
+        },
+        {
+          "en": "Could you wait for us until 6:30, please?",
+          "es": "¿Podrían esperarnos hasta las 6:30, por favor?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the coach stuck near Laredo, and the AI plays athletic director Irene Paz and assignor Rubén Garza: call to explain the breakdown, ask to delay the game with ¿Sería posible...? and Le agradecería que..., then text the parent group a clear update.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿Sería posible...? Le agradecería que...)",
+        "examples": [
+          {
+            "es": "¿Sería posible cambiar el juego a las 7:00, señora Paz?",
+            "en": "Would it be possible to move the game to 7:00, Ms. Paz?"
+          },
+          {
+            "es": "Le agradecería que me confirmara por mensaje de texto.",
+            "en": "I would appreciate it if you confirmed by text message."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "End-of-Season Meeting with a Player and His Parents",
+      "objective": "Review the season with a player and his parents and explain, with conditions, what next year could look like.",
+      "words": [
+        {
+          "en": "the season review",
+          "es": "la evaluación de temporada",
+          "kind": "term"
+        },
+        {
+          "en": "the starting role",
+          "es": "la titularidad",
+          "kind": "term"
+        },
+        {
+          "en": "the scholarship",
+          "es": "la beca",
+          "kind": "term"
+        },
+        {
+          "en": "the transfer",
+          "es": "la transferencia",
+          "kind": "term"
+        },
+        {
+          "en": "the ball in the dirt",
+          "es": "la pelota en tierra",
+          "kind": "term"
+        },
+        {
+          "en": "the throw to second",
+          "es": "el tiro a segunda",
+          "kind": "term"
+        },
+        {
+          "en": "the grades",
+          "es": "las calificaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the preseason",
+          "es": "la pretemporada",
+          "kind": "term"
+        },
+        {
+          "en": "the competition",
+          "es": "la competencia",
+          "kind": "term"
+        },
+        {
+          "en": "the development plan",
+          "es": "el plan de desarrollo",
+          "kind": "term"
+        },
+        {
+          "en": "the guarantee",
+          "es": "la garantía",
+          "kind": "term"
+        },
+        {
+          "en": "the recruiter",
+          "es": "el reclutador",
+          "kind": "term"
+        },
+        {
+          "en": "the progress",
+          "es": "el progreso",
+          "kind": "term"
+        },
+        {
+          "en": "as long as",
+          "es": "siempre que",
+          "kind": "term",
+          "note": "Meaning 'as long as', it takes the subjunctive: siempre que mejore."
+        },
+        {
+          "en": "unless",
+          "es": "a menos que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive: a menos que suba."
+        },
+        {
+          "en": "Mrs. Ortiz, Mr. Ortiz, thank you for coming.",
+          "es": "Señora Ortiz, señor Ortiz, gracias por venir.",
+          "kind": "phrase",
+          "note": "Formal with the parents."
+        },
+        {
+          "en": "Samuel, how did you feel about your season?",
+          "es": "Samuel, ¿cómo te sentiste con tu temporada?",
+          "kind": "phrase",
+          "note": "Informal tú with the player."
+        },
+        {
+          "en": "You could be the starter, as long as you block balls in the dirt better.",
+          "es": "Podrías ser titular, siempre que bloquees mejor las pelotas en tierra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't guarantee you either the starting job or the transfer.",
+          "es": "No puedo garantizarles ni la titularidad ni la transferencia.",
+          "kind": "phrase",
+          "note": "Les = to you all (the family)."
+        },
+        {
+          "en": "I would talk to 2 recruiters, as long as Samuel raises his grades.",
+          "es": "Yo hablaría con 2 reclutadores, siempre que Samuel suba sus calificaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Unless he improves his throw, he'll share the starting role.",
+          "es": "A menos que mejore el tiro, compartirá la titularidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand your frustration; I would feel the same in your place.",
+          "es": "Entiendo su frustración; yo sentiría lo mismo en su lugar.",
+          "kind": "phrase",
+          "note": "Formal; acknowledge feelings before giving facts."
+        },
+        {
+          "en": "What do you think about reviewing the development plan together?",
+          "es": "¿Qué les parece si revisamos juntos el plan de desarrollo?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the head coach, and the AI plays catcher Samuel Ortiz and his parents, Ana and Fernando: review his season honestly and explain what next year could look like, using the conditional (podría, hablaría) and conditions with siempre que and a menos que.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (podría ser titular siempre que mejore su bloqueo; a menos que...)",
+        "examples": [
+          {
+            "es": "Samuel podría jugar más siempre que llegue en forma a la pretemporada.",
+            "en": "Samuel could play more as long as he shows up in shape for preseason."
+          },
+          {
+            "es": "No recibiría una beca a menos que suba sus calificaciones.",
+            "en": "He wouldn't get a scholarship unless he raises his grades."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: Championship Day at a Road Tournament",
+      "objective": "Lead a full championship day in Spanish: teach, solve problems, keep players safe, and report at night.",
+      "words": [
+        {
+          "en": "the pickoff sign",
+          "es": "la seña de pickoff",
+          "kind": "term",
+          "note": "Pickoff is standard dugout usage; la seña is the hand or body sign."
+        },
+        {
+          "en": "the newcomer",
+          "es": "el recién llegado",
+          "kind": "term"
+        },
+        {
+          "en": "the sore shoulder",
+          "es": "el hombro adolorido",
+          "kind": "term"
+        },
+        {
+          "en": "the tournament doctor",
+          "es": "el médico del torneo",
+          "kind": "term"
+        },
+        {
+          "en": "the championship game",
+          "es": "el juego de campeonato",
+          "kind": "term"
+        },
+        {
+          "en": "the fan",
+          "es": "el aficionado",
+          "kind": "term",
+          "note": "Use la aficionada for a woman."
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "the refund",
+          "es": "el reembolso",
+          "kind": "term"
+        },
+        {
+          "en": "the weather radar",
+          "es": "el radar meteorológico",
+          "kind": "term"
+        },
+        {
+          "en": "the lightning alert",
+          "es": "la alerta de rayos",
+          "kind": "term"
+        },
+        {
+          "en": "the club president",
+          "es": "la presidenta del club",
+          "kind": "term",
+          "note": "Use la presidenta for a woman such as Gloria Medina."
+        },
+        {
+          "en": "the save",
+          "es": "el salvamento",
+          "kind": "term"
+        },
+        {
+          "en": "the backup plan",
+          "es": "el plan alterno",
+          "kind": "term",
+          "note": "Common in Mexico; plan B is also used."
+        },
+        {
+          "en": "calmly",
+          "es": "con calma",
+          "kind": "term"
+        },
+        {
+          "en": "Beto, watch me: if I touch my ear, throw to first.",
+          "es": "Beto, mírame: si me toco la oreja, tira a primera.",
+          "kind": "phrase",
+          "note": "Informal tú commands with a teammate."
+        },
+        {
+          "en": "Now you repeat the signs back to me, one by one.",
+          "es": "Ahora repíteme tú las señas, una por una.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tito, without the doctor's okay, you don't pitch today.",
+          "es": "Tito, sin el visto bueno del médico, hoy no lanzas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Everyone off the field! Per tournament policy, we wait 30 minutes.",
+          "es": "¡Todos fuera del campo! Según la política del torneo, esperamos 30 minutos.",
+          "kind": "phrase",
+          "note": "The wait time comes from the tournament's policy; always cite it."
+        },
+        {
+          "en": "Sir, I understand you're upset, but safety comes first.",
+          "es": "Señor, entiendo su molestia, pero la seguridad va primero.",
+          "kind": "phrase",
+          "note": "Formal with a fan."
+        },
+        {
+          "en": "We'll resume the game when the umpire and the radar allow it.",
+          "es": "Reanudaremos el juego cuando el árbitro y el radar lo permitan.",
+          "kind": "phrase",
+          "note": "Cuando + subjunctive for a future moment."
+        },
+        {
+          "en": "Dear Ms. Medina: we won the championship 5 to 3.",
+          "es": "Estimada señora Medina: ganamos el campeonato 5 a 3.",
+          "kind": "phrase",
+          "note": "Formal written opening for a woman: Estimada."
+        },
+        {
+          "en": "In addition, Tito Arce did not pitch; we requested an evaluation of his shoulder.",
+          "es": "Además, Tito Arce no lanzó; pedimos una evaluación de su hombro.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI plays the people around you on championship day in Mazatlán: teach Beto Lara the pickoff signs with commands, check on your bullpen, run the day by tournament policy, and report to Gloria Medina at night with connectors and the conditional.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Beto, no tires a primera a menos que yo te haga la seña.",
+            "en": "Beto, don't throw to first unless I give you the sign."
+          },
+          {
+            "es": "Si Tito hubiera lanzado con dolor, se habría lastimado más.",
+            "en": "If Tito had pitched in pain, he would have hurt himself more."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

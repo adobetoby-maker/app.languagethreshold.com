@@ -1,0 +1,2876 @@
+{
+  "version": 1,
+  "module": "master-rock-climbing",
+  "baseModule": "rock-climbing",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Rock Climbing Master 20",
+  "threshold": "By Lesson 20, you can teach a partner to clean a sport anchor and check it back, explain a worn bolt or a gear change to a guide, talk a near miss through without blame, call a stop when rock falls from above, and write the day's trip report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.172Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explaining the Fall-Arrest Chain to a New Belayer",
+      "objective": "Explain in Spanish how harness, rope, quickdraws, bolts and belayer work together to stop a fall, and why.",
+      "words": [
+        {
+          "en": "the safety chain",
+          "es": "la cadena de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the fall factor",
+          "es": "el factor de caída",
+          "kind": "term"
+        },
+        {
+          "en": "the impact force",
+          "es": "la fuerza de choque",
+          "kind": "term"
+        },
+        {
+          "en": "the rope stretch",
+          "es": "la elasticidad de la cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the protection point",
+          "es": "el seguro intermedio",
+          "kind": "term"
+        },
+        {
+          "en": "the belay loop",
+          "es": "el anillo ventral",
+          "kind": "term"
+        },
+        {
+          "en": "the tie-in knot",
+          "es": "el nudo de encordamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the slack",
+          "es": "la comba",
+          "kind": "term",
+          "note": "Spain climbing word for slack: dar comba = give slack."
+        },
+        {
+          "en": "the lead climber",
+          "es": "el primero de cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the soft catch",
+          "es": "el aseguramiento dinámico",
+          "kind": "term"
+        },
+        {
+          "en": "the rope drag",
+          "es": "el roce",
+          "kind": "term"
+        },
+        {
+          "en": "the lead fall",
+          "es": "el vuelo",
+          "kind": "term",
+          "note": "Informal; climbers in Spain say volar for taking a lead fall."
+        },
+        {
+          "en": "the weight difference",
+          "es": "la diferencia de peso",
+          "kind": "term"
+        },
+        {
+          "en": "the swing",
+          "es": "el péndulo",
+          "kind": "term"
+        },
+        {
+          "en": "the energy absorption",
+          "es": "la absorción de energía",
+          "kind": "term"
+        },
+        {
+          "en": "First the harness, then the knot, and then the rope.",
+          "es": "Primero va el arnés, luego el nudo y después la cuerda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The rope alone doesn't stop the fall; the whole system works together.",
+          "es": "La cuerda sola no para la caída; trabaja todo el sistema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The rope stretches, so the fall is softer.",
+          "es": "La cuerda se estira, por eso el vuelo es más suave.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Since I weigh less than you, I'll get lifted a bit when I catch you.",
+          "es": "Como peso menos que tú, subiré un poco al frenarte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why I step toward the wall when you fall.",
+          "es": "Por eso doy un paso hacia la pared cuando caes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't leave so much slack before the first bolt.",
+          "es": "No dejes tanta comba antes del primer seguro.",
+          "kind": "phrase",
+          "note": "Informal tú command, normal between climbing partners."
+        },
+        {
+          "en": "Why do you think the rope alone isn't enough?",
+          "es": "¿Por qué crees que la cuerda sola no basta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso a paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the experienced climber, and the AI is Tomás, a gym climber on his first outdoor day: explain how harness, knot, rope, bolts and belayer work together to stop a fall, using primero, luego, porque and por eso, then have him explain it back.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero el arnés, luego la cinta, porque la cuerda se estira, por eso el asegurador da un paso)",
+        "examples": [
+          {
+            "es": "Primero chapas el seguro, luego la cuerda pasa por la cinta y después llega a mí.",
+            "en": "First you clip the bolt, then the rope runs through the quickdraw and then it reaches me."
+          },
+          {
+            "es": "Como la cuerda se estira y yo doy un paso, la caída es más suave.",
+            "en": "Since the rope stretches and I take a step, the fall is softer."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Reading the Topo: Route Length and Stopper Knots",
+      "objective": "Read a guidebook topo in Spanish and explain why rope length and a stopper knot matter before lowering.",
+      "words": [
+        {
+          "en": "the topo drawing",
+          "es": "el croquis",
+          "kind": "term"
+        },
+        {
+          "en": "the route description",
+          "es": "la reseña",
+          "kind": "term",
+          "note": "In Spain, la reseña is the written route info in a guidebook."
+        },
+        {
+          "en": "the route length",
+          "es": "la longitud de la vía",
+          "kind": "term"
+        },
+        {
+          "en": "the 70-meter rope",
+          "es": "la cuerda de 70 metros",
+          "kind": "term"
+        },
+        {
+          "en": "the middle mark",
+          "es": "la marca central",
+          "kind": "term"
+        },
+        {
+          "en": "the stopper knot",
+          "es": "el nudo de tope",
+          "kind": "term"
+        },
+        {
+          "en": "the double overhand stopper",
+          "es": "el medio pescador doble",
+          "kind": "term"
+        },
+        {
+          "en": "the lower-off",
+          "es": "el descuelgue",
+          "kind": "term"
+        },
+        {
+          "en": "the lower-off point",
+          "es": "el punto de descuelgue",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la leyenda",
+          "kind": "term"
+        },
+        {
+          "en": "the overhang",
+          "es": "el desplome",
+          "kind": "term"
+        },
+        {
+          "en": "the rope bag",
+          "es": "la bolsa de cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the margin",
+          "es": "el margen",
+          "kind": "term"
+        },
+        {
+          "en": "the required gear",
+          "es": "el material necesario",
+          "kind": "term"
+        },
+        {
+          "en": "It says here the route is 32 meters, according to the guidebook.",
+          "es": "Aquí pone que la vía tiene 32 metros, según la guía.",
+          "kind": "phrase",
+          "note": "Aquí pone is the everyday Spain way to say 'it says here'."
+        },
+        {
+          "en": "If it's 32 meters according to the guidebook, we need more than 64.",
+          "es": "Si son 32 metros según la guía, hacen falta más de 64.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many meters is your rope, according to the label?",
+          "es": "¿Cuántos metros tiene tu cuerda, según la etiqueta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If there's no knot, the end slips through the device.",
+          "es": "Si no hay nudo, el extremo se escapa del aparato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tie the double overhand and leave a tail.",
+          "es": "Haz el medio pescador doble y déjale cola.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tie the end to the rope bag, just in case.",
+          "es": "Ata el extremo a la bolsa de cuerda, por si acaso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Look at the key: this symbol is the lower-off point.",
+          "es": "Mira la leyenda: este símbolo es el punto de descuelgue.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the rope doesn't reach, you pick a shorter route.",
+          "es": "Si la cuerda no llega, se busca una vía más corta.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are reading the guidebook at El Chorro, and the AI is your partner Inés: read the topo together, compare the route length with the rope, and explain why a stopper knot matters, using impersonal se and si + present (se hace un nudo, si la vía es larga…).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se hace un nudo en el extremo; si la vía es larga, se revisa la cuerda)",
+        "examples": [
+          {
+            "es": "Se hace un nudo de tope en el extremo de la cuerda.",
+            "en": "You tie a stopper knot in the end of the rope."
+          },
+          {
+            "es": "Si la vía es larga, se revisa la longitud de la cuerda antes de empezar.",
+            "en": "If the route is long, you check the rope length before starting."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a Partner to Clean a Sport Anchor",
+      "objective": "Coach a partner step by step through cleaning a sport anchor and have them teach the steps back in Spanish.",
+      "words": [
+        {
+          "en": "the anchor ring",
+          "es": "la anilla",
+          "kind": "term"
+        },
+        {
+          "en": "the personal tether",
+          "es": "el cabo de anclaje",
+          "kind": "term"
+        },
+        {
+          "en": "the locking carabiner",
+          "es": "el mosquetón de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the anchor procedure",
+          "es": "la maniobra",
+          "kind": "term",
+          "note": "Spain climbers say la maniobra de reunión for the cleaning steps."
+        },
+        {
+          "en": "the bight",
+          "es": "la gaza",
+          "kind": "term"
+        },
+        {
+          "en": "Take!",
+          "es": "¡Tensa!",
+          "kind": "term",
+          "note": "Standard call in Spain to ask the belayer for tension."
+        },
+        {
+          "en": "the descent plan",
+          "es": "el plan de descenso",
+          "kind": "term"
+        },
+        {
+          "en": "the lower",
+          "es": "la bajada",
+          "kind": "term"
+        },
+        {
+          "en": "the last quickdraw",
+          "es": "la última exprés",
+          "kind": "term"
+        },
+        {
+          "en": "the wear",
+          "es": "el desgaste",
+          "kind": "term"
+        },
+        {
+          "en": "the double check",
+          "es": "la doble comprobación",
+          "kind": "term"
+        },
+        {
+          "en": "the self-anchoring",
+          "es": "el autoaseguramiento",
+          "kind": "term"
+        },
+        {
+          "en": "the sling",
+          "es": "la baga",
+          "kind": "term",
+          "note": "Spain word for a sewn sling."
+        },
+        {
+          "en": "the girth hitch",
+          "es": "el nudo de alondra",
+          "kind": "term"
+        },
+        {
+          "en": "Clip in with your tether and check it twice.",
+          "es": "Ponte el cabo de anclaje y revísalo dos veces.",
+          "kind": "phrase",
+          "note": "Informal tú command to a partner."
+        },
+        {
+          "en": "Make a bight and pass it through both rings.",
+          "es": "Haz una gaza y pásala por las dos anillas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tie a figure eight in it and clip it to your belay loop.",
+          "es": "Hazle un ocho y chápalo a tu anillo ventral.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ask Jordi to take before you unclip.",
+          "es": "Pídele a Jordi que te tense antes de soltarte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Jordi, are you lowering him or is he rappelling? Let's decide now.",
+          "es": "Jordi, ¿lo bajas tú o rapela? Decidámoslo ahora.",
+          "kind": "phrase",
+          "note": "Informal; agree on this on the ground before he climbs."
+        },
+        {
+          "en": "Check it yourself: rope, knot and carabiner.",
+          "es": "Compruébalo tú mismo: cuerda, nudo y mosquetón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now teach it to me as if I were new.",
+          "es": "Ahora enséñamelo tú como si yo fuera nuevo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Very good; go over it with me, you missed a step.",
+          "es": "Muy bien; repásalo conmigo, te faltó un paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are training the AI, your partner Marc, to clean a sport anchor at Siurana: coach him step by step with commands like pásala por la anilla, no la sueltes and dímelo antes de soltarte, then have him teach the steps back and correct him kindly.",
+      "grammar": {
+        "focus": "Commands with object pronouns (pásala por la anilla, no la sueltes, revísalo, dímelo antes de soltarte)",
+        "examples": [
+          {
+            "es": "Pásala por la anilla y no la sueltes.",
+            "en": "Pass it through the ring and don't let go of it."
+          },
+          {
+            "es": "Revísalo otra vez y dímelo antes de soltarte.",
+            "en": "Check it again and tell me before you unclip."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Reading a New Belay Device Manual Together",
+      "objective": "Read a belay device manual in Spanish and explain each check to do before and after loading the rope.",
+      "words": [
+        {
+          "en": "the instruction manual",
+          "es": "el manual de instrucciones",
+          "kind": "term"
+        },
+        {
+          "en": "the rope diameter",
+          "es": "el diámetro de la cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the diameter range",
+          "es": "el rango de diámetros",
+          "kind": "term"
+        },
+        {
+          "en": "the engraved diagram",
+          "es": "el dibujo grabado",
+          "kind": "term"
+        },
+        {
+          "en": "the cam",
+          "es": "la leva",
+          "kind": "term"
+        },
+        {
+          "en": "the lever",
+          "es": "la palanca",
+          "kind": "term"
+        },
+        {
+          "en": "the side plate",
+          "es": "la placa lateral",
+          "kind": "term"
+        },
+        {
+          "en": "the climber side",
+          "es": "el lado del escalador",
+          "kind": "term"
+        },
+        {
+          "en": "the lock test",
+          "es": "la prueba de bloqueo",
+          "kind": "term"
+        },
+        {
+          "en": "the warning",
+          "es": "la advertencia",
+          "kind": "term"
+        },
+        {
+          "en": "the incorrect use",
+          "es": "el uso incorrecto",
+          "kind": "term"
+        },
+        {
+          "en": "the compatibility",
+          "es": "la compatibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the thin rope",
+          "es": "la cuerda fina",
+          "kind": "term"
+        },
+        {
+          "en": "the spec sheet",
+          "es": "la ficha técnica",
+          "kind": "term"
+        },
+        {
+          "en": "the certification",
+          "es": "la homologación",
+          "kind": "term"
+        },
+        {
+          "en": "Before loading the rope, you have to read the whole manual.",
+          "es": "Antes de montar la cuerda, hay que leer el manual entero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After closing the plate, you have to pull on the climber side.",
+          "es": "Después de cerrar la placa, hay que tirar del lado del escalador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What diameter does your rope's label say?",
+          "es": "¿Qué diámetro pone en la etiqueta de tu cuerda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the manufacturer, your rope is outside the range.",
+          "es": "Según el fabricante, tu cuerda está fuera del rango.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Read the warning out loud, please.",
+          "es": "Lee la advertencia en voz alta, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After it locks, check that the cam holds well.",
+          "es": "Después de bloquear, mira que la leva sujete bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Until we confirm it, today we belay with my device.",
+          "es": "Hasta confirmarlo, hoy aseguramos con mi aparato.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are reading a new assisted-braking device manual at the Rodellar campsite, and the AI is its owner, Paula: go through it together and explain each check before and after loading the rope, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de cargar la cuerda hay que comprobar el dibujo; después de bloquear, hay que mirar el freno)",
+        "examples": [
+          {
+            "es": "Antes de montar la cuerda, hay que comprobar el dibujo grabado.",
+            "en": "Before loading the rope, you have to check the engraved diagram."
+          },
+          {
+            "es": "Después de bloquear, hay que mantener la mano en la cuerda de freno.",
+            "en": "After it locks, you have to keep your hand on the brake strand."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "A Spinning Bolt Halfway Up: Reporting It Right",
+      "objective": "Describe a damaged bolt you found on lead and propose in Spanish how to retreat and who to report it to.",
+      "words": [
+        {
+          "en": "the nut",
+          "es": "la tuerca",
+          "kind": "term"
+        },
+        {
+          "en": "the bolt stud",
+          "es": "el perno",
+          "kind": "term",
+          "note": "The threaded shaft that goes into the rock."
+        },
+        {
+          "en": "the hole",
+          "es": "el agujero",
+          "kind": "term"
+        },
+        {
+          "en": "the rust",
+          "es": "el óxido",
+          "kind": "term"
+        },
+        {
+          "en": "the play (looseness)",
+          "es": "la holgura",
+          "kind": "term",
+          "note": "Use it for wiggle or play: el parabolt tiene holgura."
+        },
+        {
+          "en": "the rebolting",
+          "es": "el reequipamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the rebolter",
+          "es": "el reequipador",
+          "kind": "term",
+          "note": "A woman is la reequipadora."
+        },
+        {
+          "en": "the volunteers",
+          "es": "los voluntarios",
+          "kind": "term"
+        },
+        {
+          "en": "the retreat",
+          "es": "la retirada",
+          "kind": "term"
+        },
+        {
+          "en": "the quick link",
+          "es": "el maillón",
+          "kind": "term"
+        },
+        {
+          "en": "the adjustable wrench",
+          "es": "la llave inglesa",
+          "kind": "term"
+        },
+        {
+          "en": "the route name",
+          "es": "el nombre de la vía",
+          "kind": "term"
+        },
+        {
+          "en": "the bad condition",
+          "es": "el mal estado",
+          "kind": "term"
+        },
+        {
+          "en": "the report",
+          "es": "el aviso",
+          "kind": "term"
+        },
+        {
+          "en": "the rebolting fund",
+          "es": "el fondo de reequipamiento",
+          "kind": "term"
+        },
+        {
+          "en": "When I clipped the fourth one, I noticed the bolt was spinning.",
+          "es": "Cuando chapé la cuarta, noté que el parabolt giraba.",
+          "kind": "phrase",
+          "note": "Informal, to Andrés."
+        },
+        {
+          "en": "The nut was loose and the hanger moved by hand.",
+          "es": "La tuerca estaba floja y la chapa se movía con la mano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I didn't hang on that bolt; I lowered from the one before.",
+          "es": "No me colgué de ese seguro; me bajé desde el anterior.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I wouldn't tighten it; I'd tell the rebolters.",
+          "es": "Yo no lo apretaría; yo avisaría a los reequipadores.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Andrés, what would you do: tell Chuy today or tomorrow?",
+          "es": "Andrés, ¿tú qué harías: avisar a Chuy hoy o mañana?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Excuse me, Chuy, who do I report a damaged bolt to?",
+          "es": "Disculpe, Chuy, ¿a quién le aviso de un parabolt dañado?",
+          "kind": "phrase",
+          "note": "Formal: usted for a first contact."
+        },
+        {
+          "en": "Can we send Chuy a photo with the location?",
+          "es": "¿Le podemos mandar a Chuy una foto con la ubicación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd put a sign at the foot of the route for the others.",
+          "es": "Yo pondría un letrero al pie de la vía para los demás.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the climber who lowered off below a spinning bolt, and the AI is Andrés, your local partner at Potrero Chico: tell him what happened with the preterite and imperfect (cuando chapaba, el parabolt giraba) and propose next steps with the conditional (yo avisaría a Chuy).",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (cuando chapaba, el parabolt giraba; yo avisaría a los reequipadores)",
+        "examples": [
+          {
+            "es": "Cuando chapaba la cuarta, el parabolt giraba en el agujero.",
+            "en": "When I was clipping the fourth one, the bolt was spinning in its hole."
+          },
+          {
+            "es": "Yo no tocaría nada; yo le avisaría a Chuy hoy mismo.",
+            "en": "I wouldn't touch anything; I'd tell Chuy today."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Core-Shot Rope: Replanning the Week's Routes",
+      "objective": "Explain a damaged rope, compare a shorter replacement, and announce a new route plan in Spanish.",
+      "words": [
+        {
+          "en": "the sheath",
+          "es": "la camisa",
+          "kind": "term"
+        },
+        {
+          "en": "the core",
+          "es": "el alma",
+          "kind": "term",
+          "note": "Feminine noun, but it takes el: el alma, las almas."
+        },
+        {
+          "en": "the sharp edge",
+          "es": "el canto vivo",
+          "kind": "term"
+        },
+        {
+          "en": "the abrasion",
+          "es": "la abrasión",
+          "kind": "term"
+        },
+        {
+          "en": "the damaged rope",
+          "es": "la cuerda dañada",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement rope",
+          "es": "la cuerda de repuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the total length",
+          "es": "la longitud total",
+          "kind": "term"
+        },
+        {
+          "en": "the short route",
+          "es": "la vía corta",
+          "kind": "term"
+        },
+        {
+          "en": "the multi-pitch route",
+          "es": "la vía de varios largos",
+          "kind": "term"
+        },
+        {
+          "en": "the rock spire",
+          "es": "la aguja",
+          "kind": "term",
+          "note": "Frey is known for its granite agujas."
+        },
+        {
+          "en": "the outdoor shop",
+          "es": "la tienda de montaña",
+          "kind": "term"
+        },
+        {
+          "en": "the (female) shop attendant",
+          "es": "la vendedora",
+          "kind": "term",
+          "note": "A man is el vendedor."
+        },
+        {
+          "en": "the stock",
+          "es": "el stock",
+          "kind": "term",
+          "note": "Common loanword in Argentina: no hay stock."
+        },
+        {
+          "en": "the change of plans",
+          "es": "el cambio de planes",
+          "kind": "term"
+        },
+        {
+          "en": "the week's plan",
+          "es": "el plan de la semana",
+          "kind": "term"
+        },
+        {
+          "en": "Joaquín, look: the sheath is cut and the core is showing.",
+          "es": "Joaquín, mirá: la camisa está cortada y se ve el alma.",
+          "kind": "phrase",
+          "note": "Informal voseo: mirá, not mira."
+        },
+        {
+          "en": "With the core showing, this rope isn't used anymore.",
+          "es": "Con el alma a la vista, esta cuerda no se usa más.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, do you have any rope longer than this one?",
+          "es": "Disculpe, ¿tiene alguna cuerda más larga que esta?",
+          "kind": "phrase",
+          "note": "Formal, to Mariela."
+        },
+        {
+          "en": "The new one is shorter than yours; we're changing routes.",
+          "es": "La nueva es más corta que la tuya; cambiamos de vías.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the guidebook, that route is 35 meters; it's not enough for us.",
+          "es": "Según la guía, esa vía mide 35 metros; no nos alcanza.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to climb short routes until we get another rope.",
+          "es": "Vamos a escalar vías cortas hasta conseguir otra cuerda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we'll try the other sector, the one with the low spires.",
+          "es": "Mañana probaremos el otro sector, el de las agujas bajas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you think, shall we leave the long routes for Friday?",
+          "es": "¿Vos qué pensás, dejamos las vías largas para el viernes?",
+          "kind": "phrase",
+          "note": "Informal voseo: vos pensás."
+        }
+      ],
+      "speaking": "You are the climber replanning the week, and the AI is Joaquín, your partner in Frey: explain the damaged rope, compare the replacement (más corta que la tuya), check route lengths según la guía, and announce the new plan with ir a and the future (vamos a escalar, probaremos).",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (vamos a escalar vías más cortas; esta cuerda es más corta que la tuya; mañana probaremos el otro sector)",
+        "examples": [
+          {
+            "es": "Esta cuerda es más corta que la tuya, así que elegiremos vías más cortas.",
+            "en": "This rope is shorter than yours, so we'll choose shorter routes."
+          },
+          {
+            "es": "Pasado mañana vamos a revisar cada vía con la guía.",
+            "en": "The day after tomorrow we're going to check each route with the guidebook."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Park Ranger at the Crag During Nesting Closure",
+      "objective": "Answer a ranger's questions in Spanish about your arrival, group, sector and permit, with exact numbers.",
+      "words": [
+        {
+          "en": "the (female) park ranger",
+          "es": "la agente rural",
+          "kind": "term",
+          "note": "Catalan park ranger; a man is el agente rural."
+        },
+        {
+          "en": "the nesting",
+          "es": "la nidificación",
+          "kind": "term"
+        },
+        {
+          "en": "the temporary closure",
+          "es": "el cierre temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the birds of prey",
+          "es": "las aves rapaces",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el cartel",
+          "kind": "term"
+        },
+        {
+          "en": "the closed sector",
+          "es": "el sector cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "the permitted area",
+          "es": "la zona permitida",
+          "kind": "term"
+        },
+        {
+          "en": "the climbing permit",
+          "es": "el permiso de escalada",
+          "kind": "term"
+        },
+        {
+          "en": "the permit number",
+          "es": "el número de permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the parking area",
+          "es": "el aparcamiento",
+          "kind": "term",
+          "note": "Spain; in Mexico it's el estacionamiento."
+        },
+        {
+          "en": "the bend (in the road)",
+          "es": "la curva",
+          "kind": "term"
+        },
+        {
+          "en": "the trail",
+          "es": "el sendero",
+          "kind": "term"
+        },
+        {
+          "en": "the arrival time",
+          "es": "la hora de llegada",
+          "kind": "term"
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the fine",
+          "es": "la multa",
+          "kind": "term"
+        },
+        {
+          "en": "We arrived at 8:15 and parked at the second bend.",
+          "es": "Llegamos a las 8:15 y aparcamos en la segunda curva.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 5 of us: 3 of us climb and 2 just hike.",
+          "es": "Somos 5: 3 escalamos y 2 solo caminan.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The permit number is 4817; here you are.",
+          "es": "El número de permiso es 4817; aquí lo tiene.",
+          "kind": "phrase",
+          "note": "Formal: usted to the agent."
+        },
+        {
+          "en": "We didn't see the sign; we came up the trail on the left.",
+          "es": "No vimos el cartel; subimos por el sendero de la izquierda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you show us on the map which sector is closed?",
+          "es": "¿Nos puede indicar en el mapa qué sector está cerrado?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Sorry, we didn't know it was closed; we're leaving right now.",
+          "es": "Disculpe, no sabíamos que estaba cerrado; nos vamos ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Yesterday we climbed only in the permitted area, at 10:00.",
+          "es": "Ayer escalamos solo en la zona permitida, a las 10:00.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, we're moving to the permitted area now.",
+          "es": "Chicos, nos vamos a la zona permitida ya.",
+          "kind": "phrase",
+          "note": "Informal, to your group."
+        }
+      ],
+      "speaking": "You are the group leader, and the AI is Laia Puig, a rural agent at Montserrat: answer her questions about when you arrived, how many you are, where you parked and your permit number, using the preterite (llegamos, aparcamos, éramos) and exact numbers.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (llegamos a las ocho y cuarto, éramos cinco, aparcamos en la segunda curva)",
+        "examples": [
+          {
+            "es": "Llegamos a las 8:15 y éramos 5 en total.",
+            "en": "We arrived at 8:15 and there were 5 of us in total."
+          },
+          {
+            "es": "Aparcamos en la segunda curva y subimos a pie 20 minutos.",
+            "en": "We parked at the second bend and walked up for 20 minutes."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to Skipping Checks and a Rushed Belayer",
+      "objective": "Refuse an unsafe plan in Spanish, explain why, and offer a safe alternative without losing the partner.",
+      "words": [
+        {
+          "en": "the check",
+          "es": "el chequeo",
+          "kind": "term",
+          "note": "Common in Colombia; also la revisión."
+        },
+        {
+          "en": "the rush",
+          "es": "el afán",
+          "kind": "term",
+          "note": "Colombian for hurry: ¿cuál es el afán?"
+        },
+        {
+          "en": "the lead belaying",
+          "es": "el aseguramiento de primero",
+          "kind": "term"
+        },
+        {
+          "en": "the top-rope climbing",
+          "es": "la escalada en polea",
+          "kind": "term"
+        },
+        {
+          "en": "the supervised practice",
+          "es": "la práctica supervisada",
+          "kind": "term"
+        },
+        {
+          "en": "the backup",
+          "es": "el respaldo",
+          "kind": "term",
+          "note": "Here, a second person holding the brake strand."
+        },
+        {
+          "en": "the lack of practice",
+          "es": "la falta de práctica",
+          "kind": "term"
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "the trust",
+          "es": "la confianza",
+          "kind": "term"
+        },
+        {
+          "en": "the alternative",
+          "es": "la alternativa",
+          "kind": "term"
+        },
+        {
+          "en": "the warm-up route",
+          "es": "la vía de calentamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the responsibility",
+          "es": "la responsabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "a little while",
+          "es": "un ratico",
+          "kind": "term",
+          "note": "Colombian diminutive of rato."
+        },
+        {
+          "en": "Don't tie in yet; first we do the check.",
+          "es": "No te ates todavía; primero hacemos el chequeo.",
+          "kind": "phrase",
+          "note": "Informal, to Felipe."
+        },
+        {
+          "en": "What's the rush? The check takes a minute.",
+          "es": "¿Cuál es el afán? El chequeo toma un minuto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend that she belay you on lead today.",
+          "es": "No recomiendo que ella te asegure de primero hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend that you start without checking the knot and the device.",
+          "es": "No recomiendo que salgas sin revisar el nudo y el aparato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's not distrust; she learned to belay 5 minutes ago.",
+          "es": "No es desconfianza; ella aprendió a asegurar hace 5 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll belay you on lead and Daniela backs up.",
+          "es": "Yo te aseguro de primero y Daniela hace de respaldo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Daniela, how about you practice on top rope with me first?",
+          "es": "Daniela, ¿le parece si practica primero en polea conmigo?",
+          "kind": "phrase",
+          "note": "Formal usted, common in Colombia."
+        },
+        {
+          "en": "Easy, buddy, it's nothing personal.",
+          "es": "Tranquilo, parce, no es nada personal.",
+          "kind": "phrase",
+          "note": "Informal Colombian slang."
+        }
+      ],
+      "speaking": "You are Felipe's climbing partner at La Mojarra, and the AI is Felipe: say no to skipping the partner check and to a brand-new belayer catching his lead, using negative commands (no te ates todavía) and no recomiendo que + subjunctive, then offer a safe alternative.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no te ates todavía; no recomiendo que ella te asegure de primero hoy)",
+        "examples": [
+          {
+            "es": "No te ates todavía; revisemos todo juntos.",
+            "en": "Don't tie in yet; let's check everything together."
+          },
+          {
+            "es": "No recomiendo que Daniela asegure tu vía de primero todavía.",
+            "en": "I don't recommend that Daniela belay your route on lead yet."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback After Two Back-Clips on an Onsight",
+      "objective": "Give clear, kind feedback in Spanish on back-clipping and clipping position, and agree on practice.",
+      "words": [
+        {
+          "en": "the clip (clipping)",
+          "es": "el chapaje",
+          "kind": "term"
+        },
+        {
+          "en": "the back-clip",
+          "es": "el chapaje al revés",
+          "kind": "term",
+          "note": "In Spain you also hear chapar al revés for the verb."
+        },
+        {
+          "en": "the clipping position",
+          "es": "la posición de chapaje",
+          "kind": "term"
+        },
+        {
+          "en": "the gate (of a carabiner)",
+          "es": "el gatillo",
+          "kind": "term"
+        },
+        {
+          "en": "the direction of the rope",
+          "es": "el sentido de la cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the onsight attempt",
+          "es": "el intento a vista",
+          "kind": "term",
+          "note": "A vista = onsight; encadenar a vista = to send onsight."
+        },
+        {
+          "en": "the send",
+          "es": "el encadenamiento",
+          "kind": "term",
+          "note": "Verb: encadenar (encadenó la vía = she sent the route)."
+        },
+        {
+          "en": "the slip-up",
+          "es": "el despiste",
+          "kind": "term",
+          "note": "Informal and kind: it frames a mistake as a lapse, not a failing."
+        },
+        {
+          "en": "the habit",
+          "es": "la costumbre",
+          "kind": "term"
+        },
+        {
+          "en": "the drill",
+          "es": "el ejercicio",
+          "kind": "term"
+        },
+        {
+          "en": "the muscle memory",
+          "es": "la memoria muscular",
+          "kind": "term"
+        },
+        {
+          "en": "the base of the route",
+          "es": "el pie de vía",
+          "kind": "term",
+          "note": "Common in Spain: al pie de vía = at the base."
+        },
+        {
+          "en": "the thumb",
+          "es": "el pulgar",
+          "kind": "term"
+        },
+        {
+          "en": "the middle finger",
+          "es": "el dedo corazón",
+          "kind": "term"
+        },
+        {
+          "en": "defensive",
+          "es": "a la defensiva",
+          "kind": "term",
+          "note": "Estar / ponerse a la defensiva = to be / get defensive."
+        },
+        {
+          "en": "Congratulations on sending it, Nuria! It was really nice.",
+          "es": "¡Enhorabuena por encadenarla, Nuria! Ha sido muy bonito.",
+          "kind": "phrase",
+          "note": "Enhorabuena is the usual Spain word for congratulations."
+        },
+        {
+          "en": "I saw you back-clip on the third and the sixth.",
+          "es": "Te vi chapar al revés en la tercera y en la sexta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With the rope backwards, it can come out of the carabiner in a fall.",
+          "es": "Con la cuerda al revés, puede salirse del mosquetón al caer.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's not a reproach; it has happened to me too.",
+          "es": "No es un reproche; a mí también me ha pasado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you look at the gate before letting go of the rope.",
+          "es": "Te recomiendo que mires el gatillo antes de soltar la cuerda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want you to practice it down here, at the base of the route.",
+          "es": "Quiero que lo practiques abajo, al pie de vía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How about we do 10 clips on the ground?",
+          "es": "¿Qué te parece si hacemos 10 chapajes en el suelo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather we go over it before the next route.",
+          "es": "Prefiero que lo revisemos antes de la próxima vía.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are Nuria's partner at Margalef, and the AI is Nuria, who back-clipped twice but sent the route: congratulate her, describe what you saw, and agree on practice using the present subjunctive after te recomiendo que, quiero que and ojalá que.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (te recomiendo que chapes a la altura de la cintura; quiero que lo practiques abajo)",
+        "examples": [
+          {
+            "es": "Te recomiendo que chapes con la cuerda a la altura de la cintura.",
+            "en": "I recommend you clip with the rope at waist height."
+          },
+          {
+            "es": "Ojalá que no lo tomes como una crítica.",
+            "en": "I hope you don't take it as criticism."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Mediating a Hard Catch Argument Between Partners",
+      "objective": "Report each side's version in Spanish, find the facts, and help two partners agree on calls for next time.",
+      "words": [
+        {
+          "en": "the version (of events)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the facts",
+          "es": "los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the hard catch",
+          "es": "la caída seca",
+          "kind": "term",
+          "note": "The opposite of a soft, dynamic catch; asegurar seco = to belay too tight."
+        },
+        {
+          "en": "the traverse",
+          "es": "la travesía",
+          "kind": "term"
+        },
+        {
+          "en": "the calls (climbing commands)",
+          "es": "las voces",
+          "kind": "term",
+          "note": "In Spain las voces are the standard calls between climber and belayer."
+        },
+        {
+          "en": "the code word",
+          "es": "la palabra clave",
+          "kind": "term"
+        },
+        {
+          "en": "the gust",
+          "es": "la ráfaga",
+          "kind": "term"
+        },
+        {
+          "en": "the echo",
+          "es": "el eco",
+          "kind": "term"
+        },
+        {
+          "en": "the visual contact",
+          "es": "el contacto visual",
+          "kind": "term"
+        },
+        {
+          "en": "the walkie-talkie",
+          "es": "el walkie",
+          "kind": "term",
+          "note": "Common loanword in Spain, pronounced roughly \"guoki\"."
+        },
+        {
+          "en": "the whistle",
+          "es": "el silbato",
+          "kind": "term"
+        },
+        {
+          "en": "the rock tower (at Riglos)",
+          "es": "el mallo",
+          "kind": "term",
+          "note": "Local Aragonese word for Riglos's tall conglomerate towers."
+        },
+        {
+          "en": "the slam against the wall",
+          "es": "el golpe contra la pared",
+          "kind": "term"
+        },
+        {
+          "en": "Jaime, tell me your version without interrupting Carla.",
+          "es": "Jaime, cuéntame tu versión sin interrumpir a Carla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Jaime says he asked for slack on the traverse.",
+          "es": "Jaime dice que pidió cuerda en la travesía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Carla said she heard you shout \"take!\".",
+          "es": "Carla dijo que te oyó gritar «¡bloca!».",
+          "kind": "phrase",
+          "note": "In Spain ¡bloca! is the usual call for take."
+        },
+        {
+          "en": "Neither of you could hear well because there were gusts.",
+          "es": "Ninguno de los dos oía bien porque había ráfagas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Jaime, did you get hurt when you hit the wall?",
+          "es": "Jaime, ¿te hiciste daño con el golpe contra la pared?",
+          "kind": "phrase"
+        },
+        {
+          "en": "No one is to blame; it was a misunderstanding because of the wind.",
+          "es": "Nadie tiene la culpa; fue un malentendido por el viento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What code word do we use next time it's windy?",
+          "es": "¿Qué palabra clave usamos la próxima vez con viento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If there's no visual contact, we talk over the walkie-talkie.",
+          "es": "Si no hay contacto visual, nos hablamos por el walkie.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are mediating below the walls of Riglos, and the AI plays Jaime and Carla, who disagree about a hard catch: report each version with dijo que plus the preterite and imperfect, sort out the facts, and help them agree on calls for windy days.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Jaime dijo que pidió cuerda; Carla dijo que no oía nada porque había viento)",
+        "examples": [
+          {
+            "es": "Jaime dijo que pidió cuerda porque no llegaba a la chapa.",
+            "en": "Jaime said he asked for slack because he couldn't reach the bolt."
+          },
+          {
+            "es": "Carla dijo que no veía a Jaime porque estaba detrás del mallo.",
+            "en": "Carla said she couldn't see Jaime because he was behind the tower."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Rain Week at the Refugio: Rescue Skills Practice",
+      "objective": "Keep a frustrated team motivated in Spanish and run a skills session the partners teach back.",
+      "words": [
+        {
+          "en": "the belay escape",
+          "es": "el escape del sistema",
+          "kind": "term"
+        },
+        {
+          "en": "the munter hitch",
+          "es": "el nudo dinámico",
+          "kind": "term"
+        },
+        {
+          "en": "the prusik hitch",
+          "es": "el nudo prusik",
+          "kind": "term"
+        },
+        {
+          "en": "the mule knot",
+          "es": "el nudo de mula",
+          "kind": "term"
+        },
+        {
+          "en": "the friction hitch",
+          "es": "el nudo autobloqueante",
+          "kind": "term"
+        },
+        {
+          "en": "the load transfer",
+          "es": "la transferencia de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the beam",
+          "es": "la viga",
+          "kind": "term"
+        },
+        {
+          "en": "the bunk bed",
+          "es": "el camarote",
+          "kind": "term",
+          "note": "Chilean word; in Mexico and Spain you'd hear la litera."
+        },
+        {
+          "en": "the morale (spirits)",
+          "es": "el ánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the weather window",
+          "es": "la ventana de buen tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "the bad weather",
+          "es": "el mal tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the practice round",
+          "es": "la ronda de práctica",
+          "kind": "term"
+        },
+        {
+          "en": "the stopwatch",
+          "es": "el cronómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the wood stove",
+          "es": "la estufa a leña",
+          "kind": "term",
+          "note": "Chilean usage: estufa a leña."
+        },
+        {
+          "en": "I get that you're fed up; I am too.",
+          "es": "Entiendo que estén chatos; yo también lo estoy.",
+          "kind": "phrase",
+          "note": "Informal Chilean: estar chato = to be fed up."
+        },
+        {
+          "en": "Tomorrow at 8:00 we'll check the forecast together.",
+          "es": "Mañana a las 8:00 revisaremos el pronóstico juntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If a weather window opens, we'll go up right away.",
+          "es": "Si sale una ventana de buen tiempo, subiremos al tiro.",
+          "kind": "phrase",
+          "note": "Al tiro = right away, very common in Chile."
+        },
+        {
+          "en": "Today we'll practice the belay escape here in the hut.",
+          "es": "Hoy practicaremos el escape del sistema aquí en el refugio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Valentina, now you teach Simón the prusik.",
+          "es": "Valentina, ahora enséñale tú el prusik a Simón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Diego, explain to us why you tie it off with the mule knot first.",
+          "es": "Diego, explícanos por qué bloqueas primero con el nudo de mula.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're doing really well, Diego! That knot came out perfect.",
+          "es": "¡Vas súper bien, Diego! Ese nudo quedó perfecto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I promise you that on Thursday we'll decide whether we stay or not.",
+          "es": "Les prometo que el jueves decidiremos si nos quedamos o no.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You lead the trip in a Cochamó refugio, and the AI plays Valentina, Diego and Simón, tired of rain: set a plan with future commitments like revisaremos and practicaremos, run a belay-escape practice, and have them teach it back while you cheer them on with ¡vas muy bien!",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana revisaremos el pronóstico; practicaremos el escape del sistema; ¡vas muy bien!)",
+        "examples": [
+          {
+            "es": "Esta tarde practicaremos el nudo dinámico en la viga.",
+            "en": "This afternoon we'll practice the munter hitch on the beam."
+          },
+          {
+            "es": "Si el viernes sigue lloviendo, bajaremos al pueblo juntos.",
+            "en": "If it's still raining on Friday, we'll hike down to town together."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Landowner, Partner, Guide: Same Plan, Three Registers",
+      "objective": "Explain the day's plan in Spanish to three listeners, switching between usted and tú with soft requests.",
+      "words": [
+        {
+          "en": "the farm",
+          "es": "la finca",
+          "kind": "term"
+        },
+        {
+          "en": "the landowner",
+          "es": "el propietario",
+          "kind": "term"
+        },
+        {
+          "en": "the permission (authorization)",
+          "es": "la autorización",
+          "kind": "term"
+        },
+        {
+          "en": "the trail",
+          "es": "la trocha",
+          "kind": "term",
+          "note": "Colombian word for a rough path or track."
+        },
+        {
+          "en": "the pasture",
+          "es": "el potrero",
+          "kind": "term"
+        },
+        {
+          "en": "the fence",
+          "es": "la cerca",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "the cattle",
+          "es": "el ganado",
+          "kind": "term"
+        },
+        {
+          "en": "the creek",
+          "es": "la quebrada",
+          "kind": "term",
+          "note": "Standard in Colombia for a stream."
+        },
+        {
+          "en": "the parking lot",
+          "es": "el parqueadero",
+          "kind": "term",
+          "note": "Colombian word for parking lot."
+        },
+        {
+          "en": "the return time",
+          "es": "la hora de regreso",
+          "kind": "term"
+        },
+        {
+          "en": "the trash",
+          "es": "la basura",
+          "kind": "term"
+        },
+        {
+          "en": "the climbing area (sector)",
+          "es": "el sector",
+          "kind": "term"
+        },
+        {
+          "en": "using tú",
+          "es": "el tuteo",
+          "kind": "term",
+          "note": "Tutear a alguien = to address someone as tú."
+        },
+        {
+          "en": "formally (using usted)",
+          "es": "de usted",
+          "kind": "term",
+          "note": "Many Colombians use usted even with friends; follow the other person's lead."
+        },
+        {
+          "en": "Good morning, Don Hernán; I'd like to ask your permission to cross your farm.",
+          "es": "Buenos días, Don Hernán; quisiera pedirle permiso para cruzar su finca.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Would you mind showing us the trail we can use?",
+          "es": "¿Le importaría mostrarnos la trocha que podemos usar?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "We promise to close the gate and carry out all the trash.",
+          "es": "Le prometemos cerrar el portón y bajar toda la basura.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Hey, Camila, can you pass me the guidebook?",
+          "es": "Oye, Camila, ¿me pasas la guía?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "We cross the pasture and come back before 5:00.",
+          "es": "Cruzamos el potrero y volvemos antes de las 5:00.",
+          "kind": "phrase",
+          "note": "Informal, to your partner."
+        },
+        {
+          "en": "Ricardo, is it okay with you if we start with the left-hand area?",
+          "es": "Ricardo, ¿le parece bien si empezamos por el sector de la izquierda?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Okay, Ricardo! So, which route do you recommend for us?",
+          "es": "¡Listo, Ricardo! Entonces, ¿tú qué vía nos recomiendas?",
+          "kind": "phrase",
+          "note": "Informal, once he invites tú."
+        }
+      ],
+      "speaking": "You are a visiting climber at Suesca, and the AI plays landowner Don Hernán, partner Camila and guide Ricardo: explain the day's plan to each one, using usted with softeners like quisiera pedirle permiso and ¿le importaría…?, and tú with oye and ¿me pasas…?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera pedirle permiso, ¿le importaría…?, oye, ¿me pasas la guía?)",
+        "examples": [
+          {
+            "es": "Don Hernán, ¿le importaría que pasáramos por el potrero?",
+            "en": "Don Hernán, would you mind if we went through the pasture?"
+          },
+          {
+            "es": "Oye, Camila, ¿me ayudas a revisar la hora de regreso?",
+            "en": "Hey, Camila, can you help me check the return time?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Writing Up an Ankle Injury from a Ledge Fall",
+      "objective": "Narrate an injury fall in Spanish with exact times and actions for the club's incident report.",
+      "words": [
+        {
+          "en": "the ledge",
+          "es": "la repisa",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el informe del incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the safety officer",
+          "es": "la responsable de seguridad",
+          "kind": "term",
+          "note": "Feminine for a woman (Elena); el responsable for a man."
+        },
+        {
+          "en": "the timeline",
+          "es": "la cronología",
+          "kind": "term"
+        },
+        {
+          "en": "the approximate time",
+          "es": "la hora aproximada",
+          "kind": "term"
+        },
+        {
+          "en": "the witnesses",
+          "es": "los testigos",
+          "kind": "term"
+        },
+        {
+          "en": "the impact",
+          "es": "el impacto",
+          "kind": "term"
+        },
+        {
+          "en": "the injured man",
+          "es": "el herido",
+          "kind": "term",
+          "note": "la herida for a woman."
+        },
+        {
+          "en": "the sprain",
+          "es": "el esguince",
+          "kind": "term"
+        },
+        {
+          "en": "the splint",
+          "es": "la férula",
+          "kind": "term"
+        },
+        {
+          "en": "the bandage",
+          "es": "el vendaje",
+          "kind": "term"
+        },
+        {
+          "en": "the immobilization",
+          "es": "la inmovilización",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation",
+          "es": "la evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the 112 emergency number",
+          "es": "el 112",
+          "kind": "term",
+          "note": "Say 'el uno, uno, dos'. Emergency number in Spain and across the EU."
+        },
+        {
+          "en": "the emergency room",
+          "es": "las urgencias",
+          "kind": "term",
+          "note": "In Spain people say 'en urgencias' for the ER."
+        },
+        {
+          "en": "Sergio started the route on lead at 11:10.",
+          "es": "Sergio empezó la vía de primero a las 11:10.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Right after clipping the fifth, he fell and hit the ledge.",
+          "es": "Justo después de chapar la quinta, se cayó y golpeó la repisa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Marta was belaying him and lowered him slowly to the ground.",
+          "es": "Marta lo aseguraba y lo bajó despacio hasta el suelo.",
+          "kind": "phrase",
+          "note": "Imperfect (aseguraba) for the background, preterite (bajó) for the action."
+        },
+        {
+          "en": "After a few minutes, we immobilized his ankle with a splint.",
+          "es": "Al cabo de unos minutos, le inmovilizamos el tobillo con una férula.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We called 112 at 11:25 and they answered right away.",
+          "es": "Llamamos al 112 a las 11:25 y nos atendieron enseguida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Later, in the ER, they diagnosed a sprain.",
+          "es": "Más tarde, en urgencias, le diagnosticaron un esguince.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not sure of the exact minute; it was around 11:40.",
+          "es": "No estoy seguro del minuto exacto; fue sobre las 11:40.",
+          "kind": "phrase",
+          "note": "In Spain, 'sobre las' + time means 'around'."
+        },
+        {
+          "en": "Elena, do you want me to repeat the times?",
+          "es": "Elena, ¿quieres que te repita las horas?",
+          "kind": "phrase",
+          "note": "Informal: tú with a fellow club member."
+        }
+      ],
+      "speaking": "You are the climber who saw the fall, and the AI is Elena, the club safety officer: tell her step by step how Sergio fell, hit the ledge and hurt his ankle, and who did what, using past tenses with time markers like a las 11:10, justo después de chapar and al cabo de unos minutos.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las once y diez, justo después de chapar, al cabo de unos minutos, más tarde)",
+        "examples": [
+          {
+            "es": "A las 11:10 Sergio chapó la quinta y, justo después, se cayó.",
+            "en": "At 11:10 Sergio clipped the fifth and, right after, he fell."
+          },
+          {
+            "es": "Al cabo de unos minutos llegó el equipo de rescate y, más tarde, lo evacuaron.",
+            "en": "After a few minutes the rescue team arrived and, later, they evacuated him."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: The Rope End Almost Reached the Device",
+      "objective": "Talk a lowering near miss through in Spanish without blame and agree on a change for the next routes.",
+      "words": [
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term",
+          "note": "Everyday word climbers use for a near miss."
+        },
+        {
+          "en": "the lesson learned",
+          "es": "la lección aprendida",
+          "kind": "term"
+        },
+        {
+          "en": "without looking for someone to blame",
+          "es": "sin buscar culpables",
+          "kind": "term"
+        },
+        {
+          "en": "the feeling of guilt",
+          "es": "el sentimiento de culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the cause",
+          "es": "la causa",
+          "kind": "term"
+        },
+        {
+          "en": "the distraction",
+          "es": "la distracción",
+          "kind": "term"
+        },
+        {
+          "en": "the closed system",
+          "es": "el sistema cerrado",
+          "kind": "term",
+          "note": "Knot in the rope end so it can't pass through the device; 'cerrar el sistema'."
+        },
+        {
+          "en": "the preventive measure",
+          "es": "la medida preventiva",
+          "kind": "term"
+        },
+        {
+          "en": "the group rule",
+          "es": "la norma del grupo",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-check",
+          "es": "la comprobación previa",
+          "kind": "term"
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de comprobación",
+          "kind": "term"
+        },
+        {
+          "en": "the routine",
+          "es": "la rutina",
+          "kind": "term"
+        },
+        {
+          "en": "the nervousness",
+          "es": "el nerviosismo",
+          "kind": "term"
+        },
+        {
+          "en": "the shaking",
+          "es": "el temblor",
+          "kind": "term"
+        },
+        {
+          "en": "the relief",
+          "es": "el alivio",
+          "kind": "term"
+        },
+        {
+          "en": "Raúl, it's not your fault; this can happen to any of us.",
+          "es": "Raúl, no es culpa tuya; esto nos puede pasar a todos.",
+          "kind": "phrase",
+          "note": "Informal: tú between climbing partners."
+        },
+        {
+          "en": "Ana, how are you? Take all the time you need.",
+          "es": "Ana, ¿cómo estás? Tómate el tiempo que necesites.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ana reached the ground with almost no rope to spare.",
+          "es": "Ana llegó al suelo casi sin cuerda de sobra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good thing there was a knot; otherwise, Ana could have fallen.",
+          "es": "Menos mal que había nudo; si no, Ana podría haber caído.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If we had looked at the topo, we would have chosen another route.",
+          "es": "Si hubiéramos mirado el croquis, habríamos elegido otra vía.",
+          "kind": "phrase",
+          "note": "Si + pluperfect subjunctive, then conditional perfect."
+        },
+        {
+          "en": "We're not looking for someone to blame; we're looking for what to change.",
+          "es": "No buscamos culpables; buscamos qué cambiar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From now on, we always close the system, no exceptions.",
+          "es": "A partir de ahora, cerramos el sistema siempre, sin excepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before every route, we compare the topo with our rope.",
+          "es": "Antes de cada vía, comparamos el croquis con nuestra cuerda.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the experienced climber, and the AI is Raúl, who was lowering Ana: talk the near miss through calmly and without blame, using casi, por poco and si no hubiera habido nudo, podría haber..., then agree on one change for the next routes.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco se sale la cuerda; si no hubiera nudo, podría haber caído)",
+        "examples": [
+          {
+            "es": "Por poco se sale la cuerda del aparato de Raúl.",
+            "en": "The rope almost came out of Raúl's device."
+          },
+          {
+            "es": "Si no hubiera habido nudo, Ana podría haber caído.",
+            "en": "If there hadn't been a knot, Ana could have fallen."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Rockfall from the Party Above: Calling a Stop",
+      "objective": "Call a stop by radio and voice in Spanish, give short commands, and decide to retreat with your partner.",
+      "words": [
+        {
+          "en": "Rock!",
+          "es": "¡Piedra!",
+          "kind": "term",
+          "note": "Shout it loudly whenever anything falls."
+        },
+        {
+          "en": "Stay still!",
+          "es": "¡Quieto!",
+          "kind": "term",
+          "note": "Use ¡Quieta! for a woman."
+        },
+        {
+          "en": "over",
+          "es": "cambio",
+          "kind": "term",
+          "note": "Said at the end of each radio message."
+        },
+        {
+          "en": "over and out",
+          "es": "cambio y corto",
+          "kind": "term"
+        },
+        {
+          "en": "the rockfall",
+          "es": "el desprendimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the loose rock",
+          "es": "la piedra suelta",
+          "kind": "term"
+        },
+        {
+          "en": "the party above",
+          "es": "la cordada de arriba",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "la radio",
+          "kind": "term",
+          "note": "Feminine in Spain: la radio."
+        },
+        {
+          "en": "the radio channel",
+          "es": "el canal de radio",
+          "kind": "term"
+        },
+        {
+          "en": "the signal coverage",
+          "es": "la cobertura",
+          "kind": "term"
+        },
+        {
+          "en": "the fall line",
+          "es": "la línea de caída",
+          "kind": "term"
+        },
+        {
+          "en": "the shelter",
+          "es": "el resguardo",
+          "kind": "term"
+        },
+        {
+          "en": "the escape route",
+          "es": "la vía de escape",
+          "kind": "term"
+        },
+        {
+          "en": "the command",
+          "es": "la orden",
+          "kind": "term"
+        },
+        {
+          "en": "Iker, get close to the wall, rocks are falling!",
+          "es": "¡Iker, pégate a la pared, que caen piedras!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Iker, do you copy? Over.",
+          "es": "Iker, ¿me recibes? Cambio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Iker, did any rock hit you?",
+          "es": "Iker, ¿te ha dado alguna piedra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Stay at the belay and don't move until I tell you.",
+          "es": "Quédate en la reunión y no te muevas hasta que te avise.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You up there, stop, rocks are hitting us!",
+          "es": "¡Los de arriba, parad, que nos caen piedras!",
+          "kind": "phrase",
+          "note": "Vosotros command (parad), normal in Spain for a group."
+        },
+        {
+          "en": "Can you warn us before moving rocks, please?",
+          "es": "¿Podéis avisar antes de mover piedras, por favor?",
+          "kind": "phrase",
+          "note": "Polite request to strangers; vosotros is still normal in Spain."
+        },
+        {
+          "en": "If another rock falls, we'll rappel down from here.",
+          "es": "Si cae otra piedra, bajaremos rapelando desde aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If rocks keep falling, we won't keep climbing.",
+          "es": "Si siguen cayendo piedras, no seguiremos subiendo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the climber on the pitch, and the AI is Iker, your partner at the belay: radio a stop with short commands like ¡quieto! and ¡pégate a la pared!, shout to the party above, and decide together with si + present → future (si cae otra piedra, bajaremos).",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si cae otra piedra, bajaremos; ¡quieto! ¡pégate a la pared! cambio)",
+        "examples": [
+          {
+            "es": "Si cae otra piedra, bajaremos ahora mismo.",
+            "en": "If another rock falls, we'll go down right now."
+          },
+          {
+            "es": "¡Quieto, Iker! ¡Pégate a la pared! Cambio.",
+            "en": "Stay still, Iker! Get close to the wall! Over."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Civil Protection Audit of the Intro Session",
+      "objective": "Answer an inspector formally in Spanish about gear checks, logs and procedures in your intro session.",
+      "words": [
+        {
+          "en": "the inspector",
+          "es": "la inspectora",
+          "kind": "term",
+          "note": "Feminine for a woman (Rosa Méndez); el inspector for a man."
+        },
+        {
+          "en": "the internal safety plan",
+          "es": "el programa interno",
+          "kind": "term",
+          "note": "Short for Programa Interno de Protección Civil, the safety plan Mexican businesses keep on file."
+        },
+        {
+          "en": "the gear log",
+          "es": "la bitácora de equipo",
+          "kind": "term",
+          "note": "In Mexico 'bitácora' is the usual word for a log."
+        },
+        {
+          "en": "the inspection date",
+          "es": "la fecha de inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the visual inspection",
+          "es": "la revisión visual",
+          "kind": "term"
+        },
+        {
+          "en": "the service life",
+          "es": "la vida útil",
+          "kind": "term"
+        },
+        {
+          "en": "the serial number",
+          "es": "el número de serie",
+          "kind": "term"
+        },
+        {
+          "en": "the out-of-service gear",
+          "es": "el equipo fuera de servicio",
+          "kind": "term"
+        },
+        {
+          "en": "the intro class",
+          "es": "la clase de introducción",
+          "kind": "term"
+        },
+        {
+          "en": "the liability waiver",
+          "es": "la carta responsiva",
+          "kind": "term",
+          "note": "Mexican term for the waiver participants sign."
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the training certificate",
+          "es": "la constancia de capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective action",
+          "es": "la acción correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation route",
+          "es": "la ruta de evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the fire extinguisher",
+          "es": "el extintor",
+          "kind": "term"
+        },
+        {
+          "en": "the deadline",
+          "es": "el plazo",
+          "kind": "term"
+        },
+        {
+          "en": "Inspector, the harnesses are checked before every class.",
+          "es": "Inspectora, se revisan los arneses antes de cada clase.",
+          "kind": "phrase",
+          "note": "Formal: address her by her title."
+        },
+        {
+          "en": "The date and the name of the person checking are written down.",
+          "es": "Se anotan la fecha y el nombre de quien revisa.",
+          "kind": "phrase",
+          "note": "Plural verb (se anotan) because there are two subjects."
+        },
+        {
+          "en": "May I show you this month's log?",
+          "es": "¿Me permite mostrarle la bitácora de este mes?",
+          "kind": "phrase",
+          "note": "Formal: usted."
+        },
+        {
+          "en": "You're right, this harness is missing its inspection date.",
+          "es": "Tiene razón, a este arnés le falta la fecha de inspección.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm taking it out of service right now, until it's inspected.",
+          "es": "Lo retiro de servicio ahora mismo, hasta revisarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Gear is retired according to the service life the manufacturer states.",
+          "es": "El equipo se retira según la vida útil que indica el fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Every participant signs the waiver before starting.",
+          "es": "Cada participante firma la carta responsiva antes de empezar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "By when do you need the corrective action in writing?",
+          "es": "¿En qué plazo necesita la acción correctiva por escrito?",
+          "kind": "phrase",
+          "note": "Formal: usted."
+        }
+      ],
+      "speaking": "You are the evening intro instructor, and the AI is Rosa Méndez, the Protección Civil inspector: walk her formally through your gear checks, logs and procedures with usted, describing routines with passive se (se revisan los arneses, se anota la fecha).",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se revisan los arneses antes de cada sesión; se retira el equipo según el fabricante)",
+        "examples": [
+          {
+            "es": "Se revisan los arneses y se anota todo en la bitácora.",
+            "en": "The harnesses are checked and everything is written down in the log."
+          },
+          {
+            "es": "El equipo dañado se retira según las indicaciones del fabricante.",
+            "en": "Damaged gear is retired according to the manufacturer's instructions."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Trip Report and Gear Retirement Log for the Club",
+      "objective": "Write a clear trip report in Spanish: routes, incidents, gear retired and reasons, next steps.",
+      "words": [
+        {
+          "en": "the trip report",
+          "es": "el informe de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the club secretary (female)",
+          "es": "la secretaria del club",
+          "kind": "term",
+          "note": "Lourdes is a woman: la secretaria. A man is el secretario."
+        },
+        {
+          "en": "the retired gear log",
+          "es": "el registro de material retirado",
+          "kind": "term"
+        },
+        {
+          "en": "the sewn sling",
+          "es": "la cinta cosida",
+          "kind": "term"
+        },
+        {
+          "en": "the stitching (bar tack)",
+          "es": "la costura",
+          "kind": "term"
+        },
+        {
+          "en": "the discoloration",
+          "es": "la decoloración",
+          "kind": "term"
+        },
+        {
+          "en": "the sun exposure",
+          "es": "la exposición al sol",
+          "kind": "term"
+        },
+        {
+          "en": "the retirement date",
+          "es": "la fecha de retiro",
+          "kind": "term"
+        },
+        {
+          "en": "the reason for retirement",
+          "es": "el motivo del retiro",
+          "kind": "term"
+        },
+        {
+          "en": "the routes climbed",
+          "es": "las vías realizadas",
+          "kind": "term"
+        },
+        {
+          "en": "the next steps",
+          "es": "los próximos pasos",
+          "kind": "term"
+        },
+        {
+          "en": "the gear replacement",
+          "es": "la reposición de material",
+          "kind": "term"
+        },
+        {
+          "en": "the acclimatization",
+          "es": "la aclimatación",
+          "kind": "term"
+        },
+        {
+          "en": "altitude sickness",
+          "es": "el soroche",
+          "kind": "term",
+          "note": "Andean word used in Peru; mal de altura is understood everywhere."
+        },
+        {
+          "en": "the volcanic rock",
+          "es": "la roca volcánica",
+          "kind": "term"
+        },
+        {
+          "en": "Dear Lourdes: attached is the report on our trip.",
+          "es": "Estimada Lourdes: adjunto el informe de nuestra salida.",
+          "kind": "phrase",
+          "note": "Formal written opening; use a colon after the name, not a comma."
+        },
+        {
+          "en": "First, we climbed 9 routes at Hatun Machay.",
+          "es": "En primer lugar, escalamos 9 vías en Hatun Machay.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Likewise, two partners had altitude sickness on the first day.",
+          "es": "Asimismo, dos compañeros tuvieron soroche el primer día.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, there was no serious incident on the wall.",
+          "es": "No obstante, no hubo ningún incidente grave en la pared.",
+          "kind": "phrase",
+          "note": "Written register; in speech people usually say sin embargo or pero."
+        },
+        {
+          "en": "We retired a sewn sling because of a cut in the stitching.",
+          "es": "Retiramos una cinta cosida por un corte en la costura.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The sling was retired according to the manufacturer's instructions.",
+          "es": "La cinta se retiró según las indicaciones del fabricante.",
+          "kind": "phrase",
+          "note": "Passive se keeps the report impersonal and formal."
+        },
+        {
+          "en": "Consequently, we propose replacing two slings before the next trip.",
+          "es": "Por consiguiente, proponemos reponer dos cintas antes de la próxima salida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In summary, it was a productive week with no injuries.",
+          "es": "En resumen, fue una semana productiva y sin lesiones.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the club member writing the trip report, and the AI is Lourdes, the club secretary: present your report on routes, incidents, the retired sling and next steps, using en primer lugar, asimismo, no obstante, por consiguiente and en resumen.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, asimismo, no obstante, por consiguiente, en resumen)",
+        "examples": [
+          {
+            "es": "En primer lugar, nos aclimatamos dos días en Huaraz.",
+            "en": "First, we acclimatized for two days in Huaraz."
+          },
+          {
+            "es": "No obstante, la costura estaba dañada; por consiguiente, retiramos la cinta.",
+            "en": "However, the stitching was damaged; consequently, we retired the sling."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Texts and a Voicemail: Moving the Guided Day",
+      "objective": "Reschedule a guided day by text and phone in Spanish, politely and with all the details confirmed.",
+      "words": [
+        {
+          "en": "the voicemail",
+          "es": "el mensaje de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the voice mailbox",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation policy",
+          "es": "la política de cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "la seña",
+          "kind": "term",
+          "note": "Argentina: money paid up front to hold a booking."
+        },
+        {
+          "en": "the refund",
+          "es": "el reembolso",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation fee",
+          "es": "el cargo por cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the alternative date",
+          "es": "la fecha alternativa",
+          "kind": "term"
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the advance notice",
+          "es": "el aviso previo",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de encuentro",
+          "kind": "term"
+        },
+        {
+          "en": "the departure time",
+          "es": "la hora de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the contact number",
+          "es": "el número de contacto",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el comprobante",
+          "kind": "term"
+        },
+        {
+          "en": "the fever",
+          "es": "la fiebre",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup truck",
+          "es": "la camioneta",
+          "kind": "term"
+        },
+        {
+          "en": "Good evening, Gustavo; I'm leaving you a message about tomorrow's trip.",
+          "es": "Buenas noches, Gustavo; le dejo un mensaje por la salida de mañana.",
+          "kind": "phrase",
+          "note": "Formal: usted with a guide you hired."
+        },
+        {
+          "en": "My partner Bea is sick and can't climb tomorrow.",
+          "es": "Mi compañera Bea está enferma y no puede escalar mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would it be possible to move the trip to Thursday?",
+          "es": "¿Sería posible pasar la salida al jueves?",
+          "kind": "phrase",
+          "note": "The conditional sería softens the request."
+        },
+        {
+          "en": "I would appreciate it if you confirmed the new date by text.",
+          "es": "Le agradecería que me confirmara la nueva fecha por mensaje.",
+          "kind": "phrase",
+          "note": "Agradecería que + imperfect subjunctive (confirmara)."
+        },
+        {
+          "en": "Could you explain your cancellation policy to me?",
+          "es": "¿Me podría explicar su política de cancelación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can the deposit be used for the new date?",
+          "es": "¿Se puede usar la seña para la nueva fecha?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bea, do you want me to let Gustavo know?",
+          "es": "Bea, ¿querés que le avise yo a Gustavo?",
+          "kind": "phrase",
+          "note": "Informal Argentine vos: querés, not quieres."
+        },
+        {
+          "en": "Thank you very much, and I look forward to your reply.",
+          "es": "Muchas gracias y quedo atento a su respuesta.",
+          "kind": "phrase",
+          "note": "Written closing; a woman writes quedo atenta. Add un saludo before signing."
+        }
+      ],
+      "speaking": "You are the climber whose partner is sick, and the AI is Gustavo, your guide in Mendoza: leave a voicemail, then text to move the day, using ¿sería posible…?, le agradecería que me confirmara… and un saludo, and ask about his cancellation policy.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿sería posible pasarlo al jueves?, le agradecería que me confirmara, un saludo)",
+        "examples": [
+          {
+            "es": "¿Sería posible pasar la salida a Vallecitos al jueves?",
+            "en": "Would it be possible to move the Vallecitos trip to Thursday?"
+          },
+          {
+            "es": "Le agradecería que me confirmara el punto de encuentro.",
+            "en": "I would appreciate it if you confirmed the meeting point."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Debrief After a Partner's First Outdoor Leads",
+      "objective": "Run a final debrief in Spanish and set clear conditions for a partner's next leads without you.",
+      "words": [
+        {
+          "en": "the inexperienced belayer (female)",
+          "es": "la aseguradora sin experiencia",
+          "kind": "term",
+          "note": "In climbing, la aseguradora is a female belayer; context rules out the 'insurer' meaning."
+        },
+        {
+          "en": "the belay course",
+          "es": "el curso de aseguramiento",
+          "kind": "term"
+        },
+        {
+          "en": "the fall practice",
+          "es": "la práctica de caídas",
+          "kind": "term"
+        },
+        {
+          "en": "the maximum grade",
+          "es": "el grado máximo",
+          "kind": "term"
+        },
+        {
+          "en": "the route you already know",
+          "es": "la vía conocida",
+          "kind": "term"
+        },
+        {
+          "en": "the high first bolt",
+          "es": "el primer seguro alto",
+          "kind": "term"
+        },
+        {
+          "en": "the minimum conditions",
+          "es": "las condiciones mínimas",
+          "kind": "term"
+        },
+        {
+          "en": "the independence",
+          "es": "la autonomía",
+          "kind": "term"
+        },
+        {
+          "en": "the progress",
+          "es": "el progreso",
+          "kind": "term"
+        },
+        {
+          "en": "the strengths",
+          "es": "los puntos fuertes",
+          "kind": "term"
+        },
+        {
+          "en": "the areas to improve",
+          "es": "los puntos a mejorar",
+          "kind": "term"
+        },
+        {
+          "en": "the goal",
+          "es": "la meta",
+          "kind": "term"
+        },
+        {
+          "en": "the check-in message after the climb",
+          "es": "el aviso de regreso",
+          "kind": "term"
+        },
+        {
+          "en": "the practice session",
+          "es": "la sesión de práctica",
+          "kind": "term"
+        },
+        {
+          "en": "as long as",
+          "es": "siempre que",
+          "kind": "term",
+          "note": "Followed by the subjunctive: siempre que tenga experiencia."
+        },
+        {
+          "en": "unless",
+          "es": "a menos que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive: a menos que llueva."
+        },
+        {
+          "en": "Congratulations, Gabriela, on your first outdoor leads!",
+          "es": "¡Felicidades, Gabriela, por tus primeras vías de primera!",
+          "kind": "phrase",
+          "note": "Informal tú throughout with a partner."
+        },
+        {
+          "en": "You clipped calmly and without rushing; I loved that.",
+          "es": "Chapabas con calma y sin prisa; eso me encantó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What would you like to improve for your next trip?",
+          "es": "¿Qué te gustaría mejorar para tu próxima salida?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You could lead as long as your friend takes a course first.",
+          "es": "Podrías ir de primera siempre que tu amiga tome un curso antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I wouldn't go with her until she practices catching falls with you.",
+          "es": "Yo no iría con ella hasta que practique caídas contigo.",
+          "kind": "phrase",
+          "note": "Hasta que + subjunctive for a future condition."
+        },
+        {
+          "en": "Choose routes you know, unless someone with more experience goes.",
+          "es": "Elige vías conocidas, a menos que vaya alguien con más experiencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it rained, I wouldn't climb there; the rock gets slippery.",
+          "es": "Si lloviera, yo no escalaría ahí; la roca resbala.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Text me as soon as you get down from the wall, OK?",
+          "es": "Mándame un mensaje en cuanto bajen de la pared, ¿va?",
+          "kind": "phrase",
+          "note": "¿Va? is informal Mexican for 'OK?'."
+        }
+      ],
+      "speaking": "You are Gabriela's climbing mentor, and the AI is Gabriela after her first weekend of outdoor leads: go over her strengths and areas to improve, then set conditions for next week using podrías…, siempre que, a menos que and hasta que with the subjunctive.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (podrías ir de primera siempre que tu asegurador tenga experiencia; a menos que llueva)",
+        "examples": [
+          {
+            "es": "Podrías ir con tu amiga siempre que ella practique antes conmigo.",
+            "en": "You could go with your friend as long as she practices with me first."
+          },
+          {
+            "es": "Yo no iría de primera el sábado, a menos que deje de llover.",
+            "en": "I wouldn't lead on Saturday unless it stops raining."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Hard Day Leading a Group at Montanejos",
+      "objective": "Lead a full crag day in Spanish: teach, solve a gear problem, debrief a near miss, call the weather, report.",
+      "words": [
+        {
+          "en": "the climbing day",
+          "es": "la jornada de escalada",
+          "kind": "term"
+        },
+        {
+          "en": "the cross-check",
+          "es": "la revisión cruzada",
+          "kind": "term"
+        },
+        {
+          "en": "the badly threaded knot",
+          "es": "el nudo mal pasado",
+          "kind": "term"
+        },
+        {
+          "en": "the fraying",
+          "es": "el deshilachado",
+          "kind": "term"
+        },
+        {
+          "en": "the backup gear",
+          "es": "el material de reserva",
+          "kind": "term"
+        },
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the lightning activity",
+          "es": "el aparato eléctrico",
+          "kind": "term",
+          "note": "Spain weather term: tormentas con aparato eléctrico means storms with lightning."
+        },
+        {
+          "en": "the forecast",
+          "es": "la previsión",
+          "kind": "term",
+          "note": "Usual word in Spain; Latin America prefers el pronóstico."
+        },
+        {
+          "en": "the yellow weather warning",
+          "es": "el aviso amarillo",
+          "kind": "term"
+        },
+        {
+          "en": "the walk back to the car",
+          "es": "la vuelta al coche",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el parte de incidencias",
+          "kind": "term",
+          "note": "Spain: el parte is a short official report."
+        },
+        {
+          "en": "the day's summary",
+          "es": "el balance del día",
+          "kind": "term"
+        },
+        {
+          "en": "the division of tasks",
+          "es": "el reparto de tareas",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "Before you tie in, I want you to do the cross-check.",
+          "es": "Antes de ataros, quiero que hagáis la revisión cruzada.",
+          "kind": "phrase",
+          "note": "Spain: vosotros forms (ataros, hagáis) for the group."
+        },
+        {
+          "en": "Irene, you show me how you check the knot before climbing.",
+          "es": "Irene, enséñame tú cómo repasas el nudo antes de subir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This sling is frayed; don't use it until it's checked.",
+          "es": "Esta cinta está deshilachada; no la uséis hasta revisarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Óscar, take off that quickdraw and put on one from the pack.",
+          "es": "Óscar, quita esa exprés y pon una de la mochila.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good thing we caught it in time; let's talk it over now.",
+          "es": "Menos mal que lo vimos a tiempo; vamos a hablarlo ahora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Pilar, do you think we should wait a bit, or head down now?",
+          "es": "Pilar, ¿te parece bien que esperemos un poco o bajamos ya?",
+          "kind": "phrase",
+          "note": "Informal tú is normal between climbers and a local guide in Spain."
+        },
+        {
+          "en": "If it thunders again, we pack everything up and go down to the car.",
+          "es": "Si vuelve a tronar, recogemos todo y bajamos al coche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Likewise, we retired a quickdraw with a frayed sling.",
+          "es": "Asimismo, retiramos una exprés con la cinta deshilachada.",
+          "kind": "phrase",
+          "note": "Formal written register for the evening report."
+        }
+      ],
+      "speaking": "You are leading the day at Montanejos, and the AI plays Irene, Óscar and guide Pilar: have Irene teach back her knot check, swap a frayed quickdraw, debrief a near miss, call the weather and write the report, using vosotros commands, quiero que…, si clauses and connectors.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (connectors, commands, subjunctive, si clauses, formal and written register)",
+        "examples": [
+          {
+            "es": "Si vuelve a tronar, dejad la vía y bajad al coche.",
+            "en": "If it thunders again, leave the route and go down to the car."
+          },
+          {
+            "es": "No obstante, Irene revisó el nudo antes de que Óscar subiera.",
+            "en": "However, Irene checked the knot before Óscar climbed."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

@@ -1,0 +1,2950 @@
+{
+  "version": 1,
+  "module": "master-travel-lunch",
+  "baseModule": "travel-lunch",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Lunch & Casual Dining Master 20",
+  "threshold": "By Lesson 20, you can explain how a local lunch works to a companion and check they understood, negotiate a fair fix when a dish runs out or arrives wrong, handle an allergen near miss or a food-related emergency calmly, give a formal account to an official, and write an honest review in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.171Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explain the Menú del Día to a Newly Arrived Friend",
+      "objective": "Explain step by step how a fixed-price lunch works and why, then have your friend explain it back.",
+      "words": [
+        {
+          "en": "the home-style eatery",
+          "es": "la casa de comidas",
+          "kind": "term",
+          "note": "Simple Spanish restaurant with home cooking, usually busy at lunch."
+        },
+        {
+          "en": "the first course",
+          "es": "el primer plato",
+          "kind": "term"
+        },
+        {
+          "en": "the main course",
+          "es": "el segundo plato",
+          "kind": "term",
+          "note": "Often shortened to el segundo."
+        },
+        {
+          "en": "the combo plate",
+          "es": "el plato combinado",
+          "kind": "term",
+          "note": "One plate with several items, such as egg, fries and meat."
+        },
+        {
+          "en": "the surcharge",
+          "es": "el suplemento",
+          "kind": "term",
+          "note": "An extra charge on top of the fixed menu price for some dishes."
+        },
+        {
+          "en": "the house wine",
+          "es": "el vino de la casa",
+          "kind": "term"
+        },
+        {
+          "en": "the clear soda",
+          "es": "la gaseosa",
+          "kind": "term",
+          "note": "In Spain, a sweet, clear fizzy drink, often mixed with house wine."
+        },
+        {
+          "en": "the espresso with a dash of milk",
+          "es": "el cortado",
+          "kind": "term"
+        },
+        {
+          "en": "the roast young lamb",
+          "es": "el ternasco",
+          "kind": "term",
+          "note": "Aragon's signature dish, common in Zaragoza."
+        },
+        {
+          "en": "the fried breadcrumb dish",
+          "es": "las migas",
+          "kind": "term",
+          "note": "Aragonese dish of fried bread with garlic and pork."
+        },
+        {
+          "en": "the chalkboard",
+          "es": "la pizarra",
+          "kind": "term",
+          "note": "Where many places write the day's menu."
+        },
+        {
+          "en": "the diner",
+          "es": "el comensal",
+          "kind": "term"
+        },
+        {
+          "en": "à la carte",
+          "es": "a la carta",
+          "kind": "term",
+          "note": "Ordering individual dishes from the full menu, not the fixed menu."
+        },
+        {
+          "en": "included",
+          "es": "incluido",
+          "kind": "term",
+          "note": "Agrees with the noun: el café incluido, la bebida incluida."
+        },
+        {
+          "en": "separately, extra",
+          "es": "aparte",
+          "kind": "term"
+        },
+        {
+          "en": "First you choose the first course and then the main.",
+          "es": "Primero eliges el primer plato y luego el segundo.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a friend."
+        },
+        {
+          "en": "At the end comes dessert, and sometimes coffee.",
+          "es": "Al final viene el postre, y a veces el café.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's cheap because the kitchen makes only a few dishes each day.",
+          "es": "Sale barato porque la cocina prepara pocos platos cada día.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why it's a good idea to check the chalkboard before sitting down.",
+          "es": "Por eso conviene mirar la pizarra antes de sentarse.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, is coffee part of the menu or extra?",
+          "es": "Perdone, ¿el café entra en el menú o va aparte?",
+          "kind": "phrase",
+          "note": "Formal (usted), to the server."
+        },
+        {
+          "en": "Okay, so coffee is extra.",
+          "es": "Vale, así que el café va aparte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The lamb comes with a surcharge, according to the chalkboard.",
+          "es": "El ternasco lleva suplemento, según la pizarra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, let's see if you've got it.",
+          "es": "Ahora explícamelo tú, a ver si lo has entendido.",
+          "kind": "phrase",
+          "note": "Informal. In Spain, use the present perfect for something that just happened."
+        }
+      ],
+      "speaking": "You are explaining the menú del día to the AI, your Brazilian friend Lucas, at a casa de comidas in Zaragoza: walk him through each course and why it is cheap, using primero, luego, porque and por eso, then have him explain it back.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero eliges el primero, luego el segundo, porque..., por eso...)",
+        "examples": [
+          {
+            "es": "Primero te sirven el primero y luego, cuando terminas, el segundo.",
+            "en": "First they serve you the first course and then, when you finish, the main."
+          },
+          {
+            "es": "Hoy hay ternasco, por eso el menú lleva suplemento.",
+            "en": "Today there's roast lamb, so the menu has a surcharge."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why the Kitchen Closes at Four: Explaining Local Rhythm",
+      "objective": "Explain to a fellow traveler how lunch hours, sobremesa and closures work here, and check your facts with staff.",
+      "words": [
+        {
+          "en": "the tapas bar",
+          "es": "el bar de tapas",
+          "kind": "term"
+        },
+        {
+          "en": "the lunch service",
+          "es": "el servicio de mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "the evening service",
+          "es": "el servicio de noche",
+          "kind": "term"
+        },
+        {
+          "en": "the reopening",
+          "es": "la reapertura",
+          "kind": "term"
+        },
+        {
+          "en": "the last kitchen order",
+          "es": "la última comanda",
+          "kind": "term",
+          "note": "Comanda is the order ticket sent to the kitchen."
+        },
+        {
+          "en": "the cold tapa",
+          "es": "la tapa fría",
+          "kind": "term"
+        },
+        {
+          "en": "the small open sandwich",
+          "es": "el montadito",
+          "kind": "term",
+          "note": "Very typical in Seville bars."
+        },
+        {
+          "en": "the afternoon snack",
+          "es": "la merienda",
+          "kind": "term"
+        },
+        {
+          "en": "the tapas-hopping",
+          "es": "el tapeo",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el cartel",
+          "kind": "term"
+        },
+        {
+          "en": "the custom",
+          "es": "la costumbre",
+          "kind": "term"
+        },
+        {
+          "en": "the heat",
+          "es": "el calor",
+          "kind": "term"
+        },
+        {
+          "en": "starting at, from",
+          "es": "a partir de",
+          "kind": "term",
+          "note": "Used with times: a partir de las 20:30."
+        },
+        {
+          "en": "late",
+          "es": "tarde",
+          "kind": "term",
+          "note": "As an adverb: se come tarde. As a noun, la tarde means the afternoon."
+        },
+        {
+          "en": "People eat late here, around 14:30.",
+          "es": "Aquí se come tarde, sobre las 14:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you arrive at 17:00, the kitchen is usually closed.",
+          "es": "Si llegas a las 17:00, la cocina suele estar cerrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They're not ignoring you; the kitchen closes between services.",
+          "es": "No te están ignorando; entre servicios se cierra la cocina.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a fellow traveler."
+        },
+        {
+          "en": "If you're hungry right now, order something cold.",
+          "es": "Si tienes hambre ya, pide algo frío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, what time does the kitchen open in the evening?",
+          "es": "Perdona, ¿a qué hora se abre la cocina por la noche?",
+          "kind": "phrase",
+          "note": "Informal perdona is normal with bar staff in Spain; perdone is formal."
+        },
+        {
+          "en": "So, do you serve again from 20:30?",
+          "es": "Entonces, ¿se sirve otra vez a partir de las 20:30?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Okay, I got the time wrong.",
+          "es": "Vale, me he equivocado con la hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you want, let's have a little sandwich in the meantime.",
+          "es": "Si quieres, nos tomamos un montadito mientras tanto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler who knows the local rhythm, and the AI is Femke, an annoyed backpacker in a Seville tapas bar: explain lunch hours, sobremesa and closures using impersonal se and si + present, then check your facts with the bartender.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (aquí se come tarde; si llegas a las cinco, la cocina está cerrada)",
+        "examples": [
+          {
+            "es": "En Sevilla se almuerza tarde y se cena todavía más tarde.",
+            "en": "In Seville people have lunch late and dinner even later."
+          },
+          {
+            "es": "Si la cocina cierra, se puede tomar un montadito en la barra.",
+            "en": "If the kitchen closes, you can have a small sandwich at the bar."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Coach a Friend Through Ordering at a Busy Taco Stand",
+      "objective": "Coach a friend with short commands on how to order, add salsas and pay at a crowded stand, then let them do it.",
+      "words": [
+        {
+          "en": "the taco cook",
+          "es": "el taquero",
+          "kind": "term",
+          "note": "Address an older taquero respectfully: don Ramiro, usted."
+        },
+        {
+          "en": "the vertical spit",
+          "es": "el trompo",
+          "kind": "term"
+        },
+        {
+          "en": "the tortilla",
+          "es": "la tortilla",
+          "kind": "term"
+        },
+        {
+          "en": "the suadero beef",
+          "es": "el suadero",
+          "kind": "term",
+          "note": "Soft, slow-cooked beef cut typical of Mexico City."
+        },
+        {
+          "en": "the steak",
+          "es": "el bistec",
+          "kind": "term"
+        },
+        {
+          "en": "the mixed-meat taco",
+          "es": "el campechano",
+          "kind": "term",
+          "note": "Usually steak mixed with chorizo or longaniza."
+        },
+        {
+          "en": "the flour-tortilla pastor with cheese",
+          "es": "la gringa",
+          "kind": "term",
+          "note": "Mexico City stand item: pastor and melted cheese in a flour tortilla."
+        },
+        {
+          "en": "the pineapple",
+          "es": "la piña",
+          "kind": "term"
+        },
+        {
+          "en": "the cilantro",
+          "es": "el cilantro",
+          "kind": "term"
+        },
+        {
+          "en": "the lime",
+          "es": "el limón",
+          "kind": "term",
+          "note": "In Mexico, limón is the small green lime."
+        },
+        {
+          "en": "the radishes",
+          "es": "los rábanos",
+          "kind": "term"
+        },
+        {
+          "en": "the order",
+          "es": "la orden",
+          "kind": "term",
+          "note": "Una orden de tacos = a serving of several tacos."
+        },
+        {
+          "en": "the coins",
+          "es": "las monedas",
+          "kind": "term"
+        },
+        {
+          "en": "with everything",
+          "es": "con todo",
+          "kind": "term",
+          "note": "At a taco stand, usually cilantro and onion."
+        },
+        {
+          "en": "how many?",
+          "es": "¿cuántos?",
+          "kind": "term"
+        },
+        {
+          "en": "Order it with everything, meaning cilantro and onion.",
+          "es": "Pídelo con todo, o sea, con cilantro y cebolla.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a friend."
+        },
+        {
+          "en": "Taste it first; the red one is really hot.",
+          "es": "Pruébala primero; la roja pica mucho.",
+          "kind": "phrase",
+          "note": "La refers to la salsa."
+        },
+        {
+          "en": "Don't touch it with your fingers; use the spoon.",
+          "es": "No la toques con los dedos; usa la cuchara.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tell him how many you want and which meat.",
+          "es": "Dile cuántos quieres y de qué carne.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could I get 3 al pastor with everything, please?",
+          "es": "¿Me da 3 de pastor con todo, por favor?",
+          "kind": "phrase",
+          "note": "Formal (usted), to the taquero."
+        },
+        {
+          "en": "Pay him when you finish; he keeps track.",
+          "es": "Págale cuando termines; él lleva la cuenta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much do I owe you, Don Ramiro?",
+          "es": "¿Cuánto le debo, don Ramiro?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Go on, now it's your turn.",
+          "es": "Ándale, ahora te toca a ti.",
+          "kind": "phrase",
+          "note": "Informal and encouraging."
+        }
+      ],
+      "speaking": "You are coaching the AI, your Japanese friend Aiko, at a busy taco stand in Mexico City: tell her how to order, add salsas and pay with short commands like pídelo con todo, pruébala primero and no la toques, then let her order on her own.",
+      "grammar": {
+        "focus": "Commands with object pronouns (pídelo con todo, pruébala primero, no la toques, está muy picante)",
+        "examples": [
+          {
+            "es": "Pídelo con piña y pruébalo antes de ponerle salsa.",
+            "en": "Order it with pineapple and taste it before adding salsa."
+          },
+          {
+            "es": "Ten las monedas listas; no las busques al final.",
+            "en": "Have the coins ready; don't look for them at the end."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Allergen Chart Before Ordering for the Group",
+      "objective": "Read a restaurant's allergen chart with the server and explain to the group what to ask before ordering.",
+      "words": [
+        {
+          "en": "the allergen chart",
+          "es": "la tabla de alérgenos",
+          "kind": "term"
+        },
+        {
+          "en": "the allergen",
+          "es": "el alérgeno",
+          "kind": "term"
+        },
+        {
+          "en": "the tree nuts",
+          "es": "los frutos de cáscara",
+          "kind": "term",
+          "note": "Official term on EU allergen charts; frutos secos is the everyday word."
+        },
+        {
+          "en": "the nuts",
+          "es": "los frutos secos",
+          "kind": "term"
+        },
+        {
+          "en": "the traces",
+          "es": "las trazas",
+          "kind": "term",
+          "note": "Puede contener trazas = may contain traces."
+        },
+        {
+          "en": "the almonds",
+          "es": "las almendras",
+          "kind": "term"
+        },
+        {
+          "en": "the hazelnuts",
+          "es": "las avellanas",
+          "kind": "term"
+        },
+        {
+          "en": "the pistachios",
+          "es": "los pistachos",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la leyenda",
+          "kind": "term",
+          "note": "The part of the chart that explains each symbol."
+        },
+        {
+          "en": "the symbol",
+          "es": "el símbolo",
+          "kind": "term"
+        },
+        {
+          "en": "the warning",
+          "es": "el aviso",
+          "kind": "term"
+        },
+        {
+          "en": "the pastry kitchen",
+          "es": "el obrador",
+          "kind": "term",
+          "note": "Where desserts are made, sometimes off-site."
+        },
+        {
+          "en": "the Catalan custard",
+          "es": "la crema catalana",
+          "kind": "term"
+        },
+        {
+          "en": "the preparation",
+          "es": "la elaboración",
+          "kind": "term"
+        },
+        {
+          "en": "allergic",
+          "es": "alérgica",
+          "kind": "term",
+          "note": "Use alérgica for a woman, alérgico for a man."
+        },
+        {
+          "en": "Before ordering, we have to look at the allergen chart.",
+          "es": "Antes de pedir, hay que mirar la tabla de alérgenos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, what does this symbol mean?",
+          "es": "Perdone, ¿qué significa este símbolo?",
+          "kind": "phrase",
+          "note": "Formal (usted), to the server."
+        },
+        {
+          "en": "It says here the dessert may contain traces of tree nuts.",
+          "es": "Aquí dice que el postre puede contener trazas de frutos de cáscara.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Priya, before choosing, tell the waiter you're allergic.",
+          "es": "Priya, antes de elegir, dile al camarero que eres alérgica.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a friend."
+        },
+        {
+          "en": "We also have to ask about the sauces and the side dish.",
+          "es": "Hay que preguntar también por las salsas y la guarnición.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you confirm it with the kitchen before bringing it?",
+          "es": "¿Puede confirmarlo con cocina antes de traerlo?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "If the chart says traces, better order another dessert.",
+          "es": "Si la tabla dice trazas, mejor pide otro postre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After ordering, remind him when he brings the dishes.",
+          "es": "Después de pedir, recuérdaselo cuando traiga los platos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are reading the allergen chart in a Barcelona bistro, and the AI is server Jordi and your friend Priya, who avoids tree nuts: ask what the symbols and warnings mean, then tell Priya what to check before ordering, using antes de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de pedir hay que mirar la carta de alérgenos)",
+        "examples": [
+          {
+            "es": "Antes de pedir la crema catalana, hay que leer el aviso de trazas.",
+            "en": "Before ordering the Catalan custard, you have to read the traces warning."
+          },
+          {
+            "es": "Después de preguntar en cocina, Jordi nos confirma la elaboración.",
+            "en": "After asking in the kitchen, Jordi confirms the preparation for us."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Hidden Chicken Stock in the Vegetarian Soup",
+      "objective": "Tell the cook what you ordered and what you were told, and propose a fair fix for your vegetarian friend.",
+      "words": [
+        {
+          "en": "the vegetable broth",
+          "es": "el caldo de verduras",
+          "kind": "term"
+        },
+        {
+          "en": "the clear broth",
+          "es": "el consomé",
+          "kind": "term",
+          "note": "In Mexico, consomé usually means a clear chicken broth."
+        },
+        {
+          "en": "vegetarian",
+          "es": "vegetariano",
+          "kind": "term",
+          "note": "Agrees with the person: vegetariano for Tomás, vegetariana for a woman."
+        },
+        {
+          "en": "the cook",
+          "es": "la cocinera",
+          "kind": "term",
+          "note": "Female cook; a male cook is el cocinero."
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term"
+        },
+        {
+          "en": "the squash-vine soup",
+          "es": "la sopa de guías",
+          "kind": "term",
+          "note": "Oaxacan soup made with squash vines; ask which broth it uses."
+        },
+        {
+          "en": "the tortillas in bean sauce",
+          "es": "las enfrijoladas",
+          "kind": "term",
+          "note": "Ask if the beans are made with lard or oil."
+        },
+        {
+          "en": "the squash blossom",
+          "es": "la flor de calabaza",
+          "kind": "term"
+        },
+        {
+          "en": "the Oaxacan string cheese",
+          "es": "el quesillo",
+          "kind": "term",
+          "note": "Called queso Oaxaca in other parts of Mexico."
+        },
+        {
+          "en": "the mushrooms",
+          "es": "los hongos",
+          "kind": "term"
+        },
+        {
+          "en": "the seasoning, the cook's touch",
+          "es": "la sazón",
+          "kind": "term",
+          "note": "Feminine in Mexico: la sazón de Doña Felisa."
+        },
+        {
+          "en": "the discount",
+          "es": "el descuento",
+          "kind": "term"
+        },
+        {
+          "en": "meat-free",
+          "es": "sin carne",
+          "kind": "term"
+        },
+        {
+          "en": "We ordered the soup because they told us it was vegetable-based.",
+          "es": "Pedimos la sopa porque nos dijeron que era de verduras.",
+          "kind": "phrase",
+          "note": "Preterite for the action (pedimos), imperfect for what it was (era)."
+        },
+        {
+          "en": "Doña Felisa, my friend is vegetarian and doesn't eat chicken.",
+          "es": "Doña Felisa, mi amigo es vegetariano y no come pollo.",
+          "kind": "phrase",
+          "note": "Formal: Doña plus first name shows respect."
+        },
+        {
+          "en": "He had already eaten half when we noticed.",
+          "es": "Ya se comió la mitad cuando nos dimos cuenta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand nobody told you; it was a misunderstanding.",
+          "es": "Entiendo que nadie se lo dijo; fue un malentendido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you make him something else with no meat or chicken broth?",
+          "es": "¿Podría prepararle otra cosa sin carne ni caldo de pollo?",
+          "kind": "phrase",
+          "note": "Formal: podría softens the request."
+        },
+        {
+          "en": "Are the enfrijoladas made with lard or oil?",
+          "es": "¿Las enfrijoladas llevan manteca o aceite?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't worry, could you take the soup off the bill?",
+          "es": "No se preocupe, ¿nos podría quitar la sopa de la cuenta?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Tomás, how about ordering some squash-blossom quesadillas?",
+          "es": "Tomás, ¿te late pedir unas quesadillas de flor de calabaza?",
+          "kind": "phrase",
+          "note": "Informal Mexican: ¿te late? means do you like the idea?"
+        }
+      ],
+      "speaking": "You are eating with your vegetarian friend Tomás, and the AI is Doña Felisa, the cook: calmly explain what you ordered and what you were told with pedimos and nos dijeron que era, then propose a fair fix with ¿podría…?",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (pedimos la sopa, nos dijeron que era de verduras; ¿podría prepararle otra cosa?)",
+        "examples": [
+          {
+            "es": "Pedimos la sopa de guías y la mesera nos dijo que era de verduras.",
+            "en": "We ordered the squash-vine soup and the server told us it was vegetable-based."
+          },
+          {
+            "es": "¿Podría prepararle unas enfrijoladas sin carne?",
+            "en": "Could you make him some meat-free enfrijoladas?"
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Paella Sold Out: Choosing a Substitute for Six",
+      "objective": "Compare the dishes still available and agree with the waiter and your group on what will replace the paella.",
+      "words": [
+        {
+          "en": "the noodle paella",
+          "es": "la fideuà",
+          "kind": "term",
+          "note": "Valencian word, said fee-deh-WAH: like paella, made with short noodles."
+        },
+        {
+          "en": "the black rice",
+          "es": "el arroz negro",
+          "kind": "term",
+          "note": "Rice cooked with squid ink."
+        },
+        {
+          "en": "the rice cooked in fish stock",
+          "es": "el arroz a banda",
+          "kind": "term"
+        },
+        {
+          "en": "the fish-and-rice pot",
+          "es": "el caldero",
+          "kind": "term",
+          "note": "Alicante dish of rice cooked in a rich fish broth."
+        },
+        {
+          "en": "the paella pan",
+          "es": "la paellera",
+          "kind": "term"
+        },
+        {
+          "en": "the crispy rice crust",
+          "es": "el socarrat",
+          "kind": "term",
+          "note": "The toasted rice at the bottom of the pan."
+        },
+        {
+          "en": "the garlic mayonnaise",
+          "es": "el alioli",
+          "kind": "term"
+        },
+        {
+          "en": "the cuttlefish",
+          "es": "la sepia",
+          "kind": "term"
+        },
+        {
+          "en": "the squid ink",
+          "es": "la tinta de calamar",
+          "kind": "term"
+        },
+        {
+          "en": "the sharing portion",
+          "es": "la ración",
+          "kind": "term",
+          "note": "Spain's usual word for a portion of food to share."
+        },
+        {
+          "en": "the kitchen closing time",
+          "es": "el cierre de cocina",
+          "kind": "term",
+          "note": "In Spain: cerramos cocina means the kitchen takes no more orders."
+        },
+        {
+          "en": "the waiting time",
+          "es": "el tiempo de espera",
+          "kind": "term"
+        },
+        {
+          "en": "light",
+          "es": "ligero",
+          "kind": "term"
+        },
+        {
+          "en": "hearty, filling",
+          "es": "contundente",
+          "kind": "term"
+        },
+        {
+          "en": "per person",
+          "es": "por persona",
+          "kind": "term",
+          "note": "Rice dishes in Spain are often ordered per person; ask the minimum."
+        },
+        {
+          "en": "Excuse me, how long is the wait for the arroz a banda?",
+          "es": "Perdone, ¿cuánto tiempo de espera hay para el arroz a banda?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Is the black rice going to take longer than the fideuà?",
+          "es": "¿El arroz negro va a tardar más que la fideuà?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The fideuà will be lighter than the caldero, right?",
+          "es": "La fideuà será más ligera que el caldero, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, is the arroz a banda ordered per person?",
+          "es": "Perdone, ¿el arroz a banda se pide por persona?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Raúl, relax, we're going to decide in 2 minutes.",
+          "es": "Raúl, tranquilo, vamos a decidir en 2 minutos.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Are you all OK with ordering two different rice dishes to share?",
+          "es": "¿Os parece bien si pedimos dos arroces distintos para compartir?",
+          "kind": "phrase",
+          "note": "Informal, Spain: os is vosotros, used with a group of friends."
+        },
+        {
+          "en": "Do we have time before the kitchen closes?",
+          "es": "¿Nos da tiempo antes del cierre de cocina?",
+          "kind": "phrase"
+        },
+        {
+          "en": "So we're going to order one fideuà and one arroz a banda.",
+          "es": "Entonces vamos a pedir una fideuà y un arroz a banda.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are lunching with a group of six in Alicante, and the AI is Begoña, the waitress, with your impatient friend Raúl: ask about the dishes still available, compare them with más que and menos que, and use the future and ir a to agree on what replaces the paella.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (el arroz negro va a tardar más que la fideuà; será más ligero)",
+        "examples": [
+          {
+            "es": "El arroz negro va a tardar más que la fideuà.",
+            "en": "The black rice is going to take longer than the fideuà."
+          },
+          {
+            "es": "Con este calor, el arroz a banda será menos contundente que el caldero.",
+            "en": "In this heat, the arroz a banda will be less heavy than the caldero."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Two Menus, Two Prices: Sorting It Out with the Guide",
+      "objective": "Narrate what you ordered and what each menu said, with exact numbers, to resolve a price gap with owner and guide.",
+      "words": [
+        {
+          "en": "the tourist set menu",
+          "es": "el menú turístico",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "soles",
+          "es": "los soles",
+          "kind": "term",
+          "note": "Peru's currency; prices are written S/ 25."
+        },
+        {
+          "en": "the printed receipt",
+          "es": "la boleta",
+          "kind": "term",
+          "note": "Peru's everyday word for a sales receipt."
+        },
+        {
+          "en": "the amount",
+          "es": "el monto",
+          "kind": "term"
+        },
+        {
+          "en": "the change",
+          "es": "el vuelto",
+          "kind": "term",
+          "note": "Peru and the Andes say el vuelto; Mexico says el cambio."
+        },
+        {
+          "en": "the itemized list",
+          "es": "el detalle",
+          "kind": "term",
+          "note": "El detalle de la cuenta = the itemized bill."
+        },
+        {
+          "en": "the difference",
+          "es": "la diferencia",
+          "kind": "term"
+        },
+        {
+          "en": "the owner",
+          "es": "la dueña",
+          "kind": "term",
+          "note": "Female owner; a male owner is el dueño."
+        },
+        {
+          "en": "the guide",
+          "es": "el guía",
+          "kind": "term",
+          "note": "Male guide; a female guide is la guía."
+        },
+        {
+          "en": "the purple-corn drink",
+          "es": "la chicha morada",
+          "kind": "term"
+        },
+        {
+          "en": "the papaya juice",
+          "es": "el jugo de papaya",
+          "kind": "term"
+        },
+        {
+          "en": "the coca-leaf tea",
+          "es": "el mate de coca",
+          "kind": "term",
+          "note": "Herbal tea commonly served in Cusco."
+        },
+        {
+          "en": "too much, extra",
+          "es": "de más",
+          "kind": "term",
+          "note": "Me cobraron de más = they overcharged me."
+        },
+        {
+          "en": "exactly",
+          "es": "exactamente",
+          "kind": "term"
+        },
+        {
+          "en": "We ordered 4 set lunches and 3 juices, but they charged us for 5 set lunches.",
+          "es": "Pedimos 4 menús y 3 jugos, pero nos cobraron 5 menús.",
+          "kind": "phrase",
+          "note": "In Peru, el menú is the fixed-price lunch."
+        },
+        {
+          "en": "Señora Quispe, the sign at the door said 25 soles per set lunch.",
+          "es": "Señora Quispe, el letrero de la puerta decía 25 soles por menú.",
+          "kind": "phrase",
+          "note": "Formal. Use the imperfect decía for what a sign said."
+        },
+        {
+          "en": "Could you give me the itemized bill, please?",
+          "es": "¿Me puede dar el detalle de la cuenta, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Wilmer, did you tell us the set lunch came with a drink?",
+          "es": "Wilmer, ¿tú nos dijiste que el menú incluía bebida?",
+          "kind": "phrase",
+          "note": "Informal: tú with the guide you've spent the day with."
+        },
+        {
+          "en": "It's not about the money; I just want to understand the difference.",
+          "es": "No es por el dinero; solo quiero entender la diferencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So that's 4 set lunches at 25 soles, which is 100 soles.",
+          "es": "Entonces son 4 menús a 25 soles, o sea 100 soles.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Does the tourist menu have a different price from the one at the door?",
+          "es": "¿El menú turístico tiene otro precio que el de la puerta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you for checking it, ma'am; that's perfect now.",
+          "es": "Gracias por revisarlo, señora; así está perfecto.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are a traveler in Wilmer's tour group, and the AI is Señora Quispe, the owner, with guide Wilmer present: calmly recount what you ordered and what the menu at the door said, using the preterite (pedimos, nos cobraron) and exact numbers, and ask for the itemized bill.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (pedimos cuatro menús y tres jugos, pero nos cobraron cinco)",
+        "examples": [
+          {
+            "es": "Llegamos a la 1:00 y pedimos 4 menús y 3 jugos de papaya.",
+            "en": "We arrived at 1:00 and ordered 4 set lunches and 3 papaya juices."
+          },
+          {
+            "es": "La señora nos trajo la carta, pero nadie pidió el menú turístico.",
+            "en": "The lady brought us the menu, but nobody ordered the tourist menu."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Talking a Friend Out of Afternoon Ceviche from a Hot Cart",
+      "objective": "Say no to an unsafe food choice, explain why, and suggest a better option without embarrassing your friend.",
+      "words": [
+        {
+          "en": "the food cart",
+          "es": "el carrito",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the ceviche restaurant",
+          "es": "la cevichería",
+          "kind": "term"
+        },
+        {
+          "en": "the raw fish",
+          "es": "el pescado crudo",
+          "kind": "term"
+        },
+        {
+          "en": "the ceviche marinade",
+          "es": "la leche de tigre",
+          "kind": "term",
+          "note": "The citrus juice from ceviche, often served on its own in a glass."
+        },
+        {
+          "en": "the food poisoning",
+          "es": "la intoxicación alimentaria",
+          "kind": "term"
+        },
+        {
+          "en": "the upset stomach",
+          "es": "el malestar estomacal",
+          "kind": "term"
+        },
+        {
+          "en": "midday",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "the shopkeeper",
+          "es": "la bodeguera",
+          "kind": "term",
+          "note": "Peru: the woman who runs a bodega, the corner shop."
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "the refrigeration",
+          "es": "la refrigeración",
+          "kind": "term"
+        },
+        {
+          "en": "fresh",
+          "es": "fresco",
+          "kind": "term"
+        },
+        {
+          "en": "well cooked",
+          "es": "bien cocido",
+          "kind": "term"
+        },
+        {
+          "en": "the grilled beef-heart skewers",
+          "es": "los anticuchos",
+          "kind": "term",
+          "note": "A cooked Lima classic, sold hot from the grill."
+        },
+        {
+          "en": "the beef stir-fry with fries",
+          "es": "el lomo saltado",
+          "kind": "term"
+        },
+        {
+          "en": "Diego, don't buy it; the cart has no ice.",
+          "es": "Diego, no lo compres; el carrito no tiene hielo.",
+          "kind": "phrase",
+          "note": "Informal negative command: no + tú subjunctive (compres)."
+        },
+        {
+          "en": "I don't recommend you eat it now, in this heat.",
+          "es": "No recomiendo que lo comas ahora, con este calor.",
+          "kind": "phrase",
+          "note": "No recomiendo que is followed by the subjunctive (comas)."
+        },
+        {
+          "en": "Ceviche is raw fish, and here people eat it at midday.",
+          "es": "El ceviche es pescado crudo y aquí se come al mediodía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't take the risk; tomorrow we'll go to a cevichería at midday.",
+          "es": "No te arriesgues; mañana vamos a una cevichería al mediodía.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Ma'am, which cevichería around here do you recommend?",
+          "es": "Señora, ¿qué cevichería nos recomienda por aquí?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Why don't we order some anticuchos, since they're well cooked?",
+          "es": "¿Por qué no pedimos unos anticuchos, que están bien cocidos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not saying it to bug you; I care that you're OK.",
+          "es": "No te lo digo por fastidiar; me importa que estés bien.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Thank you, Señora Maribel, you helped us a lot.",
+          "es": "Gracias, señora Maribel, nos ayudó mucho.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are a traveler in Lima, and the AI is your friend Diego, with shopkeeper Maribel nearby: say no to the cart ceviche using negative commands (no lo compres) and no recomiendo que + subjunctive, explain why, and kindly suggest a better option.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no lo compres; no recomiendo que lo comas ahora)",
+        "examples": [
+          {
+            "es": "No lo pidas aquí; mejor mañana en la cevichería.",
+            "en": "Don't order it here; better tomorrow at the cevichería."
+          },
+          {
+            "es": "No recomiendo que comas pescado crudo a esta hora.",
+            "en": "I don't recommend that you eat raw fish at this time of day."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Honest Feedback When the Owner Asks About a New Dish",
+      "objective": "Give the owner sincere, specific feedback on a new dish, mixing praise with one tactful recommendation.",
+      "words": [
+        {
+          "en": "the vegetarian chivito",
+          "es": "el chivito vegetariano",
+          "kind": "term",
+          "note": "Uruguay's national sandwich, here made without steak."
+        },
+        {
+          "en": "the mozzarella",
+          "es": "la muzzarella",
+          "kind": "term",
+          "note": "Usual Uruguayan spelling and pronunciation."
+        },
+        {
+          "en": "the fried egg",
+          "es": "el huevo frito",
+          "kind": "term"
+        },
+        {
+          "en": "the roasted bell pepper",
+          "es": "el morrón asado",
+          "kind": "term",
+          "note": "Morrón is the Rioplatense word for bell pepper."
+        },
+        {
+          "en": "the grilled eggplant",
+          "es": "la berenjena a la plancha",
+          "kind": "term"
+        },
+        {
+          "en": "the zucchini",
+          "es": "el zapallito",
+          "kind": "term",
+          "note": "Uruguayan word for zucchini."
+        },
+        {
+          "en": "the olives",
+          "es": "las aceitunas",
+          "kind": "term"
+        },
+        {
+          "en": "the grill cook",
+          "es": "el parrillero",
+          "kind": "term"
+        },
+        {
+          "en": "the seasoning level",
+          "es": "el punto de sal",
+          "kind": "term",
+          "note": "Use it to talk about salt tactfully: le falta / le sobra punto de sal."
+        },
+        {
+          "en": "the texture",
+          "es": "la textura",
+          "kind": "term"
+        },
+        {
+          "en": "the presentation",
+          "es": "la presentación",
+          "kind": "term"
+        },
+        {
+          "en": "the potato salad",
+          "es": "la ensalada rusa",
+          "kind": "term",
+          "note": "Potato, carrot and mayo salad; a classic side with chivito."
+        },
+        {
+          "en": "the dressing",
+          "es": "el aderezo",
+          "kind": "term"
+        },
+        {
+          "en": "crispy",
+          "es": "crocante",
+          "kind": "term",
+          "note": "Rioplatense; elsewhere people say crujiente."
+        },
+        {
+          "en": "juicy",
+          "es": "jugoso",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Graciela, I really loved the vegetarian chivito.",
+          "es": "Señora Graciela, el chivito vegetariano me encantó, de verdad.",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "The eggplant is delicious, and the bread is crispy.",
+          "es": "La berenjena está muy rica, y el pan está crocante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd recommend you put a little less salt on it.",
+          "es": "Le recomiendo que le ponga un poco menos de sal.",
+          "kind": "phrase",
+          "note": "Formal; recomendar que + subjunctive."
+        },
+        {
+          "en": "I suggest you leave the pepper on the grill a bit longer.",
+          "es": "Sugiero que dejen el morrón un poco más en la parrilla.",
+          "kind": "phrase",
+          "note": "Subjunctive after sugerir que."
+        },
+        {
+          "en": "I hope you keep it on the menu; I'd order it again.",
+          "es": "Ojalá que lo deje en la carta; yo lo volvería a pedir.",
+          "kind": "phrase",
+          "note": "Ojalá que always takes the subjunctive."
+        },
+        {
+          "en": "Bruno, did you come up with it? It's really good.",
+          "es": "Bruno, ¿lo inventaste vos? Está buenísimo.",
+          "kind": "phrase",
+          "note": "Informal; in Uruguay vos replaces tú."
+        },
+        {
+          "en": "It's just a small detail; everything else is perfect.",
+          "es": "Es solo un detalle; el resto está perfecto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want you to know I'm saying this kindly.",
+          "es": "Quiero que sepa que se lo digo con cariño.",
+          "kind": "phrase",
+          "note": "Formal; querer que + subjunctive (sepa)."
+        }
+      ],
+      "speaking": "You are a guest at a Montevideo parrilla, and the AI is Graciela, the owner: give your honest opinion of her new vegetarian chivito, praise specific details, and make one tactful recommendation using le recomiendo que and ojalá que with the subjunctive.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (le recomiendo que le ponga menos sal; ojalá que lo deje en la carta)",
+        "examples": [
+          {
+            "es": "Le recomiendo que le ponga menos sal al zapallito.",
+            "en": "I recommend you put less salt on the zucchini."
+          },
+          {
+            "es": "Ojalá que Bruno siga creando platos así.",
+            "en": "I hope Bruno keeps creating dishes like this."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Settling a Group Argument over Where to Eat",
+      "objective": "Report what each person and the hostel staff said, and help the group agree on one lunch plan.",
+      "words": [
+        {
+          "en": "the cheap set lunch",
+          "es": "el corrientazo",
+          "kind": "term",
+          "note": "Colombian: a set lunch, usually soup, main dish and juice."
+        },
+        {
+          "en": "the bandeja paisa platter",
+          "es": "la bandeja paisa",
+          "kind": "term",
+          "note": "Antioquia platter: beans, rice, meat, chicharrón, egg and arepa."
+        },
+        {
+          "en": "the fried pork belly",
+          "es": "el chicharrón",
+          "kind": "term"
+        },
+        {
+          "en": "the arepa",
+          "es": "la arepa",
+          "kind": "term"
+        },
+        {
+          "en": "the corn drink",
+          "es": "la mazamorra",
+          "kind": "term",
+          "note": "Paisa corn drink with milk, often served after bandeja paisa."
+        },
+        {
+          "en": "the hearty stew",
+          "es": "el sancocho",
+          "kind": "term"
+        },
+        {
+          "en": "the fresh juice",
+          "es": "el jugo natural",
+          "kind": "term"
+        },
+        {
+          "en": "the receptionist",
+          "es": "la recepcionista",
+          "kind": "term",
+          "note": "Same form for a man: el recepcionista."
+        },
+        {
+          "en": "the neighborhood",
+          "es": "el barrio",
+          "kind": "term"
+        },
+        {
+          "en": "the walk",
+          "es": "la caminata",
+          "kind": "term"
+        },
+        {
+          "en": "the metro",
+          "es": "el metro",
+          "kind": "term"
+        },
+        {
+          "en": "the middle ground",
+          "es": "el punto medio",
+          "kind": "term"
+        },
+        {
+          "en": "the review",
+          "es": "la reseña",
+          "kind": "term"
+        },
+        {
+          "en": "the pesos",
+          "es": "los pesos",
+          "kind": "term"
+        },
+        {
+          "en": "cheap",
+          "es": "barato",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "Camila said she wanted something cheap and quick.",
+          "es": "Camila dijo que quería algo barato y rápido.",
+          "kind": "phrase",
+          "note": "Reported speech: dijo que + imperfect."
+        },
+        {
+          "en": "Joaquín said he really wanted to try the bandeja paisa.",
+          "es": "Joaquín dijo que tenía muchas ganas de probar la bandeja paisa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Yesenia mentioned that place was full at noon.",
+          "es": "Yesenia comentó que ese sitio estaba lleno a mediodía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "She explained to us that the set lunch included soup and juice.",
+          "es": "Ella nos explicó que el corrientazo incluía sopa y jugo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Yesenia, did you tell us there was a place near the metro?",
+          "es": "Yesenia, ¿usted nos dijo que había un sitio cerca del metro?",
+          "kind": "phrase",
+          "note": "Formal; usted is common in Medellín, even with staff your age."
+        },
+        {
+          "en": "What if we have the set lunch today and bandeja paisa tomorrow?",
+          "es": "¿Y si almorzamos corrientazo hoy y bandeja paisa mañana?",
+          "kind": "phrase",
+          "note": "Informal, to the group."
+        },
+        {
+          "en": "It's nobody's fault; we just want different things.",
+          "es": "Nadie tiene la culpa; solo queremos cosas distintas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So, do we all agree?",
+          "es": "¿Entonces estamos todos de acuerdo?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are traveling with a group in Medellín, and the AI is Camila, a fellow traveler: report what Joaquín and receptionist Yesenia said using dijo que and comentó que with the imperfect, and help everyone agree on one lunch plan.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Camila dijo que quería algo barato; Yesenia comentó que el sitio estaba lleno)",
+        "examples": [
+          {
+            "es": "Camila dijo que quería algo barato cerca del hostal.",
+            "en": "Camila said she wanted something cheap near the hostel."
+          },
+          {
+            "es": "Yesenia comentó que el sitio de la bandeja paisa siempre estaba lleno.",
+            "en": "Yesenia mentioned that the bandeja paisa place was always full."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping a Tired Group Going After the Kitchens Close",
+      "objective": "Encourage a hungry, tired group and commit to a clear plan for finding food during the afternoon closure.",
+      "words": [
+        {
+          "en": "the bakery",
+          "es": "la panadería",
+          "kind": "term"
+        },
+        {
+          "en": "the shawarma",
+          "es": "el shawarma",
+          "kind": "term"
+        },
+        {
+          "en": "the falafel",
+          "es": "el falafel",
+          "kind": "term"
+        },
+        {
+          "en": "the teahouse",
+          "es": "la tetería",
+          "kind": "term",
+          "note": "Typical of Granada's Albaicín neighborhood."
+        },
+        {
+          "en": "the sandwich",
+          "es": "el bocadillo",
+          "kind": "term",
+          "note": "Spain: a sandwich on a baguette-style roll."
+        },
+        {
+          "en": "the filled pastry",
+          "es": "la napolitana",
+          "kind": "term",
+          "note": "Spanish pastry, often filled with chocolate or custard."
+        },
+        {
+          "en": "the uphill street",
+          "es": "la cuesta",
+          "kind": "term"
+        },
+        {
+          "en": "the cell phone",
+          "es": "el móvil",
+          "kind": "term",
+          "note": "Spain; in Latin America people say el celular."
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the hunger",
+          "es": "el hambre",
+          "kind": "term",
+          "note": "Feminine noun with el: el hambre, but mucha hambre."
+        },
+        {
+          "en": "the supermarket",
+          "es": "el supermercado",
+          "kind": "term"
+        },
+        {
+          "en": "the snacking",
+          "es": "el picoteo",
+          "kind": "term",
+          "note": "Spain: nibbling on small bites to tide you over."
+        },
+        {
+          "en": "the stroll",
+          "es": "el paseo",
+          "kind": "term"
+        },
+        {
+          "en": "right away",
+          "es": "enseguida",
+          "kind": "term"
+        },
+        {
+          "en": "two streets away",
+          "es": "a dos calles",
+          "kind": "term"
+        },
+        {
+          "en": "Come on, guys, we're almost there!",
+          "es": "¡Ánimo, chicos, ya casi llegamos!",
+          "kind": "phrase",
+          "note": "Informal encouragement to the group."
+        },
+        {
+          "en": "In 10 minutes we'll find something; I promise you.",
+          "es": "En 10 minutos encontraremos algo; os lo prometo.",
+          "kind": "phrase",
+          "note": "Spain: os is the vosotros object pronoun."
+        },
+        {
+          "en": "Excuse me, Paco, until what time is the shawarma place open?",
+          "es": "Perdona, Paco, ¿hasta qué hora abre el shawarma?",
+          "kind": "phrase",
+          "note": "Informal; tú is normal with a bar owner in Spain."
+        },
+        {
+          "en": "First we'll go to the bakery and then to the shawarma place.",
+          "es": "Primero iremos a la panadería y luego al shawarma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait for me here in the shade; I'll be right back.",
+          "es": "Esperadme aquí a la sombra; vuelvo enseguida.",
+          "kind": "phrase",
+          "note": "Spain: vosotros command to the group."
+        },
+        {
+          "en": "We'll eat something quick and then rest at the teahouse.",
+          "es": "Comeremos algo rápido y después descansaremos en la tetería.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I know you're tired, but we'll do it together.",
+          "es": "Sé que estáis cansados, pero lo haremos juntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thanks, Paco, you've saved our afternoon.",
+          "es": "Gracias, Paco, nos has salvado la tarde.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are leading a walking group in Granada, and the AI is Paco, a bar owner whose kitchen is closed: ask about the nearby food options, then encourage your group with ¡ánimo! and commit to a clear plan using the future (encontraremos, iremos).",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (en diez minutos encontraremos algo; ánimo, ya casi llegamos)",
+        "examples": [
+          {
+            "es": "Mañana comeremos antes de las 15:00.",
+            "en": "Tomorrow we'll eat before 15:00."
+          },
+          {
+            "es": "Después del shawarma, todos tendremos más energía.",
+            "en": "After the shawarma, we'll all have more energy."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Table, Three Registers: Lunch with a Chilean Family",
+      "objective": "Switch between usted and tú as you talk with grandparents, cousins and the host during a family lunch.",
+      "words": [
+        {
+          "en": "the Chilean salsa",
+          "es": "el pebre",
+          "kind": "term",
+          "note": "Chilean salsa of tomato, onion, cilantro and ají."
+        },
+        {
+          "en": "the meat and vegetable soup",
+          "es": "la cazuela",
+          "kind": "term"
+        },
+        {
+          "en": "the corn pie",
+          "es": "el pastel de choclo",
+          "kind": "term"
+        },
+        {
+          "en": "the beef empanada",
+          "es": "la empanada de pino",
+          "kind": "term",
+          "note": "Pino: ground beef, onion, egg and olive filling."
+        },
+        {
+          "en": "the peach and wheat drink",
+          "es": "el mote con huesillo",
+          "kind": "term",
+          "note": "Summer drink: dried peaches with husked wheat."
+        },
+        {
+          "en": "the bread roll",
+          "es": "la marraqueta",
+          "kind": "term",
+          "note": "Chile's everyday crusty bread."
+        },
+        {
+          "en": "the avocado",
+          "es": "la palta",
+          "kind": "term",
+          "note": "Chile and Peru; in Mexico people say aguacate."
+        },
+        {
+          "en": "the hot pepper",
+          "es": "el ají",
+          "kind": "term",
+          "note": "Chileans say ají, not chile, for hot pepper."
+        },
+        {
+          "en": "the tomato and onion salad",
+          "es": "la ensalada chilena",
+          "kind": "term"
+        },
+        {
+          "en": "the barbecue",
+          "es": "el asado",
+          "kind": "term"
+        },
+        {
+          "en": "the sweet corn",
+          "es": "el choclo",
+          "kind": "term"
+        },
+        {
+          "en": "the grandmother",
+          "es": "la abuela",
+          "kind": "term"
+        },
+        {
+          "en": "the cousin",
+          "es": "el primo",
+          "kind": "term",
+          "note": "For a woman: la prima."
+        },
+        {
+          "en": "the host",
+          "es": "la anfitriona",
+          "kind": "term",
+          "note": "For a man: el anfitrión."
+        },
+        {
+          "en": "using tú",
+          "es": "el tuteo",
+          "kind": "term",
+          "note": "Wait for an older person to invite it before you switch."
+        },
+        {
+          "en": "Matías, can you pass me the bread?",
+          "es": "Matías, ¿me pasas la marraqueta?",
+          "kind": "phrase",
+          "note": "Informal; tú with a teenage cousin."
+        },
+        {
+          "en": "Doña Eliana, would you mind giving me the cazuela recipe?",
+          "es": "Doña Eliana, ¿le molestaría darme la receta de la cazuela?",
+          "kind": "phrase",
+          "note": "Formal; a polite softener for elders."
+        },
+        {
+          "en": "I'd like to try a little more corn pie.",
+          "es": "Quisiera probar un poquito más de pastel de choclo.",
+          "kind": "phrase",
+          "note": "Quisiera softens a request in any register."
+        },
+        {
+          "en": "Matías, did you help with the empanadas?",
+          "es": "Matías, ¿tú ayudaste con las empanadas?",
+          "kind": "phrase",
+          "note": "Informal"
+        },
+        {
+          "en": "Valentina, thanks for the invitation; you outdid yourself.",
+          "es": "Valentina, gracias por la invitación; te pasaste.",
+          "kind": "phrase",
+          "note": "Informal; Chilean praise for a host."
+        },
+        {
+          "en": "If you don't mind, Doña Eliana, I'd rather address you formally.",
+          "es": "Si no le molesta, doña Eliana, prefiero tratarla de usted.",
+          "kind": "phrase",
+          "note": "Formal; tratar de usted = to use usted with someone."
+        },
+        {
+          "en": "Valentina, can I help you clear the table?",
+          "es": "Valentina, ¿te ayudo a levantar la mesa?",
+          "kind": "phrase",
+          "note": "Informal"
+        }
+      ],
+      "speaking": "You are a guest at a Sunday lunch in Santiago, and the AI plays grandmother Doña Eliana, cousin Matías and host Valentina: talk with each of them, using usted with the grandmother and tú with the others, and soften requests with quisiera, ¿le molestaría...? and ¿me pasas...?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿le molestaría...?, ¿me pasas el pebre?)",
+        "examples": [
+          {
+            "es": "Doña Eliana, ¿le molestaría pasarme el pebre?",
+            "en": "Doña Eliana, would you mind passing me the pebre?"
+          },
+          {
+            "es": "Matías, ¿me pasas la palta?",
+            "en": "Matías, can you pass me the avocado?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Burn from a Sizzling Skillet: Telling the Manager",
+      "objective": "Narrate an injury in order with clear times and ask the manager to record it and point you to medical help.",
+      "words": [
+        {
+          "en": "the burn",
+          "es": "la quemadura",
+          "kind": "term"
+        },
+        {
+          "en": "the first-aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the cast-iron skillet",
+          "es": "el sartén de hierro",
+          "kind": "term",
+          "note": "In Mexico sartén is usually masculine: el sartén."
+        },
+        {
+          "en": "the handle",
+          "es": "el mango",
+          "kind": "term"
+        },
+        {
+          "en": "the blister",
+          "es": "la ampolla",
+          "kind": "term"
+        },
+        {
+          "en": "the burning sensation",
+          "es": "el ardor",
+          "kind": "term"
+        },
+        {
+          "en": "the redness",
+          "es": "el enrojecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the palm of the hand",
+          "es": "la palma de la mano",
+          "kind": "term"
+        },
+        {
+          "en": "tap water",
+          "es": "el agua de la llave",
+          "kind": "term",
+          "note": "In Mexico la llave is the tap."
+        },
+        {
+          "en": "the gauze",
+          "es": "la gasa",
+          "kind": "term"
+        },
+        {
+          "en": "the incident log",
+          "es": "la bitácora de incidentes",
+          "kind": "term"
+        },
+        {
+          "en": "the manager (woman)",
+          "es": "la gerente",
+          "kind": "term"
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy with a doctor's office",
+          "es": "la farmacia con consultorio",
+          "kind": "term",
+          "note": "Common in Mexico for quick, low-cost medical checks."
+        },
+        {
+          "en": "At a quarter past two they brought us the hot skillet.",
+          "es": "A las dos y cuarto nos trajeron el sartén caliente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At that moment Ben grabbed the handle without a napkin.",
+          "es": "En ese momento Ben agarró el mango sin servilleta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Afterwards we put his hand under the tap water.",
+          "es": "Después le pusimos la mano bajo el agua de la llave.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A little later a blister came up on his palm.",
+          "es": "Al rato le salió una ampolla en la palma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lorena, could you write it down in your incident log, please?",
+          "es": "Lorena, ¿podría anotarlo en su bitácora de incidentes, por favor?",
+          "kind": "phrase",
+          "note": "Formal: usted with the manager."
+        },
+        {
+          "en": "Which is the nearest clinic, and how do we get there?",
+          "es": "¿Cuál es la clínica más cercana y cómo llegamos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ben, don't pop the blister; we're going to the clinic right now.",
+          "es": "Ben, no te revientes la ampolla; ahorita vamos a la clínica.",
+          "kind": "phrase",
+          "note": "Informal: tú with a friend. Ahorita here means right now."
+        },
+        {
+          "en": "Could you give me a copy of the report, please?",
+          "es": "¿Me da una copia del reporte, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are Ben's companion, and the AI is Lorena, the restaurant manager: tell her what happened in order with time markers like a las dos y cuarto, en ese momento, después and al rato, ask her to record it in her log, and ask where the nearest clinic is.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las dos y cuarto, en ese momento, después, al rato)",
+        "examples": [
+          {
+            "es": "A las dos y cuarto sirvieron la carne en el sartén de hierro.",
+            "en": "At a quarter past two they served the meat in the cast-iron skillet."
+          },
+          {
+            "es": "En ese momento Ben tocó el mango, y al rato empezó el ardor.",
+            "en": "At that moment Ben touched the handle, and a little later the burning started."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: The Peanut Sauce Nobody Mentioned",
+      "objective": "Talk through an allergen near miss with the server without blame and agree what both sides will check next time.",
+      "words": [
+        {
+          "en": "the peanut",
+          "es": "el maní",
+          "kind": "term",
+          "note": "Ecuador and much of South America say maní, not cacahuate."
+        },
+        {
+          "en": "the peanut sauce",
+          "es": "la salsa de maní",
+          "kind": "term"
+        },
+        {
+          "en": "the potato patties (llapingachos)",
+          "es": "los llapingachos",
+          "kind": "term"
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the epinephrine auto-injector",
+          "es": "el autoinyector de epinefrina",
+          "kind": "term"
+        },
+        {
+          "en": "the note (on the order)",
+          "es": "la anotación",
+          "kind": "term"
+        },
+        {
+          "en": "the manager (woman)",
+          "es": "la administradora",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the hidden ingredient",
+          "es": "el ingrediente oculto",
+          "kind": "term"
+        },
+        {
+          "en": "the allergy card",
+          "es": "la tarjeta de alergias",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the double check",
+          "es": "la doble verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement dish",
+          "es": "el plato de reemplazo",
+          "kind": "term"
+        },
+        {
+          "en": "serious",
+          "es": "grave",
+          "kind": "term"
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "next time",
+          "es": "la próxima vez",
+          "kind": "term"
+        },
+        {
+          "en": "She very nearly ate the peanut sauce.",
+          "es": "Por poco se come la salsa de maní.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Something serious almost happened, but Grace asked in time.",
+          "es": "Casi pasa algo grave, pero Grace preguntó a tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If she hadn't asked, she could have had a serious reaction.",
+          "es": "Si no hubiera preguntado, podría haber tenido una reacción grave.",
+          "kind": "phrase",
+          "note": "Si + pluperfect subjunctive, then podría haber + participle."
+        },
+        {
+          "en": "We're not here to blame anyone; we want it not to happen again.",
+          "es": "No venimos a culpar a nadie; queremos que no se repita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Andrés, was the allergy written down on the order?",
+          "es": "Andrés, ¿la alergia quedó anotada en la orden?",
+          "kind": "phrase",
+          "note": "Formal in tone; in Ecuador servers and guests usually use usted."
+        },
+        {
+          "en": "Next time, we'll show you the allergy card when we order.",
+          "es": "La próxima vez, le mostraremos la tarjeta de alergias al pedir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm each dish with the kitchen before serving it?",
+          "es": "¿Podrían confirmar con cocina cada plato antes de servirlo?",
+          "kind": "phrase",
+          "note": "Formal plural: speaking to the restaurant team."
+        },
+        {
+          "en": "Thank you, Verónica, for taking it so seriously.",
+          "es": "Gracias, Verónica, por tomárselo tan en serio.",
+          "kind": "phrase",
+          "note": "Formal: tomárselo with usted."
+        }
+      ],
+      "speaking": "You are Grace's friend, and the AI is Verónica, the restaurant manager: talk through the peanut sauce near miss without blaming Andrés, using casi, por poco and si no hubiera preguntado, podría haber..., and agree on what both sides will check next time.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco se la come; si no hubiera preguntado, podría haber pasado algo grave)",
+        "examples": [
+          {
+            "es": "Por poco se come un llapingacho con salsa de maní.",
+            "en": "She very nearly ate a llapingacho with peanut sauce."
+          },
+          {
+            "es": "Si no hubiera preguntado, podría haber pasado algo grave.",
+            "en": "If she hadn't asked, something serious could have happened."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Gas Smell at the Food Truck Park: Clear and Call",
+      "objective": "Alert a vendor to a gas smell, move people away with short commands, and report it clearly on an emergency call.",
+      "words": [
+        {
+          "en": "the gas smell",
+          "es": "el olor a gas",
+          "kind": "term"
+        },
+        {
+          "en": "the gas leak",
+          "es": "la fuga de gas",
+          "kind": "term"
+        },
+        {
+          "en": "the gas cylinder",
+          "es": "el cilindro de gas",
+          "kind": "term"
+        },
+        {
+          "en": "the valve",
+          "es": "la válvula",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the flame",
+          "es": "la llama",
+          "kind": "term"
+        },
+        {
+          "en": "the spark",
+          "es": "la chispa",
+          "kind": "term"
+        },
+        {
+          "en": "the lighter",
+          "es": "el encendedor",
+          "kind": "term"
+        },
+        {
+          "en": "the food truck",
+          "es": "el food truck",
+          "kind": "term",
+          "note": "Standard loanword in Costa Rica; say it as in English."
+        },
+        {
+          "en": "911",
+          "es": "el 911",
+          "kind": "term",
+          "note": "The emergency number in Costa Rica is also 911."
+        },
+        {
+          "en": "the operator (woman)",
+          "es": "la operadora",
+          "kind": "term"
+        },
+        {
+          "en": "the firefighters",
+          "es": "los bomberos",
+          "kind": "term"
+        },
+        {
+          "en": "the exact location",
+          "es": "la ubicación exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the main entrance",
+          "es": "la entrada principal",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el parqueo",
+          "kind": "term",
+          "note": "Costa Rican word; Mexico says el estacionamiento."
+        },
+        {
+          "en": "Mauricio, there's a strong gas smell near your cylinder.",
+          "es": "Mauricio, huele mucho a gas cerca de su cilindro.",
+          "kind": "phrase",
+          "note": "Formal: Costa Ricans often use usted even casually."
+        },
+        {
+          "en": "If it's safe, close the valve and turn everything off.",
+          "es": "Si es seguro, cierre la válvula y apague todo.",
+          "kind": "phrase",
+          "note": "Formal command to one person."
+        },
+        {
+          "en": "Move away from the food truck, please!",
+          "es": "¡Aléjense del food truck, por favor!",
+          "kind": "phrase",
+          "note": "Ustedes command for a group."
+        },
+        {
+          "en": "Don't smoke or use lighters!",
+          "es": "¡No fumen ni usen encendedores!",
+          "kind": "phrase"
+        },
+        {
+          "en": "If anyone lights anything, there will be danger.",
+          "es": "Si alguien enciende algo, habrá peligro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a possible gas leak at a food truck park.",
+          "es": "Hay una posible fuga de gas en un parque de food trucks.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're in front of the main entrance, next to the parking lot.",
+          "es": "Estamos frente a la entrada principal, al lado del parqueo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll wait for you at the main entrance in a red T-shirt.",
+          "es": "Los esperaré en la entrada principal con camiseta roja.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a visitor at the food truck park, and the AI plays vendor Mauricio and then Daniela, the 911 operator: warn Mauricio, move people back with commands like ¡aléjense! and ¡no fumen!, and report the location clearly using si + present → future.",
+      "grammar": {
+        "focus": "Si + present → future; short phone commands (si alguien enciende algo, habrá peligro; ¡aléjense!, ¡no fumen!)",
+        "examples": [
+          {
+            "es": "Si los niños se acercan al cilindro, correrán peligro.",
+            "en": "If the children get close to the cylinder, they'll be in danger."
+          },
+          {
+            "es": "Si el olor sigue, llamaré otra vez; ¡no se acerquen!",
+            "en": "If the smell continues, I'll call again; don't come close!"
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Answering a Health Inspector About a Bad Lunch",
+      "objective": "Give a health inspector a formal, precise account of what was served, when, and what symptoms followed.",
+      "words": [
+        {
+          "en": "the official complaint form",
+          "es": "la hoja de reclamaciones",
+          "kind": "term",
+          "note": "Official form every business in Spain must provide on request."
+        },
+        {
+          "en": "the inspector (woman)",
+          "es": "la inspectora",
+          "kind": "term"
+        },
+        {
+          "en": "the chicken salad",
+          "es": "la ensalada de pollo",
+          "kind": "term"
+        },
+        {
+          "en": "the cold chain",
+          "es": "la cadena de frío",
+          "kind": "term"
+        },
+        {
+          "en": "lukewarm",
+          "es": "tibio",
+          "kind": "term"
+        },
+        {
+          "en": "the symptoms",
+          "es": "los síntomas",
+          "kind": "term"
+        },
+        {
+          "en": "nausea",
+          "es": "las náuseas",
+          "kind": "term"
+        },
+        {
+          "en": "vomiting",
+          "es": "los vómitos",
+          "kind": "term"
+        },
+        {
+          "en": "the fever",
+          "es": "la fiebre",
+          "kind": "term"
+        },
+        {
+          "en": "the proof of payment",
+          "es": "el justificante de pago",
+          "kind": "term"
+        },
+        {
+          "en": "the medical report",
+          "es": "el informe médico",
+          "kind": "term"
+        },
+        {
+          "en": "the health centre",
+          "es": "el centro de salud",
+          "kind": "term",
+          "note": "Spain's local public clinic."
+        },
+        {
+          "en": "consent",
+          "es": "el consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "personal data",
+          "es": "los datos personales",
+          "kind": "term"
+        },
+        {
+          "en": "the case file",
+          "es": "el expediente",
+          "kind": "term"
+        },
+        {
+          "en": "The salad was served at 13:45, according to the receipt.",
+          "es": "Se sirvió la ensalada a las 13:45, según el justificante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The chicken was served lukewarm, not cold.",
+          "es": "El pollo se sirvió tibio, no frío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The sauce was reheated in the microwave in front of us.",
+          "es": "La salsa se recalentó en el microondas delante de nosotros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The complaint form was filed at the café itself.",
+          "es": "Se presentó la hoja de reclamaciones en el mismo café.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That night, my friend had nausea, vomiting and a slight fever.",
+          "es": "Por la noche, mi amigo tuvo náuseas, vómitos y algo de fiebre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My friend authorised me to share only his symptoms.",
+          "es": "Mi amigo me autorizó a contar solo sus síntomas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather not give that information without his consent.",
+          "es": "Prefiero no dar esa información sin su consentimiento.",
+          "kind": "phrase",
+          "note": "Formal and polite way to protect someone's privacy."
+        },
+        {
+          "en": "Will the establishment be informed of our complaint?",
+          "es": "¿Se informará al establecimiento de nuestra reclamación?",
+          "kind": "phrase",
+          "note": "Formal: passive se with an official."
+        }
+      ],
+      "speaking": "You are the person who filed the complaint, and the AI is Sra. Herrero, the health inspector: give a formal, precise account of what was served and when, using usted and passive se (se sirvió, se recalentó), and share only what Owen agreed to disclose.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se sirvió el pollo tibio, se recalentó la salsa, se presentó la hoja de reclamaciones)",
+        "examples": [
+          {
+            "es": "Se sirvió el pollo tibio, sobre las dos de la tarde.",
+            "en": "The chicken was served lukewarm, at around two in the afternoon."
+          },
+          {
+            "es": "Se guardó el justificante de pago como prueba.",
+            "en": "The proof of payment was kept as evidence."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Write a Fair Review After a Mixed Lunch",
+      "objective": "Write a balanced online review that describes the food, the service problem and how staff fixed it.",
+      "words": [
+        {
+          "en": "the rating",
+          "es": "la calificación",
+          "kind": "term"
+        },
+        {
+          "en": "the stars",
+          "es": "las estrellas",
+          "kind": "term"
+        },
+        {
+          "en": "the fried tilapia",
+          "es": "la mojarra frita",
+          "kind": "term",
+          "note": "Served whole, a staple of the Colombian Caribbean coast."
+        },
+        {
+          "en": "the coconut rice",
+          "es": "el arroz con coco",
+          "kind": "term"
+        },
+        {
+          "en": "the fried plantain slices",
+          "es": "los patacones",
+          "kind": "term",
+          "note": "Colombian name; other countries say tostones."
+        },
+        {
+          "en": "the coconut lemonade",
+          "es": "la limonada de coco",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "la demora",
+          "kind": "term"
+        },
+        {
+          "en": "the service",
+          "es": "la atención",
+          "kind": "term",
+          "note": "In reviews, la atención means how staff treated you."
+        },
+        {
+          "en": "the staff",
+          "es": "el personal",
+          "kind": "term"
+        },
+        {
+          "en": "the freshness",
+          "es": "la frescura",
+          "kind": "term"
+        },
+        {
+          "en": "the atmosphere",
+          "es": "el ambiente",
+          "kind": "term"
+        },
+        {
+          "en": "the value for money",
+          "es": "la relación calidad-precio",
+          "kind": "term"
+        },
+        {
+          "en": "the gesture",
+          "es": "el gesto",
+          "kind": "term"
+        },
+        {
+          "en": "the public reply",
+          "es": "la respuesta pública",
+          "kind": "term"
+        },
+        {
+          "en": "balanced",
+          "es": "equilibrado",
+          "kind": "term"
+        },
+        {
+          "en": "worth recommending",
+          "es": "recomendable",
+          "kind": "term"
+        },
+        {
+          "en": "First of all, the fried tilapia was very fresh and well seasoned.",
+          "es": "En primer lugar, la mojarra frita estaba fresquísima y bien sazonada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, we waited almost an hour for the main dishes.",
+          "es": "Sin embargo, esperamos casi una hora por los platos principales.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Also, the staff apologized and gave us the lemonades for free.",
+          "es": "Además, el personal se disculpó y nos regaló las limonadas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The service was friendly, although there were few staff for so many tables.",
+          "es": "La atención fue amable, aunque había poco personal para tantas mesas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather not mention names; the problem was organization.",
+          "es": "Prefiero no mencionar nombres; el problema fue de organización.",
+          "kind": "phrase",
+          "note": "Keeps the review fair: criticize the system, not one person."
+        },
+        {
+          "en": "I give it 4 stars for the food and the kind gesture.",
+          "es": "Le doy 4 estrellas por la comida y el buen gesto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In short, I would go back for the food, but with time to spare.",
+          "es": "En resumen, volvería por la comida, pero con tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you for your reply, Kelly; we'll gladly come back.",
+          "es": "Gracias por su respuesta, Kelly; con gusto volveremos.",
+          "kind": "phrase",
+          "note": "Formal: su respuesta suits a public reply to an owner."
+        }
+      ],
+      "speaking": "You are the diner writing a review, and the AI is Kelly, the owner, reading your draft: read out a balanced review of the fish, the long wait and how the staff fixed it, using en primer lugar, sin embargo, además and en resumen, without naming the waiter.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, sin embargo, además, en resumen)",
+        "examples": [
+          {
+            "es": "En primer lugar, el pescado estaba excelente y el arroz con coco, en su punto.",
+            "en": "First of all, the fish was excellent and the coconut rice was just right."
+          },
+          {
+            "es": "Sin embargo, la espera fue larga; además, nadie nos avisó de la demora.",
+            "en": "However, the wait was long; also, nobody told us about the delay."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Rebooking a Group Lunch by Phone and WhatsApp",
+      "objective": "Change a group booking by phone and confirm it by text, with polite requests and clear numbers.",
+      "words": [
+        {
+          "en": "the traditional Arequipa eatery",
+          "es": "la picantería",
+          "kind": "term",
+          "note": "Arequipa's classic lunch house for spicy regional dishes."
+        },
+        {
+          "en": "the booking",
+          "es": "la reserva",
+          "kind": "term",
+          "note": "Peru says la reserva; Mexico often says la reservación."
+        },
+        {
+          "en": "the number of people",
+          "es": "el número de personas",
+          "kind": "term"
+        },
+        {
+          "en": "the stuffed hot pepper",
+          "es": "el rocoto relleno",
+          "kind": "term"
+        },
+        {
+          "en": "the shrimp chowder",
+          "es": "el chupe de camarones",
+          "kind": "term"
+        },
+        {
+          "en": "the bean and cheese salad",
+          "es": "el solterito",
+          "kind": "term"
+        },
+        {
+          "en": "the bus station",
+          "es": "el terminal terrestre",
+          "kind": "term",
+          "note": "Peruvian term for the main intercity bus station."
+        },
+        {
+          "en": "the call",
+          "es": "la llamada",
+          "kind": "term"
+        },
+        {
+          "en": "the voice note",
+          "es": "el audio",
+          "kind": "term",
+          "note": "On WhatsApp, mandar un audio means to send a voice message."
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the arrival time",
+          "es": "la hora de llegada",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el adelanto",
+          "kind": "term",
+          "note": "Peruvian usage for money paid in advance."
+        },
+        {
+          "en": "the phone signal",
+          "es": "la señal",
+          "kind": "term"
+        },
+        {
+          "en": "the nephew",
+          "es": "el sobrino",
+          "kind": "term"
+        },
+        {
+          "en": "the cell phone number",
+          "es": "el número de celular",
+          "kind": "term"
+        },
+        {
+          "en": "Hello, Mrs. Rosa María, I'm calling about the booking for 8 people.",
+          "es": "Aló, señora Rosa María, la llamo por la reserva para 8 personas.",
+          "kind": "phrase",
+          "note": "Aló is how Peruvians open a phone call. Formal."
+        },
+        {
+          "en": "Would it be possible to change it to 5 people instead of 8?",
+          "es": "¿Sería posible cambiarla a 5 personas en lugar de 8?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could we arrive at 14:00 instead of 13:00?",
+          "es": "¿Podríamos llegar a las 14:00 en vez de las 13:00?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, the signal is cutting out; can you hear me well?",
+          "es": "Disculpe, se corta la señal; ¿me escucha bien?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I sent you a voice note in case the call didn't come through.",
+          "es": "Le mandé un audio por si no se escuchó la llamada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Edwin, I'm writing to confirm the booking: 5 people, 14:00.",
+          "es": "Edwin, le escribo para confirmar la reserva: 5 personas, 14:00.",
+          "kind": "phrase",
+          "note": "Formal le escribo is standard in a first business message."
+        },
+        {
+          "en": "Can you confirm whether the deposit covers the new booking?",
+          "es": "¿Me confirma si el adelanto sirve para la nueva reserva?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I look forward to your reply, thank you very much.",
+          "es": "Quedo atento a su respuesta, muchas gracias.",
+          "kind": "phrase",
+          "note": "A woman writes quedo atenta. Standard closing for texts and emails."
+        }
+      ],
+      "speaking": "You are the group organizer on a delayed bus, and the AI is Rosa María by phone, then her nephew Edwin on WhatsApp: change the booking from 8 to 5 people and one hour later with ¿sería posible...?, then confirm in writing with le escribo para confirmar and quedo atento.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿sería posible...?, le escribo para confirmar, quedo atento)",
+        "examples": [
+          {
+            "es": "¿Sería posible pasar la reserva a las 14:00?",
+            "en": "Would it be possible to move the booking to 14:00?"
+          },
+          {
+            "es": "Buenas tardes, Edwin, le escribo para confirmar el cambio; quedo atento.",
+            "en": "Good afternoon, Edwin, I'm writing to confirm the change; I look forward to your reply."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Farewell Lunch Plans with the Comedor Owner",
+      "objective": "Thank the owner after a week of lunches and set up a farewell meal with clear conditions on menu and timing.",
+      "words": [
+        {
+          "en": "the vegetable pepián",
+          "es": "el pepián de verduras",
+          "kind": "term",
+          "note": "Pepián is a Guatemalan stew; this version is made without meat."
+        },
+        {
+          "en": "the chayote",
+          "es": "el güisquil",
+          "kind": "term",
+          "note": "Guatemalan word for chayote squash."
+        },
+        {
+          "en": "the green tomatillo stew",
+          "es": "el jocón",
+          "kind": "term"
+        },
+        {
+          "en": "the chipilín tamales",
+          "es": "los tamalitos de chipilín",
+          "kind": "term"
+        },
+        {
+          "en": "the thick stew sauce",
+          "es": "el recado",
+          "kind": "term",
+          "note": "In Guatemala, el recado is the spiced sauce of a stew."
+        },
+        {
+          "en": "the Spanish school",
+          "es": "la escuela de español",
+          "kind": "term"
+        },
+        {
+          "en": "the farewell",
+          "es": "la despedida",
+          "kind": "term"
+        },
+        {
+          "en": "the classmates",
+          "es": "los compañeros de clase",
+          "kind": "term"
+        },
+        {
+          "en": "the (female) teacher",
+          "es": "la maestra",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el anticipo",
+          "kind": "term"
+        },
+        {
+          "en": "the quetzals",
+          "es": "los quetzales",
+          "kind": "term",
+          "note": "Guatemala's currency."
+        },
+        {
+          "en": "the hibiscus drink",
+          "es": "el fresco de jamaica",
+          "kind": "term",
+          "note": "In Guatemala, un fresco is a cold fruit or flower drink."
+        },
+        {
+          "en": "the gratitude",
+          "es": "el agradecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the long table",
+          "es": "la mesa larga",
+          "kind": "term"
+        },
+        {
+          "en": "Doña Marta, thank you so much for this week; everything was delicious.",
+          "es": "Doña Marta, muchas gracias por esta semana; todo estuvo delicioso.",
+          "kind": "phrase",
+          "note": "Doña plus first name is warm but respectful; keep usted."
+        },
+        {
+          "en": "We'd love to come back on Friday with the whole class.",
+          "es": "Nos encantaría volver el viernes con toda la clase.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There would be 12 of us, as long as there's room for everyone.",
+          "es": "Vendríamos 12, siempre que haya lugar para todos.",
+          "kind": "phrase",
+          "note": "Siempre que meaning as long as takes the subjunctive: haya."
+        },
+        {
+          "en": "Could you make a meatless pepián for 2 classmates?",
+          "es": "¿Podría hacer un pepián sin carne para 2 compañeros?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll order it, as long as the sauce doesn't have chicken stock.",
+          "es": "Lo pedimos, siempre y cuando el recado no lleve caldo de pollo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As long as it's ready at 13:00, we'll arrive on time.",
+          "es": "Con tal de que esté listo a las 13:00, llegamos puntuales.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If that's all right with you, we'll leave you a deposit today.",
+          "es": "Si le parece bien, le dejamos un anticipo hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It would be an honor to say goodbye here, in your comedor.",
+          "es": "Sería un honor despedirnos aquí, en su comedor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a student in a Spanish class, and the AI is Doña Marta, the comedor owner: thank her for a week of lunches and arrange a Friday farewell lunch for 12, using nos encantaría and siempre que or con tal de que with the subjunctive to set the menu and timing.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (nos encantaría volver el viernes, siempre que haya sitio para doce)",
+        "examples": [
+          {
+            "es": "Nos encantaría volver el viernes, siempre que haya lugar para 12.",
+            "en": "We'd love to come back on Friday, as long as there's room for 12."
+          },
+          {
+            "es": "Pediríamos el pepián de verduras, a menos que sea mucha molestia.",
+            "en": "We'd order the vegetable pepián, unless it's too much trouble."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: Hosting a Long Lunch Day in Valparaíso",
+      "objective": "Lead a group lunch day from menu to bill: teach, fix a problem, handle a near miss, report and review in Spanish.",
+      "words": [
+        {
+          "en": "the hill",
+          "es": "el cerro",
+          "kind": "term",
+          "note": "Valparaíso neighborhoods are named after their cerros."
+        },
+        {
+          "en": "the funicular",
+          "es": "el ascensor",
+          "kind": "term",
+          "note": "In Valparaíso, el ascensor is the hillside funicular."
+        },
+        {
+          "en": "the seafood soup",
+          "es": "la paila marina",
+          "kind": "term"
+        },
+        {
+          "en": "the conger eel soup",
+          "es": "el caldillo de congrio",
+          "kind": "term"
+        },
+        {
+          "en": "the reineta fish",
+          "es": "la reineta",
+          "kind": "term"
+        },
+        {
+          "en": "the razor clams with parmesan",
+          "es": "las machas a la parmesana",
+          "kind": "term"
+        },
+        {
+          "en": "the shellfish",
+          "es": "los crustáceos",
+          "kind": "term",
+          "note": "Crabs, shrimp and lobster; ask about both crustáceos and mariscos."
+        },
+        {
+          "en": "sold out",
+          "es": "agotado",
+          "kind": "term",
+          "note": "Agrees with the dish: la paila está agotada."
+        },
+        {
+          "en": "the waiter",
+          "es": "el garzón",
+          "kind": "term",
+          "note": "Chilean word; a female server is la garzona."
+        },
+        {
+          "en": "the shellfish-free option",
+          "es": "la opción sin mariscos",
+          "kind": "term"
+        },
+        {
+          "en": "the itemized breakdown",
+          "es": "el desglose",
+          "kind": "term"
+        },
+        {
+          "en": "separately",
+          "es": "por separado",
+          "kind": "term"
+        },
+        {
+          "en": "the suggested tip",
+          "es": "la propina sugerida",
+          "kind": "term",
+          "note": "Check the bill: many Chilean places print a suggested tip you may accept or not."
+        },
+        {
+          "en": "the complaint",
+          "es": "el reclamo",
+          "kind": "term"
+        },
+        {
+          "en": "the pisco sour",
+          "es": "el pisco sour",
+          "kind": "term"
+        },
+        {
+          "en": "Lucía, if the seafood soup is sold out, order the reineta.",
+          "es": "Lucía, si la paila marina está agotada, pide la reineta.",
+          "kind": "phrase",
+          "note": "Informal tú with a friend."
+        },
+        {
+          "en": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+          "es": "Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+          "kind": "phrase",
+          "note": "Formal usted with the server."
+        },
+        {
+          "en": "Wait, please; Sam is allergic and can't eat this.",
+          "es": "Espere, por favor; Sam es alérgico y no puede comer esto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm it with the kitchen before Sam tastes it?",
+          "es": "¿Podría confirmarlo con cocina antes de que Sam lo pruebe?",
+          "kind": "phrase",
+          "note": "Antes de que plus a new subject takes the subjunctive: pruebe."
+        },
+        {
+          "en": "Please make a note of it on the order.",
+          "es": "Le pido que lo anote en el pedido, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Patricio, is the tip included or only suggested?",
+          "es": "Patricio, ¿la propina viene incluida o es solo sugerida?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Easy, let's check the breakdown together before paying.",
+          "es": "Calma, revisemos el desglose juntos antes de pagar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In short, despite the bad moment, the team reacted very well.",
+          "es": "En resumen, a pesar del mal rato, el equipo reaccionó muy bien.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the host, and the AI plays guide Patricio, server Ignacio and your friends: lead the lunch from menu to bill and a short review, using si clauses, the subjunctive (antes de que, quiero que), usted with staff and connectors like sin embargo and en resumen.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (connectors, subjunctive, si clauses, formal and written register)",
+        "examples": [
+          {
+            "es": "Si la paila marina está agotada, les recomiendo la reineta.",
+            "en": "If the seafood soup is sold out, I recommend the reineta to you."
+          },
+          {
+            "es": "Sin embargo, pedimos que confirmen los ingredientes antes de que sirvan el plato.",
+            "en": "However, we ask that they confirm the ingredients before they serve the dish."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

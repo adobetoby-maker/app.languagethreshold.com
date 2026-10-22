@@ -1,0 +1,2858 @@
+{
+  "version": 1,
+  "module": "master-lds-missionary",
+  "baseModule": "lds-missionary",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The LDS Missionary Master 20",
+  "threshold": "By Lesson 20, you can train a new companion and hear the skill taught back, move a baptism date or refuse an improper request with care, settle a companionship conflict, report an accident or near miss calmly, and write your weekly report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.164Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explain Nightly Planning to a New Companion",
+      "objective": "Walk a new companion through nightly planning and backup plans, then hear him teach it back.",
+      "words": [
+        {
+          "en": "daily planning",
+          "es": "la planificación diaria",
+          "kind": "term",
+          "note": "Missionaries do it every night for the next day."
+        },
+        {
+          "en": "the planner",
+          "es": "la agenda",
+          "kind": "term"
+        },
+        {
+          "en": "the backup plan",
+          "es": "el plan de respaldo",
+          "kind": "term",
+          "note": "In conversation most people just say el plan B."
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the time block",
+          "es": "el bloque de tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation",
+          "es": "la cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the unexpected event",
+          "es": "el imprevisto",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation call",
+          "es": "la llamada de confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up",
+          "es": "el seguimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the priority",
+          "es": "la prioridad",
+          "kind": "term"
+        },
+        {
+          "en": "the route",
+          "es": "la ruta",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the progress",
+          "es": "el progreso",
+          "kind": "term"
+        },
+        {
+          "en": "in advance",
+          "es": "de antemano",
+          "kind": "term"
+        },
+        {
+          "en": "First we pray, then we review the planner.",
+          "es": "Primero oramos, luego revisamos la agenda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "People cancel a lot; that's why we make a plan B.",
+          "es": "La gente cancela mucho; por eso hacemos un plan B.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Even though everyone said yes, someone may cancel.",
+          "es": "Aunque todos dijeron que sí, alguien puede cancelar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After each appointment, we write down the follow-up.",
+          "es": "Después de cada cita, anotamos el seguimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then, in the morning, send them a confirmation message.",
+          "es": "Luego, en la mañana, mándales un mensaje de confirmación.",
+          "kind": "phrase",
+          "note": "Informal tú command, normal between companions."
+        },
+        {
+          "en": "If someone cancels at 6, where do we go first?",
+          "es": "Si alguien cancela a las 6, ¿adónde vamos primero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "That way we don't waste time on the street.",
+          "es": "Así no perdemos tiempo en la calle.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso a paso.",
+          "kind": "phrase",
+          "note": "Informal; the pronoun attaches to the command (explíca + me + lo)."
+        }
+      ],
+      "speaking": "You are the senior companion, and the AI is Elder Josué Ramírez on his first night in Hermosillo: walk him through nightly planning with primero, luego and después, explain backup plans with porque and por eso, then have him teach it back to you.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso hacemos un plan B)",
+        "examples": [
+          {
+            "es": "Primero oramos juntos y luego planeamos cada hora del día.",
+            "en": "First we pray together and then we plan every hour of the day."
+          },
+          {
+            "es": "Hoy todos dijeron que sí, pero mañana alguien puede cancelar; por eso hacemos un plan B.",
+            "en": "Today everyone said yes, but tomorrow someone may cancel; that's why we make a plan B."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why We Ask Questions Before We Teach",
+      "objective": "Explain why missionaries ask questions before teaching and have the district teach it back.",
+      "words": [
+        {
+          "en": "the inspired question",
+          "es": "la pregunta inspirada",
+          "kind": "term"
+        },
+        {
+          "en": "the open question",
+          "es": "la pregunta abierta",
+          "kind": "term",
+          "note": "Starts with qué, cómo or por qué, not a yes/no answer."
+        },
+        {
+          "en": "the need",
+          "es": "la necesidad",
+          "kind": "term"
+        },
+        {
+          "en": "the concern",
+          "es": "la inquietud",
+          "kind": "term"
+        },
+        {
+          "en": "the interest",
+          "es": "el interés",
+          "kind": "term"
+        },
+        {
+          "en": "the understanding",
+          "es": "el entendimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the context",
+          "es": "el contexto",
+          "kind": "term"
+        },
+        {
+          "en": "the family situation",
+          "es": "la situación familiar",
+          "kind": "term"
+        },
+        {
+          "en": "the conversation",
+          "es": "la conversación",
+          "kind": "term"
+        },
+        {
+          "en": "the script",
+          "es": "el guion",
+          "kind": "term"
+        },
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the district",
+          "es": "el distrito",
+          "kind": "term"
+        },
+        {
+          "en": "the practice role-play",
+          "es": "la práctica",
+          "kind": "term"
+        },
+        {
+          "en": "the example",
+          "es": "el ejemplo",
+          "kind": "term"
+        },
+        {
+          "en": "fast",
+          "es": "rápido",
+          "kind": "term"
+        },
+        {
+          "en": "If you ask well, the person opens up.",
+          "es": "Si se pregunta bien, la persona se abre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Here we don't teach a memorized lesson.",
+          "es": "Aquí no se enseña una lección de memoria.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right, sister, it's faster, but it doesn't always work.",
+          "es": "Tiene razón, hermana, es más rápido, pero no siempre funciona.",
+          "kind": "phrase",
+          "note": "Formal usted, common with a sister missionary in the district."
+        },
+        {
+          "en": "How do you know what the person needs?",
+          "es": "¿Cómo se sabe qué necesita la persona?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the person doesn't understand, you change the example.",
+          "es": "Si la persona no entiende, se cambia el ejemplo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What worries you about your family?",
+          "es": "¿Qué le preocupa a usted de su familia?",
+          "kind": "phrase",
+          "note": "Formal model question to an investigator."
+        },
+        {
+          "en": "Now you all practice in pairs.",
+          "es": "Ahora practiquen ustedes en parejas.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the whole district."
+        }
+      ],
+      "speaking": "You are the district leader, and the AI is Hermana Abigail Mendoza in a Tucson training: explain why missionaries ask questions before teaching, using impersonal se and si + present (si se escucha primero, se enseña…), model one inspired question, then have her teach it back.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (si se escucha primero, se enseña lo que la persona necesita)",
+        "examples": [
+          {
+            "es": "Si se escucha primero, se sabe qué principio enseñar.",
+            "en": "If you listen first, you know which principle to teach."
+          },
+          {
+            "es": "Si no se pregunta nada, se enseña a ciegas.",
+            "en": "If you don't ask anything, you teach blindly."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Coaching a New Companion's First Invitation",
+      "objective": "Coach a new companion to extend an invitation, correct him, and hear him practice it back.",
+      "words": [
+        {
+          "en": "the tone",
+          "es": "el tono",
+          "kind": "term"
+        },
+        {
+          "en": "the voice",
+          "es": "la voz",
+          "kind": "term"
+        },
+        {
+          "en": "the pause",
+          "es": "la pausa",
+          "kind": "term"
+        },
+        {
+          "en": "the silence",
+          "es": "el silencio",
+          "kind": "term"
+        },
+        {
+          "en": "eye contact",
+          "es": "el contacto visual",
+          "kind": "term"
+        },
+        {
+          "en": "the smile",
+          "es": "la sonrisa",
+          "kind": "term"
+        },
+        {
+          "en": "the rehearsal",
+          "es": "el ensayo",
+          "kind": "term"
+        },
+        {
+          "en": "the sentence",
+          "es": "la frase",
+          "kind": "term"
+        },
+        {
+          "en": "the nerves",
+          "es": "los nervios",
+          "kind": "term"
+        },
+        {
+          "en": "the promise",
+          "es": "la promesa",
+          "kind": "term"
+        },
+        {
+          "en": "the reaction",
+          "es": "la reacción",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "directly",
+          "es": "directamente",
+          "kind": "term"
+        },
+        {
+          "en": "calmly",
+          "es": "con calma",
+          "kind": "term"
+        },
+        {
+          "en": "Make it slowly, without hurrying.",
+          "es": "Hazla despacio, sin prisa.",
+          "kind": "phrase",
+          "note": "La = la invitación; informal tú command."
+        },
+        {
+          "en": "Ask him for it with a yes-or-no question.",
+          "es": "Pídeselo con una pregunta de sí o no.",
+          "kind": "phrase",
+          "note": "Le becomes se before lo: pídele + lo = pídeselo."
+        },
+        {
+          "en": "Don't rush him; let him think.",
+          "es": "No lo apresures; deja que piense.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Say it again, but slower.",
+          "es": "Dilo otra vez, pero más despacio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After asking, stay quiet and wait for him.",
+          "es": "Después de preguntar, quédate callado y espéralo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Promise him a specific blessing.",
+          "es": "Prométele una bendición específica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Relax, Elder, try it again with me.",
+          "es": "Tranquilo, Elder, inténtalo otra vez conmigo.",
+          "kind": "phrase",
+          "note": "Informal and encouraging, between companions."
+        },
+        {
+          "en": "Don Efraín, would you be willing to pray tonight?",
+          "es": "Don Efraín, ¿estaría dispuesto a orar esta noche?",
+          "kind": "phrase",
+          "note": "Formal usted, the model invitation."
+        }
+      ],
+      "speaking": "You are the senior companion, and the AI is Elder Josué Ramírez on the walk to Don Efraín's house: coach him to invite Efraín to pray, correct his wording with commands like hazla despacio, pídeselo and no lo apresures, then have him practice it on you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (hazla despacio, pídeselo, no lo apresures)",
+        "examples": [
+          {
+            "es": "Hazla despacio y no lo apresures.",
+            "en": "Make it slowly and don't rush him."
+          },
+          {
+            "es": "Pídeselo con tus propias palabras; no la leas.",
+            "en": "Ask him in your own words; don't read it."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Font Checklist Before Saturday's Baptism",
+      "objective": "Explain the ward's baptism checklist to helpers and family, including who supervises the font.",
+      "words": [
+        {
+          "en": "the baptismal font",
+          "es": "la pila bautismal",
+          "kind": "term",
+          "note": "Often just la pila."
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the water temperature",
+          "es": "la temperatura del agua",
+          "kind": "term"
+        },
+        {
+          "en": "the thermometer",
+          "es": "el termómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the supervision",
+          "es": "la supervisión",
+          "kind": "term"
+        },
+        {
+          "en": "the responsible adult",
+          "es": "el adulto responsable",
+          "kind": "term"
+        },
+        {
+          "en": "the ward mission leader",
+          "es": "el líder misional",
+          "kind": "term"
+        },
+        {
+          "en": "the baptismal service",
+          "es": "el servicio bautismal",
+          "kind": "term"
+        },
+        {
+          "en": "the baptismal clothing",
+          "es": "la ropa bautismal",
+          "kind": "term"
+        },
+        {
+          "en": "the towels",
+          "es": "las toallas",
+          "kind": "term"
+        },
+        {
+          "en": "the wet floor",
+          "es": "el piso mojado",
+          "kind": "term"
+        },
+        {
+          "en": "the water faucet",
+          "es": "la llave del agua",
+          "kind": "term",
+          "note": "In Mexico la llave means the faucet as well as the key."
+        },
+        {
+          "en": "the drain",
+          "es": "el desagüe",
+          "kind": "term"
+        },
+        {
+          "en": "the dressing room",
+          "es": "el vestidor",
+          "kind": "term"
+        },
+        {
+          "en": "the witnesses",
+          "es": "los testigos",
+          "kind": "term"
+        },
+        {
+          "en": "Before turning on the faucet, we have to talk to Brother Castillo.",
+          "es": "Antes de abrir la llave, hay que hablar con el hermano Castillo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ma'am, thank you, but the checklist says when it gets filled.",
+          "es": "Señora, se lo agradezco, pero la lista dice cuándo se llena.",
+          "kind": "phrase",
+          "note": "Formal usted with the convert's mother."
+        },
+        {
+          "en": "We never leave the children alone near the font.",
+          "es": "Nunca dejamos solos a los niños cerca de la pila.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who watches the children while we fill the font?",
+          "es": "¿Quién cuida a los niños mientras llenamos la pila?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Brother Castillo, who is going to supervise the font on Saturday?",
+          "es": "Hermano Castillo, ¿quién va a supervisar la pila el sábado?",
+          "kind": "phrase",
+          "note": "Formal usted with the ward leader."
+        },
+        {
+          "en": "Before baptizing, we have to check the water with the thermometer.",
+          "es": "Antes de bautizar, hay que medir el agua con el termómetro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What temperature does the ward checklist call for?",
+          "es": "¿Qué temperatura pide la lista del barrio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "After draining the font, we have to dry the floor.",
+          "es": "Después de vaciar la pila, hay que secar el piso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is the convert's mother in the Las Palmas ward building: read the font checklist with her and Hermano Castillo, explain each step with antes de / después de + infinitive and hay que, and confirm who supervises the font.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de llenar la pila, hay que avisar al líder)",
+        "examples": [
+          {
+            "es": "Antes de llenar la pila, hay que confirmar quién la va a supervisar.",
+            "en": "Before filling the font, we have to confirm who is going to supervise it."
+          },
+          {
+            "es": "Después de medir el agua, hay que compararla con la lista del barrio.",
+            "en": "After measuring the water, we have to compare it with the ward checklist."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Baptism Date at Risk: A Couple Not Legally Married",
+      "objective": "Explain what you learned, why the date must move, and propose a respectful new plan.",
+      "words": [
+        {
+          "en": "the civil registry",
+          "es": "el registro civil",
+          "kind": "term"
+        },
+        {
+          "en": "the marriage certificate",
+          "es": "el acta de matrimonio",
+          "kind": "term",
+          "note": "Acta is feminine but takes el in the singular: el acta, las actas."
+        },
+        {
+          "en": "the civil wedding",
+          "es": "la boda civil",
+          "kind": "term"
+        },
+        {
+          "en": "the common-law union",
+          "es": "la unión libre",
+          "kind": "term",
+          "note": "Common Mexican term for a couple living together without being legally married."
+        },
+        {
+          "en": "the marital status",
+          "es": "el estado civil",
+          "kind": "term"
+        },
+        {
+          "en": "the requirements",
+          "es": "los requisitos",
+          "kind": "term"
+        },
+        {
+          "en": "the paperwork process",
+          "es": "el trámite",
+          "kind": "term"
+        },
+        {
+          "en": "the birth certificate",
+          "es": "el acta de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the official ID",
+          "es": "la identificación oficial",
+          "kind": "term"
+        },
+        {
+          "en": "the mission president",
+          "es": "el presidente de misión",
+          "kind": "term"
+        },
+        {
+          "en": "the baptismal interview",
+          "es": "la entrevista bautismal",
+          "kind": "term"
+        },
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the couple",
+          "es": "la pareja",
+          "kind": "term"
+        },
+        {
+          "en": "understanding",
+          "es": "comprensivo",
+          "kind": "term",
+          "note": "Use comprensiva for a woman. It means understanding, not comprehensive."
+        },
+        {
+          "en": "We thought you were already legally married.",
+          "es": "Pensábamos que ya estaban casados por lo civil.",
+          "kind": "phrase",
+          "note": "Casarse por lo civil means a legal civil marriage, the usual phrase in Mexico."
+        },
+        {
+          "en": "When we found out, the baptism was already planned.",
+          "es": "Cuando lo supimos, el bautismo ya estaba planeado.",
+          "kind": "phrase",
+          "note": "Supimos (preterite of saber) means found out; sabíamos means we knew."
+        },
+        {
+          "en": "We're not judging you, Óscar; we want to help you.",
+          "es": "No lo estamos juzgando, Óscar; queremos ayudarles.",
+          "kind": "phrase",
+          "note": "Formal: usted with Óscar, ustedes for the couple."
+        },
+        {
+          "en": "We could move the date to after the civil wedding.",
+          "es": "Podríamos cambiar la fecha para después de la boda civil.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What documents did the civil registry ask you for?",
+          "es": "¿Qué documentos les pidieron en el registro civil?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The requirements can change; confirm them at the civil registry.",
+          "es": "Los requisitos pueden cambiar; confírmenlos en el registro civil.",
+          "kind": "phrase",
+          "note": "Ustedes command to the couple. Don't promise them a list of requirements yourself."
+        },
+        {
+          "en": "We would go with you, if you want.",
+          "es": "Nosotros los acompañaríamos, si ustedes quieren.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How would you feel about praying together about this plan?",
+          "es": "¿Qué les parecería si oramos juntos sobre este plan?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a missionary in Daniela and Óscar's Mexicali living room, and the AI is Óscar Peña: explain what you thought and what you learned (pensábamos que…, supimos que…), say why the baptism date must move, and propose a respectful plan with podríamos and ¿qué les parecería…?",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (pensábamos que ya estaban casados; podríamos cambiar la fecha)",
+        "examples": [
+          {
+            "es": "Pensábamos que ya estaban casados, pero ayer nos dijeron la verdad.",
+            "en": "We thought you were already married, but yesterday you told us the truth."
+          },
+          {
+            "es": "Podríamos poner una nueva fecha después de la boda civil.",
+            "en": "We could set a new date after the civil wedding."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Out of Spanish Copies: Offering the App Instead",
+      "objective": "Offer the app or a later printed copy, compare the options, and set a delivery plan.",
+      "words": [
+        {
+          "en": "the copy",
+          "es": "el ejemplar",
+          "kind": "term",
+          "note": "Ejemplar is the usual word for one copy of a book."
+        },
+        {
+          "en": "the printed copy",
+          "es": "la copia impresa",
+          "kind": "term"
+        },
+        {
+          "en": "the app",
+          "es": "la aplicación",
+          "kind": "term",
+          "note": "Many people just say la app, pronounced like \"la ap.\""
+        },
+        {
+          "en": "the Gospel Library app",
+          "es": "la Biblioteca del Evangelio",
+          "kind": "term"
+        },
+        {
+          "en": "the cell phone",
+          "es": "el celular",
+          "kind": "term"
+        },
+        {
+          "en": "the screen",
+          "es": "la pantalla",
+          "kind": "term"
+        },
+        {
+          "en": "the large print",
+          "es": "la letra grande",
+          "kind": "term"
+        },
+        {
+          "en": "the audio version",
+          "es": "la versión en audio",
+          "kind": "term"
+        },
+        {
+          "en": "the link",
+          "es": "el enlace",
+          "kind": "term"
+        },
+        {
+          "en": "the bus stop",
+          "es": "la parada del autobús",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery",
+          "es": "la entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the order",
+          "es": "el pedido",
+          "kind": "term"
+        },
+        {
+          "en": "the distribution center",
+          "es": "el centro de distribución",
+          "kind": "term"
+        },
+        {
+          "en": "the pamphlet",
+          "es": "el folleto",
+          "kind": "term"
+        },
+        {
+          "en": "the glasses",
+          "es": "los lentes",
+          "kind": "term",
+          "note": "Mexican usage for eyeglasses."
+        },
+        {
+          "en": "I'm sorry, Doña Remedios, I just gave away the last copy.",
+          "es": "Lo siento, Doña Remedios, acabo de regalar el último ejemplar.",
+          "kind": "phrase",
+          "note": "Doña plus her first name is respectful when you speak to an older woman."
+        },
+        {
+          "en": "It's true, the printed book is easier than the app.",
+          "es": "Es cierto, el libro impreso es más fácil que la app.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The app can have bigger print than the book.",
+          "es": "La app puede tener letra más grande que el libro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody is going to make you use the phone.",
+          "es": "Nadie la va a obligar a usar el teléfono.",
+          "kind": "phrase",
+          "note": "Formal: la is the object pronoun for usted when you speak to a woman."
+        },
+        {
+          "en": "We're going to bring it to you Thursday afternoon.",
+          "es": "Se lo vamos a traer el jueves en la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you going to be at home on Thursday at 4?",
+          "es": "¿Va a estar en su casa el jueves a las 4?",
+          "kind": "phrase"
+        },
+        {
+          "en": "In the meantime, I'll leave you this pamphlet with our number.",
+          "es": "Mientras tanto, le dejo este folleto con nuestro número.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Shall I show you how to listen to it in audio?",
+          "es": "¿Le enseño cómo escucharlo en audio?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a missionary at a Santa Ana bus stop, and the AI is Doña Remedios Salazar, who wants a Spanish Book of Mormon: explain you are out of copies, compare the app and a printed copy with más… que, and set a delivery plan using ir a and the future (se lo vamos a traer…).",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (el libro impreso es más fácil que la app; se lo vamos a traer el jueves)",
+        "examples": [
+          {
+            "es": "Le traeremos un ejemplar nuevo el jueves.",
+            "en": "We will bring you a new copy on Thursday."
+          },
+          {
+            "es": "La versión en audio es más cómoda que leer en la pantalla.",
+            "en": "The audio version is more comfortable than reading on the screen."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "A Police Officer Stops You After a Neighbor Calls",
+      "objective": "Narrate calmly what you did, give times, addresses and phone numbers, and call the mission office.",
+      "words": [
+        {
+          "en": "the officer",
+          "es": "el oficial",
+          "kind": "term",
+          "note": "Address him as oficial. A female officer is la oficial."
+        },
+        {
+          "en": "the patrol car",
+          "es": "la patrulla",
+          "kind": "term"
+        },
+        {
+          "en": "the report",
+          "es": "el reporte",
+          "kind": "term",
+          "note": "Usual US Spanish word for a police report."
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "the driver's license",
+          "es": "la licencia de manejo",
+          "kind": "term"
+        },
+        {
+          "en": "the mission office",
+          "es": "la oficina de la misión",
+          "kind": "term"
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the home address",
+          "es": "el domicilio",
+          "kind": "term"
+        },
+        {
+          "en": "the block",
+          "es": "la cuadra",
+          "kind": "term"
+        },
+        {
+          "en": "the apartment number",
+          "es": "el número de departamento",
+          "kind": "term"
+        },
+        {
+          "en": "the ZIP code",
+          "es": "el código postal",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "calmly",
+          "es": "tranquilamente",
+          "kind": "term"
+        },
+        {
+          "en": "Yes, officer, we'll gladly explain what we did.",
+          "es": "Sí, oficial, con gusto le explicamos lo que hicimos.",
+          "kind": "phrase",
+          "note": "Formal: always use usted with a police officer."
+        },
+        {
+          "en": "I'll hand you my ID slowly, okay?",
+          "es": "Le entrego mi identificación despacio, ¿está bien?",
+          "kind": "phrase",
+          "note": "Say what you're going to do before you reach for anything."
+        },
+        {
+          "en": "We started on this block at 3:15 in the afternoon.",
+          "es": "Empezamos en esta cuadra a las 3:15 de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We knocked on Olivo Street at 3:40.",
+          "es": "Tocamos en la calle Olivo a las 3:40.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At the house with the sign, we didn't knock.",
+          "es": "En la casa con el letrero, no tocamos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We live at 245 Palomar Street, apartment 12.",
+          "es": "Vivimos en el 245 de la calle Palomar, departamento 12.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The mission office number is 619-555-0148.",
+          "es": "El número de la oficina de la misión es 619-555-0148.",
+          "kind": "phrase",
+          "note": "Say phone numbers in pairs: seis diecinueve, cinco cincuenta y cinco, cero uno, cuarenta y ocho."
+        },
+        {
+          "en": "May I call the mission office now?",
+          "es": "¿Me permite llamar a la oficina de la misión ahora?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a missionary on a Chula Vista street, and the AI is Officer Daniel Ochoa, responding to a neighbor's call: stay calm, narrate what you did in the preterite (tocamos, hablamos, salimos), give exact times, your address and the mission office number, and ask to call the office.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (tocamos en la calle Olivo a las 3:40; el número de la oficina es...)",
+        "examples": [
+          {
+            "es": "Salimos del departamento a las 2:30 y llegamos aquí a las 3:00.",
+            "en": "We left the apartment at 2:30 and got here at 3:00."
+          },
+          {
+            "es": "Tocamos en 12 casas y hablamos con 3 personas.",
+            "en": "We knocked at 12 houses and talked with 3 people."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to a Loan and to Watching the Kids",
+      "objective": "Refuse a loan and childcare request kindly, explain why, and point to the bishop and ward help.",
+      "words": [
+        {
+          "en": "the loan",
+          "es": "el préstamo",
+          "kind": "term"
+        },
+        {
+          "en": "the rent",
+          "es": "la renta",
+          "kind": "term",
+          "note": "Usual Mexican and US Spanish word for rent."
+        },
+        {
+          "en": "the payment",
+          "es": "el pago",
+          "kind": "term"
+        },
+        {
+          "en": "the tight spot",
+          "es": "el apuro",
+          "kind": "term",
+          "note": "Estar en apuros means to be in financial or practical trouble."
+        },
+        {
+          "en": "the childcare",
+          "es": "el cuidado de niños",
+          "kind": "term"
+        },
+        {
+          "en": "the babysitter",
+          "es": "la niñera",
+          "kind": "term"
+        },
+        {
+          "en": "the daycare",
+          "es": "la guardería",
+          "kind": "term"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the mission rules",
+          "es": "las reglas de la misión",
+          "kind": "term"
+        },
+        {
+          "en": "the welfare assistance",
+          "es": "la ayuda de bienestar",
+          "kind": "term"
+        },
+        {
+          "en": "the food bank",
+          "es": "el banco de alimentos",
+          "kind": "term"
+        },
+        {
+          "en": "the ministering sisters",
+          "es": "las hermanas ministrantes",
+          "kind": "term"
+        },
+        {
+          "en": "the trusted person",
+          "es": "la persona de confianza",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "Don't worry, Karina; you're not alone in this.",
+          "es": "No se preocupe, Karina; no está sola en esto.",
+          "kind": "phrase",
+          "note": "Formal negative command: no se preocupe (usted)."
+        },
+        {
+          "en": "I'm sorry, the mission rules don't allow us to lend money.",
+          "es": "Lo siento, las reglas de la misión no nos permiten prestar dinero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend that you leave the kids with us.",
+          "es": "No recomiendo que deje a los niños con nosotros.",
+          "kind": "phrase",
+          "note": "No recomiendo que is followed by the subjunctive: deje, not deja."
+        },
+        {
+          "en": "Don't be ashamed to ask for help.",
+          "es": "No se avergüence de pedir ayuda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We can call the bishop with you today.",
+          "es": "Hoy mismo podemos llamar al obispo con usted.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there someone you trust who can watch them today?",
+          "es": "¿Hay una persona de confianza que pueda cuidarlos hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder, don't promise her anything yet; first we talk to the bishop.",
+          "es": "Elder, no le prometas nada todavía; primero hablamos con el obispo.",
+          "kind": "phrase",
+          "note": "Informal tú with your companion: no le prometas."
+        },
+        {
+          "en": "We're still on for Thursday's appointment, okay with you?",
+          "es": "Seguimos con la cita del jueves, ¿le parece?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a missionary in Karina Villalobos's El Monte apartment, and the AI is Karina, who asks you to lend rent money and watch her two kids: refuse kindly with negative commands (no se preocupe) and no recomiendo que + subjunctive, explain why, and connect her with the bishop and ward help.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no se preocupe; no recomiendo que deje a los niños con nosotros)",
+        "examples": [
+          {
+            "es": "No se preocupe; vamos a hablar con el obispo hoy.",
+            "en": "Don't worry; we're going to talk to the bishop today."
+          },
+          {
+            "es": "No recomiendo que los niños se queden solos en casa.",
+            "en": "I don't recommend that the children stay home alone."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback After a Lesson Your Companion Rushed",
+      "objective": "Give your companion specific, kind feedback on a rushed invitation and agree on a change.",
+      "words": [
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term",
+          "note": "In casual talk people also say los comentarios."
+        },
+        {
+          "en": "the suggestion",
+          "es": "la sugerencia",
+          "kind": "term"
+        },
+        {
+          "en": "the recommendation",
+          "es": "la recomendación",
+          "kind": "term"
+        },
+        {
+          "en": "the pace",
+          "es": "el ritmo",
+          "kind": "term"
+        },
+        {
+          "en": "the rush",
+          "es": "la prisa",
+          "kind": "term"
+        },
+        {
+          "en": "the pressure",
+          "es": "la presión",
+          "kind": "term"
+        },
+        {
+          "en": "the intention",
+          "es": "la intención",
+          "kind": "term"
+        },
+        {
+          "en": "the strength (strong point)",
+          "es": "el punto fuerte",
+          "kind": "term"
+        },
+        {
+          "en": "the adjustment",
+          "es": "el ajuste",
+          "kind": "term"
+        },
+        {
+          "en": "the patience",
+          "es": "la paciencia",
+          "kind": "term"
+        },
+        {
+          "en": "the humility",
+          "es": "la humildad",
+          "kind": "term"
+        },
+        {
+          "en": "companion study",
+          "es": "el estudio de compañeros",
+          "kind": "term"
+        },
+        {
+          "en": "the readiness (willingness)",
+          "es": "la disposición",
+          "kind": "term"
+        },
+        {
+          "en": "defensive",
+          "es": "defensivo",
+          "kind": "term",
+          "note": "Use defensiva for a woman: la hermana está defensiva."
+        },
+        {
+          "en": "specific",
+          "es": "específico",
+          "kind": "term"
+        },
+        {
+          "en": "Elder, I want us to talk about the appointment with Martín.",
+          "es": "Elder, quiero que hablemos de la cita con Martín.",
+          "kind": "phrase",
+          "note": "Informal: companions often use tú with each other."
+        },
+        {
+          "en": "I know your intention is good, Elder.",
+          "es": "Sé que tu intención es buena, Elder.",
+          "kind": "phrase",
+          "note": "Informal"
+        },
+        {
+          "en": "Martín still didn't really understand repentance.",
+          "es": "Martín todavía no entendía bien el arrepentimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend that you listen more before inviting.",
+          "es": "Te recomiendo que escuches más antes de invitar.",
+          "kind": "phrase",
+          "note": "Escuchar becomes escuches after te recomiendo que."
+        },
+        {
+          "en": "I'd rather we wait until Martín understands repentance.",
+          "es": "Prefiero que esperemos hasta que Martín entienda el arrepentimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't want you to feel attacked; I rush too.",
+          "es": "No quiero que te sientas atacado; yo también me apuro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I ask you to tell me when I rush too.",
+          "es": "Te pido que me digas cuando yo me apure también.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How about we practice it tomorrow in companion study?",
+          "es": "¿Qué te parece si lo ensayamos mañana en el estudio de compañeros?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the senior companion, and the AI is Elder Tomás Aguilar, who rushed Martín's baptism invitation: give specific, kind feedback with quiero que and te recomiendo que plus the subjunctive, and agree on one change for the next lesson.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que, te recomiendo que escuches más)",
+        "examples": [
+          {
+            "es": "Quiero que Martín entienda el arrepentimiento antes de la invitación.",
+            "en": "I want Martín to understand repentance before the invitation."
+          },
+          {
+            "es": "Te recomiendo que hagas una pregunta más antes de invitar.",
+            "en": "I recommend that you ask one more question before inviting."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Mediating a Companionship Conflict as District Leader",
+      "objective": "Hear both elders, report each side fairly, and guide them to a written companionship agreement.",
+      "words": [
+        {
+          "en": "the district leader",
+          "es": "el líder de distrito",
+          "kind": "term"
+        },
+        {
+          "en": "the companionship",
+          "es": "el compañerismo",
+          "kind": "term"
+        },
+        {
+          "en": "the companionship agreement",
+          "es": "el acuerdo de compañerismo",
+          "kind": "term"
+        },
+        {
+          "en": "the companionship inventory",
+          "es": "el inventario de compañerismo",
+          "kind": "term",
+          "note": "Mission term for the regular talk where companions review how they're working together."
+        },
+        {
+          "en": "the conflict",
+          "es": "el conflicto",
+          "kind": "term"
+        },
+        {
+          "en": "the disagreement",
+          "es": "el desacuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the side (of the story)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the point of view",
+          "es": "el punto de vista",
+          "kind": "term"
+        },
+        {
+          "en": "the wake-up time",
+          "es": "la hora de levantarse",
+          "kind": "term"
+        },
+        {
+          "en": "the mission phone",
+          "es": "el teléfono de la misión",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the mediation",
+          "es": "la mediación",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "impartial",
+          "es": "imparcial",
+          "kind": "term"
+        },
+        {
+          "en": "fair",
+          "es": "justo",
+          "kind": "term",
+          "note": "Feminine: justa (una solución justa)."
+        },
+        {
+          "en": "First I want to listen to each of you, without interrupting.",
+          "es": "Primero quiero escuchar a cada uno, sin interrumpir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder Cárdenas told me you always used the phone at night.",
+          "es": "Elder Cárdenas me dijo que siempre usabas el teléfono en la noche.",
+          "kind": "phrase",
+          "note": "Informal: tú between elders."
+        },
+        {
+          "en": "Elder Tuilagi told me he was very tired this week.",
+          "es": "Elder Tuilagi me contó que estaba muy cansado esta semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You both said the other one wasn't getting up on time.",
+          "es": "Los dos dijeron que el otro no se levantaba a tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Did I say it right, or did I forget something?",
+          "es": "¿Lo dije bien, o se me olvidó algo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time are you two going to get up starting tomorrow?",
+          "es": "¿A qué hora se van a levantar desde mañana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let's write the agreement, and you both sign it.",
+          "es": "Vamos a escribir el acuerdo, y los dos lo firman.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the district leader, and the AI plays Elder Iván Cárdenas and Elder Samuel Tuilagi: hear each side, retell it fairly with dijo que and me contó que plus the imperfect, and guide them to a written companionship agreement.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (dijo que siempre usaba el teléfono; me contó que estaba cansado)",
+        "examples": [
+          {
+            "es": "Elder Tuilagi dijo que Elder Cárdenas siempre usaba el teléfono.",
+            "en": "Elder Tuilagi said that Elder Cárdenas always used the phone."
+          },
+          {
+            "es": "Elder Cárdenas me contó que estaba cansado y no podía levantarse.",
+            "en": "Elder Cárdenas told me he was tired and couldn't get up."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "District Meeting After a Week of Cancellations",
+      "objective": "Train a finding idea, hear it taught back, and lead the district to concrete weekly goals.",
+      "words": [
+        {
+          "en": "the referral",
+          "es": "el referido",
+          "kind": "term",
+          "note": "Mission usage for a person a member suggests the missionaries visit."
+        },
+        {
+          "en": "the district meeting",
+          "es": "la reunión de distrito",
+          "kind": "term"
+        },
+        {
+          "en": "the branch",
+          "es": "la rama",
+          "kind": "term"
+        },
+        {
+          "en": "the branch president",
+          "es": "el presidente de rama",
+          "kind": "term"
+        },
+        {
+          "en": "the finding (looking for people to teach)",
+          "es": "la búsqueda",
+          "kind": "term"
+        },
+        {
+          "en": "the discouragement",
+          "es": "el desánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the morale (spirits)",
+          "es": "el ánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the key indicators",
+          "es": "los indicadores clave",
+          "kind": "term"
+        },
+        {
+          "en": "the friend",
+          "es": "el amigo",
+          "kind": "term"
+        },
+        {
+          "en": "the neighborhood",
+          "es": "el vecindario",
+          "kind": "term"
+        },
+        {
+          "en": "the coworker",
+          "es": "el compañero de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the role play",
+          "es": "el juego de roles",
+          "kind": "term"
+        },
+        {
+          "en": "the achievement",
+          "es": "el logro",
+          "kind": "term"
+        },
+        {
+          "en": "the challenge",
+          "es": "el reto",
+          "kind": "term"
+        },
+        {
+          "en": "concrete",
+          "es": "concreto",
+          "kind": "term",
+          "note": "Feminine: concreta (una meta concreta)."
+        },
+        {
+          "en": "I know it was a hard week, but you can do it.",
+          "es": "Sé que fue una semana difícil, pero ustedes pueden.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This week we'll visit ten branch members.",
+          "es": "Esta semana visitaremos a diez miembros de la rama.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll ask each family: who can we visit with you?",
+          "es": "Le preguntaremos a cada familia: ¿a quién podemos visitar con ustedes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sister Vega, teach us the idea as if I were a member.",
+          "es": "Hermana Vega, enséñenos la idea como si yo fuera miembro.",
+          "kind": "phrase",
+          "note": "Formal: usted command to one sister."
+        },
+        {
+          "en": "Very good, sisters! That's how you ask for a referral.",
+          "es": "¡Muy bien, hermanas! Así se pide un referido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many referrals will each companionship ask for this week?",
+          "es": "¿Cuántos referidos pedirá cada compañerismo esta semana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "On Sunday we'll count how many referrals we received.",
+          "es": "El domingo contaremos cuántos referidos recibimos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to do it together, with the Lord's help.",
+          "es": "Vamos a lograrlo juntos, con la ayuda del Señor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the district leader, and the AI plays Hermana Paola Vega and Hermana Grace Kim: train them to ask members for referrals, have them teach it back, then set concrete goals with the future (visitaremos, pediremos) and lines like ustedes pueden.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (visitaremos a diez miembros; ustedes pueden, vamos a lograrlo)",
+        "examples": [
+          {
+            "es": "El jueves visitaremos a cinco familias de la rama.",
+            "en": "On Thursday we'll visit five families in the branch."
+          },
+          {
+            "es": "Ustedes pueden; pediremos referidos en cada visita.",
+            "en": "You can do it; we'll ask for referrals at every visit."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Ward Council Night: Bishop, Youth, and a New Convert",
+      "objective": "Switch between usted and tú with a bishop, a youth, and a new convert in one evening.",
+      "words": [
+        {
+          "en": "the ward council",
+          "es": "el consejo de barrio",
+          "kind": "term"
+        },
+        {
+          "en": "the bishopric",
+          "es": "el obispado",
+          "kind": "term"
+        },
+        {
+          "en": "the new convert (woman)",
+          "es": "la nueva conversa",
+          "kind": "term",
+          "note": "For a man: el nuevo converso."
+        },
+        {
+          "en": "the fellowshipping",
+          "es": "el hermanamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the calling",
+          "es": "el llamamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the priest (Aaronic Priesthood)",
+          "es": "el presbítero",
+          "kind": "term",
+          "note": "Priesthood office for young men in the year they turn 16 and older."
+        },
+        {
+          "en": "the youth",
+          "es": "los jóvenes",
+          "kind": "term"
+        },
+        {
+          "en": "the youth activity",
+          "es": "la actividad de jóvenes",
+          "kind": "term"
+        },
+        {
+          "en": "the ministering assignment",
+          "es": "la asignación de ministración",
+          "kind": "term"
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the friendship",
+          "es": "la amistad",
+          "kind": "term"
+        },
+        {
+          "en": "the permission",
+          "es": "el permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the welcome",
+          "es": "la bienvenida",
+          "kind": "term"
+        },
+        {
+          "en": "the favor",
+          "es": "el favor",
+          "kind": "term"
+        },
+        {
+          "en": "Bishop, I'd like to ask you a favor for Sister Montes.",
+          "es": "Obispo, quisiera pedirle un favor para la hermana Montes.",
+          "kind": "phrase",
+          "note": "Formal: quisiera softens the request."
+        },
+        {
+          "en": "Could you give her a simple calling?",
+          "es": "¿Podría usted darle un llamamiento sencillo?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "Would it be all right to assign her a ministering family this week?",
+          "es": "¿Le parecería bien asignarle una familia ministrante esta semana?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "Hey, Diego, can you help me with something on Saturday?",
+          "es": "Oye, Diego, ¿me ayudas con algo el sábado?",
+          "kind": "phrase",
+          "note": "Informal: tú with a youth."
+        },
+        {
+          "en": "Can you come with us to visit Sister Montes?",
+          "es": "¿Puedes acompañarnos a visitar a la hermana Montes?",
+          "kind": "phrase",
+          "note": "Informal"
+        },
+        {
+          "en": "Ask your parents for permission, okay?",
+          "es": "Pídeles permiso a tus papás, ¿sí?",
+          "kind": "phrase",
+          "note": "Informal"
+        },
+        {
+          "en": "Sister Montes, how have you been feeling in the ward?",
+          "es": "Hermana Montes, ¿cómo se ha sentido en el barrio?",
+          "kind": "phrase",
+          "note": "Formal: usted with an adult convert."
+        },
+        {
+          "en": "Is it all right if we come by with Diego on Thursday?",
+          "es": "¿Le parece bien si pasamos con Diego el jueves?",
+          "kind": "phrase",
+          "note": "Formal"
+        }
+      ],
+      "speaking": "You are the missionary, and the AI plays Bishop Alfonso Treviño, then Diego Lara and Hermana Elvira Montes: ask each for help for the new convert, using usted and softeners like quisiera pedirle and ¿podría usted…? with adults, and tú (¿me ayudas?) with Diego.",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera pedirle, ¿podría usted...?, ¿me ayudas?)",
+        "examples": [
+          {
+            "es": "Obispo, ¿podría usted presentarla con la presidenta de la Sociedad de Socorro?",
+            "en": "Bishop, could you introduce her to the Relief Society president?"
+          },
+          {
+            "es": "Diego, ¿me ayudas a saludarla el domingo?",
+            "en": "Diego, will you help me greet her on Sunday?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Bike Crash: Reporting to the Mission Nurse",
+      "objective": "Report a bike accident to the mission nurse in clear order with times, and answer her questions.",
+      "words": [
+        {
+          "en": "the bike",
+          "es": "la bicicleta",
+          "kind": "term",
+          "note": "Informally shortened to la bici."
+        },
+        {
+          "en": "the helmet",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the car door",
+          "es": "la puerta del carro",
+          "kind": "term"
+        },
+        {
+          "en": "the driver",
+          "es": "el conductor",
+          "kind": "term",
+          "note": "La conductora if the driver is a woman."
+        },
+        {
+          "en": "the bike lane",
+          "es": "el carril de bicicletas",
+          "kind": "term"
+        },
+        {
+          "en": "the fall",
+          "es": "la caída",
+          "kind": "term"
+        },
+        {
+          "en": "the hit / the blow",
+          "es": "el golpe",
+          "kind": "term"
+        },
+        {
+          "en": "the wound",
+          "es": "la herida",
+          "kind": "term"
+        },
+        {
+          "en": "the scrape",
+          "es": "el raspón",
+          "kind": "term"
+        },
+        {
+          "en": "the swelling",
+          "es": "la hinchazón",
+          "kind": "term"
+        },
+        {
+          "en": "the dizziness",
+          "es": "el mareo",
+          "kind": "term"
+        },
+        {
+          "en": "the shoulder",
+          "es": "el hombro",
+          "kind": "term"
+        },
+        {
+          "en": "the wrist",
+          "es": "la muñeca",
+          "kind": "term"
+        },
+        {
+          "en": "the mission nurse",
+          "es": "la enfermera de la misión",
+          "kind": "term"
+        },
+        {
+          "en": "dazed",
+          "es": "aturdido",
+          "kind": "term",
+          "note": "Aturdida for a woman."
+        },
+        {
+          "en": "the emergency room",
+          "es": "la sala de urgencias",
+          "kind": "term"
+        },
+        {
+          "en": "At 4:10 we were riding our bikes down Central Avenue.",
+          "es": "A las 4:10 bajábamos en bici por la avenida Central.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As we were passing, the driver opened the car door.",
+          "es": "Mientras pasábamos, el conductor abrió la puerta del carro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At that moment, Elder Ortega hit the door and fell.",
+          "es": "En ese momento, Elder Ortega chocó con la puerta y se cayó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then he got up on his own, but he was a little dazed.",
+          "es": "Después se levantó solo, pero estaba un poco aturdido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Yes, sister, he had his helmet on the whole time.",
+          "es": "Sí, hermana, llevaba el casco puesto todo el tiempo.",
+          "kind": "phrase",
+          "note": "Formal: speaking to the nurse."
+        },
+        {
+          "en": "He has a scrape on his arm and his wrist hurts.",
+          "es": "Tiene un raspón en el brazo y le duele la muñeca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We won't give him any medicine until you tell us to.",
+          "es": "No le damos ninguna medicina hasta que usted nos diga.",
+          "kind": "phrase",
+          "note": "Formal (usted). Follow only the nurse's instructions."
+        },
+        {
+          "en": "Elder, stay seated; Sister Jensen says not to move.",
+          "es": "Elder, quédate sentado; la hermana Jensen dice que no te muevas.",
+          "kind": "phrase",
+          "note": "Informal (tú) between companions."
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is Hermana Jensen, the mission nurse: report Elder Ortega's bike crash in order with times, using a las 4:10, mientras bajábamos, en ese momento and después, then answer her questions and repeat her instructions back to her.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las 4:10, mientras bajábamos, en ese momento, después)",
+        "examples": [
+          {
+            "es": "A las 4:10, mientras bajábamos por la avenida, se abrió la puerta de un carro.",
+            "en": "At 4:10, while we were riding down the avenue, a car door opened."
+          },
+          {
+            "es": "En ese momento se cayó, y después le revisé el casco.",
+            "en": "At that moment he fell, and afterward I checked his helmet."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: Followed on the Walk Home After Dark",
+      "objective": "Talk through a near miss without blame and agree on new rules for evening appointments.",
+      "words": [
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the cause",
+          "es": "la causa",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the zone leader",
+          "es": "el líder de zona",
+          "kind": "term"
+        },
+        {
+          "en": "the evening appointment",
+          "es": "la cita de la noche",
+          "kind": "term"
+        },
+        {
+          "en": "the street lights",
+          "es": "el alumbrado público",
+          "kind": "term"
+        },
+        {
+          "en": "the stranger",
+          "es": "el desconocido",
+          "kind": "term"
+        },
+        {
+          "en": "the return time",
+          "es": "la hora de regreso",
+          "kind": "term"
+        },
+        {
+          "en": "the ride",
+          "es": "el aventón",
+          "kind": "term",
+          "note": "Mexican/US usage: pedir un aventón = ask for a ride."
+        },
+        {
+          "en": "the shortcut",
+          "es": "el atajo",
+          "kind": "term"
+        },
+        {
+          "en": "the safety measure",
+          "es": "la medida de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the dark",
+          "es": "la oscuridad",
+          "kind": "term"
+        },
+        {
+          "en": "the busy place",
+          "es": "el lugar concurrido",
+          "kind": "term"
+        },
+        {
+          "en": "the park",
+          "es": "el parque",
+          "kind": "term"
+        },
+        {
+          "en": "alert",
+          "es": "alerta",
+          "kind": "term",
+          "note": "Same form for men and women: estamos alerta."
+        },
+        {
+          "en": "It's nobody's fault; let's talk about the causes.",
+          "es": "No es culpa de nadie; hablemos de las causas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He almost caught up with us near the park.",
+          "es": "Por poco nos alcanza cerca del parque.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It could have been much worse.",
+          "es": "Podría haber sido mucho peor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We almost took the shortcut through the dark park.",
+          "es": "Casi tomamos el atajo por el parque oscuro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You did the right thing telling me we should cross the street.",
+          "es": "Hiciste bien en decirme que cruzáramos la calle.",
+          "kind": "phrase",
+          "note": "Informal (tú) to your companion."
+        },
+        {
+          "en": "If the appointment ends late, we ask a member for a ride.",
+          "es": "Si la cita termina tarde, pedimos un aventón a un miembro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If someone follows us, we go into a store and call 911.",
+          "es": "Si alguien nos sigue, entramos a una tienda y llamamos al 911.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder Morales, can we propose a return time for the zone?",
+          "es": "Elder Morales, ¿podemos proponer una hora de regreso para la zona?",
+          "kind": "phrase",
+          "note": "Missionaries address leaders as Elder + surname."
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is Elder Morales, your zone leader: talk through last night's walk home without blaming anyone, using casi, por poco and podría haber sido, and agree on new rules with si clauses like si la cita termina tarde, pedimos un aventón.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco nos alcanza; podría haber sido peor; si salimos antes, llamamos)",
+        "examples": [
+          {
+            "es": "Por poco tomamos la calle sin alumbrado.",
+            "en": "We almost took the street with no lights."
+          },
+          {
+            "es": "Si la lección se alarga, le avisamos al líder de zona.",
+            "en": "If the lesson runs long, we let the zone leader know."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Emergency in a Lesson: Calling for an Ambulance",
+      "objective": "Call emergency services, relay the dispatcher's instructions, and update mission leaders.",
+      "words": [
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the paramedics",
+          "es": "los paramédicos",
+          "kind": "term"
+        },
+        {
+          "en": "the dispatcher",
+          "es": "el operador",
+          "kind": "term",
+          "note": "La operadora if a woman answers."
+        },
+        {
+          "en": "the breathing",
+          "es": "la respiración",
+          "kind": "term"
+        },
+        {
+          "en": "the fainting spell",
+          "es": "el desmayo",
+          "kind": "term"
+        },
+        {
+          "en": "the chest",
+          "es": "el pecho",
+          "kind": "term"
+        },
+        {
+          "en": "the medications",
+          "es": "los medicamentos",
+          "kind": "term"
+        },
+        {
+          "en": "the neighborhood",
+          "es": "la colonia",
+          "kind": "term",
+          "note": "Mexico: give the colonia with every address."
+        },
+        {
+          "en": "the landmark",
+          "es": "el punto de referencia",
+          "kind": "term"
+        },
+        {
+          "en": "the front gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la línea",
+          "kind": "term",
+          "note": "Quédese en la línea = stay on the line."
+        },
+        {
+          "en": "unconscious",
+          "es": "inconsciente",
+          "kind": "term"
+        },
+        {
+          "en": "the age",
+          "es": "la edad",
+          "kind": "term"
+        },
+        {
+          "en": "the mission leaders",
+          "es": "los líderes de la misión",
+          "kind": "term"
+        },
+        {
+          "en": "CPR",
+          "es": "la reanimación cardiopulmonar",
+          "kind": "term",
+          "note": "Usually said as RCP (erre ce pe). Only as the dispatcher directs."
+        },
+        {
+          "en": "I need an ambulance; a man collapsed and isn't responding.",
+          "es": "Necesito una ambulancia; un señor se desmayó y no responde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're in the Mitras Centro neighborhood, across from an elementary school.",
+          "es": "Estamos en la colonia Mitras Centro, frente a una primaria.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He is breathing, but very slowly.",
+          "es": "Sí respira, pero muy despacio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder, the dispatcher says not to move him.",
+          "es": "Elder, dice el operador que no lo muevas.",
+          "kind": "phrase",
+          "note": "Informal (tú) to your companion."
+        },
+        {
+          "en": "Open the gate and wait outside for the paramedics.",
+          "es": "Abre el portón y espera afuera a los paramédicos.",
+          "kind": "phrase",
+          "note": "Informal command to your companion."
+        },
+        {
+          "en": "Rosa Elena, does your dad take any medication?",
+          "es": "Rosa Elena, ¿su papá toma algún medicamento?",
+          "kind": "phrase",
+          "note": "Formal (usted) to the family."
+        },
+        {
+          "en": "If anything changes, I'll tell you right away.",
+          "es": "Si cambia algo, se lo diré enseguida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "President, I'm calling because we called an ambulance during a lesson.",
+          "es": "Presidente, le hablo porque llamamos una ambulancia en una cita.",
+          "kind": "phrase",
+          "note": "Mexico: le hablo = I'm calling you."
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is the 911 dispatcher, then your companion: report the collapse and the address, relay instructions with short commands like no lo muevas and abre el portón, and promise updates with si + future, such as si cambia algo, se lo diré.",
+      "grammar": {
+        "focus": "Si + present → future; short phone commands (si no responde, se lo diré; quédese en la línea; no lo mueva)",
+        "examples": [
+          {
+            "es": "Si los paramédicos no encuentran la casa, saldré a buscarlos.",
+            "en": "If the paramedics can't find the house, I'll go out to look for them."
+          },
+          {
+            "es": "No lo mueva y quédese en la línea.",
+            "en": "Don't move him and stay on the line."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Apartment Safety Inspection with the Landlord",
+      "objective": "Walk a landlord through the apartment checklist formally and report the overdue heater service.",
+      "words": [
+        {
+          "en": "the landlord",
+          "es": "el casero",
+          "kind": "term",
+          "note": "Common Mexican/US word; formal address is señor Navarro."
+        },
+        {
+          "en": "the smoke detector",
+          "es": "el detector de humo",
+          "kind": "term"
+        },
+        {
+          "en": "the carbon monoxide detector",
+          "es": "el detector de monóxido",
+          "kind": "term"
+        },
+        {
+          "en": "the gas heater",
+          "es": "el calentador de gas",
+          "kind": "term"
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the maintenance",
+          "es": "el mantenimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the certified technician",
+          "es": "el técnico certificado",
+          "kind": "term"
+        },
+        {
+          "en": "the battery",
+          "es": "la batería",
+          "kind": "term"
+        },
+        {
+          "en": "the test button",
+          "es": "el botón de prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the fire extinguisher",
+          "es": "el extintor",
+          "kind": "term"
+        },
+        {
+          "en": "the ventilation",
+          "es": "la ventilación",
+          "kind": "term"
+        },
+        {
+          "en": "the gas smell",
+          "es": "el olor a gas",
+          "kind": "term"
+        },
+        {
+          "en": "the gas valve",
+          "es": "la válvula de gas",
+          "kind": "term"
+        },
+        {
+          "en": "the lease",
+          "es": "el contrato de arrendamiento",
+          "kind": "term"
+        },
+        {
+          "en": "overdue / expired",
+          "es": "vencido",
+          "kind": "term",
+          "note": "Agrees with the noun: el servicio vencido, la fecha vencida."
+        },
+        {
+          "en": "Mr. Navarro, may we go over the checklist with you?",
+          "es": "Señor Navarro, ¿nos permite revisar la lista con usted?",
+          "kind": "phrase",
+          "note": "Formal (usted) with the landlord."
+        },
+        {
+          "en": "According to the mission checklist, the detector is tested every month.",
+          "es": "Según la lista de la misión, se prueba el detector cada mes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The label says the last service was in March 2024.",
+          "es": "La etiqueta dice que el último servicio fue en marzo de 2024.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, but the heater maintenance is overdue.",
+          "es": "Disculpe, pero el mantenimiento del calentador está vencido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When could a certified technician come check it?",
+          "es": "¿Cuándo podría venir un técnico certificado a revisarlo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it all right if we don't use it until it's checked?",
+          "es": "¿Le parece si no lo usamos hasta que lo revisen?",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the checklist, if it smells like gas, you leave and call.",
+          "es": "Según la lista, si huele a gas, se sale y se llama.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We would appreciate a written reply, Mr. Navarro.",
+          "es": "Le agradeceríamos una respuesta por escrito, señor Navarro.",
+          "kind": "phrase",
+          "note": "Very polite formal register."
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is Señor Navarro, the landlord: walk him through the mission checklist formally with usted and passive se (se prueba, se revisa), check the smoke detector and gas heater, and report the overdue service date on the heater label.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se revisa el detector cada mes, según la lista de la misión)",
+        "examples": [
+          {
+            "es": "Según la lista de la misión, se cambian las baterías cada 6 meses.",
+            "en": "According to the mission checklist, the batteries are changed every 6 months."
+          },
+          {
+            "es": "El calentador se revisa una vez al año, según la etiqueta del fabricante.",
+            "en": "The heater is inspected once a year, according to the manufacturer's label."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Weekly Report Email to the Mission President",
+      "objective": "Write a clear weekly report email to the mission president while protecting people's privacy.",
+      "words": [
+        {
+          "en": "the weekly report",
+          "es": "el informe semanal",
+          "kind": "term"
+        },
+        {
+          "en": "the email",
+          "es": "el correo electrónico",
+          "kind": "term"
+        },
+        {
+          "en": "the subject line",
+          "es": "el asunto",
+          "kind": "term",
+          "note": "In an email, el asunto is the subject line. It also means 'matter'."
+        },
+        {
+          "en": "the recipient",
+          "es": "el destinatario",
+          "kind": "term"
+        },
+        {
+          "en": "the greeting",
+          "es": "el saludo",
+          "kind": "term",
+          "note": "Formal email greeting: Estimado presidente + last name, followed by a comma or colon."
+        },
+        {
+          "en": "the draft",
+          "es": "el borrador",
+          "kind": "term"
+        },
+        {
+          "en": "the paragraph",
+          "es": "el párrafo",
+          "kind": "term"
+        },
+        {
+          "en": "the confidentiality",
+          "es": "la confidencialidad",
+          "kind": "term"
+        },
+        {
+          "en": "the consent",
+          "es": "el consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the personal details",
+          "es": "los datos personales",
+          "kind": "term",
+          "note": "Share only what the president needs to know. A member's private matters go to the bishop."
+        },
+        {
+          "en": "the sensitive matter",
+          "es": "el tema delicado",
+          "kind": "term"
+        },
+        {
+          "en": "sincerely",
+          "es": "atentamente",
+          "kind": "term",
+          "note": "Standard formal closing before your name in a letter or email."
+        },
+        {
+          "en": "in addition",
+          "es": "además",
+          "kind": "term"
+        },
+        {
+          "en": "however",
+          "es": "sin embargo",
+          "kind": "term",
+          "note": "Written register. Put a comma after it at the start of a sentence."
+        },
+        {
+          "en": "therefore",
+          "es": "por lo tanto",
+          "kind": "term"
+        },
+        {
+          "en": "in summary",
+          "es": "en resumen",
+          "kind": "term"
+        },
+        {
+          "en": "Dear President Echeverría, here is this week's report.",
+          "es": "Estimado presidente Echeverría, le comparto el informe de esta semana.",
+          "kind": "phrase",
+          "note": "Formal written register (usted)."
+        },
+        {
+          "en": "On Saturday we baptized Rocío Lara; in addition, she was confirmed on Sunday.",
+          "es": "El sábado bautizamos a Rocío Lara; además, recibió la confirmación el domingo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, we lost two appointments to last-minute cancellations.",
+          "es": "Sin embargo, perdimos dos citas por cancelaciones de última hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, this week we will confirm each appointment a day ahead.",
+          "es": "Por lo tanto, esta semana confirmaremos cada cita un día antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A sister in the ward asked us for help with a personal matter.",
+          "es": "Una hermana del barrio nos pidió ayuda con un asunto personal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Out of respect for her privacy, I am not including the details in this email.",
+          "es": "Por respeto a su privacidad, no incluyo los detalles en este correo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder, let's take her name out; that matter is for the bishop.",
+          "es": "Elder, mejor quitemos su nombre; ese tema le toca al obispo.",
+          "kind": "phrase",
+          "note": "Said to your companion. Quitemos is a nosotros command (let's)."
+        },
+        {
+          "en": "In summary, it was a week of challenges, but with a lot of hope.",
+          "es": "En resumen, fue una semana de retos, pero con mucha esperanza.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is your companion reviewing your draft: dictate the weekly email to President Echeverría about the baptism, the lost appointments and the member's concern, using además, sin embargo, por lo tanto and en resumen, and keep private details out.",
+      "grammar": {
+        "focus": "Written register; report connectors (además, sin embargo, por lo tanto, en resumen)",
+        "examples": [
+          {
+            "es": "Además, la familia Lara nos dio dos referidos.",
+            "en": "In addition, the Lara family gave us two referrals."
+          },
+          {
+            "es": "Sin embargo, una cita se canceló; por lo tanto, la cambiamos al jueves.",
+            "en": "However, one appointment was canceled; therefore, we moved it to Thursday."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Rescheduling by Text and Voicemail on P-Day",
+      "objective": "Reschedule by text and voicemail politely and calm a member who sends an upset voice note.",
+      "words": [
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voice note",
+          "es": "la nota de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail box",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "P-day (preparation day)",
+          "es": "el día de preparación",
+          "kind": "term",
+          "note": "Missionaries often shorten it to el día P."
+        },
+        {
+          "en": "the laundromat",
+          "es": "la lavandería",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term",
+          "note": "Pedir una disculpa = to apologize."
+        },
+        {
+          "en": "the inconvenience",
+          "es": "la molestia",
+          "kind": "term",
+          "note": "Disculpe la molestia = sorry for the trouble (formal)."
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the option",
+          "es": "la opción",
+          "kind": "term"
+        },
+        {
+          "en": "the last-minute change",
+          "es": "el cambio de última hora",
+          "kind": "term"
+        },
+        {
+          "en": "the frustration",
+          "es": "la frustración",
+          "kind": "term"
+        },
+        {
+          "en": "the third time",
+          "es": "la tercera vez",
+          "kind": "term"
+        },
+        {
+          "en": "the ride",
+          "es": "el raite",
+          "kind": "term",
+          "note": "US Spanish loanword from 'ride'. Many Mexicans also say el aventón."
+        },
+        {
+          "en": "next week",
+          "es": "la próxima semana",
+          "kind": "term"
+        },
+        {
+          "en": "again",
+          "es": "de nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "Hi, Marcos, I'm writing to move our Monday appointment.",
+          "es": "Hola, Marcos, le escribo para cambiar nuestra cita del lunes.",
+          "kind": "phrase",
+          "note": "Text message, formal (usted)."
+        },
+        {
+          "en": "Could you do Tuesday at 7 instead of Monday?",
+          "es": "¿Podría el martes a las 7 en lugar del lunes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sister Ocampo, this is Elder Smith; I'd like to confirm Tuesday.",
+          "es": "Hermana Ocampo, habla Elder Smith; me gustaría confirmar el martes.",
+          "kind": "phrase",
+          "note": "Voicemail opener: habla + your name."
+        },
+        {
+          "en": "When you can, could you call me back?",
+          "es": "Cuando pueda, ¿me podría devolver la llamada?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sister Tere, you're absolutely right; I apologize.",
+          "es": "Hermana Tere, tiene toda la razón; le pido una disculpa.",
+          "kind": "phrase",
+          "note": "Formal (usted) to an older member."
+        },
+        {
+          "en": "It's the third change this week; I understand why you're upset.",
+          "es": "Es el tercer cambio esta semana; entiendo su molestia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would it be all right if we let you know two days ahead?",
+          "es": "¿Le parecería bien si le avisamos con dos días de anticipación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Elder, I'd better call the sister; a text isn't enough.",
+          "es": "Elder, mejor le marco a la hermana; un texto no basta.",
+          "kind": "phrase",
+          "note": "Informal, to your companion. Marcar = to call (Mexico)."
+        }
+      ],
+      "speaking": "You are the missionary, and the AI is Hermana Tere Ocampo, the member who drives you: leave her a voicemail and a text to move Marcos's lesson, using le escribo para..., ¿podría el martes? and me gustaría confirmar, then answer her reply politely.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría el martes?, me gustaría confirmar, le escribo para...)",
+        "examples": [
+          {
+            "es": "Le escribo para preguntarle si podría el martes a las 7.",
+            "en": "I'm writing to ask whether Tuesday at 7 would work for you."
+          },
+          {
+            "es": "Me gustaría confirmar si todavía nos podría llevar, hermana.",
+            "en": "I'd like to confirm whether you could still drive us, Sister."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Transfer Goodbye: Handing Off a Recent Convert",
+      "objective": "Introduce the new missionaries, set conditions for support, and help a convert accept the change.",
+      "words": [
+        {
+          "en": "the transfer",
+          "es": "el traslado",
+          "kind": "term",
+          "note": "Missionaries also just say el cambio for a transfer."
+        },
+        {
+          "en": "the goodbye",
+          "es": "la despedida",
+          "kind": "term"
+        },
+        {
+          "en": "the new elders",
+          "es": "los nuevos élderes",
+          "kind": "term"
+        },
+        {
+          "en": "the ministering brother",
+          "es": "el hermano ministrante",
+          "kind": "term"
+        },
+        {
+          "en": "the support",
+          "es": "el apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the condition",
+          "es": "la condición",
+          "kind": "term"
+        },
+        {
+          "en": "the consistency",
+          "es": "la constancia",
+          "kind": "term"
+        },
+        {
+          "en": "the attendance",
+          "es": "la asistencia",
+          "kind": "term"
+        },
+        {
+          "en": "the conversion",
+          "es": "la conversión",
+          "kind": "term"
+        },
+        {
+          "en": "the fear",
+          "es": "el miedo",
+          "kind": "term"
+        },
+        {
+          "en": "the sadness",
+          "es": "la tristeza",
+          "kind": "term"
+        },
+        {
+          "en": "the affection",
+          "es": "el cariño",
+          "kind": "term"
+        },
+        {
+          "en": "family home evening",
+          "es": "la noche de hogar",
+          "kind": "term"
+        },
+        {
+          "en": "faithful",
+          "es": "fiel",
+          "kind": "term"
+        },
+        {
+          "en": "as long as",
+          "es": "con tal de que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive: con tal de que vayas."
+        },
+        {
+          "en": "unless",
+          "es": "a menos que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive: a menos que estés enfermo."
+        },
+        {
+          "en": "Julio, let me introduce you to Elder Ramos and Elder Fifita.",
+          "es": "Julio, te presento a Elder Ramos y a Elder Fifita.",
+          "kind": "phrase",
+          "note": "Informal (tú), fine with a close recent convert."
+        },
+        {
+          "en": "The elders would come every week, as long as you text them.",
+          "es": "Los élderes vendrían cada semana, siempre que les mandes mensaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You'll be fine as long as you pray and read every day.",
+          "es": "Estarás bien con tal de que ores y leas cada día.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd stay if I could, but my transfer is already decided.",
+          "es": "Me quedaría si pudiera, pero mi traslado ya está decidido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your conversion is to Christ, not to a missionary.",
+          "es": "Tu conversión es con Cristo, no con un misionero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Brother Treviño, could you go to church with him on Sunday?",
+          "es": "Hermano Treviño, ¿podría acompañarlo a la iglesia el domingo?",
+          "kind": "phrase",
+          "note": "Formal (usted) to the ministering brother."
+        },
+        {
+          "en": "Don't stop coming, unless you're sick.",
+          "es": "No dejes de venir, a menos que estés enfermo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What would help you feel comfortable with them?",
+          "es": "¿Qué te ayudaría a sentirte en confianza con ellos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the departing missionary, and the AI is Hermano Julio Paredes, a recent convert: introduce the new elders and his ministering brother, set clear conditions for support with siempre que, con tal de que and the conditional, and encourage him through the change.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (te ayudarían siempre que les avises; seguirás bien con tal de que vayas)",
+        "examples": [
+          {
+            "es": "Te visitarían el martes, siempre que estés en casa.",
+            "en": "They would visit you on Tuesday, as long as you're home."
+          },
+          {
+            "es": "Vas a seguir firme con tal de que vayas a la reunión sacramental.",
+            "en": "You'll stay strong as long as you go to sacrament meeting."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Baptism Saturday That Goes Sideways",
+      "objective": "Lead a full baptism Saturday: train, solve problems, handle a fainting guest, and write the report.",
+      "words": [
+        {
+          "en": "the training",
+          "es": "el entrenamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the trainer",
+          "es": "el entrenador",
+          "kind": "term"
+        },
+        {
+          "en": "the program",
+          "es": "el programa",
+          "kind": "term"
+        },
+        {
+          "en": "the talk",
+          "es": "el discurso",
+          "kind": "term",
+          "note": "In church, dar un discurso = to give a talk."
+        },
+        {
+          "en": "the opening hymn",
+          "es": "el himno de apertura",
+          "kind": "term"
+        },
+        {
+          "en": "the substitute witness",
+          "es": "el testigo suplente",
+          "kind": "term"
+        },
+        {
+          "en": "the argument",
+          "es": "la discusión",
+          "kind": "term",
+          "note": "Discusión usually means a heated argument, not a calm discussion."
+        },
+        {
+          "en": "the solution",
+          "es": "la solución",
+          "kind": "term"
+        },
+        {
+          "en": "the cultural hall",
+          "es": "el salón cultural",
+          "kind": "term",
+          "note": "Church term for the meetinghouse's multipurpose hall."
+        },
+        {
+          "en": "the (female) guest",
+          "es": "la invitada",
+          "kind": "term"
+        },
+        {
+          "en": "emergency services",
+          "es": "el servicio de emergencias",
+          "kind": "term"
+        },
+        {
+          "en": "the fresh air",
+          "es": "el aire fresco",
+          "kind": "term"
+        },
+        {
+          "en": "conscious",
+          "es": "consciente",
+          "kind": "term"
+        },
+        {
+          "en": "the summary of the day",
+          "es": "el resumen del día",
+          "kind": "term"
+        },
+        {
+          "en": "Elder Batista, help me with the checklist; don't turn on the water yet.",
+          "es": "Elder Batista, ayúdame con la lista; no abras la llave todavía.",
+          "kind": "phrase",
+          "note": "Informal tú commands to your companion."
+        },
+        {
+          "en": "Brother Rubio, could you be a witness if the branch president approves?",
+          "es": "Hermano Rubio, ¿podría ser testigo si el presidente de rama lo aprueba?",
+          "kind": "phrase",
+          "note": "Witnesses are approved by the branch president; ask him, don't assume."
+        },
+        {
+          "en": "Sister Reyes, Brother Ibarra, I want to hear from both of you first.",
+          "es": "Hermana Reyes, hermano Ibarra, quiero escuchar a los dos primero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would it be all right if each of you has a part of the program?",
+          "es": "¿Les parecería bien si cada uno tiene una parte del programa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Brother, call 911 now; I'll stay with her.",
+          "es": "Hermano, llame al 911 ahora; yo me quedo con ella.",
+          "kind": "phrase",
+          "note": "Formal (usted) command to a member. 911 works in Mexico."
+        },
+        {
+          "en": "Elder, don't give her anything until the dispatcher tells us.",
+          "es": "Elder, no le des nada hasta que nos diga el operador.",
+          "kind": "phrase",
+          "note": "Follow the dispatcher's instructions."
+        },
+        {
+          "en": "A guest fainted; however, the paramedics took care of her right away.",
+          "es": "Una invitada se desmayó; sin embargo, los paramédicos la atendieron enseguida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You did really well today, Elder; tomorrow we'll go over what we learned.",
+          "es": "Hiciste muy bien hoy, Elder; mañana repasamos lo que aprendimos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the senior companion, and the AI plays Elder Noé Batista and the branch members: run the baptism Saturday in Ensenada, coaching Noé with tú commands, asking members for help with ¿podría...?, and dictating the night report with además, sin embargo and por lo tanto.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Si la hermana Reyes dirigiera el himno, ¿le parecería bien, hermano Ibarra?",
+            "en": "If Sister Reyes led the hymn, would that be all right with you, Brother Ibarra?"
+          },
+          {
+            "es": "Le dije a Elder Batista que se quedara con ella mientras yo llamaba al 911.",
+            "en": "I told Elder Batista to stay with her while I called 911."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

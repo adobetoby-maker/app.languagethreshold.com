@@ -1,0 +1,2921 @@
+{
+  "version": 1,
+  "module": "master-travel-airport-luggage",
+  "baseModule": "travel-airport-luggage",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Airports & Lost Luggage Master 20",
+  "threshold": "By Lesson 20, you can teach a travel companion how a connection or bag drop works, sort out a misrouted, stolen or damaged bag with staff and police, keep your group calm through delays and alarms, answer incident and customs questions formally, and write and settle a baggage claim in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.171Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Coach a First-Time Flyer Through a Bogotá Connection",
+      "objective": "Explain step by step how an international connection works and have your companion explain it back.",
+      "words": [
+        {
+          "en": "immigration control",
+          "es": "el control migratorio",
+          "kind": "term"
+        },
+        {
+          "en": "the entry stamp",
+          "es": "el sello de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage hall",
+          "es": "la sala de equipajes",
+          "kind": "term"
+        },
+        {
+          "en": "the bag-tag stub",
+          "es": "el talón de equipaje",
+          "kind": "term",
+          "note": "The stub the agent gives you at check-in; keep it until you have your bag."
+        },
+        {
+          "en": "the airport code",
+          "es": "el código del aeropuerto",
+          "kind": "term",
+          "note": "The three letters printed on the tag, such as BOG or LIM."
+        },
+        {
+          "en": "the security checkpoint",
+          "es": "el filtro de seguridad",
+          "kind": "term",
+          "note": "Common Colombian term for the security checkpoint."
+        },
+        {
+          "en": "the gate",
+          "es": "la sala",
+          "kind": "term",
+          "note": "In Colombian airports, la sala often means the departure gate."
+        },
+        {
+          "en": "the minimum connection time",
+          "es": "el tiempo mínimo de conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the signage",
+          "es": "la señalización",
+          "kind": "term"
+        },
+        {
+          "en": "the ticket",
+          "es": "el tiquete",
+          "kind": "term",
+          "note": "Colombian word for a plane ticket; boleto in most other countries."
+        },
+        {
+          "en": "the departure time",
+          "es": "la hora de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the transfer desk",
+          "es": "el mostrador de transferencias",
+          "kind": "term"
+        },
+        {
+          "en": "first",
+          "es": "primero",
+          "kind": "term"
+        },
+        {
+          "en": "that's why",
+          "es": "por eso",
+          "kind": "term"
+        },
+        {
+          "en": "meanwhile",
+          "es": "mientras tanto",
+          "kind": "term"
+        },
+        {
+          "en": "First we get the passport stamped and then we look for the baggage hall.",
+          "es": "Primero sellamos el pasaporte y luego buscamos la sala de equipajes.",
+          "kind": "phrase",
+          "note": "Using nosotros forms keeps you both in it, which sounds friendly and clear."
+        },
+        {
+          "en": "Look at the stub: it says BOG, not LIM.",
+          "es": "Mira el talón: dice BOG, no LIM.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "It isn't checked through to Lima, so we're handing it in again.",
+          "es": "No está chequeada hasta Lima, por eso la volvemos a entregar.",
+          "kind": "phrase",
+          "note": "Chequear is everyday Colombian Spanish for checking a bag."
+        },
+        {
+          "en": "After the security checkpoint, we look for the gate on the screen.",
+          "es": "Después del filtro de seguridad, buscamos la sala en la pantalla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Relax, we have plenty of time for everything.",
+          "es": "Tranquila, tenemos tiempo de sobra para todo.",
+          "kind": "phrase",
+          "note": "Informal; tranquila because you are talking to a woman."
+        },
+        {
+          "en": "Now you explain the steps to me, in order.",
+          "es": "Ahora explícame tú los pasos, en orden.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Excuse me, is this suitcase going straight through to Lima?",
+          "es": "Disculpe, ¿esta maleta va directo hasta Lima?",
+          "kind": "phrase",
+          "note": "Formal (usted), for the agent."
+        },
+        {
+          "en": "Meanwhile, keep your passport and ticket handy.",
+          "es": "Mientras tanto, ten a mano el pasaporte y el tiquete.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        }
+      ],
+      "speaking": "You are the experienced traveler, and the AI is first-time flyer Lucía Restrepo: walk her through the El Dorado connection step by step with primero, luego, después and por eso, then have her explain the steps back to you.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero pasamos migración, luego recogemos la maleta, por eso volvemos a facturar)",
+        "examples": [
+          {
+            "es": "Primero pasamos migración y luego recogemos la maleta.",
+            "en": "First we go through immigration and then we pick up the suitcase."
+          },
+          {
+            "es": "Después del sello de entrada, bajamos a la sala de equipajes.",
+            "en": "After the entry stamp, we go down to the baggage hall."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Read the Airline's Power Bank and Battery Rules",
+      "objective": "Read an airline's battery rules aloud and explain to a relative what can go in the cabin or the hold.",
+      "words": [
+        {
+          "en": "the power bank",
+          "es": "la batería externa",
+          "kind": "term",
+          "note": "In Spain people also say el powerbank."
+        },
+        {
+          "en": "the capacity",
+          "es": "la capacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the watt-hours",
+          "es": "los vatios hora",
+          "kind": "term",
+          "note": "Written Wh on the label."
+        },
+        {
+          "en": "the milliamp-hours",
+          "es": "los miliamperios hora",
+          "kind": "term",
+          "note": "Written mAh on the label."
+        },
+        {
+          "en": "the lithium battery",
+          "es": "la batería de litio",
+          "kind": "term"
+        },
+        {
+          "en": "the swollen battery",
+          "es": "la batería hinchada",
+          "kind": "term"
+        },
+        {
+          "en": "the short circuit",
+          "es": "el cortocircuito",
+          "kind": "term"
+        },
+        {
+          "en": "the electrical tape",
+          "es": "la cinta aislante",
+          "kind": "term"
+        },
+        {
+          "en": "the protective case",
+          "es": "la funda protectora",
+          "kind": "term"
+        },
+        {
+          "en": "dangerous goods",
+          "es": "las mercancías peligrosas",
+          "kind": "term"
+        },
+        {
+          "en": "the e-cigarette",
+          "es": "el cigarrillo electrónico",
+          "kind": "term"
+        },
+        {
+          "en": "the regulations",
+          "es": "la normativa",
+          "kind": "term",
+          "note": "Common in Spain for a set of official rules."
+        },
+        {
+          "en": "the section",
+          "es": "el apartado",
+          "kind": "term",
+          "note": "Used for a section of a document or web page."
+        },
+        {
+          "en": "prior approval",
+          "es": "la aprobación previa",
+          "kind": "term"
+        },
+        {
+          "en": "the cell phone",
+          "es": "el móvil",
+          "kind": "term",
+          "note": "Spain; Latin America says el celular."
+        },
+        {
+          "en": "It says here that power banks can't go in checked bags.",
+          "es": "Aquí pone que las baterías externas no se facturan.",
+          "kind": "phrase",
+          "note": "In Spain, pone means 'it says' when you're talking about written text."
+        },
+        {
+          "en": "Look, the capacity is on the label, in watt-hours.",
+          "es": "Mira, la capacidad viene en la etiqueta, en vatios hora.",
+          "kind": "phrase",
+          "note": "Informal (tú), for your nephew."
+        },
+        {
+          "en": "If the battery is swollen, it doesn't go under any circumstances.",
+          "es": "Si la batería está hinchada, no se lleva en ningún caso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, what is your airline's limit for this battery?",
+          "es": "Perdone, ¿cuál es el límite de su aerolínea para esta batería?",
+          "kind": "phrase",
+          "note": "Formal (usted). Each airline sets its own limit, so ask."
+        },
+        {
+          "en": "If it's over the limit, is prior approval needed?",
+          "es": "Si pasa del límite, ¿se necesita aprobación previa?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "If you can't read the capacity, can it still be taken?",
+          "es": "Si no se lee la capacidad, ¿se puede llevar igualmente?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "OK, so the battery goes in the backpack, with you.",
+          "es": "Vale, entonces la batería va en la mochila, contigo.",
+          "kind": "phrase",
+          "note": "Informal; vale is the everyday Spanish 'OK'."
+        }
+      ],
+      "speaking": "You are the traveling aunt or uncle, and the AI is your nephew Mateo Ibáñez, then agent Carmen Vidal: read the battery page aloud, explain what goes in the cabin or the hold using se permite, no se lleva and si + present, and ask the agent to confirm the airline's own limit.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (no se permite en bodega; si la batería está dañada, no se lleva)",
+        "examples": [
+          {
+            "es": "No se permite en bodega, según la normativa de la aerolínea.",
+            "en": "It's not allowed in the hold, according to the airline's regulations."
+          },
+          {
+            "es": "Si la batería está dañada, no se lleva en el avión.",
+            "en": "If the battery is damaged, it doesn't go on the plane."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Teach Your Mother-in-Law the Self-Service Bag Drop",
+      "objective": "Give clear step-by-step commands at a bag-drop kiosk and have your relative repeat the steps back to you.",
+      "words": [
+        {
+          "en": "the self-service kiosk",
+          "es": "el kiosco de autoservicio",
+          "kind": "term"
+        },
+        {
+          "en": "the touchscreen",
+          "es": "la pantalla táctil",
+          "kind": "term"
+        },
+        {
+          "en": "the QR code",
+          "es": "el código QR",
+          "kind": "term"
+        },
+        {
+          "en": "the scanner",
+          "es": "el escáner",
+          "kind": "term"
+        },
+        {
+          "en": "the printer",
+          "es": "la impresora",
+          "kind": "term"
+        },
+        {
+          "en": "the sticky bag tag",
+          "es": "la etiqueta adhesiva",
+          "kind": "term"
+        },
+        {
+          "en": "the backing paper",
+          "es": "el papel protector",
+          "kind": "term"
+        },
+        {
+          "en": "the handle",
+          "es": "la manija",
+          "kind": "term",
+          "note": "Common Mexican word for a suitcase handle."
+        },
+        {
+          "en": "the conveyor belt",
+          "es": "la banda transportadora",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage receipt",
+          "es": "el comprobante de equipaje",
+          "kind": "term"
+        },
+        {
+          "en": "the final destination",
+          "es": "el destino final",
+          "kind": "term"
+        },
+        {
+          "en": "the number of bags",
+          "es": "el número de piezas",
+          "kind": "term",
+          "note": "Airlines count checked bags as piezas."
+        },
+        {
+          "en": "the error message",
+          "es": "el mensaje de error",
+          "kind": "term"
+        },
+        {
+          "en": "the airline staff",
+          "es": "el personal de la aerolínea",
+          "kind": "term"
+        },
+        {
+          "en": "yet / still",
+          "es": "todavía",
+          "kind": "term",
+          "note": "With no: no todavía, 'not yet'."
+        },
+        {
+          "en": "Scan it here, with the code facing down.",
+          "es": "Escanéelo aquí, con el código hacia abajo.",
+          "kind": "phrase",
+          "note": "Formal usted command + lo (the boarding pass). Stress: es-ca-NÉ-e-lo."
+        },
+        {
+          "en": "Peel the backing paper off slowly.",
+          "es": "Quítele el papel protector despacito.",
+          "kind": "phrase",
+          "note": "Despacito is the warm, everyday Mexican way to say slowly."
+        },
+        {
+          "en": "Stick it around the handle, like this.",
+          "es": "Péguela alrededor de la manija, así.",
+          "kind": "phrase",
+          "note": "Formal; la refers to la etiqueta."
+        },
+        {
+          "en": "Hold on, don't put it on the belt yet.",
+          "es": "Espérese, no la suba todavía a la banda.",
+          "kind": "phrase",
+          "note": "Formal; espérese is the polite, everyday way to say 'wait'."
+        },
+        {
+          "en": "Keep it safe; that receipt is very important.",
+          "es": "Guárdelo bien; ese comprobante es muy importante.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Now you tell them to me, Doña Rosa, step by step.",
+          "es": "Ahora dígamelos usted, Doña Rosa, paso por paso.",
+          "kind": "phrase",
+          "note": "Formal; los refers to los pasos."
+        },
+        {
+          "en": "Excuse me, the tag shows a different final destination; can you help me?",
+          "es": "Disculpe, la etiqueta dice otro destino final; ¿me ayuda?",
+          "kind": "phrase",
+          "note": "Formal, for airline staff."
+        },
+        {
+          "en": "Could you print it for me again, please?",
+          "es": "¿Me la puede volver a imprimir, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the son- or daughter-in-law, and the AI is your mother-in-law Doña Rosa Méndez: coach her through the bag drop with usted commands that use object pronouns, like escanéelo, péguela aquí and no la empuje todavía, then have her repeat the steps back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (escanéelo, péguela aquí, no la empuje todavía)",
+        "examples": [
+          {
+            "es": "Péguela aquí, en la manija.",
+            "en": "Stick it here, on the handle."
+          },
+          {
+            "es": "No la empuje todavía; primero revisemos la etiqueta.",
+            "en": "Don't push it yet; let's check the tag first."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Fragile-Item Waiver Before You Sign It",
+      "objective": "Read a limited-liability waiver aloud, explain it to your bandmate, and ask the agent about each clause before signing.",
+      "words": [
+        {
+          "en": "the liability waiver",
+          "es": "la exoneración de responsabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the clause",
+          "es": "la cláusula",
+          "kind": "term"
+        },
+        {
+          "en": "limited liability",
+          "es": "la responsabilidad limitada",
+          "kind": "term"
+        },
+        {
+          "en": "the fine print",
+          "es": "la letra chica",
+          "kind": "term",
+          "note": "Latin American usage; Spain says la letra pequeña."
+        },
+        {
+          "en": "the cello",
+          "es": "el chelo",
+          "kind": "term"
+        },
+        {
+          "en": "the hard case",
+          "es": "el estuche rígido",
+          "kind": "term"
+        },
+        {
+          "en": "the packaging",
+          "es": "el embalaje",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-existing damage",
+          "es": "el daño preexistente",
+          "kind": "term"
+        },
+        {
+          "en": "the declared value",
+          "es": "el valor declarado",
+          "kind": "term"
+        },
+        {
+          "en": "the compensation payment",
+          "es": "la indemnización",
+          "kind": "term",
+          "note": "The formal word for money paid for a loss or damage."
+        },
+        {
+          "en": "negligence",
+          "es": "la negligencia",
+          "kind": "term"
+        },
+        {
+          "en": "the travel insurance",
+          "es": "el seguro de viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the signed copy",
+          "es": "la copia firmada",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the extra seat",
+          "es": "el asiento adicional",
+          "kind": "term"
+        },
+        {
+          "en": "Javi, before signing, we have to read every clause.",
+          "es": "Javi, antes de firmar, hay que leer cada cláusula.",
+          "kind": "phrase",
+          "note": "Informal, for your bandmate."
+        },
+        {
+          "en": "Look, it says here they don't cover damage inside the case.",
+          "es": "Mira, aquí dice que no cubren daños dentro del estuche.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Could you explain this part of the fine print to me?",
+          "es": "¿Me puede explicar esta parte de la letra chica?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Excuse me, does this clause also exclude damage caused by negligence?",
+          "es": "Disculpe, ¿esta cláusula excluye también los daños por negligencia?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Is it possible to declare a value for the instrument?",
+          "es": "¿Se puede declarar un valor para el instrumento?",
+          "kind": "phrase",
+          "note": "Formal. Ask instead of assuming: each airline has its own rules."
+        },
+        {
+          "en": "Before handing it over, let's take photos of the cello and the case.",
+          "es": "Antes de entregarlo, saquemos fotos del chelo y del estuche.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "I'd rather not sign without fully understanding this clause.",
+          "es": "Prefiero no firmar sin entender bien esta cláusula.",
+          "kind": "phrase",
+          "note": "Formal and polite, but firm."
+        },
+        {
+          "en": "After I sign, could you give me a copy, please?",
+          "es": "Después de firmar, ¿me da una copia, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the traveling musician, and the AI is agent Felipe Rojas, with bandmate Javiera Soto beside you: read the waiver aloud, explain it to Javiera, and ask Felipe about each clause before signing, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de firmar hay que leerlo todo; después de facturar, pida el comprobante)",
+        "examples": [
+          {
+            "es": "Antes de firmar, hay que leer la letra chica.",
+            "en": "Before signing, we have to read the fine print."
+          },
+          {
+            "es": "Después de despachar el chelo, pida la copia firmada.",
+            "en": "After checking the cello, ask for the signed copy."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Your Bag Went to Asunción While You Landed in Montevideo",
+      "objective": "Tell the story of the misrouting clearly and propose a forwarding plan the baggage office can accept.",
+      "words": [
+        {
+          "en": "the suitcase",
+          "es": "la valija",
+          "kind": "term",
+          "note": "Uruguay and Argentina say valija for maleta."
+        },
+        {
+          "en": "the tracing",
+          "es": "el rastreo",
+          "kind": "term"
+        },
+        {
+          "en": "the case file",
+          "es": "el expediente",
+          "kind": "term"
+        },
+        {
+          "en": "the forwarding",
+          "es": "el reenvío",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery address",
+          "es": "la dirección de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the beach town",
+          "es": "el balneario",
+          "kind": "term",
+          "note": "In Uruguay a balneario is a whole beach resort town, like Punta del Este."
+        },
+        {
+          "en": "the leg (of a trip)",
+          "es": "el tramo",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage office",
+          "es": "la oficina de equipajes",
+          "kind": "term"
+        },
+        {
+          "en": "the overnight kit",
+          "es": "el kit de cortesía",
+          "kind": "term"
+        },
+        {
+          "en": "the first available flight",
+          "es": "el primer vuelo disponible",
+          "kind": "term"
+        },
+        {
+          "en": "the stay",
+          "es": "la estadía",
+          "kind": "term",
+          "note": "Latin American usage; Spain says estancia."
+        },
+        {
+          "en": "the delivery time frame",
+          "es": "el plazo de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the long-distance bus",
+          "es": "el ómnibus",
+          "kind": "term",
+          "note": "Standard word in Uruguay for an intercity bus."
+        },
+        {
+          "en": "first thing in the morning",
+          "es": "a primera hora",
+          "kind": "term"
+        },
+        {
+          "en": "When I landed, the belt was already empty.",
+          "es": "Cuando aterricé, la cinta ya estaba vacía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At the counter they told me it was going straight to Montevideo.",
+          "es": "En el mostrador me dijeron que iba directo a Montevideo.",
+          "kind": "phrase",
+          "note": "Preterite for the single event (dijeron), imperfect for the planned route (iba)."
+        },
+        {
+          "en": "Tomorrow I leave for the coast first thing in the morning.",
+          "es": "Mañana salgo para la costa a primera hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you send it directly to my hotel in Punta del Este?",
+          "es": "¿Podrían mandarla directamente a mi hotel en Punta del Este?",
+          "kind": "phrase",
+          "note": "Formal; the conditional softens the request."
+        },
+        {
+          "en": "Which flight would it come on from Asunción?",
+          "es": "¿En qué vuelo vendría desde Asunción?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you give me the case file number, please?",
+          "es": "¿Me daría el número del expediente, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Could you give me an overnight kit for tonight?",
+          "es": "¿Me podrían dar un kit de cortesía para esta noche?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is Gonzalo Pereira, baggage agent at Carrasco: tell what happened using the preterite and imperfect (cuando aterricé, la cinta estaba vacía) and propose a forwarding plan to the coast with the conditional (¿podrían enviarla a Punta del Este?).",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (cuando aterricé, la cinta ya estaba vacía; ¿podrían enviarla a Punta del Este?)",
+        "examples": [
+          {
+            "es": "Esperé casi una hora, pero la valija no aparecía.",
+            "en": "I waited almost an hour, but the suitcase wasn't showing up."
+          },
+          {
+            "es": "¿Me avisarían por teléfono cuando llegue a Montevideo?",
+            "en": "Would you let me know by phone when it arrives in Montevideo?"
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Aircraft Swap: Your Carry-On Must Go in the Hold",
+      "objective": "Compare options after an aircraft swap and say what you'll take out of your carry-on before it is gate-checked.",
+      "words": [
+        {
+          "en": "the aircraft change",
+          "es": "el cambio de equipo",
+          "kind": "term",
+          "note": "Airline term: equipo means the aircraft type here."
+        },
+        {
+          "en": "the replacement aircraft",
+          "es": "el avión de reemplazo",
+          "kind": "term"
+        },
+        {
+          "en": "the overhead bins",
+          "es": "los compartimentos superiores",
+          "kind": "term"
+        },
+        {
+          "en": "the gate check",
+          "es": "la documentación en puerta",
+          "kind": "term",
+          "note": "Mexico: documentar = to check a bag."
+        },
+        {
+          "en": "planeside",
+          "es": "al pie del avión",
+          "kind": "term"
+        },
+        {
+          "en": "the airstairs",
+          "es": "la escalerilla",
+          "kind": "term"
+        },
+        {
+          "en": "the travel documents",
+          "es": "los documentos de viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the valuables",
+          "es": "los objetos de valor",
+          "kind": "term"
+        },
+        {
+          "en": "the fragile items",
+          "es": "los objetos frágiles",
+          "kind": "term"
+        },
+        {
+          "en": "the laptop sleeve",
+          "es": "la funda de la computadora",
+          "kind": "term"
+        },
+        {
+          "en": "the folder",
+          "es": "la carpeta",
+          "kind": "term"
+        },
+        {
+          "en": "the limited space",
+          "es": "el espacio limitado",
+          "kind": "term"
+        },
+        {
+          "en": "smaller",
+          "es": "más pequeño",
+          "kind": "term",
+          "note": "In Mexico más chico is just as common."
+        },
+        {
+          "en": "the boarding time",
+          "es": "la hora de abordaje",
+          "kind": "term"
+        },
+        {
+          "en": "the keys",
+          "es": "las llaves",
+          "kind": "term"
+        },
+        {
+          "en": "Is the replacement aircraft much smaller than the other one?",
+          "es": "¿El avión de reemplazo es mucho más pequeño que el otro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to take out the laptop and the passport before handing it over.",
+          "es": "Voy a sacar la computadora y el pasaporte antes de entregarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll keep the travel documents with me in the folder.",
+          "es": "Los documentos de viaje los llevaré conmigo en la carpeta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you going to give it back to me planeside?",
+          "es": "¿Me la van a devolver al pie del avión?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The backpack fits under the seat better than the suitcase.",
+          "es": "La mochila cabe mejor debajo del asiento que la maleta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Will I have to pay anything to gate-check it?",
+          "es": "¿Tendré que pagar algo por documentarla en puerta?",
+          "kind": "phrase",
+          "note": "Formal; ask, don't assume the policy."
+        },
+        {
+          "en": "What time will boarding be with this change?",
+          "es": "¿A qué hora será el abordaje con este cambio?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is Héctor Domínguez, gate agent in Cancún: compare the options after the aircraft change (más pequeño que, mejor que) and say what you'll take out of your carry-on with ir a and the future (voy a sacar…, la llevaré conmigo).",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (este avión es más pequeño que el otro; la maleta va a ir en bodega)",
+        "examples": [
+          {
+            "es": "Este avión es más pequeño que el otro, así que habrá menos espacio.",
+            "en": "This plane is smaller than the other one, so there will be less space."
+          },
+          {
+            "es": "La maleta va a ir en bodega, pero la computadora irá conmigo.",
+            "en": "The suitcase is going to go in the hold, but the laptop will go with me."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Bag Stolen at the Carousel: Statement to Airport Police",
+      "objective": "Give airport police a precise timeline, tag numbers and a description of a bag taken from the carousel.",
+      "words": [
+        {
+          "en": "the police report",
+          "es": "la denuncia",
+          "kind": "term",
+          "note": "Spain: poner una denuncia = to file a police report."
+        },
+        {
+          "en": "the statement",
+          "es": "la declaración",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage carousel",
+          "es": "la cinta de recogida",
+          "kind": "term"
+        },
+        {
+          "en": "the tag number",
+          "es": "el número de la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage claim stub",
+          "es": "el resguardo",
+          "kind": "term",
+          "note": "Spain usage for the stub you get at check-in."
+        },
+        {
+          "en": "the physical description",
+          "es": "la descripción física",
+          "kind": "term"
+        },
+        {
+          "en": "the hoodie",
+          "es": "la sudadera",
+          "kind": "term"
+        },
+        {
+          "en": "the cap",
+          "es": "la gorra",
+          "kind": "term"
+        },
+        {
+          "en": "the security cameras",
+          "es": "las cámaras de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the distinguishing features",
+          "es": "las señas particulares",
+          "kind": "term"
+        },
+        {
+          "en": "the contents",
+          "es": "el contenido",
+          "kind": "term"
+        },
+        {
+          "en": "the mix-up",
+          "es": "la confusión",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term"
+        },
+        {
+          "en": "the laptop",
+          "es": "el portátil",
+          "kind": "term",
+          "note": "Spain says el portátil; Latin America says la computadora portátil."
+        },
+        {
+          "en": "I want to file a police report for the theft of my suitcase.",
+          "es": "Quiero poner una denuncia por el robo de mi maleta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A man took it and headed for the exit.",
+          "es": "Un hombre la cogió y se fue hacia la salida.",
+          "kind": "phrase",
+          "note": "In Spain coger is the normal verb for take."
+        },
+        {
+          "en": "He was wearing a gray hoodie and a black cap.",
+          "es": "Llevaba una sudadera gris y una gorra negra.",
+          "kind": "phrase",
+          "note": "Describe clothing and actions, not someone's origin."
+        },
+        {
+          "en": "The tag number is IB 482915; here is the claim stub.",
+          "es": "El número de la etiqueta es IB 482915; aquí tiene el resguardo.",
+          "kind": "phrase",
+          "note": "Read codes slowly, letter by letter and in pairs of digits."
+        },
+        {
+          "en": "I didn't follow him; I chose to alert the police.",
+          "es": "No lo seguí; preferí avisar a la policía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, but it wasn't a mix-up: I saw everything.",
+          "es": "Perdone, pero no fue una confusión: yo lo vi todo.",
+          "kind": "phrase",
+          "note": "Formal, calm disagreement with the baggage agent."
+        },
+        {
+          "en": "Could you check the security cameras at carousel 7?",
+          "es": "¿Podrían revisar las cámaras de seguridad de la cinta 7?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a copy of the police report, please?",
+          "es": "¿Me dan una copia de la denuncia, por favor?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is Marta Puig, airport police officer at El Prat, with baggage agent Iker Sanz present: give your statement in the preterite (a las 14:20 la vi, un hombre la cogió), read out times and tag numbers clearly, and describe the bag and the man.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (a las 14:20 la vi en la cinta; el número de la etiqueta es...)",
+        "examples": [
+          {
+            "es": "A las 14:20 la vi en la cinta 7.",
+            "en": "At 14:20 I saw it on carousel 7."
+          },
+          {
+            "es": "Se la llevó a las 14:21 y salió por la puerta B.",
+            "en": "He took it at 14:21 and left through door B."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to Checking a Stranger's Package",
+      "objective": "Politely but firmly refuse to carry a stranger's package and tell airport staff what happened.",
+      "words": [
+        {
+          "en": "the sealed box",
+          "es": "la caja sellada",
+          "kind": "term"
+        },
+        {
+          "en": "the package",
+          "es": "el paquete",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage allowance",
+          "es": "el equipaje permitido",
+          "kind": "term"
+        },
+        {
+          "en": "the stranger",
+          "es": "el desconocido",
+          "kind": "term",
+          "note": "For a woman: la desconocida."
+        },
+        {
+          "en": "the sender",
+          "es": "el remitente",
+          "kind": "term"
+        },
+        {
+          "en": "the suspicious item",
+          "es": "el objeto sospechoso",
+          "kind": "term"
+        },
+        {
+          "en": "airport security",
+          "es": "la seguridad aeroportuaria",
+          "kind": "term"
+        },
+        {
+          "en": "the parcel shipment",
+          "es": "la encomienda",
+          "kind": "term",
+          "note": "Ecuador and much of South America: a parcel sent by bus or courier."
+        },
+        {
+          "en": "the courier company",
+          "es": "la empresa de courier",
+          "kind": "term"
+        },
+        {
+          "en": "the favor",
+          "es": "el favor",
+          "kind": "term"
+        },
+        {
+          "en": "belonging to someone else",
+          "es": "ajeno",
+          "kind": "term",
+          "note": "Equipaje ajeno = someone else's luggage."
+        },
+        {
+          "en": "no way / under no circumstances",
+          "es": "de ninguna manera",
+          "kind": "term"
+        },
+        {
+          "en": "the behavior",
+          "es": "el comportamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the security staff",
+          "es": "el personal de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the legal responsibility",
+          "es": "la responsabilidad legal",
+          "kind": "term"
+        },
+        {
+          "en": "I'm sorry, I don't carry packages for people I don't know.",
+          "es": "Lo siento, no llevo paquetes de personas que no conozco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please don't insist; my answer is no.",
+          "es": "No insista, por favor; mi respuesta es no.",
+          "kind": "phrase",
+          "note": "Formal usted command: firm but polite."
+        },
+        {
+          "en": "Please don't leave it next to my suitcases.",
+          "es": "No lo deje junto a mis maletas, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Better to send it as a parcel or with a courier company.",
+          "es": "Mejor envíelo por encomienda o con una empresa de courier.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, officer, a man asked me to carry a sealed box.",
+          "es": "Disculpe, oficial, un señor me pidió llevar una caja sellada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He said his name is Rodrigo; he's near counter 12.",
+          "es": "Dijo que se llama Rodrigo; está cerca del mostrador 12.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I just wanted to tell you what happened.",
+          "es": "Solo quería informarle lo que pasó.",
+          "kind": "phrase",
+          "note": "Formal; stick to facts, not guesses about the box."
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is Rodrigo, a friendly stranger in the Quito check-in line, then security officer Paola Andrade: refuse firmly with negative commands (no me lo dé, no insista) and report what happened using no recomiendo que + subjunctive.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no me lo dé; no recomiendo que nadie lo lleve)",
+        "examples": [
+          {
+            "es": "No me lo dé; no puedo llevarlo.",
+            "en": "Don't give it to me; I can't carry it."
+          },
+          {
+            "es": "No recomiendo que nadie lo lleve en su equipaje.",
+            "en": "I don't recommend that anyone carry it in their luggage."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback to a Supervisor on How Your Claim Was Handled",
+      "objective": "Give a supervisor balanced feedback on a baggage agent's handling and recommend what should change.",
+      "words": [
+        {
+          "en": "the supervisor",
+          "es": "la supervisora",
+          "kind": "term",
+          "note": "For a woman; for a man, el supervisor."
+        },
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term",
+          "note": "Los comentarios is also common and sounds less formal."
+        },
+        {
+          "en": "the customer treatment",
+          "es": "el trato al cliente",
+          "kind": "term"
+        },
+        {
+          "en": "the kindness",
+          "es": "la amabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the typing error",
+          "es": "el error de digitación",
+          "kind": "term",
+          "note": "Digitar means to type in much of Latin America."
+        },
+        {
+          "en": "the wrong address",
+          "es": "la dirección equivocada",
+          "kind": "term"
+        },
+        {
+          "en": "the landmark",
+          "es": "el punto de referencia",
+          "kind": "term",
+          "note": "In Panama, addresses often include a landmark near the building."
+        },
+        {
+          "en": "the district",
+          "es": "el corregimiento",
+          "kind": "term",
+          "note": "A Panamanian administrative area, used in addresses."
+        },
+        {
+          "en": "the system",
+          "es": "el sistema",
+          "kind": "term"
+        },
+        {
+          "en": "the written confirmation",
+          "es": "la confirmación por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the suggestion",
+          "es": "la sugerencia",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the check",
+          "es": "la verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "out loud",
+          "es": "en voz alta",
+          "kind": "term"
+        },
+        {
+          "en": "Ms. Castillo, do you have a moment for some feedback?",
+          "es": "Señora Castillo, ¿tiene un momento para unos comentarios?",
+          "kind": "phrase",
+          "note": "Formal: usted with a supervisor."
+        },
+        {
+          "en": "Agent Ortega was very kind and patient with me.",
+          "es": "El agente Ortega fue muy amable y paciente conmigo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "But he typed my address wrong in the system.",
+          "es": "Pero digitó mal mi dirección en el sistema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I hope they call me today to confirm the delivery.",
+          "es": "Espero que me llamen hoy para confirmar la entrega.",
+          "kind": "phrase",
+          "note": "Esperar que takes the subjunctive: llamen, not llaman."
+        },
+        {
+          "en": "I recommend that you always repeat the address out loud.",
+          "es": "Les recomiendo que siempre repitan la dirección en voz alta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I suggest the customer check the address before signing.",
+          "es": "Sugiero que el cliente revise la dirección antes de firmar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't want him punished; I just want the procedure fixed.",
+          "es": "No quiero que lo sancionen; solo que se corrija el procedimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I hope the suitcase arrives at the hotel tonight.",
+          "es": "Ojalá que la maleta llegue al hotel esta noche.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a traveler at the Tocumen baggage office, and the AI is supervisor Itzel Castillo: give balanced feedback on agent Brayan Ortega, praise his kindness, explain the address error, and recommend changes with espero que, recomiendo que and sugiero que + subjunctive.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (espero que me llamen hoy; recomiendo que el agente lea la dirección en voz alta)",
+        "examples": [
+          {
+            "es": "Espero que corrijan la dirección hoy mismo.",
+            "en": "I hope they correct the address today."
+          },
+          {
+            "es": "Recomiendo que el agente me envíe una confirmación por escrito.",
+            "en": "I recommend that the agent send me a written confirmation."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Two Agents, Two Answers: Settle a Broken Promise",
+      "objective": "Report what the first agent told you and reconcile it with the transfer desk's different answer.",
+      "words": [
+        {
+          "en": "the domestic flight",
+          "es": "el vuelo de cabotaje",
+          "kind": "term",
+          "note": "Standard term in Argentina for a domestic flight."
+        },
+        {
+          "en": "the international flight",
+          "es": "el vuelo internacional",
+          "kind": "term"
+        },
+        {
+          "en": "the bag check-in",
+          "es": "el despacho de equipaje",
+          "kind": "term",
+          "note": "In Argentina, despachar is the usual verb for checking a bag."
+        },
+        {
+          "en": "the counter employee",
+          "es": "la empleada del mostrador",
+          "kind": "term",
+          "note": "For a woman; for a man, el empleado."
+        },
+        {
+          "en": "the separate tickets",
+          "es": "los pasajes separados",
+          "kind": "term",
+          "note": "Pasaje is the usual word for a plane ticket in Argentina."
+        },
+        {
+          "en": "the booking code",
+          "es": "el código de reserva",
+          "kind": "term"
+        },
+        {
+          "en": "the bag in transit",
+          "es": "el equipaje en tránsito",
+          "kind": "term"
+        },
+        {
+          "en": "the contradiction",
+          "es": "la contradicción",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the account",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the written proof",
+          "es": "la constancia",
+          "kind": "term",
+          "note": "Common in Argentina for an official note confirming what happened."
+        },
+        {
+          "en": "the duty supervisor",
+          "es": "el supervisor de turno",
+          "kind": "term"
+        },
+        {
+          "en": "the arrivals area",
+          "es": "el sector de arribos",
+          "kind": "term",
+          "note": "Arribos and partidas appear on signs at Argentine airports."
+        },
+        {
+          "en": "the departures area",
+          "es": "el sector de partidas",
+          "kind": "term"
+        },
+        {
+          "en": "word for word",
+          "es": "textualmente",
+          "kind": "term"
+        },
+        {
+          "en": "according to her",
+          "es": "según ella",
+          "kind": "term"
+        },
+        {
+          "en": "The employee in Córdoba told me the bag was going straight through.",
+          "es": "La empleada de Córdoba me dijo que el equipaje iba directo.",
+          "kind": "phrase",
+          "note": "Reported speech: dijo que + imperfect (iba)."
+        },
+        {
+          "en": "She assured me I didn't have to collect it at Ezeiza.",
+          "es": "Me aseguró que no tenía que retirarla en Ezeiza.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There were lots of people at the counter and she was in a hurry.",
+          "es": "Había mucha gente en el mostrador y ella estaba apurada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So you're telling me I have to collect it and check it again?",
+          "es": "Entonces, ¿usted me dice que tengo que retirarla y volver a despacharla?",
+          "kind": "phrase",
+          "note": "Formal: usted with the agent."
+        },
+        {
+          "en": "How can I be told two different things?",
+          "es": "¿Cómo puede ser que me digan dos cosas distintas?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you show me what the system says about my bag?",
+          "es": "¿Me puede mostrar qué figura en el sistema sobre mi equipaje?",
+          "kind": "phrase",
+          "note": "Figurar is the usual Argentine way to say something shows up in a record."
+        },
+        {
+          "en": "If that's the case, how much time do I have before it closes?",
+          "es": "Si es así, ¿cuánto tiempo me queda antes del cierre?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me written proof of what I was told?",
+          "es": "¿Me da una constancia de lo que me informaron?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a connecting passenger at Ezeiza, and the AI is transfer agent Sebastián Ferraro: report what the Córdoba agent told you with me dijo que and the imperfect, describe the scene at check-in, and agree on what to do with your bag before the connection closes.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (la agente me dijo que la maleta iba directa; había mucha gente en el mostrador)",
+        "examples": [
+          {
+            "es": "La agente me dijo que la etiqueta llegaba hasta Madrid.",
+            "en": "The agent told me the tag went all the way to Madrid."
+          },
+          {
+            "es": "Había una fila larga y nadie revisaba los pasajes.",
+            "en": "There was a long line and nobody was checking the tickets."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keep Your Family Going Through an Overnight Delay",
+      "objective": "Make clear commitments and keep your tired family encouraged while you sort out the night with the airline.",
+      "words": [
+        {
+          "en": "the hotel shuttle",
+          "es": "el transporte del hotel",
+          "kind": "term"
+        },
+        {
+          "en": "the ready room",
+          "es": "la habitación lista",
+          "kind": "term"
+        },
+        {
+          "en": "the second room",
+          "es": "la segunda habitación",
+          "kind": "term"
+        },
+        {
+          "en": "the extra bed",
+          "es": "la cama extra",
+          "kind": "term"
+        },
+        {
+          "en": "the included breakfast",
+          "es": "el desayuno incluido",
+          "kind": "term"
+        },
+        {
+          "en": "the airport transfer",
+          "es": "el traslado al aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel voucher",
+          "es": "el voucher de hotel",
+          "kind": "term",
+          "note": "Voucher is the usual word at Ecuadorian airports and hotels."
+        },
+        {
+          "en": "the snack",
+          "es": "el refrigerio",
+          "kind": "term"
+        },
+        {
+          "en": "the pajamas",
+          "es": "la pijama",
+          "kind": "term",
+          "note": "Feminine and singular in Ecuador and most of Latin America."
+        },
+        {
+          "en": "the alarm",
+          "es": "la alarma",
+          "kind": "term"
+        },
+        {
+          "en": "the bedtime",
+          "es": "la hora de dormir",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the patience",
+          "es": "la paciencia",
+          "kind": "term"
+        },
+        {
+          "en": "almost there",
+          "es": "ya casi",
+          "kind": "term"
+        },
+        {
+          "en": "little by little",
+          "es": "poco a poco",
+          "kind": "term"
+        },
+        {
+          "en": "brave",
+          "es": "valiente",
+          "kind": "term"
+        },
+        {
+          "en": "We're almost there, kids; you're doing really well.",
+          "es": "Ya casi llegamos, chicos; lo están haciendo súper bien.",
+          "kind": "phrase",
+          "note": "Informal: speaking to your own children."
+        },
+        {
+          "en": "Tomorrow we'll have breakfast early and then go back to the airport.",
+          "es": "Mañana desayunaremos temprano y luego volveremos al aeropuerto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I promise you'll sleep in a real bed tonight.",
+          "es": "Te prometo que esta noche dormirás en una cama de verdad.",
+          "kind": "phrase",
+          "note": "Informal: tú with a child."
+        },
+        {
+          "en": "Elena, I'll talk to the hotel; you rest with the kids.",
+          "es": "Elena, yo hablaré con el hotel; tú descansa con los niños.",
+          "kind": "phrase",
+          "note": "Informal: tú with your partner."
+        },
+        {
+          "en": "Mr. Mora, when will the second room be ready?",
+          "es": "Señor Mora, ¿cuándo estará lista la segunda habitación?",
+          "kind": "phrase",
+          "note": "Formal: usted with the desk clerk."
+        },
+        {
+          "en": "For now, could you add an extra bed in this room?",
+          "es": "Por ahora, ¿podría agregar una cama extra en esta habitación?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Sara, you're very brave; it's not much longer now.",
+          "es": "Sara, eres muy valiente; ya falta poquito.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll set the alarm for 6 so we don't miss the transfer.",
+          "es": "Pondré la alarma a las 6 para no perder el traslado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a parent in the Guayaquil hotel shuttle line, and the AI plays your tired family and the hotel desk clerk: make clear promises with the future (dormiremos, desayunaremos), keep everyone going with ya casi and lo están haciendo muy bien, and sort out the night's rooms.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana desayunaremos temprano; ya casi, lo están haciendo muy bien)",
+        "examples": [
+          {
+            "es": "Mañana desayunaremos temprano y saldremos a las 7.",
+            "en": "Tomorrow we'll have breakfast early and leave at 7."
+          },
+          {
+            "es": "Yo cargaré las mochilas; ustedes solo caminarán conmigo.",
+            "en": "I'll carry the backpacks; you'll just walk with me."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Missed Connection, Four Listeners, Four Registers",
+      "objective": "Explain the same missed connection to an agent, a supervisor, your friend and your host, switching tú and usted.",
+      "words": [
+        {
+          "en": "the domestic flight",
+          "es": "el vuelo nacional",
+          "kind": "term"
+        },
+        {
+          "en": "the rebooking",
+          "es": "la reprogramación",
+          "kind": "term"
+        },
+        {
+          "en": "the exception",
+          "es": "la excepción",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "la demora",
+          "kind": "term"
+        },
+        {
+          "en": "the authorization",
+          "es": "la autorización",
+          "kind": "term"
+        },
+        {
+          "en": "the final decision",
+          "es": "la decisión final",
+          "kind": "term"
+        },
+        {
+          "en": "the host",
+          "es": "la anfitriona",
+          "kind": "term",
+          "note": "For a woman; for a man, el anfitrión."
+        },
+        {
+          "en": "the change of plans",
+          "es": "el cambio de planes",
+          "kind": "term"
+        },
+        {
+          "en": "the extra night",
+          "es": "la noche extra",
+          "kind": "term"
+        },
+        {
+          "en": "the inconvenience",
+          "es": "la molestia",
+          "kind": "term"
+        },
+        {
+          "en": "the late arrival",
+          "es": "la llegada tardía",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. (title of respect)",
+          "es": "don",
+          "kind": "term",
+          "note": "Used before a first name: don Esteban. For a woman, doña."
+        },
+        {
+          "en": "dude",
+          "es": "mae",
+          "kind": "term",
+          "note": "Costa Rican slang between friends only; never with staff."
+        },
+        {
+          "en": "with all due respect",
+          "es": "con todo respeto",
+          "kind": "term"
+        },
+        {
+          "en": "in advance",
+          "es": "de antemano",
+          "kind": "term"
+        },
+        {
+          "en": "I'd like to explain what happened with my connection, please.",
+          "es": "Quisiera explicarle lo que pasó con mi conexión, por favor.",
+          "kind": "phrase",
+          "note": "Formal: quisiera softens a request to an agent."
+        },
+        {
+          "en": "Would you mind checking if there's room on the afternoon flight?",
+          "es": "¿Le importaría revisar si hay espacio en el vuelo de la tarde?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Don Esteban, with all due respect, the delay wasn't my fault.",
+          "es": "Don Esteban, con todo respeto, la demora no fue culpa mía.",
+          "kind": "phrase",
+          "note": "Formal: with a supervisor."
+        },
+        {
+          "en": "Would it be possible to make an exception this time?",
+          "es": "¿Sería posible hacer una excepción por esta vez?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Hey, Kenji, can you do me a favor and watch the suitcases?",
+          "es": "Oye, Kenji, ¿me haces un favor y cuidas las maletas?",
+          "kind": "phrase",
+          "note": "Informal: tú with a friend."
+        },
+        {
+          "en": "Dude, we missed the flight, but they're rebooking us now.",
+          "es": "Mae, perdimos el vuelo, pero ya nos están reprogramando.",
+          "kind": "phrase",
+          "note": "Informal Costa Rican slang."
+        },
+        {
+          "en": "Marisol, sorry for the trouble: we'll arrive tomorrow instead of today.",
+          "es": "Marisol, perdona la molestia: llegaremos mañana en vez de hoy.",
+          "kind": "phrase",
+          "note": "Informal; switch to usted (perdone) if your host uses usted with you."
+        },
+        {
+          "en": "Thank you in advance for your help, don Esteban.",
+          "es": "Gracias de antemano por su ayuda, don Esteban.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are a traveler at San José's airport, and the AI plays agent Andrea Vargas, supervisor Don Esteban Quirós, your friend Kenji and your host Marisol: explain the missed flight to each, using usted with quisiera and ¿le importaría...? and tú with oye and ¿me haces un favor?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿le importaría...?, oye, ¿me haces un favor?)",
+        "examples": [
+          {
+            "es": "Disculpe, ¿le importaría llamar a su supervisor?",
+            "en": "Excuse me, would you mind calling your supervisor?"
+          },
+          {
+            "es": "Oye, Kenji, ¿me pasas mi pasaporte?",
+            "en": "Hey, Kenji, can you pass me my passport?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Hurt by a Falling Bag: The Onboard Incident Report",
+      "objective": "Narrate exactly when and how a bag fell from the bin and complete the crew's incident report.",
+      "words": [
+        {
+          "en": "the overhead bin",
+          "es": "el portaequipajes",
+          "kind": "term",
+          "note": "Common in Spain for the cabin's overhead bin."
+        },
+        {
+          "en": "the cabin bag",
+          "es": "la maleta de cabina",
+          "kind": "term"
+        },
+        {
+          "en": "the landing",
+          "es": "el aterrizaje",
+          "kind": "term"
+        },
+        {
+          "en": "the taxiing",
+          "es": "el rodaje",
+          "kind": "term"
+        },
+        {
+          "en": "the seat-belt sign",
+          "es": "la señal de cinturones",
+          "kind": "term"
+        },
+        {
+          "en": "the shoulder",
+          "es": "el hombro",
+          "kind": "term"
+        },
+        {
+          "en": "the blow",
+          "es": "el golpe",
+          "kind": "term"
+        },
+        {
+          "en": "the bruise",
+          "es": "el moratón",
+          "kind": "term",
+          "note": "Spain. In Latin America people say el moretón."
+        },
+        {
+          "en": "the swelling",
+          "es": "la hinchazón",
+          "kind": "term"
+        },
+        {
+          "en": "the dizziness",
+          "es": "el mareo",
+          "kind": "term"
+        },
+        {
+          "en": "the ice pack",
+          "es": "la bolsa de hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el parte de incidencias",
+          "kind": "term",
+          "note": "El parte is masculine. Spain's usual word for an official written report."
+        },
+        {
+          "en": "the purser (female)",
+          "es": "la jefa de cabina",
+          "kind": "term",
+          "note": "For a man, el jefe de cabina."
+        },
+        {
+          "en": "the medical service",
+          "es": "el servicio médico",
+          "kind": "term"
+        },
+        {
+          "en": "a few seconds later",
+          "es": "a los pocos segundos",
+          "kind": "term"
+        },
+        {
+          "en": "Right after landing, the man in front opened the overhead bin.",
+          "es": "Justo después de aterrizar, el señor de delante abrió el portaequipajes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A few seconds later, a bag fell on his shoulder.",
+          "es": "A los pocos segundos, una maleta le cayó en el hombro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We were still taxiing and the seat-belt sign was still on.",
+          "es": "Todavía estábamos rodando y la señal de cinturones seguía encendida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doctor, first his shoulder hurt and then he got dizzy.",
+          "es": "Doctor, primero le dolió el hombro y luego se mareó.",
+          "kind": "phrase",
+          "note": "Formal: speaking to the medic."
+        },
+        {
+          "en": "Daniel, don't move your arm until the doctor sees you.",
+          "es": "Daniel, no muevas el brazo hasta que te vea el médico.",
+          "kind": "phrase",
+          "note": "Informal: tú with a friend."
+        },
+        {
+          "en": "I didn't see exactly who opened it; I don't want to make anything up.",
+          "es": "No vi quién lo abrió exactamente; no quiero inventar nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a copy of the incident report, please?",
+          "es": "¿Me puede dar una copia del parte de incidencias, por favor?",
+          "kind": "phrase",
+          "note": "Formal: to the purser."
+        }
+      ],
+      "speaking": "You are the passenger, and the AI is purser Begoña Larrañaga, then Dr. Luis Herrero: tell exactly what happened to Daniel, in order, using time markers like justo después de aterrizar, a los pocos segundos and mientras tanto, and check the incident report.",
+      "grammar": {
+        "focus": "Past narration with time markers (justo después de aterrizar, a los pocos segundos, mientras tanto)",
+        "examples": [
+          {
+            "es": "Justo después de aterrizar, se abrió el portaequipajes de la fila 14.",
+            "en": "Right after landing, the overhead bin in row 14 opened."
+          },
+          {
+            "es": "Mientras tanto, la jefa de cabina trajo una bolsa de hielo.",
+            "en": "Meanwhile, the purser brought an ice pack."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss at the Carousel: Talk It Through Without Blame",
+      "objective": "Describe what almost happened at the baggage belt and agree on a fix with staff without blaming anyone.",
+      "words": [
+        {
+          "en": "the safety guard",
+          "es": "la guarda de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the sleeve",
+          "es": "la manga",
+          "kind": "term"
+        },
+        {
+          "en": "the gap",
+          "es": "el hueco",
+          "kind": "term"
+        },
+        {
+          "en": "the edge",
+          "es": "el borde",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency stop button",
+          "es": "el botón de paro",
+          "kind": "term",
+          "note": "Mexico says paro; other countries may say parada."
+        },
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term",
+          "note": "Safety staff in Mexico also say el cuasiaccidente."
+        },
+        {
+          "en": "the unsafe condition",
+          "es": "la condición insegura",
+          "kind": "term"
+        },
+        {
+          "en": "the caution tape",
+          "es": "la cinta de precaución",
+          "kind": "term"
+        },
+        {
+          "en": "the maintenance staff",
+          "es": "el personal de mantenimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective action",
+          "es": "la medida correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the teenager (female)",
+          "es": "la adolescente",
+          "kind": "term",
+          "note": "For a boy, el adolescente."
+        },
+        {
+          "en": "almost",
+          "es": "por poco",
+          "kind": "term",
+          "note": "Por poco usually takes the present tense for a past event: por poco se cae."
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "Her sleeve almost got caught in the gap.",
+          "es": "Por poco se le atora la manga en el hueco.",
+          "kind": "phrase",
+          "note": "Atorarse (to get caught/stuck) is the everyday Mexican verb."
+        },
+        {
+          "en": "If she hadn't shouted, she could have fallen onto the belt.",
+          "es": "Si no hubiera gritado, podría haberse caído sobre la banda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Cervantes, the safety guard is missing here.",
+          "es": "Señor Cervantes, aquí falta la guarda de seguridad.",
+          "kind": "phrase",
+          "note": "Formal: to the supervisor."
+        },
+        {
+          "en": "I'm not looking for someone to blame; I want it not to happen to anyone else.",
+          "es": "No busco culpables; quiero que no le pase a nadie más.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you tape off this area until maintenance comes?",
+          "es": "¿Podrían acordonar esta parte hasta que venga mantenimiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sir, I understand your anger, but what matters is that it gets fixed.",
+          "es": "Señor, entiendo su enojo, pero lo importante es que se arregle.",
+          "kind": "phrase",
+          "note": "Formal: to Ximena's father."
+        },
+        {
+          "en": "Ximena, are you OK? You almost got hurt, but it's over now.",
+          "es": "Ximena, ¿estás bien? Casi te lastimas, pero ya pasó.",
+          "kind": "phrase",
+          "note": "Informal: tú with the teenager."
+        },
+        {
+          "en": "Where is the emergency stop button, in case it happens again?",
+          "es": "¿Dónde está el botón de paro, por si vuelve a pasar?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is ground supervisor Raúl Cervantes: describe what almost happened to Ximena with casi, por poco and podría haber, use si clauses like si no hubiera gritado, and agree on a fix without blaming anyone.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco se le atrapa la manga; si no hubiera gritado, podría haberse caído)",
+        "examples": [
+          {
+            "es": "Por poco se lastima; la manga ya estaba en el hueco.",
+            "en": "She almost got hurt; her sleeve was already in the gap."
+          },
+          {
+            "es": "Si la guarda hubiera estado puesta, no habría pasado nada.",
+            "en": "If the guard had been in place, nothing would have happened."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Terminal Alarm: Call Your Group to the Meeting Point",
+      "objective": "Follow staff instructions during a terminal evacuation and give short, clear phone commands to your group.",
+      "words": [
+        {
+          "en": "the evacuation",
+          "es": "la evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency exit",
+          "es": "la salida de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de encuentro",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation route",
+          "es": "la ruta de evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation warden",
+          "es": "el brigadista",
+          "kind": "term",
+          "note": "For a woman, la brigadista. Common word in Colombia for trained emergency staff."
+        },
+        {
+          "en": "the stairs",
+          "es": "las escaleras",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el ascensor",
+          "kind": "term"
+        },
+        {
+          "en": "the smoke",
+          "es": "el humo",
+          "kind": "term"
+        },
+        {
+          "en": "the reflective vest",
+          "es": "el chaleco reflectivo",
+          "kind": "term",
+          "note": "Colombia says reflectivo; other countries may say reflectante."
+        },
+        {
+          "en": "the parking lot",
+          "es": "el parqueadero",
+          "kind": "term",
+          "note": "Colombian usage."
+        },
+        {
+          "en": "the food court",
+          "es": "la zona de comidas",
+          "kind": "term"
+        },
+        {
+          "en": "outside",
+          "es": "afuera",
+          "kind": "term"
+        },
+        {
+          "en": "right now",
+          "es": "ya",
+          "kind": "term",
+          "note": "In a command, ya means immediately: sal ya."
+        },
+        {
+          "en": "the staff's instruction",
+          "es": "la orden del personal",
+          "kind": "term"
+        },
+        {
+          "en": "Camilo, get out now through the nearest emergency exit.",
+          "es": "Camilo, sal ya por la salida de emergencia más cercana.",
+          "kind": "phrase",
+          "note": "Informal: tú with a friend."
+        },
+        {
+          "en": "Don't take the suitcase; leave it where it is.",
+          "es": "No tomes la maleta; déjala donde está.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Valentina, don't use the elevator; go down the stairs.",
+          "es": "Valentina, no uses el ascensor; baja por las escaleras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you don't see me, I'll wait for you next to the warden.",
+          "es": "Si no me ves, te esperaré al lado del brigadista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, which way is the meeting point?",
+          "es": "Disculpe, ¿hacia dónde queda el punto de encuentro?",
+          "kind": "phrase",
+          "note": "Formal: to staff."
+        },
+        {
+          "en": "Follow the people in reflective vests and don't go back.",
+          "es": "Sigue a la gente del chaleco reflectivo y no te devuelvas.",
+          "kind": "phrase",
+          "note": "Devolverse (to go back) is everyday Colombian usage."
+        },
+        {
+          "en": "Let me know as soon as you're outside, OK?",
+          "es": "Avísame apenas estés afuera, ¿listo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ms. Arango, all three of us are here now.",
+          "es": "Señora Arango, ya estamos los tres completos.",
+          "kind": "phrase",
+          "note": "Formal: to the staff member."
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is staff member Yesenia Arango, then friends Camilo and Valentina by phone: follow her instructions, then guide each friend to the assembly point with short commands (sal ya, no tomes la maleta) and si clauses (si no me ves, te esperaré afuera).",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si no me ves, te esperaré afuera; sal ya, no tomes la maleta)",
+        "examples": [
+          {
+            "es": "Si no contestas, te llamaré otra vez en un minuto.",
+            "en": "If you don't answer, I'll call you again in a minute."
+          },
+          {
+            "es": "Sal ya y no regreses por la mochila.",
+            "en": "Get out now and don't go back for the backpack."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Secondary Customs Inspection: Explain Your Gear",
+      "objective": "Answer a customs officer formally, explain your declaration form, and describe what was declared and why.",
+      "words": [
+        {
+          "en": "the red channel (physical inspection)",
+          "es": "el canal rojo",
+          "kind": "term",
+          "note": "In Peru, red means your bags will be physically inspected."
+        },
+        {
+          "en": "the drone",
+          "es": "el dron",
+          "kind": "term"
+        },
+        {
+          "en": "the camera gear",
+          "es": "el equipo fotográfico",
+          "kind": "term"
+        },
+        {
+          "en": "the lens",
+          "es": "el lente",
+          "kind": "term",
+          "note": "Masculine in Peru and Mexico: el lente."
+        },
+        {
+          "en": "the invoice",
+          "es": "la factura",
+          "kind": "term"
+        },
+        {
+          "en": "the proof of purchase",
+          "es": "el comprobante de compra",
+          "kind": "term"
+        },
+        {
+          "en": "the permit",
+          "es": "el permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the relevant authority",
+          "es": "la autoridad competente",
+          "kind": "term"
+        },
+        {
+          "en": "personal use",
+          "es": "el uso personal",
+          "kind": "term"
+        },
+        {
+          "en": "commercial use",
+          "es": "el uso comercial",
+          "kind": "term"
+        },
+        {
+          "en": "the serial number",
+          "es": "el número de serie",
+          "kind": "term"
+        },
+        {
+          "en": "the sworn declaration",
+          "es": "la declaración jurada",
+          "kind": "term",
+          "note": "Peru calls the customs form for travelers' bags a declaración jurada."
+        },
+        {
+          "en": "the purchase value",
+          "es": "el valor de compra",
+          "kind": "term"
+        },
+        {
+          "en": "the duties",
+          "es": "los impuestos",
+          "kind": "term"
+        },
+        {
+          "en": "the remote control",
+          "es": "el control remoto",
+          "kind": "term"
+        },
+        {
+          "en": "the propellers",
+          "es": "las hélices",
+          "kind": "term"
+        },
+        {
+          "en": "Officer, the drone was declared in this box of the sworn declaration.",
+          "es": "Oficial, el dron se declaró en esta casilla de la declaración jurada.",
+          "kind": "phrase",
+          "note": "Formal: keep usted throughout with the officer."
+        },
+        {
+          "en": "The invoices were issued in the United States; here they are.",
+          "es": "Las facturas se emitieron en Estados Unidos; aquí las tiene.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The gear is for personal use, not commercial use.",
+          "es": "El equipo es para uso personal, no para uso comercial.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The serial numbers match the ones on the invoices.",
+          "es": "Los números de serie coinciden con los de las facturas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Under local rules, does this drone need a permit to fly?",
+          "es": "Según las normas locales, ¿este dron necesita un permiso para volar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which authority handles that permit, please?",
+          "es": "¿Ante qué autoridad se tramita ese permiso, por favor?",
+          "kind": "phrase",
+          "note": "Formal. Tramitar means to process official paperwork."
+        },
+        {
+          "en": "I don't plan to fly it until I have the proper permit.",
+          "es": "No pienso volarlo hasta tener el permiso correspondiente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If duties are owed, is an official receipt issued?",
+          "es": "Si corresponde pagar impuestos, ¿se emite un comprobante oficial?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is customs officer Rocío Huamán: answer formally, show your declaration and receipts, and explain what was declared and why with passive se (se declaró el equipo, se presentan las facturas), asking which local rule applies to the drone.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se declaró el equipo; se presentan las facturas; se revisa el formulario)",
+        "examples": [
+          {
+            "es": "Se declararon el dron y dos lentes al llegar.",
+            "en": "The drone and two lenses were declared on arrival."
+          },
+          {
+            "es": "Se revisa el formulario y después se comparan los números de serie.",
+            "en": "The form is checked and then the serial numbers are compared."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Write the Formal Claim for Your Delayed Bag",
+      "objective": "Write a formal claim with dates, reference, expenses and receipts, using clear report connectors.",
+      "words": [
+        {
+          "en": "the claim",
+          "es": "la reclamación",
+          "kind": "term",
+          "note": "Spain's word for a formal claim; much of Latin America says el reclamo."
+        },
+        {
+          "en": "the Property Irregularity Report (PIR)",
+          "es": "el parte de irregularidad",
+          "kind": "term",
+          "note": "Airline staff often just say el PIR."
+        },
+        {
+          "en": "the expenses incurred",
+          "es": "los gastos ocasionados",
+          "kind": "term",
+          "note": "Formal written register."
+        },
+        {
+          "en": "the proof of payment",
+          "es": "el justificante de pago",
+          "kind": "term"
+        },
+        {
+          "en": "the amount (of money)",
+          "es": "el importe",
+          "kind": "term"
+        },
+        {
+          "en": "the attachment",
+          "es": "el archivo adjunto",
+          "kind": "term"
+        },
+        {
+          "en": "the subject line",
+          "es": "el asunto",
+          "kind": "term"
+        },
+        {
+          "en": "the till receipt",
+          "es": "el tique de compra",
+          "kind": "term",
+          "note": "Also written ticket in Spain."
+        },
+        {
+          "en": "the contact details",
+          "es": "los datos de contacto",
+          "kind": "term"
+        },
+        {
+          "en": "the IBAN (bank account number)",
+          "es": "el IBAN",
+          "kind": "term",
+          "note": "Spaniards pronounce it as a word: ee-BAHN."
+        },
+        {
+          "en": "the payment (refund to your account)",
+          "es": "el abono",
+          "kind": "term"
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term"
+        },
+        {
+          "en": "the toiletry bag",
+          "es": "el neceser",
+          "kind": "term"
+        },
+        {
+          "en": "likewise; also",
+          "es": "asimismo",
+          "kind": "term",
+          "note": "Written connector; in speech people say también."
+        },
+        {
+          "en": "consequently",
+          "es": "por consiguiente",
+          "kind": "term",
+          "note": "Written connector; in speech people say por eso."
+        },
+        {
+          "en": "first of all",
+          "es": "en primer lugar",
+          "kind": "term"
+        },
+        {
+          "en": "I hereby request reimbursement of my expenses.",
+          "es": "Por medio de la presente, solicito el reembolso de mis gastos.",
+          "kind": "phrase",
+          "note": "Formal opening for a written claim."
+        },
+        {
+          "en": "First of all, my bag arrived 4 days late.",
+          "es": "En primer lugar, mi maleta llegó con 4 días de retraso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Likewise, I had to buy clothes and toiletries.",
+          "es": "Asimismo, tuve que comprar ropa y artículos de aseo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Consequently, I request payment of the expenses incurred.",
+          "es": "Por consiguiente, solicito el abono de los gastos ocasionados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I attach the till receipts and the PIR.",
+          "es": "Adjunto los tiques de compra y el parte de irregularidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, which receipt is missing exactly?",
+          "es": "Perdone, ¿qué recibo falta exactamente?",
+          "kind": "phrase",
+          "note": "Formal; perdone is the usted form."
+        },
+        {
+          "en": "The correct reference number is SVQIB12345; please check it.",
+          "es": "El número de referencia correcto es SVQIB12345; compruébelo, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll send you the missing proof of payment right now.",
+          "es": "Ahora mismo le envío el justificante que falta.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler in a Seville hotel lobby, and the AI is Noelia, the airline's web-chat agent: read her your written claim, then confirm the dates, the reference and your expenses, using en primer lugar, asimismo, por consiguiente and adjunto los recibos.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, asimismo, por consiguiente, adjunto los recibos)",
+        "examples": [
+          {
+            "es": "En primer lugar, la maleta no apareció en la cinta del aeropuerto de Sevilla.",
+            "en": "First of all, the bag did not appear on the carousel at Seville airport."
+          },
+          {
+            "es": "Por consiguiente, adjunto los recibos y solicito el abono de 185 euros.",
+            "en": "Consequently, I attach the receipts and request payment of 185 euros."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Calls and Texts with the Courier Bringing Your Bag",
+      "objective": "Handle calls and messages with a courier who can't find your rural lodging, using polite phone conventions.",
+      "words": [
+        {
+          "en": "the missed call",
+          "es": "la llamada perdida",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the voice note",
+          "es": "el audio",
+          "kind": "term",
+          "note": "In Spain, a WhatsApp voice message is un audio."
+        },
+        {
+          "en": "the location (pin)",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the GPS (in a car)",
+          "es": "el navegador",
+          "kind": "term",
+          "note": "In Spain, a car's GPS is usually called el navegador."
+        },
+        {
+          "en": "the rural guesthouse",
+          "es": "la casa rural",
+          "kind": "term"
+        },
+        {
+          "en": "the owner (woman)",
+          "es": "la dueña",
+          "kind": "term",
+          "note": "For a man: el dueño."
+        },
+        {
+          "en": "the village bar",
+          "es": "el bar del pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "the local road",
+          "es": "la carretera comarcal",
+          "kind": "term"
+        },
+        {
+          "en": "the turnoff",
+          "es": "el desvío",
+          "kind": "term"
+        },
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term"
+        },
+        {
+          "en": "the hórreo (raised stone granary)",
+          "es": "el hórreo",
+          "kind": "term",
+          "note": "Typical of Asturias; locals use them as landmarks."
+        },
+        {
+          "en": "the phone signal",
+          "es": "la cobertura",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "the approximate time",
+          "es": "la hora aproximada",
+          "kind": "term"
+        },
+        {
+          "en": "Hello? Yes, the bag is mine.",
+          "es": "¿Dígame? Sí, la maleta es mía.",
+          "kind": "phrase",
+          "note": "¿Dígame? is the standard way to answer the phone in Spain."
+        },
+        {
+          "en": "Sorry, you're breaking up; can you hear me now?",
+          "es": "Perdone, se corta; ¿me oye ahora?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I'll text you on WhatsApp and send you the location.",
+          "es": "Le escribo por WhatsApp y le mando la ubicación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you leave it at the village bar, next to the church?",
+          "es": "¿Podría dejarla en el bar del pueblo, junto a la iglesia?",
+          "kind": "phrase",
+          "note": "The conditional podría makes a request more polite."
+        },
+        {
+          "en": "Go past the hórreo and turn left at the turnoff.",
+          "es": "Pase el hórreo y gire a la izquierda en el desvío.",
+          "kind": "phrase",
+          "note": "Formal usted commands."
+        },
+        {
+          "en": "Would you mind waiting 10 minutes? I'll come down right away.",
+          "es": "¿Le importaría esperar 10 minutos? Bajo enseguida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Covadonga, I'm leaving you a message: the courier can't find the house.",
+          "es": "Covadonga, le dejo un mensaje: el mensajero no encuentra la casa.",
+          "kind": "phrase",
+          "note": "Formal voicemail."
+        },
+        {
+          "en": "Thank you very much for your patience, Tomás; have a good day.",
+          "es": "Muchas gracias por la paciencia, Tomás; que tenga buen día.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the guest at a casa rural in Asturias, and the AI is Tomás, the courier bringing your bag: answer his call with ¿dígame?, guide him to the house, and arrange the delivery politely with ¿podría…?, le escribo por WhatsApp and le mando la ubicación.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿dígame?, le escribo por WhatsApp; ¿podría dejarla en el bar del pueblo?)",
+        "examples": [
+          {
+            "es": "¿Dígame? Sí, lo oigo, pero aquí hay poca cobertura.",
+            "en": "Hello? Yes, I can hear you, but there's little signal here."
+          },
+          {
+            "es": "¿Le importaría llamarme cuando esté en la iglesia?",
+            "en": "Would you mind calling me when you're at the church?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Close the Claim: Accept an Offer Only on Your Terms",
+      "objective": "Inspect the returned bag with the agent and accept a settlement only on conditions you state clearly.",
+      "words": [
+        {
+          "en": "the waiver",
+          "es": "la renuncia",
+          "kind": "term"
+        },
+        {
+          "en": "the settlement; the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the travel voucher",
+          "es": "el bono de viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the expiry",
+          "es": "la caducidad",
+          "kind": "term"
+        },
+        {
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term"
+        },
+        {
+          "en": "the estimate; the quote",
+          "es": "el presupuesto",
+          "kind": "term",
+          "note": "In Spain, a repair shop's written quote is un presupuesto."
+        },
+        {
+          "en": "the repair shop",
+          "es": "el taller",
+          "kind": "term"
+        },
+        {
+          "en": "the shell (of the suitcase)",
+          "es": "la carcasa",
+          "kind": "term"
+        },
+        {
+          "en": "the acceptance (sign-off)",
+          "es": "la conformidad",
+          "kind": "term"
+        },
+        {
+          "en": "the reservation; the noted exception",
+          "es": "la salvedad",
+          "kind": "term",
+          "note": "Formal: firmar con una salvedad means signing with a written exception."
+        },
+        {
+          "en": "the delivery note",
+          "es": "el albarán",
+          "kind": "term"
+        },
+        {
+          "en": "the defect; the damage",
+          "es": "el desperfecto",
+          "kind": "term"
+        },
+        {
+          "en": "the bank transfer",
+          "es": "la transferencia bancaria",
+          "kind": "term"
+        },
+        {
+          "en": "the official complaint form",
+          "es": "la hoja de reclamaciones",
+          "kind": "term",
+          "note": "In Spain, businesses must give you one when you ask for it."
+        },
+        {
+          "en": "the replacement value",
+          "es": "el valor de reposición",
+          "kind": "term"
+        },
+        {
+          "en": "Before signing, I'd like to inspect the bag with you.",
+          "es": "Antes de firmar, quisiera revisar la maleta con usted.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you note here that the wheel arrived broken?",
+          "es": "¿Podría anotar aquí que la rueda llegó rota?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd accept the voucher as long as they include the wheel repair.",
+          "es": "Aceptaría el bono siempre que incluyan la reparación de la rueda.",
+          "kind": "phrase",
+          "note": "Siempre que + subjunctive sets a condition."
+        },
+        {
+          "en": "I'd sign the delivery note provided that the damage is recorded.",
+          "es": "Firmaría el albarán con tal de que conste el desperfecto.",
+          "kind": "phrase",
+          "note": "Con tal de que is always followed by the subjunctive."
+        },
+        {
+          "en": "I won't sign anything that closes all my claims.",
+          "es": "No firmo nada que cierre todas mis reclamaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the voucher expire, and can it be used on any route?",
+          "es": "¿Cuándo caduca el bono y se puede usar en cualquier ruta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather you give it to me in writing, please.",
+          "es": "Prefiero que me lo den por escrito, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you don't change it, I'd rather ask for the complaint form.",
+          "es": "Si no lo cambian, preferiría pedir la hoja de reclamaciones.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the traveler at the Valencia baggage office, and the AI is Sergio Llorens, the claims officer: inspect your returned bag with him, describe any damage, and state your terms with aceptaría siempre que… and firmaría con tal de que…, asking for everything in writing.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (aceptaría siempre que incluyan la rueda; firmaría con tal de que conste el daño)",
+        "examples": [
+          {
+            "es": "Aceptaría el bono siempre que la aerolínea pague el taller.",
+            "en": "I'd accept the voucher as long as the airline pays the repair shop."
+          },
+          {
+            "es": "Firmaría con tal de que conste la rueda rota en el albarán.",
+            "en": "I'd sign provided that the broken wheel is recorded on the delivery note."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: Cancelled Flight to Recovered Bag in One Day",
+      "objective": "Get through a full day of rebooking, a lost bag, a group, an incident and the written claim, all in Spanish.",
+      "words": [
+        {
+          "en": "the cancellation",
+          "es": "la cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the rebooking (onto another flight)",
+          "es": "la reubicación",
+          "kind": "term",
+          "note": "Latin American airlines say: lo reubicamos en otro vuelo."
+        },
+        {
+          "en": "the early morning (before dawn)",
+          "es": "la madrugada",
+          "kind": "term"
+        },
+        {
+          "en": "the cousins",
+          "es": "los primos",
+          "kind": "term",
+          "note": "Use los primos for a mixed group like Inés and Joaquín."
+        },
+        {
+          "en": "the slip; the oversight",
+          "es": "el descuido",
+          "kind": "term"
+        },
+        {
+          "en": "the belongings",
+          "es": "las pertenencias",
+          "kind": "term"
+        },
+        {
+          "en": "the metal detector",
+          "es": "el detector de metales",
+          "kind": "term"
+        },
+        {
+          "en": "the draft",
+          "es": "el borrador",
+          "kind": "term"
+        },
+        {
+          "en": "the timeline",
+          "es": "la cronología",
+          "kind": "term"
+        },
+        {
+          "en": "the nonstop flight",
+          "es": "el vuelo directo",
+          "kind": "term"
+        },
+        {
+          "en": "the reimbursement",
+          "es": "el reintegro",
+          "kind": "term"
+        },
+        {
+          "en": "the available seat (space)",
+          "es": "el cupo",
+          "kind": "term",
+          "note": "Common in Latin America: no hay cupo means the flight is full."
+        },
+        {
+          "en": "the summary",
+          "es": "el resumen",
+          "kind": "term"
+        },
+        {
+          "en": "the meal expenses",
+          "es": "los gastos de alimentación",
+          "kind": "term"
+        },
+        {
+          "en": "This morning they cancelled our flight and rebooked us via Panama.",
+          "es": "Esta mañana nos cancelaron el vuelo y nos reubicaron vía Panamá.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Reyes, would there be space on any nonstop flight today?",
+          "es": "Señor Reyes, ¿habría cupo en algún vuelo directo hoy?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Inés, Joaquín, stay together and don't leave my side.",
+          "es": "Inés, Joaquín, quédense juntos y no se separen de mí.",
+          "kind": "phrase",
+          "note": "In Latin America, ustedes is the plural for family too."
+        },
+        {
+          "en": "Joaquín, check the tray before you go; you left your passport.",
+          "es": "Joaquín, revisa la bandeja antes de irte; dejaste el pasaporte.",
+          "kind": "phrase",
+          "note": "Informal tú with a cousin."
+        },
+        {
+          "en": "Mrs. Herrera, my bag didn't come out; could you check where it is?",
+          "es": "Señora Herrera, mi maleta no salió; ¿podría verificar dónde está?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I want you to send it to my hotel as soon as it arrives.",
+          "es": "Quiero que me la manden al hotel apenas llegue.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I attach the timeline of the day and the expense receipts.",
+          "es": "Adjunto la cronología del día y los recibos de los gastos.",
+          "kind": "phrase",
+          "note": "Written register for the claim email."
+        },
+        {
+          "en": "If the bag doesn't turn up tomorrow, I'll request reimbursement of my expenses.",
+          "es": "Si la maleta no aparece mañana, solicitaré el reintegro de mis gastos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are leading your cousins Inés and Joaquín, and the AI plays airline and airport staff from Santo Domingo to Cartagena: rebook with ¿habría cupo…?, guide your cousins with ustedes commands, report your bag using narration and quiero que…, then dictate your claim email.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (narration, subjunctive, conditionals, phone, formal and written register)",
+        "examples": [
+          {
+            "es": "Cuando nos reubicaron, le pedí al agente que nos sentara juntos.",
+            "en": "When they rebooked us, I asked the agent to seat us together."
+          },
+          {
+            "es": "Asimismo, les ruego que me confirmen la entrega por escrito.",
+            "en": "Likewise, I kindly ask you to confirm the delivery in writing."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

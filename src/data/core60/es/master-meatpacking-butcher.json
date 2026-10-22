@@ -1,0 +1,2860 @@
+{
+  "version": 1,
+  "module": "master-meatpacking-butcher",
+  "baseModule": "meatpacking-butcher",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Meatpacking & Butcher Master 20",
+  "threshold": "By Lesson 20, you can train a new worker and check their understanding, explain a shortage or unusable product to a customer, settle a conflict on the line, report an injury or near miss without blame, and write the shift report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.171Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Walk a New Hire Through the Fabrication Line Flow",
+      "objective": "Explain in order how a chilled side moves through each station and why each step depends on the one before.",
+      "words": [
+        {
+          "en": "the rail",
+          "es": "el riel",
+          "kind": "term"
+        },
+        {
+          "en": "the quartering",
+          "es": "el cuarteo",
+          "kind": "term",
+          "note": "The station where the side is split into a forequarter and a hindquarter."
+        },
+        {
+          "en": "the forequarter",
+          "es": "el cuarto delantero",
+          "kind": "term"
+        },
+        {
+          "en": "the hindquarter",
+          "es": "el cuarto trasero",
+          "kind": "term"
+        },
+        {
+          "en": "the primal cuts",
+          "es": "los cortes primarios",
+          "kind": "term",
+          "note": "On the floor people often just say los primarios."
+        },
+        {
+          "en": "the subprimal cuts",
+          "es": "los cortes subprimarios",
+          "kind": "term"
+        },
+        {
+          "en": "the station",
+          "es": "la estación",
+          "kind": "term"
+        },
+        {
+          "en": "the boning",
+          "es": "el deshuese",
+          "kind": "term"
+        },
+        {
+          "en": "the trimming",
+          "es": "el recorte",
+          "kind": "term"
+        },
+        {
+          "en": "the vacuum packer",
+          "es": "la empacadora al vacío",
+          "kind": "term"
+        },
+        {
+          "en": "the line flow",
+          "es": "el flujo de la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the previous step",
+          "es": "el paso anterior",
+          "kind": "term"
+        },
+        {
+          "en": "the bottleneck",
+          "es": "el cuello de botella",
+          "kind": "term"
+        },
+        {
+          "en": "the line pace",
+          "es": "el ritmo de la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the side (half carcass)",
+          "es": "la media canal",
+          "kind": "term"
+        },
+        {
+          "en": "First, the side comes down off the rail to quartering.",
+          "es": "Primero, la media canal baja del riel al cuarteo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then, at this station, the primal cuts are taken off.",
+          "es": "Luego, en esta estación, se sacan los cortes primarios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You can't trim yet because the piece is still whole.",
+          "es": "No puedes recortar todavía porque la pieza sigue entera.",
+          "kind": "phrase",
+          "note": "Informal tú, normal from a lead to a new hire on the floor."
+        },
+        {
+          "en": "That's why each station depends on the previous step.",
+          "es": "Por eso cada estación depende del paso anterior.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After boning, the product moves on to trimming and packing.",
+          "es": "Después del deshuese, el producto pasa a recorte y empaque.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Notice how the product reaches your station.",
+          "es": "Fíjate cómo llega el producto a tu estación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First watch for a while, and then it's your turn.",
+          "es": "Primero observa un rato, y luego te toca a ti.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you explain the order to me in your own words?",
+          "es": "¿Me explicas el orden con tus propias palabras?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI is Joel Pacheco, a new hire: walk him along the fabrication line, explain each station in order with primero, luego and después, and answer his questions with porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero se separan los cuartos y luego se sacan los primarios.",
+            "en": "First the quarters are separated, and then the primals are taken off."
+          },
+          {
+            "es": "El deshuese necesita los primarios; por eso no recortamos antes.",
+            "en": "Boning needs the primals; that's why we don't trim earlier."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why We Dry-Age Beef: Teaching an Apprentice",
+      "objective": "Explain how dry-aging works, what the crust is, and why the room's conditions are checked every day.",
+      "words": [
+        {
+          "en": "dry aging",
+          "es": "la maduración en seco",
+          "kind": "term"
+        },
+        {
+          "en": "the aging room",
+          "es": "la cámara de maduración",
+          "kind": "term"
+        },
+        {
+          "en": "the crust",
+          "es": "la costra",
+          "kind": "term"
+        },
+        {
+          "en": "the relative humidity",
+          "es": "la humedad relativa",
+          "kind": "term"
+        },
+        {
+          "en": "the air circulation",
+          "es": "la circulación de aire",
+          "kind": "term"
+        },
+        {
+          "en": "the mold",
+          "es": "el moho",
+          "kind": "term"
+        },
+        {
+          "en": "the weight loss",
+          "es": "la pérdida de peso",
+          "kind": "term"
+        },
+        {
+          "en": "the hygrometer",
+          "es": "el higrómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the fan",
+          "es": "el ventilador",
+          "kind": "term"
+        },
+        {
+          "en": "the rack",
+          "es": "la rejilla",
+          "kind": "term"
+        },
+        {
+          "en": "the daily check sheet",
+          "es": "la hoja de control diario",
+          "kind": "term"
+        },
+        {
+          "en": "the aging days",
+          "es": "los días de maduración",
+          "kind": "term"
+        },
+        {
+          "en": "the tenderness",
+          "es": "la suavidad",
+          "kind": "term",
+          "note": "Mexican butchers say suavidad for tenderness more than terneza."
+        },
+        {
+          "en": "the concentrated flavor",
+          "es": "el sabor concentrado",
+          "kind": "term"
+        },
+        {
+          "en": "the crust trimming",
+          "es": "el recorte de costra",
+          "kind": "term"
+        },
+        {
+          "en": "If the humidity goes up, mold forms on the crust.",
+          "es": "Si la humedad sube, se forma moho en la costra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The crust is always trimmed before portioning.",
+          "es": "La costra se recorta siempre antes de porcionar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I know weight is lost, but the crust is not sold.",
+          "es": "Sé que se pierde peso, pero la costra no se vende.",
+          "kind": "phrase",
+          "note": "Informal, to the apprentice."
+        },
+        {
+          "en": "If the air doesn't circulate, the meat doesn't dry evenly.",
+          "es": "Si el aire no circula, la carne no se seca parejo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The humidity is checked every morning and written on the sheet.",
+          "es": "La humedad se revisa cada mañana y se anota en la hoja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does the hygrometer read today?",
+          "es": "¿Qué marca hoy el higrómetro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you see unusual mold, tell me before touching anything.",
+          "es": "Si ves moho raro, avísame antes de tocar nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend it: dry aging concentrates the flavor.",
+          "es": "Se lo recomiendo: la maduración en seco concentra el sabor.",
+          "kind": "phrase",
+          "note": "Formal usted, to a customer at the counter."
+        }
+      ],
+      "speaking": "You are the butcher, and the AI is Lucía Ferrer, your apprentice: explain how dry-aging works, what the crust is, and why the room is checked every day, using impersonal se (se revisa, se recorta) and si + present (si la humedad sube...).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se cuelga, si la humedad sube, se forma moho)",
+        "examples": [
+          {
+            "es": "Los lomos se separan en la rejilla para que circule el aire.",
+            "en": "The loins are spaced apart on the rack so the air can circulate."
+          },
+          {
+            "es": "Si la humedad baja demasiado, la carne se seca de más.",
+            "en": "If the humidity drops too much, the meat dries out too much."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Boner on the Chuck Roll",
+      "objective": "Coach a new worker step by step through separating a chuck roll, then have them teach the steps back.",
+      "words": [
+        {
+          "en": "the chuck roll",
+          "es": "el chuck roll",
+          "kind": "term",
+          "note": "English cut name used as-is on most US boning floors."
+        },
+        {
+          "en": "the natural seam",
+          "es": "la costura natural",
+          "kind": "term"
+        },
+        {
+          "en": "the sinew",
+          "es": "el nervio",
+          "kind": "term"
+        },
+        {
+          "en": "the ligament",
+          "es": "el ligamento",
+          "kind": "term"
+        },
+        {
+          "en": "the vertebrae",
+          "es": "las vértebras",
+          "kind": "term"
+        },
+        {
+          "en": "the hook",
+          "es": "el gancho",
+          "kind": "term"
+        },
+        {
+          "en": "the knife hand",
+          "es": "la mano del cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the cut-resistant glove",
+          "es": "el guante anticorte",
+          "kind": "term"
+        },
+        {
+          "en": "the knife scabbard",
+          "es": "la funda del cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the knife angle",
+          "es": "el ángulo del cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the knife path",
+          "es": "la trayectoria del cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the outward cut",
+          "es": "el corte hacia afuera",
+          "kind": "term"
+        },
+        {
+          "en": "the grip",
+          "es": "el agarre",
+          "kind": "term"
+        },
+        {
+          "en": "the mesh glove",
+          "es": "el guante de malla",
+          "kind": "term"
+        },
+        {
+          "en": "Separate it along the natural seam, without forcing it.",
+          "es": "Sepáralo por la costura natural, sin forzarlo.",
+          "kind": "phrase",
+          "note": "Informal tú; the pronoun attaches to the end of a positive command."
+        },
+        {
+          "en": "Don't pull it toward you; always cut outward.",
+          "es": "No lo jales hacia ti; corta siempre hacia afuera.",
+          "kind": "phrase",
+          "note": "In negative commands the pronoun goes before the verb: no lo jales."
+        },
+        {
+          "en": "Take it off and put it on your other hand.",
+          "es": "Quítatelo y póntelo en la otra mano.",
+          "kind": "phrase",
+          "note": "Said about the mesh glove; it goes on the support hand, not the knife hand."
+        },
+        {
+          "en": "Hold it with the hook and keep your fingers away.",
+          "es": "Sujétalo con el gancho y mantén los dedos lejos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rinse it before putting it in the scabbard.",
+          "es": "Enjuágalo antes de guardarlo en la funda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're fast, but first do it safely.",
+          "es": "Eres rápido, pero primero hazlo seguro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso por paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI is Wilmer Castañeda, a new boner: coach him step by step through separating a chuck roll with commands like sepáralo, no lo jales and enjuágalo, then have him teach the steps back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (sepáralo, no lo jales, enjuágalo)",
+        "examples": [
+          {
+            "es": "Sepáralo por la costura y no lo jales hacia tu cuerpo.",
+            "en": "Separate it along the seam and don't pull it toward your body."
+          },
+          {
+            "es": "El guante de malla, póntelo en la mano de soporte.",
+            "en": "The mesh glove, put it on your support hand."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Bandsaw Manual Before Changing the Blade",
+      "objective": "Read the bandsaw manufacturer's manual with a clerk and explain each step for changing and tensioning a blade safely.",
+      "words": [
+        {
+          "en": "the manufacturer's manual",
+          "es": "el manual del fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the saw blade",
+          "es": "la hoja de sierra",
+          "kind": "term"
+        },
+        {
+          "en": "the blade tension",
+          "es": "la tensión de la hoja",
+          "kind": "term"
+        },
+        {
+          "en": "the tension knob",
+          "es": "la perilla de tensión",
+          "kind": "term"
+        },
+        {
+          "en": "the tension gauge",
+          "es": "el indicador de tensión",
+          "kind": "term"
+        },
+        {
+          "en": "the upper wheel",
+          "es": "la polea superior",
+          "kind": "term"
+        },
+        {
+          "en": "the lower wheel",
+          "es": "la polea inferior",
+          "kind": "term"
+        },
+        {
+          "en": "the blade guide",
+          "es": "la guía de la hoja",
+          "kind": "term"
+        },
+        {
+          "en": "the saw door",
+          "es": "la puerta de la sierra",
+          "kind": "term"
+        },
+        {
+          "en": "the plug",
+          "es": "el enchufe",
+          "kind": "term"
+        },
+        {
+          "en": "the direction of the teeth",
+          "es": "el sentido de los dientes",
+          "kind": "term"
+        },
+        {
+          "en": "the model",
+          "es": "el modelo",
+          "kind": "term"
+        },
+        {
+          "en": "the warning",
+          "es": "la advertencia",
+          "kind": "term"
+        },
+        {
+          "en": "the test start",
+          "es": "el arranque de prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the technical support",
+          "es": "el servicio técnico",
+          "kind": "term"
+        },
+        {
+          "en": "the bandsaw",
+          "es": "la sierra de cinta",
+          "kind": "term"
+        },
+        {
+          "en": "Before opening the door, you have to unplug the saw.",
+          "es": "Antes de abrir la puerta, hay que desconectar la sierra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After mounting the blade, check the direction of the teeth.",
+          "es": "Después de montar la hoja, revisa el sentido de los dientes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This model isn't tensioned the same way as the one you knew.",
+          "es": "Este modelo no se tensa igual que el que conocías.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the manual, the tension is adjusted with this knob.",
+          "es": "Según el manual, la tensión se ajusta con esta perilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to turn the wheel by hand before the test start.",
+          "es": "Hay que girar la polea a mano antes del arranque de prueba.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you confirm the correct tension for this model?",
+          "es": "¿Me puede confirmar la tensión correcta para este modelo?",
+          "kind": "phrase",
+          "note": "Formal usted, for a call to the manufacturer's technical support."
+        },
+        {
+          "en": "If you have any doubt, stop and ask me.",
+          "es": "Si tienes alguna duda, para y pregúntame.",
+          "kind": "phrase",
+          "note": "Informal tú, to the clerk."
+        }
+      ],
+      "speaking": "You are the meat manager, and the AI is Brenda Ochoa, a clerk: read the bandsaw manual together and explain each step for changing and tensioning the blade, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de abrir la puerta, hay que desconectarla)",
+        "examples": [
+          {
+            "es": "Antes de abrir la puerta, hay que esperar a que la hoja se detenga.",
+            "en": "Before opening the door, you have to wait for the blade to stop."
+          },
+          {
+            "es": "Después de tensar la hoja, hay que cerrar la puerta antes de arrancar.",
+            "en": "After tensioning the blade, you have to close the door before starting."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Gut-Shot Deer: Telling a Hunter Part Is Unusable",
+      "objective": "Explain what you found in a hunter's deer, why part must be discarded, and propose what can still be processed.",
+      "words": [
+        {
+          "en": "the deer",
+          "es": "el venado",
+          "kind": "term"
+        },
+        {
+          "en": "the gut shot",
+          "es": "el tiro en la panza",
+          "kind": "term",
+          "note": "Hunters also say el balazo en la panza."
+        },
+        {
+          "en": "the bullet",
+          "es": "la bala",
+          "kind": "term"
+        },
+        {
+          "en": "the entry wound",
+          "es": "el orificio de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the gut contents",
+          "es": "el contenido intestinal",
+          "kind": "term"
+        },
+        {
+          "en": "the body cavity",
+          "es": "la cavidad abdominal",
+          "kind": "term"
+        },
+        {
+          "en": "the field dressing",
+          "es": "el destripado",
+          "kind": "term",
+          "note": "From destripar, to gut; hunters say it for field dressing."
+        },
+        {
+          "en": "the sour smell",
+          "es": "el olor agrio",
+          "kind": "term"
+        },
+        {
+          "en": "the contaminated meat",
+          "es": "la carne contaminada",
+          "kind": "term"
+        },
+        {
+          "en": "the bloodshot area",
+          "es": "el hematoma",
+          "kind": "term"
+        },
+        {
+          "en": "the discard",
+          "es": "el desecho",
+          "kind": "term"
+        },
+        {
+          "en": "the sausage",
+          "es": "la salchicha",
+          "kind": "term"
+        },
+        {
+          "en": "the jerky",
+          "es": "la carne seca",
+          "kind": "term"
+        },
+        {
+          "en": "the cooler",
+          "es": "la hielera",
+          "kind": "term"
+        },
+        {
+          "en": "the processing order",
+          "es": "la orden de procesamiento",
+          "kind": "term"
+        },
+        {
+          "en": "The bullet went in through the gut while the deer was running.",
+          "es": "La bala entró por la panza cuando el venado corría.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When we opened it, the gut contents were already on the hindquarter.",
+          "es": "Cuando lo abrimos, el contenido intestinal ya estaba en la pierna.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand it looked fine when you brought it to us.",
+          "es": "Entiendo que se veía bien cuando nos lo trajo.",
+          "kind": "phrase",
+          "note": "Formal: usted with a customer."
+        },
+        {
+          "en": "On the inside, the meat had a greenish color.",
+          "es": "Por dentro, la carne tenía un color verdoso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That part can't be processed; it has to be thrown out.",
+          "es": "Esa parte no se puede procesar; hay que tirarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With the backstraps and the shoulder we could make jerky.",
+          "es": "Con los lomos y la paleta podríamos hacer carne seca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like to see the piece before deciding?",
+          "es": "¿Le gustaría ver la pieza antes de decidir?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "We would only charge you for the meat we do process.",
+          "es": "Le cobraríamos solo por la carne que sí procesamos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the butcher, and the AI is hunter Arturo Villalobos: explain what you found in his deer's hindquarter using the preterite and imperfect (la bala entró, el venado corría), and propose what you can still process with podríamos and le cobraríamos.",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (la bala entró cuando el venado corría; podríamos hacer más salchicha con la pierna limpia)",
+        "examples": [
+          {
+            "es": "Cuando abrí la pierna, el olor ya era agrio.",
+            "en": "When I opened the hindquarter, the smell was already sour."
+          },
+          {
+            "es": "Podríamos moler la paleta para hamburguesas.",
+            "en": "We could grind the shoulder for burgers."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Brisket Shortage Before a Barbecue Catering Order",
+      "objective": "Tell a caterer her brisket order will be short, compare substitute cuts, and agree on a new delivery plan.",
+      "words": [
+        {
+          "en": "the shortage",
+          "es": "el faltante",
+          "kind": "term"
+        },
+        {
+          "en": "the supplier",
+          "es": "el proveedor",
+          "kind": "term"
+        },
+        {
+          "en": "the order",
+          "es": "el pedido",
+          "kind": "term"
+        },
+        {
+          "en": "the whole packer brisket",
+          "es": "el brisket entero",
+          "kind": "term",
+          "note": "English cut name, standard in US barbecue and distribution."
+        },
+        {
+          "en": "the chuck flat",
+          "es": "el chuck flat",
+          "kind": "term",
+          "note": "English cut name used as is at US distributors."
+        },
+        {
+          "en": "the shoulder clod",
+          "es": "la espaldilla",
+          "kind": "term",
+          "note": "Common Mexican name for the shoulder clod."
+        },
+        {
+          "en": "the marbling",
+          "es": "el marmoleo",
+          "kind": "term"
+        },
+        {
+          "en": "the Choice grade",
+          "es": "el grado Choice",
+          "kind": "term"
+        },
+        {
+          "en": "the price per pound",
+          "es": "el precio por libra",
+          "kind": "term"
+        },
+        {
+          "en": "the partial delivery",
+          "es": "la entrega parcial",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery date",
+          "es": "la fecha de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the credit memo",
+          "es": "la nota de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "the inventory",
+          "es": "el inventario",
+          "kind": "term"
+        },
+        {
+          "en": "the guests",
+          "es": "los invitados",
+          "kind": "term"
+        },
+        {
+          "en": "the cooking time",
+          "es": "el tiempo de cocción",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Treviño, I'm calling because only half the brisket arrived.",
+          "es": "Señora Treviño, le llamo porque solo nos llegó la mitad del brisket.",
+          "kind": "phrase",
+          "note": "Formal: usted with a customer."
+        },
+        {
+          "en": "We'll deliver what we have to you early tomorrow.",
+          "es": "Lo que tenemos se lo entregaremos mañana temprano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The shoulder clod comes out leaner than the brisket.",
+          "es": "La espaldilla sale más magra que el brisket.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The chuck flat turns out almost as juicy as the brisket.",
+          "es": "El chuck flat queda casi tan jugoso como el brisket.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many guests are you going to cook for?",
+          "es": "¿Para cuántos invitados va a cocinar?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "We're going to give you a credit memo for the difference.",
+          "es": "Le vamos a dar una nota de crédito por la diferencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hey, set aside all the chuck flat for Mrs. Treviño.",
+          "es": "Oye, aparta todo el chuck flat para la señora Treviño.",
+          "kind": "phrase",
+          "note": "Informal: tú command to a coworker."
+        },
+        {
+          "en": "Is it okay if I confirm with you today at 5?",
+          "es": "¿Le parece bien si le confirmo hoy a las 5?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the distributor's supervisor, and the AI is caterer Marisol Treviño: tell her the brisket order came in half short, compare substitute cuts with más… que and tan… como, and agree on a delivery plan using va a llegar and the future tense.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (va a llegar el jueves; el chuck flat tiene más grasa que el brisket)",
+        "examples": [
+          {
+            "es": "El resto va a llegar el jueves, si el proveedor cumple.",
+            "en": "The rest is going to arrive Thursday, if the supplier comes through."
+          },
+          {
+            "es": "El chuck flat tiene más grasa que la espaldilla.",
+            "en": "The chuck flat has more fat than the shoulder clod."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Reefer Driver at the Dock with a Gap in His Log",
+      "objective": "Get the driver's account of a gap in his trailer temperature log, check pallet counts, and decide on receiving.",
+      "words": [
+        {
+          "en": "the reefer trailer",
+          "es": "el tráiler refrigerado",
+          "kind": "term"
+        },
+        {
+          "en": "the reefer unit",
+          "es": "la unidad de refrigeración",
+          "kind": "term",
+          "note": "Drivers often call it el termo."
+        },
+        {
+          "en": "the temperature recorder",
+          "es": "el registrador de temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the printout",
+          "es": "la impresión",
+          "kind": "term"
+        },
+        {
+          "en": "the gap in the data",
+          "es": "el hueco en los datos",
+          "kind": "term"
+        },
+        {
+          "en": "the pallet",
+          "es": "la tarima",
+          "kind": "term"
+        },
+        {
+          "en": "the pallet count",
+          "es": "el conteo de tarimas",
+          "kind": "term"
+        },
+        {
+          "en": "the bill of lading",
+          "es": "el conocimiento de embarque",
+          "kind": "term"
+        },
+        {
+          "en": "the purchase order",
+          "es": "la orden de compra",
+          "kind": "term"
+        },
+        {
+          "en": "the seal number",
+          "es": "el número de sello",
+          "kind": "term"
+        },
+        {
+          "en": "the probe thermometer",
+          "es": "el termómetro de punzón",
+          "kind": "term"
+        },
+        {
+          "en": "the receiving temperature",
+          "es": "la temperatura de recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the mechanical failure",
+          "es": "la falla mecánica",
+          "kind": "term"
+        },
+        {
+          "en": "the dispatcher",
+          "es": "el despachador",
+          "kind": "term"
+        },
+        {
+          "en": "the arrival time",
+          "es": "la hora de llegada",
+          "kind": "term"
+        },
+        {
+          "en": "What time exactly did the unit shut off?",
+          "es": "¿A qué hora exactamente se apagó la unidad?",
+          "kind": "phrase",
+          "note": "Formal: use usted with the driver."
+        },
+        {
+          "en": "And what did you do when the alarm went off?",
+          "es": "¿Y qué hizo usted cuando sonó la alarma?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The printout has a gap of three and a half hours.",
+          "es": "La impresión tiene un hueco de tres horas y media.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The purchase order requires 40 °F or below.",
+          "es": "La orden de compra pide 40 °F o menos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The bill of lading says 22 pallets, but I count 21.",
+          "es": "El conocimiento de embarque dice 22 tarimas, pero yo cuento 21.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Open the doors; we're going to probe the product.",
+          "es": "Abra las puertas; vamos a medir el producto con el punzón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't unload anything until QA gets here.",
+          "es": "No descarguen nada hasta que llegue calidad.",
+          "kind": "phrase",
+          "note": "Ustedes command to the dock crew; subjunctive after hasta que."
+        },
+        {
+          "en": "Call your dispatcher; I need your account in writing.",
+          "es": "Llame a su despachador; necesito su versión por escrito.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the dock supervisor, and the AI is reefer driver Ignacio Ruiz: get his account of the night the unit stopped with preterite questions (¿a qué hora se apagó?), compare times and pallet counts using clear numbers, and decide on receiving with QA.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (el motor paró a las tres; son veintidós tarimas)",
+        "examples": [
+          {
+            "es": "El termo se apagó a la 1:00 y arrancó otra vez a las 4:30.",
+            "en": "The reefer unit shut off at 1:00 and started again at 4:30."
+          },
+          {
+            "es": "Usted salió de Iowa a las 8 con 22 tarimas.",
+            "en": "You left Iowa at 8 with 22 pallets."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: Redating Yesterday's Ground Beef",
+      "objective": "Refuse a manager's request to repack and redate product, explain the rule, and offer a legitimate alternative.",
+      "words": [
+        {
+          "en": "the sell-by date",
+          "es": "la fecha de venta",
+          "kind": "term"
+        },
+        {
+          "en": "the relabeling",
+          "es": "el reetiquetado",
+          "kind": "term"
+        },
+        {
+          "en": "the grinding log",
+          "es": "la bitácora de molienda",
+          "kind": "term"
+        },
+        {
+          "en": "the shelf life",
+          "es": "la vida de anaquel",
+          "kind": "term",
+          "note": "Mexican and US Spanish term for shelf life."
+        },
+        {
+          "en": "the markdown",
+          "es": "la rebaja",
+          "kind": "term"
+        },
+        {
+          "en": "the sale",
+          "es": "la oferta",
+          "kind": "term",
+          "note": "For a weekend sale, say la oferta del fin de semana."
+        },
+        {
+          "en": "the health inspector",
+          "es": "el inspector de salud",
+          "kind": "term"
+        },
+        {
+          "en": "the fine",
+          "es": "la multa",
+          "kind": "term"
+        },
+        {
+          "en": "the unsold product",
+          "es": "el producto sin vender",
+          "kind": "term"
+        },
+        {
+          "en": "the traceability",
+          "es": "la trazabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the display case",
+          "es": "la vitrina",
+          "kind": "term"
+        },
+        {
+          "en": "the discoloration",
+          "es": "la decoloración",
+          "kind": "term"
+        },
+        {
+          "en": "the district manager",
+          "es": "el gerente de distrito",
+          "kind": "term"
+        },
+        {
+          "en": "the food poisoning",
+          "es": "la intoxicación alimentaria",
+          "kind": "term"
+        },
+        {
+          "en": "the freshly ground beef",
+          "es": "la carne recién molida",
+          "kind": "term"
+        },
+        {
+          "en": "Don't regrind it with today's date, Héctor.",
+          "es": "No la vuelvas a moler con fecha de hoy, Héctor.",
+          "kind": "phrase",
+          "note": "Informal: tú between longtime coworkers."
+        },
+        {
+          "en": "I don't recommend that we put it in the weekend sale.",
+          "es": "No recomiendo que la pongamos en la oferta del fin de semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The grinding log isn't going to match the label.",
+          "es": "La bitácora de molienda no va a cuadrar con la etiqueta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Changing the date erases the lot's traceability.",
+          "es": "Cambiar la fecha borra la trazabilidad del lote.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What we can do is mark it down today, within its date.",
+          "es": "Lo que sí podemos hacer es rebajarla hoy, dentro de su fecha.",
+          "kind": "phrase"
+        },
+        {
+          "en": "For the sale, we'd better grind fresh beef early Saturday.",
+          "es": "Para la oferta, mejor molemos carne fresca el sábado temprano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, don't relabel anything without talking to me first.",
+          "es": "Muchachos, no reetiqueten nada sin hablar conmigo primero.",
+          "kind": "phrase",
+          "note": "Ustedes command to the crew."
+        },
+        {
+          "en": "If you want, we'll call the district manager together.",
+          "es": "Si quieres, llamamos juntos al gerente de distrito.",
+          "kind": "phrase",
+          "note": "Informal; note the personal a in al gerente."
+        }
+      ],
+      "speaking": "You are the meat lead, and the AI is store manager Héctor Salinas: refuse his request to regrind and redate yesterday's ground beef with negative commands (no le cambies la fecha) and no recomiendo que + subjunctive, explain the rule, and offer a legitimate alternative.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no le cambies la fecha; no recomiendo que la vendamos)",
+        "examples": [
+          {
+            "es": "No le cambies la fecha a la carne de ayer.",
+            "en": "Don't change the date on yesterday's beef."
+          },
+          {
+            "es": "No recomiendo que la vendamos con fecha de hoy.",
+            "en": "I don't recommend that we sell it with today's date."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback on Fat Left on Strip Loins",
+      "objective": "Give clear, respectful feedback on trim quality and have the worker show back the corrected technique.",
+      "words": [
+        {
+          "en": "the customer spec",
+          "es": "la especificación del cliente",
+          "kind": "term"
+        },
+        {
+          "en": "the fat thickness",
+          "es": "el espesor de grasa",
+          "kind": "term"
+        },
+        {
+          "en": "the ruler",
+          "es": "la regla",
+          "kind": "term"
+        },
+        {
+          "en": "the tolerance",
+          "es": "la tolerancia",
+          "kind": "term"
+        },
+        {
+          "en": "the sample",
+          "es": "la muestra",
+          "kind": "term"
+        },
+        {
+          "en": "the knife pass",
+          "es": "la pasada del cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the vein",
+          "es": "la vena",
+          "kind": "term",
+          "note": "The vein end of the strip loin, where fat and connective tissue often get left."
+        },
+        {
+          "en": "the tail",
+          "es": "la cola",
+          "kind": "term",
+          "note": "Strip loin tail; customer specs often limit its length."
+        },
+        {
+          "en": "the customer complaint",
+          "es": "el reclamo del cliente",
+          "kind": "term"
+        },
+        {
+          "en": "the trim audit",
+          "es": "la auditoría de recorte",
+          "kind": "term"
+        },
+        {
+          "en": "the lean side",
+          "es": "el lado magro",
+          "kind": "term"
+        },
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term"
+        },
+        {
+          "en": "the demonstration",
+          "es": "la demostración",
+          "kind": "term"
+        },
+        {
+          "en": "even",
+          "es": "parejo",
+          "kind": "term",
+          "note": "Agrees with the noun: grasa pareja, corte parejo."
+        },
+        {
+          "en": "the quarter inch",
+          "es": "el cuarto de pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "The customer's spec calls for 1/4 inch of fat at most.",
+          "es": "La especificación del cliente pide máximo 1/4 de pulgada de grasa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's not personal; the audit checks every trimmer.",
+          "es": "No es personal; la auditoría revisa a todos los recortadores.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You've been here 5 years and you're one of the fastest.",
+          "es": "Llevas 5 años aquí y eres de las más rápidas.",
+          "kind": "phrase",
+          "note": "Informal tú, normal on the floor. Use de los más rápidos for a man."
+        },
+        {
+          "en": "I'd rather you go a little slower and get it right.",
+          "es": "Prefiero que vayas un poco más despacio y que salga bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's important that you measure the tail before packing.",
+          "es": "Es importante que midas la cola antes de empacar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now show me how you do it on this loin.",
+          "es": "Ahora enséñame cómo lo haces tú con este lomo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you have questions about the tolerance, just ask me.",
+          "es": "Si tienes dudas con la tolerancia, pregúntame sin pena.",
+          "kind": "phrase",
+          "note": "Sin pena (Mexican usage) means without feeling embarrassed."
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI is Yesenia Mora, a veteran trimmer whose strip loins keep failing the fat spec: give respectful feedback using quiero que and te recomiendo que with the subjunctive, then have her show back the corrected trim.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que dejes, te recomiendo que gires la pieza)",
+        "examples": [
+          {
+            "es": "Quiero que dejes la grasa pareja en toda la pieza.",
+            "en": "I want you to leave the fat even across the whole piece."
+          },
+          {
+            "es": "Te recomiendo que gires la pieza antes de la última pasada.",
+            "en": "I recommend that you turn the piece before the last pass."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Two Trimmers Blaming Each Other for a Slow Line",
+      "objective": "Hear both sides of a dispute, report back what each said, and agree on how the two stations will work.",
+      "words": [
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el atraso",
+          "kind": "term"
+        },
+        {
+          "en": "the product pileup",
+          "es": "la acumulación de producto",
+          "kind": "term"
+        },
+        {
+          "en": "the blade change",
+          "es": "el cambio de cuchilla",
+          "kind": "term"
+        },
+        {
+          "en": "the round knife",
+          "es": "el cuchillo circular",
+          "kind": "term",
+          "note": "Many floors also call it by the brand name, Whizard."
+        },
+        {
+          "en": "the second half (of the shift)",
+          "es": "la segunda mitad",
+          "kind": "term"
+        },
+        {
+          "en": "the break room",
+          "es": "la sala de descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the stop button",
+          "es": "el botón de paro",
+          "kind": "term"
+        },
+        {
+          "en": "the gaps on the belt",
+          "es": "los huecos en la banda",
+          "kind": "term"
+        },
+        {
+          "en": "the relief worker",
+          "es": "el relevo",
+          "kind": "term"
+        },
+        {
+          "en": "the line lead",
+          "es": "el líder de línea",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "the pork belly",
+          "es": "la panza de cerdo",
+          "kind": "term",
+          "note": "Many plants just say la panza."
+        },
+        {
+          "en": "Ramiro told me the belt was coming in full of product.",
+          "es": "Ramiro me dijo que la banda venía llena de producto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Edwin, you told me the blade wasn't cutting well anymore.",
+          "es": "Edwin, tú me dijiste que la cuchilla ya no cortaba bien.",
+          "kind": "phrase",
+          "note": "Informal: tú with one coworker."
+        },
+        {
+          "en": "Edwin, tell me what happened from your point of view.",
+          "es": "Edwin, dime qué pasó desde tu punto de vista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not here to blame anyone.",
+          "es": "No estamos aquí para echarle la culpa a nadie.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When product piles up, tell the line lead.",
+          "es": "Cuando se acumule el producto, avisen al líder de línea.",
+          "kind": "phrase",
+          "note": "Ustedes command to both workers. Cuando + subjunctive for the future."
+        },
+        {
+          "en": "If anyone needs to change a blade, they should ask for relief first.",
+          "es": "Si alguien necesita cambiar cuchilla, que pida un relevo primero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you both agree with this plan for the second half?",
+          "es": "¿Están de acuerdo los dos con este plan para la segunda mitad?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI plays trimmers Ramiro and Edwin in the break room: hear each side, report back what each one said with dijo que and the imperfect (estaba, venía), and agree on how the two stations will work in the second half.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (dijo que él estaba esperando la cuchilla)",
+        "examples": [
+          {
+            "es": "Edwin dijo que él estaba esperando la cuchilla nueva.",
+            "en": "Edwin said he was waiting for the new blade."
+          },
+          {
+            "es": "Ramiro me contó que había huecos en la banda cuando él llegó.",
+            "en": "Ramiro told me there were gaps on the belt when he got there."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping the Crew Going Through Holiday Ham Week",
+      "objective": "Encourage a tired crew, recognize their effort, and commit to concrete changes for the rest of the week.",
+      "words": [
+        {
+          "en": "the holiday season",
+          "es": "la temporada navideña",
+          "kind": "term"
+        },
+        {
+          "en": "the spiral ham",
+          "es": "el jamón en espiral",
+          "kind": "term"
+        },
+        {
+          "en": "the netting",
+          "es": "la malla",
+          "kind": "term"
+        },
+        {
+          "en": "the team morale",
+          "es": "el ánimo del equipo",
+          "kind": "term"
+        },
+        {
+          "en": "the effort",
+          "es": "el esfuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the recognition",
+          "es": "el reconocimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the bonus",
+          "es": "el bono",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the day off",
+          "es": "el día libre",
+          "kind": "term"
+        },
+        {
+          "en": "the resignation",
+          "es": "la renuncia",
+          "kind": "term"
+        },
+        {
+          "en": "the agency staff",
+          "es": "el personal de agencia",
+          "kind": "term"
+        },
+        {
+          "en": "the extra break",
+          "es": "la pausa extra",
+          "kind": "term"
+        },
+        {
+          "en": "the home stretch",
+          "es": "la recta final",
+          "kind": "term"
+        },
+        {
+          "en": "proud",
+          "es": "orgulloso",
+          "kind": "term",
+          "note": "A woman says orgullosa."
+        },
+        {
+          "en": "We're doing well; we're already past half the orders.",
+          "es": "Vamos bien; ya llevamos más de la mitad de los pedidos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "On Friday we'll leave 2 hours early; I promise you.",
+          "es": "El viernes saldremos 2 horas antes; se los prometo.",
+          "kind": "phrase",
+          "note": "Se los prometo is the Mexican form for promising a group."
+        },
+        {
+          "en": "Tomorrow 3 agency workers will come to help in packing.",
+          "es": "Mañana llegarán 3 personas de agencia para ayudar en empaque.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Starting today there will be an extra 10-minute break in the afternoon.",
+          "es": "Desde hoy habrá una pausa extra de 10 minutos por la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll talk to HR about the bonus this very week.",
+          "es": "Hablaré con recursos humanos sobre el bono esta misma semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doña Celia, thank you for telling me straight, as always.",
+          "es": "Doña Celia, gracias por decirme las cosas claras, como siempre.",
+          "kind": "phrase",
+          "note": "Formal and warm: doña + first name shows respect to a veteran."
+        },
+        {
+          "en": "Kevin, I know you're tired, but we really need you here.",
+          "es": "Kevin, sé que estás cansado, pero aquí haces mucha falta.",
+          "kind": "phrase",
+          "note": "Informal: tú with a young coworker."
+        },
+        {
+          "en": "Guys, I'm very proud of the work you've done.",
+          "es": "Muchachos, estoy muy orgulloso del trabajo que han hecho.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI plays the packing crew, including Celia and Kevin: recognize their effort, encourage them with vamos bien, and commit to concrete changes for the rest of the week using the future (saldremos, habrá, hablaré).",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (el viernes saldremos temprano, vamos bien)",
+        "examples": [
+          {
+            "es": "El viernes saldremos temprano y el sábado descansaremos.",
+            "en": "On Friday we'll leave early, and on Saturday we'll rest."
+          },
+          {
+            "es": "Vamos bien; terminaremos todos los pedidos a tiempo.",
+            "en": "We're doing well; we'll finish all the orders on time."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Register: Apprentice, Customer, Owner, Inspector",
+      "objective": "Switch between tú and usted and soften requests as you talk with four different people in one morning.",
+      "words": [
+        {
+          "en": "the apprentice",
+          "es": "el aprendiz",
+          "kind": "term"
+        },
+        {
+          "en": "the regular customer",
+          "es": "la clienta de siempre",
+          "kind": "term",
+          "note": "For a man: el cliente de siempre."
+        },
+        {
+          "en": "the owner",
+          "es": "el dueño",
+          "kind": "term"
+        },
+        {
+          "en": "the county inspector",
+          "es": "la inspectora del condado",
+          "kind": "term",
+          "note": "For a man: el inspector del condado."
+        },
+        {
+          "en": "the health permit",
+          "es": "el permiso sanitario",
+          "kind": "term"
+        },
+        {
+          "en": "the cutting board",
+          "es": "la tabla de cortar",
+          "kind": "term"
+        },
+        {
+          "en": "the handwashing sink",
+          "es": "el lavamanos",
+          "kind": "term"
+        },
+        {
+          "en": "the hairnet",
+          "es": "la red para el cabello",
+          "kind": "term"
+        },
+        {
+          "en": "the counter",
+          "es": "el mostrador",
+          "kind": "term"
+        },
+        {
+          "en": "the special order",
+          "es": "el encargo",
+          "kind": "term"
+        },
+        {
+          "en": "the ID badge",
+          "es": "la credencial",
+          "kind": "term"
+        },
+        {
+          "en": "the skirt steak",
+          "es": "la arrachera",
+          "kind": "term",
+          "note": "Mexican name for skirt steak, common in US shops."
+        },
+        {
+          "en": "the pork chops",
+          "es": "las chuletas de cerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection visit",
+          "es": "la visita de inspección",
+          "kind": "term"
+        },
+        {
+          "en": "Mateo, could you wash your hands and put on your hairnet?",
+          "es": "Mateo, ¿podrías lavarte las manos y ponerte la red?",
+          "kind": "phrase",
+          "note": "Informal: tú with the apprentice, softened with podrías."
+        },
+        {
+          "en": "Mateo, don't worry, keep going the way I showed you.",
+          "es": "Mateo, no te preocupes, sigue como te enseñé.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Doña Elvira, how would you like the skirt steak today, thin as usual?",
+          "es": "Doña Elvira, ¿cómo quiere hoy la arrachera, delgadita como siempre?",
+          "kind": "phrase",
+          "note": "Formal usted with a longtime customer."
+        },
+        {
+          "en": "Mrs. Elvira, would you excuse me a moment while I help the inspector?",
+          "es": "Señora Elvira, ¿me permite un momento mientras atiendo a la inspectora?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Don Rogelio, I'd like to talk with you about this week's special orders.",
+          "es": "Don Rogelio, quisiera hablar con usted sobre los encargos de la semana.",
+          "kind": "phrase",
+          "note": "Formal: quisiera softens the request to the owner."
+        },
+        {
+          "en": "Don Rogelio, is it all right if the inspector checks the walk-in cooler first?",
+          "es": "Don Rogelio, ¿le parece si la inspectora revisa primero el cuarto frío?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Good morning, Inspector Serrano; may I see your ID badge?",
+          "es": "Buenos días, inspectora Serrano; ¿me permite ver su credencial?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I'll gladly show you the health permit and the records.",
+          "es": "Con gusto le muestro el permiso sanitario y los registros.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the head butcher, and the AI plays Mateo, doña Elvira, don Rogelio and Inspector Paula Serrano in turn: switch between tú and usted for each person and soften your requests with quisiera, ¿me permite? and ¿podrías?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿me permite?, ¿podrías?)",
+        "examples": [
+          {
+            "es": "Mateo, ¿podrías traerme la tabla de cortar limpia?",
+            "en": "Mateo, could you bring me the clean cutting board?"
+          },
+          {
+            "es": "Inspectora, ¿me permite enseñarle primero el lavamanos?",
+            "en": "Inspector, may I show you the handwashing sink first?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Knife Laceration on the Boning Line: Incident Report",
+      "objective": "Narrate a knife injury in order with times and witnesses and complete the incident report form.",
+      "words": [
+        {
+          "en": "the cut (laceration)",
+          "es": "la cortada",
+          "kind": "term",
+          "note": "Common Mexican word for a knife wound."
+        },
+        {
+          "en": "the sleeve guard",
+          "es": "la manga protectora",
+          "kind": "term"
+        },
+        {
+          "en": "the incident form",
+          "es": "el formulario de incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term",
+          "note": "A woman is la testigo."
+        },
+        {
+          "en": "the boning line",
+          "es": "la línea de deshuese",
+          "kind": "term"
+        },
+        {
+          "en": "the boner (worker)",
+          "es": "el deshuesador",
+          "kind": "term"
+        },
+        {
+          "en": "the first aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the gauze",
+          "es": "la gasa",
+          "kind": "term"
+        },
+        {
+          "en": "direct pressure",
+          "es": "la presión directa",
+          "kind": "term"
+        },
+        {
+          "en": "the bleeding",
+          "es": "el sangrado",
+          "kind": "term"
+        },
+        {
+          "en": "the first aid room",
+          "es": "la enfermería",
+          "kind": "term"
+        },
+        {
+          "en": "the plant nurse",
+          "es": "la enfermera de planta",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the sequence of events",
+          "es": "la secuencia de hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the safety manager",
+          "es": "la gerente de seguridad",
+          "kind": "term",
+          "note": "Noemí is a woman, so la gerente."
+        },
+        {
+          "en": "the stitches",
+          "es": "los puntos de sutura",
+          "kind": "term"
+        },
+        {
+          "en": "At a quarter past ten, Fredy cut his left forearm.",
+          "es": "A las diez y cuarto, Fredy se cortó el antebrazo izquierdo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "His sleeve guard had slipped down toward his wrist.",
+          "es": "Se le había bajado la manga protectora hacia la muñeca.",
+          "kind": "phrase",
+          "note": "Se le había bajado: it had slipped on him, nobody's fault."
+        },
+        {
+          "en": "Right away we put direct pressure on it with clean gauze.",
+          "es": "Enseguida le pusimos presión directa con una gasa limpia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After that, the plant nurse checked his cut.",
+          "es": "Después de eso, la enfermera de planta le revisó la cortada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rosa and Javier were on the line and saw everything.",
+          "es": "Rosa y Javier estaban en la línea y lo vieron todo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "By half past ten, the bleeding was under control.",
+          "es": "A las diez y media, el sangrado ya estaba controlado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then we stopped the table to clean and sanitize the area.",
+          "es": "Luego paramos la mesa para limpiar y sanitizar la zona.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Noemí, would you like me to write the times on the form?",
+          "es": "Noemí, ¿quiere que anote yo las horas en el formulario?",
+          "kind": "phrase",
+          "note": "Formal: usted with the safety manager."
+        }
+      ],
+      "speaking": "You are the boning-line supervisor, and the AI is safety manager Noemí Arce: tell her what happened to Fredy in order, with times and witnesses, using the past tense and markers like a las diez y cuarto, enseguida and después de eso, so she can complete the incident form.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las diez y cuarto, enseguida, después de eso)",
+        "examples": [
+          {
+            "es": "Primero se le resbaló la manga, y luego se cortó con la punta del cuchillo.",
+            "en": "First his sleeve slipped, and then he cut himself with the tip of the knife."
+          },
+          {
+            "es": "Después de eso, a las once menos diez, lo llevamos a la clínica.",
+            "en": "After that, at ten to eleven, we took him to the clinic."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: Forklift and Picker at the Freezer Door",
+      "objective": "Talk through a near miss without blame, describe what could have happened, and agree on one change.",
+      "words": [
+        {
+          "en": "the forklift",
+          "es": "el montacargas",
+          "kind": "term"
+        },
+        {
+          "en": "the forklift driver",
+          "es": "el montacarguista",
+          "kind": "term",
+          "note": "Common in Mexico and US warehouses."
+        },
+        {
+          "en": "the picker (woman)",
+          "es": "la surtidora",
+          "kind": "term",
+          "note": "A man is el surtidor."
+        },
+        {
+          "en": "the strip curtain",
+          "es": "la cortina de tiras",
+          "kind": "term"
+        },
+        {
+          "en": "the fog",
+          "es": "la neblina",
+          "kind": "term"
+        },
+        {
+          "en": "the blind spot",
+          "es": "el punto ciego",
+          "kind": "term"
+        },
+        {
+          "en": "the horn",
+          "es": "el claxon",
+          "kind": "term",
+          "note": "Stress on the first syllable: CLAX-on."
+        },
+        {
+          "en": "the convex mirror",
+          "es": "el espejo convexo",
+          "kind": "term"
+        },
+        {
+          "en": "the pedestrian walkway",
+          "es": "el pasillo peatonal",
+          "kind": "term"
+        },
+        {
+          "en": "the warning light",
+          "es": "la luz de advertencia",
+          "kind": "term"
+        },
+        {
+          "en": "the sudden braking",
+          "es": "el frenón",
+          "kind": "term",
+          "note": "Informal Mexican word; dar un frenón = slam on the brakes."
+        },
+        {
+          "en": "the yellow line",
+          "es": "la línea amarilla",
+          "kind": "term"
+        },
+        {
+          "en": "the crossing",
+          "es": "el cruce",
+          "kind": "term"
+        },
+        {
+          "en": "the visibility",
+          "es": "la visibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term"
+        },
+        {
+          "en": "He almost hit her as she came out through the strip curtain.",
+          "es": "Por poco la golpea al salir de la cortina de tiras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If Saúl hadn't braked, he could have hurt her.",
+          "es": "Si Saúl no hubiera frenado, podría haberla lastimado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With so much fog, you can hardly see anything at that door.",
+          "es": "Con tanta neblina, casi no se ve nada en esa puerta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Daniela, you couldn't see the forklift either, right?",
+          "es": "Daniela, tú tampoco podías ver el montacargas, ¿verdad?",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "Saúl, what did you see from the seat?",
+          "es": "Saúl, ¿qué viste tú desde el asiento?",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "This isn't about who was right, but about what we change.",
+          "es": "Esto no se trata de quién tuvo razón, sino de qué cambiamos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If there had been a convex mirror there, you would have seen each other.",
+          "es": "Si hubiera habido un espejo convexo ahí, los dos se habrían visto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So we agree: horn and a full stop at every crossing.",
+          "es": "Entonces quedamos así: claxon y alto total en cada cruce.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the warehouse supervisor, and the AI plays Saúl and Daniela after the near miss: hear each side without blame, describe what could have happened with por poco, podría haber and si hubiera…, and get both to agree on one change.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco la golpea; si no hubiera frenado, podría haberla golpeado)",
+        "examples": [
+          {
+            "es": "Por poco la atropella en el pasillo peatonal.",
+            "en": "He nearly ran her over in the pedestrian walkway."
+          },
+          {
+            "es": "Si él hubiera ido más rápido, no habría podido frenar a tiempo.",
+            "en": "If he had been going faster, he wouldn't have been able to stop in time."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Stop the Line: Carcass Rail Jam on the Harvest Floor",
+      "objective": "Call a stop by radio, clear the area under the rail, and coordinate with maintenance until it is safe to restart.",
+      "words": [
+        {
+          "en": "the trolley",
+          "es": "el trole",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "el radio",
+          "kind": "term",
+          "note": "Masculine for the device: el radio."
+        },
+        {
+          "en": "the jam",
+          "es": "el atasco",
+          "kind": "term"
+        },
+        {
+          "en": "the hanging carcass",
+          "es": "la canal colgada",
+          "kind": "term"
+        },
+        {
+          "en": "the perimeter",
+          "es": "el perímetro",
+          "kind": "term"
+        },
+        {
+          "en": "the caution tape",
+          "es": "la cinta de precaución",
+          "kind": "term"
+        },
+        {
+          "en": "the tech",
+          "es": "el técnico",
+          "kind": "term",
+          "note": "A woman is la técnica."
+        },
+        {
+          "en": "the swinging",
+          "es": "el balanceo",
+          "kind": "term"
+        },
+        {
+          "en": "lockout/tagout",
+          "es": "el bloqueo y etiquetado",
+          "kind": "term"
+        },
+        {
+          "en": "the restart",
+          "es": "el reinicio",
+          "kind": "term"
+        },
+        {
+          "en": "the harvest floor",
+          "es": "el piso de matanza",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency stop",
+          "es": "el paro de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the hoist",
+          "es": "el polipasto",
+          "kind": "term"
+        },
+        {
+          "en": "clear",
+          "es": "despejado",
+          "kind": "term"
+        },
+        {
+          "en": "the go-ahead",
+          "es": "el visto bueno",
+          "kind": "term"
+        },
+        {
+          "en": "Omar, stop the chain; I have a trolley jammed at the curve.",
+          "es": "Omar, para la cadena; tengo un trole atascado en la curva.",
+          "kind": "phrase",
+          "note": "Informal: tú command over the radio to a coworker."
+        },
+        {
+          "en": "Graciela, get everyone out from under the carcass, now.",
+          "es": "Graciela, saca a todos de debajo de la canal, ya.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, step back and wait behind the caution tape.",
+          "es": "Muchachos, retírense y esperen detrás de la cinta de precaución.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the crew."
+        },
+        {
+          "en": "If there's no lockout/tagout, nobody will touch the trolley.",
+          "es": "Si no hay bloqueo y etiquetado, nadie tocará el trole.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Copy. I'll see you at the curve in 2 minutes.",
+          "es": "Copiado. Te veo en la curva en 2 minutos.",
+          "kind": "phrase",
+          "note": "Copiado is radio talk for copy / understood."
+        },
+        {
+          "en": "Is it clear underneath? Confirm it for me before the restart.",
+          "es": "¿Está despejado abajo? Confírmamelo antes del reinicio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We don't restart until Omar removes his lock and gives the word.",
+          "es": "No reiniciamos hasta que Omar quite su candado y avise.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If everything goes well, we'll restart the chain in 15 minutes.",
+          "es": "Si todo sale bien, reiniciaremos la cadena en 15 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the harvest-floor supervisor, and the AI is maintenance tech Omar Fuentes on the radio: call the stop, confirm the area under the rail is clear, and coordinate until restart, using short commands like para la cadena and si + present → future (si se suelta, te aviso).",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si se suelta, te aviso; para la cadena)",
+        "examples": [
+          {
+            "es": "Si se suelta el trole, la canal caerá directo al piso.",
+            "en": "If the trolley comes loose, the carcass will fall straight to the floor."
+          },
+          {
+            "es": "Si necesitas el polipasto, te lo mandaré con alguien.",
+            "en": "If you need the hoist, I'll send it to you with someone."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Food Safety Auditor Reviews the Sausage Kitchen",
+      "objective": "Describe sanitation procedures formally and answer an auditor's questions about records and corrective actions.",
+      "words": [
+        {
+          "en": "the stuffer",
+          "es": "la embutidora",
+          "kind": "term"
+        },
+        {
+          "en": "the sausage kitchen",
+          "es": "la cocina de embutidos",
+          "kind": "term"
+        },
+        {
+          "en": "the sanitation log",
+          "es": "la bitácora de sanitación",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-op inspection",
+          "es": "la inspección pre-operacional",
+          "kind": "term"
+        },
+        {
+          "en": "the SSOPs",
+          "es": "los POES",
+          "kind": "term",
+          "note": "Spanish acronym for Procedimientos Operativos Estándar de Sanitación; say it as a word: po-ES."
+        },
+        {
+          "en": "the disassembly",
+          "es": "el desarmado",
+          "kind": "term"
+        },
+        {
+          "en": "the rinse",
+          "es": "el enjuague",
+          "kind": "term"
+        },
+        {
+          "en": "the test strips",
+          "es": "las tiras reactivas",
+          "kind": "term"
+        },
+        {
+          "en": "the ATP swab test",
+          "es": "el hisopado de ATP",
+          "kind": "term"
+        },
+        {
+          "en": "the finding",
+          "es": "el hallazgo",
+          "kind": "term"
+        },
+        {
+          "en": "the nonconformity",
+          "es": "la no conformidad",
+          "kind": "term"
+        },
+        {
+          "en": "the retraining",
+          "es": "el reentrenamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the preventive action",
+          "es": "la acción preventiva",
+          "kind": "term"
+        },
+        {
+          "en": "the third-party audit",
+          "es": "la auditoría externa",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective action",
+          "es": "la acción correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "First the stuffer is taken apart and the residue is removed.",
+          "es": "Primero se desarma la embutidora y se retiran los residuos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then it is washed with detergent and rinsed with potable water.",
+          "es": "Después se lava con detergente y se enjuaga con agua potable.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The sanitizer concentration is checked with test strips, according to the SSOPs.",
+          "es": "La concentración del sanitizante se verifica con tiras reactivas, según los POES.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ms. Carvajal, you're right: the pre-op signature for that day is missing.",
+          "es": "Señora Carvajal, tiene razón: falta la firma pre-operacional de ese día.",
+          "kind": "phrase",
+          "note": "Formal: usted with the auditor."
+        },
+        {
+          "en": "That signature isn't added afterward; it is documented as a finding.",
+          "es": "Esa firma no se agrega después; se documenta como hallazgo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As a corrective action, the responsible operator was retrained.",
+          "es": "Como acción correctiva, se le dio reentrenamiento al operador responsable.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like to review the ATP swab results for that day?",
+          "es": "¿Desea revisar los resultados del hisopado de ATP de ese día?",
+          "kind": "phrase",
+          "note": "Formal: ¿Desea…? is polite and professional."
+        },
+        {
+          "en": "From now on, the supervisor will check the signatures before startup.",
+          "es": "A partir de ahora, la supervisora revisará las firmas antes de arrancar.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the sausage kitchen supervisor, and the AI is third-party auditor Inés Carvajal: walk her through the stuffer sanitation procedure in formal usted with passive se (se desarma, se lava, se sanitiza), and answer her questions about your logs and corrective actions.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se desarma, se lava y se sanitiza la embutidora)",
+        "examples": [
+          {
+            "es": "Se desarma, se lava y se sanitiza la embutidora antes de cada arranque.",
+            "en": "The stuffer is taken apart, washed and sanitized before every startup."
+          },
+          {
+            "es": "Las bitácoras se revisan y se firman todos los días.",
+            "en": "The logs are reviewed and signed every day."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Written Shift Report: Saw Downtime and Lost Yield",
+      "objective": "Write a clear shift report on production, downtime, yield loss, and actions, in a formal written register.",
+      "words": [
+        {
+          "en": "the portioning saw",
+          "es": "la sierra porcionadora",
+          "kind": "term"
+        },
+        {
+          "en": "the breakdown",
+          "es": "la avería",
+          "kind": "term"
+        },
+        {
+          "en": "the downtime",
+          "es": "el tiempo de paro",
+          "kind": "term"
+        },
+        {
+          "en": "the bearing",
+          "es": "el rodamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the work order",
+          "es": "la orden de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the spare part",
+          "es": "el repuesto",
+          "kind": "term"
+        },
+        {
+          "en": "manual portioning",
+          "es": "el porcionado manual",
+          "kind": "term"
+        },
+        {
+          "en": "the off-weight steaks",
+          "es": "los bistecs fuera de peso",
+          "kind": "term"
+        },
+        {
+          "en": "the expected yield",
+          "es": "el rendimiento esperado",
+          "kind": "term"
+        },
+        {
+          "en": "the weight variance",
+          "es": "la variación de peso",
+          "kind": "term"
+        },
+        {
+          "en": "the root cause",
+          "es": "la causa raíz",
+          "kind": "term"
+        },
+        {
+          "en": "the action plan",
+          "es": "el plan de acción",
+          "kind": "term"
+        },
+        {
+          "en": "the shift summary",
+          "es": "el resumen del turno",
+          "kind": "term"
+        },
+        {
+          "en": "the backlogged orders",
+          "es": "los pedidos atrasados",
+          "kind": "term"
+        },
+        {
+          "en": "however",
+          "es": "sin embargo",
+          "kind": "term",
+          "note": "Written connector; put a comma after it, or a semicolon before it inside a sentence."
+        },
+        {
+          "en": "therefore",
+          "es": "por lo tanto",
+          "kind": "term",
+          "note": "Formal; in speech people often say entonces or por eso."
+        },
+        {
+          "en": "The portioning saw was down from 6:00 to 10:30.",
+          "es": "La sierra porcionadora estuvo parada de 6:00 a 10:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the maintenance manager, the cause was a damaged bearing.",
+          "es": "Según el jefe de mantenimiento, la causa fue un rodamiento dañado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In addition, manual portioning produced more off-weight steaks.",
+          "es": "Además, el porcionado manual generó más bistecs fuera de peso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, yield dropped from 92% to 88%.",
+          "es": "Por lo tanto, el rendimiento bajó de 92% a 88%.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, all priority orders were completed.",
+          "es": "Sin embargo, se completaron todos los pedidos prioritarios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The spare part was requested and will arrive on Thursday.",
+          "es": "Se solicitó el repuesto y llegará el jueves.",
+          "kind": "phrase",
+          "note": "Impersonal se keeps a report neutral and formal."
+        },
+        {
+          "en": "I am attaching the shift production sheet.",
+          "es": "Le adjunto la hoja de producción del turno.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "I remain available for any clarification.",
+          "es": "Quedo a sus órdenes para cualquier aclaración.",
+          "kind": "phrase",
+          "note": "Standard formal closing for a written report or email."
+        }
+      ],
+      "speaking": "You are the shift supervisor, and the AI is plant manager Gustavo Leal: present your written shift report on the saw downtime and low yield, then answer his questions, linking facts with además, sin embargo and por lo tanto in a formal register.",
+      "grammar": {
+        "focus": "Written register; report connectors (además, sin embargo, por lo tanto)",
+        "examples": [
+          {
+            "es": "La línea arrancó a tiempo; sin embargo, la sierra falló a las 6:40.",
+            "en": "The line started on time; however, the saw failed at 6:40."
+          },
+          {
+            "es": "No había repuesto en la planta; por lo tanto, se porcionó a mano.",
+            "en": "There was no spare part in the plant; therefore, portioning was done by hand."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Calls and Texts with a Restaurant Buyer: Late Order",
+      "objective": "Handle calls and texts about a late order politely, confirm details in writing, and offer a solution.",
+      "words": [
+        {
+          "en": "the short ribs",
+          "es": "las costillas cortas",
+          "kind": "term"
+        },
+        {
+          "en": "the morning truck",
+          "es": "el camión de la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery route",
+          "es": "la ruta de reparto",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery driver",
+          "es": "el repartidor",
+          "kind": "term"
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term",
+          "note": "People often just say el mensaje: te mando un mensaje."
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the missed call",
+          "es": "la llamada perdida",
+          "kind": "term"
+        },
+        {
+          "en": "the special delivery",
+          "es": "la entrega especial",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated time",
+          "es": "la hora estimada",
+          "kind": "term"
+        },
+        {
+          "en": "the dinner service",
+          "es": "el servicio de la cena",
+          "kind": "term"
+        },
+        {
+          "en": "the reservations",
+          "es": "las reservaciones",
+          "kind": "term",
+          "note": "Mexican usage; Spain says reservas."
+        },
+        {
+          "en": "the written confirmation",
+          "es": "la confirmación por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the order number",
+          "es": "el número de orden",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery charge",
+          "es": "el cargo de envío",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term"
+        },
+        {
+          "en": "Chef Quiroga, I'm writing to let you know your order was delayed.",
+          "es": "Chef Quiroga, le escribo para avisarle que su orden se retrasó.",
+          "kind": "phrase",
+          "note": "Formal text opener."
+        },
+        {
+          "en": "Hello? Yes, chef, I'm calling about the short ribs.",
+          "es": "¿Bueno? Sí, chef, le llamo por lo de las costillas.",
+          "kind": "phrase",
+          "note": "¿Bueno? is the Mexican way to answer the phone."
+        },
+        {
+          "en": "I'm sorry, the short ribs missed the morning truck.",
+          "es": "Disculpe, las costillas cortas no alcanzaron el camión de la mañana.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "We could send them to you on a special delivery before 3.",
+          "es": "Podríamos mandárselas en una entrega especial antes de las 3.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm how many portions you need for tonight?",
+          "es": "¿Podría confirmarme cuántas porciones necesita para esta noche?",
+          "kind": "phrase",
+          "note": "The conditional podría softens the request."
+        },
+        {
+          "en": "For the trouble, we wouldn't charge you the delivery fee.",
+          "es": "Por la molestia, no le cobraríamos el cargo de envío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll send you the estimated time as soon as the driver leaves.",
+          "es": "Le mando la hora estimada en cuanto salga el repartidor.",
+          "kind": "phrase",
+          "note": "Use the subjunctive after en cuanto when the moment is still in the future."
+        },
+        {
+          "en": "Hey, Beto, can you help me load the ribs now?",
+          "es": "Oye, Beto, ¿me ayudas a cargar las costillas ya?",
+          "kind": "phrase",
+          "note": "Informal (tú), to a coworker."
+        }
+      ],
+      "speaking": "You are the butcher shop supervisor, and the AI is chef Andrés Quiroga: answer his text and then his call about the short ribs that missed the morning truck, apologize, offer a special delivery, and confirm details with le escribo para avisarle and ¿podría confirmarme?",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría confirmarme?, le escribo para avisarle)",
+        "examples": [
+          {
+            "es": "¿Me podría confirmar la dirección de entrega por mensaje?",
+            "en": "Could you confirm the delivery address for me by text?"
+          },
+          {
+            "es": "Le escribo para avisarle que el repartidor ya va en camino.",
+            "en": "I'm writing to let you know the driver is already on the way."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Half-Beef Pickup Walkthrough with a Rancher",
+      "objective": "Walk a client through her cut sheet, hanging vs. packaged weight, and storage conditions, and answer her doubts.",
+      "words": [
+        {
+          "en": "the cut sheet",
+          "es": "la hoja de cortes",
+          "kind": "term"
+        },
+        {
+          "en": "the hanging weight",
+          "es": "el peso en canal",
+          "kind": "term"
+        },
+        {
+          "en": "the packaged weight",
+          "es": "el peso empacado",
+          "kind": "term"
+        },
+        {
+          "en": "the half beef",
+          "es": "la media res",
+          "kind": "term"
+        },
+        {
+          "en": "the bone",
+          "es": "el hueso",
+          "kind": "term"
+        },
+        {
+          "en": "the cooler shrink",
+          "es": "la pérdida por enfriamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the bone-in cuts",
+          "es": "los cortes con hueso",
+          "kind": "term"
+        },
+        {
+          "en": "the boneless cuts",
+          "es": "los cortes deshuesados",
+          "kind": "term"
+        },
+        {
+          "en": "the vacuum packaging",
+          "es": "el empaque al vacío",
+          "kind": "term"
+        },
+        {
+          "en": "the freezer burn",
+          "es": "la quemadura por congelación",
+          "kind": "term"
+        },
+        {
+          "en": "the chest freezer",
+          "es": "el congelador horizontal",
+          "kind": "term"
+        },
+        {
+          "en": "the cubic feet",
+          "es": "los pies cúbicos",
+          "kind": "term"
+        },
+        {
+          "en": "the stew meat",
+          "es": "la carne para guisar",
+          "kind": "term"
+        },
+        {
+          "en": "the roasts",
+          "es": "los asados",
+          "kind": "term"
+        },
+        {
+          "en": "the rancher (woman)",
+          "es": "la ganadera",
+          "kind": "term",
+          "note": "A man is el ganadero."
+        },
+        {
+          "en": "Mrs. Echeverría, the hanging weight includes bone, fat and trim.",
+          "es": "Señora Echeverría, el peso en canal incluye hueso, grasa y recortes.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Since you asked for almost everything boneless, the packaged weight comes out lower.",
+          "es": "Como pidió casi todo deshuesado, el peso empacado sale más bajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you ordered it bone-in, you would take more pounds home.",
+          "es": "Si la pidiera con hueso, se llevaría más libras a casa.",
+          "kind": "phrase",
+          "note": "Use si with the past subjunctive, then the conditional in the result."
+        },
+        {
+          "en": "Would you like to go over the cut sheet with me, box by box?",
+          "es": "¿Le gustaría revisar la hoja de cortes conmigo, caja por caja?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd be happy to show you the weight record for your animal.",
+          "es": "Con gusto le muestro el registro de pesos de su res.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As long as the packaging is intact, there won't be freezer burn.",
+          "es": "Mientras el empaque esté intacto, no habrá quemadura por congelación.",
+          "kind": "phrase",
+          "note": "Use the subjunctive after mientras when it means as long as."
+        },
+        {
+          "en": "For a half beef, I would recommend a large chest freezer.",
+          "es": "Para media res, le recomendaría un congelador horizontal grande.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thaw it in the fridge, not on the kitchen counter.",
+          "es": "Descongélela en el refrigerador, no en la mesa de la cocina.",
+          "kind": "phrase",
+          "note": "Formal usted command with the pronoun attached."
+        }
+      ],
+      "speaking": "You are the custom processor's counter supervisor, and the AI is rancher Marta Echeverría: walk her through her cut sheet, explain hanging vs. packaged weight and how to store the meat, using the conditional and siempre que + subjunctive.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (siempre que se mantenga congelada, la calidad sería la misma)",
+        "examples": [
+          {
+            "es": "Si dejáramos más grasa en la carne molida, el peso sería mayor.",
+            "en": "If we left more fat in the ground beef, the weight would be higher."
+          },
+          {
+            "es": "Siempre que se mantenga congelada, la calidad sería la misma en marzo.",
+            "en": "As long as it stays frozen, the quality would be the same in March."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Full Fabrication Day That Goes Sideways",
+      "objective": "Lead a full shift: train, handle a shortage and an inspector, manage a near miss, and report the day.",
+      "words": [
+        {
+          "en": "the new hire (woman)",
+          "es": "la nueva empleada",
+          "kind": "term",
+          "note": "A man is el nuevo empleado."
+        },
+        {
+          "en": "the ribeye",
+          "es": "el rib eye",
+          "kind": "term",
+          "note": "Standard loanword on US plant floors."
+        },
+        {
+          "en": "the buyer",
+          "es": "el comprador",
+          "kind": "term"
+        },
+        {
+          "en": "the substitute",
+          "es": "el sustituto",
+          "kind": "term"
+        },
+        {
+          "en": "the retain tag",
+          "es": "la etiqueta de retenido",
+          "kind": "term"
+        },
+        {
+          "en": "the noncompliance record",
+          "es": "el reporte de incumplimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the slip",
+          "es": "el resbalón",
+          "kind": "term"
+        },
+        {
+          "en": "the puddle",
+          "es": "el charco",
+          "kind": "term"
+        },
+        {
+          "en": "the fat on the floor",
+          "es": "la grasa en el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the anti-slip mat",
+          "es": "el tapete antiderrapante",
+          "kind": "term"
+        },
+        {
+          "en": "the wet floor sign",
+          "es": "la señal de piso mojado",
+          "kind": "term"
+        },
+        {
+          "en": "the floor squeegee",
+          "es": "el jalador",
+          "kind": "term",
+          "note": "Mexican usage for the floor squeegee."
+        },
+        {
+          "en": "the QA lead (woman)",
+          "es": "la líder de calidad",
+          "kind": "term"
+        },
+        {
+          "en": "the plant manager",
+          "es": "el gerente de planta",
+          "kind": "term"
+        },
+        {
+          "en": "the end-of-day wrap-up",
+          "es": "el cierre del día",
+          "kind": "term"
+        },
+        {
+          "en": "Ximena, keep your support hand behind the knife.",
+          "es": "Ximena, mantén la mano de soporte detrás del cuchillo.",
+          "kind": "phrase",
+          "note": "Informal (tú) command to a new hire."
+        },
+        {
+          "en": "I'm letting you know we're 40 pounds of ribeye short today.",
+          "es": "Le aviso que hoy nos faltan 40 libras de rib eye.",
+          "kind": "phrase",
+          "note": "Formal, to the buyer."
+        },
+        {
+          "en": "Would it work for you to get half today and the rest tomorrow?",
+          "es": "¿Le serviría recibir la mitad hoy y el resto mañana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Inspector Medina, could you show me where you found the problem?",
+          "es": "Inspector Medina, ¿me podría mostrar dónde encontró el problema?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Put out the wet floor sign and clean up that puddle now.",
+          "es": "Pongan la señal de piso mojado y limpien ese charco ya.",
+          "kind": "phrase",
+          "note": "Plural ustedes commands to the crew."
+        },
+        {
+          "en": "A trimmer slipped near the conveyor; he didn't get hurt.",
+          "es": "Un recortador se resbaló cerca de la banda; no se lastimó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Patricia, it's important that we check why there was fat there.",
+          "es": "Patricia, es importante que revisemos por qué había grasa ahí.",
+          "kind": "phrase",
+          "note": "Impersonal expressions of importance take the subjunctive (revisemos)."
+        },
+        {
+          "en": "Mr. Leal, we finished the shift with no injuries, but there was a slip.",
+          "es": "Señor Leal, terminamos el turno sin lesionados, pero hubo un resbalón.",
+          "kind": "phrase",
+          "note": "Formal report to the manager."
+        }
+      ],
+      "speaking": "You are the supervisor, and the AI is Ximena, a buyer, inspector Medina, QA lead Patricia Lozano and manager Leal in turn: train Ximena, call about short ribeyes, answer the inspector, handle the slip, and report the day with commands, past tenses, subjunctive and usted.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (commands, past narration, subjunctive, formal register)",
+        "examples": [
+          {
+            "es": "Ximena, no toques la sierra hasta que yo te lo indique.",
+            "en": "Ximena, don't touch the saw until I tell you to."
+          },
+          {
+            "es": "Cuando llegó el inspector, ya habíamos retenido el lote.",
+            "en": "When the inspector arrived, we had already held the lot."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

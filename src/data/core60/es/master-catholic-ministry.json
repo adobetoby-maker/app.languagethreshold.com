@@ -1,0 +1,2873 @@
+{
+  "version": 1,
+  "module": "master-catholic-ministry",
+  "baseModule": "catholic-ministry",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Catholic Ministry Master 20",
+  "threshold": "By Lesson 20, you can train a new volunteer and have them teach it back, explain a missing record or a changed plan to a family, say a firm no to an unsafe request, handle an incident or emergency during a liturgy, and write a clear report for the pastor in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.172Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Train a New Catechist to Run Her First Class",
+      "objective": "Explain the order of a catechesis class and why each step matters, then have the new catechist teach it back.",
+      "words": [
+        {
+          "en": "the catechist",
+          "es": "la catequista",
+          "kind": "term",
+          "note": "Use la catequista for a woman, el catequista for a man."
+        },
+        {
+          "en": "the lesson plan",
+          "es": "el plan de clase",
+          "kind": "term"
+        },
+        {
+          "en": "the catechist's guide",
+          "es": "la guía del catequista",
+          "kind": "term"
+        },
+        {
+          "en": "the topic of the day",
+          "es": "el tema del día",
+          "kind": "term"
+        },
+        {
+          "en": "the review",
+          "es": "el repaso",
+          "kind": "term"
+        },
+        {
+          "en": "the icebreaker activity",
+          "es": "la dinámica",
+          "kind": "term",
+          "note": "Common parish word for a short group game or icebreaker."
+        },
+        {
+          "en": "the craft",
+          "es": "la manualidad",
+          "kind": "term"
+        },
+        {
+          "en": "the worksheet",
+          "es": "la hoja de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the attendance list",
+          "es": "la lista de asistencia",
+          "kind": "term"
+        },
+        {
+          "en": "the prayer corner",
+          "es": "el rincón de oración",
+          "kind": "term"
+        },
+        {
+          "en": "the classroom rules",
+          "es": "las reglas del salón",
+          "kind": "term"
+        },
+        {
+          "en": "the student book",
+          "es": "el libro del alumno",
+          "kind": "term"
+        },
+        {
+          "en": "the question (something unclear)",
+          "es": "la duda",
+          "kind": "term",
+          "note": "Tener una duda = to have a question about something you don't understand."
+        },
+        {
+          "en": "the wrap-up",
+          "es": "el cierre",
+          "kind": "term"
+        },
+        {
+          "en": "the parents",
+          "es": "los padres de familia",
+          "kind": "term"
+        },
+        {
+          "en": "First we take attendance and then we pray together.",
+          "es": "Primero pasamos lista y luego rezamos juntos.",
+          "kind": "phrase",
+          "note": "Pasar lista = to take attendance."
+        },
+        {
+          "en": "We start with the review because kids forget quickly.",
+          "es": "Empezamos con el repaso porque a los niños se les olvida rápido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At the end, each child says something they learned today.",
+          "es": "Al final, cada niño dice algo que aprendió hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You don't know everything, and that's fine; that's why we ask the pastor.",
+          "es": "No sabes todo, y está bien; por eso le preguntamos al párroco.",
+          "kind": "phrase",
+          "note": "Informal (tú), coworker to coworker."
+        },
+        {
+          "en": "Now you explain the class to me, step by step.",
+          "es": "Ahora explícame tú la clase, paso por paso.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Why do you think the review goes first?",
+          "es": "¿Por qué crees que el repaso va primero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ma'am, class ends at 7:30; pick him up on time.",
+          "es": "Señora, la clase termina a las 7:30; recójalo a tiempo.",
+          "kind": "phrase",
+          "note": "Formal (usted), to a parent."
+        }
+      ],
+      "speaking": "You are the religious education coordinator, and the AI is Lucía, a new volunteer catechist: walk her through the order of a second-grade class and why each step matters, using primero, luego, porque, por eso and al final, then have her teach it back.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso, al final)",
+        "examples": [
+          {
+            "es": "Primero rezamos y luego leemos el Evangelio del domingo.",
+            "en": "First we pray and then we read Sunday's Gospel."
+          },
+          {
+            "es": "Al final repartimos la hoja de trabajo porque así repasan en casa.",
+            "en": "At the end we hand out the worksheet because that way they review at home."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "How the OCIA Year Works, Taught to a New Team Member",
+      "objective": "Explain the stages of the OCIA process and their rules, and have the new team member explain them back.",
+      "words": [
+        {
+          "en": "the OCIA process",
+          "es": "el proceso de OICA",
+          "kind": "term",
+          "note": "OICA = Orden de Iniciación Cristiana de Adultos; many parishes still say RICA."
+        },
+        {
+          "en": "the period of inquiry",
+          "es": "el período de indagación",
+          "kind": "term"
+        },
+        {
+          "en": "the catechumenate",
+          "es": "el catecumenado",
+          "kind": "term"
+        },
+        {
+          "en": "the Rite of Acceptance",
+          "es": "el Rito de Aceptación",
+          "kind": "term"
+        },
+        {
+          "en": "purification and enlightenment",
+          "es": "la purificación e iluminación",
+          "kind": "term",
+          "note": "The Lenten period before the sacraments of initiation."
+        },
+        {
+          "en": "the scrutinies",
+          "es": "los escrutinios",
+          "kind": "term"
+        },
+        {
+          "en": "mystagogy",
+          "es": "la mistagogia",
+          "kind": "term"
+        },
+        {
+          "en": "the candidate (female)",
+          "es": "la candidata",
+          "kind": "term",
+          "note": "A baptized adult; an unbaptized one is el catecúmeno or la catecúmena."
+        },
+        {
+          "en": "the valid baptism",
+          "es": "el bautismo válido",
+          "kind": "term"
+        },
+        {
+          "en": "the baptismal certificate",
+          "es": "el certificado de bautismo",
+          "kind": "term"
+        },
+        {
+          "en": "the Trinitarian formula",
+          "es": "la fórmula trinitaria",
+          "kind": "term"
+        },
+        {
+          "en": "the profession of faith",
+          "es": "la profesión de fe",
+          "kind": "term"
+        },
+        {
+          "en": "full communion",
+          "es": "la plena comunión",
+          "kind": "term"
+        },
+        {
+          "en": "the Lutheran Church",
+          "es": "la Iglesia luterana",
+          "kind": "term"
+        },
+        {
+          "en": "You start with questions, not with tests.",
+          "es": "Se empieza con preguntas, no con exámenes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If she's already baptized, she's a candidate, not a catechumen.",
+          "es": "Si ya está bautizada, es candidata, no catecúmena.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If she was baptized with the Trinitarian formula, her baptism is valid.",
+          "es": "Si se bautizó con la fórmula trinitaria, su bautismo es válido.",
+          "kind": "phrase",
+          "note": "The pastor or the diocese confirms validity, not the team alone."
+        },
+        {
+          "en": "We ask for the baptismal certificate from their previous church.",
+          "es": "Se pide el certificado de bautismo de su iglesia anterior.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The scrutinies are celebrated only with the elect, not with the candidates.",
+          "es": "Los escrutinios se celebran solo con los elegidos, no con los candidatos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Gabriel, can you explain it to me now in your own words?",
+          "es": "Gabriel, ¿me lo explicas tú ahora con tus palabras?",
+          "kind": "phrase",
+          "note": "Informal (tú), between team members."
+        },
+        {
+          "en": "Ma'am, here we respect each person's pace.",
+          "es": "Señora, aquí se respeta el ritmo de cada persona.",
+          "kind": "phrase",
+          "note": "Formal (usted), to an inquirer."
+        }
+      ],
+      "speaking": "You are the OCIA coordinator, and the AI is Gabriel, a new team member: explain the stages of the OCIA year and their rules using impersonal se (se empieza, se celebra) and si + present, then have him explain them back to you.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se empieza con la indagación; si alguien ya está bautizado, no se bautiza otra vez)",
+        "examples": [
+          {
+            "es": "Se empieza con el período de indagación y luego viene el catecumenado.",
+            "en": "You begin with the period of inquiry, and then comes the catechumenate."
+          },
+          {
+            "es": "Si alguien ya está bautizado, no se bautiza otra vez.",
+            "en": "If someone is already baptized, they are not baptized again."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Sacristan Before the Saturday Vigil",
+      "objective": "Give clear step-by-step instructions to set up the sacristy and altar, including the separate low-gluten hosts and candles.",
+      "words": [
+        {
+          "en": "low-gluten",
+          "es": "bajo en gluten",
+          "kind": "term",
+          "note": "Catholic hosts can't be fully gluten-free, so say bajo en gluten."
+        },
+        {
+          "en": "celiac disease",
+          "es": "la enfermedad celíaca",
+          "kind": "term"
+        },
+        {
+          "en": "the pyx",
+          "es": "la píxide",
+          "kind": "term",
+          "note": "Feminine: la píxide. A small closed container that keeps one host apart."
+        },
+        {
+          "en": "cross-contact",
+          "es": "la contaminación cruzada",
+          "kind": "term"
+        },
+        {
+          "en": "the chalice",
+          "es": "el cáliz",
+          "kind": "term"
+        },
+        {
+          "en": "the corporal",
+          "es": "el corporal",
+          "kind": "term"
+        },
+        {
+          "en": "the purificator",
+          "es": "el purificador",
+          "kind": "term"
+        },
+        {
+          "en": "the cruets",
+          "es": "las vinajeras",
+          "kind": "term"
+        },
+        {
+          "en": "the credence table",
+          "es": "la credencia",
+          "kind": "term"
+        },
+        {
+          "en": "the Missal",
+          "es": "el misal",
+          "kind": "term"
+        },
+        {
+          "en": "the altar cloth",
+          "es": "el mantel del altar",
+          "kind": "term"
+        },
+        {
+          "en": "the candle lighter",
+          "es": "el encendedor de velas",
+          "kind": "term"
+        },
+        {
+          "en": "the candle snuffer",
+          "es": "el apagavelas",
+          "kind": "term"
+        },
+        {
+          "en": "the flower arrangement",
+          "es": "el arreglo floral",
+          "kind": "term"
+        },
+        {
+          "en": "the fire extinguisher",
+          "es": "el extintor",
+          "kind": "term"
+        },
+        {
+          "en": "Don't mix it with the others; put it in the pyx.",
+          "es": "No la mezcles con las demás; ponla en la píxide.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a fellow volunteer."
+        },
+        {
+          "en": "Wash your hands before touching it.",
+          "es": "Lávate las manos antes de tocarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Those flowers are too close to the candles; move them.",
+          "es": "Esas flores están muy cerca de las velas; muévelas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Light them later, when everything is in place.",
+          "es": "Enciéndelas después, cuando todo esté en su lugar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you're unsure, don't guess; ask me.",
+          "es": "Si tienes duda, no adivines; pregúntame.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ma'am, your host is in the pyx, separate from the others.",
+          "es": "Señora, su hostia está en la píxide, separada de las demás.",
+          "kind": "phrase",
+          "note": "Formal (usted), to the parishioner."
+        },
+        {
+          "en": "Show me where the fire extinguisher is before we start.",
+          "es": "Muéstrame dónde está el extintor antes de empezar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you do it and explain it to me step by step.",
+          "es": "Ahora hazlo tú y explícamelo paso a paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the sacristy coordinator, and the AI is Andrés, a new sacristan: guide him step by step through setting up for the Vigil, including the low-gluten hosts and candles, with commands like ponlo aquí, enciéndelas después and no las mezcles; then have him teach it back.",
+      "grammar": {
+        "focus": "Commands with object pronouns (ponlo aquí, enciéndelas después, no los mezcles)",
+        "examples": [
+          {
+            "es": "Ponla en la credencia, lejos del copón.",
+            "en": "Put it on the credence table, away from the ciborium."
+          },
+          {
+            "es": "No los mezcles: los purificadores limpios van aquí.",
+            "en": "Don't mix them: the clean purificators go here."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Reading the Diocesan Safe Environment Policy with Volunteers",
+      "objective": "Read the diocesan safe environment policy with volunteers and explain what they must do before working with minors.",
+      "words": [
+        {
+          "en": "the safe environment policy",
+          "es": "la política de ambiente seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the background check",
+          "es": "la verificación de antecedentes",
+          "kind": "term"
+        },
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the code of conduct",
+          "es": "el código de conducta",
+          "kind": "term"
+        },
+        {
+          "en": "minors",
+          "es": "los menores de edad",
+          "kind": "term"
+        },
+        {
+          "en": "the diocesan office",
+          "es": "la oficina diocesana",
+          "kind": "term"
+        },
+        {
+          "en": "the clearance",
+          "es": "la autorización",
+          "kind": "term",
+          "note": "The diocese's written OK to work with minors."
+        },
+        {
+          "en": "the consent form",
+          "es": "el formulario de consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the fingerprints",
+          "es": "las huellas digitales",
+          "kind": "term",
+          "note": "Required only where the diocese asks for them."
+        },
+        {
+          "en": "the training certificate",
+          "es": "el certificado de capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the inappropriate behavior",
+          "es": "la conducta inapropiada",
+          "kind": "term"
+        },
+        {
+          "en": "the duty to report",
+          "es": "la obligación de reportar",
+          "kind": "term"
+        },
+        {
+          "en": "the boundaries",
+          "es": "los límites",
+          "kind": "term"
+        },
+        {
+          "en": "the private message",
+          "es": "el mensaje privado",
+          "kind": "term"
+        },
+        {
+          "en": "the renewal",
+          "es": "la renovación",
+          "kind": "term"
+        },
+        {
+          "en": "Before working with minors, you need diocesan clearance.",
+          "es": "Antes de trabajar con menores, hay que tener la autorización diocesana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Read this section and then sign here, please.",
+          "es": "Lean esta sección y luego firmen aquí, por favor.",
+          "kind": "phrase",
+          "note": "Plural command (ustedes) to the group."
+        },
+        {
+          "en": "After finishing the training, turn in the certificate at the office.",
+          "es": "Después de terminar la capacitación, entreguen el certificado en la oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the policy, there must always be 2 adults with the group.",
+          "es": "Según la política, siempre debe haber 2 adultos con el grupo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Without the office's clearance, no one starts with the kids.",
+          "es": "Sin la autorización de la oficina, nadie empieza con los niños.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you see something inappropriate, you have to report it right away.",
+          "es": "Si ven algo inapropiado, hay que reportarlo enseguida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have any questions before signing the code of conduct?",
+          "es": "¿Tienen alguna pregunta antes de firmar el código de conducta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Pilar, can you explain to me what you have to do before starting?",
+          "es": "Pilar, ¿me explicas qué hay que hacer antes de empezar?",
+          "kind": "phrase",
+          "note": "Informal (tú), to one volunteer."
+        }
+      ],
+      "speaking": "You are the parish safe environment coordinator, and the AI plays Marcos and Pilar, new youth volunteers: read the diocesan policy with them and explain what they must do before working with minors, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de trabajar con menores, hay que completar la capacitación)",
+        "examples": [
+          {
+            "es": "Antes de ayudar con los jóvenes, hay que pasar la verificación de antecedentes.",
+            "en": "Before helping with the youth, you have to pass the background check."
+          },
+          {
+            "es": "Después de leer la política, hay que firmar el formulario.",
+            "en": "After reading the policy, you have to sign the form."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Missing Baptism Record Before Confirmation",
+      "objective": "Explain to a family what happened with a missing baptism record and propose realistic ways to get it in time.",
+      "words": [
+        {
+          "en": "the baptismal certificate",
+          "es": "la fe de bautismo",
+          "kind": "term",
+          "note": "Common name in Mexican parishes for the baptismal certificate."
+        },
+        {
+          "en": "the baptismal register",
+          "es": "el libro de bautismos",
+          "kind": "term"
+        },
+        {
+          "en": "the page (folio)",
+          "es": "la foja",
+          "kind": "term",
+          "note": "Mexican records cite libro, foja and partida; ask for all three."
+        },
+        {
+          "en": "the record entry",
+          "es": "la partida",
+          "kind": "term"
+        },
+        {
+          "en": "the parish seal",
+          "es": "el sello parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the certified copy",
+          "es": "la copia certificada",
+          "kind": "term"
+        },
+        {
+          "en": "the parish of baptism",
+          "es": "la parroquia de origen",
+          "kind": "term"
+        },
+        {
+          "en": "the parish archive",
+          "es": "el archivo parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the margin notation",
+          "es": "la nota marginal",
+          "kind": "term",
+          "note": "Confirmation and marriage are later noted in the margin of the baptism entry."
+        },
+        {
+          "en": "the date of issue",
+          "es": "la fecha de expedición",
+          "kind": "term"
+        },
+        {
+          "en": "the birth certificate",
+          "es": "el acta de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the sworn statement",
+          "es": "la declaración jurada",
+          "kind": "term"
+        },
+        {
+          "en": "the deadline",
+          "es": "la fecha límite",
+          "kind": "term"
+        },
+        {
+          "en": "the small town",
+          "es": "el pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "the paperwork process",
+          "es": "el trámite",
+          "kind": "term"
+        },
+        {
+          "en": "When Iván was a baby, they baptized him in your town, right?",
+          "es": "Cuando Iván era bebé, lo bautizaron en su pueblo, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "This copy has no seal and no book number.",
+          "es": "Esta copia no tiene sello ni número de libro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you remember who the godparents were?",
+          "es": "¿Se acuerda usted de quiénes fueron los padrinos?",
+          "kind": "phrase",
+          "note": "Formal: usted with the mother."
+        },
+        {
+          "en": "What was the name of the church where they baptized him?",
+          "es": "¿Cómo se llamaba el templo donde lo bautizaron?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We could write to the parish and ask for a certified copy.",
+          "es": "Podríamos escribir a la parroquia y pedir una copia certificada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I could call the office there this very week.",
+          "es": "Yo podría llamar a la oficina de allá esta misma semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the entry doesn't turn up, the godparents could sign a statement.",
+          "es": "Si no aparece la partida, los padrinos podrían firmar una declaración.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Iván, don't worry; this can be solved.",
+          "es": "Iván, no te preocupes; esto tiene solución.",
+          "kind": "phrase",
+          "note": "Informal: tú with the teenager."
+        }
+      ],
+      "speaking": "You are the religious education coordinator, and the AI is Graciela Fuentes, Iván's mother: explain why a copy without seal or book number can't be used, ask about the baptism with the preterite and imperfect (era bebé, lo bautizaron), and propose options with podríamos.",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (cuando era bebé lo bautizaron en…; podríamos escribir a la parroquia)",
+        "examples": [
+          {
+            "es": "Cuando Iván era bebé, la familia vivía en Michoacán y lo bautizaron allí.",
+            "en": "When Iván was a baby, the family lived in Michoacán and they baptized him there."
+          },
+          {
+            "es": "Podríamos mandar un correo a la parroquia de origen hoy mismo.",
+            "en": "We could send an email to the parish of baptism today."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Priest Is Sick: Leading a Communion Service Instead",
+      "objective": "Tell the gathered faithful what will happen instead of Mass and how it compares, and answer their questions calmly.",
+      "words": [
+        {
+          "en": "the Liturgy of the Word service",
+          "es": "la celebración de la Palabra",
+          "kind": "term"
+        },
+        {
+          "en": "the tabernacle",
+          "es": "el sagrario",
+          "kind": "term"
+        },
+        {
+          "en": "the consecrated hosts",
+          "es": "las hostias consagradas",
+          "kind": "term"
+        },
+        {
+          "en": "the priest",
+          "es": "el presbítero",
+          "kind": "term",
+          "note": "Formal liturgical word; in conversation people say el padre."
+        },
+        {
+          "en": "the lay minister",
+          "es": "el ministro laico",
+          "kind": "term"
+        },
+        {
+          "en": "the Eucharistic Prayer",
+          "es": "la Plegaria Eucarística",
+          "kind": "term"
+        },
+        {
+          "en": "the prayers of the faithful",
+          "es": "la oración de los fieles",
+          "kind": "term"
+        },
+        {
+          "en": "the Sunday obligation",
+          "es": "el precepto dominical",
+          "kind": "term",
+          "note": "Applies to Sundays and holy days; weekday Mass is not of obligation."
+        },
+        {
+          "en": "the diocesan norms",
+          "es": "las normas diocesanas",
+          "kind": "term"
+        },
+        {
+          "en": "the Mass intention",
+          "es": "la intención de Misa",
+          "kind": "term"
+        },
+        {
+          "en": "the Mass offering",
+          "es": "el estipendio",
+          "kind": "term",
+          "note": "The offering a family gives for a Mass intention."
+        },
+        {
+          "en": "spiritual communion",
+          "es": "la comunión espiritual",
+          "kind": "term"
+        },
+        {
+          "en": "the chapel",
+          "es": "la capilla",
+          "kind": "term"
+        },
+        {
+          "en": "the sacrifice",
+          "es": "el sacrificio",
+          "kind": "term"
+        },
+        {
+          "en": "short, brief",
+          "es": "breve",
+          "kind": "term"
+        },
+        {
+          "en": "Brothers and sisters, Father Julián is sick and won't be coming.",
+          "es": "Hermanos, el padre Julián está enfermo y no va a venir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today we are going to celebrate the Word and receive Communion.",
+          "es": "Hoy vamos a celebrar la Palabra y recibir la Comunión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It will be shorter than Mass, about 20 minutes.",
+          "es": "Será más breve que la Misa, unos 20 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doña Amparo, it is not the same as Mass, because there is no consecration.",
+          "es": "Doña Amparo, no es igual que la Misa, porque no hay consagración.",
+          "kind": "phrase",
+          "note": "Formal: Doña + first name shows respect to an older woman."
+        },
+        {
+          "en": "The hosts are already consecrated; we keep them in the tabernacle.",
+          "es": "Las hostias ya están consagradas; las guardamos en el sagrario.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The pastor authorized me, according to the diocesan norms.",
+          "es": "El párroco me autorizó, según las normas diocesanas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today's Mass intention will be moved to another day.",
+          "es": "La intención de Misa de hoy se pasará a otro día.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We are also going to pray for Father Julián's health.",
+          "es": "Vamos a orar también por la salud del padre Julián.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the parish leader authorized for this service, and the AI is Doña Amparo Leal, a daily Mass regular: explain that Father Julián is sick and what will happen instead with vamos a and the future, and compare it with Mass using más breve que and no es igual que.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (vamos a celebrar la Palabra; será más breve que la Misa; no es igual que)",
+        "examples": [
+          {
+            "es": "Vamos a escuchar las lecturas del día y después comulgaremos.",
+            "en": "We are going to hear the day's readings and afterward we will receive Communion."
+          },
+          {
+            "es": "La celebración será más breve que la Misa de costumbre.",
+            "en": "The service will be shorter than the usual Mass."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Wedding Planner Changes the Plan at the Rehearsal",
+      "objective": "Recount what the couple agreed in their preparation and hold firm on times, readings, and numbers with the planner.",
+      "words": [
+        {
+          "en": "the wedding planner",
+          "es": "la organizadora de bodas",
+          "kind": "term",
+          "note": "Many people in the US also say la wedding planner."
+        },
+        {
+          "en": "the bridesmaids",
+          "es": "las damas de honor",
+          "kind": "term"
+        },
+        {
+          "en": "the lasso sponsors",
+          "es": "los padrinos de lazo",
+          "kind": "term"
+        },
+        {
+          "en": "the wedding coins",
+          "es": "las arras",
+          "kind": "term"
+        },
+        {
+          "en": "the responsorial psalm",
+          "es": "el salmo responsorial",
+          "kind": "term"
+        },
+        {
+          "en": "the start time",
+          "es": "la hora de inicio",
+          "kind": "term"
+        },
+        {
+          "en": "the photo session",
+          "es": "la sesión de fotos",
+          "kind": "term"
+        },
+        {
+          "en": "the next wedding",
+          "es": "la boda siguiente",
+          "kind": "term"
+        },
+        {
+          "en": "the church schedule",
+          "es": "el horario de la iglesia",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance procession",
+          "es": "la procesión de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the photographer",
+          "es": "el fotógrafo",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the preparation meeting",
+          "es": "la reunión de preparación",
+          "kind": "term"
+        },
+        {
+          "en": "the parish guidelines",
+          "es": "el reglamento parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "on time, promptly",
+          "es": "puntualmente",
+          "kind": "term"
+        },
+        {
+          "en": "In March, Daniela and Óscar chose these readings with us.",
+          "es": "En marzo, Daniela y Óscar eligieron estas lecturas con nosotros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The ceremony starts at 2:15, as agreed.",
+          "es": "La ceremonia empieza a las 2:15, como se acordó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's another wedding at 3:30; we can't start later.",
+          "es": "Hay otra boda a las 3:30; no podemos empezar más tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Valeria, the psalm can't be removed; it's part of the liturgy.",
+          "es": "Valeria, el salmo no se puede quitar; es parte de la liturgia.",
+          "kind": "phrase",
+          "note": "Use usted with the planner: firm but polite."
+        },
+        {
+          "en": "There are 12 bridesmaids; that's what the couple signed.",
+          "es": "Son 12 damas de honor; así lo firmaron los novios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 10 minutes for photos at the end, according to the parish guidelines.",
+          "es": "Para fotos hay 10 minutos al final, según el reglamento parroquial.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With all due respect, the couple decided that with the parish.",
+          "es": "Con todo respeto, eso lo decidieron los novios con la parroquia.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Daniela, Óscar, do you want to change anything we agreed on?",
+          "es": "Daniela, Óscar, ¿ustedes quieren cambiar algo de lo que acordamos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the parish wedding coordinator, and the AI is Valeria Campos, the couple's planner: recount what Daniela and Óscar agreed in their preparation with the preterite (eligieron, acordaron), and hold firm on the start time, the psalm and the numbers, saying times clearly (a las 2:15).",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (en marzo eligieron…; empieza a las dos y cuarto; son doce damas)",
+        "examples": [
+          {
+            "es": "En la reunión de marzo, los novios eligieron el Salmo 128.",
+            "en": "At the March meeting, the couple chose Psalm 128."
+          },
+          {
+            "es": "La boda empieza a las 2:15 y la siguiente es a las 3:30.",
+            "en": "The wedding starts at 2:15 and the next one is at 3:30."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: Teens in a Volunteer's Pickup",
+      "objective": "Refuse an unsafe ride arrangement for teens, explain why, and offer a safe alternative without embarrassing the volunteer.",
+      "words": [
+        {
+          "en": "the signed permission form",
+          "es": "el permiso firmado",
+          "kind": "term"
+        },
+        {
+          "en": "the approved driver",
+          "es": "el conductor aprobado",
+          "kind": "term"
+        },
+        {
+          "en": "the approved drivers list",
+          "es": "la lista de conductores",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup truck",
+          "es": "la troca",
+          "kind": "term",
+          "note": "US Mexican Spanish; also la pickup."
+        },
+        {
+          "en": "the truck bed",
+          "es": "la caja de la troca",
+          "kind": "term"
+        },
+        {
+          "en": "the parish van",
+          "es": "la camioneta de la parroquia",
+          "kind": "term"
+        },
+        {
+          "en": "the seat belt",
+          "es": "el cinturón de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the vehicle insurance",
+          "es": "el seguro del vehículo",
+          "kind": "term"
+        },
+        {
+          "en": "the driver's license",
+          "es": "la licencia de manejo",
+          "kind": "term"
+        },
+        {
+          "en": "the day trip",
+          "es": "la excursión",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency contact",
+          "es": "el contacto de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the legal guardian",
+          "es": "el tutor",
+          "kind": "term",
+          "note": "Use la tutora for a woman."
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de encuentro",
+          "kind": "term"
+        },
+        {
+          "en": "the second trip",
+          "es": "el segundo viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the diocesan policy",
+          "es": "la política diocesana",
+          "kind": "term"
+        },
+        {
+          "en": "Héctor, thank you for offering, really.",
+          "es": "Héctor, gracias por ofrecerte, de veras.",
+          "kind": "phrase",
+          "note": "Informal: tú between ministry coworkers."
+        },
+        {
+          "en": "Don't take them, please; you're not on the list.",
+          "es": "No los lleves, por favor; no estás en la lista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend that they leave without a signed permission form.",
+          "es": "No recomiendo que salgan sin permiso firmado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The diocesan policy requires approved drivers, no exceptions.",
+          "es": "La política diocesana pide conductores aprobados, sin excepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody rides in the truck bed.",
+          "es": "Nadie viaja en la caja de la troca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, don't get in yet; wait here with me.",
+          "es": "Muchachos, no se suban todavía; esperen aquí conmigo.",
+          "kind": "phrase",
+          "note": "Plural ustedes commands for the group of teens."
+        },
+        {
+          "en": "I'm going to call the missing parents right now.",
+          "es": "Voy a llamar ahora mismo a los papás que faltan.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Will you help me find another approved driver?",
+          "es": "¿Me ayudas a buscar a otro conductor aprobado?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the youth ministry coordinator, and the AI is Héctor Ruiz, a volunteer offering his pickup: thank him, refuse the ride with negative commands (no los lleves) and no recomiendo que + subjunctive, explain the policy, and offer a safe alternative without embarrassing him.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no los lleves; no recomiendo que salgan sin permiso firmado)",
+        "examples": [
+          {
+            "es": "No los subas a la troca, Héctor; espera un momento.",
+            "en": "Don't put them in the truck, Héctor; wait a moment."
+          },
+          {
+            "es": "No recomiendo que viajen sin el permiso firmado de sus papás.",
+            "en": "I don't recommend that they travel without their parents' signed permission."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for a Veteran Lector Who Rushes",
+      "objective": "Give respectful, specific feedback to an experienced lector and agree on two changes for next Sunday.",
+      "words": [
+        {
+          "en": "the lector (woman)",
+          "es": "la lectora",
+          "kind": "term",
+          "note": "A man is el lector."
+        },
+        {
+          "en": "the ambo",
+          "es": "el ambón",
+          "kind": "term"
+        },
+        {
+          "en": "the lectionary",
+          "es": "el leccionario",
+          "kind": "term"
+        },
+        {
+          "en": "the proclamation",
+          "es": "la proclamación",
+          "kind": "term"
+        },
+        {
+          "en": "the pace",
+          "es": "el ritmo",
+          "kind": "term"
+        },
+        {
+          "en": "the pause",
+          "es": "la pausa",
+          "kind": "term"
+        },
+        {
+          "en": "the psalm response",
+          "es": "el estribillo del salmo",
+          "kind": "term",
+          "note": "Also called la respuesta del salmo."
+        },
+        {
+          "en": "the microphone",
+          "es": "el micrófono",
+          "kind": "term"
+        },
+        {
+          "en": "the diction",
+          "es": "la dicción",
+          "kind": "term"
+        },
+        {
+          "en": "the intonation",
+          "es": "la entonación",
+          "kind": "term"
+        },
+        {
+          "en": "the volume",
+          "es": "el volumen",
+          "kind": "term"
+        },
+        {
+          "en": "the clarity",
+          "es": "la claridad",
+          "kind": "term"
+        },
+        {
+          "en": "the lector schedule",
+          "es": "el calendario de lectores",
+          "kind": "term"
+        },
+        {
+          "en": "the First Reading",
+          "es": "la Primera Lectura",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "Doña Beatriz, thank you for your 20 years as a lector.",
+          "es": "Doña Beatriz, gracias por sus 20 años como lectora.",
+          "kind": "phrase",
+          "note": "Formal. Doña + first name shows respect for an older woman."
+        },
+        {
+          "en": "I recommend that you pause after each paragraph.",
+          "es": "Le recomiendo que haga una pausa después de cada párrafo.",
+          "kind": "phrase",
+          "note": "Formal. Recomendar que + subjunctive."
+        },
+        {
+          "en": "I want the people to hear every word.",
+          "es": "Quiero que la gente escuche cada palabra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today the psalm response slipped by you.",
+          "es": "Hoy se le pasó el estribillo del salmo.",
+          "kind": "phrase",
+          "note": "Se le pasó describes it as a slip, not a fault. It sounds gentle."
+        },
+        {
+          "en": "It's not a criticism; you are very valuable to us.",
+          "es": "No es una crítica; usted es muy valiosa para nosotros.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I ask you to read the First Reading a little more slowly.",
+          "es": "Le pido que lea la Primera Lectura un poco más despacio.",
+          "kind": "phrase",
+          "note": "Formal. Pedir que + subjunctive."
+        },
+        {
+          "en": "How about we try these 2 changes on Sunday?",
+          "es": "¿Qué le parece si probamos estos 2 cambios el domingo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Toño, thanks; I'll talk with her privately.",
+          "es": "Toño, gracias; yo platico con ella a solas.",
+          "kind": "phrase",
+          "note": "Informal, to a coworker. Platicar is everyday Mexican Spanish for to talk."
+        }
+      ],
+      "speaking": "You are the parish liturgy coordinator, and the AI is Beatriz, a lector for 20 years: thank her, give specific feedback on her pace and the psalm response, and agree on 2 changes using le recomiendo que and quiero que + subjunctive.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (le recomiendo que haga pausas; quiero que la gente escuche)",
+        "examples": [
+          {
+            "es": "Le recomiendo que haga una pausa antes del estribillo.",
+            "en": "I recommend that you pause before the response."
+          },
+          {
+            "es": "Quiero que la asamblea pueda responder el salmo.",
+            "en": "I want the assembly to be able to respond to the psalm."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Two Ministries, One Hall: Settling a Double Booking",
+      "objective": "Report what each leader said, separate facts from feelings, and lead both to a fair agreement.",
+      "words": [
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexican and US usage. Spain says la reserva."
+        },
+        {
+          "en": "the double booking",
+          "es": "la doble reservación",
+          "kind": "term"
+        },
+        {
+          "en": "the parish calendar",
+          "es": "el calendario parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the booking log",
+          "es": "el cuaderno de reservaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the written confirmation",
+          "es": "la confirmación por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the Guadalupanas (women's society)",
+          "es": "las Guadalupanas",
+          "kind": "term"
+        },
+        {
+          "en": "the president (woman)",
+          "es": "la presidenta",
+          "kind": "term"
+        },
+        {
+          "en": "the youth choir",
+          "es": "el coro juvenil",
+          "kind": "term"
+        },
+        {
+          "en": "the serenade",
+          "es": "la serenata",
+          "kind": "term",
+          "note": "On the night of December 11, parishes sing to Our Lady of Guadalupe."
+        },
+        {
+          "en": "the eve",
+          "es": "la víspera",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the facts",
+          "es": "los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the feelings",
+          "es": "los sentimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the proposal",
+          "es": "la propuesta",
+          "kind": "term"
+        },
+        {
+          "en": "the shared schedule",
+          "es": "el horario compartido",
+          "kind": "term"
+        },
+        {
+          "en": "Doña Carmen said she had already reserved it in September.",
+          "es": "Doña Carmen dijo que ya lo había reservado en septiembre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rubén thought the hall was free that night.",
+          "es": "Rubén pensaba que el salón estaba libre esa noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The secretary said she had answered both of them.",
+          "es": "La secretaria dijo que les había contestado a los dos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First, let's separate the facts from the feelings.",
+          "es": "Primero, separemos los hechos de los sentimientos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody is lying; there was a misunderstanding here.",
+          "es": "Nadie está mintiendo; aquí hubo un malentendido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doña Carmen, do you have the written confirmation?",
+          "es": "Doña Carmen, ¿usted tiene la confirmación por escrito?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Rubén, what did you understand when you talked with her?",
+          "es": "Rubén, ¿tú qué entendiste cuando hablaste con ella?",
+          "kind": "phrase",
+          "note": "Informal, to a younger colleague you already use tú with."
+        },
+        {
+          "en": "What if the youth choir sings at the serenade to the Virgin?",
+          "es": "¿Y si el coro juvenil canta en la serenata a la Virgen?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the parish staff member, and the AI is Carmen and Rubén in turn: report what each said with dijo que and pensaba que, separate facts from feelings, and lead both to a fair plan for the night of December 11.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Carmen dijo que ya lo había reservado; Rubén pensaba que estaba libre)",
+        "examples": [
+          {
+            "es": "Carmen dijo que ya lo había reservado con la secretaria.",
+            "en": "Carmen said she had already reserved it with the secretary."
+          },
+          {
+            "es": "Rubén pensaba que estaba libre porque no veía nada en el calendario.",
+            "en": "Rubén thought it was free because he didn't see anything on the calendar."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping Tired Catechists Going in January",
+      "objective": "Acknowledge the team's frustration, make concrete commitments, and encourage the catechists to finish the year.",
+      "words": [
+        {
+          "en": "the discouragement",
+          "es": "el desánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the low attendance",
+          "es": "la baja asistencia",
+          "kind": "term"
+        },
+        {
+          "en": "the second semester",
+          "es": "el segundo semestre",
+          "kind": "term"
+        },
+        {
+          "en": "the support",
+          "es": "el apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the commitment",
+          "es": "el compromiso",
+          "kind": "term",
+          "note": "Means commitment, not compromise."
+        },
+        {
+          "en": "the workload",
+          "es": "la carga de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the resignation",
+          "es": "la renuncia",
+          "kind": "term"
+        },
+        {
+          "en": "the recognition",
+          "es": "el reconocimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the goal",
+          "es": "la meta",
+          "kind": "term"
+        },
+        {
+          "en": "the end of the school year",
+          "es": "el fin de curso",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting with the parents",
+          "es": "la reunión con los padres",
+          "kind": "term"
+        },
+        {
+          "en": "the weekly reminder",
+          "es": "el recordatorio semanal",
+          "kind": "term"
+        },
+        {
+          "en": "the WhatsApp group",
+          "es": "el grupo de WhatsApp",
+          "kind": "term"
+        },
+        {
+          "en": "the get-together",
+          "es": "el convivio",
+          "kind": "term",
+          "note": "Mexican usage for an informal team or parish gathering."
+        },
+        {
+          "en": "I understand your frustration; I feel it too.",
+          "es": "Entiendo su frustración; yo también la siento.",
+          "kind": "phrase",
+          "note": "Su here is plural, meaning your (all of you)."
+        },
+        {
+          "en": "I will talk with the parents next Sunday.",
+          "es": "Yo hablaré con los padres el próximo domingo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You will not be alone this semester.",
+          "es": "Ustedes no estarán solos este semestre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I will send the families a reminder every Friday.",
+          "es": "Mandaré un recordatorio a las familias cada viernes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ramón, what would you need to stay until May?",
+          "es": "Ramón, ¿qué necesitarías para quedarte hasta mayo?",
+          "kind": "phrase",
+          "note": "Informal, to a fellow catechist."
+        },
+        {
+          "en": "Your work does bear fruit, even if it doesn't always show.",
+          "es": "Su trabajo sí da fruto, aunque no siempre se vea.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lucía, thank you for not giving up.",
+          "es": "Lucía, gracias por no rendirte.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "We're doing well; we're almost there!",
+          "es": "¡Vamos bien; ya falta poco!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the religious education coordinator, and the AI plays the catechists Lucía, Inés and Ramón: acknowledge their frustration, make concrete promises in the future tense (yo hablaré, ustedes no estarán solos), and encourage them to finish the year.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (yo hablaré con los padres; ustedes no estarán solos; ¡vamos bien!)",
+        "examples": [
+          {
+            "es": "Yo hablaré con el párroco sobre la asistencia.",
+            "en": "I will talk with the pastor about attendance."
+          },
+          {
+            "es": "En mayo celebraremos juntos la primera comunión de sus alumnos.",
+            "en": "In May we will celebrate your students' First Communion together."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "First Communion Moved: Telling Pastor, Teen and Abuela",
+      "objective": "Give the same date change to four listeners, switching between usted and tú and softening your requests.",
+      "words": [
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the new date",
+          "es": "la nueva fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the bishop's schedule",
+          "es": "la agenda del obispo",
+          "kind": "term"
+        },
+        {
+          "en": "the Office of Worship",
+          "es": "la Oficina de Liturgia",
+          "kind": "term"
+        },
+        {
+          "en": "the approval",
+          "es": "el visto bueno",
+          "kind": "term",
+          "note": "Common for an approval or sign-off: dar el visto bueno."
+        },
+        {
+          "en": "the notice to families",
+          "es": "el aviso a las familias",
+          "kind": "term"
+        },
+        {
+          "en": "the parish announcements",
+          "es": "los anuncios parroquiales",
+          "kind": "term"
+        },
+        {
+          "en": "the flyer",
+          "es": "el volante",
+          "kind": "term"
+        },
+        {
+          "en": "the guests",
+          "es": "los invitados",
+          "kind": "term"
+        },
+        {
+          "en": "the party hall",
+          "es": "el salón de fiestas",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el depósito",
+          "kind": "term"
+        },
+        {
+          "en": "the First Communion dress",
+          "es": "el vestido de comunión",
+          "kind": "term"
+        },
+        {
+          "en": "the granddaughter",
+          "es": "la nieta",
+          "kind": "term"
+        },
+        {
+          "en": "the inconvenience",
+          "es": "las molestias",
+          "kind": "term",
+          "note": "Usually plural: disculpe las molestias."
+        },
+        {
+          "en": "the phone call",
+          "es": "la llamada",
+          "kind": "term"
+        },
+        {
+          "en": "Father Ernesto, I'd like to ask you for a moment to talk about First Communion.",
+          "es": "Padre Ernesto, quisiera pedirle un momento para hablar de la primera comunión.",
+          "kind": "phrase",
+          "note": "Formal. Quisiera softens the request."
+        },
+        {
+          "en": "Would it be all right with you to move it to Saturday, May 23?",
+          "es": "¿Le parecería bien pasarla al sábado 23 de mayo?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Good morning, I'm calling from San Miguel parish.",
+          "es": "Buenos días, le hablo de la parroquia San Miguel.",
+          "kind": "phrase",
+          "note": "Formal phone opening. Le hablo de means I'm calling from."
+        },
+        {
+          "en": "Could you confirm the new date for me by email?",
+          "es": "¿Me podría confirmar la nueva fecha por correo?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Kevin, could you help me hand out the flyers on Sunday?",
+          "es": "Kevin, ¿podrías ayudarme a repartir los volantes el domingo?",
+          "kind": "phrase",
+          "note": "Informal, to a teen helper."
+        },
+        {
+          "en": "Hey, can you give me a hand with the announcements?",
+          "es": "Oye, ¿me echas la mano con los anuncios?",
+          "kind": "phrase",
+          "note": "Informal Mexican Spanish. Echar la mano means to help out."
+        },
+        {
+          "en": "Doña Rosario, I'm very sorry for the trouble this causes you.",
+          "es": "Doña Rosario, siento mucho las molestias que esto le causa.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "If you need help with the party hall, we're here.",
+          "es": "Si necesita ayuda con el salón de fiestas, aquí estamos.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the religious education coordinator, and the AI plays Father Ernesto, the diocesan Office of Worship, teen Kevin and Doña Rosario in turn: give each the First Communion date change, using usted or tú correctly and softeners like quisiera pedirle, ¿podrías…? and ¿le parecería bien…?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera pedirle, ¿podrías…?, ¿le parecería bien…?)",
+        "examples": [
+          {
+            "es": "Padre, quisiera pedirle su visto bueno para la nueva fecha.",
+            "en": "Father, I'd like to ask for your approval of the new date."
+          },
+          {
+            "es": "Kevin, ¿podrías llevarle este aviso a doña Rosario?",
+            "en": "Kevin, could you take this notice to Doña Rosario?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Child Hurt at Summer Bible Camp: Incident Report",
+      "objective": "Tell a parent exactly what happened and when, then fill out the parish incident report in clear order.",
+      "words": [
+        {
+          "en": "the summer camp",
+          "es": "el campamento de verano",
+          "kind": "term"
+        },
+        {
+          "en": "the recess",
+          "es": "el recreo",
+          "kind": "term"
+        },
+        {
+          "en": "the play structure",
+          "es": "la estructura de juegos",
+          "kind": "term",
+          "note": "Common US Spanish for a playground climbing frame."
+        },
+        {
+          "en": "the fall",
+          "es": "la caída",
+          "kind": "term"
+        },
+        {
+          "en": "first aid",
+          "es": "los primeros auxilios",
+          "kind": "term"
+        },
+        {
+          "en": "the first-aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the trained volunteer",
+          "es": "la voluntaria capacitada",
+          "kind": "term",
+          "note": "Use el voluntario capacitado for a man."
+        },
+        {
+          "en": "the scrape",
+          "es": "el raspón",
+          "kind": "term"
+        },
+        {
+          "en": "the swelling",
+          "es": "la hinchazón",
+          "kind": "term"
+        },
+        {
+          "en": "the ice pack",
+          "es": "la bolsa de hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el reporte de incidente",
+          "kind": "term",
+          "note": "Common in the US; el informe de incidente is also correct."
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "medical care",
+          "es": "la atención médica",
+          "kind": "term"
+        },
+        {
+          "en": "the diocesan form",
+          "es": "el formulario diocesano",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Paredes, Sofía is awake and calm; let me explain what happened.",
+          "es": "Señor Paredes, Sofía está despierta y tranquila; le explico qué pasó.",
+          "kind": "phrase",
+          "note": "Formal: use usted with a parent."
+        },
+        {
+          "en": "At a quarter past ten, the children went out to recess.",
+          "es": "A las diez y cuarto, los niños salieron al recreo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While she was playing on the structure, Sofía slipped and fell.",
+          "es": "Mientras jugaba en la estructura, Sofía se resbaló y se cayó.",
+          "kind": "phrase",
+          "note": "Imperfect (jugaba) sets the scene; preterite (se resbaló) tells what happened."
+        },
+        {
+          "en": "As soon as we saw her, the volunteer gave her first aid.",
+          "es": "En cuanto la vimos, la voluntaria le dio primeros auxilios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A few minutes later, we put an ice pack on her arm.",
+          "es": "Unos minutos después, le pusimos una bolsa de hielo en el brazo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At ten thirty I called you on the phone.",
+          "es": "A las diez y media lo llamé a usted por teléfono.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like to take her to be checked by a doctor?",
+          "es": "¿Quiere llevarla a que la revise un médico?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please read the report and sign it here.",
+          "es": "Por favor, lea el reporte y fírmelo aquí.",
+          "kind": "phrase",
+          "note": "Formal command with pronoun attached: fírmelo."
+        }
+      ],
+      "speaking": "You are the camp coordinator, and the AI is Diego Paredes, Sofía's father: tell him what happened in clear order using a las diez y cuarto, mientras, en cuanto and unos minutos después, then go over the incident report with him.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las diez y cuarto, unos minutos después, mientras, en cuanto)",
+        "examples": [
+          {
+            "es": "A las diez y cuarto, Sofía subió a la estructura de juegos.",
+            "en": "At a quarter past ten, Sofía climbed onto the play structure."
+          },
+          {
+            "es": "En cuanto se cayó, la voluntaria corrió a ayudarla.",
+            "en": "As soon as she fell, the volunteer ran to help her."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: A Processional Candle and a Server's Sleeve",
+      "objective": "Talk through a near miss with the servers and their coordinator without blame and agree on what will change.",
+      "words": [
+        {
+          "en": "the large candle",
+          "es": "el cirio",
+          "kind": "term",
+          "note": "A tall liturgical candle, like the ones carried in procession."
+        },
+        {
+          "en": "the flame",
+          "es": "la llama",
+          "kind": "term"
+        },
+        {
+          "en": "the sleeve",
+          "es": "la manga",
+          "kind": "term"
+        },
+        {
+          "en": "the alb",
+          "es": "el alba",
+          "kind": "term",
+          "note": "Feminine noun that takes el in the singular: el alba blanca, las albas."
+        },
+        {
+          "en": "the center aisle",
+          "es": "el pasillo central",
+          "kind": "term"
+        },
+        {
+          "en": "Candlemas",
+          "es": "la Candelaria",
+          "kind": "term",
+          "note": "Feast on February 2; in Mexico also Día de la Candelaria."
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the distance",
+          "es": "la distancia",
+          "kind": "term"
+        },
+        {
+          "en": "the wick",
+          "es": "la mecha",
+          "kind": "term"
+        },
+        {
+          "en": "the crowd",
+          "es": "el gentío",
+          "kind": "term"
+        },
+        {
+          "en": "the size",
+          "es": "la talla",
+          "kind": "term"
+        },
+        {
+          "en": "the measure",
+          "es": "la medida",
+          "kind": "term"
+        },
+        {
+          "en": "the route change",
+          "es": "el cambio de ruta",
+          "kind": "term"
+        },
+        {
+          "en": "the lesson learned",
+          "es": "la lección aprendida",
+          "kind": "term"
+        },
+        {
+          "en": "Nobody is to blame; we want to understand what happened.",
+          "es": "Nadie tiene la culpa; queremos entender qué pasó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mateo, your sleeve almost caught fire.",
+          "es": "Mateo, por poco se te quema la manga.",
+          "kind": "phrase",
+          "note": "Informal: tú with a young server."
+        },
+        {
+          "en": "The flame almost touched it, but Ximena saw it in time.",
+          "es": "Casi la toca la llama, pero Ximena lo vio a tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It could have been worse; thank God, nobody got hurt.",
+          "es": "Podría haber sido peor; gracias a Dios, nadie se lastimó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ximena, what did you see from behind?",
+          "es": "Ximena, ¿tú qué viste desde atrás?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "If we walk farther apart, the flame doesn't get close.",
+          "es": "Si caminamos más separados, la llama no se acerca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Natalia, what do you think about ordering albs in the right size?",
+          "es": "Natalia, ¿qué le parece si pedimos albas de la talla correcta?",
+          "kind": "phrase",
+          "note": "Formal: usted with the coordinator."
+        },
+        {
+          "en": "If the aisle is full, we use the side aisle.",
+          "es": "Si el pasillo está lleno, usamos el pasillo lateral.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the parish staff member, and the AI is Natalia Aguirre, the server coordinator: talk through the candle near miss without blame using casi, por poco and podría haber, and agree on changes with si clauses like si vamos más separados, no pasa.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco se quema; si los cirios van más separados, no pasa)",
+        "examples": [
+          {
+            "es": "Por poco se quema la manga de Mateo.",
+            "en": "Mateo's sleeve almost caught fire."
+          },
+          {
+            "es": "Si los cirios van más separados, no pasa.",
+            "en": "If the candles are spaced farther apart, it doesn't happen."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Man Collapses During Mass: Calling for Help",
+      "objective": "Give short, clear commands to the ushers, call emergency services, and keep the family and the assembly calm.",
+      "words": [
+        {
+          "en": "the AED",
+          "es": "el DEA",
+          "kind": "term",
+          "note": "Desfibrilador externo automático; many in the US also just say el AED."
+        },
+        {
+          "en": "the 911 dispatcher",
+          "es": "el operador del 911",
+          "kind": "term",
+          "note": "Use la operadora for a woman. Say nueve uno uno."
+        },
+        {
+          "en": "the usher",
+          "es": "el ujier",
+          "kind": "term"
+        },
+        {
+          "en": "the pew",
+          "es": "la banca",
+          "kind": "term"
+        },
+        {
+          "en": "the fainting spell",
+          "es": "el desmayo",
+          "kind": "term"
+        },
+        {
+          "en": "unconscious",
+          "es": "inconsciente",
+          "kind": "term"
+        },
+        {
+          "en": "the breathing",
+          "es": "la respiración",
+          "kind": "term"
+        },
+        {
+          "en": "CPR",
+          "es": "la RCP",
+          "kind": "term",
+          "note": "Reanimación cardiopulmonar; say erre ce pe."
+        },
+        {
+          "en": "the compressions",
+          "es": "las compresiones",
+          "kind": "term"
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the paramedics",
+          "es": "los paramédicos",
+          "kind": "term"
+        },
+        {
+          "en": "the exact address",
+          "es": "la dirección exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the side entrance",
+          "es": "la entrada lateral",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the voice prompts",
+          "es": "las instrucciones de voz",
+          "kind": "term"
+        },
+        {
+          "en": "Samuel, bring the AED now and follow the device's instructions.",
+          "es": "Samuel, traiga el DEA ya y siga las instrucciones del aparato.",
+          "kind": "phrase",
+          "note": "Formal command to one usher."
+        },
+        {
+          "en": "I'm at Our Lady of Lourdes church; a man collapsed.",
+          "es": "Estoy en la iglesia Nuestra Señora de Lourdes; un hombre se desmayó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He's not responding and I don't know if he's breathing normally.",
+          "es": "No responde y no sé si respira bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If he doesn't respond, the dispatcher will tell us what to do.",
+          "es": "Si no responde, el operador nos dirá qué hacer.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You two, make room and wait for the ambulance at the entrance.",
+          "es": "Ustedes dos, abran espacio y esperen la ambulancia en la entrada.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the ushers."
+        },
+        {
+          "en": "Doña Elvira, I'm here with you; help is on the way.",
+          "es": "Doña Elvira, aquí estoy con usted; la ayuda ya viene.",
+          "kind": "phrase",
+          "note": "Formal and calm; Doña shows respect to an older woman."
+        },
+        {
+          "en": "Brothers and sisters, please stay in your places and pray in silence.",
+          "es": "Hermanos, por favor, quédense en sus lugares y oren en silencio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the paramedics arrive from the back, we'll guide them from the parking lot.",
+          "es": "Si los paramédicos llegan por atrás, los guiaremos desde el estacionamiento.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the deacon at the 7 p.m. Mass, and the AI is the 911 dispatcher: give the exact address and what you see, pass instructions to the ushers with short commands like traiga el DEA ya, and plan next steps with si + present → future.",
+      "grammar": {
+        "focus": "Si + present → future; short phone commands (si no responde, el operador le dirá qué hacer; traiga el DEA ya)",
+        "examples": [
+          {
+            "es": "Si usted sigue la voz del DEA, sabrá qué hacer.",
+            "en": "If you follow the AED's voice, you'll know what to do."
+          },
+          {
+            "es": "Si la ambulancia llega, la recibiremos en la entrada lateral.",
+            "en": "If the ambulance arrives, we'll meet it at the side entrance."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Fire Inspector at the Hall Before the Kermés",
+      "objective": "Answer a fire inspector formally, explain the parish's procedures, and fix what she flags before the doors open.",
+      "words": [
+        {
+          "en": "the fire inspector",
+          "es": "la inspectora de bomberos",
+          "kind": "term",
+          "note": "Use el inspector for a man."
+        },
+        {
+          "en": "the lieutenant",
+          "es": "la teniente",
+          "kind": "term",
+          "note": "Address her formally: teniente Reyes, with usted."
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency exit",
+          "es": "la salida de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the exit sign",
+          "es": "el letrero de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the extension cord",
+          "es": "la extensión",
+          "kind": "term"
+        },
+        {
+          "en": "the power strip",
+          "es": "el multicontacto",
+          "kind": "term",
+          "note": "Mexican usage; some also say la regleta."
+        },
+        {
+          "en": "the food stand",
+          "es": "el puesto de comida",
+          "kind": "term"
+        },
+        {
+          "en": "the occupancy limit",
+          "es": "el límite de ocupación",
+          "kind": "term"
+        },
+        {
+          "en": "the hand clicker counter",
+          "es": "el contador manual",
+          "kind": "term"
+        },
+        {
+          "en": "the panic bar",
+          "es": "la barra antipánico",
+          "kind": "term"
+        },
+        {
+          "en": "the overload",
+          "es": "la sobrecarga",
+          "kind": "term"
+        },
+        {
+          "en": "the parish fair",
+          "es": "la kermés",
+          "kind": "term",
+          "note": "A parish fundraising fair with food stands and games."
+        },
+        {
+          "en": "the fire department",
+          "es": "el departamento de bomberos",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation map",
+          "es": "el plano de evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, Lieutenant Reyes; welcome to San Judas Tadeo.",
+          "es": "Buenos días, teniente Reyes; bienvenida a San Judas Tadeo.",
+          "kind": "phrase",
+          "note": "Formal greeting."
+        },
+        {
+          "en": "The exits are checked every morning before opening.",
+          "es": "Se revisan las salidas cada mañana antes de abrir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right; those tables are being removed right now.",
+          "es": "Tiene razón; ahora mismo se quitan esas mesas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Each stand is plugged into its own outlet, as you indicate.",
+          "es": "Cada puesto se conecta a su propio enchufe, como usted indica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At the door, people are counted with a counter.",
+          "es": "En la puerta se cuenta a la gente con un contador.",
+          "kind": "phrase",
+          "note": "Personal a before people: se cuenta a la gente."
+        },
+        {
+          "en": "When we reach the limit on the sign, no one else is let in.",
+          "es": "Al llegar al límite del letrero, no se deja pasar a nadie.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The evacuation map is posted next to each exit.",
+          "es": "El plano de evacuación se pone junto a cada salida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you check again before we open the doors?",
+          "es": "¿Podría volver a revisar antes de que abramos las puertas?",
+          "kind": "phrase",
+          "note": "Formal request; antes de que takes the subjunctive."
+        }
+      ],
+      "speaking": "You are the parish staff member in charge of the kermés, and the AI is fire inspector Lieutenant Patricia Reyes: answer her checklist formally with usted and explain the parish's procedures with passive se, such as se revisan las salidas and se mantienen libres los pasillos.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se revisan las salidas, se mantienen libres los pasillos)",
+        "examples": [
+          {
+            "es": "Se mantienen libres los pasillos durante toda la kermés.",
+            "en": "The aisles are kept clear for the whole parish fair."
+          },
+          {
+            "es": "Se revisan los letreros de salida cada mañana.",
+            "en": "The exit signs are checked every morning."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Writing the Report After the Confirmation Retreat",
+      "objective": "Write a clear report for the pastor on the retreat: attendance, problems, costs, and next steps.",
+      "words": [
+        {
+          "en": "the report",
+          "es": "el informe",
+          "kind": "term"
+        },
+        {
+          "en": "the summary",
+          "es": "el resumen",
+          "kind": "term"
+        },
+        {
+          "en": "the retreat house",
+          "es": "la casa de retiro",
+          "kind": "term"
+        },
+        {
+          "en": "the Confirmation candidates",
+          "es": "los confirmandos",
+          "kind": "term",
+          "note": "A girl is la confirmanda; a mixed group is los confirmandos."
+        },
+        {
+          "en": "the number of attendees",
+          "es": "el número de asistentes",
+          "kind": "term"
+        },
+        {
+          "en": "the adult chaperones",
+          "es": "los acompañantes adultos",
+          "kind": "term"
+        },
+        {
+          "en": "the illness / feeling unwell",
+          "es": "el malestar",
+          "kind": "term",
+          "note": "A general word that keeps private health details out of the report."
+        },
+        {
+          "en": "the medical form",
+          "es": "la ficha médica",
+          "kind": "term",
+          "note": "Confidential: share it only with the people who need it."
+        },
+        {
+          "en": "confidential",
+          "es": "confidencial",
+          "kind": "term"
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "the retreat schedule",
+          "es": "el horario del retiro",
+          "kind": "term"
+        },
+        {
+          "en": "the expenses",
+          "es": "los gastos",
+          "kind": "term"
+        },
+        {
+          "en": "the lodging",
+          "es": "el hospedaje",
+          "kind": "term"
+        },
+        {
+          "en": "the receipts",
+          "es": "los recibos",
+          "kind": "term"
+        },
+        {
+          "en": "the next steps",
+          "es": "los próximos pasos",
+          "kind": "term"
+        },
+        {
+          "en": "Dear Monsignor Peña: I am sending you the retreat report.",
+          "es": "Estimado Monseñor Peña: le envío el informe del retiro.",
+          "kind": "phrase",
+          "note": "Formal written opening; Spanish uses a colon after the greeting."
+        },
+        {
+          "en": "First, 38 Confirmation candidates and 6 adult chaperones attended.",
+          "es": "En primer lugar, asistieron 38 confirmandos y 6 acompañantes adultos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In addition, one teen felt sick and his parents picked him up.",
+          "es": "Además, un joven se sintió mal y sus padres lo recogieron.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The medical details stay in his file, for privacy.",
+          "es": "Los detalles médicos quedan en su ficha, por privacidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, one mother complained about Sunday's schedule.",
+          "es": "Sin embargo, una madre se quejó del horario del domingo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, I propose finishing earlier next year.",
+          "es": "Por lo tanto, propongo terminar más temprano el próximo año.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The expenses came to 4,250 dollars; I am attaching the receipts.",
+          "es": "Los gastos fueron de 4,250 dólares; adjunto los recibos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I remain at your service for any questions.",
+          "es": "Quedo a sus órdenes para cualquier pregunta.",
+          "kind": "phrase",
+          "note": "Formal written closing."
+        }
+      ],
+      "speaking": "You are the youth coordinator, and the AI is Monsignor Peña, asking about your retreat report: present attendance, the sick teen, the parent's complaint, costs and next steps with en primer lugar, además, sin embargo and por lo tanto, keeping health details private.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, además, sin embargo, por lo tanto)",
+        "examples": [
+          {
+            "es": "En primer lugar, el retiro se realizó del 14 al 16 de marzo.",
+            "en": "First, the retreat took place from March 14 to 16."
+          },
+          {
+            "es": "Un joven regresó a casa el sábado; por lo tanto, terminaron 37.",
+            "en": "One teen went home on Saturday; therefore, 37 finished."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Calls and Texts: The Baptism Has to Move",
+      "objective": "Call, leave a voicemail for, and text a family and godparents to reschedule a baptism politely and clearly.",
+      "words": [
+        {
+          "en": "the water leak",
+          "es": "la fuga de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the plumber",
+          "es": "el plomero",
+          "kind": "term"
+        },
+        {
+          "en": "the repairs",
+          "es": "las reparaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the message",
+          "es": "el recado",
+          "kind": "term",
+          "note": "Dejar un recado = to leave a message."
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voice note",
+          "es": "el audio",
+          "kind": "term",
+          "note": "On WhatsApp people say mandar un audio."
+        },
+        {
+          "en": "the baby girl",
+          "es": "la bebé",
+          "kind": "term",
+          "note": "Use la for a baby girl, el bebé for a baby boy."
+        },
+        {
+          "en": "the setback",
+          "es": "el contratiempo",
+          "kind": "term"
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the proposed time",
+          "es": "la hora propuesta",
+          "kind": "term"
+        },
+        {
+          "en": "the following Saturday",
+          "es": "el sábado siguiente",
+          "kind": "term"
+        },
+        {
+          "en": "the baptism preparation class",
+          "es": "la plática de bautismo",
+          "kind": "term",
+          "note": "Common Mexican usage for the pre-baptism talk."
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term"
+        },
+        {
+          "en": "Am I speaking with Mrs. Yesenia Ochoa?",
+          "es": "¿Hablo con la señora Yesenia Ochoa?",
+          "kind": "phrase",
+          "note": "Formal phone opening."
+        },
+        {
+          "en": "I'm calling because there was a water leak in the church.",
+          "es": "Le llamo porque hubo una fuga de agua en la iglesia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry for the setback; the church is closed for repairs.",
+          "es": "Disculpe el contratiempo; la iglesia está cerrada por reparaciones.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I would like to suggest the following Saturday at 11:00.",
+          "es": "Me gustaría proponerle el sábado siguiente a las 11:00.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm whether the godparents can make it that day?",
+          "es": "¿Podría confirmarme si los padrinos pueden ese día?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please call me back at 555-0142.",
+          "es": "Por favor, regréseme la llamada al 555-0142.",
+          "kind": "phrase",
+          "note": "Formal voicemail closing; say the number slowly, in pairs."
+        },
+        {
+          "en": "I'm leaving you this message and also sending you a text.",
+          "es": "Le dejo este recado y también le mando un mensaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Raúl, can you confirm here whether you can make it Saturday the 14th?",
+          "es": "Raúl, ¿me confirmas por aquí si puedes el sábado 14?",
+          "kind": "phrase",
+          "note": "Informal (tú), fine in a WhatsApp text."
+        }
+      ],
+      "speaking": "You are the parish staff member, and the AI is Yesenia Ochoa, baby Valentina's mother, on the phone: explain the leak and propose a new baptism date with me gustaría proponerle and ¿podría confirmarme?, then dictate your voicemail for Lorena and your WhatsApp text for Raúl.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (le habla…, ¿podría confirmarme?, me gustaría proponerle)",
+        "examples": [
+          {
+            "es": "Le habla Cristina, de la oficina de Santo Niño.",
+            "en": "This is Cristina, from the Santo Niño office."
+          },
+          {
+            "es": "¿Podría confirmarme antes del jueves si le queda bien?",
+            "en": "Could you confirm before Thursday whether it works for you?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "After the Vigil: Next Steps with a New Catholic",
+      "objective": "Look back on the journey with a newly received Catholic and explain what comes next and under what conditions.",
+      "words": [
+        {
+          "en": "the neophyte (new Catholic)",
+          "es": "la neófita",
+          "kind": "term",
+          "note": "A man is el neófito."
+        },
+        {
+          "en": "the white garment",
+          "es": "la vestidura blanca",
+          "kind": "term"
+        },
+        {
+          "en": "the Easter season",
+          "es": "el tiempo pascual",
+          "kind": "term"
+        },
+        {
+          "en": "Pentecost Sunday",
+          "es": "el domingo de Pentecostés",
+          "kind": "term"
+        },
+        {
+          "en": "the civil marriage",
+          "es": "el matrimonio civil",
+          "kind": "term"
+        },
+        {
+          "en": "the convalidation",
+          "es": "la convalidación",
+          "kind": "term"
+        },
+        {
+          "en": "the marriage certificate",
+          "es": "el acta de matrimonio",
+          "kind": "term",
+          "note": "Acta is feminine but takes el in the singular: el acta, las actas."
+        },
+        {
+          "en": "the marriage file",
+          "es": "el expediente matrimonial",
+          "kind": "term"
+        },
+        {
+          "en": "the requirements",
+          "es": "los requisitos",
+          "kind": "term"
+        },
+        {
+          "en": "the interview with the pastor",
+          "es": "la entrevista con el párroco",
+          "kind": "term"
+        },
+        {
+          "en": "the tentative date",
+          "es": "la fecha tentativa",
+          "kind": "term"
+        },
+        {
+          "en": "the simple ceremony",
+          "es": "la ceremonia sencilla",
+          "kind": "term"
+        },
+        {
+          "en": "the social outreach ministry",
+          "es": "la pastoral social",
+          "kind": "term"
+        },
+        {
+          "en": "the parish choir",
+          "es": "el coro parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the sign-up",
+          "es": "la inscripción",
+          "kind": "term"
+        },
+        {
+          "en": "What touched your heart the most at the Vigil?",
+          "es": "¿Qué fue lo que más le llegó al corazón en la Vigilia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "First you would have to talk with the pastor in an interview.",
+          "es": "Primero tendrían que hablar con el párroco en una entrevista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "June would be possible, as long as the file is complete.",
+          "es": "En junio sería posible, siempre que el expediente esté completo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As long as you have your witnesses, the ceremony can be simple.",
+          "es": "Con tal de que tengan sus testigos, la ceremonia puede ser sencilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would recommend asking for a tentative date as soon as possible.",
+          "es": "Les recomendaría pedir una fecha tentativa cuanto antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The pastor gives the exact requirements, according to the diocese.",
+          "es": "Los requisitos exactos los indica el párroco, según la diócesis.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You could join the social outreach ministry or the parish choir.",
+          "es": "Usted podría unirse a la pastoral social o al coro parroquial.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Javier, would you like to go with her to the first meeting?",
+          "es": "Javier, ¿le gustaría acompañarla a la primera reunión?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the OCIA coordinator, and the AI is Alejandra Muñoz, a new Catholic, with her husband Javier: look back on the Vigil, then explain convalidation and ministries with the conditional (podrían, tendrían) and siempre que or con tal de que plus the subjunctive.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (podrían convalidar el matrimonio siempre que traigan los documentos)",
+        "examples": [
+          {
+            "es": "Podría inscribirse al coro siempre que pueda ensayar los jueves.",
+            "en": "You could sign up for the choir as long as you can rehearse on Thursdays."
+          },
+          {
+            "es": "Si me trajeran el acta de matrimonio, yo abriría el expediente esta semana.",
+            "en": "If you brought me the marriage certificate, I would open the file this week."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: Holy Saturday at a Short-Staffed Parish",
+      "objective": "Lead a full Holy Saturday in Spanish: train, solve problems, keep people safe, communicate, and report to the pastor.",
+      "words": [
+        {
+          "en": "the substitute sacristan",
+          "es": "el sacristán suplente",
+          "kind": "term",
+          "note": "A woman is la sacristana suplente."
+        },
+        {
+          "en": "the new fire (Easter fire)",
+          "es": "el fuego nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the fire pit",
+          "es": "el brasero",
+          "kind": "term",
+          "note": "The metal bowl or stand used for the Easter fire."
+        },
+        {
+          "en": "the Paschal candle",
+          "es": "el cirio pascual",
+          "kind": "term"
+        },
+        {
+          "en": "the Easter Proclamation (Exsultet)",
+          "es": "el pregón pascual",
+          "kind": "term"
+        },
+        {
+          "en": "the safe distance",
+          "es": "la distancia de seguridad",
+          "kind": "term",
+          "note": "The required distance comes from the local fire department."
+        },
+        {
+          "en": "the bucket of sand",
+          "es": "la cubeta de arena",
+          "kind": "term"
+        },
+        {
+          "en": "the small hand candles",
+          "es": "las velitas",
+          "kind": "term"
+        },
+        {
+          "en": "the holy water",
+          "es": "el agua bendita",
+          "kind": "term",
+          "note": "Agua is feminine but takes el in the singular: el agua bendita."
+        },
+        {
+          "en": "the church courtyard",
+          "es": "el atrio",
+          "kind": "term"
+        },
+        {
+          "en": "the information sheet",
+          "es": "la hoja de datos",
+          "kind": "term"
+        },
+        {
+          "en": "the folder of the Elect",
+          "es": "la carpeta de los elegidos",
+          "kind": "term"
+        },
+        {
+          "en": "the new schedule",
+          "es": "el nuevo horario",
+          "kind": "term"
+        },
+        {
+          "en": "the broadcast list",
+          "es": "la lista de difusión",
+          "kind": "term",
+          "note": "WhatsApp broadcast list for texting many families at once."
+        },
+        {
+          "en": "the log",
+          "es": "la bitácora",
+          "kind": "term"
+        },
+        {
+          "en": "Rodrigo, fill the bucket of sand and leave it next to the fire pit.",
+          "es": "Rodrigo, llena la cubeta de arena y déjala junto al brasero.",
+          "kind": "phrase",
+          "note": "Informal (tú), between coworkers."
+        },
+        {
+          "en": "Very good, Rodrigo; now you explain the order of the procession to me.",
+          "es": "Muy bien, Rodrigo; ahora explícame tú el orden de la procesión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Brenda, I need you to give me your parents' names.",
+          "es": "Brenda, necesito que me dé los nombres de sus papás.",
+          "kind": "phrase",
+          "note": "Formal (usted); necesito que takes the subjunctive."
+        },
+        {
+          "en": "Brenda's information sheet for the baptism register is missing.",
+          "es": "Falta la hoja de datos de Brenda para el libro de bautismos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The fire stays 25 feet from the building, as the local fire department requires.",
+          "es": "El fuego queda a 25 pies del edificio, según los bomberos locales.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the wind blows hard, let me know before lighting the fire.",
+          "es": "Si sopla mucho el viento, avísenme antes de encender el fuego.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the crew."
+        },
+        {
+          "en": "Families: the Vigil now starts at 8:30.",
+          "es": "Familias: la Vigilia ahora empieza a las 8:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While we were lighting the fire, the wind shifted and we moved people back.",
+          "es": "Mientras encendíamos el fuego, el viento cambió y alejamos a la gente.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the coordinator, and the AI plays everyone at San Miguel on Holy Saturday: train the substitute sacristan with commands, fix Brenda's missing record with necesito que, place the Easter fire per the fire department, text families the new time, and report to Father Salas in the past.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (commands, subjunctive, past narration, si clauses, formal written report)",
+        "examples": [
+          {
+            "es": "Rodrigo, enciende el cirio pascual solo cuando el padre te lo pida.",
+            "en": "Rodrigo, light the Paschal candle only when Father asks you to."
+          },
+          {
+            "es": "Como informé a las familias, la Vigilia comenzó a las 8:30.",
+            "en": "As I informed the families, the Vigil began at 8:30."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

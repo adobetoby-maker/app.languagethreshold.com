@@ -10,9 +10,17 @@ import { createCrushRound } from "./crush.ts";
 import type { CrushRound } from "./crush.ts";
 import { FAMILIES } from "./families.ts";
 import { frameSlots } from "./pool.ts";
-import { ROUND_MS, levelAvailable, roundFamilies } from "./rules.ts";
+import {
+  MAX_UNTIMED_EVENTS,
+  familyPick,
+  isMultiPick,
+  isRoundMode,
+  isTimed,
+  levelAvailable,
+  roundFamilies,
+  roundLimitMs,
+} from "./rules.ts";
 import type {
-  FamilyId,
   GameId,
   PatternData,
   RoundConfig,
@@ -36,8 +44,11 @@ export type Verdict =
   /** `detail` is set only for `replay-error` (the engine exception message), for the caller to log. */
   | { ok: false; hard: true; reason: HardReason; detail?: string };
 
-/** Soft reasons: the round scores and is stored, but never ranks. */
-export type SoftReason = "list-mode" | "fast-picks" | "abandoned" | "empty" | "module-pool";
+/**
+ * Soft reasons: the round scores and is stored, but never ranks. `mode` marks a count or forever
+ * round, and a round of two or more picked patterns (one family or Mix still rank).
+ */
+export type SoftReason = "list-mode" | "fast-picks" | "abandoned" | "empty" | "module-pool" | "mode";
 
 /** A gap between consecutive events shorter than this is a machine-speed input. */
 const FAST_GAP_MS = 250;
@@ -63,6 +74,7 @@ const replayError = (error: unknown): Verdict => ({
  * string; `dataHash` pins the pattern data the round was played on. Config and events are
  * copied, so later changes to the caller's objects never reach the log. `quitAtMs` (round-relative
  * ms) is set only when the player leaves before the timer; it is left off the log otherwise.
+ * The config's `mode` and `families` travel with it (absent for a timed single-pattern round).
  */
 export function buildRoundLog(
   config: RoundConfig,
@@ -117,12 +129,22 @@ function validSource(data: PatternData, source: unknown): source is SourceFilter
   );
 }
 
-/** True iff the config names a real game, family, level and source that the data can play. */
+/** Absent, or 1..7 known family ids without repeats. */
+function validFamilies(value: unknown): boolean {
+  if (value === undefined) return true;
+  if (!Array.isArray(value) || value.length < 1 || value.length > FAMILY_IDS.size) return false;
+  if (!value.every((id) => typeof id === "string" && FAMILY_IDS.has(id))) return false;
+  return new Set(value).size === value.length;
+}
+
+/** True iff the config names a real game, family, level, mode and source that the data can play. */
 function validScope(data: PatternData, config: unknown): config is RoundConfig {
   if (typeof config !== "object" || config === null) return false;
   const c = config as Partial<RoundConfig>;
   if (c.game !== "bubble" && c.game !== "crush") return false;
   if (c.family !== "mix" && !(typeof c.family === "string" && FAMILY_IDS.has(c.family))) return false;
+  if (!validFamilies(c.families)) return false;
+  if (c.mode !== undefined && !isRoundMode(c.mode)) return false;
   if (!validSource(data, c.source)) return false;
   if (typeof c.seed !== "number" || !Number.isFinite(c.seed)) return false;
   if (typeof c.listMode !== "boolean" || typeof c.reducedMotion !== "boolean") return false;
@@ -130,9 +152,9 @@ function validScope(data: PatternData, config: unknown): config is RoundConfig {
     // Bubble needs at least one frame in the family and source, else the round cannot be built.
     return c.level === null && frameSlots(data, roundFamilies(c as RoundConfig, data), "family", c.source).length > 0;
   }
-  // A Crush log must carry its level, and the level must be playable with this family and source.
+  // A Crush log must carry its level, and the level must be playable with this pick and source.
   const row = data.crushLevels.find((l) => l.level === c.level);
-  return row !== undefined && levelAvailable(data, row, c.family as FamilyId | "mix", c.source);
+  return row !== undefined && levelAvailable(data, row, familyPick(c as RoundConfig), c.source);
 }
 
 /** Replays one event on a round; false when the engine rejects it (or the event is malformed). */
@@ -160,9 +182,10 @@ function wellFormed(event: unknown): event is RoundEvent {
 
 /**
  * Judges a round log against the current pattern data. Order: envelope, stale data (nothing is replayed),
- * unknown scope, event count, event order and range, then the replay itself. The server ends the
- * replay at the full round length; the log holds inputs only. The verdict's numbers always come
- * from the replay, never from the client.
+ * unknown scope, event count, event order and range, then the replay itself. A timed replay ends at
+ * the full round length. A count or forever replay runs to its natural end (the Nth form, the first
+ * miss or trap, no moves left); one that never got there ends at `quitAtMs`, else at the untimed cap.
+ * The log holds inputs only. The verdict's numbers always come from the replay, never from the client.
  */
 export function scoreRound(data: PatternData, log: RoundLog): Verdict {
   // Envelope first: the log is untrusted JSON, so nothing below may throw on its shape.
@@ -176,8 +199,10 @@ export function scoreRound(data: PatternData, log: RoundLog): Verdict {
     return replayError(error);
   }
   const config = log.config;
-  const roundMs = ROUND_MS[config.game];
-  if (log.events.length > roundMs / MIN_EVENT_GAP_MS) return hard("too-many-events");
+  const timed = isTimed(config);
+  const roundMs = roundLimitMs(config);
+  const maxEvents = timed ? roundMs / MIN_EVENT_GAP_MS : MAX_UNTIMED_EVENTS;
+  if (log.events.length > maxEvents) return hard("too-many-events");
 
   const events = log.events as unknown[];
   let prev = -Infinity;
@@ -196,12 +221,22 @@ export function scoreRound(data: PatternData, log: RoundLog): Verdict {
   }
 
   let result: RoundResult;
+  let endedOnItsOwn = false;
   try {
     const round = config.game === "bubble" ? createBubbleRound(data, config) : createCrushRound(data, config);
     for (const event of events as RoundEvent[]) {
       if (!replayEvent(config.game, round, event)) return hard("invalid-event");
     }
-    result = round.end(roundMs);
+    if (timed) {
+      result = round.end(roundMs);
+    } else {
+      // Ended during the inputs (Nth form, wrong pick, trap, no moves), or inside end(): a forever
+      // Bubble round with no later input runs on to its first escape there, as it did on the client.
+      const stopAt = typeof quitAtMs === "number" ? quitAtMs : roundMs;
+      const endedBefore = round.view().ended;
+      result = round.end(stopAt);
+      endedOnItsOwn = endedBefore || result.durationMs < stopAt;
+    }
   } catch (error) {
     // The scope was valid, so an engine exception is a replay fault. Hand it to the caller to log.
     return replayError(error);
@@ -215,11 +250,17 @@ export function scoreRound(data: PatternData, log: RoundLog): Verdict {
   }
   if (fast >= FAST_GAPS_TO_FLAG) soft.push("fast-picks");
   // Abandoned = the player left before the timer (explicit quitAtMs). A Crush round that ended on
-  // its own (goal met or no moves left) is never abandoned.
-  if (typeof quitAtMs === "number" && quitAtMs < roundMs && result.durationMs >= roundMs) soft.push("abandoned");
+  // its own (goal met or no moves left) is never abandoned; nor is a count or forever round that did.
+  if (timed) {
+    if (typeof quitAtMs === "number" && quitAtMs < roundMs && result.durationMs >= roundMs) soft.push("abandoned");
+  } else if (typeof quitAtMs === "number" && !endedOnItsOwn) {
+    soft.push("abandoned");
+  }
   // A round with no inputs, or one that scored nothing, never reaches a board.
   if (events.length === 0 || result.score === 0) soft.push("empty");
   // Boards are one per scope key across the app; a module-only pool is a different difficulty.
   if (config.source.kind === "module") soft.push("module-pool");
+  // Boards are timed and one pattern (or Mix): count, forever and multi-pattern rounds never rank.
+  if (!timed || isMultiPick(config)) soft.push("mode");
   return { ok: true, result, ranked: soft.length === 0, softReasons: soft };
 }

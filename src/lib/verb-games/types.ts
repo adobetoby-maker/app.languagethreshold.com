@@ -82,14 +82,31 @@ export type SourceFilter =
 
 export type GameId = "bubble" | "crush";
 
+/** Word counts a count round can ask for. */
+export type CountSize = 5 | 10 | 15;
+
+/**
+ * How a round ends. `timed` (the default, and what an absent `mode` means) runs the game's clock.
+ * `count` ends after `n` correct forms. `forever` ends on the first miss (Bubble) or trap (Crush).
+ */
+export type RoundMode = { kind: "timed" } | { kind: "count"; n: CountSize } | { kind: "forever" };
+
 export interface RoundConfig {
   game: GameId;
+  /** The single pattern, or "mix". Ignored when `families` is set (then it is "mix"). */
   family: FamilyId | "mix";
+  /**
+   * Two or more picked patterns (FAMILIES order, no repeats). Absent for a single family or Mix,
+   * so a timed single-family log has the same shape it always had.
+   */
+  families?: FamilyId[];
   level: 1 | 2 | 3 | 4 | null;
   source: SourceFilter;
   seed: number;
   listMode: boolean;
   reducedMotion: boolean;
+  /** Absent means timed, so logs from before modes existed replay exactly as they did. */
+  mode?: RoundMode;
 }
 
 /** Inputs only. The server replays these through the same engine; no score or outcome is logged. */
@@ -129,6 +146,14 @@ export interface Miss {
   english: string;
   reason: string;
 }
+
+/**
+ * Why a round ended, set by the engine and never inferred. `goal`: the Nth form or the Crush goal.
+ * `miss`: the first miss or trap of a forever round. `moves`: Crush ran out of moves. `time`: a
+ * timed round's clock. `cap`: a count or forever round reached its 30 minutes or its event cap.
+ * `player`: the player ended it (End round).
+ */
+export type EndReason = "goal" | "miss" | "moves" | "time" | "cap" | "player";
 
 export interface RoundResult {
   score: number;

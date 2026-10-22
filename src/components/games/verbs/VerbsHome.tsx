@@ -46,8 +46,12 @@ function exampleForms(verbs: VerbEntry[], id: FamilyId): string[] {
     .map((v) => v.forms[0].full);
 }
 
+/**
+ * The game card's best: timed rounds only ("bubble|go-yo"), so it reads exactly as it did before
+ * modes. Count and forever bests carry a third part ("bubble|go-yo|forever") and stay on their own.
+ */
 function bestScore(device: VerbDeviceState, game: GameId): number | null {
-  const scores = Object.entries(device.bests).flatMap(([key, b]) => (key.startsWith(`${game}|`) ? [b.score] : []));
+  const scores = Object.entries(device.bests).flatMap(([key, b]) => (key.startsWith(`${game}|`) && key.split("|").length === 2 ? [b.score] : []));
   return scores.length > 0 ? Math.max(...scores) : null;
 }
 

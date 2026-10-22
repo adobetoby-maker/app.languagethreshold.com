@@ -6,16 +6,16 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useRoundClock } from "@/hooks/use-round-clock";
 import { stopRemoteTTS } from "@/lib/tts";
 import { createBubbleRound, type BubbleRound, type BubbleView } from "@/lib/verb-games/bubble";
-import { familyById } from "@/lib/verb-games/families";
-import { REASON_MS, ROUND_MS } from "@/lib/verb-games/rules";
+import { REASON_MS, modeOf, roundLimitMs } from "@/lib/verb-games/rules";
 import { buildRoundLog } from "@/lib/verb-games/scoring";
-import type { Completion, Outcome, PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
+import type { Completion, EndReason, Outcome, PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
 import { choiceForKey } from "./choice-keys";
 import { CompletionFlash } from "./CompletionFlash";
 import { FrameChoices } from "./FrameChoices";
 import { GameHud } from "./GameHud";
 import { Legend } from "./Legend";
 import { LiveRegion } from "./LiveRegion";
+import { pickLabel } from "./mode-labels";
 import { PIECE_COLORS } from "./piece-colors";
 import { PieceTile } from "./PieceTile";
 import { ReasonBand } from "./ReasonBand";
@@ -57,7 +57,7 @@ function CheckIcon() {
 }
 
 function eyebrowFor(config: RoundConfig): string {
-  const scope = config.family === "mix" ? "MIX" : familyById(config.family).label;
+  const scope = pickLabel(config);
   // Ruling F8: GameHud renders the eyebrow as given, so it is uppercased here.
   return `GAME · BUBBLE POP · ${scope}`.toUpperCase();
 }
@@ -235,7 +235,8 @@ function Countdown(p: { barRef: React.RefObject<HTMLDivElement | null> }) {
 export function BubblePopGame(p: {
   data: PatternData;
   config: RoundConfig;
-  onEnd(log: RoundLog, result: RoundResult): void;
+  /** `endReason` is the engine's own: why the round ended. */
+  onEnd(log: RoundLog, result: RoundResult, endReason: EndReason): void;
   /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
   onSaveCard?(c: Completion): void;
 }) {
@@ -274,13 +275,18 @@ export function BubblePopGame(p: {
     (t: number, quit: boolean) => {
       if (endedRef.current) return;
       endedRef.current = true;
-      const at = Math.min(t, ROUND_MS.bubble);
+      // Timed: the 60 s clock. Count and forever: no clock, only the untimed cap.
+      const limit = roundLimitMs(config);
+      const at = Math.min(t, limit);
+      const engineEnded = round.view().ended;
       const result = round.end(at);
       // Ruling F19: the log is built by buildRoundLog; quitAtMs only when the player left early.
-      const log = buildRoundLog(config, round.events(), data, Date.now(), quit && at < ROUND_MS.bubble ? at : undefined);
+      const log = buildRoundLog(config, round.events(), data, Date.now(), quit && !engineEnded && at < limit ? at : undefined);
+      // end() always leaves the engine with a reason; "player" is only a type guard here.
+      const endReason = round.view().endReason ?? "player";
       setActive(false);
       stopRemoteTTS();
-      onEndRef.current(log, result);
+      onEndRef.current(log, result, endReason);
     },
     [round, config, data],
   );
@@ -481,12 +487,14 @@ export function BubblePopGame(p: {
     };
   }, []);
 
-  const msLeft = ROUND_MS.bubble - (endedRef.current ? ROUND_MS.bubble : t);
+  const mode = modeOf(config);
+  const limit = roundLimitMs(config);
+  const msLeft = limit - (endedRef.current ? limit : t);
   const choices = view.pieces.map((x) => ({ id: x.id, label: x.label }));
 
   return (
     <section ref={sectionRef} className="mx-auto w-full max-w-3xl scroll-mt-4 space-y-3 [scroll-margin-bottom:calc(var(--lt-nav-height)+var(--lt-floating-control-height)+var(--lt-floating-gap)*2+env(safe-area-inset-bottom))]" data-testid="bubble-game" aria-label="Bubble Pop">
-      <GameHud eyebrow={eyebrowFor(config)} score={view.score} streak={view.streak} msLeft={msLeft} />
+      <GameHud eyebrow={eyebrowFor(config)} score={view.score} streak={view.streak} msLeft={msLeft} mode={mode} made={view.made} />
 
       {config.listMode ? (
         <div ref={listRef}>

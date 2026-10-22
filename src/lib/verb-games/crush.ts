@@ -10,10 +10,22 @@ import { poolVerbs } from "./pool.ts";
 import type { FrameSlot } from "./pool.ts";
 import { createRng, pickIndex } from "./rng.ts";
 import type { Rng } from "./rng.ts";
-import { ROUND_MS, crushGoalSlots, onCorrect, roundFamilies, verbIndex } from "./rules.ts";
+import {
+  MAX_UNTIMED_EVENTS,
+  crushGoalSlots,
+  crushTargets,
+  familyPick,
+  isTimed,
+  modeOf,
+  onCorrect,
+  roundFamilies,
+  roundLimitMs,
+  verbIndex,
+} from "./rules.ts";
 import { PERSONS } from "./types.ts";
 import type {
   Completion,
+  EndReason,
   FamilyId,
   Miss,
   Outcome,
@@ -47,13 +59,21 @@ export interface CrushTile {
 
 export interface CrushView {
   cells: CrushTile[];
+  /** Size of one goal list: the level's count, or N in a count round. */
   goalCount: number;
+  /** Goal forms made in the whole round. */
   made: number;
+  /** Goal forms made toward the current list (forever deals a fresh list each time one fills). */
+  goalMade: number;
+  /** Goal lists completed (forever only; 0 otherwise). */
+  lists: number;
   movesLeft: number;
   score: number;
   streak: number;
   t: number;
   ended: boolean;
+  /** Why the round ended; null while it is running. */
+  endReason: EndReason | null;
   won: boolean;
   lastReason: string | null;
 }
@@ -61,13 +81,17 @@ export interface CrushView {
 export interface CrushRound {
   view(): CrushView;
   /**
-   * Swaps two orthogonally adjacent cells at time `t`. Invalid (and not logged) when the round
-   * has ended, `t` is not finite, `t` is earlier than the round's current time (`view().t`), `t`
+   * Swaps two orthogonally adjacent cells at time `t`. A count or forever round ends on its own
+   * (reason `cap`) when this swap makes the log reach `MAX_UNTIMED_EVENTS`. Invalid (and not
+   * logged) when the round has ended, `t` is not finite, `t` is earlier than the round's current time (`view().t`), `t`
    * is at or after the round end, or the cells are not adjacent. Callers pass
    * `Math.max(eventT, view().t)` so a late UI event is never rejected for running backwards.
    */
   swap(t: number, a: number, b: number): Outcome[];
-  /** Moves time forward; at or after `ROUND_MS.crush` the round ends. Same `t` guard as `swap`. */
+  /**
+   * Moves time forward; at or after the round limit (`ROUND_MS.crush` when timed) the round ends.
+   * Same `t` guard as `swap`.
+   */
   advance(t: number): Outcome[];
   /**
    * Ends the round and returns the result. A round that already ended (goal, moves or time)
@@ -160,10 +184,13 @@ export function createCrushRound(
   if (config.level === null) throw new Error("Crush needs a level");
   const row = data.crushLevels.find((l) => l.level === config.level);
   if (!row) throw new Error(`Unknown Crush level: ${String(config.level)}`);
-  const goals: FrameSlot[] = crushGoalSlots(data, row, config.family, config.source);
+  const goals: FrameSlot[] = crushGoalSlots(data, row, familyPick(config), config.source);
   if (goals.length === 0) throw new Error("No goal forms for this level");
   const families = roundFamilies(config, data);
-  const roundMs = ROUND_MS.crush;
+  const mode = modeOf(config);
+  // Timed: the 90 s clock. Count and forever: no clock, only the untimed cap.
+  const roundMs = roundLimitMs(config);
+  const targets = crushTargets(row, mode);
 
   const verbByInf = verbIndex(data);
   const maxAttempts = Math.max(0, Math.floor(options?.attempts ?? MAX_ATTEMPTS));
@@ -358,7 +385,11 @@ export function createCrushRound(
 
   const deckRng = createRng(config.seed);
   let generation = 0;
-  let movesLeft = row.moveBudget;
+  let movesLeft = targets.moveBudget;
+  /** Moves spent (a trap spends none). Equals moveBudget - movesLeft unless forever topped up. */
+  let spent = 0;
+  /** Forever: goal lists completed so far. */
+  let lists = 0;
   let made = 0;
   let score = 0;
   let streak = 0;
@@ -367,8 +398,12 @@ export function createCrushRound(
   let ended = false;
   let won = false;
   let endedAt = 0;
+  let endReason: EndReason | null = null;
   let lastReason: string | null = null;
   let swaps = 0;
+  const timed = isTimed(config);
+  /** The reason for reaching the round limit: the clock when timed, else the untimed cap. */
+  const limitReason: EndReason = timed ? "time" : "cap";
   const completions: Completion[] = [];
   const misses: Miss[] = [];
   const log: RoundEvent[] = [];
@@ -429,75 +464,105 @@ export function createCrushRound(
     [cells[a], cells[b]] = [cells[b] as CrushTile, cells[a] as CrushTile];
   }
 
-  function finish(at: number): void {
+  function finish(at: number, reason: EndReason): void {
     ended = true;
     endedAt = at;
+    endReason = reason;
     now = Math.max(now, at);
+  }
+
+  function swapOnce(t: number, a: number, b: number): Outcome[] {
+    if (ended || !Number.isFinite(t) || t < now || t >= roundMs || !adjacent(a, b)) return [{ kind: "invalid" }];
+    now = t;
+    log.push({ t, kind: "swap", a, b });
+    swaps++;
+    exchange(a, b);
+    const out: Outcome[] = [];
+
+    // Pop every goal pair; refills that make new goal pairs pop in the next chain step.
+    let popped = false;
+    for (let chainStep = 1; chainStep <= MAX_CHAIN; chainStep++) {
+      const pairs = goalPairs(cells);
+      if (pairs.length === 0) break;
+      popped = true;
+      for (const i of pairs) out.push(pop(t, i, chainStep));
+      for (const i of pairs) {
+        cells[i] = { id: nextId++, ...draw(deckRng) };
+        cells[i + 1] = { id: nextId++, ...draw(deckRng) };
+      }
+    }
+
+    if (!popped) {
+      // A moved cell in an invalid word is a trap: reverted, streak lost, no move spent.
+      // A valid present form of any verb that is not a goal is neutral (move spent).
+      for (const i of [a, b]) {
+        for (const s of pairsTouching(cells, i)) {
+          if (isValid(wordAt(cells, s))) continue;
+          const miss = trapMiss(t, s);
+          if (miss) {
+            exchange(a, b);
+            // Forever: the first trap ends the round.
+            if (mode.kind === "forever") {
+              finish(t, "miss");
+              return [miss, { kind: "end" }];
+            }
+            return [miss];
+          }
+        }
+      }
+    }
+
+    movesLeft--;
+    spent++;
+    if (mode.kind === "forever") {
+      // A full list deals a fresh one (same level and families) and tops the moves up.
+      const full = Math.floor(made / targets.goalCount);
+      if (full > lists) {
+        movesLeft += (full - lists) * targets.moveBudget;
+        lists = full;
+      }
+    }
+    if (mode.kind !== "forever" && made >= targets.goalCount) {
+      won = true;
+      finish(t, "goal");
+      out.push({ kind: "end" });
+    } else if (movesLeft <= 0) {
+      finish(t, "moves");
+      out.push({ kind: "end" });
+    } else if (findPopSwapOn(cells) === null) {
+      // No pop left on the board: a fresh board, score and streak unchanged.
+      cells = generate(++generation);
+    }
+    return out;
   }
 
   return {
     view() {
       return {
         cells: cells.map((c) => ({ ...c })),
-        goalCount: row.goalCount,
+        goalCount: targets.goalCount,
         made,
+        goalMade: mode.kind === "forever" ? made - lists * targets.goalCount : Math.min(made, targets.goalCount),
+        lists,
         movesLeft,
         score,
         streak,
         t: now,
         ended,
+        endReason,
         won,
         lastReason,
       };
     },
 
     swap(t, a, b) {
-      if (ended || !Number.isFinite(t) || t < now || t >= roundMs || !adjacent(a, b)) return [{ kind: "invalid" }];
-      now = t;
-      log.push({ t, kind: "swap", a, b });
-      swaps++;
-      exchange(a, b);
-      const out: Outcome[] = [];
-
-      // Pop every goal pair; refills that make new goal pairs pop in the next chain step.
-      let popped = false;
-      for (let chainStep = 1; chainStep <= MAX_CHAIN; chainStep++) {
-        const pairs = goalPairs(cells);
-        if (pairs.length === 0) break;
-        popped = true;
-        for (const i of pairs) out.push(pop(t, i, chainStep));
-        for (const i of pairs) {
-          cells[i] = { id: nextId++, ...draw(deckRng) };
-          cells[i + 1] = { id: nextId++, ...draw(deckRng) };
-        }
-      }
-
-      if (!popped) {
-        // A moved cell in an invalid word is a trap: reverted, streak lost, no move spent.
-        // A valid present form of any verb that is not a goal is neutral (move spent).
-        for (const i of [a, b]) {
-          for (const s of pairsTouching(cells, i)) {
-            if (isValid(wordAt(cells, s))) continue;
-            const miss = trapMiss(t, s);
-            if (miss) {
-              exchange(a, b);
-              return [miss];
-            }
-          }
-        }
-      }
-
-      movesLeft--;
-      if (made >= row.goalCount) {
-        won = true;
-        finish(t);
+      const logged = log.length;
+      const out = swapOnce(t, a, b);
+      // A count or forever log never grows past the cap the server accepts: this swap is the last
+      // one. The round ends here like any natural end (no quit time), so its replay ends the same way.
+      if (log.length > logged && !ended && !timed && log.length >= MAX_UNTIMED_EVENTS) {
+        finish(t, "cap");
         out.push({ kind: "end" });
-      } else if (movesLeft <= 0) {
-        finish(t);
-        out.push({ kind: "end" });
-      } else if (findPopSwapOn(cells) === null) {
-        // No pop left on the board: a fresh board, score and streak unchanged.
-        cells = generate(++generation);
       }
       return out;
     },
@@ -506,17 +571,20 @@ export function createCrushRound(
       if (ended || !Number.isFinite(t) || t < now) return [];
       now = Math.min(t, roundMs);
       if (t >= roundMs) {
-        finish(roundMs);
+        finish(roundMs, limitReason);
         return [{ kind: "end" }];
       }
       return [];
     },
 
     end(t) {
-      if (!ended) finish(Number.isFinite(t) ? Math.max(now, Math.min(t, roundMs)) : now);
+      if (!ended) {
+        const at = Number.isFinite(t) ? Math.max(now, Math.min(t, roundMs)) : now;
+        finish(at, at >= roundMs ? limitReason : "player");
+      }
       return {
         score,
-        moves: row.moveBudget - movesLeft,
+        moves: spent,
         picks: swaps,
         correct: completions.length,
         bestStreak,

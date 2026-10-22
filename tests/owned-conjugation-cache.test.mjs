@@ -109,7 +109,14 @@ test("novel tables stay in explicit A/guest/B envelopes, restore only to A and l
   assert.equal(calls, 1);
   assert.equal(restored.getCachedConjugation("Spanish", "qa-old"), undefined);
   assert.equal(f.bytes.get("lingualens.conjugations.v1"), legacy);
-  assert.ok(f.reads.every((key) => key.startsWith("lt.learner-device.v1.conjugationTables.")));
+  assert.ok(
+    f.reads.every(
+      (key) =>
+        key.startsWith("lt.learner-device.v1.conjugationTables.") ||
+        key === "lt.learning-reset.v1.A" ||
+        key === "lt.learning-reset.v1.B",
+    ),
+  );
   assert.ok(f.writes.every((key) => key === learnerDeviceKey("conjugationTables", "A")));
 });
 

@@ -1,3 +1,5 @@
+import { learningResetKey, readLearningResetId } from "@/lib/learning-reset-epoch";
+import { resetLearningDevice } from "@/lib/learning-reset";
 import { WordCardCacheProvider } from "./word-card-cache";
 import { ProfileRecoveryContext } from "./profile-recovery-context";
 import {
@@ -159,6 +161,7 @@ export interface UserVocabItem {
 }
 
 export interface AppState {
+  learningResetId: string | null;
   selectedLanguage: Language;
   nativeLanguage: NativeLanguage;
   darkMode: boolean;
@@ -338,6 +341,7 @@ export type AppAction =
   | { type: "MERGE_REMOTE"; payload: PersistedShape };
 
 const initialState: AppState = {
+  learningResetId: null,
   selectedLanguage: "Spanish",
   nativeLanguage: "English",
   darkMode: true,
@@ -872,6 +876,9 @@ export function reducer(state: AppState, action: AppAction): AppState {
     }
     case "MERGE_REMOTE": {
       const { __v: _v, ...remote } = action.payload;
+      if (remote.learningResetId && remote.learningResetId !== state.learningResetId) {
+        return { ...initialState, ...remote, hydrated: true, pendingLevelUp: null };
+      }
       const localXp = state.xp;
       const remoteXp = typeof remote.xp === "number" ? remote.xp : 0;
       const xp = Math.max(localXp, remoteXp);
@@ -1041,6 +1048,7 @@ function migrate(raw: unknown): PersistedShape {
 }
 
 const PERSIST_KEYS: (keyof AppState)[] = [
+  "learningResetId",
   "selectedLanguage",
   "nativeLanguage",
   "darkMode",
@@ -1169,12 +1177,13 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
 
   useEffect(() => {
     const sync = (event: StorageEvent) => {
+      if (actor && event.key === learningResetKey(actor)) window.location.reload();
       if (event.key === THEME_PREFERENCE_KEY)
         dispatch({ type: "SET_DARK_MODE", payload: readDarkModePreference() });
     };
     window.addEventListener("storage", sync);
     return () => window.removeEventListener("storage", sync);
-  }, []);
+  }, [actor]);
 
   const ranStreak = useRef(false);
   useEffect(() => {
@@ -1190,6 +1199,8 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
       for (const k of PERSIST_KEYS) {
         toSave[k] = (state as unknown as Record<string, unknown>)[k];
       }
+      const resetId = readLearningResetId(window.localStorage, actor);
+      if (resetId && state.learningResetId !== resetId) return;
       saveProfileSnapshot(window.localStorage, actor, toSave);
     } catch {
       /* ignore quota */
@@ -1264,6 +1275,24 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
         if (error) return;
         if (data?.data) {
           const remote = migrate(data.data as unknown);
+          const device = inspectProfileSnapshot<{ learningResetId?: string | null }>(
+            window.localStorage,
+            actor,
+          );
+          if (
+            remote.learningResetId &&
+            (device.status !== "ready" || device.data.learningResetId !== remote.learningResetId)
+          ) {
+            try {
+              resetLearningDevice(window.localStorage, actor, remote.learningResetId, remote);
+              window.location.reload();
+            } catch {
+              toast.error(
+                "Your cloud progress was reset. This browser could not clear its old saves. Retry after allowing site storage.",
+              );
+            }
+            return;
+          }
           dispatch({ type: "MERGE_REMOTE", payload: remote });
         }
         setUserId(uid);
@@ -1295,7 +1324,9 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
       if (userId !== actor || !isCurrentUser(userId)) return;
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
       for (const k of PERSIST_KEYS) toSave[k] = (state as unknown as Record<string, unknown>)[k];
-      await supabase.from("profiles").upsert({ id: userId, data: toSave });
+      const { error } = await supabase.from("profiles").upsert({ id: userId, data: toSave });
+      if (error?.code === "P0001" && error.message.includes("Learning progress was reset"))
+        window.location.reload();
     }, 2000);
     return () => {
       if (syncTimer.current) clearTimeout(syncTimer.current);

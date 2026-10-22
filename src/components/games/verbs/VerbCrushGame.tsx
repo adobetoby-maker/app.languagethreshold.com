@@ -14,24 +14,37 @@ import {
   type CrushTile,
   type CrushView,
 } from "@/lib/verb-games/crush";
-import { REASON_MS, ROUND_MS, streakMultiplier } from "@/lib/verb-games/rules";
+import { REASON_MS, modeOf, roundLimitMs, streakMultiplier } from "@/lib/verb-games/rules";
 import { buildRoundLog } from "@/lib/verb-games/scoring";
 import type {
   Completion,
   CrushLevel,
+  EndReason,
   Outcome,
   PatternData,
   RoundConfig,
   RoundLog,
+  RoundMode,
   RoundResult,
 } from "@/lib/verb-games/types";
 import { CompletionFlash } from "./CompletionFlash";
 import { GameHud } from "./GameHud";
 import { Legend } from "./Legend";
 import { LiveRegion } from "./LiveRegion";
+import { goalTitle } from "./mode-labels";
 import { PIECE_COLORS } from "./piece-colors";
 import { PieceTile } from "./PieceTile";
 import { ReasonBand } from "./ReasonBand";
+
+/** What the live region says when the engine ends a round, by its own end reason. */
+const END_SAID: Record<EndReason, string> = {
+  goal: "Goal complete.",
+  miss: "A trap ends a forever round.",
+  moves: "Out of moves.",
+  time: "Time is up.",
+  cap: "Round complete.",
+  player: "Round ended.",
+};
 
 /** Dev builds only (ruling F7): the first popping swap is marked so e2e can play it. Always false in production. */
 const DEV = Boolean(import.meta.env?.DEV);
@@ -419,7 +432,7 @@ const Board = memo(function Board(p: {
 });
 
 /** One goal slot: empty dashed box, then the popped form on done green. */
-function GoalSlot(p: { index: number; completion: Completion | null; still: boolean }) {
+function GoalSlot(p: { index: number; completion: Completion | null; still: boolean; pairs?: boolean }) {
   const ref = useRef<HTMLLIElement>(null);
   const filled = p.completion !== null;
   const { still } = p;
@@ -447,7 +460,7 @@ function GoalSlot(p: { index: number; completion: Completion | null; still: bool
       data-filled={filled ? "true" : undefined}
       aria-label={c ? `${c.form}, ${c.english}` : `Goal ${p.index + 1}, not made yet`}
       title={c ? `${c.form} · ${c.english}` : undefined}
-      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold lg:w-[calc((100%-0.75rem)/3)] ${filled ? "" : "border-dashed border-border"}`}
+      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold ${p.pairs ? "lg:w-[calc((100%-0.375rem)/2)]" : "lg:w-[calc((100%-0.75rem)/3)]"} ${filled ? "" : "border-dashed border-border"}`}
       style={
         c
           ? { backgroundColor: PIECE_COLORS.done, borderColor: PIECE_COLORS.done, color: "#0a1220" }
@@ -459,11 +472,12 @@ function GoalSlot(p: { index: number; completion: Completion | null; still: bool
   );
 }
 
-function GoalBox(p: { level: CrushLevel; goals: Completion[]; still: boolean }) {
-  const count = p.level.goalCount;
+function GoalBox(p: { level: CrushLevel; mode: RoundMode; count: number; list: number; goals: Completion[]; still: boolean }) {
+  const count = p.count;
   const made = Math.min(p.goals.length, count);
-  // Up to six slots sit in one row; eight split into two rows of four on a phone.
-  const cols = count <= 6 ? count : Math.ceil(count / 2);
+  // Up to six slots sit in one row; eight split into two rows of four on a phone; a count list of
+  // 10 or 15 wraps in rows of five.
+  const cols = count <= 6 ? count : count === 8 ? 4 : 5;
   const done = made >= count;
   return (
     <div
@@ -474,10 +488,10 @@ function GoalBox(p: { level: CrushLevel; goals: Completion[]; still: boolean }) 
       <div className="flex items-baseline justify-between gap-3">
         <div className="min-w-0">
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
-            Goal
+            {p.mode.kind === "forever" ? `Goal · list ${p.list + 1}` : "Goal"}
           </div>
           <div className="truncate font-display text-lg font-semibold leading-tight text-foreground">
-            {p.level.label}
+            {goalTitle(p.level, p.mode)}
           </div>
         </div>
         <div
@@ -488,12 +502,15 @@ function GoalBox(p: { level: CrushLevel; goals: Completion[]; still: boolean }) 
         </div>
       </div>
       <ol
+        // Keyed per list so a fresh forever list deals in with empty slots.
+        key={p.list}
         aria-label="Goal forms"
         className="mt-2 grid grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-1.5 sm:grid-cols-[repeat(var(--cols-sm),minmax(0,1fr))] lg:flex lg:flex-wrap lg:justify-center"
-        style={{ "--cols": cols, "--cols-sm": count } as React.CSSProperties}
+        style={{ "--cols": cols, "--cols-sm": count <= 8 ? count : cols } as React.CSSProperties}
       >
         {Array.from({ length: count }, (_, i) => (
-          <GoalSlot key={i} index={i} completion={p.goals[i] ?? null} still={p.still} />
+          // Desktop sidebar: three per row (5 = 3 + 2), but a list of 10 sits in even pairs (5 rows of 2).
+          <GoalSlot key={i} index={i} completion={p.goals[i] ?? null} still={p.still} pairs={count === 10} />
         ))}
       </ol>
     </div>
@@ -503,7 +520,8 @@ function GoalBox(p: { level: CrushLevel; goals: Completion[]; still: boolean }) 
 export function VerbCrushGame(p: {
   data: PatternData;
   config: RoundConfig;
-  onEnd(log: RoundLog, result: RoundResult): void;
+  /** `endReason` is the engine's own: why the round ended. */
+  onEnd(log: RoundLog, result: RoundResult, endReason: EndReason): void;
   /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
   onSaveCard?(c: Completion): void;
 }) {
@@ -515,6 +533,9 @@ export function VerbCrushGame(p: {
     () => data.crushLevels.find((l) => l.level === config.level) as CrushLevel,
     [data, config],
   );
+  const mode = modeOf(config);
+  // Timed: the 90 s clock. Count and forever: no clock, only the untimed cap.
+  const limit = roundLimitMs(config);
   const [view, setView] = useState<CrushView>(() => round.view());
   /** The cells on screen. They trail the engine by one swap tween so tiles can travel before they change. */
   const [cells, setCells] = useState<CrushTile[]>(() => round.view().cells);
@@ -528,7 +549,7 @@ export function VerbCrushGame(p: {
   const [flash, setFlash] = useState<Completion | null>(null);
   const [message, setMessage] = useState(() => {
     const v = round.view();
-    return `Goal: ${level.label}. 0 of ${v.goalCount}. ${v.movesLeft} moves. Swap a stem next to its ending to make a form.`;
+    return `Goal: ${goalTitle(level, modeOf(p.config))}. 0 of ${v.goalCount}. ${v.movesLeft} moves. Swap a stem next to its ending to make a form.`;
   });
   const reduced = useReducedMotion();
   const still = reduced;
@@ -539,7 +560,7 @@ export function VerbCrushGame(p: {
   /** At most one input that arrived during a swap tween; it runs once the tween settles. */
   const queued = useRef<(() => void) | null>(null);
   /** A natural end waiting out its hold; handed over at once if the screen unmounts first. */
-  const pendingEnd = useRef<{ log: RoundLog; result: RoundResult } | null>(null);
+  const pendingEnd = useRef<{ log: RoundLog; result: RoundResult; endReason: EndReason } | null>(null);
   const cellsRef = useRef(cells);
   cellsRef.current = cells;
   const selectedRef = useRef(selected);
@@ -564,6 +585,8 @@ export function VerbCrushGame(p: {
   const timers = useRef(new Set<ReturnType<typeof setTimeout>>());
   const onEndRef = useRef(p.onEnd);
   onEndRef.current = p.onEnd;
+  /** Forever: goal lists completed as last announced. */
+  const prevLists = useRef(0);
 
   const later = useCallback((fn: () => void, ms: number) => {
     const id = setTimeout(() => {
@@ -597,7 +620,7 @@ export function VerbCrushGame(p: {
     (t: number, quit: boolean, steps = 0) => {
       if (endedRef.current) return;
       endedRef.current = true;
-      const at = Math.min(t, ROUND_MS.crush);
+      const at = Math.min(t, limit);
       const engineEnded = round.view().ended;
       const result = round.end(at);
       // Ruling F19: the log is built by buildRoundLog; quitAtMs only when the player left early.
@@ -606,26 +629,28 @@ export function VerbCrushGame(p: {
         round.events(),
         data,
         Date.now(),
-        quit && !engineEnded && at < ROUND_MS.crush ? at : undefined,
+        quit && !engineEnded && at < limit ? at : undefined,
       );
+      // end() always leaves the engine with a reason; "player" is only a type guard here.
+      const endReason = round.view().endReason ?? "player";
       setActive(false);
       setSelected(null);
       stopRemoteTTS();
       queued.current = null;
       if (quit) {
-        onEndRef.current(log, result);
+        onEndRef.current(log, result, endReason);
         return;
       }
       // A natural end holds the board so the last pop, its whole chain and the full goal are seen.
       // If the screen unmounts during the hold, the unmount cleanup hands the round over instead.
-      pendingEnd.current = { log, result };
+      pendingEnd.current = { log, result, endReason };
       later(() => {
         const pending = pendingEnd.current;
         pendingEnd.current = null;
-        if (pending) onEndRef.current(pending.log, pending.result);
+        if (pending) onEndRef.current(pending.log, pending.result, pending.endReason);
       }, endHoldMs(steps));
     },
-    [round, config, data, later],
+    [round, config, data, later, limit],
   );
 
   /** Shows the engine's answer to a swap: flash, reason, goals, HUD, announcements and the end. */
@@ -639,7 +664,12 @@ export function VerbCrushGame(p: {
         setFlash(last);
         later(() => setFlash((f) => (f === last ? null : f)), FLASH_MS);
         setGoals((g) => [...g, ...pops]);
-        said.push(`Goal ${Math.min(next.made, next.goalCount)} of ${next.goalCount}.`);
+        if (next.lists > prevLists.current) {
+          said.push(`List ${next.lists} complete. A new goal list, and ${next.movesLeft} moves.`);
+        } else {
+          said.push(`Goal ${next.goalMade} of ${next.goalCount}.`);
+        }
+        prevLists.current = next.lists;
         if (pops.length > 1) said.push(`Chain of ${pops.length}.`);
       }
       const miss = out.find((o) => o.kind === "miss");
@@ -653,9 +683,7 @@ export function VerbCrushGame(p: {
       }
       if (reshuffle && !next.ended) said.push("No pops left, so here is a new board.");
       if (out.some((o) => o.kind === "end")) {
-        said.push(
-          next.won ? "Goal complete." : next.movesLeft <= 0 ? "Out of moves." : "Time is up.",
-        );
+        said.push(END_SAID[next.endReason ?? "time"]);
       }
       setView(next);
       setMessage(said.join(" "));
@@ -1029,7 +1057,7 @@ export function VerbCrushGame(p: {
       stopRemoteTTS();
       const end = pendingEnd.current;
       pendingEnd.current = null;
-      if (end) onEndRef.current(end.log, end.result);
+      if (end) onEndRef.current(end.log, end.result, end.endReason);
     };
   }, []);
 
@@ -1039,7 +1067,9 @@ export function VerbCrushGame(p: {
     [round, cells],
   );
 
-  const msLeft = ROUND_MS.crush - (endedRef.current ? Math.min(view.t, ROUND_MS.crush) : t);
+  const msLeft = limit - (endedRef.current ? Math.min(view.t, limit) : t);
+  // The goal list on screen: forever shows only the current list's forms.
+  const listGoals = mode.kind === "forever" ? goals.slice(view.lists * view.goalCount) : goals;
 
   // Phone and tablet: one column, goal above the board. Desktop: the goal and controls sit beside the board.
   return (
@@ -1056,11 +1086,12 @@ export function VerbCrushGame(p: {
           streak={view.streak}
           msLeft={msLeft}
           movesLeft={view.movesLeft}
+          mode={mode}
         />
       </div>
 
       <div className="lg:col-start-2 lg:row-span-2 lg:row-start-2 lg:self-start">
-        <GoalBox level={level} goals={goals} still={still} />
+        <GoalBox level={level} mode={mode} count={view.goalCount} list={view.lists} goals={listGoals} still={still} />
       </div>
 
       {/* One fixed-height slot: the flash, with the reason band laid over it during a miss. S still saves while covered. */}

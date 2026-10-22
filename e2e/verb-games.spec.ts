@@ -1,4 +1,5 @@
 // Built by TAC — 2026-10-21
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { appUrl, seedAppState } from "./app-state.ts";
 
@@ -418,6 +419,178 @@ test.describe("verb crush", { tag: "@dev-only" }, () => {
   });
 });
 
+
+// ---- Round modes and multi-pattern picks ---------------------------------------------------
+
+const PLAY = appUrl({ tab: "games" }) + "&verbs=play";
+
+/** Opens a play deep link through openVerbs (so onboarding and Spanish are seeded first). */
+async function openPlay(page: Page, query: string): Promise<void> {
+  await openVerbs(page);
+  await page.goto(PLAY + query);
+}
+
+/** Infinitives that have a form in any of `families`, from the shipped pattern data. */
+function infinitivesOf(families: string[]): Set<string> {
+  const data = JSON.parse(readFileSync(new URL("../src/data/verb-patterns/es.json", import.meta.url), "utf8")) as {
+    verbs: { infinitive: string; forms: { families: string[] }[] }[];
+  };
+  return new Set(data.verbs.filter((v) => v.forms.some((f) => f.families.some((id) => families.includes(id)))).map((v) => v.infinitive));
+}
+
+test.describe("round modes", { tag: "@dev-only" }, () => {
+  // Clicks land on still pieces: bubbles hold still and Crush tiles do not tween.
+  test.beforeEach(async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+  });
+
+  test("timed is unchanged: default mode, clock in the HUD, no vmode in the URL", async ({ page }) => {
+    await startBubble(page);
+    await expect(page).not.toHaveURL(/vmode=/);
+    await expect(page.getByTestId("game-hud")).toHaveAttribute("data-mode", "timed");
+    // One chip tap after the game card still replaces the suggested family, as before multi-select.
+    await expect(page).toHaveURL(/vfamily=es\.present\.go-yo(&|$)/);
+    await expect(page).not.toHaveURL(/vfamilies=/);
+    await expect(page.getByTestId("game-hud")).toContainText(/STREAK ×0 · [01]:\d\d/);
+    await page.getByRole("button", { name: "End round", exact: true }).click();
+    await expectRecap(page, "GAME · BUBBLE POP");
+    await expect(page.getByTestId("round-over")).not.toContainText("FOREVER");
+    await expect(page.getByTestId("recap-streak")).toBeVisible();
+  });
+
+  test("the mode choice is remembered on this device", async ({ page }) => {
+    await openVerbs(page);
+    await page.locator('[data-game="bubble"]').click();
+    await expect(page.getByTestId("mode-timed")).toHaveAttribute("aria-checked", "true");
+    await page.getByTestId("mode-forever").click();
+    await expect(page.getByTestId("mode-forever")).toHaveAttribute("aria-checked", "true");
+    // Arrow keys move the choice inside the radio group.
+    await page.keyboard.press("ArrowLeft");
+    await expect(page.getByTestId("mode-count15")).toHaveAttribute("aria-checked", "true");
+    await expect(page.getByTestId("mode-count15")).toBeFocused();
+    await page.getByRole("button", { name: "Verbs", exact: true }).click();
+    await page.locator('[data-game="crush"]').click();
+    await expect(page.getByTestId("mode-count15")).toHaveAttribute("aria-checked", "true");
+  });
+
+  test("the Mode control fits one row", async ({ page }) => {
+    await openVerbs(page);
+    await page.locator('[data-game="bubble"]').click();
+    const tops = await page.locator('[data-testid="mode-control"] [role="radio"]').evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().top)));
+    expect(tops).toHaveLength(5);
+    expect(new Set(tops).size).toBe(1);
+  });
+
+  test("bubble forever ends on the first miss with the streak as the headline", async ({ page }) => {
+    await openPlay(page, "&vgame=bubble&vfamily=es.present.go-yo&vmode=forever&vseed=5");
+    await expect(page.getByTestId("bubble-game")).toBeVisible();
+    await expect(page.getByTestId("game-hud")).toHaveAttribute("data-mode", "forever");
+    await expect(page.getByTestId("game-hud")).not.toContainText(/\d:\d\d/);
+    for (let n = 1; n <= 2; n++) {
+      await page.locator('[data-correct="true"]').click();
+      await expect(page.getByTestId("hud-streak")).toContainText(String(n));
+    }
+    await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
+    await expect(page.getByTestId("recap-title")).toHaveText(/Streak 2/);
+    await expect(page.getByTestId("round-over")).toContainText("GAME · BUBBLE POP · FOREVER");
+    await expect(page.getByTestId("recap-miss")).toHaveCount(1);
+    await expect(page.getByTestId("recap-time")).toBeVisible();
+    await page.getByRole("button", { name: "Play again" }).click();
+    await expect(page.getByTestId("game-hud")).toHaveAttribute("data-mode", "forever");
+  });
+
+  test("crush forever ends on the first trap", async ({ page }) => {
+    await openPlay(page, "&vgame=crush&vfamily=es.present.go-yo&vlevel=1&vmode=forever&vseed=5");
+    await expect(page.getByTestId("crush-game")).toBeVisible();
+    await expect(page.getByTestId("crush-goal")).toContainText("Goal · list 1");
+    await expect(page.getByTestId("game-hud")).not.toContainText(/\d:\d\d/);
+    for (let n = 1; n <= 2; n++) {
+      await page.locator('[data-hint="a"]').click();
+      await page.locator('[data-hint="b"]').click();
+      await expect(page.getByTestId("crush-goal-count")).toHaveText(`${n} / 5`);
+    }
+    // Seed 5: after those two pops, cells 2 and 7 make "decen", a trap (as in the timed trap test).
+    await page.locator('[data-index="2"]').click();
+    await page.locator('[data-index="7"]').click();
+    await expect(page.getByTestId("recap-title")).toHaveText(/Streak 2/, { timeout: 10_000 });
+    await expect(page.getByTestId("round-over")).toContainText("GAME · VERB CRUSH · FOREVER");
+    await expect(page.getByTestId("recap-miss")).toHaveCount(1);
+  });
+
+  test("a 5-word count round ends after 5 correct, with words and time on the recap", async ({ page }) => {
+    await openVerbs(page, "&vseed=5");
+    await page.locator('[data-game="bubble"]').click();
+    await page.getByTestId("family-es.present.go-yo").click();
+    await page.getByTestId("mode-count5").click();
+    await page.getByRole("button", { name: "Start round" }).click();
+    await expect(page).toHaveURL(/vmode=count5/);
+    await expect(page.getByTestId("game-hud")).toContainText("0 / 5");
+    for (let n = 1; n <= 4; n++) {
+      await page.locator('[data-correct="true"]').click();
+      await expect(page.getByTestId("game-hud")).toContainText(`${n} / 5`);
+    }
+    await page.locator('[data-correct="true"]').click();
+    await expect(page.getByTestId("recap-summary")).toHaveText(/^5 words in \d:\d\d$/);
+    await expect(page.getByTestId("round-over")).toContainText("GAME · BUBBLE POP · 5 WORDS");
+  });
+
+  test("a 10-word Crush count round has a goal list of 10 and scaled moves", async ({ page }) => {
+    await openPlay(page, "&vgame=crush&vfamily=es.present.go-yo&vlevel=1&vmode=count10&vseed=5");
+    await expect(page.getByTestId("crush-goal")).toContainText("Make 10 yo forms");
+    await expect(page.locator("[data-goal-slot]")).toHaveCount(10);
+    await expect(page.getByTestId("crush-goal-count")).toHaveText("0 / 10");
+    await expect(page.getByTestId("game-hud")).toContainText("MOVES 40");
+  });
+
+  test("multi-family picks deal only those families", async ({ page }) => {
+    const families = ["es.present.go-yo", "es.present.e-ie"];
+    const allowed = infinitivesOf(families);
+    await openVerbs(page, "&vseed=5");
+    await page.locator('[data-game="bubble"]').click();
+    // The suggested family is only a default: the first tap replaces it, the second adds.
+    await page.getByTestId("family-es.present.go-yo").click();
+    await page.getByTestId("family-es.present.e-ie").click();
+    await expect(page.getByTestId("family-es.present.go-yo")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByTestId("family-es.present.e-ie")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByTestId("family-mix")).toHaveAttribute("aria-pressed", "false");
+    await expect(page.getByTestId("pick-summary")).toContainText("2 patterns");
+    await page.getByTestId("mode-count15").click();
+    await page.getByRole("button", { name: "Start round" }).click();
+    await expect(page).toHaveURL(/vfamilies=/);
+    await expect(page.getByTestId("game-hud")).toContainText("GAME · BUBBLE POP · -GO YO FORM + E → IE");
+    for (let n = 1; n <= 8; n++) {
+      const infinitive = (await page.locator('[data-testid="bubble-frame"] .text-gold-ink').textContent())?.trim() ?? "";
+      expect(allowed.has(infinitive), `frame ${n}: ${infinitive}`).toBe(true);
+      await page.locator('[data-correct="true"]').click();
+      await expect(page.getByTestId("game-hud")).toContainText(`${n} / 15`);
+    }
+    // Mix clears the picked families.
+    await page.getByRole("button", { name: "End round", exact: true }).click();
+    await page.getByRole("button", { name: "Back to Verbs" }).click();
+    await page.locator('[data-game="bubble"]').click();
+    await page.getByTestId("family-es.present.go-yo").click();
+    await page.getByTestId("family-es.present.ar").click();
+    await page.getByTestId("family-mix").click();
+    await expect(page.getByTestId("family-mix")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByTestId("family-es.present.ar")).toHaveAttribute("aria-pressed", "false");
+  });
+
+  test("a deep link with vfamilies opens the picker and the round on those families", async ({ page }) => {
+    await openVerbs(page);
+    await page.goto(appUrl({ tab: "games" }) + "&verbs=pick&vgame=crush&vfamilies=es.present.ar,es.present.go-yo");
+    await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
+    await expect(page.getByTestId("family-es.present.ar")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByTestId("family-es.present.go-yo")).toHaveAttribute("aria-pressed", "true");
+    // Level 2 needs yo and tú: available on the union pool.
+    await expect(page.locator('[data-level="2"]')).toBeEnabled();
+    await openPlay(page, "&vgame=bubble&vfamilies=es.present.go-yo,es.present.ar&vseed=5");
+    await expect(page.getByTestId("game-hud")).toContainText("GAME · BUBBLE POP · REGULAR -AR + -GO YO FORM");
+    // A bad list goes home.
+    await openPlay(page, "&vgame=bubble&vfamilies=es.present.go-yo,es.present.zz");
+    await expect(page.getByRole("heading", { name: "Practice by pattern" })).toBeVisible();
+  });
+});
+
 // Screenshots at four viewports for the visual review: VERB_SCREENS=1 npx playwright test ... --grep @screens
 const BUBBLE_PLAY = appUrl({ tab: "games" }) + "&verbs=play&vgame=bubble&vfamily=es.present.go-yo&vseed=5";
 
@@ -538,6 +711,68 @@ const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<v
   { name: "recap-bubble-mix", path: MIX_PLAY, prepare: bubbleRecapMix },
   { name: "recap-bubble-light", path: BUBBLE_PLAY, prepare: async (page) => { await goLight(page); await bubbleRecap(page); } },
 ];
+/** `n` correct picks on the still row. */
+async function bubbleRight(page: Page, n: number): Promise<void> {
+  await expect(page.getByTestId("bubble-game")).toBeVisible();
+  await page.waitForTimeout(800);
+  for (let i = 0; i < n; i++) {
+    await page.locator('[data-correct="true"]').click();
+    await page.waitForTimeout(250);
+  }
+}
+// Round modes (VERB_SCREENS=1 ... --grep "modes-"): still pieces, so clicks land.
+const reduce = (prepare: (page: Page) => Promise<void>) => async (page: Page) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.reload();
+  await expect(page.locator("[data-verbs-root]")).toBeVisible({ timeout: 60_000 });
+  await prepare(page);
+};
+SCREENS.push(
+  {
+    name: "modes-picker",
+    path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=bubble&vfamilies=es.present.ar,es.present.go-yo",
+    prepare: async (page) => {
+      await page.getByTestId("mode-count10").click();
+      // Let the 200 ms color transition finish before the capture.
+      await page.waitForTimeout(400);
+    },
+  },
+  {
+    name: "modes-picker-crush",
+    path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=crush&vfamilies=es.present.ar,es.present.go-yo",
+    prepare: async (page) => {
+      await page.getByTestId("mode-forever").click();
+      // Let the 200 ms color transition finish before the capture.
+      await page.waitForTimeout(400);
+    },
+  },
+  { name: "modes-bubble-forever", path: BUBBLE_PLAY + "&vmode=forever", prepare: reduce((page) => bubbleRight(page, 3)) },
+  { name: "modes-crush-forever", path: CRUSH_PLAY + "&vmode=forever", prepare: reduce(crushMidRound) },
+  { name: "modes-bubble-count10", path: BUBBLE_PLAY + "&vmode=count10", prepare: reduce((page) => bubbleRight(page, 3)) },
+  { name: "modes-crush-count10", path: CRUSH_PLAY + "&vmode=count10", prepare: reduce(crushMidRound) },
+  {
+    name: "modes-recap-forever",
+    path: BUBBLE_PLAY + "&vmode=forever",
+    prepare: reduce(async (page) => {
+      await bubbleRight(page, 4);
+      await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
+      await expect(page.getByTestId("round-over")).toBeVisible();
+    }),
+  },
+  {
+    name: "modes-recap-count",
+    path: CRUSH_PLAY + "&vmode=count5",
+    prepare: reduce(async (page) => {
+      await expect(page.getByTestId("crush-game")).toBeVisible();
+      for (let n = 0; n < 5 && (await page.getByTestId("crush-game").count()) > 0; n++) {
+        await page.locator('[data-hint="a"]').click();
+        await page.locator('[data-hint="b"]').click();
+        await page.waitForTimeout(700);
+      }
+      await expect(page.getByTestId("round-over")).toBeVisible({ timeout: 10_000 });
+    }),
+  },
+);
 SCREENS.push(
   { name: "crush", path: CRUSH_PLAY, prepare: crushMidRound },
   {
@@ -555,6 +790,7 @@ SCREENS.push(
   { name: "recap-crush", path: CRUSH_PLAY, prepare: crushRecap },
   { name: "recap-crush-clean", path: CRUSH_PLAY, prepare: crushRecapClean },
 );
+const SCREENS_DIR = process.env.VERB_SCREENS_DIR ?? "test-results/verb-games-screens";
 const VIEWPORTS = [
   { tag: "375", width: 375, height: 812, scale: 2 },
   { tag: "1440", width: 1440, height: 900, scale: 1 },
@@ -583,7 +819,7 @@ test.describe("verb screens @screens", () => {
           await page.evaluate(() => document.fonts.ready);
           const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
           expect(overflow, `${screen.name} @${vp.tag} scrollWidth overflow`).toBeLessThanOrEqual(0);
-          await page.screenshot({ path: `test-results/verb-games-screens/${screen.name}-${vp.tag}.png`, fullPage: true });
+          await page.screenshot({ path: `${SCREENS_DIR}/${screen.name}-${vp.tag}.png`, fullPage: true });
           // Fixed bars would paint over the middle of a full-page capture; hide them for the section clip only.
           await page.evaluate(() => {
             for (const el of document.querySelectorAll<HTMLElement>("body *")) {
@@ -595,7 +831,7 @@ test.describe("verb screens @screens", () => {
             const r = el.getBoundingClientRect();
             return { x: Math.max(0, r.left + scrollX - 8), y: Math.max(0, r.top + scrollY - 8), width: Math.min(innerWidth, r.width + 16), height: r.height + 16 };
           });
-          await page.screenshot({ path: `test-results/verb-games-screens/${screen.name}-${vp.tag}-section.png`, fullPage: true, clip: box });
+          await page.screenshot({ path: `${SCREENS_DIR}/${screen.name}-${vp.tag}-section.png`, fullPage: true, clip: box });
         } finally {
           await context.close();
         }

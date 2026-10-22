@@ -1,0 +1,2889 @@
+{
+  "version": 1,
+  "module": "master-restaurant-hospitality",
+  "baseModule": "restaurant-hospitality",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Restaurant & Hospitality Master 20",
+  "threshold": "By Lesson 20, you can train new staff and have them teach a procedure back, handle overbookings, shortages and improper guest requests, give feedback and settle team conflicts, lead an incident or emergency response, and write the shift report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.170Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explain the Room-Status Flow to a New Desk Agent",
+      "objective": "Explain step by step how a room goes from dirty to inspected to ready, and why each step matters.",
+      "words": [
+        {
+          "en": "the room status",
+          "es": "el estado de la habitación",
+          "kind": "term"
+        },
+        {
+          "en": "the dirty room",
+          "es": "la habitación sucia",
+          "kind": "term"
+        },
+        {
+          "en": "the inspected room",
+          "es": "la habitación inspeccionada",
+          "kind": "term"
+        },
+        {
+          "en": "the ready (available) room",
+          "es": "la habitación disponible",
+          "kind": "term"
+        },
+        {
+          "en": "the room attendant",
+          "es": "la camarista",
+          "kind": "term",
+          "note": "Common in Mexico for the housekeeper who cleans rooms; a man is el camarista."
+        },
+        {
+          "en": "the housekeeping supervisor",
+          "es": "el ama de llaves",
+          "kind": "term",
+          "note": "Feminine noun that takes el because of the stressed a: el ama, las amas de llaves."
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the property management system",
+          "es": "el PMS",
+          "kind": "term",
+          "note": "Staff often just say el sistema."
+        },
+        {
+          "en": "the desk agent",
+          "es": "la recepcionista",
+          "kind": "term",
+          "note": "A man is el recepcionista."
+        },
+        {
+          "en": "the hotel guest",
+          "es": "el huésped",
+          "kind": "term",
+          "note": "A woman is la huésped or la huéspeda."
+        },
+        {
+          "en": "the room assignment",
+          "es": "la asignación de habitación",
+          "kind": "term"
+        },
+        {
+          "en": "checkout",
+          "es": "el check-out",
+          "kind": "term",
+          "note": "Standard hotel loanword; el check-in works the same way."
+        },
+        {
+          "en": "the bed linens",
+          "es": "la ropa de cama",
+          "kind": "term"
+        },
+        {
+          "en": "the maintenance work order",
+          "es": "la orden de mantenimiento",
+          "kind": "term"
+        },
+        {
+          "en": "First the room attendant cleans the room and marks it in the system.",
+          "es": "Primero la camarista limpia la habitación y la marca en el sistema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then the housekeeping supervisor inspects it.",
+          "es": "Luego el ama de llaves la inspecciona.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why it isn't assigned until it's inspected.",
+          "es": "Por eso no se asigna hasta que esté inspeccionada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We do it this way because sometimes something is missing, like towels.",
+          "es": "Lo hacemos así porque a veces falta algo, como toallas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After the inspection, it changes to available in the PMS.",
+          "es": "Después de la inspección, cambia a disponible en el PMS.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you're unsure, call the housekeeping supervisor before assigning it.",
+          "es": "Si tienes duda, llama al ama de llaves antes de asignarla.",
+          "kind": "phrase",
+          "note": "Informal (tú), coworker to coworker."
+        },
+        {
+          "en": "Ma'am, your room will be ready in 20 minutes.",
+          "es": "Señora, su habitación estará lista en 20 minutos.",
+          "kind": "phrase",
+          "note": "Formal, to a guest."
+        },
+        {
+          "en": "Shall we hold your bags while you wait?",
+          "es": "¿Le guardamos sus maletas mientras espera?",
+          "kind": "phrase",
+          "note": "Formal (usted), to a guest."
+        }
+      ],
+      "speaking": "You are the front desk manager, and the AI is Lucía, a new desk agent: explain step by step how a room goes from dirty to inspected to ready, and why each step matters, using primero, luego, después, porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso: primero la limpian, luego la inspeccionan, por eso no se asigna)",
+        "examples": [
+          {
+            "es": "Primero la limpian, luego la inspeccionan y después la liberan.",
+            "en": "First they clean it, then they inspect it, and after that they release it."
+          },
+          {
+            "es": "Falta la inspección, por eso todavía no se asigna.",
+            "en": "The inspection is still pending, so it isn't assigned yet."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why We Label and Rotate in the Walk-In",
+      "objective": "Explain the walk-in's labeling and first-in, first-out system and the reasons behind it.",
+      "words": [
+        {
+          "en": "the prep date",
+          "es": "la fecha de preparación",
+          "kind": "term"
+        },
+        {
+          "en": "the discard date",
+          "es": "la fecha de descarte",
+          "kind": "term"
+        },
+        {
+          "en": "the masking tape",
+          "es": "la cinta de enmascarar",
+          "kind": "term",
+          "note": "Many US kitchens just say el masking."
+        },
+        {
+          "en": "the permanent marker",
+          "es": "el marcador permanente",
+          "kind": "term"
+        },
+        {
+          "en": "the rotation",
+          "es": "la rotación",
+          "kind": "term"
+        },
+        {
+          "en": "the shelving",
+          "es": "los anaqueles",
+          "kind": "term",
+          "note": "Common in Mexico; el estante and la repisa are also used."
+        },
+        {
+          "en": "the bottom shelf",
+          "es": "el anaquel de abajo",
+          "kind": "term"
+        },
+        {
+          "en": "the prepared food",
+          "es": "la comida preparada",
+          "kind": "term"
+        },
+        {
+          "en": "the raw meat",
+          "es": "la carne cruda",
+          "kind": "term"
+        },
+        {
+          "en": "the expired product",
+          "es": "el producto vencido",
+          "kind": "term"
+        },
+        {
+          "en": "the local health code",
+          "es": "el reglamento sanitario local",
+          "kind": "term"
+        },
+        {
+          "en": "food poisoning",
+          "es": "la intoxicación alimentaria",
+          "kind": "term"
+        },
+        {
+          "en": "the bacteria",
+          "es": "las bacterias",
+          "kind": "term"
+        },
+        {
+          "en": "the product name",
+          "es": "el nombre del producto",
+          "kind": "term"
+        },
+        {
+          "en": "the initials",
+          "es": "las iniciales",
+          "kind": "term"
+        },
+        {
+          "en": "the container",
+          "es": "el recipiente",
+          "kind": "term"
+        },
+        {
+          "en": "Everything gets labeled here, no exceptions.",
+          "es": "Aquí se etiqueta todo, sin excepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "New stuff goes in back and old stuff in front.",
+          "es": "Lo nuevo se pone atrás y lo viejo adelante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you always grab from the front, the oldest gets used first.",
+          "es": "Si siempre agarras lo de adelante, se usa primero lo más viejo.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a coworker."
+        },
+        {
+          "en": "If it has no date, it gets thrown out per local rules.",
+          "es": "Si no tiene fecha, se tira según la norma local.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Raw meat is always stored on the bottom shelf.",
+          "es": "La carne cruda siempre se guarda en el anaquel de abajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put the date, your initials and the product name on it.",
+          "es": "Ponle la fecha, tus iniciales y el nombre del producto.",
+          "kind": "phrase",
+          "note": "Informal command (tú)."
+        },
+        {
+          "en": "If we leave it in back, it expires and goes to waste.",
+          "es": "Si lo dejamos atrás, se vence y se desperdicia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many days does it keep, according to the local health code?",
+          "es": "¿Cuántos días dura, según el reglamento sanitario local?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the kitchen manager, and the AI is Andrés, a prep cook: explain the walk-in labeling and first-in, first-out system and the reasons behind it, using impersonal se (se etiqueta, se pone atrás) and si + present (si no tiene fecha, se tira).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se etiqueta todo; si no tiene fecha, se descarta según la norma local)",
+        "examples": [
+          {
+            "es": "Se etiqueta todo con fecha e iniciales.",
+            "en": "Everything is labeled with the date and initials."
+          },
+          {
+            "es": "Si un recipiente no tiene etiqueta, no se usa.",
+            "en": "If a container has no label, it doesn't get used."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Dishwasher on the Chemical Station",
+      "objective": "Give clear step-by-step commands at the dish machine and have the new dishwasher teach the routine back.",
+      "words": [
+        {
+          "en": "the dish machine",
+          "es": "la máquina lavaloza",
+          "kind": "term",
+          "note": "Also called la máquina de platos."
+        },
+        {
+          "en": "the detergent",
+          "es": "el detergente",
+          "kind": "term"
+        },
+        {
+          "en": "the sanitizer",
+          "es": "el desinfectante",
+          "kind": "term"
+        },
+        {
+          "en": "the rinse aid",
+          "es": "el abrillantador",
+          "kind": "term"
+        },
+        {
+          "en": "the bleach",
+          "es": "el cloro",
+          "kind": "term"
+        },
+        {
+          "en": "the dilution",
+          "es": "la dilución",
+          "kind": "term"
+        },
+        {
+          "en": "the safety data sheet",
+          "es": "la hoja SDS",
+          "kind": "term",
+          "note": "Short for hoja de datos de seguridad."
+        },
+        {
+          "en": "the nitrile gloves",
+          "es": "los guantes de nitrilo",
+          "kind": "term"
+        },
+        {
+          "en": "the safety glasses",
+          "es": "los lentes de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the waterproof apron",
+          "es": "el delantal impermeable",
+          "kind": "term"
+        },
+        {
+          "en": "the test strips",
+          "es": "las tiras de prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the eyewash station",
+          "es": "el lavaojos",
+          "kind": "term"
+        },
+        {
+          "en": "the dispenser",
+          "es": "el dosificador",
+          "kind": "term"
+        },
+        {
+          "en": "the cap",
+          "es": "la tapa",
+          "kind": "term"
+        },
+        {
+          "en": "the dish rack",
+          "es": "el rack de platos",
+          "kind": "term",
+          "note": "Loanword common in US kitchens."
+        },
+        {
+          "en": "the fumes",
+          "es": "los vapores",
+          "kind": "term"
+        },
+        {
+          "en": "Stop! Never mix them.",
+          "es": "¡Para! No los mezcles nunca.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a coworker."
+        },
+        {
+          "en": "Read it out loud, please.",
+          "es": "Léela en voz alta, por favor.",
+          "kind": "phrase",
+          "note": "La = la etiqueta. Pronoun attaches to the command: léela."
+        },
+        {
+          "en": "Put them on before opening any bottle.",
+          "es": "Póntelos antes de abrir cualquier botella.",
+          "kind": "phrase",
+          "note": "Los = los guantes; the accent keeps the stress: póntelos."
+        },
+        {
+          "en": "The dilution is done according to the manufacturer's label.",
+          "es": "La dilución se hace según la etiqueta del fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Close it tight and put it back in its place.",
+          "es": "Ciérralo bien y guárdalo en su lugar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Test it with a test strip before washing.",
+          "es": "Mídelo con la tira de prueba antes de lavar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it splashes you, rinse at the eyewash station and tell me.",
+          "es": "Si te salpica, enjuágate en el lavaojos y avísame.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso a paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the banquet kitchen manager, and the AI is Wilmer, a new dishwasher: walk him through the chemical station step by step with commands like léela, póntelos, no los mezcles and ciérralo bien, then have him teach the routine back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (léela, póntelos, no los mezcles, ciérralo bien)",
+        "examples": [
+          {
+            "es": "Léela antes de abrir la botella.",
+            "en": "Read it before you open the bottle."
+          },
+          {
+            "es": "No los mezcles; ciérralos y sepáralos.",
+            "en": "Don't mix them; close them and keep them apart."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Supplier Allergen Sheet Before Menu Launch",
+      "objective": "Read a supplier's allergen spec sheet and explain to servers what must change before service.",
+      "words": [
+        {
+          "en": "the spec sheet",
+          "es": "la ficha técnica",
+          "kind": "term"
+        },
+        {
+          "en": "the allergen statement",
+          "es": "la declaración de alérgenos",
+          "kind": "term"
+        },
+        {
+          "en": "the pesto",
+          "es": "el pesto",
+          "kind": "term"
+        },
+        {
+          "en": "the cashew",
+          "es": "la nuez de la India",
+          "kind": "term",
+          "note": "Common in Mexico; el marañón or el anacardo elsewhere."
+        },
+        {
+          "en": "tree nuts",
+          "es": "las nueces de árbol",
+          "kind": "term"
+        },
+        {
+          "en": "the pine nuts",
+          "es": "los piñones",
+          "kind": "term"
+        },
+        {
+          "en": "the basil",
+          "es": "la albahaca",
+          "kind": "term"
+        },
+        {
+          "en": "nut-free",
+          "es": "libre de nueces",
+          "kind": "term"
+        },
+        {
+          "en": "may contain",
+          "es": "puede contener",
+          "kind": "term",
+          "note": "Label wording for possible traces; treat it as a real allergen risk."
+        },
+        {
+          "en": "the batch",
+          "es": "el lote",
+          "kind": "term"
+        },
+        {
+          "en": "the printed menu",
+          "es": "la carta impresa",
+          "kind": "term"
+        },
+        {
+          "en": "the reprint",
+          "es": "la reimpresión",
+          "kind": "term"
+        },
+        {
+          "en": "the allergen chart",
+          "es": "la tabla de alérgenos",
+          "kind": "term"
+        },
+        {
+          "en": "the allergic reaction",
+          "es": "la reacción alérgica",
+          "kind": "term"
+        },
+        {
+          "en": "the substitution",
+          "es": "la sustitución",
+          "kind": "term"
+        },
+        {
+          "en": "According to the supplier's sheet, the pesto contains cashews.",
+          "es": "Según la ficha del proveedor, el pesto lleva nuez de la India.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Camila, read me the allergen statement, please.",
+          "es": "Camila, léeme la declaración de alérgenos, por favor.",
+          "kind": "phrase",
+          "note": "Informal (tú), to the server lead."
+        },
+        {
+          "en": "Before opening, we have to change all the printed menus.",
+          "es": "Antes de abrir, hay que cambiar todas las cartas impresas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before taking the order, always ask about allergies.",
+          "es": "Antes de tomar la orden, pregunten siempre por alergias.",
+          "kind": "phrase",
+          "note": "Plural ustedes command, to the server team."
+        },
+        {
+          "en": "If a guest asks, tell them the pesto does contain nuts.",
+          "es": "Si un cliente pregunta, díganle que el pesto sí lleva nueces.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't promise any substitution without confirming with the chef.",
+          "es": "No prometan ninguna sustitución sin confirmar con el chef.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After talking with the chef, we'll update the allergen chart.",
+          "es": "Después de hablar con el chef, actualizamos la tabla de alérgenos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Chef, do we have a nut-free pesto for tonight?",
+          "es": "Chef, ¿tenemos un pesto sin nueces para esta noche?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the restaurant manager, and the AI is Camila, the server lead: read the new pesto's supplier spec sheet together, explain what it says, and tell her what must change before service, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de abrir hay que corregir la carta)",
+        "examples": [
+          {
+            "es": "Antes de abrir, hay que corregir la tabla de alérgenos.",
+            "en": "Before opening, we have to correct the allergen chart."
+          },
+          {
+            "es": "Después de leer la ficha, hay que avisar a todos los meseros.",
+            "en": "After reading the sheet, we have to let all the servers know."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Oversold Night: Walking a Guest to a Partner Hotel",
+      "objective": "Explain what went wrong with a confirmed booking and propose a night at a partner hotel with transport.",
+      "words": [
+        {
+          "en": "the overbooking",
+          "es": "la sobreventa",
+          "kind": "term",
+          "note": "Hotels sell a few rooms over capacity, expecting some guests not to arrive."
+        },
+        {
+          "en": "the walk (relocating a guest)",
+          "es": "la reubicación",
+          "kind": "term",
+          "note": "Moving a booked guest to another hotel."
+        },
+        {
+          "en": "the confirmed reservation",
+          "es": "la reservación confirmada",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation number",
+          "es": "el número de confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the partner hotel",
+          "es": "el hotel asociado",
+          "kind": "term"
+        },
+        {
+          "en": "the transfer (ride)",
+          "es": "el traslado",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi voucher",
+          "es": "el vale de taxi",
+          "kind": "term"
+        },
+        {
+          "en": "the rate",
+          "es": "la tarifa",
+          "kind": "term"
+        },
+        {
+          "en": "the complimentary night",
+          "es": "la noche de cortesía",
+          "kind": "term"
+        },
+        {
+          "en": "the occupancy",
+          "es": "la ocupación",
+          "kind": "term"
+        },
+        {
+          "en": "the included breakfast",
+          "es": "el desayuno incluido",
+          "kind": "term"
+        },
+        {
+          "en": "the credit card guarantee",
+          "es": "la garantía con tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the system error",
+          "es": "el error del sistema",
+          "kind": "term"
+        },
+        {
+          "en": "the late arrival",
+          "es": "la llegada tardía",
+          "kind": "term"
+        },
+        {
+          "en": "the night manager",
+          "es": "el gerente nocturno",
+          "kind": "term",
+          "note": "For a woman, use the feminine form with la and nocturna."
+        },
+        {
+          "en": "the ride back",
+          "es": "el viaje de regreso",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Ibáñez, your reservation was confirmed; the mistake was ours.",
+          "es": "Señor Ibáñez, su reservación sí estaba confirmada; el error fue nuestro.",
+          "kind": "phrase",
+          "note": "Formal: use usted with the guest."
+        },
+        {
+          "en": "The system kept selling when there were no rooms left.",
+          "es": "El sistema siguió vendiendo cuando ya no quedaban habitaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm very sorry; I know you're coming from a long trip.",
+          "es": "Lo siento mucho; sé que viene de un viaje largo.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I would offer you a room at the Hotel Mirador, at no cost to you.",
+          "es": "Le ofrecería una habitación en el Hotel Mirador, sin costo para usted.",
+          "kind": "phrase",
+          "note": "The conditional softens the proposal; formal."
+        },
+        {
+          "en": "We would pay for the taxi there and back.",
+          "es": "Nosotros pagaríamos el taxi de ida y vuelta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow at 8 we'll bring you back for your meeting.",
+          "es": "Mañana a las 8 lo traemos de regreso para su junta.",
+          "kind": "phrase",
+          "note": "Formal: the pronoun lo means you, for a man."
+        },
+        {
+          "en": "Call the Mirador and confirm the room, please.",
+          "es": "Marca al Mirador y confirma la habitación, porfa.",
+          "kind": "phrase",
+          "note": "Informal, to a desk coworker. In Mexico, marcar means to phone."
+        }
+      ],
+      "speaking": "You are the night manager at Hotel Las Palmas, and the AI is Gerardo Ibáñez, a tired guest with a confirmed reservation: explain what went wrong with the preterite and imperfect (el sistema aceptó…, ya estábamos llenos) and propose the partner hotel and transport with le ofrecería…",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (el sistema aceptó la reserva cuando ya estábamos llenos; le ofrecería…)",
+        "examples": [
+          {
+            "es": "Cuando usted reservó, el sistema todavía mostraba cuartos libres.",
+            "en": "When you booked, the system was still showing free rooms."
+          },
+          {
+            "es": "Le ofrecería la noche en el hotel asociado con el desayuno incluido.",
+            "en": "I would offer you the night at the partner hotel with breakfast included."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Half the Sea Bass Didn't Come: Changing the Menu",
+      "objective": "Agree on a substitute fish with the chef and explain how tonight's menu will change and compare.",
+      "words": [
+        {
+          "en": "the corvina (croaker)",
+          "es": "la corvina",
+          "kind": "term"
+        },
+        {
+          "en": "the red snapper",
+          "es": "el huachinango",
+          "kind": "term",
+          "note": "Mexican name; other countries say pargo rojo."
+        },
+        {
+          "en": "the tasting menu",
+          "es": "el menú de degustación",
+          "kind": "term"
+        },
+        {
+          "en": "the first course",
+          "es": "el primer tiempo",
+          "kind": "term",
+          "note": "The courses of a tasting menu are called tiempos."
+        },
+        {
+          "en": "the short delivery",
+          "es": "el pedido incompleto",
+          "kind": "term"
+        },
+        {
+          "en": "the sales rep",
+          "es": "el representante de ventas",
+          "kind": "term"
+        },
+        {
+          "en": "the catch of the day",
+          "es": "la pesca del día",
+          "kind": "term"
+        },
+        {
+          "en": "the texture",
+          "es": "la textura",
+          "kind": "term"
+        },
+        {
+          "en": "the firmness",
+          "es": "la firmeza",
+          "kind": "term"
+        },
+        {
+          "en": "the flavor",
+          "es": "el sabor",
+          "kind": "term"
+        },
+        {
+          "en": "the crispy skin",
+          "es": "la piel crujiente",
+          "kind": "term"
+        },
+        {
+          "en": "the cooking time",
+          "es": "el tiempo de cocción",
+          "kind": "term"
+        },
+        {
+          "en": "the cost per plate",
+          "es": "el costo por plato",
+          "kind": "term"
+        },
+        {
+          "en": "the menu change",
+          "es": "el cambio de menú",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-shift meeting",
+          "es": "la junta previa al servicio",
+          "kind": "term"
+        },
+        {
+          "en": "Nicolás, how many pounds of sea bass are you going to send us today?",
+          "es": "Nicolás, ¿cuántas libras de robalo nos va a mandar hoy?",
+          "kind": "phrase",
+          "note": "Formal: use usted with the supplier rep."
+        },
+        {
+          "en": "Can you send me the rest first thing tomorrow?",
+          "es": "¿Me puede mandar el resto mañana a primera hora?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Teresa, we're going to use corvina in the second course.",
+          "es": "Teresa, vamos a usar corvina en el segundo tiempo.",
+          "kind": "phrase",
+          "note": "Informal: use tú with the chef."
+        },
+        {
+          "en": "Corvina holds up on the griddle better than sea bass.",
+          "es": "La corvina aguanta mejor la plancha que el robalo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Will you taste it before 5 to adjust the sauce?",
+          "es": "¿La pruebas antes de las 5 para ajustar la salsa?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "The tasting menu will cost the same as always.",
+          "es": "El menú de degustación costará lo mismo que siempre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At the meeting I'll explain the change to the servers.",
+          "es": "En la junta les explicaré el cambio a los meseros.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager of Marisquería El Faro, and the AI is chef Teresa Llorente: agree on a substitute fish for the tasting menu, then explain the changes with vamos a…, the future (será, costará) and comparisons like más firme que and tan fresca como.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (vamos a usar corvina; es más firme que la lubina y tan fresca como…)",
+        "examples": [
+          {
+            "es": "Vamos a usar corvina y va a llevar la misma salsa.",
+            "en": "We're going to use corvina, and it's going to have the same sauce."
+          },
+          {
+            "es": "Esta corvina es tan fresca como el robalo, pero más firme.",
+            "en": "This corvina is as fresh as the sea bass, but firmer."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Wedding Planner Brings 22 Extra Guests",
+      "objective": "Recount the agreed numbers to an outside planner and work out seats, plates and charges on the spot.",
+      "words": [
+        {
+          "en": "the wedding planner (woman)",
+          "es": "la organizadora de bodas",
+          "kind": "term"
+        },
+        {
+          "en": "the banquet captain",
+          "es": "el capitán de banquetes",
+          "kind": "term"
+        },
+        {
+          "en": "the signed contract",
+          "es": "el contrato firmado",
+          "kind": "term"
+        },
+        {
+          "en": "the guaranteed count",
+          "es": "el número garantizado",
+          "kind": "term"
+        },
+        {
+          "en": "the extra place setting",
+          "es": "el cubierto adicional",
+          "kind": "term"
+        },
+        {
+          "en": "the setup",
+          "es": "el montaje",
+          "kind": "term"
+        },
+        {
+          "en": "the round table",
+          "es": "la mesa redonda",
+          "kind": "term"
+        },
+        {
+          "en": "the head table",
+          "es": "la mesa de honor",
+          "kind": "term"
+        },
+        {
+          "en": "the seating chart",
+          "es": "el plano de mesas",
+          "kind": "term"
+        },
+        {
+          "en": "the dance floor",
+          "es": "la pista de baile",
+          "kind": "term"
+        },
+        {
+          "en": "the guest list",
+          "es": "la lista de invitados",
+          "kind": "term"
+        },
+        {
+          "en": "the banquet event order (BEO)",
+          "es": "la orden de evento",
+          "kind": "term"
+        },
+        {
+          "en": "the price per person",
+          "es": "el precio por persona",
+          "kind": "term"
+        },
+        {
+          "en": "the extra charge",
+          "es": "el cargo adicional",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el anticipo",
+          "kind": "term"
+        },
+        {
+          "en": "the maximum capacity",
+          "es": "la capacidad máxima",
+          "kind": "term"
+        },
+        {
+          "en": "Ms. Saldaña, in the contract you signed for 140 guests.",
+          "es": "Señora Saldaña, en el contrato usted firmó por 140 invitados.",
+          "kind": "phrase",
+          "note": "Formal: use usted with the outside planner."
+        },
+        {
+          "en": "On Thursday you confirmed the final count by email.",
+          "es": "El jueves usted confirmó el número final por correo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Esteban, how many more round tables fit next to the dance floor?",
+          "es": "Esteban, ¿cuántas mesas redondas más caben junto a la pista?",
+          "kind": "phrase",
+          "note": "Informal: use tú with the banquet captain."
+        },
+        {
+          "en": "Esteban, bring out 22 more chairs from storage.",
+          "es": "Esteban, saca 22 sillas más de la bodega.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "According to the room permit, the maximum capacity is 180 people.",
+          "es": "Según el permiso del salón, la capacidad máxima es de 180 personas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The 22 extra place settings are charged at the per-person price.",
+          "es": "Los 22 cubiertos adicionales se cobran al precio por persona.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll prepare the extra charge so you can sign it today.",
+          "es": "Le preparo el cargo adicional para que lo firme hoy.",
+          "kind": "phrase",
+          "note": "Formal; the verb after the phrase meaning 'so that' is always subjunctive."
+        }
+      ],
+      "speaking": "You are the banquet manager at Hotel Real Alameda, and the AI is wedding planner Verónica Saldaña: recount the signed numbers in the preterite (firmamos 140, llegaron 162) and work out extra tables, place settings and the extra charge with her.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (firmamos 140, llegaron 162, faltan 22 cubiertos)",
+        "examples": [
+          {
+            "es": "Firmamos 140 cubiertos y esta noche llegaron 162.",
+            "en": "We signed for 140 place settings, and tonight 162 arrived."
+          },
+          {
+            "es": "El jueves usted confirmó 140 y no mandó ningún cambio.",
+            "en": "On Thursday you confirmed 140 and didn't send any change."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to One More Round",
+      "objective": "Refuse service to an intoxicated guest firmly and kindly, and instruct the bartender what not to do.",
+      "words": [
+        {
+          "en": "the round",
+          "es": "la ronda",
+          "kind": "term"
+        },
+        {
+          "en": "the regular",
+          "es": "el cliente frecuente",
+          "kind": "term"
+        },
+        {
+          "en": "drunk",
+          "es": "tomado",
+          "kind": "term",
+          "note": "Common Mexican word; use it with staff, never to the guest's face."
+        },
+        {
+          "en": "intoxication",
+          "es": "el estado de ebriedad",
+          "kind": "term",
+          "note": "Formal term used in policies and reports."
+        },
+        {
+          "en": "the signs of intoxication",
+          "es": "las señales de intoxicación",
+          "kind": "term"
+        },
+        {
+          "en": "the car keys",
+          "es": "las llaves del carro",
+          "kind": "term"
+        },
+        {
+          "en": "the rideshare",
+          "es": "el Uber",
+          "kind": "term",
+          "note": "Brand name used for any rideshare."
+        },
+        {
+          "en": "the glass of water",
+          "es": "el vaso de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the bar snack",
+          "es": "la botana",
+          "kind": "term",
+          "note": "Mexican word for snacks served with drinks."
+        },
+        {
+          "en": "the alcohol policy",
+          "es": "la política de alcohol",
+          "kind": "term"
+        },
+        {
+          "en": "the liquor license",
+          "es": "la licencia de alcohol",
+          "kind": "term"
+        },
+        {
+          "en": "the legal liability",
+          "es": "la responsabilidad legal",
+          "kind": "term"
+        },
+        {
+          "en": "the incident log",
+          "es": "el registro de incidentes",
+          "kind": "term"
+        },
+        {
+          "en": "the security guard",
+          "es": "el guardia de seguridad",
+          "kind": "term",
+          "note": "For a woman, use la guardia de seguridad."
+        },
+        {
+          "en": "Joaquín, don't pour that round; give him a glass of water.",
+          "es": "Joaquín, no le pongas esa ronda; dale un vaso de agua.",
+          "kind": "phrase",
+          "note": "Informal: use tú with the bartender."
+        },
+        {
+          "en": "Don't give him the keys; wait until I talk to him.",
+          "es": "No le des las llaves; espera a que yo hable con él.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Don Ramiro, we can't serve you any more tonight.",
+          "es": "Don Ramiro, por esta noche ya no le podemos servir.",
+          "kind": "phrase",
+          "note": "Formal. Don before a first name shows respect to an older man."
+        },
+        {
+          "en": "You've been a customer for years, and we want you to get home safely.",
+          "es": "Usted es cliente de años, y queremos que llegue bien.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I don't recommend you drive; I'll get you a taxi.",
+          "es": "No recomiendo que se vaya manejando; le pido un taxi.",
+          "kind": "phrase",
+          "note": "Formal; the verb after this phrase of advice goes in the subjunctive."
+        },
+        {
+          "en": "The house will pay for your Uber home.",
+          "es": "La casa le paga el Uber hasta su casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want us to call someone in your family?",
+          "es": "¿Quiere que llamemos a alguien de su familia?",
+          "kind": "phrase",
+          "note": "Formal; use the personal a before a person as the object."
+        },
+        {
+          "en": "Write down what happened in the log before closing.",
+          "es": "Anota en el registro lo que pasó antes de cerrar.",
+          "kind": "phrase",
+          "note": "Informal."
+        }
+      ],
+      "speaking": "You are the manager at the Terraza Ocho rooftop bar, and the AI is Ramiro Ortega, a regular who has had too much: refuse more drinks firmly and kindly with no recomiendo que + subjunctive, offer him a ride, and tell bartender Joaquín what not to do with negative commands like no le sirvas.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no le sirvas más; no recomiendo que maneje esta noche)",
+        "examples": [
+          {
+            "es": "No le sirvas más y no le cobres otra ronda.",
+            "en": "Don't serve him any more, and don't charge him for another round."
+          },
+          {
+            "es": "No recomiendo que tome otra copa; mejor le traigo botana.",
+            "en": "I don't recommend you have another drink; I'll bring you some snacks instead."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for a Server Who Skipped the Allergy Question",
+      "objective": "Give private, specific feedback about a missed allergy question and agree on what the server will do next.",
+      "words": [
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term"
+        },
+        {
+          "en": "the private conversation",
+          "es": "la conversación en privado",
+          "kind": "term"
+        },
+        {
+          "en": "the allergy question",
+          "es": "la pregunta de alergias",
+          "kind": "term"
+        },
+        {
+          "en": "the allergy protocol",
+          "es": "el protocolo de alergias",
+          "kind": "term"
+        },
+        {
+          "en": "the allergy note",
+          "es": "la nota de alergia",
+          "kind": "term",
+          "note": "The flag the server writes on the ticket so the kitchen sees it."
+        },
+        {
+          "en": "anaphylaxis",
+          "es": "la anafilaxia",
+          "kind": "term",
+          "note": "Stress on the second-to-last syllable: a-na-fi-LAK-sia."
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "the oversight",
+          "es": "el descuido",
+          "kind": "term"
+        },
+        {
+          "en": "on the defensive",
+          "es": "a la defensiva",
+          "kind": "term",
+          "note": "Used with estar or ponerse: se puso a la defensiva."
+        },
+        {
+          "en": "the workload",
+          "es": "la carga de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the backup (extra person)",
+          "es": "el refuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the commitment",
+          "es": "el compromiso",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up",
+          "es": "el seguimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the mandatory step",
+          "es": "el paso obligatorio",
+          "kind": "term"
+        },
+        {
+          "en": "Marisol, do you have a minute to talk in private?",
+          "es": "Marisol, ¿tienes un minuto para hablar en privado?",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker you supervise."
+        },
+        {
+          "en": "Today you didn't ask about allergies at two tables.",
+          "es": "Hoy no preguntaste por alergias en dos mesas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand you were alone and had a heavy workload.",
+          "es": "Entiendo que estabas sola y con mucha carga de trabajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Even so, I want you to ask about allergies at every table.",
+          "es": "Aun así, quiero que preguntes por alergias en cada mesa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you write it on the ticket as an allergy note.",
+          "es": "Te recomiendo que lo anotes en la comanda como nota de alergia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you end up alone, I'd rather you call me so I can help you.",
+          "es": "Si te quedas sola, prefiero que me llames para que te ayude.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This isn't a scolding; an allergy can send someone to the hospital.",
+          "es": "No es un regaño; una alergia puede mandar a alguien al hospital.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you need from me so it doesn't happen again?",
+          "es": "¿Qué necesitas de mí para que no vuelva a pasar?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager at Café Alborada, and the AI is server Marisol Vega: in private, give specific feedback on the two tables where she skipped the allergy question and agree on next steps with quiero que preguntes and te recomiendo que lo anotes.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que preguntes en cada mesa; te recomiendo que lo anotes)",
+        "examples": [
+          {
+            "es": "Quiero que preguntes por alergias en cada mesa, aunque estés sola.",
+            "en": "I want you to ask about allergies at every table, even if you're alone."
+          },
+          {
+            "es": "Te recomiendo que lo anotes en la comanda antes de mandarla.",
+            "en": "I recommend you write it on the ticket before you send it."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Line Cook vs. Server: Who Said What About the Steak",
+      "objective": "Retell both sides of an argument over a remade steak and settle it with a fair agreement.",
+      "words": [
+        {
+          "en": "the grill",
+          "es": "la parrilla",
+          "kind": "term"
+        },
+        {
+          "en": "the grill cook",
+          "es": "el parrillero",
+          "kind": "term"
+        },
+        {
+          "en": "the rib eye",
+          "es": "el rib eye",
+          "kind": "term"
+        },
+        {
+          "en": "medium-well",
+          "es": "el término tres cuartos",
+          "kind": "term",
+          "note": "Mexican doneness scale; bien cocido is well-done."
+        },
+        {
+          "en": "well-done",
+          "es": "bien cocido",
+          "kind": "term"
+        },
+        {
+          "en": "the sent-back dish",
+          "es": "el plato devuelto",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the version (of events)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the shouting",
+          "es": "los gritos",
+          "kind": "term"
+        },
+        {
+          "en": "the disrespect",
+          "es": "la falta de respeto",
+          "kind": "term"
+        },
+        {
+          "en": "the order-entry error",
+          "es": "el error de captura",
+          "kind": "term",
+          "note": "Capturar la orden = enter the order in the POS (common Mexican usage)."
+        },
+        {
+          "en": "the verbal confirmation",
+          "es": "la confirmación verbal",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the work atmosphere",
+          "es": "el ambiente de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "Héctor, tell me your version without interrupting, please.",
+          "es": "Héctor, cuéntame tu versión sin interrumpir, por favor.",
+          "kind": "phrase",
+          "note": "Informal: tú with a crew member."
+        },
+        {
+          "en": "Daniela said the customer wanted the rib eye medium-well.",
+          "es": "Daniela dijo que el cliente quería el rib eye tres cuartos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Héctor said the ticket said medium.",
+          "es": "Héctor dijo que la comanda decía término medio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You both said the kitchen was slammed and it was loud.",
+          "es": "Los dos dijeron que la cocina estaba llena y había ruido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody yells at anybody here, not even during the rush.",
+          "es": "Aquí nadie le grita a nadie, ni en hora pico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From today on, if there's any doubt, the doneness gets confirmed at the pass.",
+          "es": "Desde hoy, si hay duda, se confirma el término en el pase.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Daniela, check what you entered before sending the order.",
+          "es": "Daniela, revisa lo que capturaste antes de mandar la orden.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Does that seem fair to both of you?",
+          "es": "¿Les parece justo a los dos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager at Asador Los Robles, and the AI is grill cook Héctor Salinas and server Daniela Cruz: hear both versions of the steak argument, retell each side with dijo que and the imperfect (la cocina estaba llena), and settle it with a fair agreement.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Héctor dijo que la comanda decía término medio; la cocina estaba llena)",
+        "examples": [
+          {
+            "es": "Héctor dijo que él solo seguía lo que decía la comanda.",
+            "en": "Héctor said he was just following what the ticket said."
+          },
+          {
+            "es": "Daniela explicó que el cliente estaba molesto y que ella tenía cuatro mesas.",
+            "en": "Daniela explained that the customer was upset and that she had four tables."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keep Housekeeping Going Through a Sold-Out Weekend",
+      "objective": "Recognize a tired team's effort and make concrete commitments to get them through the weekend.",
+      "words": [
+        {
+          "en": "the sold-out house",
+          "es": "el lleno total",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the sick leave",
+          "es": "la incapacidad",
+          "kind": "term",
+          "note": "Mexican usage for documented sick leave; estar de incapacidad = be out sick."
+        },
+        {
+          "en": "the room quota",
+          "es": "la cuota de habitaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the staffing agency",
+          "es": "la agencia de personal",
+          "kind": "term"
+        },
+        {
+          "en": "the temp staff",
+          "es": "el personal temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the housekeeping cart",
+          "es": "el carrito de limpieza",
+          "kind": "term"
+        },
+        {
+          "en": "the bonus",
+          "es": "el bono",
+          "kind": "term"
+        },
+        {
+          "en": "the recognition",
+          "es": "el reconocimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the effort",
+          "es": "el esfuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the shift schedule",
+          "es": "el rol de turnos",
+          "kind": "term",
+          "note": "Common Mexican term for the posted schedule."
+        },
+        {
+          "en": "the deep cleaning",
+          "es": "la limpieza profunda",
+          "kind": "term"
+        },
+        {
+          "en": "the checkout rooms",
+          "es": "las habitaciones de salida",
+          "kind": "term"
+        },
+        {
+          "en": "Rosa, thanks for telling me; I know your team is exhausted.",
+          "es": "Rosa, gracias por avisarme; sé que su equipo está agotado.",
+          "kind": "phrase",
+          "note": "Formal: usted with the supervisor."
+        },
+        {
+          "en": "Tomorrow you'll have two more people from the agency.",
+          "es": "Mañana tendrán dos personas más de la agencia.",
+          "kind": "phrase",
+          "note": "Ustedes form, to the whole team."
+        },
+        {
+          "en": "We'll lower the quota to 12 rooms per person until Monday.",
+          "es": "Bajaremos la cuota a 12 habitaciones por persona hasta el lunes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The deep cleanings will wait until Tuesday.",
+          "es": "Las limpiezas profundas se quedarán para el martes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "On Saturday the hotel will pay for everyone's lunch.",
+          "es": "El sábado el hotel les pagará la comida a todos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Everyone will get their full break, even if there are late checkouts.",
+          "es": "Cada quien tendrá su descanso completo, aunque haya salidas tardías.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's weighing on you the most right now?",
+          "es": "¿Qué es lo que más les pesa ahora mismo?",
+          "kind": "phrase",
+          "note": "Informal and warm, to the team."
+        },
+        {
+          "en": "You've kept this hotel going; we'll get through it together.",
+          "es": "Ustedes han sacado este hotel adelante; lo vamos a lograr juntos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager at Hotel Brisa Marina, and the AI is housekeeping supervisor Rosa Delgado: ask how the team is holding up, recognize their effort, and make concrete weekend commitments with the future (tendrán, bajaremos) and lo vamos a lograr juntos.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana tendrán dos personas más; lo vamos a lograr juntos)",
+        "examples": [
+          {
+            "es": "El lunes les daré un día libre a quienes trabajaron los tres días.",
+            "en": "On Monday I'll give a day off to those who worked all three days."
+          },
+          {
+            "es": "Hablaré con recepción y limitaremos las salidas tardías.",
+            "en": "I'll talk to the front desk and we'll limit late checkouts."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Walk-In Failure: Telling Owner, Chef, Guest and Crew",
+      "objective": "Explain one cooler failure in the right register to four different listeners and have the crew teach back the new check.",
+      "words": [
+        {
+          "en": "the failure",
+          "es": "la falla",
+          "kind": "term"
+        },
+        {
+          "en": "the compressor",
+          "es": "el compresor",
+          "kind": "term"
+        },
+        {
+          "en": "the refrigeration technician",
+          "es": "el técnico de refrigeración",
+          "kind": "term"
+        },
+        {
+          "en": "the temperature alarm",
+          "es": "la alarma de temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the affected product",
+          "es": "el producto afectado",
+          "kind": "term"
+        },
+        {
+          "en": "the product loss",
+          "es": "la merma",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance claim",
+          "es": "la reclamación al seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the probe",
+          "es": "la sonda",
+          "kind": "term"
+        },
+        {
+          "en": "the danger zone",
+          "es": "la zona de peligro",
+          "kind": "term"
+        },
+        {
+          "en": "the opening shift",
+          "es": "la apertura",
+          "kind": "term"
+        },
+        {
+          "en": "sold out, unavailable",
+          "es": "agotado",
+          "kind": "term",
+          "note": "For a dish you can't serve today: el cordero está agotado."
+        },
+        {
+          "en": "the backup refrigerator",
+          "es": "el refrigerador de respaldo",
+          "kind": "term"
+        },
+        {
+          "en": "the lamb",
+          "es": "el cordero",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the check time",
+          "es": "la hora de revisión",
+          "kind": "term"
+        },
+        {
+          "en": "Don Alfonso, I'd like to inform you that the walk-in failed last night.",
+          "es": "Don Alfonso, quisiera informarle que el walk-in falló anoche.",
+          "kind": "phrase",
+          "note": "Formal: usted and don with the owner."
+        },
+        {
+          "en": "Pilar, I already called the technician; he gets here at 11.",
+          "es": "Pilar, ya llamé al técnico; llega a las 11.",
+          "kind": "phrase",
+          "note": "Informal: tú with the chef as a peer."
+        },
+        {
+          "en": "Pilar, if there's any doubt about a product, we throw it out.",
+          "es": "Pilar, si hay duda con algún producto, lo tiramos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doña Inés, I'm sorry to tell you the lamb is unavailable today.",
+          "es": "Doña Inés, lamento decirle que hoy el cordero está agotado.",
+          "kind": "phrase",
+          "note": "Formal: usted and doña with a regular guest."
+        },
+        {
+          "en": "May I recommend another dish from the chef?",
+          "es": "¿Me permite recomendarle otro platillo del chef?",
+          "kind": "phrase",
+          "note": "Formal softener for a guest."
+        },
+        {
+          "en": "Kevin, you check the thermometer at opening and write it in the log.",
+          "es": "Kevin, revisa el termómetro tú al abrir y anótalo en el registro.",
+          "kind": "phrase",
+          "note": "Informal: tú with a crew member."
+        },
+        {
+          "en": "If the temperature goes past the limit the local code sets, tell me.",
+          "es": "Si la temperatura pasa del límite que marca el reglamento local, avísame.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Kevin, can you show me how you'll do the check tomorrow?",
+          "es": "Kevin, ¿me enseñas cómo vas a hacer la revisión mañana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager at Casa Olmo, and the AI is owner Alfonso Medina, chef Pilar Gómez, guest Inés Carvajal and dishwasher Kevin Ramos: explain the walk-in failure in each one's register (quisiera informarle with usted, tú with the crew), then have Kevin teach back the new temperature check.",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera informarle, don Alfonso; Kevin, revisa el termómetro tú)",
+        "examples": [
+          {
+            "es": "Quisiera informarle, don Alfonso, que perdimos producto por la falla.",
+            "en": "I'd like to inform you, Don Alfonso, that we lost product because of the failure."
+          },
+          {
+            "es": "Kevin, revisa tú la sonda y anota la hora en el registro.",
+            "en": "Kevin, you check the probe and write the time in the log."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Fryer Burn: Interview and Incident Report",
+      "objective": "Interview the injured cook and a witness, then narrate the incident in order for the written report.",
+      "words": [
+        {
+          "en": "the fryer",
+          "es": "la freidora",
+          "kind": "term"
+        },
+        {
+          "en": "the hot oil",
+          "es": "el aceite caliente",
+          "kind": "term"
+        },
+        {
+          "en": "the burn",
+          "es": "la quemadura",
+          "kind": "term"
+        },
+        {
+          "en": "the forearm",
+          "es": "el antebrazo",
+          "kind": "term"
+        },
+        {
+          "en": "the drain valve",
+          "es": "la válvula de drenaje",
+          "kind": "term"
+        },
+        {
+          "en": "the drain bucket",
+          "es": "la cubeta de drenaje",
+          "kind": "term"
+        },
+        {
+          "en": "the heat-resistant gloves",
+          "es": "los guantes térmicos",
+          "kind": "term"
+        },
+        {
+          "en": "the first aid kit",
+          "es": "el botiquín de primeros auxilios",
+          "kind": "term"
+        },
+        {
+          "en": "the witness (woman)",
+          "es": "la testigo",
+          "kind": "term",
+          "note": "Use la testigo for a woman and el testigo for a man."
+        },
+        {
+          "en": "the statement",
+          "es": "la declaración",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el reporte de incidente",
+          "kind": "term",
+          "note": "In US and Mexican workplaces, people say reporte more often than informe."
+        },
+        {
+          "en": "the blister",
+          "es": "la ampolla",
+          "kind": "term"
+        },
+        {
+          "en": "the medical care",
+          "es": "la atención médica",
+          "kind": "term"
+        },
+        {
+          "en": "the slippery floor",
+          "es": "el piso resbaloso",
+          "kind": "term"
+        },
+        {
+          "en": "the urgent care clinic",
+          "es": "la clínica de urgencias",
+          "kind": "term"
+        },
+        {
+          "en": "Óscar, tell me what happened, from the beginning.",
+          "es": "Óscar, cuéntame qué pasó, desde el principio.",
+          "kind": "phrase",
+          "note": "Informal (tú) with a coworker."
+        },
+        {
+          "en": "What time did you open the drain valve?",
+          "es": "¿A qué hora abriste la válvula de drenaje?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Were you wearing the heat-resistant gloves at that moment?",
+          "es": "¿Traías puestos los guantes térmicos en ese momento?",
+          "kind": "phrase",
+          "note": "Informal. Ask it in a calm, neutral tone, as a fact for the report, not as blame."
+        },
+        {
+          "en": "Brenda, what did you see right before the burn?",
+          "es": "Brenda, ¿qué viste justo antes de la quemadura?",
+          "kind": "phrase",
+          "note": "Informal (tú) with a coworker."
+        },
+        {
+          "en": "At 9:40, Óscar started draining the fryer.",
+          "es": "A las 9:40, Óscar empezó a vaciar la freidora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While the oil was draining, the bucket moved and splashed him.",
+          "es": "Mientras escurría el aceite, la cubeta se movió y lo salpicó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Right after that, Brenda put his arm under cold water.",
+          "es": "Justo después, Brenda le puso el brazo bajo agua fría.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A few minutes later, I took him to the urgent care clinic.",
+          "es": "Unos minutos más tarde, lo llevé a la clínica de urgencias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI is line cook Óscar Méndez: interview him about his fryer burn, ask what happened and when, then read the events back in order for the report using time markers like a las 9:40, mientras escurría el aceite and justo después.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las 9:40, mientras escurría el aceite, justo después, unos minutos más tarde)",
+        "examples": [
+          {
+            "es": "A las 9:40 Óscar abrió la válvula, y justo después gritó.",
+            "en": "At 9:40 Óscar opened the valve, and right after that he shouted."
+          },
+          {
+            "es": "Mientras él escurría el aceite, Brenda limpiaba la plancha.",
+            "en": "While he was draining the oil, Brenda was cleaning the griddle."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: The Shrimp Almost Reached the Allergic Guest",
+      "objective": "Talk through an allergy near miss without blame and agree on a change that stops it from happening again.",
+      "words": [
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term",
+          "note": "Safety term for a near miss; you will also hear cuasi accidente."
+        },
+        {
+          "en": "the shellfish allergy",
+          "es": "la alergia a los mariscos",
+          "kind": "term"
+        },
+        {
+          "en": "the shellfish",
+          "es": "los mariscos",
+          "kind": "term"
+        },
+        {
+          "en": "the food runner",
+          "es": "el runner",
+          "kind": "term",
+          "note": "Common loanword in US kitchens."
+        },
+        {
+          "en": "the aguachile (shrimp dish)",
+          "es": "el aguachile",
+          "kind": "term"
+        },
+        {
+          "en": "the printed ticket",
+          "es": "la comanda impresa",
+          "kind": "term"
+        },
+        {
+          "en": "the printing failure",
+          "es": "la falla de impresión",
+          "kind": "term"
+        },
+        {
+          "en": "the allergy alert",
+          "es": "el aviso de alergia",
+          "kind": "term"
+        },
+        {
+          "en": "the double check",
+          "es": "la doble verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the morning meeting",
+          "es": "la junta de la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the cause",
+          "es": "la causa",
+          "kind": "term"
+        },
+        {
+          "en": "the process change",
+          "es": "el cambio de proceso",
+          "kind": "term"
+        },
+        {
+          "en": "the spoken confirmation",
+          "es": "la confirmación en voz alta",
+          "kind": "term"
+        },
+        {
+          "en": "serious",
+          "es": "grave",
+          "kind": "term"
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "without blaming anyone",
+          "es": "sin culpar a nadie",
+          "kind": "term"
+        },
+        {
+          "en": "This meeting isn't about finding who's to blame, but causes.",
+          "es": "Esta junta no es para buscar culpables, sino causas.",
+          "kind": "phrase",
+          "note": "Informal team tone; say it first to set a no-blame frame."
+        },
+        {
+          "en": "Iván, how did you notice the dish had shrimp?",
+          "es": "Iván, ¿cómo te diste cuenta de que el plato llevaba camarón?",
+          "kind": "phrase",
+          "note": "Informal (tú) with a coworker."
+        },
+        {
+          "en": "The aguachile almost went out to table 7.",
+          "es": "Por poco sale el aguachile a la mesa 7.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If Iván hadn't asked, the guest could have ended up in the hospital.",
+          "es": "Si Iván no preguntaba, la clienta podría haber terminado en el hospital.",
+          "kind": "phrase",
+          "note": "Si + imperfect is common in speech; the formal version is si no hubiera preguntado."
+        },
+        {
+          "en": "Lorena, did the ticket you got say anything about an allergy?",
+          "es": "Lorena, ¿la comanda que te llegó decía algo de alergia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We almost sent it because the modifier didn't print.",
+          "es": "Casi lo mandamos porque el modificador no se imprimió.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From today on, every allergy is confirmed out loud at the pass.",
+          "es": "Desde hoy, toda alergia se confirma en voz alta en el pase.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How about we try this change for one week?",
+          "es": "¿Les parece si probamos este cambio por una semana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager, and the AI is runner Iván Soto at the morning debrief: talk through the shrimp near miss without blame, ask how it was caught, describe what almost happened with por poco, casi and podría haber, and agree on one change.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco sale el plato; si no lo veía Iván, podría haber pasado algo grave)",
+        "examples": [
+          {
+            "es": "Por poco sale el plato sin revisar la alergia.",
+            "en": "The dish almost went out without the allergy being checked."
+          },
+          {
+            "es": "Si Lorena no lo veía, podría haber llegado a la mesa.",
+            "en": "If Lorena hadn't seen it, it could have reached the table."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Gas Smell During Breakfast: Stop Service and Evacuate",
+      "objective": "Stop cooking, give short radio commands, evacuate the kitchen and call for help following the hotel protocol.",
+      "words": [
+        {
+          "en": "the gas smell",
+          "es": "el olor a gas",
+          "kind": "term"
+        },
+        {
+          "en": "the range",
+          "es": "la estufa",
+          "kind": "term",
+          "note": "In Mexico la estufa is the range or stove; the oven is el horno."
+        },
+        {
+          "en": "the knobs",
+          "es": "las perillas",
+          "kind": "term"
+        },
+        {
+          "en": "the gas shutoff valve",
+          "es": "la llave del gas",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "el radio",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation",
+          "es": "la evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency exit",
+          "es": "la salida de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de reunión",
+          "kind": "term"
+        },
+        {
+          "en": "the gas company",
+          "es": "la compañía de gas",
+          "kind": "term"
+        },
+        {
+          "en": "emergency services",
+          "es": "los servicios de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the firefighters",
+          "es": "los bomberos",
+          "kind": "term"
+        },
+        {
+          "en": "the sparks",
+          "es": "las chispas",
+          "kind": "term"
+        },
+        {
+          "en": "the switches",
+          "es": "los interruptores",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel protocol",
+          "es": "el protocolo del hotel",
+          "kind": "term"
+        },
+        {
+          "en": "the dining room",
+          "es": "el comedor",
+          "kind": "term"
+        },
+        {
+          "en": "Stop cooking and get out to the meeting point now!",
+          "es": "¡Dejen de cocinar y salgan ya al punto de reunión!",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the crew."
+        },
+        {
+          "en": "Don't touch the switches or turn anything on.",
+          "es": "No toquen los interruptores ni prendan nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Fabián, if it's safe, shut off the gas valve.",
+          "es": "Fabián, si es seguro, cierra la llave del gas.",
+          "kind": "phrase",
+          "note": "Informal (tú) with a coworker."
+        },
+        {
+          "en": "Natalia, this is the manager: there's a gas smell in the kitchen.",
+          "es": "Natalia, habla el gerente: hay olor a gas en cocina.",
+          "kind": "phrase",
+          "note": "Radio style: say who is talking first, then the problem."
+        },
+        {
+          "en": "Call the gas company and 911, following the protocol.",
+          "es": "Llama a la compañía de gas y al 911, según el protocolo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If we wait for the smell to reach the dining room, it will be too late; we'll get the guests out now.",
+          "es": "Si esperamos a que el olor llegue al comedor, será tarde; sacaremos a los huéspedes ahora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ladies and gentlemen, for your safety, please exit through this door.",
+          "es": "Señores, por su seguridad, les pedimos salir por esta puerta.",
+          "kind": "phrase",
+          "note": "Formal, for guests."
+        },
+        {
+          "en": "Nobody will go in until the firefighters allow it.",
+          "es": "Nadie entrará hasta que los bomberos lo autoricen.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the breakfast manager, and the AI is front desk agent Natalia Ibarra on the radio: stop the cooking, order the crew out with short commands like salgan ya and no toquen los interruptores, and have her call for help per the hotel protocol using si + future.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si huele a gas, saldremos; no toquen los interruptores; salgan ya)",
+        "examples": [
+          {
+            "es": "Si los bomberos lo piden, evacuaremos todo el comedor.",
+            "en": "If the firefighters ask, we'll evacuate the whole dining room."
+          },
+          {
+            "es": "No usen el celular aquí adentro; salgan ya.",
+            "en": "Don't use your phone in here; get out now."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Health Inspector on the Line During Lunch",
+      "objective": "Answer a health inspector formally, show the logs and explain how each procedure is carried out.",
+      "words": [
+        {
+          "en": "the sanitizing solution",
+          "es": "la solución sanitizante",
+          "kind": "term",
+          "note": "In US kitchens you will also hear el sanitizer."
+        },
+        {
+          "en": "the sanitizer bucket",
+          "es": "la cubeta sanitizante",
+          "kind": "term"
+        },
+        {
+          "en": "the concentration",
+          "es": "la concentración",
+          "kind": "term"
+        },
+        {
+          "en": "parts per million",
+          "es": "las partes por millón",
+          "kind": "term",
+          "note": "Usually said and written as ppm (pe pe eme)."
+        },
+        {
+          "en": "the quaternary ammonium",
+          "es": "el amonio cuaternario",
+          "kind": "term",
+          "note": "Often shortened to el cuaternario, like quat in English."
+        },
+        {
+          "en": "the log",
+          "es": "la bitácora",
+          "kind": "term",
+          "note": "Common Mexican word for a written log or logbook."
+        },
+        {
+          "en": "the corrective action",
+          "es": "la acción correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer's label",
+          "es": "la etiqueta del fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the frequency",
+          "es": "la frecuencia",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the violation",
+          "es": "la infracción",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection report",
+          "es": "el reporte de inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up inspection",
+          "es": "la reinspección",
+          "kind": "term"
+        },
+        {
+          "en": "the deadline",
+          "es": "el plazo",
+          "kind": "term"
+        },
+        {
+          "en": "the shift lead",
+          "es": "el encargado de turno",
+          "kind": "term",
+          "note": "For a woman, la encargada de turno."
+        },
+        {
+          "en": "Good afternoon, Inspector Benítez; we'll gladly show you the log.",
+          "es": "Buenas tardes, inspector Benítez; con gusto le mostramos la bitácora.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "The concentration is measured every 2 hours, according to our procedure.",
+          "es": "La concentración se mide cada 2 horas, según nuestro procedimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Each result is recorded on this sheet with the time and a signature.",
+          "es": "Cada resultado se registra en esta hoja con hora y firma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The solution is prepared according to the manufacturer's label.",
+          "es": "La solución se prepara según la etiqueta del fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right, it's below what the label indicates.",
+          "es": "Tiene razón, está por debajo de lo que indica la etiqueta.",
+          "kind": "phrase",
+          "note": "Formal. Admit the result plainly, without excuses."
+        },
+        {
+          "en": "Samuel, please make a new bucket and test it again.",
+          "es": "Samuel, por favor prepara una cubeta nueva y mídela otra vez.",
+          "kind": "phrase",
+          "note": "Informal (tú) with the chef, still polite in front of the inspector."
+        },
+        {
+          "en": "Could you tell me how you'd like us to document the corrective action?",
+          "es": "¿Me podría indicar cómo quiere que documentemos la acción correctiva?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "From today on, it will be checked at every shift change.",
+          "es": "Desde hoy, se revisará en cada cambio de turno.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the kitchen manager, and the AI is health inspector Arturo Benítez: greet him formally with usted, show him the sanitizer log, and explain each step of the procedure with passive se (se mide, se registra, se prepara).",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se mide la concentración cada dos horas; se registra en esta hoja)",
+        "examples": [
+          {
+            "es": "Se mide la concentración cada 2 horas, según nuestro procedimiento.",
+            "en": "The concentration is measured every 2 hours, according to our procedure."
+          },
+          {
+            "es": "Si sale baja, se tira la solución y se prepara otra.",
+            "en": "If it tests low, the solution is thrown out and a new one is made."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Writing the Manager's Log After a Rough Night",
+      "objective": "Write a clear manager's log covering a comped room, an elevator outage and a staff no-show.",
+      "words": [
+        {
+          "en": "the shift report",
+          "es": "el reporte de turno",
+          "kind": "term"
+        },
+        {
+          "en": "the night auditor",
+          "es": "el auditor nocturno",
+          "kind": "term"
+        },
+        {
+          "en": "the general manager",
+          "es": "la gerente general",
+          "kind": "term",
+          "note": "Use la for a woman (Patricia), el gerente general for a man."
+        },
+        {
+          "en": "the account adjustment",
+          "es": "el ajuste a la cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the amount",
+          "es": "el monto",
+          "kind": "term"
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator out of service",
+          "es": "el elevador fuera de servicio",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator technician",
+          "es": "el técnico del elevador",
+          "kind": "term"
+        },
+        {
+          "en": "the no-show (staff)",
+          "es": "la falta sin aviso",
+          "kind": "term",
+          "note": "Used for an employee who misses a shift without calling."
+        },
+        {
+          "en": "the replacement",
+          "es": "el reemplazo",
+          "kind": "term"
+        },
+        {
+          "en": "the folio",
+          "es": "el folio",
+          "kind": "term",
+          "note": "In Mexican hotels, the guest's account or bill number."
+        },
+        {
+          "en": "the night audit",
+          "es": "la auditoría nocturna",
+          "kind": "term"
+        },
+        {
+          "en": "the affected guests",
+          "es": "los huéspedes afectados",
+          "kind": "term"
+        },
+        {
+          "en": "the open items",
+          "es": "los pendientes",
+          "kind": "term",
+          "note": "Common in Mexico for to-dos still waiting to be done."
+        },
+        {
+          "en": "the authorization",
+          "es": "la autorización",
+          "kind": "term"
+        },
+        {
+          "en": "First, a free night was authorized in room 312.",
+          "es": "En primer lugar, se autorizó una noche sin cargo en la 312.",
+          "kind": "phrase",
+          "note": "Written register: se + verb hides who acted and sounds neutral."
+        },
+        {
+          "en": "In addition, the elevator was out of service from 7 on.",
+          "es": "Además, el elevador estuvo fuera de servicio desde las 7.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As a result, the staff carried the luggage up the stairs.",
+          "es": "Como consecuencia, el personal subió el equipaje por las escaleras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, there were no formal complaints from the affected guests.",
+          "es": "Sin embargo, no hubo quejas formales de los huéspedes afectados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Finally, the night-shift bellman missed his shift without calling.",
+          "es": "Por último, el botones del turno de noche faltó sin avisar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Raúl, what amount shows up for you in the system?",
+          "es": "Raúl, ¿qué monto te aparece a ti en el sistema?",
+          "kind": "phrase",
+          "note": "Informal tú between coworkers."
+        },
+        {
+          "en": "Send me the folio and I'll fix the adjustment before sending it.",
+          "es": "Pásame el folio y corrijo el ajuste antes de enviarlo.",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Patricia, I'm attaching the shift report and the open items.",
+          "es": "Patricia, le adjunto el reporte de turno y los pendientes.",
+          "kind": "phrase",
+          "note": "Formal usted (le) with the general manager."
+        }
+      ],
+      "speaking": "You are the manager of Hotel Vista Lago, and the AI is Raúl Cordero, the night auditor: write the log for Patricia Lozano on the comped room, the elevator outage and the staff no-show, using en primer lugar, además, sin embargo, como consecuencia and por último.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, además, sin embargo, como consecuencia, por último)",
+        "examples": [
+          {
+            "es": "En primer lugar, el elevador estuvo fuera de servicio 3 horas.",
+            "en": "First, the elevator was out of service for 3 hours."
+          },
+          {
+            "es": "Sin embargo, el monto del ajuste no coincide con el de la auditoría nocturna.",
+            "en": "However, the adjustment amount does not match the one in the night audit."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Calls and Texts: Client Moves Her Anniversary Dinner",
+      "objective": "Handle a client's call and texts to move a private dinner, confirm terms and update the chef.",
+      "words": [
+        {
+          "en": "the call",
+          "es": "la llamada",
+          "kind": "term"
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the private room",
+          "es": "el salón privado",
+          "kind": "term"
+        },
+        {
+          "en": "the anniversary dinner",
+          "es": "la cena de aniversario",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el depósito",
+          "kind": "term",
+          "note": "El anticipo is also common in Mexico."
+        },
+        {
+          "en": "the deposit policy",
+          "es": "la política de depósitos",
+          "kind": "term"
+        },
+        {
+          "en": "the refund",
+          "es": "el reembolso",
+          "kind": "term"
+        },
+        {
+          "en": "the penalty",
+          "es": "la penalización",
+          "kind": "term"
+        },
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the written confirmation",
+          "es": "la confirmación por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the set menu",
+          "es": "el menú fijo",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation window",
+          "es": "el plazo de cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the anniversary cake",
+          "es": "el pastel de aniversario",
+          "kind": "term"
+        },
+        {
+          "en": "Restaurante El Patio, good afternoon, how may I help you?",
+          "es": "Restaurante El Patio, buenas tardes, ¿en qué le puedo servir?",
+          "kind": "phrase",
+          "note": "Formal phone greeting."
+        },
+        {
+          "en": "Would Saturday the 14th at 7 p.m. work for you?",
+          "es": "¿Le vendría bien el sábado 14 a las 7 de la noche?",
+          "kind": "phrase",
+          "note": "Formal; the conditional softens the offer."
+        },
+        {
+          "en": "We could keep your full deposit for the new date.",
+          "es": "Podríamos mantener su depósito completo para la nueva fecha.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you send me the changes by text, please?",
+          "es": "¿Me podría mandar los cambios por mensaje, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Aguilar, confirming: Saturday the 14th, 40 guests, private room.",
+          "es": "Sra. Aguilar, le confirmo: sábado 14, 40 invitados, salón privado.",
+          "kind": "phrase",
+          "note": "Text style: short, with Sra. and usted (le) kept."
+        },
+        {
+          "en": "Under our policy, the date change has no penalty.",
+          "es": "Según nuestra política, el cambio de fecha no tiene penalización.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, the call dropped; can you hear me well now?",
+          "es": "Disculpe, se cortó la llamada; ¿me escucha bien ahora?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Gustavo, the Aguilar dinner moves to Saturday the 14th, does that work for you?",
+          "es": "Gustavo, la cena Aguilar se pasa al sábado 14, ¿te queda bien?",
+          "kind": "phrase",
+          "note": "Informal tú with the chef."
+        }
+      ],
+      "speaking": "You are the events manager at Restaurante El Patio, and the AI is client Montserrat Aguilar: take her call to move her 40-guest anniversary dinner, offer dates with ¿le vendría bien…?, explain the deposit with podríamos…, confirm by text and message chef Gustavo.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿le vendría bien el sábado?; podríamos mantener el depósito)",
+        "examples": [
+          {
+            "es": "¿Le vendría bien el sábado a las 7 p. m.?",
+            "en": "Would Saturday at 7 p.m. work for you?"
+          },
+          {
+            "es": "Podríamos mantener el depósito si nos confirma hoy.",
+            "en": "We could keep the deposit if you confirm with us today."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Post-Event Walkthrough with a Corporate Client",
+      "objective": "Walk the venue with the client, discuss damage and a disputed bar tab, and offer conditional solutions.",
+      "words": [
+        {
+          "en": "the walkthrough",
+          "es": "el recorrido",
+          "kind": "term"
+        },
+        {
+          "en": "the open bar",
+          "es": "la barra libre",
+          "kind": "term"
+        },
+        {
+          "en": "the bar consumption",
+          "es": "el consumo de barra",
+          "kind": "term"
+        },
+        {
+          "en": "the opened bottles",
+          "es": "las botellas abiertas",
+          "kind": "term"
+        },
+        {
+          "en": "the outstanding balance",
+          "es": "el saldo pendiente",
+          "kind": "term"
+        },
+        {
+          "en": "the discount",
+          "es": "el descuento",
+          "kind": "term"
+        },
+        {
+          "en": "the scratch",
+          "es": "el rayón",
+          "kind": "term"
+        },
+        {
+          "en": "the wooden floor",
+          "es": "el piso de madera",
+          "kind": "term"
+        },
+        {
+          "en": "the damage clause",
+          "es": "la cláusula de daños",
+          "kind": "term"
+        },
+        {
+          "en": "the security deposit",
+          "es": "el depósito en garantía",
+          "kind": "term"
+        },
+        {
+          "en": "the repair estimate",
+          "es": "el presupuesto de reparación",
+          "kind": "term"
+        },
+        {
+          "en": "the security cameras",
+          "es": "las cámaras de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the final invoice",
+          "es": "la factura final",
+          "kind": "term"
+        },
+        {
+          "en": "the bar package",
+          "es": "el paquete de barra",
+          "kind": "term"
+        },
+        {
+          "en": "the sign-off",
+          "es": "la firma de conformidad",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Villalobos, thank you for doing the walkthrough with me.",
+          "es": "Licenciado Villalobos, gracias por hacer el recorrido conmigo.",
+          "kind": "phrase",
+          "note": "Formal; Licenciado is a common title for a professional in Mexico."
+        },
+        {
+          "en": "This scratch on the wooden floor wasn't there before the event.",
+          "es": "Este rayón en el piso de madera no estaba antes del evento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand your frustration; let's go over the bar consumption together.",
+          "es": "Entiendo su molestia; revisemos juntos el consumo de barra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We would take 10% off the bar as long as you sign today.",
+          "es": "Le descontaríamos el 10% de la barra siempre que firme hoy.",
+          "kind": "phrase",
+          "note": "Siempre que meaning 'as long as' takes the subjunctive (firme)."
+        },
+        {
+          "en": "If the cameras showed something else, we wouldn't charge you for the repair.",
+          "es": "Si las cámaras mostraran otra cosa, no le cobraríamos la reparación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Under the contract, damages are covered by the security deposit.",
+          "es": "Según el contrato, los daños se cubren con el depósito en garantía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Provided you confirm today, we would send you the invoice tomorrow.",
+          "es": "Con tal de que confirme hoy, le enviaríamos la factura mañana.",
+          "kind": "phrase",
+          "note": "Con tal de que always takes the subjunctive (confirme)."
+        },
+        {
+          "en": "Here are the opened bottles we counted at close.",
+          "es": "Aquí tiene las botellas abiertas que contamos al cierre.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager of Hacienda San Telmo, and the AI is Ricardo Villalobos, the corporate client: walk the venue with him, review the open-bar total and the dance-floor scratch, and offer solutions with the conditional plus siempre que and con tal de que.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (siempre que, con tal de que: le descontaríamos la barra siempre que firme hoy)",
+        "examples": [
+          {
+            "es": "Le descontaríamos 1 hora de barra siempre que firme hoy.",
+            "en": "We would take 1 hour off the bar tab as long as you sign today."
+          },
+          {
+            "es": "No le cobraríamos el piso con tal de que las cámaras muestren que no fue su grupo.",
+            "en": "We wouldn't charge you for the floor, provided the cameras show it wasn't your group."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Sold-Out Saturday at Los Almendros",
+      "objective": "Lead a full hard day in Spanish: teach, solve problems, manage people, handle a safety issue and report.",
+      "words": [
+        {
+          "en": "the host",
+          "es": "el anfitrión",
+          "kind": "term",
+          "note": "Many US restaurants also just say el host."
+        },
+        {
+          "en": "the waitlist",
+          "es": "la lista de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated time",
+          "es": "el tiempo estimado",
+          "kind": "term"
+        },
+        {
+          "en": "the shortage",
+          "es": "el faltante",
+          "kind": "term"
+        },
+        {
+          "en": "the avocados",
+          "es": "los aguacates",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency delivery",
+          "es": "la entrega de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the sesame allergy",
+          "es": "la alergia al ajonjolí",
+          "kind": "term",
+          "note": "Ajonjolí is the usual word in Mexico; sésamo is more common in Spain."
+        },
+        {
+          "en": "the sesame oil",
+          "es": "el aceite de ajonjolí",
+          "kind": "term"
+        },
+        {
+          "en": "the clean utensils",
+          "es": "los utensilios limpios",
+          "kind": "term"
+        },
+        {
+          "en": "the fight",
+          "es": "el pleito",
+          "kind": "term",
+          "note": "Informal; for a report, use la discusión."
+        },
+        {
+          "en": "the table assignment",
+          "es": "el reparto de mesas",
+          "kind": "term"
+        },
+        {
+          "en": "the dinner shift",
+          "es": "el turno de la cena",
+          "kind": "term"
+        },
+        {
+          "en": "the day's summary",
+          "es": "el resumen del día",
+          "kind": "term"
+        },
+        {
+          "en": "the owner",
+          "es": "la dueña",
+          "kind": "term",
+          "note": "Use la dueña for a woman (Elena), el dueño for a man."
+        },
+        {
+          "en": "the improvement proposal",
+          "es": "la propuesta de mejora",
+          "kind": "term"
+        },
+        {
+          "en": "Tomás, greet them first and then check the waitlist.",
+          "es": "Tomás, saluda primero y luego revisa la lista de espera.",
+          "kind": "phrase",
+          "note": "Informal tú commands with a new coworker."
+        },
+        {
+          "en": "Check the menu: there's no guacamole tonight because we're out of avocado.",
+          "es": "Revisen la carta: hoy no hay guacamole por falta de aguacate.",
+          "kind": "phrase",
+          "note": "Ustedes command to the crew."
+        },
+        {
+          "en": "Before serving it, confirm with the chef that it has no sesame.",
+          "es": "Antes de servirlo, confirmen con el chef que no lleva ajonjolí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ma'am, the chef will make you a new dish from scratch.",
+          "es": "Señora, el chef le preparará un plato nuevo desde cero.",
+          "kind": "phrase",
+          "note": "Formal usted with the guest."
+        },
+        {
+          "en": "I'm asking you to talk it over in private, not in front of the guests.",
+          "es": "Les pido que lo hablemos en privado, no frente a los clientes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At 8, we almost served sesame to an allergic guest.",
+          "es": "A las 8, casi le servimos ajonjolí a una clienta alérgica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Doña Elena, it was a tough Saturday, but nobody got hurt.",
+          "es": "Doña Elena, fue un sábado difícil, pero nadie salió lastimado.",
+          "kind": "phrase",
+          "note": "Formal; Doña plus first name is respectful in Mexico."
+        },
+        {
+          "en": "I would propose reviewing the allergy process with the whole team.",
+          "es": "Le propondría revisar el proceso de alergias con todo el equipo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the manager of Los Almendros, and the AI is your team, guests and owner Elena Barrios: train new host Tomás with tú commands, brief the servers with ustedes commands, run the sold-out dinner, then report the day to Elena with past narration, connectors and the conditional.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (connectors, commands, past narration, subjunctive, conditional, formal register)",
+        "examples": [
+          {
+            "es": "Primero saluda al cliente; después, dale el tiempo estimado.",
+            "en": "First greet the guest; then give them the estimated time."
+          },
+          {
+            "es": "Recomendaría que el equipo confirmara cada alergia con el chef antes de servir.",
+            "en": "I would recommend that the team confirm every allergy with the chef before serving."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

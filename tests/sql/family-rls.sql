@@ -16,8 +16,24 @@ grant usage on schema auth to anon,authenticated,service_role;
 grant execute on function auth.uid() to anon,authenticated,service_role;
 \ir ../../supabase/migrations/20260426223537_2d1ecd26-5416-48f5-913b-67f6712fbe9d.sql
 \ir ../../supabase/migrations/20260604000000_create_match_queue.sql
+\if :production_shape
+-- Mirror the read-only production snapshot: owner ALL policies, no cap trigger.
+do $$declare p record;begin
+ for p in select tablename,policyname from pg_policies where schemaname='public' and tablename in ('family_groups','family_members') loop
+  execute format('drop policy %I on public.%I',p.policyname,p.tablename);
+ end loop;
+end$$;
+create policy "Owner manages family group" on public.family_groups for all using(auth.uid()=owner_user_id);
+create policy "Group owner manages members" on public.family_members for all using(exists(select 1 from public.family_groups g where g.id=family_members.group_id and g.owner_user_id=auth.uid()));
+drop trigger trg_family_members_cap on public.family_members;
+drop function public.enforce_family_member_cap();
+\endif
 -- Mirror Supabase's default client-role table grants before the hardening runs.
 grant all on public.family_groups,public.family_members,public.match_queue,public.profiles to anon,authenticated,service_role;
+-- Run with the already-shipped reset guards too: both profile triggers must coexist.
+create table public.library_books(id uuid primary key default gen_random_uuid(),user_id uuid references auth.users(id));
+grant all on public.library_books to authenticated,service_role;
+\ir ../../supabase/migrations/20261022013531_learner_learning_reset.sql
 \ir ../../supabase/migrations/20261021000000_family_rls_hardening.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$begin begin execute sql_text; exception when others then if sqlerrm not like '%'||expected||'%'then raise exception 'Expected %, got %',expected,sqlerrm;end if;return;end;raise exception 'Expected error %',expected;end$$;
 grant execute on function pg_temp.expect_error(text,text) to anon,authenticated;
@@ -109,5 +125,34 @@ set local role service_role;
 update public.profiles set data=data||'{"subscription_status":"canceled"}' where id='20000000-0000-4000-8000-00000000000a';
 reset role;
 do $$begin if (select data->>'subscription_status' from public.profiles where id='20000000-0000-4000-8000-00000000000a')<>'canceled' then raise exception 'Service role cannot update billing';end if;end$$;
+-- Reset remains usable without erasing paid access or other accounts' books.
+update public.profiles set data=data||'{"subscription_status":"active","xp":42}' where id='20000000-0000-4000-8000-00000000000a';
+insert into public.library_books(user_id) values('20000000-0000-4000-8000-00000000000a'),('20000000-0000-4000-8000-00000000000b');
+set local role authenticated;
+set local request.jwt.claim.sub='20000000-0000-4000-8000-00000000000a';
+select public.reset_my_learning_data('RESET','40000000-0000-4000-8000-000000000001');
+select pg_temp.expect_error($x$update public.profiles set data='{"xp":99}' where id='20000000-0000-4000-8000-00000000000a'$x$,'Learning progress was reset');
+update public.profiles set data='{"learningResetId":"40000000-0000-4000-8000-000000000001","xp":3,"subscription_status":"trialing"}' where id='20000000-0000-4000-8000-00000000000a';
+select pg_temp.expect_error($x$insert into public.library_books(user_id) values('20000000-0000-4000-8000-00000000000a')$x$,'Learning progress was reset');
+insert into public.library_books(user_id,learning_reset_id) values('20000000-0000-4000-8000-00000000000a','40000000-0000-4000-8000-000000000001');
+-- Retrying the same reset must preserve the new practice and newly saved book.
+select public.reset_my_learning_data('RESET','40000000-0000-4000-8000-000000000001');
+reset role;
+do $$declare p jsonb;begin
+ select data into p from public.profiles where id='20000000-0000-4000-8000-00000000000a';
+ if p->>'subscription_status'<>'active' or p->>'subscription_id'<>'sub_fixture' then raise exception 'Reset or later client sync changed billing';end if;
+ if p->>'xp'<>'3' or p->>'learningResetId'<>'40000000-0000-4000-8000-000000000001' then raise exception 'Reset retry erased new progress or marker';end if;
+ if (select count(*) from public.library_books where user_id='20000000-0000-4000-8000-00000000000a')<>1 then raise exception 'Reset retry deleted the new book';end if;
+ if (select count(*) from public.library_books where user_id='20000000-0000-4000-8000-00000000000b')<>1 then raise exception 'Reset touched another account book';end if;
+ if (select count(*) from public.family_members where group_id='30000000-0000-4000-8000-000000000001')<>7 then raise exception 'Reset touched the family roster';end if;
+end$$;
+-- A webhook-like metadata patch after reset must keep the epoch and new learning data.
+set local role service_role;
+update public.profiles set data='{"subscription_status":"canceled"}' where id='20000000-0000-4000-8000-00000000000a';
+reset role;
+do $$declare p jsonb;begin
+ select data into p from public.profiles where id='20000000-0000-4000-8000-00000000000a';
+ if p->>'subscription_status'<>'canceled' or p->>'xp'<>'3' or p->>'learningResetId'<>'40000000-0000-4000-8000-000000000001' then raise exception 'Billing patch lost reset marker or progress';end if;
+end$$;
 rollback;
-\echo 'Family RLS: anon denied, outsider isolation, code+last-name join, owner-only writes, member cap match_queue lockout and profile billing-key protection passed (rolled back).'
+\echo 'Family RLS and reset integration: ownership, billing protection, stale writes, safe retries and metadata preservation passed (rolled back).'

@@ -6,7 +6,11 @@ import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 import { getModule } from "@/data/modules";
 import type { Lesson, LessonWord } from "@/data/curriculum";
-import { pickAuthoredWords, readCachedLessonWords } from "@/lib/lesson-words-core";
+import {
+  authoredWordsPair,
+  pickAuthoredWords,
+  readCachedLessonWords,
+} from "@/lib/lesson-words-core";
 import { previouslyMasteredLessons } from "@/lib/core30-plan";
 
 const WORDS_PER_LESSON = 5;
@@ -105,9 +109,15 @@ export function Core30Review({
       .map((lesson) => ({
         lesson,
         words: reviewWordsFor(
-          // Authored (Spanish) first, else the list generated earlier for this language pair.
-          // Read-only: review never calls the network, so an unvisited lesson uses vocabFocus.
-          pickAuthoredWords(lesson.words, state.selectedLanguage, state.nativeLanguage) ??
+          // Authored first (Spanish, or English for the English-for-work modules), else the list
+          // generated earlier for this language pair. Read-only: review never calls the network,
+          // so an unvisited lesson uses vocabFocus.
+          pickAuthoredWords(
+            lesson.words,
+            state.selectedLanguage,
+            state.nativeLanguage,
+            authoredWordsPair(getModule(moduleId)?.learnDirection),
+          ) ??
             readCachedLessonWords(
               moduleId,
               lesson.n,

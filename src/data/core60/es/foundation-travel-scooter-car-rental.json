@@ -1,0 +1,909 @@
+{
+  "version": 1,
+  "module": "foundation-travel-scooter-car-rental",
+  "baseModule": "travel-scooter-car-rental",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Vespa, Scooter & Car Rental Foundation",
+  "threshold": "By Lesson 10, you can greet a rental clerk, use numbers, prices and times, describe a vehicle's condition, ask simple questions and make polite requests, and start Vespa, Scooter & Car Rental Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce key rental words and greet a rental clerk politely.",
+      "focus": "The five vowels, ch, j, ll, rr and written accents; greetings like buenos días",
+      "words": [
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term",
+          "note": "ll sounds like the y in yes: YAH-veh."
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "rr is a strong trill; carro (car) is different from caro (expensive)."
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term",
+          "note": "j sounds like a strong English h: tar-HEH-tah."
+        },
+        {
+          "en": "the jacket",
+          "es": "la chamarra",
+          "kind": "term",
+          "note": "ch sounds as in church. Chamarra is the Mexican word for jacket."
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: teh-LEH-fo-no."
+        },
+        {
+          "en": "the motorbike",
+          "es": "la moto",
+          "kind": "term",
+          "note": "Spanish vowels are short and pure: o as in 'oh' without the glide."
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term",
+          "note": "Say every vowel clearly: pa-sa-POR-teh."
+        },
+        {
+          "en": "the rental agency",
+          "es": "la agencia",
+          "kind": "term",
+          "note": "g before e or i sounds like English h: a-HEN-sya."
+        },
+        {
+          "en": "good morning",
+          "es": "buenos días",
+          "kind": "term",
+          "note": "Use until about noon."
+        },
+        {
+          "en": "good afternoon",
+          "es": "buenas tardes",
+          "kind": "term",
+          "note": "Use from noon until dark."
+        },
+        {
+          "en": "Hi, my name is Alex.",
+          "es": "Hola, me llamo Alex.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with a clerk or agent."
+        },
+        {
+          "en": "Very well, thank you.",
+          "es": "Muy bien, gracias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow!",
+          "es": "¡Hasta mañana!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the rental clerk, say your name, and pronounce the words for key, card and passport."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say rental days, return times, prices in pesos and fuel amounts with numbers.",
+      "focus": "Numbers 0 to 1,000, clock time, and rental units: days, hours, liters, kilometers, pesos",
+      "words": [
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the kilometer",
+          "es": "el kilómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the liter",
+          "es": "el litro",
+          "kind": "term"
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican currency; prices are often written with the $ sign."
+        },
+        {
+          "en": "the daily rate",
+          "es": "la tarifa diaria",
+          "kind": "term"
+        },
+        {
+          "en": "the full tank",
+          "es": "el tanque lleno",
+          "kind": "term"
+        },
+        {
+          "en": "half a tank",
+          "es": "medio tanque",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "It's half past 9.",
+          "es": "Son las 9 y media.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The daily rate is 600 pesos, according to the price list.",
+          "es": "La tarifa diaria es de 600 pesos, según la lista de precios.",
+          "kind": "phrase",
+          "note": "Use es de before a price or measurement."
+        },
+        {
+          "en": "It's for 3 days, please.",
+          "es": "Es para 3 días, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll be back at 6 in the evening.",
+          "es": "Regreso a las 6 de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The tank holds 8 liters, according to the manual.",
+          "es": "El tanque tiene 8 litros, según el manual.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the clerk how many days you need the scooter and what time you will bring it back."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe what a rental vehicle is and what condition it is in.",
+      "focus": "ser for what something is, estar for a vehicle's condition or location",
+      "words": [
+        {
+          "en": "empty",
+          "es": "vacío",
+          "kind": "term"
+        },
+        {
+          "en": "scratched",
+          "es": "rayado",
+          "kind": "term",
+          "note": "Agrees with the noun: la moto está rayada."
+        },
+        {
+          "en": "broken",
+          "es": "roto",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term",
+          "note": "Use for a helmet or strap that does not fit tight."
+        },
+        {
+          "en": "The motorbike is scratched.",
+          "es": "La moto está rayada.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The tank is empty.",
+          "es": "El tanque está vacío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase",
+          "note": "ser: who or what someone is."
+        },
+        {
+          "en": "The office is closed.",
+          "es": "La oficina está cerrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's a new Vespa.",
+          "es": "Es una Vespa nueva.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The helmet is here.",
+          "es": "El casco está aquí.",
+          "kind": "phrase",
+          "note": "estar for location."
+        }
+      ],
+      "speaking": "Walk around the scooter with the clerk and say what is scratched, broken, dirty or ready."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want when you rent, and what you must do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the helmet",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance",
+          "es": "el seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the driver's license",
+          "es": "la licencia de manejo",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "el depósito",
+          "kind": "term"
+        },
+        {
+          "en": "the contract",
+          "es": "el contrato",
+          "kind": "term"
+        },
+        {
+          "en": "the lock",
+          "es": "el candado",
+          "kind": "term",
+          "note": "A padlock or chain lock for a scooter."
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Common in Mexico and the US."
+        },
+        {
+          "en": "the raincoat",
+          "es": "el impermeable",
+          "kind": "term"
+        },
+        {
+          "en": "the trunk",
+          "es": "la cajuela",
+          "kind": "term",
+          "note": "Mexican word for a car trunk."
+        },
+        {
+          "en": "I have a driver's license.",
+          "es": "Tengo licencia de manejo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need 2 helmets, please.",
+          "es": "Necesito 2 cascos, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to rent a motorbike.",
+          "es": "Quiero rentar una moto.",
+          "kind": "phrase",
+          "note": "Rentar is the usual verb in Mexico and the US."
+        },
+        {
+          "en": "Are there helmets for children?",
+          "es": "¿Hay cascos para niños?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to sign the contract.",
+          "es": "Hay que firmar el contrato.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: something everyone must do."
+        }
+      ],
+      "speaking": "Tell the clerk what you have and what you need: your license, 2 helmets and the contract to sign."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, your plans, and ask what you can do with the vehicle.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder for permission",
+      "words": [
+        {
+          "en": "the gas station",
+          "es": "la gasolinera",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term",
+          "note": "The h is silent: o-TEL."
+        },
+        {
+          "en": "the highway",
+          "es": "la carretera",
+          "kind": "term"
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term"
+        },
+        {
+          "en": "the restricted zone",
+          "es": "la zona restringida",
+          "kind": "term",
+          "note": "An area closed to some vehicles; check the signs and the agency's map."
+        },
+        {
+          "en": "the repair shop",
+          "es": "el taller",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the beach tomorrow.",
+          "es": "Voy a la playa mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to come back at 5.",
+          "es": "Voy a regresar a las 5.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for a plan."
+        },
+        {
+          "en": "Can I park here?",
+          "es": "¿Puedo estacionar aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do I do with the key?",
+          "es": "¿Qué hago con la llave?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I go downtown on the motorbike?",
+          "es": "¿Puedo entrar al centro con la moto?",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        }
+      ],
+      "speaking": "Tell the clerk where you are going tomorrow and ask if you can park or drive there."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say who drives, pays, reads and returns, using present tense verbs.",
+      "focus": "Present tense -ar, -er and -ir endings for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the payment",
+          "es": "el pago",
+          "kind": "term"
+        },
+        {
+          "en": "cash",
+          "es": "el efectivo",
+          "kind": "term",
+          "note": "en efectivo = in cash."
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the mileage",
+          "es": "el kilometraje",
+          "kind": "term",
+          "note": "Measured in kilometers in Mexico."
+        },
+        {
+          "en": "the mirror",
+          "es": "el espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the brakes",
+          "es": "los frenos",
+          "kind": "term"
+        },
+        {
+          "en": "the tire",
+          "es": "la llanta",
+          "kind": "term",
+          "note": "Mexican word for tire."
+        },
+        {
+          "en": "Monday",
+          "es": "el lunes",
+          "kind": "term"
+        },
+        {
+          "en": "Friday",
+          "es": "el viernes",
+          "kind": "term"
+        },
+        {
+          "en": "I'm paying by card.",
+          "es": "Pago con tarjeta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you take cash?",
+          "es": "¿Usted acepta efectivo?",
+          "kind": "phrase",
+          "note": "Formal: usted with the clerk."
+        },
+        {
+          "en": "I drive and you get on the back.",
+          "es": "Yo manejo y tú subes atrás.",
+          "kind": "phrase",
+          "note": "Informal tú: use it with your travel companion."
+        },
+        {
+          "en": "We're coming back on Friday.",
+          "es": "Nosotros regresamos el viernes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They're renting a motorbike too.",
+          "es": "Ellos también rentan una moto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First I read the contract.",
+          "es": "Primero leo el contrato.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the clerk how you pay, who drives, and which day you return the vehicle."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask the clerk basic questions about prices, places, times and how things work.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Use cuántos or cuántas before plural nouns: ¿cuántos días?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Written as two words in questions; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use before es: ¿Cuál es el horario?"
+        },
+        {
+          "en": "the opening hours",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "How much is the deposit?",
+          "es": "¿Cuánto es el depósito?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is the nearest gas station?",
+          "es": "¿Dónde está la gasolinera más cercana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When do I get the deposit back?",
+          "es": "¿Cuándo me devuelven el depósito?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does the insurance cover?",
+          "es": "¿Qué cubre el seguro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you start the motorbike?",
+          "es": "¿Cómo se prende la moto?",
+          "kind": "phrase",
+          "note": "Prender is the common Mexican verb for starting a vehicle."
+        },
+        {
+          "en": "Why is there an extra charge?",
+          "es": "¿Por qué hay un cargo extra?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the clerk 3 questions: how much the deposit is, when it comes back, and where the nearest gas station is."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, refuse extras, point out damage and ask for more, less or another one.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "no, not",
+          "es": "no",
+          "kind": "term"
+        },
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "The double negative is correct: No necesito nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: say otro casco, otra moto."
+        },
+        {
+          "en": "the dent",
+          "es": "el golpe",
+          "kind": "term"
+        },
+        {
+          "en": "the scratch",
+          "es": "el rayón",
+          "kind": "term"
+        },
+        {
+          "en": "I never drive at night.",
+          "es": "Nunca manejo de noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody in the office.",
+          "es": "No hay nadie en la oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything else, thank you.",
+          "es": "No necesito nada más, gracias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not signing the contract yet.",
+          "es": "Todavía no firmo el contrato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd like another helmet, please.",
+          "es": "Quiero otro casco, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Turn down an extra you do not need, say you are not signing yet, and ask for another helmet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask the clerk to show, explain and write things down for you.",
+      "focus": "¿Puede…? + infinitive and usted commands like muéstreme, anote, espere",
+      "words": [
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term"
+        },
+        {
+          "en": "the horn",
+          "es": "el claxon",
+          "kind": "term"
+        },
+        {
+          "en": "the lights",
+          "es": "las luces",
+          "kind": "term"
+        },
+        {
+          "en": "the parking brake",
+          "es": "el freno de mano",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency number",
+          "es": "el número de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the damage",
+          "es": "el daño",
+          "kind": "term"
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the button",
+          "es": "el botón",
+          "kind": "term"
+        },
+        {
+          "en": "Can you explain the insurance to me?",
+          "es": "¿Puede explicarme el seguro?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is a polite request to one person."
+        },
+        {
+          "en": "Can you take a photo of the damage?",
+          "es": "¿Puede tomar una foto del daño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Show me how it works, please.",
+          "es": "Muéstreme cómo funciona, por favor.",
+          "kind": "phrase",
+          "note": "Usted command; add por favor to sound polite."
+        },
+        {
+          "en": "Write the scratch down on the contract, please.",
+          "es": "Anote el rayón en el contrato, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a copy?",
+          "es": "¿Me puede dar una copia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the clerk politely to show you the lights, horn and brakes, and to write the damage on the contract."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and ask for help when you do not understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "Words ending in -ción are feminine: la información."
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term",
+          "note": "Also means direction."
+        },
+        {
+          "en": "the condition",
+          "es": "la condición",
+          "kind": "term"
+        },
+        {
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term"
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad often matches English -ty: velocity."
+        },
+        {
+          "en": "safety, security",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the police",
+          "es": "la policía",
+          "kind": "term"
+        },
+        {
+          "en": "help",
+          "es": "la ayuda",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you repeat that?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase",
+          "note": "Formal: usted form, fine with any clerk or dispatcher."
+        },
+        {
+          "en": "I need help, it's urgent.",
+          "es": "Necesito ayuda, es urgente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I had an accident.",
+          "es": "Tuve un accidente.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a roadside dispatcher you speak a little Spanish, ask them to speak more slowly, and say you need help."
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+{
+  "version": 1,
+  "module": "foundation-travel-daily-life-services",
+  "baseModule": "travel-daily-life-services",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Daily Life & Personal Services Foundation",
+  "threshold": "By Lesson 10, you can greet service staff, give numbers, times and kilos, describe your clothes and things, ask where places are, make polite requests and ask for help, and start Daily Life & Personal Services Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce Spanish sounds and greet laundromat, barbershop and shop staff politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; polite greetings with usted",
+      "words": [
+        {
+          "en": "the clothes",
+          "es": "la ropa",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap, like tt in 'butter'."
+        },
+        {
+          "en": "the shirt",
+          "es": "la camisa",
+          "kind": "term",
+          "note": "Every vowel is short and pure: ca-MI-sa."
+        },
+        {
+          "en": "the shampoo",
+          "es": "el champú",
+          "kind": "term",
+          "note": "ch as in 'church'; the accent puts the stress on -PÚ."
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term",
+          "note": "In Mexico ll sounds like y in 'yes': YA-ve."
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term",
+          "note": "j is a breathy h sound; stress the accented ó: ha-BÓN."
+        },
+        {
+          "en": "the barbershop",
+          "es": "la barbería",
+          "kind": "term",
+          "note": "The accent keeps í as its own syllable: bar-be-RÍ-a."
+        },
+        {
+          "en": "the zipper",
+          "es": "el cierre",
+          "kind": "term",
+          "note": "rr is a strong rolled r: CIE-rre."
+        },
+        {
+          "en": "the washer",
+          "es": "la lavadora",
+          "kind": "term",
+          "note": "v sounds like a soft b: la-ba-DO-ra."
+        },
+        {
+          "en": "the dryer",
+          "es": "la secadora",
+          "kind": "term"
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: te-LÉ-fo-no."
+        },
+        {
+          "en": "the laundromat",
+          "es": "la lavandería",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, how are you?",
+          "es": "Buenos días, ¿cómo está?",
+          "kind": "phrase",
+          "note": "¿Cómo está? is formal (usted), right for staff you don't know."
+        },
+        {
+          "en": "Good afternoon, my name is Sam.",
+          "es": "Buenas tardes, me llamo Sam.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Very well, thanks, and you?",
+          "es": "Muy bien, gracias, ¿y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow.",
+          "es": "Hasta mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a laundromat attendant politely, say your name, ask how they are, and say goodbye until tomorrow."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give numbers, clock times, kilos, pesos and minutes at a laundromat, barbershop or shop.",
+      "focus": "Numbers 0 to 1,000, clock time, and kilos, pieces, pesos and minutes of daily services",
+      "words": [
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term",
+          "note": "Mexican laundries often charge by the kilo of clothes."
+        },
+        {
+          "en": "the load",
+          "es": "la carga",
+          "kind": "term"
+        },
+        {
+          "en": "the item",
+          "es": "la pieza",
+          "kind": "term",
+          "note": "Laundries and tailors count clothes as piezas."
+        },
+        {
+          "en": "the coin",
+          "es": "la moneda",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the half",
+          "es": "la mitad",
+          "kind": "term"
+        },
+        {
+          "en": "the centimeter",
+          "es": "el centímetro",
+          "kind": "term",
+          "note": "Mexico uses metric: hair and hems are measured in centímetros."
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term"
+        },
+        {
+          "en": "It's 3 kilos of clothes.",
+          "es": "Son 3 kilos de ropa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Here's 200 pesos.",
+          "es": "Aquí tiene 200 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's half past 10.",
+          "es": "Son las 10 y media.",
+          "kind": "phrase",
+          "note": "Use son las for most hours, but es la una for 1:00."
+        },
+        {
+          "en": "I'll be back at 5 in the afternoon.",
+          "es": "Vuelvo a las 5 de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Just 2 centimeters, please.",
+          "es": "Solo 2 centímetros, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The dryer takes 40 minutes.",
+          "es": "La secadora tarda 40 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a laundromat attendant how many kilos of clothes you have, how many loads you want, and what time you will come back."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe clothes and shops as clean, wet, torn, open or ready, and say who you are.",
+      "focus": "ser for what something or someone is, estar for its condition or location",
+      "words": [
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "wet",
+          "es": "mojado",
+          "kind": "term"
+        },
+        {
+          "en": "dry",
+          "es": "seco",
+          "kind": "term"
+        },
+        {
+          "en": "torn, broken",
+          "es": "roto",
+          "kind": "term",
+          "note": "Agrees with the noun: el pantalón está roto, la camisa está rota."
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "expensive",
+          "es": "caro",
+          "kind": "term"
+        },
+        {
+          "en": "cheap",
+          "es": "barato",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "estar listo means ready; ser listo means clever."
+        },
+        {
+          "en": "The clothes are clean.",
+          "es": "La ropa está limpia.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "My shirt is torn.",
+          "es": "Mi camisa está rota.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The dry cleaner is closed.",
+          "es": "La tintorería está cerrada.",
+          "kind": "phrase",
+          "note": "La tintorería is the dry cleaner."
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase",
+          "note": "ser: who or what you are."
+        },
+        {
+          "en": "It's very expensive.",
+          "es": "Es muy caro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are my clothes ready?",
+          "es": "¿Está lista mi ropa?",
+          "kind": "phrase",
+          "note": "La ropa is singular, so it takes lista."
+        }
+      ],
+      "speaking": "Tell a dry cleaner who you are, say whether your clothes are dirty, wet or torn, and ask if they are ready."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want for a haircut, laundry or phone, and what you have to do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the haircut",
+          "es": "el corte de pelo",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term",
+          "note": "The everyday word; public signs often say sanitarios."
+        },
+        {
+          "en": "the charger",
+          "es": "el cargador",
+          "kind": "term"
+        },
+        {
+          "en": "the SIM card",
+          "es": "la tarjeta SIM",
+          "kind": "term"
+        },
+        {
+          "en": "the detergent",
+          "es": "el detergente",
+          "kind": "term"
+        },
+        {
+          "en": "the fabric softener",
+          "es": "el suavizante",
+          "kind": "term"
+        },
+        {
+          "en": "the iron",
+          "es": "la plancha",
+          "kind": "term"
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "I have an appointment at 3.",
+          "es": "Tengo una cita a las 3.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there a restroom here?",
+          "es": "¿Hay baño aquí?",
+          "kind": "phrase",
+          "note": "hay means there is or there are; it never changes."
+        },
+        {
+          "en": "I need detergent and fabric softener.",
+          "es": "Necesito detergente y suavizante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want a haircut.",
+          "es": "Quiero un corte de pelo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to separate the white clothes.",
+          "es": "Hay que separar la ropa blanca.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something one has to do."
+        },
+        {
+          "en": "You have to pay first.",
+          "es": "Hay que pagar primero.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a barber you have an appointment, say you want a haircut, and ask if there is a restroom."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you plan to do, and what you can do at the post office or print shop.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder",
+      "words": [
+        {
+          "en": "the post office",
+          "es": "la oficina de correos",
+          "kind": "term",
+          "note": "People also just say el correo."
+        },
+        {
+          "en": "the package",
+          "es": "el paquete",
+          "kind": "term"
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the postcard",
+          "es": "la postal",
+          "kind": "term"
+        },
+        {
+          "en": "the envelope",
+          "es": "el sobre",
+          "kind": "term"
+        },
+        {
+          "en": "the printer",
+          "es": "la impresora",
+          "kind": "term"
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "the bank",
+          "es": "el banco",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the post office.",
+          "es": "Voy a la oficina de correos.",
+          "kind": "phrase",
+          "note": "a + el becomes al: voy al banco."
+        },
+        {
+          "en": "I'm going to send a package.",
+          "es": "Voy a mandar un paquete.",
+          "kind": "phrase",
+          "note": "ir a + infinitive talks about a plan."
+        },
+        {
+          "en": "Do you make copies here?",
+          "es": "¿Hacen copias aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can come back tomorrow.",
+          "es": "Puedo volver mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow I'm going to print my ticket.",
+          "es": "Mañana voy a imprimir mi boleto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a postal clerk you are going to send a package and a postcard, and ask if you can pay by card."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you, other people and staff do every day at a coworking space or building.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the table, the desk",
+          "es": "la mesa",
+          "kind": "term"
+        },
+        {
+          "en": "the chair",
+          "es": "la silla",
+          "kind": "term"
+        },
+        {
+          "en": "the Wi-Fi",
+          "es": "el wifi",
+          "kind": "term"
+        },
+        {
+          "en": "the password",
+          "es": "la contraseña",
+          "kind": "term"
+        },
+        {
+          "en": "the computer",
+          "es": "la computadora",
+          "kind": "term",
+          "note": "Mexico and Latin America say la computadora."
+        },
+        {
+          "en": "the outlet",
+          "es": "el enchufe",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting room",
+          "es": "la sala de juntas",
+          "kind": "term"
+        },
+        {
+          "en": "the neighbor",
+          "es": "el vecino",
+          "kind": "term",
+          "note": "A woman is la vecina."
+        },
+        {
+          "en": "the building",
+          "es": "el edificio",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "I'm working here this week.",
+          "es": "Trabajo aquí esta semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live in this building?",
+          "es": "¿Usted vive en este edificio?",
+          "kind": "phrase",
+          "note": "Formal usted: polite with a neighbor you just met."
+        },
+        {
+          "en": "Do you work here too?",
+          "es": "¿Tú también trabajas aquí?",
+          "kind": "phrase",
+          "note": "Informal tú: fine with another coworker your age."
+        },
+        {
+          "en": "We arrive on Monday.",
+          "es": "Nosotros llegamos el lunes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They sell SIM cards.",
+          "es": "Ellos venden tarjetas SIM.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Introduce yourself to someone at a coworking space: say you work here this week and ask if they work or live here too."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask where, when, how much, who and which about restrooms, prices, hours and passwords.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: ¿cuántos kilos?, ¿cuántas piezas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words means why; porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? to ask for a password, number or name."
+        },
+        {
+          "en": "the opening hours",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the restroom?",
+          "es": "¿Dónde está el baño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is it per kilo?",
+          "es": "¿Cuánto cuesta el kilo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time do you close?",
+          "es": "¿A qué hora cierran?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is cutting hair today?",
+          "es": "¿Quién corta el pelo hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's the Wi-Fi password?",
+          "es": "¿Cuál es la contraseña del wifi?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say 'zipper' in Spanish?",
+          "es": "¿Cómo se dice 'zipper' en español?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a coworking host where the restroom is, what time they close and what the Wi-Fi password is."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nothing and not yet, and ask for more, less or another at a phone shop or barber.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term",
+          "note": "A double negative is normal: no hay nadie."
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Use it with no: no necesito nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: otro plan, otra camisa."
+        },
+        {
+          "en": "the phone credit",
+          "es": "el saldo",
+          "kind": "term",
+          "note": "Prepaid balance left on your phone."
+        },
+        {
+          "en": "the top-up",
+          "es": "la recarga",
+          "kind": "term",
+          "note": "Phone credit added at shops and kiosks."
+        },
+        {
+          "en": "the data",
+          "es": "los datos",
+          "kind": "term"
+        },
+        {
+          "en": "I don't have any credit.",
+          "es": "No tengo saldo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My shirt isn't ready yet.",
+          "es": "Mi camisa todavía no está lista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody here.",
+          "es": "No hay nadie aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want another plan with more data.",
+          "es": "Quiero otro plan con más datos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A little less, please.",
+          "es": "Un poco menos, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never use the dryer with these clothes.",
+          "es": "Nunca uso la secadora con esta ropa.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a phone-shop worker you have no credit, say you need nothing else, and ask for another plan with more data."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a tailor, cobbler or clerk politely to do something, and give simple usted commands.",
+      "focus": "¿Puede…? requests and usted commands for everyday verbs (espere, mire, corte)",
+      "words": [
+        {
+          "en": "the button",
+          "es": "el botón",
+          "kind": "term"
+        },
+        {
+          "en": "the hem",
+          "es": "el dobladillo",
+          "kind": "term"
+        },
+        {
+          "en": "the sole",
+          "es": "la suela",
+          "kind": "term"
+        },
+        {
+          "en": "the shoes",
+          "es": "los zapatos",
+          "kind": "term"
+        },
+        {
+          "en": "the pants",
+          "es": "el pantalón",
+          "kind": "term",
+          "note": "In Mexico one pair is often singular: el pantalón."
+        },
+        {
+          "en": "the sleeve",
+          "es": "la manga",
+          "kind": "term"
+        },
+        {
+          "en": "the tracking number",
+          "es": "el número de rastreo",
+          "kind": "term"
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sew on this button?",
+          "es": "¿Puede coser este botón?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you shorten the pants, please?",
+          "es": "¿Puede acortar el pantalón, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: -ar verbs end in -e (espere, mire); -er and -ir verbs end in -a."
+        },
+        {
+          "en": "Please look at the label.",
+          "es": "Mire la etiqueta, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me the tracking number?",
+          "es": "¿Me puede dar el número de rastreo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please don't cut much on top.",
+          "es": "No corte mucho arriba, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a tailor politely to sew on a button and shorten your pants, and ask them to look at the label first."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexico says reservación."
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the city",
+          "es": "la ciudad",
+          "kind": "term",
+          "note": "-dad words are feminine and often match English -ty."
+        },
+        {
+          "en": "the amount",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the electricity",
+          "es": "la electricidad",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the help",
+          "es": "la ayuda",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you write it down for me?",
+          "es": "¿Me lo puede escribir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's urgent.",
+          "es": "Es urgente.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a postal clerk you don't understand, ask them to speak slower and write it down, and ask for help with your ID."
+    }
+  ]
+}

@@ -30,6 +30,13 @@ import {
   lessonContentFromResponse,
   levelFor,
 } from "../src/lib/lesson-content-prompt.ts";
+import {
+  CONTENT_PENDING_LESSONS,
+  GENERATOR_LESSON_ARGS,
+  STALE_REGENERATE,
+  contentPendingFor,
+  staleRegenerateFor,
+} from "./fixtures/content-pending.mjs";
 
 // ─── Fixtures: a valid Spanish lesson ────────────────────────────────────────
 
@@ -272,6 +279,48 @@ test("verbs: 3-5 verbs with sound infinitives, five different forms, and a real 
   const unrelatedExample = clone(GOOD);
   unrelatedExample.verbs[2].example.target = "El equipo trabaja hoy.";
   assert.match(errorsOf(unrelatedExample).join("\n"), /does not use any form of the verb/);
+
+  const spellingChange = clone(GOOD);
+  spellingChange.verbs[0] = VERB(
+    "tocar",
+    "to touch",
+    ["toco", "tocas", "toca", "tocamos", "tocan"],
+    ["No toquen nada antes de preguntar.", "Don't touch anything before asking."],
+  );
+  assert.deepEqual(errorsOf(spellingChange), []);
+
+  const hay = clone(GOOD);
+  hay.verbs[0] = VERB(
+    "haber",
+    "there is / there are",
+    ["he", "has", "ha", "hemos", "han"],
+    ["Hay agua fría en la sombra.", "There is cold water in the shade."],
+  );
+  assert.deepEqual(errorsOf(hay), []);
+
+  const variant0 = clone(GOOD);
+  variant0.verbs[0] = VERB("sentarse", "to sit down", ["me siento", "te sientas", "se sienta", "nos sentamos", "se sientan"], ["Siéntese aquí, por favor.", "Sit here, please."]);
+  assert.deepEqual(errorsOf(variant0), [], "sentarse");
+
+  const variant1 = clone(GOOD);
+  variant1.verbs[0] = VERB("pararse", "to stand up", ["me paro", "te paras", "se para", "nos paramos", "se paran"], ["Párese y agarre la andadera.", "Stand up and hold the walker."]);
+  assert.deepEqual(errorsOf(variant1), [], "pararse");
+
+  const variant2 = clone(GOOD);
+  variant2.verbs[0] = VERB("ponerse", "to put on", ["me pongo", "te pones", "se pone", "nos ponemos", "se ponen"], ["Póngase el casco, por favor.", "Put on your helmet, please."]);
+  assert.deepEqual(errorsOf(variant2), [], "ponerse");
+
+  const variant3 = clone(GOOD);
+  variant3.verbs[0] = VERB("dar", "to give", ["doy", "das", "da", "damos", "dan"], ["Den 3 vueltas a la cancha.", "Do 3 laps of the field."]);
+  assert.deepEqual(errorsOf(variant3), [], "dar");
+
+  const variant4 = clone(GOOD);
+  variant4.verbs[0] = VERB("jugar", "to play", ["juego", "juegas", "juega", "jugamos", "juegan"], ["Jueguen con intensidad.", "Play with intensity."]);
+  assert.deepEqual(errorsOf(variant4), [], "jugar");
+
+  const variant5 = clone(GOOD);
+  variant5.verbs[0] = VERB("proteger", "to protect", ["protejo", "proteges", "protege", "protegemos", "protegen"], ["Protejan los ojos.", "Protect your eyes."]);
+  assert.deepEqual(errorsOf(variant5), [], "proteger");
 
   const duplicateVerb = clone(GOOD);
   duplicateVerb.verbs[2] = clone(duplicateVerb.verbs[0]);
@@ -702,7 +751,12 @@ for (const { dir, name } of generated) {
     assert.equal(typeof raw.reviewed, "boolean", "reviewed flag is present");
     const curriculum = getCurriculum(moduleId);
     assert.ok(curriculum, "module has a curriculum");
-    const wanted = curriculum.lessons.map((l) => String(l.n));
+    // Plan-only lessons (tests/fixtures/content-pending.mjs) may await their generated content;
+    // every other planned lesson must be present, and the file may not cover unplanned lessons.
+    const pending = contentPendingFor(moduleId);
+    const wanted = curriculum.lessons
+      .map((l) => String(l.n))
+      .filter((n) => !pending.has(Number(n)) || n in file.lessons);
     assert.deepEqual(
       Object.keys(file.lessons).sort((a, b) => a - b),
       wanted,
@@ -710,6 +764,7 @@ for (const { dir, name } of generated) {
     );
     for (const lesson of curriculum.lessons) {
       const content = file.lessons[String(lesson.n)];
+      if (!content && pending.has(lesson.n)) continue;
       const parts = {
         passage: content.passage !== undefined,
         words: content.words !== undefined,
@@ -736,6 +791,49 @@ for (const { dir, name } of generated) {
     },
   );
 }
+
+// ─── Stale generated content awaiting regeneration ───────────────────────────
+// tests/fixtures/content-pending.mjs: STALE_REGENERATE lessons keep shipping (and are validated
+// above like any other lesson) but were written for an older plan. Both checks pass vacuously once
+// the lists are emptied after regeneration.
+
+test("stale-regenerate lessons are planned, disjoint from pending, and still ship their content", () => {
+  for (const [moduleId, lessons] of Object.entries(STALE_REGENERATE)) {
+    const curriculum = getCurriculum(moduleId);
+    assert.ok(curriculum, `${moduleId} has a curriculum`);
+    const planned = new Set(curriculum.lessons.map((l) => l.n));
+    const pending = contentPendingFor(moduleId);
+    const files = generated.filter((g) => g.name === `${moduleId}.json`);
+    assert.ok(files.length > 0, `${moduleId} has generated content files`);
+    for (const n of lessons) {
+      assert.ok(planned.has(n), `${moduleId} lesson ${n} is a planned lesson`);
+      assert.ok(!pending.has(n), `${moduleId} lesson ${n} is stale, not pending`);
+      for (const { dir, name } of files) {
+        const raw = JSON.parse(readFileSync(join(CONTENT_DIR, dir, name), "utf8"));
+        assert.ok(String(n) in raw.lessons, `${dir}/${moduleId} still ships lesson ${n} (stale, not missing)`);
+      }
+    }
+  }
+});
+
+test("GENERATOR_LESSON_ARGS is exactly pending ∪ stale, one span ending at the last planned lesson", () => {
+  const modules = new Set([...Object.keys(CONTENT_PENDING_LESSONS), ...Object.keys(STALE_REGENERATE)]);
+  const expected = {};
+  for (const moduleId of modules) {
+    const lessons = [...new Set([...contentPendingFor(moduleId), ...staleRegenerateFor(moduleId)])].sort(
+      (a, b) => a - b,
+    );
+    if (lessons.length === 0) continue;
+    const curriculum = getCurriculum(moduleId);
+    assert.ok(curriculum, `${moduleId} has a curriculum`);
+    const first = lessons[0];
+    const last = lessons[lessons.length - 1];
+    assert.equal(last, curriculum.lessons[curriculum.lessons.length - 1].n, `${moduleId} span ends at its last lesson`);
+    assert.equal(lessons.length, last - first + 1, `${moduleId} regeneration span is contiguous`);
+    expected[moduleId] = first === last ? String(first) : `${first}-${last}`;
+  }
+  assert.deepEqual({ ...GENERATOR_LESSON_ARGS }, expected);
+});
 
 // ─── Master 20 limits profile ────────────────────────────────────────────────
 

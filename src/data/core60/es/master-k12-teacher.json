@@ -1,0 +1,2852 @@
+{
+  "version": 1,
+  "module": "master-k12-teacher",
+  "baseModule": "k12-teacher",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The K–12 Classroom Master 20",
+  "threshold": "By Lesson 20, you can train a new aide and have them teach a procedure back, explain a hidden problem or change to a family and propose a plan, settle a student conflict and switch register for students, parents and principals, handle an incident, near miss or emergency radio call, and write the day's report in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.170Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Orienting a New Bilingual Aide to Our Behavior System",
+      "objective": "Explain the class's tiered behavior system to a new aide, step by step and why each step works.",
+      "words": [
+        {
+          "en": "the color chart",
+          "es": "la tabla de colores",
+          "kind": "term"
+        },
+        {
+          "en": "the green level",
+          "es": "el nivel verde",
+          "kind": "term"
+        },
+        {
+          "en": "the yellow level",
+          "es": "el nivel amarillo",
+          "kind": "term"
+        },
+        {
+          "en": "the red level",
+          "es": "el nivel rojo",
+          "kind": "term"
+        },
+        {
+          "en": "recess",
+          "es": "el recreo",
+          "kind": "term"
+        },
+        {
+          "en": "the paraprofessional",
+          "es": "la paraprofesional",
+          "kind": "term",
+          "note": "Use la for a woman like Rosa; use el paraprofesional for a man."
+        },
+        {
+          "en": "the warning",
+          "es": "la advertencia",
+          "kind": "term"
+        },
+        {
+          "en": "the reminder",
+          "es": "el recordatorio",
+          "kind": "term"
+        },
+        {
+          "en": "the call home",
+          "es": "la llamada a casa",
+          "kind": "term"
+        },
+        {
+          "en": "the daily log",
+          "es": "el registro diario",
+          "kind": "term"
+        },
+        {
+          "en": "the clip",
+          "es": "la pinza",
+          "kind": "term",
+          "note": "The clothespin clip a student moves on a clip chart."
+        },
+        {
+          "en": "specific praise",
+          "es": "el elogio específico",
+          "kind": "term"
+        },
+        {
+          "en": "the reflection sheet",
+          "es": "la hoja de reflexión",
+          "kind": "term"
+        },
+        {
+          "en": "a clean slate",
+          "es": "borrón y cuenta nueva",
+          "kind": "term",
+          "note": "A common Mexican expression for starting fresh each day."
+        },
+        {
+          "en": "the nonverbal cue",
+          "es": "la señal no verbal",
+          "kind": "term"
+        },
+        {
+          "en": "consistency",
+          "es": "la constancia",
+          "kind": "term"
+        },
+        {
+          "en": "First we give them a quiet reminder.",
+          "es": "Primero le damos un recordatorio en voz baja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then, if it continues, they move their clip to yellow.",
+          "es": "Luego, si sigue, mueve su pinza a amarillo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Yellow doesn't take away recess, because kids need to move.",
+          "es": "El amarillo no quita el recreo, porque los niños necesitan moverse.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why everyone starts on green every morning.",
+          "es": "Por eso todos empiezan en verde cada mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "On red, first I talk with the child and then I call home.",
+          "es": "En rojo, primero hablo con el niño y luego llamo a casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please write it in the daily log.",
+          "es": "Anótelo en el registro diario, por favor.",
+          "kind": "phrase",
+          "note": "Formal (usted), to a new colleague."
+        },
+        {
+          "en": "Mateo, look at me; what should you be doing now?",
+          "es": "Mateo, mírame; ¿qué debes estar haciendo ahora?",
+          "kind": "phrase",
+          "note": "Informal (tú), to a student."
+        },
+        {
+          "en": "Do you have any questions so far?",
+          "es": "¿Tiene alguna pregunta hasta aquí?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is Rosa Delgado, a new bilingual aide: walk her through the color-level chart step by step and explain why each step works, using primero, luego, porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero le damos un recordatorio; luego, si sigue, pasa a amarillo.",
+            "en": "First we give them a reminder; then, if it continues, they move to yellow."
+          },
+          {
+            "es": "En amarillo sí sale al recreo, porque moverse lo calma; por eso no se lo quitamos.",
+            "en": "On yellow they still go to recess, because moving calms them down; that's why we don't take it away."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why We Use Restorative Circles, Not Detention",
+      "objective": "Explain to a student teacher how restorative circles work and why the school prefers them to detention.",
+      "words": [
+        {
+          "en": "the restorative circle",
+          "es": "el círculo restaurativo",
+          "kind": "term"
+        },
+        {
+          "en": "detention",
+          "es": "la detención",
+          "kind": "term",
+          "note": "Common in US schools; some people say el castigo después de clases."
+        },
+        {
+          "en": "the harm",
+          "es": "el daño",
+          "kind": "term"
+        },
+        {
+          "en": "the talking piece",
+          "es": "el objeto para hablar",
+          "kind": "term"
+        },
+        {
+          "en": "the facilitator",
+          "es": "el facilitador",
+          "kind": "term",
+          "note": "Use la facilitadora for a woman."
+        },
+        {
+          "en": "the affected person",
+          "es": "la persona afectada",
+          "kind": "term"
+        },
+        {
+          "en": "the repair (making amends)",
+          "es": "la reparación",
+          "kind": "term"
+        },
+        {
+          "en": "accountability",
+          "es": "la rendición de cuentas",
+          "kind": "term"
+        },
+        {
+          "en": "trust",
+          "es": "la confianza",
+          "kind": "term"
+        },
+        {
+          "en": "restorative justice",
+          "es": "la justicia restaurativa",
+          "kind": "term"
+        },
+        {
+          "en": "the student teacher",
+          "es": "el maestro practicante",
+          "kind": "term",
+          "note": "Use la maestra practicante for a woman."
+        },
+        {
+          "en": "the restorative questions",
+          "es": "las preguntas restaurativas",
+          "kind": "term"
+        },
+        {
+          "en": "empathy",
+          "es": "la empatía",
+          "kind": "term"
+        },
+        {
+          "en": "the point of view",
+          "es": "el punto de vista",
+          "kind": "term"
+        },
+        {
+          "en": "in the long run",
+          "es": "a largo plazo",
+          "kind": "term"
+        },
+        {
+          "en": "active listening",
+          "es": "la escucha activa",
+          "kind": "term"
+        },
+        {
+          "en": "In the circle we talk about the harm, not the punishment.",
+          "es": "En el círculo se habla del daño, no del castigo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you only punish, the problem happens again.",
+          "es": "Si solo se castiga, el problema se repite.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Here we listen without interrupting.",
+          "es": "Aquí se escucha sin interrumpir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If everyone is heard, trust gets built.",
+          "es": "Si se escucha a todos, se construye confianza.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Detention is faster, but it doesn't change behavior.",
+          "es": "La detención es más rápida, pero no cambia la conducta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomás, you explain to me how the circle works.",
+          "es": "Tomás, explícame tú cómo funciona el círculo.",
+          "kind": "phrase",
+          "note": "Informal (tú), between colleagues."
+        },
+        {
+          "en": "What happened, and who did it affect?",
+          "es": "¿Qué pasó y a quién afectó?",
+          "kind": "phrase",
+          "note": "Restorative question to a student; keep the personal a in a quién."
+        },
+        {
+          "en": "What can you do to make it right?",
+          "es": "¿Qué puedes hacer para arreglarlo?",
+          "kind": "phrase",
+          "note": "Informal (tú), to a student."
+        }
+      ],
+      "speaking": "You are the seventh-grade ELA teacher, and the AI is Tomás Ibarra, your student teacher: explain how a restorative circle works and why the school prefers it to detention, then have him explain it back, using impersonal se (se habla, se escucha) and si se repara.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se habla del daño; si se repara, el alumno vuelve)",
+        "examples": [
+          {
+            "es": "Primero se pasa el objeto para hablar y se escucha a cada persona.",
+            "en": "First the talking piece is passed around and each person is heard."
+          },
+          {
+            "es": "Si se repara el daño, el alumno vuelve al grupo sin rencor.",
+            "en": "If the harm is repaired, the student returns to the group without resentment."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Aide on Dismissal Pickup Checks",
+      "objective": "Train an aide to check IDs against the authorized pickup list and have her teach the steps back.",
+      "words": [
+        {
+          "en": "dismissal time",
+          "es": "la hora de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the authorized pickup list",
+          "es": "la lista de autorizados",
+          "kind": "term"
+        },
+        {
+          "en": "the photo ID",
+          "es": "la identificación con foto",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup number",
+          "es": "el número de recogida",
+          "kind": "term"
+        },
+        {
+          "en": "the sidewalk",
+          "es": "la banqueta",
+          "kind": "term",
+          "note": "Mexican usage; the curb is la orilla de la banqueta."
+        },
+        {
+          "en": "the car line",
+          "es": "la fila de carros",
+          "kind": "term"
+        },
+        {
+          "en": "the legal guardian",
+          "es": "el tutor legal",
+          "kind": "term",
+          "note": "Use la tutora legal for a woman."
+        },
+        {
+          "en": "the front office",
+          "es": "la oficina principal",
+          "kind": "term"
+        },
+        {
+          "en": "the radio (walkie-talkie)",
+          "es": "el radio",
+          "kind": "term",
+          "note": "Masculine for the device: el radio."
+        },
+        {
+          "en": "the custody order",
+          "es": "la orden de custodia",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency contact",
+          "es": "el contacto de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "authorized",
+          "es": "autorizado",
+          "kind": "term",
+          "note": "Agrees with the person: autorizada for a woman."
+        },
+        {
+          "en": "the sign-out log",
+          "es": "el registro de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the reflective vest",
+          "es": "el chaleco reflejante",
+          "kind": "term"
+        },
+        {
+          "en": "Ask every adult for it, even if you know them.",
+          "es": "Pídesela a cada adulto, aunque lo conozcas.",
+          "kind": "phrase",
+          "note": "Se replaces le before la: pídele + la identificación = pídesela."
+        },
+        {
+          "en": "Compare it with the list, name by name.",
+          "es": "Compárala con la lista, nombre por nombre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If he's not on the list, don't hand the child over to him.",
+          "es": "Si no está en la lista, no se lo entregues.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call the office on the radio and wait for instructions.",
+          "es": "Llama a la oficina por radio y espera instrucciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Keep the child with you until someone from the office arrives.",
+          "es": "Mantén al niño contigo mientras llega alguien de la oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso por paso.",
+          "kind": "phrase",
+          "note": "Informal (tú), between coworkers."
+        },
+        {
+          "en": "Sir, may I see your ID, please?",
+          "es": "Señor, ¿me permite su identificación, por favor?",
+          "kind": "phrase",
+          "note": "Formal (usted), to a parent or visitor."
+        },
+        {
+          "en": "I'm sorry, sir, you're not on the authorized list.",
+          "es": "Lo siento, señor, usted no está en la lista autorizada.",
+          "kind": "phrase",
+          "note": "Formal (usted); stay calm and polite."
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is Marisol Quintero, a new dismissal aide: train her to check each adult's photo ID against the authorized pickup list, then have her teach the steps back, using commands like pídesela, revísala and no se lo entregues.",
+      "grammar": {
+        "focus": "Commands with object pronouns (pídesela, revísala, no lo entregues)",
+        "examples": [
+          {
+            "es": "Pídesela al adulto y compárala con la lista.",
+            "en": "Ask the adult for it and compare it with the list."
+          },
+          {
+            "es": "Si no está autorizado, no se lo entregues; llama a la oficina.",
+            "en": "If he's not authorized, don't hand the child over to him; call the office."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Reading a Student's Allergy Action Plan with an Aide",
+      "objective": "Read a student's allergy action plan with an aide and explain what to do before and during a class food activity.",
+      "words": [
+        {
+          "en": "the action plan",
+          "es": "el plan de acción",
+          "kind": "term"
+        },
+        {
+          "en": "the auto-injector",
+          "es": "el autoinyector",
+          "kind": "term",
+          "note": "Many staff just say the brand name: el EpiPen."
+        },
+        {
+          "en": "epinephrine",
+          "es": "la epinefrina",
+          "kind": "term"
+        },
+        {
+          "en": "the allergic reaction",
+          "es": "la reacción alérgica",
+          "kind": "term"
+        },
+        {
+          "en": "anaphylaxis",
+          "es": "la anafilaxia",
+          "kind": "term"
+        },
+        {
+          "en": "the symptoms",
+          "es": "los síntomas",
+          "kind": "term"
+        },
+        {
+          "en": "the ingredient label",
+          "es": "la etiqueta de ingredientes",
+          "kind": "term"
+        },
+        {
+          "en": "peanuts",
+          "es": "los cacahuates",
+          "kind": "term",
+          "note": "Mexican usage; many Latin Americans say el maní."
+        },
+        {
+          "en": "cross-contact",
+          "es": "la contaminación cruzada",
+          "kind": "term"
+        },
+        {
+          "en": "the school nurse",
+          "es": "la enfermera escolar",
+          "kind": "term",
+          "note": "Use el enfermero escolar for a man."
+        },
+        {
+          "en": "the doctor's order",
+          "es": "la orden médica",
+          "kind": "term"
+        },
+        {
+          "en": "the wipes",
+          "es": "las toallitas",
+          "kind": "term"
+        },
+        {
+          "en": "hives",
+          "es": "la urticaria",
+          "kind": "term"
+        },
+        {
+          "en": "the swelling",
+          "es": "la hinchazón",
+          "kind": "term"
+        },
+        {
+          "en": "the tasting",
+          "es": "la degustación",
+          "kind": "term"
+        },
+        {
+          "en": "trouble breathing",
+          "es": "la dificultad para respirar",
+          "kind": "term"
+        },
+        {
+          "en": "Before serving, we have to read every label.",
+          "es": "Antes de servir, hay que leer cada etiqueta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to wash our hands before we start.",
+          "es": "Hay que lavarse las manos antes de empezar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After eating, we have to clean the tables with soap.",
+          "es": "Después de comer, hay que limpiar las mesas con jabón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If she has symptoms, we follow the plan the doctor signed.",
+          "es": "Si tiene síntomas, seguimos el plan firmado por el médico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to call 911 and notify the nurse.",
+          "es": "Hay que llamar al 911 y avisar a la enfermera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Héctor, do you know where Valentina's auto-injector is?",
+          "es": "Héctor, ¿sabe dónde está el autoinyector de Valentina?",
+          "kind": "phrase",
+          "note": "Formal (usted), to a colleague."
+        },
+        {
+          "en": "Don't give her anything without checking the label with me.",
+          "es": "No le dé nada sin revisar la etiqueta conmigo.",
+          "kind": "phrase",
+          "note": "Formal (usted) command."
+        },
+        {
+          "en": "Valentina, tell me right away if you feel anything strange.",
+          "es": "Valentina, avísame enseguida si sientes algo raro.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a student."
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is Héctor Salinas, your aide: read Valentina's allergy action plan together and explain what to do before and during the harvest tasting, using antes de, después de and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de servir, hay que leer la etiqueta)",
+        "examples": [
+          {
+            "es": "Antes de servir la fruta, hay que leer la etiqueta de cada paquete.",
+            "en": "Before serving the fruit, we have to read the label on each package."
+          },
+          {
+            "es": "Después de usar el autoinyector según el plan del médico, hay que llamar al 911.",
+            "en": "After using the auto-injector according to the doctor's plan, we have to call 911."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Not Lazy After All: A Hearing Screening Result",
+      "objective": "Tell a parent what the hearing screening showed, contrast it with past behavior, and propose classroom supports.",
+      "words": [
+        {
+          "en": "the hearing screening",
+          "es": "la prueba de audición",
+          "kind": "term",
+          "note": "A screening, not a diagnosis. Say no pasó la prueba, not reprobó."
+        },
+        {
+          "en": "the hearing loss",
+          "es": "la pérdida auditiva",
+          "kind": "term"
+        },
+        {
+          "en": "the left ear",
+          "es": "el oído izquierdo",
+          "kind": "term",
+          "note": "oído is the inner ear and hearing; oreja is the outer ear."
+        },
+        {
+          "en": "the ear infection",
+          "es": "la infección de oído",
+          "kind": "term"
+        },
+        {
+          "en": "the audiologist",
+          "es": "el audiólogo",
+          "kind": "term"
+        },
+        {
+          "en": "the pediatrician",
+          "es": "el pediatra",
+          "kind": "term"
+        },
+        {
+          "en": "the medical appointment",
+          "es": "la cita médica",
+          "kind": "term"
+        },
+        {
+          "en": "the background noise",
+          "es": "el ruido de fondo",
+          "kind": "term"
+        },
+        {
+          "en": "the spoken directions",
+          "es": "las instrucciones orales",
+          "kind": "term"
+        },
+        {
+          "en": "the visual support",
+          "es": "el apoyo visual",
+          "kind": "term"
+        },
+        {
+          "en": "the sound amplification system",
+          "es": "el sistema de amplificación",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "lazy",
+          "es": "flojo",
+          "kind": "term",
+          "note": "A hurtful label. Use it only to say the label was wrong."
+        },
+        {
+          "en": "distracted",
+          "es": "distraído",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Medina, I'm calling about Mateo's hearing screening.",
+          "es": "Señor Medina, le llamo por la prueba de audición de Mateo.",
+          "kind": "phrase",
+          "note": "Formal: le llamo, usted."
+        },
+        {
+          "en": "Mateo didn't pass the screening in his left ear.",
+          "es": "Mateo no pasó la prueba en el oído izquierdo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mateo wasn't lazy; he just couldn't hear well.",
+          "es": "Mateo no era flojo; simplemente no oía bien.",
+          "kind": "phrase",
+          "note": "Imperfect (era, oía) describes an ongoing past state."
+        },
+        {
+          "en": "When I was talking, he watched his classmates to copy them.",
+          "es": "Cuando yo hablaba, él miraba a sus compañeros para copiar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We could seat him in front, close to where I teach.",
+          "es": "Podríamos sentarlo adelante, cerca de donde yo enseño.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I could also give him the directions in writing.",
+          "es": "También podría darle las instrucciones por escrito.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Have you noticed at home that he turns the volume way up?",
+          "es": "¿Ha notado en casa que sube mucho el volumen?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would recommend making an appointment with his pediatrician.",
+          "es": "Le recomendaría hacer una cita con su pediatra.",
+          "kind": "phrase",
+          "note": "The school screens; only a doctor or audiologist diagnoses."
+        }
+      ],
+      "speaking": "You are Mateo's teacher, and the AI is his father, Jorge Medina, on the phone: explain the hearing screening result, contrast past behavior with the imperfect (no oía bien) and preterite (no pasó la prueba), and propose supports with the conditional (podríamos sentarlo adelante).",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (no oía bien; podríamos sentarlo adelante)",
+        "examples": [
+          {
+            "es": "Mateo no oía bien, por eso no siguió las instrucciones ayer.",
+            "en": "Mateo couldn't hear well; that's why he didn't follow the directions yesterday."
+          },
+          {
+            "es": "Yo le repetiría las instrucciones en voz baja, de frente.",
+            "en": "I would repeat the directions to him quietly, facing him."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "No Sub Next Door: Merging Two Classes for the Day",
+      "objective": "Explain to a combined group of students how today's schedule will work and how it differs from a normal day.",
+      "words": [
+        {
+          "en": "the combined class",
+          "es": "la clase combinada",
+          "kind": "term"
+        },
+        {
+          "en": "the fifth graders",
+          "es": "los alumnos de quinto",
+          "kind": "term"
+        },
+        {
+          "en": "the teacher next door",
+          "es": "la maestra de al lado",
+          "kind": "term"
+        },
+        {
+          "en": "the folding chairs",
+          "es": "las sillas plegables",
+          "kind": "term"
+        },
+        {
+          "en": "the rug",
+          "es": "el tapete",
+          "kind": "term",
+          "note": "Common Mexican word for the classroom carpet area."
+        },
+        {
+          "en": "the stool",
+          "es": "el banquito",
+          "kind": "term"
+        },
+        {
+          "en": "the round table",
+          "es": "la mesa redonda",
+          "kind": "term"
+        },
+        {
+          "en": "the stations",
+          "es": "las estaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the rotation",
+          "es": "la rotación",
+          "kind": "term"
+        },
+        {
+          "en": "the timer",
+          "es": "el temporizador",
+          "kind": "term"
+        },
+        {
+          "en": "the silent reading",
+          "es": "la lectura en silencio",
+          "kind": "term"
+        },
+        {
+          "en": "lunchtime",
+          "es": "la hora del almuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the patience",
+          "es": "la paciencia",
+          "kind": "term"
+        },
+        {
+          "en": "crowded, squeezed in",
+          "es": "apretados",
+          "kind": "term",
+          "note": "Agrees with the group: apretados, or apretadas for all girls."
+        },
+        {
+          "en": "Today Ms. Fuentes's class is going to be with us.",
+          "es": "Hoy la clase de la maestra Fuentes va a estar con nosotros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today is going to be different, but we're going to be fine.",
+          "es": "Hoy el día va a ser diferente, pero vamos a estar bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're going to work at tables of four, not in rows.",
+          "es": "Van a trabajar en mesas de cuatro, no en filas.",
+          "kind": "phrase",
+          "note": "Ustedes form for the whole group."
+        },
+        {
+          "en": "When the timer goes off, you'll switch stations.",
+          "es": "Cuando suene el temporizador, cambiarán de estación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today group reading will be shorter than usual.",
+          "es": "Hoy la lectura en grupo será más corta que de costumbre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's less space than on other days, so I need your patience.",
+          "es": "Hay menos espacio que otros días, así que necesito su paciencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ximena, Daniel, we'll bring more chairs right now; sit on the rug.",
+          "es": "Ximena, Daniel, ahorita traemos más sillas; siéntense en el tapete.",
+          "kind": "phrase",
+          "note": "Informal with students; ahorita is everyday Mexican usage."
+        },
+        {
+          "en": "Who will help me bring chairs from the room next door?",
+          "es": "¿Quién me ayuda a traer sillas del salón de al lado?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is a fifth grader from Sra. Fuentes's class: explain how today's combined schedule will work using ir a and the future (van a trabajar en mesas, cambiarán de estación), and compare it with a normal day (más corto que de costumbre).",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (van a trabajar en mesas; hoy es más largo que...)",
+        "examples": [
+          {
+            "es": "Primero van a leer en silencio y luego rotarán cada 20 minutos.",
+            "en": "First you're going to read silently, and then you'll rotate every 20 minutes."
+          },
+          {
+            "es": "Hoy el bloque de matemáticas es más largo que los otros días.",
+            "en": "Today the math block is longer than on other days."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Attendance Officer Meeting: Absences by the Numbers",
+      "objective": "Report a student's absence and tardy history clearly to an attendance officer and a parent, with exact dates.",
+      "words": [
+        {
+          "en": "the attendance officer",
+          "es": "el oficial de asistencia",
+          "kind": "term"
+        },
+        {
+          "en": "the unexcused absence",
+          "es": "la ausencia injustificada",
+          "kind": "term"
+        },
+        {
+          "en": "the excused absence",
+          "es": "la ausencia justificada",
+          "kind": "term"
+        },
+        {
+          "en": "the tardy",
+          "es": "el retardo",
+          "kind": "term",
+          "note": "Standard in Mexican schools; la llegada tarde is also common."
+        },
+        {
+          "en": "the doctor's note",
+          "es": "el justificante médico",
+          "kind": "term"
+        },
+        {
+          "en": "the electronic record",
+          "es": "el registro electrónico",
+          "kind": "term"
+        },
+        {
+          "en": "the exact date",
+          "es": "la fecha exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the class period",
+          "es": "el periodo de clase",
+          "kind": "term"
+        },
+        {
+          "en": "chronic absenteeism",
+          "es": "el ausentismo crónico",
+          "kind": "term",
+          "note": "The cutoff is set by district policy; name the policy when you give a number."
+        },
+        {
+          "en": "the district policy",
+          "es": "la política del distrito",
+          "kind": "term"
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term"
+        },
+        {
+          "en": "the correction",
+          "es": "la corrección",
+          "kind": "term"
+        },
+        {
+          "en": "the automated call",
+          "es": "la llamada automática",
+          "kind": "term"
+        },
+        {
+          "en": "the warning letter",
+          "es": "la carta de aviso",
+          "kind": "term"
+        },
+        {
+          "en": "the school calendar",
+          "es": "el calendario escolar",
+          "kind": "term"
+        },
+        {
+          "en": "According to my record, Kevin missed 14 days this semester.",
+          "es": "Según mi registro, Kevin faltó 14 días este semestre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He arrived late 9 times, almost always first period.",
+          "es": "Llegó tarde 9 veces, casi siempre a la primera hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "On October 3 I marked him absent in first period.",
+          "es": "El 3 de octubre lo marqué ausente en la primera hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Paredes, could you tell me what happened that day?",
+          "es": "Señora Paredes, ¿me podría decir qué pasó ese día?",
+          "kind": "phrase",
+          "note": "Formal: podría, usted."
+        },
+        {
+          "en": "If you have a doctor's note, I can request the correction.",
+          "es": "Si usted tiene un justificante médico, puedo pedir la corrección.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't change the record without a document to support it.",
+          "es": "No puedo cambiar el registro sin un documento que lo respalde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Castañeda, do you want the full report or just October?",
+          "es": "Señor Castañeda, ¿quiere el reporte completo o solo de octubre?",
+          "kind": "phrase",
+          "note": "Formal with the officer."
+        },
+        {
+          "en": "I'll print you both the report with all the dates.",
+          "es": "Les imprimo el reporte con todas las fechas.",
+          "kind": "phrase",
+          "note": "Les addresses both adults at once."
+        }
+      ],
+      "speaking": "You are Kevin's teacher, and the AI is attendance officer Raúl Castañeda with mother Gloria Paredes: report Kevin's absences and tardies with exact dates in the preterite (faltó 14 días, llegó tarde 9 veces) and explain how a record gets corrected.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (faltó catorce días, llegó tarde nueve veces)",
+        "examples": [
+          {
+            "es": "Kevin faltó el 12 y el 13 de septiembre, y nadie llamó.",
+            "en": "Kevin was absent on September 12 and 13, and nobody called."
+          },
+          {
+            "es": "En octubre llegó tarde 5 veces y faltó 3 días.",
+            "en": "In October he arrived late 5 times and missed 3 days."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to Cough Medicine in a Backpack",
+      "objective": "Refuse to give medicine sent from home, explain the nurse's process, and keep the parent's trust.",
+      "words": [
+        {
+          "en": "the cough syrup",
+          "es": "el jarabe para la tos",
+          "kind": "term"
+        },
+        {
+          "en": "the over-the-counter medicine",
+          "es": "la medicina sin receta",
+          "kind": "term"
+        },
+        {
+          "en": "the prescription",
+          "es": "la receta médica",
+          "kind": "term"
+        },
+        {
+          "en": "the medication form",
+          "es": "el formulario de medicamentos",
+          "kind": "term"
+        },
+        {
+          "en": "the doctor's authorization",
+          "es": "la autorización del médico",
+          "kind": "term"
+        },
+        {
+          "en": "the nurse's office",
+          "es": "la enfermería",
+          "kind": "term"
+        },
+        {
+          "en": "the original container",
+          "es": "el envase original",
+          "kind": "term"
+        },
+        {
+          "en": "the dose",
+          "es": "la dosis",
+          "kind": "term",
+          "note": "Comes from the label or the doctor's order, never from the teacher."
+        },
+        {
+          "en": "the locked cabinet",
+          "es": "el gabinete con llave",
+          "kind": "term"
+        },
+        {
+          "en": "the cough",
+          "es": "la tos",
+          "kind": "term"
+        },
+        {
+          "en": "the fever",
+          "es": "la fiebre",
+          "kind": "term"
+        },
+        {
+          "en": "drop-off time",
+          "es": "la hora de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the school rules",
+          "es": "el reglamento escolar",
+          "kind": "term"
+        },
+        {
+          "en": "safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Herrera, I'm sorry, I can't give Sofía medicine.",
+          "es": "Señora Herrera, lo siento, yo no puedo darle medicina a Sofía.",
+          "kind": "phrase",
+          "note": "Formal; the personal a goes before Sofía."
+        },
+        {
+          "en": "I understand Sofía is sick and you want to help her.",
+          "es": "Entiendo que Sofía está enferma y usted quiere ayudarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Only the nurse gives medicine, with the doctor's authorization.",
+          "es": "Solo la enfermera da medicinas, con la autorización del médico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please don't send it in the backpack.",
+          "es": "Por favor, no lo mande en la mochila.",
+          "kind": "phrase",
+          "note": "Formal negative command: no + mande."
+        },
+        {
+          "en": "I don't recommend that you leave the bag in the classroom.",
+          "es": "No recomiendo que deje la bolsa en el salón.",
+          "kind": "phrase",
+          "note": "No recomiendo que is followed by the subjunctive (deje)."
+        },
+        {
+          "en": "Please take it to the nurse's office in its original container.",
+          "es": "Llévelo a la enfermería en su envase original, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If she feels sick, I'll send her to the nurse's office and we'll call you.",
+          "es": "Si se siente mal, la mando a la enfermería y le llamamos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sofía, don't touch the bag, okay?",
+          "es": "Sofía, no toques la bolsa, ¿sí?",
+          "kind": "phrase",
+          "note": "Informal tú command for a child: no toques."
+        }
+      ],
+      "speaking": "You are Sofía's kindergarten teacher, and the AI is her mother, Claudia Herrera, at drop-off: politely refuse to give the cough syrup, explain the nurse's process with negative commands (no lo mande) and no recomiendo que + subjunctive, and keep her trust.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no lo mande; no recomiendo que se lo dé)",
+        "examples": [
+          {
+            "es": "No me dé el jarabe a mí; lléveselo a la enfermera.",
+            "en": "Don't give the syrup to me; take it to the nurse."
+          },
+          {
+            "es": "No recomiendo que Sofía guarde medicina en su mochila.",
+            "en": "I don't recommend that Sofía keep medicine in her backpack."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for an Aide Who Gives Students the Answers",
+      "objective": "Give an aide specific, respectful feedback and say what you want her to do differently in small groups.",
+      "words": [
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term"
+        },
+        {
+          "en": "the reading station",
+          "es": "la estación de lectura",
+          "kind": "term"
+        },
+        {
+          "en": "the wait time",
+          "es": "el tiempo de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the hint",
+          "es": "la pista",
+          "kind": "term"
+        },
+        {
+          "en": "the scaffolding",
+          "es": "el andamiaje",
+          "kind": "term",
+          "note": "Teacher jargon for temporary support you remove step by step."
+        },
+        {
+          "en": "the open-ended question",
+          "es": "la pregunta abierta",
+          "kind": "term"
+        },
+        {
+          "en": "the home language",
+          "es": "la lengua materna",
+          "kind": "term"
+        },
+        {
+          "en": "the translation",
+          "es": "la traducción",
+          "kind": "term"
+        },
+        {
+          "en": "the sentence starters",
+          "es": "los inicios de oración",
+          "kind": "term"
+        },
+        {
+          "en": "the word bank",
+          "es": "el banco de palabras",
+          "kind": "term"
+        },
+        {
+          "en": "the cognate",
+          "es": "el cognado",
+          "kind": "term",
+          "note": "Words that look alike in both languages, like animal / animal or familia / family."
+        },
+        {
+          "en": "the independence",
+          "es": "la autonomía",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up",
+          "es": "el seguimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the good intention",
+          "es": "la buena intención",
+          "kind": "term"
+        },
+        {
+          "en": "Rosa, do you have five minutes to talk about the station?",
+          "es": "Rosa, ¿tienes cinco minutos para platicar de la estación?",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers. Platicar is the everyday Mexican word for 'to chat'."
+        },
+        {
+          "en": "It's clear that you really want to help the kids.",
+          "es": "Se nota que de verdad quieres ayudar a los niños.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today I noticed you were translating the whole answers for them.",
+          "es": "Hoy noté que les traducías las respuestas completas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want you to give them time to think before helping.",
+          "es": "Quiero que les des tiempo para pensar antes de ayudar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you give them a hint, not the answer.",
+          "es": "Te recomiendo que les des una pista, no la respuesta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather you translate the question, but not the answer.",
+          "es": "Prefiero que traduzcas la pregunta, pero no la respuesta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's important that they try it first, even if they make mistakes.",
+          "es": "Es importante que ellos lo intenten primero, aunque se equivoquen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it okay if I join you at the station next week?",
+          "es": "¿Te parece si te acompaño en la estación la próxima semana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is Rosa Delgado, your aide: after the reading station, describe what you saw, recognize her good intentions, and say what you want instead with quiero que… and te recomiendo que…, using tú.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que esperes; te recomiendo que preguntes)",
+        "examples": [
+          {
+            "es": "Quiero que esperes cinco segundos antes de dar una pista.",
+            "en": "I want you to wait five seconds before giving a hint."
+          },
+          {
+            "es": "Te recomiendo que uses el banco de palabras en vez de traducir.",
+            "en": "I recommend you use the word bank instead of translating."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Mediating a Group-Project Fight Between Two Students",
+      "objective": "Report back what each student said, find the background of the conflict, and agree on a fair split of work.",
+      "words": [
+        {
+          "en": "the mediation",
+          "es": "la mediación",
+          "kind": "term"
+        },
+        {
+          "en": "the side of the story",
+          "es": "la versión",
+          "kind": "term",
+          "note": "Tu versión = your side of the story."
+        },
+        {
+          "en": "the split of the work",
+          "es": "el reparto del trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the deadline",
+          "es": "la fecha límite",
+          "kind": "term"
+        },
+        {
+          "en": "the slides",
+          "es": "las diapositivas",
+          "kind": "term"
+        },
+        {
+          "en": "the shared document",
+          "es": "el documento compartido",
+          "kind": "term"
+        },
+        {
+          "en": "the version history",
+          "es": "el historial de versiones",
+          "kind": "term"
+        },
+        {
+          "en": "the accusation",
+          "es": "la acusación",
+          "kind": "term"
+        },
+        {
+          "en": "the sources",
+          "es": "las fuentes",
+          "kind": "term"
+        },
+        {
+          "en": "the group chat",
+          "es": "el chat del grupo",
+          "kind": "term"
+        },
+        {
+          "en": "the responsibility",
+          "es": "la responsabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "fair",
+          "es": "justo",
+          "kind": "term",
+          "note": "Agrees with the noun: un reparto justo, una solución justa."
+        },
+        {
+          "en": "the commitment",
+          "es": "el compromiso",
+          "kind": "term"
+        },
+        {
+          "en": "One at a time; each of you will tell your side.",
+          "es": "Uno a la vez; cada quien va a contar su versión.",
+          "kind": "phrase",
+          "note": "Cada quien is the common Mexican form of 'each one'."
+        },
+        {
+          "en": "Brenda, Luis said that you wanted to do everything alone.",
+          "es": "Brenda, Luis dijo que tú querías hacer todo sola.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luis, Brenda says that you weren't answering in the chat.",
+          "es": "Luis, Brenda dice que tú no contestabas en el chat.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What was going on before, when you started the project?",
+          "es": "¿Qué pasaba antes, cuando empezaron el proyecto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "So both of you thought the other one wasn't working.",
+          "es": "Entonces, los dos pensaban que el otro no trabajaba.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let's check the document's version history together.",
+          "es": "Vamos a revisar juntos el historial de versiones del documento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not looking for someone to blame; we're looking for how to finish the project.",
+          "es": "Aquí no buscamos culpables; buscamos cómo terminar el proyecto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which part is each of you responsible for by tomorrow?",
+          "es": "¿Qué parte le toca a cada uno para mañana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the history teacher, and the AI plays Brenda and Luis at lunch: hear each side, report back what the other said with dijo que… and the imperfect for background (no contestaba, cambiaba), and get them to agree on a fair split of the work.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (dijo que él no hacía nada)",
+        "examples": [
+          {
+            "es": "Luis dijo que Brenda cambiaba sus diapositivas sin avisarle.",
+            "en": "Luis said that Brenda was changing his slides without telling him."
+          },
+          {
+            "es": "Brenda explicó que él no contestaba los mensajes del grupo.",
+            "en": "Brenda explained that he wasn't answering the group messages."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping a Tired Class Going Through Testing Week",
+      "objective": "Encourage a discouraged class, commit to concrete support, and keep students working through test week.",
+      "words": [
+        {
+          "en": "the state test",
+          "es": "el examen estatal",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the discouragement",
+          "es": "el desánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the movement break",
+          "es": "la pausa activa",
+          "kind": "term",
+          "note": "Common term in Mexican schools for a short stretch-and-move break."
+        },
+        {
+          "en": "the review",
+          "es": "el repaso",
+          "kind": "term"
+        },
+        {
+          "en": "the purpose",
+          "es": "el propósito",
+          "kind": "term"
+        },
+        {
+          "en": "the stress",
+          "es": "el estrés",
+          "kind": "term"
+        },
+        {
+          "en": "the perseverance",
+          "es": "la perseverancia",
+          "kind": "term"
+        },
+        {
+          "en": "the growth mindset",
+          "es": "la mentalidad de crecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the snack",
+          "es": "el refrigerio",
+          "kind": "term"
+        },
+        {
+          "en": "the celebration",
+          "es": "la celebración",
+          "kind": "term"
+        },
+        {
+          "en": "come on, you've got this!",
+          "es": "¡ánimo!",
+          "kind": "term",
+          "note": "Short cheer to lift spirits; works with one student or the whole class."
+        },
+        {
+          "en": "the home stretch",
+          "es": "la recta final",
+          "kind": "term"
+        },
+        {
+          "en": "the section",
+          "es": "la sección",
+          "kind": "term"
+        },
+        {
+          "en": "Good question, Iván; I'm going to give you a real answer.",
+          "es": "Buena pregunta, Iván; te voy a contestar en serio.",
+          "kind": "phrase",
+          "note": "Informal: tú with one student."
+        },
+        {
+          "en": "I know you're tired, and you have every reason to be.",
+          "es": "Sé que están cansados, y tienen razón de estarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The test shows what to review; it doesn't say who you are.",
+          "es": "El examen muestra qué repasar; no dice quiénes son ustedes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we'll start with a 5-minute movement break.",
+          "es": "Mañana empezaremos con una pausa activa de 5 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This afternoon we'll review the reading strategies together.",
+          "es": "Esta tarde repasaremos juntos las estrategias de lectura.",
+          "kind": "phrase"
+        },
+        {
+          "en": "On Friday we'll celebrate your effort with a snack.",
+          "es": "El viernes celebraremos su esfuerzo con un refrigerio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You've already done three days; only two to go.",
+          "es": "Ya llevan tres días; solo faltan dos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You can do it; you've proven it all year!",
+          "es": "¡Ustedes pueden; ya lo han demostrado todo el año!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the sixth-grade teacher, and the AI is Iván and his tired classmates: answer his question about the point of the test, encourage the class with ¡ustedes pueden!, and commit to concrete support with the future (haremos, repasaremos, celebraremos).",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (repasaremos juntos; ¡ustedes pueden!)",
+        "examples": [
+          {
+            "es": "Mañana haremos una pausa activa antes de la sección de matemáticas.",
+            "en": "Tomorrow we'll do a movement break before the math section."
+          },
+          {
+            "es": "No los dejaré solos; estaré con ustedes en cada sección.",
+            "en": "I won't leave you alone; I'll be with you in every section."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Math Placement Change, Three Listeners",
+      "objective": "Explain the same math placement change to a student, his mother and the principal, adjusting the register for each.",
+      "words": [
+        {
+          "en": "the support section",
+          "es": "la sección de apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the placement",
+          "es": "la ubicación",
+          "kind": "term",
+          "note": "Common US school Spanish for course placement: la ubicación en matemáticas."
+        },
+        {
+          "en": "the class change",
+          "es": "el cambio de grupo",
+          "kind": "term"
+        },
+        {
+          "en": "the math department",
+          "es": "el departamento de matemáticas",
+          "kind": "term"
+        },
+        {
+          "en": "the diagnostic assessment",
+          "es": "la evaluación diagnóstica",
+          "kind": "term"
+        },
+        {
+          "en": "the score",
+          "es": "el puntaje",
+          "kind": "term"
+        },
+        {
+          "en": "the recommendation",
+          "es": "la recomendación",
+          "kind": "term"
+        },
+        {
+          "en": "third period",
+          "es": "la tercera hora",
+          "kind": "term"
+        },
+        {
+          "en": "the grading period",
+          "es": "el periodo de calificaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the review",
+          "es": "la revisión",
+          "kind": "term"
+        },
+        {
+          "en": "the embarrassment",
+          "es": "la pena",
+          "kind": "term",
+          "note": "In Mexico, me da pena means 'I'm embarrassed', not 'I'm sad'."
+        },
+        {
+          "en": "temporary",
+          "es": "temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the foundations",
+          "es": "las bases",
+          "kind": "term"
+        },
+        {
+          "en": "the process",
+          "es": "el proceso",
+          "kind": "term"
+        },
+        {
+          "en": "Andrés, it's not a punishment; it's to strengthen the foundations.",
+          "es": "Andrés, no es un castigo; es para reforzar las bases.",
+          "kind": "phrase",
+          "note": "Informal: tú with the student."
+        },
+        {
+          "en": "You'll still be with your friends in your other classes.",
+          "es": "Vas a seguir con tus amigos en las otras clases.",
+          "kind": "phrase",
+          "note": "Informal: tú with the student."
+        },
+        {
+          "en": "Mrs. Lozano, I'd like to explain a change in Andrés's class.",
+          "es": "Señora Lozano, quisiera explicarle un cambio en la clase de Andrés.",
+          "kind": "phrase",
+          "note": "Formal: usted with a parent."
+        },
+        {
+          "en": "The math department decided it, based on his scores.",
+          "es": "Lo decidió el departamento de matemáticas, con base en sus puntajes.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Would it be all right with you if we review his progress in six weeks?",
+          "es": "¿Le parecería bien que revisemos su progreso en seis semanas?",
+          "kind": "phrase",
+          "note": "Formal softener; revisemos is subjunctive after que."
+        },
+        {
+          "en": "It's a temporary change; we'll review it at the end of the grading period.",
+          "es": "Es un cambio temporal; lo revisaremos al final del periodo de calificaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dr. Robles, I'd like to let you know the family has been informed.",
+          "es": "Dra. Robles, quisiera informarle que la familia ya está enterada.",
+          "kind": "phrase",
+          "note": "Formal: usted with the principal."
+        },
+        {
+          "en": "Would it work for you to meet with Mrs. Lozano this week?",
+          "es": "¿Le parecería bien reunirnos con la señora Lozano esta semana?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the math teacher, and the AI plays Andrés, his mother Patricia Lozano and principal Dr. Elena Robles: explain his move to the math support section to each, using tú with Andrés, usted with the adults, and softeners like quisiera and ¿le parecería bien...?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿le parecería bien...?)",
+        "examples": [
+          {
+            "es": "Andrés, ¿te parece bien si empezamos el lunes en la tercera hora?",
+            "en": "Andrés, is it okay with you if we start Monday in third period?"
+          },
+          {
+            "es": "Señora Lozano, ¿le parecería bien venir el jueves a ver los datos?",
+            "en": "Mrs. Lozano, would it be all right with you to come Thursday to see the data?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Playground Fall: The Nurse, the Parent, the Report",
+      "objective": "Narrate a playground injury in order to the nurse and a parent, then draft the incident report.",
+      "words": [
+        {
+          "en": "the fall",
+          "es": "la caída",
+          "kind": "term"
+        },
+        {
+          "en": "the monkey bars",
+          "es": "los pasamanos",
+          "kind": "term",
+          "note": "Common in Mexico and the US for monkey bars."
+        },
+        {
+          "en": "the wrist",
+          "es": "la muñeca",
+          "kind": "term"
+        },
+        {
+          "en": "the scrape",
+          "es": "el raspón",
+          "kind": "term"
+        },
+        {
+          "en": "the bruise",
+          "es": "el moretón",
+          "kind": "term"
+        },
+        {
+          "en": "the ice pack",
+          "es": "la bolsa de hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the blow to the head",
+          "es": "el golpe en la cabeza",
+          "kind": "term"
+        },
+        {
+          "en": "conscious",
+          "es": "consciente",
+          "kind": "term",
+          "note": "Use with estar: estaba consciente todo el tiempo."
+        },
+        {
+          "en": "playground duty",
+          "es": "la vigilancia del patio",
+          "kind": "term"
+        },
+        {
+          "en": "the adult in charge",
+          "es": "el adulto a cargo",
+          "kind": "term"
+        },
+        {
+          "en": "the accident form",
+          "es": "el formulario de accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the facts",
+          "es": "los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the play area",
+          "es": "el área de juegos",
+          "kind": "term",
+          "note": "Feminine noun with el: el área, but las áreas."
+        },
+        {
+          "en": "the X-ray",
+          "es": "la radiografía",
+          "kind": "term"
+        },
+        {
+          "en": "At 10:15, Camila fell from the monkey bars.",
+          "es": "A las 10:15, Camila se cayó de los pasamanos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Right away I checked her and asked where it hurt.",
+          "es": "Enseguida la revisé y le pregunté dónde le dolía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then I brought her here, and she didn't lose consciousness.",
+          "es": "Después la traje aquí, y no perdió el conocimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Beatriz, can you put ice on it while I call her dad?",
+          "es": "Beatriz, ¿le pones hielo mientras llamo a su papá?",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "Mr. Torres, I'm calling because Camila fell at recess.",
+          "es": "Señor Torres, le llamo porque Camila se cayó en el recreo.",
+          "kind": "phrase",
+          "note": "Formal: usted with a parent."
+        },
+        {
+          "en": "I understand your concern; I was on the playground, 10 feet away.",
+          "es": "Entiendo su preocupación; yo estaba en el patio, a 10 pies.",
+          "kind": "phrase",
+          "note": "Formal. Acknowledge the worry first, then give the facts."
+        },
+        {
+          "en": "The nurse recommends that a doctor check her today.",
+          "es": "La enfermera recomienda que la revise un médico hoy.",
+          "kind": "phrase",
+          "note": "Formal. Que + subjunctive after recomienda."
+        },
+        {
+          "en": "On the form I'm going to write down only what I saw.",
+          "es": "En el formulario voy a anotar solo lo que vi.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are Camila's teacher, and the AI is nurse Beatriz Montoya, then father Ernesto Torres: narrate the fall in order with a las 10:15, enseguida and después, speak to the father formally with usted, and state the facts you'll put on the accident form.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las 10:15, enseguida, después)",
+        "examples": [
+          {
+            "es": "Primero se quejó de la muñeca y enseguida le pusimos hielo.",
+            "en": "First she complained about her wrist, and right away we put ice on it."
+          },
+          {
+            "es": "A las 10:20 llegamos con la enfermera; después llamé a su papá.",
+            "en": "At 10:20 we got to the nurse; after that I called her dad."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss at Dismissal: A Kindergartner at the Gate",
+      "objective": "Talk through a near miss with an aide without blame, say what could have happened, and agree on a change.",
+      "words": [
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term",
+          "note": "What staff naturally call a near miss in conversation."
+        },
+        {
+          "en": "the side gate",
+          "es": "el portón lateral",
+          "kind": "term"
+        },
+        {
+          "en": "the gate latch",
+          "es": "el seguro del portón",
+          "kind": "term"
+        },
+        {
+          "en": "the kindergartner",
+          "es": "el alumno de kínder",
+          "kind": "term",
+          "note": "For a girl: la alumna de kínder."
+        },
+        {
+          "en": "the wrong car",
+          "es": "el carro equivocado",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the blind spot",
+          "es": "el punto ciego",
+          "kind": "term"
+        },
+        {
+          "en": "the head count",
+          "es": "el conteo",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting area",
+          "es": "la zona de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the cause",
+          "es": "la causa",
+          "kind": "term"
+        },
+        {
+          "en": "the distraction",
+          "es": "la distracción",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure change",
+          "es": "el cambio de procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "nearly",
+          "es": "por poco",
+          "kind": "term",
+          "note": "Often with the present for a past event: por poco sale."
+        },
+        {
+          "en": "Marisol, this isn't about blaming anyone.",
+          "es": "Marisol, esto no se trata de culpar a nadie.",
+          "kind": "phrase",
+          "note": "Double negative is correct: no... a nadie."
+        },
+        {
+          "en": "He almost went out the side gate.",
+          "es": "Por poco sale por el portón lateral.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If we hadn't seen him, he could have gotten into the wrong car.",
+          "es": "Si no lo hubiéramos visto, podría haberse subido al carro equivocado.",
+          "kind": "phrase",
+          "note": "Si + pluperfect subjunctive (hubiéramos visto) goes with podría haber + participle for something that did not happen."
+        },
+        {
+          "en": "Something serious almost happened, but it didn't.",
+          "es": "Casi pasa algo grave, pero no pasó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's happened to me too; that's why we review it as a team.",
+          "es": "A mí también me ha pasado; por eso lo revisamos en equipo.",
+          "kind": "phrase",
+          "note": "Informal and supportive."
+        },
+        {
+          "en": "What did you see from where you were standing?",
+          "es": "¿Qué viste tú desde donde estabas parada?",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker. Parada agrees with Marisol."
+        },
+        {
+          "en": "What do you think about locking the side gate during dismissal?",
+          "es": "¿Qué te parece si cerramos el portón lateral durante la salida?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Principal, we had a scare with Emilio at dismissal today.",
+          "es": "Directora, hoy en la salida tuvimos un susto con Emilio.",
+          "kind": "phrase",
+          "note": "Formal: reporting up to the principal (a woman)."
+        }
+      ],
+      "speaking": "You are the kindergarten teacher, and the AI is aide Marisol Quintero: talk through today's near miss at the side gate without blame, say what could have happened using casi, por poco and podría haber, and agree together on one change to dismissal.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco sale; si no lo vemos, podría haber...)",
+        "examples": [
+          {
+            "es": "Por poco se sube al carro de otra familia.",
+            "en": "He nearly got into another family's car."
+          },
+          {
+            "es": "Si no lo hubieras visto, podría haber llegado a la calle.",
+            "en": "If you hadn't seen him, he could have reached the street."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Seizure in Class: Radio Call and Clearing the Room",
+      "objective": "Radio the office during a student's seizure, follow his action plan, and give short commands to clear the room.",
+      "words": [
+        {
+          "en": "the seizure",
+          "es": "la convulsión",
+          "kind": "term"
+        },
+        {
+          "en": "the seizure action plan",
+          "es": "el plan de convulsiones",
+          "kind": "term"
+        },
+        {
+          "en": "the start time",
+          "es": "la hora de inicio",
+          "kind": "term"
+        },
+        {
+          "en": "the duration",
+          "es": "la duración",
+          "kind": "term"
+        },
+        {
+          "en": "on his side",
+          "es": "de lado",
+          "kind": "term",
+          "note": "Ponerlo de lado: turn him onto his side."
+        },
+        {
+          "en": "the airway",
+          "es": "la vía respiratoria",
+          "kind": "term"
+        },
+        {
+          "en": "the jerking movements",
+          "es": "las sacudidas",
+          "kind": "term"
+        },
+        {
+          "en": "the bluish lips",
+          "es": "los labios azulados",
+          "kind": "term"
+        },
+        {
+          "en": "the jacket",
+          "es": "la chamarra",
+          "kind": "term",
+          "note": "Mexican usage. Fold it under the student's head."
+        },
+        {
+          "en": "the desks",
+          "es": "los pupitres",
+          "kind": "term"
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the paramedics",
+          "es": "los paramédicos",
+          "kind": "term"
+        },
+        {
+          "en": "the stretcher",
+          "es": "la camilla",
+          "kind": "term"
+        },
+        {
+          "en": "drowsy",
+          "es": "somnoliento",
+          "kind": "term",
+          "note": "Common after a seizure ends. Use with estar: está somnoliento."
+        },
+        {
+          "en": "Office, this is room 214; Joaquín Reyes is having a seizure.",
+          "es": "Oficina, aquí salón 214; Joaquín Reyes tiene una convulsión.",
+          "kind": "phrase",
+          "note": "Radio style: say where you are first, then what is happening."
+        },
+        {
+          "en": "It started at 9:42; I'm timing it.",
+          "es": "Empezó a las 9:42; estoy tomando el tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Per his plan, if it lasts 5 minutes, we'll call 911.",
+          "es": "Según su plan, si dura 5 minutos, llamaremos al 911.",
+          "kind": "phrase",
+          "note": "The time limit comes from his plan. Always name the source."
+        },
+        {
+          "en": "Ofelia, send the nurse to 214, please.",
+          "es": "Ofelia, manda a la enfermera al 214, por favor.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers on the radio."
+        },
+        {
+          "en": "Leave quietly and go to room 216.",
+          "es": "Salgan en silencio y vayan al salón 216.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the class."
+        },
+        {
+          "en": "Don't hold him down or put anything in his mouth.",
+          "es": "No lo sujeten ni le pongan nada en la boca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's over; he's breathing and I have him on his side.",
+          "es": "Ya terminó; está respirando y lo tengo de lado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Joaquín, you're okay, I'm right here with you.",
+          "es": "Joaquín, estás bien, aquí estoy contigo.",
+          "kind": "phrase",
+          "note": "Calm tú with the student."
+        }
+      ],
+      "speaking": "You are the teacher in room 214, and the AI is secretary Ofelia Campos on the radio: report Joaquín's seizure, give the start time, follow his plan with si + future (si dura..., llamaré...), and clear the room with short ustedes commands like despejen el pasillo.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si no responde, llamaré; despejen el pasillo)",
+        "examples": [
+          {
+            "es": "Si dura más de 5 minutos, según su plan, llamaré al 911.",
+            "en": "If it lasts more than 5 minutes, per his plan, I'll call 911."
+          },
+          {
+            "es": "Despejen el pasillo; si llega la enfermera, le daré su plan.",
+            "en": "Clear the hallway; if the nurse arrives, I'll give her his plan."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Fire Marshal Walk-Through of the Kindergarten Wing",
+      "objective": "Walk a fire marshal through classroom exits and the evacuation map, describing procedures formally.",
+      "words": [
+        {
+          "en": "the fire marshal",
+          "es": "el inspector de bomberos",
+          "kind": "term"
+        },
+        {
+          "en": "the evacuation map",
+          "es": "el mapa de evacuación",
+          "kind": "term"
+        },
+        {
+          "en": "the secondary route",
+          "es": "la ruta alterna",
+          "kind": "term"
+        },
+        {
+          "en": "the fire extinguisher",
+          "es": "el extintor",
+          "kind": "term"
+        },
+        {
+          "en": "the smoke detector",
+          "es": "el detector de humo",
+          "kind": "term"
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the fire code",
+          "es": "el código de incendios",
+          "kind": "term",
+          "note": "Rules vary by city. Say el código local and let the inspector cite it."
+        },
+        {
+          "en": "the flammable material",
+          "es": "el material inflamable",
+          "kind": "term"
+        },
+        {
+          "en": "the paper artwork",
+          "es": "los trabajos en papel",
+          "kind": "term"
+        },
+        {
+          "en": "the exit sign",
+          "es": "el letrero de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency light",
+          "es": "la luz de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the drill log",
+          "es": "la bitácora de simulacros",
+          "kind": "term",
+          "note": "Bitácora is standard in Mexico for a log book."
+        },
+        {
+          "en": "the fire door",
+          "es": "la puerta cortafuego",
+          "kind": "term"
+        },
+        {
+          "en": "blocked",
+          "es": "obstruido",
+          "kind": "term",
+          "note": "Agrees with the noun: la salida está obstruida."
+        },
+        {
+          "en": "the deadline",
+          "es": "el plazo",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, Inspector Guerrero; let me show you the kindergarten wing.",
+          "es": "Buenos días, inspector Guerrero; le muestro el ala de kínder.",
+          "kind": "phrase",
+          "note": "Formal. El ala takes el, but las alas."
+        },
+        {
+          "en": "The exits are checked every morning before the start of school.",
+          "es": "Las salidas se revisan cada mañana antes de la entrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Each drill is recorded in this log with the date and time.",
+          "es": "Cada simulacro se registra en esta bitácora con fecha y hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A map is posted in each classroom, next to the door.",
+          "es": "Se publica un mapa en cada salón, junto a la puerta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you tell me what the local code requires for doors?",
+          "es": "¿Me podría indicar qué exige el código local para las puertas?",
+          "kind": "phrase",
+          "note": "Formal. Let the inspector state the requirement; don't guess."
+        },
+        {
+          "en": "Understood; the artwork comes off the door today.",
+          "es": "Entendido; los trabajos se quitan de la puerta hoy mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Shall I confirm it to you in writing once it's corrected?",
+          "es": "¿Se lo confirmo por escrito cuando esté corregido?",
+          "kind": "phrase",
+          "note": "Formal. Cuando + subjunctive for a future moment."
+        },
+        {
+          "en": "Help me take the drawings off the door, please.",
+          "es": "Ayúdame a quitar los dibujos de la puerta, por favor.",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker."
+        }
+      ],
+      "speaking": "You are the kindergarten lead teacher, and the AI is fire marshal Ramón Guerrero: walk him through the exits, the evacuation map and the drill log in formal usted, describing procedures with passive se (se revisan las salidas, se registra cada simulacro).",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se revisan las salidas; se registra cada simulacro)",
+        "examples": [
+          {
+            "es": "Se revisan las salidas cada mañana antes de que lleguen los niños.",
+            "en": "The exits are checked every morning before the children arrive."
+          },
+          {
+            "es": "Cada simulacro se registra en la bitácora con el tiempo de evacuación.",
+            "en": "Each drill is recorded in the log with the evacuation time."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Writing Up a Hallway Fight for the Assistant Principal",
+      "objective": "Write a clear, factual incident report on a hallway fight that could lead to a suspension.",
+      "words": [
+        {
+          "en": "the incident report",
+          "es": "el informe de incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the altercation",
+          "es": "el altercado",
+          "kind": "term",
+          "note": "Formal report word; in speech people usually say la pelea."
+        },
+        {
+          "en": "the assistant principal",
+          "es": "el subdirector",
+          "kind": "term"
+        },
+        {
+          "en": "the shove",
+          "es": "el empujón",
+          "kind": "term"
+        },
+        {
+          "en": "the punch",
+          "es": "el puñetazo",
+          "kind": "term"
+        },
+        {
+          "en": "the lockers",
+          "es": "los casilleros",
+          "kind": "term",
+          "note": "Many US schools also say los lockers."
+        },
+        {
+          "en": "the injury",
+          "es": "la lesión",
+          "kind": "term"
+        },
+        {
+          "en": "the people involved",
+          "es": "los involucrados",
+          "kind": "term"
+        },
+        {
+          "en": "the security camera",
+          "es": "la cámara de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the written statement",
+          "es": "la declaración escrita",
+          "kind": "term"
+        },
+        {
+          "en": "the direct observation",
+          "es": "la observación directa",
+          "kind": "term"
+        },
+        {
+          "en": "the disciplinary action",
+          "es": "la medida disciplinaria",
+          "kind": "term"
+        },
+        {
+          "en": "the suspension",
+          "es": "la suspensión",
+          "kind": "term"
+        },
+        {
+          "en": "the code of conduct",
+          "es": "el código de conducta",
+          "kind": "term"
+        },
+        {
+          "en": "allegedly",
+          "es": "presuntamente",
+          "kind": "term",
+          "note": "Use it for what students claimed, never for what you saw yourself."
+        },
+        {
+          "en": "At 11:20, I observed two students arguing in front of the lab.",
+          "es": "A las 11:20, observé a dos alumnos discutiendo frente al laboratorio.",
+          "kind": "phrase",
+          "note": "Written register: past tense, exact time, no opinions."
+        },
+        {
+          "en": "Next, one of them pushed the other against the lockers.",
+          "es": "A continuación, uno de ellos empujó al otro contra los casilleros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Consequently, I stepped in and separated the two students.",
+          "es": "Por consiguiente, intervine y separé a los dos alumnos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It should be noted that I did not see who started the argument.",
+          "es": "Cabe señalar que no vi quién inició la discusión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to one of the students, the other had insulted him earlier.",
+          "es": "Según uno de los alumnos, el otro lo había insultado antes.",
+          "kind": "phrase",
+          "note": "Según marks what you were told, not what you saw."
+        },
+        {
+          "en": "I did not witness this; a student reported it.",
+          "es": "Esto no lo presencié; lo reportó un alumno.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Likewise, neither of them had visible injuries.",
+          "es": "Asimismo, ninguno de los dos presentó lesiones visibles.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Vega, would you like me to attach the students' written statements?",
+          "es": "Señor Vega, ¿prefiere que adjunte las declaraciones escritas de los alumnos?",
+          "kind": "phrase",
+          "note": "Formal, spoken to the assistant principal."
+        }
+      ],
+      "speaking": "You are the teacher, and the AI is assistant principal Alberto Vega: walk him through your incident report on the hallway fight, keep what you saw separate from what students said (según...), and use connectors like a continuación, por consiguiente and cabe señalar.",
+      "grammar": {
+        "focus": "Written register; report connectors (a continuación, por consiguiente, cabe señalar)",
+        "examples": [
+          {
+            "es": "A continuación, el alumno A empujó al alumno B contra la puerta del laboratorio.",
+            "en": "Next, student A pushed student B against the lab door."
+          },
+          {
+            "es": "Por consiguiente, llamé a seguridad por radio y acompañé a ambos alumnos a la dirección.",
+            "en": "Consequently, I radioed security and walked both students to the office."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Late Bus: Texts and Calls with Waiting Parents",
+      "objective": "Send clear texts and return calls to parents about a delayed bus, using polite and exact language.",
+      "words": [
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated time",
+          "es": "la hora estimada",
+          "kind": "term"
+        },
+        {
+          "en": "the transportation department",
+          "es": "el departamento de transporte",
+          "kind": "term"
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term",
+          "note": "Common in Mexico and the US; also el conductor."
+        },
+        {
+          "en": "the bus stop",
+          "es": "la parada",
+          "kind": "term"
+        },
+        {
+          "en": "the school app",
+          "es": "la aplicación escolar",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the notice",
+          "es": "el aviso",
+          "kind": "term"
+        },
+        {
+          "en": "the update",
+          "es": "la actualización",
+          "kind": "term"
+        },
+        {
+          "en": "the traffic",
+          "es": "el tráfico",
+          "kind": "term"
+        },
+        {
+          "en": "the mechanical problem",
+          "es": "la falla mecánica",
+          "kind": "term"
+        },
+        {
+          "en": "the written permission",
+          "es": "el permiso por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, Mrs. Pérez; Bus 7 is an hour late.",
+          "es": "Buenas tardes, Sra. Pérez; el autobús 7 lleva una hora de retraso.",
+          "kind": "phrase",
+          "note": "Formal text: greeting, name, then the fact."
+        },
+        {
+          "en": "Could you confirm which stop you pick up your son at?",
+          "es": "¿Podría confirmar en qué parada recoge a su hijo?",
+          "kind": "phrase",
+          "note": "Formal; podría softens the request."
+        },
+        {
+          "en": "I'll let you know as soon as we have the estimated arrival time.",
+          "es": "Le aviso en cuanto tengamos la hora estimada de llegada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Aguirre, I'm returning your call about your daughter.",
+          "es": "Señor Aguirre, le devuelvo la llamada sobre su hija.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm sorry, your name isn't on your daughter's list.",
+          "es": "Lo siento, su nombre no aparece en la lista de su hija.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you ask her mom to call the office?",
+          "es": "¿Podría pedirle a la mamá que llame a la oficina?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd appreciate your patience while we confirm with her mom.",
+          "es": "Le agradecería su paciencia mientras confirmamos con la mamá.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry for the delay; I'll send you the update in 15 minutes.",
+          "es": "Disculpe la demora; le mando la actualización en 15 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the teacher at Pine Ridge K-8, and the AI is a parent waiting for Bus 7: answer their texts and return their call, give exact times and next steps, and use polite forms like ¿podría confirmar...?, le agradecería and le aviso en cuanto...",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría confirmar...?; le agradecería)",
+        "examples": [
+          {
+            "es": "Sra. Pérez, ¿podría confirmar si su hijo se baja en la parada de Elm?",
+            "en": "Mrs. Pérez, could you confirm whether your son gets off at the Elm stop?"
+          },
+          {
+            "es": "Señor Aguirre, le agradecería que la mamá de su hija llamara a la oficina.",
+            "en": "Mr. Aguirre, I'd appreciate it if your daughter's mom called the office."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "End-of-Year Portfolio Walkthrough with a Family",
+      "objective": "Walk a family through a student's portfolio and lay out a summer plan with clear conditions for next year.",
+      "words": [
+        {
+          "en": "the portfolio",
+          "es": "el portafolio",
+          "kind": "term"
+        },
+        {
+          "en": "the writing sample",
+          "es": "la muestra de escritura",
+          "kind": "term"
+        },
+        {
+          "en": "the growth",
+          "es": "el crecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the self-assessment",
+          "es": "la autoevaluación",
+          "kind": "term"
+        },
+        {
+          "en": "the spelling",
+          "es": "la ortografía",
+          "kind": "term"
+        },
+        {
+          "en": "the summer plan",
+          "es": "el plan de verano",
+          "kind": "term"
+        },
+        {
+          "en": "the summer camp",
+          "es": "el campamento de verano",
+          "kind": "term"
+        },
+        {
+          "en": "the public library",
+          "es": "la biblioteca pública",
+          "kind": "term"
+        },
+        {
+          "en": "the school year",
+          "es": "el ciclo escolar",
+          "kind": "term",
+          "note": "Mexican usage; also el año escolar."
+        },
+        {
+          "en": "fourth grade",
+          "es": "el cuarto grado",
+          "kind": "term"
+        },
+        {
+          "en": "the hearing supports",
+          "es": "los apoyos auditivos",
+          "kind": "term"
+        },
+        {
+          "en": "the student file",
+          "es": "el expediente",
+          "kind": "term"
+        },
+        {
+          "en": "the fourth-grade teacher",
+          "es": "la maestra de cuarto",
+          "kind": "term",
+          "note": "Use el maestro de cuarto for a man."
+        },
+        {
+          "en": "the annual review",
+          "es": "la revisión anual",
+          "kind": "term"
+        },
+        {
+          "en": "proud",
+          "es": "orgulloso",
+          "kind": "term",
+          "note": "Orgullosa for a girl or woman."
+        },
+        {
+          "en": "Mr. Medina, look how much Mateo's writing has grown.",
+          "es": "Señor Medina, mire cómo ha crecido la escritura de Mateo.",
+          "kind": "phrase",
+          "note": "Formal, to the parent."
+        },
+        {
+          "en": "Compare this story from September with the one from May.",
+          "es": "Compare este cuento de septiembre con el de mayo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "He would be ready for fourth grade, as long as he keeps reading.",
+          "es": "Estaría listo para cuarto grado, siempre que siga leyendo.",
+          "kind": "phrase",
+          "note": "Siempre que + subjunctive sets a condition."
+        },
+        {
+          "en": "If he read 20 minutes a day, he would keep his level.",
+          "es": "Si leyera 20 minutos al día, mantendría su nivel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll pass on his file so his fourth-grade teacher knows his supports.",
+          "es": "Pasaré su expediente para que su maestra de cuarto conozca sus apoyos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would recommend requesting the plan's annual review before August.",
+          "es": "Le recomendaría pedir la revisión anual del plan antes de agosto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you notice any changes in his hearing, let us know.",
+          "es": "En caso de que note cambios en su audición, avísenos.",
+          "kind": "phrase",
+          "note": "En caso de que is always followed by the subjunctive."
+        },
+        {
+          "en": "Mateo, which piece of work makes you feel proudest?",
+          "es": "Mateo, ¿qué trabajo te hace sentir más orgulloso?",
+          "kind": "phrase",
+          "note": "Informal tú, to the student."
+        }
+      ],
+      "speaking": "You are Mateo's teacher, and the AI is his father, Jorge Medina: walk him through the portfolio, show growth with examples, and lay out a summer plan using the conditional (estaría listo) and conditions like siempre que siga leyendo or a menos que.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (estaría listo, siempre que siga leyendo)",
+        "examples": [
+          {
+            "es": "Mateo estaría listo para cuarto, siempre que siga leyendo en el verano.",
+            "en": "Mateo would be ready for fourth grade, as long as he keeps reading over the summer."
+          },
+          {
+            "es": "Los apoyos seguirían en cuarto, a menos que el equipo decida otra cosa.",
+            "en": "The supports would continue in fourth grade, unless the team decides otherwise."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: Testing Day with No Sub and a Pickup Problem",
+      "objective": "Lead one hard school day in Spanish: train, explain, settle, respond to an emergency, and write the day's report.",
+      "words": [
+        {
+          "en": "the writing station",
+          "es": "la estación de escritura",
+          "kind": "term"
+        },
+        {
+          "en": "the test booklet",
+          "es": "el cuadernillo de examen",
+          "kind": "term"
+        },
+        {
+          "en": "the answer sheet",
+          "es": "la hoja de respuestas",
+          "kind": "term"
+        },
+        {
+          "en": "the test proctor",
+          "es": "el aplicador del examen",
+          "kind": "term"
+        },
+        {
+          "en": "the class with no teacher",
+          "es": "el grupo sin maestro",
+          "kind": "term"
+        },
+        {
+          "en": "testing day",
+          "es": "el día de examen",
+          "kind": "term"
+        },
+        {
+          "en": "the hives",
+          "es": "las ronchas",
+          "kind": "term",
+          "note": "Everyday word for hives in Mexico and the US."
+        },
+        {
+          "en": "the itching",
+          "es": "la comezón",
+          "kind": "term",
+          "note": "Mexican usage; also la picazón."
+        },
+        {
+          "en": "the swollen lip",
+          "es": "el labio hinchado",
+          "kind": "term"
+        },
+        {
+          "en": "the unauthorized person",
+          "es": "la persona no autorizada",
+          "kind": "term"
+        },
+        {
+          "en": "the relative",
+          "es": "el familiar",
+          "kind": "term"
+        },
+        {
+          "en": "the ID card",
+          "es": "la credencial",
+          "kind": "term"
+        },
+        {
+          "en": "the end-of-day report",
+          "es": "el informe del día",
+          "kind": "term"
+        },
+        {
+          "en": "the timeline",
+          "es": "la línea de tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "Rosa, watch me first and then explain it back to me.",
+          "es": "Rosa, obsérvame primero y después explícamelo tú.",
+          "kind": "phrase",
+          "note": "Informal tú, to a coworker."
+        },
+        {
+          "en": "Room 112, please sit at the tables in the back.",
+          "es": "Los del salón 112, siéntense en las mesas del fondo, por favor.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to a group."
+        },
+        {
+          "en": "Nico, does your mouth itch or is it hard to breathe?",
+          "es": "Nico, ¿sientes comezón en la boca o te cuesta respirar?",
+          "kind": "phrase",
+          "note": "Informal tú, to a student."
+        },
+        {
+          "en": "Office, this is room 110; I need the nurse right now.",
+          "es": "Oficina, aquí salón 110; necesito a la enfermera ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm sorry, I can't release the girl to you without authorization.",
+          "es": "Lo siento, no le puedo entregar a la niña sin autorización.",
+          "kind": "phrase",
+          "note": "Formal, to an adult."
+        },
+        {
+          "en": "Mrs. Cordero, could you come to the office to authorize it in writing?",
+          "es": "Señora Cordero, ¿podría venir a la oficina para autorizarlo por escrito?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dr. Esquivel, I'll summarize the day for you in chronological order.",
+          "es": "Doctor Esquivel, le resumo el día en orden cronológico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It should be noted that the test was never interrupted.",
+          "es": "Cabe señalar que el examen no se interrumpió en ningún momento.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the teacher in room 110, and the AI plays Rosa, students, parent Inés Cordero and Dr. Esquivel: train Rosa with commands like explícamelo, seat the extra class, follow the allergy plan, politely refuse an unlisted pickup, and report using a continuación and cabe señalar.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Rosa, si un niño se atora, no le des la respuesta; dale una pista.",
+            "en": "Rosa, if a child gets stuck, don't give him the answer; give him a hint."
+          },
+          {
+            "es": "Le pedí que esperara en la oficina hasta que la mamá confirmara por teléfono.",
+            "en": "I asked him to wait in the office until the mom confirmed by phone."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

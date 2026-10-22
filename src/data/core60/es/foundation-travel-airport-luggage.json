@@ -1,0 +1,948 @@
+{
+  "version": 1,
+  "module": "foundation-travel-airport-luggage",
+  "baseModule": "travel-airport-luggage",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Airports & Lost Luggage Foundation",
+  "threshold": "By Lesson 10, you can greet airline staff, give flight numbers, times and bag weights, say what you need, ask where your gate or bag is, follow security instructions, ask for help, and start Airports & Lost Luggage Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet airline staff politely and say basic airport words with clear Spanish sounds.",
+      "focus": "The five pure vowels, ch, j, ll, rr and the written accent; greetings with usted",
+      "words": [
+        {
+          "en": "the airplane",
+          "es": "el avión",
+          "kind": "term",
+          "note": "The written accent marks the stress: a-vi-ÓN."
+        },
+        {
+          "en": "the flight",
+          "es": "el vuelo",
+          "kind": "term"
+        },
+        {
+          "en": "the suitcase",
+          "es": "la maleta",
+          "kind": "term"
+        },
+        {
+          "en": "the luggage",
+          "es": "el equipaje",
+          "kind": "term",
+          "note": "J sounds like a strong English h: e-ki-PA-he."
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the arrival",
+          "es": "la llegada",
+          "kind": "term",
+          "note": "In Mexico, ll sounds like the y in yes: ye-GA-da."
+        },
+        {
+          "en": "the departure / the exit",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "the counter",
+          "es": "el mostrador",
+          "kind": "term"
+        },
+        {
+          "en": "the airline",
+          "es": "la aerolínea",
+          "kind": "term",
+          "note": "Say every vowel: a-e-ro-LÍ-ne-a."
+        },
+        {
+          "en": "the luggage cart",
+          "es": "el carrito",
+          "kind": "term",
+          "note": "Rr is a strong rolled r: ca-RRI-to."
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term",
+          "note": "Ch sounds like the ch in church."
+        },
+        {
+          "en": "Good morning, sir.",
+          "es": "Buenos días, señor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, my name is Ana.",
+          "es": "Buenas tardes, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with airline and airport staff."
+        },
+        {
+          "en": "Thanks, see you later.",
+          "es": "Gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the check-in agent, say your name, and clearly say the Spanish words for your passport, suitcase and flight."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say flight numbers, seats, times and bag weights in kilos to an airline agent.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and kilos and centimeters for bags",
+      "words": [
+        {
+          "en": "the flight number",
+          "es": "el número de vuelo",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the row / the line",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the time / the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term",
+          "note": "Airlines in Mexico weigh bags in kilos."
+        },
+        {
+          "en": "the centimeter",
+          "es": "el centímetro",
+          "kind": "term"
+        },
+        {
+          "en": "the weight",
+          "es": "el peso",
+          "kind": "term",
+          "note": "In Mexico el peso is also the currency; context makes it clear."
+        },
+        {
+          "en": "the scale",
+          "es": "la báscula",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "midnight",
+          "es": "la medianoche",
+          "kind": "term"
+        },
+        {
+          "en": "It's flight 742.",
+          "es": "Es el vuelo 742.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My flight leaves at 3:30.",
+          "es": "Mi vuelo sale a las 3:30.",
+          "kind": "phrase",
+          "note": "Use a las for at with clock times; a la 1 for one o'clock."
+        },
+        {
+          "en": "My seat is 14C.",
+          "es": "Mi asiento es el 14C.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The suitcase weighs 25 kilos.",
+          "es": "La maleta pesa 25 kilos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the airline, the limit is 23 kilos.",
+          "es": "Según la aerolínea, el límite es de 23 kilos.",
+          "kind": "phrase",
+          "note": "Limits change by airline and ticket; always check yours."
+        },
+        {
+          "en": "It's a quarter past 10.",
+          "es": "Son las 10 y cuarto.",
+          "kind": "phrase",
+          "note": "y cuarto means quarter past; y media means half past."
+        }
+      ],
+      "speaking": "Tell the agent your flight number, your seat, what time your flight leaves and how many kilos your suitcase weighs."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are, where your gate is, and whether a flight is delayed, on time or canceled.",
+      "focus": "Ser for identity and description, estar for location and changing conditions",
+      "words": [
+        {
+          "en": "the gate / the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the terminal",
+          "es": "la terminal",
+          "kind": "term",
+          "note": "Feminine: la terminal."
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "delayed",
+          "es": "retrasado",
+          "kind": "term"
+        },
+        {
+          "en": "on time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "canceled",
+          "es": "cancelado",
+          "kind": "term"
+        },
+        {
+          "en": "heavy",
+          "es": "pesado",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "A woman says lista: Estoy lista."
+        },
+        {
+          "en": "The flight is delayed.",
+          "es": "El vuelo está retrasado.",
+          "kind": "phrase",
+          "note": "Estar: a condition that can change."
+        },
+        {
+          "en": "The gate is in Terminal 2.",
+          "es": "La puerta está en la Terminal 2.",
+          "kind": "phrase",
+          "note": "Estar for location."
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase",
+          "note": "Ser for who you are; turista is the same for a man or a woman."
+        },
+        {
+          "en": "My suitcase is blue.",
+          "es": "Mi maleta es azul.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the counter open?",
+          "es": "¿Está abierto el mostrador?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's my first trip.",
+          "es": "Es mi primer viaje.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell an airline agent who you are, ask where your gate is, and ask whether your flight is delayed or on time."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want at check-in, and ask what you have to do or pay.",
+      "focus": "Tener, hay, necesitar, querer, and hay que + infinitive for what you must do",
+      "words": [
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term"
+        },
+        {
+          "en": "the boarding pass",
+          "es": "el pase de abordar",
+          "kind": "term",
+          "note": "The usual term in Mexico."
+        },
+        {
+          "en": "the carry-on",
+          "es": "el equipaje de mano",
+          "kind": "term"
+        },
+        {
+          "en": "the checked bag",
+          "es": "la maleta documentada",
+          "kind": "term"
+        },
+        {
+          "en": "the tag / the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the window (seat)",
+          "es": "la ventanilla",
+          "kind": "term",
+          "note": "Also asiento de ventanilla."
+        },
+        {
+          "en": "the aisle",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the fee",
+          "es": "el cargo",
+          "kind": "term"
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexico and the US say reservación."
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "I have a reservation.",
+          "es": "Tengo una reservación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are there aisle seats?",
+          "es": "¿Hay asientos en el pasillo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need my boarding pass.",
+          "es": "Necesito mi pase de abordar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd like a window seat.",
+          "es": "Quisiera un asiento de ventanilla.",
+          "kind": "phrase",
+          "note": "Quisiera is a softer, more polite quiero."
+        },
+        {
+          "en": "Do I have to pay a fee?",
+          "es": "¿Hay que pagar un cargo?",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: one has to."
+        },
+        {
+          "en": "I have a suitcase and a backpack.",
+          "es": "Tengo una maleta y una mochila.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the agent you have a reservation, ask if there is a window seat, and ask whether you have to pay a fee for your bag."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do on a layover, and what you can do.",
+      "focus": "Ir a for places, ir a + infinitive for plans, hacer, and poder for can and may",
+      "words": [
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the security checkpoint",
+          "es": "el control de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the connection",
+          "es": "la conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the layover / the stopover",
+          "es": "la escala",
+          "kind": "term"
+        },
+        {
+          "en": "the destination",
+          "es": "el destino",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting area",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the currency exchange",
+          "es": "la casa de cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi",
+          "es": "el taxi",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to Terminal 1.",
+          "es": "Voy a la Terminal 1.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to have a layover in Monterrey.",
+          "es": "Voy a hacer escala en Monterrey.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to take a taxi downtown.",
+          "es": "Voy a tomar un taxi al centro.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "What do I do with my suitcase?",
+          "es": "¿Qué hago con mi maleta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "May I go through?",
+          "es": "¿Puedo pasar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I change my flight?",
+          "es": "¿Puedo cambiar mi vuelo?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell an airport worker where you are going and what you are going to do on your layover, then ask if you can change your flight."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you, your companions and other passengers do at the airport in the present tense.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the passenger",
+          "es": "el pasajero",
+          "kind": "term",
+          "note": "A woman is la pasajera."
+        },
+        {
+          "en": "the agent (woman)",
+          "es": "la agente",
+          "kind": "term",
+          "note": "A man is el agente."
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "the children",
+          "es": "los niños",
+          "kind": "term"
+        },
+        {
+          "en": "boarding",
+          "es": "el abordaje",
+          "kind": "term"
+        },
+        {
+          "en": "the announcement",
+          "es": "el anuncio",
+          "kind": "term"
+        },
+        {
+          "en": "the screen",
+          "es": "la pantalla",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the coffee shop",
+          "es": "la cafetería",
+          "kind": "term"
+        },
+        {
+          "en": "I'm traveling with my family.",
+          "es": "Viajo con mi familia.",
+          "kind": "phrase",
+          "note": "-ar verb, yo form: viajar becomes viajo."
+        },
+        {
+          "en": "Do you work here?",
+          "es": "¿Usted trabaja aquí?",
+          "kind": "phrase",
+          "note": "Formal usted with staff."
+        },
+        {
+          "en": "We're waiting here with the children.",
+          "es": "Esperamos aquí con los niños.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They board first.",
+          "es": "Ellos abordan primero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you eating something before the flight?",
+          "es": "¿Comes algo antes del vuelo?",
+          "kind": "phrase",
+          "note": "Informal tú, for a friend or family member you travel with."
+        },
+        {
+          "en": "I write my address here.",
+          "es": "Escribo mi dirección aquí.",
+          "kind": "phrase",
+          "note": "-ir verb, yo form: escribir becomes escribo."
+        }
+      ],
+      "speaking": "Tell a gate agent who you are traveling with and where you are waiting, and ask whether the agent works at this gate."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask airport staff where, when, which, why, how much and who about gates, flights and bags.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising questions",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in questions; porque (one word) means because."
+        },
+        {
+          "en": "which? / what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál with es: ¿Cuál es mi puerta?"
+        },
+        {
+          "en": "baggage claim",
+          "es": "el reclamo de equipaje",
+          "kind": "term"
+        },
+        {
+          "en": "the baggage carousel",
+          "es": "la banda",
+          "kind": "term"
+        },
+        {
+          "en": "Where is baggage claim?",
+          "es": "¿Dónde está el reclamo de equipaje?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the next flight leave?",
+          "es": "¿Cuándo sale el próximo vuelo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which is my gate?",
+          "es": "¿Cuál es mi puerta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why is the flight delayed?",
+          "es": "¿Por qué está retrasado el vuelo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is an extra bag?",
+          "es": "¿Cuánto cuesta una maleta extra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who can help me?",
+          "es": "¿Quién me puede ayudar?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask an airport worker where baggage claim is, which carousel your flight uses, and when the next flight leaves."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say your bag is not here yet, that nobody is at the counter, and that you need another option.",
+      "focus": "Negatives no, nunca, nadie, nada, todavía no, and más, menos, otro for amounts and options",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less / fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another / other",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro; just otro vuelo, otra maleta."
+        },
+        {
+          "en": "lost",
+          "es": "perdido",
+          "kind": "term"
+        },
+        {
+          "en": "damaged",
+          "es": "dañado",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "My suitcase isn't here.",
+          "es": "Mi maleta no está aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My suitcase hasn't come out yet.",
+          "es": "Todavía no sale mi maleta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody at the counter.",
+          "es": "No hay nadie en el mostrador.",
+          "kind": "phrase",
+          "note": "Spanish keeps no before the verb with nadie and nada."
+        },
+        {
+          "en": "I have nothing to declare.",
+          "es": "No tengo nada que declarar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another flight, please.",
+          "es": "Necesito otro vuelo, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My suitcase is 2 kilos over.",
+          "es": "Mi maleta tiene 2 kilos de más.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a baggage agent your suitcase hasn't come out yet, that nobody is at the counter, and that you need another option."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask staff politely to repeat or help, and follow simple security commands.",
+      "focus": "¿Puede…? + infinitive for polite requests, and usted commands like ponga, espere, quítese",
+      "words": [
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the security bin",
+          "es": "la charola",
+          "kind": "term",
+          "note": "The usual word at Mexican security; bandeja is also understood."
+        },
+        {
+          "en": "the belt",
+          "es": "el cinturón",
+          "kind": "term"
+        },
+        {
+          "en": "the shoes",
+          "es": "los zapatos",
+          "kind": "term"
+        },
+        {
+          "en": "the laptop",
+          "es": "la computadora",
+          "kind": "term",
+          "note": "Common in Mexico; also la laptop."
+        },
+        {
+          "en": "the liquids",
+          "es": "los líquidos",
+          "kind": "term"
+        },
+        {
+          "en": "the jacket",
+          "es": "la chamarra",
+          "kind": "term",
+          "note": "The usual word in Mexico."
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you speak more slowly?",
+          "es": "¿Puede hablar más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put the laptop in the bin.",
+          "es": "Ponga la computadora en la charola.",
+          "kind": "phrase",
+          "note": "Usted command, what a security officer says to one traveler."
+        },
+        {
+          "en": "Take off your shoes, please.",
+          "es": "Quítese los zapatos, por favor.",
+          "kind": "phrase",
+          "note": "Rules differ by airport; follow the officer's instructions."
+        },
+        {
+          "en": "Wait here, please.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a form?",
+          "es": "¿Me puede dar un formulario?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a security officer to repeat an instruction more slowly, then confirm it: put your laptop and liquids in the bin."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize airport cognates and use survival phrases to ask for help or English.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "immigration",
+          "es": "la inmigración",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "nationality",
+          "es": "la nacionalidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the document",
+          "es": "el documento",
+          "kind": "term"
+        },
+        {
+          "en": "the medicine",
+          "es": "la medicina",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "customs",
+          "es": "la aduana",
+          "kind": "term",
+          "note": "Not a cognate: customs is la aduana."
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase",
+          "note": "Formal usted form for staff."
+        },
+        {
+          "en": "How do you say \"gate\" in Spanish?",
+          "es": "¿Cómo se dice \"gate\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's urgent, it's my medicine.",
+          "es": "Es urgente, es mi medicina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is the information desk?",
+          "es": "¿Dónde está el módulo de información?",
+          "kind": "phrase",
+          "note": "Mexican airports often say módulo for a desk or booth."
+        }
+      ],
+      "speaking": "Tell an airline agent you don't understand, ask if they speak English, and explain it is urgent because your medicine is in your bag."
+    }
+  ]
+}

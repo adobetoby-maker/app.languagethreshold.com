@@ -1,3 +1,4 @@
+import { ResetLearningData } from "@/components/auth/ResetLearningData";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -14,12 +15,18 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
-import { useAuth } from "@/state/auth-state";
-import { useSubscription } from "@/state/subscription-state";
+import { AuthProvider, useAuth } from "@/state/auth-state";
+import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { PwaInstallControl } from "@/components/PwaInstallControl";
 
 export const Route = createFileRoute("/account")({
-  component: AccountPage,
+  component: () => (
+    <AuthProvider>
+      <SubscriptionProvider>
+        <AccountPage />
+      </SubscriptionProvider>
+    </AuthProvider>
+  ),
   head: () => ({
     meta: [{ title: "Account — Language Threshold" }],
   }),
@@ -261,6 +268,8 @@ function AccountPage() {
           </div>
 
           <PwaInstallControl variant="card" />
+
+          <ResetLearningData />
 
           {/* ── Plan card ── */}
           <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">

@@ -730,12 +730,12 @@ function sectionForMode(mode: PracticeMode): SectionId {
   return "recall";
 }
 
-/** The kit mode a section opens in; Recall keeps Study, Cards or Match if one is already open. */
-function modeForSection(section: SectionId, current: PracticeMode): PracticeMode {
+/** Enter Recall through Study; Cards and Match remain available inside Recall. */
+function modeForSection(section: SectionId): PracticeMode {
   if (section === "hear") return "listen";
   if (section === "type") return "type";
   if (section === "write") return "write";
-  return sectionForMode(current) === "recall" ? current : "flashcards";
+  return "study";
 }
 
 function scrollBehavior(): ScrollBehavior {
@@ -839,7 +839,7 @@ function OwnedLessonRunner({
   const masteryRef = useRef<HTMLElement>(null);
   const [section, setSection] = useState<SectionId>(initialSection ?? "see");
   const [kitMode, setKitMode] = useState<PracticeMode>(() =>
-    modeForSection(initialSection ?? "see", "flashcards"),
+    modeForSection(initialSection ?? "see"),
   );
   // Authored words (roofing, Spanish) arrive at once; any other lesson gets a generated list.
   const lessonWords = useLessonWords(
@@ -1043,7 +1043,7 @@ function OwnedLessonRunner({
 
   function selectSection(next: SectionId, scroll = false) {
     setSection(next);
-    if (KIT_SECTIONS.includes(next)) setKitMode((current) => modeForSection(next, current));
+    if (KIT_SECTIONS.includes(next)) setKitMode(modeForSection(next));
     // Opening a way of learning is the record; the passage (See it) is recorded on first use.
     if (next !== "see") recordStepOpened(stepForSection[next]);
     if (scroll) {
@@ -1520,10 +1520,9 @@ function OwnedLessonRunner({
                     : undefined
                 }
                 language={state.selectedLanguage}
-                // Authored words keep English as the native side, whatever the app's native setting.
-                nativeLanguage={
-                  lessonWords.status === "authored" ? "English" : state.nativeLanguage
-                }
+                // Authored words are served only to the pair they were written for (English native
+                // for Spanish, Spanish native for the English-for-work stages), so this matches.
+                nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
                 mode={kitMode}
                 onModeChange={onKitModeChange}

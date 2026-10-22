@@ -1,12 +1,18 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Users, Plus, CheckCircle, Loader2, ArrowLeft, User } from "lucide-react";
-import { useAuth } from "@/state/auth-state";
-import { useSubscription } from "@/state/subscription-state";
+import { AuthProvider, useAuth } from "@/state/auth-state";
+import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/family-setup")({
-  component: FamilySetupPage,
+  component: () => (
+    <AuthProvider>
+      <SubscriptionProvider>
+        <FamilySetupPage />
+      </SubscriptionProvider>
+    </AuthProvider>
+  ),
   head: () => ({
     meta: [{ title: "Family Setup — Language Threshold" }],
   }),

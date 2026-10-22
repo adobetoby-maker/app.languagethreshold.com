@@ -1,0 +1,2900 @@
+{
+  "version": 1,
+  "module": "master-legal-immigration",
+  "baseModule": "legal-immigration",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Legal & Immigration Master 20",
+  "threshold": "By Lesson 20, you can train new staff and volunteers and have them teach it back, explain a problem in a case and propose a new plan to a client, refuse an improper request, report a privacy incident or near miss without blame, and write clear case notes in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.170Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Walk a New Paralegal Through How a Case Moves",
+      "objective": "Explain to a new paralegal, step by step and with reasons, how a family case moves from intake to decision.",
+      "words": [
+        {
+          "en": "the initial consultation",
+          "es": "la consulta inicial",
+          "kind": "term"
+        },
+        {
+          "en": "the case file",
+          "es": "el expediente",
+          "kind": "term"
+        },
+        {
+          "en": "the filing",
+          "es": "la presentación",
+          "kind": "term",
+          "note": "In this office it means sending the case to the agency, not a slideshow."
+        },
+        {
+          "en": "the petitioner",
+          "es": "el peticionario",
+          "kind": "term",
+          "note": "A woman is la peticionaria."
+        },
+        {
+          "en": "the beneficiary",
+          "es": "el beneficiario",
+          "kind": "term",
+          "note": "A woman is la beneficiaria."
+        },
+        {
+          "en": "the received date",
+          "es": "la fecha de recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the service center",
+          "es": "el centro de servicio",
+          "kind": "term"
+        },
+        {
+          "en": "the biometrics",
+          "es": "los datos biométricos",
+          "kind": "term"
+        },
+        {
+          "en": "the request for evidence",
+          "es": "la solicitud de evidencia adicional",
+          "kind": "term",
+          "note": "In the office most people just say the RFE."
+        },
+        {
+          "en": "the approval notice",
+          "es": "el aviso de aprobación",
+          "kind": "term",
+          "note": "Different from the aviso de recibo, which only confirms the filing arrived."
+        },
+        {
+          "en": "the denial",
+          "es": "la denegación",
+          "kind": "term",
+          "note": "You will also hear la negación."
+        },
+        {
+          "en": "the processing time",
+          "es": "el tiempo de procesamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the stage",
+          "es": "la etapa",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up",
+          "es": "el seguimiento",
+          "kind": "term"
+        },
+        {
+          "en": "First we do the initial consultation and open the case file.",
+          "es": "Primero hacemos la consulta inicial y abrimos el expediente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then we prepare the petition and send it to USCIS.",
+          "es": "Luego preparamos la petición y la mandamos a USCIS.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This notice only says they received the case, not that they approved it.",
+          "es": "Este aviso solo dice que recibieron el caso, no que lo aprobaron.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why we don't tell the client it's already approved.",
+          "es": "Por eso no le decimos al cliente que ya está aprobado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We write down the received date because we count the time from there.",
+          "es": "Anotamos la fecha de recepción porque desde ahí contamos el tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then comes the biometrics appointment.",
+          "es": "Luego viene la cita para los datos biométricos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you explain the steps in your own words?",
+          "es": "¿Me puedes explicar los pasos con tus propias palabras?",
+          "kind": "phrase",
+          "note": "Informal, to a coworker."
+        },
+        {
+          "en": "Ma'am, your case is going well, but it isn't approved yet.",
+          "es": "Señora, su caso va bien, pero todavía no está aprobado.",
+          "kind": "phrase",
+          "note": "Formal, to a client."
+        }
+      ],
+      "speaking": "You are training the AI, new paralegal Marisol, on how a family case moves: explain each step from intake to decision and why it matters, using primero, luego, porque and por eso, then have her explain the steps back to you.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero llega el aviso de recibo; luego, meses después, la decisión.",
+            "en": "First the receipt notice arrives; then, months later, the decision."
+          },
+          {
+            "es": "El aviso de recibo no es una aprobación; por eso lo leemos con cuidado.",
+            "en": "The receipt notice is not an approval; that's why we read it carefully."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Read the Form Instructions Before the Petition Goes Out",
+      "objective": "Read the official form instructions with an assistant and explain what is required and why, citing the source.",
+      "words": [
+        {
+          "en": "the official instructions",
+          "es": "las instrucciones oficiales",
+          "kind": "term"
+        },
+        {
+          "en": "the form edition",
+          "es": "la edición del formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the edition date",
+          "es": "la fecha de edición",
+          "kind": "term",
+          "note": "On USCIS forms, look for it in the footer of each page."
+        },
+        {
+          "en": "the current version",
+          "es": "la versión vigente",
+          "kind": "term"
+        },
+        {
+          "en": "the previous edition",
+          "es": "la edición anterior",
+          "kind": "term"
+        },
+        {
+          "en": "the official website",
+          "es": "el sitio web oficial",
+          "kind": "term"
+        },
+        {
+          "en": "the black ink",
+          "es": "la tinta negra",
+          "kind": "term"
+        },
+        {
+          "en": "the box (on a form)",
+          "es": "la casilla",
+          "kind": "term"
+        },
+        {
+          "en": "the requirement",
+          "es": "el requisito",
+          "kind": "term"
+        },
+        {
+          "en": "the rejection",
+          "es": "el rechazo",
+          "kind": "term"
+        },
+        {
+          "en": "the money order",
+          "es": "el giro postal",
+          "kind": "term"
+        },
+        {
+          "en": "the mailing address",
+          "es": "la dirección de envío",
+          "kind": "term"
+        },
+        {
+          "en": "the certified translation",
+          "es": "la traducción certificada",
+          "kind": "term"
+        },
+        {
+          "en": "the translator's certification",
+          "es": "la certificación del traductor",
+          "kind": "term"
+        },
+        {
+          "en": "the marriage certificate",
+          "es": "el acta de matrimonio",
+          "kind": "term",
+          "note": "Acta is feminine but takes el in the singular: el acta, las actas."
+        },
+        {
+          "en": "According to the instructions, it's signed by hand, in black ink.",
+          "es": "Según las instrucciones, se firma a mano, con tinta negra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the signature is missing, they send it back without reviewing it.",
+          "es": "Si falta la firma, lo devuelven sin revisarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where did you get the form?",
+          "es": "¿De dónde sacaste el formulario?",
+          "kind": "phrase",
+          "note": "Informal, to a coworker."
+        },
+        {
+          "en": "The current version is always downloaded from the official website.",
+          "es": "La versión vigente siempre se descarga del sitio web oficial.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the instructions, each document in Spanish needs a certified translation.",
+          "es": "Según las instrucciones, cada documento en español lleva traducción certificada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The fee changes, so it gets confirmed on the official page.",
+          "es": "La tarifa cambia, así que se confirma en la página oficial.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to fill it out again on the correct edition.",
+          "es": "Vamos a llenarlo otra vez en la edición correcta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If a box doesn't apply, what do the instructions say to write?",
+          "es": "Si una casilla no aplica, ¿qué dicen las instrucciones que se escribe?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI is legal assistant Tomás: go through the official form instructions with him and explain each requirement and why, citing the source (según las instrucciones), using impersonal se (se firma a mano) and si + present (si falta la firma, lo devuelven).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (según las instrucciones, se firma a mano; si falta la firma, lo devuelven)",
+        "examples": [
+          {
+            "es": "Según las instrucciones, se usa tinta negra y se firma a mano.",
+            "en": "According to the instructions, black ink is used and it's signed by hand."
+          },
+          {
+            "es": "Según la página de USCIS, si la edición no es la vigente, rechazan la petición.",
+            "en": "According to the USCIS page, if the edition isn't the current one, they reject the petition."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a Clinic Volunteer to Assemble a Filing Packet",
+      "objective": "Give clear instructions for assembling a filing packet and have the volunteer teach the steps back.",
+      "words": [
+        {
+          "en": "the filing packet",
+          "es": "el paquete de presentación",
+          "kind": "term"
+        },
+        {
+          "en": "the cover letter",
+          "es": "la carta de presentación",
+          "kind": "term"
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the index (exhibit list)",
+          "es": "el índice",
+          "kind": "term"
+        },
+        {
+          "en": "the tab dividers",
+          "es": "los separadores",
+          "kind": "term"
+        },
+        {
+          "en": "the paper clip",
+          "es": "el clip",
+          "kind": "term"
+        },
+        {
+          "en": "the staple",
+          "es": "la grapa",
+          "kind": "term",
+          "note": "Mexican Spanish: grapar or engrapar for to staple."
+        },
+        {
+          "en": "the photocopy",
+          "es": "la fotocopia",
+          "kind": "term"
+        },
+        {
+          "en": "the original",
+          "es": "el original",
+          "kind": "term",
+          "note": "Short for el documento original."
+        },
+        {
+          "en": "the passport-style photos",
+          "es": "las fotos tipo pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the envelope",
+          "es": "el sobre",
+          "kind": "term"
+        },
+        {
+          "en": "the tracking number",
+          "es": "el número de rastreo",
+          "kind": "term"
+        },
+        {
+          "en": "the client folder",
+          "es": "la carpeta del cliente",
+          "kind": "term"
+        },
+        {
+          "en": "the scanner",
+          "es": "el escáner",
+          "kind": "term"
+        },
+        {
+          "en": "Put them in order the way the checklist says.",
+          "es": "Ordénalas como dice la lista de verificación.",
+          "kind": "phrase",
+          "note": "Informal command; the pronoun attaches to the end and adds an accent."
+        },
+        {
+          "en": "Copy it and give it back to the client today.",
+          "es": "Cópialo y devuélveselo al cliente hoy mismo.",
+          "kind": "phrase",
+          "note": "Le becomes se before lo: devuélveselo, not devuélvelelo."
+        },
+        {
+          "en": "Don't staple it; use a paper clip, according to the instructions.",
+          "es": "No lo grapes; usa un clip, según las instrucciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't put it in the envelope; send only the photocopy.",
+          "es": "No lo metas en el sobre; manda solo la fotocopia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Explícamelo tú ahora, paso por paso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Relax, that's why we check together.",
+          "es": "Tranquilo, para eso revisamos juntos.",
+          "kind": "phrase",
+          "note": "Informal and supportive, to a volunteer."
+        },
+        {
+          "en": "Sir, here is your passport; keep it in a safe place.",
+          "es": "Señor, aquí tiene su pasaporte; guárdelo en un lugar seguro.",
+          "kind": "phrase",
+          "note": "Formal, to a client."
+        },
+        {
+          "en": "Write the tracking number in the client folder.",
+          "es": "Anota el número de rastreo en la carpeta del cliente.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are training the AI, law-student volunteer Diego, to assemble a filing packet: give clear steps with commands like ordénalas, cópialo and no lo grapes, check his work, and have him teach the steps back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (ordénalas, cópialo, no lo grapes, devuélveselo)",
+        "examples": [
+          {
+            "es": "Saca el pasaporte del sobre y devuélveselo al señor Ruiz.",
+            "en": "Take the passport out of the envelope and give it back to Mr. Ruiz."
+          },
+          {
+            "es": "Fotocópialo por los dos lados, y no lo grapes.",
+            "en": "Photocopy it on both sides, and don't staple it."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "The Office Privacy Protocol, Explained to the Front Desk",
+      "objective": "Read the office's client-privacy protocol with a receptionist and explain each step and its reason.",
+      "words": [
+        {
+          "en": "the privacy protocol",
+          "es": "el protocolo de privacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the identity verification",
+          "es": "la verificación de identidad",
+          "kind": "term"
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the written authorization",
+          "es": "la autorización por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the consent",
+          "es": "el consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the authorized person",
+          "es": "la persona autorizada",
+          "kind": "term"
+        },
+        {
+          "en": "the third party",
+          "es": "el tercero",
+          "kind": "term",
+          "note": "Usually heard as un tercero or terceras personas."
+        },
+        {
+          "en": "the caller ID",
+          "es": "el identificador de llamadas",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el mensaje de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the call log",
+          "es": "el registro de llamadas",
+          "kind": "term"
+        },
+        {
+          "en": "the screen lock",
+          "es": "el bloqueo de pantalla",
+          "kind": "term"
+        },
+        {
+          "en": "the shredder",
+          "es": "la trituradora",
+          "kind": "term"
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the personal data",
+          "es": "los datos personales",
+          "kind": "term"
+        },
+        {
+          "en": "Before giving out information, you have to verify identity.",
+          "es": "Antes de dar información, hay que verificar la identidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm sorry, I can't confirm whether they are a client of this office.",
+          "es": "Lo siento, no puedo confirmar si es cliente de esta oficina.",
+          "kind": "phrase",
+          "note": "Formal, to a caller."
+        },
+        {
+          "en": "Can you give me your name and a number so we can call you back?",
+          "es": "¿Me da su nombre y un número para regresarle la llamada?",
+          "kind": "phrase",
+          "note": "Formal, to a caller. Regresar la llamada is common in Mexican Spanish."
+        },
+        {
+          "en": "Without written authorization, we don't confirm a single appointment.",
+          "es": "Sin autorización por escrito, no confirmamos ni una cita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After hanging up, you have to log it in the call log.",
+          "es": "Después de colgar, hay que anotarlo en el registro de llamadas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before you get up, lock the screen.",
+          "es": "Antes de levantarte, bloquea la pantalla.",
+          "kind": "phrase",
+          "note": "Informal, to a coworker."
+        },
+        {
+          "en": "We have to protect the client, even if a relative calls.",
+          "es": "Hay que proteger al cliente, aunque llame un familiar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why do you think this step exists?",
+          "es": "¿Por qué crees que existe este paso?",
+          "kind": "phrase",
+          "note": "Informal, to a coworker."
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI is receptionist Lucía: read the office privacy protocol with her and explain each step and its reason, using antes de / después de + infinitive and hay que (antes de dar información, hay que verificar la identidad).",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de dar información, hay que verificar la identidad)",
+        "examples": [
+          {
+            "es": "Antes de confirmar una cita, hay que revisar la autorización en el expediente.",
+            "en": "Before confirming an appointment, you have to check the authorization in the file."
+          },
+          {
+            "es": "Después de usar esos papeles, hay que pasarlos por la trituradora.",
+            "en": "After using those papers, you have to put them through the shredder."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "A Prior Removal Order Shows Up in the Records",
+      "objective": "Tell a client what the records request revealed, ask what happened then, and propose a revised plan.",
+      "words": [
+        {
+          "en": "the FOIA request",
+          "es": "la solicitud FOIA",
+          "kind": "term",
+          "note": "FOIA is said as one word, like FO-ya."
+        },
+        {
+          "en": "the records",
+          "es": "los registros",
+          "kind": "term"
+        },
+        {
+          "en": "the removal order",
+          "es": "la orden de remoción",
+          "kind": "term",
+          "note": "Clients often say orden de deportación; records may use either term."
+        },
+        {
+          "en": "the crossing",
+          "es": "el cruce",
+          "kind": "term"
+        },
+        {
+          "en": "the Border Patrol",
+          "es": "la Patrulla Fronteriza",
+          "kind": "term"
+        },
+        {
+          "en": "the fingerprints",
+          "es": "las huellas digitales",
+          "kind": "term"
+        },
+        {
+          "en": "the reentry",
+          "es": "el reingreso",
+          "kind": "term"
+        },
+        {
+          "en": "the reentry bar",
+          "es": "la prohibición de reingreso",
+          "kind": "term",
+          "note": "How long it lasts depends on the case; confirm it in the records and the law."
+        },
+        {
+          "en": "the immigration waiver",
+          "es": "el perdón migratorio",
+          "kind": "term",
+          "note": "Everyday name for a waiver; each waiver has its own official form."
+        },
+        {
+          "en": "Form I-212",
+          "es": "el formulario I-212",
+          "kind": "term",
+          "note": "Permission to reapply for admission after removal; eligibility depends on the case."
+        },
+        {
+          "en": "the shame",
+          "es": "la vergüenza",
+          "kind": "term"
+        },
+        {
+          "en": "the anger",
+          "es": "el enojo",
+          "kind": "term"
+        },
+        {
+          "en": "the revised plan",
+          "es": "el plan revisado",
+          "kind": "term"
+        },
+        {
+          "en": "the consequences",
+          "es": "las consecuencias",
+          "kind": "term"
+        },
+        {
+          "en": "honesty",
+          "es": "la honestidad",
+          "kind": "term"
+        },
+        {
+          "en": "The records show a removal order at the border.",
+          "es": "Los registros muestran una orden de remoción en la frontera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tell me what happened that day, take your time.",
+          "es": "Cuénteme qué pasó ese día, con calma.",
+          "kind": "phrase",
+          "note": "Formal usted command to a client."
+        },
+        {
+          "en": "How old were you when you crossed?",
+          "es": "¿Cuántos años tenía cuando cruzó?",
+          "kind": "phrase",
+          "note": "Imperfect for age and background, preterite for the single event."
+        },
+        {
+          "en": "Did they take your fingerprints?",
+          "es": "¿Le tomaron las huellas digitales?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not judging you; I need the full story to protect you.",
+          "es": "No lo estoy juzgando; necesito la historia completa para protegerlo.",
+          "kind": "phrase",
+          "note": "Formal; use la and protegerla with a female client."
+        },
+        {
+          "en": "It's normal to feel ashamed; many people don't mention it.",
+          "es": "Es normal sentir vergüenza; mucha gente no lo menciona.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would propose waiting and checking if you qualify for a waiver.",
+          "es": "Yo propondría esperar y revisar si califica para un perdón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We wouldn't file anything until we confirm the consequences.",
+          "es": "No presentaríamos nada hasta confirmar las consecuencias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI is Ernesto Villalba, your client: tell him the records show a past border removal, ask what happened using preterite and imperfect (cuando usted cruzó, tenía...), and propose a revised plan with yo propondría; relay the attorney's decision; do not give legal advice yourself.",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (cuando usted cruzó, tenía miedo; yo propondría...)",
+        "examples": [
+          {
+            "es": "Cuando usted cruzó, tenía miedo y no entendía los papeles.",
+            "en": "When you crossed, you were afraid and didn't understand the papers."
+          },
+          {
+            "es": "Yo propondría pedir primero todos los registros de la frontera.",
+            "en": "I would propose requesting all the border records first."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "No Birth Certificate Available: Using Other Evidence",
+      "objective": "Explain why the birth certificate cannot be used and compare the substitute evidence the client can gather.",
+      "words": [
+        {
+          "en": "the civil registry",
+          "es": "el registro civil",
+          "kind": "term"
+        },
+        {
+          "en": "the certificate of no record",
+          "es": "la constancia de no inscripción",
+          "kind": "term",
+          "note": "The name varies by country; ask the registry for its official document."
+        },
+        {
+          "en": "the baptismal certificate",
+          "es": "la fe de bautismo",
+          "kind": "term",
+          "note": "Issued by the parish; some people say partida de bautismo."
+        },
+        {
+          "en": "the parish",
+          "es": "la parroquia",
+          "kind": "term"
+        },
+        {
+          "en": "the secondary evidence",
+          "es": "la evidencia secundaria",
+          "kind": "term",
+          "note": "Agency term for proof used when the primary document is not available."
+        },
+        {
+          "en": "the school records",
+          "es": "los registros escolares",
+          "kind": "term"
+        },
+        {
+          "en": "the hospital records",
+          "es": "los registros del hospital",
+          "kind": "term"
+        },
+        {
+          "en": "the declarant",
+          "es": "el declarante",
+          "kind": "term",
+          "note": "Use la declarante for a woman."
+        },
+        {
+          "en": "the Policy Manual",
+          "es": "el Manual de Políticas",
+          "kind": "term",
+          "note": "USCIS guidance; check the current version on the official site."
+        },
+        {
+          "en": "the census record",
+          "es": "el registro del censo",
+          "kind": "term"
+        },
+        {
+          "en": "the evidentiary weight",
+          "es": "el valor probatorio",
+          "kind": "term"
+        },
+        {
+          "en": "the delayed registration",
+          "es": "la inscripción tardía",
+          "kind": "term"
+        },
+        {
+          "en": "the parents' names",
+          "es": "los nombres de los padres",
+          "kind": "term"
+        },
+        {
+          "en": "the certified copy",
+          "es": "la copia certificada",
+          "kind": "term"
+        },
+        {
+          "en": "the issue date",
+          "es": "la fecha de emisión",
+          "kind": "term"
+        },
+        {
+          "en": "Your birth doesn't appear in the civil registry.",
+          "es": "En el registro civil no aparece su nacimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First we're going to request a certificate of no record.",
+          "es": "Primero vamos a pedir una constancia de no inscripción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A document from your childhood carries more weight than a recent one.",
+          "es": "Un documento de su infancia pesa más que uno reciente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll ask for statements from people who have known you since childhood.",
+          "es": "Pediremos declaraciones de personas que la conocen desde niña.",
+          "kind": "phrase",
+          "note": "Use lo and niño with a male client."
+        },
+        {
+          "en": "Does your mother still have your baptismal certificate?",
+          "es": "¿Su mamá todavía tiene su fe de bautismo?",
+          "kind": "phrase",
+          "note": "Formal su for a client."
+        },
+        {
+          "en": "Do you have school records with your date of birth?",
+          "es": "¿Tiene registros escolares con su fecha de nacimiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll check what the official guidance accepts before we send anything.",
+          "es": "Revisaremos qué acepta la guía oficial antes de mandar algo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't worry; this happens to a lot of people.",
+          "es": "No se preocupe; esto le pasa a mucha gente.",
+          "kind": "phrase",
+          "note": "Formal; reassures a client under stress."
+        }
+      ],
+      "speaking": "You are the paralegal, and the AI is Rosa Amaya, your client: explain why her birth certificate can't be used, then plan substitute evidence with the future and ir a (vamos a pedir, pediremos), comparing options with más que and menos que.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (la fe de bautismo va a pesar más que una carta; pediremos dos declaraciones)",
+        "examples": [
+          {
+            "es": "La fe de bautismo va a pesar más que una carta de una vecina.",
+            "en": "The baptismal certificate will carry more weight than a letter from a neighbor."
+          },
+          {
+            "es": "Mañana llamaremos a la parroquia y pediremos una copia certificada.",
+            "en": "Tomorrow we'll call the parish and request a certified copy."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "The Employer Wants to Sit In on the Meeting",
+      "objective": "Politely ask the employer to step out, then take the worker's job history with exact dates, hours and pay.",
+      "words": [
+        {
+          "en": "the ranch",
+          "es": "el rancho",
+          "kind": "term"
+        },
+        {
+          "en": "the boss",
+          "es": "el patrón",
+          "kind": "term",
+          "note": "Common word for a farm employer; use la patrona for a woman."
+        },
+        {
+          "en": "the field foreman",
+          "es": "el mayordomo",
+          "kind": "term",
+          "note": "Used in California fields; others say el capataz."
+        },
+        {
+          "en": "the crew",
+          "es": "la cuadrilla",
+          "kind": "term"
+        },
+        {
+          "en": "the farm labor contractor",
+          "es": "el contratista agrícola",
+          "kind": "term"
+        },
+        {
+          "en": "piece-rate work",
+          "es": "el trabajo por contrato",
+          "kind": "term",
+          "note": "In the fields, por contrato means paid by the box or bin, not a written contract."
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the overtime hours",
+          "es": "las horas extras",
+          "kind": "term"
+        },
+        {
+          "en": "the pay stub",
+          "es": "el talón de pago",
+          "kind": "term"
+        },
+        {
+          "en": "the season",
+          "es": "la temporada",
+          "kind": "term"
+        },
+        {
+          "en": "the harvest",
+          "es": "la cosecha",
+          "kind": "term"
+        },
+        {
+          "en": "the hourly wage",
+          "es": "el salario por hora",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "privacy",
+          "es": "la privacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the retaliation",
+          "es": "la represalia",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Solís, please wait outside.",
+          "es": "Señor Solís, le pido que espere afuera, por favor.",
+          "kind": "phrase",
+          "note": "Formal and polite to the employer."
+        },
+        {
+          "en": "Thanks for bringing him; the meeting is only with Mr. Cárdenas.",
+          "es": "Gracias por traerlo; la reunión es solo con el señor Cárdenas.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "It's better if he answers; that's how we work in this office.",
+          "es": "Es mejor que él conteste; así trabajamos en esta oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Here you can speak openly; this is confidential.",
+          "es": "Aquí puede hablar con confianza; esto es confidencial.",
+          "kind": "phrase",
+          "note": "Formal usted to the worker."
+        },
+        {
+          "en": "What month and year did you start working at the ranch?",
+          "es": "¿En qué mes y año empezó a trabajar en el rancho?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many hours did you work per week during the harvest?",
+          "es": "¿Cuántas horas trabajó por semana durante la cosecha?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Were you paid by the hour or by the box?",
+          "es": "¿Le pagaban por hora o por caja?",
+          "kind": "phrase",
+          "note": "Imperfect for how pay usually worked."
+        },
+        {
+          "en": "Please repeat the date so I can write it down correctly.",
+          "es": "Repítame la fecha, por favor, para anotarla bien.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the paralegal, and the AI plays ranch owner Gerardo Solís and then worker Julio Cárdenas: politely ask the employer to wait outside, then take Julio's job history in the preterite (empezó, trabajó) with exact dates, hours and pay.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (empezó en marzo de 2019, trabajó cincuenta horas, le pagaban por caja)",
+        "examples": [
+          {
+            "es": "Empezó en marzo de 2019 y trabajó 50 horas por semana.",
+            "en": "He started in March 2019 and worked 50 hours a week."
+          },
+          {
+            "es": "En la cosecha le pagaban por caja, no por hora.",
+            "en": "During the harvest he was paid by the box, not by the hour."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: A Client Asks to Backdate a Letter",
+      "objective": "Refuse a request to backdate a landlord letter, explain the risk, and offer honest alternatives.",
+      "words": [
+        {
+          "en": "the landlord",
+          "es": "el casero",
+          "kind": "term",
+          "note": "Everyday word; formal documents say el arrendador. Use la casera for a woman."
+        },
+        {
+          "en": "the lease",
+          "es": "el contrato de renta",
+          "kind": "term"
+        },
+        {
+          "en": "the original date",
+          "es": "la fecha original",
+          "kind": "term"
+        },
+        {
+          "en": "the altered document",
+          "es": "el documento alterado",
+          "kind": "term"
+        },
+        {
+          "en": "the false statement",
+          "es": "la declaración falsa",
+          "kind": "term"
+        },
+        {
+          "en": "the inadmissibility",
+          "es": "la inadmisibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the rent receipts",
+          "es": "los recibos de renta",
+          "kind": "term"
+        },
+        {
+          "en": "the bank statements",
+          "es": "los estados de cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the electric bills",
+          "es": "los recibos de luz",
+          "kind": "term"
+        },
+        {
+          "en": "professional ethics",
+          "es": "la ética profesional",
+          "kind": "term"
+        },
+        {
+          "en": "the law license",
+          "es": "la licencia para ejercer",
+          "kind": "term"
+        },
+        {
+          "en": "the alternatives",
+          "es": "las alternativas",
+          "kind": "term"
+        },
+        {
+          "en": "the previous address",
+          "es": "la dirección anterior",
+          "kind": "term"
+        },
+        {
+          "en": "the mail in your name",
+          "es": "el correo a su nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the clarifying letter",
+          "es": "la carta aclaratoria",
+          "kind": "term"
+        },
+        {
+          "en": "the legal risk",
+          "es": "el riesgo legal",
+          "kind": "term"
+        },
+        {
+          "en": "I'm sorry, I can't change the date on this document.",
+          "es": "Lo siento, no puedo cambiar la fecha de este documento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend that you sign anything with false dates.",
+          "es": "No recomiendo que usted firme nada con fechas falsas.",
+          "kind": "phrase",
+          "note": "No recomiendo que + subjunctive (firme)."
+        },
+        {
+          "en": "An altered document can damage your whole case.",
+          "es": "Un documento alterado puede dañar todo su caso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's better to ask the landlord for a new letter dated today.",
+          "es": "Mejor pídale al casero una carta nueva con la fecha de hoy.",
+          "kind": "phrase",
+          "note": "Formal usted command."
+        },
+        {
+          "en": "The letter can say how long you've lived there, with real dates.",
+          "es": "La carta puede decir desde cuándo vive ahí, con fechas reales.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have rent receipts or electric bills from those years?",
+          "es": "¿Tiene recibos de renta o recibos de luz de esos años?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't bring changed documents; bring them just as they are.",
+          "es": "No traiga documentos cambiados; tráigalos tal como están.",
+          "kind": "phrase",
+          "note": "Negative usted command: no traiga; affirmative: tráigalos."
+        },
+        {
+          "en": "Don't worry; we'll look for other real evidence.",
+          "es": "No se preocupe; vamos a buscar otras pruebas reales.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI is Yesenia Rojas, your client: refuse her request to change the date on her landlord's letter, explain the risk with no recomiendo que + subjunctive, and offer honest alternatives using negative commands like no le cambie la fecha; relay the attorney's decision; do not give legal advice yourself.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no le cambie la fecha; no recomiendo que la presente así)",
+        "examples": [
+          {
+            "es": "No le cambie la fecha; deje la carta como está.",
+            "en": "Don't change the date; leave the letter as it is."
+          },
+          {
+            "es": "No recomiendo que la presente así, porque sería una declaración falsa.",
+            "en": "I don't recommend that you submit it like this, because it would be a false statement."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback on a Translation That Softened the Facts",
+      "objective": "Give a paralegal specific feedback on an inaccurate declaration translation and agree on how to fix it.",
+      "words": [
+        {
+          "en": "the faithful translation",
+          "es": "la traducción fiel",
+          "kind": "term"
+        },
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term"
+        },
+        {
+          "en": "the source text",
+          "es": "el texto original",
+          "kind": "term"
+        },
+        {
+          "en": "the verbatim words",
+          "es": "las palabras textuales",
+          "kind": "term"
+        },
+        {
+          "en": "the nuance",
+          "es": "el matiz",
+          "kind": "term"
+        },
+        {
+          "en": "the omission",
+          "es": "la omisión",
+          "kind": "term"
+        },
+        {
+          "en": "the translation error",
+          "es": "el error de traducción",
+          "kind": "term"
+        },
+        {
+          "en": "the accuracy",
+          "es": "la exactitud",
+          "kind": "term"
+        },
+        {
+          "en": "the glossary",
+          "es": "el glosario",
+          "kind": "term"
+        },
+        {
+          "en": "the recording",
+          "es": "la grabación",
+          "kind": "term"
+        },
+        {
+          "en": "the tone",
+          "es": "el tono",
+          "kind": "term"
+        },
+        {
+          "en": "the defensiveness",
+          "es": "la actitud defensiva",
+          "kind": "term"
+        },
+        {
+          "en": "the beating",
+          "es": "la golpiza",
+          "kind": "term"
+        },
+        {
+          "en": "the push",
+          "es": "el empujón",
+          "kind": "term",
+          "note": "Much milder than golpiza; swapping one for the other changes the facts."
+        },
+        {
+          "en": "the meaning",
+          "es": "el sentido",
+          "kind": "term"
+        },
+        {
+          "en": "the English version",
+          "es": "la versión en inglés",
+          "kind": "term"
+        },
+        {
+          "en": "Here she said 'they beat me', not 'they pushed me'.",
+          "es": "Aquí ella dijo 'me golpearon', no 'me empujaron'.",
+          "kind": "phrase",
+          "note": "Quote the client's exact words so the feedback is specific, not personal."
+        },
+        {
+          "en": "It's important that you don't change the meaning of what she said.",
+          "es": "Es importante que no cambies el sentido de lo que dijo.",
+          "kind": "phrase",
+          "note": "Informal tú with a coworker; es importante que + subjunctive."
+        },
+        {
+          "en": "It's not an attack; I want the declaration to be accurate.",
+          "es": "No es un ataque; quiero que la declaración sea exacta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand you wanted to protect her, but the officer needs the facts.",
+          "es": "Entiendo que querías protegerla, pero el oficial necesita los hechos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather you flag your doubts instead of guessing.",
+          "es": "Prefiero que marques tus dudas en vez de adivinar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you go over it again with the recording.",
+          "es": "Te recomiendo que la revises otra vez con la grabación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If something sounds harsh, leave it as is and let me know.",
+          "es": "Si algo suena fuerte, déjalo así y avísame.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why did you decide to soften this part?",
+          "es": "¿Por qué decidiste suavizar esta parte?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervising staff lead, and the AI is paralegal Andrés Molina, whose translation softened a client's declaration: point to specific changes, explain why accuracy matters, and agree on a fix using quiero que… and te recomiendo que… with the subjunctive.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que traduzcas palabra por palabra; te recomiendo que lo revises)",
+        "examples": [
+          {
+            "es": "Quiero que traduzcas cada detalle tal como ella lo dijo.",
+            "en": "I want you to translate every detail exactly as she said it."
+          },
+          {
+            "es": "Te sugiero que leas el texto original antes de entregarla.",
+            "en": "I suggest you read the source text before you turn it in."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Two Paralegals, One Missed Calendar Entry",
+      "objective": "Hear both sides of a deadline dispute, report what each person said, and agree on who owns each task.",
+      "words": [
+        {
+          "en": "the shared calendar",
+          "es": "el calendario compartido",
+          "kind": "term"
+        },
+        {
+          "en": "the due date",
+          "es": "la fecha límite",
+          "kind": "term"
+        },
+        {
+          "en": "the response date",
+          "es": "la fecha de respuesta",
+          "kind": "term"
+        },
+        {
+          "en": "the reminder",
+          "es": "el recordatorio",
+          "kind": "term"
+        },
+        {
+          "en": "the person responsible",
+          "es": "la persona responsable",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the task assignment",
+          "es": "la asignación de tareas",
+          "kind": "term"
+        },
+        {
+          "en": "the inbox",
+          "es": "la bandeja de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the double check",
+          "es": "la doble verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the handoff",
+          "es": "el traspaso",
+          "kind": "term"
+        },
+        {
+          "en": "the email thread",
+          "es": "la cadena de correos",
+          "kind": "term"
+        },
+        {
+          "en": "the team meeting",
+          "es": "la reunión de equipo",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the workload",
+          "es": "la carga de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "Valeria, tell me your side; Rubén, you're up next.",
+          "es": "Valeria, cuéntame tu versión; Rubén, luego te toca a ti.",
+          "kind": "phrase",
+          "note": "Informal tú between coworkers."
+        },
+        {
+          "en": "Rubén told me he was in court that day.",
+          "es": "Rubén me dijo que ese día estaba en la corte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Valeria says the notice came to the general inbox.",
+          "es": "Valeria dice que el aviso llegó a la bandeja general.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So each of you thought the other one was going to enter it.",
+          "es": "Entonces cada uno creía que el otro lo iba a anotar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not looking for someone to blame; we want this not to happen again.",
+          "es": "No buscamos culpables; queremos que esto no se repita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who opened the notice first, and what did they do with it?",
+          "es": "¿Quién abrió el aviso primero y qué hizo con él?",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the notice, what is the response date?",
+          "es": "Según el aviso, ¿cuál es la fecha de respuesta?",
+          "kind": "phrase",
+          "note": "Always read the date off the notice itself, not from memory."
+        },
+        {
+          "en": "Starting today, Valeria enters it and Rubén verifies it.",
+          "es": "Desde hoy, Valeria lo anota y Rubén lo verifica.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the supervising staff lead, and the AI plays paralegals Valeria Ochoa and Rubén Castañeda: hear each side, report back what each said with dijo que and explicó que plus the imperfect, and agree on who owns each task from now on.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Valeria dijo que pensaba que tú lo tenías; Rubén explicó que estaba en audiencia)",
+        "examples": [
+          {
+            "es": "Valeria dijo que creía que el caso era de Rubén.",
+            "en": "Valeria said she thought the case was Rubén's."
+          },
+          {
+            "es": "Rubén explicó que estaba en una audiencia y no vio el correo.",
+            "en": "Rubén explained that he was at a hearing and didn't see the email."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping the Clinic Team Going Through a Surge Week",
+      "objective": "Encourage tired volunteers, commit to concrete support, and have them teach back the screening steps.",
+      "words": [
+        {
+          "en": "the re-registration",
+          "es": "la reinscripción",
+          "kind": "term"
+        },
+        {
+          "en": "TPS (Temporary Protected Status)",
+          "es": "el TPS",
+          "kind": "term",
+          "note": "Often said letter by letter in Spanish (te-pe-ese) or just in English."
+        },
+        {
+          "en": "the initial screening",
+          "es": "la evaluación inicial",
+          "kind": "term"
+        },
+        {
+          "en": "the screening questionnaire",
+          "es": "el cuestionario de evaluación",
+          "kind": "term"
+        },
+        {
+          "en": "the red flags",
+          "es": "las señales de alerta",
+          "kind": "term"
+        },
+        {
+          "en": "the referral",
+          "es": "el referido",
+          "kind": "term",
+          "note": "Common US Spanish usage in clinics; referir a alguien = to refer someone."
+        },
+        {
+          "en": "the screening table",
+          "es": "la mesa de evaluación",
+          "kind": "term"
+        },
+        {
+          "en": "the number ticket",
+          "es": "la ficha",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the snacks",
+          "es": "los refrigerios",
+          "kind": "term"
+        },
+        {
+          "en": "the backup help",
+          "es": "el refuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the coordinator (woman)",
+          "es": "la coordinadora",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the morale",
+          "es": "el ánimo",
+          "kind": "term"
+        },
+        {
+          "en": "Tomorrow I'll bring two more volunteers for the table.",
+          "es": "Mañana traeré a dos voluntarios más para la mesa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're doing very well; yesterday you helped 80 people.",
+          "es": "Lo están haciendo muy bien; ayer atendieron a 80 personas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Patricia, could you set up the breaks in rotation?",
+          "es": "Patricia, ¿podrías organizar los descansos por turnos?",
+          "kind": "phrase",
+          "note": "Informal tú with the coordinator."
+        },
+        {
+          "en": "Explain the screening steps, in order, please.",
+          "es": "Expliquen los pasos de la evaluación, en orden, por favor.",
+          "kind": "phrase",
+          "note": "Ustedes command to the group."
+        },
+        {
+          "en": "If you see a red flag, pass the case to a lawyer.",
+          "es": "Si ven una señal de alerta, pasen el caso a un abogado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You don't give legal advice; you only ask and take notes.",
+          "es": "Ustedes no dan consejos legales; solo preguntan y anotan.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll stay until the end to review the hard cases.",
+          "es": "Yo me quedaré hasta el final para revisar los casos difíciles.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you for being here; without you, this doesn't work.",
+          "es": "Gracias por estar aquí; sin ustedes, esto no funciona.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic's lead staff member, and the AI is coordinator Patricia Delgado with two tired volunteers: encourage them, commit to concrete support with the future (traeré, me quedaré), and have them explain the screening steps back to you.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana traeré más ayuda; lo están haciendo muy bien)",
+        "examples": [
+          {
+            "es": "A las 12 les traeré comida y agua.",
+            "en": "At 12 I'll bring you food and water."
+          },
+          {
+            "es": "El jueves vendrán dos abogadas más a ayudarnos.",
+            "en": "On Thursday two more lawyers will come to help us."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Family Case, Four Listeners Before Noon",
+      "objective": "Switch between usted and tú and soften requests for a client, her grandson, a consulate official and a supervisor.",
+      "words": [
+        {
+          "en": "you (formal)",
+          "es": "usted",
+          "kind": "term",
+          "note": "Use with the elderly client, the consulate official and anyone you don't know well."
+        },
+        {
+          "en": "you (informal)",
+          "es": "tú",
+          "kind": "term",
+          "note": "Fine with a teenager and with coworkers who already use tú with you."
+        },
+        {
+          "en": "the grandson",
+          "es": "el nieto",
+          "kind": "term"
+        },
+        {
+          "en": "the power of attorney",
+          "es": "el poder notarial",
+          "kind": "term"
+        },
+        {
+          "en": "the birth certificate",
+          "es": "el acta de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the apostille",
+          "es": "la apostilla",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el trámite",
+          "kind": "term"
+        },
+        {
+          "en": "the consular section",
+          "es": "la sección consular",
+          "kind": "term"
+        },
+        {
+          "en": "the reference number",
+          "es": "el número de referencia",
+          "kind": "term"
+        },
+        {
+          "en": "the office hours",
+          "es": "el horario de atención",
+          "kind": "term"
+        },
+        {
+          "en": "the consular ID card",
+          "es": "la matrícula consular",
+          "kind": "term"
+        },
+        {
+          "en": "the sign-off",
+          "es": "el visto bueno",
+          "kind": "term"
+        },
+        {
+          "en": "plain language",
+          "es": "el lenguaje sencillo",
+          "kind": "term"
+        },
+        {
+          "en": "the phone extension",
+          "es": "la extensión",
+          "kind": "term"
+        },
+        {
+          "en": "the case summary",
+          "es": "el resumen del caso",
+          "kind": "term"
+        },
+        {
+          "en": "on hold",
+          "es": "en espera",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Reyes, would you like a glass of water before we start?",
+          "es": "Señora Reyes, ¿quisiera un vaso de agua antes de empezar?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Is it all right with you if your grandson helps us with the emails?",
+          "es": "¿Le parece bien si su nieto nos ayuda con los correos?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Kevin, would you mind waiting outside for a few minutes?",
+          "es": "Kevin, ¿te importaría esperar afuera unos minutos?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Kevin, could you send me a clear photo of the certificate?",
+          "es": "Kevin, ¿me podrías mandar una foto clara del acta?",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "Good morning, I'd like to confirm whether the certificate needs an apostille.",
+          "es": "Buenos días, quisiera confirmar si el acta necesita apostilla.",
+          "kind": "phrase",
+          "note": "Formal, on the phone with the consulate."
+        },
+        {
+          "en": "Could you give me the reference number for the procedure, please?",
+          "es": "¿Podría darme el número de referencia del trámite, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Felipe, would you have five minutes to go over this with me?",
+          "es": "Felipe, ¿tendrías cinco minutos para revisar esto conmigo?",
+          "kind": "phrase",
+          "note": "Informal, with a supervisor who uses tú with you."
+        },
+        {
+          "en": "Excuse me, could you spell your last name for me?",
+          "es": "Disculpe, ¿me podría deletrear su apellido?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI plays, in turn, client Amparo Reyes, her grandson Kevin, a consulate official and supervisor Felipe Arango: switch between usted and tú and soften each request with quisiera, ¿podría…? and ¿te importaría…?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿podría...?, ¿te importaría...?)",
+        "examples": [
+          {
+            "es": "Señora, ¿podría firmar aquí, por favor?",
+            "en": "Ma'am, could you sign here, please?"
+          },
+          {
+            "es": "Kevin, ¿te importaría traerme la carpeta de tu abuela?",
+            "en": "Kevin, would you mind bringing me your grandmother's folder?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Incident Report: A Client File Sent to the Wrong Email",
+      "objective": "Interview the staff member, rebuild the timeline, and write the privacy incident report in Spanish.",
+      "words": [
+        {
+          "en": "the recipient",
+          "es": "el destinatario",
+          "kind": "term"
+        },
+        {
+          "en": "the attachment",
+          "es": "el archivo adjunto",
+          "kind": "term"
+        },
+        {
+          "en": "the autocomplete",
+          "es": "el autocompletado",
+          "kind": "term",
+          "note": "The email feature that fills in a saved address as you type."
+        },
+        {
+          "en": "the data breach",
+          "es": "la violación de datos",
+          "kind": "term"
+        },
+        {
+          "en": "the timeline",
+          "es": "la cronología",
+          "kind": "term"
+        },
+        {
+          "en": "the time sent",
+          "es": "la hora de envío",
+          "kind": "term"
+        },
+        {
+          "en": "the legal assistant",
+          "es": "la asistente legal",
+          "kind": "term",
+          "note": "For a man, say el asistente legal."
+        },
+        {
+          "en": "the similar name",
+          "es": "el nombre parecido",
+          "kind": "term"
+        },
+        {
+          "en": "the email account",
+          "es": "la cuenta de correo",
+          "kind": "term"
+        },
+        {
+          "en": "the screenshot",
+          "es": "la captura de pantalla",
+          "kind": "term"
+        },
+        {
+          "en": "the deletion confirmation",
+          "es": "la confirmación de borrado",
+          "kind": "term"
+        },
+        {
+          "en": "IT support",
+          "es": "el soporte técnico",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective measure",
+          "es": "la medida correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the internal report",
+          "es": "el reporte interno",
+          "kind": "term",
+          "note": "Reporte is common in US Spanish. Informe is more formal."
+        },
+        {
+          "en": "the sensitive information",
+          "es": "la información sensible",
+          "kind": "term"
+        },
+        {
+          "en": "Sofía, tell me what happened, from the beginning.",
+          "es": "Sofía, cuéntame qué pasó, desde el principio.",
+          "kind": "phrase",
+          "note": "Informal (tú), between coworkers."
+        },
+        {
+          "en": "What time exactly did you send the email?",
+          "es": "¿A qué hora mandaste el correo exactamente?",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "At a quarter past ten, Sofía sent the file to the wrong recipient.",
+          "es": "A las diez y cuarto, Sofía envió el archivo al destinatario equivocado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When she realized, she immediately told the attorney in charge.",
+          "es": "Al darse cuenta, avisó enseguida a la abogada encargada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Half an hour later, the other client confirmed he deleted it.",
+          "es": "Media hora después, el otro cliente confirmó que lo borró.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not blaming you; I need the facts in order.",
+          "es": "No te estoy culpando; necesito los hechos en orden.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Sir, please delete the email and confirm it to me in writing.",
+          "es": "Señor, por favor, borre el correo y confírmemelo por escrito.",
+          "kind": "phrase",
+          "note": "Formal (usted), to the person who got the file by mistake."
+        },
+        {
+          "en": "Did you open the attachment before deleting it?",
+          "es": "¿Abrió el archivo adjunto antes de borrarlo?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the paralegal documenting the incident, and the AI is legal assistant Sofía Guerrero: interview her, rebuild the timeline, and read back your report using past narration with markers like a las diez y cuarto, enseguida, media hora después and al darse cuenta.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las diez y cuarto, enseguida, media hora después, al darse cuenta)",
+        "examples": [
+          {
+            "es": "A las diez y cuarto, Sofía mandó el correo con el archivo adjunto.",
+            "en": "At a quarter past ten, Sofía sent the email with the attachment."
+          },
+          {
+            "es": "Al darse cuenta, llamó enseguida al otro cliente.",
+            "en": "When she realized, she called the other client right away."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: A Wrong A-Number Almost Went in the Mail",
+      "objective": "Talk through a near miss without blame, describe what could have happened, and agree on a second check.",
+      "words": [
+        {
+          "en": "the caught error",
+          "es": "el error detectado",
+          "kind": "term"
+        },
+        {
+          "en": "the swapped digits",
+          "es": "los dígitos invertidos",
+          "kind": "term"
+        },
+        {
+          "en": "the outgoing tray",
+          "es": "la bandeja de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the final check",
+          "es": "la revisión final",
+          "kind": "term"
+        },
+        {
+          "en": "the second check",
+          "es": "la segunda revisión",
+          "kind": "term"
+        },
+        {
+          "en": "the weekly huddle",
+          "es": "la reunión semanal",
+          "kind": "term"
+        },
+        {
+          "en": "the paralegal",
+          "es": "el paralegal",
+          "kind": "term",
+          "note": "Common in US Spanish. For a woman, say la paralegal."
+        },
+        {
+          "en": "the process failure",
+          "es": "la falla del proceso",
+          "kind": "term"
+        },
+        {
+          "en": "the quality check",
+          "es": "el control de calidad",
+          "kind": "term"
+        },
+        {
+          "en": "the root cause",
+          "es": "la causa principal",
+          "kind": "term"
+        },
+        {
+          "en": "the rush",
+          "es": "la prisa",
+          "kind": "term"
+        },
+        {
+          "en": "the distraction",
+          "es": "la distracción",
+          "kind": "term"
+        },
+        {
+          "en": "the source document",
+          "es": "el documento de origen",
+          "kind": "term"
+        },
+        {
+          "en": "the initials",
+          "es": "las iniciales",
+          "kind": "term"
+        },
+        {
+          "en": "the template",
+          "es": "la plantilla",
+          "kind": "term"
+        },
+        {
+          "en": "We almost sent it with the wrong A-number.",
+          "es": "Por poco lo mandamos con el número A equivocado.",
+          "kind": "phrase",
+          "note": "Por poco takes the present tense for a past near miss: por poco lo mandamos."
+        },
+        {
+          "en": "It almost went out in the afternoon mail.",
+          "es": "Casi sale en el correo de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nicolás, this isn't about blaming anyone; let's review the process.",
+          "es": "Nicolás, no se trata de culpar a nadie; revisemos el proceso.",
+          "kind": "phrase",
+          "note": "Informal, between coworkers."
+        },
+        {
+          "en": "If it had gone out like that, it could have delayed the whole case.",
+          "es": "Si hubiera salido así, podría haber retrasado todo el caso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At what step do you think the digits got swapped?",
+          "es": "¿En qué paso crees que se invirtieron los dígitos?",
+          "kind": "phrase",
+          "note": "Informal (tú), between coworkers."
+        },
+        {
+          "en": "What would help you notice it before the final check?",
+          "es": "¿Qué te ayudaría a notarlo antes de la revisión final?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Starting today, a second person compares the number with the source document.",
+          "es": "Desde hoy, otra persona compara el número con el documento de origen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thanks for stopping it in time; that's exactly what we want.",
+          "es": "Gracias por detenerlo a tiempo; eso es justo lo que queremos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are leading the weekly huddle, and the AI is paralegal Nicolás Herrera: talk through how the swapped A-number reached the outgoing tray without blaming him, describe what could have happened with por poco, casi and podría haber, and agree on a second check.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco lo enviamos; si no lo revisas, podría haber llegado a otro expediente)",
+        "examples": [
+          {
+            "es": "Por poco mandamos el formulario con los dígitos invertidos.",
+            "en": "We almost sent the form with the digits swapped."
+          },
+          {
+            "es": "Si no lo hubieras revisado, podría haber llegado a otro expediente.",
+            "en": "If you hadn't checked it, it could have ended up in another file."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Urgent Call: A Client Detained on the Way to Work",
+      "objective": "Calm a family member, give short clear instructions by phone, and set the next steps in motion.",
+      "words": [
+        {
+          "en": "the detainee locator",
+          "es": "el localizador de detenidos",
+          "kind": "term",
+          "note": "ICE's online search tool. It usually asks for the A-number, or for the full name and country of birth."
+        },
+        {
+          "en": "the country of birth",
+          "es": "el país de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the full last name",
+          "es": "el apellido completo",
+          "kind": "term",
+          "note": "Ask for both last names. Many clients use two."
+        },
+        {
+          "en": "the traffic stop",
+          "es": "la parada de tráfico",
+          "kind": "term"
+        },
+        {
+          "en": "the collect call",
+          "es": "la llamada por cobrar",
+          "kind": "term"
+        },
+        {
+          "en": "the G-28 form",
+          "es": "el formulario G-28",
+          "kind": "term",
+          "note": "The notice that an attorney represents the client."
+        },
+        {
+          "en": "the legal representation",
+          "es": "la representación legal",
+          "kind": "term"
+        },
+        {
+          "en": "the transfer",
+          "es": "el traslado",
+          "kind": "term"
+        },
+        {
+          "en": "the medications",
+          "es": "los medicamentos",
+          "kind": "term"
+        },
+        {
+          "en": "the colleague",
+          "es": "la colega",
+          "kind": "term",
+          "note": "For a man, say el colega."
+        },
+        {
+          "en": "the contact information",
+          "es": "los datos de contacto",
+          "kind": "term"
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the workplace",
+          "es": "el lugar de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the direct line",
+          "es": "el número directo",
+          "kind": "term"
+        },
+        {
+          "en": "the childcare",
+          "es": "el cuidado de los niños",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Fuentes, breathe; we're going to look for him together, step by step.",
+          "es": "Señora Fuentes, respire; vamos a buscarlo juntos, paso a paso.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "What country was he born in, and what year?",
+          "es": "¿En qué país nació él y en qué año?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If he calls you, ask him where he is and write it down.",
+          "es": "Si él la llama, pregúntele dónde está y apúntelo.",
+          "kind": "phrase",
+          "note": "Formal (usted) commands: pregúntele, apúntelo."
+        },
+        {
+          "en": "Tell him not to sign anything without talking to us.",
+          "es": "Dígale que no firme nada sin hablar con nosotros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If an unknown number calls you, answer; it may be him.",
+          "es": "Si la llaman de un número desconocido, conteste; puede ser él.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call me right away at this direct line.",
+          "es": "Llámeme enseguida a este número directo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Does he take any medication he needs today?",
+          "es": "¿Toma algún medicamento que necesite hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Marisol, look him up in the locator; I'm sending you the details.",
+          "es": "Marisol, búscalo en el localizador; ya te paso los datos.",
+          "kind": "phrase",
+          "note": "Informal (tú), to a coworker."
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, taking the call, and the AI is Daniela Fuentes, whose husband was just detained: calm her, get his full name and country of birth, and give short instructions with si + future and commands like no firme nada and llámeme enseguida.",
+      "grammar": {
+        "focus": "Si + present → future; short phone commands (si él la llama, apunte dónde está; no firme nada; llámeme enseguida)",
+        "examples": [
+          {
+            "es": "Si él la llama, apunte el nombre del centro.",
+            "en": "If he calls you, write down the name of the facility."
+          },
+          {
+            "es": "Si lo trasladan, se lo diremos enseguida.",
+            "en": "If they transfer him, we'll tell you right away."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "A Funder's Reviewer Audits Our Files and Procedures",
+      "objective": "Answer an auditor's questions formally and explain how files, consents and deadlines are handled.",
+      "words": [
+        {
+          "en": "the reviewer",
+          "es": "la revisora",
+          "kind": "term",
+          "note": "For a man, say el revisor."
+        },
+        {
+          "en": "the grant",
+          "es": "la subvención",
+          "kind": "term"
+        },
+        {
+          "en": "the audit",
+          "es": "la auditoría",
+          "kind": "term"
+        },
+        {
+          "en": "the random sample",
+          "es": "la muestra aleatoria",
+          "kind": "term"
+        },
+        {
+          "en": "the locked filing cabinet",
+          "es": "el archivero con llave",
+          "kind": "term",
+          "note": "Archivero is the usual Mexican word for a filing cabinet."
+        },
+        {
+          "en": "the unsigned form",
+          "es": "el formulario sin firmar",
+          "kind": "term"
+        },
+        {
+          "en": "the finding",
+          "es": "el hallazgo",
+          "kind": "term",
+          "note": "The standard audit word for a problem found."
+        },
+        {
+          "en": "the compliance",
+          "es": "el cumplimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the procedures manual",
+          "es": "el manual de procedimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the restricted access",
+          "es": "el acceso restringido",
+          "kind": "term"
+        },
+        {
+          "en": "the password",
+          "es": "la contraseña",
+          "kind": "term"
+        },
+        {
+          "en": "the backup",
+          "es": "el respaldo",
+          "kind": "term"
+        },
+        {
+          "en": "the retention policy",
+          "es": "la política de retención",
+          "kind": "term"
+        },
+        {
+          "en": "the annual training",
+          "es": "la capacitación anual",
+          "kind": "term"
+        },
+        {
+          "en": "the correction plan",
+          "es": "el plan de corrección",
+          "kind": "term"
+        },
+        {
+          "en": "Paper files are kept in a locked filing cabinet.",
+          "es": "Los expedientes en papel se guardan en un archivero con llave.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Deadlines are reviewed every Monday at the team meeting.",
+          "es": "Los plazos se revisan cada lunes en la reunión del equipo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right; this file is missing the client's signature.",
+          "es": "Tiene razón; a este expediente le falta la firma del cliente.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "I won't make excuses to you; it was our mistake.",
+          "es": "No le voy a dar excusas; fue un error nuestro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The client will be called today to sign, with the real date.",
+          "es": "Hoy se llamará al cliente para firmar, con la fecha real.",
+          "kind": "phrase",
+          "note": "Never backdate. The new signature carries the day it is actually signed."
+        },
+        {
+          "en": "Would you like to review our procedures manual?",
+          "es": "¿Le gustaría revisar nuestro manual de procedimientos?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Only authorized staff have the system password.",
+          "es": "Solo el personal autorizado tiene la contraseña del sistema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Backups are made every night, according to our policy.",
+          "es": "Los respaldos se hacen cada noche, según nuestra política.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic's lead staff member, and the AI is grant reviewer Mercedes Valdivia: answer her questions formally and explain how files, consents and deadlines are handled, using usted and passive se such as se guardan and se revisan.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (los expedientes se guardan bajo llave; los plazos se revisan cada lunes)",
+        "examples": [
+          {
+            "es": "Los expedientes se guardan bajo llave al final del día.",
+            "en": "Files are locked up at the end of the day."
+          },
+          {
+            "es": "Los consentimientos se revisan antes de abrir el caso.",
+            "en": "Consent forms are checked before the case is opened."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Writing Case Notes After a Contradictory Interview",
+      "objective": "Write clear, neutral case notes that record a client's changed dates without judging the client.",
+      "words": [
+        {
+          "en": "the case notes",
+          "es": "las notas del caso",
+          "kind": "term"
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term",
+          "note": "Neutral word for notes; never write 'mentira' (lie)."
+        },
+        {
+          "en": "the entry date",
+          "es": "la fecha de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the entry stamp",
+          "es": "el sello de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the I-94 record",
+          "es": "el registro I-94",
+          "kind": "term",
+          "note": "Arrival record; it can help confirm an entry date."
+        },
+        {
+          "en": "the supervising attorney (female)",
+          "es": "la abogada supervisora",
+          "kind": "term"
+        },
+        {
+          "en": "the direct quote",
+          "es": "la cita textual",
+          "kind": "term"
+        },
+        {
+          "en": "the value judgment",
+          "es": "el juicio de valor",
+          "kind": "term",
+          "note": "Keep these out of case notes."
+        },
+        {
+          "en": "the neutral language",
+          "es": "el lenguaje neutral",
+          "kind": "term"
+        },
+        {
+          "en": "the clarification",
+          "es": "la aclaración",
+          "kind": "term"
+        },
+        {
+          "en": "the client's account",
+          "es": "la versión del cliente",
+          "kind": "term"
+        },
+        {
+          "en": "the next steps",
+          "es": "los próximos pasos",
+          "kind": "term"
+        },
+        {
+          "en": "the open question",
+          "es": "la duda pendiente",
+          "kind": "term"
+        },
+        {
+          "en": "the source",
+          "es": "la fuente",
+          "kind": "term"
+        },
+        {
+          "en": "however",
+          "es": "no obstante",
+          "kind": "term",
+          "note": "Formal, written register; in speech people say 'pero' or 'sin embargo'."
+        },
+        {
+          "en": "consequently",
+          "es": "por consiguiente",
+          "kind": "term",
+          "note": "Formal, written; in speech people say 'por eso'."
+        },
+        {
+          "en": "Regarding the entry date, the client gave two versions.",
+          "es": "En cuanto a la fecha de entrada, el cliente dio dos versiones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It should be noted that the intake form shows a different date.",
+          "es": "Cabe señalar que el formulario de admisión indica otra fecha.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, the client explained that he did not remember the exact month.",
+          "es": "No obstante, el cliente explicó que no recordaba el mes exacto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Consequently, we recommend reviewing his I-94 record.",
+          "es": "Por consiguiente, se recomienda revisar su registro I-94.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I quote the client in quotation marks, without interpreting what he said.",
+          "es": "Cito al cliente entre comillas, sin interpretar lo que dijo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I write 'the client stated', not 'the client lied'.",
+          "es": "Escribo 'el cliente indicó', no 'el cliente mintió'.",
+          "kind": "phrase",
+          "note": "Record what was said; leave conclusions to the supervising attorney."
+        },
+        {
+          "en": "Confirming the date with the entry stamp is still pending.",
+          "es": "Queda pendiente confirmar la fecha con el sello de entrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Inés, should I put the open questions at the end of the notes?",
+          "es": "Inés, ¿te dejo las dudas pendientes al final de las notas?",
+          "kind": "phrase",
+          "note": "Informal, between colleagues; use usted if your office is more formal."
+        }
+      ],
+      "speaking": "You are the paralegal, and the AI is supervising attorney Inés Carvajal: read her your case notes on Wilmer Arévalo's two entry dates, using en cuanto a, cabe señalar, no obstante and por consiguiente, and keep every line neutral and free of judgment.",
+      "grammar": {
+        "focus": "Written register; report connectors (en cuanto a, cabe señalar, por consiguiente, no obstante)",
+        "examples": [
+          {
+            "es": "Cabe señalar que el cliente corrigió la fecha por iniciativa propia.",
+            "en": "It should be noted that the client corrected the date on his own initiative."
+          },
+          {
+            "es": "En cuanto a la entrada, el formulario dice 2019; no obstante, hoy indicó 2018.",
+            "en": "Regarding entry, the form says 2019; however, today he stated 2018."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Texts and Calls: A Rescheduled Biometrics Appointment",
+      "objective": "Text and call a busy client about a new appointment, verify identity, and leave a clear voicemail.",
+      "words": [
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail box",
+          "es": "el buzón de voz",
+          "kind": "term",
+          "note": "The phone's mailbox itself, where callers leave a recorded message."
+        },
+        {
+          "en": "the message (left with someone)",
+          "es": "el recado",
+          "kind": "term",
+          "note": "Common in Mexico for a message left with another person, not a recording."
+        },
+        {
+          "en": "the missed call",
+          "es": "la llamada perdida",
+          "kind": "term"
+        },
+        {
+          "en": "the rescheduled appointment",
+          "es": "la cita reprogramada",
+          "kind": "term"
+        },
+        {
+          "en": "the biometrics appointment",
+          "es": "la cita de biométricos",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment notice",
+          "es": "el aviso de cita",
+          "kind": "term"
+        },
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment time",
+          "es": "la hora de la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the night shift",
+          "es": "el turno de noche",
+          "kind": "term"
+        },
+        {
+          "en": "the best time to call",
+          "es": "el horario para llamar",
+          "kind": "term"
+        },
+        {
+          "en": "the photo ID",
+          "es": "la identificación con foto",
+          "kind": "term"
+        },
+        {
+          "en": "the office number",
+          "es": "el número de la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "the attendance confirmation",
+          "es": "la confirmación de asistencia",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, could you put me through to Marcos Pineda, please?",
+          "es": "Buenas tardes, ¿me podría comunicar con Marcos Pineda, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Excuse me, who am I speaking with?",
+          "es": "Disculpe, ¿con quién tengo el gusto?",
+          "kind": "phrase",
+          "note": "Polite, standard phone formula."
+        },
+        {
+          "en": "I'm sorry, I can only discuss the matter with him directly.",
+          "es": "Lo siento, solo puedo tratar el asunto con él directamente.",
+          "kind": "phrase",
+          "note": "Share no case details with relatives without written authorization."
+        },
+        {
+          "en": "Could you ask him to call me at this number, please?",
+          "es": "¿Podría pedirle que me llame a este número, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm your date of birth and your A-number for me?",
+          "es": "¿Podría confirmarme su fecha de nacimiento y su número A?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would appreciate it if you called me back before Friday.",
+          "es": "Le agradecería que me regresara la llamada antes del viernes.",
+          "kind": "phrase",
+          "note": "Voicemail: give your name and number, but no case details."
+        },
+        {
+          "en": "Hello, Mr. Pineda: we have important information for you; please call us.",
+          "es": "Hola, Sr. Pineda: tenemos información importante para usted; llámenos, por favor.",
+          "kind": "phrase",
+          "note": "Text: no case details in writing until identity is confirmed."
+        },
+        {
+          "en": "What time would suit you for me to call, after your shift?",
+          "es": "¿A qué hora le convendría que lo llamara, después de su turno?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the paralegal, and the AI answers Marcos Pineda's phone: reach Marcos about his rescheduled biometrics appointment, verify identity before sharing any details, and use ¿podría confirmarme...? and le agradecería que me llamara, also in a short voicemail.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría confirmarme...?, le agradecería que me llamara)",
+        "examples": [
+          {
+            "es": "¿Podría confirmarme su dirección actual, por favor?",
+            "en": "Could you confirm your current address for me, please?"
+          },
+          {
+            "es": "Le agradecería que me llamara a este número antes de las 5.",
+            "en": "I would appreciate it if you called me at this number before 5."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Closing the File After the Green Card Arrives",
+      "objective": "Review the approval with the client, explain travel and address duties with conditions, and close the file.",
+      "words": [
+        {
+          "en": "the change of address",
+          "es": "el cambio de domicilio",
+          "kind": "term"
+        },
+        {
+          "en": "Form AR-11",
+          "es": "el formulario AR-11",
+          "kind": "term",
+          "note": "Address change form; USCIS sets the deadline, so check its official page."
+        },
+        {
+          "en": "the trip abroad",
+          "es": "el viaje al extranjero",
+          "kind": "term"
+        },
+        {
+          "en": "the reentry permit",
+          "es": "el permiso de reingreso",
+          "kind": "term",
+          "note": "Check current USCIS guidance on when a long trip needs one."
+        },
+        {
+          "en": "the abandonment of residence",
+          "es": "el abandono de residencia",
+          "kind": "term",
+          "note": "Long absences can raise this question; check current USCIS guidance."
+        },
+        {
+          "en": "the conditional residence",
+          "es": "la residencia condicional",
+          "kind": "term",
+          "note": "Applies to some marriage cases; check the card's expiration date."
+        },
+        {
+          "en": "the port of entry",
+          "es": "el puerto de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the valid passport",
+          "es": "el pasaporte vigente",
+          "kind": "term"
+        },
+        {
+          "en": "the tax return",
+          "es": "la declaración de impuestos",
+          "kind": "term"
+        },
+        {
+          "en": "the card replacement",
+          "es": "el reemplazo de la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the closing letter",
+          "es": "la carta de cierre",
+          "kind": "term"
+        },
+        {
+          "en": "the file closing",
+          "es": "el cierre del expediente",
+          "kind": "term"
+        },
+        {
+          "en": "the relief",
+          "es": "el alivio",
+          "kind": "term"
+        },
+        {
+          "en": "the plane ticket",
+          "es": "el boleto de avión",
+          "kind": "term"
+        },
+        {
+          "en": "the copy of the card",
+          "es": "la copia de la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "Congratulations to you both; the card finally arrived!",
+          "es": "¡Felicidades a los dos; por fin llegó la tarjeta!",
+          "kind": "phrase"
+        },
+        {
+          "en": "You could travel as long as we first check how long you would be away.",
+          "es": "Podrían viajar siempre que primero revisemos cuánto tiempo estarían fuera.",
+          "kind": "phrase",
+          "note": "Formal plural (ustedes) for the couple."
+        },
+        {
+          "en": "Carry the card and a valid passport when you travel.",
+          "es": "Lleven la tarjeta y el pasaporte vigente cuando viajen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A very long trip could raise questions at the port of entry.",
+          "es": "Un viaje muy largo podría causar preguntas en el puerto de entrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "For a trip like that, we would first check what USCIS requires.",
+          "es": "Para un viaje así, revisaríamos primero lo que pide USCIS.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you move, notify USCIS on time.",
+          "es": "En caso de que se muden, avísenle a USCIS a tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please keep a copy of the card in a safe place.",
+          "es": "Guarden una copia de la tarjeta en un lugar seguro, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "With this letter we close your file, but you can call us anytime.",
+          "es": "Con esta carta cerramos su expediente, pero pueden llamarnos cuando quieran.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney, and the AI is Carmen Lozano, here with her husband Óscar: review the approval, explain travel and change-of-address duties with conditions like podrían viajar siempre que... and a menos que cambien de domicilio, and close the file.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (podría viajar siempre que lleve su tarjeta; a menos que cambie de domicilio)",
+        "examples": [
+          {
+            "es": "Podrían planear el viaje, siempre que primero revisemos cuánto tiempo estarían fuera.",
+            "en": "You could plan the trip, as long as we first check how long you'd be away."
+          },
+          {
+            "es": "Esta tarjeta le serviría para volver, a menos que esté vencida.",
+            "en": "This card would let you come back, unless it is expired."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Full Day at the Clinic After a Lost Notice",
+      "objective": "Lead a hard day: train staff, explain a problem to a client, handle an urgent call and an audit, write the notes.",
+      "words": [
+        {
+          "en": "the lost notice",
+          "es": "el aviso extraviado",
+          "kind": "term"
+        },
+        {
+          "en": "the old address",
+          "es": "el domicilio antiguo",
+          "kind": "term"
+        },
+        {
+          "en": "Form EOIR-33",
+          "es": "el formulario EOIR-33",
+          "kind": "term",
+          "note": "Change of address for the immigration court; it is separate from USCIS's AR-11."
+        },
+        {
+          "en": "the EOIR portal",
+          "es": "el portal de EOIR",
+          "kind": "term",
+          "note": "Use it to check the court's current hearing information."
+        },
+        {
+          "en": "the in absentia order",
+          "es": "la orden en ausencia",
+          "kind": "term"
+        },
+        {
+          "en": "the returned envelope",
+          "es": "el sobre devuelto",
+          "kind": "term"
+        },
+        {
+          "en": "the proof of mailing",
+          "es": "la prueba de envío",
+          "kind": "term"
+        },
+        {
+          "en": "the address history",
+          "es": "el historial de domicilios",
+          "kind": "term"
+        },
+        {
+          "en": "the volunteer (female)",
+          "es": "la voluntaria",
+          "kind": "term"
+        },
+        {
+          "en": "the external auditor",
+          "es": "el auditor externo",
+          "kind": "term"
+        },
+        {
+          "en": "the urgent call",
+          "es": "la llamada urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the to-do list",
+          "es": "la lista de pendientes",
+          "kind": "term"
+        },
+        {
+          "en": "the end-of-day wrap-up",
+          "es": "el cierre del día",
+          "kind": "term"
+        },
+        {
+          "en": "the acknowledgment of receipt",
+          "es": "el acuse de recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the court clerk's office",
+          "es": "la secretaría del tribunal",
+          "kind": "term"
+        },
+        {
+          "en": "Marisol, can you explain how you verified the client's address?",
+          "es": "Marisol, ¿me explicas cómo verificaste el domicilio de la clienta?",
+          "kind": "phrase",
+          "note": "Informal (tú), coaching a coworker."
+        },
+        {
+          "en": "Do it on your own now, and then explain it to me.",
+          "es": "Hazlo tú sola ahora, y luego me lo explicas.",
+          "kind": "phrase",
+          "note": "Informal command with pronouns."
+        },
+        {
+          "en": "Mrs. Barrios, your hearing notice went to your old address.",
+          "es": "Señora Barrios, el aviso de su audiencia llegó a su domicilio antiguo.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "It's not your fault; we'll review your options today.",
+          "es": "No es culpa suya; hoy mismo revisamos sus opciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please breathe, and tell me where you are right now.",
+          "es": "Respire, por favor, y dígame dónde está usted ahora.",
+          "kind": "phrase",
+          "note": "Formal; calm, short commands on an urgent call."
+        },
+        {
+          "en": "Let me show you the log where we record every change of address.",
+          "es": "Le muestro el registro donde anotamos cada cambio de domicilio.",
+          "kind": "phrase",
+          "note": "Formal, to the auditor."
+        },
+        {
+          "en": "According to the client, she moved in May and did not receive the notice.",
+          "es": "Según la clienta, se mudó en mayo y no recibió el aviso.",
+          "kind": "phrase",
+          "note": "Case-note style: attribute the fact to its source."
+        },
+        {
+          "en": "Before we leave, let's go over the to-do list together.",
+          "es": "Antes de irnos, revisemos juntos la lista de pendientes.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the clinic staff member working under the supervising attorney at the Phoenix nonprofit, and the AI plays each person in turn: coach Marisol with tú commands, tell Hilda Barrios with usted that her notice went to an old address, take an urgent call, answer an auditor, and dictate notes with cabe señalar.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Revísalo otra vez antes de que lo mandemos al tribunal.",
+            "en": "Check it again before we send it to the court."
+          },
+          {
+            "es": "Le recomiendo que nos avise si se muda otra vez.",
+            "en": "I recommend that you let us know if you move again."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

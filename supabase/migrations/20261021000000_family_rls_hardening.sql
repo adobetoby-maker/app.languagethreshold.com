@@ -8,6 +8,8 @@ alter table public.family_members
   add column if not exists user_id uuid references auth.users(id) on delete cascade;
 create unique index if not exists family_members_group_user_key
   on public.family_members(group_id, user_id) where user_id is not null;
+alter table public.family_groups enable row level security;
+alter table public.family_members enable row level security;
 
 create or replace function public.family_group_owned(p_group_id uuid)
 returns boolean language sql stable security definer set search_path = public as $$
@@ -43,6 +45,10 @@ drop policy if exists "Family members are viewable by everyone" on public.family
 drop policy if exists "Anyone can join a family group" on public.family_members;
 drop policy if exists "Family owner or member can view members" on public.family_members;
 drop policy if exists "Group owner can add members" on public.family_members;
+-- Production also has this permissive ALL policy. Leaving it would OR away the
+-- new INSERT ownership check, letting an owner attach another account directly.
+drop policy if exists "Group owner manages members" on public.family_members;
+drop policy if exists "Group owner can remove members" on public.family_members;
 
 create policy "Family owner or member can view members"
   on public.family_members for select to authenticated
@@ -56,8 +62,34 @@ create policy "Group owner can add members"
     and (user_id is null or user_id = auth.uid())
   );
 
+create policy "Group owner can remove members"
+  on public.family_members for delete to authenticated
+  using (public.family_group_owned(group_id));
+
+grant select, insert, update, delete on public.family_groups to authenticated;
+grant select, insert, delete on public.family_members to authenticated;
+revoke update on public.family_members from authenticated;
+
 revoke all on public.family_groups from anon;
 revoke all on public.family_members from anon;
+
+-- Production does not have the historical cap trigger. Install it explicitly,
+-- and serialize inserts for a group so concurrent joins cannot exceed seven.
+create or replace function public.enforce_family_member_cap()
+returns trigger language plpgsql security definer set search_path = '' as $$
+begin
+  if tg_op = 'UPDATE' and new.group_id = old.group_id then return new; end if;
+  perform 1 from public.family_groups where id = new.group_id for update;
+  if (select count(*) from public.family_members where group_id = new.group_id) >= 7 then
+    raise exception 'Family group is full (max 7 members).';
+  end if;
+  return new;
+end;
+$$;
+revoke all on function public.enforce_family_member_cap() from public, anon, authenticated;
+drop trigger if exists trg_family_members_cap on public.family_members;
+create trigger trg_family_members_cap before insert or update of group_id
+  on public.family_members for each row execute function public.enforce_family_member_cap();
 
 -- Per-account join attempts (server-only) so codes cannot be brute-forced through the RPC.
 create table if not exists public.family_join_attempts (

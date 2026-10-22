@@ -25,6 +25,7 @@ import {
   type LessonContentLesson,
 } from "./lesson-content-core.ts";
 import { cleanLessonWords } from "./lesson-words-core.ts";
+import { NOTE_FINAL_RULE, PASSAGE_QUALITY_RULES, REGION_RULE } from "./lesson-content-prompt.ts";
 import {
   CORE60_STAGE_FILE_VERSION,
   stageModuleId,
@@ -33,7 +34,7 @@ import {
   type Core60StageKind,
   type Core60StageLesson,
 } from "./core60-stage-core.ts";
-import { validateStageFile } from "./core60-validate.ts";
+import { validateStageFile, vosotrosForms } from "./core60-validate.ts";
 
 // ─── Models and prices ───────────────────────────────────────────────────────
 
@@ -280,6 +281,10 @@ export function stageHeadline(ctx: StageContext): string {
 
 // ─── Shared prompt rules ─────────────────────────────────────────────────────
 
+/** Spanish-target variety: neutral Latin-American Spanish, never vosotros (checked by vosotrosForms). */
+export const SPANISH_VARIETY_RULE =
+  'Variety: neutral Latin-American Spanish only. Plural "you" is ALWAYS ustedes (ustedes revisan, revisen, les digo): never vosotros / vosotras, never a vosotros verb form (-áis, -éis, -ís: revisáis, tenéis, vivís, sois) and never the object pronoun "os". Unless the module is a travel zone set in Spain, scenes are set in the Americas or the US and use the terms used in the Americas (el celular, not el móvil; el video, not el vídeo; la computadora, not el ordenador; manejar, not conducir a car; el carro or el auto, not el coche).';
+
 function registerRules(ctx: StageContext): string {
   if (ctx.pair.language === "Spanish") {
     return [
@@ -287,6 +292,8 @@ function registerRules(ctx: StageContext): string {
       "A lead speaking to a crew uses the plural ustedes command (revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted, or tú between coworkers when the lesson calls for it. Mark formal / informal in a word's note when it matters.",
       "Write ¿ and ¡ properly. Never coin a word-for-word phrase: use the term people in this work really say; if unsure, pick a different, safer term.",
       "Grammar that native reviewers check: agreement for people (a woman is la electricista, la clienta, la enfermera; a man el electricista); the personal a before a person or people as the direct object (cubrir a mis pacientes, llamar al supervisor); a negative after antes de / sin (antes de tocar nada); measurements with de (el pulso es de 72); and no English calques (say what people say, not a translated slogan).",
+      REGION_RULE,
+      SPANISH_VARIETY_RULE,
       "Units: never mix metric and imperial in one sentence; US jobs measure in feet, inches and pounds (10 pies y 6 pulgadas), medicine in mg and mL. Electrical: a live wire is energizado or con corriente (not prendido); you measure el voltaje.",
     ].join(" ");
   }
@@ -324,7 +331,7 @@ function wordRules(ctx: StageContext, limits: ContentLimits): string {
       ? 'A term is a noun or a short noun phrase of at most 4 words written WITH its definite article (target "el interruptor", native "the switch"; plural only when the thing is normally plural, "los guantes" / "the gloves"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("seguro" / "safe", "¿dónde?" / "where").'
       : 'A term is a noun or a short noun phrase of at most 4 words written WITH "the" (target "the switch", native "el interruptor"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("safe" / "seguro").',
     "A phrase is ONE sentence or question of at most 12 words that the learner would actually SAY in this work, ending with . ? or !",
-    `No duplicates in a lesson, and never repeat a term or a phrase from another lesson of this stage. Numbers are digits and identical on both sides. A note (at most 120 characters, written in ${ctx.pair.nativeLanguage}) only when a usage, register or pronunciation tip really helps.`,
+    `No duplicates in a lesson, and never repeat a term or a phrase from another lesson of this stage. Numbers are digits and identical on both sides. A note (at most 120 characters, written in ${ctx.pair.nativeLanguage}) only when a usage, register or pronunciation tip really helps. ${NOTE_FINAL_RULE}`,
   ].join(" ");
 }
 
@@ -363,11 +370,21 @@ const ROOFING_MASTER_TITLES = [
   "Customer Walkthrough and Warranty", "Capstone: A Full Storm-Repair Day",
 ];
 
+/**
+ * A stage's scope when the module's catalog blurb is broader than its Core 30 content (Hockey's
+ * blurb says "Ice and field hockey"; its Core 30 and Foundation are ice hockey only).
+ */
+const STAGE_SCOPE: Record<string, string> = {
+  hockey:
+    "Ice hockey only, as in the Core 30 and the Foundation (la pista de hielo, el disco, el palo, los patines, la banca): never field hockey, grass or turf, a pitch, el córner corto or el hockey sobre pasto / césped / hierba.",
+};
+
 function moduleBrief(ctx: StageContext) {
   return {
     module: ctx.module.name,
     category: ctx.module.category,
     description: ctx.module.blurb,
+    ...(STAGE_SCOPE[ctx.module.id] ? { scope: STAGE_SCOPE[ctx.module.id] } : {}),
     learnerRole: ctx.module.userRole,
     whoTheLearnerTalksTo: ctx.module.aiPersona,
     vocabularyFocus: ctx.module.vocabFocus,
@@ -798,14 +815,16 @@ Level: ${level}
 
 PASSAGE: ${limits.minSentences} to ${limits.maxSentences} sentences forming ONE coherent, realistic scene of THIS lesson (its title, objective${master ? ", grammar focus and scene" : " and focus"}), with named people, a place and a purpose. A short title (2 to 6 words) in ${ctx.pair.language}. Every ${ctx.pair.language} sentence has exactly one ${ctx.pair.nativeLanguage} sentence at the same position: translate sentence by sentence, never merge or split. Each sentence ends with . ? or ! . No quotation marks and no dialogue dashes anywhere: a speaker's line is written "Name: sentence." (one sentence per line) or reported with a colon. Numbers are digits, identical on both sides; never convert units.
 VOCABULARY IN THE PASSAGE: use EVERY term of the lesson's word list, written as in the list with the same head noun (plural or gender agreement is fine, the article may change), and at least ${Math.max(limits.minPhrasesUsed, master ? 3 : 2)} of its phrases word for word. Spread the terms over the scene: each term sits in a sentence that says something about it (what someone does with it, where it is, why it matters). Never pack three or more terms into a bare list ("Marta revisa la protección, la capacidad y la cantidad." is rejected). Check this before you answer.
+PASSAGE RULES: ${PASSAGE_QUALITY_RULES.filter((rule) => rule !== REGION_RULE).join(" ")}
 
-VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (${spanish ? "the Spanish infinitive, e.g. revisar, or reflexive lavarse" : 'the bare English verb, e.g. "check", no "to"'}), "native" (the meaning in ${ctx.pair.nativeLanguage}${spanish ? ', like "to check"' : ', e.g. "revisar"'}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; the bare verb form with no pronoun${spanish ? ', except the reflexive pronoun for reflexive verbs ("me lavo"). All five forms differ: tú ends in -s, nosotros in -mos, ellos/ustedes in -n. Mark stem changes in the note' : '; the he/she form takes the -s ("checks")'}), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}).
+VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (${spanish ? "the Spanish infinitive, e.g. revisar, or reflexive lavarse" : 'the bare English verb, e.g. "check", no "to"'}), "native" (the meaning in ${ctx.pair.nativeLanguage}${spanish ? ', like "to check"' : ', e.g. "revisar"'}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; the bare verb form with no pronoun${spanish ? ', except the reflexive pronoun for reflexive verbs ("me lavo"). All five forms differ: tú ends in -s, nosotros in -mos, ellos/ustedes in -n. Mark stem changes in the note' : '; the he/she form takes the -s ("checks")'}), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}). ${NOTE_FINAL_RULE}
 
 ${registerRules(ctx)}
 
 ${safetyRules(ctx)}${extra.safetySensitive ? " This lesson is safety-sensitive: show the safe procedure (stop, verify, report, follow the protocol or the plans) and attribute every figure." : ""}`;
   const user = {
     module: ctx.module.name,
+    ...(STAGE_SCOPE[ctx.module.id] ? { scope: STAGE_SCOPE[ctx.module.id] } : {}),
     learnerRole: ctx.module.userRole,
     stage: master ? "Master 20 (after the Core 30)" : "Foundation (before the Core 30)",
     lesson: {
@@ -1151,7 +1170,7 @@ const SPANISH_ARTICLES = new Set(["el", "la", "los", "las", "un", "una", "unos",
 const ENGLISH_ARTICLES = new Set(["the", "a", "an"]);
 const BANNED_REVEAL = /complicat|surpris|unannounced|twist/i;
 const SPANISH_MARKERS = /\b(es|muy|verbo|los|las|para|del|cuando|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|significa|también|usted|decir|dice)\b/gi;
-const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you)\b/gi;
+const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you|that|takes|take|word|words|noun|nouns|verb|verbs|feminine|masculine|plural|singular|agree|agrees|adjective|adjectives|before|after|like|or|an)\b/gi;
 const count = (text: string, pattern: RegExp) => (text.match(pattern) ?? []).length;
 const digits = (text: string) => (text.match(/\d+/g) ?? []).join(",");
 const ENDS = /[.?!…]["'”’»)\]]*$/;
@@ -1567,6 +1586,17 @@ export function stageContentErrors(
       `these terms do not appear in the passage (their head word must appear as a whole word): ${missing.join(", ")}. Use every term`,
     );
   errors.push(...unattributedSpecs(content.passage.target, ctx));
+  if (ctx.pair.language === "Spanish") {
+    content.passage.target.forEach((sentence, i) => {
+      const forms = vosotrosForms(sentence);
+      if (forms.length > 0)
+        errors.push(`passage.target[${i}]: vosotros form "${forms.join('", "')}"; use ustedes (neutral Latin-American Spanish)`);
+    });
+    for (const verb of content.verbs) {
+      const forms = vosotrosForms([verb.example.target, ...Object.values(verb.forms ?? {})].join(" "));
+      if (forms.length > 0) errors.push(`${verb.infinitive}: vosotros form "${forms.join('", "')}"; use ustedes`);
+    }
+  }
   errors.push(...bareTermSeries(content.passage.target, lesson.words, ctx.pair.language));
   for (const verb of content.verbs) {
     for (const issue of unattributedSpecs([verb.example.target], ctx)) errors.push(`${verb.infinitive} example: ${issue}`);

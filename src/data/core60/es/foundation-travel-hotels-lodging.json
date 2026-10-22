@@ -1,0 +1,990 @@
+{
+  "version": 1,
+  "module": "foundation-travel-hotels-lodging",
+  "baseModule": "travel-hotels-lodging",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Hotels & Lodging Foundation",
+  "threshold": "By Lesson 10, you can greet hotel staff, give numbers, times and prices, describe your room, say what you need, ask questions, make polite requests and get help, and start Hotels & Lodging Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say hotel words clearly and greet a receptionist politely when you arrive.",
+      "focus": "The five vowels, ch, j, ll, ñ, rr, silent h, the written accent, and greetings",
+      "words": [
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term",
+          "note": "The h is silent: say 'o-TEL'."
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term",
+          "note": "ll sounds like English y: 'YAH-veh'."
+        },
+        {
+          "en": "the room",
+          "es": "la habitación",
+          "kind": "term",
+          "note": "Silent h; the accent marks the stress: ha-bi-ta-CIÓN."
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term",
+          "note": "Stress falls on the accented ó."
+        },
+        {
+          "en": "the luggage",
+          "es": "el equipaje",
+          "kind": "term",
+          "note": "j sounds like a strong English h."
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term",
+          "note": "Say each vowel: to-A-ya."
+        },
+        {
+          "en": "the bed",
+          "es": "la cama",
+          "kind": "term",
+          "note": "Spanish a is always 'ah'."
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term",
+          "note": "ñ sounds like ny in canyon."
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term",
+          "note": "ch sounds like ch in church."
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "The usual word in Mexico."
+        },
+        {
+          "en": "the terrace",
+          "es": "la terraza",
+          "kind": "term",
+          "note": "Trill the rr with the tip of your tongue."
+        },
+        {
+          "en": "Good morning!",
+          "es": "¡Buenos días!",
+          "kind": "phrase",
+          "note": "Use until about noon; then buenas tardes."
+        },
+        {
+          "en": "Good evening.",
+          "es": "Buenas noches.",
+          "kind": "phrase",
+          "note": "Works as both hello and goodbye at night."
+        },
+        {
+          "en": "My name is Ana Smith.",
+          "es": "Me llamo Ana Smith.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with hotel staff."
+        },
+        {
+          "en": "See you later.",
+          "es": "Hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the receptionist, say your name, and pronounce hotel, llave and habitación clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give nights, people, room numbers, prices in pesos and times at a hotel front desk.",
+      "focus": "Numbers 0 to 1,000, clock time, and hotel quantities: nights, people, floors, pesos, kilos",
+      "words": [
+        {
+          "en": "the time, the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term",
+          "note": "In Mexico, la planta baja is the ground floor; piso 1 is one floor up."
+        },
+        {
+          "en": "the person",
+          "es": "la persona",
+          "kind": "term"
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican currency; peso also means weight."
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term",
+          "note": "With la it means morning; mañana alone means tomorrow."
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term",
+          "note": "Some laundries charge by the kilo."
+        },
+        {
+          "en": "the room number",
+          "es": "el número de habitación",
+          "kind": "term"
+        },
+        {
+          "en": "It's 3 nights for 2 people.",
+          "es": "Son 3 noches para 2 personas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I arrive at 3 in the afternoon.",
+          "es": "Llego a las 3 de la tarde.",
+          "kind": "phrase",
+          "note": "Use a las + number for clock time; a la 1 for one o'clock."
+        },
+        {
+          "en": "What time is checkout?",
+          "es": "¿A qué hora es la salida?",
+          "kind": "phrase"
+        },
+        {
+          "en": "My room is 214.",
+          "es": "Mi habitación es la 214.",
+          "kind": "phrase",
+          "note": "Say room numbers as one number: doscientos catorce."
+        },
+        {
+          "en": "Is it 1,200 pesos per night?",
+          "es": "¿Son 1,200 pesos por noche?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 2 kilos of clothes.",
+          "es": "Son 2 kilos de ropa.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the receptionist how many nights and people you have, what time you arrive, and confirm the price per night."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe your room as clean, dirty, noisy or quiet, and say where you are or where you're from.",
+      "focus": "ser for what something is or where you're from, estar for room conditions and location",
+      "words": [
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term",
+          "note": "Adjectives take -a with feminine nouns: la cama limpia."
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "noisy",
+          "es": "ruidoso",
+          "kind": "term"
+        },
+        {
+          "en": "quiet",
+          "es": "tranquilo",
+          "kind": "term"
+        },
+        {
+          "en": "comfortable",
+          "es": "cómodo",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "broken",
+          "es": "roto",
+          "kind": "term"
+        },
+        {
+          "en": "occupied, busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "the receptionist",
+          "es": "el recepcionista",
+          "kind": "term",
+          "note": "la recepcionista for a woman."
+        },
+        {
+          "en": "The room is clean.",
+          "es": "La habitación está limpia.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "I'm from the United States.",
+          "es": "Soy de Estados Unidos.",
+          "kind": "phrase",
+          "note": "ser: origin and identity."
+        },
+        {
+          "en": "The bathroom is dirty.",
+          "es": "El baño está sucio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the gym open?",
+          "es": "¿Está abierto el gimnasio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it a quiet room?",
+          "es": "¿Es una habitación tranquila?",
+          "kind": "phrase",
+          "note": "ser: what kind of room it is."
+        },
+        {
+          "en": "I'm in room 305.",
+          "es": "Estoy en la habitación 305.",
+          "kind": "phrase",
+          "note": "estar: location."
+        }
+      ],
+      "speaking": "Tell the front desk whether your room is clean, dirty, noisy or quiet, and say what room you are in."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want in your room, and ask what there is at the hotel.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive for room needs",
+      "words": [
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "the blanket",
+          "es": "la cobija",
+          "kind": "term",
+          "note": "The everyday word in Mexico."
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term"
+        },
+        {
+          "en": "the toilet paper",
+          "es": "el papel de baño",
+          "kind": "term"
+        },
+        {
+          "en": "the shampoo",
+          "es": "el champú",
+          "kind": "term"
+        },
+        {
+          "en": "the hot water",
+          "es": "el agua caliente",
+          "kind": "term",
+          "note": "Agua is feminine but takes el: el agua caliente."
+        },
+        {
+          "en": "the Wi-Fi",
+          "es": "el wifi",
+          "kind": "term",
+          "note": "Often pronounced 'güifi'."
+        },
+        {
+          "en": "the password",
+          "es": "la contraseña",
+          "kind": "term"
+        },
+        {
+          "en": "the safe",
+          "es": "la caja fuerte",
+          "kind": "term"
+        },
+        {
+          "en": "the breakfast",
+          "es": "el desayuno",
+          "kind": "term"
+        },
+        {
+          "en": "I have a reservation under the name Smith.",
+          "es": "Tengo una reservación a nombre de Smith.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is breakfast included?",
+          "es": "¿Hay desayuno incluido?",
+          "kind": "phrase",
+          "note": "hay: there is, there are, is there."
+        },
+        {
+          "en": "I need toilet paper, please.",
+          "es": "Necesito papel de baño, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want a quiet room.",
+          "es": "Quiero una habitación tranquila.",
+          "kind": "phrase",
+          "note": "Quisiera is a softer, more polite 'I would like'."
+        },
+        {
+          "en": "Do you have to pay for the Wi-Fi?",
+          "es": "¿Hay que pagar el wifi?",
+          "kind": "phrase",
+          "note": "hay que + infinitive: it is necessary to."
+        },
+        {
+          "en": "Do you have the Wi-Fi password?",
+          "es": "¿Tiene la contraseña del wifi?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the receptionist you have a reservation, say what you need in the room, and ask if breakfast is included."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you're going, your plans for the day, and what you can do at the hotel.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder for what you can do",
+      "words": [
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term"
+        },
+        {
+          "en": "the stairs",
+          "es": "las escaleras",
+          "kind": "term"
+        },
+        {
+          "en": "the restaurant",
+          "es": "el restaurante",
+          "kind": "term"
+        },
+        {
+          "en": "the pool",
+          "es": "la alberca",
+          "kind": "term",
+          "note": "The usual word for a swimming pool in Mexico."
+        },
+        {
+          "en": "the taxi",
+          "es": "el taxi",
+          "kind": "term"
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "the store",
+          "es": "la tienda",
+          "kind": "term"
+        },
+        {
+          "en": "the tour, the day trip",
+          "es": "la excursión",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to leave at 8.",
+          "es": "Voy a salir a las 8.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for plans."
+        },
+        {
+          "en": "I'm going to the airport tomorrow.",
+          "es": "Voy al aeropuerto mañana.",
+          "kind": "phrase",
+          "note": "al = a + el."
+        },
+        {
+          "en": "Can I leave my luggage here?",
+          "es": "¿Puedo dejar mi equipaje aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do I do with the key?",
+          "es": "¿Qué hago con la llave?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's hot in the room.",
+          "es": "Hace calor en la habitación.",
+          "kind": "phrase",
+          "note": "hacer for weather and temperature: hace calor, hace frío."
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the concierge where you're going tomorrow and ask if you can leave your luggage at the desk."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Use everyday present-tense verbs to talk about paying, arriving and laundry at a hotel.",
+      "focus": "Regular -ar, -er, -ir present endings for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the credit card",
+          "es": "la tarjeta de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the suitcase",
+          "es": "la maleta",
+          "kind": "term"
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term"
+        },
+        {
+          "en": "the clothes",
+          "es": "la ropa",
+          "kind": "term"
+        },
+        {
+          "en": "the laundry service",
+          "es": "la lavandería",
+          "kind": "term"
+        },
+        {
+          "en": "the window",
+          "es": "la ventana",
+          "kind": "term"
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the air conditioning",
+          "es": "el aire acondicionado",
+          "kind": "term"
+        },
+        {
+          "en": "the shower",
+          "es": "la regadera",
+          "kind": "term",
+          "note": "The usual word in Mexico."
+        },
+        {
+          "en": "I'm paying by credit card.",
+          "es": "Pago con tarjeta de crédito.",
+          "kind": "phrase",
+          "note": "-ar verb, yo form: pago."
+        },
+        {
+          "en": "Do you accept cash?",
+          "es": "¿Aceptan efectivo?",
+          "kind": "phrase",
+          "note": "-ar verb, ellos/ustedes form: aceptan."
+        },
+        {
+          "en": "My wife and I arrive tonight.",
+          "es": "Mi esposa y yo llegamos hoy en la noche.",
+          "kind": "phrase",
+          "note": "nosotros form: llegamos."
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Usted habla inglés?",
+          "kind": "phrase",
+          "note": "usted form: habla."
+        },
+        {
+          "en": "I live in Chicago.",
+          "es": "Vivo en Chicago.",
+          "kind": "phrase",
+          "note": "-ir verb, yo form: vivo."
+        },
+        {
+          "en": "Will you open the window, please?",
+          "es": "¿Abres la ventana, por favor?",
+          "kind": "phrase",
+          "note": "tú form: use with a travel companion, not with staff."
+        }
+      ],
+      "speaking": "Tell the receptionist where you live and when you and your family arrive, and ask if they accept cash."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask hotel staff what, where, when, how much, who, why and which.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál and rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿Cuánto cuesta? means how much does it cost?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "Alone, ¿Cómo? also means 'Sorry, what did you say?'"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál before es to ask 'what is' a name or number: ¿Cuál es...?"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the ATM",
+          "es": "el cajero automático",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the parking lot?",
+          "es": "¿Dónde está el estacionamiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the laundry service?",
+          "es": "¿Cuánto cuesta la lavandería?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one is my room?",
+          "es": "¿Cuál es mi habitación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When is breakfast?",
+          "es": "¿Cuándo es el desayuno?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who cleans the room?",
+          "es": "¿Quién limpia la habitación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why is there an extra charge?",
+          "es": "¿Por qué hay un cargo extra?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the receptionist where the parking lot is, when breakfast is, and how much the laundry service costs."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is missing or not yours, and ask for more, less or another item at a hotel.",
+      "focus": "no before the verb, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Keep no before the verb: No necesito nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "No un before it: otra toalla, not una otra toalla."
+        },
+        {
+          "en": "the noise",
+          "es": "el ruido",
+          "kind": "term"
+        },
+        {
+          "en": "the charge",
+          "es": "el cargo",
+          "kind": "term"
+        },
+        {
+          "en": "the bill",
+          "es": "la cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the minibar",
+          "es": "el minibar",
+          "kind": "term"
+        },
+        {
+          "en": "There's no hot water.",
+          "es": "No hay agua caliente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody answers at the front desk.",
+          "es": "Nadie contesta en recepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This charge isn't mine.",
+          "es": "Este cargo no es mío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the room not ready yet?",
+          "es": "¿Todavía no está lista la habitación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another towel, please.",
+          "es": "Necesito otra toalla, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have a room with less noise?",
+          "es": "¿Tiene una habitación con menos ruido?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the front desk there is no hot water and that a charge isn't yours, and ask for another towel."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask hotel staff politely for help and understand simple usted commands.",
+      "focus": "¿Puede…? requests and usted commands such as repita, espere and pase",
+      "words": [
+        {
+          "en": "housekeeping, the cleaning",
+          "es": "la limpieza",
+          "kind": "term"
+        },
+        {
+          "en": "room service",
+          "es": "el servicio a la habitación",
+          "kind": "term"
+        },
+        {
+          "en": "the housekeeper",
+          "es": "la camarista",
+          "kind": "term",
+          "note": "Common hotel word in Mexico; el camarista for a man."
+        },
+        {
+          "en": "the remote control",
+          "es": "el control remoto",
+          "kind": "term"
+        },
+        {
+          "en": "the sheets",
+          "es": "las sábanas",
+          "kind": "term"
+        },
+        {
+          "en": "the light bulb",
+          "es": "el foco",
+          "kind": "term",
+          "note": "The usual word in Mexico."
+        },
+        {
+          "en": "the outlet",
+          "es": "el contacto",
+          "kind": "term",
+          "note": "In Mexico, el contacto is the wall outlet."
+        },
+        {
+          "en": "the hangers",
+          "es": "los ganchos",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "Can you change the sheets, please?",
+          "es": "¿Puede cambiar las sábanas, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is a polite usted request."
+        },
+        {
+          "en": "Can you call me a taxi?",
+          "es": "¿Me puede llamar un taxi?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please repeat that.",
+          "es": "Repita, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of repetir."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of esperar."
+        },
+        {
+          "en": "Can you send someone to check the light bulb?",
+          "es": "¿Puede mandar a alguien a revisar el foco?",
+          "kind": "phrase",
+          "note": "Use the personal a before alguien."
+        },
+        {
+          "en": "Come in, please.",
+          "es": "Pase, por favor.",
+          "kind": "phrase",
+          "note": "Say it when housekeeping knocks."
+        }
+      ],
+      "speaking": "Ask the housekeeper to change the sheets, and ask the front desk to send someone to check the light bulb."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and survival phrases to get help at a hotel.",
+      "focus": "Cognates ending in -ción, -dad, -ente and short survival phrases",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "Words ending in -ción are feminine and match English -tion."
+        },
+        {
+          "en": "the recommendation",
+          "es": "la recomendación",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term",
+          "note": "Words ending in -dad are feminine and match English -ty."
+        },
+        {
+          "en": "the security",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the manager",
+          "es": "el gerente",
+          "kind": "term",
+          "note": "la gerente for a woman."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me?",
+          "es": "¿Me puede ayudar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I speak with the manager?",
+          "es": "¿Puedo hablar con el gerente?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's urgent.",
+          "es": "Es urgente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have availability for tonight?",
+          "es": "¿Tiene disponibilidad para esta noche?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't speak much Spanish.",
+          "es": "No hablo mucho español.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a hotel employee you don't speak much Spanish, ask for help, and ask to speak with the manager because it's urgent."
+    }
+  ]
+}

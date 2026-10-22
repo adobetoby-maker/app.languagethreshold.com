@@ -1,3 +1,5 @@
+import { VERB_ROUTE_PARAMS } from "./verb-games/verb-route.ts";
+
 /** One tab vocabulary for app state and refreshable root-page links. */
 export const APP_TABS = [
   "missionary",
@@ -67,6 +69,8 @@ export function appNavigationLocation(
     params.delete("lesson");
     params.delete("way");
   }
+  // The Verbs sub-route lives only under the Games tab.
+  if (context.tab !== "games") for (const key of VERB_ROUTE_PARAMS) params.delete(key);
   // An explicit Core link must not inherit a specialty from another learner's profile.
   params.set("module", context.moduleId ?? "core");
   params.set("target", context.target);

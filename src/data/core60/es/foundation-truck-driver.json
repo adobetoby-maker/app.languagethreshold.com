@@ -1,0 +1,899 @@
+{
+  "version": 1,
+  "module": "foundation-truck-driver",
+  "baseModule": "truck-driver",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Truck Driver Foundation",
+  "threshold": "By Lesson 10, you can greet dispatch and dock workers, give times, miles and weights, describe your truck and load, ask simple questions and ask for help in Spanish, and start Truck Driver Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.030Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say trucking words clearly and greet dispatch, dock workers and receivers politely.",
+      "focus": "The five clear vowels, ch, j, ll, rr and the written accent, in greetings and truck words",
+      "words": [
+        {
+          "en": "the truck",
+          "es": "el camión",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: ca-MIÓN."
+        },
+        {
+          "en": "the highway",
+          "es": "la carretera",
+          "kind": "term",
+          "note": "rr is a strong rolled r: ca-RRE-te-ra."
+        },
+        {
+          "en": "the tire",
+          "es": "la llanta",
+          "kind": "term",
+          "note": "ll sounds like the English y in yes: YAN-ta."
+        },
+        {
+          "en": "the trailer box",
+          "es": "la caja",
+          "kind": "term",
+          "note": "j sounds like a strong English h. Drivers often call the trailer la caja."
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term",
+          "note": "ch as in church. In Mexico the stress is on -FER. A woman driver is la chofer."
+        },
+        {
+          "en": "the scale (weigh station)",
+          "es": "la báscula",
+          "kind": "term",
+          "note": "Accent on the first syllable: BÁS-cu-la."
+        },
+        {
+          "en": "the route",
+          "es": "la ruta",
+          "kind": "term",
+          "note": "Spanish vowels are short and clear: u always sounds like oo."
+        },
+        {
+          "en": "dispatch",
+          "es": "el despacho",
+          "kind": "term",
+          "note": "Many drivers in the US also just say dispatch."
+        },
+        {
+          "en": "the semi-trailer truck",
+          "es": "el tráiler",
+          "kind": "term",
+          "note": "Common loanword in Mexico and the US. Accent on TRÁI-."
+        },
+        {
+          "en": "Good morning, my name is Carlos.",
+          "es": "Buenos días, me llamo Carlos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está?",
+          "kind": "phrase",
+          "note": "Formal (usted): use it with receivers, guards and anyone you don't know."
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm here to pick up a load.",
+          "es": "Vengo por una carga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good night, see you tomorrow.",
+          "es": "Buenas noches, hasta mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a dock worker, say your name, and say you are here to pick up a load, pronouncing camión, caja and tráiler clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give times, miles, pounds, gallons and pallet counts to dispatch and receivers.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and miles, pounds, gallons, feet and pallets",
+      "words": [
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the time, the hour",
+          "es": "la hora",
+          "kind": "term",
+          "note": "¿Qué hora es? asks the time; a las 8:00 means at 8:00."
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the miles",
+          "es": "las millas",
+          "kind": "term"
+        },
+        {
+          "en": "the pounds",
+          "es": "las libras",
+          "kind": "term"
+        },
+        {
+          "en": "the gallons",
+          "es": "los galones",
+          "kind": "term"
+        },
+        {
+          "en": "the pallets",
+          "es": "las tarimas",
+          "kind": "term",
+          "note": "Common in Mexico; some warehouses also say los pallets."
+        },
+        {
+          "en": "the diesel",
+          "es": "el diésel",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term",
+          "note": "Without the article, mañana means tomorrow."
+        },
+        {
+          "en": "the feet (length)",
+          "es": "los pies",
+          "kind": "term"
+        },
+        {
+          "en": "My appointment is at 7:30 in the morning.",
+          "es": "Mi cita es a las 7:30 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm carrying 22 pallets.",
+          "es": "Traigo 22 tarimas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 150 miles to go.",
+          "es": "Faltan 150 millas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 100 gallons of diesel.",
+          "es": "Son 100 galones de diésel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll arrive in 45 minutes.",
+          "es": "Llego en 45 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The trailer is 53 feet long.",
+          "es": "El tráiler es de 53 pies.",
+          "kind": "phrase",
+          "note": "Measurements use de: es de 53 pies."
+        }
+      ],
+      "speaking": "Tell a receiver what time your appointment is, how many pallets you carry and how many minutes until you arrive."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are and describe your truck, load and the warehouse as loaded, empty, open or closed.",
+      "focus": "ser for who or what something is, estar for its condition or location",
+      "words": [
+        {
+          "en": "the loading dock",
+          "es": "el andén",
+          "kind": "term",
+          "note": "Many warehouses in the US also say el dock."
+        },
+        {
+          "en": "the warehouse",
+          "es": "la bodega",
+          "kind": "term"
+        },
+        {
+          "en": "the dispatcher",
+          "es": "el despachador",
+          "kind": "term",
+          "note": "A woman is la despachadora."
+        },
+        {
+          "en": "loaded",
+          "es": "cargado",
+          "kind": "term"
+        },
+        {
+          "en": "empty",
+          "es": "vacío",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "flat (tire)",
+          "es": "ponchado",
+          "kind": "term",
+          "note": "Mexican usage; it agrees with llanta: la llanta está ponchada."
+        },
+        {
+          "en": "broken down",
+          "es": "descompuesto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "I'm the driver for load 4521.",
+          "es": "Soy el chofer de la carga 4521.",
+          "kind": "phrase",
+          "note": "ser: who you are."
+        },
+        {
+          "en": "The trailer is empty.",
+          "es": "El tráiler está vacío.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The tire is flat.",
+          "es": "La llanta está ponchada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The warehouse is closed.",
+          "es": "La bodega está cerrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you the dispatcher?",
+          "es": "¿Es usted el despachador?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The truck is at dock 5.",
+          "es": "El camión está en el andén 5.",
+          "kind": "phrase",
+          "note": "estar for location."
+        }
+      ],
+      "speaking": "Tell a dock worker who you are, where your truck is, and whether your trailer is loaded or empty."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what you need and what must be done before you leave a dock.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the paperwork",
+          "es": "los papeles",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the seal (trailer seal)",
+          "es": "el sello",
+          "kind": "term"
+        },
+        {
+          "en": "the chains",
+          "es": "las cadenas",
+          "kind": "term"
+        },
+        {
+          "en": "the forklift",
+          "es": "el montacargas",
+          "kind": "term",
+          "note": "Masculine even though it ends in -s: el montacargas, los montacargas."
+        },
+        {
+          "en": "the mechanic",
+          "es": "el mecánico",
+          "kind": "term",
+          "note": "A woman is la mecánica."
+        },
+        {
+          "en": "the license",
+          "es": "la licencia",
+          "kind": "term"
+        },
+        {
+          "en": "the permit",
+          "es": "el permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "I have the paperwork for the load.",
+          "es": "Tengo los papeles de la carga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there a restroom here?",
+          "es": "¿Hay un baño aquí?",
+          "kind": "phrase",
+          "note": "hay means there is or there are; it never changes."
+        },
+        {
+          "en": "I need your signature, please.",
+          "es": "Necesito su firma, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to talk to the dispatcher.",
+          "es": "Quiero hablar con el despachador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to check the seal before leaving.",
+          "es": "Hay que revisar el sello antes de salir.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done."
+        }
+      ],
+      "speaking": "Tell a receiver you have the paperwork, say you need a signature, and ask if there is a restroom."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you will do next and what you can or can't do on a run.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the gas station, the fuel stop",
+          "es": "la gasolinera",
+          "kind": "term"
+        },
+        {
+          "en": "the rest break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the exit",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the trip, the run",
+          "es": "el viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the border",
+          "es": "la frontera",
+          "kind": "term"
+        },
+        {
+          "en": "customs",
+          "es": "la aduana",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to Laredo today.",
+          "es": "Voy a Laredo hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow I'm going to cross the border.",
+          "es": "Mañana voy a cruzar la frontera.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for plans."
+        },
+        {
+          "en": "I'm going to take my break now.",
+          "es": "Voy a tomar mi descanso ahora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm doing 3 deliveries today.",
+          "es": "Hago 3 entregas hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I park here?",
+          "es": "¿Puedo estacionarme aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can arrive at 3:00.",
+          "es": "Puedo llegar a las 3:00.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell dispatch where you are going today, when you can arrive, and that you are going to take your break."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about daily driving tasks: driving, checking, loading and delivering, for yourself and others.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the delivery",
+          "es": "la entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the coworker, the team partner",
+          "es": "el compañero",
+          "kind": "term",
+          "note": "A woman is la compañera. Use tú with a compañero."
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the mirror",
+          "es": "el espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the brakes",
+          "es": "los frenos",
+          "kind": "term"
+        },
+        {
+          "en": "the lights",
+          "es": "las luces",
+          "kind": "term"
+        },
+        {
+          "en": "the engine",
+          "es": "el motor",
+          "kind": "term"
+        },
+        {
+          "en": "the oil",
+          "es": "el aceite",
+          "kind": "term"
+        },
+        {
+          "en": "I drive at night.",
+          "es": "Manejo de noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I check the brakes and the lights.",
+          "es": "Reviso los frenos y las luces.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you driving tomorrow?",
+          "es": "¿Tú manejas mañana?",
+          "kind": "phrase",
+          "note": "Informal tú, between coworkers."
+        },
+        {
+          "en": "We deliver in Dallas.",
+          "es": "Nosotros entregamos en Dallas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They load the pallets.",
+          "es": "Ellos cargan las tarimas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you receive the load?",
+          "es": "¿Usted recibe la carga?",
+          "kind": "phrase",
+          "note": "Formal usted, for a receiver you don't know."
+        }
+      ],
+      "speaking": "Tell your team partner when you drive, what you check on the truck, and ask when they drive."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask where, when, who and how much at a warehouse, dock or fuel stop.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Plural ¿cuántos? for things you count: ¿cuántas tarimas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent for why; porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the office?",
+          "es": "¿Dónde está la oficina?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time is my appointment?",
+          "es": "¿A qué hora es mi cita?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which is my dock door?",
+          "es": "¿Cuál es mi puerta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who signs the paperwork?",
+          "es": "¿Quién firma los papeles?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much does the load weigh?",
+          "es": "¿Cuánto pesa la carga?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do I get to the warehouse?",
+          "es": "¿Cómo llego a la bodega?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a guard at a warehouse where the office is, which door is yours and who signs the paperwork."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is not ready yet, report nobody or nothing, and ask for more, less or another.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: no traigo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less, fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another, other",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never use un before otro: otro sello, not un otro sello."
+        },
+        {
+          "en": "the traffic",
+          "es": "el tráfico",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "They haven't unloaded the trailer yet.",
+          "es": "Todavía no descargan el tráiler.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody at the dock.",
+          "es": "No hay nadie en el andén.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never drive tired.",
+          "es": "Nunca manejo cansado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not carrying anything in the trailer.",
+          "es": "No traigo nada en la caja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a lot of traffic; I'll arrive 20 minutes later.",
+          "es": "Hay mucho tráfico; llego 20 minutos más tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another seal; this one is broken.",
+          "es": "Necesito otro sello, este está roto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell dispatch there is a lot of traffic, say how many minutes later you will arrive, and that the trailer is not unloaded yet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a receiver, guard or dock worker to sign, wait, repeat or call someone.",
+      "focus": "¿Puede…? requests and usted commands (firme, espere, repita, llame) with por favor",
+      "words": [
+        {
+          "en": "the service window",
+          "es": "la ventanilla",
+          "kind": "term"
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the bill of lading",
+          "es": "el conocimiento de embarque",
+          "kind": "term",
+          "note": "Many drivers in the US just say el BOL."
+        },
+        {
+          "en": "the invoice",
+          "es": "la factura",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "here",
+          "es": "aquí",
+          "kind": "term"
+        },
+        {
+          "en": "over there",
+          "es": "allá",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a copy?",
+          "es": "¿Me puede dar una copia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: polite with one person you don't know."
+        },
+        {
+          "en": "Speak more slowly, please.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Repeat the seal number, please.",
+          "es": "Repita el número de sello, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call the dispatcher, please.",
+          "es": "Llame al despachador, por favor.",
+          "kind": "phrase",
+          "note": "Personal a before a person: llamar al despachador."
+        }
+      ],
+      "speaking": "Ask a receiver at the window to sign the bill of lading, give you a copy and repeat the seal number slowly."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and ask for help, repeat or a tow truck on the road.",
+      "focus": "Cognates ending in -ción, -dad, -ente, -cia, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "safety",
+          "es": "la seguridad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the agent, the officer",
+          "es": "el agente",
+          "kind": "term",
+          "note": "A woman is la agente."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the tow truck",
+          "es": "la grúa",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you repeat?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say dock in Spanish?",
+          "es": "¿Cómo se dice dock en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, it's an emergency.",
+          "es": "Necesito ayuda, es una emergencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm at mile 120 on highway 35.",
+          "es": "Estoy en la milla 120 de la carretera 35.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need a tow truck, please.",
+          "es": "Necesito una grúa, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Call dispatch, say you speak a little Spanish, give your location by mile marker, and ask for help or a tow truck."
+    }
+  ]
+}

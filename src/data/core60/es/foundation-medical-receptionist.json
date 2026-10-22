@@ -1,0 +1,911 @@
+{
+  "version": 1,
+  "module": "foundation-medical-receptionist",
+  "baseModule": "medical-receptionist",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Medical Receptionist Foundation",
+  "threshold": "By Lesson 10, you can greet patients, give appointment times and copay amounts, ask for an ID and insurance card, direct patients around the clinic, make polite requests, ask for help, and start Medical Receptionist Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet patients at the front desk and say clinic words with clear Spanish vowels and sounds.",
+      "focus": "The five vowels, ch, j, ll, rr and written accents; greetings with usted",
+      "words": [
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term",
+          "note": "In Latin America, c before e or i sounds like s: SI-ta."
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term",
+          "note": "The accent marks the stressed syllable: re-cep-CIÓN."
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term",
+          "note": "Stress the accented syllable: te-LÉ-fo-no."
+        },
+        {
+          "en": "the clinic",
+          "es": "la clínica",
+          "kind": "term",
+          "note": "Stress the first syllable: CLÍ-ni-ca."
+        },
+        {
+          "en": "the checkup",
+          "es": "el chequeo",
+          "kind": "term",
+          "note": "ch sounds like the ch in English 'check'."
+        },
+        {
+          "en": "the sheet of paper",
+          "es": "la hoja",
+          "kind": "term",
+          "note": "j sounds like a strong English h: O-ha. The h is silent."
+        },
+        {
+          "en": "the chair",
+          "es": "la silla",
+          "kind": "term",
+          "note": "ll sounds like English y: SI-ya."
+        },
+        {
+          "en": "the email",
+          "es": "el correo",
+          "kind": "term",
+          "note": "rr is a rolled, trilled r."
+        },
+        {
+          "en": "the doctor (woman)",
+          "es": "la doctora",
+          "kind": "term",
+          "note": "Say la doctora for a woman and el doctor for a man."
+        },
+        {
+          "en": "good afternoon",
+          "es": "buenas tardes",
+          "kind": "term",
+          "note": "Use from noon until dark; after dark say buenas noches."
+        },
+        {
+          "en": "Good morning, how are you?",
+          "es": "Buenos días, ¿cómo está usted?",
+          "kind": "phrase",
+          "note": "Spanish vowels a, e, i, o, u are short and pure. Use usted with patients."
+        },
+        {
+          "en": "My name is Ana and I work at the front desk.",
+          "es": "Me llamo Ana y trabajo en la recepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase",
+          "note": "Say señor to a man and señorita to a young woman."
+        },
+        {
+          "en": "What is your name?",
+          "es": "¿Cómo se llama usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you later, take care.",
+          "es": "Hasta luego, que le vaya bien.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a patient at the front desk, say your name and that you work there, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say appointment times, dates, phone numbers and copay amounts in dollars.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, dates, minutes and dollar amounts",
+      "words": [
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term",
+          "note": "¿Qué hora es? asks the time on the clock."
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term",
+          "note": "Say phone numbers in pairs or one digit at a time."
+        },
+        {
+          "en": "the dollars",
+          "es": "los dólares",
+          "kind": "term"
+        },
+        {
+          "en": "the copay",
+          "es": "el copago",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "Monday",
+          "es": "el lunes",
+          "kind": "term",
+          "note": "Days are not capitalized: el lunes, el martes."
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "Your appointment is at 9:30.",
+          "es": "Su cita es a las 9:30.",
+          "kind": "phrase",
+          "note": "Use a las for clock time, but a la 1 for one o'clock."
+        },
+        {
+          "en": "The copay is 25 dollars, according to your insurance.",
+          "es": "El copago es de 25 dólares, según su seguro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your date of birth is May 3, 1985.",
+          "es": "Su fecha de nacimiento es el 3 de mayo de 1985.",
+          "kind": "phrase",
+          "note": "Spanish puts the day before the month."
+        },
+        {
+          "en": "The wait is 15 minutes.",
+          "es": "La espera es de 15 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We open at 8 and close at 5.",
+          "es": "Abrimos a las 8 y cerramos a las 5.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient the appointment day and time, and how many minutes the wait is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who people are and where things are, and describe the clinic as open, busy or ready.",
+      "focus": "ser for what something is, estar for its condition or location",
+      "words": [
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the doctor's office",
+          "es": "el consultorio",
+          "kind": "term"
+        },
+        {
+          "en": "the nurse (woman)",
+          "es": "la enfermera",
+          "kind": "term",
+          "note": "A male nurse is el enfermero."
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term",
+          "note": "Agrees with the noun: la clínica está abierta."
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term",
+          "note": "Paciente nuevo for a man, paciente nueva for a woman."
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "The doctor is busy right now.",
+          "es": "La doctora está ocupada ahora.",
+          "kind": "phrase",
+          "note": "estar for a condition; ocupada agrees with la doctora."
+        },
+        {
+          "en": "I'm the clinic's receptionist.",
+          "es": "Soy la recepcionista de la clínica.",
+          "kind": "phrase",
+          "note": "ser for who you are; a man says soy el recepcionista."
+        },
+        {
+          "en": "The restroom is on the right.",
+          "es": "El baño está a la derecha.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "The clinic is closed on Sundays.",
+          "es": "La clínica está cerrada los domingos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dr. García is your doctor.",
+          "es": "El doctor García es su médico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The waiting room is full today.",
+          "es": "La sala de espera está llena hoy.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient where the restroom and waiting room are and whether the doctor is busy or ready."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what a patient has, needs or wants, and what must be done at check-in.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the insurance card",
+          "es": "la tarjeta del seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term",
+          "note": "Also heard as la ID in US clinics."
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the pen",
+          "es": "la pluma",
+          "kind": "term",
+          "note": "Common in Mexico and the US; also el bolígrafo."
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the clipboard",
+          "es": "la tablilla",
+          "kind": "term"
+        },
+        {
+          "en": "the driver's license",
+          "es": "la licencia de manejo",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "I need your ID, please.",
+          "es": "Necesito su identificación, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This form needs to be filled out.",
+          "es": "Hay que llenar este formulario.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something must be done, with no specific person."
+        },
+        {
+          "en": "There are chairs in the waiting room.",
+          "es": "Hay sillas en la sala de espera.",
+          "kind": "phrase",
+          "note": "hay means both there is and there are."
+        },
+        {
+          "en": "Do you have your insurance card?",
+          "es": "¿Tiene su tarjeta del seguro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want a wheelchair?",
+          "es": "¿Quiere una silla de ruedas?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient for an ID and insurance card, and say what they need to fill out and sign."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell patients where to go, what you are going to do, and when the doctor can see them.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the lab",
+          "es": "el laboratorio",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the exit",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term",
+          "note": "Common in Mexico and the US; Spain says el ascensor."
+        },
+        {
+          "en": "the second floor",
+          "es": "el segundo piso",
+          "kind": "term"
+        },
+        {
+          "en": "the phone call",
+          "es": "la llamada",
+          "kind": "term"
+        },
+        {
+          "en": "the X-ray",
+          "es": "la radiografía",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "later",
+          "es": "más tarde",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to call the nurse.",
+          "es": "Voy a llamar a la enfermera.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamar a la enfermera."
+        },
+        {
+          "en": "You can go to the lab on the second floor.",
+          "es": "Puede ir al laboratorio en el segundo piso.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "I'm going to make your appointment for Tuesday.",
+          "es": "Voy a hacer su cita para el martes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The doctor can see you today at 3.",
+          "es": "La doctora puede verla hoy a las 3.",
+          "kind": "phrase",
+          "note": "verla for a woman, verlo for a man."
+        },
+        {
+          "en": "First you go to the lab and then to the pharmacy.",
+          "es": "Primero va al laboratorio y luego a la farmacia.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient where to go next, the lab or the pharmacy, and when the doctor can see them."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe daily front-desk actions with regular present-tense verbs.",
+      "focus": "Present tense -ar, -er, -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the first name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the last name",
+          "es": "el apellido",
+          "kind": "term",
+          "note": "Many Latino patients have two last names; ask for both."
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the computer",
+          "es": "la computadora",
+          "kind": "term"
+        },
+        {
+          "en": "the message",
+          "es": "el mensaje",
+          "kind": "term"
+        },
+        {
+          "en": "the front-desk window",
+          "es": "la ventanilla",
+          "kind": "term"
+        },
+        {
+          "en": "the ZIP code",
+          "es": "el código postal",
+          "kind": "term"
+        },
+        {
+          "en": "the receptionist (woman)",
+          "es": "la recepcionista",
+          "kind": "term",
+          "note": "A man is el recepcionista."
+        },
+        {
+          "en": "I arrive at the clinic at 7:30.",
+          "es": "Llego a la clínica a las 7:30.",
+          "kind": "phrase",
+          "note": "-ar verbs, yo: llego, llamo, espero."
+        },
+        {
+          "en": "Do you live at this address?",
+          "es": "¿Usted vive en esta dirección?",
+          "kind": "phrase",
+          "note": "-ir verbs, usted: vive, escribe, abre."
+        },
+        {
+          "en": "I type your first and last name into the computer.",
+          "es": "Escribo su nombre y apellido en la computadora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We open the window at 8.",
+          "es": "Nosotros abrimos la ventanilla a las 8.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They wait in the waiting room.",
+          "es": "Ellos esperan en la sala de espera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you read the phone messages?",
+          "es": "¿Tú lees los mensajes del teléfono?",
+          "kind": "phrase",
+          "note": "Informal tú is for coworkers; use usted with patients."
+        }
+      ],
+      "speaking": "Tell a coworker about your day at the desk: when you arrive, when you open the window and who reads the messages."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask patients basic questions about their name, birth date, doctor and insurance.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: ¿cuántos minutos?, ¿cuántas páginas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "¿Cómo? alone also means 'Sorry, what did you say?'"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent asks why; porque (one word) means because."
+        },
+        {
+          "en": "which? / what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? to ask for data: name, number, date."
+        },
+        {
+          "en": "the reason",
+          "es": "el motivo",
+          "kind": "term"
+        },
+        {
+          "en": "What is your date of birth?",
+          "es": "¿Cuál es su fecha de nacimiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is your doctor?",
+          "es": "¿Quién es su médico?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When do you want to come in?",
+          "es": "¿Cuándo quiere venir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why do you need to see the doctor?",
+          "es": "¿Por qué necesita ver al médico?",
+          "kind": "phrase",
+          "note": "Personal a before a person: ver al médico."
+        },
+        {
+          "en": "How do you spell your last name?",
+          "es": "¿Cómo se escribe su apellido?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What insurance do you have?",
+          "es": "¿Qué seguro tiene?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient their date of birth, who their doctor is and what insurance they have, and write down the answers."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, nobody, nothing and not yet, and talk about more, less and another at the desk.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less / fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: say otro formulario, otra cita."
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the turn / place in line",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "There's no one in the restroom.",
+          "es": "No hay nadie en el baño.",
+          "kind": "phrase",
+          "note": "Spanish uses a double negative: no hay nadie."
+        },
+        {
+          "en": "The doctor isn't ready yet.",
+          "es": "La doctora todavía no está lista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You don't owe anything today.",
+          "es": "Usted no debe nada hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another form, please.",
+          "es": "Necesito otro formulario, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You will wait 10 more minutes.",
+          "es": "Va a esperar 10 minutos más.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are fewer patients in the afternoon.",
+          "es": "Hay menos pacientes en la tarde.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient the doctor isn't ready yet, how many more minutes to wait, and that nobody is ahead of them."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask patients politely to sit, sign, wait or repeat with ¿Puede…? and usted commands.",
+      "focus": "¿Puede…? + infinitive and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the face mask",
+          "es": "el cubrebocas",
+          "kind": "term",
+          "note": "Common in Mexico and the US; also la mascarilla."
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term"
+        },
+        {
+          "en": "the phone line",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "one moment",
+          "es": "un momento",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is the softest way to ask."
+        },
+        {
+          "en": "Please have a seat.",
+          "es": "Tome asiento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: tomar becomes tome."
+        },
+        {
+          "en": "Please hold the line for a moment.",
+          "es": "Espere un momento en la línea, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please put on the face mask.",
+          "es": "Póngase el cubrebocas, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat your name, please?",
+          "es": "¿Puede repetir su nombre, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Fill out the first page and sign at the bottom.",
+          "es": "Llene la primera página y firme abajo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask a patient to have a seat, put on a mask, repeat their name and sign the form."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad, -ente and survival phrases",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the authorization",
+          "es": "la autorización",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation",
+          "es": "la cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the illness",
+          "es": "la enfermedad",
+          "kind": "term",
+          "note": "-dad words are feminine: la enfermedad."
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the patient (man)",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "-ente words: el paciente for a man, la paciente for a woman."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term",
+          "note": "Same form for men and women."
+        },
+        {
+          "en": "the interpreter",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "Use el or la to match the person."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you speak more slowly?",
+          "es": "No entiendo, ¿puede hablar más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, I'm going to call an interpreter.",
+          "es": "Un momento, voy a llamar a un intérprete.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say 'copay' in Spanish?",
+          "es": "¿Cómo se dice 'copay' en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it's an emergency, call 911.",
+          "es": "Si es una emergencia, llame al 911.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help at the front desk, please.",
+          "es": "Necesito ayuda en la recepción, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient you speak a little Spanish, ask them to speak more slowly, and say you will call an interpreter."
+    }
+  ]
+}

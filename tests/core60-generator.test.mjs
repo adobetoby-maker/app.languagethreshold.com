@@ -445,3 +445,11 @@ test("Spanish prompts require ustedes and Americas terms; passages with vosotros
   const errors = stageContentErrors(content, lesson, ctx("master"));
   assert.ok(errors.some((e) => e.startsWith('passage.target[1]: vosotros form "Os", "subís"')), errors.join("\n"));
 });
+
+test("Hockey stages are scoped to ice hockey (its catalog blurb also names field hockey)", () => {
+  const hockey = { ...ctx("master"), module: getModule("hockey") };
+  const outline = masterOutlineRequest(hockey, "m");
+  assert.match(outline.messages[0].content, /Ice hockey only/);
+  assert.match(outline.messages[0].content, /never field hockey/);
+  assert.doesNotMatch(masterOutlineRequest(ctx("master"), "m").messages[0].content, /Ice hockey only/);
+});

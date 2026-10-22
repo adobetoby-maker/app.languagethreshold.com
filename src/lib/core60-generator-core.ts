@@ -370,11 +370,21 @@ const ROOFING_MASTER_TITLES = [
   "Customer Walkthrough and Warranty", "Capstone: A Full Storm-Repair Day",
 ];
 
+/**
+ * A stage's scope when the module's catalog blurb is broader than its Core 30 content (Hockey's
+ * blurb says "Ice and field hockey"; its Core 30 and Foundation are ice hockey only).
+ */
+const STAGE_SCOPE: Record<string, string> = {
+  hockey:
+    "Ice hockey only, as in the Core 30 and the Foundation (la pista de hielo, el disco, el palo, los patines, la banca): never field hockey, grass or turf, a pitch, el córner corto or el hockey sobre pasto / césped / hierba.",
+};
+
 function moduleBrief(ctx: StageContext) {
   return {
     module: ctx.module.name,
     category: ctx.module.category,
     description: ctx.module.blurb,
+    ...(STAGE_SCOPE[ctx.module.id] ? { scope: STAGE_SCOPE[ctx.module.id] } : {}),
     learnerRole: ctx.module.userRole,
     whoTheLearnerTalksTo: ctx.module.aiPersona,
     vocabularyFocus: ctx.module.vocabFocus,
@@ -814,6 +824,7 @@ ${registerRules(ctx)}
 ${safetyRules(ctx)}${extra.safetySensitive ? " This lesson is safety-sensitive: show the safe procedure (stop, verify, report, follow the protocol or the plans) and attribute every figure." : ""}`;
   const user = {
     module: ctx.module.name,
+    ...(STAGE_SCOPE[ctx.module.id] ? { scope: STAGE_SCOPE[ctx.module.id] } : {}),
     learnerRole: ctx.module.userRole,
     stage: master ? "Master 20 (after the Core 30)" : "Foundation (before the Core 30)",
     lesson: {

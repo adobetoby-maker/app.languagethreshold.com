@@ -123,7 +123,7 @@ test("the client Retry loads a failed stage at once, with no backoff", async () 
 
 test("loading several modules' stages is not remembered when one fails", async () => {
   const { registry, calls } = await freshRegistry({ "foundation-nursing": 1 });
-  const ids = ["foundation-nursing", "foundation-nursing", "electrician", "master-plumber"];
+  const ids = ["foundation-nursing", "foundation-nursing", "electrician", "foundation-roofing"];
   await registry.ensureStagesForModules(ids);
   assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "unavailable");
   assert.equal(registry.stageLoadFailed("foundation-nursing"), true);
@@ -148,7 +148,7 @@ test("loading several modules' stages is not remembered when one fails", async (
 
 test("a stage that is not listed, or has no usable file, is never reported as a transient failure", async () => {
   const { registry } = await freshRegistry();
-  for (const id of ["master-plumber", "foundation-roofing", "electrician", "master-roofing", "", null, undefined])
+  for (const id of ["master-not-a-module", "foundation-roofing", "electrician", "master-roofing", "", null, undefined])
     assert.equal(registry.stageLoadFailed(id), false, String(id));
   // Listed and still loading (nothing has failed): false too.
   assert.equal(registry.stageLoadFailed("foundation-electrician"), false);
@@ -169,16 +169,20 @@ test("a scenario id names the stage to load; other scenarios name none", async (
     stageModuleIdOfScenario("scenario_version_master-electrician_lesson_3_es_v1"),
     "master-electrician",
   );
-  // A Foundation that is listed names its stage too (foundation-plumber is published and listed).
+  // Foundations and Masters that are listed name their stage too (plumber's pair is published and listed).
   assert.equal(
     stageModuleIdOfScenario("scenario_version_foundation-plumber_lesson_1_es_v1"),
     "foundation-plumber",
   );
-  // Core 30, roofing's hand-written stages, a trade's unlisted Master, curated, core and malformed ids.
+  assert.equal(
+    stageModuleIdOfScenario("scenario_version_master-plumber_lesson_3_es_v1"),
+    "master-plumber",
+  );
+  // Core 30, roofing's hand-written stages, a stage no trade lists, curated, core and malformed ids.
   for (const id of [
     "scenario_version_electrician_lesson_3_es_v1",
     "scenario_version_master-roofing_lesson_3_es_v1",
-    "scenario_version_master-plumber_lesson_3_es_v1",
+    "scenario_version_master-not-a-module_lesson_3_es_v1",
     "scenario_version_foundation-roofing_lesson_1_es_v1",
     "scenario_version_construction_safety_briefing_es_v1",
     "scenario_version_core-speaking_verb_1_es_v1",
@@ -192,8 +196,8 @@ test("a scenario id names the stage to load; other scenarios name none", async (
 
 test("ensureStageForModule loads exactly the named stage and ignores every other id", async () => {
   const { registry, calls } = await freshRegistry();
-  // Core 30 modules, roofing's hand-written stages, a trade's unlisted Master and arbitrary strings: no load.
-  for (const id of ["electrician", "master-roofing", "foundation-roofing", "master-plumber", "../../etc/passwd", "", null, undefined]) {
+  // Core 30 modules, roofing's hand-written stages, a stage no trade lists and arbitrary strings: no load.
+  for (const id of ["electrician", "master-roofing", "foundation-roofing", "master-not-a-module", "../../etc/passwd", "", null, undefined]) {
     assert.equal(await registry.ensureStageForModule(id), null, String(id));
   }
   assert.deepEqual(calls, {});
@@ -213,9 +217,9 @@ test("a base module knows its listed stage modules (the Speak catalog loads them
   const { registry } = await freshRegistry();
   assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician", "master-electrician"]);
   assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing", "master-nursing"]);
-  // A trade with only a Foundation lists just that one (its Master is not published).
-  assert.deepEqual(registry.stageModulesOfBase("plumber"), ["foundation-plumber"]);
-  assert.deepEqual(registry.stageModulesOfBase("travel-breakfast"), ["foundation-travel-breakfast"]);
+  // Plumber's Master is published and listed now, so it lists both (every listed trade has both stages).
+  assert.deepEqual(registry.stageModulesOfBase("plumber"), ["foundation-plumber", "master-plumber"]);
+  assert.deepEqual(registry.stageModulesOfBase("travel-breakfast"), ["foundation-travel-breakfast", "master-travel-breakfast"]);
   // Roofing's stages are hand-written (not data-driven), and a module with no stage has none.
   assert.deepEqual(registry.stageModulesOfBase("roofing"), []);
   assert.deepEqual(registry.stageModulesOfBase("not-a-module"), []);

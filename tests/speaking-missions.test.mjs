@@ -325,9 +325,11 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
   for (const { language } of SPEAKING_LANGUAGES) {
     const languageMissions = getSpeakingMissions(language);
     const travelMissions = languageMissions.filter((mission) => mission.specialty === "Travel");
-    // The 17 Spanish travel Foundations (Core 60 T6) add 255 stage missions, 15 each, to Spanish
-    // Travel: 644 + 255 = 899. No other language has travel Foundations yet.
-    const expectedTravelMissions = language === "Spanish" ? 899 : 644;
+    // The 17 Spanish travel Foundations (Core 60 T6) add 255 stage missions, 15 each (10 lessons +
+    // 5 challenges), to Spanish Travel: 644 + 255 = 899. The 17 travel Masters (Core 60 T7) are now
+    // published and listed too: 17 x 20 lessons = 340, plus 99 challenges (14 Masters have 6, 3 have
+    // 5), = 439 more: 899 + 439 = 1338. No other language has travel stages yet.
+    const expectedTravelMissions = language === "Spanish" ? 1338 : 644;
     assert.equal(travelMissions.length, expectedTravelMissions, `${language} Travel mission count`);
     // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
     // their own, so they do not count toward a zone's size here.

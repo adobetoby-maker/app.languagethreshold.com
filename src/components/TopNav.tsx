@@ -1,6 +1,6 @@
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { useState } from "react";
-import { Moon, Sun, Sparkle, ChevronDown, Puzzle } from "lucide-react";
+import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle } from "lucide-react";
 import {
   useApp,
   LANGUAGES,
@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ModulePickerDialog } from "./ModulePickerDialog";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { VoicePicker } from "./VoicePicker";
 import { LanguageMatchButton } from "./match/LanguageMatchButton";
 import { AuthButton } from "./auth/AuthButton";
@@ -151,53 +152,68 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              title={`Native language: ${state.nativeLanguage}`}
-              className="group hidden items-center gap-1.5 rounded-full border border-border/70 bg-card/60 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-all hover:border-gold/50 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:inline-flex"
-            >
-              <span className="opacity-60">native</span>
-              <span className="text-foreground/90">{state.nativeLanguage}</span>
-              <ChevronDown className="h-3 w-3 opacity-60 transition-transform group-data-[state=open]:rotate-180" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="max-h-[60vh] min-w-[200px] overflow-y-auto border-border/70 bg-popover/95 backdrop-blur-xl"
-            >
-              <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Native language
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {NATIVE_LANGUAGES.map((lang: NativeLanguage) => (
-                <DropdownMenuItem
-                  key={lang}
-                  onSelect={() => dispatch({ type: "SET_NATIVE_LANGUAGE", payload: lang })}
-                  className="font-mono text-xs uppercase tracking-[0.16em]"
+          <VoicePicker compact />
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                type="button"
+                aria-label="Learning settings"
+                title="Learning settings"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:text-foreground"
+              >
+                <Settings2 className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent align="end" className="w-72 space-y-3">
+              <p className="text-sm font-semibold">Learning settings</p>
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  title={`Native language: ${state.nativeLanguage}`}
+                  className="group hidden items-center gap-1.5 rounded-full border border-border/70 bg-card/60 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-all hover:border-gold/50 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:inline-flex"
                 >
-                  <span className={state.nativeLanguage === lang ? "text-gold" : "opacity-60"}>
-                    ◈
-                  </span>
-                  {lang}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+                  <span className="opacity-60">native</span>
+                  <span className="text-foreground/90">{state.nativeLanguage}</span>
+                  <ChevronDown className="h-3 w-3 opacity-60 transition-transform group-data-[state=open]:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="max-h-[60vh] min-w-[200px] overflow-y-auto border-border/70 bg-popover/95 backdrop-blur-xl"
+                >
+                  <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                    Native language
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {NATIVE_LANGUAGES.map((lang: NativeLanguage) => (
+                    <DropdownMenuItem
+                      key={lang}
+                      onSelect={() => dispatch({ type: "SET_NATIVE_LANGUAGE", payload: lang })}
+                      className="font-mono text-xs uppercase tracking-[0.16em]"
+                    >
+                      <span className={state.nativeLanguage === lang ? "text-gold" : "opacity-60"}>
+                        ◈
+                      </span>
+                      {lang}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
 
-          <div className="hidden sm:block">
-            <VoicePicker />
-          </div>
-
-          <button
-            onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
-            aria-label="Toggle theme"
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/60 text-foreground/80 transition-all hover:border-gold/60 hover:text-gold"
-          >
-            {state.darkMode ? (
-              <Sun className="h-4 w-4" strokeWidth={1.6} />
-            ) : (
-              <Moon className="h-4 w-4" strokeWidth={1.6} />
-            )}
-          </button>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-sm">Appearance</span>
+                <button
+                  onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
+                  aria-label="Toggle theme"
+                  className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/60 text-foreground/80 transition-all hover:border-gold/60 hover:text-gold"
+                >
+                  {state.darkMode ? (
+                    <Sun className="h-4 w-4" strokeWidth={1.6} />
+                  ) : (
+                    <Moon className="h-4 w-4" strokeWidth={1.6} />
+                  )}
+                </button>
+              </div>
+            </PopoverContent>
+          </Popover>
 
           <AuthButton />
         </div>

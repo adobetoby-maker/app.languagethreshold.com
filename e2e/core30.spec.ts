@@ -59,7 +59,7 @@ test.describe("desktop navigation", () => {
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(page.getByText(/^Step 1/)).toBeVisible();
     await page.getByText("✕ Exit").click();
-    await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Continue Lesson 1/ })).toBeVisible();
   });
 
   test("Core 60 opens from the sidebar", async ({ page }) => {

@@ -145,10 +145,10 @@ test.describe("Roofing Foundation: signed in", () => {
     );
     await expect(page.getByTestId("core60-step-core")).toContainText("Core 30 · 30 lessons");
     await expect(page.getByTestId("core60-step-master")).toContainText("Master 20 · 20 lessons");
-    // The path sits above the Next Up lesson card.
+    // The next lesson is promoted above the detailed stage path.
     const pathBox = await path.boundingBox();
-    const nextUp = await page.getByText(/Next Up · Foundation Lesson 1/).boundingBox();
-    expect(pathBox!.y).toBeLessThan(nextUp!.y);
+    const nextUp = await page.getByText(/Your next lesson · Foundation Lesson 1/).boundingBox();
+    expect(nextUp!.y).toBeLessThan(pathBox!.y);
     await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Roofing · Step 1 of 3");
     await page
       .getByRole("button", { name: /Today: Foundation Lesson 1|Start Foundation Lesson 1/ })

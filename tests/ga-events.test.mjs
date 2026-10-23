@@ -152,30 +152,81 @@ test("trackEvent honors the GA disable flag, speaking privacy mode and private a
     assert.equal(env.calls.length, 1);
   }));
 
-test("trackEvent never forwards identity-bearing or free-text parameters", () =>
+test("each event forwards only its own allowlisted parameters", () =>
   withModule((m) => {
     const { calls } = browser();
     m.trackEvent("team_invite_sent", {
       role: "learner",
+      count: 3,
       email: "a@b.com",
       user_id: "u1",
       member_id: "m1",
       display_name: "Ana",
+      name: "Ana",
+      org_id: "o1",
       contact: "ana@example.com",
       note: "hello",
-      long: "x".repeat(101),
-      empty: "",
-      nan: Number.NaN,
-      "Bad Key": "x",
       seats: 5,
       ok: true,
     });
-    assert.deepEqual(calls[0][2], {
-      role: "learner",
-      seats: 5,
-      ok: true,
+    assert.deepEqual(calls[0][2], { role: "learner", count: 3, transport_type: "beacon" });
+
+    m.trackEvent("purchase", {
+      transaction_id: "cs_test_abcdefgh",
+      currency: "USD",
+      value: 12.5,
+      plan: "annual",
+      module_id: "roofing",
+    });
+    assert.deepEqual(calls[1][2], {
+      transaction_id: "cs_test_abcdefgh",
+      currency: "USD",
+      value: 12.5,
       transport_type: "beacon",
     });
+
+    m.trackEvent("begin_checkout", {
+      plan: "team",
+      term: "annual",
+      seats: 5,
+      currency: "USD",
+      value: 1,
+      method: "email",
+    });
+    assert.deepEqual(calls[2][2], {
+      plan: "team",
+      term: "annual",
+      seats: 5,
+      currency: "USD",
+      value: 1,
+      transport_type: "beacon",
+    });
+    m.trackEvent("sign_up", { method: "google", plan: "x" });
+    m.trackEvent("login", { method: "google", lesson: 1 });
+    m.trackEvent("lesson_mastered", { module_id: "roofing", lesson: 4, method: "x" });
+    m.trackEvent("team_seat_assigned", { module_id: "roofing", role: "admin" });
+    assert.deepEqual(
+      calls.slice(3).map((c) => c[2]),
+      [
+        { method: "google", transport_type: "beacon" },
+        { method: "google", transport_type: "beacon" },
+        { module_id: "roofing", lesson: 4, transport_type: "beacon" },
+        { module_id: "roofing", transport_type: "beacon" },
+      ],
+    );
+
+    // Value guards still apply to allowed keys.
+    m.trackEvent("purchase", {
+      transaction_id: "ana@example.com",
+      currency: "x".repeat(101),
+      value: Number.NaN,
+    });
+    assert.deepEqual(calls[7][2], { transport_type: "beacon" });
+    // Events outside the list are refused outright.
+    assert.equal(m.trackEvent("page_view", { page_location: "https://x" }), false);
+    assert.equal(m.trackEvent("custom_thing"), false);
+    assert.equal(m.trackEvent("constructor"), false);
+    assert.equal(calls.length, 8);
   }));
 
 test("onceKey sends once per session, is stored only after a successful send, and survives blocked storage", () =>
@@ -386,8 +437,9 @@ test("client-side navigation to a public page loads GA like the root snippet, th
       "G-RP0TZ1MP7E",
       {
         anonymize_ip: true,
+        send_page_view: false,
         page_location: "https://app.languagethreshold.com/pricing",
-        page_referrer: "https://checkout.stripe.com/c/pay/cs_test_ref",
+        page_referrer: "",
       },
     ]);
     assert.deepEqual(layer.slice(2), [
@@ -512,11 +564,10 @@ test("deferred events expire after 30 minutes", () =>
 test("the deferred queue holds at most 10 events and keeps the newest", () =>
   withModule((m) => {
     const env = browser({ url: TEAM });
-    for (let i = 1; i <= 13; i++)
-      m.trackEvent("team_seat_assigned", { module_id: "roofing", n: i });
+    for (let i = 1; i <= 13; i++) m.trackEvent("team_seat_assigned", { module_id: `m${i}` });
     assert.deepEqual(
-      queue(env).map((e) => e.params.n),
-      [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      queue(env).map((e) => e.params.module_id),
+      [4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((n) => `m${n}`),
     );
     goTo(PUBLIC);
     assert.equal(m.flushPendingEvents(), 10);
@@ -601,4 +652,109 @@ test("with storage blocked, a private-page event is dropped without throwing", (
     goTo(PUBLIC);
     assert.equal(m.flushPendingEvents(), 0);
     assert.equal(env.calls.length, 0);
+  }));
+
+test("the injected loader reports only the app's own referrer, and no automatic page view", () =>
+  withModule((m) => {
+    for (const [referrer, expected] of [
+      [
+        "https://app.languagethreshold.com/pricing?x=1#y",
+        "https://app.languagethreshold.com/pricing",
+      ],
+      ["https://checkout.stripe.com/c/pay/cs_test_abc#secret", ""],
+      ["https://www.google.com/search?q=private", ""],
+      ["https://evil.example/https://app.languagethreshold.com/", ""],
+      ["", ""],
+      ["not a url", ""],
+    ]) {
+      const env = browser({ url: SUBSCRIBE, gtag: false });
+      globalThis.document.referrer = referrer;
+      m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" });
+      goTo("https://app.languagethreshold.com/");
+      assert.equal(m.flushPendingEvents(), 1, referrer);
+      const config = globalThis.window.dataLayer
+        .map((e) => Array.from(e))
+        .find((e) => e[0] === "config");
+      assert.equal(config[2].page_referrer, expected, referrer);
+      assert.equal(config[2].send_page_view, false);
+      assert.equal(config[2].anonymize_ip, true);
+      assert.equal(config[2].page_location, "https://app.languagethreshold.com/");
+      assert.equal(env.appended.length, 1);
+    }
+  }));
+
+test("routes are matched case-insensitively and after percent-decoding", () =>
+  withModule((m) => {
+    const base = "https://app.languagethreshold.com";
+    for (const [path, route] of [
+      ["/Team?org=o1&checkout=success&session_id=cs_test_abcdefgh", "team"],
+      ["/TEAM", "team"],
+      ["/te%61m?org=o1", "team"],
+      ["/%54eam?org=o1", "team"],
+      ["/te%2561m?org=o1", "team"],
+      ["/Subscribe/Success?session_id=cs_test_abcdefgh", "subscribe"],
+      ["/SUBSCRIBE/success", "subscribe"],
+      ["/subscribe/succe%73s", "subscribe"],
+      ["/?CODE=abc", "auth-return"],
+    ]) {
+      assert.equal(m.deferralRoute(base + path), route, path);
+    }
+    for (const path of [
+      "/Exams",
+      "/EXAMS?attempt=1",
+      "/%65xams",
+      "/Exam-Content",
+      "/exam-reviewers",
+      "/Owner",
+      "/%4Fwner",
+      "/ACCOUNT",
+      "/Team/Accept?token=t",
+      "/Team?ATTEMPT=a",
+      "/Team?org=o&Plan=p",
+      "/?Tab=Exams&code=abc",
+      "/te%zz",
+      "/Subscribe/success?EMAIL=a%40b.com",
+      "/?TOKEN=t",
+    ])
+      assert.equal(m.deferralRoute(base + path), null, path);
+  }));
+
+test("private paths in any case or encoding are never sent, and never deferred from exam pages", () =>
+  withModule((m) => {
+    for (const path of ["/Team", "/OWNER", "/Subscribe/success", "/te%61m", "/%65xams", "/Exams"]) {
+      const env = browser({ url: `https://app.languagethreshold.com${path}` });
+      assert.equal(m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" }), false, path);
+      assert.equal(m.trackEvent("lesson_mastered", { lesson: 1 }), false, path);
+      assert.equal(env.calls.length, 0, path);
+    }
+    for (const path of ["/Exams", "/%65xams", "/OWNER", "/Exam-Content"]) {
+      const env = browser({ url: `https://app.languagethreshold.com${path}`, gtag: false });
+      m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" });
+      m.trackEvent("sign_up", { method: "email" });
+      assert.equal(env.store.has("lt.ga.pending.v1"), false, path);
+    }
+  }));
+
+test("stored queue entries lose parameters outside the event's allowlist", () =>
+  withModule((m) => {
+    const env = browser({ url: TEAM });
+    m.trackEvent("team_seat_assigned", { module_id: "roofing", role: "admin", seats: 5 });
+    assert.deepEqual(queue(env)[0].params, { module_id: "roofing" });
+    env.store.set(
+      "lt.ga.pending.v1",
+      JSON.stringify([
+        {
+          name: "purchase",
+          params: { transaction_id: "cs_test_abcdefgh", currency: "USD", org_id: "o1", plan: "x" },
+          ts: Date.now(),
+        },
+      ]),
+    );
+    goTo(PUBLIC);
+    assert.equal(m.flushPendingEvents(), 1);
+    assert.deepEqual(env.calls[0][2], {
+      transaction_id: "cs_test_abcdefgh",
+      currency: "USD",
+      transport_type: "beacon",
+    });
   }));

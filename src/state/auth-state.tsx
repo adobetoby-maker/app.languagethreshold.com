@@ -54,6 +54,24 @@ const Ctx = createContext<AuthContextValue | null>(null);
 const GOOGLE_AUTH_PENDING = "lt-ga-google-auth";
 const NEW_ACCOUNT_WINDOW_MS = 2 * 60_000;
 
+function clearGoogleAuthPending() {
+  try {
+    window.sessionStorage.removeItem(GOOGLE_AUTH_PENDING);
+  } catch {
+    /* storage unavailable: analytics only */
+  }
+}
+
+/** True when this page load is the redirect back from a sign-in provider. */
+function isAuthReturnUrl() {
+  try {
+    const url = new URL(window.location.href);
+    return url.searchParams.has("code") || /(?:^|[#&])access_token=/.test(url.hash);
+  } catch {
+    return false;
+  }
+}
+
 /** Reports a Google sign-up or login once per session. Sends no identity, only the method. */
 function trackGoogleAuth(user: User) {
   let pending = false;
@@ -88,6 +106,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signingOutFor = useRef<string | null>(null);
 
   useEffect(() => {
+    // A Google sign-in always comes back through a redirect that carries a code or token. A page
+    // load without one means any pending Google marker is left over from an abandoned attempt, so
+    // a later SIGNED_IN (tab refocus, email sign-in) is not counted as a Google event.
+    if (!isAuthReturnUrl()) clearGoogleAuthPending();
     let sessionEvents = 0;
     const acceptSession = (s: Session | null, discarded = false) => {
       sessionEvents++;
@@ -168,6 +190,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
+    clearGoogleAuthPending();
     rememberAuthReturn(
       window.location.pathname + window.location.search,
       browserAuthReturnStorage(),
@@ -186,6 +209,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
+    clearGoogleAuthPending();
     clearAuthReturn(browserAuthReturnStorage());
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (!error) return { error: null };
@@ -219,11 +243,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (error) throw error;
     } catch {
       clearAuthReturn(browserAuthReturnStorage());
-      try {
-        window.sessionStorage.removeItem(GOOGLE_AUTH_PENDING);
-      } catch {
-        /* storage unavailable: analytics only */
-      }
+      clearGoogleAuthPending();
       toast.error("Google sign-in could not start. Try again or use email sign-in.");
     }
   }, []);

@@ -16,14 +16,31 @@ every call, and decides like this:
 | Public page, `ga-disable-G-RP0TZ1MP7E` is `true` | Dropped. |
 | Public page, GA active | Pending deferred events are flushed first, then the event is sent. GA is loaded first if client-side navigation left `window.gtag` missing. |
 
-Event parameters are limited to plan ids, module ids, lesson numbers, counts, currency and Stripe
-order references. `trackEvent` also drops any parameter whose key looks identity-bearing (email,
-user, member, name, phone, token, note, text and similar), and any string that contains `@` or is
-longer than 100 characters. Never add emails, user ids, member ids, organization ids, names or
-free text to an event.
+Only the seven events below are ever sent, and each carries only its own allowlisted parameters
+(`EVENT_PARAMS` in `src/lib/ga-events.ts`). An event name that is not listed is refused, and any
+other parameter key is dropped when sending and again when a deferred event is stored or read back.
+A string value is also dropped if it contains `@`, is empty or is longer than 100 characters, and a
+number must be finite.
 
-`onceKey` (third argument) sends an event at most once per browser session for that key. It is
-stored in `sessionStorage` (with an in-memory fallback) and is recorded only after a send succeeds.
+| Event | Allowed parameters |
+|---|---|
+| `purchase` | `transaction_id`, `currency`, `value` |
+| `begin_checkout` | `plan`, `term`, `seats`, `currency`, `value` |
+| `sign_up`, `login` | `method` |
+| `lesson_mastered` | `module_id`, `lesson` |
+| `team_seat_assigned` | `module_id` |
+| `team_invite_sent` | `role`, `count` |
+
+Never add emails, user ids, member ids, organization ids, names or free text to an event. To send a
+new parameter, add it to the allowlist for that event and to this table.
+
+Private pages are recognised the way the router matches routes: percent-escapes are decoded and the
+path is case-folded before it is compared, so `/Team`, `/OWNER`, `/Subscribe/success` and `/te%61m`
+are all private. Query keys are compared without case, and a malformed escape counts as private.
+
+`onceKey` (third argument) sends an event at most once per browser session for that key. It is used
+by `purchase` (one per Stripe session id), `lesson_mastered` (one per module and lesson), and the
+Google `sign_up` and `login` (one per user). It is stored in `sessionStorage` (with an in-memory fallback) and is recorded only after a send succeeds.
 Every event also carries `transport_type: "beacon"` so it survives a page redirect.
 
 ## Deferred events
@@ -66,32 +83,59 @@ Storage and flush rules:
 - Loading GA after client-side navigation: GA is only loaded by the server-rendered page, so a
   learner who lands on `/subscribe/success` and clicks through to `/` has no `gtag`. When a public
   page is reached with events waiting and no `gtag`, `ensureGaLoaded()` loads GA the way the root
-  snippet does (`anonymize_ip`, `page_location` without query or hash, `page_referrer` reduced to
-  origin and path, the same gtag.js URL), then the queue flushes. It never runs on a private page,
+  snippet does (`anonymize_ip`, `page_location` without query or hash, the same gtag.js URL), then the queue flushes.
+  Two settings differ from the root snippet because the loader runs after an in-app navigation:
+  `send_page_view: false` (the loader reports no page view of its own) and `page_referrer` is sent
+  only when the referrer is the app's own origin (origin plus path), otherwise it is blank. A Stripe
+  checkout page or any other site is never reported as a referrer. It never runs on a private page,
   in speaking privacy mode or while the tag is disabled. If the loader script is already in the
   page it is not added twice.
 - Stale flag: the root layout rewrites the disable flag in an effect that runs after child effects,
   so right after a navigation the flag can still describe the previous page. When the URL has changed
   since the flag was last seen, `trackEvent` and `flushPendingEvents` recompute it from the current URL,
   as the root layout does. On the same page the flag is trusted, so setting it still disables GA.
-- Dedupe: an event with a `onceKey` (all `purchase` events and the Google sign-up or login) is
+- Dedupe: an event with a `onceKey` (see above) is
   refused when queued if that key was already sent or is already queued, and refused again at flush
   time if the key was sent in between.
 - If `sessionStorage` is blocked, private-page events are dropped.
+- A Google sign-up or login that returns to `/team` (or any route other than `/` with a `code` or
+  token) is dropped by design: only the `/` return may defer `sign_up` and `login`.
+
+### Page views and Enhanced measurement
+
+gtag has no client-side switch for the "Page changes based on browser history events" page views;
+that is a Data stream setting. The injected loader sets `send_page_view: false` so it never sends
+its own page view, but history-change page views come from GA Admin. To keep private URLs out of
+them, turn that option off: Admin, Data streams, the web stream, Enhanced measurement, Page views,
+Advanced settings, clear "Page changes based on browser history events". The root layout also sets
+`ga-disable-G-RP0TZ1MP7E` on every private page, which stops hits there, but a history-change page
+view can be recorded in the instant before the flag is rewritten, so the stream setting is the
+reliable control.
 
 ## Events
 
 | Event | Parameters | Fires from | When |
 |---|---|---|---|
 | `sign_up` | `method: "email"` | `src/components/auth/AuthModal.tsx` | Email sign-up returned no error (including when email confirmation is still pending). |
-| `sign_up` or `login` | `method: "google"` | `src/state/auth-state.tsx` (`trackGoogleAuth`) | `SIGNED_IN` after the Google redirect. `sign_up` when the account is under 2 minutes old, otherwise `login`. Once per session per user. Deferred if the return URL still carries `code` or a token. |
+| `sign_up` or `login` | `method: "google"` | `src/state/auth-state.tsx` (`trackGoogleAuth`) | `SIGNED_IN` after the Google redirect, only when this page load is that redirect (it carries `code` or a token) and the Google marker was set by `signInWithGoogle`. Email sign-in and sign-up clear the marker, and so does any page load that is not a provider return. `sign_up` when the account is under 2 minutes old, otherwise `login`. Once per session per user. Deferred while the return URL still carries `code` or a token; dropped if the return lands on `/team` or anywhere else. |
 | `begin_checkout` | `plan` (`monthly`, `annual`, `family`, `junior`), `currency: "USD"` | `src/routes/pricing.tsx` (`startCheckout`) | The checkout API returned a URL, or the payment-link fallback is used, just before the redirect. Not on the button press alone. |
 | `begin_checkout` | `plan: "team"`, `term`, `seats`, `currency: "USD"`, `value` | `src/routes/team.tsx` (`billing()`) | The checkout API returned a Stripe URL, just before the redirect. `value` is the first-period price in USD. Deferred (private page). |
-| `purchase` | `transaction_id` (Stripe Checkout session id), `currency: "USD"` | `src/routes/subscribe/success.tsx` | The individual success page loads with a `session_id`. Once per session id. Deferred (private page). |
+| `purchase` | `transaction_id` (Stripe Checkout session id), `currency: "USD"` | `src/routes/subscribe/success.tsx` | The individual success page asks `GET /api/verify-checkout?sessionId=...` (signed in, server-side Stripe) and the answer is `{ paid: true }`. Nothing is sent when signed out, unpaid or on error. Once per session id. Deferred (private page). |
 | `purchase` | `transaction_id`, `currency: "USD"` | `src/routes/team.tsx` (checkout return) | The team billing check reports `active` or `trialing`. Once per session id. Deferred (private page). |
-| `lesson_mastered` | `module_id`, `lesson` | `src/components/guide/AppGuide.tsx` (`finishLesson`) | Right after `CORE30_SET_MASTERED` is dispatched. Once per module and lesson per session. |
+| `lesson_mastered` | `module_id`, `lesson` | `src/components/guide/AppGuide.tsx` (`finishLesson`) | Right after `CORE30_SET_MASTERED` is dispatched. Once per module and lesson per session (`onceKey`). |
 | `team_seat_assigned` | `module_id` | `src/routes/team.tsx` (`OwnedAssignModule.save`) | The assign request was acknowledged by the server. Deferred (private page). |
-| `team_invite_sent` | `role` (`learner` or `admin`) | `src/routes/team.tsx` (invite form) | The invite request succeeded. No email or name is sent. Deferred (private page). |
+| `team_invite_sent` | `role` (`learner` or `admin`) | `src/routes/team.tsx` (invite form) | The invite request succeeded, and once per CSV bulk import with `count` set to the invitations created (no names or emails). Deferred (private page). |
+
+### Individual purchase verification
+
+The individual `purchase` is counted only after the server confirms the Stripe Checkout session.
+`src/routes/api.verify-checkout.ts` (`GET /api/verify-checkout?sessionId=cs_...`) needs the
+signed-in learner's bearer token, retrieves the session from Stripe on the server, and returns
+`{ "paid": true }` only when the session is a completed subscription whose `client_reference_id` is
+that learner (the value `/api/create-checkout` sets) and whose payment status is `paid` or
+`no_payment_required` (a 7-day trial). Any other case returns `{ "paid": false }`. It returns no
+amounts, emails or ids. The team `purchase` already relies on the server-checked
+`/api/team-billing` status, so it needed no new endpoint.
 
 ## One-time setup in GA Admin
 
@@ -117,10 +161,13 @@ above. It never reads the page content, and it is switched off on every exam and
 ## Verifying
 
 - Unit tests: `node --test tests/ga-events.test.mjs`.
+- Unit tests: `node --test tests/verify-checkout.test.mjs` covers the verification endpoint with a
+  fake Stripe and fake auth.
 - End to end: `e2e/ga-events.spec.ts` reads `window.dataLayer` (the app's inline `gtag` pushes there).
-  It asserts `lesson_mastered` is sent with only `module_id` and `lesson`, that nothing is sent in
-  speaking privacy mode, and that a purchase seen on `/subscribe/success` is queued, then sent once
-  after either a client-side navigation to `/` (GA is loaded then) or a full public page load, with
-  no personal data and no repeat after a reload.
+  It asserts `lesson_mastered` carries only `module_id` and `lesson`; nothing is sent in speaking
+  privacy mode; a purchase on `/subscribe/success` is sent only after the (stubbed) verification
+  says paid, once, after either a client-side navigation to `/` (GA is loaded then) or a full public
+  page load; an unpaid session or a signed-out visitor never counts; and private routes written as
+  `/Subscribe/Success`, `/SUBSCRIBE/success` or `/%73ubscribe/success` never load GA.
 - In a browser, open DevTools, type `dataLayer` in the console and look for entries starting with
   `event`, or use GA Admin, then DebugView.

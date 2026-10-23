@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-23
-import { isPrivateAssessmentContext } from "./assessment-privacy";
+import { isPrivateAssessmentContext, privacyParam, privacyPathname } from "./assessment-privacy";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "./speaking-privacy";
 
 declare global {
@@ -11,11 +11,24 @@ declare global {
 
 export type GaEventParams = Record<string, string | number | boolean>;
 
-const EVENT_NAME = /^[a-z][a-z0-9_]{0,39}$/;
 const PARAM_NAME = /^[a-z][a-z0-9_]{0,39}$/;
-// Defence in depth: these keys can only carry personal data, so they are never forwarded.
-const FORBIDDEN_PARAM =
-  /email|user_?id|member|display_?name|full_?name|first_?name|last_?name|phone|token|password|note|comment|text|message|address/;
+/**
+ * The only events this module sends, with the only parameters each may carry. Any other event
+ * name is refused and any other parameter key is dropped, when sending and again when a deferred
+ * event is stored or read back. Values are plan ids, module ids, counts, currency and Stripe order
+ * references: never emails, user, member or organization ids, names or free text.
+ */
+export const EVENT_PARAMS: Readonly<Record<string, ReadonlySet<string>>> = {
+  purchase: new Set(["transaction_id", "currency", "value"]),
+  begin_checkout: new Set(["plan", "term", "seats", "currency", "value"]),
+  sign_up: new Set(["method"]),
+  login: new Set(["method"]),
+  lesson_mastered: new Set(["module_id", "lesson"]),
+  team_seat_assigned: new Set(["module_id"]),
+  team_invite_sent: new Set(["role", "count"]),
+};
+const isKnownEvent = (name: unknown): name is string =>
+  typeof name === "string" && Object.hasOwn(EVENT_PARAMS, name);
 const MAX_STRING = 100;
 const ONCE_PREFIX = "lt-ga-once:";
 export const PENDING_EVENTS_KEY = "lt.ga.pending.v1";
@@ -45,11 +58,12 @@ const NEVER_DEFER_PARAMS = ["attempt", "plan", "fromPlan", "enrollment", "email"
 const CREDENTIAL_PARAMS = ["token", "access_token", "refresh_token"];
 const sentThisPage = new Set<string>();
 
-function cleanParams(params?: GaEventParams): GaEventParams {
+function cleanParams(name: string, params?: GaEventParams): GaEventParams {
   const clean: GaEventParams = {};
-  if (!params) return clean;
+  const allowed = EVENT_PARAMS[name];
+  if (!params || !allowed) return clean;
   for (const [key, value] of Object.entries(params)) {
-    if (!PARAM_NAME.test(key) || FORBIDDEN_PARAM.test(key)) continue;
+    if (!PARAM_NAME.test(key) || !allowed.has(key)) continue;
     if (typeof value === "string") {
       if (value.length === 0 || value.length > MAX_STRING || value.includes("@")) continue;
     } else if (typeof value === "number") {
@@ -91,14 +105,16 @@ function readPending(): PendingEvent[] {
     for (const item of parsed) {
       if (!item || typeof item !== "object") continue;
       const { name, params, ts, key } = item as Record<string, unknown>;
-      if (typeof name !== "string" || !EVENT_NAME.test(name) || !DEFERRABLE_EVENTS.has(name))
-        continue;
+      if (!isKnownEvent(name) || !DEFERRABLE_EVENTS.has(name)) continue;
       if (typeof ts !== "number" || !Number.isFinite(ts)) continue;
       if (now - ts > PENDING_MAX_AGE_MS || ts - now > PENDING_MAX_AGE_MS) continue;
       events.push({
         name,
         // Stored data is untrusted on the way back out: filter it again.
-        params: cleanParams(params && typeof params === "object" ? (params as GaEventParams) : {}),
+        params: cleanParams(
+          name,
+          params && typeof params === "object" ? (params as GaEventParams) : {},
+        ),
         ts,
         ...(typeof key === "string" && key.length > 0 && key.length <= 200 ? { key } : {}),
       });
@@ -156,12 +172,16 @@ export function deferralRoute(href: string): DeferralRoute | null {
   } catch {
     return null;
   }
-  const has = (key: string) => url.searchParams.has(key);
-  if (url.searchParams.get("tab") === "exams") return null;
+  const keys = new Set([...url.searchParams.keys()].map((key) => key.toLowerCase()));
+  const has = (key: string) => keys.has(key.toLowerCase());
+  if (privacyParam(url, "tab")?.toLowerCase() === "exams") return null;
   if (NEVER_DEFER_PARAMS.some(has)) return null;
-  const credentialInHash = /(?:access_token|refresh_token|token)=/.test(url.hash);
+  const credentialInHash = /(?:access_token|refresh_token|token)=/i.test(url.hash);
   const credentialInQuery = CREDENTIAL_PARAMS.some(has);
-  const path = url.pathname.replace(/\/+$/, "") || "/";
+  // Routes are matched the way the router matches them: percent-escapes decoded, case folded.
+  const folded = privacyPathname(url.pathname);
+  if (folded === null) return null;
+  const path = folded.replace(/\/+$/, "") || "/";
   if (path === "/team") return credentialInQuery || has("code") || credentialInHash ? null : "team";
   if (path === "/subscribe/success")
     return credentialInQuery || has("code") || has("org") || credentialInHash ? null : "subscribe";
@@ -201,15 +221,19 @@ export function ensureGaLoaded(): boolean {
       window.dataLayer?.push(arguments);
     };
     window.gtag("js", new Date());
+    // Only the app's own pages are reported as a referrer. Anything else, including a Stripe
+    // checkout page whose path carries an order reference, is blanked.
     let referrer = "";
     try {
       const r = new URL(document.referrer);
-      referrer = r.origin + r.pathname;
+      if (r.origin === window.location.origin) referrer = r.origin + r.pathname;
     } catch {
       /* no usable referrer */
     }
     window.gtag("config", LANGUAGE_THRESHOLD_GA_ID, {
       anonymize_ip: true,
+      // The loader runs after an in-app navigation, so it must not report a page view of its own.
+      send_page_view: false,
       page_location: window.location.origin + window.location.pathname,
       page_referrer: referrer,
     });
@@ -274,9 +298,9 @@ function defer(name: string, params: GaEventParams, onceKey?: string) {
  */
 export function trackEvent(name: string, params?: GaEventParams, onceKey?: string): boolean {
   if (typeof window === "undefined") return false;
-  if (!EVENT_NAME.test(name)) return false;
+  if (!isKnownEvent(name)) return false;
   if (isSpeakingPrivacyMode()) return false;
-  const clean = cleanParams(params);
+  const clean = cleanParams(name, params);
   refreshFlagIfStale();
   if (isPrivateAssessmentContext()) {
     if (document.querySelector("[data-private-assessment]")) return false;

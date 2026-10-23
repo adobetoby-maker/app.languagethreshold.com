@@ -947,6 +947,8 @@ function OwnedAdminWorkspace({
         `${reserved} of ${rows.length} invitations confirmed in this import.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
       );
       if (failures.length) setError(failures.join(" "));
+      // One event per import, counting the invitations the server confirmed. No names or emails.
+      if (reserved > 0) trackEvent("team_invite_sent", { role: "learner", count: reserved });
       await refresh();
     } catch (cause) {
       if (flight.current())

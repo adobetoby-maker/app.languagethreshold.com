@@ -6,6 +6,44 @@ import { appUrl, core30Key, readAppState, seedAppState } from "./app-state.ts";
 // The dataLayer is therefore the observation point: it holds exactly what gtag was called with.
 
 const MODULE = "roofing";
+const SUPABASE_REF = "pollhlkgltdkdskdzsgd";
+const FAKE_USER_ID = "00000000-0000-4000-8000-000000000f01";
+
+/** A signed-in browser: a made-up Supabase session in storage, as e2e/foundation.spec.ts does. */
+async function signIn(page: Page) {
+  const b64 = (value: object) => Buffer.from(JSON.stringify(value)).toString("base64url");
+  const exp = Math.floor(Date.now() / 1000) + 60 * 60 * 24;
+  const session = {
+    access_token: `${b64({ alg: "HS256", typ: "JWT" })}.${b64({ sub: FAKE_USER_ID, aud: "authenticated", role: "authenticated", exp })}.e2e`,
+    refresh_token: "e2e-refresh",
+    token_type: "bearer",
+    expires_in: 60 * 60 * 24,
+    expires_at: exp,
+    user: {
+      id: FAKE_USER_ID,
+      aud: "authenticated",
+      role: "authenticated",
+      email: "ga-e2e@example.test",
+      app_metadata: { provider: "email" },
+      user_metadata: {},
+      created_at: "2026-01-01T00:00:00.000Z",
+    },
+  };
+  await page.addInitScript(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), {
+    key: `sb-${SUPABASE_REF}-auth-token`,
+    value: session,
+  });
+}
+
+/** Stands in for the server's answer about a Stripe session. Records what was asked. */
+async function stubVerification(page: Page, paid: boolean) {
+  const asked: string[] = [];
+  await page.route("**/api/verify-checkout?**", async (route) => {
+    asked.push(new URL(route.request().url()).searchParams.get("sessionId") ?? "");
+    await route.fulfill({ json: { paid } });
+  });
+  return asked;
+}
 const pad = (n: number) => String(n).padStart(2, "0");
 const today = () => {
   const d = new Date();
@@ -80,6 +118,8 @@ test.describe("GA4 key events", () => {
     page,
   }) => {
     const session = "cs_test_e2eClientNav123456";
+    await signIn(page);
+    const asked = await stubVerification(page, true);
     await page.goto(`/subscribe/success?session_id=${session}`);
     await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
     // GA never loads on a private page, so the event waits in sessionStorage.
@@ -90,6 +130,7 @@ test.describe("GA4 key events", () => {
       "undefined",
     );
     expect(await gaEvents(page)).toEqual([]);
+    expect(asked).toEqual([session]);
 
     // Client-side navigation to a public page: the app loads GA, then flushes the queue.
     await page.getByRole("link", { name: /Start learning/ }).click();
@@ -132,6 +173,8 @@ test.describe("GA4 key events", () => {
     page,
   }) => {
     const session = "cs_test_e2eDeferred123456";
+    await signIn(page);
+    await stubVerification(page, true);
     await page.goto(`/subscribe/success?session_id=${session}`);
     await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
     await expect
@@ -154,5 +197,51 @@ test.describe("GA4 key events", () => {
     await page.reload();
     await page.waitForTimeout(1500);
     expect((await gaEvents(page)).filter((e) => e[1] === "purchase")).toEqual([]);
+  });
+
+  test("a Stripe session the server does not confirm never produces a purchase", async ({
+    page,
+  }) => {
+    await signIn(page);
+    const asked = await stubVerification(page, false);
+    await page.goto("/subscribe/success?session_id=cs_test_e2eUnpaid123456");
+    await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
+    await expect.poll(() => asked).toEqual(["cs_test_e2eUnpaid123456"]);
+    await page.waitForTimeout(1000);
+    expect(await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"))).toBeNull();
+  });
+
+  test("a signed-out visitor on the success page asks nothing and counts nothing", async ({
+    page,
+  }) => {
+    const asked = await stubVerification(page, true);
+    await page.goto("/subscribe/success?session_id=cs_test_e2eAnon1234567");
+    await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
+    await page.waitForTimeout(1000);
+    expect(asked).toEqual([]);
+    expect(await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"))).toBeNull();
+  });
+
+  test("private routes written in another case or percent-encoded never load GA", async ({
+    page,
+  }) => {
+    for (const path of [
+      "/Subscribe/Success?session_id=cs_test_e2eCase1234567",
+      "/SUBSCRIBE/success",
+      "/%73ubscribe/success",
+    ]) {
+      await page.goto(path);
+      await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
+      expect(await page.evaluate(() => typeof (window as unknown as { gtag?: unknown }).gtag)).toBe(
+        "undefined",
+      );
+      expect(
+        await page.evaluate(
+          () => [...document.scripts].filter((s) => /googletagmanager/.test(s.src)).length,
+        ),
+        path,
+      ).toBe(0);
+      expect(await gaEvents(page)).toEqual([]);
+    }
   });
 });

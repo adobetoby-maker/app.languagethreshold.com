@@ -52,13 +52,29 @@ function browser({
           setItem: (k, v) => store.set(k, String(v)),
           removeItem: (k) => store.delete(k),
         };
+  const location = {
+    href: url,
+    get origin() {
+      return new URL(this.href).origin;
+    },
+    get pathname() {
+      return new URL(this.href).pathname;
+    },
+  };
   globalThis.window = {
-    location: { href: url },
+    location,
     sessionStorage,
     ...(gtag ? { gtag: (...args) => calls.push(args) } : {}),
   };
-  globalThis.document = { querySelector: () => (privateNode ? {} : null) };
-  return { calls, store };
+  const appended = [];
+  globalThis.document = {
+    querySelector: () => (privateNode ? {} : null),
+    referrer: "https://checkout.stripe.com/c/pay/cs_test_ref?secret=x#frag",
+    scripts: appended,
+    head: { appendChild: (el) => appended.push(el) },
+    createElement: () => ({}),
+  };
+  return { calls, store, appended };
 }
 
 async function withModule(run) {
@@ -93,13 +109,11 @@ test("trackEvent sends a sanitized event through gtag on a public page", () =>
     ]);
   }));
 
-test("trackEvent is a no-op without window, without gtag, or with an invalid event name", () =>
+test("trackEvent is a no-op without window or with an invalid event name", () =>
   withModule((m) => {
     delete globalThis.window;
     assert.equal(m.trackEvent("sign_up", { method: "email" }), false);
-    const { calls } = browser({ gtag: false });
-    assert.equal(m.trackEvent("sign_up", { method: "email" }), false);
-    browser();
+    const { calls } = browser();
     assert.equal(m.trackEvent("Bad Name"), false);
     assert.equal(m.trackEvent(""), false);
     assert.equal(calls.length, 0);
@@ -207,15 +221,26 @@ test("trackEvent swallows a throwing gtag and does not mark the key as sent", ()
   }));
 
 const PUBLIC = "https://app.languagethreshold.com/";
-const PRIVATE = "https://app.languagethreshold.com/subscribe/success?session_id=cs_test_abcdefgh";
+const SUBSCRIBE = "https://app.languagethreshold.com/subscribe/success?session_id=cs_test_abcdefgh";
+const TEAM = "https://app.languagethreshold.com/team?org=11111111-2222-3333-4444-555555555555";
+const TEAM_RETURN = `${TEAM}&checkout=success&session_id=cs_test_abcdefgh`;
+const AUTH = "https://app.languagethreshold.com/?code=abc123";
 const queue = (env) => JSON.parse(env.store.get("lt.ga.pending.v1") ?? "[]");
 const goTo = (url) => {
   globalThis.window.location.href = url;
 };
+const DEFERRABLE = [
+  "purchase",
+  "begin_checkout",
+  "team_seat_assigned",
+  "team_invite_sent",
+  "sign_up",
+  "login",
+];
 
-test("private pages defer events in sessionStorage instead of dropping them", () =>
+test("allowlisted events are deferred from /team, /subscribe/success and the sign-in return only", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE, gtag: false });
+    const env = browser({ url: SUBSCRIBE, gtag: false });
     assert.equal(
       m.trackEvent(
         "purchase",
@@ -224,30 +249,98 @@ test("private pages defer events in sessionStorage instead of dropping them", ()
       ),
       false,
     );
-    assert.equal(m.trackEvent("team_seat_assigned", { module_id: "roofing" }), false);
-    const stored = queue(env);
+    goTo(TEAM_RETURN);
+    m.trackEvent("team_seat_assigned", { module_id: "roofing" });
+    m.trackEvent("begin_checkout", { plan: "team", seats: 5 });
+    goTo(AUTH);
+    m.trackEvent("sign_up", { method: "google" }, "sign_up:google:u1");
     assert.deepEqual(
-      stored.map((e) => [e.name, e.params, e.key]),
+      queue(env).map((e) => [e.name, e.key]),
       [
-        [
-          "purchase",
-          { transaction_id: "cs_test_abcdefgh", currency: "USD" },
-          "purchase:cs_test_abcdefgh",
-        ],
-        ["team_seat_assigned", { module_id: "roofing" }, undefined],
+        ["purchase", "purchase:cs_test_abcdefgh"],
+        ["team_seat_assigned", undefined],
+        ["begin_checkout", undefined],
+        ["sign_up", "sign_up:google:u1"],
       ],
     );
-    assert.ok(stored.every((e) => Number.isFinite(e.ts)));
+    assert.ok(queue(env).every((e) => Number.isFinite(e.ts)));
     assert.equal(env.calls.length, 0);
+    assert.equal(m.deferralRoute(TEAM_RETURN), "team");
+    assert.equal(m.deferralRoute(SUBSCRIBE), "subscribe");
+    assert.equal(m.deferralRoute(AUTH), "auth-return");
+    assert.equal(
+      m.deferralRoute("https://app.languagethreshold.com/#access_token=x"),
+      "auth-return",
+    );
+  }));
+
+test("exam and assessment pages never queue anything, even allowlisted names", () =>
+  withModule((m) => {
+    const env = browser({ gtag: false });
+    for (const url of [
+      "https://app.languagethreshold.com/exams",
+      "https://app.languagethreshold.com/exams?attempt=a1",
+      "https://app.languagethreshold.com/exam-content?form=f",
+      "https://app.languagethreshold.com/exam-reviewers",
+      "https://app.languagethreshold.com/?tab=exams",
+      "https://app.languagethreshold.com/?tab=exams&code=abc",
+      "https://app.languagethreshold.com/?module=roofing&plan=p1",
+      "https://app.languagethreshold.com/?fromPlan=p1&code=abc",
+      "https://app.languagethreshold.com/?enrollment=e1",
+      "https://app.languagethreshold.com/team?org=o&attempt=a1",
+      "https://app.languagethreshold.com/team?org=o&plan=p1",
+      "https://app.languagethreshold.com/team?org=o&enrollment=e1",
+      "https://app.languagethreshold.com/team/accept?token=t",
+      "https://app.languagethreshold.com/team?token=t",
+      "https://app.languagethreshold.com/subscribe/success?session_id=cs_x&email=a%40b.com",
+      "https://app.languagethreshold.com/owner",
+      "https://app.languagethreshold.com/account",
+      "https://app.languagethreshold.com/account/password",
+      "https://app.languagethreshold.com/certificate?id=1",
+      "https://app.languagethreshold.com/family-setup",
+      "https://app.languagethreshold.com/?org=o&code=abc",
+      "https://app.languagethreshold.com/?code=abc&email=a%40b.com",
+    ]) {
+      goTo(url);
+      assert.equal(m.deferralRoute(url), null, url);
+      for (const name of DEFERRABLE) m.trackEvent(name, { module_id: "roofing" }, `${name}:${url}`);
+    }
+    assert.equal(env.store.has("lt.ga.pending.v1"), false);
+    assert.equal(env.calls.length, 0);
+
+    // Mounted assessment content wins over an otherwise allowed route.
+    const marked = browser({ url: TEAM_RETURN, gtag: false, privateNode: true });
+    for (const name of DEFERRABLE) m.trackEvent(name, { module_id: "roofing" });
+    assert.equal(marked.store.has("lt.ga.pending.v1"), false);
+  }));
+
+test("a name outside the allowlist is dropped on a private page, and routes only take their own events", () =>
+  withModule((m) => {
+    let env = browser({ url: TEAM_RETURN, gtag: false });
+    for (const name of ["lesson_mastered", "page_view", "exam_started", "assessment_completed"])
+      m.trackEvent(name, { module_id: "roofing" });
+    m.trackEvent("sign_up", { method: "email" });
+    assert.equal(env.store.has("lt.ga.pending.v1"), false);
+
+    env = browser({ url: SUBSCRIBE, gtag: false });
+    m.trackEvent("team_seat_assigned", { module_id: "roofing" });
+    m.trackEvent("begin_checkout", { plan: "team" });
+    assert.equal(env.store.has("lt.ga.pending.v1"), false);
+
+    env = browser({ url: AUTH, gtag: false });
+    m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" });
+    m.trackEvent("lesson_mastered", { lesson: 1 });
+    assert.equal(env.store.has("lt.ga.pending.v1"), false);
+    m.trackEvent("login", { method: "google" });
+    assert.equal(queue(env).length, 1);
   }));
 
 test("deferred events flush through gtag on a public page, once each, and the queue is cleared", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: TEAM_RETURN });
     m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" }, "purchase:cs_test_abcdefgh");
     m.trackEvent("team_invite_sent", { role: "learner" });
-    // Still private: nothing flushes.
-    assert.equal(m.flushPendingEvents(), 0);
+    assert.equal(m.flushPendingEvents(), 0, "still private");
     assert.equal(env.calls.length, 0);
     assert.equal(queue(env).length, 2);
 
@@ -264,7 +357,7 @@ test("deferred events flush through gtag on a public page, once each, and the qu
 
 test("a tracked event on a public page flushes the queue first", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: TEAM });
     m.trackEvent("team_seat_assigned", { module_id: "roofing" });
     goTo(PUBLIC);
     assert.equal(m.trackEvent("lesson_mastered", { module_id: "roofing", lesson: 1 }), true);
@@ -274,34 +367,116 @@ test("a tracked event on a public page flushes the queue first", () =>
     );
   }));
 
-test("nothing is flushed while ga-disable or speaking privacy is set, or gtag is missing", () =>
+test("client-side navigation to a public page loads GA like the root snippet, then flushes once", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: SUBSCRIBE, gtag: false });
+    m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" }, "purchase:cs_test_abcdefgh");
+    // Private page: GA is never loaded.
+    assert.equal(m.ensureGaLoaded(), false);
+    assert.equal(globalThis.window.gtag, undefined);
+    assert.equal(env.appended.length, 0);
+
+    goTo("https://app.languagethreshold.com/pricing?utm=1#x");
+    assert.equal(m.flushPendingEvents(), 1);
+    assert.equal(typeof globalThis.window.gtag, "function");
+    const layer = globalThis.window.dataLayer.map((entry) => Array.from(entry));
+    assert.deepEqual(layer[0].slice(0, 1), ["js"]);
+    assert.deepEqual(layer[1], [
+      "config",
+      "G-RP0TZ1MP7E",
+      {
+        anonymize_ip: true,
+        page_location: "https://app.languagethreshold.com/pricing",
+        page_referrer: "https://checkout.stripe.com/c/pay/cs_test_ref",
+      },
+    ]);
+    assert.deepEqual(layer.slice(2), [
+      ["event", "purchase", { transaction_id: "cs_test_abcdefgh", transport_type: "beacon" }],
+    ]);
+    assert.equal(env.appended.length, 1);
+    assert.equal(env.appended[0].src, "https://www.googletagmanager.com/gtag/js?id=G-RP0TZ1MP7E");
+    assert.equal(env.appended[0].async, true);
+    assert.equal(JSON.stringify(layer).match(/@|email|user/i), null);
+
+    // Nothing more is sent or loaded on the next route.
+    goTo(PUBLIC);
+    assert.equal(m.flushPendingEvents(), 0);
+    assert.equal(env.appended.length, 1);
+    assert.equal(globalThis.window.dataLayer.length, 3);
+  }));
+
+test("GA is not injected twice when the loader script is already in the page", () =>
+  withModule((m) => {
+    const env = browser({ url: SUBSCRIBE, gtag: false });
+    m.trackEvent("purchase", { transaction_id: "cs_test_abcdefgh" });
+    env.appended.push({ src: "https://www.googletagmanager.com/gtag/js?id=G-RP0TZ1MP7E" });
+    goTo(PUBLIC);
+    assert.equal(m.flushPendingEvents(), 1);
+    assert.equal(env.appended.length, 1);
+  }));
+
+test("GA is never loaded in speaking privacy mode, on a private page, or while disabled", () =>
+  withModule((m) => {
+    let env = browser({ url: TEAM, gtag: false });
     m.trackEvent("team_seat_assigned", { module_id: "roofing" });
     goTo(PUBLIC);
+    globalThis.window.__languageThresholdSpeakingPrivacy = true;
+    assert.equal(m.flushPendingEvents(), 0);
+    assert.equal(m.ensureGaLoaded(), false);
+    assert.equal(globalThis.window.gtag, undefined);
+    assert.equal(queue(env).length, 1);
+    assert.equal(env.appended.length, 0);
+    globalThis.window.__languageThresholdSpeakingPrivacy = false;
 
+    goTo(TEAM);
+    assert.equal(m.flushPendingEvents(), 0);
+    assert.equal(globalThis.window.gtag, undefined);
+
+    // An exam subtree mounted on a public URL also blocks loading.
+    env = browser({ gtag: false, privateNode: true });
+    assert.equal(m.ensureGaLoaded(), false);
+    assert.equal(globalThis.window.gtag, undefined);
+  }));
+
+test("nothing is flushed while ga-disable is set on the same page", () =>
+  withModule((m) => {
+    const env = browser({ url: TEAM });
+    m.trackEvent("team_seat_assigned", { module_id: "roofing" });
+    goTo(PUBLIC);
+    assert.equal(m.flushPendingEvents(), 1, "first call on the new page recomputes the flag");
+
+    env.store.set(
+      "lt.ga.pending.v1",
+      JSON.stringify([{ name: "team_seat_assigned", params: {}, ts: Date.now() }]),
+    );
     globalThis.window[GA] = true;
     assert.equal(m.flushPendingEvents(), 0);
     assert.equal(m.trackEvent("lesson_mastered", { lesson: 1 }), false);
+    assert.equal(queue(env).length, 1);
     delete globalThis.window[GA];
-
-    globalThis.window.__languageThresholdSpeakingPrivacy = true;
-    assert.equal(m.flushPendingEvents(), 0);
-    globalThis.window.__languageThresholdSpeakingPrivacy = false;
-
-    const gtag = globalThis.window.gtag;
-    delete globalThis.window.gtag;
-    assert.equal(m.flushPendingEvents(), 0);
-    globalThis.window.gtag = gtag;
-
-    assert.equal(env.calls.length, 0);
-    assert.equal(queue(env).length, 1, "the event is still waiting");
     assert.equal(m.flushPendingEvents(), 1);
+  }));
+
+test("a disable flag left by the previous private page does not block the next public page", () =>
+  withModule((m) => {
+    const env = browser({ url: TEAM });
+    // What the root layout leaves behind on a private page.
+    globalThis.window[GA] = true;
+    m.trackEvent("team_seat_assigned", { module_id: "roofing" });
+    goTo(PUBLIC);
+    // A child effect runs before the root effect has rewritten the flag.
+    assert.equal(globalThis.window[GA], true);
+    assert.equal(m.trackEvent("lesson_mastered", { module_id: "roofing", lesson: 1 }), true);
+    assert.equal(globalThis.window[GA], false);
+    assert.deepEqual(
+      env.calls.map((c) => c[1]),
+      ["team_seat_assigned", "lesson_mastered"],
+    );
   }));
 
 test("speaking privacy mode drops events instead of deferring them", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: TEAM });
     globalThis.window.__languageThresholdSpeakingPrivacy = true;
     assert.equal(m.trackEvent("team_seat_assigned", { module_id: "roofing" }), false);
     assert.equal(env.store.has("lt.ga.pending.v1"), false);
@@ -311,7 +486,7 @@ test("deferred events expire after 30 minutes", () =>
   withModule((m) => {
     const realNow = Date.now;
     try {
-      const env = browser({ url: PRIVATE });
+      const env = browser({ url: TEAM });
       const t0 = 1_800_000_000_000;
       Date.now = () => t0;
       m.trackEvent("purchase", { transaction_id: "cs_test_old" }, "purchase:cs_test_old");
@@ -324,12 +499,11 @@ test("deferred events expire after 30 minutes", () =>
         env.calls.map((c) => c[1]),
         ["team_seat_assigned"],
       );
-      // Entries stamped in the future (clock tampering) are refused as well.
       env.store.set(
         "lt.ga.pending.v1",
         JSON.stringify([{ name: "purchase", params: {}, ts: Date.now() + 3_600_000 }]),
       );
-      assert.equal(m.flushPendingEvents(), 0);
+      assert.equal(m.flushPendingEvents(), 0, "future-stamped entries are refused");
     } finally {
       Date.now = realNow;
     }
@@ -337,7 +511,7 @@ test("deferred events expire after 30 minutes", () =>
 
 test("the deferred queue holds at most 10 events and keeps the newest", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: TEAM });
     for (let i = 1; i <= 13; i++)
       m.trackEvent("team_seat_assigned", { module_id: "roofing", n: i });
     assert.deepEqual(
@@ -350,40 +524,40 @@ test("the deferred queue holds at most 10 events and keeps the newest", () =>
 
 test("a deferred purchase cannot be counted twice", () =>
   withModule((m) => {
-    let env = browser({ url: PRIVATE });
+    const env = browser({ url: SUBSCRIBE });
     m.trackEvent("purchase", { transaction_id: "cs_test_dup" }, "purchase:cs_test_dup");
     m.trackEvent("purchase", { transaction_id: "cs_test_dup" }, "purchase:cs_test_dup");
     assert.equal(queue(env).length, 1);
 
     goTo(PUBLIC);
     assert.equal(m.flushPendingEvents(), 1);
-    // Re-queued later in the same session (page reload of the success page): refused at queue time.
-    goTo(PRIVATE);
+    goTo(SUBSCRIBE);
     m.trackEvent("purchase", { transaction_id: "cs_test_dup" }, "purchase:cs_test_dup");
-    assert.equal(env.store.has("lt.ga.pending.v1"), false);
+    assert.equal(env.store.has("lt.ga.pending.v1"), false, "refused at queue time");
     goTo(PUBLIC);
     assert.equal(m.flushPendingEvents(), 0);
     assert.equal(env.calls.length, 1);
 
-    // A duplicate already sitting in storage is refused at flush time if its key was sent.
     env.store.set(
       "lt.ga.pending.v1",
       JSON.stringify([
         { name: "purchase", params: {}, ts: Date.now(), key: "purchase:cs_test_dup" },
       ]),
     );
-    assert.equal(m.flushPendingEvents(), 0);
+    assert.equal(m.flushPendingEvents(), 0, "refused at flush time");
     assert.equal(env.calls.length, 1);
   }));
 
-test("queued parameters are filtered when stored and again when read back", () =>
+test("queued parameters pass the PII filter when stored and again when read back", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE });
+    const env = browser({ url: TEAM });
     m.trackEvent("team_invite_sent", {
       role: "admin",
       email: "a@b.com",
       member_id: "m1",
       display_name: "Ana",
+      contact: "ana@example.com",
+      note: "hello",
     });
     assert.deepEqual(queue(env)[0].params, { role: "admin" });
 
@@ -401,13 +575,15 @@ test("queued parameters are filtered when stored and again when read back", () =
           },
           ts: Date.now(),
         },
+        { name: "lesson_mastered", params: { lesson: 1 }, ts: Date.now() },
+        { name: "exam_started", params: {}, ts: Date.now() },
         { name: "Bad Name", params: {}, ts: Date.now() },
         { name: "purchase", params: {}, ts: "yesterday" },
         "junk",
       ]),
     );
     goTo(PUBLIC);
-    assert.equal(m.flushPendingEvents(), 1);
+    assert.equal(m.flushPendingEvents(), 1, "only the allowlisted, well-formed entry is sent");
     assert.deepEqual(env.calls[0], [
       "event",
       "team_invite_sent",
@@ -420,7 +596,7 @@ test("queued parameters are filtered when stored and again when read back", () =
 
 test("with storage blocked, a private-page event is dropped without throwing", () =>
   withModule((m) => {
-    const env = browser({ url: PRIVATE, storage: "throws" });
+    const env = browser({ url: TEAM, storage: "throws" });
     assert.equal(m.trackEvent("team_seat_assigned", { module_id: "roofing" }), false);
     goTo(PUBLIC);
     assert.equal(m.flushPendingEvents(), 0);

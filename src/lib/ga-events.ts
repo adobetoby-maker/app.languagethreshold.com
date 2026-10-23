@@ -5,6 +5,7 @@ import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "./speaking-priv
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
   }
 }
 
@@ -20,6 +21,28 @@ const ONCE_PREFIX = "lt-ga-once:";
 export const PENDING_EVENTS_KEY = "lt.ga.pending.v1";
 export const PENDING_MAX_EVENTS = 10;
 export const PENDING_MAX_AGE_MS = 30 * 60_000;
+
+// Only these events may be deferred, and only from the routes below. Everything else raised on a
+// private page is dropped. Exam and assessment pages never defer anything.
+export type DeferralRoute = "team" | "subscribe" | "auth-return";
+export const DEFERRABLE_EVENTS: ReadonlySet<string> = new Set([
+  "purchase",
+  "begin_checkout",
+  "team_seat_assigned",
+  "team_invite_sent",
+  "sign_up",
+  "login",
+]);
+const ROUTE_EVENTS: Record<DeferralRoute, ReadonlySet<string>> = {
+  team: new Set(["purchase", "begin_checkout", "team_seat_assigned", "team_invite_sent"]),
+  subscribe: new Set(["purchase"]),
+  "auth-return": new Set(["sign_up", "login"]),
+};
+const SITE_ORIGIN = "https://app.languagethreshold.com";
+// Query keys that mean the page carries assessment, enrollment or identity data. A team return
+// legitimately carries `org`, so it is not listed here.
+const NEVER_DEFER_PARAMS = ["attempt", "plan", "fromPlan", "enrollment", "email"];
+const CREDENTIAL_PARAMS = ["token", "access_token", "refresh_token"];
 const sentThisPage = new Set<string>();
 
 function cleanParams(params?: GaEventParams): GaEventParams {
@@ -68,7 +91,8 @@ function readPending(): PendingEvent[] {
     for (const item of parsed) {
       if (!item || typeof item !== "object") continue;
       const { name, params, ts, key } = item as Record<string, unknown>;
-      if (typeof name !== "string" || !EVENT_NAME.test(name)) continue;
+      if (typeof name !== "string" || !EVENT_NAME.test(name) || !DEFERRABLE_EVENTS.has(name))
+        continue;
       if (typeof ts !== "number" || !Number.isFinite(ts)) continue;
       if (now - ts > PENDING_MAX_AGE_MS || ts - now > PENDING_MAX_AGE_MS) continue;
       events.push({
@@ -94,14 +118,55 @@ function writePending(events: PendingEvent[]) {
   }
 }
 
+function disableFlagKey() {
+  return `ga-disable-${LANGUAGE_THRESHOLD_GA_ID}` as const;
+}
+
+// The href the disable flag was last known to describe. The root layout rewrites the flag in an
+// effect that runs after child effects, so on a client-side navigation the flag still describes the
+// previous page when a child raises an event. When the href has moved on, the flag is recomputed
+// from the current URL, exactly as the root layout does. On the same page it is trusted as is.
+let flagHref: string | null = null;
+function refreshFlagIfStale() {
+  const href = window.location.href;
+  if (flagHref !== null && flagHref !== href)
+    window[disableFlagKey()] = isSpeakingPrivacyMode() || isPrivateAssessmentContext();
+  flagHref = href;
+}
+
 function gaIsActive(): boolean {
   return (
     typeof window !== "undefined" &&
     typeof window.gtag === "function" &&
-    window[`ga-disable-${LANGUAGE_THRESHOLD_GA_ID}`] !== true &&
+    window[disableFlagKey()] !== true &&
     !isSpeakingPrivacyMode() &&
     !isPrivateAssessmentContext()
   );
+}
+
+/**
+ * The only private routes where an event may wait for a public page: the team workspace return,
+ * the individual subscribe success page, and the sign-in return to `/`. Anything with an
+ * assessment, enrollment or identity parameter, or an exam/owner/account page, is refused.
+ */
+export function deferralRoute(href: string): DeferralRoute | null {
+  let url: URL;
+  try {
+    url = new URL(href, SITE_ORIGIN);
+  } catch {
+    return null;
+  }
+  const has = (key: string) => url.searchParams.has(key);
+  if (url.searchParams.get("tab") === "exams") return null;
+  if (NEVER_DEFER_PARAMS.some(has)) return null;
+  const credentialInHash = /(?:access_token|refresh_token|token)=/.test(url.hash);
+  const credentialInQuery = CREDENTIAL_PARAMS.some(has);
+  const path = url.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/team") return credentialInQuery || has("code") || credentialInHash ? null : "team";
+  if (path === "/subscribe/success")
+    return credentialInQuery || has("code") || has("org") || credentialInHash ? null : "subscribe";
+  if (path === "/" && !has("org") && (has("code") || credentialInHash)) return "auth-return";
+  return null;
 }
 
 function sendNow(name: string, params: GaEventParams, onceKey?: string): boolean {
@@ -116,14 +181,65 @@ function sendNow(name: string, params: GaEventParams, onceKey?: string): boolean
 }
 
 /**
- * Sends the events that were deferred on private pages. Runs only where GA is active
- * (gtag present, not disabled, no speaking privacy, public page). The queue is cleared before
- * sending, and each event with a key is sent at most once per session. Returns how many were sent.
+ * Makes gtag available on a public page that was reached by client-side navigation from a private
+ * one (GA is only loaded by the server-rendered page, and never on a private page). It mirrors the
+ * snippet in `src/routes/__root.tsx`: anonymized IP, page_location without query or hash, and
+ * page_referrer reduced to origin and path. Never runs on a private page, in speaking privacy mode
+ * or while the tag is disabled. Returns true when gtag is usable afterwards.
+ */
+export function ensureGaLoaded(): boolean {
+  if (typeof window === "undefined" || typeof document === "undefined") return false;
+  refreshFlagIfStale();
+  if (isSpeakingPrivacyMode() || isPrivateAssessmentContext()) return false;
+  if (window[disableFlagKey()] === true) return false;
+  if (typeof window.gtag === "function") return true;
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      // gtag.js only understands `arguments` objects in the dataLayer, not arrays.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
+    };
+    window.gtag("js", new Date());
+    let referrer = "";
+    try {
+      const r = new URL(document.referrer);
+      referrer = r.origin + r.pathname;
+    } catch {
+      /* no usable referrer */
+    }
+    window.gtag("config", LANGUAGE_THRESHOLD_GA_ID, {
+      anonymize_ip: true,
+      page_location: window.location.origin + window.location.pathname,
+      page_referrer: referrer,
+    });
+    const src = `https://www.googletagmanager.com/gtag/js?id=${LANGUAGE_THRESHOLD_GA_ID}`;
+    const present = Array.from(document.scripts).some((script) => script.src === src);
+    if (!present) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = src;
+      document.head.appendChild(script);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Sends the events that were deferred on private pages. Runs only on a public page where GA is
+ * active, loading it first when a client-side navigation left gtag missing. The queue is cleared
+ * before sending, and each event with a key is sent at most once per session. Returns how many
+ * were sent.
  */
 export function flushPendingEvents(): number {
-  if (!gaIsActive()) return 0;
+  if (typeof window === "undefined") return 0;
+  refreshFlagIfStale();
+  if (isSpeakingPrivacyMode() || isPrivateAssessmentContext()) return 0;
   const pending = readPending();
   if (pending.length === 0) return 0;
+  if (!ensureGaLoaded() || !gaIsActive()) return 0;
   writePending([]);
   let sent = 0;
   for (const event of pending) if (sendNow(event.name, event.params, event.key)) sent++;
@@ -141,10 +257,16 @@ function defer(name: string, params: GaEventParams, onceKey?: string) {
 /**
  * Sends one GA4 event. Returns true only when the event was handed to gtag right now.
  *
- * - Speaking privacy mode, a disabled tag, or a missing gtag on a public page: dropped.
- * - A private assessment/team/account/subscribe page (`isPrivateAssessmentContext()`): GA never
- *   loads there, so the event is held in sessionStorage (max 10, 30 minutes) and sent by
- *   `flushPendingEvents()` on the next public page where GA is active.
+ * - Speaking privacy mode or a disabled tag: dropped.
+ * - A private page: dropped, unless the event name is on the deferral allowlist AND the page is
+ *   one of the three routes in `deferralRoute()` AND no `[data-private-assessment]` content is
+ *   mounted. Then the event waits in sessionStorage (max 10, 30 minutes) for
+ *   `flushPendingEvents()` on the next public page. Exam and assessment pages never defer.
+ * - A public page: pending events are flushed first, loading GA if a client-side navigation left
+ *   it missing, then the event is sent.
+ *
+ * The private or public decision is recomputed from the current URL on every call, so a flag left
+ * behind by the previous page cannot block or leak an event.
  *
  * Callers must pass only plan ids, module ids, counts and similar non-personal values: never
  * emails, user, member or organization ids, names, or free text. `onceKey` sends the event at most
@@ -155,11 +277,15 @@ export function trackEvent(name: string, params?: GaEventParams, onceKey?: strin
   if (!EVENT_NAME.test(name)) return false;
   if (isSpeakingPrivacyMode()) return false;
   const clean = cleanParams(params);
+  refreshFlagIfStale();
   if (isPrivateAssessmentContext()) {
-    defer(name, clean, onceKey);
+    if (document.querySelector("[data-private-assessment]")) return false;
+    const route = deferralRoute(window.location.href);
+    if (route && DEFERRABLE_EVENTS.has(name) && ROUTE_EVENTS[route].has(name))
+      defer(name, clean, onceKey);
     return false;
   }
-  if (!gaIsActive()) return false;
   flushPendingEvents();
+  if (!ensureGaLoaded() || !gaIsActive()) return false;
   return sendNow(name, clean, onceKey);
 }

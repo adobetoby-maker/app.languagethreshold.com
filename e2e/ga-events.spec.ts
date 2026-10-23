@@ -76,10 +76,10 @@ test.describe("GA4 key events", () => {
     expect(await gaEvents(page)).toEqual([]);
   });
 
-  test("a purchase seen on a private page is deferred, then sent once on the next public page", async ({
+  test("a purchase on a private page waits, then loads GA and sends once after client-side navigation", async ({
     page,
   }) => {
-    const session = "cs_test_e2eDeferred123456";
+    const session = "cs_test_e2eClientNav123456";
     await page.goto(`/subscribe/success?session_id=${session}`);
     await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
     // GA never loads on a private page, so the event waits in sessionStorage.
@@ -89,10 +89,55 @@ test.describe("GA4 key events", () => {
     expect(await page.evaluate(() => typeof (window as unknown as { gtag?: unknown }).gtag)).toBe(
       "undefined",
     );
-    const queued = await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"));
-    expect(queued).not.toMatch(/@|email/i);
+    expect(await gaEvents(page)).toEqual([]);
 
-    // A full load of a public page is where GA starts, and the queue flushes there.
+    // Client-side navigation to a public page: the app loads GA, then flushes the queue.
+    await page.getByRole("link", { name: /Start learning/ }).click();
+    await page.waitForURL((url) => url.pathname === "/");
+    await expect
+      .poll(() => page.evaluate(() => typeof (window as unknown as { gtag?: unknown }).gtag))
+      .toBe("function");
+    await expect
+      .poll(async () => (await gaEvents(page)).filter((e) => e[1] === "purchase"))
+      .toEqual([
+        [
+          "event",
+          "purchase",
+          { transaction_id: session, currency: "USD", transport_type: "beacon" },
+        ],
+      ]);
+    expect(await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"))).toBeNull();
+
+    // The loader mirrors the root snippet: config carries no query string.
+    const config = await page.evaluate(() =>
+      ((window as unknown as { dataLayer?: ArrayLike<unknown>[] }).dataLayer ?? [])
+        .map((entry) => Array.from(entry))
+        .filter((entry) => entry[0] === "config"),
+    );
+    expect(config).toHaveLength(1);
+    expect(config[0][1]).toBe("G-RP0TZ1MP7E");
+    expect(JSON.stringify(config[0][2])).not.toMatch(/\?|session_id|cs_test/);
+    // No personal data anywhere in what GA was handed.
+    const everything = await page.evaluate(() =>
+      JSON.stringify(
+        ((window as unknown as { dataLayer?: ArrayLike<unknown>[] }).dataLayer ?? []).map((e) =>
+          Array.from(e),
+        ),
+      ),
+    );
+    expect(everything).not.toMatch(/@|email|user_id|member/i);
+  });
+
+  test("a purchase seen on a private page is also sent once on the next full public page load", async ({
+    page,
+  }) => {
+    const session = "cs_test_e2eDeferred123456";
+    await page.goto(`/subscribe/success?session_id=${session}`);
+    await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
+    await expect
+      .poll(() => page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1")))
+      .toContain("purchase");
+
     await page.goto("/");
     await expect
       .poll(async () => (await gaEvents(page)).filter((e) => e[1] === "purchase"))

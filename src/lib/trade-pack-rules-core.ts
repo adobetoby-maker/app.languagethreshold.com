@@ -91,11 +91,13 @@ const COMMON_BANNED = [
 ];
 
 /**
- * Per module, the concepts reviewers fixed. Roofing: ridge = cumbrera, deck / sheathing =
- * entablado, gutter = canaleta, lanyard = acollador, flashing = tapajuntas, underlayment =
- * subcapa, sling = eslinga (P1 reviews). Gutters and siding: the terms of their Core 30 lessons (gutters lanyard = cordón de seguridad, as its lessons teach; siding has no lanyard term, so acollador as in roofing)
- * (public/lesson-content/es/<module>.json), with outlet = desagüe and scupper = gárgola /
- * overflow scupper = rebosadero after the drain-words review.
+ * Per module, one Spanish word per concept: the word the module's own lessons teach (lead
+ * ruling, fix round 1). Roofing: ridge = cumbrera, deck / sheathing = entablado, gutter =
+ * canaleta, flashing = tapajuntas, underlayment = subcapa (P1 reviews), lanyard = eslinga (the
+ * roofing lessons' word), so a load sling is an estrobo. Gutters and siding: the terms of their
+ * Core 30 lessons (public/lesson-content/es/<module>.json): gutter outlet = salida, scupper =
+ * gárgola, overflow scupper = rebosadero, gutters lanyard = cordón de seguridad; siding has no
+ * lanyard term, so acollador.
  */
 export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRules>> = {
   roofing: {
@@ -103,13 +105,18 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       concept("ridge", "ridges?", "cumbreras?", "cumbrera"),
       concept("deck", "(roof |soft )?decks?|decking|sheathing", "entablados?", "entablado"),
       concept("gutter", "gutters?", "canaletas?", "canaleta"),
-      concept("lanyard", "lanyards?", "acollador(es)?", "acollador"),
+      concept("lanyard", "lanyards?", "eslingas?", "eslinga"),
       concept("flashing", "flashings?", "tapajuntas", "tapajuntas"),
       concept("underlayment", "underlayments?", "subcapas?", "subcapa"),
-      concept("sling", "slings?", "eslingas?", "eslinga"),
+      concept("sling", "slings?", "estrobos?", "estrobo"),
       concept("downspout", "downspouts?", "bajadas? de agua", "bajada de agua"),
+      concept("starter strip", "starter strips?", "hileras? inicial(es)?", "hilera inicial"),
     ],
-    reverse: [reverse("eslingas?", "slings?"), reverse("cumbreras?", "ridges?")],
+    reverse: [
+      reverse("eslingas?", "lanyards?"),
+      reverse("estrobos?", "slings?"),
+      reverse("cumbreras?", "ridges?"),
+    ],
     banned: [
       word("canal[oó]n(es)?"),
       word("canal(es)?"),
@@ -118,7 +125,7 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       word("cubierta blanda"),
       word("forro de techo"),
       word("barretas?"),
-      word("membrana impermeable"),
+      word("acollador(es)?"),
       ...COMMON_BANNED,
     ],
     avoidTerms: [
@@ -129,7 +136,8 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       "cubierta blanda",
       "forro de techo",
       "barreta",
-      "membrana impermeable",
+      "acollador (say eslinga)",
+      "eslinga for a load sling (say estrobo)",
       "tejado",
     ],
   },
@@ -142,7 +150,7 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       concept("miter", "miters?|mitered|mitre", "ingletes?", "inglete"),
       concept("scupper", "(?<!overflow )scuppers?", "gárgolas?", "gárgola"),
       concept("overflow scupper", "overflow scuppers?", "rebosaderos?", "rebosadero"),
-      concept("outlet", "(?<!(electrical|power) )outlets?", "desagües?", "desagüe"),
+      concept("outlet", "(?<!(electrical|power) )outlets?", "salidas?", "salida"),
       concept("elbow", "elbows?", "codos?", "codo"),
       concept("sealant", "sealants?", "selladore?s?", "sellador"),
       concept("fascia", "fascias?", "fascias?", "fascia"),
@@ -156,13 +164,12 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       reverse("gárgolas?", "scuppers?"),
       reverse("rebosaderos?", "overflow"),
       reverse("ingletes?", "miters?|mitered|mitre"),
-      reverse("desagües?", "outlets?|drains?"),
+      reverse("desagües?", "drains?|drainage"),
     ],
     banned: [
       word("canal[oó]n(es)?"),
       word("canal(es)?"),
       word("bajadas?"),
-      word("salidas? de (la )?canaleta"),
       word("plaf[oó]n(es)?"),
       ...COMMON_BANNED,
     ],
@@ -170,7 +177,7 @@ export const TRADE_PACK_MODULE_RULES: Readonly<Record<string, TradePackModuleRul
       "canalón",
       "canal",
       "bajada",
-      "salida (for the outlet: say desagüe)",
+      "desagüe for the gutter outlet (say salida)",
       "plafón (say sofito)",
       "eslinga for a lanyard (say cordón de seguridad)",
       "tejado",

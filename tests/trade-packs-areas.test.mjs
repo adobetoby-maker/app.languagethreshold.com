@@ -344,10 +344,14 @@ test("one word per concept: gutters", () => {
   bad("scupper", "rebosadero");
   ok("overflow scupper", "rebosadero");
   bad("overflow scupper", "gárgola de desborde");
-  ok("outlet", "desagüe");
-  bad("outlet", "salida");
-  ok("Test every outlet with water.", "Prueben con agua cada desagüe.");
-  bad("Test every outlet with water.", "Prueben con agua cada salida.");
+  // lead ruling (fix round 1): the gutters lessons teach outlet = salida
+  ok("outlet", "salida");
+  bad("outlet", "desagüe");
+  ok("Test every outlet with water.", "Prueben con agua cada salida.");
+  bad("Test every outlet with water.", "Prueben con agua cada desagüe.");
+  ok("Where are we going to put the outlet of this gutter?", "¿Dónde vamos a poner la salida de esta canaleta?");
+  ok("drain grate", "rejilla de drenaje");
+  bad("Clean the outlet grate.", "Limpien la rejilla del desagüe.");
   ok("electrical outlet", "tomacorriente");
   bad("ridge", "canal"); // banned whatever the English
   bad("clear the drain", "limpien la gárgola"); // gárgola only ever names a scupper
@@ -371,12 +375,17 @@ test("one word per concept: siding", () => {
   bad("Is there moisture behind the siding?", "¿Hay humedad detrás del siding?");
 });
 
-test("one word per concept: roofing keeps the P1 decisions", () => {
+test("one word per concept: roofing uses its lessons' eslinga for the lanyard", () => {
   assert.deepEqual(conceptProblems("roofing", "ridge vent", "ventilación de cumbrera"), []);
   assert.notDeepEqual(conceptProblems("roofing", "ridge vent", "ventilación de caballete"), []);
   assert.notDeepEqual(conceptProblems("roofing", "Sweep the deck.", "Barran la cubierta."), []);
   assert.deepEqual(conceptProblems("roofing", "Sweep the deck.", "Barran el entablado."), []);
-  assert.notDeepEqual(conceptProblems("roofing", "lanyard", "eslinga"), []);
+  assert.deepEqual(conceptProblems("roofing", "lanyard", "eslinga"), []);
+  assert.notDeepEqual(conceptProblems("roofing", "lanyard", "acollador"), []);
+  assert.deepEqual(conceptProblems("roofing", "load sling", "estrobo de carga"), []);
+  assert.notDeepEqual(conceptProblems("roofing", "load sling", "eslinga de carga"), []);
+  assert.deepEqual(conceptProblems("roofing", "ice and water shield", "membrana impermeable"), []);
+  assert.deepEqual(conceptProblems("siding", "lanyard", "acollador"), []);
   assert.deepEqual(conceptProblems("some-other-module", "gutter", "canalón"), []);
   assert.ok(TRADE_PACK_MODULE_RULES.roofing && TRADE_PACK_MODULE_RULES.gutters && TRADE_PACK_MODULE_RULES.siding);
 });
@@ -507,7 +516,7 @@ const CONCEPTS = {
     ["miter", "miters?|mitered", "ingletes?"],
     ["scupper", "(?<!overflow )scuppers?", "gárgolas?"],
     ["overflow scupper", "overflow scuppers?", "rebosaderos?"],
-    ["outlet", "(?<!(electrical|power) )outlets?", "desagües?"],
+    ["outlet", "(?<!(electrical|power) )outlets?", "salidas?"],
   ],
   siding: [
     ["siding", "siding", "revestimientos?"],
@@ -523,14 +532,15 @@ const CONCEPTS = {
     ["ridge", "ridges?", "cumbreras?"],
     ["deck", "roof deck|soft deck|sheathing", "entablados?"],
     ["gutter", "gutters?", "canaletas?"],
-    ["lanyard", "lanyards?", "acollador(es)?"],
+    ["lanyard", "lanyards?", "eslingas?"],
+    ["sling", "slings?", "estrobos?"],
     ["underlayment", "underlayments?", "subcapas?"],
   ],
 };
 const NEVER = {
-  gutters: ["canalón", "canalones", "salida de la canaleta"],
+  gutters: ["canalón", "canalones", "desagüe"],
   siding: ["plafón", "siding", "barrera de humedad"],
-  roofing: ["canalón", "caballete", "sub-capa", "cubierta blanda"],
+  roofing: ["canalón", "caballete", "sub-capa", "cubierta blanda", "acollador"],
 };
 
 for (const moduleId of MODULES) {

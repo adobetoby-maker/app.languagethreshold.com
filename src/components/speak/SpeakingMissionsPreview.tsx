@@ -1101,7 +1101,7 @@ export function SpeakingMissionsPreview({
     const Constructor = recognitionConstructor();
     if (!Constructor) {
       setErrorMessage(
-        "Speech recognition is unavailable in this browser. Use a supported browser for this UX preview.",
+        "Speech recognition is unavailable in this browser. Use a supported browser such as Chrome or Safari.",
       );
       setStatus("error");
       return;
@@ -1897,7 +1897,7 @@ export function SpeakingMissionsPreview({
           onConfirm={() => void confirmAgeAndBegin()}
         />
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
-          Mission recap · UX preview
+          Mission recap
         </p>
         <h2 className="mt-2 font-serif text-3xl text-foreground">{completionTitle}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -1986,7 +1986,7 @@ export function SpeakingMissionsPreview({
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            Mission in progress · UX preview
+            Mission in progress
           </p>
           <h2 className="mt-1 font-serif text-2xl text-foreground">{selectedMission.title}</h2>
           <p className="mt-1 text-xs text-muted-foreground">

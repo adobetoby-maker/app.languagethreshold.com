@@ -11,6 +11,7 @@ import {
   scopedTeamError,
   TeamOperationError,
 } from "@/lib/team-server";
+import { hasActivePlan } from "@/lib/active-plan";
 
 const requestSchema = z.object({
   title: z.string().trim().min(3).max(120),
@@ -19,36 +20,6 @@ const requestSchema = z.object({
   vocabulary: z.string().trim().max(2000).default(""),
   organizationId: z.string().uuid().nullable().default(null),
 });
-
-async function hasActivePlan(db: ReturnType<typeof teamAdminClient>, userId: string) {
-  const [{ data: profile, error: profileError }, { data: memberships, error: membersError }] =
-    await Promise.all([
-      db.from("profiles").select("data").eq("id", userId).maybeSingle(),
-      db
-        .from("team_members")
-        .select("organization_id")
-        .eq("user_id", userId)
-        .eq("status", "active"),
-    ]);
-  if (profileError || membersError) throw profileError ?? membersError;
-  const status = (profile?.data as Record<string, unknown> | null)?.subscription_status;
-  if (status === "active" || status === "trialing") return true;
-  const ids = (memberships ?? []).map((member) => member.organization_id);
-  if (!ids.length) return false;
-  const { data: plans, error } = await db
-    .from("team_entitlements")
-    .select("status,period_end")
-    .in("organization_id", ids)
-    .in("status", ["active", "manual"]);
-  if (error) throw error;
-  return (plans ?? []).some(
-    (plan) =>
-      plan.status === "active" ||
-      (plan.status === "manual" &&
-        !!plan.period_end &&
-        new Date(plan.period_end).getTime() > Date.now()),
-  );
-}
 
 export const Route = createFileRoute("/api/module-request")({
   server: {

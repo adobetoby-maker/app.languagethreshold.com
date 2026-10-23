@@ -41,7 +41,7 @@ const GRADE_BUTTONS: { grade: SrsGrade; label: string; hint: string; cls: string
     grade: "again",
     label: "Again",
     hint: "< 1d",
-    cls: "border-rose-500/40 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20",
+    cls: "border-rose-500/40 bg-rose-500/10 text-rose-700 dark:text-rose-300 hover:bg-rose-500/20",
   },
   {
     grade: "hard",
@@ -566,7 +566,7 @@ export function FlashcardsStudio() {
                 <button
                   type="button"
                   onClick={() => void loadFieldDeck(true)}
-                  className="mt-2 text-xs text-rose-300 underline underline-offset-2"
+                  className="mt-2 text-xs text-rose-700 dark:text-rose-300 underline underline-offset-2"
                 >
                   {fieldDeckError}
                 </button>

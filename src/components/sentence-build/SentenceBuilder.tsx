@@ -165,7 +165,7 @@ export function SentenceBuilder() {
       {!cur && sb.state.loading && <Skeleton />}
 
       {!cur && !sb.state.loading && sb.state.error && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-200">
+        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-800 dark:text-rose-200">
           {sb.state.error}
           <button
             onClick={() => void sb.loadQuestion()}

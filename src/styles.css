@@ -1189,3 +1189,9 @@ rt,
  * still could not express "either side, and it leads to the Tutor". The
  * training-demo block carries that message instead, and clears itself once the
  * learner has used both panes. `.lt-word` keeps cursor/tap affordance only. */
+
+/* Keep the game grid's verb detail view full-width, including its home screen. */
+[data-games-hub]:has([data-verbs-open]) > :not(:first-child):not([data-games-grid]),
+[data-games-grid]:has([data-verbs-open]) > button {
+  display: none;
+}

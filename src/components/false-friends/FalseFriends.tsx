@@ -171,7 +171,7 @@ export function FalseFriends() {
       {!cur && ff.state.loading && <Skeleton />}
 
       {!cur && !ff.state.loading && ff.state.error && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-200">
+        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-800 dark:text-rose-200">
           {ff.state.error}
           <button
             onClick={() => void ff.loadQuestion()}
@@ -378,7 +378,7 @@ function QuestionCard({
           className="group flex flex-col items-center gap-1 rounded-xl border border-rose-500/40 bg-rose-500/5 px-4 py-4 transition-all hover:border-rose-500/70 hover:bg-rose-500/10 data-[correct=true]:border-rose-500/80 data-[correct=true]:bg-rose-500/20 data-[correct=false]:border-amber-500/60 data-[correct=false]:bg-amber-500/15 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <AlertTriangle className="h-5 w-5 text-rose-400" strokeWidth={1.6} />
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-rose-300">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-rose-700 dark:text-rose-300">
             False friend
           </span>
           <span className="text-xs text-foreground/70">Different meaning</span>
@@ -466,7 +466,7 @@ function RunReview({
                   {q.question.word}
                 </span>
                 {!q.question.isTrueFriend && (
-                  <span className="rounded-full border border-rose-500/40 bg-rose-500/10 px-1.5 py-px font-mono text-[9px] uppercase tracking-[0.15em] text-rose-300">
+                  <span className="rounded-full border border-rose-500/40 bg-rose-500/10 px-1.5 py-px font-mono text-[9px] uppercase tracking-[0.15em] text-rose-700 dark:text-rose-300">
                     trap
                   </span>
                 )}

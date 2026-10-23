@@ -251,7 +251,7 @@ export function GamesHub() {
   const dailyBadge = daily.badge();
 
   return (
-    <div className="mx-auto max-w-4xl space-y-6 has-[[data-verbs-open]]:[&>:not(:first-child):not([data-verbs-root])]:hidden">
+    <div data-games-hub="" className="mx-auto max-w-4xl space-y-6">
       <div>
         <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">⌘ Games</div>
         <h2 className="mt-1 font-display text-3xl font-semibold">Practice that competes back</h2>
@@ -259,8 +259,6 @@ export function GamesHub() {
           Quick games and verb patterns, one leaderboard story. Each game persists per-language stats.
         </p>
       </div>
-
-      <VerbsSection />
 
       {/* ── Today's Challenge ─────────────────────────────────────────── */}
       <button
@@ -317,7 +315,7 @@ export function GamesHub() {
       </div>
 
       {/* Game cards */}
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-games-grid="" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {GAMES.map((g) => {
           const stats =
             g.id === "match"
@@ -368,6 +366,7 @@ export function GamesHub() {
             </button>
           );
         })}
+        <VerbsSection />
       </div>
 
       {/* ── Module-specific games ──────────────────────────────────────── */}

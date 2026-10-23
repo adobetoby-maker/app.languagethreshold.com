@@ -424,7 +424,7 @@ export function BattleArena({
         )}
 
         {error && (
-          <div className="rounded-2xl border border-red-500/40 bg-red-950/40 px-6 py-4 text-center font-mono text-xs text-red-200">
+          <div className="rounded-2xl border border-red-500/40 bg-red-950/40 px-6 py-4 text-center font-mono text-xs text-red-800 dark:text-red-200">
             {error}
             <button
               onClick={() => void loadRound()}
@@ -508,7 +508,7 @@ export function BattleArena({
                           </span>
                         )}
                         {revealing && isOppPick && (
-                          <span className="rounded-full bg-red-500/30 px-2 py-0.5 font-mono text-[8px] uppercase tracking-wider text-red-100">
+                          <span className="rounded-full bg-red-500/30 px-2 py-0.5 font-mono text-[8px] uppercase tracking-wider text-red-800 dark:text-red-100">
                             Opp
                           </span>
                         )}
@@ -533,7 +533,7 @@ export function BattleArena({
                     resultKind === "victory" || resultKind === "both"
                       ? "text-emerald-300"
                       : resultKind === "defeat"
-                        ? "text-red-300"
+                        ? "text-red-700 dark:text-red-300"
                         : "text-gold"
                   } drop-shadow`}
                 >

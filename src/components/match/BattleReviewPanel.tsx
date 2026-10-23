@@ -155,7 +155,7 @@ function WordRow({ word }: { word: ReviewedWord }) {
               Nailed it ✓
             </span>
           ) : (
-            <span className="rounded-full border border-red-500/40 bg-red-500/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-red-200">
+            <span className="rounded-full border border-red-500/40 bg-red-500/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-red-800 dark:text-red-200">
               Missed
             </span>
           )}

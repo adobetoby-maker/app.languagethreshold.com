@@ -27,8 +27,8 @@ const LEVEL_TONE: Record<CefrLevel, string> = {
   A2: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
   B1: "border-amber-500/40 bg-amber-500/10 text-amber-300",
   B2: "border-amber-500/40 bg-amber-500/10 text-amber-300",
-  C1: "border-rose-500/40 bg-rose-500/10 text-rose-300",
-  C2: "border-rose-500/40 bg-rose-500/10 text-rose-300",
+  C1: "border-rose-500/40 bg-rose-500/10 text-rose-700 dark:text-rose-300",
+  C2: "border-rose-500/40 bg-rose-500/10 text-rose-700 dark:text-rose-300",
 };
 
 function LevelBadge({ level }: { level: CefrLevel }) {

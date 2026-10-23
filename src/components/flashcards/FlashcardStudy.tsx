@@ -192,7 +192,7 @@ export function FlashcardStudy({
         <div className="mt-4 flex gap-2">
           <button
             onClick={() => grade(0)}
-            className="flex-1 rounded-full bg-rose-500/15 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-rose-300 transition-colors hover:bg-rose-500/25"
+            className="flex-1 rounded-full bg-rose-500/15 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-rose-700 dark:text-rose-300 transition-colors hover:bg-rose-500/25"
           >
             Not yet
           </button>

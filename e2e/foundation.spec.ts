@@ -156,7 +156,7 @@ test.describe("Roofing Foundation: signed in", () => {
       .click();
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(
-      page.getByTestId("lesson-nav-top").getByRole("button", { name: "Foundation 2" }),
+      page.getByTestId("lesson-nav-top").getByRole("button", { name: "Next lesson: Foundation 2" }),
     ).toBeVisible();
     await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
     await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });

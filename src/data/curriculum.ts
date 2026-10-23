@@ -1714,6 +1714,751 @@ const CONSTRUCTION_LESSONS: Lesson[] = [
   },
 ];
 
+// ─── GUTTERS (supervisor directing a Spanish-speaking crew) ─────────────────────
+// Residential and commercial. Slopes, hanger spacing, fasteners and sizes are never taught as
+// universal numbers: every step points the supervisor to the job plan, the manufacturer's
+// instructions or local code.
+
+const GUTTERS_LESSONS: Lesson[] = [
+  {
+    n: 1,
+    title: "Morning Greeting & Roll Call",
+    objective: "Greet the gutter crew, take roll and open the day",
+    steps: [
+      r("Read the lesson passage. Find the greeting, the roll call and the start time.", 7),
+      wm("Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, chofer, supervisor.", 5),
+      sp(
+        "Open the day: 'Buenos días a todos. Hablo un poco de español. ¿Están todos? Empezamos a las siete.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 2,
+    title: "Toolbox Talk: Today's Hazards",
+    objective: "Run a short safety talk on the day's gutter hazards",
+    steps: [
+      r("Read the passage. Find every hazard and every protection the supervisor names.", 7),
+      pt(
+        "Pattern: 'Hoy trabajamos en [lugar]. El peligro es [peligro]. Por eso ustedes [acción].' Build 3.",
+        7,
+      ),
+      sp(
+        "Give the talk: ladders, the roof edge, sharp metal and the weather, then ask: '¿Preguntas?'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 3,
+    title: "Ladder Setup & Power Lines",
+    objective: "Direct ladder setup and keep ladders away from overhead power lines",
+    steps: [
+      r("Read the passage. Find how the ladder is placed, tied off and kept clear of the lines.", 7),
+      wm("Drill: escalera, cables eléctricos, base firme, amarrar, estabilizador, tres puntos de apoyo.", 5),
+      sp(
+        "Stop a worker: 'Alto. Hay cables eléctricos. Muevan la escalera lejos de los cables.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 4,
+    title: "Fall Protection at the Eave",
+    objective: "Check harnesses, anchors and safe work at the roof edge",
+    steps: [
+      r("Read the passage. Find the harness check and the anchor the crew uses.", 7),
+      wm("Drill: arnés, línea de vida, anclaje, borde del techo, alero, revisar el equipo.", 5),
+      sp(
+        "Check the crew: '¿Revisaron el arnés? Conecten la línea de vida al anclaje antes de subir.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 5,
+    title: "Gutter Parts by Name",
+    objective: "Name the parts of a gutter system and point to each one",
+    steps: [
+      r("Read the passage. Tap every gutter part the crew lead names.", 7),
+      wm("Drill: canaleta, bajante, gancho, codo, salida, tapa, esquina, abrazadera.", 5),
+      sp("Point and name: 'Esta es la canaleta. Aquí va la salida. El bajante baja por la esquina.'", 8),
+    ],
+  },
+  {
+    n: 6,
+    title: "Measuring the Runs",
+    objective: "Have the crew measure each run and read the numbers back",
+    steps: [
+      r("Read the passage. Find how each run is measured and written down.", 7),
+      sb("Build: 'Midan el lado [lado]. ¿Cuántos pies mide? Apúntenlo en la hoja.' (4 sides)", 7),
+      sp("Call out and confirm: 'El frente mide cuarenta y dos pies. Repítame el número, por favor.'", 6),
+    ],
+  },
+  {
+    n: 7,
+    title: "Slope Toward the Outlets",
+    objective: "Confirm the slope the job plan specifies and snap the line",
+    steps: [
+      r("Read the passage. Find where the slope comes from and how the line is marked.", 7),
+      pt(
+        "Pattern: 'La pendiente va hacia [salida], según el plan del trabajo. Marquen la línea con [herramienta].' Build 3.",
+        7,
+      ),
+      sp(
+        "Ask before marking: '¿Qué pendiente pide el plan para este lado? Confírmenlo antes de marcar.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 8,
+    title: "The Seamless Gutter Machine",
+    objective: "Direct safe setup and operation of the seamless gutter machine",
+    steps: [
+      r("Read the passage. Find the setup steps and the safety rule for the machine.", 7),
+      wm("Drill: máquina de canaleta, bobina, cortar, largo, guardas, apagar la máquina.", 5),
+      sp(
+        "Direct the operator: 'Corre tres piezas de sesenta pies. Antes de limpiar, apaga la máquina.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 9,
+    title: "Coil Stock, Colors & Sizes",
+    objective: "Confirm the coil color and the gutter size on the work order",
+    steps: [
+      r("Read the passage. Find the color, the size and who confirms them.", 7),
+      wm("Drill: color, blanco, café, tamaño, orden de trabajo, muestra, bobina.", 5),
+      sp(
+        "Check the order: '¿Qué color pidió el cliente? Revisen la orden de trabajo antes de correr la bobina.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 10,
+    title: "Carrying Long Pieces",
+    objective: "Coordinate two people carrying and lifting long gutter sections",
+    steps: [
+      r("Read the passage. Find how two workers carry and pass a long piece.", 7),
+      pt("Pattern: 'Tú agarras [lado]. Yo agarro [lado]. A la cuenta de tres, [acción].' Build 3.", 7),
+      sp("Coordinate: 'Cuidado con la esquina de la casa. Despacio. Uno, dos, tres, arriba.'", 6),
+    ],
+  },
+  {
+    n: 11,
+    title: "Fascia & Rot Inspection",
+    objective: "Inspect the fascia and stop work when the wood is rotten",
+    steps: [
+      r("Read the passage. Find what the worker finds behind the old gutter.", 7),
+      wm("Drill: fascia, madera podrida, blanda, reemplazar, foto, avisar al supervisor.", 5),
+      sp(
+        "Respond: 'No instalen nada aquí. La fascia está podrida. Tomen una foto y yo hablo con el cliente.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 12,
+    title: "Tear-Off & Haul-Away",
+    objective: "Direct removal of old gutters and safe haul-away",
+    steps: [
+      r("Read the passage. Find the removal order and where the scrap goes.", 7),
+      wm("Drill: quitar, canaleta vieja, clavos, chatarra, tráiler, área de trabajo.", 5),
+      sp(
+        "Assign: 'Ustedes dos quitan las canaletas viejas. Tú llevas la chatarra al tráiler. Nadie debajo.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 13,
+    title: "Hangers & Spacing per Spec",
+    objective: "Confirm the hanger type and spacing the manufacturer specifies",
+    steps: [
+      r("Read the passage. Find where the hanger spacing comes from.", 7),
+      pt(
+        "Pattern: 'Pongan los ganchos según [instrucciones / plan / código local]. ¿Cuál es la distancia?' Build 3.",
+        7,
+      ),
+      sp(
+        "Correct a worker: 'Estos ganchos están muy separados. Revisa las instrucciones del fabricante.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 14,
+    title: "Hanging the Gutter",
+    objective: "Lift, set and fasten a gutter on the fascia line",
+    steps: [
+      r("Read the passage. Find the steps to lift, align and fasten the gutter.", 7),
+      wm("Drill: levantar, alinear, la línea, atornillar, nivel, sostener.", 5),
+      sp("Direct the lift: 'Sostengan la canaleta en la línea. Atornilla el primer gancho. Ahora el siguiente.'", 8),
+    ],
+  },
+  {
+    n: 15,
+    title: "Outlets & Downspout Layout",
+    objective: "Mark where the outlets and downspouts go on the plan",
+    steps: [
+      r("Read the passage. Find where each outlet and downspout is placed and why.", 7),
+      sb("Build: 'La salida va en [lugar]. El bajante baja por [lugar].' (4 locations)", 7),
+      sp("Explain: 'Aquí cortamos la salida. El bajante baja por esta esquina, lejos de la puerta.'", 6),
+    ],
+  },
+  {
+    n: 16,
+    title: "Elbows & Downspout Straps",
+    objective: "Direct elbow assembly and strapping the downspout to the wall",
+    steps: [
+      r("Read the passage. Find the elbows, the straps and the order of assembly.", 7),
+      wm("Drill: codo, abrazadera, pared, tornillo, sellar, conectar.", 5),
+      sp("Direct: 'Conecten el codo a la salida. Pongan una abrazadera arriba y otra abajo.'", 8),
+    ],
+  },
+  {
+    n: 17,
+    title: "End Caps & Sealant",
+    objective: "Check end caps and sealant before the gutter goes up",
+    steps: [
+      r("Read the passage. Find how the end caps are set and sealed.", 7),
+      wm("Drill: tapa, sellador, remache, fuga, limpiar, secar.", 5),
+      sp(
+        "Check the work: '¿Sellaron las tapas? Usen el sellador que indica el fabricante. Revisen que no gotee.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 18,
+    title: "Miters at the Corners",
+    objective: "Direct cutting and fitting miters at inside and outside corners",
+    steps: [
+      r("Read the passage. Find the inside corner, the outside corner and how they fit.", 7),
+      wm("Drill: esquina interior, esquina exterior, inglete, cortar, medir dos veces, ajustar.", 5),
+      sp("Direct: 'Mide dos veces y corta una vez. Esta es una esquina exterior. Sella la unión.'", 8),
+    ],
+  },
+  {
+    n: 19,
+    title: "Gutter Guards",
+    objective: "Explain and install the gutter guards the customer ordered",
+    steps: [
+      r("Read the passage. Find what the guards do and how they are installed.", 7),
+      wm("Drill: protector de canaleta, hojas, malla, instalar, encajar, limpiar primero.", 5),
+      sp("Explain: 'El cliente pidió protectores. Limpien la canaleta primero y luego instalen la malla.'", 8),
+    ],
+  },
+  {
+    n: 20,
+    title: "Splash Blocks & Drainage",
+    objective: "Direct water away from the foundation at each downspout",
+    steps: [
+      r("Read the passage. Find where the water goes after the downspout.", 7),
+      sb("Build: 'El agua tiene que ir lejos de [lugar]. Pongan [bloque / extensión] aquí.' (3 versions)", 7),
+      sp("Explain: 'Pongan el bloque de salpicadura aquí. El agua no puede quedarse junto a los cimientos.'", 6),
+    ],
+  },
+  {
+    n: 21,
+    title: "Commercial Box Gutters",
+    objective: "Discuss box gutters and the plan details on a commercial building",
+    steps: [
+      r("Read the passage. Find what makes a box gutter different and what the plans say.", 7),
+      wm("Drill: canaleta de caja, edificio comercial, planos, soldar, membrana, revisar los planos.", 5),
+      sp(
+        "Ask the GC: '¿Qué dicen los planos sobre la canaleta de caja? Quiero confirmar antes de empezar.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 22,
+    title: "Scuppers & Conductor Heads",
+    objective: "Name scuppers and conductor heads and direct their install",
+    steps: [
+      r("Read the passage. Find where the scupper and the conductor head go on the wall.", 7),
+      wm("Drill: imbornal, caja colectora, pared, parapeto, conectar, sellar.", 5),
+      sp("Direct: 'El agua sale por el imbornal. Pongan la caja colectora debajo y conecten el bajante.'", 8),
+    ],
+  },
+  {
+    n: 23,
+    title: "Aerial Lifts on Commercial Jobs",
+    objective: "Check the lift, the operator and the tie-off before going up",
+    steps: [
+      r("Read the passage. Find the lift checks and who is allowed to operate it.", 7),
+      wm("Drill: elevador, plataforma, inspección, operador, arnés, zona de seguridad.", 5),
+      sp(
+        "Check before use: '¿Quién está capacitado para el elevador? Hagan la inspección y conecten el arnés.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 24,
+    title: "Weather: Stop Work",
+    objective: "Stop work for wind, lightning, rain or ice and secure the site",
+    steps: [
+      r("Read the passage. Find the weather sign and the order to stop and secure.", 7),
+      pt("Pattern: 'Paramos porque [razón]. Bajen de [lugar] y aseguren [material].' Build 3.", 7),
+      sp(
+        "Stop the crew: 'Hay rayos. Todos abajo ahora. Bajen las escaleras y aseguren las piezas sueltas.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 25,
+    title: "Talking with the Homeowner",
+    objective: "Answer a homeowner's questions and set expectations politely",
+    steps: [
+      r("Read the passage. Find the homeowner's concern and the supervisor's answer.", 7),
+      wm("Drill: dueño de la casa, cliente, preocupación, terminar hoy, entrada, ruido.", 5),
+      sp("Answer: 'Terminamos hoy. Vamos a dejar todo limpio. Si necesita algo, hable conmigo.'", 8),
+    ],
+  },
+  {
+    n: 26,
+    title: "Working with the General Contractor",
+    objective: "Coordinate schedule and sequence with the GC on a shared site",
+    steps: [
+      r("Read the passage. Find what the GC needs and what the crew needs from the GC.", 7),
+      sb("Build: 'Necesitamos [cosa] antes de [tarea]. ¿Cuándo terminan [otra cuadrilla]?' (3 versions)", 7),
+      sp("Coordinate: 'Los pintores terminan la fascia hoy. Nosotros instalamos mañana temprano.'", 6),
+    ],
+  },
+  {
+    n: 27,
+    title: "Material Orders & the Supplier",
+    objective: "Call the supplier to order coil, hangers and downspouts",
+    steps: [
+      r("Read the passage. Find the items, the counts and the delivery time.", 7),
+      wm("Drill: proveedor, pedido, entrega, cajas, piezas, color, confirmar.", 5),
+      sp("Order: 'Necesito dos bobinas blancas y una caja de ganchos. ¿Pueden entregarlas mañana?'", 8),
+    ],
+  },
+  {
+    n: 28,
+    title: "Emergencies on the Job",
+    objective: "Respond to a fall or injury, call 911 and secure the site",
+    steps: [
+      r("Read the passage. Find each step: stop work, help, call 911, report.", 7),
+      pt("Pattern: 'No lo muevan. Llama al 911. Apaga [máquina]. Tú, espera en [lugar].' Build 3.", 7),
+      sp(
+        "Lead the response: 'Alto. Apaguen la máquina. No lo muevan. Tú, llama al 911. Tú, espera la ambulancia en la calle.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 29,
+    title: "Closeout Walk & Punch List",
+    objective: "Walk the finished job, test the gutters and assign the punch list",
+    steps: [
+      r("Read the passage. Find each check on the walk and the open items.", 7),
+      wm("Drill: revisar, probar con agua, fuga, limpieza, imanes para clavos, lista de pendientes.", 5),
+      sp(
+        "Close out: 'Prueben con agua cada salida. Pasen el imán por el pasto. ¿Qué falta en la lista?'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 30,
+    title: "THRESHOLD — Full Gutter Day",
+    objective: "Lead a full gutter job day in Spanish without help",
+    steps: [
+      r("Read the passage one last time. You should understand every sentence.", 6),
+      ds(
+        "AI role-play: briefing, ladders, measure and slope, machine, hang and seal, a weather call, closeout.",
+        10,
+      ),
+      sp("Go again from memory, start to finish. Measure yourself against Lesson 1.", 6),
+    ],
+  },
+];
+
+// ─── SIDING (vinyl and fiber cement; supervisor directing a Spanish-speaking crew) ─
+// Residential and commercial. Nailing, gaps, clearances and cutting methods are never taught as
+// universal numbers: every step points the supervisor to the manufacturer's installation
+// instructions, the job plan or local code.
+
+const SIDING_LESSONS: Lesson[] = [
+  {
+    n: 1,
+    title: "Morning Greeting & Roll Call",
+    objective: "Greet the siding crew, take roll and open the day",
+    steps: [
+      r("Read the lesson passage. Find the greeting, the roll call and the wall assignments.", 7),
+      wm("Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, cortador, supervisor.", 5),
+      sp(
+        "Open the day: 'Buenos días a todos. Hablo un poco de español. ¿Están todos? Empezamos con la pared norte.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 2,
+    title: "Toolbox Talk: Today's Hazards",
+    objective: "Run a short safety talk on the day's siding hazards",
+    steps: [
+      r("Read the passage. Find every hazard and every protection the supervisor names.", 7),
+      pt(
+        "Pattern: 'Hoy trabajamos en [pared]. El peligro es [peligro]. Por eso ustedes [acción].' Build 3.",
+        7,
+      ),
+      sp("Give the talk: scaffold, saws, dust and the weather, then ask: '¿Preguntas?'", 6),
+    ],
+  },
+  {
+    n: 3,
+    title: "Scaffold & Pump Jack Checks",
+    objective: "Inspect the scaffold or pump jacks before anyone climbs",
+    steps: [
+      r("Read the passage. Find each scaffold check and who signs off.", 7),
+      wm("Drill: andamio, tablón, barandal, base, gato de bomba, inspección.", 5),
+      sp(
+        "Check before use: 'Nadie sube hasta revisar el andamio. ¿Están firmes los tablones y el barandal?'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 4,
+    title: "Ladders, Lifts & Power Lines",
+    objective: "Set ladders and lifts safely and keep clear of overhead lines",
+    steps: [
+      r("Read the passage. Find where the ladder goes and how the lines are avoided.", 7),
+      wm("Drill: escalera, elevador, cables eléctricos, amarrar, arnés, distancia segura.", 5),
+      sp("Stop a worker: 'Alto. Hay cables eléctricos. No suban el elevador aquí.'", 8),
+    ],
+  },
+  {
+    n: 5,
+    title: "Siding Materials by Name",
+    objective: "Name vinyl and fiber cement materials and the trim pieces",
+    steps: [
+      r("Read the passage. Tap every material and trim piece the crew lead names.", 7),
+      wm("Drill: vinilo, fibrocemento, panel, tira de arranque, canal J, poste de esquina, moldura, sofito.", 5),
+      sp("Point and name: 'Este es el panel de vinilo. Esta es la moldura. Aquí va el canal J.'", 8),
+    ],
+  },
+  {
+    n: 6,
+    title: "Handling & Storage",
+    objective: "Direct how panels are carried, stacked and kept dry",
+    steps: [
+      r("Read the passage. Find how fiber cement is carried and how the stack is protected.", 7),
+      pt(
+        "Pattern: 'Carguen los paneles [cómo]. Guárdenlos [dónde], según el fabricante.' Build 3.",
+        7,
+      ),
+      sp("Direct: 'Carguen el fibrocemento de canto, entre dos. Tapen la pila con la lona.'", 6),
+    ],
+  },
+  {
+    n: 7,
+    title: "Tear-Off & Wall Inspection",
+    objective: "Remove old siding and report damage found on the wall",
+    steps: [
+      r("Read the passage. Find what the crew finds under the old siding.", 7),
+      wm("Drill: quitar, siding viejo, madera podrida, humedad, foto, avisar.", 5),
+      sp(
+        "Respond: 'No cubran esta parte. La madera está mojada y blanda. Tomen fotos y yo hablo con el contratista.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 8,
+    title: "House Wrap & Taping",
+    objective: "Check that the house wrap is lapped and taped as the manufacturer specifies",
+    steps: [
+      r("Read the passage. Find how the wrap is lapped and where the tape goes.", 7),
+      wm("Drill: barrera contra el agua, traslape, cinta, grapas, rasgadura, de abajo hacia arriba.", 5),
+      sp(
+        "Check: 'Pongan la barrera de abajo hacia arriba. Revisen el traslape y la cinta en las instrucciones.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 9,
+    title: "Window & Door Flashing",
+    objective: "Inspect flashing around windows and doors before siding",
+    steps: [
+      r("Read the passage. Find the flashing order around the window.", 7),
+      pt(
+        "Pattern: 'Primero [pieza] abajo, luego [pieza] a los lados y al final [pieza] arriba.' Build 2.",
+        7,
+      ),
+      sp(
+        "Stop and correct: 'Este tapajuntas está mal. El agua tiene que salir afuera. Háganlo otra vez.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 10,
+    title: "Measuring & Layout Lines",
+    objective: "Measure the wall and snap level layout lines",
+    steps: [
+      r("Read the passage. Find the measurements and the level line.", 7),
+      sb("Build: 'Midan [pared]. Marquen la línea a nivel en [lugar].' (3 walls)", 7),
+      sp("Call out and confirm: 'La pared mide treinta pies de largo. Repítame el número, por favor.'", 6),
+    ],
+  },
+  {
+    n: 11,
+    title: "Starter Strip",
+    objective: "Direct the starter strip install at the bottom of the wall",
+    steps: [
+      r("Read the passage. Find where the starter strip goes and how it is checked.", 7),
+      wm("Drill: tira de arranque, a nivel, abajo, clavar, línea de tiza, revisar.", 5),
+      sp(
+        "Direct: 'Pongan la tira de arranque en la línea. Revisen que esté a nivel antes del primer panel.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 12,
+    title: "J-Channel Around Openings",
+    objective: "Direct J-channel around windows, doors and the roof line",
+    steps: [
+      r("Read the passage. Find the J-channel around each opening.", 7),
+      wm("Drill: canal J, ventana, puerta, cortar, solapa, desagüe.", 5),
+      sp("Direct: 'Pongan el canal J alrededor de la ventana. Arriba, corten la solapa para que salga el agua.'", 8),
+    ],
+  },
+  {
+    n: 13,
+    title: "Corner Posts & Trim Boards",
+    objective: "Set corner posts and trim boards plumb and straight",
+    steps: [
+      r("Read the passage. Find the corner posts and the trim boards.", 7),
+      wm("Drill: poste de esquina, moldura, a plomo, derecho, esquina interior, esquina exterior.", 5),
+      sp("Check: 'Este poste no está a plomo. Revisen con el nivel y ajústenlo.'", 8),
+    ],
+  },
+  {
+    n: 14,
+    title: "Vinyl: Nailing That Allows Movement",
+    objective: "Correct vinyl nailing so panels can move as the manufacturer requires",
+    steps: [
+      r("Read the passage. Find why vinyl must move and how the nail is placed.", 7),
+      pt(
+        "Pattern: 'No claven [cómo]. Claven [dónde], según las instrucciones del fabricante.' Build 3.",
+        7,
+      ),
+      sp(
+        "Correct an installer: 'El panel está muy apretado. Tiene que moverse. Revisa las instrucciones del fabricante.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 15,
+    title: "Vinyl: Cutting & Overlaps",
+    objective: "Direct vinyl cuts and the overlap the manufacturer specifies",
+    steps: [
+      r("Read the passage. Find how the panels are cut and overlapped.", 7),
+      wm("Drill: cortar, tijeras, sierra, traslape, junta, dirección de la vista.", 5),
+      sp(
+        "Ask: '¿Cuánto traslape pide el fabricante? Pongan las juntas lejos de la puerta principal.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 16,
+    title: "Fiber Cement: Cutting & Silica Dust",
+    objective: "Set up fiber cement cutting with dust control and stop unsafe cuts",
+    steps: [
+      r("Read the passage. Find the dust controls and the order to stop the cut.", 7),
+      wm("Drill: polvo de sílice, sierra con aspiradora, respirador, cortar afuera, viento, apagar la sierra.", 5),
+      sp(
+        "Stop the cut: 'Alto. Apaga la sierra. No hay aspiradora. Nadie corta fibrocemento sin control de polvo.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 17,
+    title: "Fiber Cement: Blind & Face Nailing",
+    objective: "Confirm blind or face nailing as the manufacturer instructs",
+    steps: [
+      r("Read the passage. Find blind nailing, face nailing and where each rule comes from.", 7),
+      pt(
+        "Pattern: 'Aquí clavamos [oculto / visible], según [instrucciones del fabricante / plan].' Build 3.",
+        7,
+      ),
+      sp(
+        "Check: '¿Qué clavo y qué distancia pide el fabricante? Revisen antes de seguir.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 18,
+    title: "Fiber Cement: Joints & Clearances",
+    objective: "Check butt joints, joint flashing and clearances per the manufacturer",
+    steps: [
+      r("Read the passage. Find the joint, the flashing behind it and the clearances.", 7),
+      wm("Drill: junta, tapajuntas detrás, espacio, techo, suelo, instrucciones.", 5),
+      sp(
+        "Check: 'Pongan tapajuntas detrás de esta junta. Dejen el espacio que piden las instrucciones.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 19,
+    title: "Soffit & Fascia",
+    objective: "Direct soffit panels and fascia cover under the eaves",
+    steps: [
+      r("Read the passage. Find the soffit, the vents and the fascia cover.", 7),
+      wm("Drill: sofito, ventilado, fascia, alero, cubierta de aluminio, canal F.", 5),
+      sp("Direct: 'Pongan el sofito ventilado en este lado. Luego cubran la fascia.'", 8),
+    ],
+  },
+  {
+    n: 20,
+    title: "Lights, Vents & Hose Bibs",
+    objective: "Direct mounting blocks and trim around wall penetrations",
+    steps: [
+      r("Read the passage. Find each penetration and the block or trim it gets.", 7),
+      wm("Drill: bloque de montaje, luz, ventila, llave de agua, medidor, cortar el hueco.", 5),
+      sp("Direct: 'Pongan un bloque de montaje en la luz. No corten cerca del medidor. Pregunten primero.'", 8),
+    ],
+  },
+  {
+    n: 21,
+    title: "Caulk & Paint",
+    objective: "Check caulk joints and paint touch-up on fiber cement",
+    steps: [
+      r("Read the passage. Find where caulk goes and where it does not.", 7),
+      wm("Drill: sellador, calafatear, pintura, retocar, cortes, el sellador correcto.", 5),
+      sp(
+        "Check: 'Retoquen los cortes con pintura. Usen el sellador que pide el fabricante.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 22,
+    title: "Staging & Protecting the Yard",
+    objective: "Set up staging and protect plants, windows and the driveway",
+    steps: [
+      r("Read the passage. Find how the crew protects the yard and the house.", 7),
+      sb("Build: 'Cubran [cosa]. Pongan [material] en [lugar].' (4 versions)", 7),
+      sp("Direct: 'Cubran las plantas con la lona. Pongan los paneles en la entrada, no en el pasto.'", 6),
+    ],
+  },
+  {
+    n: 23,
+    title: "Commercial Panels & Elevations",
+    objective: "Read elevations and discuss commercial panel systems with the GC",
+    steps: [
+      r("Read the passage. Find the elevation, the panel system and the questions for the GC.", 7),
+      wm("Drill: elevación, planos, panel comercial, juego de piezas, sujetadores, aprobación.", 5),
+      sp(
+        "Ask the GC: '¿Qué dice la elevación este? Quiero confirmar el sistema de paneles antes de empezar.'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 24,
+    title: "Weather: Stop Work",
+    objective: "Stop work for wind, lightning or rain and secure the site",
+    steps: [
+      r("Read the passage. Find the weather sign and the order to stop and secure.", 7),
+      pt("Pattern: 'Paramos porque [razón]. Bajen de [lugar] y aseguren [material].' Build 3.", 7),
+      sp(
+        "Stop the crew: 'Hay mucho viento. Bajen del andamio ahora y amarren los paneles sueltos.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 25,
+    title: "Talking with the Homeowner",
+    objective: "Answer a homeowner's questions and set expectations politely",
+    steps: [
+      r("Read the passage. Find the homeowner's concern and the supervisor's answer.", 7),
+      wm("Drill: dueño de la casa, cliente, color, ruido, terminar, entrada.", 5),
+      sp("Answer: 'Esta semana terminamos el frente. Vamos a dejar todo limpio cada día.'", 8),
+    ],
+  },
+  {
+    n: 26,
+    title: "The GC & the Inspector",
+    objective: "Coordinate sequence with the GC and answer an inspector's questions",
+    steps: [
+      r("Read the passage. Find what the inspector asks and what the supervisor shows.", 7),
+      sb("Build: 'El inspector quiere ver [cosa]. Necesitamos [cosa] antes de [tarea].' (3 versions)", 7),
+      sp(
+        "Answer: 'Sí, la barrera y el tapajuntas están listos. Puede revisarlos antes de cubrir la pared.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 27,
+    title: "Material Counts & the Supplier",
+    objective: "Count what is left and call the supplier for what is missing",
+    steps: [
+      r("Read the passage. Find the items, the counts and the delivery time.", 7),
+      wm("Drill: proveedor, pedido, cajas, paneles, molduras, entrega, color.", 5),
+      sp("Order: 'Nos faltan diez cajas de paneles y cuatro molduras. ¿Pueden entregarlas mañana?'", 8),
+    ],
+  },
+  {
+    n: 28,
+    title: "Emergencies on the Job",
+    objective: "Respond to a fall, a cut or a shock, call 911 and secure the site",
+    steps: [
+      r("Read the passage. Find each step: stop work, shut off power, help, call 911, report.", 7),
+      pt("Pattern: 'Apaga [sierra / corriente]. No lo muevan. Llama al 911. Tú, espera en [lugar].' Build 3.", 7),
+      sp(
+        "Lead the response: 'Alto. Apaguen la sierra. No lo muevan. Tú, llama al 911. Tú, espera la ambulancia en la calle.'",
+        6,
+      ),
+    ],
+  },
+  {
+    n: 29,
+    title: "Punch List & Closeout",
+    objective: "Walk the finished walls and assign the punch list",
+    steps: [
+      r("Read the passage. Find each check on the walk and the open items.", 7),
+      wm("Drill: revisar, lista de pendientes, retocar, limpiar, clavos sueltos, terminado.", 5),
+      sp(
+        "Close out: 'Revisen cada esquina y cada ventana. Pasen el imán por el pasto. ¿Qué falta en la lista?'",
+        8,
+      ),
+    ],
+  },
+  {
+    n: 30,
+    title: "THRESHOLD — Full Siding Day",
+    objective: "Lead a full siding job day in Spanish without help",
+    steps: [
+      r("Read the passage one last time. You should understand every sentence.", 6),
+      ds(
+        "AI role-play: briefing, scaffold, wrap and flashing, vinyl or fiber cement install, a weather call, closeout.",
+        10,
+      ),
+      sp("Go again from memory, start to finish. Measure yourself against Lesson 1.", 6),
+    ],
+  },
+];
+
 // ─── SOCCER ──────────────────────────────────────────────────────────────────
 
 const SOCCER_LESSONS: Lesson[] = [
@@ -3348,6 +4093,20 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     threshold:
       "By Lesson 20, you can train a new roofer, explain a change order to a homeowner, walk an inspector or adjuster across a roof, report a fall or near-miss, and write the day's report in Spanish.",
     lessons: MASTER_ROOFING_LESSONS,
+  },
+  gutters: {
+    moduleId: "gutters",
+    headline: "The Gutter Supervisor Core 30",
+    threshold:
+      "By Lesson 30, you can brief a gutter crew, direct ladders and fall protection, measuring, the seamless machine, hanging and sealing, stop work for weather or an emergency, and close out the job in Spanish while confirming the job plan and the manufacturer's instructions.",
+    lessons: GUTTERS_LESSONS,
+  },
+  siding: {
+    moduleId: "siding",
+    headline: "The Siding Supervisor Core 30",
+    threshold:
+      "By Lesson 30, you can brief a siding crew, check scaffolds, house wrap and flashing, direct vinyl and fiber cement installation with dust control, stop work for weather or an emergency, and close out the job in Spanish while confirming the manufacturer's instructions.",
+    lessons: SIDING_LESSONS,
   },
   soccer: {
     moduleId: "soccer",

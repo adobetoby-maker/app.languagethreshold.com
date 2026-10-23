@@ -105,8 +105,9 @@ export async function loadGaAnalytics(
   const fetcher = deps.fetcher ?? fetch;
   const now = deps.now ?? Date.now;
   const scope = `${config.propertyId}|${config.hostname}`;
-  let token: string | null = null;
-  const getToken = async () => (token ??= await gaAccessToken(config, { fetcher, now }));
+  // One exchange per load even though the reports run in parallel.
+  let token: Promise<string> | null = null;
+  const getToken = () => (token ??= gaAccessToken(config, { fetcher, now }));
   const base = `${GA_DATA_URL}/properties/${encodeURIComponent(config.propertyId)}`;
   const raw: Partial<Record<GaReportName, unknown>> = {};
   let oldest = now();

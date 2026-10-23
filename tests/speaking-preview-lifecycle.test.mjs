@@ -200,6 +200,26 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       nodes(tree).some((n) => n.props?.text === "stale partner"),
       false,
     );
+    // iOS Safari can drop onend after partner audio; Stop must still end the listening turn.
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    const silent = recognitions.at(-1);
+    silent.stop = () => {};
+    tree = render();
+    const beforeStop = new Set(timers.keys());
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Stop listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Stop listening"));
+    const fallback = [...timers].filter(([id]) => !beforeStop.has(id));
+    assert.equal(fallback.length, 1);
+    timers.delete(fallback[0][0]);
+    fallback[0][1]();
+    tree = render();
+    assert.equal(silent.aborted, true);
+    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"));
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();

@@ -119,6 +119,9 @@ type SpeechRecognitionEventLike = {
 
 type SpeechRecognitionErrorEventLike = { error?: string };
 
+/** How long Stop waits for the browser's onend before finishing the turn itself. */
+const STOP_FALLBACK_MS = 1200;
+
 function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
   if (typeof window === "undefined") return null;
   const speechWindow = window as typeof window & {
@@ -268,6 +271,7 @@ export function SpeakingMissionsPreview({
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const finishRecognitionRef = useRef<(() => void) | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const viewTopRef = useRef<HTMLElement | null>(null);
@@ -1119,6 +1123,7 @@ export function SpeakingMissionsPreview({
         recognition.onerror = null;
         recognition.onend = null;
         if (recognitionRef.current === recognition) recognitionRef.current = null;
+        if (finishRecognitionRef.current === finish) finishRecognitionRef.current = null;
         try {
           recognition.abort();
         } catch {
@@ -1153,7 +1158,8 @@ export function SpeakingMissionsPreview({
           setStatus("error");
         }
       };
-      recognition.onend = () => {
+      // iOS Safari can skip onend after partner audio played, so Stop also calls this directly.
+      const finish = () => {
         if (!current()) return;
         ended = true;
         release();
@@ -1178,7 +1184,9 @@ export function SpeakingMissionsPreview({
             : "No transcript was returned. Tap Retry, or use the keyboard microphone in the answer box.",
         );
       };
+      recognition.onend = finish;
       recognitionRef.current = recognition;
+      finishRecognitionRef.current = finish;
       try {
         recognition.start();
       } catch (error) {
@@ -1195,7 +1203,23 @@ export function SpeakingMissionsPreview({
     }
   };
 
-  const stopListening = () => recognitionRef.current?.stop();
+  const stopListening = () => {
+    const recognition = recognitionRef.current;
+    const finish = finishRecognitionRef.current;
+    if (!recognition || !finish) {
+      setStatus((current) => (current === "listening" ? "ready" : current));
+      return;
+    }
+    try {
+      recognition.stop();
+    } catch {
+      finish();
+      return;
+    }
+    window.setTimeout(() => {
+      if (recognitionRef.current === recognition) finish();
+    }, STOP_FALLBACK_MS);
+  };
 
   const completedObjectiveCount =
     selectedMission?.objectives.filter((objective) => objectiveIds.includes(objective.id)).length ??

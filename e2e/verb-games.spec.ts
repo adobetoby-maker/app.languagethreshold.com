@@ -35,16 +35,17 @@ test("verbs home lists families and games", async ({ page }) => {
   await expect(page.getByText("Leaderboards coming soon")).toBeVisible();
 });
 
-test("a ladder tile opens the Bubble Pop picker on that family, never a placeholder", async ({ page }) => {
+test("a ladder tile opens that family's pattern series, never a placeholder", async ({ page }) => {
   await openVerbs(page);
   const tile = page.locator('[data-suggested="true"]');
   await expect(tile).toHaveCount(1);
   const family = await tile.getAttribute("data-family");
   expect(family).toBeTruthy();
   await tile.click();
-  await expect(page).toHaveURL(new RegExp(`verbs=pick&vgame=bubble&vfamily=${(family as string).replace(/\./g, "\\.")}`));
-  await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
-  await expect(page.getByTestId(`family-${family}`)).toHaveAttribute("aria-pressed", "true");
+  await expect(page).toHaveURL(new RegExp(`verbs=unit&vfamily=${(family as string).replace(/\./g, "\\.")}`));
+  await expect(page.getByTestId("verb-series")).toHaveAttribute("data-family", family as string);
+  await expect(page.getByTestId("series-step-pick")).toBeEnabled();
+  await expect(page.getByTestId("series-step-match")).toBeDisabled();
   await expect(page.getByText("on the way")).toHaveCount(0);
 });
 
@@ -139,16 +140,15 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
       await expect(card.locator("dd").first()).not.toHaveText("—");
     });
 
-    test("bubble pop: Practice this family opens the Bubble Pop picker on that family", async ({ page }) => {
+    test("bubble pop: Practice this family opens that family's pattern series", async ({ page }) => {
       await startBubble(page);
       await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
       await page.getByRole("button", { name: "End round", exact: true }).click();
       await expectRecap(page, "GAME · BUBBLE POP");
       await page.getByRole("button", { name: "Practice this family" }).click();
-      await expect(page).toHaveURL(/verbs=pick&vgame=bubble&vfamily=es\.present\.go-yo/);
-      await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
+      await expect(page).toHaveURL(/verbs=unit&vfamily=es\.present\.go-yo/);
+      await expect(page.getByTestId("verb-series")).toHaveAttribute("data-family", "es.present.go-yo");
       await expect(page.getByText("Pattern lessons are on the way")).toHaveCount(0);
-      await expect(page.getByTestId("family-es.present.go-yo")).toHaveAttribute("aria-pressed", "true");
     });
   });
 
@@ -838,4 +838,104 @@ test.describe("verb screens @screens", () => {
       }
     });
   }
+});
+
+/** Seeds pattern-series progress on this device (guest store), before the app reads it. */
+async function seedSeries(page: Page, family: string, passed: string[]): Promise<void> {
+  await page.evaluate(
+    ({ family, passed }) => {
+      const key = "lt.learner-device.v1.verb-games.guest";
+      const prev = JSON.parse(localStorage.getItem(key) || "null")?.data ?? { v: 1 };
+      const data = { ...prev, v: 1, series: { ...(prev.series ?? {}), [family]: { passed, best: {} } } };
+      localStorage.setItem(key, JSON.stringify({ schema: 1, actor: null, kind: "verb-games", data }));
+    },
+    { family, passed },
+  );
+}
+
+/** Verbs home, optional seeded series progress (read on the reload), then the family's ladder tile. */
+async function openSeries(page: Page, family: string, passed: string[] = []): Promise<void> {
+  await openVerbs(page);
+  if (passed.length > 0) {
+    await seedSeries(page, family, passed);
+    await page.reload();
+    await expect(page.getByRole("heading", { name: "Practice by pattern" })).toBeVisible({ timeout: 60_000 });
+  }
+  await page.locator(`[data-family="${family}"]`).click();
+  await expect(page.getByTestId("verb-series")).toHaveAttribute("data-family", family);
+}
+
+test.describe("pattern series", { tag: "@dev-only" }, () => {
+  test.beforeEach(async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+  });
+
+  test("from the ladder tile: Pick it with right answers passes and unlocks Match it", async ({ page }) => {
+    await openVerbs(page);
+    await page.locator('[data-family="es.present.go-yo"]').click();
+    await expect(page).toHaveURL(/verbs=unit&vfamily=es\.present\.go-yo/);
+    await expect(page.getByTestId("series-step-match")).toBeDisabled();
+    await expect(page.getByTestId("series-row-match")).toHaveAttribute("data-state", "locked");
+    await page.getByTestId("series-start-pick").click();
+    const pick = page.getByTestId("series-pick");
+    await expect(pick).toBeVisible();
+    for (let i = 1; i <= 10; i++) {
+      await pick.locator('[data-correct="true"]').click();
+      if (i < 10) await expect(page.getByTestId("series-score")).toHaveText(`${i} right`);
+    }
+    await expect(page.getByTestId("series-result")).toHaveAttribute("data-passed", "true");
+    await expect(page.getByTestId("series-result-score")).toHaveText("10 of 10 right");
+    await expect(page.getByTestId("series-result-title")).toBeFocused();
+    await expect(page.getByTestId("series-step-pick")).toHaveAttribute("data-state", "passed");
+    await expect(page.getByTestId("series-step-match")).toBeEnabled();
+    await expect(page.getByTestId("series-step-cards")).toBeDisabled();
+    await page.getByTestId("series-next").click();
+    await expect(page.getByTestId("series-match")).toBeVisible();
+    // Saved on this device: the unlock survives a reload.
+    await page.reload();
+    await expect(page.getByTestId("series-row-match")).toHaveAttribute("data-state", "open");
+    await expect(page.getByTestId("series-row-pick")).toHaveAttribute("data-state", "passed");
+  });
+
+  test("Pick it: keys 1-4 choose, and a miss shows the family rule and the right form", async ({ page }) => {
+    await openSeries(page, "es.present.go-yo");
+    await page.getByTestId("series-start-pick").click();
+    const wrong = page.locator('[data-testid="series-pick"] [data-choice]:not([data-correct="true"])').first();
+    const position = await page.locator('[data-testid="series-pick"] [data-choice]').evaluateAll(
+      (els) => els.findIndex((el) => el.getAttribute("data-correct") !== "true") + 1,
+    );
+    expect(await wrong.count()).toBe(1);
+    await page.keyboard.press(String(position));
+    await expect(page.getByTestId("series-feedback")).toBeVisible();
+    await expect(page.getByTestId("series-rule")).toHaveText("The yo form ends in -go. Everything else stays regular.");
+    await expect(page.getByTestId("series-right")).toHaveText(/^\S+go · I /);
+    await expect(page.getByTestId("series-continue")).toBeFocused();
+    await expect(page.getByTestId("series-score")).toHaveText("0 right");
+    await page.keyboard.press("Enter");
+    await expect(page.getByTestId("series-feedback")).toHaveCount(0);
+    await expect(page.getByText("Item 2 of 10")).toBeVisible();
+  });
+
+  test("Type it: a wrong-accent answer shows almost and does not count", async ({ page }) => {
+    await openSeries(page, "es.present.go-yo", ["pick", "match", "cards", "listen"]);
+    await expect(page.getByTestId("series-step-type")).toBeEnabled();
+    await page.getByTestId("series-start-type").click();
+    const answer = (await page.getByTestId("series-type-form").getAttribute("data-answer")) as string;
+    expect(answer).toBeTruthy();
+    const slip = answer.replace(/[aeiou]/, (c) => ({ a: "á", e: "é", i: "í", o: "ó", u: "ú" })[c] as string);
+    expect(slip).not.toBe(answer);
+    await page.getByTestId("series-type-input").fill(slip);
+    await page.keyboard.press("Enter");
+    await expect(page.getByTestId("series-feedback")).toHaveAttribute("data-kind", "almost");
+    await expect(page.getByTestId("series-feedback")).toContainText("Almost — mind the accent");
+    await expect(page.getByTestId("series-right")).toContainText(answer);
+    await expect(page.getByTestId("series-score")).toHaveText("0 exact");
+    await page.getByTestId("series-continue").click();
+    // The next item: the exact form counts.
+    const next = (await page.getByTestId("series-type-form").getAttribute("data-answer")) as string;
+    await page.getByTestId("series-type-input").fill(next);
+    await page.keyboard.press("Enter");
+    await expect(page.getByTestId("series-score")).toHaveText("1 exact");
+    await expect(page.getByTestId("verb-series")).not.toHaveAttribute("data-mastered", "true");
+  });
 });

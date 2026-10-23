@@ -1216,9 +1216,10 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
   const { hydrated, activeModuleId, selectedLanguage, nativeLanguage } = state;
   useEffect(() => {
     if (!hydrated || !activeModuleId) return;
-    void import("@/lib/trade-packs").then((packs) =>
-      packs.prefetchTradePack(activeModuleId, selectedLanguage, nativeLanguage),
-    );
+    void import("@/lib/trade-packs")
+      .then((packs) => packs.prefetchTradePack(activeModuleId, selectedLanguage, nativeLanguage))
+      // Offline with the chunk not cached yet: nothing to prefetch, and nothing to report.
+      .catch(() => {});
   }, [hydrated, activeModuleId, selectedLanguage, nativeLanguage]);
 
   useEffect(() => {

@@ -553,9 +553,8 @@ test("the shipped roofing pack passes every rule and is listed in the index", ()
 });
 
 test("the roofing pack uses one Spanish word per concept and none of the rejected terms", () => {
-  const pairs = JSON.parse(read("public/trade-packs/es/roofing.json")).wordMatch.boards.flatMap(
-    (b) => b.pairs,
-  );
+  const boards = JSON.parse(read("public/trade-packs/es/roofing.json")).wordMatch.boards;
+  const pairs = boards.flatMap((b) => b.pairs);
   const targets = pairs.map((p) => p.target);
   for (const banned of [
     "canalón",
@@ -566,16 +565,53 @@ test("the roofing pack uses one Spanish word per concept and none of the rejecte
     "barreta",
     "membrana impermeable",
     "forro de techo",
+    "caballete",
+    "ventilación de caballete",
+    "cubierta blanda",
+    "eslinga",
   ]) {
     assert.equal(targets.includes(banned), false, `"${banned}" was replaced`);
   }
-  // every English "gutter" card is canaleta
-  const gutter = pairs.filter((p) => p.english === "gutter");
-  assert.ok(gutter.length > 0);
-  assert.ok(gutter.every((p) => p.target === "canaleta"));
+
+  // concept -> the one Spanish word every card for it must contain
+  const concepts = [
+    { name: "ridge", english: /\bridge\b/, spanish: /\bcumbrera\b/ },
+    { name: "deck", english: /\b(roof deck|soft deck|sheathing)\b/, spanish: /\bentablado\b/ },
+    { name: "gutter", english: /\bgutter\b/, spanish: /\bcanaleta\b/ },
+    { name: "lanyard", english: /\blanyard\b/, spanish: /^acollador$/ },
+    { name: "flashing", english: /\bflashing\b/, spanish: /^tapajuntas\b/ },
+    { name: "underlayment", english: /\bunderlayment\b/, spanish: /\bsubcapa\b/ },
+    { name: "sling", english: /\bsling\b/, spanish: /^eslinga\b/ },
+  ];
+  for (const concept of concepts) {
+    const cards = pairs.filter((p) => concept.english.test(p.english));
+    assert.ok(cards.length > 0, `the pack has ${concept.name} cards`);
+    for (const card of cards) {
+      assert.match(
+        card.target,
+        concept.spanish,
+        `${concept.name}: "${card.target}" = "${card.english}"`,
+      );
+    }
+  }
+  // and the other way round: a Spanish concept word never labels a different thing
+  for (const card of pairs.filter((p) => /\beslinga\b/.test(p.target)))
+    assert.match(card.english, /sling/);
+  for (const card of pairs.filter((p) => /\bcumbrera\b/.test(p.target)))
+    assert.match(card.english, /ridge/);
   // roof deck and sheathing are never on the same board
-  for (const b of JSON.parse(read("public/trade-packs/es/roofing.json")).wordMatch.boards) {
+  for (const b of boards) {
     const english = b.pairs.map((p) => p.english);
     assert.equal(english.includes("roof deck") && english.includes("sheathing"), false);
   }
+});
+
+test("the concept check would catch a ridge, deck or lanyard split", () => {
+  const mismatch = (english, target, concept) =>
+    concept.english.test(english) && !concept.spanish.test(target);
+  const ridge = { english: /\bridge\b/, spanish: /\bcumbrera\b/ };
+  assert.equal(mismatch("ridge vent", "ventilación de caballete", ridge), true);
+  assert.equal(mismatch("ridge vent", "ventilación de cumbrera", ridge), false);
+  const lanyard = { english: /\blanyard\b/, spanish: /^acollador$/ };
+  assert.equal(mismatch("lanyard", "eslinga", lanyard), true);
 });

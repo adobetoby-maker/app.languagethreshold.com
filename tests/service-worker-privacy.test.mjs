@@ -183,3 +183,28 @@ test("initial automatic shell caching also honors private response policy", asyn
   await r.install();
   assert.equal(await (await r.caches.open("lt-v19")).match("/"), undefined);
 });
+test("a trade pack is cached on first load and served from the cache when the network fails", async () => {
+  const r = runtime();
+  const path = "/trade-packs/es/roofing.json";
+  const body = JSON.stringify({ version: 1, module: "roofing" });
+  r.network(new Response(body, { headers: { "Content-Type": "application/json" } }));
+  const first = await r.fetch(path, { asset: true });
+  assert.equal(await first.text(), body);
+  assert.equal(r.calls(), 1);
+  // the pack is now in the current cache
+  assert.equal(await (await (await r.caches.open("lt-v19")).match(path)).text(), body);
+
+  r.offline();
+  const offline = await r.fetch(path, { asset: true });
+  assert.equal(offline.status, 200);
+  assert.equal(await offline.text(), body);
+  // a pack that was never loaded is not invented
+  assert.equal((await r.fetch("/trade-packs/es/gutters.json", { asset: true })).status, 0);
+});
+test("a private response is never stored as a trade pack", async () => {
+  const r = runtime();
+  const path = "/trade-packs/es/roofing.json";
+  r.network(new Response("{}", { headers: { "Cache-Control": "no-store" } }));
+  await r.fetch(path, { asset: true });
+  assert.equal(await (await r.caches.open("lt-v19")).match(path), undefined);
+});

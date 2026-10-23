@@ -113,23 +113,27 @@ test("module picker and catalogue alphabetize trades with Foundation, Core, Mast
   test.skip(isMobile, "catalogue ordering is shared across devices");
   await page.goto(appUrl({ tab: "modules" }));
   const checkOrder = async (root: import("@playwright/test").Locator) => {
-    const cards = await root
-      .locator("[data-module-id]")
-      .evaluateAll((els) =>
-        els.map((el) => ({
-          id: el.getAttribute("data-module-id")!,
-          name: el.getAttribute("data-module-name")!,
-        })),
-      );
+    const cards = await root.locator("[data-module-id]").evaluateAll((els) =>
+      els.map((el) => ({
+        id: el.getAttribute("data-module-id")!,
+        name: el.getAttribute("data-module-name")!,
+      })),
+    );
     expect(cards.length).toBeGreaterThan(20);
     const ids = cards.map((card) => card.id);
-    const first = ids.indexOf("foundation-roofing");
-    expect(first).toBeGreaterThanOrEqual(0);
-    expect(ids.slice(first, first + 3)).toEqual([
-      "foundation-roofing",
-      "roofing",
-      "master-roofing",
+    expect(ids.filter((id) => /^(foundation|master)-/.test(id))).toEqual([]);
+    expect(ids.filter((id) => id === "roofing")).toHaveLength(1);
+    const roofing = root.locator('[data-module-id="roofing"]');
+    expect(await roofing.locator("[data-stage]").allTextContents()).toEqual([
+      "Foundation",
+      "Core",
+      "Master",
     ]);
+    expect(
+      await roofing
+        .locator("[data-stage]")
+        .evaluateAll((els) => els.map((el) => el.getAttribute("data-stage-module-id"))),
+    ).toEqual(["foundation-roofing", "roofing", "master-roofing"]);
     const baseNames = cards
       .filter((card) => !card.id.startsWith("foundation-") && !card.id.startsWith("master-"))
       .map((card) => card.name);
@@ -143,6 +147,17 @@ test("module picker and catalogue alphabetize trades with Foundation, Core, Mast
   const picker = page.getByRole("dialog", { name: "Select Module" });
   await expect(picker).toBeVisible();
   await checkOrder(picker);
+  const roofing = picker.locator('[data-module-id="roofing"]');
+  await roofing.getByRole("button", { name: "Core", exact: true }).click();
+  await expect(page).toHaveURL(/module=roofing/);
+  await expect(page).toHaveURL(/tab=core30/);
+  await page.goto(appUrl({ tab: "modules" }));
+  const master = page
+    .locator('main [data-module-id="roofing"]')
+    .getByRole("button", { name: "Master", exact: true });
+  await master.click();
+  await expect(page).toHaveURL(/module=master-roofing/);
+  await expect(page).toHaveURL(/tab=core30/);
 });
 
 test("Exams opens from Core 60 and Practice Lab with the current learning pair", async ({

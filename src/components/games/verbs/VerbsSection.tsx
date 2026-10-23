@@ -17,6 +17,7 @@ import { recapEyebrow } from "./mode-labels";
 import { RoundRecap } from "./RoundRecap";
 import { VerbCrushGame } from "./VerbCrushGame";
 import { VerbPicker } from "./VerbPicker";
+import { VerbSeries } from "./series/VerbSeries";
 import { VerbsHome } from "./VerbsHome";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
@@ -233,11 +234,11 @@ export function VerbsSection() {
       />
     );
   }
-  if (!data || (route.screen === "play" && !device.hydrated)) return <Loading />;
+  // Rounds and the pattern series wait for saved state, so progress never starts from defaults.
+  if (!data || ((route.screen === "play" || route.screen === "unit") && !device.hydrated)) return <Loading />;
 
   const source = sourceFilterFor(device.state.settings, moduleId);
   const view = guardVerbRoute(route, data, source);
-  const back = (screen: VerbScreen) => ({ label: "Back", onClick: () => go(screen) });
 
   return (
     <div ref={rootRef} data-verbs-root="" data-verbs-open={view.screen === "home" ? undefined : ""} data-dev-seed={seed ?? undefined} className="scroll-mt-4">
@@ -298,7 +299,16 @@ export function VerbsSection() {
         />
       )}
       {view.screen === "unit" && (
-        <Notice title="Pattern lessons are on the way" body="The step-by-step page for this pattern is not ready yet." action={back(HOME)} />
+        <VerbSeries
+          key={view.family}
+          data={data}
+          device={device.state}
+          moduleId={moduleId}
+          family={view.family}
+          devSeed={seed}
+          update={device.update}
+          onBack={() => go(HOME)}
+        />
       )}
       {view.screen === "board" && (
         <section className={`${PANEL} space-y-2`} data-testid="verbs-board-soon">

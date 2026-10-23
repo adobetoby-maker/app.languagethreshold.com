@@ -128,9 +128,7 @@ export function pickChoices(data: PatternData, item: SeriesItem, source: SourceF
  */
 export function soundKey(s: string): string {
   return foldAccents(norm(s.trim()))
-    .replace(/ch/g, "\u0001")
-    .replace(/h/g, "")
-    .replace(/\u0001/g, "ch")
+    .replace(/(^|[^c])h+/g, "$1")
     .replace(/v/g, "b")
     .replace(/z/g, "s")
     .replace(/c([ei])/g, "s$1")

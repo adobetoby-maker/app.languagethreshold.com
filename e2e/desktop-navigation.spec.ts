@@ -178,3 +178,25 @@ test("Exams opens from Core 60 and Practice Lab with the current learning pair",
   expect(params.get("module")).toBe("roofing");
   expect(params.get("target")).toBe("Spanish");
 });
+
+test("device voice setup instructions are reachable in desktop and phone settings", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto(appUrl({ tab: "reader" }));
+  if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
+  else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
+  await page
+    .getByText("Add voices to your device", { exact: true })
+    .filter({ visible: true })
+    .click();
+  await page.getByText("iPhone / iPad", { exact: true }).filter({ visible: true }).click();
+  await expect(
+    page.getByText(/Open Settings → Accessibility → Read & Speak → Voices/),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Apple voice settings", exact: true }),
+  ).toHaveAttribute("href", /^https:\/\/support\.apple\.com\//);
+  for (const device of ["Mac", "Android", "Windows"])
+    await expect(page.getByText(device, { exact: true }).filter({ visible: true })).toBeVisible();
+});

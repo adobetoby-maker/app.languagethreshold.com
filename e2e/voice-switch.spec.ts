@@ -77,6 +77,10 @@ test("Reader woman/man switch changes the top-bar voice and persists across relo
   await expect(woman).toHaveAttribute("aria-label", "Woman's voice — Paulina, Mexico");
   await expect(man).toHaveAttribute("aria-label", "Man's voice — Juan, Mexico");
   await expect(topLabel).toHaveText(/paulina/i, { useInnerText: true });
+  if (!isMobile) {
+    await expect(topLabel).toHaveText(/paulina · mexico/i, { useInnerText: true });
+    expect((await topLabel.boundingBox())!.width).toBeGreaterThan(50);
+  }
   await expect(topVoice).toHaveAttribute(
     "aria-label",
     /^Voice: Paulina, Mexican Spanish, woman\. Change voice(?:\. iPhone device voice quality may vary)?$/,

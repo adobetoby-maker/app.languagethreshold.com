@@ -78,6 +78,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
@@ -858,6 +859,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
             <span className="text-sm text-foreground">Your account</span>
             <AuthButton />
+          </div>
+
+          <div className="mt-2">
+            <DeviceVoiceHelp />
           </div>
 
           {/* Theme toggle — labeled row so the setting is discoverable */}

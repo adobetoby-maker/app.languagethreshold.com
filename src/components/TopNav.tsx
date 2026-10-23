@@ -13,6 +13,7 @@ import {
 import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
+import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { VoicePicker } from "./VoicePicker";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
@@ -98,7 +99,7 @@ export function TopNav() {
             showUnavailable
             className="shrink-0 [&_button]:h-11 [&_button]:min-w-11"
           />
-          <VoicePicker compact />
+          <VoicePicker compact showLabel />
           <Popover>
             <PopoverTrigger asChild>
               <button
@@ -110,8 +111,12 @@ export function TopNav() {
                 <Settings2 className="h-4 w-4" aria-hidden="true" />
               </button>
             </PopoverTrigger>
-            <PopoverContent align="end" className="w-72 space-y-3">
+            <PopoverContent
+              align="end"
+              className="max-h-[75vh] w-[min(340px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
+            >
               <p className="text-sm font-semibold">Learning settings</p>
+              <DeviceVoiceHelp />
               <DropdownMenu>
                 <DropdownMenuTrigger
                   title={`Native language: ${state.nativeLanguage}`}

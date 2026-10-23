@@ -56,7 +56,13 @@ function voiceRegion(locale: string): string {
   return SPANISH_REGION_NAMES[locale] ?? locale;
 }
 
-export function VoicePicker({ compact = false }: { compact?: boolean }) {
+export function VoicePicker({
+  compact = false,
+  showLabel = false,
+}: {
+  compact?: boolean;
+  showLabel?: boolean;
+}) {
   const { accent, setAccent, accentsForLanguage, rate, voiceURI, setVoiceURI, settingsHydrated } =
     useSpeech();
   const { session, user, isCurrentUser } = useAuth();
@@ -219,7 +225,13 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         {voiceLabel ? (
           <span
             data-testid="site-voice-label"
-            className={compact ? "sr-only" : "min-w-0 truncate text-gold-ink"}
+            className={
+              compact
+                ? showLabel
+                  ? "absolute right-0 top-full mt-1 w-max max-w-[180px] truncate text-[10px] leading-tight tracking-normal text-muted-foreground"
+                  : "sr-only"
+                : "min-w-0 truncate text-gold-ink"
+            }
           >
             <span className="hidden sm:inline">{voiceLabel.long}</span>
             {/* Phone strip: the module chip beside this one needs the width, so the
@@ -227,7 +239,17 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
             <span className="sm:hidden">{compact ? voiceLabel.name : voiceLabel.short}</span>
           </span>
         ) : (
-          !compact && <span className="hidden sm:inline">Voice</span>
+          (!compact || showLabel) && (
+            <span
+              className={
+                compact
+                  ? "absolute right-0 top-full mt-1 text-[10px] leading-tight text-muted-foreground"
+                  : "hidden sm:inline"
+              }
+            >
+              {showLabel ? "Choose voice" : "Voice"}
+            </span>
+          )
         )}
         {!compact && (
           <ChevronDown

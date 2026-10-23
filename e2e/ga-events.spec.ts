@@ -75,4 +75,39 @@ test.describe("GA4 key events", () => {
     await expect(page.getByText(/Lesson complete/)).toBeVisible();
     expect(await gaEvents(page)).toEqual([]);
   });
+
+  test("a purchase seen on a private page is deferred, then sent once on the next public page", async ({
+    page,
+  }) => {
+    const session = "cs_test_e2eDeferred123456";
+    await page.goto(`/subscribe/success?session_id=${session}`);
+    await expect(page.getByText("You're in.")).toBeVisible({ timeout: 60_000 });
+    // GA never loads on a private page, so the event waits in sessionStorage.
+    await expect
+      .poll(() => page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1")))
+      .toContain("purchase");
+    expect(await page.evaluate(() => typeof (window as unknown as { gtag?: unknown }).gtag)).toBe(
+      "undefined",
+    );
+    const queued = await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"));
+    expect(queued).not.toMatch(/@|email/i);
+
+    // A full load of a public page is where GA starts, and the queue flushes there.
+    await page.goto("/");
+    await expect
+      .poll(async () => (await gaEvents(page)).filter((e) => e[1] === "purchase"))
+      .toEqual([
+        [
+          "event",
+          "purchase",
+          { transaction_id: session, currency: "USD", transport_type: "beacon" },
+        ],
+      ]);
+    expect(await page.evaluate(() => sessionStorage.getItem("lt.ga.pending.v1"))).toBeNull();
+
+    // Reload: the purchase is not counted again.
+    await page.reload();
+    await page.waitForTimeout(1500);
+    expect((await gaEvents(page)).filter((e) => e[1] === "purchase")).toEqual([]);
+  });
 });

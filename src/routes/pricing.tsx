@@ -38,12 +38,16 @@ const FAMILY_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.family;
 const JUNIOR_ANNUAL_LINK = INDIVIDUAL_PAYMENT_LINKS.junior;
 
 async function startCheckout(
+  plan: string,
   priceId: string | undefined,
   fallbackLink: string,
   userId: string,
   userEmail?: string,
 ) {
+  // Counted only once a checkout destination exists: the API URL or the payment-link fallback.
+  const beginCheckout = () => trackEvent("begin_checkout", { plan, currency: "USD" });
   if (!priceId) {
+    beginCheckout();
     window.location.href = fallbackLink;
     return;
   }
@@ -61,10 +65,12 @@ async function startCheckout(
     body: JSON.stringify({ priceId, userId, userEmail }),
   });
   if (!res.ok) {
+    beginCheckout();
     window.location.href = fallbackLink;
     return;
   }
   const { url } = (await res.json()) as { url: string };
+  beginCheckout();
   window.location.href = url;
 }
 
@@ -107,15 +113,33 @@ export default function PricingPage() {
       return;
     }
     setLoading(true);
-    trackEvent("begin_checkout", { plan: billing, currency: "USD" });
     if (billing === "monthly") {
-      await startCheckout(MONTHLY_PRICE_ID, MONTHLY_PAYMENT_LINK, user.id, user.email ?? undefined);
+      await startCheckout(
+        "monthly",
+        MONTHLY_PRICE_ID,
+        MONTHLY_PAYMENT_LINK,
+        user.id,
+        user.email ?? undefined,
+      );
     } else if (billing === "annual") {
-      await startCheckout(ANNUAL_PRICE_ID, ANNUAL_PAYMENT_LINK, user.id, user.email ?? undefined);
+      await startCheckout(
+        "annual",
+        ANNUAL_PRICE_ID,
+        ANNUAL_PAYMENT_LINK,
+        user.id,
+        user.email ?? undefined,
+      );
     } else if (billing === "junior") {
+      trackEvent("begin_checkout", { plan: "junior", currency: "USD" });
       window.location.href = JUNIOR_ANNUAL_LINK;
     } else {
-      await startCheckout(FAMILY_PRICE_ID, FAMILY_PAYMENT_LINK, user.id, user.email ?? undefined);
+      await startCheckout(
+        "family",
+        FAMILY_PRICE_ID,
+        FAMILY_PAYMENT_LINK,
+        user.id,
+        user.email ?? undefined,
+      );
     }
     setLoading(false);
   };

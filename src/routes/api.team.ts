@@ -7,6 +7,14 @@ import { getCurriculum } from "@/data/curriculum";
 import { ensureStagesForModules } from "@/data/core60-stages";
 import { describeCore30Tracks, type Core30TrackDisplay, extractCore30Log } from "@/lib/team-core30";
 import {
+  assignTeamModule,
+  INVITATION_EMAIL_WARNING,
+  resendTeamInvitation,
+  revokeTeamInvitation,
+  sendInvitation,
+  validateModuleAssignment,
+} from "@/lib/team-actions-server";
+import {
   audit,
   authenticatedTeamUser,
   hashInviteToken,
@@ -20,12 +28,6 @@ import {
   scopedTeamError,
   TeamOperationError,
 } from "@/lib/team-server";
-
-// Delivery can succeed before bookkeeping fails, so an email error is an unknown outcome.
-const INVITATION_EMAIL_WARNING =
-  "Invitation saved. Email delivery could not be confirmed. Share the invitation link or check your workspace before retrying.";
-const ASSIGNMENT_EMAIL_WARNING =
-  "Assignment saved. Email delivery could not be confirmed. Check your workspace before retrying.";
 
 const id = z.string().uuid();
 const email = z.string().email().max(254);
@@ -69,23 +71,6 @@ const bodySchema = z.discriminatedUnion("action", [
   z.object({ action: z.literal("onboarding"), orgId: id, step: z.number().int().min(1).max(6) }),
   z.object({ action: z.literal("email_summary"), orgId: id }),
 ]);
-
-async function sendInvitation(
-  to: string,
-  name: string,
-  company: string,
-  module: string | null,
-  certificate: boolean,
-  token: string,
-  origin: string,
-) {
-  const link = `${origin}/team/accept?token=${encodeURIComponent(token)}`;
-  await sendTeamEmail(
-    to,
-    `${company} invited you to Language Threshold`,
-    `Hello ${name},\n\n${company} invited you to learn with Language Threshold. Your seat includes every published module.${module ? ` Your first focus is ${getModule(module)?.name ?? module}.` : ""}${certificate ? " Your assignment includes a completion certificate goal: finish the required lessons and pass the reviewed final test at 80% or higher." : ""}\n\nAccept your invitation: ${link}\n\nThe link expires in seven days. Your company admin can see practice time and module progress, but not your private AI conversations.\n\nLanguage Threshold`,
-  );
-}
 
 export const Route = createFileRoute("/api/team")({
   server: {
@@ -363,12 +348,7 @@ export const Route = createFileRoute("/api/team")({
             .single();
           if (orgError || !org) throw orgError ?? new TeamOperationError("Company not found.");
           if (body.action === "invite") {
-            if (body.moduleId && !getModule(body.moduleId))
-              throw new TeamOperationError("Unknown module.");
-            if (body.requireCertificate && body.moduleId !== "roofing")
-              throw new TeamOperationError(
-                "A reviewed final test is not yet available for this module.",
-              );
+            validateModuleAssignment(body.moduleId, body.requireCertificate);
             const { token, hash } = inviteToken();
             const { data: invitationId, error } = await db.rpc("team_reserve_invitation", {
               p_org: body.orgId,
@@ -417,68 +397,22 @@ export const Route = createFileRoute("/api/team")({
             });
           }
           if (body.action === "resend") {
-            const { data: invite, error } = await db
-              .from("team_invitations")
-              .select("email,display_name,module_id,require_certificate,status")
-              .eq("id", body.invitationId)
-              .eq("organization_id", body.orgId)
-              .single();
-            if (error || !invite || invite.status !== "pending")
-              throw new TeamOperationError("Pending invitation not found.");
-            const { token, hash } = inviteToken();
-            const { error: updateError } = await db
-              .from("team_invitations")
-              .update({
-                token_hash: hash,
-                expires_at: new Date(Date.now() + 7 * 86400000).toISOString(),
-                last_email_error: null,
-              })
-              .eq("id", body.invitationId);
-            if (updateError) throw updateError;
-            const inviteUrl = `${new URL(request.url).origin}/team/accept?token=${encodeURIComponent(token)}`;
-            let warning: string | null = null;
-            if (body.delivery === "email") {
-              try {
-                await sendInvitation(
-                  invite.email,
-                  invite.display_name,
-                  org.name,
-                  invite.module_id,
-                  invite.require_certificate,
-                  token,
-                  new URL(request.url).origin,
-                );
-                await db
-                  .from("team_invitations")
-                  .update({ sent_at: new Date().toISOString() })
-                  .eq("id", body.invitationId);
-              } catch {
-                warning = INVITATION_EMAIL_WARNING;
-                await db
-                  .from("team_invitations")
-                  .update({ last_email_error: warning })
-                  .eq("id", body.invitationId);
-              }
-            }
+            const { inviteUrl, warning } = await resendTeamInvitation(db, {
+              orgId: body.orgId,
+              invitationId: body.invitationId,
+              delivery: body.delivery,
+              orgName: org.name,
+              origin: new URL(request.url).origin,
+            });
             await audit(db, user.id, "team.resend", body.orgId, {
               invitationId: body.invitationId,
               delivery: body.delivery,
             });
-            return json({
-              ok: true,
-              inviteUrl: body.delivery === "manual" || warning ? inviteUrl : null,
-              warning,
-            });
+            return json({ ok: true, inviteUrl, warning });
           }
           if (body.action === "revoke") {
             if (body.invitationId) {
-              const { error } = await db
-                .from("team_invitations")
-                .update({ status: "revoked" })
-                .eq("id", body.invitationId)
-                .eq("organization_id", body.orgId)
-                .eq("status", "pending");
-              if (error) throw error;
+              await revokeTeamInvitation(db, body.orgId, body.invitationId);
             } else if (body.memberId) {
               const { data: target, error } = await db
                 .from("team_members")
@@ -501,43 +435,15 @@ export const Route = createFileRoute("/api/team")({
             return json({ ok: true });
           }
           if (body.action === "assign") {
-            if (!getModule(body.moduleId)) throw new TeamOperationError("Unknown module.");
-            if (body.requireCertificate && body.moduleId !== "roofing")
-              throw new TeamOperationError(
-                "A reviewed final test is not yet available for this module.",
-              );
-            const { data: target, error } = await db
-              .from("team_members")
-              .select("user_id,display_name,role,status")
-              .eq("id", body.memberId)
-              .eq("organization_id", body.orgId)
-              .single();
-            if (error || !target || target.status !== "active")
-              throw new TeamOperationError("Active employee not found.");
-            const { error: upsertError } = await db.from("team_assignments").upsert(
-              {
-                organization_id: body.orgId,
-                user_id: target.user_id,
-                module_id: body.moduleId,
-                require_certificate: body.requireCertificate,
-                due_at: body.dueAt ?? null,
-              },
-              { onConflict: "organization_id,user_id,module_id" },
-            );
-            if (upsertError) throw upsertError;
-            let warning: string | null = null;
-            const { data: account } = await db.auth.admin.getUserById(target.user_id);
-            if (account.user?.email) {
-              try {
-                await sendTeamEmail(
-                  account.user.email,
-                  `${org.name} assigned ${getModule(body.moduleId)?.name}`,
-                  `Hello ${target.display_name},\n\n${org.name} assigned ${getModule(body.moduleId)?.name} as a focus in Language Threshold. Your seat includes every published module.${body.requireCertificate ? " Complete the required lessons and pass the reviewed final test at 80% or higher to earn your module completion certificate." : ""}\n\nOpen your team workspace: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
-                );
-              } catch {
-                warning = ASSIGNMENT_EMAIL_WARNING;
-              }
-            }
+            const { warning } = await assignTeamModule(db, {
+              orgId: body.orgId,
+              memberId: body.memberId,
+              moduleId: body.moduleId,
+              requireCertificate: body.requireCertificate,
+              dueAt: body.dueAt,
+              orgName: org.name,
+              origin: new URL(request.url).origin,
+            });
             await audit(db, user.id, "team.assign", body.orgId, {
               memberId: body.memberId,
               moduleId: body.moduleId,

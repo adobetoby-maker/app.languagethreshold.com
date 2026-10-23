@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { DIRECTORY_FILTERS, DIRECTORY_SORTS } from "./owner-directory";
 
 const future = z
   .string()
@@ -35,6 +36,51 @@ export const ownerUserAction = z.discriminatedUnion("action", [
   }),
 ]);
 export type OwnerUserAction = z.infer<typeof ownerUserAction>;
+
+const accountId = z.string().uuid();
+const accountEmail = z
+  .string()
+  .trim()
+  .email()
+  .max(254)
+  .transform((v) => v.toLowerCase());
+/** Account controls. Each needs an explicit confirm step in the UI; the server re-checks it. */
+export const ownerAccountAction = z.discriminatedUnion("action", [
+  z.object({
+    action: z.literal("disable"),
+    userId: accountId,
+    confirmEmail: z.string().trim().min(3).max(254),
+    reason: z.string().trim().min(3).max(500),
+  }),
+  z.object({ action: z.literal("enable"), userId: accountId }),
+  z.object({ action: z.literal("resend_confirmation"), userId: accountId, requestId: z.string().uuid() }),
+  z.object({ action: z.literal("force_confirm"), userId: accountId }),
+  z.object({
+    action: z.literal("change_email"),
+    userId: accountId,
+    email: accountEmail,
+    confirmEmail: accountEmail,
+    markConfirmed: z.boolean(),
+  }),
+  z.object({ action: z.literal("change_name"), userId: accountId, name: z.string().trim().min(1).max(120) }),
+  z.object({
+    action: z.literal("export_csv"),
+    search: z.string().trim().max(160).default(""),
+    filter: z.enum(DIRECTORY_FILTERS).default("all"),
+    sort: z.enum(DIRECTORY_SORTS).default("created"),
+  }),
+]);
+export type OwnerAccountAction = z.infer<typeof ownerAccountAction>;
+export const OWNER_ACCOUNT_ACTIONS = new Set<string>(
+  ownerAccountAction.options.map((option) => option.shape.action.value),
+);
+/** Every POST body /api/owner-users accepts. */
+export const ownerUsersPost = z.discriminatedUnion("action", [
+  ...ownerUserAction.options,
+  ...ownerAccountAction.options,
+]);
+/** Confirmation links never use the request Host as their destination. */
+export const CONFIRMATION_DESTINATION = "https://app.languagethreshold.com/";
 export type OwnerUser = {
   id: string;
   email: string | null;
@@ -64,7 +110,13 @@ export type OwnerUsage = {
   active_days: number;
   last_practice_at: string;
 };
-export type OwnerUserResult = { userId?: string; notice: string; link?: string };
+export type OwnerUserResult = {
+  userId?: string;
+  notice: string;
+  link?: string;
+  csv?: string;
+  filename?: string;
+};
 /** Never accept the request Host as the destination of a password setup link. */
 export const PASSWORD_DESTINATION = "https://app.languagethreshold.com/account/password";
 export function verifiedPasswordLink(value: string, projectUrl: string) {

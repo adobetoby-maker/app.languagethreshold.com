@@ -35,7 +35,7 @@ async function fixture(run) {
     );
     await build({
       stdin: {
-        contents: `import {useState,useRef,useCallback,useEffect} from 'react';import {useAuth} from '@/state/auth-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {c,ThemeToggle,AuthModal,Link} from 'fixture';const button='button',secondary='secondary',card='card',input='input',AdminWorkspace='admin',LearnerWorkspace='learner',TeamExamsPanel='exams',Suspense='suspense',RefreshCw='icon',Plus='icon';${component}export const Route={component:()=> <TeamPage/>};export {c};`,
+        contents: `import {useState,useRef,useCallback,useEffect} from 'react';import {useAuth} from '@/state/auth-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';const trackEvent=()=>false;import {c,ThemeToggle,AuthModal,Link} from 'fixture';const button='button',secondary='secondary',card='card',input='input',AdminWorkspace='admin',LearnerWorkspace='learner',TeamExamsPanel='exams',Suspense='suspense',RefreshCw='icon',Plus='icon';${component}export const Route={component:()=> <TeamPage/>};export {c};`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },

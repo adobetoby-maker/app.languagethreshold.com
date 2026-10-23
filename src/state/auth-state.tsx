@@ -22,6 +22,7 @@ import { pendingTeamCompletions } from "@/lib/team-completion-device";
 import { hasUnsyncedLessonDrafts } from "@/lib/lesson-drafts";
 import { hasUnsyncedExamDrafts, browserExamStorage } from "@/lib/assessments/drafts";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/ga-events";
 import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
 import { createAuthActorAccess } from "@/lib/auth-actor-access";
@@ -49,6 +50,25 @@ interface AuthContextValue {
 }
 
 const Ctx = createContext<AuthContextValue | null>(null);
+
+const GOOGLE_AUTH_PENDING = "lt-ga-google-auth";
+const NEW_ACCOUNT_WINDOW_MS = 2 * 60_000;
+
+/** Reports a Google sign-up or login once per session. Sends no identity, only the method. */
+function trackGoogleAuth(user: User) {
+  let pending = false;
+  try {
+    pending = window.sessionStorage.getItem(GOOGLE_AUTH_PENDING) !== null;
+    window.sessionStorage.removeItem(GOOGLE_AUTH_PENDING);
+  } catch {
+    /* storage unavailable: fall back to the provider check below */
+  }
+  const created = Date.parse(user.created_at);
+  const isNew = Number.isFinite(created) && Math.abs(Date.now() - created) < NEW_ACCOUNT_WINDOW_MS;
+  if (!pending && !(isNew && user.app_metadata?.provider === "google")) return;
+  const event = isNew ? "sign_up" : "login";
+  trackEvent(event, { method: "google" }, `${event}:google:${user.id}`);
+}
 
 function restorePageAfterAuth(session: Session | null) {
   const returnPath = consumeAuthReturn(
@@ -117,7 +137,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
     window.addEventListener("storage", onDiscard);
     // CRITICAL: subscribe BEFORE getSession to avoid missing events
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => acceptSession(s));
+    const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
+      acceptSession(s);
+      if (event === "SIGNED_IN" && s) trackGoogleAuth(s.user);
+    });
 
     supabase.auth
       .getSession()
@@ -182,6 +205,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       browserAuthReturnStorage(),
     );
     try {
+      window.sessionStorage.setItem(GOOGLE_AUTH_PENDING, "1");
+    } catch {
+      /* storage unavailable: analytics only */
+    }
+    try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
@@ -191,6 +219,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (error) throw error;
     } catch {
       clearAuthReturn(browserAuthReturnStorage());
+      try {
+        window.sessionStorage.removeItem(GOOGLE_AUTH_PENDING);
+      } catch {
+        /* storage unavailable: analytics only */
+      }
       toast.error("Google sign-in could not start. Try again or use email sign-in.");
     }
   }, []);

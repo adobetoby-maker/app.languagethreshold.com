@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { CheckCircle, Sparkles, Users } from "lucide-react";
 import { useSubscription } from "@/state/subscription-state";
+import { trackEvent } from "@/lib/ga-events";
 
 export const Route = createFileRoute("/subscribe/success")({
   component: SuccessPage,
@@ -15,6 +16,17 @@ const JUNIOR_50_OFF = "https://buy.stripe.com/eVqeVf0vpcO9guB2Q6bfO0c";
 
 function SuccessPage() {
   const { refresh } = useSubscription();
+
+  useEffect(() => {
+    // The Stripe Checkout session id is an order reference, not personal data.
+    const sessionId = new URLSearchParams(window.location.search).get("session_id");
+    if (sessionId && /^cs_[A-Za-z0-9_]{8,200}$/.test(sessionId))
+      trackEvent(
+        "purchase",
+        { transaction_id: sessionId, currency: "USD" },
+        `purchase:${sessionId}`,
+      );
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => refresh(), 2000);

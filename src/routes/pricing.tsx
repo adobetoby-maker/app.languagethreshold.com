@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CheckCircle, Sparkles, ChevronRight, Users } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
+import { trackEvent } from "@/lib/ga-events";
 
 export const Route = createFileRoute("/pricing")({
   component: () => (
@@ -106,6 +107,7 @@ export default function PricingPage() {
       return;
     }
     setLoading(true);
+    trackEvent("begin_checkout", { plan: billing, currency: "USD" });
     if (billing === "monthly") {
       await startCheckout(MONTHLY_PRICE_ID, MONTHLY_PAYMENT_LINK, user.id, user.email ?? undefined);
     } else if (billing === "annual") {

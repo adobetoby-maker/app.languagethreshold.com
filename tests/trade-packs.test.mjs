@@ -12,10 +12,12 @@ import {
   resetTradePacksForTests,
   tradePackPath,
   validateWordMatchSection,
+  wordMatchCardProblems,
 } from "../src/lib/trade-packs.ts";
 import {
   checkWordMatchBoard,
   wordMatchCefr,
+  wordMatchFoldKey,
   wordMatchPairCount,
 } from "../src/lib/word-match-core.ts";
 
@@ -159,6 +161,86 @@ test("a section needs enough boards per level, one topic each, and little target
   );
 });
 
+test("a pair whose two faces are the same word is rejected, ignoring case and accents", () => {
+  const same = board(2, "same");
+  same.pairs[3] = { target: "fascia", english: "fascia" };
+  assert.match(wordMatchCardProblems(same, 2).join("\n"), /both faces are the same word/);
+  const accented = board(2, "acc");
+  accented.pairs[0] = { target: "limón", english: "limon" };
+  assert.match(wordMatchCardProblems(accented, 2).join("\n"), /both faces are the same word/);
+  assert.deepEqual(wordMatchCardProblems(board(2, "fine"), 2), []);
+  // and the section rule catches it in a whole pack
+  const pool = [];
+  for (const level of [1, 2, 3])
+    for (let i = 0; i < 12; i++) pool.push(packBoard(level, `L${level}-${i}`));
+  assert.deepEqual(validateWordMatchSection(pool), []);
+  pool[14].pairs[0] = { target: "teja", english: "Teja" };
+  assert.match(validateWordMatchSection(pool).join("\n"), /both faces are the same word/);
+});
+
+test("the fold key ignores accents and case but the board validator does not", () => {
+  assert.equal(wordMatchFoldKey("Límon "), wordMatchFoldKey("limon"));
+  // "café" and "cafe" are different words to the board rule (NFC + lower case only)
+  const twin = board(1, "twin");
+  twin.pairs[0].target = "café";
+  twin.pairs[1].target = "cafe";
+  assert.equal(checkWordMatchBoard(twin, 1).ok, true);
+});
+
+test("a level 3 board padded with A1 everyday words is rejected; levels 1 and 2 are not", () => {
+  const padded = (level) => {
+    const b = board(level, "pad");
+    b.pairs[0] = { target: "hoy", english: "today" };
+    b.pairs[1] = { target: "Trabajo", english: "job" };
+    return b;
+  };
+  assert.match(
+    wordMatchCardProblems(padded(3), 3).join("\n"),
+    /A1 everyday words: hoy, Trabajo|A1 everyday words/,
+  );
+  assert.equal(
+    wordMatchCardProblems(padded(1), 1).some((p) => /A1/.test(p)),
+    false,
+  );
+  assert.equal(
+    wordMatchCardProblems(padded(2), 2).some((p) => /A1/.test(p)),
+    false,
+  );
+  // one easy word is tolerated, and a multi-word phrase containing one is not an A1 word
+  const one = board(3, "one");
+  one.pairs[0] = { target: "hoy", english: "today" };
+  one.pairs[1] = { target: "techo plano", english: "flat roof" };
+  assert.deepEqual(wordMatchCardProblems(one, 3), []);
+});
+
+test("card rules: lower case, no slashes or brackets, size limits, topic length", () => {
+  const upper = board(1, "up");
+  upper.pairs[0] = { target: "Teja", english: "tile" };
+  assert.match(wordMatchCardProblems(upper, 1).join("\n"), /lower case/);
+  const acronym = board(1, "ac");
+  acronym.pairs[0] = { target: "EPP", english: "PPE" };
+  assert.deepEqual(wordMatchCardProblems(acronym, 1), []);
+  const slash = board(1, "sl");
+  slash.pairs[0] = { target: "cubierta / forro", english: "deck" };
+  assert.match(wordMatchCardProblems(slash, 1).join("\n"), /no slashes or brackets/);
+  const long = board(1, "lg");
+  long.pairs[0] = { target: "una frase demasiado larga para una tarjeta", english: "too long" };
+  assert.match(wordMatchCardProblems(long, 1).join("\n"), /too long for a card/);
+  const word = board(2, "wd");
+  word.pairs[0] = { target: "encharcamiento", english: "ponding" };
+  assert.match(wordMatchCardProblems(word, 2).join("\n"), /too long a word for a phone card/);
+  const topic = board(1, "tp", "one two three four five");
+  assert.match(wordMatchCardProblems(topic, 1).join("\n"), /topic is longer/);
+});
+
+test("topics are unique across the whole pack, not only within a level", () => {
+  const pool = [];
+  for (const level of [1, 2, 3])
+    for (let i = 0; i < 12; i++) pool.push(packBoard(level, `L${level}-${i}`));
+  pool[13].topic = pool[0].topic;
+  assert.match(validateWordMatchSection(pool).join("\n"), /used by two boards/);
+});
+
 // ─── Parser ──────────────────────────────────────────────────────────────────
 
 test("the runtime parser drops invalid boards and keeps the rest", () => {
@@ -241,7 +323,7 @@ test("pickPackBoard returns a board of the asked level, without the level field"
   );
 });
 
-test("pickPackBoard honors avoid, case and accent insensitively, and returns null when nothing is eligible", async () => {
+test("pickPackBoard honors avoid, ignoring case (accents are significant), and returns null when nothing is eligible", async () => {
   await withFetch(
     () => json(packFile(POOL)),
     async () => {
@@ -468,4 +550,32 @@ test("the shipped roofing pack passes every rule and is listed in the index", ()
   assert.equal(entry.path, tradePackPath("roofing", "Spanish"));
   assert.equal(entry.bytes, Buffer.byteLength(text));
   assert.deepEqual(entry.areas, ["wordMatch"]);
+});
+
+test("the roofing pack uses one Spanish word per concept and none of the rejected terms", () => {
+  const pairs = JSON.parse(read("public/trade-packs/es/roofing.json")).wordMatch.boards.flatMap(
+    (b) => b.pairs,
+  );
+  const targets = pairs.map((p) => p.target);
+  for (const banned of [
+    "canalón",
+    "canal",
+    "sub-capa",
+    "sub-capa sintética",
+    "fascia",
+    "barreta",
+    "membrana impermeable",
+    "forro de techo",
+  ]) {
+    assert.equal(targets.includes(banned), false, `"${banned}" was replaced`);
+  }
+  // every English "gutter" card is canaleta
+  const gutter = pairs.filter((p) => p.english === "gutter");
+  assert.ok(gutter.length > 0);
+  assert.ok(gutter.every((p) => p.target === "canaleta"));
+  // roof deck and sheathing are never on the same board
+  for (const b of JSON.parse(read("public/trade-packs/es/roofing.json")).wordMatch.boards) {
+    const english = b.pairs.map((p) => p.english);
+    assert.equal(english.includes("roof deck") && english.includes("sheathing"), false);
+  }
 });

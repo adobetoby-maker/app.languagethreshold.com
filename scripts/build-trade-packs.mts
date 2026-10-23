@@ -59,11 +59,14 @@ import {
 import { cleanLessonWords, languageTag } from "../src/lib/lesson-words-core.ts";
 import {
   TRADE_PACK_VERSION,
+  WORD_MATCH_CARD_RULES,
   WORD_MATCH_PACK_RULES,
+  cardCase,
   parseTradePack,
   tradePackNativeLanguage,
   tradePackPath,
   validateWordMatchSection,
+  wordMatchCardProblems,
   type TradePackFile,
   type TradePackIndex,
   type TradePackIndexEntry,
@@ -73,6 +76,7 @@ import {
   WORD_MATCH_LEVELS,
   checkWordMatchBoard,
   wordMatchCefr,
+  wordMatchFoldKey,
   wordMatchKey,
   wordMatchPairCount,
   type WordMatchLevel,
@@ -145,13 +149,6 @@ const BOARDS_PER_LEVEL = WORD_MATCH_PACK_RULES.minBoardsPerLevel;
 const MAX_FAILED_ATTEMPTS = 6; // calls in a row per level that add no board
 const MAX_REFERENCE_TERMS = 220;
 
-// Card sizes: a card is a small tile, so keep both faces short (the shared validator only caps
-// the data; these keep the boards readable on a phone).
-const MAX_TARGET_CHARS = 28;
-const MAX_TARGET_WORDS = 4;
-const MAX_ENGLISH_CHARS = 36;
-const MAX_TOPIC_WORDS = 4;
-
 // ─── Plan ────────────────────────────────────────────────────────────────────
 
 interface Progress {
@@ -192,18 +189,6 @@ function writeAtomic(file: string, text: string) {
   renameSync(tmp, file);
 }
 
-/**
- * Card text is lower case like the live boards ("teja asfáltica", "shingle"): the first letter
- * of each face is lowered unless the face is an acronym or has a capital inside a word.
- */
-function cardCase(text: string): string {
-  const trimmed = text.normalize("NFC").trim();
-  const first = trimmed.split(/\s+/)[0] ?? "";
-  if (first.length > 1 && first === first.toUpperCase()) return trimmed;
-  if (/\p{Ll}\p{Lu}/u.test(first)) return trimmed;
-  return trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
-}
-
 function normalizeBoard<T extends { topic?: unknown; pairs?: unknown }>(board: T): T {
   if (!board || typeof board !== "object") return board;
   const pairs = Array.isArray(board.pairs)
@@ -225,7 +210,10 @@ function validBoards(raw: unknown): TradePackWordMatchBoard[] {
     const level = (item as { level?: unknown })?.level;
     if (level !== 1 && level !== 2 && level !== 3) continue;
     const checked = checkWordMatchBoard(normalizeBoard(item), level);
-    if (checked.ok) boards.push({ level, ...checked.board });
+    // The card rules run again here, so boards saved by an older run are re-checked on resume.
+    if (checked.ok && wordMatchCardProblems(checked.board, level).length === 0) {
+      boards.push({ level, ...checked.board });
+    }
   }
   return boards;
 }
@@ -260,7 +248,7 @@ function referenceTerms(moduleId: string): { target: string; english: string }[]
       const target = plainTerm(word.es);
       const english = plainTerm(word.en);
       const key = wordMatchKey(target);
-      if (!target || !english || seen.has(key) || target.length > MAX_TARGET_CHARS) continue;
+      if (!target || !english || seen.has(key) || target.length > WORD_MATCH_CARD_RULES.maxTargetChars) continue;
       seen.add(key);
       terms.push({ target, english });
     }
@@ -319,20 +307,21 @@ function publishedPackIsValid(plan: ModulePlan): boolean {
 const LEVEL_GUIDE: Record<WordMatchLevel, string> = {
   1: "Level 1 (CEFR A2, 6 pairs): the concrete, high-frequency words a crew member needs on day one: tools, materials, protective gear, vehicles, parts of the work area, simple actions.",
   2: "Level 2 (CEFR B1, 8 pairs): everyday working vocabulary a step above: common work verbs, conditions and problems, measuring and checking, steps of the job, talking with the crew and the customer.",
-  3: "Level 3 (CEFR B2, 10 pairs): lower-frequency and more technical vocabulary: causes of failure, inspection and quality, safety planning, weather and moisture, estimating, warranty and closeout, formal or abstract terms.",
+  3: "Level 3 (CEFR B2, 10 pairs): job-specific technical vocabulary, mostly multi-word terms: causes of failure, inspection and quality, safety planning, weather and moisture, estimating, warranty and closeout. No A1 everyday words at all (no hoy, mañana, trabajo, techo, pared, clavo, lluvia, foto, viento, agua, casa, and the like): a learner who knows 100 Spanish words must not be able to match half the board.",
 };
 
 const SYSTEM = `You write vocabulary boards for a memory-matching game. The learner is a working adult learning Spanish for their trade. Each card face shows a Spanish word; the matching face shows its English meaning. One board is one coherent topic from a real moment on the job.
 
 Rules, all of them required:
-1. One topic per board: a concrete job-site situation or work area of the trade (not a school subject). Give it a short English label of 1-3 words, lower case (for example "ladder safety" or "tear-off crew"). Within one answer, and against the topics already used, every board has a different topic.
-2. Every pair belongs to the board's topic. A pair is { target, english }: target is the Spanish word or very short phrase (at most ${MAX_TARGET_WORDS} words, ${MAX_TARGET_CHARS} characters); english is its English meaning (at most ${MAX_ENGLISH_CHARS} characters). Verbs: the infinitive in Spanish, "to ..." in English.
+1. One topic per board: a concrete job-site situation or work area of the trade (not a school subject). Give it a short English label of 1-3 words, lower case (for example "ladder safety" or "tear-off crew"). Every board has a topic that differs clearly from the others in your answer and from all topics already used in the pack (a different situation, not a rewording).
+2. Every pair belongs to the board's topic. A pair is { target, english }: target is the Spanish word or very short phrase (at most ${WORD_MATCH_CARD_RULES.maxTargetWords} words, ${WORD_MATCH_CARD_RULES.maxTargetChars} characters); english is its English meaning (at most ${WORD_MATCH_CARD_RULES.maxEnglishChars} characters). No single Spanish word longer than ${WORD_MATCH_CARD_RULES.maxWordChars} characters (it would be clipped on a phone card). Verbs: the infinitive in Spanish, "to ..." in English.
 3. Inside a board, every target is different and every english is different. Do not repeat any target from the list of targets already used; across the boards of one answer, use each target once.
 4. Write every card in lower case ("teja asfáltica", "to cut"), except acronyms and proper names; no slashes, brackets or notes on a card. Neutral Latin American Spanish, the kind a mixed crew from Mexico, Central America and South America all understand. No vosotros, no voseo, no words that only Spain uses (say "techo", not "tejado"), no slang, no profanity. Spell it correctly, with accents and ñ.
 5. Prefer the exact Spanish the reference list gives for a term it covers (the learner already met those words in the lessons). At least half of the targets on every board should come from the reference list; the rest are other common words a crew uses on that topic.
 6. Never state a universal specification: no counts, sizes, distances or code numbers, and no brand names. Stick to words, not figures.
 7. Where a topic involves risk (heights, ladders, electricity, heat, tools), the words must support safe practice.
-8. Respect the CEFR level in the user message, and use exactly the number of pairs requested.
+8. Respect the CEFR level in the user message, and use exactly the number of pairs requested. The two faces of a pair must never be the same word (no "fascia" / "fascia"): when the English and Spanish are identical, choose a different word.
+9. Use one Spanish word per concept across the whole pack, the one in the reference list when it has one (never two words for the same thing).
 Return the result as ONE JSON object that matches the given JSON schema (your structured output); return it once.`;
 
 const SCHEMA = cliJsonSchema({
@@ -368,7 +357,7 @@ const SCHEMA = cliJsonSchema({
 });
 
 function userMessage(plan: ModulePlan, level: WordMatchLevel, want: number): string {
-  const usedTopics = plan.progress.boards.filter((board) => board.level === level).map((board) => board.topic);
+  const usedTopics = plan.progress.boards.map((board) => board.topic);
   const usedTargets = [
     ...new Set(plan.progress.boards.flatMap((board) => board.pairs.map((pair) => pair.target))),
   ];
@@ -385,7 +374,7 @@ function userMessage(plan: ModulePlan, level: WordMatchLevel, want: number): str
       level: LEVEL_GUIDE[level],
       boards: want,
       pairsPerBoard: wordMatchPairCount(level),
-      topicsAlreadyUsedAtThisLevel: usedTopics,
+      topicsAlreadyUsedInThePack: usedTopics,
       targetsAlreadyUsedElsewhere: usedTargets,
       referenceList: plan.reference.map((term) => `${term.target} = ${term.english}`),
     },
@@ -395,8 +384,6 @@ function userMessage(plan: ModulePlan, level: WordMatchLevel, want: number): str
 }
 
 // ─── Accepting boards ────────────────────────────────────────────────────────
-
-const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
 
 /**
  * Checks the boards of one reply against the shared validator, the card-size rules and the
@@ -424,22 +411,11 @@ function acceptBoards(plan: ModulePlan, level: WordMatchLevel, reply: unknown, w
       continue;
     }
     const board = checked.board;
-    const problems: string[] = [];
-    if (wordCount(board.topic) > MAX_TOPIC_WORDS) problems.push(`topic is longer than ${MAX_TOPIC_WORDS} words`);
-    for (const pair of board.pairs) {
-      if (/[/()\\]/.test(pair.target) || /[/()\\]/.test(pair.english)) {
-        problems.push(`"${pair.target}" / "${pair.english}": no slashes or brackets on a card, one plain word or phrase per face`);
-      }
-      if (pair.target.length > MAX_TARGET_CHARS || wordCount(pair.target) > MAX_TARGET_WORDS) {
-        problems.push(`"${pair.target}" is too long for a card (at most ${MAX_TARGET_WORDS} words, ${MAX_TARGET_CHARS} characters)`);
-      }
-      if (pair.english.length > MAX_ENGLISH_CHARS) {
-        problems.push(`"${pair.english}" is too long for a card (at most ${MAX_ENGLISH_CHARS} characters)`);
-      }
-    }
-    const topicKey = wordMatchKey(board.topic);
-    if (plan.progress.boards.some((other) => other.level === level && wordMatchKey(other.topic) === topicKey)) {
-      problems.push(`topic "${board.topic}" is already used at this level`);
+    // Card size, lower case, brackets, identical faces and the level 3 A1 guard: one shared rule set.
+    const problems: string[] = wordMatchCardProblems(board, level);
+    const topicKey = wordMatchFoldKey(board.topic);
+    if (plan.progress.boards.some((other) => wordMatchFoldKey(other.topic) === topicKey)) {
+      problems.push(`topic "${board.topic}" is already used by another board (topics are unique across the pack)`);
     }
     const uses = new Map<string, number>();
     for (const other of plan.progress.boards) {

@@ -2,6 +2,8 @@
 // A stand-in for `claude -p` used by tests/trade-packs-generator.test.mjs: reads the prompt the
 // generator sends on stdin and prints a CLI-shaped JSON reply with made-up boards. No network.
 // STUB_MODE=dupes  every first board of a call repeats a target (the validator must reject it)
+// STUB_MODE=identical  the first board of a first attempt has a pair whose two faces are the same word
+// STUB_MODE=a1         the first level 3 board of a first attempt is padded with A1 everyday words
 // STUB_MODE=auth   prints a login error
 import { appendFileSync } from "node:fs";
 
@@ -25,6 +27,12 @@ for (let b = 0; b < message.boards; b++) {
     pairs.push({ target: `palabra ${salt}${b}${p}`, english: `word ${salt}${b}${p}` });
   }
   if (process.env.STUB_MODE === "dupes" && b === 0 && !input.includes("YOUR PREVIOUS ANSWER")) pairs[1] = { ...pairs[0] };
+  const first = b === 0 && !input.includes("YOUR PREVIOUS ANSWER");
+  if (process.env.STUB_MODE === "identical" && first) pairs[0] = { target: `fascia ${salt}`, english: `Fascia ${salt}` };
+  if (process.env.STUB_MODE === "a1" && first && message.pairsPerBoard === 10) {
+    pairs[0] = { target: "hoy", english: "today" };
+    pairs[1] = { target: "trabajo", english: "job" };
+  }
   boards.push({ topic: `topic ${salt} ${b}`, cefr, pairs });
 }
 console.log(

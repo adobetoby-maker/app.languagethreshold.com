@@ -73,6 +73,64 @@ test("a board with a repeated word is rejected and asked for again", () => {
   }
 });
 
+test("a pair with the same word on both faces is rejected and asked for again", () => {
+  const root = tmp();
+  try {
+    const result = run(root, ["--module", "roofing"], { STUB_MODE: "identical" });
+    assert.equal(result.code, 0, result.out);
+    assert.match(result.out, /both faces are the same word/);
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    assert.deepEqual(validateWordMatchSection(raw.wordMatch.boards), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a level 3 board padded with A1 words is rejected and asked for again", () => {
+  const root = tmp();
+  try {
+    const result = run(root, ["--module", "roofing"], { STUB_MODE: "a1" });
+    assert.equal(result.code, 0, result.out);
+    assert.match(result.out, /A1 everyday words: hoy, trabajo/);
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    assert.deepEqual(validateWordMatchSection(raw.wordMatch.boards), []);
+    assert.equal(
+      raw.wordMatch.boards.some((b) => b.pairs.some((p) => p.target === "hoy")),
+      false,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("boards saved by an earlier run are re-checked on resume and replaced when they break a rule", () => {
+  const root = tmp();
+  try {
+    const first = run(root, ["--module", "roofing"]);
+    assert.equal(first.code, 0, first.out);
+    const progressPath = join(root, ".trade-packs-progress", "es", "roofing.wordmatch.json");
+    const progress = JSON.parse(readFileSync(progressPath, "utf8"));
+    // a saved level 2 board with a slash, and a level 3 board with identical faces
+    progress.boards.find((b) => b.level === 2).pairs[0].target = "cubierta / forro";
+    progress.boards.find((b) => b.level === 3).pairs[0] = { target: "fascia", english: "Fascia" };
+    writeFileSync(progressPath, JSON.stringify(progress));
+    rmSync(join(root, "public"), { recursive: true });
+    const log = join(root, "calls.log");
+    const again = run(root, ["--module", "roofing", "--resume"], { STUB_LOG: log });
+    assert.equal(again.code, 0, again.out);
+    assert.match(again.out, /L1 12\/12\s+L2 11\/12\s+L3 11\/12/);
+    assert.equal(
+      readFileSync(log, "utf8").trim().split("\n").length,
+      2,
+      "one call per level that lost a board",
+    );
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    assert.deepEqual(validateWordMatchSection(raw.wordMatch.boards), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("--resume continues from saved boards and asks only for what is missing", () => {
   const root = tmp();
   try {

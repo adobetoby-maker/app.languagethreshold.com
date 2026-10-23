@@ -1211,6 +1211,16 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
     if (state.hydrated) saveDarkModePreference(state.darkMode);
   }, [state.darkMode, state.hydrated]);
 
+  // Fetch the selected module's trade pack as soon as it is known, so the service worker holds
+  // it even if the learner goes offline before ever opening Word Match.
+  const { hydrated, activeModuleId, selectedLanguage, nativeLanguage } = state;
+  useEffect(() => {
+    if (!hydrated || !activeModuleId) return;
+    void import("@/lib/trade-packs").then((packs) =>
+      packs.prefetchTradePack(activeModuleId, selectedLanguage, nativeLanguage),
+    );
+  }, [hydrated, activeModuleId, selectedLanguage, nativeLanguage]);
+
   useEffect(() => {
     if (!state.hydrated) return;
     type Cond = { id: string; ok: boolean };

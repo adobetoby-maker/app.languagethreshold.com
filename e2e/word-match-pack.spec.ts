@@ -133,6 +133,28 @@ test("with roofing selected the board comes from the pack and no live AI call is
   expect(liveCalls, "no generateWordMatchBoard server call").toEqual([]);
 });
 
+test("the selected module's pack is fetched on any tab, before Word Match is ever opened", async ({
+  page,
+}) => {
+  const packRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().includes("/trade-packs/")) packRequests.push(new URL(request.url()).pathname);
+  });
+  await page.goto("/");
+  await seedAppState(page, {
+    activeModuleId: "roofing",
+    selectedLanguage: "Spanish",
+    currentTab: "games",
+    onboardingComplete: true,
+  });
+  await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
+  await page.goto(appUrl({ tab: "games", module: "roofing" }));
+  await expect(page.getByRole("heading", { name: "Memory matching" })).toHaveCount(0);
+  await expect
+    .poll(() => packRequests, { timeout: 30_000 })
+    .toContain("/trade-packs/es/roofing.json");
+});
+
 test("back-to-back games draw different pack boards and never call the live AI", async ({
   page,
 }) => {

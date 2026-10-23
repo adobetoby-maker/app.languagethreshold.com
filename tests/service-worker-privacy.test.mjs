@@ -170,6 +170,8 @@ test("worker activation purges the previous general cache but retains complete p
   await r.caches.open("lt-v14");
   await r.caches.open("lt-v16");
   await r.caches.open("lt-v17");
+  // the cache name the worker used before /trade-packs/ was added must be purged too
+  await r.caches.open("lt-v18");
   await r.caches.open("lt-v19");
   await r.caches.open("lt-lesson-pack-fixture");
   await r.activate();

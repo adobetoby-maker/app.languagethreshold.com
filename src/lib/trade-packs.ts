@@ -12,6 +12,7 @@ import {
   WORD_MATCH_LEVELS,
   checkWordMatchBoard,
   isWordMatchLevel,
+  wordMatchFoldKey,
   wordMatchKey,
   type WordMatchBoard,
   type WordMatchLevel,
@@ -122,10 +123,150 @@ export function parseTradePack(
   return file.wordMatch ? file : null;
 }
 
+// ─── Card rules (generator and tests) ────────────────────────────────────────
+
+export const WORD_MATCH_CARD_RULES = {
+  maxTargetChars: 28,
+  maxTargetWords: 4,
+  maxEnglishChars: 36,
+  /** The longest single word a card holds: on a phone (4 columns) a longer one is clipped. */
+  maxWordChars: 13,
+  maxTopicWords: 4,
+  /** A level 3 board with this many A1 everyday words on it is rejected. */
+  maxA1TargetsAtLevel3: 1,
+} as const;
+
+/**
+ * Everyday Spanish a beginner already owns (CEFR A1). A level 3 (B2) board is job-specific and
+ * multi-word; two of these on one board means it was padded with easy words.
+ */
+export const WORD_MATCH_A1_WORDS: ReadonlySet<string> = new Set(
+  [
+    "hoy",
+    "mañana",
+    "ayer",
+    "ahora",
+    "trabajo",
+    "techo",
+    "pared",
+    "piso",
+    "clavo",
+    "lluvia",
+    "foto",
+    "viento",
+    "agua",
+    "casa",
+    "sol",
+    "día",
+    "noche",
+    "mano",
+    "puerta",
+    "ventana",
+    "calor",
+    "frío",
+    "grande",
+    "pequeño",
+    "bueno",
+    "malo",
+    "caja",
+    "mesa",
+    "silla",
+    "comida",
+    "tiempo",
+    "número",
+    "hora",
+    "semana",
+    "mes",
+    "año",
+    "amigo",
+    "jefe",
+    "cuerda",
+    "panel",
+    "escalera",
+    "camión",
+    "color",
+    "luz",
+    "madera",
+    "papel",
+    "causa",
+    "clima",
+  ].map(wordMatchFoldKey),
+);
+
+/** Card text is lower case ("teja asfáltica"), except acronyms and words with an inner capital. */
+export function cardCase(text: string): string {
+  const trimmed = text.normalize("NFC").trim();
+  const first = trimmed.split(/\s+/)[0] ?? "";
+  if (first.length > 1 && first === first.toUpperCase()) return trimmed;
+  if (/\p{Ll}\p{Lu}/u.test(first)) return trimmed;
+  return trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
+}
+
+const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
+
+/**
+ * The rules a board must meet beyond the shared validator: card size, lower case, no slashes or
+ * brackets, two faces that differ (accent and case insensitive), and, at level 3, no padding with
+ * A1 everyday words. Empty list = fine. `board` must already pass checkWordMatchBoard.
+ */
+export function wordMatchCardProblems(board: WordMatchBoard, level: WordMatchLevel): string[] {
+  const rules = WORD_MATCH_CARD_RULES;
+  const problems: string[] = [];
+  if (wordCount(board.topic) > rules.maxTopicWords) {
+    problems.push(`topic is longer than ${rules.maxTopicWords} words`);
+  }
+  if (cardCase(board.topic) !== board.topic.trim())
+    problems.push(`topic "${board.topic}" is not lower case`);
+  for (const pair of board.pairs) {
+    const faces = `"${pair.target}" / "${pair.english}"`;
+    if (/[/()\\]/.test(pair.target) || /[/()\\]/.test(pair.english)) {
+      problems.push(
+        `${faces}: no slashes or brackets on a card, one plain word or phrase per face`,
+      );
+    }
+    if (
+      pair.target.length > rules.maxTargetChars ||
+      wordCount(pair.target) > rules.maxTargetWords
+    ) {
+      problems.push(
+        `"${pair.target}" is too long for a card (at most ${rules.maxTargetWords} words, ${rules.maxTargetChars} characters)`,
+      );
+    }
+    if (pair.english.length > rules.maxEnglishChars) {
+      problems.push(
+        `"${pair.english}" is too long for a card (at most ${rules.maxEnglishChars} characters)`,
+      );
+    }
+    const longest = pair.target.split(/\s+/).reduce((a, w) => (w.length > a.length ? w : a), "");
+    if (longest.length > rules.maxWordChars) {
+      problems.push(
+        `"${longest}" is too long a word for a phone card (at most ${rules.maxWordChars} characters)`,
+      );
+    }
+    if (cardCase(pair.target) !== pair.target || cardCase(pair.english) !== pair.english) {
+      problems.push(`${faces}: cards are written in lower case`);
+    }
+    if (wordMatchFoldKey(pair.target) === wordMatchFoldKey(pair.english)) {
+      problems.push(`${faces}: both faces are the same word, so the pair teaches nothing`);
+    }
+  }
+  if (level === 3) {
+    const easy = board.pairs.filter((pair) =>
+      WORD_MATCH_A1_WORDS.has(wordMatchFoldKey(pair.target)),
+    );
+    if (easy.length > rules.maxA1TargetsAtLevel3) {
+      problems.push(
+        `level 3 is job-specific, multi-word vocabulary; these are A1 everyday words: ${easy.map((pair) => pair.target).join(", ")}`,
+      );
+    }
+  }
+  return problems;
+}
+
 /**
  * Pool-level rules for a Word Match section (generator and tests): every board valid for its
  * level, at least WORD_MATCH_PACK_RULES.minBoardsPerLevel boards per level, one topic per
- * board within a level, and little reuse of a target word across boards. Empty list = valid.
+ * board across the whole section, and little reuse of a target word across boards. Empty list = valid.
  */
 export function validateWordMatchSection(boards: readonly unknown[]): string[] {
   const errors: string[] = [];
@@ -141,10 +282,16 @@ export function validateWordMatchSection(boards: readonly unknown[]): string[] {
       errors.push(...checked.errors.map((error) => `${label} (level ${item.level}): ${error}`));
       return;
     }
+    const problems = wordMatchCardProblems(checked.board, item.level);
+    if (problems.length > 0) {
+      errors.push(...problems.map((problem) => `${label} (level ${item.level}): ${problem}`));
+      return;
+    }
     perLevel[item.level].push({ level: item.level, ...checked.board });
   });
 
   const uses = new Map<string, number>();
+  const topics = new Set<string>();
   for (const level of WORD_MATCH_LEVELS) {
     const list = perLevel[level];
     if (list.length < WORD_MATCH_PACK_RULES.minBoardsPerLevel) {
@@ -152,11 +299,12 @@ export function validateWordMatchSection(boards: readonly unknown[]): string[] {
         `level ${level} has ${list.length} valid boards, needs at least ${WORD_MATCH_PACK_RULES.minBoardsPerLevel}`,
       );
     }
-    const topics = new Set<string>();
     for (const board of list) {
-      const topic = wordMatchKey(board.topic);
+      const topic = wordMatchFoldKey(board.topic);
       if (topics.has(topic))
-        errors.push(`level ${level}: topic "${board.topic}" is used by two boards`);
+        errors.push(
+          `topic "${board.topic}" is used by two boards (topics are unique across the pack)`,
+        );
       topics.add(topic);
       for (const pair of board.pairs) {
         const key = wordMatchKey(pair.target);

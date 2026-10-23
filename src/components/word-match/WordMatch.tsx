@@ -442,7 +442,7 @@ function Card({
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60",
         showFront
           ? isMatched
-            ? "border-emerald-500/60 bg-emerald-500/10 opacity-80"
+            ? "border-emerald-500/60 bg-emerald-500/10 opacity-100 dark:opacity-80"
             : "border-gold/70 bg-gradient-to-br from-gold/10 via-card/30 to-transparent"
           : "border-gold/40 bg-gradient-to-br from-card/60 via-background/50 to-card/40 hover:scale-[1.03] hover:border-gold/80",
         disabled && !showFront ? "opacity-60" : "",
@@ -465,7 +465,7 @@ function Card({
               : text.length > 8
                 ? "text-xs sm:text-sm"
                 : "text-sm sm:text-base",
-            isMatched ? "text-emerald-100" : "text-foreground",
+            isMatched ? "text-emerald-800 dark:text-emerald-100" : "text-foreground",
           ].join(" ")}
         >
           {text}

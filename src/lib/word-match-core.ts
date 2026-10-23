@@ -48,6 +48,14 @@ export function isWordMatchLevel(value: unknown): value is WordMatchLevel {
 /** How two cards are compared for "the same word": NFC + lower case. */
 export const wordMatchKey = (value: string) => value.normalize("NFC").toLowerCase();
 
+/**
+ * Looser comparison for "these two faces say the same thing": accents, case and surrounding
+ * space are ignored ("Fascia" and "fascia", "limón" and "limon"). Not used for the board
+ * uniqueness rule above, which stays NFC + lower case exactly as the live server function has it.
+ */
+export const wordMatchFoldKey = (value: string) =>
+  value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().trim();
+
 export type WordMatchBoardCheck =
   | { ok: true; board: WordMatchBoard }
   | {

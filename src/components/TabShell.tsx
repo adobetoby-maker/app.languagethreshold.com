@@ -131,34 +131,37 @@ export function TabShell() {
   };
 
   if (Component) {
+    const purposeBanner = purposeTab === state.currentTab && (
+      <section
+        data-activity={tool.accent}
+        data-testid="tool-purpose"
+        className="tool-purpose mb-4 flex items-center gap-3 rounded-xl border bg-card/45 py-1.5 pl-4 pr-1.5"
+        aria-label={`${tool.name} purpose`}
+      >
+        <span className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full" aria-hidden />
+        <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
+          <span className="font-semibold text-foreground">{purposeName}</span>
+          <span aria-hidden> — </span>
+          {purposeText}
+        </p>
+        <button
+          type="button"
+          onClick={dismissPurpose}
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
+          aria-label={`Dismiss ${tool.name} purpose`}
+        >
+          <X className="h-4 w-4" aria-hidden />
+        </button>
+      </section>
+    );
     return (
       <TabErrorBoundary tabKey={state.currentTab}>
         <Suspense fallback={<TabFallback />}>
           <>
-            {purposeTab === state.currentTab && state.currentTab !== "core30" && (
-              <section
-                data-activity={tool.accent}
-                data-testid="tool-purpose"
-                className="tool-purpose mb-4 flex items-center gap-3 rounded-xl border bg-card/45 py-1.5 pl-4 pr-1.5"
-                aria-label={`${tool.name} purpose`}
-              >
-                <span className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full" aria-hidden />
-                <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
-                  <span className="font-semibold text-foreground">{purposeName}</span>
-                  <span aria-hidden> — </span>
-                  {purposeText}
-                </p>
-                <button
-                  type="button"
-                  onClick={dismissPurpose}
-                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
-                  aria-label={`Dismiss ${tool.name} purpose`}
-                >
-                  <X className="h-4 w-4" aria-hidden />
-                </button>
-              </section>
-            )}
+            {state.currentTab !== "core30" && purposeBanner}
             <Component />
+            {/* Keep course availability guidance without putting it ahead of Continue. */}
+            {state.currentTab === "core30" && purposeBanner}
             <span hidden data-demo-screen={state.currentTab} />
           </>
         </Suspense>

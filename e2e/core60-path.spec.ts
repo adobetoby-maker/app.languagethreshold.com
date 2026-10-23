@@ -179,7 +179,7 @@ test.describe("Roofing Master 20 lessons", () => {
     await expect(page.getByTestId("core30-start-plan")).toHaveText("Start my 70-day plan");
     await page.getByTestId("core30-start-plan").click();
     await expect(card).toContainText("Day 1 of 70");
-    await expect(page.getByText(/Next Up · Master Lesson 1/)).toBeVisible();
+    await expect(page.getByText(/Your next lesson · Master Lesson 1/)).toBeVisible();
 
     await page.getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ }).first().click();
     await expect(page.getByText("✕ Exit")).toBeVisible();

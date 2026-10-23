@@ -66,7 +66,7 @@ import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { retryStageOrReload } from "@/data/core60-stages";
-import { AppTour } from "@/components/onboarding/AppTour";
+import { OPEN_APP_DEMO } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
@@ -289,8 +289,8 @@ const DEFAULT_FLOW: FlowStep[] = [
     time: "4 min",
     icon: "🎯",
     title: "Vocab lock-in",
-    tab: "Word Match",
-    value: "Flash your saved words. Spaced repetition moves them to long-term memory.",
+    tab: "Flashcards",
+    value: "Review your saved words in Study, then practice recalling their meaning.",
   },
   {
     time: "3 min",
@@ -359,7 +359,7 @@ const MEDICAL_FLOW: FlowStep[] = [
     icon: "📖",
     title: "Patient scenario",
     tab: "Reader",
-    value: "Read a clinical passage. Tap unfamiliar terms — they save to Word Match.",
+    value: "Read a clinical passage. Tap unfamiliar terms, then save the ones you want to review in Flashcards.",
   },
   {
     time: "4 min",
@@ -1738,7 +1738,6 @@ export function AppGuide() {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const [featuresOpen, setFeaturesOpen] = useState(false);
-  const [tourOpen, setTourOpen] = useState(false);
 
   const moduleId = state.activeModuleId ?? "";
   // A data-driven Core 60 stage's curriculum is its own chunk; re-render once it has loaded.
@@ -1764,7 +1763,6 @@ export function AppGuide() {
 
   return (
     <>
-      {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
@@ -1964,17 +1962,14 @@ export function AppGuide() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold">App Walkthrough</p>
               <p className="mt-0.5 text-xs text-muted-foreground">
-                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
-                {state.activeModuleId
-                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
-                  : " your learning goals"}
-                .
+                See the real app screens in {tourSteps.length} short stops: read, remember, practice,
+                speak, and follow your progress. Play the demo or go at your own pace.
               </p>
               <button
-                onClick={() => setTourOpen(true)}
+                onClick={() => window.dispatchEvent(new Event(OPEN_APP_DEMO))}
                 className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
               >
-                Start Tour <ArrowRight className="h-3 w-3" />
+                Start walkthrough <ArrowRight className="h-3 w-3" />
               </button>
             </div>
           </div>

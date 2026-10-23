@@ -22,6 +22,7 @@ import { FalseFriendsProvider } from "@/state/false-friends-state";
 import { DailyChallengeProvider } from "@/state/daily-challenge-state";
 import { DailyChallengeBridge } from "@/components/games/DailyChallengeBridge";
 import { TopNav } from "@/components/TopNav";
+import { AppDemo } from "@/components/onboarding/AppTour";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SaveProgressBanner } from "@/components/SaveProgressBanner";
 import { SubscriptionGate } from "@/components/SubscriptionGate";
@@ -242,6 +243,7 @@ function Index() {
                                                 {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
                                                 <main className="lt-scroll-safe lt-safe-top-main flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10">
+                                                  <AppDemo />
                                                   <GatedTabShell />
                                                 </main>
                                               </div>

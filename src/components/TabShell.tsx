@@ -154,6 +154,7 @@ export function TabShell() {
               </section>
             )}
             <Component />
+            <span hidden data-demo-screen={state.currentTab} />
           </>
         </Suspense>
       </TabErrorBoundary>

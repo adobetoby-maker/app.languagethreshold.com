@@ -1,18 +1,12 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
-import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { useApp } from "@/state/app-state";
-import { getTourScript, type TourStep } from "@/data/tour-scripts";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { X, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { useApp, type TabKey } from "@/state/app-state";
+import { useAuth } from "@/state/auth-state";
+import { getTourScript } from "@/data/tour-scripts";
 import { dismissLearningHint } from "@/lib/learning-guidance";
 
-interface Rect {
-  top: number;
-  left: number;
-  width: number;
-  height: number;
-}
-
-const PAD = 8; // px padding around highlighted element
+export const OPEN_APP_DEMO = "lt:open-app-demo";
+const DEMO_DELAY = 9000;
 
 export function ActionHint({
   storageKey,
@@ -61,244 +55,197 @@ export function ActionHint({
   );
 }
 
-function getTargetRect(target: string): Rect | null {
-  const el = document.querySelector(`[data-tour="${target}"]`);
-  if (!el) return null;
-  const r = el.getBoundingClientRect();
-  return {
-    top: r.top - PAD,
-    left: r.left - PAD,
-    width: r.width + PAD * 2,
-    height: r.height + PAD * 2,
-  };
-}
-
-function useWindowSize() {
-  const [size, setSize] = useState({ w: window.innerWidth, h: window.innerHeight });
+/** Lives beside the tab shell, so moving to a real screen never ends the demo. */
+export function AppDemo() {
+  const { state, dispatch } = useApp();
+  const { user } = useAuth();
+  const [session, setSession] = useState<{
+    identity: string;
+    returnTab: TabKey;
+    run: number;
+  } | null>(null);
+  const nextRun = useRef(0);
+  const identity = JSON.stringify([
+    user?.id ?? "guest",
+    state.activeModuleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  ]);
   useEffect(() => {
-    const handler = () => setSize({ w: window.innerWidth, h: window.innerHeight });
-    window.addEventListener("resize", handler);
-    return () => window.removeEventListener("resize", handler);
-  }, []);
-  return size;
+    const open = () =>
+      setSession({ identity, returnTab: state.currentTab, run: ++nextRun.current });
+    window.addEventListener(OPEN_APP_DEMO, open);
+    return () => window.removeEventListener(OPEN_APP_DEMO, open);
+  }, [identity, state.currentTab]);
+  useEffect(() => {
+    setSession(null);
+  }, [identity]);
+  if (!session || session.identity !== identity) return null;
+  return (
+    <AppTour
+      key={`${identity}:${session.run}`}
+      onClose={() => {
+        setSession(null);
+        dispatch({ type: "SET_TAB", payload: session.returnTab });
+      }}
+    />
+  );
 }
 
 export function AppTour({ onClose }: { onClose: () => void }) {
   const { state, dispatch } = useApp();
   const [stepIndex, setStepIndex] = useState(0);
-  const [rect, setRect] = useState<Rect | null>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { w, h } = useWindowSize();
-
-  const steps = getTourScript(state.activeModuleId);
+  const [playing, setPlaying] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [visible, setVisible] = useState(() => document.visibilityState === "visible");
+  const panelRef = useRef<HTMLElement>(null);
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  const [steps] = useState(() => getTourScript(state.activeModuleId));
+  const arrivedRef = useRef(false);
   const step = steps[stepIndex];
-  const isLast = stepIndex === steps.length - 1;
-  const isFirst = stepIndex === 0;
+  const tab = step.tabKey;
 
-  // Resolve the target rect whenever step or window changes
-  useLayoutEffect(() => {
-    const r = getTargetRect(step.target);
-    setRect(r);
-  }, [step.target, w, h]);
+  // Dispatch the same action as the app navigation, without submitting practice or starting AI.
+  useEffect(() => {
+    arrivedRef.current = false;
+    setReady(false);
+    dispatch({ type: "SET_TAB", payload: tab });
+    window.scrollTo({ top: 0, behavior: "instant" });
+    document.querySelector("main")?.scrollTo({ top: 0, behavior: "instant" });
+  }, [stepIndex, tab, dispatch]);
 
-  function goTo(i: number) {
-    setStepIndex(Math.max(0, Math.min(steps.length - 1, i)));
-  }
+  useEffect(() => {
+    const read = () =>
+      setReady(
+        state.currentTab === tab &&
+          (!!document.querySelector(`[data-demo-screen="${tab}"]`) ||
+            (tab === "core30" &&
+              !!document.querySelector('[data-testid="foundation-signin-prompt"]'))),
+      );
+    const observer = new MutationObserver(read);
+    observer.observe(document.querySelector("main") ?? document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+    });
+    read();
+    return () => observer.disconnect();
+  }, [tab, state.currentTab]);
 
-  function navigate() {
-    if (step.tabKey) {
-      dispatch({ type: "SET_TAB", payload: step.tabKey });
-    }
-    onClose();
-  }
-
-  // Card positioning: try right of target, fall back to left, then below
-  // iOS PWA renders under the Dynamic Island. Absolutely-positioned tour cards are
-  // placed in raw viewport coordinates, so the top floor must clear the inset —
-  // padding on the parent cannot help them.
-  const safeTop =
-    typeof window !== "undefined"
-      ? parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue("--lt-safe-top-scaled-px"),
-        ) || 0
-      : 0;
-  const topFloor = safeTop + 8;
-
-  const cardPos = (() => {
-    if (!rect) return { top: h / 2 - 100, left: w / 2 - 150 };
-    const cardW = Math.min(300, w - 32);
-    const cardH = 220;
-    const rightSpace = w - (rect.left + rect.width);
-    const leftSpace = rect.left;
-
-    if (rightSpace >= cardW + 16) {
-      // Right of target
-      return {
-        top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
-        left: rect.left + rect.width + 12,
-      };
-    }
-    if (leftSpace >= cardW + 16) {
-      // Left of target
-      return {
-        top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
-        left: rect.left - cardW - 12,
-      };
-    }
-    // Below target
-    return {
-      top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height + 12)),
-      left: Math.max(8, Math.min(w - cardW - 8, rect.left + rect.width / 2 - cardW / 2)),
+  useEffect(() => {
+    if (state.currentTab === tab) arrivedRef.current = true;
+    else if (arrivedRef.current) setPlaying(false);
+  }, [state.currentTab, tab]);
+  useEffect(() => {
+    const change = () => {
+      const shown = document.visibilityState === "visible";
+      setVisible(shown);
+      if (!shown) setPlaying(false);
     };
-  })();
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeRef.current();
+      }
+    };
+    const explore = (event: Event) => {
+      if (event.target instanceof Node && !panelRef.current?.contains(event.target))
+        setPlaying(false);
+    };
+    document.addEventListener("pointerdown", explore, true);
+    document.addEventListener("keydown", explore, true);
+    document.addEventListener("visibilitychange", change);
+    window.addEventListener("keydown", escape);
+    panelRef.current?.focus();
+    return () => {
+      document.removeEventListener("pointerdown", explore, true);
+      document.removeEventListener("keydown", explore, true);
+      document.removeEventListener("visibilitychange", change);
+      window.removeEventListener("keydown", escape);
+    };
+  }, []);
+  useEffect(() => {
+    if (!playing || !ready || !visible) return;
+    const timer = window.setTimeout(() => {
+      if (stepIndex === steps.length - 1) setPlaying(false);
+      else setStepIndex((i) => i + 1);
+    }, DEMO_DELAY);
+    return () => window.clearTimeout(timer);
+  }, [playing, ready, visible, stepIndex, steps.length]);
 
+  const go = (index: number) => {
+    setPlaying(false);
+    setStepIndex(index);
+  };
+  const button =
+    "inline-flex min-h-11 items-center justify-center gap-1 rounded-xl border border-border/70 px-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:opacity-40";
   return (
-    <div className="fixed inset-0 z-[100]" role="dialog" aria-modal>
-      {/* Backdrop with spotlight cutout */}
-      <div
-        className="absolute inset-0 bg-midnight/80 transition-all duration-300"
-        style={
-          rect
-            ? {
-                WebkitMaskImage: `radial-gradient(ellipse ${rect.width}px ${rect.height}px at ${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px, transparent 99%, black 100%)`,
-                maskImage: `radial-gradient(ellipse ${rect.width}px ${rect.height}px at ${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px, transparent 99%, black 100%)`,
-              }
-            : undefined
-        }
-        onClick={onClose}
-      />
-
-      {/* Highlight ring around target */}
-      {rect && (
-        <div
-          className="pointer-events-none absolute rounded-xl transition-all duration-300"
-          style={{
-            top: rect.top,
-            left: rect.left,
-            width: rect.width,
-            height: rect.height,
-            boxShadow: "0 0 0 2px rgba(212,175,55,0.8), 0 0 20px 4px rgba(212,175,55,0.25)",
-            borderRadius: 12,
-          }}
-        />
-      )}
-
-      {/* Tooltip card */}
-      <div
-        ref={cardRef}
-        className="absolute z-10 w-[min(300px,calc(100vw-2rem))] rounded-2xl border border-gold/30 bg-card/98 p-5 shadow-luxe backdrop-blur-xl"
-        style={{ top: cardPos.top, left: cardPos.left }}
-      >
-        {/* Close */}
+    <section
+      ref={panelRef}
+      tabIndex={-1}
+      aria-label="App walkthrough"
+      data-testid="app-demo"
+      className="sticky top-0 z-40 mx-auto mb-4 max-w-4xl rounded-2xl border border-gold/40 bg-card p-4 shadow-lg focus:outline-none sm:p-5"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div aria-live="polite" aria-atomic="true">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-gold-ink">
+            Live app demo · {stepIndex + 1} / {steps.length}
+          </p>
+          <h2 className="mt-1 font-display text-xl font-semibold">{step.title}</h2>
+          <p className="mt-1 max-w-2xl text-sm leading-snug text-muted-foreground">{step.body}</p>
+        </div>
         <button
+          type="button"
+          aria-label="Exit demo"
           onClick={onClose}
-          className="absolute right-3 top-3 rounded-full p-1 text-muted-foreground hover:text-foreground transition-colors"
+          className={button + " shrink-0"}
         >
-          <X className="h-3.5 w-3.5" />
+          <X className="h-4 w-4" aria-hidden="true" />
         </button>
-
-        {/* Step counter */}
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/60 mb-2">
-          Step {stepIndex + 1} of {steps.length}
-        </p>
-
-        <h3 className="font-display text-sm font-semibold text-foreground leading-snug mb-2">
-          {step.title}
-        </h3>
-        <p className="font-mono text-[11px] text-muted-foreground leading-relaxed mb-4">
-          {step.body}
-        </p>
-
-        {/* CTA */}
-        {step.tabKey && (
-          <button
-            onClick={navigate}
-            className="mb-4 flex w-full items-center justify-center gap-1.5 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gold transition-colors hover:bg-gold/20"
-          >
-            {step.cta ?? "Go there"}
-            <ArrowRight className="h-3 w-3" />
+      </div>
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          className={button}
+          disabled={stepIndex === 0}
+          onClick={() => go(stepIndex - 1)}
+        >
+          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+          Back
+        </button>
+        <button
+          type="button"
+          className={button + " border-gold/50 text-gold-ink"}
+          aria-pressed={playing}
+          onClick={() => {
+            if (state.currentTab !== tab) dispatch({ type: "SET_TAB", payload: tab });
+            if (stepIndex === steps.length - 1 && !playing) setStepIndex(0);
+            setPlaying(!playing);
+          }}
+        >
+          {playing ? (
+            <Pause className="h-4 w-4" aria-hidden="true" />
+          ) : (
+            <Play className="h-4 w-4" aria-hidden="true" />
+          )}
+          {playing ? "Pause" : stepIndex === steps.length - 1 ? "Replay demo" : "Play demo"}
+        </button>
+        {stepIndex < steps.length - 1 ? (
+          <button type="button" className={button} onClick={() => go(stepIndex + 1)}>
+            Next
+            <ChevronRight className="h-4 w-4" aria-hidden="true" />
+          </button>
+        ) : (
+          <button type="button" className={button} onClick={onClose}>
+            Finish
           </button>
         )}
-
-        {/* Prev / Next */}
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => goTo(stepIndex - 1)}
-            disabled={isFirst}
-            className="flex items-center gap-1 rounded-lg border border-border/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="h-3 w-3" />
-            Prev
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-1.5">
-            {steps.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={cn(
-                  "h-1.5 rounded-full transition-all",
-                  i === stepIndex ? "w-4 bg-gold" : "w-1.5 bg-border/60 hover:bg-border",
-                )}
-              />
-            ))}
-          </div>
-
-          {isLast ? (
-            <button
-              onClick={onClose}
-              className="flex items-center gap-1 rounded-lg border border-gold/40 bg-gold/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-gold transition-colors hover:bg-gold/20"
-            >
-              Done
-            </button>
-          ) : (
-            <button
-              onClick={() => goTo(stepIndex + 1)}
-              className="flex items-center gap-1 rounded-lg border border-border/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Next
-              <ChevronRight className="h-3 w-3" />
-            </button>
-          )}
-        </div>
+        <span className="text-xs text-muted-foreground">
+          {playing ? "Auto-advance · 9 seconds per screen" : "Paused · explore the screen below"}
+        </span>
       </div>
-
-      {/* Mobile fallback: if no sidebar visible, show step at bottom */}
-      {!rect && (
-        <div className="absolute bottom-24 inset-x-4 rounded-2xl border border-gold/30 bg-card/98 p-5 shadow-luxe">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/60 mb-2">
-            Step {stepIndex + 1} of {steps.length} · {step.title}
-          </p>
-          <p className="font-mono text-[11px] text-muted-foreground leading-relaxed mb-3">
-            {step.body}
-          </p>
-          <div className="flex gap-2">
-            <button
-              onClick={() => goTo(stepIndex - 1)}
-              disabled={isFirst}
-              className="flex-1 rounded-lg border border-border/60 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground disabled:opacity-30"
-            >
-              ← Prev
-            </button>
-            {isLast ? (
-              <button
-                onClick={onClose}
-                className="flex-1 rounded-lg border border-gold/40 bg-gold/10 py-2 font-mono text-[10px] uppercase tracking-widest text-gold"
-              >
-                Done
-              </button>
-            ) : (
-              <button
-                onClick={() => goTo(stepIndex + 1)}
-                className="flex-1 rounded-lg border border-border/60 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground"
-              >
-                Next →
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+    </section>
   );
 }

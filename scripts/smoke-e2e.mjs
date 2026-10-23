@@ -27,6 +27,7 @@ const LOCAL_SPECS = [
   "e2e/core30-plan.spec.ts",
   "e2e/lesson-content.spec.ts",
   "e2e/verb-games.spec.ts",
+  "e2e/voice-switch.spec.ts",
 ];
 const PROD_SPECS = ["e2e/core60-path.spec.ts", "e2e/foundation.spec.ts"];
 

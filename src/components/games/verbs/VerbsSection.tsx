@@ -1,6 +1,6 @@
 // Built by TAC — 2026-10-21
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ArrowLeft, Trophy } from "lucide-react";
+import { ArrowLeft, Repeat2, Trophy } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -101,6 +101,56 @@ function Loading() {
  * state and `update` as props). The screen lives in the URL (`?verbs=…`) so refresh and Back work.
  */
 export function VerbsSection() {
+  const [open, setOpen] = useState(false);
+  const { state } = useApp();
+  const root = useRef<HTMLDivElement>(null);
+  const launcher = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const read = () => setOpen(new URLSearchParams(window.location.search).has("verbs"));
+    read();
+    window.addEventListener("popstate", read);
+    return () => window.removeEventListener("popstate", read);
+  }, []);
+  useEffect(() => {
+    if (open) root.current?.scrollIntoView?.({ block: "start" });
+  }, [open]);
+  const toggle = (next: boolean) => {
+    const search = verbRouteSearch(window.location.search, HOME);
+    const params = new URLSearchParams(search);
+    if (next) params.set("verbs", "home");
+    const query = params.toString();
+    window.history.pushState(window.history.state, "", window.location.pathname + (query ? `?${query}` : "") + window.location.hash);
+    setOpen(next);
+    if (!next) requestAnimationFrame(() => launcher.current?.focus());
+  };
+  if (!open) return (
+    <button ref={launcher} type="button" data-testid="verbs-launcher" onClick={() => toggle(true)}
+      className={`group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70 ${FOCUS}`}>
+      <div className="flex items-center justify-between">
+        <Repeat2 className="h-6 w-6 text-gold" strokeWidth={1.6} aria-hidden="true" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Spanish</span>
+      </div>
+      <div>
+        <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
+        <p className="mt-1 text-xs leading-snug text-muted-foreground">Practice by pattern with Bubble Pop and Verb Crush.</p>
+      </div>
+      <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
+        {state.selectedLanguage === "Spanish" ? "Choose a pattern and play a round." : "Switch to Spanish to play."}
+      </div>
+      <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
+    </button>
+  );
+  return (
+    <div ref={root} data-verbs-root="" data-verbs-open="" className="col-span-full scroll-mt-4 space-y-4">
+      <button type="button" onClick={() => toggle(false)} className={`inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm text-gold-ink ${FOCUS}`}>
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to Games
+      </button>
+      <VerbPractice />
+    </div>
+  );
+}
+
+function VerbPractice() {
   const { state } = useApp();
   const { user } = useAuth();
   const device = useVerbDevice();
@@ -144,7 +194,9 @@ export function VerbsSection() {
   }, [spanish, attempt]);
 
   const go = useCallback((next: VerbScreen) => {
-    const url = window.location.pathname + verbRouteSearch(window.location.search, next) + window.location.hash;
+    const params = new URLSearchParams(verbRouteSearch(window.location.search, next));
+    if (next.screen === "home") params.set("verbs", "home");
+    const url = window.location.pathname + `?${params.toString()}` + window.location.hash;
     // Choosing within one screen (pattern chips) replaces; moving between screens adds a Back step.
     if (parseVerbRoute(window.location.search).screen === next.screen) window.history.replaceState(window.history.state, "", url);
     else {

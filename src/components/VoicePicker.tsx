@@ -12,7 +12,6 @@ import {
 import {
   decodeGoogleVoicePreference,
   encodeGoogleVoicePreference,
-  googleVoicesForLocale,
   type GoogleTtsVoice,
 } from "@/data/mission-tts";
 import {
@@ -20,11 +19,12 @@ import {
   preferredMobileCloudVoice,
   shouldAutoSelectMobileVoice,
 } from "@/data/mobile-voice";
-import { getMissionTtsCapabilities, speakMissionTts } from "@/lib/mission-tts";
+import { speakMissionTts } from "@/lib/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
-import { getVoicesForLocale, pickVoice, subscribeVoices } from "@/lib/voices";
+import { pickVoice } from "@/lib/voices";
 import { useAuth } from "@/state/auth-state";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
+import { useSiteVoice } from "@/hooks/use-site-voice";
 import { useSpeech } from "@/state/speech-state";
 
 const SAMPLES: Record<string, string> = {
@@ -72,37 +72,11 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
       previewRef.current = null;
     };
   }, [previewScope]);
-  const [mounted, setMounted] = useState(false);
-  const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
-  const [googleVoices, setGoogleVoices] = useState<GoogleTtsVoice[]>([]);
-  const [googleReady, setGoogleReady] = useState(false);
+  const { mounted, deviceVoices, googleVoices, googleReady, label: voiceLabel } = useSiteVoice();
   const [voiceSearch, setVoiceSearch] = useState("");
   const [showAllVoices, setShowAllVoices] = useState(false);
   const ios =
     mounted && isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
-
-  useEffect(() => {
-    setMounted(true);
-    setDeviceVoices(getVoicesForLocale(accent));
-    return subscribeVoices(() => setDeviceVoices(getVoicesForLocale(accent)));
-  }, [accent]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    getMissionTtsCapabilities(accent, controller.signal)
-      .then((capabilities) => {
-        if (controller.signal.aborted) return;
-        setGoogleReady(capabilities.ready);
-        setGoogleVoices(googleVoicesForLocale(capabilities.voices, accent));
-      })
-      .catch((error) => {
-        if (controller.signal.aborted) return;
-        if (error instanceof DOMException && error.name === "AbortError") return;
-        setGoogleReady(false);
-        setGoogleVoices([]);
-      });
-    return () => controller.abort();
-  }, [accent]);
 
   const googlePreference = decodeGoogleVoicePreference(voiceURI);
   const activeDevice = googlePreference ? null : pickVoice(accent, voiceURI);
@@ -219,30 +193,44 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
       }}
     >
       <DropdownMenuTrigger
+        data-testid="site-voice-button"
         className={
           compact
-            ? "inline-flex items-center justify-center rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold focus:outline-none"
-            : "group inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            ? "relative inline-flex min-w-11 max-w-[4.5rem] cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-border/60 bg-card/50 px-2 py-2.5 font-mono text-[10px] uppercase tracking-normal sm:gap-1.5 sm:px-3 sm:tracking-[0.12em] text-foreground/80 transition-colors duration-200 hover:border-gold/50 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold before:absolute before:inset-x-0 before:-inset-y-[5px] before:content-[''] sm:max-w-[15rem]"
+            : "group inline-flex max-w-[17rem] cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all duration-200 hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold"
         }
         aria-label={
-          compact
-            ? showMobileDeviceWarning
+          voiceLabel
+            ? `${voiceLabel.aria}${showMobileDeviceWarning ? ". iPhone device voice quality may vary" : ""}`
+            : showMobileDeviceWarning
               ? "Choose site voice; iPhone device voice quality may vary"
               : "Choose site voice"
-            : undefined
         }
-        title={`${accentLabel} · ${activeGoogle?.label ?? activeDevice?.name ?? "Choose voice"}${actualVoiceLocale ? ` (${voiceRegion(actualVoiceLocale)})` : ""}`}
+        title={`${accentLabel} · ${voiceLabel?.long ?? "Choose voice"}${actualVoiceLocale ? ` (${actualVoiceLocale})` : ""}`}
       >
         <AudioLines
-          className={`h-3.5 w-3.5 ${googlePreference ? "text-gold" : "text-muted-foreground"}`}
+          className={`h-3.5 w-3.5 shrink-0 ${googlePreference ? "text-gold-ink" : "text-muted-foreground"}`}
           strokeWidth={1.8}
+          aria-hidden="true"
         />
         {showMobileDeviceWarning && (
-          <AlertTriangle className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
+          <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-amber-500" aria-hidden="true" />
         )}
-        {!compact && <span className="hidden sm:inline">Voice</span>}
+        {voiceLabel ? (
+          <span data-testid="site-voice-label" className="min-w-0 truncate text-gold-ink">
+            <span className="hidden sm:inline">{voiceLabel.long}</span>
+            {/* Phone strip: the module chip beside this one needs the width, so the
+                region code drops (it stays in the aria-label and title). */}
+            <span className="sm:hidden">{compact ? voiceLabel.name : voiceLabel.short}</span>
+          </span>
+        ) : (
+          !compact && <span className="hidden sm:inline">Voice</span>
+        )}
         {!compact && (
-          <ChevronDown className="h-3 w-3 opacity-60 transition-transform group-data-[state=open]:rotate-180" />
+          <ChevronDown
+            className="h-3 w-3 shrink-0 opacity-60 transition-transform group-data-[state=open]:rotate-180"
+            aria-hidden="true"
+          />
         )}
       </DropdownMenuTrigger>
       <DropdownMenuContent

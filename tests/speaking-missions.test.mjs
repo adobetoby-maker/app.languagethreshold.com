@@ -164,15 +164,16 @@ test("speaking preview covers every authored topic in every speaking language", 
   // under Roofing), so the module counts are the base modules only. The sixteen travel zones (15→30)
   // add 240 lesson plans in every language and Sport Fishing (10→30) another 20 in Spanish, its only
   // speaking language: one Say it mission per plan, even before generated content exists for them.
+  // Gutters and Siding add two Spanish-only modules: 6 challenges and 30 lessons each.
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
-      modules: 58,
-      challenges: 378,
-      lessons: 1720 + master,
+      modules: 60,
+      challenges: 390,
+      lessons: 1780 + master,
       curated: 6,
       core: 141,
-      total: 2239 + 6 + master,
+      total: 2311 + 6 + master,
     }),
     Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 141, total: 2145 },
     Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 144, total: 2148 },
@@ -236,8 +237,9 @@ test("speaking preview covers every authored topic in every speaking language", 
   const generated = ["Spanish", "English"]
     .map(generatedStageCounts)
     .reduce((sum, gen) => sum + gen.challenges + gen.lessons, 0);
-  // 1,220 of these are the travel (240 × 5 languages) and Spanish Sport Fishing (20) lesson-plan expansions.
-  const allMissions = 10898 + 6 + master + generated;
+  // 1,220 of these are the travel (240 × 5 languages) and Spanish Sport Fishing (20) lesson-plan expansions;
+  // 72 are the Spanish Gutters and Siding Core 30 (2 × (6 challenges + 30 lessons)).
+  const allMissions = 10970 + 6 + master + generated;
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, allMissions);

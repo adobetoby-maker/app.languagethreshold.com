@@ -1981,8 +1981,8 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Name scuppers and conductor heads and direct their install",
     steps: [
       r("Read the passage. Find where the scupper and the conductor head go on the wall.", 7),
-      wm("Drill: imbornal, caja colectora, pared, parapeto, conectar, sellar.", 5),
-      sp("Direct: 'El agua sale por el imbornal. Pongan la caja colectora debajo y conecten el bajante.'", 8),
+      wm("Drill: desagüe, caja colectora, pared, parapeto, conectar, sellar.", 5),
+      sp("Direct: 'El agua sale por el desagüe. Pongan la caja colectora debajo y conecten el bajante.'", 8),
     ],
   },
   {
@@ -2267,7 +2267,7 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Direct vinyl cuts and the overlap the manufacturer specifies",
     steps: [
       r("Read the passage. Find how the panels are cut and overlapped.", 7),
-      wm("Drill: cortar, tijeras, sierra, traslape, junta, dirección de la vista.", 5),
+      wm("Drill: cortar, tijeras, sierra, traslape, junta, lado visible.", 5),
       sp(
         "Ask: '¿Cuánto traslape pide el fabricante? Pongan las juntas lejos de la puerta principal.'",
         8,

@@ -1,14 +1,6 @@
-import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { useState } from "react";
-import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle } from "lucide-react";
-import {
-  useApp,
-  LANGUAGES,
-  NATIVE_LANGUAGES,
-  type Language,
-  type NativeLanguage,
-  type TabKey,
-} from "@/state/app-state";
+import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle, BookmarkPlus } from "lucide-react";
+import { useApp, LANGUAGES, NATIVE_LANGUAGES, type NativeLanguage } from "@/state/app-state";
 import { getModule } from "@/data/modules";
 import {
   DropdownMenu,
@@ -20,84 +12,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
+import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { VoicePicker } from "./VoicePicker";
-import { LanguageMatchButton } from "./match/LanguageMatchButton";
+import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
 
 // Uses the canonical list from app-state. A local copy here is how Chinese
 // went missing from this switcher while the first-run gate offered it.
 
-const TABS: {
-  key: TabKey;
-  label: string;
-  module?: string;
-  language?: Language;
-  languages?: Language[];
-}[] = [
-  { key: "modules", label: "Modules" },
-  { key: "missionary", label: "Missionary", module: "lds-missionary" },
-  { key: "orthopedics", label: "Orthopedics", module: "orthopedics" },
-  { key: "reader", label: "Reader" },
-  { key: "characters", label: "Characters", languages: ["Japanese", "Chinese"] },
-  { key: "flashcards", label: "Flashcards" },
-  { key: "kana", label: "Kana Pad", language: "Japanese" },
-  { key: "grammar", label: "Grammar Studio" },
-  { key: "conjugation", label: "Conjugation" },
-  { key: "sentenceBuild", label: "Sentence Builder" },
-  { key: "listeningDrill", label: "Listening" },
-  { key: "wordMatch", label: "Word Match" },
-  { key: "idiomMaster", label: "Idioms" },
-  { key: "falseFriends", label: "False Friends" },
-  { key: "games", label: "Games" },
-  { key: "speak", label: "Speak & Learn" },
-  { key: "anatomy", label: "Anatomy" },
-  { key: "discussions", label: "Discussions", module: "lds-missionary" },
-  { key: "dashboard", label: "Dashboard" },
-  { key: "guide", label: "App Guide" },
-  { key: "core30", label: "Core 60" },
-  { key: "exams", label: "Exams" },
-];
-
-const TAB_VISIT_XP = 5;
-const VISITED_TABS_KEY = "lt.visitedTabs.session";
-
-export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
+export function TopNav() {
   const { state, dispatch } = useApp();
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
 
-  function handleTabSwitch(key: TabKey) {
-    if (key === "exams") {
-      window.location.assign(
-        examsFromLessonLocation(window.location.href, {
-          moduleId: state.activeModuleId,
-          target: state.selectedLanguage,
-          native: state.nativeLanguage,
-          orgId: new URLSearchParams(window.location.search).get("org"),
-        }),
-      );
-      return;
-    }
-    if (key === state.currentTab) return;
-    dispatch({ type: "SET_TAB", payload: key });
-    try {
-      const raw = sessionStorage.getItem(VISITED_TABS_KEY);
-      const visited: string[] = raw ? JSON.parse(raw) : [];
-      if (!visited.includes(key)) {
-        visited.push(key);
-        sessionStorage.setItem(VISITED_TABS_KEY, JSON.stringify(visited));
-        dispatch({ type: "ADD_XP", payload: TAB_VISIT_XP });
-      }
-    } catch {
-      dispatch({ type: "ADD_XP", payload: TAB_VISIT_XP });
-    }
-  }
-
   return (
     <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] desktop:block">
-      <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap sm:gap-6 sm:px-6 sm:py-0">
+      <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap xl:gap-6 sm:px-6 sm:py-0">
         <div className="flex items-center gap-2 sm:gap-2.5">
           <Sparkle className="h-5 w-5 text-gold" strokeWidth={1.5} fill="currentColor" />
-          <span className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+          <span className="font-display text-lg font-semibold tracking-tight xl:text-2xl">
             Language Threshold
           </span>
         </div>
@@ -139,7 +72,7 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
         >
           <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
           {getModule(state.activeModuleId) ? (
-            <span className="truncate max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold">
+            <span className="truncate max-w-[100px] xl:max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold">
               {getModule(state.activeModuleId)!.emoji} {getModule(state.activeModuleId)!.name}
             </span>
           ) : (
@@ -151,8 +84,22 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </button>
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <VoicePicker compact />
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT))}
+            aria-label="Add a word to My Vocab from this page"
+            title="Add word"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:text-gold"
+          >
+            <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
+          </button>
+          <VoiceGenderSwitch
+            label="Site voice"
+            showUnavailable
+            className="shrink-0 [&_button]:h-11 [&_button]:min-w-11"
+          />
+          <VoicePicker compact showLabel />
           <Popover>
             <PopoverTrigger asChild>
               <button
@@ -164,8 +111,12 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 <Settings2 className="h-4 w-4" aria-hidden="true" />
               </button>
             </PopoverTrigger>
-            <PopoverContent align="end" className="w-72 space-y-3">
+            <PopoverContent
+              align="end"
+              className="max-h-[75vh] w-[min(340px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
+            >
               <p className="text-sm font-semibold">Learning settings</p>
+              <DeviceVoiceHelp />
               <DropdownMenu>
                 <DropdownMenuTrigger
                   title={`Native language: ${state.nativeLanguage}`}
@@ -215,37 +166,11 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </PopoverContent>
           </Popover>
 
-          <AuthButton />
+          <div className="shrink-0 whitespace-nowrap">
+            <AuthButton />
+          </div>
         </div>
       </div>
-
-      <nav className="border-t border-border/40">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-1 gap-y-0 px-3 sm:gap-x-2 sm:px-6">
-          {TABS.filter(
-            (t) =>
-              (!t.module || state.activeModuleId === t.module) &&
-              (!t.language || state.selectedLanguage === t.language) &&
-              (!t.languages || t.languages.includes(state.selectedLanguage)),
-          ).map((tab) => {
-            const active = state.currentTab === tab.key;
-            return (
-              <button
-                key={tab.key}
-                onClick={() => handleTabSwitch(tab.key)}
-                data-active={active}
-                className="gold-underline relative px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground transition-colors data-[active=true]:text-foreground hover:text-foreground sm:px-3.5 sm:py-3 sm:text-[11px] sm:tracking-[0.2em]"
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-          {onOpenMatch && (
-            <div className="ml-1 py-1.5">
-              <LanguageMatchButton onClick={onOpenMatch} />
-            </div>
-          )}
-        </div>
-      </nav>
     </header>
   );
 }

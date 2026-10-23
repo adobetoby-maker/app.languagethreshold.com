@@ -76,7 +76,7 @@ export function normalizeLegacyGame(kind: LegacyGameKind, value: unknown): unkno
         : kind === "gameFalseFriends"
           ? falseFriends
           : streak;
-  return Object.fromEntries(safeEntries(z.record(schema).parse(value)));
+  return Object.fromEntries(safeEntries(z.record(z.string(), schema).parse(value)));
 }
 export function countLegacyGame(kind: LegacyGameKind, value: unknown) {
   if (kind === "dailyChallenge") return daily.parse(value).totalCompletions > 0 ? 1 : 0;

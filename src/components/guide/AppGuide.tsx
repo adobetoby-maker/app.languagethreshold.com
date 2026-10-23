@@ -1,3 +1,4 @@
+import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
@@ -504,7 +505,7 @@ const FEATURES = [
   },
   {
     Icon: Gamepad2,
-    label: "Games Hub",
+    label: "Practice Lab",
     value: "Mini-games that make review feel like play. Good for a 5-min commute.",
   },
   {
@@ -2386,6 +2387,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (
             <a
@@ -2712,6 +2714,9 @@ export function Core30Tab() {
           <p className="mt-2 text-sm text-muted-foreground">
             Each module has a 30-lesson path built for your field. Choose a module to start yours.
           </p>
+          <div className="mt-3">
+            <ExamShortcut />
+          </div>
           <button
             type="button"
             onClick={() => dispatch({ type: "SET_TAB", payload: "modules" })}

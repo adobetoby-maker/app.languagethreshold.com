@@ -1,3 +1,4 @@
+import { DeviceVoiceHelp } from "@/components/settings/DeviceVoiceHelp";
 import { ResetLearningData } from "@/components/auth/ResetLearningData";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
@@ -345,6 +346,10 @@ function AccountPage() {
               </div>
             </section>
           )}
+
+          <div className="mb-4">
+            <DeviceVoiceHelp />
+          </div>
 
           {/* ── Gift language ── */}
           <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">

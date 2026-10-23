@@ -44,16 +44,17 @@ const words = z
     }),
   )
   .max(10000);
-const wordsByLanguage = (value: unknown) => z.record(language, words).parse(value);
+const wordsByLanguage = (value: unknown) => z.partialRecord(language, words).parse(value);
 const instant = z.string().datetime({ offset: true });
 const moduleLog = z.object({
   startDate: z.string().date().optional(),
   startDateSetAt: instant.optional(),
   lastReviewAt: instant.optional(),
   lessons: z.record(
+    z.string(),
     z.object({
-      visits: z.record(instant),
-      wayVisits: z.record(instant).optional(),
+      visits: z.record(z.string(), instant),
+      wayVisits: z.record(z.string(), instant).optional(),
       masteredAt: instant.optional(),
       needsPractice: z.boolean().optional(),
       reviews: z
@@ -88,7 +89,7 @@ type CurrentProfile = Pick<AppState, ProfileFields>;
 function parse(raw: string): Record<string, unknown> {
   if (raw.length > 8 * 1024 * 1024)
     throw Error("The older profile is too large to recover safely.");
-  return z.record(z.unknown()).parse(JSON.parse(raw));
+  return z.record(z.string(), z.unknown()).parse(JSON.parse(raw));
 }
 function source(storage: LearnerStorage, actor: string) {
   const receiptRaw = storage.getItem(receiptKey);
@@ -132,7 +133,7 @@ function normalized(
     return { userNotes: entries };
   }
   if (kind === "vocabulary") {
-    const map = z.record(language, words).parse(data.vocabByLanguage ?? {});
+    const map = z.partialRecord(language, words).parse(data.vocabByLanguage ?? {});
     const legacy = words.parse(data.userVocab ?? []);
     const label = language.safeParse(data.vocabLang);
     const target = label.success
@@ -158,8 +159,8 @@ function normalized(
       activityKeys.filter((k) => data[k] !== undefined).map((k) => [k, count.parse(data[k])]),
     ) as Partial<Pick<AppState, ActivityKey>>;
   }
-  const rawLog = z.record(z.unknown()).parse(data.core30Log ?? {});
-  const rawProgress = z.record(z.unknown()).parse(data.lessonProgress ?? {});
+  const rawLog = z.record(z.string(), z.unknown()).parse(data.core30Log ?? {});
+  const rawProgress = z.record(z.string(), z.unknown()).parse(data.lessonProgress ?? {});
   const core30Log: AppState["core30Log"] = {},
     lessonProgress: Record<string, number> = {};
   for (const module of MODULES) {
@@ -240,7 +241,7 @@ export function mergeLegacyProfileCategory(
   }
   if (kind === "vocabulary") {
     const map = wordsByLanguage(current.vocabByLanguage),
-      revisions = z.record(language, count).parse(current.vocabRevisionsByLanguage);
+      revisions = z.partialRecord(language, count).parse(current.vocabRevisionsByLanguage);
     for (const [lang, list] of Object.entries(incoming.vocabByLanguage ?? {}) as [
       Language,
       AppState["userVocab"],

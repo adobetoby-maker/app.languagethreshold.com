@@ -13,6 +13,7 @@ import {
   Sparkle,
   Layers,
 } from "lucide-react";
+import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { useApp, type TabKey } from "@/state/app-state";
 import { useConjugation, type LeaderboardKey as CKey } from "@/state/conjugation-state";
 import { useSentenceBuild, type SBLeaderboardKey } from "@/state/sentence-build-state";
@@ -114,7 +115,8 @@ const GAMES: GameDescriptor[] = [
     id: "flashcards",
     tabKey: "flashcards",
     title: "Flashcards",
-    blurb: "My Vocab or a topic deck — tap through with retention scheduling that brings due words back.",
+    blurb:
+      "My Vocab or a topic deck — tap through with retention scheduling that brings due words back.",
     Icon: Layers,
     accent: "gold",
   },
@@ -253,12 +255,14 @@ export function GamesHub() {
   return (
     <div data-games-hub="" className="mx-auto max-w-4xl space-y-6">
       <div>
-        <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">⌘ Games</div>
-        <h2 className="mt-1 font-display text-3xl font-semibold">Practice that competes back</h2>
+        <h1 className="font-display text-3xl font-semibold">Practice Lab</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Quick games and verb patterns, one leaderboard story. Each game persists per-language stats.
+          Quick games and verb patterns, one leaderboard story. Each game persists per-language
+          stats.
         </p>
       </div>
+
+      <ExamShortcut />
 
       {/* ── Today's Challenge ─────────────────────────────────────────── */}
       <button

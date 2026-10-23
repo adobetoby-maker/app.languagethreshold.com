@@ -78,6 +78,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
@@ -401,6 +402,22 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     return true;
   });
 
+  // These formerly top-menu-only entries stay on desktop. The phone's existing
+  // tabs and More sheet continue to use `visible` without any additions.
+  const desktopVisible = [
+    { key: "modules" as TabKey, label: "Modules", short: "Modules", Icon: Puzzle },
+    ...visible.filter((item) => item.key === "core30"),
+    ...visible
+      .filter((item) => item.key !== "core30" && item.key !== "exams")
+      .map((item) =>
+        item.key === "games" ? { ...item, label: "Practice Lab", short: "Practice Lab" } : item,
+      ),
+    ...(state.selectedLanguage === "Japanese"
+      ? [{ key: "kana" as TabKey, label: "Kana Pad", short: "Kana Pad", Icon: PenLine }]
+      : []),
+    { key: "anatomy" as TabKey, label: "Anatomy", short: "Anatomy", Icon: Activity },
+  ];
+
   function switchTab(key: TabKey) {
     if (key === "exams") {
       window.location.assign(
@@ -429,7 +446,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   return (
     <>
       {/* ── Desktop sidebar ─────────────────────────────────── */}
-      <aside className="hidden desktop:flex flex-col w-[76px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
+      <aside className="hidden desktop:flex flex-col w-[108px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
         <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
@@ -441,13 +458,13 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           )}
         </div>
 
-        {/* Tab icons */}
-        {/* Rail items share the column: each one grows to fill a tall screen (up to
-            3.25rem) and shrinks to the 40px tap-target floor, so all of them, Core 30
-            included, fit at 1440x900 without scrolling. overflow-y stays as a fallback
-            for very short windows. */}
-        <nav className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5">
-          {visible.map((item) => {
+        {/* Keep every desktop tool in one rail; shorter windows scroll without
+            shrinking targets or dropping language- and module-specific entries. */}
+        <nav
+          aria-label="Desktop navigation"
+          className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
+        >
+          {desktopVisible.map((item) => {
             const { key, Icon } = item;
             const { label, short } =
               key === "fieldPrep"
@@ -458,6 +475,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               <button
                 key={key}
                 data-tour={key}
+                aria-current={active ? "page" : undefined}
                 onClick={() => switchTab(key)}
                 title={label}
                 className={cn(
@@ -471,7 +489,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-r-full bg-gold" />
                 )}
                 <Icon className="h-[17px] w-[17px] shrink-0" strokeWidth={1.6} />
-                <span className="w-full truncate text-center font-mono text-[8.5px] leading-tight tracking-wide">
+                <span className="w-full truncate text-center font-mono text-[12px] leading-tight tracking-normal">
                   {short}
                 </span>
               </button>
@@ -521,18 +539,14 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
       </aside>
 
-      {/* ── Bottom nav ──────────────────────────────────────────
-         Shown on BOTH mobile and desktop per product request. On desktop it starts at
-         the right edge of the 76px rail (desktop:left-[76px]) so it never sits on top
-         of the rail's bottom items. */}
+      {/* The familiar bottom navigation is reserved for phones and touch tablets. */}
       <nav
         aria-label="Primary"
-        className="fixed bottom-0 inset-x-0 desktop:left-[76px] z-40 flex flex-col border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]"
+        className="fixed bottom-0 inset-x-0 z-40 flex flex-col desktop:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]"
       >
-        {/* Mobile-only: Add word + language + module + voice + theme. One tight row that
+        {/* Mobile-only: Add word + language + module + voice + settings. One tight row that
            fits 375px with nothing clipped: the module chip is the only flexible one and
-           truncates; every control stays reachable. Add word lives here (not floating over
-           page content), and on desktop it moves into the tab row below. */}
+           truncates; every control stays reachable. Add word lives here on phones and in the compact header on desktop. */}
         <div className="flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
           <button
             onClick={openAddWord}
@@ -633,15 +647,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </button>
             );
           })()}
-          {/* Desktop: Add word sits in the bar's first slot, so nothing floats over the labels. */}
-          <button
-            onClick={openAddWord}
-            aria-label="Add a word to My Vocab from this page"
-            className="relative hidden min-h-[44px] flex-1 flex-col items-center justify-center gap-0.5 py-2.5 text-muted-foreground transition-colors hover:text-gold desktop:flex"
-          >
-            <BookmarkPlus className="h-5 w-5" strokeWidth={1.6} />
-            <span className="text-[9px] font-medium tracking-wide">Add word</span>
-          </button>
           {BAR_TABS.map(({ key, Icon, label }) => {
             const active = state.currentTab === key;
             return (
@@ -854,6 +859,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
             <span className="text-sm text-foreground">Your account</span>
             <AuthButton />
+          </div>
+
+          <div className="mt-2">
+            <DeviceVoiceHelp />
           </div>
 
           {/* Theme toggle — labeled row so the setting is discoverable */}

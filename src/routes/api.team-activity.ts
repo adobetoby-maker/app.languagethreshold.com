@@ -31,7 +31,7 @@ const schema = z.discriminatedUnion("action", [
     action: z.literal("lesson"),
     moduleId: z.string().max(80),
     lessonNumber: z.number().int().min(1).max(1000),
-    sessions: z.record(z.string().uuid()),
+    sessions: z.record(z.string(), z.string().uuid()),
   }),
 ]);
 

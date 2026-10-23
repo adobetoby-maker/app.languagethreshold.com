@@ -35,7 +35,15 @@ const SIDES: { gender: VoiceGender; noun: string; Icon: () => React.JSX.Element 
   { gender: "man", noun: "Man's voice", Icon: ManFigure },
 ];
 
-export function VoiceGenderSwitch({ className = "" }: { className?: string }) {
+export function VoiceGenderSwitch({
+  className = "",
+  label = "Reader voice",
+  showUnavailable = false,
+}: {
+  className?: string;
+  label?: string;
+  showUnavailable?: boolean;
+}) {
   const { playing, current: playback, setVoiceURI, stop, speakSentence, voiceURI } = useSpeech();
   const { mounted, candidates, current } = useSiteVoice();
   const pendingReplay = useRef<{ text: string; index: number } | null>(null);
@@ -50,7 +58,7 @@ export function VoiceGenderSwitch({ className = "" }: { className?: string }) {
 
   if (!mounted) return null;
   const state = genderSwitchState(candidates, current);
-  if (!state.woman && !state.man) return null;
+  if (!state.woman && !state.man && !showUnavailable) return null;
 
   const choose = (voice: VoiceIdentity | null, gender: VoiceGender) => {
     if (!voice || state.selected === gender || voice.id === voiceURI) return;
@@ -64,7 +72,7 @@ export function VoiceGenderSwitch({ className = "" }: { className?: string }) {
   return (
     <div
       role="group"
-      aria-label="Reader voice"
+      aria-label={label}
       className={`flex items-center overflow-hidden rounded-full border border-border/70 bg-background/40 ${className}`}
     >
       {SIDES.map(({ gender, noun, Icon }) => {

@@ -6,7 +6,7 @@ import type { Frame } from "./frames.ts";
 import { shuffle } from "./rng.ts";
 import type { Rng } from "./rng.ts";
 import { PERSONS } from "./types.ts";
-import type { PatternData, VerbEntry } from "./types.ts";
+import type { FamilyId, PatternData, Person, VerbEntry } from "./types.ts";
 
 /** NFC + lower-case: the one comparison used for every form. */
 export const norm = (s: string): string => s.normalize("NFC").toLowerCase();
@@ -128,4 +128,106 @@ export function forFrame(
     return n <= 0 ? [] : [regularized, ...shuffle(rng, rest)];
   }
   return shuffle(rng, ordered.slice(0, Math.max(0, n)));
+}
+
+// ---- Pattern series ------------------------------------------------------------------------
+// The series has its own distractor builder. `forFrame` above stays exactly as it is: Bubble Pop
+// draws from it with the round's seeded rng, so any change there would make old round logs replay
+// to different boards.
+
+const STEM_CHANGE: readonly FamilyId[] = ["es.present.e-ie", "es.present.o-ue", "es.present.e-i"];
+
+/**
+ * False when a candidate breaks Spanish qu / gu / gü spelling: a q not followed by ue/ui, a vowel
+ * pair pushed into the cluster ("qeudan", "sigeu", "queires"), or a ü not followed by e/i.
+ */
+export function keepsSpelling(candidate: string): boolean {
+  const c = norm(candidate);
+  return !/q(?!u[ei])/.test(c) && !/[qg]e[iu]/.test(c) && !/[qg]u(?:ei|eu)/.test(c) && !/ü(?![ei])/.test(c);
+}
+
+/** The regular prediction for one person. -guir yo drops the u ("sego", like "sigo"), so it stays a spelling a learner writes. */
+function regularized(infinitive: string, person: Person): string | null {
+  const r = regularPresent(infinitive)?.[person] ?? null;
+  if (r === null) return null;
+  const inf = norm(infinitive);
+  if (person === "yo" && inf.endsWith("guir") && r.endsWith("guo")) return `${r.slice(0, -3)}go`;
+  return r;
+}
+
+/** The verb's changed stem ("tien", "pued", "piens", "sigu"), read off a stem-changed form, or null. */
+function changedStem(verb: VerbEntry): string | null {
+  const order: Person[] = ["tú", "él_ella_usted", "ellos_ustedes", "yo"];
+  for (const person of order) {
+    const f = verb.forms.find((x) => x.person === person);
+    if (!f || !f.families.some((id) => STEM_CHANGE.includes(id))) continue;
+    const { stem, ending } = splitForm(verb.infinitive, person, norm(f.full), f.families);
+    if (ending !== "" && stem !== "") return stem;
+  }
+  return null;
+}
+
+/**
+ * The mistakes learners really make on this form, most telling first, never the form itself:
+ * - stem change missing ("tenes", "podes", "penso") and over-regularized yo ("pono", "teno", "salo"):
+ *   the regular prediction, when it differs from the real form;
+ * - stem change in the wrong person ("tienemos", "puedemos", "piensamos" for nosotros; "tieno" for a
+ *   -go yo): the verb's changed stem on a person that keeps the plain stem.
+ */
+export function learnerMistakes(data: PatternData, infinitive: string, person: Person): string[] {
+  const verb = data.verbs.find((v) => v.infinitive === infinitive);
+  const form = verb?.forms.find((f) => f.person === person);
+  if (!verb || !form) return [];
+  const answer = norm(form.full);
+  const out: string[] = [];
+  const add = (c: string | null) => {
+    if (c && c !== answer && !out.includes(c) && keepsSpelling(c)) out.push(c);
+  };
+  add(regularized(verb.infinitive, person));
+  const stem = changedStem(verb);
+  if (stem !== null && !form.families.some((id) => STEM_CHANGE.includes(id))) {
+    const { ending } = splitForm(verb.infinitive, person, answer, form.families);
+    // Endings on a/o after c, g, qu or gu change the sound or the spelling: skip those.
+    const shifts = /^[ao]/.test(ending) && /(c|g|qu|gu)$/.test(stem);
+    if (ending !== "" && !shifts && (person === "nosotros" || person === "yo")) add(stem + ending);
+  }
+  return out;
+}
+
+/**
+ * Up to `n` series distractors in priority order: learner mistakes, then other persons of the same
+ * verb (shuffled), then, only as filler, the same person of other verbs in the family and then of any
+ * verb in the pool. Never the valid answer for (infinitive, person), never a broken qu / gu / gü
+ * spelling, no duplicates. `accept` (called once per candidate, in order) can turn a candidate down,
+ * e.g. Listen's sound rules; a turned-down candidate does not count toward `n`.
+ */
+export function seriesDistractors(
+  data: PatternData,
+  slot: { infinitive: string; person: Person; familyId: FamilyId },
+  pool: readonly VerbEntry[],
+  n: number,
+  rng: Rng,
+  accept: (candidate: string) => boolean = () => true,
+): string[] {
+  const verb = data.verbs.find((v) => v.infinitive === slot.infinitive);
+  const valid = verb?.forms.find((f) => f.person === slot.person);
+  const answer = valid ? norm(valid.full) : null;
+  const out: string[] = [];
+  const tried = new Set<string>();
+  const add = (c: string | null | undefined) => {
+    if (!c || out.length >= n) return;
+    const x = norm(c);
+    if (x === "" || x === answer || tried.has(x)) return;
+    tried.add(x);
+    if (keepsSpelling(x) && accept(x)) out.push(x);
+  };
+  for (const c of learnerMistakes(data, slot.infinitive, slot.person)) add(c);
+  if (verb) for (const f of shuffle(rng, verb.forms.filter((x) => x.person !== slot.person))) add(f.full);
+  if (out.length >= n) return out;
+  const others = pool.filter((v) => v.infinitive !== slot.infinitive);
+  const samePerson = (v: VerbEntry) => v.forms.find((x) => x.person === slot.person);
+  for (const v of shuffle(rng, others.filter((v) => samePerson(v)?.families.includes(slot.familyId)))) add(samePerson(v)?.full);
+  if (out.length >= n) return out;
+  for (const v of shuffle(rng, others)) add(samePerson(v)?.full);
+  return out;
 }

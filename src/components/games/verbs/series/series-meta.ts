@@ -33,7 +33,10 @@ export const STEP_META: Record<SeriesStep, StepMeta> = {
 export const DEV = Boolean(import.meta.env?.DEV);
 
 export interface StepRun {
+  /** Right answers; Match: clean pairs (never part of a wrong attempt). */
   score: number;
   total: number;
   passed: boolean;
+  /** Match only: every wrong attempt, which can be more than the pairs. */
+  mistakes?: number;
 }

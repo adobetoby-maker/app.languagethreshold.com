@@ -37,7 +37,14 @@ export function useOwnedPlayback(scope?: string) {
     pending.current = null;
   }, [actor, isCurrentUser, scope]);
   const speak = useCallback(
-    (text: string, locale: string, voiceURI?: string | null, rate = 0.9) => {
+    (
+      text: string,
+      locale: string,
+      voiceURI?: string | null,
+      rate = 0.9,
+      /** Optional: told when this playback fails (no voice, a speech error, a failed fetch). */
+      events?: { onerror?: () => void },
+    ) => {
       if (
         !mounted.current ||
         activeScope.current !== scope ||
@@ -53,6 +60,7 @@ export function useOwnedPlayback(scope?: string) {
         voiceURI,
         rate,
         signal: controller.signal,
+        onerror: events?.onerror,
         owner: {
           userId: actor ?? "",
           isCurrent: () =>
@@ -65,6 +73,7 @@ export function useOwnedPlayback(scope?: string) {
       })
         .catch(() => {
           /* Playback is optional; no late UI/actor callbacks. */
+          if (mounted.current && pending.current === controller) events?.onerror?.();
         })
         .finally(() => {
           if (pending.current === controller) pending.current = null;

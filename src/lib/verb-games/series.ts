@@ -2,9 +2,8 @@
 // Verb pattern practice series: five mini games per family, built only from the signed pattern
 // data (no runtime AI). Pure and seeded; persistence lives in device.ts.
 
-import { forFrame, norm } from "./distractors.ts";
+import { norm, seriesDistractors } from "./distractors.ts";
 import { PERSON_LABEL, familyById } from "./families.ts";
-import { buildFrame } from "./frames.ts";
 import { frameSlots, poolVerbs } from "./pool.ts";
 import type { FrameSlot } from "./pool.ts";
 import { createRng, shuffle } from "./rng.ts";
@@ -111,14 +110,17 @@ export function isValidAnswer(data: PatternData, item: SeriesItem, candidate: st
   return form !== undefined && norm(form.full) === norm(candidate.trim());
 }
 
-function distractorsFor(data: PatternData, item: SeriesItem, source: SourceFilter, rng: Rng, n: number): string[] {
-  const frame = buildFrame(data, { infinitive: item.infinitive, person: item.person, familyId: item.familyId }, 0, false);
-  return forFrame(frame, data, poolVerbs(data, source), n, rng).filter((c) => !isValidAnswer(data, item, c));
+function distractorsFor(data: PatternData, item: SeriesItem, source: SourceFilter, rng: Rng, n: number, accept?: (c: string) => boolean): string[] {
+  const slot = { infinitive: item.infinitive, person: item.person, familyId: item.familyId };
+  return seriesDistractors(data, slot, poolVerbs(data, source), n, rng, accept).filter((c) => !isValidAnswer(data, item, c));
 }
 
-/** Pick it: the answer plus three distractors (distractors.ts, never a valid answer), shuffled. */
+/**
+ * Pick it: the answer plus three distractors, shuffled. Distractors are real learner mistakes first
+ * (stem change missing or in the wrong person, over-regularized yo), then other persons of the verb.
+ */
 export function pickChoices(data: PatternData, item: SeriesItem, source: SourceFilter, rng: Rng, n = 4): string[] {
-  const wrong = distractorsFor(data, item, source, rng, n - 1).slice(0, n - 1);
+  const wrong = distractorsFor(data, item, source, rng, n - 1);
   return shuffle(rng, [item.answer, ...wrong]);
 }
 
@@ -140,20 +142,63 @@ export function soundKey(s: string): string {
     .replace(/x/g, "ks");
 }
 
-/** Listen: like Pick, but no distractor may sound like the answer or like another choice. */
-export function listenChoices(data: PatternData, item: SeriesItem, source: SourceFilter, rng: Rng, n = 4): string[] {
-  const heard = new Set([soundKey(item.answer)]);
-  const wrong: string[] = [];
-  for (let ask = n * 3; ask <= 60 && wrong.length < n - 1; ask += 20) {
-    for (const c of distractorsFor(data, item, source, rng, ask)) {
-      if (wrong.length >= n - 1) break;
-      const key = soundKey(c);
-      if (heard.has(key)) continue;
-      heard.add(key);
-      wrong.push(c);
+function editDistance(a: string, b: string): number {
+  const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    let diag = row[0] as number;
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const up = row[j] as number;
+      row[j] = Math.min(up + 1, (row[j - 1] as number) + 1, diag + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diag = up;
     }
   }
+  return row[b.length] as number;
+}
+
+/**
+ * Listen: true when two forms are told apart by more than a final n/m or a single sound. A final n
+ * or m is nearly silent at speaking speed, so it is dropped before the sounds are compared:
+ * "tiene"/"tienen", "habla"/"hablo"/"hablan" and "tengo"/"tendo" are all too close.
+ */
+export function soundsApart(a: string, b: string): boolean {
+  const key = (s: string) => soundKey(s).replace(/[nm]$/, "");
+  return editDistance(key(a), key(b)) >= 2;
+}
+
+/** Listen: like Pick, but every distractor sounds clearly unlike the answer and unlike the other choices. */
+export function listenChoices(data: PatternData, item: SeriesItem, source: SourceFilter, rng: Rng, n = 4): string[] {
+  const heard = new Set([soundKey(item.answer)]);
+  const accept = (c: string) => {
+    const key = soundKey(c);
+    if (heard.has(key) || !soundsApart(item.answer, c)) return false;
+    heard.add(key);
+    return true;
+  };
+  const wrong = distractorsFor(data, item, source, rng, n - 1, accept);
   return shuffle(rng, [item.answer, ...wrong]);
+}
+
+/** "yo · I come": the person and English a form answers. */
+export function personPrompt(item: Pick<SeriesItem, "personLabel" | "english">): string {
+  return `${item.personLabel} · ${item.english}`;
+}
+
+/**
+ * Listen without audio ("Read it instead"): the form is shown as text and the learner picks the
+ * person and English it belongs to. The answer plus up to three other persons of the same verb.
+ */
+export function readChoices(data: PatternData, item: SeriesItem, rng: Rng, n = 4): string[] {
+  const answer = personPrompt(item);
+  const verb = data.verbs.find((v) => v.infinitive === item.infinitive);
+  const others: string[] = [];
+  for (const f of shuffle(rng, verb?.forms.filter((x) => x.person !== item.person) ?? [])) {
+    const label = personPrompt({ personLabel: PERSON_LABEL[f.person], english: f.english });
+    if (others.length >= n - 1) break;
+    if (label === answer || others.includes(label) || norm(f.full) === norm(item.answer)) continue;
+    others.push(label);
+  }
+  return shuffle(rng, [answer, ...others]);
 }
 
 export interface MatchPair {
@@ -183,7 +228,7 @@ export function matchBoard(data: PatternData, familyId: FamilyId, source: Source
   for (const slot of candidates) {
     if (pairs.length >= size) break;
     const item = itemOf(data, slot);
-    const prompt = `${item.personLabel} · ${item.english}`;
+    const prompt = personPrompt(item);
     if (forms.has(norm(item.answer)) || prompts.has(prompt)) continue;
     forms.add(norm(item.answer));
     prompts.add(prompt);

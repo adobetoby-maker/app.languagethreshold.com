@@ -345,7 +345,6 @@ function VerbPractice() {
             setEnded(null);
             setRoundKey((k) => k + 1);
           }}
-          // Shared with the home ladder tiles: see practiceScreen for the unit-page follow-up.
           onPractice={(family) => go(practiceScreen(family))}
           onBack={() => go(HOME)}
         />

@@ -10,7 +10,9 @@ import {
   seriesProgress,
   stepUnlocked,
 } from "../src/lib/verb-games/device.ts";
-import { SERIES_STEPS } from "../src/lib/verb-games/series.ts";
+import { readFileSync } from "node:fs";
+import { createRng } from "../src/lib/verb-games/rng.ts";
+import { SERIES_STEPS, choicePassed, personPrompt, readChoices, seriesItems } from "../src/lib/verb-games/series.ts";
 
 const F = "es.present.go-yo";
 const AT = "2026-10-22T10:00:00.000Z";
@@ -122,4 +124,52 @@ test("prototype keys in the stored series are dropped, never written through", (
   assert.deepEqual(s.series["es.present.ar"].best, { pick: 8 });
   assert.equal(Object.getPrototypeOf(s.series["es.present.ar"].best), Object.prototype);
   assert.equal({}.passed, undefined, "Object.prototype untouched");
+});
+
+test("Listen passed by reading instead of hearing is the same step-4 pass and unlocks Type it", () => {
+  const real = JSON.parse(readFileSync(new URL("../src/data/verb-patterns/es.json", import.meta.url), "utf8"));
+  let s = EMPTY_VERB_DEVICE;
+  for (const step of ["pick", "match", "cards"]) s = pass(s, step);
+  assert.equal(stepUnlocked(s, F, "type"), false);
+  // A learner without audio: every form is read, and the person + English is picked. Two misses.
+  const items = seriesItems(real, F, { kind: "core" }, 21);
+  const rng = createRng(21);
+  let score = 0;
+  items.forEach((item, i) => {
+    const choices = readChoices(real, item, rng);
+    const picked = i < 2 ? choices.find((c) => c !== personPrompt(item)) : choices.find((c) => c === personPrompt(item));
+    if (picked === personPrompt(item)) score++;
+  });
+  assert.equal(score, 8);
+  const run = { score, total: items.length, passed: choicePassed(score, items.length) };
+  assert.equal(run.passed, true);
+  const viaReading = recordSeriesStep(s, F, "listen", { score: run.score, passed: run.passed, at: AT });
+  const viaAudio = recordSeriesStep(s, F, "listen", { score: 8, passed: true, at: AT });
+  assert.deepEqual(viaReading, viaAudio, "recorded exactly like an audio pass");
+  assert.deepEqual(seriesProgress(viaReading, F).passed, ["pick", "match", "cards", "listen"]);
+  assert.equal(stepUnlocked(viaReading, F, "type"), true);
+  // And mastery is reachable from there.
+  assert.equal(seriesMastered(recordSeriesStep(viaReading, F, "type", { score: 9, passed: true, at: AT }), F), true);
+});
+
+test("Match keeps the real mistakes and the board size, even with more mistakes than pairs", () => {
+  let s = pass(EMPTY_VERB_DEVICE, "pick");
+  s = recordSeriesStep(s, F, "match", { score: 1, passed: false, at: AT, pairs: 5, mistakes: 7 });
+  assert.deepEqual(seriesProgress(s, F).match, { pairs: 5, mistakes: 7 });
+  assert.equal(seriesProgress(s, F).best.match, 1);
+  // A worse run changes nothing.
+  assert.equal(recordSeriesStep(s, F, "match", { score: 0, passed: false, at: AT, pairs: 5, mistakes: 9 }), s);
+  // Same clean pairs with fewer mistakes replaces the record.
+  s = recordSeriesStep(s, F, "match", { score: 1, passed: false, at: AT, pairs: 5, mistakes: 4 });
+  assert.deepEqual(seriesProgress(s, F).match, { pairs: 5, mistakes: 4 });
+  s = recordSeriesStep(s, F, "match", { score: 4, passed: true, at: AT, pairs: 4, mistakes: 1 });
+  assert.deepEqual(seriesProgress(s, F).match, { pairs: 4, mistakes: 1 });
+  assert.deepEqual(seriesProgress(s, F).passed, ["pick", "match"]);
+  // Saved and read back; junk is dropped.
+  const back = readVerbDevice(JSON.parse(JSON.stringify(s)));
+  assert.deepEqual(seriesProgress(back, F).match, { pairs: 4, mistakes: 1 });
+  for (const match of [{ pairs: 0, mistakes: 1 }, { pairs: 5, mistakes: -1 }, { pairs: "5", mistakes: 0 }, "junk"]) {
+    const raw = { v: 1, series: { [F]: { passed: ["pick", "match"], best: { match: 3 }, match } } };
+    assert.equal(seriesProgress(readVerbDevice(raw), F).match, undefined, JSON.stringify(match));
+  }
 });

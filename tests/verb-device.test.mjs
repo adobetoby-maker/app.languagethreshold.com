@@ -111,6 +111,17 @@ test("suggestedFamily is the first unmastered family by tier then order", () => 
   assert.notEqual(next, first);
 });
 
+test("suggestedFamily skips a family mastered through its pattern series", () => {
+  const data = miniData();
+  const first = suggestedFamily(EMPTY_VERB_DEVICE, data);
+  const series = { [first]: { passed: ["pick", "match", "cards", "listen", "type"], best: {}, masteredAt: "2026-10-22T00:00:00.000Z" } };
+  const next = suggestedFamily({ ...EMPTY_VERB_DEVICE, series }, data);
+  assert.notEqual(next, first);
+  // Half a series is not mastery.
+  const partial = { [first]: { passed: ["pick", "match"], best: {} } };
+  assert.equal(suggestedFamily({ ...EMPTY_VERB_DEVICE, series: partial }, data), first);
+});
+
 test("markStep adds each step once, in the order marked", () => {
   let s = markStep(EMPTY_VERB_DEVICE, "es.present.ar", "see");
   s = markStep(s, "es.present.ar", "hear");

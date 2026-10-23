@@ -13,6 +13,8 @@ export function MatchStep(p: { data: PatternData; source: SourceFilter; family: 
   const board = useMemo(() => matchBoard(p.data, p.family, p.source, p.seed), [p.data, p.family, p.source, p.seed]);
   const [matched, setMatched] = useState<number[]>([]);
   const [mistakes, setMistakes] = useState(0);
+  /** Pairs that were part of a wrong attempt: they are matched in the end, but not clean. */
+  const [tainted, setTainted] = useState<number[]>([]);
   const [selected, setSelected] = useState<{ side: Side; id: number } | null>(null);
   const [miss, setMiss] = useState<{ form: number; prompt: number } | null>(null);
   const [message, setMessage] = useState("");
@@ -37,10 +39,12 @@ export function MatchStep(p: { data: PatternData; source: SourceFilter; family: 
       setMessage(pair ? `Matched: ${pair.form}, ${pair.prompt}.` : "");
       if (next.length === total) {
         setFinished(true);
-        p.onFinish({ score: Math.max(0, total - mistakes), total, passed: matchPassed(next.length, total, mistakes) });
+        const clean = next.filter((pairId) => !tainted.includes(pairId)).length;
+        p.onFinish({ score: clean, total, mistakes, passed: matchPassed(next.length, total, mistakes) });
       }
     } else {
       setMistakes((n) => n + 1);
+      setTainted((t) => [...new Set([...t, form, prompt])]);
       setMiss({ form, prompt });
       const want = pairOf(prompt);
       setMessage(want ? `Not a pair. ${want.prompt} is ${want.form}.` : "Not a pair.");

@@ -940,6 +940,56 @@ test.describe("pattern series", { tag: "@dev-only" }, () => {
     await expect(page.getByText("Item 2 of 10")).toBeVisible();
   });
 
+  test("Listen without working audio: the form is shown to read, and passing it unlocks Type it", async ({ page }) => {
+    // TTS stubbed to fail: no device voices, every utterance errors, server voices are down.
+    await page.addInitScript(() => {
+      const synth = window.speechSynthesis;
+      if (!synth) return;
+      synth.getVoices = () => [];
+      synth.speak = (u: SpeechSynthesisUtterance) => {
+        window.setTimeout(() => u.onerror?.(new SpeechSynthesisErrorEvent("error", { utterance: u, error: "synthesis-failed" })), 0);
+      };
+    });
+    await page.route(/\/api\/(mission-)?tts/, (route) => route.fulfill({ status: 503, body: "" }));
+    await openSeries(page, "es.present.go-yo", ["pick", "match", "cards"]);
+    await expect(page.getByTestId("series-step-type")).toBeDisabled();
+    await page.getByTestId("series-start-listen").click();
+    // Switches to reading by itself; there is no way back to audio that cannot play.
+    await expect(page.getByTestId("series-read-prompt")).toBeVisible();
+    await expect(page.getByTestId("series-read-prompt")).toContainText("Audio is off");
+    await expect(page.getByTestId("series-listen-instead")).toHaveCount(0);
+    const listen = page.getByTestId("series-listen");
+    for (let i = 1; i <= 10; i++) {
+      const form = (await page.getByTestId("series-read-form").textContent())?.trim() ?? "";
+      expect(form).toMatch(/go$/);
+      const right = listen.locator('[data-correct="true"]');
+      await expect(right).toHaveText(/^\dyo · I /);
+      await right.click();
+      if (i < 10) await expect(page.getByTestId("series-score")).toHaveText(`${i} right`);
+    }
+    await expect(page.getByTestId("series-result")).toHaveAttribute("data-passed", "true");
+    await expect(page.getByTestId("series-result-score")).toHaveText("10 of 10 right");
+    await expect(page.getByTestId("series-step-listen")).toHaveAttribute("data-state", "passed");
+    await expect(page.getByTestId("series-step-type")).toBeEnabled();
+    await page.reload();
+    await expect(page.getByTestId("series-row-type")).toHaveAttribute("data-state", "open");
+  });
+
+  test("Listen: Can't hear audio? Read it instead switches to reading by hand", async ({ page }) => {
+    await openSeries(page, "es.present.go-yo", ["pick", "match", "cards"]);
+    await page.getByTestId("series-start-listen").click();
+    const toRead = page.getByTestId("series-read-prompt").or(page.getByTestId("series-read-instead"));
+    await expect(toRead.first()).toBeVisible();
+    // Headless Chrome may have no voices at all, in which case reading is already on.
+    if (await page.getByTestId("series-read-instead").isVisible()) {
+      await expect(page.getByTestId("series-read-instead")).toHaveText("Can't hear audio? Read it instead");
+      await page.getByTestId("series-read-instead").click();
+    }
+    await expect(page.getByTestId("series-read-prompt")).toBeVisible();
+    await expect(page.locator('[data-testid="series-listen"] [data-choice]')).toHaveCount(4);
+    await expect(page.locator('[data-testid="series-listen"] [data-correct="true"]')).toHaveText(/^\dyo · I /);
+  });
+
   test("Type it: a wrong-accent answer shows almost and does not count", async ({ page }) => {
     await openSeries(page, "es.present.go-yo", ["pick", "match", "cards", "listen"]);
     await expect(page.getByTestId("series-step-type")).toBeEnabled();

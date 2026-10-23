@@ -4,12 +4,13 @@ import { ArrowLeft, ArrowRight, Check, Lock, RotateCcw } from "lucide-react";
 import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { recordSeriesStep, seriesMastered, seriesProgress, sourceFilterFor, stepUnlocked, type VerbDeviceState } from "@/lib/verb-games/device";
 import { familyById } from "@/lib/verb-games/families";
-import { SERIES_STEPS, seriesItems, seriesSlots, type SeriesStep } from "@/lib/verb-games/series";
+import { MATCH_SIZE, SERIES_STEPS, seriesItems, seriesSlots, type SeriesStep } from "@/lib/verb-games/series";
 import type { FamilyId, PatternData } from "@/lib/verb-games/types";
 import { useSpeech } from "@/state/speech-state";
 import { CardsStep } from "./CardsStep";
 import { ChoiceStep } from "./ChoiceStep";
 import { MatchStep } from "./MatchStep";
+import { noVoiceFor } from "./speech-check";
 import { CAPTION, EYEBROW, FOCUS, PRIMARY, SECONDARY, STEP_META, STEP_PANEL, type StepRun } from "./series-meta";
 import { TypeStep } from "./TypeStep";
 
@@ -24,14 +25,17 @@ function randomSeed(): number {
 const nextStep = (step: SeriesStep): SeriesStep | null => SERIES_STEPS[SERIES_STEPS.indexOf(step) + 1] ?? null;
 
 function resultLine(step: SeriesStep, r: StepRun): string {
-  if (step === "match") return `All ${r.total} pairs · ${r.total - r.score} mistake${r.total - r.score === 1 ? "" : "s"}`;
+  if (step === "match") {
+    const m = r.mistakes ?? 0;
+    return `All ${r.total} pairs · ${m} mistake${m === 1 ? "" : "s"} · ${r.score} of ${r.total} clean`;
+  }
   if (step === "cards") return `All ${r.total} cards rated Good or Easy`;
   return `${r.score} of ${r.total} ${step === "type" ? "exact" : "right"}`;
 }
 
-function bestLine(step: SeriesStep, best: number | undefined): string | null {
+function bestLine(step: SeriesStep, best: number | undefined, pairs: number | undefined): string | null {
   if (best === undefined) return null;
-  if (step === "match") return `Best: ${best} of 5 clean`;
+  if (step === "match") return `Best: ${best} of ${pairs ?? MATCH_SIZE} clean`;
   if (step === "cards") return `Done: ${best} cards`;
   return `Best: ${best} of 10`;
 }
@@ -64,7 +68,11 @@ export function VerbSeries(p: {
   const speech = useSpeech();
   const speakOwned = useOwnedSpeaker("verb-series");
   const { accent, voiceURI, rate } = speech;
-  const speak = useCallback((text: string) => speakOwned(text, accent, voiceURI, Math.min(rate, 0.9)), [speakOwned, accent, voiceURI, rate]);
+  const speak = useCallback(
+    (text: string, onFail?: () => void) => speakOwned(text, accent, voiceURI, Math.min(rate, 0.9), { onerror: onFail }),
+    [speakOwned, accent, voiceURI, rate],
+  );
+  const audioMissing = useCallback(() => noVoiceFor(accent, voiceURI), [accent, voiceURI]);
 
   const examples = useMemo(() => {
     const seen = new Set<string>();
@@ -89,7 +97,8 @@ export function VerbSeries(p: {
   const finish = useCallback(
     (step: SeriesStep, result: StepRun) => {
       const at = new Date().toISOString();
-      update((s) => recordSeriesStep(s, family, step, { score: result.score, passed: result.passed, at }));
+      const match = step === "match" ? { pairs: result.total, mistakes: result.mistakes ?? 0 } : {};
+      update((s) => recordSeriesStep(s, family, step, { score: result.score, passed: result.passed, at, ...match }));
       setView({ kind: "result", step, result });
     },
     [update, family],
@@ -191,7 +200,7 @@ export function VerbSeries(p: {
                 const meta = STEP_META[step];
                 const open = stepUnlocked(device, family, step);
                 const passed = progress.passed.includes(step);
-                const best = bestLine(step, progress.best[step]);
+                const best = bestLine(step, progress.best[step], progress.match?.pairs);
                 const prev = i > 0 ? STEP_META[SERIES_STEPS[i - 1] as SeriesStep].label : "";
                 return (
                   <li
@@ -249,7 +258,17 @@ export function VerbSeries(p: {
                 </p>
               </header>
               {view.kind === "play" && (view.step === "pick" || view.step === "listen") && (
-                <ChoiceStep key={view.run} kind={view.step} data={data} source={source} items={items} seed={view.seed} speak={speak} onFinish={onFinish} />
+                <ChoiceStep
+                  key={view.run}
+                  kind={view.step}
+                  data={data}
+                  source={source}
+                  items={items}
+                  seed={view.seed}
+                  speak={speak}
+                  audioMissing={audioMissing}
+                  onFinish={onFinish}
+                />
               )}
               {view.kind === "play" && view.step === "match" && <MatchStep key={view.run} data={data} source={source} family={family} seed={view.seed} onFinish={onFinish} />}
               {view.kind === "play" && view.step === "cards" && <CardsStep key={view.run} items={items} speak={speak} onFinish={onFinish} />}

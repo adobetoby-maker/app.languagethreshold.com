@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { FAMILIES } from "../src/lib/verb-games/families.ts";
+import { keepsSpelling, learnerMistakes } from "../src/lib/verb-games/distractors.ts";
 import { createRng } from "../src/lib/verb-games/rng.ts";
 import {
   AGAIN_GAP,
@@ -17,11 +18,14 @@ import {
   matchBoard,
   matchPassed,
   missText,
+  personPrompt,
   pickChoices,
+  readChoices,
   rateCard,
   seriesItems,
   seriesSlots,
   soundKey,
+  soundsApart,
   startCards,
   cardsPassed,
 } from "../src/lib/verb-games/series.ts";
@@ -201,4 +205,85 @@ test("a miss shows the family's rule line and the right form with English", () =
   const text = missText(item);
   assert.equal(text.rule, "The yo form ends in -go. Everything else stays regular.");
   assert.equal(text.right, `${item.answer} · ${item.english}`);
+});
+
+// ---- Distractor quality (review fix round 1) ------------------------------------------------
+
+/** A qu / gu cluster with a vowel pair pushed into it ("qeudan", "sigeu", "queires"), or a lone q. */
+const BROKEN_CLUSTER = /q(?!u)|[qg]e[iu]|[qg]u(?:ei|eu)/;
+
+test("series distractors are real learner mistakes: wrong-person stem change, missing stem change, regular yo", () => {
+  const has = (inf, person, form) => assert.ok(learnerMistakes(real, inf, person).includes(form), `${inf} ${person}: ${form} in ${learnerMistakes(real, inf, person).join(", ")}`);
+  // The stem change applied to a person that keeps the plain stem.
+  has("tener", "nosotros", "tienemos");
+  has("poder", "nosotros", "puedemos");
+  has("pensar", "nosotros", "piensamos");
+  // The stem change left out.
+  has("tener", "tú", "tenes");
+  has("poder", "tú", "podes");
+  has("pensar", "yo", "penso");
+  // Over-regularized yo.
+  has("poner", "yo", "pono");
+  has("tener", "yo", "teno");
+  has("salir", "yo", "salo");
+  // -guir keeps its spelling: "sego", never "seguo" or "sigeu".
+  has("seguir", "yo", "sego");
+  // A regular form has no stem-change mistakes.
+  assert.deepEqual(learnerMistakes(real, "quedar", "ellos_ustedes"), []);
+  for (const v of real.verbs) {
+    for (const f of v.forms) {
+      for (const m of learnerMistakes(real, v.infinitive, f.person)) {
+        assert.notEqual(norm(m), norm(f.full), `${v.infinitive} ${f.person}: the form itself`);
+        assert.ok(keepsSpelling(m), `${v.infinitive} ${f.person}: ${m} breaks qu/gu/gü`);
+      }
+    }
+  }
+});
+
+test("keepsSpelling rejects the old misplaced-stem non-words", () => {
+  for (const bad of ["qeudan", "sigeu", "queires", "qeiro", "argüo"]) assert.equal(keepsSpelling(bad), false, bad);
+  for (const good of ["quedan", "sigue", "quieres", "siguen", "seguimos", "averigüe", "tienemos"]) assert.equal(keepsSpelling(good), true, good);
+});
+
+test("Listen: one-letter swaps and a final n/m are too close to hear", () => {
+  for (const [a, b] of [["pongo", "pomgo"], ["tengo", "tendo"], ["alcanzan", "alcanzam"], ["tiene", "tienen"], ["habla", "hablan"], ["hablo", "hablan"], ["pongo", "pono"]]) {
+    assert.equal(soundsApart(a, b), false, `${a} / ${b}`);
+  }
+  for (const [a, b] of [["tengo", "tienes"], ["hablamos", "hablo"], ["puedo", "podemos"], ["tengo", "tenemos"]]) assert.equal(soundsApart(a, b), true, `${a} / ${b}`);
+});
+
+test("300 seeds x 7 families: no Pick or Listen distractor is a valid answer or breaks qu/gu, Listen never too close", () => {
+  for (const f of FAMILIES) {
+    for (let seed = 0; seed < 300; seed++) {
+      const rng = createRng(seed);
+      for (const item of seriesItems(real, f.id, core, seed)) {
+        const pick = pickChoices(real, item, core, rng);
+        const listen = listenChoices(real, item, core, rng);
+        for (const [kind, choices] of [["pick", pick], ["listen", listen]]) {
+          assert.equal(choices.length, 4, `${kind} ${f.id} seed ${seed} ${item.key}`);
+          assert.equal(new Set(choices.map(norm)).size, 4, `${kind} ${item.key} unique`);
+          assert.equal(choices.filter((c) => norm(c) === norm(item.answer)).length, 1, `${kind} ${item.key} answer once`);
+          for (const c of choices) {
+            if (norm(c) === norm(item.answer)) continue;
+            assert.equal(isValidAnswer(real, item, c), false, `${kind} ${f.id} seed ${seed} ${item.key}: ${c} is valid`);
+            assert.doesNotMatch(norm(c), BROKEN_CLUSTER, `${kind} ${f.id} seed ${seed} ${item.key}: ${c} breaks qu/gu`);
+            if (kind === "listen") assert.ok(soundsApart(item.answer, c), `listen ${item.key}: ${c} sounds like ${item.answer}`);
+          }
+        }
+      }
+    }
+  }
+});
+
+test("Listen read-instead: the form's person and English plus three other persons of the verb", () => {
+  for (const f of FAMILIES) {
+    for (const item of seriesItems(real, f.id, core, 4)) {
+      const choices = readChoices(real, item, createRng(4));
+      assert.equal(choices.length, 4, item.key);
+      assert.equal(new Set(choices).size, 4, `${item.key} unique`);
+      assert.equal(choices.filter((c) => c === personPrompt(item)).length, 1, `${item.key} answer once`);
+      assert.equal(personPrompt(item), `${item.personLabel} · ${item.english}`);
+    }
+  }
+  assert.deepEqual(readChoices(real, seriesItems(real, "es.present.ar", core, 4)[0], createRng(9)), readChoices(real, seriesItems(real, "es.present.ar", core, 4)[0], createRng(9)), "seeded");
 });

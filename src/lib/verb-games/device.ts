@@ -12,8 +12,13 @@ export type VerbStep = "see" | "hear" | "recall";
 /** One family's pattern series: steps passed (always an in-order prefix), best score per step. */
 export interface SeriesProgress {
   passed: SeriesStep[];
-  /** Right answers in the best run (Match: pairs made with at most two mistakes, else 0). */
+  /**
+   * The best run's score per step: right answers (Pick, Listen, Type), cards rated Good or Easy
+   * (Cards), clean pairs (Match: pairs never part of a wrong attempt).
+   */
   best: Partial<Record<SeriesStep, number>>;
+  /** Match only: the best run's board size and its real mistake count (which can exceed the pairs). */
+  match?: { pairs: number; mistakes: number };
   /** When Type it was first passed: the family is mastered. */
   masteredAt?: string;
 }
@@ -116,6 +121,9 @@ export function readVerbDevice(raw: unknown): VerbDeviceState {
         for (const [step, n] of safeEntries(p.best)) if (isSeriesStep(step) && isCount(n)) best[step] = n;
       }
       const progress: SeriesProgress = { passed, best };
+      if (isRecord(p.match) && isCount(p.match.pairs) && p.match.pairs > 0 && isCount(p.match.mistakes)) {
+        progress.match = { pairs: p.match.pairs, mistakes: p.match.mistakes };
+      }
       if (passed.includes("type") && typeof p.masteredAt === "string") progress.masteredAt = p.masteredAt;
       out.series[k] = progress;
     }
@@ -181,14 +189,17 @@ export function familyMastery(
   return { picks, correct, mastered: isMastered(picks, correct), verbsMastered };
 }
 
-/** First family not yet mastered, ordered by tier then FAMILIES order. Families with no verbs in the data are skipped. */
+/**
+ * First family not yet mastered, ordered by tier then FAMILIES order. A family counts as mastered by
+ * its game picks or by passing its pattern series. Families with no verbs in the data are skipped.
+ */
 export function suggestedFamily(s: VerbDeviceState, data: PatternData): FamilyId {
   const ordered = FAMILIES.map((f, i) => ({ f, i })).sort((a, b) => a.f.tier - b.f.tier || a.i - b.i).map(({ f }) => f.id);
   const present = ordered.filter((id) => data.verbs.some((v) => v.forms.some((f) => f.families.includes(id))));
   const candidates = present.length > 0 ? present : ordered;
   for (const id of candidates) {
     const infs = data.verbs.filter((v) => v.forms.some((f) => f.families.includes(id))).map((v) => v.infinitive);
-    if (!familyMastery(s, id, infs).mastered) return id;
+    if (!familyMastery(s, id, infs).mastered && !seriesMastered(s, id)) return id;
   }
   return candidates[0];
 }
@@ -218,21 +229,30 @@ export function seriesMastered(s: VerbDeviceState, familyId: FamilyId): boolean 
 
 /**
  * Records one finished step run: keeps the best score and, on a pass, adds the step. A locked step
- * returns the same state (steps unlock in order). Passing Type it sets `masteredAt` once.
+ * returns the same state (steps unlock in order). Passing Type it sets `masteredAt` once. A Match run
+ * also passes its board size and mistakes; the best run's two numbers are kept (more clean pairs, or as many
+ * with fewer mistakes).
  */
 export function recordSeriesStep(
   s: VerbDeviceState,
   familyId: FamilyId,
   step: SeriesStep,
-  run: { score: number; passed: boolean; at: string },
+  run: { score: number; passed: boolean; at: string; pairs?: number; mistakes?: number },
 ): VerbDeviceState {
   if (!stepUnlocked(s, familyId, step)) return s;
   const prev = seriesProgress(s, familyId);
   const score = Math.max(0, Math.floor(run.score));
-  const best = (prev.best[step] ?? -1) < score ? { ...prev.best, [step]: score } : prev.best;
+  const prevBest = prev.best[step] ?? -1;
+  const best = prevBest < score ? { ...prev.best, [step]: score } : prev.best;
   const passed = run.passed && !prev.passed.includes(step) ? [...prev.passed, step] : prev.passed;
-  if (best === prev.best && passed === prev.passed) return s;
+  let match = prev.match;
+  if (step === "match" && isCount(run.pairs) && run.pairs > 0 && isCount(run.mistakes)) {
+    const better = prevBest < score || (prevBest === score && (!prev.match || run.mistakes < prev.match.mistakes));
+    if (better) match = { pairs: run.pairs, mistakes: run.mistakes };
+  }
+  if (best === prev.best && passed === prev.passed && match === prev.match) return s;
   const next: SeriesProgress = { passed: [...passed], best: { ...best } };
+  if (match) next.match = { ...match };
   const masteredAt = prev.masteredAt ?? (passed.includes("type") ? run.at : undefined);
   if (masteredAt !== undefined) next.masteredAt = masteredAt;
   return { ...s, series: { ...s.series, [familyId]: next } };

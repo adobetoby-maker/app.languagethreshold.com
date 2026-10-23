@@ -5,12 +5,12 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
+import { checkSentenceBuildQuestion } from "@/lib/sentence-build-core";
 
-// Difficulty levels for the Sentence Builder game.
-// 1 = short sentences (4-6 tokens) at A1/A2 — pure word order
-// 2 = medium (6-9 tokens) at B1 — adds prepositions, adjective agreement
-// 3 = long (9-13 tokens) at B2/C1 — clauses, time/place phrases, subjunctive
-export type SentenceBuildLevel = 1 | 2 | 3;
+// Levels, the question shape and its checks live in src/lib/sentence-build-core.ts, shared with
+// the trade-pack loader and generator.
+export type { SentenceBuildLevel, SentenceBuildQuestion } from "@/lib/sentence-build-core";
+import type { SentenceBuildQuestion } from "@/lib/sentence-build-core";
 
 const Input = z.object({
   language: z.string().min(1).max(40),
@@ -18,16 +18,6 @@ const Input = z.object({
   avoid: z.array(z.string().min(1).max(200)).max(20).optional(),
   topic: z.string().min(1).max(200).optional(),
 });
-
-export interface SentenceBuildQuestion {
-  targetSentence: string; // canonical target-language sentence
-  englishTranslation: string; // English translation
-  tokens: string[]; // sentence split into ordered tokens (the "correct" order)
-  scrambled: string[]; // same tokens shuffled (what the user starts with)
-  topic: string; // short topic label (e.g. "café", "weather", "directions")
-  cefr: CefrLevel;
-  explanation: string; // 1 sentence on why this order is right (focus on the tricky part)
-}
 
 const SYSTEM = `You are a precise sentence-builder drill author. You generate natural target-language sentences for adult language learners and decompose each sentence into ordered tokens. The learner gets the tokens shuffled and must reorder them.
 
@@ -153,55 +143,9 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const minimum = data.level === 1 ? 4 : data.level === 2 ? 6 : 9;
-        const maximum = data.level === 1 ? 6 : data.level === 2 ? 9 : 13;
-        const token = z.string().trim().min(1).max(120);
-        const parsed = z
-          .object({
-            targetSentence: z.string().trim().min(1).max(1600),
-            englishTranslation: z.string().trim().min(1).max(1600),
-            tokens: z.array(token).min(minimum).max(maximum),
-            scrambled: z.array(token).min(minimum).max(maximum),
-            topic: z.string().trim().min(1).max(80),
-            cefr: z.literal(cefr),
-            explanation: z.string().trim().min(1).max(1200),
-          })
-          .safeParse(toolUse.input);
-        if (!parsed.success) return { data: null, error: "Sentence content came back incomplete." };
-        const q = parsed.data;
-        const canonical = (value: string) =>
-          value
-            .normalize("NFC")
-            .replace(/\s+/g, /japanese|chinese/i.test(data.language) ? "" : " ")
-            .trim();
-        if (
-          canonical(q.tokens.join(" ")) !== canonical(q.targetSentence) ||
-          new Set(q.tokens).size < 2
-        )
-          return { data: null, error: "Sentence tokens do not match the question." };
-
-        // Defensive: ensure scrambled is a permutation of tokens. Re-shuffle
-        // ourselves if the model returned the same order or a non-permutation.
-        if (
-          !Array.isArray(q.tokens) ||
-          !Array.isArray(q.scrambled) ||
-          q.tokens.length !== q.scrambled.length
-        ) {
-          return { data: null, error: "Token/scrambled mismatch." };
-        }
-        const sortedT = JSON.stringify([...q.tokens].sort());
-        const sortedS = JSON.stringify([...q.scrambled].sort());
-        if (sortedT !== sortedS) {
-          return { data: null, error: "Scrambled is not a permutation of tokens." };
-        }
-        // If the model returned scrambled identical to tokens, shuffle defensively.
-        if (JSON.stringify(q.scrambled) === JSON.stringify(q.tokens)) {
-          q.scrambled = shuffle([...q.tokens]);
-          if (JSON.stringify(q.scrambled) === JSON.stringify(q.tokens)) {
-            const different = q.scrambled.findIndex((value) => value !== q.scrambled[0]);
-            [q.scrambled[0], q.scrambled[different]] = [q.scrambled[different], q.scrambled[0]];
-          }
-        }
+        const checked = checkSentenceBuildQuestion(toolUse.input, data.level, data.language);
+        if (!checked.ok) return { data: null, error: checked.error };
+        const q = checked.question;
 
         return { data: q, error: null, cached: false };
       } catch {
@@ -210,11 +154,3 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
       }
     },
   );
-
-function shuffle<T>(arr: T[]): T[] {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}

@@ -5,6 +5,10 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { parseTradePack, validateWordMatchSection } from "../src/lib/trade-packs.ts";
+import {
+  validateConjugationSection,
+  validateSentenceBuildSection,
+} from "../src/lib/trade-pack-rules-core.ts";
 
 // Runs scripts/build-trade-packs.mts against a stand-in for the `claude` CLI
 // (tests/fixtures/stub-claude-trade-packs.mjs), writing under a temp --out-root. No network,
@@ -53,8 +57,8 @@ test("the generator builds a pack that validates, indexes it, and skips a valid 
 
     const second = run(root, ["--module", "roofing"]);
     assert.equal(second.code, 0, second.out);
-    assert.match(second.out, /published pack is valid, nothing to do/);
-    assert.doesNotMatch(second.out, /roofing level/);
+    assert.match(second.out, /published section is valid, nothing to do/);
+    assert.doesNotMatch(second.out, /roofing wordmatch L/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -222,6 +226,99 @@ test("a refused login stops the run without publishing", () => {
     assert.notEqual(result.code, 0);
     assert.match(result.out, /login was refused/);
     assert.equal(existsSync(packFile(root)), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// ─── Sentence Builder and Conjugation ────────────────────────────────────────
+
+const lessonVerbs = new Set(
+  Object.values(JSON.parse(readFileSync(new URL("../public/lesson-content/es/roofing.json", import.meta.url), "utf8")).lessons)
+    .flatMap((lesson) => (lesson.verbs ?? []).map((verb) => verb.infinitive.toLocaleLowerCase())),
+);
+
+test("the generator builds sentence and conjugation sections next to a Word Match section it keeps", () => {
+  const root = tmp();
+  try {
+    assert.equal(run(root, ["--module", "roofing"]).code, 0);
+    const boards = JSON.parse(readFileSync(packFile(root), "utf8")).wordMatch.boards;
+    const result = run(root, ["--module", "roofing", "--area", "sentence,conjugation"]);
+    assert.equal(result.code, 0, result.out);
+    assert.match(result.out, /FINAL published 2\/2/);
+    assert.match(result.out, /review calls \d+/);
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    assert.deepEqual(raw.wordMatch.boards, boards, "the Word Match section is kept as it was");
+    assert.deepEqual(validateSentenceBuildSection(raw.sentenceBuild.items, { moduleId: "roofing", language: "Spanish" }), []);
+    assert.deepEqual(validateConjugationSection(raw.conjugation.items, { moduleId: "roofing", verbs: lessonVerbs }), []);
+    assert.equal(raw.sentenceBuild.items.length, 120);
+    assert.equal(raw.conjugation.items.length, 96);
+    assert.ok(raw.sentenceBuild.items.every((item) => !("scrambled" in item)), "scrambled is made at pick time");
+    const file = parseTradePack(raw, { moduleId: "roofing", language: "Spanish" });
+    assert.equal(file.sentenceBuild.items.length, 120);
+    assert.equal(file.conjugation.items.length, 96);
+
+    const index = JSON.parse(readFileSync(join(root, "public", "trade-packs", "index.json"), "utf8")).packs[0];
+    assert.deepEqual(index.areas, ["wordMatch", "sentenceBuild", "conjugation"]);
+    assert.deepEqual(index.sentenceBuildItems, { 1: 40, 2: 40, 3: 40 });
+    assert.deepEqual(index.conjugationItems, {
+      1: { tense: 12, person: 12, number: 12 },
+      2: { tense: 12, person: 12, mood: 12 },
+      3: { mixed: 24 },
+    });
+    assert.ok(existsSync(join(root, ".trade-packs-progress", "es", "roofing.sentence.json")));
+    assert.ok(existsSync(join(root, ".trade-packs-progress", "es", "roofing.conjugation.json")));
+
+    const again = run(root, ["--module", "roofing", "--area", "all"]);
+    assert.equal(again.code, 0, again.out);
+    assert.equal((again.out.match(/published section is valid, nothing to do/g) ?? []).length, 3);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a vosotros sentence or question is rejected and asked for again", () => {
+  const root = tmp();
+  try {
+    const result = run(root, ["--module", "roofing", "--area", "sentence,conjugation"], { STUB_MODE: "vosotros" });
+    assert.equal(result.code, 0, result.out);
+    assert.match(result.out, /vosotros \(revisáis\); use ustedes/);
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    assert.equal(JSON.stringify(raw).includes("revisáis"), false);
+    assert.deepEqual(validateSentenceBuildSection(raw.sentenceBuild.items, { moduleId: "roofing", language: "Spanish" }), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a conjugation question the independent review finds ambiguous is never published", () => {
+  const root = tmp();
+  try {
+    const log = join(root, "calls.log");
+    const result = run(root, ["--module", "roofing", "--area", "conjugation"], { STUB_MODE: "review-reject", STUB_LOG: log });
+    assert.equal(result.code, 0, result.out);
+    assert.match(result.out, /failed the independent review: acceptable answers/);
+    const rejected = Number(/review-gate rejections (\d+)/.exec(result.out)[1]);
+    assert.ok(rejected >= 7, `${rejected} rejections (one per review call)`);
+    const raw = JSON.parse(readFileSync(packFile(root), "utf8"));
+    // the stub's tricky question is always the first of a call: its id ends in "aa"
+    assert.equal(raw.conjugation.items.some((item) => /aa aquí/.test(item.phrase)), false);
+    assert.deepEqual(validateConjugationSection(raw.conjugation.items, { moduleId: "roofing", verbs: lessonVerbs }), []);
+    const progress = JSON.parse(readFileSync(join(root, ".trade-packs-progress", "es", "roofing.conjugation.json"), "utf8"));
+    assert.equal(progress.reviewRejected, rejected);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("--dry-run counts a review call for every conjugation batch", () => {
+  const root = tmp();
+  try {
+    const result = run(root, ["--module", "roofing", "--area", "conjugation", "--dry-run"]);
+    assert.equal(result.code, 0, result.out);
+    // 6 pools of 12 (2 batches of 8) + one of 24 (3 batches), each batch 2 calls
+    assert.match(result.out, /Dry run: ~30 model call/);
+    assert.equal(run(root, ["--module", "roofing", "--area", "sentence,nope", "--dry-run"]).code, 2);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

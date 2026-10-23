@@ -549,7 +549,7 @@ test("the shipped roofing pack passes every rule and is listed in the index", ()
   assert.ok(entry);
   assert.equal(entry.path, tradePackPath("roofing", "Spanish"));
   assert.equal(entry.bytes, Buffer.byteLength(text));
-  assert.deepEqual(entry.areas, ["wordMatch"]);
+  assert.deepEqual(entry.areas, ["wordMatch", "sentenceBuild", "conjugation"]);
 });
 
 test("the roofing pack uses one Spanish word per concept and none of the rejected terms", () => {
@@ -563,12 +563,12 @@ test("the roofing pack uses one Spanish word per concept and none of the rejecte
     "sub-capa sintética",
     "fascia",
     "barreta",
-    "membrana impermeable",
     "forro de techo",
     "caballete",
     "ventilación de caballete",
     "cubierta blanda",
-    "eslinga",
+    "acollador",
+    "eslinga de carga",
   ]) {
     assert.equal(targets.includes(banned), false, `"${banned}" was replaced`);
   }
@@ -578,10 +578,10 @@ test("the roofing pack uses one Spanish word per concept and none of the rejecte
     { name: "ridge", english: /\bridge\b/, spanish: /\bcumbrera\b/ },
     { name: "deck", english: /\b(roof deck|soft deck|sheathing)\b/, spanish: /\bentablado\b/ },
     { name: "gutter", english: /\bgutter\b/, spanish: /\bcanaleta\b/ },
-    { name: "lanyard", english: /\blanyard\b/, spanish: /^acollador$/ },
+    { name: "lanyard", english: /\blanyard\b/, spanish: /^eslinga$/ },
     { name: "flashing", english: /\bflashing\b/, spanish: /^tapajuntas\b/ },
     { name: "underlayment", english: /\bunderlayment\b/, spanish: /\bsubcapa\b/ },
-    { name: "sling", english: /\bsling\b/, spanish: /^eslinga\b/ },
+    { name: "sling", english: /\bsling\b/, spanish: /^estrobo\b/ },
   ];
   for (const concept of concepts) {
     const cards = pairs.filter((p) => concept.english.test(p.english));
@@ -595,7 +595,10 @@ test("the roofing pack uses one Spanish word per concept and none of the rejecte
     }
   }
   // and the other way round: a Spanish concept word never labels a different thing
+  // (lead ruling, fix round 1: the roofing lessons teach lanyard = eslinga, so a load sling is an estrobo)
   for (const card of pairs.filter((p) => /\beslinga\b/.test(p.target)))
+    assert.match(card.english, /lanyard/);
+  for (const card of pairs.filter((p) => /\bestrobo\b/.test(p.target)))
     assert.match(card.english, /sling/);
   for (const card of pairs.filter((p) => /\bcumbrera\b/.test(p.target)))
     assert.match(card.english, /ridge/);
@@ -612,6 +615,7 @@ test("the concept check would catch a ridge, deck or lanyard split", () => {
   const ridge = { english: /\bridge\b/, spanish: /\bcumbrera\b/ };
   assert.equal(mismatch("ridge vent", "ventilación de caballete", ridge), true);
   assert.equal(mismatch("ridge vent", "ventilación de cumbrera", ridge), false);
-  const lanyard = { english: /\blanyard\b/, spanish: /^acollador$/ };
-  assert.equal(mismatch("lanyard", "eslinga", lanyard), true);
+  const lanyard = { english: /\blanyard\b/, spanish: /^eslinga$/ };
+  assert.equal(mismatch("lanyard", "acollador", lanyard), true);
+  assert.equal(mismatch("lanyard", "eslinga", lanyard), false);
 });

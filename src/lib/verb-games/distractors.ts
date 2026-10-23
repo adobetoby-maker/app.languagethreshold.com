@@ -201,6 +201,16 @@ export function learnerMistakes(data: PatternData, infinitive: string, person: P
  * spelling, no duplicates. `accept` (called once per candidate, in order) can turn a candidate down,
  * e.g. Listen's sound rules; a turned-down candidate does not count toward `n`.
  */
+/**
+ * Wrong options that are real words a learner should never be shown in a drill: a learner-mistake
+ * rule can land on a vulgar or offensive word (pedir's over-regularized yo is "pedo").
+ */
+const BLOCKED_DISTRACTORS = new Set(["pedo", "pedos", "puta", "puto", "coges", "coge", "cogemos", "cogen", "chingo", "jodo", "culo", "verga", "pija", "concha", "mamo", "mamas"]);
+
+export function isBlockedDistractor(word: string): boolean {
+  return BLOCKED_DISTRACTORS.has(norm(word));
+}
+
 export function seriesDistractors(
   data: PatternData,
   slot: { infinitive: string; person: Person; familyId: FamilyId },
@@ -219,7 +229,7 @@ export function seriesDistractors(
     const x = norm(c);
     if (x === "" || x === answer || tried.has(x)) return;
     tried.add(x);
-    if (keepsSpelling(x) && accept(x)) out.push(x);
+    if (!BLOCKED_DISTRACTORS.has(x) && keepsSpelling(x) && accept(x)) out.push(x);
   };
   for (const c of learnerMistakes(data, slot.infinitive, slot.person)) add(c);
   if (verb) for (const f of shuffle(rng, verb.forms.filter((x) => x.person !== slot.person))) add(f.full);

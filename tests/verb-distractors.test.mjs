@@ -51,3 +51,16 @@ test("over every frame in the dataset: five distinct candidates, none valid for 
   assert.ok(frames > 0);
   assert.deepEqual(short, [], `frames short of 5 distractors, exclude these: ${short.join("; ")}`);
 });
+
+test("series distractors never show a blocked vulgar word (pedir's over-regularized yo)", async () => {
+  const { seriesDistractors, isBlockedDistractor } = await import("../src/lib/verb-games/distractors.ts");
+  const { createRng } = await import("../src/lib/verb-games/rng.ts");
+  const fs = await import("node:fs");
+  const data = JSON.parse(fs.readFileSync(new URL("../src/data/verb-patterns/es.json", import.meta.url), "utf8"));
+  assert.equal(isBlockedDistractor("pedo"), true);
+  const pool = data.verbs;
+  for (let seed = 0; seed < 50; seed++) {
+    const out = seriesDistractors(data, { infinitive: "pedir", person: "yo", familyId: "es.present.e-i" }, pool, 3, createRng(seed));
+    assert.ok(!out.some((w) => isBlockedDistractor(w)), `seed ${seed}: ${out.join(",")}`);
+  }
+});

@@ -224,6 +224,16 @@ export function ModulesPage() {
   };
 
   const totalModules = availableModules.length;
+  // English for Work teaches English to speakers of other languages, so a learner studying Spanish
+  // has none of its modules (moduleSupportsLearningPair). Show only categories with modules.
+  const categoryCounts = useMemo(
+    () =>
+      CATEGORY_ORDER.map((category) => ({
+        category,
+        count: availableModules.filter((m) => m.category === category).length,
+      })).filter(({ count }) => count > 0),
+    [availableModules],
+  );
   return (
     <div className="flex h-full flex-col overflow-hidden">
       {/* Page header */}
@@ -277,9 +287,8 @@ export function ModulesPage() {
             >
               All {search ? `(${filtered.length})` : `(${totalModules})`}
             </button>
-            {CATEGORY_ORDER.map((cat) => {
+            {categoryCounts.map(({ category: cat, count }) => {
               const meta = CATEGORY_META[cat];
-              const count = availableModules.filter((m) => m.category === cat).length;
               return (
                 <button
                   key={cat}

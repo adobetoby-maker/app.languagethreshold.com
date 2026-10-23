@@ -1305,16 +1305,19 @@ export function SpeakingMissionsPreview({
         className="scroll-mt-4 mt-5"
       >
         <div className="mb-5 rounded-2xl border border-gold/30 bg-gold/10 p-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            UX preview · {missionLanguage}
-          </p>
+          {/* Internal build label: dev server only, never shown to learners. */}
+          {import.meta.env.DEV && (
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              UX preview · {missionLanguage}
+            </p>
+          )}
           <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
             Practice a real situation
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Choose from {languageMissions.length} missions across {languageModules.length}{" "}
             {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
-            daily living—including relationships and intimacy—then move into specialty practice.
+            daily living, then move into specialty practice.
             Every mission supports woman and man partner versions and does not yet count toward
             durable mastery.
           </p>

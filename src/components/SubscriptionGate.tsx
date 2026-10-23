@@ -9,6 +9,7 @@ import { foundationAccess } from "@/lib/core30-plan";
 import { lessonLocation } from "@/lib/learning-link";
 import { MODULES } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
+import { PracticeBlocker } from "@/hooks/use-practice-time";
 
 /** The free Foundation in front of a module (foundation-<module>), when one exists. */
 function foundationFor(moduleId: string) {
@@ -111,7 +112,13 @@ export function SubscriptionGate({ currentTab, children }: Props) {
     signedIn: !!user,
   });
   if (foundation === "free") return <>{children}</>;
-  if (foundation === "sign-in") return <FoundationSignInPrompt moduleId={activeModuleId} />;
+  if (foundation === "sign-in")
+    return (
+      <>
+        <PracticeBlocker />
+        <FoundationSignInPrompt moduleId={activeModuleId} />
+      </>
+    );
 
   // Wait for both auth + subscription to resolve
   if (authLoading || subLoading) return <>{children}</>;
@@ -149,6 +156,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
   if (isMissionaryModule && paywallSeen) {
     return (
       <div className="relative">
+        <PracticeBlocker />
         <div className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-gold/20 bg-gold/[0.05] px-4 py-2.5">
           <p className="text-xs text-muted-foreground">
             This section is part of the{" "}
@@ -175,6 +183,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
   // Not signed in or no active subscription → paywall overlay
   return (
     <div className="relative min-h-[420px]">
+      <PracticeBlocker />
       {/* Blurred preview of content */}
       <div className="pointer-events-none select-none blur-sm opacity-40 max-h-64 overflow-hidden">
         {children}

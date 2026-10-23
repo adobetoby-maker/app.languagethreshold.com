@@ -1,68 +1,48 @@
 // Built by TAC — 2026-10-22
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef } from "react";
 import { Timer } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import {
   setPracticeEnabled,
   setPracticeGoalMinutes,
+  usePracticeBlocked,
   usePracticeSettings,
   usePracticeTimeTicker,
   useTodayPracticeSeconds,
 } from "@/hooks/use-practice-time";
-import { GOAL_OPTIONS, practiceProgress } from "@/lib/practice-time";
+import { GOAL_OPTIONS, crossedGoal, practiceProgress } from "@/lib/practice-time";
 
 /**
- * The primary nav is the persistent app bar on every tab, on phone and desktop. Its top edge is
- * where the line sits. The nav lives in AppSidebar, so the bar is portaled in rather than
- * rendered there; the nav is `position: fixed`, so an absolute child adds no height.
+ * Render once, inside the primary nav (`position: fixed`), which is the persistent app bar on
+ * every tab. It owns the single 1s ticker and draws the 3px line on the nav's top edge as an
+ * absolute child, so it adds no height. Hidden, and not counting, while the bar is switched off
+ * or a paywall is up (see PracticeBlocker).
  */
-function usePrimaryNav(): HTMLElement | null {
-  const [host, setHost] = useState<HTMLElement | null>(null);
-  useEffect(() => {
-    const find = () => document.querySelector<HTMLElement>('nav[aria-label="Primary"]');
-    const found = find();
-    if (found) {
-      setHost(found);
-      return;
-    }
-    const observer = new MutationObserver(() => {
-      const next = find();
-      if (next) {
-        setHost(next);
-        observer.disconnect();
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
-  }, []);
-  return host;
-}
-
-/** Mount once at shell level: it owns the single 1s ticker and draws the bar. */
 export function PracticeTimeBar() {
   const { enabled, goalMinutes } = usePracticeSettings();
-  usePracticeTimeTicker(enabled);
+  const blocked = usePracticeBlocked();
+  const active = enabled && !blocked;
+  usePracticeTimeTicker(active);
   const seconds = useTodayPracticeSeconds();
-  const host = usePrimaryNav();
   const progress = practiceProgress(seconds, goalMinutes);
 
-  // One short pulse when the goal is crossed while the learner is watching; never on load.
+  // One short pulse only when a tick carries the learner across the goal during this visit.
   const fill = useRef<HTMLDivElement>(null);
-  const wasReached = useRef<boolean | null>(null);
+  const previous = useRef<{ seconds: number; goalSeconds: number } | null>(null);
   useEffect(() => {
-    const before = wasReached.current;
-    wasReached.current = progress.reached;
-    if (before !== false || !progress.reached) return;
+    const next = { seconds, goalSeconds: progress.goalSeconds };
+    const pulse = crossedGoal(previous.current, next);
+    previous.current = next;
+    if (!pulse) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     fill.current?.animate?.([{ opacity: 1 }, { opacity: 0.45 }, { opacity: 1 }], {
       duration: 700,
       easing: "ease-out",
     });
-  }, [progress.reached]);
+  }, [seconds, progress.goalSeconds]);
 
-  if (!enabled || !host) return null;
-  return createPortal(
+  if (!active) return null;
+  return (
     <div
       role="progressbar"
       aria-label={progress.label}
@@ -70,7 +50,7 @@ export function PracticeTimeBar() {
       aria-valuemax={progress.goalSeconds}
       aria-valuenow={progress.valueNow}
       data-testid="practice-time-bar"
-      className="pointer-events-none absolute inset-x-0 -top-px h-[3px] overflow-hidden bg-foreground/15"
+      className="pointer-events-none absolute inset-x-0 -top-px h-[3px] overflow-hidden bg-foreground/25"
     >
       <div
         ref={fill}
@@ -78,14 +58,15 @@ export function PracticeTimeBar() {
         className="h-full bg-gold transition-[width] duration-[400ms] ease-out motion-reduce:transition-none"
         style={{ width: `${progress.fraction * 100}%` }}
       />
-    </div>,
-    host,
+    </div>
   );
 }
 
 /** The on/off switch and daily goal for the bar. Device-local; lives on the Dashboard. */
 export function PracticeBarSetting() {
   const { enabled, goalMinutes } = usePracticeSettings();
+  const seconds = useTodayPracticeSeconds();
+  const progress = practiceProgress(seconds, goalMinutes);
   return (
     <section
       aria-labelledby="practice-bar-heading"
@@ -103,6 +84,14 @@ export function PracticeBarSetting() {
             A thin gold line above the bottom bar fills with today&apos;s active practice time.
             Saved on this device only.
           </p>
+          {enabled && (
+            <p
+              data-testid="practice-bar-today"
+              className="mt-2 font-mono text-xs tabular-nums text-foreground/80"
+            >
+              Today: {Math.floor(progress.valueNow / 60)} of {goalMinutes} min
+            </p>
+          )}
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
             <label className="flex items-center gap-3 text-sm text-foreground">
               <Switch

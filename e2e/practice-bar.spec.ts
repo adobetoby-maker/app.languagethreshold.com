@@ -5,8 +5,8 @@ import { appUrl, profileKey } from "./app-state.ts";
 const PRACTICE_KEY = "lt.practice-time.v1";
 
 /**
- * Opens `tab` past onboarding with an optional practice-time record. Everything is seeded by an
- * init script that only fills keys that are still empty, so a reload keeps what the app saved.
+ * Opens `tab` past onboarding with an optional practice-time record. An init script seeds it on
+ * the first load of the page only, so a reload keeps what the app saved.
  */
 async function openTab(
   page: Page,
@@ -32,19 +32,26 @@ async function openTab(
           );
         }
         localStorage.setItem("lt.languageChosen", "1");
-        if (practice && !localStorage.getItem(practiceKey)) {
-          const d = new Date();
-          const p = (n: number) => String(n).padStart(2, "0");
-          const key = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
-          localStorage.setItem(
-            practiceKey,
-            JSON.stringify({
-              v: 1,
-              enabled: practice.enabled ?? true,
-              goalMinutes: practice.goalMinutes ?? 10,
-              days: seconds > 0 ? { [key]: seconds } : {},
-            }),
-          );
+        // The first load of each page owns the practice record: a saved storageState (the repo
+        // config's setup project) may already hold one. Reloads of the same page keep what the
+        // app saved, which the sessionStorage flag tells apart.
+        if (!sessionStorage.getItem("pb-spec-seeded")) {
+          sessionStorage.setItem("pb-spec-seeded", "1");
+          localStorage.removeItem(practiceKey);
+          if (practice) {
+            const d = new Date();
+            const p = (n: number) => String(n).padStart(2, "0");
+            const key = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+            localStorage.setItem(
+              practiceKey,
+              JSON.stringify({
+                v: 1,
+                enabled: practice.enabled ?? true,
+                goalMinutes: practice.goalMinutes ?? 10,
+                days: seconds > 0 ? { [key]: seconds } : {},
+              }),
+            );
+          }
         }
       } catch {
         /* storage blocked */
@@ -123,6 +130,17 @@ test("an active learner on a visible tab gains seconds", async ({ page }) => {
   await expect.poll(read, { timeout: 15_000 }).toBeGreaterThanOrEqual(start + 3);
 });
 
+test("a fresh load with no interaction counts nothing, and there is exactly one bar", async ({
+  page,
+}) => {
+  await openTab(page, "reader", { seconds: 100 });
+  await expect(bar(page)).toBeVisible({ timeout: 60_000 });
+  await expect(bar(page)).toHaveCount(1);
+  await expect(bar(page)).toHaveAttribute("aria-valuenow", "100");
+  await page.waitForTimeout(3500);
+  await expect(bar(page)).toHaveAttribute("aria-valuenow", "100");
+});
+
 test("yesterday does not count toward today", async ({ page }) => {
   await openTab(page, "reader");
   await expect(bar(page)).toBeVisible({ timeout: 60_000 });
@@ -151,8 +169,10 @@ test("Dashboard switch hides the bar and the goal select changes the target, bot
   await expect(toggle).toBeChecked();
   await expect(goal).toHaveValue("10");
   await expect(bar(page)).toBeVisible();
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 10 min");
 
   await goal.selectOption("15");
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 15 min");
   await expect(bar(page)).toHaveAttribute("aria-valuemax", "900");
   await expect(bar(page)).toHaveAttribute("aria-label", /of 15 minutes$/);
 

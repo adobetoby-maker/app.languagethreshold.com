@@ -6,6 +6,8 @@ import {
   PRACTICE_TIME_KEY,
   applyTick,
   clampGoalMinutes,
+  mergeDays,
+  pruneDays,
   parsePracticeData,
   secondsToday,
   serializePracticeData,
@@ -29,6 +31,9 @@ let dirty = false;
 let lastSaveAt = 0;
 let settings: PracticeSettings = SERVER_SETTINGS;
 let today = 0;
+// Module scope so a remount (or the ticker pausing for the paywall) earns no free credit.
+let lastInteractionAt: number | null = null;
+let blockers = 0;
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -59,9 +64,11 @@ function load(): boolean {
   // Storage that cannot be read (blocked, or nothing written yet after a failed write) must not
   // wipe what this tab already holds in memory.
   if (raw === null && loaded) return refreshDerived(now);
-  data = parsePracticeData(raw, new Date(now));
+  const stored = parsePracticeData(raw, new Date(now));
+  // Merge, never replace: another window's unsaved seconds (and ours) both survive.
+  data = loaded ? { ...stored, days: pruneDays(mergeDays(stored.days, data.days), new Date(now)) } : stored;
+  if (!loaded) dirty = false;
   loaded = true;
-  dirty = false;
   return refreshDerived(now);
 }
 
@@ -97,6 +104,28 @@ function subscribe(listener: () => void): () => void {
   return () => {
     listeners.delete(listener);
   };
+}
+
+/** Paywall screens block the bar and the clock; see PracticeBlocker. */
+export function usePracticeBlocked(): boolean {
+  return useSyncExternalStore(
+    subscribe,
+    () => blockers > 0,
+    () => false,
+  );
+}
+
+/** Render while a screen must not earn practice time (paywall, sign-in wall). Renders nothing. */
+export function PracticeBlocker(): null {
+  useEffect(() => {
+    blockers += 1;
+    emit();
+    return () => {
+      blockers -= 1;
+      emit();
+    };
+  }, []);
+  return null;
 }
 
 export function usePracticeSettings(): PracticeSettings {
@@ -150,7 +179,6 @@ export function usePracticeTimeTicker(enabled: boolean) {
   useEffect(() => {
     if (!enabled || typeof window === "undefined") return;
     ensureLoaded();
-    let lastInteractionAt = Date.now();
     const onInteract = () => {
       lastInteractionAt = Date.now();
     };

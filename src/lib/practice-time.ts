@@ -64,9 +64,10 @@ export function pruneDays(days: Record<string, number>, now: Date): Record<strin
 export function isCounting(ctx: {
   visible: boolean;
   now: number;
-  lastInteractionAt: number;
+  /** null until the learner has acted since load: a fresh mount earns no credit. */
+  lastInteractionAt: number | null;
 }): boolean {
-  if (!ctx.visible) return false;
+  if (!ctx.visible || ctx.lastInteractionAt === null) return false;
   const idle = ctx.now - ctx.lastInteractionAt;
   return idle >= 0 && idle < IDLE_CUTOFF_MS;
 }
@@ -78,7 +79,7 @@ export function isCounting(ctx: {
  */
 export function applyTick(
   data: PracticeTimeData,
-  ctx: { now: number; visible: boolean; lastInteractionAt: number },
+  ctx: { now: number; visible: boolean; lastInteractionAt: number | null },
 ): PracticeTimeData {
   if (!isCounting(ctx)) return data;
   const date = new Date(ctx.now);
@@ -86,6 +87,35 @@ export function applyTick(
   const days = pruneDays(data.days, date);
   days[key] = (days[key] ?? 0) + 1;
   return { ...data, days };
+}
+
+/** Per-day maximum of two records, so a window's unsaved seconds survive another window's save. */
+export function mergeDays(
+  a: Record<string, number>,
+  b: Record<string, number>,
+): Record<string, number> {
+  const merged: Record<string, number> = { ...a };
+  for (const [key, seconds] of Object.entries(b)) {
+    if (!(key in merged) || seconds > merged[key]) merged[key] = seconds;
+  }
+  return merged;
+}
+
+/**
+ * True only when a ticker beat carried the learner across the goal: the goal is unchanged and
+ * the count rose by exactly one second. A first client value, a reload or a goal change is not a pulse.
+ */
+export function crossedGoal(prev: { seconds: number; goalSeconds: number } | null, next: {
+  seconds: number;
+  goalSeconds: number;
+}): boolean {
+  return (
+    prev !== null &&
+    prev.goalSeconds === next.goalSeconds &&
+    next.seconds === prev.seconds + 1 &&
+    prev.seconds < next.goalSeconds &&
+    next.seconds >= next.goalSeconds
+  );
 }
 
 /** Seconds practiced on the local day of `now`. */

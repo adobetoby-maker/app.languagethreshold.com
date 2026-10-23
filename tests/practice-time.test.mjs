@@ -6,6 +6,8 @@ import {
   IDLE_CUTOFF_MS,
   applyTick,
   clampGoalMinutes,
+  crossedGoal,
+  mergeDays,
   isCounting,
   localDateKey,
   parsePracticeData,
@@ -159,4 +161,37 @@ test("serialize then parse round-trips and prunes", () => {
   const data = { enabled: false, goalMinutes: 15, days: { "2026-10-22": 100, "2026-01-01": 50 } };
   const back = parsePracticeData(serializePracticeData(data, now), now);
   assert.deepEqual(back, { enabled: false, goalMinutes: 15, days: { "2026-10-22": 100 } });
+});
+
+test("mount with no interaction counts 0: a null interaction clock never counts", () => {
+  const now = at(2026, 10, 22);
+  assert.equal(isCounting({ visible: true, now, lastInteractionAt: null }), false);
+  const data = fresh();
+  for (let i = 0; i < 90; i++) {
+    assert.equal(applyTick(data, { now: now + i * 1000, visible: true, lastInteractionAt: null }), data);
+  }
+  // The first real interaction starts the clock.
+  assert.equal(applyTick(data, { now, visible: true, lastInteractionAt: now }).days["2026-10-22"], 1);
+});
+
+test("mergeDays takes the per-day maximum and keeps days only one side has", () => {
+  assert.deepEqual(
+    mergeDays({ "2026-10-22": 100, "2026-10-21": 50 }, { "2026-10-22": 90, "2026-10-20": 7 }),
+    { "2026-10-22": 100, "2026-10-21": 50, "2026-10-20": 7 },
+  );
+  assert.deepEqual(mergeDays({ "2026-10-22": 10 }, { "2026-10-22": 40 }), { "2026-10-22": 40 });
+  assert.deepEqual(mergeDays({}, {}), {});
+});
+
+test("crossedGoal fires only for a one-second beat across an unchanged goal", () => {
+  const g = 600;
+  assert.equal(crossedGoal({ seconds: 599, goalSeconds: g }, { seconds: 600, goalSeconds: g }), true);
+  // first client value (hydration jump from the server's 0), reload, merge: not a pulse
+  assert.equal(crossedGoal(null, { seconds: 700, goalSeconds: g }), false);
+  assert.equal(crossedGoal({ seconds: 0, goalSeconds: g }, { seconds: 700, goalSeconds: g }), false);
+  assert.equal(crossedGoal({ seconds: 598, goalSeconds: g }, { seconds: 600, goalSeconds: g }), false);
+  // already past the goal, or goal lowered
+  assert.equal(crossedGoal({ seconds: 650, goalSeconds: g }, { seconds: 651, goalSeconds: g }), false);
+  assert.equal(crossedGoal({ seconds: 599, goalSeconds: 900 }, { seconds: 600, goalSeconds: 600 }), false);
+  assert.equal(crossedGoal({ seconds: 300, goalSeconds: g }, { seconds: 301, goalSeconds: g }), false);
 });

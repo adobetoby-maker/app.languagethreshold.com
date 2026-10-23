@@ -1,4 +1,5 @@
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
+import { PracticeTimeBar } from "./PracticeTimeBar";
 import {
   BookOpen,
   GraduationCap,
@@ -528,6 +529,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         aria-label="Primary"
         className="fixed bottom-0 inset-x-0 desktop:left-[76px] z-40 flex flex-col border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]"
       >
+        <PracticeTimeBar />
         {/* Mobile-only: Add word + language + module + voice + theme. One tight row that
            fits 375px with nothing clipped: the module chip is the only flexible one and
            truncates; every control stays reachable. Add word lives here (not floating over

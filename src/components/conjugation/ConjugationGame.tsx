@@ -24,6 +24,7 @@ import {
 } from "@/fns/conjugation.functions";
 import { ConjugationLeaderboard } from "./ConjugationLeaderboard";
 import { MODULES } from "@/data/modules";
+import { packConjugationFor } from "@/lib/trade-packs";
 
 const LEVEL_LABELS: Record<ConjugationLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Single change — tense, person, or number" },
@@ -49,12 +50,27 @@ export function ConjugationGame() {
 
   useEffect(() => {
     conj.setFetcher(async ({ language, level, avoid }) => {
-      const res = await fetchQuestion({ data: { language, level, avoid, topic, userWords } });
+      // Pack first (static, free, works offline), waiting for the module's pack if its fetch is
+      // still in flight; the pack picks the axis at levels 1-2. A pack question wins even when
+      // the learner has personal words (as in Word Match); when the pack has nothing for this
+      // request, the live AI call runs.
+      const packed = app.activeModuleId
+        ? await packConjugationFor({
+            moduleId: app.activeModuleId,
+            language,
+            nativeLanguage: app.nativeLanguage,
+            level,
+            avoid,
+          })
+        : null;
+      const res = packed
+        ? { data: packed, error: null }
+        : await fetchQuestion({ data: { language, level, avoid, topic, userWords } });
       if (res.error || !res.data) throw new Error(res.error ?? "No question.");
       return res.data;
     });
     return () => conj.setFetcher(null);
-  }, [conj, fetchQuestion, topic, userWords]);
+  }, [conj, fetchQuestion, topic, userWords, app.activeModuleId, app.nativeLanguage]);
 
   const [selectedLevel, setSelectedLevel] = useState<ConjugationLevel>(1);
   const [shuffled, setShuffled] = useState<string[]>([]);

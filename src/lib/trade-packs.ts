@@ -1,13 +1,30 @@
 // Built by TAC — 2026-10-23
 // Client side of trade packs: static, module-flavored content for the core areas, one JSON file
 // per module and target language under /trade-packs/<langCode>/<moduleId>.json. A pack holds a
-// section per area (Word Match first); the area reads the pack first and falls back to its live
-// AI call when the pack has nothing. Loaded like src/lib/lesson-content.ts: fetched once per
+// section per area (Word Match, Sentence Builder, Conjugation); the area reads the pack first and
+// falls back to its live AI call when the pack has nothing. Loaded like src/lib/lesson-content.ts: fetched once per
 // session, cached offline by the service worker, a missing file (404, or the dev server's HTML
 // fallback) remembered as "no pack". No React: node tests, the generator and the app share it.
 
 import { contentNativeLanguage } from "./lesson-content-core.ts";
 import { languageTag } from "./lesson-words-core.ts";
+import {
+  CONJUGATION_LEVEL_AXES,
+  checkConjugationQuestion,
+  conjugationCefr,
+  isConjugationLevel,
+  type ConjugationAxis,
+  type ConjugationLevel,
+  type ConjugationQuestion,
+} from "./conjugation-core.ts";
+import {
+  checkSentenceBuildItem,
+  isSentenceBuildLevel,
+  scrambleSentenceTokens,
+  type SentenceBuildItem,
+  type SentenceBuildLevel,
+  type SentenceBuildQuestion,
+} from "./sentence-build-core.ts";
 import {
   WORD_MATCH_LEVELS,
   checkWordMatchBoard,
@@ -27,6 +44,16 @@ export interface TradePackWordMatchBoard extends WordMatchBoard {
   level: WordMatchLevel;
 }
 
+/** A Sentence Builder question as stored in a pack: no scrambled order (made at pick time). */
+export interface TradePackSentenceItem extends SentenceBuildItem {
+  level: SentenceBuildLevel;
+}
+
+/** A Conjugation question as stored in a pack: the live question plus the level it is for. */
+export interface TradePackConjugationItem extends ConjugationQuestion {
+  level: ConjugationLevel;
+}
+
 export interface TradePackFile {
   version: number;
   module: string;
@@ -38,7 +65,13 @@ export interface TradePackFile {
   /** True once a person who reads the language has gone through the file. */
   reviewed: boolean;
   wordMatch?: { boards: TradePackWordMatchBoard[] };
+  sentenceBuild?: { items: TradePackSentenceItem[] };
+  conjugation?: { items: TradePackConjugationItem[] };
 }
+
+/** The areas a pack file can hold, in file order. */
+export const TRADE_PACK_AREAS = ["wordMatch", "sentenceBuild", "conjugation"] as const;
+export type TradePackArea = (typeof TRADE_PACK_AREAS)[number];
 
 export interface TradePackIndexEntry {
   module: string;
@@ -46,10 +79,14 @@ export interface TradePackIndexEntry {
   nativeLanguage: string;
   /** Site-relative URL of the pack file. */
   path: string;
-  /** Areas the pack covers (today: "wordMatch"). */
+  /** Areas the pack covers ("wordMatch", "sentenceBuild", "conjugation"). */
   areas: string[];
   /** Word Match boards per level, "1" / "2" / "3". */
   wordMatchBoards?: Record<string, number>;
+  /** Sentence Builder questions per level, "1" / "2" / "3". */
+  sentenceBuildItems?: Record<string, number>;
+  /** Conjugation questions per level and axis, { "1": { tense: 12, ... }, ... }. */
+  conjugationItems?: Record<string, Record<string, number>>;
   bytes: number;
   reviewed: boolean;
   generatedAt: string;
@@ -59,6 +96,19 @@ export interface TradePackIndex {
   version: number;
   packs: TradePackIndexEntry[];
 }
+
+/** Pool size the generator holds a Sentence Builder section to. */
+export const SENTENCE_BUILD_PACK_RULES = {
+  minItemsPerLevel: 40,
+} as const;
+
+/** Pool size the generator holds a Conjugation section to (per level and axis). */
+export const CONJUGATION_PACK_RULES = {
+  /** Levels 1 and 2: at least this many questions for each axis the level tests. */
+  minItemsPerAxis: 12,
+  /** Level 3 ("mixed" only). */
+  minItemsLevel3: 24,
+} as const;
 
 /** Pool size and variety the generator holds a Word Match section to. */
 export const WORD_MATCH_PACK_RULES = {
@@ -84,11 +134,41 @@ export function tradePackNativeLanguage(targetLanguage: string): string {
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   !!value && typeof value === "object" && !Array.isArray(value);
 
+/** The Sentence Builder questions of a section that pass the live rules (the rest are dropped). */
+export function parseSentenceBuildItems(raw: unknown, language: string): TradePackSentenceItem[] {
+  if (!Array.isArray(raw)) return [];
+  const items: TradePackSentenceItem[] = [];
+  for (const item of raw) {
+    if (!isRecord(item) || !isSentenceBuildLevel(item.level)) continue;
+    const checked = checkSentenceBuildItem(item, item.level, language);
+    if (checked.ok) items.push({ level: item.level, ...checked.question });
+  }
+  return items;
+}
+
+/**
+ * The Conjugation questions of a section that pass the live rules: the structural check, the
+ * level's CEFR label, and an axis the level tests (levels 1-2 one of three, level 3 "mixed").
+ */
+export function parseConjugationItems(raw: unknown): TradePackConjugationItem[] {
+  if (!Array.isArray(raw)) return [];
+  const items: TradePackConjugationItem[] = [];
+  for (const item of raw) {
+    if (!isRecord(item) || !isConjugationLevel(item.level)) continue;
+    const axis = item.axisTested as ConjugationAxis;
+    if (!CONJUGATION_LEVEL_AXES[item.level].includes(axis)) continue;
+    const checked = checkConjugationQuestion(item, { cefr: conjugationCefr(item.level), axis });
+    if (checked.ok) items.push({ level: item.level, ...checked.question });
+  }
+  return items;
+}
+
 /**
  * Validates an untrusted pack (parsed JSON) for the app: right version, matching module and
- * language, and only the boards that pass the Word Match rules (an invalid board is dropped,
- * never repaired). Null when nothing in the file is usable. The strict pool rules run in the
- * generator and the tests (validateWordMatchSection), not on every learner's phone.
+ * language, and only the boards and questions that pass each area's live rules (an invalid one
+ * is dropped, never repaired). Null when nothing in the file is usable. The strict pool rules
+ * run in the generator and the tests (validateWordMatchSection and src/lib/trade-pack-rules-core.ts),
+ * not on every learner's phone.
  */
 export function parseTradePack(
   raw: unknown,
@@ -120,7 +200,15 @@ export function parseTradePack(
     if (boards.length > 0) file.wordMatch = { boards };
   }
 
-  return file.wordMatch ? file : null;
+  const sentences = isRecord(raw.sentenceBuild)
+    ? parseSentenceBuildItems(raw.sentenceBuild.items, expected.language)
+    : [];
+  if (sentences.length > 0) file.sentenceBuild = { items: sentences };
+
+  const conjugation = isRecord(raw.conjugation) ? parseConjugationItems(raw.conjugation.items) : [];
+  if (conjugation.length > 0) file.conjugation = { items: conjugation };
+
+  return file.wordMatch || file.sentenceBuild || file.conjugation ? file : null;
 }
 
 // ─── Card rules (generator and tests) ────────────────────────────────────────
@@ -364,6 +452,108 @@ export function pickPackBoard(input: PickPackBoardInput): WordMatchBoard | null 
   };
 }
 
+/** Input shared by the Sentence Builder and Conjugation pickers. */
+export interface PickPackQuestionInput<L> {
+  moduleId: string | null | undefined;
+  language: string;
+  level: L;
+  /**
+   * What the run already used, in the game's own terms: Sentence Builder sends the first 30
+   * characters of each sentence it showed, Conjugation the infinitives it asked about.
+   */
+  avoid?: readonly string[];
+  /** The learner's native language; a pack written for another one is not used. */
+  nativeLanguage?: string;
+  /** Test hook: a 0..1 random source. */
+  random?: () => number;
+}
+
+const pickOne = <T>(list: readonly T[], random: () => number): T =>
+  list[Math.min(list.length - 1, Math.floor(random() * list.length))];
+
+/** The loaded pack for a picker, or null (not loaded, missing, or another native language). */
+function packForPick(input: {
+  moduleId: string | null | undefined;
+  language: string;
+  nativeLanguage?: string;
+}): TradePackFile | null {
+  if (!input.moduleId) return null;
+  const file = loadedTradePack(input.moduleId, input.language);
+  if (!file) return null;
+  if (input.nativeLanguage && input.nativeLanguage !== file.nativeLanguage) return null;
+  return file;
+}
+
+/** The key Sentence Builder's `avoid` uses for a sentence: its first 30 characters. */
+export const sentenceAvoidKey = (sentence: string) => sentence.slice(0, 30).normalize("NFC");
+
+/**
+ * A pack Sentence Builder question for the level whose opening (first 30 characters) is not in
+ * `avoid`, chosen at random, with a fresh scrambled order that is never the correct one. Null
+ * when the pack is not loaded, missing, or has nothing eligible.
+ */
+export function pickPackSentence(
+  input: PickPackQuestionInput<SentenceBuildLevel>,
+): SentenceBuildQuestion | null {
+  const file = packForPick(input);
+  if (!file?.sentenceBuild) return null;
+  const avoided = new Set((input.avoid ?? []).map((value) => value.normalize("NFC")));
+  const eligible = file.sentenceBuild.items.filter(
+    (item) => item.level === input.level && !avoided.has(sentenceAvoidKey(item.targetSentence)),
+  );
+  if (eligible.length === 0) return null;
+  const random = input.random ?? Math.random;
+  const chosen = pickOne(eligible, random);
+  return {
+    targetSentence: chosen.targetSentence,
+    englishTranslation: chosen.englishTranslation,
+    tokens: [...chosen.tokens],
+    scrambled: scrambleSentenceTokens(chosen.tokens, random),
+    topic: chosen.topic,
+    cefr: chosen.cefr,
+    explanation: chosen.explanation,
+  };
+}
+
+const infinitiveKey = (value: string) => value.normalize("NFC").trim().toLocaleLowerCase();
+
+/**
+ * A pack Conjugation question for the level whose infinitive is not in `avoid`. At levels 1 and
+ * 2 the axis is chosen here, at random among the axes that still have an eligible question (the
+ * live call picks one at random too); level 3 is always "mixed". Null when nothing is eligible.
+ */
+export function pickPackConjugation(
+  input: PickPackQuestionInput<ConjugationLevel>,
+): ConjugationQuestion | null {
+  const file = packForPick(input);
+  if (!file?.conjugation) return null;
+  const avoided = new Set((input.avoid ?? []).map(infinitiveKey));
+  const eligible = file.conjugation.items.filter(
+    (item) => item.level === input.level && !avoided.has(infinitiveKey(item.infinitive)),
+  );
+  const random = input.random ?? Math.random;
+  const axes = CONJUGATION_LEVEL_AXES[input.level].filter((axis) =>
+    eligible.some((item) => item.axisTested === axis),
+  );
+  if (axes.length === 0) return null;
+  const axis = pickOne(axes, random);
+  const chosen = pickOne(
+    eligible.filter((item) => item.axisTested === axis),
+    random,
+  );
+  return {
+    phrase: chosen.phrase,
+    phraseTranslation: chosen.phraseTranslation,
+    infinitive: chosen.infinitive,
+    infinitiveTranslation: chosen.infinitiveTranslation,
+    correctConjugation: chosen.correctConjugation,
+    wrongOptions: [...chosen.wrongOptions],
+    explanation: chosen.explanation,
+    axisTested: chosen.axisTested,
+    cefr: chosen.cefr,
+  };
+}
+
 // ─── Loading ─────────────────────────────────────────────────────────────────
 
 // null = no file / unusable. A key that is absent has not been resolved yet.
@@ -445,6 +635,34 @@ export async function packBoardFor(
   }
   await loadTradePack(input.moduleId, input.language);
   return pickPackBoard(input);
+}
+
+/**
+ * A pack Sentence Builder question for a question that is loading: waits for the pack if its
+ * fetch is still in flight (bounded by the loader's timeout), then picks. Null = use the live call.
+ */
+export async function packSentenceFor(
+  input: PickPackQuestionInput<SentenceBuildLevel> & { moduleId: string },
+): Promise<SentenceBuildQuestion | null> {
+  if (input.nativeLanguage && input.nativeLanguage !== tradePackNativeLanguage(input.language)) {
+    return null;
+  }
+  await loadTradePack(input.moduleId, input.language);
+  return pickPackSentence(input);
+}
+
+/**
+ * A pack Conjugation question for a question that is loading: waits for the pack if its fetch
+ * is still in flight (bounded by the loader's timeout), then picks. Null = use the live call.
+ */
+export async function packConjugationFor(
+  input: PickPackQuestionInput<ConjugationLevel> & { moduleId: string },
+): Promise<ConjugationQuestion | null> {
+  if (input.nativeLanguage && input.nativeLanguage !== tradePackNativeLanguage(input.language)) {
+    return null;
+  }
+  await loadTradePack(input.moduleId, input.language);
+  return pickPackConjugation(input);
 }
 
 /** Test hook: forget everything loaded. */

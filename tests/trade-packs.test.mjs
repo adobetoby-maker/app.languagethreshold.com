@@ -549,7 +549,7 @@ test("the shipped roofing pack passes every rule and is listed in the index", ()
   assert.ok(entry);
   assert.equal(entry.path, tradePackPath("roofing", "Spanish"));
   assert.equal(entry.bytes, Buffer.byteLength(text));
-  assert.deepEqual(entry.areas, ["wordMatch"]);
+  assert.deepEqual(entry.areas, ["wordMatch", "sentenceBuild", "conjugation"]);
 });
 
 test("the roofing pack uses one Spanish word per concept and none of the rejected terms", () => {

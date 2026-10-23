@@ -15,6 +15,7 @@ import { useApp } from "@/state/app-state";
 import { useSentenceBuild, type SBLeaderboardKey } from "@/state/sentence-build-state";
 import { generateSentenceBuilder, type SentenceBuildLevel } from "@/fns/sentence-build.functions";
 import { MODULES } from "@/data/modules";
+import { packSentenceFor } from "@/lib/trade-packs";
 
 const LEVEL_LABELS: Record<SentenceBuildLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Short — 4–6 tokens, A2" },
@@ -35,12 +36,25 @@ export function SentenceBuilder() {
 
   useEffect(() => {
     sb.setFetcher(async ({ language, level, avoid }) => {
-      const res = await fetchQuestion({ data: { language, level, avoid, topic } });
+      // Pack first (static, free, works offline): the selected module's trade pack, waiting for
+      // it if its fetch is still in flight. When the pack has nothing, the live AI call runs.
+      const packed = app.activeModuleId
+        ? await packSentenceFor({
+            moduleId: app.activeModuleId,
+            language,
+            nativeLanguage: app.nativeLanguage,
+            level,
+            avoid,
+          })
+        : null;
+      const res = packed
+        ? { data: packed, error: null }
+        : await fetchQuestion({ data: { language, level, avoid, topic } });
       if (res.error || !res.data) throw new Error(res.error ?? "No question.");
       return res.data;
     });
     return () => sb.setFetcher(null);
-  }, [sb, fetchQuestion, topic]);
+  }, [sb, fetchQuestion, topic, app.activeModuleId, app.nativeLanguage]);
 
   const [selectedLevel, setSelectedLevel] = useState<SentenceBuildLevel>(1);
   const run = sb.state.run;

@@ -1,8 +1,8 @@
 # Verb patterns review report (es, present)
 
-Items: 634
+Items: 638
 
-## classified (364)
+## classified (367)
 
 - abandonar: "to abandon; to give up": yo abandono [es.present.ar]; tú abandonas [es.present.ar]; él_ella_usted abandona [es.present.ar]; nosotros abandonamos [es.present.ar]; ellos_ustedes abandonan [es.present.ar]
 - abordar: "to board": yo abordo [es.present.ar]; tú abordas [es.present.ar]; él_ella_usted aborda [es.present.ar]; nosotros abordamos [es.present.ar]; ellos_ustedes abordan [es.present.ar]
@@ -22,7 +22,7 @@ Items: 634
 - admirar: "to admire": yo admiro [es.present.ar]; tú admiras [es.present.ar]; él_ella_usted admira [es.present.ar]; nosotros admiramos [es.present.ar]; ellos_ustedes admiran [es.present.ar]
 - afectar: "to affect": yo afecto [es.present.ar]; tú afectas [es.present.ar]; él_ella_usted afecta [es.present.ar]; nosotros afectamos [es.present.ar]; ellos_ustedes afectan [es.present.ar]
 - afilar: "to sharpen": yo afilo [es.present.ar]; tú afilas [es.present.ar]; él_ella_usted afila [es.present.ar]; nosotros afilamos [es.present.ar]; ellos_ustedes afilan [es.present.ar]
-- agarrar: "to grab, to hold on to": yo agarro [es.present.ar]; tú agarras [es.present.ar]; él_ella_usted agarra [es.present.ar]; nosotros agarramos [es.present.ar]; ellos_ustedes agarran [es.present.ar]
+- agarrar: "to grab": yo agarro [es.present.ar]; tú agarras [es.present.ar]; él_ella_usted agarra [es.present.ar]; nosotros agarramos [es.present.ar]; ellos_ustedes agarran [es.present.ar]
 - agendar: "to schedule": yo agendo [es.present.ar]; tú agendas [es.present.ar]; él_ella_usted agenda [es.present.ar]; nosotros agendamos [es.present.ar]; ellos_ustedes agendan [es.present.ar]
 - agitar: "to shake": yo agito [es.present.ar]; tú agitas [es.present.ar]; él_ella_usted agita [es.present.ar]; nosotros agitamos [es.present.ar]; ellos_ustedes agitan [es.present.ar]
 - agregar: "to add": yo agrego [es.present.ar]; tú agregas [es.present.ar]; él_ella_usted agrega [es.present.ar]; nosotros agregamos [es.present.ar]; ellos_ustedes agregan [es.present.ar]
@@ -30,7 +30,7 @@ Items: 634
 - ajustar: "to adjust": yo ajusto [es.present.ar]; tú ajustas [es.present.ar]; él_ella_usted ajusta [es.present.ar]; nosotros ajustamos [es.present.ar]; ellos_ustedes ajustan [es.present.ar]
 - alcanzar: "to reach": yo alcanzo [es.present.ar]; tú alcanzas [es.present.ar]; él_ella_usted alcanza [es.present.ar]; nosotros alcanzamos [es.present.ar]; ellos_ustedes alcanzan [es.present.ar]
 - alimentar: "to nourish": yo alimento [es.present.ar]; tú alimentas [es.present.ar]; él_ella_usted alimenta [es.present.ar]; nosotros alimentamos [es.present.ar]; ellos_ustedes alimentan [es.present.ar]
-- alinear: "to line up": yo alineo [es.present.ar]; tú alineas [es.present.ar]; él_ella_usted alinea [es.present.ar]; nosotros alineamos [es.present.ar]; ellos_ustedes alinean [es.present.ar]
+- alinear: "to align": yo alineo [es.present.ar]; tú alineas [es.present.ar]; él_ella_usted alinea [es.present.ar]; nosotros alineamos [es.present.ar]; ellos_ustedes alinean [es.present.ar]
 - aliviar: "to relieve": yo alivio [es.present.ar]; tú alivias [es.present.ar]; él_ella_usted alivia [es.present.ar]; nosotros aliviamos [es.present.ar]; ellos_ustedes alivian [es.present.ar]
 - almorzar: "to have lunch": yo almuerzo [es.present.o-ue]; tú almuerzas [es.present.o-ue]; él_ella_usted almuerza [es.present.o-ue]; nosotros almorzamos [es.present.ar]; ellos_ustedes almuerzan [es.present.o-ue]
 - alquilar: "to rent": yo alquilo [es.present.ar]; tú alquilas [es.present.ar]; él_ella_usted alquila [es.present.ar]; nosotros alquilamos [es.present.ar]; ellos_ustedes alquilan [es.present.ar]
@@ -46,7 +46,7 @@ Items: 634
 - aplanar: "to flatten, to level": yo aplano [es.present.ar]; tú aplanas [es.present.ar]; él_ella_usted aplana [es.present.ar]; nosotros aplanamos [es.present.ar]; ellos_ustedes aplanan [es.present.ar]
 - aplicar: "to apply": yo aplico [es.present.ar]; tú aplicas [es.present.ar]; él_ella_usted aplica [es.present.ar]; nosotros aplicamos [es.present.ar]; ellos_ustedes aplican [es.present.ar]
 - apretar: "to tighten": yo aprieto [es.present.e-ie]; tú aprietas [es.present.e-ie]; él_ella_usted aprieta [es.present.e-ie]; nosotros apretamos [es.present.ar]; ellos_ustedes aprietan [es.present.e-ie]
-- apuntar: "to point (aim)": yo apunto [es.present.ar]; tú apuntas [es.present.ar]; él_ella_usted apunta [es.present.ar]; nosotros apuntamos [es.present.ar]; ellos_ustedes apuntan [es.present.ar]
+- apuntar: "to jot down, to aim": yo apunto [es.present.ar]; tú apuntas [es.present.ar]; él_ella_usted apunta [es.present.ar]; nosotros apuntamos [es.present.ar]; ellos_ustedes apuntan [es.present.ar]
 - arrancar: "to start (an engine)": yo arranco [es.present.ar]; tú arrancas [es.present.ar]; él_ella_usted arranca [es.present.ar]; nosotros arrancamos [es.present.ar]; ellos_ustedes arrancan [es.present.ar]
 - arrendar: "to lease, to rent": yo arriendo [es.present.e-ie]; tú arriendas [es.present.e-ie]; él_ella_usted arrienda [es.present.e-ie]; nosotros arrendamos [es.present.ar]; ellos_ustedes arriendan [es.present.e-ie]
 - arriesgar: "to risk": yo arriesgo [es.present.ar]; tú arriesgas [es.present.ar]; él_ella_usted arriesga [es.present.ar]; nosotros arriesgamos [es.present.ar]; ellos_ustedes arriesgan [es.present.ar]
@@ -57,7 +57,7 @@ Items: 634
 - autenticar: "to authenticate": yo autentico [es.present.ar]; tú autenticas [es.present.ar]; él_ella_usted autentica [es.present.ar]; nosotros autenticamos [es.present.ar]; ellos_ustedes autentican [es.present.ar]
 - autorizar: "to authorize": yo autorizo [es.present.ar]; tú autorizas [es.present.ar]; él_ella_usted autoriza [es.present.ar]; nosotros autorizamos [es.present.ar]; ellos_ustedes autorizan [es.present.ar]
 - avanzar: "to advance": yo avanzo [es.present.ar]; tú avanzas [es.present.ar]; él_ella_usted avanza [es.present.ar]; nosotros avanzamos [es.present.ar]; ellos_ustedes avanzan [es.present.ar]
-- avisar: "to notify, to let know": yo aviso [es.present.ar]; tú avisas [es.present.ar]; él_ella_usted avisa [es.present.ar]; nosotros avisamos [es.present.ar]; ellos_ustedes avisan [es.present.ar]
+- avisar: "to let (someone) know, to notify": yo aviso [es.present.ar]; tú avisas [es.present.ar]; él_ella_usted avisa [es.present.ar]; nosotros avisamos [es.present.ar]; ellos_ustedes avisan [es.present.ar]
 - ayunar: "to fast": yo ayuno [es.present.ar]; tú ayunas [es.present.ar]; él_ella_usted ayuna [es.present.ar]; nosotros ayunamos [es.present.ar]; ellos_ustedes ayunan [es.present.ar]
 - añadir: "to add": yo añado [es.present.ir]; tú añades [es.present.ir]; él_ella_usted añade [es.present.ir]; nosotros añadimos [es.present.ir]; ellos_ustedes añaden [es.present.ir]
 - bajar: "to lower": yo bajo [es.present.ar]; tú bajas [es.present.ar]; él_ella_usted baja [es.present.ar]; nosotros bajamos [es.present.ar]; ellos_ustedes bajan [es.present.ar]
@@ -67,6 +67,7 @@ Items: 634
 - brindar: "to toast": yo brindo [es.present.ar]; tú brindas [es.present.ar]; él_ella_usted brinda [es.present.ar]; nosotros brindamos [es.present.ar]; ellos_ustedes brindan [es.present.ar]
 - bromear: "to joke": yo bromeo [es.present.ar]; tú bromeas [es.present.ar]; él_ella_usted bromea [es.present.ar]; nosotros bromeamos [es.present.ar]; ellos_ustedes bromean [es.present.ar]
 - caber: "to fit": yo quepo [] (irregular); tú cabes [es.present.er]; él_ella_usted cabe [es.present.er]; nosotros cabemos [es.present.er]; ellos_ustedes caben [es.present.er]
+- calafatear: "to caulk": yo calafateo [es.present.ar]; tú calafateas [es.present.ar]; él_ella_usted calafatea [es.present.ar]; nosotros calafateamos [es.present.ar]; ellos_ustedes calafatean [es.present.ar]
 - calentar: "to warm up": yo caliento [es.present.e-ie]; tú calientas [es.present.e-ie]; él_ella_usted calienta [es.present.e-ie]; nosotros calentamos [es.present.ar]; ellos_ustedes calientan [es.present.e-ie]
 - calibrar: "to calibrate": yo calibro [es.present.ar]; tú calibras [es.present.ar]; él_ella_usted calibra [es.present.ar]; nosotros calibramos [es.present.ar]; ellos_ustedes calibran [es.present.ar]
 - calmar: "to calm, to relieve": yo calmo [es.present.ar]; tú calmas [es.present.ar]; él_ella_usted calma [es.present.ar]; nosotros calmamos [es.present.ar]; ellos_ustedes calman [es.present.ar]
@@ -150,6 +151,7 @@ Items: 634
 - empeorar: "to get worse": yo empeoro [es.present.ar]; tú empeoras [es.present.ar]; él_ella_usted empeora [es.present.ar]; nosotros empeoramos [es.present.ar]; ellos_ustedes empeoran [es.present.ar]
 - empujar: "to push": yo empujo [es.present.ar]; tú empujas [es.present.ar]; él_ella_usted empuja [es.present.ar]; nosotros empujamos [es.present.ar]; ellos_ustedes empujan [es.present.ar]
 - empuñar: "to grip": yo empuño [es.present.ar]; tú empuñas [es.present.ar]; él_ella_usted empuña [es.present.ar]; nosotros empuñamos [es.present.ar]; ellos_ustedes empuñan [es.present.ar]
+- encajar: "to fit into place, to snap in": yo encajo [es.present.ar]; tú encajas [es.present.ar]; él_ella_usted encaja [es.present.ar]; nosotros encajamos [es.present.ar]; ellos_ustedes encajan [es.present.ar]
 - encantar: "to love, to delight": yo encanto [es.present.ar]; tú encantas [es.present.ar]; él_ella_usted encanta [es.present.ar]; nosotros encantamos [es.present.ar]; ellos_ustedes encantan [es.present.ar]
 - encender: "to turn on": yo enciendo [es.present.e-ie]; tú enciendes [es.present.e-ie]; él_ella_usted enciende [es.present.e-ie]; nosotros encendemos [es.present.er]; ellos_ustedes encienden [es.present.e-ie]
 - encerrar: "to pen in, to corral": yo encierro [es.present.e-ie]; tú encierras [es.present.e-ie]; él_ella_usted encierra [es.present.e-ie]; nosotros encerramos [es.present.ar]; ellos_ustedes encierran [es.present.e-ie]
@@ -322,6 +324,7 @@ Items: 634
 - resucitar: "to revive, to come back to life": yo resucito [es.present.ar]; tú resucitas [es.present.ar]; él_ella_usted resucita [es.present.ar]; nosotros resucitamos [es.present.ar]; ellos_ustedes resucitan [es.present.ar]
 - retener: "to retain": yo retengo [es.present.go-yo]; tú retienes [es.present.e-ie]; él_ella_usted retiene [es.present.e-ie]; nosotros retenemos [es.present.er]; ellos_ustedes retienen [es.present.e-ie]
 - retirar: "to remove, to take off": yo retiro [es.present.ar]; tú retiras [es.present.ar]; él_ella_usted retira [es.present.ar]; nosotros retiramos [es.present.ar]; ellos_ustedes retiran [es.present.ar]
+- retocar: "to touch up": yo retoco [es.present.ar]; tú retocas [es.present.ar]; él_ella_usted retoca [es.present.ar]; nosotros retocamos [es.present.ar]; ellos_ustedes retocan [es.present.ar]
 - retomar: "to go back to, to resume": yo retomo [es.present.ar]; tú retomas [es.present.ar]; él_ella_usted retoma [es.present.ar]; nosotros retomamos [es.present.ar]; ellos_ustedes retoman [es.present.ar]
 - reunir: "to gather": yo reúno [] (irregular); tú reúnes [] (irregular); él_ella_usted reúne [] (irregular); nosotros reunimos [es.present.ir]; ellos_ustedes reúnen [] (irregular)
 - revelar: "to reveal": yo revelo [es.present.ar]; tú revelas [es.present.ar]; él_ella_usted revela [es.present.ar]; nosotros revelamos [es.present.ar]; ellos_ustedes revelan [es.present.ar]
@@ -431,7 +434,7 @@ Items: 634
 
 - volear: modules disagree: tú "volees" vs "voleas"
 
-## gloss-variants (217)
+## gloss-variants (218)
 
 - abrir: "to open" (34), "to open (a route)" (1), "to open, to leave open" (1), "to open; to dig" (1); most frequent used
 - aceptar: "to accept" (20), "to accept, to agree" (1); most frequent used
@@ -439,12 +442,13 @@ Items: 634
 - acordar: "to agree" (3), "to agree on" (2); most frequent used
 - activar: "to activate" (3), "to turn on / to activate" (1); most frequent used
 - adelantar: "to advance" (1), "to pass" (1); most frequent used
-- agarrar: "to grab" (1), "to grab, to bind" (1), "to grab, to hold" (1), "to grab, to hold on to" (1), "to grab; to hold" (1), "to grip, to hold" (1); most frequent used
+- agarrar: "to grab" (2), "to grab, to bind" (1), "to grab, to hold" (1), "to grab, to hold on to" (1), "to grab; to hold" (1), "to grip, to hold" (1); most frequent used
 - agradecer: "to thank" (3), "to thank, to be grateful" (2), "to thank, to be grateful for" (4), "to thank, to give thanks" (1), "to thank; to be grateful" (1); most frequent used
 - aguantar: "to hold" (1), "to hold, to bear" (1); most frequent used
-- ajustar: "to adjust" (27), "to adjust, to fit" (1), "to adjust, to take in" (1), "to adjust, to tighten" (1), "to tighten, to adjust" (1); most frequent used
+- ajustar: "to adjust" (29), "to adjust, to fit" (1), "to adjust, to take in" (1), "to adjust, to tighten" (1), "to fit" (1), "to tighten, to adjust" (1); most frequent used
 - alimentar: "to feed" (1), "to nourish" (1); most frequent used
-- alinear: "to align" (1), "to line up" (1); most frequent used
+- alinear: "to align" (2), "to line up" (1); most frequent used
+- amarrar: "to tie down" (4), "to tie off" (2); most frequent used
 - anclar: "to anchor, to tie off" (1), "to tie off / to anchor" (1); most frequent used
 - anotar: "to note down" (3), "to note, to write down" (4), "to record; to write down" (1), "to score" (2), "to write down" (30), "to write down, to note" (3), "to write down, to record" (2); most frequent used
 - aparecer: "to appear, to be listed" (2), "to turn up" (1); most frequent used
@@ -453,57 +457,57 @@ Items: 634
 - apoyar: "to put weight on, to support" (1), "to rest, to put weight on" (1), "to support" (6); most frequent used
 - apretar: "to be tight / to squeeze" (1), "to press" (1), "to press, to squeeze" (1), "to squeeze" (1), "to tighten" (4); most frequent used
 - aprobar: "to approve" (11), "to pass" (1); most frequent used
-- apuntar: "to aim" (1), "to point (aim)" (1); most frequent used
-- armar: "to build, to assemble" (1), "to wind up / to set up" (1); most frequent used
+- apuntar: "to aim" (1), "to point (aim)" (1), "to write down" (2); most frequent used
+- armar: "to build, to assemble" (1), "to set up, to assemble" (1), "to wind up / to set up" (1); most frequent used
 - arrancar: "to start" (2), "to start (an engine)" (2); most frequent used
 - arreglar: "to fix" (7), "to fix, to repair" (1); most frequent used
 - arrendar: "to lease" (1), "to lease, to rent" (1); most frequent used
-- asegurar: "to belay" (3), "to belay; to secure" (2), "to secure" (1); most frequent used
+- asegurar: "to belay" (3), "to belay; to secure" (2), "to secure" (3); most frequent used
 - atar: "to tie" (1), "to tie up" (1); most frequent used
 - atender: "to attend to, to look after" (1), "to be open, to serve" (1), "to handle, to attend to" (1), "to help, to attend to" (1), "to see (a patient) / to attend" (1), "to see, to attend to (patients)" (1), "to serve, to attend to" (2); most frequent used
-- atornillar: "to drive screws" (1), "to screw / drive screws" (1), "to screw in" (2), "to screw, to drive screws" (1); most frequent used
+- atornillar: "to drive screws" (1), "to screw / drive screws" (1), "to screw in" (3), "to screw, to drive screws" (1); most frequent used
 - avanzar: "to advance" (3), "to move forward" (1), "to move forward, to progress" (1); most frequent used
-- avisar: "to alert, to notify" (1), "to let (someone) know" (2), "to let (someone) know, to notify" (4), "to let know" (5), "to let know, to notify" (16), "to let know, to report" (1), "to let know, to tell, to notify" (1), "to let know, to warn" (4), "to let someone know" (4), "to let someone know, to notify" (3), "to let someone know, to signal" (1), "to let someone know, to speak up" (1), "to let someone know, to warn" (1), "to notify" (15), "to notify / to tell (a warning)" (1), "to notify, to let know" (17), "to notify, to let someone know" (1), "to notify, to report" (3), "to notify, to tell" (1), "to notify, to warn" (3), "to report, to notify" (1), "to tell, to let know" (2), "to tell, to notify" (2), "to tell, to notify, to alert" (1), "to warn" (1), "to warn, to let know" (1), "to warn, to let someone know" (1), "to warn, to notify" (1); most frequent used
-- bajar: "to bring down" (1), "to come down" (2), "to get off" (1), "to get off, to go down" (1), "to get out / to lower" (1), "to go down" (4), "to go down, to descend" (1), "to go down, to lower" (2), "to go down, to move down" (1), "to lose (weight); to lower" (1), "to lower" (8), "to lower, to slow down" (1), "to turn down" (1); most frequent used
+- avisar: "to alert, to notify" (1), "to let (someone) know" (2), "to let (someone) know, to notify" (4), "to let know" (5), "to let know, to notify" (18), "to let know, to report" (2), "to let know, to tell, to notify" (1), "to let know, to warn" (4), "to let someone know" (4), "to let someone know, to notify" (3), "to let someone know, to signal" (1), "to let someone know, to speak up" (1), "to let someone know, to warn" (1), "to notify" (15), "to notify / to tell (a warning)" (1), "to notify, to let know" (17), "to notify, to let someone know" (1), "to notify, to report" (3), "to notify, to tell" (1), "to notify, to warn" (3), "to report, to notify" (1), "to tell, to let know" (2), "to tell, to notify" (2), "to tell, to notify, to alert" (1), "to warn" (1), "to warn, to let know" (1), "to warn, to let someone know" (1), "to warn, to notify" (1); most frequent used
+- bajar: "to bring down" (1), "to come down" (2), "to come down, to lower" (1), "to get down" (1), "to get down, to go down" (1), "to get off" (1), "to get off, to go down" (1), "to get out / to lower" (1), "to go down" (5), "to go down, to descend" (1), "to go down, to lower" (2), "to go down, to move down" (1), "to go down, to run down" (1), "to lose (weight); to lower" (1), "to lower" (8), "to lower, to bring down" (1), "to lower, to slow down" (1), "to turn down" (1); most frequent used
 - batear: "to bat" (2), "to hit, to bat" (2); most frequent used
 - bloquear: "to block" (16), "to lock out" (2); most frequent used
 - borrar: "to delete" (1), "to erase" (2); most frequent used
 - buscar: "to look for" (73), "to look for, to find" (2), "to look for, to seek" (1), "to seek" (1); most frequent used
 - caer: "to drop (into coverage)" (1), "to drop, to fall" (2), "to fall" (3); most frequent used
 - calentar: "to heat, to warm" (1), "to warm up" (10); most frequent used
-- cambiar: "to change" (56), "to change / to transfer" (1), "to change over, to switch" (1), "to change, to exchange" (2), "to change, to move" (1), "to change, to move (to another room)" (1), "to change, to replace" (7), "to change, to swap" (3), "to change, to switch" (3), "to change; to replace" (1), "to exchange" (2), "to exchange, to change" (1), "to replace" (5), "to replace / to change" (2), "to replace, to change" (5), "to switch" (2), "to switch, to change" (3), "to switch, to substitute" (1); most frequent used
+- cambiar: "to change" (57), "to change / to transfer" (1), "to change over, to switch" (1), "to change, to exchange" (2), "to change, to move" (1), "to change, to move (to another room)" (1), "to change, to replace" (7), "to change, to swap" (3), "to change, to switch" (3), "to change; to replace" (1), "to exchange" (2), "to exchange, to change" (1), "to replace" (5), "to replace / to change" (2), "to replace, to change" (6), "to switch" (2), "to switch, to change" (3), "to switch, to substitute" (1); most frequent used
 - cancelar: "to cancel" (8), "to void / to cancel" (1); most frequent used
-- cargar: "to charge" (4), "to crash / to come up toward" (1), "to fill up / to load" (1), "to load" (4), "to pressure, to charge" (1); most frequent used
+- cargar: "to carry" (1), "to charge" (4), "to crash / to come up toward" (1), "to fill up / to load" (1), "to load" (4), "to pressure, to charge" (1); most frequent used
 - cerrar: "to close" (40), "to close, to lock" (3), "to close, to shut off" (5); most frequent used
-- clavar: "to nail" (4), "to nail, to drive a nail" (1); most frequent used
+- clavar: "to nail" (11), "to nail, to drive a nail" (1); most frequent used
 - cobrar: "to charge" (23), "to charge (a fee)" (1), "to charge (a price)" (2), "to charge (money)" (1), "to charge, to collect payment" (1), "to collect (money), to cash" (1); most frequent used
 - colgar: "to hang" (11), "to hang (a bag of blood or IV fluid)" (1); most frequent used
 - colocar: "to lay, to place" (1), "to place" (10), "to place, to attach" (1), "to place, to position" (1), "to place, to set" (1); most frequent used
 - comenzar: "to begin" (5), "to start" (9); most frequent used
 - comer: "to eat" (25), "to eat, to have lunch" (1); most frequent used
-- conectar: "to connect" (28), "to plug in, to connect" (1); most frequent used
+- conectar: "to connect" (33), "to plug in, to connect" (1); most frequent used
 - conocer: "to know (a person or place)" (1), "to know (a place or person)" (2), "to know (a place, a route)" (1), "to know (people or places)" (1), "to know, to get to know" (1), "to meet, to get to know" (1), "to meet, to know" (2), "to meet, to know (a person)" (1); most frequent used
 - conseguir: "to get" (1), "to get, to find" (1), "to get, to obtain" (2); most frequent used
 - consultar: "to check with" (1), "to consult" (1); most frequent used
-- contar: "to count" (20), "to count, to count on" (1), "to count; to tell" (1), "to tell" (6), "to tell (a story)" (1), "to tell (a story), to count" (1), "to tell, to recount" (3), "to tell, to share (a story)" (1), "to tell; to count" (2); most frequent used
+- contar: "to count" (21), "to count, to count on" (1), "to count; to tell" (1), "to tell" (6), "to tell (a story)" (1), "to tell (a story), to count" (1), "to tell, to recount" (3), "to tell, to share (a story)" (1), "to tell; to count" (2); most frequent used
 - contestar: "to answer" (7), "to contest (a kick)" (1); most frequent used
 - controlar: "to control" (11), "to control, to monitor" (1); most frequent used
 - convertir: "to convert" (3), "to convert (a spare)" (1); most frequent used
 - coordinar: "to arrange, to coordinate" (1), "to coordinate" (7); most frequent used
 - corregir: "to correct" (20), "to correct, to fix" (9), "to fix" (1), "to fix, to correct" (3); most frequent used
-- correr: "to run" (30), "to run (water)" (1), "to run (wire)" (2), "to run, to flow" (1), "to run, to rush" (1); most frequent used
-- cortar: "to cut" (37), "to cut (off)" (1), "to cut, to mow" (2); most frequent used
+- correr: "to run" (31), "to run (water)" (1), "to run (wire)" (2), "to run, to flow" (2), "to run, to rush" (1); most frequent used
+- cortar: "to cut" (49), "to cut (off)" (1), "to cut, to mow" (2); most frequent used
 - crecer: "to grow" (2), "to grow, to build" (1); most frequent used
 - creer: "to believe" (7), "to believe, to think" (1); most frequent used
 - cruzar: "to cross" (5), "to cross, to go across" (1); most frequent used
-- cubrir: "to cover" (43), "to cover (insurance)" (1); most frequent used
+- cubrir: "to cover" (51), "to cover (insurance)" (1); most frequent used
 - cuidar: "to guard, to look after" (1), "to look after, to take care of" (1), "to protect, to take care of" (1), "to take care of" (5); most frequent used
 - cumplir: "to comply" (1), "to comply, to meet" (1), "to keep, to fulfill" (1), "to meet, to comply" (2); most frequent used
 - dar: "to give" (50), "to give, to take (a step)" (1); most frequent used
 - deber: "must / should" (1), "must, to have to" (3), "should, must, to have to" (1), "should, to have to" (1), "to must / should" (1), "to owe" (1); most frequent used
-- decir: "to say" (17), "to say, to tell" (20), "to say; to tell" (2); most frequent used
+- decir: "to say" (20), "to say, to tell" (20), "to say; to tell" (2); most frequent used
 - declarar: "to call, to declare" (1), "to declare" (3), "to disclose; to declare" (1); most frequent used
-- dejar: "to drop off, to leave" (3), "to leave" (15), "to leave (a message)" (1), "to leave (something behind)" (1), "to leave (something in a state)" (3), "to leave (something somewhere)" (4), "to leave (something)" (5), "to leave, to give up" (1), "to leave, to keep (in a state)" (1), "to leave, to let" (3), "to leave, to let go" (1), "to let have, to leave" (1), "to let, to allow" (1), "to let, to leave" (3), "to let, to leave, to give up (a seat)" (1), "to quit, to leave" (1); most frequent used
+- dejar: "to drop off, to leave" (3), "to leave" (18), "to leave (a message)" (1), "to leave (something behind)" (1), "to leave (something in a state)" (3), "to leave (something somewhere)" (5), "to leave (something)" (5), "to leave, to give up" (1), "to leave, to keep (in a state)" (1), "to leave, to let" (3), "to leave, to let go" (1), "to let have, to leave" (1), "to let, to allow" (1), "to let, to leave" (3), "to let, to leave, to give up (a seat)" (1), "to quit, to leave" (1); most frequent used
 - desayunar: "to eat breakfast" (1), "to have breakfast" (1); most frequent used
 - desenrollar: "to roll out" (1), "to unroll" (1); most frequent used
 - desinfectar: "to disinfect" (1), "to sanitize" (1); most frequent used
@@ -514,93 +518,93 @@ Items: 634
 - discutir: "to argue" (1), "to discuss" (1); most frequent used
 - distribuir: "to distribute" (2), "to distribute, to spread" (1); most frequent used
 - dividir: "to divide" (2), "to divide, to split" (1), "to divide; to split" (1), "to split / to divide" (1), "to split, to divide" (3), "to split-step" (1), "to split; to divide" (1); most frequent used
-- doblar: "to bend" (11), "to bend, to fold" (1), "to turn" (1); most frequent used
+- doblar: "to bend" (12), "to bend, to fold" (1), "to fold" (1), "to turn" (1); most frequent used
 - documentar: "to chart, to document" (2), "to check (a bag)" (1), "to check (luggage)" (1), "to document" (5), "to document, to chart" (1); most frequent used
 - durar: "to last" (8), "to last, to take" (1); most frequent used
 - elevar: "to elevate, to raise" (1), "to raise" (1); most frequent used
 - eliminar: "to eliminate" (1), "to eliminate, to pass" (1), "to remove" (1); most frequent used
 - empacar: "to bale, to pack" (1), "to pack" (5); most frequent used
 - empeorar: "to get worse" (2), "to worsen" (1); most frequent used
-- empezar: "to begin" (3), "to begin, to start" (1), "to start" (83), "to start, to begin" (12); most frequent used
+- empezar: "to begin" (3), "to begin, to start" (1), "to start" (87), "to start, to begin" (12); most frequent used
 - encender: "to light" (1), "to start (an engine), to turn on" (1), "to turn on" (4); most frequent used
-- enseñar: "to show, to teach" (2), "to teach" (17), "to teach, to show" (1); most frequent used
+- enseñar: "to show" (1), "to show, to teach" (2), "to teach" (17), "to teach, to show" (1); most frequent used
 - entrar: "to come in" (1), "to come in, to enter" (2), "to enter" (16), "to enter, to come in" (2), "to enter, to go in" (4), "to enter; to get in" (1), "to go in, to come on" (1), "to go in, to enter" (1), "to go in, to get in" (1); most frequent used
-- entregar: "to deliver" (7), "to deliver, to hand in" (1), "to deliver, to hand over" (1), "to hand in" (1), "to hand off" (2), "to hand out" (1), "to hand over" (4), "to hand over, to deliver" (2), "to hand over, to submit" (1), "to hand over; to deliver" (1), "to submit, to turn in" (1), "to turn in" (2); most frequent used
+- entregar: "to deliver" (9), "to deliver, to hand in" (1), "to deliver, to hand over" (1), "to hand in" (1), "to hand off" (2), "to hand out" (1), "to hand over" (4), "to hand over, to deliver" (2), "to hand over, to submit" (1), "to hand over; to deliver" (1), "to submit, to turn in" (1), "to turn in" (2); most frequent used
 - enviar: "to send" (21), "to send, to ship" (2); most frequent used
 - escalar: "to climb" (16), "to scale" (1); most frequent used
 - escoger: "to choose" (5), "to choose, to pick" (1); most frequent used
 - escribir: "to type, to write" (1), "to write" (40), "to write, to enter (a code)" (1), "to write, to text" (1); most frequent used
 - escuchar: "to hear, to listen" (6), "to listen" (28), "to listen to" (6), "to listen to, to hear out" (1), "to listen, to hear" (1); most frequent used
-- esperar: "to wait" (78), "to wait for" (8); most frequent used
-- estar: "to be (condition or location)" (2), "to be (condition)" (1), "to be (condition, location)" (1), "to be (here)" (1), "to be (how someone feels, where something is)" (1), "to be (located, with)" (1), "to be (location)" (8), "to be (location, condition)" (1), "to be (location, feeling)" (1), "to be (location, state)" (2); most frequent used
+- esperar: "to wait" (78), "to wait for" (10); most frequent used
+- estar: "to be (condition or location)" (2), "to be (condition)" (1), "to be (condition, location)" (1), "to be (here)" (1), "to be (here, present)" (2), "to be (how someone feels, where something is)" (1), "to be (located, with)" (1), "to be (location)" (8), "to be (location, condition)" (1), "to be (location, feeling)" (1), "to be (location, state)" (2); most frequent used
 - evaluar: "to assess" (4), "to evaluate" (10), "to reassess" (1); most frequent used
 - evitar: "to avoid" (16), "to avoid, to prevent" (2); most frequent used
 - extender: "to extend" (5), "to extend, to stretch out" (1), "to spread" (1); most frequent used
 - extirpar: "to remove" (1), "to remove (surgically)" (2); most frequent used
 - fallar: "to fail" (5), "to fail / to miss" (1); most frequent used
-- faltar: "to be missing" (5), "to be missing, still to be done" (1), "to be missing, to be short" (1), "to be missing, to lack" (1); most frequent used
+- faltar: "to be missing" (8), "to be missing, still to be done" (1), "to be missing, to be short" (2), "to be missing, to lack" (1); most frequent used
 - felicitar: "to compliment, to congratulate" (1), "to congratulate" (2); most frequent used
-- fijar: "to fasten" (3), "to pin" (1), "to set" (1); most frequent used
+- fijar: "to fasten" (5), "to pin" (1), "to set" (1); most frequent used
 - flexionar: "to bend" (2), "to flex" (1); most frequent used
 - funcionar: "to work" (3), "to work (for a device)" (1), "to work (function)" (2), "to work (to function)" (1), "to work, to function" (4); most frequent used
 - ganar: "to win" (14), "to win, to earn" (1); most frequent used
 - girar: "to pivot, to turn" (1), "to turn" (9), "to turn, to spin" (1); most frequent used
 - golpear: "to hit" (5), "to strike" (1), "to strike, to hit" (1); most frequent used
 - gritar: "to shout" (6), "to yell" (4), "to yell, to call out" (1); most frequent used
-- guardar: "to guard" (1), "to keep" (4), "to keep / to save" (2), "to keep / to store" (1), "to keep, to put away" (2), "to keep, to save" (3), "to keep, to store" (2), "to put away" (2), "to put away, to store" (1), "to save" (1), "to save, to keep" (1), "to store" (1), "to store / to put away" (1), "to store, to keep" (4), "to store, to put away" (1); most frequent used
+- guardar: "to guard" (1), "to keep" (4), "to keep / to save" (2), "to keep / to store" (1), "to keep, to put away" (2), "to keep, to save" (3), "to keep, to store" (2), "to put away" (2), "to put away, to store" (1), "to save" (1), "to save, to keep" (1), "to store" (2), "to store / to put away" (1), "to store, to keep" (4), "to store, to put away" (1); most frequent used
 - gustar: "to like" (1), "to like (be pleasing)" (2); most frequent used
-- hablar: "to speak" (8), "to speak, to talk" (5), "to talk" (17), "to talk, to speak" (7), "to talk; to speak" (1); most frequent used
+- hablar: "to speak" (10), "to speak, to talk" (5), "to talk" (17), "to talk, to speak" (7), "to talk; to speak" (1); most frequent used
 - hacer: "to do" (5), "to do / to make" (2), "to do, to make" (26), "to do, to make, to tie" (1), "to make" (4), "to make, to do" (2); most frequent used
 - indicar: "to indicate" (1), "to indicate, to point out" (1), "to indicate, to state" (1); most frequent used
-- instalar: "to install" (41), "to set up, to install" (1); most frequent used
+- instalar: "to install" (46), "to set up, to install" (1); most frequent used
 - invitar: "to invite" (18), "to invite, to treat" (2), "to treat (to pay for someone)" (1); most frequent used
-- ir: "to go" (38), "to go, to ride" (1), "to go, to run (a wall)" (1); most frequent used
+- ir: "to go" (42), "to go, to ride" (1), "to go, to run (a wall)" (1); most frequent used
 - lamentar: "to be sorry about" (2), "to be sorry about, to regret" (1), "to regret, to be sorry about" (1); most frequent used
 - lanzar: "to bowl, to throw" (1), "to cast" (2), "to pitch" (1), "to pitch / to throw" (1), "to pitch, to throw" (2), "to shoot, to throw" (1), "to throw" (8), "to throw / to shoot" (1), "to throw, to pitch" (3), "to toss, to throw" (1); most frequent used
 - lavar: "to flush, to wash" (1), "to wash" (8); most frequent used
-- levantar: "to lift" (10), "to lift, to raise" (1), "to raise" (4); most frequent used
+- levantar: "to lift" (11), "to lift, to raise" (1), "to raise" (4); most frequent used
 - liberar: "to free, to get open" (1), "to release" (6); most frequent used
-- limpiar: "to clean" (31), "to clear, to clean" (2); most frequent used
-- llegar: "to arrive" (56), "to arrive, to come" (1), "to arrive, to come to" (1), "to arrive, to get there" (1), "to arrive, to get to" (8), "to arrive, to reach" (1), "to get to, to arrive" (3), "to reach, to arrive" (1); most frequent used
+- limpiar: "to clean" (35), "to clear, to clean" (2); most frequent used
+- llegar: "to arrive" (57), "to arrive, to come" (1), "to arrive, to come to" (1), "to arrive, to get there" (1), "to arrive, to get to" (8), "to arrive, to reach" (1), "to get to, to arrive" (3), "to reach, to arrive" (1); most frequent used
 - llenar: "to fill" (8), "to fill out" (12); most frequent used
-- llevar: "to bring (to take along)" (2), "to bring, to carry" (4), "to bring, to take" (1), "to bring, to wear" (1), "to carry" (6), "to carry / to bring" (1), "to carry / to take" (1), "to carry / to take along" (1), "to carry, to bring" (2), "to carry, to contain" (2), "to carry, to have charge of" (1), "to carry, to have with you" (2), "to carry, to take" (2), "to contain, to have (ingredients); to carry" (1), "to contain, to have in it" (4), "to contain, to have in it (a dish)" (1), "to contain, to have in it (food)" (1), "to contain, to take" (1), "to contain; to carry" (1), "to have (as an ingredient); to carry" (2), "to have (in a recipe); to carry" (1), "to have been (doing something for a length of time)" (1), "to have, to carry" (1), "to take" (4), "to take (buy)" (2), "to take (someone somewhere)" (4), "to take, to bring (to someone)" (1), "to take, to carry" (8), "to take, to lead" (2), "to take; to buy" (1), "to wear" (1), "to wear / to bring" (1), "to wear, to carry" (4); most frequent used
+- llevar: "to bring (to take along)" (2), "to bring, to carry" (4), "to bring, to take" (1), "to bring, to wear" (1), "to carry" (6), "to carry / to bring" (1), "to carry / to take" (1), "to carry / to take along" (1), "to carry, to bring" (2), "to carry, to contain" (2), "to carry, to have charge of" (1), "to carry, to have with you" (2), "to carry, to take" (2), "to contain, to have (ingredients); to carry" (1), "to contain, to have in it" (4), "to contain, to have in it (a dish)" (1), "to contain, to have in it (food)" (1), "to contain, to take" (1), "to contain; to carry" (1), "to have (as an ingredient); to carry" (2), "to have (in a recipe); to carry" (1), "to have been (doing something for a length of time)" (1), "to have, to carry" (1), "to take" (4), "to take (buy)" (2), "to take (someone somewhere)" (4), "to take, to bring (to someone)" (1), "to take, to carry" (9), "to take, to lead" (2), "to take; to buy" (1), "to wear" (1), "to wear / to bring" (1), "to wear, to carry" (4); most frequent used
 - lograr: "to achieve" (2), "to achieve, to manage to" (1), "to achieve, to manage, to get through" (1), "to make it, to achieve" (1), "to manage to, to achieve" (1); most frequent used
 - manejar: "to drive" (14), "to drive, to operate" (1), "to drive, to ride" (1); most frequent used
 - mantener: "to keep" (10), "to keep, to hold" (7), "to keep, to maintain" (9), "to maintain" (2); most frequent used
-- marcar: "to call, to dial" (1), "to call, to mark, to score" (1), "to mark" (11), "to mark, to call" (1), "to mark, to cover" (1), "to score" (1); most frequent used
-- medir: "to measure" (74), "to measure / to be (a height)" (1); most frequent used
+- marcar: "to call, to dial" (1), "to call, to mark, to score" (1), "to mark" (15), "to mark, to call" (1), "to mark, to cover" (1), "to score" (1); most frequent used
+- medir: "to measure" (83), "to measure / to be (a height)" (1); most frequent used
 - mejorar: "to get better" (2), "to improve" (19); most frequent used
 - mirar: "to look" (4), "to look at" (17), "to look at, to watch" (4), "to look, to watch" (1), "to watch" (2), "to watch, to look at" (4); most frequent used
 - notificar: "to notify" (2), "to notify, to report" (1); most frequent used
 - observar: "to observe" (2), "to watch, to observe" (4); most frequent used
 - ordenar: "to arrange" (1), "to order" (2); most frequent used
-- parar: "to save (a shot); to stop" (1), "to stop" (37); most frequent used
-- pasar: "to come by" (1), "to come by, to run (of a bus)" (1), "to go through" (1), "to go through, to bring through" (1), "to go through, to pass" (1), "to hand, to pass" (1), "to happen" (2), "to move on, to pass" (1), "to move, to pass" (1), "to pass" (26), "to pass (through)" (2), "to pass, to come through" (2), "to pass, to go through" (1), "to pass, to move through" (1), "to pass, to stop by" (1), "to pass, to thread" (1), "to pass; pasar lista = to take roll" (1), "to run (a cable)" (1), "to run, to pass over" (1), "to scan (at a register)" (1), "to stop by" (1), "to tap, to swipe, to pass" (1); most frequent used
+- parar: "to save (a shot); to stop" (1), "to stop" (39); most frequent used
+- pasar: "to come by" (1), "to come by, to run (of a bus)" (1), "to go through" (1), "to go through, to bring through" (1), "to go through, to pass" (1), "to hand, to pass" (1), "to happen" (2), "to move on, to pass" (1), "to move, to pass" (1), "to pass" (26), "to pass (through)" (2), "to pass, to come through" (2), "to pass, to go through" (1), "to pass, to move through" (1), "to pass, to stop by" (1), "to pass, to thread" (1), "to pass; pasar lista = to take roll" (1), "to run (a cable)" (1), "to run over, to pass" (2), "to run, to pass over" (1), "to scan (at a register)" (1), "to stop by" (1), "to tap, to swipe, to pass" (1); most frequent used
 - patear: "to kick" (9), "to kick, to punt" (2); most frequent used
-- pedir: "to ask for" (73), "to ask for / to request" (1), "to ask for, to call" (2), "to ask for, to call for" (2), "to ask for, to order" (21), "to ask for, to request" (34), "to ask for; to request" (1), "to call, to ask for" (1), "to order" (5), "to order / to ask for" (4), "to order, to ask for" (49), "to order, to request" (2), "to order; to ask for" (3), "to petition for; to ask for" (1), "to request, to ask for" (3); most frequent used
-- pegar: "to hit" (3), "to hit; to set the hook" (2); most frequent used
+- pedir: "to ask for" (73), "to ask for / to request" (1), "to ask for, to call" (2), "to ask for, to call for" (3), "to ask for, to order" (21), "to ask for, to request" (34), "to ask for; to request" (1), "to call for, to ask for" (2), "to call, to ask for" (1), "to order" (5), "to order / to ask for" (4), "to order, to ask for" (54), "to order, to request" (2), "to order; to ask for" (3), "to petition for; to ask for" (1), "to request, to ask for" (3), "to require, to ask for" (1); most frequent used
+- pegar: "to hit" (3), "to hit; to set the hook" (2), "to stick, to apply" (1); most frequent used
 - pensar: "to plan, to think" (1), "to think" (5); most frequent used
 - perder: "to lose" (21), "to lose, to waste" (1), "to miss, to lose" (5); most frequent used
 - permitir: "to allow" (9), "to allow, to let" (1); most frequent used
 - perseguir: "to chase" (1), "to persecute, to chase" (1); most frequent used
 - pescar: "to catch, to fish" (1), "to fish" (4), "to fish, to catch" (1); most frequent used
 - poder: "can, to be able to" (4), "to be able to" (1), "to be able to / can" (1), "to be able to, can" (86), "to be able to, may" (1), "to be able to; can" (3); most frequent used
-- poner: "to give (a shot), to put" (1), "to place, to put" (1), "to put" (45), "to put (up), to place" (1), "to put / to place" (1), "to put in, to install" (1), "to put, to apply" (2), "to put, to give" (2), "to put, to install" (1), "to put, to place" (21), "to put, to put in" (1), "to put, to put up" (1), "to put, to set" (6), "to put, to set (a reminder)" (1), "to put, to set up" (1), "to put; to file (a report)" (1), "to put; to place" (1); most frequent used
-- preguntar: "to ask" (232), "to ask (a question)" (25); most frequent used
+- poner: "to give (a shot), to put" (1), "to place, to put" (1), "to put" (64), "to put (up), to place" (1), "to put / to place" (1), "to put in, to install" (1), "to put, to apply" (2), "to put, to give" (2), "to put, to install" (2), "to put, to place" (21), "to put, to put in" (1), "to put, to put up" (1), "to put, to set" (7), "to put, to set (a reminder)" (1), "to put, to set up" (1), "to put; to file (a report)" (1), "to put; to place" (1); most frequent used
+- preguntar: "to ask" (234), "to ask (a question)" (25); most frequent used
 - preparar: "to prepare" (29), "to prepare / to get ready" (1), "to prepare, to get ready" (1), "to prepare, to make" (4), "to set up, to prepare" (1); most frequent used
 - presentar: "to file" (1), "to file, to submit" (4), "to file; to submit" (1), "to introduce" (3), "to present" (12), "to present, to submit" (1), "to submit" (2); most frequent used
 - presionar: "to press" (7), "to pressure" (6); most frequent used
-- probar: "to taste" (1), "to taste, to try" (6), "to taste; to try" (1), "to test" (24), "to test, to taste" (1), "to test, to try" (3), "to try" (7), "to try, to taste" (5), "to try, to test" (1); most frequent used
+- probar: "to taste" (1), "to taste, to try" (6), "to taste; to try" (1), "to test" (29), "to test, to taste" (1), "to test, to try" (3), "to try" (7), "to try, to taste" (5), "to try, to test" (1); most frequent used
 - programar: "to program" (2), "to program, to set" (1), "to schedule" (8); most frequent used
 - proponer: "to propose" (11), "to propose, to suggest" (2), "to propose; to offer" (1); most frequent used
 - publicar: "to post" (1), "to post, to publish" (2); most frequent used
 - quedar: "to be left, to remain" (3), "to fit" (1), "to meet up / to agree to meet" (1), "to meet up, to suit (a time)" (1), "to remain / to be left" (1); most frequent used
 - querer: "to want" (73), "to want; to love" (1); most frequent used
-- quitar: "to remove" (17), "to remove / to peel off" (1), "to remove, to take off" (5), "to remove, to take out" (1), "to remove, to tear off" (1), "to take off, to remove" (1); most frequent used
+- quitar: "to remove" (20), "to remove / to peel off" (1), "to remove, to take off" (5), "to remove, to take out" (1), "to remove, to tear off" (1), "to take off, to remove" (1); most frequent used
 - recargar: "to recharge" (2), "to top up" (1); most frequent used
 - rechazar: "to decline" (1), "to refuse" (1), "to reject" (3); most frequent used
 - recibir: "to meet (someone arriving)" (1), "to receive" (26), "to receive, to catch" (2), "to receive, to get" (1), "to receive, to get (report)" (1), "to receive, to meet" (1); most frequent used
-- recoger: "to pick up" (22), "to pull back, to pick up" (1); most frequent used
+- recoger: "to pick up" (24), "to pull back, to pick up" (1); most frequent used
 - recordar: "to remember" (5), "to remember, to remind" (3), "to remember; to remind" (2), "to remind, to remember" (1); most frequent used
 - recorrer: "to cover (a distance)" (1), "to walk through / to go over" (1), "to walk through / to go over (a roof, a site)" (1), "to walk through / to inspect" (1), "to walk through, to patrol" (1); most frequent used
 - recuperar: "to make up, to recover" (1), "to recover" (3), "to recover, to regain" (1), "to regain" (1), "to retrieve" (1); most frequent used
@@ -609,42 +613,42 @@ Items: 634
 - registrar: "to record" (3), "to register" (1); most frequent used
 - regresar: "to come back" (10), "to come back, to return" (4), "to go back" (2), "to go back, to return" (2), "to return" (11), "to return, to come back" (4), "to return, to go back" (1); most frequent used
 - reparar: "to repair" (13), "to repair; to make right" (1); most frequent used
-- repetir: "to repeat" (36), "to repeat, to read back" (1); most frequent used
+- repetir: "to repeat" (38), "to repeat, to read back" (1); most frequent used
 - reservar: "to book" (6), "to book, to reserve" (5), "to book; to reserve" (1), "to reserve" (5), "to reserve, to book" (3); most frequent used
 - resolver: "to resolve" (2), "to resolve, to fix" (1), "to resolve, to solve" (1), "to solve" (2), "to solve, to fix" (1), "to solve, to resolve" (1); most frequent used
 - respetar: "to follow, to respect" (1), "to respect" (26), "to respect, to obey" (1); most frequent used
 - responder: "to answer" (2), "to answer, to reply" (1), "to answer, to respond" (1), "to reply" (1), "to respond" (4), "to respond, to answer" (1); most frequent used
 - retener: "to hold" (1), "to hold, to hold onto" (1), "to hold, to keep on hold" (1), "to retain" (2); most frequent used
 - retirar: "to remove, to take off" (1), "to remove, to take out" (1), "to take away" (1); most frequent used
-- revisar: "to check" (349), "to check / to inspect" (2), "to check / to review" (1), "to check, to examine" (2), "to check, to go over" (1), "to check, to inspect" (24), "to check, to review" (26), "to check, to screen" (1), "to check; to inspect" (1), "to examine" (2), "to examine, to check" (2), "to review" (36), "to review / to check" (9), "to review, to check" (23), "to review; to check" (1); most frequent used
+- revisar: "to check" (381), "to check / to inspect" (2), "to check / to review" (1), "to check, to examine" (2), "to check, to go over" (1), "to check, to inspect" (26), "to check, to review" (26), "to check, to screen" (1), "to check; to inspect" (1), "to examine" (2), "to examine, to check" (2), "to review" (36), "to review / to check" (9), "to review, to check" (24), "to review; to check" (1); most frequent used
 - robar: "to steal" (2), "to steal, to rob" (1); most frequent used
 - romper: "to break" (1), "to snap, to break" (1); most frequent used
 - saber: "to know" (3), "to know (a fact)" (1); most frequent used
-- sacar: "to get, to earn" (1), "to get, to pull (a permit)" (1), "to make (a copy), to take out" (1), "to pull out" (2), "to serve" (6), "to serve (to put the ball in play)" (1), "to take (a kick)" (1), "to take out" (8), "to take out / to get out" (1), "to take out, to draw (blood)" (1), "to take out, to pull out" (2), "to take out, to put out" (1), "to take out, to remove" (1); most frequent used
-- salir: "to come out" (1), "to come out, to leave" (3), "to exit / to leave" (1), "to get out, to leave; to come out" (1), "to go out" (3), "to go out, to come out" (1), "to go out, to exit" (1), "to go out, to leave" (1), "to leave" (16), "to leave, to check out" (1), "to leave, to come off" (2), "to leave, to come out" (2), "to leave, to depart" (5), "to leave, to get out" (1), "to leave, to go out" (9), "to leave, to take off" (1); most frequent used
-- secar: "to dry" (6), "to dry off" (1); most frequent used
-- seguir: "to continue" (2), "to continue, to keep going" (3), "to continue, to still be doing" (1), "to follow" (13), "to follow / to continue" (1), "to follow, to keep going" (1), "to keep going" (1), "to keep going, to continue" (1); most frequent used
+- sacar: "to get, to earn" (1), "to get, to pull (a permit)" (1), "to make (a copy), to take out" (1), "to pull out" (3), "to serve" (6), "to serve (to put the ball in play)" (1), "to take (a kick)" (1), "to take out" (9), "to take out / to get out" (1), "to take out, to draw (blood)" (1), "to take out, to pull out" (2), "to take out, to put out" (1), "to take out, to remove" (1); most frequent used
+- salir: "to come out" (2), "to come out, to leave" (3), "to exit / to leave" (1), "to get out, to leave; to come out" (1), "to go out" (3), "to go out, to come out" (1), "to go out, to drain out" (1), "to go out, to exit" (1), "to go out, to leave" (1), "to leave" (16), "to leave, to check out" (1), "to leave, to come off" (2), "to leave, to come out" (2), "to leave, to depart" (5), "to leave, to get out" (1), "to leave, to go out" (9), "to leave, to take off" (1); most frequent used
+- secar: "to dry" (7), "to dry off" (1); most frequent used
+- seguir: "to continue" (3), "to continue, to keep going" (3), "to continue, to still be doing" (1), "to follow" (14), "to follow / to continue" (1), "to follow, to keep going" (1), "to keep going" (1), "to keep going, to continue" (1); most frequent used
 - sentir: "to feel" (99), "to feel, to be sorry" (2), "to feel; to be sorry" (1); most frequent used
 - separar: "to separate" (5), "to separate, to sort" (1), "to sort, to separate" (2), "to split / to separate" (1); most frequent used
 - ser: "to be" (16), "to be (identity)" (1), "to be (identity, role)" (1), "to be (what something is)" (2), "to be (who or what someone is)" (1); most frequent used
 - servir: "to be useful, to work" (1), "to serve" (11), "to serve, to pour" (1), "to serve, to work for" (1); most frequent used
-- señalar: "to point out" (1), "to point to" (3), "to signal, to point out" (1); most frequent used
+- señalar: "to point at" (2), "to point out" (1), "to point to" (3), "to signal, to point out" (1); most frequent used
 - solicitar: "to apply for" (3), "to request" (4), "to request, to apply for" (1); most frequent used
 - soltar: "to let go, to release" (1), "to let go; to release" (2), "to let out, to release" (1), "to release" (5), "to release, to let go" (5); most frequent used
 - sonar: "to ring" (1), "to ring, to go off" (1), "to sound" (2); most frequent used
-- subir: "to climb" (1), "to climb / to go up" (1), "to climb up" (1), "to climb, to go up" (3), "to come up (to the net)" (1), "to come up, to go up" (1), "to get in; to go up" (1), "to get on" (2), "to get on, to board" (1), "to get on, to climb up" (1), "to get on, to go up" (2), "to go up" (14), "to go up (to the next level)" (1), "to go up, to climb" (5), "to go up, to come up" (1), "to go up, to get in" (1), "to go up, to raise" (1), "to move up, to go up" (2), "to put up, to get on" (1), "to raise" (2), "to reel up, to bring up" (1), "to step up, to go up" (1); most frequent used
-- sujetar: "to fasten" (1), "to hold" (2), "to hold, to grip" (1); most frequent used
+- subir: "to climb" (2), "to climb / to go up" (1), "to climb up" (1), "to climb, to go up" (4), "to come up (to the net)" (1), "to come up, to go up" (1), "to get in; to go up" (1), "to get on" (2), "to get on, to board" (1), "to get on, to climb up" (1), "to get on, to go up" (2), "to go up" (16), "to go up (to the next level)" (1), "to go up, to climb" (9), "to go up, to come up" (1), "to go up, to get in" (1), "to go up, to raise" (1), "to move up, to go up" (2), "to put up, to get on" (1), "to raise" (2), "to raise, to go up" (1), "to reel up, to bring up" (1), "to step up, to go up" (1); most frequent used
+- sujetar: "to fasten" (1), "to hold" (2), "to hold, to fasten" (1), "to hold, to grip" (1); most frequent used
 - sumar: "to add" (3), "to add up" (2); most frequent used
 - tardar: "to take (time)" (29), "to take (time), to be slow" (1), "to take time" (1); most frequent used
 - tensar: "to take in (tighten)" (1), "to tighten" (1), "to tighten, to stretch" (1), "to tighten, to take in" (1); most frequent used
 - tirar: "to knock off, to throw" (1), "to shoot" (7), "to shoot, to throw" (4), "to throw" (10), "to throw (a ball)" (1), "to throw away" (2), "to throw, to bowl" (2), "to throw, to extend" (1), "to throw, to roll" (2), "to throw, to shoot" (1), "to throw, to toss" (1); most frequent used
 - tocar: "to be someone's turn, to get assigned" (1), "to blow (a whistle); to touch" (1), "to bunt (to touch)" (1), "to knock" (2), "to knock; to touch" (1), "to press, to ring" (1), "to touch" (16), "to touch, to hit (bottom)" (1); most frequent used
-- tomar: "to drink / to take" (3), "to drink, to have" (2), "to drink, to take" (2), "to drink; to take" (2), "to have (a drink), to take" (1), "to have (a drink); to take" (1), "to have, to drink" (1), "to have; to take" (1), "to take" (83), "to take (a bus or train)" (1), "to take (a bus, a train)" (1), "to take (a bus, train)" (1), "to take (a bus, train, or taxi)" (1), "to take (medication)" (1), "to take (medicine)" (3), "to take (medicine), to drink" (1), "to take (time)" (1), "to take, to drink" (3), "to take; to have (a drink)" (1); most frequent used
-- trabajar: "to work" (28), "to work, to work on" (2); most frequent used
-- traer: "to bring" (73), "to bring (to here)" (1), "to bring / to have on" (1), "to bring, to carry with you" (1); most frequent used
+- tomar: "to drink / to take" (3), "to drink, to have" (2), "to drink, to take" (2), "to drink; to take" (2), "to have (a drink), to take" (1), "to have (a drink); to take" (1), "to have, to drink" (1), "to have; to take" (1), "to take" (85), "to take (a bus or train)" (1), "to take (a bus, a train)" (1), "to take (a bus, train)" (1), "to take (a bus, train, or taxi)" (1), "to take (medication)" (1), "to take (medicine)" (3), "to take (medicine), to drink" (1), "to take (time)" (1), "to take, to drink" (3), "to take; to have (a drink)" (1); most frequent used
+- trabajar: "to work" (30), "to work, to work on" (2); most frequent used
+- traer: "to bring" (75), "to bring (to here)" (1), "to bring / to have on" (1), "to bring, to carry with you" (1); most frequent used
 - trazar: "to run (a line), to mark out" (1), "to trace" (1); most frequent used
 - unir: "to bond, to join" (1), "to join" (2); most frequent used
-- usar: "to use" (90), "to use / to wear" (2), "to use, to wear" (17), "to wear / to use" (2), "to wear, to use" (3); most frequent used
+- usar: "to use" (96), "to use / to wear" (2), "to use, to wear" (19), "to wear / to use" (2), "to wear, to use" (3); most frequent used
 - vaciar: "to drain, to empty" (1), "to empty" (1); most frequent used
 - ver: "to see" (29), "to see, to cover (a topic)" (1), "to see, to look at" (1), "to see, to watch" (4); most frequent used
 - verificar: "to check" (1), "to check, to verify" (2), "to verify" (12), "to verify, to check" (2), "to verify; to check" (1); most frequent used
@@ -683,6 +687,13 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "mamar": "register risk: vulgar slang in much of Latin America"
   },
   "formEnglish": {
+    "avisar": {
+      "ellos_ustedes": "they let (someone) know",
+      "nosotros": "we let (someone) know",
+      "tú": "you let (someone) know",
+      "yo": "I let (someone) know",
+      "él_ella_usted": "he/she lets (someone) know"
+    },
     "ceder": {
       "ellos_ustedes": "they give up (something)",
       "nosotros": "we give up (something)",
@@ -742,8 +753,10 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "aguantar": "to endure, to put up with",
     "apartar": "to set aside, to hold (an item)",
     "aplanar": "to flatten, to level",
+    "apuntar": "to jot down, to aim",
     "asegurar": "to secure, to ensure",
     "atender": "to attend to, to serve",
+    "avisar": "to let (someone) know, to notify",
     "cargar": "to load, to charge",
     "colar": "to strain",
     "conocer": "to know (people, places), to meet",
@@ -754,6 +767,7 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "despedir": "to see off, to fire",
     "dudar": "to doubt",
     "eliminar": "to eliminate, to remove",
+    "encajar": "to fit into place, to snap in",
     "envasar": "to package, to bottle",
     "felicitar": "to congratulate",
     "filtrar": "to filter",

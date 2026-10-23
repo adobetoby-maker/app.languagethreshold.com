@@ -1,10 +1,13 @@
 import { useState, useMemo } from "react";
-import { Search, Sparkles, CheckCircle2, Lock, ChevronRight } from "lucide-react";
+import { Search, Sparkles, CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
+import { moduleLearningPaths, type ModuleLearningPath } from "@/lib/module-order";
+import { ModuleLearningStages } from "./ModuleLearningStages";
+import { getCurriculum } from "@/data/curriculum";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { useLibrary } from "@/state/library-state";
 import { getAvailableModuleLessons } from "@/data/module-starters";
@@ -52,16 +55,28 @@ interface ModuleCardProps {
   module: AppModule;
   isActive: boolean;
   hasPlan: boolean;
-  onActivate: () => void;
+  path: ModuleLearningPath<AppModule>;
+  activeId: string | null;
+  onSelectStage: (module: AppModule) => void;
   onStudyCards: () => void;
 }
 
-function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: ModuleCardProps) {
+function ModuleCard({
+  module,
+  isActive,
+  hasPlan,
+  path,
+  activeId,
+  onSelectStage,
+  onStudyCards,
+}: ModuleCardProps) {
   const meta = CATEGORY_META[module.category];
   const topVocab = module.vocabFocus.slice(0, 5);
 
   return (
     <div
+      data-module-id={module.id}
+      data-module-name={module.name}
       className={
         "group relative flex flex-col rounded-2xl border p-5 transition-all duration-200 " +
         (isActive
@@ -119,7 +134,10 @@ function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: Mod
         )}
       </div>
 
-      {/* Footer: status + action */}
+      <div className="mb-4">
+        <ModuleLearningStages path={path} activeId={activeId} onSelect={onSelectStage} />
+      </div>
+      {/* Plan status */}
       <div className="flex items-center justify-between gap-2">
         {hasPlan ? (
           <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-emerald-400">
@@ -132,30 +150,6 @@ function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: Mod
           >
             Pro plan →
           </Link>
-        )}
-
-        {isActive ? (
-          <button
-            onClick={onActivate}
-            className="flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-gold transition-colors hover:bg-gold/30"
-          >
-            Open <ChevronRight className="h-3 w-3" />
-          </button>
-        ) : (
-          <button
-            onClick={onActivate}
-            className="flex items-center gap-1.5 rounded-full border border-border/60 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground/80 transition-colors hover:border-gold/50 hover:bg-gold/10 hover:text-gold"
-          >
-            {hasPlan ? (
-              <>
-                Activate <ChevronRight className="h-3 w-3" />
-              </>
-            ) : (
-              <>
-                <Lock className="h-3 w-3" /> Preview
-              </>
-            )}
-          </button>
         )}
       </div>
       <button
@@ -184,36 +178,36 @@ export function ModulesPage() {
     [state.nativeLanguage, state.selectedLanguage],
   );
 
+  const paths = useMemo(() => moduleLearningPaths(availableModules, MODULES), [availableModules]);
   const filtered = useMemo(() => {
-    const q = search.toLowerCase().trim();
-    return availableModules.filter((m) => {
-      const matchesCat = activeCategory === "All" || m.category === activeCategory;
-      const matchesSearch =
-        !q ||
-        m.name.toLowerCase().includes(q) ||
-        m.blurb.toLowerCase().includes(q) ||
-        m.userRole.toLowerCase().includes(q) ||
-        m.vocabFocus.some((v) => v.toLowerCase().includes(q));
-      return matchesCat && matchesSearch;
+    const q = search.trim().toLowerCase();
+    return paths.filter((path) => {
+      const matchesCat = activeCategory === "All" || path.module.category === activeCategory;
+      const modules = [
+        path.module,
+        ...path.stages.flatMap((stage) => (stage.module ? [stage.module] : [])),
+      ];
+      return (
+        matchesCat &&
+        (!q ||
+          modules.some((m) =>
+            [m.name, m.blurb, m.userRole, ...m.vocabFocus].join(" ").toLowerCase().includes(q),
+          ))
+      );
     });
-  }, [activeCategory, availableModules, search]);
-
-  // Group by category preserving CATEGORY_ORDER
-  const groups = useMemo(() => {
-    if (activeCategory !== "All") {
-      return [{ category: activeCategory as AppModule["category"], modules: filtered }];
-    }
-    return CATEGORY_ORDER.map((cat) => ({
-      category: cat,
-      modules: filtered.filter((m) => m.category === cat),
-    })).filter((g) => g.modules.length > 0);
-  }, [filtered, activeCategory]);
+  }, [paths, search, activeCategory]);
+  const groups = [
+    { category: activeCategory === "All" ? null : activeCategory, modules: filtered },
+  ];
 
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
-    const destination = state.selectedLanguage === "English" && module.learnDirection !== "en-target"
-      ? "reader"
-      : moduleDestinationTab(module.id);
+    const destination =
+      getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)
+        ? "core30"
+        : state.selectedLanguage === "English" && module.learnDirection !== "en-target"
+          ? "reader"
+          : moduleDestinationTab(module.id);
     const hasReading =
       getAvailableModuleLessons(module.id, state.selectedLanguage, library.state.entries).length >
       0;
@@ -223,16 +217,16 @@ export function ModulesPage() {
     });
   };
 
-  const totalModules = availableModules.length;
+  const totalModules = paths.length;
   // English for Work teaches English to speakers of other languages, so a learner studying Spanish
   // has none of its modules (moduleSupportsLearningPair). Show only categories with modules.
   const categoryCounts = useMemo(
     () =>
       CATEGORY_ORDER.map((category) => ({
         category,
-        count: availableModules.filter((m) => m.category === category).length,
+        count: paths.filter((path) => path.module.category === category).length,
       })).filter(({ count }) => count > 0),
-    [availableModules],
+    [paths],
   );
   return (
     <div className="flex h-full flex-col overflow-hidden">
@@ -328,10 +322,10 @@ export function ModulesPage() {
             </div>
           ) : (
             groups.map(({ category, modules }) => {
-              const meta = CATEGORY_META[category];
+              const meta = category ? CATEGORY_META[category] : { emoji: "📚" };
               const isEnglishForWork = category === "English for Work";
               return (
-                <section key={category}>
+                <section key={category ?? "all"}>
                   {/* Category heading */}
                   {isEnglishForWork ? (
                     <div className="mb-4 rounded-2xl border border-indigo-400/30 bg-indigo-400/5 px-4 py-3">
@@ -354,7 +348,9 @@ export function ModulesPage() {
                   ) : (
                     <div className="mb-4 flex items-center gap-3">
                       <span className="text-2xl">{meta.emoji}</span>
-                      <h2 className="font-display text-lg italic text-foreground">{category}</h2>
+                      <h2 className="font-display text-lg italic text-foreground">
+                        {category ?? "All modules · A–Z"}
+                      </h2>
                       <div className="flex-1 border-t border-border/40" />
                       <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                         {modules.length} module{modules.length !== 1 ? "s" : ""}
@@ -364,19 +360,26 @@ export function ModulesPage() {
 
                   {/* Cards */}
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {modules.map((m) => (
-                      <ModuleCard
-                        key={m.id}
-                        module={m}
-                        isActive={state.activeModuleId === m.id}
-                        hasPlan={hasPlan}
-                        onActivate={() => handleActivate(m)}
-                        onStudyCards={() => {
-                          dispatch({ type: "SET_ACTIVE_MODULE", payload: m.id });
-                          dispatch({ type: "SET_TAB", payload: "flashcards" });
-                        }}
-                      />
-                    ))}
+                    {modules.map((path) => {
+                      const m = path.module;
+                      return (
+                        <ModuleCard
+                          key={m.id}
+                          module={m}
+                          isActive={path.stages.some(
+                            (stage) => stage.module?.id === state.activeModuleId,
+                          )}
+                          hasPlan={hasPlan}
+                          path={path}
+                          activeId={state.activeModuleId}
+                          onSelectStage={handleActivate}
+                          onStudyCards={() => {
+                            dispatch({ type: "SET_ACTIVE_MODULE", payload: m.id });
+                            dispatch({ type: "SET_TAB", payload: "flashcards" });
+                          }}
+                        />
+                      );
+                    })}
                   </div>
                 </section>
               );

@@ -1,8 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
 import { appUrl, currentTab, readAppState, seedAppState } from "./app-state.ts";
 
-// Core 60 (tab key core30) is a first-class tab: top navigation next to App Guide, the left
-// sidebar under Games, and the phone's bottom bar. It holds the module's path: the free
+// Core 60 (tab key core30) is a first-class tab in the desktop sidebar
+// near the top and the phone's bottom bar. It holds the module's path: the free
 // Foundation, Core 30 and Master 20.
 
 async function openWithModule(page: Page, moduleId: string | null) {
@@ -32,24 +32,24 @@ async function openWithModule(page: Page, moduleId: string | null) {
 test.describe("desktop navigation", () => {
   test.skip(({ isMobile }) => isMobile, "desktop-only layout checks");
 
-  test("top bar has Core 60 right after App Guide", async ({ page }) => {
+  test("desktop has one feature menu in the sidebar", async ({ page }) => {
     await openWithModule(page, "orthopedics");
-    const labels = await page.locator("nav button").allInnerTexts();
-    const guide = labels.findIndex((t) => /app guide/i.test(t));
-    expect(guide).toBeGreaterThan(-1);
-    expect(labels[guide + 1]).toMatch(/core 60/i);
+    await expect(page.getByRole("navigation", { name: "Desktop navigation" })).toBeVisible();
+    await expect(page.locator("header nav")).toHaveCount(0);
+    await expect(page.getByRole("navigation", { name: "Primary", exact: true })).not.toBeVisible();
+    await expect(page.getByRole("button", { name: "Core 60", exact: true })).toHaveCount(1);
   });
 
-  test("left sidebar has Core 60 right under Games", async ({ page }) => {
+  test("left sidebar puts Core 60 immediately after Modules", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     const rail = page.locator("aside").first();
     const labels = (await rail.getByRole("button").allInnerTexts()).map((t) => t.trim());
-    const games = labels.findIndex((t) => /^games$/i.test(t));
-    expect(games).toBeGreaterThan(-1);
-    expect(labels[games + 1]).toMatch(/core 60/i);
+    const modules = labels.findIndex((t) => /^modules$/i.test(t));
+    expect(modules).toBeGreaterThan(-1);
+    expect(labels[modules + 1]).toMatch(/core 60/i);
   });
 
-  test("Core 60 opens from the top bar and starts a lesson", async ({ page }) => {
+  test("Core 60 opens from the sidebar and starts a lesson", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
     await expect(page.getByText(/Core 60/).first()).toBeVisible();
@@ -59,7 +59,7 @@ test.describe("desktop navigation", () => {
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(page.getByText(/^Step 1/)).toBeVisible();
     await page.getByText("✕ Exit").click();
-    await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Continue Lesson 1/ })).toBeVisible();
   });
 
   test("Core 60 opens from the sidebar", async ({ page }) => {

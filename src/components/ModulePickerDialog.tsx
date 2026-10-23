@@ -8,18 +8,10 @@ import type { Language } from "@/state/app-state";
 const COMING_SOON_LANGUAGES = new Set<Language>([]);
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { moduleLearningPaths, type ModuleLearningPath } from "@/lib/module-order";
+import { ModuleLearningStages } from "./modules/ModuleLearningStages";
+import { getCurriculum } from "@/data/curriculum";
 import { cn } from "@/lib/utils";
-
-const CATEGORY_ORDER: AppModule["category"][] = [
-  "Faith",
-  "Medical",
-  "Trades",
-  "Service",
-  "Education",
-  "Agriculture",
-  "Sports",
-  "Travel",
-];
 
 const FILTER_TABS = [
   { id: "ALL" as const, label: "All" },
@@ -44,23 +36,22 @@ export function ModulePickerDialog({ open, onClose }: Props) {
     moduleSupportsLearningPair(module, state.selectedLanguage, state.nativeLanguage),
   );
 
-  const afterSearch = query.trim()
-    ? available.filter((m) =>
-        [m.name, m.blurb, m.category, m.userRole]
-          .join(" ")
-          .toLowerCase()
-          .includes(query.toLowerCase()),
-      )
-    : available;
+  const paths = moduleLearningPaths(available, MODULES);
+  const filtered = paths.filter((path) => {
+    const matchesCategory = filterTab === "ALL" || path.module.category === filterTab;
+    const q = query.trim().toLowerCase();
+    const matchesSearch =
+      !q ||
+      [path.module, ...path.stages.flatMap((stage) => (stage.module ? [stage.module] : []))].some(
+        (m) => [m.name, m.blurb, m.category, m.userRole].join(" ").toLowerCase().includes(q),
+      );
+    return matchesCategory && matchesSearch;
+  });
 
-  const filtered =
-    filterTab === "ALL" ? afterSearch : afterSearch.filter((m) => m.category === filterTab);
-
-  const byCategory: Record<string, AppModule[]> = {};
-  for (const m of filtered) (byCategory[m.category] ??= []).push(m);
-
-  function select(id: string | null) {
+  function select(id: string | null, openPath = false) {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: id });
+    if (id && openPath && (getCurriculum(id) || /^(foundation|master)-/.test(id)))
+      dispatch({ type: "SET_TAB", payload: "core30" });
     if (id) {
       const mod = getModule(id);
       if (mod) toast(`${mod.emoji} ${mod.name} active`);
@@ -94,149 +85,139 @@ export function ModulePickerDialog({ open, onClose }: Props) {
         )}
 
         {/* Search bar + module list — only shown for supported languages */}
-        {!COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (<>
-        <div className="flex items-center gap-3 border-b border-border/50 px-5 py-4">
-          <Search className="h-4 w-4 shrink-0 text-muted-foreground" strokeWidth={1.6} />
-          <input
-            autoFocus
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search modules…"
-            className="flex-1 bg-transparent font-mono text-sm tracking-wide text-foreground placeholder:text-muted-foreground/40 outline-none"
-          />
-          {query ? (
-            <button
-              onClick={() => setQuery("")}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          ) : (
-            <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
-
-        {/* Category filter tabs */}
-        <div className="flex gap-1.5 border-b border-border/40 px-5 py-2.5 overflow-x-auto scrollbar-none">
-          {FILTER_TABS.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => setFilterTab(id)}
-              className={cn(
-                "shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all",
-                filterTab === id
-                  ? "border-gold/60 bg-gold/10 text-gold"
-                  : "border-border/40 text-muted-foreground hover:border-border/70 hover:text-foreground",
+        {!COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (
+          <>
+            <div className="flex items-center gap-3 border-b border-border/50 px-5 py-4">
+              <Search className="h-4 w-4 shrink-0 text-muted-foreground" strokeWidth={1.6} />
+              <input
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search modules…"
+                className="flex-1 bg-transparent font-mono text-sm tracking-wide text-foreground placeholder:text-muted-foreground/40 outline-none"
+              />
+              {query ? (
+                <button
+                  onClick={() => setQuery("")}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              ) : (
+                <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
+                  <X className="h-4 w-4" />
+                </button>
               )}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+            </div>
 
-        {/* Scrollable list */}
-        <div
-          className="overflow-y-auto px-5 py-4 space-y-6"
-          style={{ maxHeight: "calc(82vh - 112px)" }}
-        >
-          {/* Core (Free) */}
-          <button
-            onClick={() => select(null)}
-            className={cn(
-              "w-full flex items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all",
-              state.activeModuleId === null
-                ? "border-gold/60 bg-gold/10"
-                : "border-border/50 hover:border-gold/30 hover:bg-card/50",
-            )}
-          >
-            <span className="text-xl shrink-0 text-gold">✦</span>
-            <div className="flex-1 min-w-0">
-              <div
+            {/* Category filter tabs */}
+            <div className="flex gap-1.5 border-b border-border/40 px-5 py-2.5 overflow-x-auto scrollbar-none">
+              {FILTER_TABS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => setFilterTab(id)}
+                  className={cn(
+                    "shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all",
+                    filterTab === id
+                      ? "border-gold/60 bg-gold/10 text-gold"
+                      : "border-border/40 text-muted-foreground hover:border-border/70 hover:text-foreground",
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {/* Scrollable list */}
+            <div
+              className="overflow-y-auto px-5 py-4 space-y-6"
+              style={{ maxHeight: "calc(82vh - 112px)" }}
+            >
+              {/* Core (Free) */}
+              <button
+                onClick={() => select(null)}
                 className={cn(
-                  "font-mono text-xs uppercase tracking-widest font-semibold",
-                  state.activeModuleId === null ? "text-gold" : "text-foreground",
+                  "w-full flex items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all",
+                  state.activeModuleId === null
+                    ? "border-gold/60 bg-gold/10"
+                    : "border-border/50 hover:border-gold/30 hover:bg-card/50",
                 )}
               >
-                Core (Free)
-              </div>
-              <div className="mt-0.5 text-[11px] text-muted-foreground">
-                All 7 languages · parallel reader · grammar · AI tutor
-              </div>
-            </div>
-            {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
-          </button>
+                <span className="text-xl shrink-0 text-gold">✦</span>
+                <div className="flex-1 min-w-0">
+                  <div
+                    className={cn(
+                      "font-mono text-xs uppercase tracking-widest font-semibold",
+                      state.activeModuleId === null ? "text-gold" : "text-foreground",
+                    )}
+                  >
+                    Core (Free)
+                  </div>
+                  <div className="mt-0.5 text-[11px] text-muted-foreground">
+                    All 7 languages · parallel reader · grammar · AI tutor
+                  </div>
+                </div>
+                {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
+              </button>
 
-          {/* Published modules — grouped or flat */}
-          {query.trim() ? (
-            filtered.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {filtered.map((m) => (
-                  <ModCard key={m.id} mod={m} activeId={state.activeModuleId} onSelect={select} />
-                ))}
-              </div>
-            ) : (
-              <p className="py-8 text-center font-mono text-sm text-muted-foreground">
-                No results for &ldquo;{query}&rdquo;
+              <p className="text-xs text-muted-foreground">
+                A–Z by trade · Foundation → Core → Master
               </p>
-            )
-          ) : (
-            CATEGORY_ORDER.filter((c) => byCategory[c]?.length).map((cat) => (
-              <div key={cat}>
-                <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-                  {cat}
-                </p>
+              {filtered.length ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {byCategory[cat].map((m) => (
-                    <ModCard key={m.id} mod={m} activeId={state.activeModuleId} onSelect={select} />
+                  {filtered.map((path) => (
+                    <ModCard
+                      key={path.module.id}
+                      path={path}
+                      activeId={state.activeModuleId}
+                      onSelect={(id) => select(id, true)}
+                    />
                   ))}
                 </div>
-              </div>
-            ))
-          )}
-        </div>
-        </>)}
+              ) : (
+                <p className="py-8 text-center text-sm text-muted-foreground">
+                  No matching modules.
+                </p>
+              )}
+            </div>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );
 }
 
 function ModCard({
-  mod,
+  path,
   activeId,
   onSelect,
 }: {
-  mod: AppModule;
+  path: ModuleLearningPath<AppModule>;
   activeId: string | null;
   onSelect: (id: string) => void;
 }) {
-  const active = activeId === mod.id;
+  const mod = path.module;
+  const active = path.stages.some((stage) => stage.module?.id === activeId);
   return (
-    <button
-      onClick={() => onSelect(mod.id)}
+    <section
+      data-module-id={mod.id}
+      data-module-name={mod.name}
       className={cn(
-        "flex items-start gap-3 rounded-xl border px-4 py-3 text-left transition-all",
-        active
-          ? "border-gold/60 bg-gold/10"
-          : "border-border/50 hover:border-gold/30 hover:bg-card/50",
+        "space-y-3 rounded-xl border p-4",
+        active ? "border-gold/60 bg-gold/5" : "border-border/50",
       )}
     >
-      <span className="mt-0.5 text-lg shrink-0 leading-none">{mod.emoji}</span>
-      <div className="flex-1 min-w-0">
-        <div
-          className={cn(
-            "font-mono text-[11px] uppercase tracking-widest",
-            active ? "text-gold font-semibold" : "text-foreground",
-          )}
-        >
-          {mod.name}
-        </div>
-        <div className="mt-0.5 text-[11px] text-muted-foreground line-clamp-2 leading-snug">
-          {mod.blurb}
-        </div>
+      <div className="flex items-center gap-2">
+        <span aria-hidden="true">{mod.emoji}</span>
+        <h3 className="flex-1 text-sm font-semibold">{mod.name}</h3>
+        {active && <Check className="h-4 w-4 text-gold" aria-label="Active module" />}
       </div>
-      {active ? <Check className="h-3.5 w-3.5 shrink-0 text-gold mt-0.5" /> : null}
-    </button>
+      <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">{mod.blurb}</p>
+      <ModuleLearningStages
+        path={path}
+        activeId={activeId}
+        onSelect={(module) => onSelect(module.id)}
+      />
+    </section>
   );
 }

@@ -21,7 +21,7 @@ const bodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("submit"),
     attemptId: z.string().uuid(),
-    answers: z.record(z.string().max(300)),
+    answers: z.record(z.string(), z.string().max(300)),
   }),
 ]);
 

@@ -34,7 +34,7 @@ const bindLessons = z
     action: z.literal("bind_lessons"),
     releaseId: z.string().min(3).max(160),
     fingerprint: z.string().regex(/^[a-f0-9]{64}$/),
-    expectedManifest: z.record(z.unknown()),
+    expectedManifest: z.record(z.string(), z.unknown()),
     contentVersion: z.string().min(1).max(160),
     requestId: z.string().uuid(),
     confirmDraftSnapshot: z.literal(true),

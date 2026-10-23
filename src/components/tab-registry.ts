@@ -151,7 +151,7 @@ export const TOOL_CATALOG: Record<TabKey, ToolMetadata> = {
   },
   games: {
     key: "games",
-    name: "Games Hub",
+    name: "Practice Lab",
     purpose: "Build speed and confidence through short challenges.",
     stage: "Use",
     accent: "speaking",

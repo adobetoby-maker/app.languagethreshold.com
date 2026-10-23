@@ -6,12 +6,18 @@ import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
+import {
+  checkWordMatchBoard,
+  wordMatchCefr,
+  wordMatchPairCount,
+  type WordMatchBoard,
+  type WordMatchLevel,
+  type WordMatchPair,
+} from "@/lib/word-match-core";
 
-// Difficulty levels for the Word Match memory game.
-// 1 = 6 pairs (12 cards) at A1/A2 — concrete everyday vocab
-// 2 = 8 pairs (16 cards) at B1 — slightly abstract, more variety
-// 3 = 10 pairs (20 cards) at B2+ — abstract, low-frequency, advanced
-export type WordMatchLevel = 1 | 2 | 3;
+// The board types and the rules that decide whether a board is valid live in
+// src/lib/word-match-core.ts, shared with the trade-pack loader and generator.
+export type { WordMatchBoard, WordMatchLevel, WordMatchPair };
 
 const Input = z.object({
   language: z.string().min(1).max(40),
@@ -20,17 +26,6 @@ const Input = z.object({
   topic: z.string().min(1).max(200).optional(),
   userWords: z.array(z.string().min(1).max(80)).max(25).optional(),
 });
-
-export interface WordMatchPair {
-  target: string;
-  english: string;
-}
-
-export interface WordMatchBoard {
-  pairs: WordMatchPair[]; // length 6 / 8 / 10 by level
-  cefr: CefrLevel;
-  topic: string; // 1-3 words
-}
 
 const cache = new PublicGameGenerationCache<WordMatchBoard>();
 
@@ -65,8 +60,8 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
         return { data: null, error: originError.error };
       }
 
-      const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
-      const expectedCount = data.level === 1 ? 6 : data.level === 2 ? 8 : 10;
+      const cefr: CefrLevel = wordMatchCefr(data.level);
+      const expectedCount = wordMatchPairCount(data.level);
 
       const cacheContext = { ...data, cefr };
       const hit = cache.get(cacheContext);
@@ -145,30 +140,17 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No board returned." };
         }
-        const parsed = z
-          .object({
-            pairs: z
-              .array(
-                z.object({
-                  target: z.string().trim().min(1).max(80),
-                  english: z.string().trim().min(1).max(160),
-                }),
-              )
-              .length(expectedCount),
-            topic: z.string().trim().min(1).max(80),
-            cefr: z.literal(cefr),
-          })
-          .safeParse(toolUse.input);
-        if (!parsed.success)
-          return { data: null, error: "Board content came back incomplete. Please try again." };
-        const board = parsed.data;
-        const key = (value: string) => value.normalize("NFC").toLowerCase();
-        if (
-          new Set(board.pairs.map((pair) => key(pair.target))).size !== expectedCount ||
-          new Set(board.pairs.map((pair) => key(pair.english))).size !== expectedCount
-        ) {
-          return { data: null, error: "Board pairs must have distinct words and meanings." };
+        const checked = checkWordMatchBoard(toolUse.input, data.level);
+        if (!checked.ok) {
+          return {
+            data: null,
+            error:
+              checked.reason === "duplicates"
+                ? "Board pairs must have distinct words and meanings."
+                : "Board content came back incomplete. Please try again.",
+          };
         }
+        const board = checked.board;
 
         cache.set(cacheContext, board);
         return { data: board, error: null, cached: false };

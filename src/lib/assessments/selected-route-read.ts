@@ -44,7 +44,7 @@ export async function withSelectedRouteRead<T>(
         source_revision: z.number().int().min(0).max(2147483646),
         decision_revision: z.number().int().min(1).max(2147483647),
         // Frozen decision semantics are checked by resolveSelectedAttemptPath.
-        decision: z.record(z.unknown()),
+        decision: z.record(z.string(), z.unknown()),
       })
       .strict();
     const saved = z.union([z.array(row).max(1), row, z.null()]);

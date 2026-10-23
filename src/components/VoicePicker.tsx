@@ -56,7 +56,13 @@ function voiceRegion(locale: string): string {
   return SPANISH_REGION_NAMES[locale] ?? locale;
 }
 
-export function VoicePicker({ compact = false }: { compact?: boolean }) {
+export function VoicePicker({
+  compact = false,
+  showLabel = false,
+}: {
+  compact?: boolean;
+  showLabel?: boolean;
+}) {
   const { accent, setAccent, accentsForLanguage, rate, voiceURI, setVoiceURI, settingsHydrated } =
     useSpeech();
   const { session, user, isCurrentUser } = useAuth();
@@ -196,7 +202,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         data-testid="site-voice-button"
         className={
           compact
-            ? "relative inline-flex min-w-11 max-w-[4.5rem] cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-border/60 bg-card/50 px-2 py-2.5 font-mono text-[10px] uppercase tracking-normal sm:gap-1.5 sm:px-3 sm:tracking-[0.12em] text-foreground/80 transition-colors duration-200 hover:border-gold/50 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold before:absolute before:inset-x-0 before:-inset-y-[5px] before:content-[''] sm:max-w-[15rem]"
+            ? "relative inline-flex min-h-11 min-w-11 max-w-[4.5rem] cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-border/60 bg-card/50 px-2 py-2.5 font-mono text-[10px] uppercase tracking-normal sm:gap-1.5 sm:px-3 sm:tracking-[0.12em] text-foreground/80 transition-colors duration-200 hover:border-gold/50 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold before:absolute before:inset-x-0 before:-inset-y-[5px] before:content-[''] sm:max-w-[15rem]"
             : "group inline-flex max-w-[17rem] cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all duration-200 hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold"
         }
         aria-label={
@@ -217,14 +223,33 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
           <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-amber-500" aria-hidden="true" />
         )}
         {voiceLabel ? (
-          <span data-testid="site-voice-label" className="min-w-0 truncate text-gold-ink">
+          <span
+            data-testid="site-voice-label"
+            className={
+              compact
+                ? showLabel
+                  ? "absolute right-0 top-full mt-1 w-max max-w-[180px] truncate text-[10px] leading-tight tracking-normal text-muted-foreground"
+                  : "sr-only"
+                : "min-w-0 truncate text-gold-ink"
+            }
+          >
             <span className="hidden sm:inline">{voiceLabel.long}</span>
             {/* Phone strip: the module chip beside this one needs the width, so the
                 region code drops (it stays in the aria-label and title). */}
             <span className="sm:hidden">{compact ? voiceLabel.name : voiceLabel.short}</span>
           </span>
         ) : (
-          !compact && <span className="hidden sm:inline">Voice</span>
+          (!compact || showLabel) && (
+            <span
+              className={
+                compact
+                  ? "absolute right-0 top-full mt-1 text-[10px] leading-tight text-muted-foreground"
+                  : "hidden sm:inline"
+              }
+            >
+              {showLabel ? "Choose voice" : "Voice"}
+            </span>
+          )
         )}
         {!compact && (
           <ChevronDown

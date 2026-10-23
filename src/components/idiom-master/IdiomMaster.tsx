@@ -181,7 +181,7 @@ export function IdiomMaster() {
       {!cur && im.state.loading && <Skeleton />}
 
       {!cur && !im.state.loading && im.state.error && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-200">
+        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-800 dark:text-rose-200">
           {im.state.error}
           <button
             onClick={() => void im.loadQuestion()}
@@ -363,7 +363,7 @@ function QuestionCard({
           if (reveal && isCorrectOpt)
             tone = "border-emerald-500/60 bg-emerald-500/15 text-emerald-100";
           else if (reveal && isSelected && !isCorrectOpt)
-            tone = "border-rose-500/60 bg-rose-500/15 text-rose-100";
+            tone = "border-rose-500/60 bg-rose-500/15 text-rose-800 dark:text-rose-100";
           else if (reveal) tone = "border-border/40 bg-background/20 opacity-60";
           return (
             <button
@@ -493,7 +493,7 @@ function RunReview({
                 {q.selectedAnswer && q.selectedAnswer !== q.question.correctAnswer && (
                   <>
                     {" "}
-                    · You picked: <span className="text-rose-300">{q.selectedAnswer}</span>
+                    · You picked: <span className="text-rose-700 dark:text-rose-300">{q.selectedAnswer}</span>
                   </>
                 )}
               </div>

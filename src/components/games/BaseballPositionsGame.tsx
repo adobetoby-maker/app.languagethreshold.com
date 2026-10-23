@@ -442,7 +442,7 @@ function OptionButton({
   } else if (correct) {
     cls += "border-emerald-500/80 bg-emerald-500/20 text-emerald-200";
   } else if (selected && !correct) {
-    cls += "border-rose-500/80 bg-rose-500/20 text-rose-300";
+    cls += "border-rose-500/80 bg-rose-500/20 text-rose-700 dark:text-rose-300";
   } else {
     cls += "border-border/40 bg-background/20 text-foreground/40";
   }

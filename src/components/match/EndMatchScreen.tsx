@@ -132,7 +132,7 @@ function DefeatScreen({
           A loss is a lesson in disguise.
         </div>
 
-        <div className="mt-6 font-display italic text-3xl text-red-300">
+        <div className="mt-6 font-display italic text-3xl text-red-700 dark:text-red-300">
           {pointsDelta < 0 ? "−" : ""}
           <CountUp value={animated} duration={800} /> Practice Points
         </div>

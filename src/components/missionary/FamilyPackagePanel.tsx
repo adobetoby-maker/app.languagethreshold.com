@@ -209,7 +209,7 @@ export function FamilyPackagePanel() {
     <section className="mb-6 overflow-hidden rounded-2xl border border-rose-400/30 bg-gradient-to-br from-rose-500/5 via-card/60 to-card/40">
       <header className="flex flex-wrap items-start justify-between gap-3 border-b border-rose-400/20 px-5 py-4">
         <div>
-          <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-rose-300">
+          <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-rose-700 dark:text-rose-300">
             <Heart className="h-3.5 w-3.5" /> Family Package · $19.99
           </div>
           <h2 className="mt-1 font-display text-xl text-foreground">
@@ -239,7 +239,7 @@ export function FamilyPackagePanel() {
                 setFeedback(null);
               }}
               disabled={!user}
-              className="inline-flex items-center gap-1.5 rounded-full border border-rose-400/60 bg-rose-500/15 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-200 hover:bg-rose-500/25 disabled:cursor-not-allowed disabled:opacity-40"
+              className="inline-flex items-center gap-1.5 rounded-full border border-rose-400/60 bg-rose-500/15 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-800 dark:text-rose-200 hover:bg-rose-500/25 disabled:cursor-not-allowed disabled:opacity-40"
             >
               <Plus className="h-3 w-3" /> Create family group
             </button>
@@ -263,7 +263,7 @@ export function FamilyPackagePanel() {
       {/* Create form */}
       {showCreate && (
         <div className="space-y-3 border-b border-rose-400/15 bg-background/30 px-5 py-4">
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-rose-300">
+          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-rose-700 dark:text-rose-300">
             <Sparkles className="mr-1 inline h-3 w-3" /> New family group
           </div>
           <div className="flex flex-wrap items-end gap-2">
@@ -283,7 +283,7 @@ export function FamilyPackagePanel() {
             <button
               disabled={creating || !newLastName.trim()}
               onClick={createGroup}
-              className="inline-flex items-center gap-2 rounded-full border border-rose-400/60 bg-rose-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-200 hover:bg-rose-500/25 disabled:opacity-40"
+              className="inline-flex items-center gap-2 rounded-full border border-rose-400/60 bg-rose-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-800 dark:text-rose-200 hover:bg-rose-500/25 disabled:opacity-40"
             >
               {creating ? (
                 <Loader2 className="h-3 w-3 animate-spin" />
@@ -309,7 +309,7 @@ export function FamilyPackagePanel() {
       {/* Join form */}
       {showJoin && (
         <div className="space-y-3 border-b border-rose-400/15 bg-background/30 px-5 py-4">
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-rose-300">
+          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-rose-700 dark:text-rose-300">
             <Users className="mr-1 inline h-3 w-3" /> Join your missionary's family group
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -398,7 +398,7 @@ export function FamilyPackagePanel() {
             <button
               disabled={joining || !joinCode.trim() || !joinLastName.trim() || !joinName.trim()}
               onClick={joinGroup}
-              className="inline-flex items-center gap-2 rounded-full border border-rose-400/60 bg-rose-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-200 hover:bg-rose-500/25 disabled:opacity-40"
+              className="inline-flex items-center gap-2 rounded-full border border-rose-400/60 bg-rose-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-rose-800 dark:text-rose-200 hover:bg-rose-500/25 disabled:opacity-40"
             >
               {joining ? (
                 <Loader2 className="h-3 w-3 animate-spin" />
@@ -425,7 +425,7 @@ export function FamilyPackagePanel() {
               </div>
               <button
                 onClick={copyCode}
-                className="mt-1 inline-flex items-center gap-2 rounded-md border border-rose-400/40 bg-rose-500/10 px-3 py-1.5 font-mono text-sm tracking-wider text-rose-200 hover:bg-rose-500/20"
+                className="mt-1 inline-flex items-center gap-2 rounded-md border border-rose-400/40 bg-rose-500/10 px-3 py-1.5 font-mono text-sm tracking-wider text-rose-800 dark:text-rose-200 hover:bg-rose-500/20"
                 title="Click to copy"
               >
                 {myGroup.family_code}
@@ -445,7 +445,7 @@ export function FamilyPackagePanel() {
               <li key={m.id} className="flex items-center justify-between px-3 py-2 text-sm">
                 <div className="flex items-center gap-2">
                   <span
-                    className={`inline-flex h-7 w-7 items-center justify-center rounded-full font-mono text-[10px] uppercase ${m.is_missionary ? "bg-gold/20 text-gold" : "bg-rose-500/15 text-rose-200"}`}
+                    className={`inline-flex h-7 w-7 items-center justify-center rounded-full font-mono text-[10px] uppercase ${m.is_missionary ? "bg-gold/20 text-gold" : "bg-rose-500/15 text-rose-800 dark:text-rose-200"}`}
                   >
                     {m.display_name.slice(0, 2)}
                   </span>

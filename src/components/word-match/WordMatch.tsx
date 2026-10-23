@@ -191,7 +191,7 @@ export function WordMatch() {
         <Header />
         {wm.state.loading && <BoardSkeleton level={game.level} />}
         {!wm.state.loading && wm.state.error && (
-          <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-200">
+          <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-6 text-center text-sm text-rose-800 dark:text-rose-200">
             {wm.state.error}
             <button
               onClick={() => void wm.startGame(game.language, game.level)}

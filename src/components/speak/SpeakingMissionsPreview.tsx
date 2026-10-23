@@ -62,6 +62,7 @@ import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
 import { PinyinText } from "@/components/reader/PinyinText";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
+import { WatchTalkControl } from "./WatchTalkControl";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -2227,6 +2228,17 @@ export function SpeakingMissionsPreview({
             Retry microphone
           </button>
         </div>
+      )}
+
+      {started && session && ageConfirmed && ageStatusActor === session.user.id && !ageUnknown && sessionOwnerRef.current === lifecycleKey && (
+        <WatchTalkControl key={`${lifecycleKey}:${missionLocale}`} locale={missionLocale ?? selectedMission.locale} title={selectedMission.title}
+          ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
+          onTurn={(text) => {
+            const lease = capture();
+            if (!lease.isCurrent() || sessionOwnerRef.current !== lifecycleKey || status !== "ready" || partnerSpeaking || typedTurn.trim()) return;
+            if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
+            else { setTypedTurn(text); setTranscriptSource("dictation"); }
+          }} />
       )}
 
       <form

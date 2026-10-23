@@ -1,0 +1,32 @@
+{
+	"appId": "com.languagethreshold.app",
+	"appName": "Language Threshold",
+	"webDir": "dist/client",
+	"server": {
+		"url": "https://app.languagethreshold.com",
+		"cleartext": false
+	},
+	"ios": {
+		"contentInset": "never"
+	},
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		},
+		"StatusBar": {
+			"style": "LIGHT",
+			"overlaysWebView": false,
+			"backgroundColor": "#0b0d12"
+		}
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"PushNotificationsPlugin",
+		"StatusBarPlugin",
+		"NativeBiometricPlugin"
+	]
+}

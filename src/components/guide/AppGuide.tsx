@@ -1342,26 +1342,42 @@ function OwnedLessonRunner({
   }
 
   const lessonButtons = (position: "top" | "bottom") => (
-    <div className="flex items-center justify-between gap-2" data-testid={`lesson-nav-${position}`}>
+    <nav
+      aria-label={`Lesson navigation, ${position}`}
+      className="grid grid-cols-2 gap-3"
+      data-testid={`lesson-nav-${position}`}
+    >
       <button
         type="button"
         onClick={() => leaveLesson(() => onNavigate(lesson.n - 1))}
         disabled={lesson.n <= 1}
-        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+        aria-label={`Previous lesson: ${stageLessonShort(moduleId, Math.max(lesson.n - 1, 1))}`}
+        className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gold/30 bg-gold/[0.04] px-3 py-2 text-left text-foreground transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-35"
       >
-        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-        {stageLessonShort(moduleId, Math.max(lesson.n - 1, 1))}
+        <ArrowLeft className="h-5 w-5 shrink-0 text-gold" strokeWidth={2} aria-hidden="true" />
+        <span>
+          <span className="block text-sm font-semibold">Previous lesson</span>
+          <span className="block text-xs text-muted-foreground">
+            {lesson.n <= 1 ? "First lesson" : stageLessonShort(moduleId, lesson.n - 1)}
+          </span>
+        </span>
       </button>
       <button
         type="button"
         onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
         disabled={lesson.n >= totalLessons}
-        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+        aria-label={`Next lesson: ${stageLessonShort(moduleId, Math.min(lesson.n + 1, totalLessons))}`}
+        className="inline-flex min-h-12 items-center justify-end gap-2 rounded-xl border border-gold/30 bg-gold/[0.04] px-3 py-2 text-right text-foreground transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-35"
       >
-        {stageLessonShort(moduleId, Math.min(lesson.n + 1, totalLessons))}
-        <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+        <span>
+          <span className="block text-sm font-semibold">Next lesson</span>
+          <span className="block text-xs text-muted-foreground">
+            {lesson.n >= totalLessons ? "Last lesson" : stageLessonShort(moduleId, lesson.n + 1)}
+          </span>
+        </span>
+        <ArrowRight className="h-5 w-5 shrink-0 text-gold" strokeWidth={2} aria-hidden="true" />
       </button>
-    </div>
+    </nav>
   );
 
   const nextButton = (

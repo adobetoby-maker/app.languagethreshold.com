@@ -186,7 +186,7 @@ test.describe("Roofing Master 20 lessons", () => {
     await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
     // The runner's previous / next buttons carry the stage: "Master 2", not a bare "Lesson 2".
     const nav = page.getByTestId("lesson-nav-top");
-    await expect(nav.getByRole("button", { name: "Master 2" })).toBeVisible();
+    await expect(nav.getByRole("button", { name: "Next lesson: Master 2" })).toBeVisible();
     await expect(nav.getByRole("button", { name: /^Lesson / })).toHaveCount(0);
     if (MASTER_ROOFING_LESSONS[0].grammar) {
       const grammar = page.getByTestId("lesson-grammar-focus");
@@ -327,7 +327,7 @@ test.describe("Data-driven Core 60 stage (fixture trade)", { tag: "@dev-only" },
     await expect(card).toContainText("Day 1 of 70");
     await page.getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ }).first().click();
     await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
-    await expect(page.getByTestId("lesson-nav-top").getByRole("button", { name: "Master 2" })).toBeVisible();
+    await expect(page.getByTestId("lesson-nav-top").getByRole("button", { name: "Next lesson: Master 2" })).toBeVisible();
     const grammar = page.getByTestId("lesson-grammar-focus");
     await expect(grammar).toContainText("Fixture grammar focus 1");
     await expect(grammar).toContainText("Ejemplo uno 1.");

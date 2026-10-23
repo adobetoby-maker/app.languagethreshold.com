@@ -8,18 +8,8 @@ import type { Language } from "@/state/app-state";
 const COMING_SOON_LANGUAGES = new Set<Language>([]);
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { modulesInLearningOrder } from "@/lib/module-order";
 import { cn } from "@/lib/utils";
-
-const CATEGORY_ORDER: AppModule["category"][] = [
-  "Faith",
-  "Medical",
-  "Trades",
-  "Service",
-  "Education",
-  "Agriculture",
-  "Sports",
-  "Travel",
-];
 
 const FILTER_TABS = [
   { id: "ALL" as const, label: "All" },
@@ -53,11 +43,10 @@ export function ModulePickerDialog({ open, onClose }: Props) {
       )
     : available;
 
-  const filtered =
-    filterTab === "ALL" ? afterSearch : afterSearch.filter((m) => m.category === filterTab);
-
-  const byCategory: Record<string, AppModule[]> = {};
-  for (const m of filtered) (byCategory[m.category] ??= []).push(m);
+  const filtered = modulesInLearningOrder(
+    filterTab === "ALL" ? afterSearch : afterSearch.filter((m) => m.category === filterTab),
+    MODULES,
+  );
 
   function select(id: string | null) {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: id });
@@ -94,109 +83,98 @@ export function ModulePickerDialog({ open, onClose }: Props) {
         )}
 
         {/* Search bar + module list — only shown for supported languages */}
-        {!COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (<>
-        <div className="flex items-center gap-3 border-b border-border/50 px-5 py-4">
-          <Search className="h-4 w-4 shrink-0 text-muted-foreground" strokeWidth={1.6} />
-          <input
-            autoFocus
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search modules…"
-            className="flex-1 bg-transparent font-mono text-sm tracking-wide text-foreground placeholder:text-muted-foreground/40 outline-none"
-          />
-          {query ? (
-            <button
-              onClick={() => setQuery("")}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          ) : (
-            <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
-
-        {/* Category filter tabs */}
-        <div className="flex gap-1.5 border-b border-border/40 px-5 py-2.5 overflow-x-auto scrollbar-none">
-          {FILTER_TABS.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => setFilterTab(id)}
-              className={cn(
-                "shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all",
-                filterTab === id
-                  ? "border-gold/60 bg-gold/10 text-gold"
-                  : "border-border/40 text-muted-foreground hover:border-border/70 hover:text-foreground",
+        {!COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (
+          <>
+            <div className="flex items-center gap-3 border-b border-border/50 px-5 py-4">
+              <Search className="h-4 w-4 shrink-0 text-muted-foreground" strokeWidth={1.6} />
+              <input
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search modules…"
+                className="flex-1 bg-transparent font-mono text-sm tracking-wide text-foreground placeholder:text-muted-foreground/40 outline-none"
+              />
+              {query ? (
+                <button
+                  onClick={() => setQuery("")}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              ) : (
+                <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
+                  <X className="h-4 w-4" />
+                </button>
               )}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+            </div>
 
-        {/* Scrollable list */}
-        <div
-          className="overflow-y-auto px-5 py-4 space-y-6"
-          style={{ maxHeight: "calc(82vh - 112px)" }}
-        >
-          {/* Core (Free) */}
-          <button
-            onClick={() => select(null)}
-            className={cn(
-              "w-full flex items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all",
-              state.activeModuleId === null
-                ? "border-gold/60 bg-gold/10"
-                : "border-border/50 hover:border-gold/30 hover:bg-card/50",
-            )}
-          >
-            <span className="text-xl shrink-0 text-gold">✦</span>
-            <div className="flex-1 min-w-0">
-              <div
+            {/* Category filter tabs */}
+            <div className="flex gap-1.5 border-b border-border/40 px-5 py-2.5 overflow-x-auto scrollbar-none">
+              {FILTER_TABS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => setFilterTab(id)}
+                  className={cn(
+                    "shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all",
+                    filterTab === id
+                      ? "border-gold/60 bg-gold/10 text-gold"
+                      : "border-border/40 text-muted-foreground hover:border-border/70 hover:text-foreground",
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {/* Scrollable list */}
+            <div
+              className="overflow-y-auto px-5 py-4 space-y-6"
+              style={{ maxHeight: "calc(82vh - 112px)" }}
+            >
+              {/* Core (Free) */}
+              <button
+                onClick={() => select(null)}
                 className={cn(
-                  "font-mono text-xs uppercase tracking-widest font-semibold",
-                  state.activeModuleId === null ? "text-gold" : "text-foreground",
+                  "w-full flex items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all",
+                  state.activeModuleId === null
+                    ? "border-gold/60 bg-gold/10"
+                    : "border-border/50 hover:border-gold/30 hover:bg-card/50",
                 )}
               >
-                Core (Free)
-              </div>
-              <div className="mt-0.5 text-[11px] text-muted-foreground">
-                All 7 languages · parallel reader · grammar · AI tutor
-              </div>
-            </div>
-            {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
-          </button>
+                <span className="text-xl shrink-0 text-gold">✦</span>
+                <div className="flex-1 min-w-0">
+                  <div
+                    className={cn(
+                      "font-mono text-xs uppercase tracking-widest font-semibold",
+                      state.activeModuleId === null ? "text-gold" : "text-foreground",
+                    )}
+                  >
+                    Core (Free)
+                  </div>
+                  <div className="mt-0.5 text-[11px] text-muted-foreground">
+                    All 7 languages · parallel reader · grammar · AI tutor
+                  </div>
+                </div>
+                {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
+              </button>
 
-          {/* Published modules — grouped or flat */}
-          {query.trim() ? (
-            filtered.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {filtered.map((m) => (
-                  <ModCard key={m.id} mod={m} activeId={state.activeModuleId} onSelect={select} />
-                ))}
-              </div>
-            ) : (
-              <p className="py-8 text-center font-mono text-sm text-muted-foreground">
-                No results for &ldquo;{query}&rdquo;
+              <p className="text-xs text-muted-foreground">
+                A–Z by trade · Foundation → Core → Master
               </p>
-            )
-          ) : (
-            CATEGORY_ORDER.filter((c) => byCategory[c]?.length).map((cat) => (
-              <div key={cat}>
-                <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-                  {cat}
-                </p>
+              {filtered.length ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {byCategory[cat].map((m) => (
+                  {filtered.map((m) => (
                     <ModCard key={m.id} mod={m} activeId={state.activeModuleId} onSelect={select} />
                   ))}
                 </div>
-              </div>
-            ))
-          )}
-        </div>
-        </>)}
+              ) : (
+                <p className="py-8 text-center text-sm text-muted-foreground">
+                  No matching modules.
+                </p>
+              )}
+            </div>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );
@@ -214,6 +192,8 @@ function ModCard({
   const active = activeId === mod.id;
   return (
     <button
+      data-module-id={mod.id}
+      data-module-name={mod.name}
       onClick={() => onSelect(mod.id)}
       className={cn(
         "flex items-start gap-3 rounded-xl border px-4 py-3 text-left transition-all",

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
 import { VoicePicker } from "./VoicePicker";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
@@ -28,7 +29,7 @@ export function TopNav() {
       <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap xl:gap-6 sm:px-6 sm:py-0">
         <div className="flex items-center gap-2 sm:gap-2.5">
           <Sparkle className="h-5 w-5 text-gold" strokeWidth={1.5} fill="currentColor" />
-          <span className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+          <span className="font-display text-lg font-semibold tracking-tight xl:text-2xl">
             Language Threshold
           </span>
         </div>
@@ -70,7 +71,7 @@ export function TopNav() {
         >
           <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
           {getModule(state.activeModuleId) ? (
-            <span className="truncate max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold">
+            <span className="truncate max-w-[100px] xl:max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold">
               {getModule(state.activeModuleId)!.emoji} {getModule(state.activeModuleId)!.name}
             </span>
           ) : (
@@ -82,7 +83,7 @@ export function TopNav() {
         </button>
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT))}
@@ -92,6 +93,11 @@ export function TopNav() {
           >
             <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
           </button>
+          <VoiceGenderSwitch
+            label="Site voice"
+            showUnavailable
+            className="shrink-0 [&_button]:h-11 [&_button]:min-w-11"
+          />
           <VoicePicker compact />
           <Popover>
             <PopoverTrigger asChild>

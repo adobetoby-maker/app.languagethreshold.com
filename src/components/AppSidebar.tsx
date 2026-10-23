@@ -406,7 +406,11 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const desktopVisible = [
     { key: "modules" as TabKey, label: "Modules", short: "Modules", Icon: Puzzle },
     ...visible.filter((item) => item.key === "core30"),
-    ...visible.filter((item) => item.key !== "core30"),
+    ...visible
+      .filter((item) => item.key !== "core30" && item.key !== "exams")
+      .map((item) =>
+        item.key === "games" ? { ...item, label: "Practice Lab", short: "Practice Lab" } : item,
+      ),
     ...(state.selectedLanguage === "Japanese"
       ? [{ key: "kana" as TabKey, label: "Kana Pad", short: "Kana Pad", Icon: PenLine }]
       : []),
@@ -441,7 +445,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   return (
     <>
       {/* ── Desktop sidebar ─────────────────────────────────── */}
-      <aside className="hidden desktop:flex flex-col w-[76px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
+      <aside className="hidden desktop:flex flex-col w-[108px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
         <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
@@ -484,7 +488,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-r-full bg-gold" />
                 )}
                 <Icon className="h-[17px] w-[17px] shrink-0" strokeWidth={1.6} />
-                <span className="w-full truncate text-center font-mono text-[8.5px] leading-tight tracking-wide">
+                <span className="w-full truncate text-center font-mono text-[12px] leading-tight tracking-normal">
                   {short}
                 </span>
               </button>

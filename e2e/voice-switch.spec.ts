@@ -39,7 +39,9 @@ async function stubVoices(page: Page): Promise<void> {
 
 async function openReader(page: Page): Promise<void> {
   await page.goto("/");
-  const woman = page.getByTestId("voice-switch-woman");
+  const woman = page
+    .getByRole("group", { name: "Reader voice", exact: true })
+    .getByTestId("voice-switch-woman");
   for (let attempt = 0; attempt < 3; attempt++) {
     await seedAppState(page, {
       selectedLanguage: "Spanish",
@@ -56,12 +58,17 @@ async function openReader(page: Page): Promise<void> {
 
 test("Reader woman/man switch changes the top-bar voice and persists across reload", async ({
   page,
+  isMobile,
 }) => {
   await stubVoices(page);
   await openReader(page);
 
-  const woman = page.getByTestId("voice-switch-woman");
-  const man = page.getByTestId("voice-switch-man");
+  const woman = page
+    .getByRole("group", { name: "Reader voice", exact: true })
+    .getByTestId("voice-switch-woman");
+  const man = page
+    .getByRole("group", { name: "Reader voice", exact: true })
+    .getByTestId("voice-switch-man");
   const topVoice = page.getByTestId("site-voice-button").filter({ visible: true });
   const topLabel = topVoice.getByTestId("site-voice-label");
 
@@ -75,7 +82,14 @@ test("Reader woman/man switch changes the top-bar voice and persists across relo
     /^Voice: Paulina, Mexican Spanish, woman\. Change voice(?:\. iPhone device voice quality may vary)?$/,
   );
 
-  await man.click();
+  if (!isMobile) {
+    const headerSwitch = page.locator("header").getByRole("group", { name: "Site voice" });
+    await expect(headerSwitch).toBeVisible();
+    await headerSwitch.getByTestId("voice-switch-man").click();
+  } else {
+    await expect(page.locator("header")).not.toBeVisible();
+    await man.click();
+  }
   await expect(man).toHaveAttribute("aria-pressed", "true");
   await expect(woman).toHaveAttribute("aria-pressed", "false");
   await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });

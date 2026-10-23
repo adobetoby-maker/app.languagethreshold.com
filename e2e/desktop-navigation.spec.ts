@@ -40,11 +40,18 @@ test("one desktop menu retains tools and utilities; phone navigation stays famil
     await expect(sidebar).toBeVisible();
     await expect(bottom).not.toBeVisible();
     await expect(page.locator("header nav")).toHaveCount(0);
+    await expect(sidebar.getByRole("button", { name: "Exams", exact: true })).toHaveCount(0);
+    const navFont = await sidebar
+      .getByRole("button", { name: "Core 60", exact: true })
+      .locator("span")
+      .last()
+      .evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+    expect(navFont).toBeGreaterThanOrEqual(12);
     for (const label of [
       "Reader",
       "Cards",
       "Grammar",
-      "Games",
+      "Practice Lab",
       "Speak",
       "Core 60",
       "Modules",
@@ -97,4 +104,62 @@ test("desktop keeps the Japanese-only Kana entry in the sidebar", async ({ page,
   await expect(sidebar.getByRole("button", { name: "Kana Pad", exact: true })).toBeVisible();
   await sidebar.getByRole("button", { name: "Kana Pad", exact: true }).click();
   await expect(page).toHaveURL(/tab=kana/);
+});
+
+test("module picker and catalogue alphabetize trades with Foundation, Core, Master together", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "catalogue ordering is shared across devices");
+  await page.goto(appUrl({ tab: "modules" }));
+  const checkOrder = async (root: import("@playwright/test").Locator) => {
+    const cards = await root
+      .locator("[data-module-id]")
+      .evaluateAll((els) =>
+        els.map((el) => ({
+          id: el.getAttribute("data-module-id")!,
+          name: el.getAttribute("data-module-name")!,
+        })),
+      );
+    expect(cards.length).toBeGreaterThan(20);
+    const ids = cards.map((card) => card.id);
+    const first = ids.indexOf("foundation-roofing");
+    expect(first).toBeGreaterThanOrEqual(0);
+    expect(ids.slice(first, first + 3)).toEqual([
+      "foundation-roofing",
+      "roofing",
+      "master-roofing",
+    ]);
+    const baseNames = cards
+      .filter((card) => !card.id.startsWith("foundation-") && !card.id.startsWith("master-"))
+      .map((card) => card.name);
+    expect(baseNames).toEqual(
+      [...baseNames].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })),
+    );
+  };
+  await expect(page.locator("main [data-module-id]").first()).toBeVisible();
+  await checkOrder(page.locator("main"));
+  await page.getByTitle("Change module").click();
+  const picker = page.getByRole("dialog", { name: "Select Module" });
+  await expect(picker).toBeVisible();
+  await checkOrder(picker);
+});
+
+test("Exams opens from Core 60 and Practice Lab with the current learning pair", async ({
+  page,
+}) => {
+  await page.goto(appUrl({ tab: "core30", module: "roofing" }));
+  await page.getByRole("link", { name: "Entrance, day 45 and day 90 exams" }).click();
+  await expect(page).toHaveURL(/\/exams\?/);
+  let params = new URL(page.url()).searchParams;
+  expect(params.get("module")).toBe("roofing");
+  expect(params.get("target")).toBe("Spanish");
+  expect(params.get("native")).toBe("English");
+  await page.goto(appUrl({ tab: "games", module: "roofing" }));
+  await expect(page.getByRole("heading", { name: "Practice Lab", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Exams", exact: true }).click();
+  await expect(page).toHaveURL(/\/exams\?/);
+  params = new URL(page.url()).searchParams;
+  expect(params.get("module")).toBe("roofing");
+  expect(params.get("target")).toBe("Spanish");
 });

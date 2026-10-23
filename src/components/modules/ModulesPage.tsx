@@ -5,6 +5,7 @@ import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
+import { modulesInLearningOrder } from "@/lib/module-order";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { useLibrary } from "@/state/library-state";
 import { getAvailableModuleLessons } from "@/data/module-starters";
@@ -62,6 +63,8 @@ function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: Mod
 
   return (
     <div
+      data-module-id={module.id}
+      data-module-name={module.name}
       className={
         "group relative flex flex-col rounded-2xl border p-5 transition-all duration-200 " +
         (isActive
@@ -186,34 +189,31 @@ export function ModulesPage() {
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    return availableModules.filter((m) => {
-      const matchesCat = activeCategory === "All" || m.category === activeCategory;
-      const matchesSearch =
-        !q ||
-        m.name.toLowerCase().includes(q) ||
-        m.blurb.toLowerCase().includes(q) ||
-        m.userRole.toLowerCase().includes(q) ||
-        m.vocabFocus.some((v) => v.toLowerCase().includes(q));
-      return matchesCat && matchesSearch;
-    });
+    return modulesInLearningOrder(
+      availableModules.filter((m) => {
+        const matchesCat = activeCategory === "All" || m.category === activeCategory;
+        const matchesSearch =
+          !q ||
+          m.name.toLowerCase().includes(q) ||
+          m.blurb.toLowerCase().includes(q) ||
+          m.userRole.toLowerCase().includes(q) ||
+          m.vocabFocus.some((v) => v.toLowerCase().includes(q));
+        return matchesCat && matchesSearch;
+      }),
+      MODULES,
+    );
   }, [activeCategory, availableModules, search]);
 
-  // Group by category preserving CATEGORY_ORDER
-  const groups = useMemo(() => {
-    if (activeCategory !== "All") {
-      return [{ category: activeCategory as AppModule["category"], modules: filtered }];
-    }
-    return CATEGORY_ORDER.map((cat) => ({
-      category: cat,
-      modules: filtered.filter((m) => m.category === cat),
-    })).filter((g) => g.modules.length > 0);
-  }, [filtered, activeCategory]);
+  const groups = [
+    { category: activeCategory === "All" ? null : activeCategory, modules: filtered },
+  ];
 
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
-    const destination = state.selectedLanguage === "English" && module.learnDirection !== "en-target"
-      ? "reader"
-      : moduleDestinationTab(module.id);
+    const destination =
+      state.selectedLanguage === "English" && module.learnDirection !== "en-target"
+        ? "reader"
+        : moduleDestinationTab(module.id);
     const hasReading =
       getAvailableModuleLessons(module.id, state.selectedLanguage, library.state.entries).length >
       0;
@@ -328,10 +328,10 @@ export function ModulesPage() {
             </div>
           ) : (
             groups.map(({ category, modules }) => {
-              const meta = CATEGORY_META[category];
+              const meta = category ? CATEGORY_META[category] : { emoji: "📚" };
               const isEnglishForWork = category === "English for Work";
               return (
-                <section key={category}>
+                <section key={category ?? "all"}>
                   {/* Category heading */}
                   {isEnglishForWork ? (
                     <div className="mb-4 rounded-2xl border border-indigo-400/30 bg-indigo-400/5 px-4 py-3">
@@ -354,7 +354,9 @@ export function ModulesPage() {
                   ) : (
                     <div className="mb-4 flex items-center gap-3">
                       <span className="text-2xl">{meta.emoji}</span>
-                      <h2 className="font-display text-lg italic text-foreground">{category}</h2>
+                      <h2 className="font-display text-lg italic text-foreground">
+                        {category ?? "All modules · A–Z"}
+                      </h2>
                       <div className="flex-1 border-t border-border/40" />
                       <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                         {modules.length} module{modules.length !== 1 ? "s" : ""}

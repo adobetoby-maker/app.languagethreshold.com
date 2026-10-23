@@ -58,3 +58,9 @@ playwright-report/
 
 # Core 60 stage generator progress (scripts/build-core60.mts)
 .core60-progress/
+
+# Native build products and local signing state
+ios/DerivedData*/
+**/xcuserdata/
+*.xcarchive
+*.ipa

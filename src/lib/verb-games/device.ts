@@ -4,9 +4,19 @@
 
 import { FAMILIES, isFamilyId } from "./families.ts";
 import { isRoundMode, scopeKey } from "./rules.ts";
+import { SERIES_STEPS, isSeriesStep, type SeriesStep } from "./series.ts";
 import type { FamilyId, PatternData, RoundLog, RoundMode, RoundResult, SourceFilter } from "./types.ts";
 
 export type VerbStep = "see" | "hear" | "recall";
+
+/** One family's pattern series: steps passed (always an in-order prefix), best score per step. */
+export interface SeriesProgress {
+  passed: SeriesStep[];
+  /** Right answers in the best run (Match: pairs made with at most two mistakes, else 0). */
+  best: Partial<Record<SeriesStep, number>>;
+  /** When Type it was first passed: the family is mastered. */
+  masteredAt?: string;
+}
 
 export interface VerbDeviceState {
   v: 1;
@@ -19,6 +29,8 @@ export interface VerbDeviceState {
   /** `mode` is the picker's last choice; absent means timed. */
   settings: { source: "module" | "core" | "both"; listMode: boolean; mode?: RoundMode };
   unitSteps: Partial<Record<FamilyId, VerbStep[]>>;
+  /** Pattern series progress per family. Absent in blobs saved before the series; read as {}. */
+  series: Partial<Record<FamilyId, SeriesProgress>>;
 }
 
 export const EMPTY_VERB_DEVICE: VerbDeviceState = Object.freeze({
@@ -29,6 +41,7 @@ export const EMPTY_VERB_DEVICE: VerbDeviceState = Object.freeze({
   queue: Object.freeze([]),
   settings: Object.freeze({ source: "core", listMode: false }),
   unitSteps: Object.freeze({}),
+  series: Object.freeze({}),
 }) as unknown as VerbDeviceState;
 
 export const MASTERY = { minPicks: 30, accuracy: 0.85 } as const;
@@ -46,7 +59,7 @@ const UNSAFE_KEYS = new Set(["__proto__", "constructor", "prototype"]);
 const safeEntries = (r: Record<string, unknown>) => Object.entries(r).filter(([k]) => !UNSAFE_KEYS.has(k));
 
 function fresh(): VerbDeviceState {
-  return { v: 1, mastery: {}, bests: {}, ranks: {}, queue: [], settings: { source: "core", listMode: false }, unitSteps: {} };
+  return { v: 1, mastery: {}, bests: {}, ranks: {}, queue: [], settings: { source: "core", listMode: false }, unitSteps: {}, series: {} };
 }
 
 /** Anything foreign, outdated or corrupt becomes empty; valid parts of a v1 blob are kept. */
@@ -86,6 +99,25 @@ export function readVerbDevice(raw: unknown): VerbDeviceState {
       const kept = steps.filter((s): s is VerbStep => (STEPS as readonly unknown[]).includes(s));
       const unique = [...new Set(kept)];
       if (unique.length > 0) out.unitSteps[k] = unique;
+    }
+  }
+  if (isRecord(raw.series)) {
+    for (const [k, p] of safeEntries(raw.series)) {
+      if (!isFamilyId(k) || !isRecord(p)) continue;
+      const stored = Array.isArray(p.passed) ? p.passed : [];
+      // Only the in-order prefix counts: a step is passed only when every step before it is.
+      const passed: SeriesStep[] = [];
+      for (const step of SERIES_STEPS) {
+        if (!stored.includes(step)) break;
+        passed.push(step);
+      }
+      const best: Partial<Record<SeriesStep, number>> = {};
+      if (isRecord(p.best)) {
+        for (const [step, n] of safeEntries(p.best)) if (isSeriesStep(step) && isCount(n)) best[step] = n;
+      }
+      const progress: SeriesProgress = { passed, best };
+      if (passed.includes("type") && typeof p.masteredAt === "string") progress.masteredAt = p.masteredAt;
+      out.series[k] = progress;
     }
   }
   return out;
@@ -165,6 +197,45 @@ export function markStep(s: VerbDeviceState, familyId: FamilyId, step: VerbStep)
   const have = s.unitSteps[familyId] ?? [];
   if (have.includes(step)) return s;
   return { ...s, unitSteps: { ...s.unitSteps, [familyId]: [...have, step] } };
+}
+
+const NO_PROGRESS: SeriesProgress = Object.freeze({ passed: Object.freeze([]), best: Object.freeze({}) }) as unknown as SeriesProgress;
+
+export function seriesProgress(s: VerbDeviceState, familyId: FamilyId): SeriesProgress {
+  return s.series?.[familyId] ?? NO_PROGRESS;
+}
+
+/** Step 1 is always open; every later step opens when the one before it has been passed. */
+export function stepUnlocked(s: VerbDeviceState, familyId: FamilyId, step: SeriesStep): boolean {
+  const i = SERIES_STEPS.indexOf(step);
+  return i === 0 || seriesProgress(s, familyId).passed.includes(SERIES_STEPS[i - 1] as SeriesStep);
+}
+
+/** Passing step 5 (Type it) masters the family. */
+export function seriesMastered(s: VerbDeviceState, familyId: FamilyId): boolean {
+  return seriesProgress(s, familyId).passed.includes("type");
+}
+
+/**
+ * Records one finished step run: keeps the best score and, on a pass, adds the step. A locked step
+ * returns the same state (steps unlock in order). Passing Type it sets `masteredAt` once.
+ */
+export function recordSeriesStep(
+  s: VerbDeviceState,
+  familyId: FamilyId,
+  step: SeriesStep,
+  run: { score: number; passed: boolean; at: string },
+): VerbDeviceState {
+  if (!stepUnlocked(s, familyId, step)) return s;
+  const prev = seriesProgress(s, familyId);
+  const score = Math.max(0, Math.floor(run.score));
+  const best = (prev.best[step] ?? -1) < score ? { ...prev.best, [step]: score } : prev.best;
+  const passed = run.passed && !prev.passed.includes(step) ? [...prev.passed, step] : prev.passed;
+  if (best === prev.best && passed === prev.passed) return s;
+  const next: SeriesProgress = { passed: [...passed], best: { ...best } };
+  const masteredAt = prev.masteredAt ?? (passed.includes("type") ? run.at : undefined);
+  if (masteredAt !== undefined) next.masteredAt = masteredAt;
+  return { ...s, series: { ...s.series, [familyId]: next } };
 }
 
 /** Device `settings.source` plus a module id as a round SourceFilter; module/both without a module id fall back to core. */

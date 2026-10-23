@@ -337,6 +337,17 @@ export async function manageOwnerTeam(
   if (member.status !== "active") throw new TeamOperationError("Choose an active member.");
   if (member.user_id === org.owner_user_id)
     return { notice: `${member.display_name} already owns ${org.name}.` };
+  // The current account owner is demoted to admin below, so it gets the same staff protection.
+  // (change_role and remove_member already refuse the account owner outright.)
+  const current = await db.auth.admin.getUserById(org.owner_user_id);
+  requireCurrentTeamRequest(db);
+  if (current.error || current.data?.user?.id !== org.owner_user_id)
+    throw new TeamOperationError(
+      "The current owner's account could not be confirmed. Refresh before retrying.",
+      503,
+    );
+  await requireNotPlatformStaff(db, org.owner_user_id, current.data.user.email);
+  requireCurrentTeamRequest(db);
   // Promote first, then move the pointer, then demote: a partial failure leaves two owners, never none.
   const promoted = await db
     .from("team_members")

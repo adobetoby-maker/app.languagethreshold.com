@@ -463,6 +463,7 @@ function teamDb({
   members,
   roles = {},
   emails = {},
+  missingAccounts = [],
 } = {}) {
   const rows = members ?? {
     [M_OWNER]: {
@@ -489,11 +490,13 @@ function teamDb({
   };
   return fakeDb({
     roles,
-    accounts: {
-      [ACTOR]: { id: ACTOR, email: emails[ACTOR] ?? "olivia@acme.test" },
-      [TARGET]: { id: TARGET, email: emails[TARGET] ?? "adam@acme.test" },
-      [OTHER_OWNER]: { id: OTHER_OWNER, email: emails[OTHER_OWNER] ?? "lea@example.invalid" },
-    },
+    accounts: Object.fromEntries(
+      Object.entries({
+        [ACTOR]: { id: ACTOR, email: emails[ACTOR] ?? "olivia@acme.test" },
+        [TARGET]: { id: TARGET, email: emails[TARGET] ?? "adam@acme.test" },
+        [OTHER_OWNER]: { id: OTHER_OWNER, email: emails[OTHER_OWNER] ?? "lea@example.invalid" },
+      }).filter(([id]) => !missingAccounts.includes(id)),
+    ),
     tables: {
       team_organizations: (q) =>
         q.op === "select"
@@ -924,4 +927,42 @@ test("resend confirmation: concurrent requests in one minute send exactly one em
     accounts.resendBucketId(TARGET, t),
     /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/,
   );
+});
+
+test("team: transfer refuses when the CURRENT account owner is platform staff or cannot be confirmed", async () => {
+  const body = {
+    action: "transfer_ownership",
+    orgId: ORG,
+    memberId: M_ADMIN,
+    confirmName: "Acme Roofing",
+  };
+  for (const role of ["owner", "support"]) {
+    const db = teamDb({ roles: { [ACTOR]: role } });
+    await assert.rejects(
+      teams.manageOwnerTeam(db, ACTOR, body, "https://app.test"),
+      (e) => e.status === 403 && /protected/.test(e.message),
+      role,
+    );
+    assert.equal(teamWrites(db).length, 0);
+    assert.equal(audits(db).length, 0);
+  }
+  const saved = process.env.PLATFORM_OWNER_EMAIL;
+  process.env.PLATFORM_OWNER_EMAIL = "OLIVIA@acme.test";
+  try {
+    const db = teamDb();
+    await assert.rejects(
+      teams.manageOwnerTeam(db, ACTOR, body, "https://app.test"),
+      (e) => e.status === 403,
+    );
+    assert.equal(teamWrites(db).length, 0);
+  } finally {
+    if (saved === undefined) delete process.env.PLATFORM_OWNER_EMAIL;
+    else process.env.PLATFORM_OWNER_EMAIL = saved;
+  }
+  const lost = teamDb({ missingAccounts: [ACTOR] });
+  await assert.rejects(
+    teams.manageOwnerTeam(lost, ACTOR, body, "https://app.test"),
+    (e) => e.status === 503 && /current owner/.test(e.message),
+  );
+  assert.equal(teamWrites(lost).length, 0);
 });

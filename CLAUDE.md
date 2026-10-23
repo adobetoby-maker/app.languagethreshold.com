@@ -136,10 +136,13 @@ VITE_STRIPE_PRICE_MONTHLY|ANNUAL|FAMILY           # optional; pricing falls back
 | Table | Notes |
 |---|---|
 | `profiles` | `data` JSONB = full AppState + Stripe fields (`subscription_status`, `stripe_customer_id`, `period_end`, ...) written by `src/routes/api.stripe-webhook.ts` |
-| `mission_pins`, `family_groups`, `family_members` | public read; max 7 members (DB trigger) |
+| `mission_pins` | public read |
+| `family_groups`, `family_members` | PR #45 migration restricts reads to owner/joined members, removes anonymous access, and joins through `join_family_group()`; max 7 members (DB trigger) |
 | `library_books` | cloud-synced uploads; `learning_reset_id` added by `supabase/migrations/20261022013531_learner_learning_reset.sql` |
 
 Migrations live in `supabase/migrations/`. **Never apply a migration to production; the owner does that.**
+
+PR #45 needs `20261021000000_family_rls_hardening.sql` in project `pollhlkgltdkdskdzsgd` before its client deploy. It also prevents browser roles from changing billing fields in `profiles.data`. This migration is not applied by the PR update. The Family Setup route keeps AuthProvider + SubscriptionProvider and sends its session bearer token to the authenticated child-account endpoint.
 
 ---
 

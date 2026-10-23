@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Users, Plus, CheckCircle, Loader2, ArrowLeft, User } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/family-setup")({
   component: () => (
@@ -22,13 +23,7 @@ interface KidProfile {
   username: string;
 }
 
-function AddKidForm({
-  parentId,
-  onAdded,
-}: {
-  parentId: string;
-  onAdded: (kid: KidProfile) => void;
-}) {
+function AddKidForm({ onAdded }: { onAdded: (kid: KidProfile) => void }) {
   const [username, setUsername] = useState("");
   const [pin, setPin] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,10 +33,17 @@ function AddKidForm({
     e.preventDefault();
     setErr(null);
     setLoading(true);
+    const { data: session } = await supabase.auth.getSession();
+    const token = session.session?.access_token;
+    if (!token) {
+      setLoading(false);
+      setErr("Sign in again to add a kid.");
+      return;
+    }
     const res = await fetch("/api/family-add-kid", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ parentId, username: username.trim(), pin }),
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ username: username.trim(), pin }),
     });
     const json = (await res.json()) as { id?: string; username?: string; error?: string };
     setLoading(false);
@@ -265,7 +267,6 @@ function FamilySetupPage() {
             <div className="rounded-xl border border-violet-500/30 bg-violet-500/5 px-4 py-4 mt-3">
               <h3 className="text-sm font-semibold text-foreground mb-3">New kid profile</h3>
               <AddKidForm
-                parentId={user.id}
                 onAdded={kid => {
                   setKids(prev => [...prev, kid]);
                   setShowForm(false);

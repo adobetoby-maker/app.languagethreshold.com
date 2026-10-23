@@ -16,6 +16,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
 import { reloadNewestAppVersion } from "../lib/app-update";
+import { installChunkReloadListener } from "../lib/chunk-reload";
 import { initializePwaInstall } from "../lib/pwa-install";
 import { APP_STATE_KEY, THEME_PREFERENCE_KEY } from "../lib/theme-preference";
 
@@ -185,6 +186,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  // A stale chunk after a deploy (Vite `vite:preloadError`) reloads the page once.
+  useEffect(() => installChunkReloadListener(), []);
+
   useEffect(() => {
     initializePwaInstall();
     if (!("serviceWorker" in navigator)) return;

@@ -7,6 +7,8 @@ import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
 import { core30PathBannerText } from "@/lib/core60-path";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { MODULES } from "@/data/modules";
+import { reloadNewestAppVersion } from "@/lib/app-update";
+import { browserChunkReloadRuntime, isChunkLoadError, reloadForChunkError } from "@/lib/chunk-reload";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
 function foundationTrade(moduleId: string | null | undefined): string {
@@ -25,30 +27,51 @@ function TabFallback() {
 
 interface ErrorState {
   hasError: boolean;
+  /** The failure was a stale code-split chunk: re-rendering cannot recover it, only a page load can. */
+  chunkError: boolean;
+  /** An automatic reload for a stale chunk is under way. */
+  reloading: boolean;
 }
 
 class TabErrorBoundary extends Component<{ children: ReactNode; tabKey: string }, ErrorState> {
-  state: ErrorState = { hasError: false };
+  state: ErrorState = { hasError: false, chunkError: false, reloading: false };
 
-  static getDerivedStateFromError(): ErrorState {
-    return { hasError: true };
+  static getDerivedStateFromError(error: unknown): Partial<ErrorState> {
+    return { hasError: true, chunkError: isChunkLoadError(error) };
+  }
+
+  componentDidCatch(error: unknown) {
+    // A tab open across a deploy asks for a chunk that no longer exists: reload once.
+    if (reloadForChunkError(error, browserChunkReloadRuntime())) {
+      this.setState({ reloading: true });
+    }
   }
 
   componentDidUpdate(prevProps: { tabKey: string }) {
     // Reset error when tab changes so the next tab gets a clean slate
-    if (prevProps.tabKey !== this.props.tabKey && this.state.hasError) {
-      this.setState({ hasError: false });
+    if (prevProps.tabKey !== this.props.tabKey && this.state.hasError && !this.state.reloading) {
+      this.setState({ hasError: false, chunkError: false });
     }
   }
 
+  private retry = () => {
+    if (this.state.chunkError) {
+      // React.lazy keeps the failed import, so only a hard reload fetches the new build.
+      void reloadNewestAppVersion();
+      return;
+    }
+    this.setState({ hasError: false });
+  };
+
   render() {
+    if (this.state.reloading) return <TabFallback />;
     if (this.state.hasError) {
       return (
         <div className="flex min-h-[40vh] flex-col items-center justify-center gap-3 text-center px-6">
           <p className="text-sm text-muted-foreground">This section failed to load.</p>
           <button
             type="button"
-            onClick={() => this.setState({ hasError: false })}
+            onClick={this.retry}
             className="flex items-center gap-1.5 rounded-lg border border-border/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             <RefreshCw className="h-3.5 w-3.5" />

@@ -58,15 +58,30 @@ test("home marks the suggested family once and shows personal best; weekly rank 
   assert.match(open, />#7</);
 });
 
-test("ladder tiles go where the recap's Practice button goes: the Bubble Pop picker on that family", () => {
+test("ladder tiles go where the recap's Practice button goes: that family's pattern series", () => {
   const data = miniData();
   const seen = [];
   const h = html(VerbsHome, { data, device: EMPTY_VERB_DEVICE, moduleId: null, go: (s) => seen.push(s) });
   assert.equal(h.match(/data-family="es\.[^"]+"/g)?.length, 7);
   for (const id of [...h.matchAll(/data-family="(es\.[^"]+)"/g)].map((m) => m[1])) {
-    assert.deepEqual(practiceScreen(id), { screen: "pick", game: "bubble", family: id });
-    assert.equal(parseVerbRoute(verbRouteSearch("", practiceScreen(id))).screen, "pick");
+    assert.deepEqual(practiceScreen(id), { screen: "unit", family: id });
+    assert.equal(verbRouteSearch("", practiceScreen(id)), `?verbs=unit&vfamily=${encodeURIComponent(id)}`);
+    assert.deepEqual(parseVerbRoute(verbRouteSearch("", practiceScreen(id))), { screen: "unit", family: id });
   }
+});
+
+test("a family whose series Type it is passed reads Mastered on its tile", () => {
+  const data = miniData();
+  const series = { "es.present.go-yo": { passed: ["pick", "match", "cards", "listen", "type"], best: {}, masteredAt: "t" } };
+  const h = html(VerbsHome, { data, device: device({ series }), moduleId: null, go() {} });
+  const tile = h.slice(h.indexOf('data-family="es.present.go-yo"'), h.indexOf("</button>", h.indexOf('data-family="es.present.go-yo"')));
+  assert.match(tile, /Mastered/);
+  assert.match(tagOf(h, 'data-family="es.present.go-yo"'), /data-series-mastered="true"/);
+  const partial = { "es.present.ar": { passed: ["pick", "match"], best: {} } };
+  const p = html(VerbsHome, { data, device: device({ series: partial }), moduleId: null, go() {} });
+  const ar = p.slice(p.indexOf('data-family="es.present.ar"'), p.indexOf("</button>", p.indexOf('data-family="es.present.ar"')));
+  assert.match(ar, /2 of 5 steps/);
+  assert.doesNotMatch(ar, /Mastered/);
 });
 
 test("home meters count mastered verbs", () => {

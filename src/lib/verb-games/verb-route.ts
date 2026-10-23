@@ -95,12 +95,11 @@ export function parseVerbRoute(search: string): VerbScreen {
 }
 
 /**
- * Where "practice this pattern" goes: the Bubble Pop picker with that family preselected.
+ * Where "practice this pattern" goes: that family's five-step pattern series (`verbs=unit`).
  * The home ladder tiles and the round recap's Practice button both use it, so they never drift apart.
- * When the pattern unit page lands, change this one function to return { screen: "unit", family }.
  */
 export function practiceScreen(family: FamilyId): VerbScreen {
-  return { screen: "pick", game: "bubble", family };
+  return { screen: "unit", family };
 }
 
 /** "a,b" for two or more families (FAMILIES order), else null (the route uses `vfamily`). */

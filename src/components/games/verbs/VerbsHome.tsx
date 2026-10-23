@@ -1,9 +1,10 @@
 // Built by TAC — 2026-10-21
 import { ArrowRight, Trophy } from "lucide-react";
 import { FAMILIES } from "@/lib/verb-games/families";
-import { familyMastery, sourceFilterFor, suggestedFamily, type VerbDeviceState } from "@/lib/verb-games/device";
+import { familyMastery, seriesMastered, seriesProgress, sourceFilterFor, suggestedFamily, type VerbDeviceState } from "@/lib/verb-games/device";
 import { poolVerbs } from "@/lib/verb-games/pool";
 import { ROUND_MS } from "@/lib/verb-games/rules";
+import { SERIES_STEPS } from "@/lib/verb-games/series";
 import type { FamilyId, GameId, PatternData, PatternFamily, VerbEntry } from "@/lib/verb-games/types";
 import { practiceScreen, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { PieceTile } from "./PieceTile";
@@ -73,11 +74,22 @@ function FamilyTile(p: {
   const mastery = familyMastery(p.device, p.family.id, infinitives);
   const total = infinitives.length;
   const pct = total === 0 ? 0 : Math.round((mastery.verbsMastered / total) * 100);
+  // Passing the series' Type it step masters the family, as does the picks rule.
+  const seriesDone = seriesMastered(p.device, p.family.id);
+  const steps = seriesProgress(p.device, p.family.id).passed.length;
+  const status = mastery.mastered || seriesDone
+    ? "Mastered"
+    : steps > 0
+      ? `${steps} of ${SERIES_STEPS.length} steps`
+      : mastery.picks === 0
+        ? "Not started"
+        : `${mastery.picks} picks`;
   return (
     <button
       type="button"
       data-family={p.family.id}
       data-suggested={p.suggested ? "true" : undefined}
+      data-series-mastered={seriesDone ? "true" : undefined}
       onClick={() => p.go(practiceScreen(p.family.id))}
       className={`group flex min-w-0 cursor-pointer flex-col gap-2 rounded-xl border p-3.5 text-left transition-colors duration-200 hover:bg-card/80 ${FOCUS} ${
         p.suggested ? "border-gold/70 bg-gold/[0.06] hover:border-gold" : "border-border/60 bg-background/40 hover:border-gold/50"
@@ -119,7 +131,7 @@ function FamilyTile(p: {
         </span>
         <span className={CAPTION}>
           {mastery.verbsMastered} of {total} verbs
-          <span className="block">{mastery.mastered ? "Mastered" : mastery.picks === 0 ? "Not started" : `${mastery.picks} picks`}</span>
+          <span className="block">{status}</span>
         </span>
       </span>
     </button>

@@ -63,6 +63,7 @@ import { Route as ApiTeamBillingRouteImport } from './routes/api.team-billing'
 import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitlement'
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
+import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
 
@@ -336,6 +337,11 @@ const ApiTutorRoute = ApiTutorRouteImport.update({
   path: '/api/tutor',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiVerifyCheckoutRoute = ApiVerifyCheckoutRouteImport.update({
+  id: '/api/verify-checkout',
+  path: '/api/verify-checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   id: '/subscribe/success',
   path: '/subscribe/success',
@@ -402,6 +408,7 @@ export interface FileRoutesByFullPath {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
 }
@@ -460,6 +467,7 @@ export interface FileRoutesByTo {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
 }
@@ -519,6 +527,7 @@ export interface FileRoutesById {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
 }
@@ -579,6 +588,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
   fileRoutesByTo: FileRoutesByTo
@@ -637,6 +647,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
   id:
@@ -695,6 +706,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team_/accept'
   fileRoutesById: FileRoutesById
@@ -754,6 +766,7 @@ export interface RootRouteChildren {
   ApiTeamEntitlementRoute: typeof ApiTeamEntitlementRoute
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
+  ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
 }
@@ -1138,6 +1151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTutorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/verify-checkout': {
+      id: '/api/verify-checkout'
+      path: '/api/verify-checkout'
+      fullPath: '/api/verify-checkout'
+      preLoaderRoute: typeof ApiVerifyCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/success': {
       id: '/subscribe/success'
       path: '/subscribe/success'
@@ -1210,6 +1230,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTeamEntitlementRoute: ApiTeamEntitlementRoute,
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
+  ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
 }

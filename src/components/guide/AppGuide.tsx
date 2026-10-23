@@ -21,6 +21,7 @@ import {
 } from "@/lib/learning-link";
 import { lazy, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/ga-events";
 import {
   BookOpen,
   GraduationCap,
@@ -1254,6 +1255,12 @@ function OwnedLessonRunner({
             at: new Date().toISOString(),
           },
         });
+      if (mark)
+        trackEvent(
+          "lesson_mastered",
+          { module_id: moduleId, lesson: lesson.n },
+          `lesson_mastered:${moduleId}:${lesson.n}`,
+        );
       completed.current = sequential;
       if (sequential) onComplete();
     } finally {

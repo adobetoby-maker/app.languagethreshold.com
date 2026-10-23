@@ -14,6 +14,7 @@ import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ownedTeamRequest } from "@/lib/team-client";
+import { trackEvent } from "@/lib/ga-events";
 import { assessmentCsv } from "@/lib/assessments/export";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
@@ -326,6 +327,12 @@ function OwnedTeamPage() {
             `/api/team-billing?orgId=${encodeURIComponent(checkoutOrg)}&sessionId=${encodeURIComponent(sessionId)}`,
           );
           if (!current()) return;
+          if (result.status === "active" || result.status === "trialing")
+            trackEvent(
+              "purchase",
+              { transaction_id: sessionId, currency: "USD" },
+              `purchase:${sessionId}`,
+            );
           setNoticeState(
             result.status === "active" || result.status === "trialing"
               ? "Payment confirmed. Your team seats are ready to assign."
@@ -940,6 +947,8 @@ function OwnedAdminWorkspace({
         `${reserved} of ${rows.length} invitations confirmed in this import.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
       );
       if (failures.length) setError(failures.join(" "));
+      // One event per import, counting the invitations the server confirmed. No names or emails.
+      if (reserved > 0) trackEvent("team_invite_sent", { role: "learner", count: reserved });
       await refresh();
     } catch (cause) {
       if (flight.current())
@@ -963,6 +972,23 @@ function OwnedAdminWorkspace({
       }>(flight.owner, "/api/team-billing", { ...extra, action, orgId });
       if (!flight.current()) return;
       if (result.url) {
+        if (action === "checkout") {
+          const term = typeof extra.term === "string" ? extra.term : "";
+          const seats = typeof extra.seats === "number" ? extra.seats : 0;
+          let value: number | undefined;
+          try {
+            value = teamPeriodCents(seats, term as TeamTerm) / 100;
+          } catch {
+            value = undefined;
+          }
+          trackEvent("begin_checkout", {
+            plan: "team",
+            term,
+            seats,
+            currency: "USD",
+            ...(value === undefined ? {} : { value }),
+          });
+        }
         window.location.href = result.url;
         return;
       }
@@ -1444,6 +1470,7 @@ function OwnedAdminWorkspace({
                   ? "Invitation reserved. Share the link below."
                   : "Invitation reserved.",
                 (result) => {
+                  trackEvent("team_invite_sent", { role: inviteRole });
                   rememberInvite(result.invitationId, result.inviteUrl, name, email);
                   if (
                     latestInvite.current === inviteKey &&
@@ -2185,6 +2212,7 @@ function OwnedAssignModule({
         () => {
           if (owns()) {
             acknowledged = true;
+            trackEvent("team_seat_assigned", { module_id: moduleId });
             setOpen(false);
           }
         },

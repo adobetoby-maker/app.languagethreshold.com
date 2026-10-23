@@ -18,9 +18,38 @@ test("private assessment, account and team pages and links are excluded from pag
     "/?fromPlan=private",
     "/?attempt=private",
     "/#access_token=private",
+    // The router is case-insensitive and decodes percent-escapes.
+    "/Team",
+    "/TEAM?org=x",
+    "/Owner",
+    "/OWNER",
+    "/Subscribe/success",
+    "/SUBSCRIBE/Success?session_id=cs_test_x",
+    "/te%61m",
+    "/%54eam/accept",
+    "/te%2561m",
+    "/%65xams",
+    "/Exams",
+    "/Exam-Content",
+    "/Account/Password",
+    "/Certificate?id=fixture",
+    "/Family-Setup",
+    "/?TAB=Exams",
+    "/?Org=private",
+    "/?ATTEMPT=private",
+    "/#Access_Token=private",
+    "/te%zz",
   ])
     assert.equal(isPrivateAssessmentUrl(value), true, value);
-  for (const value of ["/", "/pricing", "/?module=roofing&target=Spanish", "/exams-faq"])
+  for (const value of [
+    "/",
+    "/pricing",
+    "/Pricing",
+    "/?module=roofing&target=Spanish",
+    "/exams-faq",
+    "/teams-info",
+    "/%70ricing",
+  ])
     assert.equal(isPrivateAssessmentUrl(value), false, value);
   assert.equal(
     anonymousPageUrl(

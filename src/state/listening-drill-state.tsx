@@ -1,3 +1,4 @@
+import { prepareListeningChoices } from "@/lib/listening-choices";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
@@ -280,7 +281,10 @@ export function ListeningDrillProvider({ children }: { children: ReactNode }) {
         level: state.run.level,
         avoid,
       });
-      dispatch({ type: "QUESTION_LOADED", payload: q });
+      dispatch({
+        type: "QUESTION_LOADED",
+        payload: prepareListeningChoices(q, state.run.questions.map((entry) => entry.question.correctIndex)),
+      });
     } catch (e) {
       dispatch({ type: "QUESTION_FAILED", payload: e instanceof Error ? e.message : "Failed." });
     }

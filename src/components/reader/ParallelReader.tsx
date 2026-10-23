@@ -27,6 +27,7 @@ import { SelectionMenu, type SelectionInfo } from "./SelectionMenu";
 import { NoteBubble } from "./NoteBubble";
 import { NotesPanel } from "./NotesPanel";
 import { MiniPlayer } from "./MiniPlayer";
+import { VoiceGenderSwitch } from "./VoiceGenderSwitch";
 import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
@@ -982,8 +983,12 @@ export function ParallelReader() {
 
           <div className={`relative ${fullscreen ? "" : "border-l border-border/50"}`}>
             {/* Must stay h-12 in lock-step with the native pane header above. */}
-            <div className="sticky top-0 z-10 flex h-12 items-center justify-between border-b border-border/50 bg-card/80 px-6 backdrop-blur">
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+            {/* Phones: the half-width pane only fits play + voice switch, so the
+                language name stays for screen readers and returns from sm up. */}
+            <div className="sticky top-0 z-10 flex h-12 items-center justify-between gap-2 border-b border-border/50 bg-card/80 px-3 backdrop-blur sm:px-6">
+              <span
+                className={`font-mono text-[10px] uppercase tracking-[0.28em] text-gold ${fullscreen ? "" : "sr-only sm:not-sr-only"}`}
+              >
                 {selected.language}
               </span>
               <div className="flex items-center gap-2">
@@ -1006,7 +1011,10 @@ export function ParallelReader() {
                     <Volume2 className="h-3 w-3" />
                   </button>
                 )}
-                <span className="font-display text-xs italic text-muted-foreground">target</span>
+                <VoiceGenderSwitch />
+                <span className="hidden font-display text-xs italic text-muted-foreground sm:inline">
+                  target
+                </span>
                 {fullscreen && (
                   <button
                     type="button"

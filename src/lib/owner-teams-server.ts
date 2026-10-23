@@ -19,6 +19,7 @@ import {
   TeamOperationError,
   type TeamDb,
 } from "@/lib/team-server";
+import { requireNotPlatformStaff } from "./owner-guards-server";
 
 const MAX_MEMBERS = 500;
 const MAX_EMAIL_LOOKUPS = 100;
@@ -271,6 +272,16 @@ export async function manageOwnerTeam(
     return { notice: "Module assigned.", warning };
   }
   const member = await readMember(db, org.id, body.memberId);
+  // Same protection as the Users tab: platform owner/support accounts are not changed here.
+  const account = await db.auth.admin.getUserById(member.user_id);
+  requireCurrentTeamRequest(db);
+  if (account.error || account.data?.user?.id !== member.user_id)
+    throw new TeamOperationError(
+      "The member's account could not be confirmed. Refresh before retrying.",
+      503,
+    );
+  await requireNotPlatformStaff(db, member.user_id, account.data.user.email);
+  requireCurrentTeamRequest(db);
   if (body.action === "change_role") {
     if (member.status !== "active")
       throw new TeamOperationError("Only active members can change role.");

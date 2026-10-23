@@ -419,8 +419,14 @@ const TABS = [
 
 test("owner tabs switch with the URL and render each section without horizontal scroll", async ({
   page,
+  isMobile,
 }) => {
   await openOwner(page);
+  // Phones get an edge fade while more tabs sit off-screen; desktop shows every tab.
+  await expect(page.getByTestId("owner-tabs-fade-right")).toHaveCSS(
+    "opacity",
+    isMobile ? "1" : "0",
+  );
   for (const [tab, heading] of TABS) {
     await page.getByRole("tab", { name: new RegExp(`^${tab}$`, "i") }).click();
     await expect(page).toHaveURL(new RegExp(`[?&]tab=${tab}`));

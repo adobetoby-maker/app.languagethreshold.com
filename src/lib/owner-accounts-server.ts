@@ -1,6 +1,12 @@
 // Server-only: platform-owner account controls (disable/enable, confirmation, email, name, CSV).
 // The caller has already run requirePlatformOwner. Passwords are never read, shown or set here.
+import { createHash } from "node:crypto";
 import type { User } from "@supabase/supabase-js";
+import {
+  isPlatformOwnerEmail,
+  PROTECTED_ACCOUNT_MESSAGE,
+  requireNotPlatformStaff,
+} from "./owner-guards-server";
 import {
   CONFIRMATION_DESTINATION,
   type OwnerAccountAction,
@@ -8,18 +14,12 @@ import {
 } from "./owner-users";
 import { filterDirectory, ownerUsersCsv } from "./owner-directory";
 import { loadDirectoryUsers } from "./owner-directory-server";
-import {
-  audit,
-  readPlatformRole,
-  requireCurrentTeamRequest,
-  TeamOperationError,
-  type TeamDb,
-} from "./team-server";
+import { audit, requireCurrentTeamRequest, TeamOperationError, type TeamDb } from "./team-server";
 
 /** ~100 years. Supabase stores it as banned_until; "none" lifts it. */
 export const DISABLE_BAN_DURATION = "876000h";
 
-/** Refuses self-changes and any platform owner; returns the confirmed target account. */
+/** Refuses self-changes and any platform staff (owner or support); returns the target account. */
 export async function requireManageableAccount(
   db: TeamDb,
   actorId: string,
@@ -30,12 +30,7 @@ export async function requireManageableAccount(
       "You cannot change your own account from the owner dashboard.",
       403,
     );
-  const role = await readPlatformRole(db, userId);
-  if (role?.role === "owner")
-    throw new TeamOperationError(
-      "Platform owner accounts are protected and cannot be changed here.",
-      403,
-    );
+  await requireNotPlatformStaff(db, userId);
   const account = await db.auth.admin.getUserById(userId);
   requireCurrentTeamRequest(db);
   const user = account.data?.user;
@@ -44,13 +39,22 @@ export async function requireManageableAccount(
       "The selected account could not be confirmed. Refresh before retrying.",
       503,
     );
-  const ownerEmail = process.env.PLATFORM_OWNER_EMAIL?.trim().toLowerCase();
-  if (ownerEmail && user.email?.toLowerCase() === ownerEmail)
-    throw new TeamOperationError(
-      "Platform owner accounts are protected and cannot be changed here.",
-      403,
-    );
+  if (isPlatformOwnerEmail(user.email))
+    throw new TeamOperationError(PROTECTED_ACCOUNT_MESSAGE, 403);
   return user;
+}
+
+/**
+ * One confirmation email per account per UTC minute, enforced atomically by the primary key of
+ * platform_owner_operations: every request in the same minute derives the same row id, so only
+ * the first insert succeeds (no migration needed).
+ */
+export function resendBucketId(userId: string, now = Date.now()) {
+  const hex = createHash("sha256")
+    .update(`resend_confirmation:${userId}:${Math.floor(now / 60000)}`)
+    .digest("hex");
+  const variant = ((parseInt(hex[16], 16) & 0x3) | 0x8).toString(16);
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-5${hex.slice(13, 16)}-${variant}${hex.slice(17, 20)}-${hex.slice(20, 32)}`;
 }
 
 const unconfirmed = () =>
@@ -137,12 +141,14 @@ export async function manageOwnerAccount(
       .gte("created_at", new Date(Date.now() - 60000).toISOString())
       .limit(1);
     if (recent.error) throw unconfirmed();
+    const operationId = resendBucketId(userId);
+    // The pre-check only gives a friendlier early answer; the insert below is the real guard.
     const claimed = recent.data?.length
       ? null
       : await db
           .from("platform_owner_operations")
           .insert({
-            id: body.requestId,
+            id: operationId,
             actor_id: actorId,
             target_user_id: userId,
             action: "resend_confirmation",
@@ -163,8 +169,13 @@ export async function manageOwnerAccount(
     await db
       .from("platform_owner_operations")
       .update({ status: delivered ? "sent" : "delivery_unconfirmed" })
-      .eq("id", body.requestId);
-    await audit(db, actorId, "user.confirmation_resent", undefined, { userId, email, delivered });
+      .eq("id", operationId);
+    await audit(db, actorId, "user.confirmation_resent", undefined, {
+      userId,
+      email,
+      delivered,
+      requestId: body.requestId,
+    });
     return {
       userId,
       notice: delivered
@@ -177,10 +188,16 @@ export async function manageOwnerAccount(
       throw new TeamOperationError("The two email addresses do not match.");
     if (body.email === email.toLowerCase())
       throw new TeamOperationError("That is already this account's email.");
+    if (isPlatformOwnerEmail(body.email))
+      throw new TeamOperationError("That email belongs to the platform owner.", 403);
     const found = await db.rpc("platform_find_user", { p_email: body.email });
     requireCurrentTeamRequest(db);
     if (found.error) throw unconfirmed();
-    if (found.data) throw new TeamOperationError("Another account already uses that email.");
+    if (found.data) {
+      // Never move a platform owner's or support person's address onto another account.
+      if (typeof found.data === "string") await requireNotPlatformStaff(db, found.data);
+      throw new TeamOperationError("Another account already uses that email.");
+    }
     const changed = await db.auth.admin.updateUserById(userId, {
       email: body.email,
       ...(body.markConfirmed ? { email_confirm: true } : {}),

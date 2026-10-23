@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { OWNER_TABS, type OwnerTab } from "@/lib/owner-tabs";
 
 /** WAI-ARIA tablist; arrow keys, Home and End move between tabs. Scrolls sideways on phones. */
@@ -14,17 +14,50 @@ export function OwnerTabBar({
     onChange(next);
     document.getElementById(`owner-tab-${next}`)?.focus();
   };
+  const strip = useRef<HTMLDivElement>(null);
+  // Edge fades tell phone users that more tabs sit off-screen in that direction.
+  const [edges, setEdges] = useState({ left: false, right: false });
+  const measure = useCallback(() => {
+    const el = strip.current;
+    if (!el) return;
+    const left = el.scrollLeft > 2;
+    const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 2;
+    setEdges((prev) => (prev.left === left && prev.right === right ? prev : { left, right }));
+  }, []);
   // On a phone the strip scrolls sideways; keep the selected tab in view.
   useEffect(() => {
     document
       .getElementById(`owner-tab-${tab}`)
       ?.scrollIntoView({ block: "nearest", inline: "nearest" });
-  }, [tab]);
+    measure();
+  }, [tab, measure]);
+  useEffect(() => {
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [measure]);
   return (
-    <div className="z-20 -mx-4 sm:sticky sm:top-0 mb-5 border-b border-border/60 bg-background/95 px-4 backdrop-blur sm:-mx-8 sm:px-8">
+    <div className="relative z-20 -mx-4 mb-5 border-b border-border/60 bg-background/95 px-4 backdrop-blur sm:sticky sm:top-0 sm:-mx-8 sm:px-8">
       <div
+        aria-hidden="true"
+        data-testid="owner-tabs-fade-left"
+        className={
+          "pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-background to-transparent transition-opacity duration-150 " +
+          (edges.left ? "opacity-100" : "opacity-0")
+        }
+      />
+      <div
+        aria-hidden="true"
+        data-testid="owner-tabs-fade-right"
+        className={
+          "pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-background to-transparent transition-opacity duration-150 " +
+          (edges.right ? "opacity-100" : "opacity-0")
+        }
+      />
+      <div
+        ref={strip}
         role="tablist"
         aria-label="Owner sections"
+        onScroll={measure}
         className="mx-auto flex max-w-7xl gap-1 overflow-x-auto py-2 [scrollbar-width:none]"
         onKeyDown={(e) => {
           const index = OWNER_TABS.findIndex((t) => t.id === tab);

@@ -461,6 +461,8 @@ function teamDb({
   pending = 0,
   complimentary = false,
   members,
+  roles = {},
+  emails = {},
 } = {}) {
   const rows = members ?? {
     [M_OWNER]: {
@@ -486,7 +488,12 @@ function teamDb({
     },
   };
   return fakeDb({
-    accounts: { [OTHER_OWNER]: { id: OTHER_OWNER, email: "lea@example.invalid" } },
+    roles,
+    accounts: {
+      [ACTOR]: { id: ACTOR, email: emails[ACTOR] ?? "olivia@acme.test" },
+      [TARGET]: { id: TARGET, email: emails[TARGET] ?? "adam@acme.test" },
+      [OTHER_OWNER]: { id: OTHER_OWNER, email: emails[OTHER_OWNER] ?? "lea@example.invalid" },
+    },
     tables: {
       team_organizations: (q) =>
         q.op === "select"
@@ -785,4 +792,136 @@ test("activity: detail summary is bounded, prefix pattern is literal, CSV is for
   assert.equal(activity.activityQuery.parse({}).hideViews, true);
   assert.equal(activity.activityQuery.parse({ hideViews: "false" }).hideViews, false);
   assert.throws(() => activity.activityQuery.parse({ action: "x%' or 1=1" }));
+});
+
+test("team: platform owner, support and PLATFORM_OWNER_EMAIL members cannot be changed", async () => {
+  const saved = process.env.PLATFORM_OWNER_EMAIL;
+  try {
+    const actions = [
+      { action: "change_role", orgId: ORG, memberId: M_ADMIN, role: "learner" },
+      { action: "remove_member", orgId: ORG, memberId: M_ADMIN, confirmName: "Adam Admin" },
+      { action: "transfer_ownership", orgId: ORG, memberId: M_ADMIN, confirmName: "Acme Roofing" },
+    ];
+    for (const role of ["owner", "support"])
+      for (const body of actions) {
+        const db = teamDb({ roles: { [TARGET]: role } });
+        await assert.rejects(
+          teams.manageOwnerTeam(db, ACTOR, body, "https://app.test"),
+          (e) => e.status === 403 && /protected/.test(e.message),
+          `${role} ${body.action}`,
+        );
+        assert.equal(teamWrites(db).length, 0);
+      }
+    process.env.PLATFORM_OWNER_EMAIL = " Adam@ACME.test ";
+    for (const body of actions) {
+      const db = teamDb();
+      await assert.rejects(
+        teams.manageOwnerTeam(db, ACTOR, body, "https://app.test"),
+        (e) => e.status === 403,
+      );
+      assert.equal(teamWrites(db).length, 0);
+    }
+  } finally {
+    if (saved === undefined) delete process.env.PLATFORM_OWNER_EMAIL;
+    else process.env.PLATFORM_OWNER_EMAIL = saved;
+  }
+});
+
+test("accounts: support staff are protected; email cannot move onto the owner or a staff address", async () => {
+  const support = fakeDb({ accounts: { [TARGET]: target() }, roles: { [TARGET]: "support" } });
+  await assert.rejects(
+    accounts.manageOwnerAccount(support, ACTOR, {
+      action: "disable",
+      userId: TARGET,
+      confirmEmail: "learner@example.invalid",
+      reason: "abuse",
+    }),
+    (e) => e.status === 403 && /support/.test(e.message),
+  );
+  assert.equal(authWrites(support).length, 0);
+  const saved = process.env.PLATFORM_OWNER_EMAIL;
+  process.env.PLATFORM_OWNER_EMAIL = "Boss@Example.invalid";
+  try {
+    const body = {
+      action: "change_email",
+      userId: TARGET,
+      email: "boss@example.invalid",
+      confirmEmail: "boss@example.invalid",
+      markConfirmed: true,
+    };
+    const toOwner = fakeDb({
+      accounts: { [TARGET]: target() },
+      rpc: { platform_find_user: () => ({ data: null, error: null }) },
+    });
+    await assert.rejects(
+      accounts.manageOwnerAccount(toOwner, ACTOR, body),
+      (e) => e.status === 403,
+    );
+    assert.equal(authWrites(toOwner).length, 0);
+    assert.equal(
+      toOwner.calls.some((c) => c.rpc === "platform_find_user"),
+      false,
+    );
+  } finally {
+    if (saved === undefined) delete process.env.PLATFORM_OWNER_EMAIL;
+    else process.env.PLATFORM_OWNER_EMAIL = saved;
+  }
+  const toStaff = fakeDb({
+    accounts: { [TARGET]: target() },
+    roles: { [OTHER_OWNER]: "support" },
+    rpc: { platform_find_user: () => ({ data: OTHER_OWNER, error: null }) },
+  });
+  await assert.rejects(
+    accounts.manageOwnerAccount(toStaff, ACTOR, {
+      action: "change_email",
+      userId: TARGET,
+      email: "help@lt.test",
+      confirmEmail: "help@lt.test",
+      markConfirmed: false,
+    }),
+    (e) => e.status === 403 && /protected/.test(e.message),
+  );
+  assert.equal(authWrites(toStaff).length, 0);
+});
+
+test("resend confirmation: concurrent requests in one minute send exactly one email", async () => {
+  const ids = new Set();
+  const db = fakeDb({
+    accounts: { [TARGET]: target({ email_confirmed_at: null }) },
+    tables: {
+      platform_owner_operations: (q) => {
+        if (q.op === "select" && !q.single) return { data: [], error: null }; // both pass the pre-check
+        if (q.op === "insert") {
+          if (ids.has(q.payload.id)) return { data: null, error: { code: "23505" } };
+          ids.add(q.payload.id);
+          return { data: { id: q.payload.id }, error: null };
+        }
+        return { data: null, error: null };
+      },
+    },
+  });
+  const results = await Promise.allSettled(
+    [1, 2, 3].map((n) =>
+      accounts.manageOwnerAccount(db, ACTOR, {
+        action: "resend_confirmation",
+        userId: TARGET,
+        requestId: `40000000-0000-4000-8000-00000000000${n}`,
+      }),
+    ),
+  );
+  assert.equal(results.filter((r) => r.status === "fulfilled").length, 1);
+  assert.equal(db.calls.filter((c) => c.resend).length, 1);
+  assert.ok(
+    results
+      .filter((r) => r.status === "rejected")
+      .every((r) => /last minute/.test(r.reason.message)),
+  );
+  const t = Date.parse("2026-10-23T12:00:10Z");
+  assert.equal(accounts.resendBucketId(TARGET, t), accounts.resendBucketId(TARGET, t + 40000));
+  assert.notEqual(accounts.resendBucketId(TARGET, t), accounts.resendBucketId(TARGET, t + 60000));
+  assert.notEqual(accounts.resendBucketId(TARGET, t), accounts.resendBucketId(OTHER_OWNER, t));
+  assert.match(
+    accounts.resendBucketId(TARGET, t),
+    /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/,
+  );
 });

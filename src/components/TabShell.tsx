@@ -2,6 +2,7 @@ import { Component, type ReactNode, Suspense, useEffect, useState } from "react"
 import { GraduationCap, Loader2, RefreshCw, X } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
+import { PracticeTimeBar } from "./PracticeTimeBar";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
 import { core30PathBannerText } from "@/lib/core60-path";
@@ -84,7 +85,7 @@ class TabErrorBoundary extends Component<{ children: ReactNode; tabKey: string }
   }
 }
 
-export function TabShell() {
+function TabShellBody() {
   const { state } = useApp();
   // Starts loading a data-driven Core 60 stage's curriculum from any tab (Core 60, Say it, Reader).
   useStageCurriculum(state.activeModuleId);
@@ -160,4 +161,14 @@ export function TabShell() {
     );
   }
   return <EmptyState icon={GraduationCap} title="" description="" />;
+}
+
+/** The shell: the tab, plus the one practice-time ticker and bar (see PracticeTimeBar). */
+export function TabShell() {
+  return (
+    <>
+      <PracticeTimeBar />
+      <TabShellBody />
+    </>
+  );
 }

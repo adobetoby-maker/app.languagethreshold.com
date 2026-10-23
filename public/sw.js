@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v18";
+const CACHE = "lt-v19";
 if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 function privateDocument(url) {
@@ -132,11 +132,13 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Pre-built lesson word decks and authored lesson content (passages, words, verbs):
-  // stale-while-revalidate. Serve the cached file at once (works offline), refresh it in the
-  // background; with no cache, use the network.
+  // Pre-built lesson word decks, authored lesson content (passages, words, verbs) and trade
+  // packs (module-flavored game content): stale-while-revalidate. Serve the cached file at
+  // once (works offline), refresh it in the background; with no cache, use the network.
   if (
-    (url.pathname.startsWith("/lesson-decks/") || url.pathname.startsWith("/lesson-content/")) &&
+    (url.pathname.startsWith("/lesson-decks/") ||
+      url.pathname.startsWith("/lesson-content/") ||
+      url.pathname.startsWith("/trade-packs/")) &&
     url.pathname.endsWith(".json")
   ) {
     event.respondWith(

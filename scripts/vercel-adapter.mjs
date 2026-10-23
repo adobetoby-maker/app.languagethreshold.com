@@ -157,6 +157,12 @@ writeFileSync(
         headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
         dest: "/lesson-content/$1",
       },
+      // Trade packs: module-flavored static game content (Word Match boards first), cached offline.
+      {
+        src: "/trade-packs/(.*)",
+        headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
+        dest: "/trade-packs/$1",
+      },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },

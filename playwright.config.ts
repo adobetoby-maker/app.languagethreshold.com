@@ -33,13 +33,13 @@ export default defineConfig({
     },
     {
       name: "desktop",
-      testMatch: /(ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|verb-games|voice-switch)\.spec\.ts/,
+      testMatch: /(ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|verb-games|voice-switch|practice-bar)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },
     {
       name: "iphone-pwa",
-      testMatch: /(pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|verb-games)\.spec\.ts/,
+      testMatch: /(pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|verb-games|practice-bar)\.spec\.ts/,
       dependencies: ["setup"],
       use: { ...iPhone, browserName: "chromium", storageState: STATE },
     },

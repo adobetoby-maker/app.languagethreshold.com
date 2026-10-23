@@ -8,7 +8,11 @@ import { core30PathBannerText } from "@/lib/core60-path";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { MODULES } from "@/data/modules";
 import { reloadNewestAppVersion } from "@/lib/app-update";
-import { browserChunkReloadRuntime, isChunkLoadError, reloadForChunkError } from "@/lib/chunk-reload";
+import {
+  browserChunkReloadRuntime,
+  isChunkLoadError,
+  reloadForChunkError,
+} from "@/lib/chunk-reload";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
 function foundationTrade(moduleId: string | null | undefined): string {
@@ -91,7 +95,8 @@ export function TabShell() {
   const Component = TAB_COMPONENTS[state.currentTab];
   const tool = TOOL_CATALOG[state.currentTab];
   // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.
-  const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
+  const foundation =
+    state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
   // ...and a Master (twenty advanced lessons after the Core 30).
   const master = state.currentTab === "core30" && isMasterModule(state.activeModuleId ?? "");
   // ...and a Core 30 module whose trade does not have both its Foundation and Master yet.
@@ -130,7 +135,7 @@ export function TabShell() {
       <TabErrorBoundary tabKey={state.currentTab}>
         <Suspense fallback={<TabFallback />}>
           <>
-            {purposeTab === state.currentTab && (
+            {purposeTab === state.currentTab && state.currentTab !== "core30" && (
               <section
                 data-activity={tool.accent}
                 data-testid="tool-purpose"

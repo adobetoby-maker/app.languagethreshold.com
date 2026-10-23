@@ -1,5 +1,6 @@
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import {
+  SlidersHorizontal,
   BookOpen,
   GraduationCap,
   Mic2,
@@ -595,17 +596,13 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             <VoicePicker compact />
           </div>
 
-          {/* Theme toggle — icon-only to keep the strip compact */}
+          {/* Appearance and other preferences remain in the familiar More sheet. */}
           <button
-            onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
-            aria-label={state.darkMode ? "Switch to light mode" : "Switch to dark mode"}
-            className="flex shrink-0 items-center justify-center rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold"
+            onClick={() => setMoreSheetOpen(true)}
+            aria-label="App settings"
+            className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground"
           >
-            {state.darkMode ? (
-              <Sun className="h-3.5 w-3.5" strokeWidth={1.8} />
-            ) : (
-              <Moon className="h-3.5 w-3.5" strokeWidth={1.8} />
-            )}
+            <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
 

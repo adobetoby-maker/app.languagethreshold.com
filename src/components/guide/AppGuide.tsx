@@ -359,7 +359,8 @@ const MEDICAL_FLOW: FlowStep[] = [
     icon: "📖",
     title: "Patient scenario",
     tab: "Reader",
-    value: "Read a clinical passage. Tap unfamiliar terms, then save the ones you want to review in Flashcards.",
+    value:
+      "Read a clinical passage. Tap unfamiliar terms, then save the ones you want to review in Flashcards.",
   },
   {
     time: "4 min",
@@ -851,11 +852,7 @@ function OwnedLessonRunner({
   const words = lessonWords.words;
   const hasWords = words.length > 0;
   // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
-  const lessonContent = useLessonContent(
-    moduleId,
-    state.selectedLanguage,
-    state.nativeLanguage,
-  );
+  const lessonContent = useLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
   const verbs = useMemo(
     () => pickContentVerbs(lessonContent.content, lesson.n, state.nativeLanguage),
     [lessonContent.content, lesson.n, state.nativeLanguage],
@@ -1400,7 +1397,8 @@ function OwnedLessonRunner({
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-              {core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson {lesson.n} · {totalMin} min
+              {core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson {lesson.n}{" "}
+              · {totalMin} min
             </p>
             <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
           </div>
@@ -1962,8 +1960,8 @@ export function AppGuide() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold">App Walkthrough</p>
               <p className="mt-0.5 text-xs text-muted-foreground">
-                See the real app screens in {tourSteps.length} short stops: read, remember, practice,
-                speak, and follow your progress. Play the demo or go at your own pace.
+                See the real app screens in {tourSteps.length} short stops: read, remember,
+                practice, speak, and follow your progress. Play the demo or go at your own pace.
               </p>
               <button
                 onClick={() => window.dispatchEvent(new Event(OPEN_APP_DEMO))}
@@ -2255,6 +2253,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
   const masteredSet = new Set(masteredLessons(core30Log));
+  // Read the existing scoped resume position; displaying Continue never marks progress.
+  const resumePosition =
+    savedPosition && !masteredSet.has(savedPosition.lesson) ? savedPosition : null;
+  const continueLesson =
+    (resumePosition && curriculum.lessons.find((lesson) => lesson.n === resumePosition.lesson)) ||
+    currentLesson;
   const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
@@ -2292,6 +2296,88 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
   return (
     <section>
+      {/* Current lesson card or all-done state */}
+      {!howOpen &&
+        !reviewOpen &&
+        !runnerActive &&
+        (!allDone || practiceLesson || resumePosition) &&
+        continueLesson && (
+          <div
+            data-testid="continue-learning"
+            className="mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5"
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                  {resumePosition
+                    ? "Continue learning"
+                    : practiceLesson
+                      ? "Practice again"
+                      : "Your next lesson"}{" "}
+                  · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
+                  {continueLesson.n}
+                </p>
+                <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+              </div>
+              <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                <span className="text-[11px] font-mono text-gold">
+                  ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                </span>
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-4">
+              <span className="text-gold/80">Goal: </span>
+              {continueLesson.objective}
+            </p>
+
+            {/* Start stays reachable before the detailed six-mode preview. */}
+            <button
+              onClick={() => openLessonFromPlan(continueLesson.n, resumePosition?.way ?? "see")}
+              className={cn(
+                "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                planStarted && "border border-gold/40 bg-transparent text-gold",
+              )}
+              style={
+                planStarted
+                  ? undefined
+                  : {
+                      background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                      color: "#0B0B0F",
+                    }
+              }
+            >
+              {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
+              {stageLessonLabel(moduleId, continueLesson.n)}
+              <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+            </button>
+
+            {resumePosition && (
+              <p className="mb-3 text-sm text-muted-foreground">
+                Pick up at {SECTIONS.find((step) => step.id === resumePosition.way)?.label}
+              </p>
+            )}
+            <details>
+              <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+                Six ways to practice this lesson
+              </summary>
+              <div className="space-y-1.5 mb-5">
+                {SECTIONS.map((step, i) => (
+                  <div
+                    key={step.id}
+                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+            </details>
+          </div>
+        )}
+
       {/* Curriculum header (an open lesson takes the whole page) */}
       {!runnerActive && (
         <div className="mb-4">
@@ -2382,75 +2468,16 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             />
           )}
 
-          {/* Current lesson card or all-done state */}
-          {!reviewOpen && !runnerActive && (!allDone || practiceLesson) && currentLesson && (
-            <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    {practiceLesson ? "Practice again" : "Next Up"} ·{" "}
-                    {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson {currentLesson.n}
-                  </p>
-                  <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
-                </div>
-                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                  <span className="text-[11px] font-mono text-gold">
-                    ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-sm text-white/60 mb-4">
-                <span className="text-gold/80">Goal: </span>
-                {currentLesson.objective}
-              </p>
-
-              {/* Start stays reachable before the detailed six-mode preview. */}
-              <button
-                onClick={() => openLessonFromPlan(currentLesson.n)}
-                className={cn(
-                  "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
-                  planStarted && "border border-gold/40 bg-transparent text-gold",
-                )}
-                style={
-                  planStarted
-                    ? undefined
-                    : {
-                        background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                        color: "#0B0B0F",
-                      }
-                }
-              >
-                {practiceLesson ? "Practice" : "Start"} {stageLessonLabel(moduleId, currentLesson.n)}
-                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-
-              {/* Step preview */}
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
-          {!reviewOpen && !runnerActive && savedPosition && (
+          {!reviewOpen && !runnerActive && savedPosition && !resumePosition && (
             <button
               type="button"
               className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
               onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
             >
               {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"}{" "}
-              {stageLessonLabel(moduleId, savedPosition.lesson)} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
+              {stageLessonLabel(moduleId, savedPosition.lesson)} ·{" "}
+              {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
             </button>
           )}
           {!reviewOpen && !runnerActive && (

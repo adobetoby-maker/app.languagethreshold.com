@@ -2,12 +2,7 @@
 // owner). Callers authorize and audit; these helpers only validate and perform the write.
 // Imports use the "@/lib/team-server" specifier so route tests can substitute the transport.
 import { getModule } from "@/data/modules";
-import {
-  inviteToken,
-  sendTeamEmail,
-  TeamOperationError,
-  type TeamDb,
-} from "@/lib/team-server";
+import { inviteToken, sendTeamEmail, TeamOperationError, type TeamDb } from "@/lib/team-server";
 
 // Delivery can succeed before bookkeeping fails, so an email error is an unknown outcome.
 export const INVITATION_EMAIL_WARNING =

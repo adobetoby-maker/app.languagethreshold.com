@@ -26,23 +26,38 @@ export async function requireManageableAccount(
   userId: string,
 ): Promise<User> {
   if (userId === actorId)
-    throw new TeamOperationError("You cannot change your own account from the owner dashboard.", 403);
+    throw new TeamOperationError(
+      "You cannot change your own account from the owner dashboard.",
+      403,
+    );
   const role = await readPlatformRole(db, userId);
   if (role?.role === "owner")
-    throw new TeamOperationError("Platform owner accounts are protected and cannot be changed here.", 403);
+    throw new TeamOperationError(
+      "Platform owner accounts are protected and cannot be changed here.",
+      403,
+    );
   const account = await db.auth.admin.getUserById(userId);
   requireCurrentTeamRequest(db);
   const user = account.data?.user;
   if (account.error || !user || user.id !== userId)
-    throw new TeamOperationError("The selected account could not be confirmed. Refresh before retrying.", 503);
+    throw new TeamOperationError(
+      "The selected account could not be confirmed. Refresh before retrying.",
+      503,
+    );
   const ownerEmail = process.env.PLATFORM_OWNER_EMAIL?.trim().toLowerCase();
   if (ownerEmail && user.email?.toLowerCase() === ownerEmail)
-    throw new TeamOperationError("Platform owner accounts are protected and cannot be changed here.", 403);
+    throw new TeamOperationError(
+      "Platform owner accounts are protected and cannot be changed here.",
+      403,
+    );
   return user;
 }
 
 const unconfirmed = () =>
-  new TeamOperationError("The account change could not be confirmed. Refresh before retrying.", 503);
+  new TeamOperationError(
+    "The account change could not be confirmed. Refresh before retrying.",
+    503,
+  );
 
 export async function manageOwnerAccount(
   db: TeamDb,
@@ -72,7 +87,9 @@ export async function manageOwnerAccount(
   if (body.action === "disable") {
     if (!email || body.confirmEmail.toLowerCase() !== email.toLowerCase())
       throw new TeamOperationError("Type the account email exactly to confirm disabling it.");
-    const banned = await db.auth.admin.updateUserById(userId, { ban_duration: DISABLE_BAN_DURATION });
+    const banned = await db.auth.admin.updateUserById(userId, {
+      ban_duration: DISABLE_BAN_DURATION,
+    });
     requireCurrentTeamRequest(db);
     if (banned.error) throw unconfirmed();
     // Optional migration 20261023120000_owner_session_revoke.sql ends existing sessions now.
@@ -108,7 +125,9 @@ export async function manageOwnerAccount(
   }
   if (body.action === "resend_confirmation") {
     if (user.email_confirmed_at)
-      throw new TeamOperationError("This email is already confirmed. No confirmation email was sent.");
+      throw new TeamOperationError(
+        "This email is already confirmed. No confirmation email was sent.",
+      );
     if (!email) throw new TeamOperationError("This account has no email address.");
     const recent = await db
       .from("platform_owner_operations")
@@ -186,6 +205,10 @@ export async function manageOwnerAccount(
   });
   requireCurrentTeamRequest(db);
   if (renamed.error) throw unconfirmed();
-  await audit(db, actorId, "user.name_changed", undefined, { userId, from: previous, to: body.name });
+  await audit(db, actorId, "user.name_changed", undefined, {
+    userId,
+    from: previous,
+    to: body.name,
+  });
   return { userId, notice: `Display name changed to ${body.name}.` };
 }

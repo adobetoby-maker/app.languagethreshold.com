@@ -39,7 +39,8 @@ async function appAnalytics(db: TeamDb, range: AppAnalytics["range"]): Promise<A
       .limit(10000),
     loadDirectoryUsers(db, ""),
   ]);
-  for (const result of [counts, modules, ledger, entitlements]) if (result.error) throw result.error;
+  for (const result of [counts, modules, ledger, entitlements])
+    if (result.error) throw result.error;
   requireCurrentTeamRequest(db);
   const c = (counts.data ?? {}) as Record<string, number>;
   const byDay = new Map(
@@ -59,9 +60,7 @@ async function appAnalytics(db: TeamDb, range: AppAnalytics["range"]): Promise<A
   }
   const revenue = [...byDay.values()];
   const signups = signupsByDay(directory.users, range);
-  const seats = teamSeatMetrics(
-    (entitlements.data ?? []) as Parameters<typeof teamSeatMetrics>[0],
-  );
+  const seats = teamSeatMetrics((entitlements.data ?? []) as Parameters<typeof teamSeatMetrics>[0]);
   return {
     range,
     signups,
@@ -75,7 +74,11 @@ async function appAnalytics(db: TeamDb, range: AppAnalytics["range"]): Promise<A
     active30d: Number(c.active_30d ?? 0),
     totalAccounts: Number(c.total_accounts ?? 0),
     modules: ((modules.data ?? []) as AppAnalytics["modules"])
-      .map((m) => ({ ...m, active_seconds: Number(m.active_seconds), active_users: Number(m.active_users) }))
+      .map((m) => ({
+        ...m,
+        active_seconds: Number(m.active_seconds),
+        active_users: Number(m.active_users),
+      }))
       .sort((a, b) => b.active_seconds - a.active_seconds),
     revenue,
     receiptsCents: revenue.reduce((sum, d) => sum + d.receiptsCents, 0),
@@ -111,7 +114,10 @@ export const Route = createFileRoute("/api/owner-analytics")({
             return json(body);
           }
           try {
-            const body: GaResponse = { configured: true, ...(await loadGaAnalytics(config, range)) };
+            const body: GaResponse = {
+              configured: true,
+              ...(await loadGaAnalytics(config, range)),
+            };
             return json(body);
           } catch (error) {
             const body: GaResponse = {

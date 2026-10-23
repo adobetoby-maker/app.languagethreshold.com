@@ -53,7 +53,11 @@ export const ownerAccountAction = z.discriminatedUnion("action", [
     reason: z.string().trim().min(3).max(500),
   }),
   z.object({ action: z.literal("enable"), userId: accountId }),
-  z.object({ action: z.literal("resend_confirmation"), userId: accountId, requestId: z.string().uuid() }),
+  z.object({
+    action: z.literal("resend_confirmation"),
+    userId: accountId,
+    requestId: z.string().uuid(),
+  }),
   z.object({ action: z.literal("force_confirm"), userId: accountId }),
   z.object({
     action: z.literal("change_email"),
@@ -62,7 +66,11 @@ export const ownerAccountAction = z.discriminatedUnion("action", [
     confirmEmail: accountEmail,
     markConfirmed: z.boolean(),
   }),
-  z.object({ action: z.literal("change_name"), userId: accountId, name: z.string().trim().min(1).max(120) }),
+  z.object({
+    action: z.literal("change_name"),
+    userId: accountId,
+    name: z.string().trim().min(1).max(120),
+  }),
   z.object({
     action: z.literal("export_csv"),
     search: z.string().trim().max(160).default(""),
@@ -102,6 +110,8 @@ export type OwnerDirectory = {
   page: number;
   pageSize: number;
   emailReady: boolean;
+  /** True when more than 5,000 accounts matched and only the newest were filtered. */
+  truncated?: boolean;
 };
 export type OwnerUsage = {
   module_id: string;

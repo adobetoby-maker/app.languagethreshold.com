@@ -36,7 +36,8 @@ type Deps = { fetcher?: typeof fetch; now?: () => number };
 
 async function readJson(response: Response): Promise<unknown> {
   const text = await response.text();
-  if (text.length > MAX_GA_RESPONSE_BYTES) throw new GaRequestError("Google Analytics response too large.");
+  if (text.length > MAX_GA_RESPONSE_BYTES)
+    throw new GaRequestError("Google Analytics response too large.");
   try {
     return text ? JSON.parse(text) : null;
   } catch {
@@ -64,16 +65,26 @@ export async function gaAccessToken(
 ): Promise<string> {
   const key = config.account.clientEmail;
   if (tokenCache && tokenCache.key === key && tokenCache.expires > now()) return tokenCache.token;
-  const assertion = signGaJwt(gaJwtClaims(config.account.clientEmail, now() / 1000), config.account.privateKey);
+  const assertion = signGaJwt(
+    gaJwtClaims(config.account.clientEmail, now() / 1000),
+    config.account.privateKey,
+  );
   const response = await post(fetcher, GA_TOKEN_URL, {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: gaTokenRequestBody(assertion),
   });
-  const body = (await readJson(response)) as { access_token?: unknown; expires_in?: unknown } | null;
+  const body = (await readJson(response)) as {
+    access_token?: unknown;
+    expires_in?: unknown;
+  } | null;
   if (!response.ok || typeof body?.access_token !== "string")
     throw new GaRequestError(gaErrorMessage(response.status, body));
   const lifetime = typeof body.expires_in === "number" ? body.expires_in : 3600;
-  tokenCache = { key, token: body.access_token, expires: now() + Math.max(60, lifetime - 60) * 1000 };
+  tokenCache = {
+    key,
+    token: body.access_token,
+    expires: now() + Math.max(60, lifetime - 60) * 1000,
+  };
   return body.access_token;
 }
 
@@ -114,7 +125,12 @@ export async function loadGaAnalytics(
   await Promise.all(
     GA_REPORTS.map(async (name) => {
       const entry = await cached(`${scope}|${name}|${range}`, GA_REPORT_CACHE_MS, now, async () =>
-        callGa(fetcher, await getToken(), `${base}:runReport`, gaReportBody(name, range, config.hostname)),
+        callGa(
+          fetcher,
+          await getToken(),
+          `${base}:runReport`,
+          gaReportBody(name, range, config.hostname),
+        ),
       );
       raw[name] = entry.value;
       oldest = Math.min(oldest, entry.at);

@@ -36,7 +36,10 @@ async function fixture(run) {
         {
           name: "shell",
           setup(b) {
-            b.onResolve({ filter: /^@tanstack\/react-router$/ }, () => ({ path: "shell", namespace: "shell" }));
+            b.onResolve({ filter: /^@tanstack\/react-router$/ }, () => ({
+              path: "shell",
+              namespace: "shell",
+            }));
             b.onLoad({ filter: /.*/, namespace: "shell" }, () => ({
               contents: "export const createFileRoute=()=>config=>config;",
             }));
@@ -47,16 +50,22 @@ async function fixture(run) {
     const api = await import(join(dir, "api.mjs"));
     process.env.SUPABASE_URL = "https://fixture.invalid";
     process.env.SUPABASE_SERVICE_ROLE_KEY = "fake-service";
-    for (const k of ["PLATFORM_OWNER_EMAIL", "GA_PROPERTY_ID", "GA_SERVICE_ACCOUNT_JSON"]) delete process.env[k];
+    for (const k of ["PLATFORM_OWNER_EMAIL", "GA_PROPERTY_ID", "GA_SERVICE_ACCOUNT_JSON"])
+      delete process.env[k];
     const c = { role: "learner", calls: [], stripe: false };
     globalThis.fetch = async (input, init) => {
       const url = new URL(String(input));
       c.calls.push({ path: url.pathname, method: init?.method ?? "GET", body: init?.body });
       if (url.pathname === "/auth/v1/user")
-        return Response.json({ id: OWNER, email: "owner@example.invalid", email_confirmed_at: "2026-01-01" });
+        return Response.json({
+          id: OWNER,
+          email: "owner@example.invalid",
+          email_confirmed_at: "2026-01-01",
+        });
       if (url.pathname === "/rest/v1/platform_admin_roles")
         return Response.json(c.role === "learner" ? [] : [{ role: c.role }]);
-      if (url.pathname === "/rest/v1/platform_audit_events") return new Response(null, { status: 201 });
+      if (url.pathname === "/rest/v1/platform_audit_events")
+        return new Response(null, { status: 201 });
       if (url.pathname === "/rest/v1/team_entitlements")
         return Response.json({ stripe_subscription_id: c.stripe ? "sub_fixture" : null });
       throw Error("Unexpected private operation " + url.pathname);
@@ -73,7 +82,9 @@ async function fixture(run) {
     await run(api, c, request);
   } finally {
     globalThis.fetch = oldFetch;
-    KEYS.forEach((k, i) => (saved[i] === undefined ? delete process.env[k] : (process.env[k] = saved[i])));
+    KEYS.forEach((k, i) =>
+      saved[i] === undefined ? delete process.env[k] : (process.env[k] = saved[i]),
+    );
     rmSync(dir, { recursive: true, force: true });
   }
 }
@@ -95,7 +106,9 @@ test("guests, learners and support staff get 403 before any private read or writ
   fixture(async (api, c, req) => {
     for (const [route, path] of reads) {
       c.calls = [];
-      let r = await api[route].server.handlers.GET({ request: req(path, undefined, { auth: false }) });
+      let r = await api[route].server.handlers.GET({
+        request: req(path, undefined, { auth: false }),
+      });
       assert.equal(r.status, 403, path);
       assert.equal(c.calls.length, 0);
       for (const role of ["learner", "support"]) {
@@ -115,7 +128,10 @@ test("guests, learners and support staff get 403 before any private read or writ
       c.calls = [];
       const r = await api[route].server.handlers.POST({ request: req(path, body) });
       assert.equal(r.status, 403, path);
-      assert.equal(c.calls.some((x) => x.method !== "GET"), false);
+      assert.equal(
+        c.calls.some((x) => x.method !== "GET"),
+        false,
+      );
     }
   }));
 
@@ -127,11 +143,16 @@ test("malformed or cross-origin writes are rejected before authentication", () =
       ["teams", { action: "remove_member", orgId: "acme", memberId: ORG, confirmName: "x" }],
       ["activity", { action: "export", filters: { action: "a%' or 1=1" } }],
       ["users", { action: "disable", userId: ORG, confirmEmail: "a@b.co", reason: "" }],
-      ["users", { action: "change_email", userId: ORG, email: "x", confirmEmail: "x", markConfirmed: true }],
+      [
+        "users",
+        { action: "change_email", userId: ORG, email: "x", confirmEmail: "x", markConfirmed: true },
+      ],
     ];
     for (const [route, body] of bad) {
       c.calls = [];
-      const r = await api[route].server.handlers.POST({ request: req(`/api/owner-${route}`, body) });
+      const r = await api[route].server.handlers.POST({
+        request: req(`/api/owner-${route}`, body),
+      });
       assert.equal(r.status, 400, JSON.stringify(body));
       assert.equal(c.calls.length, 0);
     }
@@ -141,21 +162,32 @@ test("malformed or cross-origin writes are rejected before authentication", () =
     });
     assert.equal(cross.status, 403);
     assert.equal(c.calls.length, 0);
-    const badOrg = await api.teams.server.handlers.GET({ request: req("/api/owner-teams?org=nope") });
+    const badOrg = await api.teams.server.handlers.GET({
+      request: req("/api/owner-teams?org=nope"),
+    });
     assert.equal(badOrg.status, 400);
   }));
 
 test("missing GA configuration returns setup steps, not an error or a secret", () =>
   fixture(async (api, c, req) => {
     c.role = "owner";
-    const r = await api.analytics.server.handlers.GET({ request: req("/api/owner-analytics?part=ga&range=30") });
+    const r = await api.analytics.server.handlers.GET({
+      request: req("/api/owner-analytics?part=ga&range=30"),
+    });
     assert.equal(r.status, 200);
     const body = await r.json();
     assert.equal(body.configured, false);
     assert.deepEqual(body.missing, ["GA_PROPERTY_ID", "GA_SERVICE_ACCOUNT_JSON"]);
     assert.match(body.setup.join(" "), /Viewer on property 538705307/);
-    assert.ok(c.calls.some((x) => x.path === "/rest/v1/platform_audit_events" && /analytics\.view/.test(x.body)));
-    assert.equal(c.calls.some((x) => /googleapis/.test(x.path)), false);
+    assert.ok(
+      c.calls.some(
+        (x) => x.path === "/rest/v1/platform_audit_events" && /analytics\.view/.test(x.body),
+      ),
+    );
+    assert.equal(
+      c.calls.some((x) => /googleapis/.test(x.path)),
+      false,
+    );
   }));
 
 test("seats on a Stripe-managed company are refused; the owner is told to use Stripe", () =>
@@ -172,5 +204,8 @@ test("seats on a Stripe-managed company are refused; the owner is told to use St
     const r = await api.platform.server.handlers.POST({ request: req("/api/platform", body) });
     assert.equal(r.status, 400);
     assert.match((await r.json()).error, /Use Stripe billing/);
-    assert.equal(c.calls.some((x) => x.path === "/rest/v1/team_entitlements" && x.method === "PATCH"), false);
+    assert.equal(
+      c.calls.some((x) => x.path === "/rest/v1/team_entitlements" && x.method === "PATCH"),
+      false,
+    );
   }));

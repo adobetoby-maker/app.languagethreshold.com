@@ -7,13 +7,29 @@ import {
   resendTeamInvitation,
   revokeTeamInvitation,
 } from "@/lib/team-actions-server";
-import { confirmMatches, type OwnerTeamAction, type OwnerTeamDetail, type OwnerTeamResult } from "./owner-teams";
-import { audit, requireCurrentTeamRequest, TeamOperationError, type TeamDb } from "@/lib/team-server";
+import {
+  confirmMatches,
+  type OwnerTeamAction,
+  type OwnerTeamDetail,
+  type OwnerTeamResult,
+} from "./owner-teams";
+import {
+  audit,
+  requireCurrentTeamRequest,
+  TeamOperationError,
+  type TeamDb,
+} from "@/lib/team-server";
 
 const MAX_MEMBERS = 500;
 const MAX_EMAIL_LOOKUPS = 100;
 
-type Org = { id: string; name: string; billing_email: string; owner_user_id: string; created_at: string };
+type Org = {
+  id: string;
+  name: string;
+  billing_email: string;
+  owner_user_id: string;
+  created_at: string;
+};
 type Member = OwnerTeamDetail["members"][number];
 
 async function readOrg(db: TeamDb, orgId: string): Promise<Org> {
@@ -56,7 +72,11 @@ async function withEmails(db: TeamDb, members: Omit<Member, "email">[]): Promise
   return members.map((m) => ({ ...m, email: emails.get(m.user_id) ?? null }));
 }
 
-export async function readOwnerTeam(db: TeamDb, actorId: string, orgId: string): Promise<OwnerTeamDetail> {
+export async function readOwnerTeam(
+  db: TeamDb,
+  actorId: string,
+  orgId: string,
+): Promise<OwnerTeamDetail> {
   const org = await readOrg(db, orgId);
   const [entitlement, members, invitations, assignments, complimentary] = await Promise.all([
     db
@@ -85,11 +105,16 @@ export async function readOwnerTeam(db: TeamDb, actorId: string, orgId: string):
       .limit(2000),
     isComplimentary(db, orgId),
   ]);
-  for (const result of [entitlement, members, invitations, assignments]) if (result.error) throw result.error;
+  for (const result of [entitlement, members, invitations, assignments])
+    if (result.error) throw result.error;
   requireCurrentTeamRequest(db);
-  const e = entitlement.data as
-    | { seat_limit: number; term: string | null; status: string; period_end: string | null; stripe_subscription_id: string | null }
-    | null;
+  const e = entitlement.data as {
+    seat_limit: number;
+    term: string | null;
+    status: string;
+    period_end: string | null;
+    stripe_subscription_id: string | null;
+  } | null;
   const detail: OwnerTeamDetail = {
     organization: org,
     entitlement: e
@@ -129,7 +154,13 @@ async function readMember(db: TeamDb, orgId: string, memberId: string) {
   requireCurrentTeamRequest(db);
   if (error) throw error;
   if (!data) throw new TeamOperationError("Member not found in this company.");
-  return data as { id: string; user_id: string; display_name: string; role: Member["role"]; status: string };
+  return data as {
+    id: string;
+    user_id: string;
+    display_name: string;
+    role: Member["role"];
+    status: string;
+  };
 }
 
 async function activeOwnerCount(db: TeamDb, orgId: string) {
@@ -146,7 +177,11 @@ async function activeOwnerCount(db: TeamDb, orgId: string) {
 /** Same rule as team_reserve_invitation: active learners + live pending learner invites < seats. */
 async function requireLearnerSeat(db: TeamDb, orgId: string) {
   const [entitlement, learners, pending] = await Promise.all([
-    db.from("team_entitlements").select("seat_limit,status,period_end").eq("organization_id", orgId).maybeSingle(),
+    db
+      .from("team_entitlements")
+      .select("seat_limit,status,period_end")
+      .eq("organization_id", orgId)
+      .maybeSingle(),
     db
       .from("team_members")
       .select("id", { count: "exact", head: true })
@@ -162,7 +197,11 @@ async function requireLearnerSeat(db: TeamDb, orgId: string) {
       .gt("expires_at", new Date().toISOString()),
   ]);
   for (const result of [entitlement, learners, pending]) if (result.error) throw result.error;
-  const e = entitlement.data as { seat_limit: number; status: string; period_end: string | null } | null;
+  const e = entitlement.data as {
+    seat_limit: number;
+    status: string;
+    period_end: string | null;
+  } | null;
   const live =
     !!e &&
     (e.status === "active" ||
@@ -198,14 +237,19 @@ export async function manageOwnerTeam(
       delivery: body.delivery,
     });
     return {
-      notice: body.delivery === "email" && !warning ? "Invitation email sent again." : "New invitation link created.",
+      notice:
+        body.delivery === "email" && !warning
+          ? "Invitation email sent again."
+          : "New invitation link created.",
       inviteUrl,
       warning,
     };
   }
   if (body.action === "revoke_invite") {
     await revokeTeamInvitation(db, org.id, body.invitationId);
-    await audit(db, actorId, "owner_team.invite_revoked", org.id, { invitationId: body.invitationId });
+    await audit(db, actorId, "owner_team.invite_revoked", org.id, {
+      invitationId: body.invitationId,
+    });
     return { notice: "Invitation revoked." };
   }
   if (body.action === "assign") {
@@ -228,10 +272,14 @@ export async function manageOwnerTeam(
   }
   const member = await readMember(db, org.id, body.memberId);
   if (body.action === "change_role") {
-    if (member.status !== "active") throw new TeamOperationError("Only active members can change role.");
-    if (member.role === body.role) return { notice: `${member.display_name} is already ${body.role}.` };
+    if (member.status !== "active")
+      throw new TeamOperationError("Only active members can change role.");
+    if (member.role === body.role)
+      return { notice: `${member.display_name} is already ${body.role}.` };
     if (member.user_id === org.owner_user_id)
-      throw new TeamOperationError("Transfer company ownership before changing the account owner's role.");
+      throw new TeamOperationError(
+        "Transfer company ownership before changing the account owner's role.",
+      );
     if (member.role === "owner" && (await activeOwnerCount(db, org.id)) <= 1)
       throw new TeamOperationError("A company needs at least one owner.");
     if (body.role === "learner") await requireLearnerSeat(db, org.id);

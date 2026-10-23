@@ -77,7 +77,10 @@ export function sortUsers<T extends Partial<OwnerUser>>(users: T[], sort: Direct
         ? time(u.lastSignInAt)
         : time(u.createdAt);
   return [...users].sort(
-    (a, b) => key(b) - key(a) || time(b.createdAt) - time(a.createdAt) || String(a.id).localeCompare(String(b.id)),
+    (a, b) =>
+      key(b) - key(a) ||
+      time(b.createdAt) - time(a.createdAt) ||
+      String(a.id).localeCompare(String(b.id)),
   );
 }
 

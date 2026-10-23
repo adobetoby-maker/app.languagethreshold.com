@@ -8,9 +8,16 @@ import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
 import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
 import { OwnerDiscounts } from "@/components/owner/OwnerDiscounts";
+import { OwnerAnalytics } from "@/components/owner/OwnerAnalytics";
+import { OwnerActivity } from "@/components/owner/OwnerActivity";
+import { OwnerTeamManager } from "@/components/owner/OwnerTeamManager";
+import { OwnerTabBar, OwnerTabPanel } from "@/components/owner/OwnerTabs";
+import { isOwnerTab, ownerTab, type OwnerTab } from "@/lib/owner-tabs";
 import { teamSeatMetrics } from "@/lib/team-seat-metrics";
 
 export const Route = createFileRoute("/owner")({
+  validateSearch: (search: Record<string, unknown>): { tab?: OwnerTab } =>
+    isOwnerTab(search.tab) ? { tab: search.tab } : {},
   component: () => (
     <AuthProvider>
       <OwnerDashboard />
@@ -130,6 +137,12 @@ function OwnedOwnerDashboard() {
   const [since, setSince] = useState(
     new Date(Date.now() - 365 * 86400000).toISOString().slice(0, 10),
   );
+  const [teamOrg, setTeamOrg] = useState<string | null>(null);
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const tab = ownerTab(search.tab);
+  const selectTab = (next: OwnerTab) =>
+    void navigate({ search: (prev) => ({ ...prev, tab: next }), replace: true });
 
   const { key, capture } = usePracticeLifecycle(
     JSON.stringify(["owner-dashboard", since, authLoading]),
@@ -313,6 +326,16 @@ function OwnedOwnerDashboard() {
   };
 
   const seatMetrics = teamSeatMetrics(data?.entitlements ?? []);
+  const platformStatus = loading ? (
+    <p role="status">Loading owner dashboard…</p>
+  ) : error && !data ? (
+    <p
+      role="alert"
+      className="rounded-xl border border-red-500/50 p-4 text-red-700 dark:text-red-300"
+    >
+      {error}
+    </p>
+  ) : null;
 
   return (
     <main className="min-h-screen bg-background p-4 text-foreground sm:p-8">
@@ -346,7 +369,7 @@ function OwnedOwnerDashboard() {
             </button>
           </div>
         </div>
-        {authLoading || loading ? (
+        {authLoading ? (
           <p>Loading owner dashboard…</p>
         ) : !user ? (
           <div className={panel}>
@@ -356,362 +379,412 @@ function OwnedOwnerDashboard() {
             </button>
             <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
           </div>
-        ) : error && !data ? (
-          <p
-            role="alert"
-            className="rounded-xl border border-red-500/50 p-4 text-red-700 dark:text-red-300"
-          >
-            {error}
-          </p>
         ) : (
-          data && (
-            <div className="space-y-6">
-              <OwnerAccounts />
-              <OwnerDiscounts />
-              {error && (
-                <p
-                  role="alert"
-                  className="rounded-lg border border-red-500/50 p-3 text-red-700 dark:text-red-300"
-                >
-                  {error}
-                </p>
-              )}
-              {notice && (
-                <p
-                  role="status"
-                  className="rounded-lg border border-emerald-500/50 p-3 text-emerald-700 dark:text-emerald-300"
-                >
-                  {notice}
-                </p>
-              )}
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {[
-                  ["Total accounts", data.counts.total_accounts],
-                  ["Companies", data.counts.organizations],
-                  ["Enabled learner seats", seatMetrics.enabled],
-                  ["Paid learner seats", seatMetrics.paid],
-                  ["Pilot learner seats", seatMetrics.pilot],
-                  ["Assigned learner seats", data.counts.assigned_seats],
-                  ["Adults", data.counts.adult_accounts],
-                  ["Junior accounts", data.counts.junior_accounts],
-                  ["Certificates", data.counts.certificates],
-                  ["Pending invites", data.counts.pending_invites],
-                  ["Email failures", data.counts.email_failures],
-                  ["Test passes · 30d", data.counts.assessment_passes_30d],
-                  [
-                    "Active accounts · 7d / 30d",
-                    `${data.counts.active_7d} / ${data.counts.active_30d}`,
-                  ],
-                ].map(([label, value]) => (
-                  <div key={String(label)} className={panel}>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                      {label}
-                    </p>
-                    <p className="mt-2 text-3xl font-semibold text-gold-ink dark:text-gold">
-                      {value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <section className={panel}>
-                <h2 className="mb-3 text-xl font-semibold">
-                  Practice across the site · last 30 days
-                </h2>
-                <p className="mb-3 text-sm text-muted-foreground">
-                  Active app minutes by selected module, including individual and team learners. No
-                  conversations or recordings are included.
-                </p>
-                <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                  {data.siteUsage
-                    .sort((a, b) => b.active_seconds - a.active_seconds)
-                    .map((module) => (
-                      <div key={module.module_id} className="rounded-xl border border-border p-3">
-                        <strong>{module.module_id}</strong>
-                        <p className="text-sm text-muted-foreground">
-                          {Math.round(module.active_seconds / 60)} minutes · {module.active_users}{" "}
-                          learners
+          <>
+            <OwnerTabBar tab={tab} onChange={selectTab} />
+            {error && data && (
+              <p
+                role="alert"
+                className="mb-4 rounded-lg border border-red-500/50 p-3 text-red-700 dark:text-red-300"
+              >
+                {error}
+              </p>
+            )}
+            {notice && (
+              <p
+                role="status"
+                className="mb-4 rounded-lg border border-emerald-500/50 p-3 text-emerald-700 dark:text-emerald-300"
+              >
+                {notice}
+              </p>
+            )}
+            <OwnerTabPanel id="overview" active={tab === "overview"}>
+              {platformStatus}
+              {data && (
+                <>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {[
+                      ["Total accounts", data.counts.total_accounts],
+                      ["Companies", data.counts.organizations],
+                      ["Enabled learner seats", seatMetrics.enabled],
+                      ["Paid learner seats", seatMetrics.paid],
+                      ["Pilot learner seats", seatMetrics.pilot],
+                      ["Assigned learner seats", data.counts.assigned_seats],
+                      ["Adults", data.counts.adult_accounts],
+                      ["Junior accounts", data.counts.junior_accounts],
+                      ["Certificates", data.counts.certificates],
+                      ["Pending invites", data.counts.pending_invites],
+                      ["Email failures", data.counts.email_failures],
+                      ["Test passes · 30d", data.counts.assessment_passes_30d],
+                      [
+                        "Active accounts · 7d / 30d",
+                        `${data.counts.active_7d} / ${data.counts.active_30d}`,
+                      ],
+                    ].map(([label, value]) => (
+                      <div key={String(label)} className={panel}>
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                          {label}
+                        </p>
+                        <p className="mt-2 text-3xl font-semibold text-gold-ink dark:text-gold">
+                          {value}
                         </p>
                       </div>
                     ))}
-                </div>
-              </section>
-              <section className={panel}>
-                <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-                  <div>
-                    <h2 className="text-xl font-semibold">Site P/L ledger</h2>
-                    <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
-                      Cash activity from Stripe receipts and manual entries. Record hosting, AI,
-                      payroll, marketing, processing fees, taxes, and other expenses here. This is
-                      an operational P/L view, not accrual financial statements.
+                  </div>
+                  <section className={panel}>
+                    <h2 className="mb-3 text-xl font-semibold">
+                      Practice across the site · last 30 days
+                    </h2>
+                    <p className="mb-3 text-sm text-muted-foreground">
+                      Active app minutes by selected module, including individual and team learners.
+                      No conversations or recordings are included.
                     </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      disabled={busy}
-                      onClick={() =>
-                        void act(
-                          { action: "ledger_import_stripe" },
-                          "Stripe payment history imported. Existing entries were kept once.",
-                        )
-                      }
-                      className={secondary}
-                    >
-                      Import Stripe history
-                    </button>
-                    <label className="text-xs">
-                      From{" "}
-                      <input
-                        type="date"
-                        className={input + " ml-1"}
-                        value={since}
-                        onChange={(e) => setSince(e.target.value)}
-                      />
-                    </label>
-                    <button disabled={busy || loading} onClick={csv} className={secondary}>
-                      Export CSV
-                    </button>
-                  </div>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {[
-                    ["Receipts", data.financial.income_cents],
-                    ["Expenses + refunds", data.financial.expense_cents],
-                    ["Net", data.financial.net_cents],
-                  ].map(([label, value]) => (
-                    <div key={String(label)} className="rounded-xl border border-border p-4">
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                        {label}
-                      </p>
-                      <p className="mt-1 text-2xl font-semibold">{money(Number(value))}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 overflow-x-auto">
-                  <table className="w-full min-w-[480px] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-border text-muted-foreground">
-                        <th className="p-2">Month</th>
-                        <th className="p-2">Receipts</th>
-                        <th className="p-2">Expenses</th>
-                        <th className="p-2">Net</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.financial.months.map((m) => (
-                        <tr key={m.month} className="border-b border-border/40">
-                          <td className="p-2">{m.month}</td>
-                          <td className="p-2">{money(m.income_cents)}</td>
-                          <td className="p-2">{money(m.expense_cents)}</td>
-                          <td className="p-2">{money(m.net_cents)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-              <section className={panel}>
-                <h2 className="mb-3 text-xl font-semibold">P/L by category</h2>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[480px] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-border text-muted-foreground">
-                        <th className="p-2">Category</th>
-                        <th className="p-2">Income</th>
-                        <th className="p-2">Expenses / refunds</th>
-                        <th className="p-2">Net</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.categories.map((item) => (
-                        <tr key={item.category} className="border-b border-border/40">
-                          <td className="p-2">{item.category}</td>
-                          <td className="p-2">{money(item.income_cents)}</td>
-                          <td className="p-2">{money(item.expense_cents)}</td>
-                          <td className="p-2">{money(item.net_cents)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-              <div className="grid gap-6 lg:grid-cols-2">
-                <section className={panel}>
-                  <h2 className="mb-4 text-xl font-semibold">Enter a receipt or expense</h2>
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      const cents = Math.round(Number(amount) * 100);
-                      if (cents > 0)
-                        void act(
-                          { action: "ledger_add", date, kind, category, amountCents: cents, memo },
-                          "Ledger entry recorded.",
-                        );
-                    }}
-                    className="grid gap-3"
-                  >
-                    <div className="flex flex-wrap gap-2">
-                      <select
-                        aria-label="Entry kind"
-                        className={input}
-                        value={kind}
-                        onChange={(e) => setKind(e.target.value as typeof kind)}
-                      >
-                        <option value="expense">Expense</option>
-                        <option value="income">Income</option>
-                      </select>
-                      <input
-                        aria-label="Date"
-                        type="date"
-                        className={input}
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                      />
-                      <input
-                        aria-label="Amount in dollars"
-                        required
-                        type="number"
-                        min="0.01"
-                        step="0.01"
-                        placeholder="Amount $"
-                        className={input + " max-w-36"}
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                      />
-                    </div>
-                    <input
-                      required
-                      maxLength={80}
-                      aria-label="Category"
-                      placeholder="Category"
-                      className={input}
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    />
-                    <input
-                      maxLength={500}
-                      aria-label="Memo"
-                      placeholder="Memo"
-                      className={input}
-                      value={memo}
-                      onChange={(e) => setMemo(e.target.value)}
-                    />
-                    <button disabled={busy || !Number(amount)} className={button}>
-                      Record entry
-                    </button>
-                  </form>
-                </section>
-                <section className={panel}>
-                  <h2 className="mb-3 text-xl font-semibold">Recent ledger entries</h2>
-                  <div className="max-h-72 space-y-2 overflow-y-auto">
-                    {data.ledger.slice(0, 30).map((entry) => (
-                      <div
-                        key={entry.id}
-                        className="flex items-start justify-between gap-3 rounded-lg border border-border/50 p-2 text-sm"
-                      >
-                        <div>
-                          <p>
-                            {entry.occurred_on} · {entry.category} · {entry.source}
-                          </p>
-                          <p className="text-xs text-muted-foreground">{entry.memo}</p>
-                        </div>
-                        <div className="shrink-0 text-right">
-                          <strong
-                            className={
-                              entry.amount_cents < 0
-                                ? "text-red-700 dark:text-red-300"
-                                : "text-emerald-700 dark:text-emerald-300"
-                            }
+                    <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                      {data.siteUsage
+                        .sort((a, b) => b.active_seconds - a.active_seconds)
+                        .map((module) => (
+                          <div
+                            key={module.module_id}
+                            className="rounded-xl border border-border p-3"
                           >
-                            {money(entry.amount_cents)}
-                          </strong>
-                          {entry.source === "manual" && !entry.external_ref && (
-                            <button
-                              disabled={busy}
-                              className="ml-2 text-xs text-gold-ink dark:text-gold underline"
-                              onClick={() => {
-                                const reason = window.prompt("Reason for reversing this entry?");
-                                if (reason?.trim())
-                                  void act(
-                                    { action: "ledger_reverse", entryId: entry.id, reason },
-                                    "Reversing entry recorded.",
-                                  );
-                              }}
-                            >
-                              Reverse
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              </div>
-              <section className={panel}>
-                <h2 className="mb-2 text-xl font-semibold">Custom module requests</h2>
-                <p className="mb-4 text-sm text-muted-foreground">
-                  Paid $20 content briefs. Review the requested situations, then update the status
-                  and a note visible to the requester. A complete module needs a separate proposal.
-                </p>
-                {data.moduleRequests.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No paid requests yet.</p>
-                ) : (
-                  <div className="space-y-3">
-                    {data.moduleRequests.map((item) => (
-                      <ModuleRequestRow key={item.id} item={item} busy={busy} act={act} />
-                    ))}
-                  </div>
-                )}
-              </section>
-              <section className={panel}>
-                <h2 className="mb-4 text-xl font-semibold">Companies and seat use</h2>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[720px] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-border text-xs uppercase text-muted-foreground">
-                        {[
-                          "Company",
-                          "Plan",
-                          "Seats",
-                          "Assigned",
-                          "Active · 30d",
-                          "Minutes · 30d",
-                          "Top module",
-                          "Renewal",
-                          "Manual grant",
-                        ].map((h) => (
-                          <th className="p-2" key={h}>
-                            {h}
-                          </th>
+                            <strong>{module.module_id}</strong>
+                            <p className="text-sm text-muted-foreground">
+                              {Math.round(module.active_seconds / 60)} minutes ·{" "}
+                              {module.active_users} learners
+                            </p>
+                          </div>
                         ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.organizations.map((org) => (
-                        <OrgRow key={org.id} org={org} data={data} busy={busy} act={act} />
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-              <section className={panel}>
-                <h2 className="mb-2 text-xl font-semibold">Recent owner actions</h2>
-                <p className="mb-3 text-sm text-muted-foreground">
-                  Sensitive platform views and changes are logged without learner conversation
-                  content.
-                </p>
-                <div className="max-h-56 overflow-y-auto text-xs">
-                  {data.auditEvents.map((event) => (
-                    <div key={event.id} className="border-b border-border/30 py-1.5">
-                      {new Date(event.created_at).toLocaleString()} · {event.action}{" "}
-                      {event.organization_id
-                        ? `· ${data.organizations.find((o) => o.id === event.organization_id)?.name ?? event.organization_id}`
-                        : ""}
                     </div>
-                  ))}
-                </div>
-              </section>
-            </div>
-          )
+                  </section>
+                </>
+              )}
+            </OwnerTabPanel>
+            <OwnerTabPanel id="analytics" active={tab === "analytics"}>
+              <OwnerAnalytics />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="users" active={tab === "users"}>
+              <OwnerAccounts />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="companies" active={tab === "companies"}>
+              {teamOrg && (
+                <OwnerTeamManager key={teamOrg} orgId={teamOrg} onClose={() => setTeamOrg(null)} />
+              )}
+              {platformStatus}
+              {data && (
+                <>
+                  <section className={panel}>
+                    <h2 className="mb-4 text-xl font-semibold">Companies and seat use</h2>
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[720px] text-left text-sm">
+                        <thead>
+                          <tr className="border-b border-border text-xs uppercase text-muted-foreground">
+                            {[
+                              "Company",
+                              "Plan",
+                              "Seats",
+                              "Assigned",
+                              "Active · 30d",
+                              "Minutes · 30d",
+                              "Top module",
+                              "Renewal",
+                              "Manual grant",
+                            ].map((h) => (
+                              <th className="p-2" key={h}>
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.organizations.map((org) => (
+                            <OrgRow
+                              key={org.id}
+                              org={org}
+                              data={data}
+                              busy={busy}
+                              act={act}
+                              onManage={() => setTeamOrg(org.id)}
+                            />
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                </>
+              )}
+            </OwnerTabPanel>
+            <OwnerTabPanel id="money" active={tab === "money"}>
+              {platformStatus}
+              {data && (
+                <>
+                  <section className={panel}>
+                    <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+                      <div>
+                        <h2 className="text-xl font-semibold">Site P/L ledger</h2>
+                        <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+                          Cash activity from Stripe receipts and manual entries. Record hosting, AI,
+                          payroll, marketing, processing fees, taxes, and other expenses here. This
+                          is an operational P/L view, not accrual financial statements.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          disabled={busy}
+                          onClick={() =>
+                            void act(
+                              { action: "ledger_import_stripe" },
+                              "Stripe payment history imported. Existing entries were kept once.",
+                            )
+                          }
+                          className={secondary}
+                        >
+                          Import Stripe history
+                        </button>
+                        <label className="text-xs">
+                          From{" "}
+                          <input
+                            type="date"
+                            className={input + " ml-1"}
+                            value={since}
+                            onChange={(e) => setSince(e.target.value)}
+                          />
+                        </label>
+                        <button disabled={busy || loading} onClick={csv} className={secondary}>
+                          Export CSV
+                        </button>
+                      </div>
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      {[
+                        ["Receipts", data.financial.income_cents],
+                        ["Expenses + refunds", data.financial.expense_cents],
+                        ["Net", data.financial.net_cents],
+                      ].map(([label, value]) => (
+                        <div key={String(label)} className="rounded-xl border border-border p-4">
+                          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                            {label}
+                          </p>
+                          <p className="mt-1 text-2xl font-semibold">{money(Number(value))}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-5 overflow-x-auto">
+                      <table className="w-full min-w-[480px] text-left text-sm">
+                        <thead>
+                          <tr className="border-b border-border text-muted-foreground">
+                            <th className="p-2">Month</th>
+                            <th className="p-2">Receipts</th>
+                            <th className="p-2">Expenses</th>
+                            <th className="p-2">Net</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.financial.months.map((m) => (
+                            <tr key={m.month} className="border-b border-border/40">
+                              <td className="p-2">{m.month}</td>
+                              <td className="p-2">{money(m.income_cents)}</td>
+                              <td className="p-2">{money(m.expense_cents)}</td>
+                              <td className="p-2">{money(m.net_cents)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                  <section className={panel}>
+                    <h2 className="mb-3 text-xl font-semibold">P/L by category</h2>
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[480px] text-left text-sm">
+                        <thead>
+                          <tr className="border-b border-border text-muted-foreground">
+                            <th className="p-2">Category</th>
+                            <th className="p-2">Income</th>
+                            <th className="p-2">Expenses / refunds</th>
+                            <th className="p-2">Net</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.categories.map((item) => (
+                            <tr key={item.category} className="border-b border-border/40">
+                              <td className="p-2">{item.category}</td>
+                              <td className="p-2">{money(item.income_cents)}</td>
+                              <td className="p-2">{money(item.expense_cents)}</td>
+                              <td className="p-2">{money(item.net_cents)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                  <div className="grid gap-6 lg:grid-cols-2">
+                    <section className={panel}>
+                      <h2 className="mb-4 text-xl font-semibold">Enter a receipt or expense</h2>
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          const cents = Math.round(Number(amount) * 100);
+                          if (cents > 0)
+                            void act(
+                              {
+                                action: "ledger_add",
+                                date,
+                                kind,
+                                category,
+                                amountCents: cents,
+                                memo,
+                              },
+                              "Ledger entry recorded.",
+                            );
+                        }}
+                        className="grid gap-3"
+                      >
+                        <div className="flex flex-wrap gap-2">
+                          <select
+                            aria-label="Entry kind"
+                            className={input}
+                            value={kind}
+                            onChange={(e) => setKind(e.target.value as typeof kind)}
+                          >
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                          </select>
+                          <input
+                            aria-label="Date"
+                            type="date"
+                            className={input}
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                          />
+                          <input
+                            aria-label="Amount in dollars"
+                            required
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="Amount $"
+                            className={input + " max-w-36"}
+                            value={amount}
+                            onChange={(e) => setAmount(e.target.value)}
+                          />
+                        </div>
+                        <input
+                          required
+                          maxLength={80}
+                          aria-label="Category"
+                          placeholder="Category"
+                          className={input}
+                          value={category}
+                          onChange={(e) => setCategory(e.target.value)}
+                        />
+                        <input
+                          maxLength={500}
+                          aria-label="Memo"
+                          placeholder="Memo"
+                          className={input}
+                          value={memo}
+                          onChange={(e) => setMemo(e.target.value)}
+                        />
+                        <button disabled={busy || !Number(amount)} className={button}>
+                          Record entry
+                        </button>
+                      </form>
+                    </section>
+                    <section className={panel}>
+                      <h2 className="mb-3 text-xl font-semibold">Recent ledger entries</h2>
+                      <div className="max-h-72 space-y-2 overflow-y-auto">
+                        {data.ledger.slice(0, 30).map((entry) => (
+                          <div
+                            key={entry.id}
+                            className="flex items-start justify-between gap-3 rounded-lg border border-border/50 p-2 text-sm"
+                          >
+                            <div>
+                              <p>
+                                {entry.occurred_on} · {entry.category} · {entry.source}
+                              </p>
+                              <p className="text-xs text-muted-foreground">{entry.memo}</p>
+                            </div>
+                            <div className="shrink-0 text-right">
+                              <strong
+                                className={
+                                  entry.amount_cents < 0
+                                    ? "text-red-700 dark:text-red-300"
+                                    : "text-emerald-700 dark:text-emerald-300"
+                                }
+                              >
+                                {money(entry.amount_cents)}
+                              </strong>
+                              {entry.source === "manual" && !entry.external_ref && (
+                                <button
+                                  disabled={busy}
+                                  className="ml-2 text-xs text-gold-ink dark:text-gold underline"
+                                  onClick={() => {
+                                    const reason = window.prompt(
+                                      "Reason for reversing this entry?",
+                                    );
+                                    if (reason?.trim())
+                                      void act(
+                                        { action: "ledger_reverse", entryId: entry.id, reason },
+                                        "Reversing entry recorded.",
+                                      );
+                                  }}
+                                >
+                                  Reverse
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  </div>
+                  <section className={panel}>
+                    <h2 className="mb-2 text-xl font-semibold">Custom module requests</h2>
+                    <p className="mb-4 text-sm text-muted-foreground">
+                      Paid $20 content briefs. Review the requested situations, then update the
+                      status and a note visible to the requester. A complete module needs a separate
+                      proposal.
+                    </p>
+                    {data.moduleRequests.length === 0 ? (
+                      <p className="text-sm text-muted-foreground">No paid requests yet.</p>
+                    ) : (
+                      <div className="space-y-3">
+                        {data.moduleRequests.map((item) => (
+                          <ModuleRequestRow key={item.id} item={item} busy={busy} act={act} />
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                </>
+              )}
+              <OwnerDiscounts />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="activity" active={tab === "activity"}>
+              <OwnerActivity organizations={data?.organizations ?? []} />
+              {data && (
+                <>
+                  <section className={panel}>
+                    <h2 className="mb-2 text-xl font-semibold">
+                      Latest owner actions (dashboard summary)
+                    </h2>
+                    <p className="mb-3 text-sm text-muted-foreground">
+                      Sensitive platform views and changes are logged without learner conversation
+                      content.
+                    </p>
+                    <div className="max-h-56 overflow-y-auto text-xs">
+                      {data.auditEvents.map((event) => (
+                        <div key={event.id} className="border-b border-border/30 py-1.5">
+                          {new Date(event.created_at).toLocaleString()} · {event.action}{" "}
+                          {event.organization_id
+                            ? `· ${data.organizations.find((o) => o.id === event.organization_id)?.name ?? event.organization_id}`
+                            : ""}
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </>
+              )}
+            </OwnerTabPanel>
+          </>
         )}
       </div>
     </main>
@@ -796,11 +869,13 @@ function OrgRow({
   data,
   busy,
   act,
+  onManage,
 }: {
   org: Organization;
   data: PlatformData;
   busy: boolean;
   act: (body: unknown, message: string) => Promise<void>;
+  onManage: () => void;
 }) {
   const entitlement = data.entitlements.find((e) => e.organization_id === org.id);
   const members = data.members.filter(
@@ -830,6 +905,9 @@ function OrgRow({
           {org.name}
         </a>
         <div className="text-xs text-muted-foreground">{org.billing_email}</div>
+        <button type="button" className={secondary + " mt-1 py-1 text-xs"} onClick={onManage}>
+          Manage team
+        </button>
       </td>
       <td className="p-2">
         {entitlement?.status ?? "pending"} · {entitlement?.term ?? "—"}
@@ -845,6 +923,9 @@ function OrgRow({
         {entitlement?.period_end ? new Date(entitlement.period_end).toLocaleDateString() : "—"}
       </td>
       <td className="p-2">
+        {entitlement?.stripe_subscription_id && (
+          <span className="text-xs text-muted-foreground">Managed in Stripe</span>
+        )}
         {!entitlement?.stripe_subscription_id && (
           <div className="flex flex-wrap gap-1">
             <input

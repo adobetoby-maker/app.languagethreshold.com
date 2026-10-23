@@ -38,7 +38,10 @@ function parseAccountJson(raw: string): GaServiceAccount | null {
       const clientEmail = typeof value.client_email === "string" ? value.client_email.trim() : "";
       const privateKey =
         typeof value.private_key === "string" ? value.private_key.replace(/\\n/g, "\n") : "";
-      if (/^[^@\s]+@[^@\s]+$/.test(clientEmail) && /-----BEGIN [A-Z ]*PRIVATE KEY-----/.test(privateKey))
+      if (
+        /^[^@\s]+@[^@\s]+$/.test(clientEmail) &&
+        /-----BEGIN [A-Z ]*PRIVATE KEY-----/.test(privateKey)
+      )
         return { clientEmail, privateKey };
     } catch {
       /* try next */
@@ -277,7 +280,12 @@ export function gaErrorMessage(status: number, body: unknown): string {
         ? String((error as { status: string }).status)
         : "";
   const text = JSON.stringify(body ?? "").toLowerCase();
-  if (code === "invalid_grant" || code === "invalid_client" || code === "UNAUTHENTICATED" || status === 401)
+  if (
+    code === "invalid_grant" ||
+    code === "invalid_client" ||
+    code === "UNAUTHENTICATED" ||
+    status === 401
+  )
     return "Google rejected the service account key. Create a new JSON key and update GA_SERVICE_ACCOUNT_JSON.";
   if (text.includes("service_disabled") || text.includes("has not been used"))
     return 'Enable the "Google Analytics Data API" in the Google Cloud project, wait a few minutes, then refresh.';

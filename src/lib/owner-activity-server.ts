@@ -18,8 +18,7 @@ type Row = {
   created_at: string;
 };
 
-const nextDay = (day: string) =>
-  new Date(Date.parse(`${day}T00:00:00Z`) + 86400000).toISOString();
+const nextDay = (day: string) => new Date(Date.parse(`${day}T00:00:00Z`) + 86400000).toISOString();
 
 export async function readActivity(
   db: TeamDb,

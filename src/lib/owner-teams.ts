@@ -10,7 +10,12 @@ export const ownerTeamAction = z.discriminatedUnion("action", [
     memberId: id,
     role: z.enum(["owner", "admin", "learner"]),
   }),
-  z.object({ action: z.literal("remove_member"), orgId: id, memberId: id, confirmName: confirmText }),
+  z.object({
+    action: z.literal("remove_member"),
+    orgId: id,
+    memberId: id,
+    confirmName: confirmText,
+  }),
   z.object({
     action: z.literal("resend_invite"),
     orgId: id,
@@ -86,7 +91,11 @@ export type OwnerTeamDetail = {
   modules: { id: string; name: string }[];
   emailEnabled: boolean;
 };
-export type OwnerTeamResult = { notice: string; inviteUrl?: string | null; warning?: string | null };
+export type OwnerTeamResult = {
+  notice: string;
+  inviteUrl?: string | null;
+  warning?: string | null;
+};
 
 /** Type-to-confirm comparison: trimmed, case-insensitive, whitespace collapsed. */
 export function confirmMatches(typed: string, expected: string) {

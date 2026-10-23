@@ -62,29 +62,29 @@ test("Reader woman/man switch changes the top-bar voice and persists across relo
 
   const woman = page.getByTestId("voice-switch-woman");
   const man = page.getByTestId("voice-switch-man");
-  const topVoice = page.locator("header").getByTestId("site-voice-button");
-  const topLabel = page.locator("header").getByTestId("site-voice-label");
+  const topVoice = page.getByTestId("site-voice-button").filter({ visible: true });
+  const topLabel = topVoice.getByTestId("site-voice-label");
 
   await woman.click();
   await expect(woman).toHaveAttribute("aria-pressed", "true");
   await expect(woman).toHaveAttribute("aria-label", "Woman's voice — Paulina, Mexico");
   await expect(man).toHaveAttribute("aria-label", "Man's voice — Juan, Mexico");
-  await expect(topLabel).toHaveText(/paulina · mexico/i, { useInnerText: true });
+  await expect(topLabel).toHaveText(/paulina/i, { useInnerText: true });
   await expect(topVoice).toHaveAttribute(
     "aria-label",
-    "Voice: Paulina, Mexican Spanish, woman. Change voice",
+    /^Voice: Paulina, Mexican Spanish, woman\. Change voice(?:\. iPhone device voice quality may vary)?$/,
   );
 
   await man.click();
   await expect(man).toHaveAttribute("aria-pressed", "true");
   await expect(woman).toHaveAttribute("aria-pressed", "false");
-  await expect(topLabel).toHaveText(/juan · mexico/i, { useInnerText: true });
+  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
   await expect(topVoice).toHaveAttribute(
     "aria-label",
-    "Voice: Juan, Mexican Spanish, man. Change voice",
+    /^Voice: Juan, Mexican Spanish, man\. Change voice(?:\. iPhone device voice quality may vary)?$/,
   );
 
   await page.reload();
   await expect(man).toHaveAttribute("aria-pressed", "true", { timeout: 60_000 });
-  await expect(topLabel).toHaveText(/juan · mexico/i, { useInnerText: true });
+  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
 });

@@ -10,5 +10,20 @@ test("complete first-run onboarding", async ({ page }) => {
   await overlay.getByRole("button", { name: "Start reading" }).click();
   await expect(page.getByRole("button", { name: "Start reading" })).toHaveCount(0);
   await expect(page.getByText("What are you learning?")).toHaveCount(0);
+  // The language choice and the onboarding flag are written just after the overlay closes
+  // (LanguageFirstStep stores lt.languageChosen on a short timer). Saving the state before both
+  // land made every later spec open on the first-run picker, intermittently.
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const chosen = localStorage.getItem("lt.languageChosen") === "1";
+        let done = false;
+        try {
+          done = JSON.parse(localStorage.getItem("lt.profile-device.v1.guest") ?? "null")?.data?.onboardingComplete === true;
+        } catch {}
+        return chosen && done;
+      }),
+    )
+    .toBe(true);
   await page.context().storageState({ path: "e2e/.auth/state.json" });
 });

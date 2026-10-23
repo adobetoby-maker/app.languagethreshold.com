@@ -10,7 +10,7 @@ async function openVerbs(page: Page, search = ""): Promise<void> {
   for (let attempt = 0; attempt < 3; attempt++) {
     await seedAppState(page, { activeModuleId: null, selectedLanguage: "Spanish", currentTab: "games", onboardingComplete: true });
     await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
-    await page.goto(appUrl({ tab: "games" }) + search);
+    await page.goto(appUrl({ tab: "games" }) + (search.includes("verbs=") ? search : "&verbs=home" + search));
     await title.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
     if (await title.isVisible()) break;
   }
@@ -25,6 +25,30 @@ async function expectRecap(page: Page, eyebrow: string): Promise<void> {
   await expect(page.getByRole("button", { name: "Back to Verbs" })).toBeVisible();
   await expect(page.getByTestId("recap-title")).toBeFocused();
 }
+
+test("compact verb card opens, reloads and returns through browser history", async ({ page }) => {
+  await openVerbs(page);
+  await page.getByRole("button", { name: "Back to Games", exact: true }).click();
+  const card = page.getByTestId("verbs-launcher");
+  await expect(card).toBeVisible();
+  await expect(card.getByRole("heading", { name: "Verbs", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Bubble Pop", exact: true })).toHaveCount(0);
+  await expect(page.locator("[data-games-grid] > button")).toHaveCount(9);
+  await card.click();
+  await expect(page).toHaveURL(/verbs=home/);
+  await expect(page.locator("[data-games-grid] > button").first()).toBeHidden();
+  await expect(page.getByRole("heading", { name: "Bubble Pop", exact: true })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Bubble Pop", exact: true })).toBeVisible();
+  await page.locator('[data-game="crush"]').click();
+  await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "Practice by pattern", exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(card).toBeVisible();
+  await page.goForward();
+  await expect(page.getByRole("heading", { name: "Bubble Pop", exact: true })).toBeVisible();
+});
 
 test("verbs home lists families and games", async ({ page }) => {
   await openVerbs(page);

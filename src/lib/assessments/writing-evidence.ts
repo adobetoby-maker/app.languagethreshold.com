@@ -45,7 +45,7 @@ export async function withWritingEvidence<T>(
         id: z.literal(responseId),
         item_id: z.string(),
         // SQL permits legacy object keys; eligibility still uses the selected frozen item.
-        answer: z.record(z.unknown()),
+        answer: z.record(z.string(), z.unknown()),
       })
       .strict();
     const saved = z.union([z.array(row).max(1), row, z.null()]);

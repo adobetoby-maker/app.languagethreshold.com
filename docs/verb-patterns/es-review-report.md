@@ -57,7 +57,7 @@ Items: 638
 - autenticar: "to authenticate": yo autentico [es.present.ar]; tú autenticas [es.present.ar]; él_ella_usted autentica [es.present.ar]; nosotros autenticamos [es.present.ar]; ellos_ustedes autentican [es.present.ar]
 - autorizar: "to authorize": yo autorizo [es.present.ar]; tú autorizas [es.present.ar]; él_ella_usted autoriza [es.present.ar]; nosotros autorizamos [es.present.ar]; ellos_ustedes autorizan [es.present.ar]
 - avanzar: "to advance": yo avanzo [es.present.ar]; tú avanzas [es.present.ar]; él_ella_usted avanza [es.present.ar]; nosotros avanzamos [es.present.ar]; ellos_ustedes avanzan [es.present.ar]
-- avisar: "to let know, to notify": yo aviso [es.present.ar]; tú avisas [es.present.ar]; él_ella_usted avisa [es.present.ar]; nosotros avisamos [es.present.ar]; ellos_ustedes avisan [es.present.ar]
+- avisar: "to let (someone) know, to notify": yo aviso [es.present.ar]; tú avisas [es.present.ar]; él_ella_usted avisa [es.present.ar]; nosotros avisamos [es.present.ar]; ellos_ustedes avisan [es.present.ar]
 - ayunar: "to fast": yo ayuno [es.present.ar]; tú ayunas [es.present.ar]; él_ella_usted ayuna [es.present.ar]; nosotros ayunamos [es.present.ar]; ellos_ustedes ayunan [es.present.ar]
 - añadir: "to add": yo añado [es.present.ir]; tú añades [es.present.ir]; él_ella_usted añade [es.present.ir]; nosotros añadimos [es.present.ir]; ellos_ustedes añaden [es.present.ir]
 - bajar: "to lower": yo bajo [es.present.ar]; tú bajas [es.present.ar]; él_ella_usted baja [es.present.ar]; nosotros bajamos [es.present.ar]; ellos_ustedes bajan [es.present.ar]
@@ -151,7 +151,7 @@ Items: 638
 - empeorar: "to get worse": yo empeoro [es.present.ar]; tú empeoras [es.present.ar]; él_ella_usted empeora [es.present.ar]; nosotros empeoramos [es.present.ar]; ellos_ustedes empeoran [es.present.ar]
 - empujar: "to push": yo empujo [es.present.ar]; tú empujas [es.present.ar]; él_ella_usted empuja [es.present.ar]; nosotros empujamos [es.present.ar]; ellos_ustedes empujan [es.present.ar]
 - empuñar: "to grip": yo empuño [es.present.ar]; tú empuñas [es.present.ar]; él_ella_usted empuña [es.present.ar]; nosotros empuñamos [es.present.ar]; ellos_ustedes empuñan [es.present.ar]
-- encajar: "to fit, to snap in": yo encajo [es.present.ar]; tú encajas [es.present.ar]; él_ella_usted encaja [es.present.ar]; nosotros encajamos [es.present.ar]; ellos_ustedes encajan [es.present.ar]
+- encajar: "to fit into place, to snap in": yo encajo [es.present.ar]; tú encajas [es.present.ar]; él_ella_usted encaja [es.present.ar]; nosotros encajamos [es.present.ar]; ellos_ustedes encajan [es.present.ar]
 - encantar: "to love, to delight": yo encanto [es.present.ar]; tú encantas [es.present.ar]; él_ella_usted encanta [es.present.ar]; nosotros encantamos [es.present.ar]; ellos_ustedes encantan [es.present.ar]
 - encender: "to turn on": yo enciendo [es.present.e-ie]; tú enciendes [es.present.e-ie]; él_ella_usted enciende [es.present.e-ie]; nosotros encendemos [es.present.er]; ellos_ustedes encienden [es.present.e-ie]
 - encerrar: "to pen in, to corral": yo encierro [es.present.e-ie]; tú encierras [es.present.e-ie]; él_ella_usted encierra [es.present.e-ie]; nosotros encerramos [es.present.ar]; ellos_ustedes encierran [es.present.e-ie]
@@ -687,6 +687,13 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "mamar": "register risk: vulgar slang in much of Latin America"
   },
   "formEnglish": {
+    "avisar": {
+      "ellos_ustedes": "they let (someone) know",
+      "nosotros": "we let (someone) know",
+      "tú": "you let (someone) know",
+      "yo": "I let (someone) know",
+      "él_ella_usted": "he/she lets (someone) know"
+    },
     "ceder": {
       "ellos_ustedes": "they give up (something)",
       "nosotros": "we give up (something)",
@@ -749,6 +756,7 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "apuntar": "to jot down, to aim",
     "asegurar": "to secure, to ensure",
     "atender": "to attend to, to serve",
+    "avisar": "to let (someone) know, to notify",
     "cargar": "to load, to charge",
     "colar": "to strain",
     "conocer": "to know (people, places), to meet",
@@ -759,6 +767,7 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "despedir": "to see off, to fire",
     "dudar": "to doubt",
     "eliminar": "to eliminate, to remove",
+    "encajar": "to fit into place, to snap in",
     "envasar": "to package, to bottle",
     "felicitar": "to congratulate",
     "filtrar": "to filter",

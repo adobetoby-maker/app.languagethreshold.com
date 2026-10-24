@@ -122,8 +122,10 @@ type SpeechRecognitionEventLike = {
 
 type SpeechRecognitionErrorEventLike = { error?: string };
 
-/** How long Stop waits for the browser's onend before finishing the turn itself. */
+/** With text already available, recover promptly if the browser drops onend. */
 const STOP_FALLBACK_MS = 1200;
+/** Empty results may still be in transit after Stop; don't abort them after 1.2s. */
+const TRANSCRIPT_WAIT_MS = 8000;
 
 function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
   if (typeof window === "undefined") return null;
@@ -253,6 +255,7 @@ export function SpeakingMissionsPreview({
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
+  const [finishingSpeech, setFinishingSpeech] = useState(false);
   const [objectiveIds, setObjectiveIds] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
@@ -275,6 +278,10 @@ export function SpeakingMissionsPreview({
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const finishRecognitionRef = useRef<(() => void) | null>(null);
+  const cancelRecognitionRef = useRef<(() => void) | null>(null);
+  const stoppingRecognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const recognitionHasTextRef = useRef(false);
+  const recognitionStopTimerRef = useRef<number | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const viewTopRef = useRef<HTMLElement | null>(null);
@@ -539,6 +546,7 @@ export function SpeakingMissionsPreview({
 
   const stopActiveWork = useCallback(() => {
     cancelRef.current();
+    setFinishingSpeech(false);
     stopAudio();
   }, [stopAudio]);
 
@@ -550,6 +558,7 @@ export function SpeakingMissionsPreview({
     setTurns([]);
     setTypedTurn("");
     setInterim("");
+    setFinishingSpeech(false);
     setObjectiveIds([]);
     setPartnerSpeaking(false);
     setStatus("ready");
@@ -1123,12 +1132,21 @@ export function SpeakingMissionsPreview({
       recognition.continuous = false;
       recognition.interimResults = true;
       let ended = false;
+      recognitionHasTextRef.current = false;
       const current = () => lease.isCurrent() && recognitionRef.current === recognition && !ended;
       const dispose = () => {
         recognition.onresult = null;
         recognition.onerror = null;
         recognition.onend = null;
-        if (recognitionRef.current === recognition) recognitionRef.current = null;
+        if (recognitionRef.current === recognition) {
+          recognitionRef.current = null;
+          stoppingRecognitionRef.current = null;
+          cancelRecognitionRef.current = null;
+          if (recognitionStopTimerRef.current !== null) {
+            window.clearTimeout(recognitionStopTimerRef.current);
+            recognitionStopTimerRef.current = null;
+          }
+        }
         if (finishRecognitionRef.current === finish) finishRecognitionRef.current = null;
         try {
           recognition.abort();
@@ -1153,7 +1171,9 @@ export function SpeakingMissionsPreview({
           .map(([, value]) => value)
           .join(" ");
         if (interimText) latestInterimText = interimText;
+        recognitionHasTextRef.current = Boolean(finalText.trim() || latestInterimText.trim());
         setInterim(interimText);
+        if (stoppingRecognitionRef.current === recognition && finalText.trim()) finish();
       };
       recognition.onerror = (event) => {
         if (!current()) return;
@@ -1163,6 +1183,7 @@ export function SpeakingMissionsPreview({
         release();
         dispose();
         setInterim("");
+        setFinishingSpeech(false);
         const error = event?.error ?? "unknown";
         setStatus(error === "aborted" ? "ready" : "error");
         setErrorMessage(error === "aborted" ? null : speechRecognitionErrorMessage(error));
@@ -1174,6 +1195,7 @@ export function SpeakingMissionsPreview({
         release();
         dispose();
         setInterim("");
+        setFinishingSpeech(false);
         const capturedText = bestAvailableSpeechTranscript(finalText, latestInterimText);
         if (capturedText) {
           setTypedTurn(capturedText);
@@ -1187,12 +1209,22 @@ export function SpeakingMissionsPreview({
         }
         setStatus((current) => (current === "error" ? current : "ready"));
         setErrorMessage(
-          "No transcript was returned. Tap the microphone to retry, or use keyboard dictation or type your answer.",
+          "No transcript was returned. Use Test microphone to check the audio input, then retry, use keyboard dictation, or type your answer.",
         );
       };
       recognition.onend = finish;
       recognitionRef.current = recognition;
       finishRecognitionRef.current = finish;
+      cancelRecognitionRef.current = () => {
+        if (!current()) return;
+        ended = true;
+        release();
+        dispose();
+        setInterim("");
+        setFinishingSpeech(false);
+        setStatus("ready");
+        setErrorMessage("Transcription cancelled. Your answer was not sent.");
+      };
       try {
         recognition.start();
       } catch (error) {
@@ -1201,6 +1233,7 @@ export function SpeakingMissionsPreview({
         throw error;
       }
       setStatus("listening");
+      setFinishingSpeech(false);
       setErrorMessage(null);
     } catch (error) {
       if (!lease.isCurrent()) return;
@@ -1216,15 +1249,19 @@ export function SpeakingMissionsPreview({
       setStatus((current) => (current === "listening" ? "ready" : current));
       return;
     }
+    if (stoppingRecognitionRef.current === recognition) return;
+    stoppingRecognitionRef.current = recognition;
+    setFinishingSpeech(true);
     try {
       recognition.stop();
     } catch {
       finish();
       return;
     }
-    window.setTimeout(() => {
+    if (recognitionRef.current !== recognition) return;
+    recognitionStopTimerRef.current = window.setTimeout(() => {
       if (recognitionRef.current === recognition) finish();
-    }, STOP_FALLBACK_MS);
+    }, recognitionHasTextRef.current ? STOP_FALLBACK_MS : TRANSCRIPT_WAIT_MS);
   };
 
   const completedObjectiveCount =
@@ -2316,8 +2353,8 @@ export function SpeakingMissionsPreview({
             <button
               type="button"
               onClick={status === "listening" ? stopListening : startListening}
-              disabled={status === "thinking" || partnerSpeaking}
-              aria-label={status === "listening" ? "Stop listening" : "Start listening"}
+              disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
+              aria-label={finishingSpeech ? "Finishing transcription" : status === "listening" ? "Stop listening" : "Start listening"}
               className={
                 "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
                 (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
@@ -2331,7 +2368,7 @@ export function SpeakingMissionsPreview({
             </button>
             <p className="text-sm text-muted-foreground">
               {status === "listening"
-                ? "Listening… tap Stop when you finish"
+                ? finishingSpeech ? "Finishing transcription…" : "Listening… tap Stop when you finish"
                 : partnerSpeaking
                   ? "Partner is speaking… your microphone will unlock afterward"
                   : status === "thinking"
@@ -2339,6 +2376,11 @@ export function SpeakingMissionsPreview({
                     : `Your turn — tap the microphone and answer in ${selectedMission.language}`}
             </p>
           </>
+        )}
+        {finishingSpeech && (
+          <button type="button" onClick={() => cancelRecognitionRef.current?.()} className="min-h-11 rounded-full border px-4 py-2 text-sm">
+            Cancel transcription
+          </button>
         )}
       </div>
 

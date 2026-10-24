@@ -75,11 +75,16 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     const { SpeakingMissionsPreview, c, SpeakingConsentSaveError } = await import(out),
       requests = [],
       recognitions = [],
-      timers = new Map();
+      timers = new Map(),
+      timerDelays = new Map();
     let timer = 0;
     let speechQueueResets = 0;
     globalThis.window = {
-      speechSynthesis: { cancel() { speechQueueResets++; } },
+      speechSynthesis: {
+        cancel() {
+          speechQueueResets++;
+        },
+      },
       SpeechRecognition: class {
         constructor() {
           recognitions.push(this);
@@ -92,11 +97,15 @@ test("actual speaking missions isolate late replies, playback, microphone and co
           this.aborted = true;
         }
       },
-      setTimeout: (fn) => {
+      setTimeout: (fn, milliseconds) => {
         timers.set(++timer, fn);
+        timerDelays.set(timer, milliseconds);
         return timer;
       },
-      clearTimeout: (id) => timers.delete(id),
+      clearTimeout: (id) => {
+        timers.delete(id);
+        timerDelays.delete(id);
+      },
     };
     globalThis.document = {
       visibilityState: "visible",
@@ -218,7 +227,11 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
     const silent = recognitions.at(-1);
-    assert.equal(speechQueueResets, 1, "second-turn microphone tap releases the prior device speech queue");
+    assert.equal(
+      speechQueueResets,
+      1,
+      "second-turn microphone tap releases the prior device speech queue",
+    );
     silent.stop = () => {};
     tree = render();
     const beforeStop = new Set(timers.keys());
@@ -226,9 +239,14 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       .find((n) => n.props?.["aria-label"] === "Stop listening")
       .props.onClick();
     tree = render();
-    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Stop listening"));
+    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Finishing transcription"));
     const fallback = [...timers].filter(([id]) => !beforeStop.has(id));
     assert.equal(fallback.length, 1);
+    assert.equal(
+      timerDelays.get(fallback[0][0]),
+      8000,
+      "empty transcript gets a full grace period, not a 1.2s abort",
+    );
     timers.delete(fallback[0][0]);
     fallback[0][1]();
     tree = render();
@@ -276,12 +294,41 @@ test("actual speaking missions isolate late replies, playback, microphone and co
         "failed recognition never sends a turn",
       );
     }
+    // Cancel while waiting must release the microphone and reject late results.
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    const cancelled = recognitions.at(-1),
+      lateCancelledResult = cancelled.onresult;
+    cancelled.stop = () => {};
+    tree = render();
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Stop listening")
+      .props.onClick();
+    tree = render();
+    button(tree, "Cancel transcription").props.onClick();
+    assert.equal(cancelled.aborted, true);
+    lateCancelledResult({
+      resultIndex: 0,
+      results: [Object.assign([{ transcript: "Do not send cancelled answer" }], { isFinal: true })],
+    });
+    await tick();
+    assert.equal(requests.length, requestsBeforeFailures);
+    tree = render();
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
     const rec = recognitions.at(-1),
       result = rec.onresult,
       end = rec.onend;
+    rec.stop = () => {};
+    tree = render();
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Stop listening")
+      .props.onClick();
+    tree = render();
+    assert.match(text(tree), /Finishing transcription/);
+    assert.equal(rec.aborted, undefined, "stopping capture must not abort pending results");
     const event = {
       resultIndex: 0,
       results: [Object.assign([{ transcript: "QA final" }], { isFinal: true })],
@@ -294,6 +341,11 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     assert.equal(requests.length, 3);
     assert.equal(JSON.parse(requests[2].opts.body).messages.at(-1).content, "QA final");
     assert.equal(rec.onresult, null);
+    assert.equal(
+      [...timers.keys()].filter((id) => timerDelays.get(id) === 8000).length,
+      0,
+      "a late final result clears its grace timer without waiting for onend",
+    );
     c.actor = "b";
     const writes = c.writes,
       actions = c.actions.length;

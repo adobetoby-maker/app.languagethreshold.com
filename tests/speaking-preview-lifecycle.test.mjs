@@ -44,7 +44,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(LongPressWordText|SpeakingConsentDialog))$/,
+                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -64,7 +64,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
- export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent';
+ export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent',MicrophoneTestDialog='mic-test';
  export const Check='span',ChevronLeft='span',Lightbulb='span',Mic='span',RotateCcw='span',Search='span',Send='span',Square='span',X='span';
  `,
             }));
@@ -220,6 +220,48 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     tree = render();
     assert.equal(silent.aborted, true);
     assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"));
+    // A browser may emit an error without onend. Each failure must free the
+    // recorder for the next tap and must never submit the partial transcript.
+    const requestsBeforeFailures = requests.length;
+    for (const error of ["not-allowed", "audio-capture", "network", "no-speech", "aborted"]) {
+      const count = recognitions.length;
+      nodes(tree)
+        .find((n) => n.props?.["aria-label"] === "Start listening")
+        .props.onClick();
+      assert.equal(recognitions.length, count + 1, `retry after ${error} starts a fresh recorder`);
+      const failed = recognitions.at(-1);
+      const staleResult = failed.onresult,
+        staleEnd = failed.onend;
+      failed.onresult({
+        resultIndex: 0,
+        results: [
+          Object.assign([{ transcript: "Do not send failed partial" }], { isFinal: false }),
+        ],
+      });
+      failed.onerror({ error });
+      assert.equal(failed.aborted, true);
+      assert.equal(failed.onresult, null);
+      assert.equal(failed.onend, null);
+      staleResult({
+        resultIndex: 0,
+        results: [Object.assign([{ transcript: "Late failed final" }], { isFinal: true })],
+      });
+      staleEnd();
+      await tick();
+      tree = render();
+      if (error === "not-allowed") assert.match(text(tree), /browser settings/);
+      const resume = button(tree, "Resume mission");
+      if (resume) {
+        resume.props.onClick();
+        tree = render();
+      }
+      assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"));
+      assert.equal(
+        requests.length,
+        requestsBeforeFailures,
+        "failed recognition never sends a turn",
+      );
+    }
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();

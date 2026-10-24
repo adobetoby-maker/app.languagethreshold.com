@@ -58,12 +58,14 @@ import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry, consumeSpeakingMissionRequest } from "@/lib/speaking-navigation";
 import { browserReturnStorage, lessonMissionPrefix, readLessonReturn } from "@/lib/lesson-return";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
+import { speechRecognitionErrorMessage } from "@/lib/speech-recognition-errors";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
 import { PinyinText } from "@/components/reader/PinyinText";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { WatchTalkControl } from "./WatchTalkControl";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
+import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
@@ -1106,7 +1108,7 @@ export function SpeakingMissionsPreview({
     const Constructor = recognitionConstructor();
     if (!Constructor) {
       setErrorMessage(
-        "Speech recognition is unavailable in this browser. Use a supported browser such as Chrome or Safari.",
+        "Speech recognition is unavailable in this browser. Use keyboard dictation or type your answer, or open this website in Safari or Chrome.",
       );
       setStatus("error");
       return;
@@ -1135,7 +1137,6 @@ export function SpeakingMissionsPreview({
       const finalResults = new Map<number, string>();
       let finalText = "";
       let latestInterimText = "";
-      let recognitionError: string | null = null;
       recognition.onresult = (event) => {
         if (!current()) return;
         let interimText = "";
@@ -1153,11 +1154,15 @@ export function SpeakingMissionsPreview({
       };
       recognition.onerror = (event) => {
         if (!current()) return;
-        recognitionError = event?.error ?? "unknown";
-        if (recognitionError !== "no-speech" && recognitionError !== "aborted") {
-          setErrorMessage(`Microphone error: ${recognitionError}. Try again or type your answer.`);
-          setStatus("error");
-        }
+        // Some browsers omit onend after an error. Release immediately so a new
+        // user gesture can retry, and never auto-send a failed partial transcript.
+        ended = true;
+        release();
+        dispose();
+        setInterim("");
+        const error = event?.error ?? "unknown";
+        setStatus(error === "aborted" ? "ready" : "error");
+        setErrorMessage(error === "aborted" ? null : speechRecognitionErrorMessage(error));
       };
       // iOS Safari can skip onend after partner audio played, so Stop also calls this directly.
       const finish = () => {
@@ -1177,12 +1182,9 @@ export function SpeakingMissionsPreview({
           }
           return;
         }
-        if (recognitionError === "aborted") return;
         setStatus((current) => (current === "error" ? current : "ready"));
         setErrorMessage(
-          recognitionError === "no-speech"
-            ? "I did not hear speech. Tap Retry, or use the keyboard microphone in the answer box."
-            : "No transcript was returned. Tap Retry, or use the keyboard microphone in the answer box.",
+          "No transcript was returned. Tap the microphone to retry, or use keyboard dictation or type your answer.",
         );
       };
       recognition.onend = finish;
@@ -2187,6 +2189,8 @@ export function SpeakingMissionsPreview({
           {errorMessage}
         </div>
       )}
+
+      <MicrophoneTestDialog key={lifecycleKey} disabled={status === "listening" || status === "thinking" || partnerSpeaking} />
 
       <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
         <div className="flex items-center gap-2 text-gold">

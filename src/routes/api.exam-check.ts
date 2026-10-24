@@ -15,7 +15,9 @@ import {
   examCheckResponse,
   examErrorResponse,
   ExamApiError,
+  examJson,
   examServiceFetch,
+  examsV2Enabled,
   trustedExamClientIp,
 } from "@/lib/exams2/server";
 
@@ -34,6 +36,12 @@ export const Route = createFileRoute("/api/exam-check")({
       POST: async ({ request }) => {
         try {
           const env = process.env;
+          // The kill switch answers before any database client is built, so the exams page can tell
+          // "switched off" (it shows the previous page) from a real outage.
+          if (!examsV2Enabled(env)) {
+            void request.body?.cancel().catch(() => {});
+            return examJson({ error: "Exams aren't available yet.", code: "disabled" }, 404);
+          }
           const db = teamAdminClient(examServiceFetch(request.signal, 8 * 1024 * 1024), request);
           let signedIn: { id: string; email?: string | null; confirmed: boolean } | null = null;
           return await examCheckResponse(request, {

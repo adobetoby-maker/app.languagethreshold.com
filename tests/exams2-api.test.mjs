@@ -43,7 +43,7 @@ const PRIVATE_KEYS = [
 // ── Fake supabase-js ─────────────────────────────────────────────────────────
 let uuidCounter = 0;
 const uuid = () => `20000000-0000-4000-8000-${String(++uuidCounter).padStart(12, "0")}`;
-function fakeDb({ missing = false } = {}) {
+function fakeDb({ missing = false, failUpdate = () => null } = {}) {
   const tables = { exam_banks: [], exam_sessions: [] };
   const calls = [];
   const violation = (code, message) => ({ data: null, error: { code, message } });
@@ -135,6 +135,8 @@ function fakeDb({ missing = false } = {}) {
       return finish(added, q);
     }
     if (q.op === "update") {
+      const injected = failUpdate(table, q.patch);
+      if (injected) return { data: null, error: injected };
       const hit = rows.filter(match);
       const next = rows.map((r) => (hit.includes(r) ? { ...r, ...clone(q.patch) } : r));
       const failed = constraints(table, next);
@@ -403,7 +405,7 @@ test("form B keeps a 1-hour retake cooldown", async () => {
   assert.notEqual(later.sessionId, started.sessionId);
 });
 
-test("form C result is only percent, pass/fail and missed lessons; retakes are unlimited", async () => {
+test("form C result is a coarse percent, pass/fail and missed phases only; retakes allowed", async () => {
   const db = setup();
   const d = deps(db);
   const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
@@ -424,15 +426,22 @@ test("form C result is only percent, pass/fail and missed lessons; retakes are u
       "sessionId",
       "status",
     ]);
-    assert.deepEqual(Object.keys(view.result).sort(), ["kind", "missedLessons", "passed", "pct"]);
+    assert.deepEqual(Object.keys(view.result).sort(), ["kind", "missedPhases", "passed", "pct"]);
     assert.equal(view.result.passed, true);
-    assert.equal(view.result.pct, 96.7);
-    assert.deepEqual(
-      view.result.missedLessons.map((entry) => entry.lesson),
-      [30],
-    );
+    // 96.7% exact is shown as 95: nearest 5.
+    assert.equal(view.result.pct, 95);
+    assert.equal(view.result.pct % 5, 0);
+    assert.deepEqual(view.result.missedPhases, [
+      {
+        id: "phase-6",
+        title: "Synthetic phase 6",
+        href: "/?module=roofing&tab=core30&target=Spanish&native=English&lesson=26&way=recall",
+      },
+    ]);
     const text = JSON.stringify(view);
     assert.ok(!text.includes("roofing.L"), "no item ids in a form C result");
+    for (const key of ["lesson", "lessons", "missedLessons", "items", "score", "total"])
+      assert.ok(!text.includes(`"${key}"`), `no ${key} in a form C result`);
     assertNoPrivateKeys(view, "C result");
   }
   // The stored result keeps per-item points server-side only.
@@ -441,6 +450,58 @@ test("form C result is only percent, pass/fail and missed lessons; retakes are u
   assert.notEqual(retake.sessionId, started.sessionId);
   const fail = await call({ action: "submit", sessionId: retake.sessionId }, d);
   assert.equal(fail.result.passed, false);
+  assert.equal(fail.result.pct, 0);
+  assert.equal(fail.result.missedPhases.length, 6);
+});
+
+test("form C: at most 3 starts per user per rolling 24 hours; resuming the open one is free", async () => {
+  const db = setup();
+  const base = Date.parse("2026-10-24T08:00:00.000Z");
+  const at = (minutes) => deps(db, { now: base + minutes * 60 * 1000 });
+  const first = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(0));
+  // Re-opening the open session does not use the budget.
+  for (const minute of [1, 2, 3])
+    assert.equal(
+      (await call({ action: "start", moduleId: "roofing", kind: "C" }, at(minute))).sessionId,
+      first.sessionId,
+    );
+  await call({ action: "submit", sessionId: first.sessionId }, at(5));
+  const second = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(10));
+  await call({ action: "submit", sessionId: second.sessionId }, at(12));
+  const third = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(20));
+  await call({ action: "submit", sessionId: third.sessionId }, at(22));
+  const cRows = () => db.tables.exam_sessions.filter((row) => row.kind === "C").length;
+  assert.equal(cRows(), 3);
+  await assert.rejects(
+    call({ action: "start", moduleId: "roofing", kind: "C" }, at(30)),
+    (error) => {
+      assert.equal(error.status, 429);
+      assert.equal(error.code, "c_daily_limit");
+      assert.equal(error.extra.retryAt, "2026-10-25T08:00:00.000Z");
+      assert.match(error.message, /next attempt opens at 2026-10-25 08:00 UTC/);
+      return true;
+    },
+  );
+  assert.equal(cRows(), 3, "a refused start adds no row");
+  // Other kinds are not affected, and the window rolls.
+  await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, at(31));
+  const fourth = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(24 * 60 + 1));
+  assert.notEqual(fourth.sessionId, third.sessionId);
+});
+
+test("parallel starts share one open session (one-open-session index)", async () => {
+  const db = setup();
+  const [a, b] = await Promise.all([
+    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)),
+    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)),
+  ]);
+  assert.equal(a.sessionId, b.sessionId);
+  assert.deepEqual([a.resumed, b.resumed].sort(), [false, true]);
+  assert.equal(
+    db.tables.exam_sessions.filter((row) => row.kind === "A" && row.status === "in_progress")
+      .length,
+    1,
+  );
 });
 
 test("ownership: another user cannot read, save or submit a signed-in session", async () => {
@@ -688,6 +749,13 @@ test("public diagnostic: flag, kind, secret, salted IP hash, ownership and claim
   );
   assert.deepEqual(claimed, { claimed: true, sessionId: started.sessionId });
   assert.equal(sessionRow(db, started.sessionId).user_id, USER.id);
+  // Claiming clears the secret: it no longer opens the session or claims it again.
+  assert.equal(sessionRow(db, started.sessionId).public_secret_hash, null);
+  await rejects(
+    call({ action: "result", sessionId: started.sessionId, secret: started.secret }, anon),
+    404,
+    "not_found",
+  );
   const again = await call(
     { action: "claim", sessionId: started.sessionId, secret: started.secret },
     deps(db),
@@ -698,12 +766,75 @@ test("public diagnostic: flag, kind, secret, salted IP hash, ownership and claim
       { action: "claim", sessionId: started.sessionId, secret: started.secret },
       deps(db, { user: OTHER }),
     ),
-    409,
-    "claimed",
+    404,
+    "not_found",
   );
   // After the claim, the account owner reads the study map without the secret.
   const mine = await call({ action: "result", sessionId: started.sessionId }, deps(db));
   assert.equal(mine.kind, "diagnostic");
+});
+
+test("claim: an expired public session is refused; parallel claims leave one owner", async () => {
+  const db = setup();
+  const anon = deps(db, { user: null });
+  const start = () =>
+    call({ action: "start", moduleId: "roofing", kind: "diagnostic", public: true }, anon);
+  const old = await start();
+  await rejects(
+    call(
+      { action: "claim", sessionId: old.sessionId, secret: old.secret },
+      deps(db, { now: clock + 25 * 3600 * 1000 }),
+    ),
+    410,
+    "expired",
+  );
+  assert.equal(sessionRow(db, old.sessionId).user_id, null);
+
+  const raced = await start();
+  const claim = (user) =>
+    call(
+      { action: "claim", sessionId: raced.sessionId, secret: raced.secret },
+      deps(db, { user }),
+    ).then(
+      (value) => ({ ok: value }),
+      (error) => ({ error }),
+    );
+  const outcomes = await Promise.all([claim(USER), claim(OTHER)]);
+  const winners = outcomes.filter((outcome) => outcome.ok);
+  const losers = outcomes.filter((outcome) => outcome.error);
+  assert.equal(winners.length, 1);
+  assert.equal(losers.length, 1);
+  assert.equal(losers[0].error.status, 409);
+  assert.equal(losers[0].error.code, "claimed");
+  const owner = sessionRow(db, raced.sessionId).user_id;
+  assert.ok(owner === USER.id || owner === OTHER.id);
+  assert.equal(sessionRow(db, raced.sessionId).public_secret_hash, null);
+});
+
+test("rate-limit IP keys: IPv4 by address, IPv6 by /64, IPv4-mapped as IPv4", async () => {
+  const { rateLimitIpKey } = server;
+  assert.equal(rateLimitIpKey("203.0.113.7"), "203.0.113.7");
+  assert.equal(rateLimitIpKey("2001:db8:abcd:12::1"), "2001:db8:abcd:12::/64");
+  assert.equal(rateLimitIpKey("2001:0DB8:ABCD:0012:ffff:1:2:3"), "2001:db8:abcd:12::/64");
+  assert.equal(rateLimitIpKey("2001:db8::1"), "2001:db8:0:0::/64");
+  assert.equal(rateLimitIpKey("::ffff:198.51.100.4"), "198.51.100.4");
+  assert.equal(rateLimitIpKey("fe80::1%en0"), "fe80:0:0:0::/64");
+  assert.equal(rateLimitIpKey("local-development"), "local-development");
+  // Two addresses in one /64 share the public start budget and the day count.
+  const db = setup();
+  const one = deps(db, { user: null, ip: "2001:db8:abcd:12::1" });
+  const two = deps(db, { user: null, ip: "2001:db8:abcd:12:9:8:7:6" });
+  const a = await call(
+    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    one,
+  );
+  const b = await call(
+    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    two,
+  );
+  assert.equal(sessionRow(db, a.sessionId).ip_hash, sessionRow(db, b.sessionId).ip_hash);
+  assert.equal(one.budgets[0].value, "2001:db8:abcd:12::/64");
+  assert.equal(two.budgets[0].value, "2001:db8:abcd:12::/64");
 });
 
 test("public sessions expire for resume after 24 hours", async () => {
@@ -1016,4 +1147,38 @@ test("approval of a missing version is 404 and a missing migration is 503", asyn
   const list = await examBankResponse(bankRequest(null), bankDeps(none));
   assert.equal(list.status, 503);
   assert.equal((await list.json()).code, "exams_not_ready");
+});
+
+test("approval: a failed approve restores the retired version; a failed restore is a 500", async () => {
+  const conflict = fakeDb({
+    failUpdate: (table, patch) =>
+      table === "exam_banks" && patch.approved_by ? { code: "23505", message: "dup" } : null,
+  });
+  conflict.tables.exam_banks.push(bankRow(), bankRow(V2, draftOverrides()));
+  const refused = await post(conflict, approveBody());
+  assert.equal(refused.response.status, 409);
+  assert.equal(refused.body.code, "conflict");
+  assert.equal(conflict.tables.exam_banks.find((row) => row.version === "v1").status, "approved");
+
+  const broken = fakeDb({
+    failUpdate: (table, patch) =>
+      table === "exam_banks" && patch.status === "approved"
+        ? { code: "XX000", message: "storage failure" }
+        : null,
+  });
+  broken.tables.exam_banks.push(bankRow(), bankRow(V2, draftOverrides()));
+  const logged = [];
+  const original = console.error;
+  console.error = (...args) => logged.push(args.join(" "));
+  try {
+    const failed = await post(broken, approveBody());
+    assert.equal(failed.response.status, 500);
+    assert.equal(failed.body.code, "restore_failed");
+    assert.ok(failed.audits.some((entry) => entry.action === "exam_bank.restore_failed"));
+  } finally {
+    console.error = original;
+  }
+  assert.deepEqual(logged, [
+    "Exam bank approval failed and the previous version could not be restored.",
+  ]);
 });

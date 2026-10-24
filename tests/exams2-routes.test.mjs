@@ -5,7 +5,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { findExamBankKeyLeaks } from "../scripts/verify-vercel-artifact.mjs";
 
@@ -147,6 +148,25 @@ test("exam-bank: guests and non-owners get 403 before any bank read; owners reac
     assert.equal((await owner.json()).code, "exams_not_ready");
     assert.ok(c.calls.some((call) => call.path === "/rest/v1/exam_banks"));
   });
+});
+
+test("verify-vercel-artifact runs its checks when invoked through a symlink", () => {
+  const dir = mkdtempSync(resolve("node_modules/.cache/exams2-verify-link-"));
+  try {
+    const link = join(dir, "verify-link.mjs");
+    symlinkSync(resolve("scripts/verify-vercel-artifact.mjs"), link);
+    // No .vercel output in this directory: if the checks run, they must fail on the first file.
+    const viaLink = spawnSync(process.execPath, [link], { cwd: dir, encoding: "utf8" });
+    assert.equal(viaLink.status, 1);
+    assert.match(viaLink.stderr, /missing \.vercel\/output\/config\.json/);
+    const viaRelative = spawnSync(process.execPath, ["verify-link.mjs"], {
+      cwd: dir,
+      encoding: "utf8",
+    });
+    assert.equal(viaRelative.status, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test("T11: the client-bundle scan flags bank keys but not ordinary property reads", () => {

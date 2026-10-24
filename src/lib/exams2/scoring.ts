@@ -11,6 +11,7 @@ import {
   formItems,
   lessonTitle,
   type BankItem,
+  type BankPhase,
   type ExamBank,
   type FixedFormKind,
 } from "./bank.ts";
@@ -183,12 +184,24 @@ export interface PublicMissedLesson {
   title: string;
   href: string;
 }
-/** Form C, client-safe: overall percent, pass/fail and which lessons lost points. Nothing else. */
+/** A job phase with at least one lost point on form C, linked to the phase's first lesson. */
+export interface PublicMissedPhase {
+  id: string;
+  title: string;
+  href: string;
+}
+/**
+ * Form C, client-safe and deliberately coarse. Form C is the same 60 items for everyone and can
+ * be retaken (owner decision), so exact percents and per-lesson misses would let repeated
+ * attempts map out the answer key. The client gets the percent rounded to the nearest 5, the
+ * pass/fail call (made on the exact score) and the phases with misses. Nothing per lesson or item.
+ */
 export interface PublicFormCResult {
   kind: "C";
+  /** Nearest 5; never shows 80 or more on a fail, or under 80 on a pass. */
   pct: number;
   passed: boolean;
-  missedLessons: PublicMissedLesson[];
+  missedPhases: PublicMissedPhase[];
 }
 /** Forms A and B, client-safe: percent, the per-lesson table and missed lessons, no item data. */
 export interface PublicFormABResult {
@@ -200,19 +213,46 @@ export interface PublicFormABResult {
 }
 export type PublicFixedFormResult = PublicFormCResult | PublicFormABResult;
 
+/** Percent rounded to the nearest 5, kept on the right side of the pass line. */
+export function coarsePct(pct: number, passed: boolean): number {
+  const rounded = Math.round(pct / 5) * 5;
+  if (!passed && rounded >= C_PASS * 100) return C_PASS * 100 - 5;
+  if (passed && rounded < C_PASS * 100) return C_PASS * 100;
+  return rounded;
+}
+
 /**
  * The only fixed-form result that may leave the server. Built field by field from the full
- * result; never includes item ids, per-item points or raw scores. Answer review for A and B
- * comes separately from `completedItemReview`; form C never gets one.
+ * result; never includes item ids, per-item points or raw scores. Form C needs the bank's phases
+ * and reports misses by phase only. Answer review for A and B comes separately from
+ * `completedItemReview`; form C never gets one.
  */
-export function publicFixedFormResult(result: FixedFormResult): PublicFixedFormResult {
+export function publicFixedFormResult(
+  result: FixedFormResult,
+  phases?: readonly Pick<BankPhase, "id" | "title" | "lessons">[],
+): PublicFixedFormResult {
   const byLesson = new Map(result.lessons.map((lesson) => [lesson.lesson, lesson]));
+  if (result.kind === "C") {
+    if (!phases?.length) throw new Error("Form C results need the bank's phases.");
+    const missed = new Set(result.missedLessons);
+    const passed = result.passed === true;
+    return {
+      kind: "C",
+      pct: coarsePct(result.pct, passed),
+      passed,
+      missedPhases: phases
+        .filter((phase) => phase.lessons.some((lesson) => missed.has(lesson)))
+        .map((phase) => ({
+          id: phase.id,
+          title: phase.title,
+          href: byLesson.get(phase.lessons[0])?.href ?? "",
+        })),
+    };
+  }
   const missedLessons = result.missedLessons.map((n) => {
     const lesson = byLesson.get(n)!;
     return { lesson: n, title: lesson.title, href: lesson.href };
   });
-  if (result.kind === "C")
-    return { kind: "C", pct: result.pct, passed: result.passed === true, missedLessons };
   const out: PublicFormABResult = {
     kind: result.kind,
     pct: result.pct,

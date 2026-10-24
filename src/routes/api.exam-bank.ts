@@ -3,7 +3,6 @@
 // parsing or private read; every action is written to platform_audit_events.
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  audit,
   authenticatedTeamUser,
   requirePlatformOwner,
   teamAdminClient,
@@ -39,7 +38,13 @@ async function handle(request: Request) {
           throw asExamError(error);
         }
       },
-      audit: (actorId, action, detail) => audit(db, actorId, action, undefined, detail),
+      audit: async (actorId, action, detail) => {
+        // Same row as team-server's audit(), but a failed insert is surfaced (action id only).
+        const { error } = await db
+          .from("platform_audit_events")
+          .insert({ actor_user_id: actorId, action, organization_id: null, detail });
+        if (error) console.error(`Exam bank audit event could not be recorded: ${action}`);
+      },
     });
   } catch (error) {
     return examErrorResponse(asExamError(error));

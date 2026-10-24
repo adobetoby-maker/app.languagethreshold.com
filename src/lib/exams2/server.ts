@@ -50,7 +50,7 @@ import {
 
 // ── Errors and responses ─────────────────────────────────────────────────────
 
-export type ExamErrorStatus = 400 | 401 | 403 | 404 | 409 | 410 | 413 | 429 | 499 | 503;
+export type ExamErrorStatus = 400 | 401 | 403 | 404 | 409 | 410 | 413 | 429 | 499 | 500 | 503;
 /** Fixed, learner-safe guidance. Never built from request bodies, rows or bank content. */
 export class ExamApiError extends Error {
   constructor(
@@ -122,6 +122,45 @@ export function hashClientIp(ip: string, env: ExamEnv): string {
   return createHmac("sha256", salt)
     .update("exams2-ip:v1:" + ip)
     .digest("hex");
+}
+
+/** Expand an IPv6 address to 8 hextets; null when it is not valid IPv6. */
+function ipv6Hextets(ip: string): number[] | null {
+  const address = ip.split("%")[0].toLowerCase();
+  if (isIP(address) !== 6) return null;
+  let text = address;
+  const v4 = text.match(/(\d+\.\d+\.\d+\.\d+)$/);
+  if (v4) {
+    const parts = v4[1].split(".").map(Number);
+    text =
+      text.slice(0, -v4[1].length) +
+      ((parts[0] << 8) | parts[1]).toString(16) +
+      ":" +
+      ((parts[2] << 8) | parts[3]).toString(16);
+  }
+  const [head, tail] = text.includes("::") ? text.split("::") : [text, null];
+  const left = head ? head.split(":") : [];
+  const right = tail ? tail.split(":") : [];
+  const fill = tail === null ? [] : Array(8 - left.length - right.length).fill("0");
+  const all = [...left, ...fill, ...right];
+  return all.length === 8 ? all.map((part) => parseInt(part || "0", 16)) : null;
+}
+/**
+ * Rate-limit key for a client IP: IPv4 by full address, IPv6 by its /64 (one subscriber
+ * usually holds a whole /64). IPv4-mapped IPv6 counts as the IPv4 address.
+ */
+export function rateLimitIpKey(ip: string): string {
+  if (isIP(ip) === 4) return ip;
+  const hextets = ipv6Hextets(ip);
+  if (!hextets) return ip;
+  if (hextets.slice(0, 5).every((part) => part === 0) && hextets[5] === 0xffff)
+    return [hextets[6] >> 8, hextets[6] & 255, hextets[7] >> 8, hextets[7] & 255].join(".");
+  return (
+    hextets
+      .slice(0, 4)
+      .map((part) => part.toString(16))
+      .join(":") + "::/64"
+  );
 }
 
 /** Vercel's canonical client IP header; caller-supplied forwarding headers are not trusted. */
@@ -457,6 +496,11 @@ export const EXAM_LIMITS = {
   publicResumeHours: 24,
   /** Form B retake cooldown (design section 3). C has none (owner decision); A is taken once. */
   bRetakeCooldownMs: 60 * 60 * 1000,
+  /**
+   * Form C starts per user per rolling 24 hours (any status). C is the same form for everyone
+   * and retakes stay unlimited over time; this stops rapid retakes from mapping the answer key.
+   */
+  cStartsPerDay: 3,
   maxRequestBytes: 64 * 1024,
 } as const;
 
@@ -622,7 +666,8 @@ async function startSession(
     if (!examsPublicEnabled(deps.env))
       throw new ExamApiError(404, "The public Spanish Check isn't open yet.", "public_disabled");
     if (!deps.clientIp) throw new ExamApiError(503, UNAVAILABLE, "unavailable");
-    ipHash = hashClientIp(deps.clientIp, deps.env);
+    const ipKey = rateLimitIpKey(deps.clientIp);
+    ipHash = hashClientIp(ipKey, deps.env);
     const busy = () =>
       new ExamApiError(
         429,
@@ -641,12 +686,7 @@ async function startSession(
     );
     if ((count ?? 0) >= EXAM_LIMITS.publicStartsPerIpDay) throw busy();
     if (
-      !(await deps.budget(
-        "exams2:public-start:ip",
-        deps.clientIp,
-        EXAM_LIMITS.publicStartsPerIpHour,
-        3600,
-      ))
+      !(await deps.budget("exams2:public-start:ip", ipKey, EXAM_LIMITS.publicStartsPerIpHour, 3600))
     )
       throw busy();
     if (
@@ -670,9 +710,11 @@ async function startSession(
 
   if (user) {
     const open = await findOpenSession(deps.db, user.id, key, input.kind);
+    if (open?.bank_version === loaded.bank.version)
+      return { ...sessionView(open, loaded), resumed: true };
+    // Checked before an open session is abandoned, so a refused start changes nothing.
+    if (input.kind === "C") await formCStartBudget(deps.db, user.id, key, now);
     if (open) {
-      if (open.bank_version === loaded.bank.version)
-        return { ...sessionView(open, loaded), resumed: true };
       // The approved version changed under an open session: close it and start fresh.
       await run(
         deps.db
@@ -744,7 +786,39 @@ async function findOpenSession(
   return data?.[0] ?? null;
 }
 
-/** A once; B after a 1-hour cooldown; C and the diagnostic unlimited with no cooldown. */
+const utcMinute = (ms: number) =>
+  new Date(ms).toISOString().slice(0, 16).replace("T", " ") + " UTC";
+
+/** At most EXAM_LIMITS.cStartsPerDay form C sessions per user in any rolling 24 hours. */
+async function formCStartBudget(db: ExamDb, userId: string, key: BankKey, now: Date) {
+  const since = new Date(now.getTime() - 24 * 3600 * 1000).toISOString();
+  const { data } = await run<{ started_at: string }[] | null>(
+    db
+      .from("exam_sessions")
+      .select("started_at")
+      .eq("user_id", userId)
+      .eq("module_id", key.moduleId)
+      .eq("target_language", key.target)
+      .eq("instruction_language", key.native)
+      .eq("kind", "C")
+      .gte("started_at", since)
+      .order("started_at", { ascending: true })
+      .limit(EXAM_LIMITS.cStartsPerDay),
+  );
+  if ((data?.length ?? 0) < EXAM_LIMITS.cStartsPerDay) return;
+  const opensAt = Date.parse(data![0].started_at) + 24 * 3600 * 1000;
+  throw new ExamApiError(
+    429,
+    `You can start the final test ${EXAM_LIMITS.cStartsPerDay} times a day. Your next attempt opens at ${utcMinute(opensAt)}.`,
+    "c_daily_limit",
+    {
+      retryAt: new Date(opensAt).toISOString(),
+      retryAfterSeconds: Math.max(1, Math.ceil((opensAt - now.getTime()) / 1000)),
+    },
+  );
+}
+
+/** A once; B after a 1-hour cooldown; C (daily start budget above) and the diagnostic unlimited. */
 async function retakePolicy(db: ExamDb, userId: string, key: BankKey, kind: ExamKind, now: Date) {
   if (kind !== "A" && kind !== "B") return;
   const { data } = await run<{ completed_at: string }[] | null>(
@@ -975,7 +1049,10 @@ export function completedResult(session: SessionRow, loaded: LoadedBank) {
     completedAt: session.completed_at,
   };
   if (session.kind === "C")
-    return { ...base, result: publicFixedFormResult(session.result as FixedFormResult) };
+    return {
+      ...base,
+      result: publicFixedFormResult(session.result as FixedFormResult, loaded.bank.phases),
+    };
   const answers = new Map((session.responses ?? []).map((r) => [r.itemId, r.answer]));
   if (session.kind === "diagnostic") {
     const review = session.responses
@@ -996,16 +1073,21 @@ async function claimSession(
 ) {
   const user = await requireUser(deps, "Sign in to save your study map.");
   const session = await readSession(deps.db, input.sessionId);
-  if (!session || !secretMatches(input.secret, session.public_secret_hash))
-    throw new ExamApiError(404, NOT_FOUND, "not_found");
+  if (!session) throw new ExamApiError(404, NOT_FOUND, "not_found");
+  // Already this user's: the secret was cleared by the first claim, so it is not needed again.
   if (session.user_id === user.id) return { claimed: true, sessionId: session.id };
+  if (!secretMatches(input.secret, session.public_secret_hash))
+    throw new ExamApiError(404, NOT_FOUND, "not_found");
   if (session.user_id)
     throw new ExamApiError(409, "This check is already saved to another account.", "claimed");
+  requireFresh(session, deps);
+  // Claiming clears the secret: from now on only the signed-in account can open the session.
   const result = (await deps.db
     .from("exam_sessions")
-    .update({ user_id: user.id })
+    .update({ user_id: user.id, public_secret_hash: null })
     .eq("id", session.id)
     .is("user_id", null)
+    .eq("public_secret_hash", session.public_secret_hash)
     .select("id")) as DbResult<{ id: string }[] | null>;
   if (result.error) {
     if (isUniqueViolation(result.error))
@@ -1401,7 +1483,7 @@ async function approveBank(
   const retiredVersions = (retired.data ?? []).map((entry) => entry.version);
   const restore = async () => {
     if (!retiredVersions.length) return;
-    await deps.db
+    const restored = (await deps.db
       .from("exam_banks")
       .update({ status: "approved" })
       .eq("module_id", key.moduleId)
@@ -1409,7 +1491,17 @@ async function approveBank(
       .eq("instruction_language", key.native)
       .eq("status", "retired")
       .in("version", retiredVersions)
-      .select("version");
+      .select("version")) as DbResult<{ version: string }[] | null>;
+    if (restored.error || (restored.data?.length ?? 0) !== retiredVersions.length) {
+      // The previous version stays retired: no bank is approved for this module right now.
+      console.error("Exam bank approval failed and the previous version could not be restored.");
+      await deps.audit(owner.id, "exam_bank.restore_failed", { ...key, retired: retiredVersions });
+      throw new ExamApiError(
+        500,
+        "Approval failed and the previous version could not be restored. Check the exam banks before retrying.",
+        "restore_failed",
+      );
+    }
   };
   const approvedAt = (deps.now ? deps.now() : new Date()).toISOString();
   const approved = (await deps.db

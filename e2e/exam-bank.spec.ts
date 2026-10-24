@@ -294,6 +294,8 @@ test("capture exam-bank screenshots", async ({ browser }, info) => {
   for (const [name, viewport, scale] of [
     ["375", { width: 375, height: 812 }, 2],
     ["1440", { width: 1440, height: 900 }, 1],
+    ["2560", { width: 2560, height: 1440 }, 1],
+    ["2560@2x", { width: 2560, height: 1440 }, 2],
   ] as const) {
     const context = await browser.newContext({
       viewport,
@@ -302,6 +304,9 @@ test("capture exam-bank screenshots", async ({ browser }, info) => {
     });
     const page = await context.newPage();
     await openBanks(page);
+    // Wait for the mocked list to render every bank card before capturing.
+    for (const version of ["v1", "v2", "v3"]) await expect(card(page, version)).toBeVisible();
+    await expect(page.getByTestId("bank-sha").first()).toBeVisible();
     await page.screenshot({
       path: `.claude/verify/exams/exam-bank-list-${name}.png`,
       fullPage: true,

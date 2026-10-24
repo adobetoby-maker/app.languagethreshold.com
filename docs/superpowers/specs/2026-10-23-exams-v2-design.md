@@ -308,7 +308,7 @@ T2/T3/T4 and T7/T8 can run in parallel; their write sets don't overlap. T10 owns
 
 ## Implementation notes: T1-T4 (2026-10-23, branch feature/exams-v2-core, incl. fix round)
 
-**T1 migration** (`supabase/migrations/20261023120000_exams_v2.sql`, still not applied; the owner applies it). Changes from the SQL in section 1, made in the fix round:
+**T1 migration** (`supabase/migrations/20261024090000_exams_v2.sql`, still not applied; the owner applies it). Changes from the SQL in section 1, made in the fix round:
 - `exam_banks.approved_sha256`, with the check `(status <> 'approved') or (approved_sha256 is not null and approved_sha256 = content_sha256)`. An approval therefore names the exact content it approves; a NULL hash cannot pass.
 - `exam_sessions_one_open` now includes `target_language` and `instruction_language`.
 - `lead_email`, `lead_consent_version` and `lead_consented_at` are dropped, since v1 builds no email capture.
@@ -410,12 +410,12 @@ What the table shows:
   - `answer {sessionId, step, itemId, answer, requestId, secret?}` (diagnostic only). Order: ownership, then the `requestId` repeat check, then status, then `step` and `itemId === served[step]`. Scoring happens on the server. The next item is recomputed by `nextDiagnosticItem`, which respects cueGroups. The write is optimistic: `where step=? and status='in_progress'`. The response carries only the next public item. At 50 answers the session stores `result` (the study map), `score` and `total`.
   - `save` / `submit` (A/B/C): autosave merges answers for items on the form, and any other item id gives 400. `submit` scores on the server, stores the full `FixedFormResult` in `result` (server-only) and is idempotent.
   - `result {sessionId, secret?}`:
-    - C: only `publicFixedFormResult` (percent, pass/fail at 80%, missed lessons). No item ids or review.
+    - C: only `publicFixedFormResult`: percent rounded to 5, pass/fail on the exact score, missed phases (changed in the security fix round below). No lesson or item data, no review.
     - A/B: that result plus an item review.
     - Diagnostic: the stored study map (phases first, lessons "likely", hrefs) plus a review of the served items.
     - Review items name the right answer `solution {optionId|text|pairs}` rather than using the bank's key names.
-  - `claim {sessionId, secret}` (signed in): attaches an unclaimed public session to the user. Claiming twice as the same user does nothing new. A session already claimed by another account gives 409.
-- Retakes: C and the diagnostic are unlimited with no cooldown (owner decision). From section 3, A is taken once (409) and B has a 1-hour cooldown (429 with `retryAfterSeconds`). Both are constants in `EXAM_LIMITS`.
+  - `claim {sessionId, secret}` (signed in): attaches an unclaimed public session to the user. Claiming twice as the same user does nothing new. Another account gets 404, because the first claim clears the secret (see the fix round below), or 409 if it loses a race.
+- Retakes: C and the diagnostic have no cooldown (owner decision); C is limited to 3 starts per rolling 24 hours (security fix round below). From section 3, A is taken once (409) and B has a 1-hour cooldown (429 with `retryAfterSeconds`). All are constants in `EXAM_LIMITS`.
 - Abuse limits:
   - Public starts: 5 per IP per hour and 500 per hour site-wide, through `consumeServerRequestBudget`.
   - Public starts per day: 20 per IP, counted from `exam_sessions.ip_hash` over the last 24 hours. The shared budget RPC refuses windows over 3600 s, so it cannot count a day.
@@ -440,3 +440,26 @@ What the table shows:
 **T11:** `scripts/verify-vercel-artifact.mjs` scans `.vercel/output/static` only. It fails on bank keys in data form: a quoted key `"correctOptionId":`, `"distractorRationale":` or `"accepted":` (escaped too), or an object-literal key `{correctOptionId:` / `,distractorRationale:`. Plain property reads are allowed, such as the legacy `/exam-content` page's `s.correctOptionId`. The learner UI (T8) should keep using the client names above.
 
 **New env vars:** `LT_EXAMS_V2`, `LT_EXAMS_PUBLIC` (both `1`/`true` to enable; default off), optional `LT_EXAMS_IP_SALT`.
+
+## Security fix round: T6/T7/T11 (2026-10-23, blind review PASS_WITH_NOTES)
+
+**Answer-key extraction from form C (M1, lead ruling).** Form C is the same 60 items, in the same order, for everyone. The owner also chose unlimited retakes. Together these let a learner map out the answer key: retake C and compare exact percents and per-lesson misses between attempts. Changing one answer and watching the percent move by 1/60 reveals whether it was right. The fix keeps unlimited retakes over time but removes that signal:
+
+- **Start budget.** At most 3 form C sessions per user per rolling 24 hours, counted from `exam_sessions` rows of any status for that user, module, languages and kind C. Reopening the open session is free and adds no row. The budget is checked before an outdated open session is abandoned, so a refused start changes nothing. The refusal is 429 `c_daily_limit` and includes `retryAt`, `retryAfterSeconds`, and a message naming the UTC time the next attempt opens. Set by `EXAM_LIMITS.cStartsPerDay`.
+- **Coarser feedback.** `publicFixedFormResult` for C now returns `{ kind, pct, passed, missedPhases }`:
+  - `pct` is rounded to the nearest 5, and is never shown as 80+ on a fail or under 80 on a pass.
+  - `passed` is still decided on the exact score on the server (≥ 80%).
+  - `missedPhases` lists `{ id, title, href }`, where `href` points to the phase's first lesson in `recall` mode.
+  - No lesson-level or item-level data is sent. The full per-item result stays in `exam_sessions.result` on the server.
+  - A and B are unchanged.
+- **Accepted remaining risk:** 3 attempts a day at 5-point resolution still leaks a little over many days. A second C form (the spare items) would remove it.
+
+**Other fixes:**
+
+- **L1:** the migration is now `supabase/migrations/20261024090000_exams_v2.sql`. The old version `20261023120000` clashed with `20261023120000_owner_session_revoke.sql`. No two migrations share a version.
+- **L2:** `scripts/verify-vercel-artifact.mjs` runs its checks whenever it is the executed script. It compares realpaths, so symlinks and relative paths work. Importing it, as tests do, only exposes the scanner.
+- **L3:** a successful claim sets `public_secret_hash = null`, so the secret stops working and only the account can open the session. Claiming applies the same 24-hour freshness rule as resume (410 for an expired in-progress public session). A second claim by the same account is a no-op.
+- **L4:**
+  - Public-start rate-limit keys and the stored IP hash bucket IPv6 by /64, IPv4 by full address, and IPv4-mapped IPv6 as IPv4.
+  - A failed audit insert on `/api/exam-bank` logs `console.error` with the action id only.
+  - If approval fails and the previously approved version cannot be restored, the API logs, audits `exam_bank.restore_failed`, and returns 500 with a fixed message.

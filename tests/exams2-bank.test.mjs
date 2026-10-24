@@ -12,7 +12,12 @@ import {
   publicItem,
   publicOptionId,
 } from "../src/lib/exams2/public-item.ts";
-import { publicFixedFormResult, scoreFixedForm, scoreItem } from "../src/lib/exams2/scoring.ts";
+import {
+  coarsePct,
+  publicFixedFormResult,
+  scoreFixedForm,
+  scoreItem,
+} from "../src/lib/exams2/scoring.ts";
 import {
   buildSyntheticBank,
   clone,
@@ -933,24 +938,51 @@ test("scoreFixedForm: totals, per-lesson table, links, C pass and B on-track bou
   );
 });
 
-test("publicFixedFormResult: form C sends only percent, pass/fail and missed lessons", () => {
+test("coarsePct: nearest 5, never 80+ on a fail or under 80 on a pass", () => {
+  assert.equal(coarsePct(83.3, true), 85);
+  assert.equal(coarsePct(81.7, true), 80);
+  assert.equal(coarsePct(96.7, true), 95);
+  assert.equal(coarsePct(79.2, false), 75);
+  assert.equal(coarsePct(78, false), 75);
+  assert.equal(coarsePct(12.4, false), 10);
+  assert.equal(coarsePct(100, true), 100);
+  assert.equal(coarsePct(0, false), 0);
+});
+
+test("publicFixedFormResult: form C sends a coarse percent, pass/fail and missed phases only", () => {
   const seed = "public-c";
   const link = { target: "Spanish", native: "English" };
   const full = scoreFixedForm(BASE, "C", answersFor(BASE, "C", seed, 50), seed, link);
   assert.equal(full.items.length, 60, "the full result keeps per-item detail for the server");
-  const pub = publicFixedFormResult(full);
-  assert.deepEqual(Object.keys(pub).sort(), ["kind", "missedLessons", "passed", "pct"]);
-  assert.equal(pub.pct, full.pct);
+  assert.throws(() => publicFixedFormResult(full), /phases/);
+  const pub = publicFixedFormResult(full, BASE.phases);
+  assert.deepEqual(Object.keys(pub).sort(), ["kind", "missedPhases", "passed", "pct"]);
+  assert.equal(pub.pct % 5, 0);
+  assert.equal(pub.pct, Math.round(full.pct / 5) * 5);
   assert.equal(pub.passed, true);
+  const missed = new Set(full.missedLessons);
   assert.deepEqual(
-    pub.missedLessons.map((m) => m.lesson),
-    full.missedLessons,
+    pub.missedPhases.map((m) => m.id),
+    BASE.phases.filter((p) => p.lessons.some((l) => missed.has(l))).map((p) => p.id),
   );
-  for (const missed of pub.missedLessons)
-    assert.deepEqual(Object.keys(missed).sort(), ["href", "lesson", "title"]);
+  for (const phase of pub.missedPhases) {
+    assert.deepEqual(Object.keys(phase).sort(), ["href", "id", "title"]);
+    const first = BASE.phases.find((p) => p.id === phase.id).lessons[0];
+    assert.ok(phase.href.includes(`lesson=${first}&`) || phase.href.endsWith(`lesson=${first}`));
+  }
   const text = JSON.stringify(pub);
   for (const id of BASE.forms.C) assert.ok(!text.includes(id), "item id leaked");
-  for (const key of ["items", "points", "score", "total", "itemId", "correct"])
+  for (const key of [
+    "items",
+    "points",
+    "score",
+    "total",
+    "itemId",
+    "correct",
+    "lesson",
+    "lessons",
+    "missedLessons",
+  ])
     assert.ok(!allKeys(pub).has(key), `${key} leaked`);
   // A and B keep their per-lesson table, still with no item data.
   const b = publicFixedFormResult(

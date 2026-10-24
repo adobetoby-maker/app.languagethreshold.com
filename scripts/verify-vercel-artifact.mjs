@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 import { verifyLessonPackRoutes } from "./verify-lesson-pack-routes.mjs";
 import { verifyLessonReviewContent } from "./verify-lesson-review-content.mjs";
 
@@ -32,9 +32,19 @@ export function findExamBankKeyLeaks(staticDir) {
   return leaks;
 }
 
-const isMain =
-  process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
-if (isMain) verifyArtifact();
+// Run the checks whenever this file is the script being executed, however it was invoked
+// (relative path, symlink, npm script). Importing it (tests) only exposes the scanner.
+function invokedAsScript() {
+  if (!process.argv[1]) return false;
+  try {
+    return (
+      realpathSync(path.resolve(process.argv[1])) === realpathSync(fileURLToPath(import.meta.url))
+    );
+  } catch {
+    return false;
+  }
+}
+if (invokedAsScript()) verifyArtifact();
 
 function verifyArtifact() {
   const outputConfig = ".vercel/output/config.json";

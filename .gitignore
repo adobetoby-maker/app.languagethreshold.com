@@ -56,5 +56,14 @@ playwright-report/
 # Resumable progress for scripts/build-lesson-content.mts
 .lesson-content-progress/
 
+# Resumable progress for scripts/build-trade-packs.mts
+.trade-packs-progress/
+
 # Core 60 stage generator progress (scripts/build-core60.mts)
 .core60-progress/
+
+# Native build products and local signing state
+ios/DerivedData*/
+**/xcuserdata/
+*.xcarchive
+*.ipa

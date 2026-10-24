@@ -1,3 +1,4 @@
+import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
@@ -20,6 +21,7 @@ import {
 } from "@/lib/learning-link";
 import { lazy, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/ga-events";
 import {
   BookOpen,
   GraduationCap,
@@ -66,7 +68,7 @@ import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { retryStageOrReload } from "@/data/core60-stages";
-import { AppTour } from "@/components/onboarding/AppTour";
+import { OPEN_APP_DEMO } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
@@ -177,14 +179,14 @@ function Core60PathCard({
           const showNudge = nudge && step.stage === "foundation";
           const body = (
             <>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 Step {index + 1}
                 {isCurrent ? " · You are here" : ""}
               </span>
-              <span className="mt-0.5 block text-sm font-semibold text-white">{step.label}</span>
+              <span className="mt-0.5 block text-sm font-semibold text-foreground">{step.label}</span>
               <span
                 data-testid={`core60-step-${step.stage}-count`}
-                className="mt-0.5 block text-xs text-white/60"
+                className="mt-0.5 block text-xs text-muted-foreground"
               >
                 {masteredIn(step.moduleId)} / {step.lessons} mastered
               </span>
@@ -200,7 +202,7 @@ function Core60PathCard({
                 </span>
               )}
               {comingSoon && (
-                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-white/50">
+                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-muted-foreground">
                   Coming soon
                 </span>
               )}
@@ -213,7 +215,7 @@ function Core60PathCard({
                 <div
                   data-testid={`core60-step-${step.stage}`}
                   aria-disabled="true"
-                  className={cn(base, "border-dashed border-white/10 bg-card/20")}
+                  className={cn(base, "border-dashed border-border bg-card/20")}
                 >
                   {body}
                 </div>
@@ -233,7 +235,7 @@ function Core60PathCard({
                   className={cn(
                     base,
                     "transition-colors hover:border-gold/50 hover:bg-gold/10",
-                    showNudge ? "border-gold/50 bg-gold/[0.07]" : "border-white/10 bg-card/40",
+                    showNudge ? "border-gold/50 bg-gold/[0.07]" : "border-border bg-card/40",
                   )}
                 >
                   {body}
@@ -289,8 +291,8 @@ const DEFAULT_FLOW: FlowStep[] = [
     time: "4 min",
     icon: "🎯",
     title: "Vocab lock-in",
-    tab: "Word Match",
-    value: "Flash your saved words. Spaced repetition moves them to long-term memory.",
+    tab: "Flashcards",
+    value: "Review your saved words in Study, then practice recalling their meaning.",
   },
   {
     time: "3 min",
@@ -359,7 +361,8 @@ const MEDICAL_FLOW: FlowStep[] = [
     icon: "📖",
     title: "Patient scenario",
     tab: "Reader",
-    value: "Read a clinical passage. Tap unfamiliar terms — they save to Word Match.",
+    value:
+      "Read a clinical passage. Tap unfamiliar terms, then save the ones you want to review in Flashcards.",
   },
   {
     time: "4 min",
@@ -503,7 +506,7 @@ const FEATURES = [
   },
   {
     Icon: Gamepad2,
-    label: "Games Hub",
+    label: "Practice Lab",
     value: "Mini-games that make review feel like play. Good for a 5-min commute.",
   },
   {
@@ -851,11 +854,7 @@ function OwnedLessonRunner({
   const words = lessonWords.words;
   const hasWords = words.length > 0;
   // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
-  const lessonContent = useLessonContent(
-    moduleId,
-    state.selectedLanguage,
-    state.nativeLanguage,
-  );
+  const lessonContent = useLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
   const verbs = useMemo(
     () => pickContentVerbs(lessonContent.content, lesson.n, state.nativeLanguage),
     [lessonContent.content, lesson.n, state.nativeLanguage],
@@ -1256,6 +1255,12 @@ function OwnedLessonRunner({
             at: new Date().toISOString(),
           },
         });
+      if (mark)
+        trackEvent(
+          "lesson_mastered",
+          { module_id: moduleId, lesson: lesson.n },
+          `lesson_mastered:${moduleId}:${lesson.n}`,
+        );
       completed.current = sequential;
       if (sequential) onComplete();
     } finally {
@@ -1344,26 +1349,42 @@ function OwnedLessonRunner({
   }
 
   const lessonButtons = (position: "top" | "bottom") => (
-    <div className="flex items-center justify-between gap-2" data-testid={`lesson-nav-${position}`}>
+    <nav
+      aria-label={`Lesson navigation, ${position}`}
+      className="grid grid-cols-2 gap-3"
+      data-testid={`lesson-nav-${position}`}
+    >
       <button
         type="button"
         onClick={() => leaveLesson(() => onNavigate(lesson.n - 1))}
         disabled={lesson.n <= 1}
-        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+        aria-label={`Previous lesson: ${stageLessonShort(moduleId, Math.max(lesson.n - 1, 1))}`}
+        className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-gold/30 bg-gold/[0.04] px-3 py-2 text-left text-foreground transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-35"
       >
-        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-        {stageLessonShort(moduleId, Math.max(lesson.n - 1, 1))}
+        <ArrowLeft className="h-5 w-5 shrink-0 text-gold" strokeWidth={2} aria-hidden="true" />
+        <span>
+          <span className="block text-sm font-semibold">Previous lesson</span>
+          <span className="block text-xs text-muted-foreground">
+            {lesson.n <= 1 ? "First lesson" : stageLessonShort(moduleId, lesson.n - 1)}
+          </span>
+        </span>
       </button>
       <button
         type="button"
         onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
         disabled={lesson.n >= totalLessons}
-        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+        aria-label={`Next lesson: ${stageLessonShort(moduleId, Math.min(lesson.n + 1, totalLessons))}`}
+        className="inline-flex min-h-12 items-center justify-end gap-2 rounded-xl border border-gold/30 bg-gold/[0.04] px-3 py-2 text-right text-foreground transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-35"
       >
-        {stageLessonShort(moduleId, Math.min(lesson.n + 1, totalLessons))}
-        <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+        <span>
+          <span className="block text-sm font-semibold">Next lesson</span>
+          <span className="block text-xs text-muted-foreground">
+            {lesson.n >= totalLessons ? "Last lesson" : stageLessonShort(moduleId, lesson.n + 1)}
+          </span>
+        </span>
+        <ArrowRight className="h-5 w-5 shrink-0 text-gold" strokeWidth={2} aria-hidden="true" />
       </button>
-    </div>
+    </nav>
   );
 
   const nextButton = (
@@ -1400,7 +1421,8 @@ function OwnedLessonRunner({
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-              {core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson {lesson.n} · {totalMin} min
+              {core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson {lesson.n}{" "}
+              · {totalMin} min
             </p>
             <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
           </div>
@@ -1738,7 +1760,6 @@ export function AppGuide() {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const [featuresOpen, setFeaturesOpen] = useState(false);
-  const [tourOpen, setTourOpen] = useState(false);
 
   const moduleId = state.activeModuleId ?? "";
   // A data-driven Core 60 stage's curriculum is its own chunk; re-render once it has loaded.
@@ -1764,7 +1785,6 @@ export function AppGuide() {
 
   return (
     <>
-      {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
@@ -1964,17 +1984,14 @@ export function AppGuide() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold">App Walkthrough</p>
               <p className="mt-0.5 text-xs text-muted-foreground">
-                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
-                {state.activeModuleId
-                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
-                  : " your learning goals"}
-                .
+                See the real app screens in {tourSteps.length} short stops: read, remember,
+                practice, speak, and follow your progress. Play the demo or go at your own pace.
               </p>
               <button
-                onClick={() => setTourOpen(true)}
+                onClick={() => window.dispatchEvent(new Event(OPEN_APP_DEMO))}
                 className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
               >
-                Start Tour <ArrowRight className="h-3 w-3" />
+                Start walkthrough <ArrowRight className="h-3 w-3" />
               </button>
             </div>
           </div>
@@ -2115,13 +2132,21 @@ function requestCore30Philosophy() {
   }
 }
 
-function consumeCore30Philosophy(): boolean {
+/** Read the request without spending it: a render that React discards and retries must see it again. */
+function peekCore30Philosophy(): boolean {
   try {
-    const asked = window.sessionStorage.getItem(CORE30_VIEW_KEY) === "how";
-    window.sessionStorage.removeItem(CORE30_VIEW_KEY);
-    return asked;
+    return window.sessionStorage.getItem(CORE30_VIEW_KEY) === "how";
   } catch {
     return false;
+  }
+}
+
+/** Spend the request once the tab has actually mounted. */
+function clearCore30Philosophy() {
+  try {
+    window.sessionStorage.removeItem(CORE30_VIEW_KEY);
+  } catch {
+    // Blocked storage: nothing was stored.
   }
 }
 
@@ -2231,7 +2256,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }, [restoreView, openLessonN, moduleId, state.selectedLanguage, state.nativeLanguage]);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
-  const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
+  const [howOpen, setHowOpen] = useState(() => (restoreView ? peekCore30Philosophy() : false));
+  useEffect(() => {
+    if (restoreView) clearCore30Philosophy();
+  }, [restoreView]);
   const [listOpen, setListOpen] = useState(false);
   // A return marker is spent the moment Core 30 opens, however the learner got here (return
   // pill, auto-return, tab bar or the App Guide). The lesson to reopen was read above.
@@ -2260,6 +2288,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
   const masteredSet = new Set(masteredLessons(core30Log));
+  // Read the existing scoped resume position; displaying Continue never marks progress.
+  const resumePosition =
+    savedPosition && !masteredSet.has(savedPosition.lesson) ? savedPosition : null;
+  const continueLesson =
+    (resumePosition && curriculum.lessons.find((lesson) => lesson.n === resumePosition.lesson)) ||
+    currentLesson;
   const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
@@ -2297,6 +2331,88 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
   return (
     <section>
+      {/* Current lesson card or all-done state */}
+      {!howOpen &&
+        !reviewOpen &&
+        !runnerActive &&
+        (!allDone || practiceLesson || resumePosition) &&
+        continueLesson && (
+          <div
+            data-testid="continue-learning"
+            className="mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5"
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                  {resumePosition
+                    ? "Continue learning"
+                    : practiceLesson
+                      ? "Practice again"
+                      : "Your next lesson"}{" "}
+                  · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
+                  {continueLesson.n}
+                </p>
+                <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+              </div>
+              <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                <span className="text-[11px] font-mono text-gold">
+                  ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                </span>
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-4">
+              <span className="text-gold/80">Goal: </span>
+              {continueLesson.objective}
+            </p>
+
+            {/* Start stays reachable before the detailed six-mode preview. */}
+            <button
+              onClick={() => openLessonFromPlan(continueLesson.n, resumePosition?.way ?? "see")}
+              className={cn(
+                "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                planStarted && "border border-gold/40 bg-transparent text-gold",
+              )}
+              style={
+                planStarted
+                  ? undefined
+                  : {
+                      background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                      color: "#0B0B0F",
+                    }
+              }
+            >
+              {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
+              {stageLessonLabel(moduleId, continueLesson.n)}
+              <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+            </button>
+
+            {resumePosition && (
+              <p className="mb-3 text-sm text-muted-foreground">
+                Pick up at {SECTIONS.find((step) => step.id === resumePosition.way)?.label}
+              </p>
+            )}
+            <details>
+              <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+                Six ways to practice this lesson
+              </summary>
+              <div className="space-y-1.5 mb-5">
+                {SECTIONS.map((step, i) => (
+                  <div
+                    key={step.id}
+                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+            </details>
+          </div>
+        )}
+
       {/* Curriculum header (an open lesson takes the whole page) */}
       {!runnerActive && (
         <div className="mb-4">
@@ -2305,6 +2421,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (
             <a
@@ -2387,75 +2504,16 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             />
           )}
 
-          {/* Current lesson card or all-done state */}
-          {!reviewOpen && !runnerActive && (!allDone || practiceLesson) && currentLesson && (
-            <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    {practiceLesson ? "Practice again" : "Next Up"} ·{" "}
-                    {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson {currentLesson.n}
-                  </p>
-                  <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
-                </div>
-                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                  <span className="text-[11px] font-mono text-gold">
-                    ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-sm text-white/60 mb-4">
-                <span className="text-gold/80">Goal: </span>
-                {currentLesson.objective}
-              </p>
-
-              {/* Start stays reachable before the detailed six-mode preview. */}
-              <button
-                onClick={() => openLessonFromPlan(currentLesson.n)}
-                className={cn(
-                  "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
-                  planStarted && "border border-gold/40 bg-transparent text-gold",
-                )}
-                style={
-                  planStarted
-                    ? undefined
-                    : {
-                        background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                        color: "#0B0B0F",
-                      }
-                }
-              >
-                {practiceLesson ? "Practice" : "Start"} {stageLessonLabel(moduleId, currentLesson.n)}
-                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-
-              {/* Step preview */}
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
-          {!reviewOpen && !runnerActive && savedPosition && (
+          {!reviewOpen && !runnerActive && savedPosition && !resumePosition && (
             <button
               type="button"
               className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
               onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
             >
               {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"}{" "}
-              {stageLessonLabel(moduleId, savedPosition.lesson)} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
+              {stageLessonLabel(moduleId, savedPosition.lesson)} ·{" "}
+              {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
             </button>
           )}
           {!reviewOpen && !runnerActive && (
@@ -2690,6 +2748,9 @@ export function Core30Tab() {
           <p className="mt-2 text-sm text-muted-foreground">
             Each module has a 30-lesson path built for your field. Choose a module to start yours.
           </p>
+          <div className="mt-3">
+            <ExamShortcut />
+          </div>
           <button
             type="button"
             onClick={() => dispatch({ type: "SET_TAB", payload: "modules" })}

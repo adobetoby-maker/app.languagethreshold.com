@@ -70,7 +70,7 @@ const card = z.object({
   blockId: str.optional(),
 });
 const cards = z.object({
-  cards: z.record(card),
+  cards: z.record(z.string(), card),
   seededLanguages: z.array(str).default([]),
   seededDecks: z.array(str).default([]),
 });
@@ -91,8 +91,8 @@ const context = z.object({
   chapterIndex: num.optional(),
 });
 const tutor = z.object({
-  threads: z.record(z.array(message)),
-  sourceContexts: z.record(context).default({}),
+  threads: z.record(z.string(), z.array(message)),
+  sourceContexts: z.record(z.string(), context).default({}),
 });
 const turn = z.object({
   id: str,
@@ -102,6 +102,7 @@ const turn = z.object({
   tip: str.nullable().optional(),
 });
 const speak = z.record(
+  z.string(),
   z.union([z.array(turn), z.object({ turns: z.array(turn), exchanges: num, totalSeconds: num })]),
 );
 const grammarContent = z.object({
@@ -133,12 +134,13 @@ const grammarContent = z.object({
 });
 const grammar = z.object({
   store: z.record(
-    z.record(
+    z.string(),
+    z.partialRecord(
       z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]),
       z.object({
         lessons: z.array(z.object({ id: str, title: str, concept: str })),
-        contents: z.record(grammarContent),
-        completed: z.record(z.boolean()),
+        contents: z.record(z.string(), grammarContent),
+        completed: z.record(z.string(), z.boolean()),
       }),
     ),
   ),
@@ -147,8 +149,8 @@ const grammar = z.object({
 const speech = z.object({
   rate: num.optional(),
   listenedCount: num.nonnegative().default(0),
-  voiceByLang: z.record(str).default({}),
-  accentByLang: z.record(str).default({}),
+  voiceByLang: z.record(z.string(), str).default({}),
+  accentByLang: z.record(z.string(), str).default({}),
 });
 const heardWords = z.array(str);
 const safeEntries = <T>(record: Record<string, T>) =>

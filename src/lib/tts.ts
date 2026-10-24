@@ -55,6 +55,15 @@ export function stopRemoteTTS(): void {
   stopMissionTts();
 }
 
+/** How long a device utterance may take to start before the caller gives up on it. */
+const DEVICE_SPEECH_START_MS = 5000;
+let heldUtterance: SpeechSynthesisUtterance | null = null;
+
+/** Upper bound for a started device utterance: generous per-character time plus slack. */
+function deviceSpeechLimitMs(text: string, rate: number) {
+  return Math.min(90_000, 5000 + (text.length * 110) / Math.max(rate, 0.5));
+}
+
 function speakOnDevice(
   text: string,
   locale: string,
@@ -76,9 +85,22 @@ function speakOnDevice(
   utterance.rate = rate;
   return new Promise<boolean | null>((resolve) => {
     let settled = false;
+    // Chrome and simulator Safari can drop an utterance without firing any event; never wait forever.
+    let watchdog: ReturnType<typeof setTimeout> | undefined;
+    const arm = (ms: number, heard: boolean) => {
+      if (watchdog !== undefined) clearTimeout(watchdog);
+      watchdog = setTimeout(() => {
+        if (settled) return;
+        done(heard);
+        window.speechSynthesis.cancel();
+      }, ms);
+      (watchdog as { unref?: () => void }).unref?.();
+    };
     const done = (heard: boolean | null) => {
       if (settled) return;
       settled = true;
+      if (watchdog !== undefined) clearTimeout(watchdog);
+      if (heldUtterance === utterance) heldUtterance = null;
       utterance.onstart = null;
       utterance.onend = null;
       utterance.onerror = null;
@@ -90,11 +112,16 @@ function speakOnDevice(
       window.speechSynthesis.cancel();
     };
     utterance.onstart = () => {
-      if (!settled && current()) onPlaybackStart?.();
+      if (settled) return;
+      arm(deviceSpeechLimitMs(text, rate), true);
+      if (current()) onPlaybackStart?.();
     };
     utterance.onend = () => done(true);
     utterance.onerror = () => done(false);
     window.speechSynthesis.cancel();
+    // Holding a reference stops Chrome from collecting the utterance before onend fires.
+    heldUtterance = utterance;
+    arm(DEVICE_SPEECH_START_MS, false);
     try {
       window.speechSynthesis.speak(utterance);
     } catch {

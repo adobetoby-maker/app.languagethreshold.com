@@ -27,6 +27,12 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.1",
+    "@capacitor/ios": "^8.5.1",
+    "@capacitor/push-notifications": "^8.1.2",
+    "@capacitor/status-bar": "^8.0.3",
+    "@capgo/capacitor-native-biometric": "^8.6.10",
     "@cloudflare/vite-plugin": "^1.25.5",
     "@fontsource-variable/inter": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
@@ -94,9 +100,10 @@
     "vaul": "^1.1.2",
     "vite-tsconfig-paths": "^6.0.2",
     "web-push": "3.6.7",
-    "zod": "^3.24.2"
+    "zod": "4.6.7"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.1",
     "@eslint/js": "^9.32.0",
     "@lovable.dev/vite-tanstack-config": "^1.4.0",
     "@playwright/test": "^1.61.0",

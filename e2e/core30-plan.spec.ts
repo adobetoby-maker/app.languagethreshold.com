@@ -321,10 +321,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(kit).toBeVisible();
 
     // Recall opens on Study before the learner chooses Cards or Match.
-    await expect(kit.getByTestId("practice-mode-study")).toHaveAttribute(
-      "aria-selected",
-      "true",
-    );
+    await expect(kit.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
 
     // Study: every lesson-1 word is listed, and the list length equals the heading count.
     const panel = kit.getByRole("tabpanel");
@@ -536,12 +533,12 @@ test.describe("Core 30 plan: Roofing", () => {
       .toEqual({ path: "/", tab: "core30", module: MODULE, lesson: "1", way: "recall" });
     expect(await currentTabOf(page)).toBe("core30");
     await expect(page.getByTestId("lesson-practice-section")).toBeVisible();
-    await expect(page.getByTestId("practice-mode-study")).toHaveAttribute(
+    await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
+    await page.getByTestId("practice-mode-flashcards").click();
+    await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute(
       "aria-selected",
       "true",
     );
-    await page.getByTestId("practice-mode-flashcards").click();
-    await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute("aria-selected", "true");
     await goSection(page, "see");
     await goSection(page, "recall");
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
@@ -601,25 +598,52 @@ test.describe("Core 30 plan: Roofing", () => {
     }
   });
 
-  test("7b. Previous and Next lesson open the neighbours in place", async ({ page }) => {
+  test("7b. Previous and Next lesson open the neighbours in place", async ({ page }, info) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
+    const before = await readAppState(page);
     const top = page.getByTestId("lesson-nav-top");
     const bottom = page.getByTestId("lesson-nav-bottom");
+    for (const controls of [top, bottom]) {
+      await expect(controls.getByRole("button", { name: /^Previous lesson:/ })).toBeVisible();
+      await expect(controls.getByRole("button", { name: /^Next lesson:/ })).toBeVisible();
+      for (const button of await controls.getByRole("button").all()) {
+        expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+      }
+    }
+    await top.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `/tmp/lt-lesson-arrows-${info.project.name}-top.png` });
+    await bottom.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `/tmp/lt-lesson-arrows-${info.project.name}-bottom.png` });
     // Lesson 1 has no previous lesson.
-    await expect(top.getByRole("button", { name: /^Lesson 1$/ })).toBeDisabled();
-    await expect(bottom.getByRole("button", { name: /^Lesson 1$/ })).toBeDisabled();
-    await top.getByRole("button", { name: /^Lesson 2$/ }).click();
+    await expect(top.getByRole("button", { name: /^Previous lesson: Lesson 1$/ })).toBeDisabled();
+    await expect(
+      bottom.getByRole("button", { name: /^Previous lesson: Lesson 1$/ }),
+    ).toBeDisabled();
+    await top.getByRole("button", { name: /^Next lesson: Lesson 2$/ }).click();
     await expect(page.getByRole("heading", { name: "Deck, Underlayment & Edges" })).toBeVisible();
     await expect(page.getByText("✕ Exit")).toBeVisible();
     expect(await currentTabOf(page)).toBe("core30");
-    await bottom.getByRole("button", { name: /^Lesson 3$/ }).click();
+    await bottom.getByRole("button", { name: /^Next lesson: Lesson 3$/ }).click();
     await expect(page.getByRole("heading", { name: "Flashing & Valleys" })).toBeVisible();
-    await top.getByRole("button", { name: /^Lesson 2$/ }).click();
+    await top.getByRole("button", { name: /^Previous lesson: Lesson 2$/ }).click();
     await expect(page.getByRole("heading", { name: "Deck, Underlayment & Edges" })).toBeVisible();
-    await top.getByRole("button", { name: /^Lesson 1$/ }).click();
+    await top.getByRole("button", { name: /^Previous lesson: Lesson 1$/ }).click();
     await expect(page.getByRole("heading", { name: "Name the Roof System" })).toBeVisible();
-    await expect(top.getByRole("button", { name: /^Lesson 1$/ })).toBeDisabled();
+    await expect(top.getByRole("button", { name: /^Previous lesson: Lesson 1$/ })).toBeDisabled();
+    await page.goto(appUrl({ tab: "core30", module: MODULE }) + "&lesson=30&way=see");
+    for (const controls of [top, bottom]) {
+      await expect(controls.getByRole("button", { name: /^Next lesson:/ })).toBeDisabled();
+      await expect(
+        controls.getByRole("button", { name: /^Previous lesson: Lesson 29$/ }),
+      ).toBeEnabled();
+    }
+    await bottom.getByRole("button", { name: /^Previous lesson: Lesson 29$/ }).click();
+    await expect(page).toHaveURL(/lesson=29/);
+    const after = await readAppState(page);
+    expect(after.lessonProgress).toEqual(before.lessonProgress);
+    expect(after.xp).toEqual(before.xp);
+    expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
   });
 
   test("7c. the Core 30 header opens How Core 30 works in place, with Back", async ({ page }) => {

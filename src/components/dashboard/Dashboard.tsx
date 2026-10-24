@@ -18,7 +18,6 @@ import { ModuleBadgesPanel } from "@/components/dashboard/ModuleBadgesPanel";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { LessonStackCard } from "@/components/dashboard/LessonStackCard";
 import { PushReminderControl } from "@/components/PushReminderControl";
-import { PracticeBarSetting } from "@/components/PracticeTimeBar";
 import { PracticeStreakCard } from "@/components/dashboard/PracticeStreakCard";
 import { NotesCard } from "@/components/dashboard/NotesCard";
 
@@ -160,8 +159,6 @@ export function Dashboard() {
         <LessonStackCard />
         <PushReminderControl />
       </div>
-
-      <PracticeBarSetting />
 
       {/* Language Match rank card */}
       <section

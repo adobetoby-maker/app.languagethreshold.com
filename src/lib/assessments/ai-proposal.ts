@@ -16,7 +16,7 @@ export function aiWritingEligible(item: PrivateAssessmentItem, answer: Assessmen
 export function validateWritingProposal(item: PrivateAssessmentItem, raw: unknown) {
   const parsed = z
     .object({
-      dimensions: z.record(z.number().finite().min(0).max(100)),
+      dimensions: z.record(z.string(), z.number().finite().min(0).max(100)),
       confidence: z.number().finite().min(0).max(1),
       reason: z.string().trim().min(3).max(1200),
     })

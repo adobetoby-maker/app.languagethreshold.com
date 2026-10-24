@@ -105,11 +105,11 @@
   --ring: oklch(0.74 0.13 80);
 }
 
-/* Reduce nav height on real desktop only — iPad keeps the tall mobile budget
+/* Remove the phone nav budget on real desktop only — iPad keeps the tall mobile budget
    because it still renders the bottom navigation bar. */
 @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
   :root {
-    --lt-nav-height: 3.5rem;
+    --lt-nav-height: 0rem;
   }
 }
 

@@ -1,6 +1,5 @@
 // Built by TAC — 2026-10-22
-import { useEffect, useRef } from "react";
-import { Timer } from "lucide-react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { Switch } from "@/components/ui/switch";
 import {
   setPracticeEnabled,
@@ -12,19 +11,52 @@ import {
 } from "@/hooks/use-practice-time";
 import { GOAL_OPTIONS, crossedGoal, practiceProgress } from "@/lib/practice-time";
 
+// The same query as the `desktop` variant in styles.css: it decides which app bar is on screen
+// (the phone bottom nav is `desktop:hidden`, the TopNav header is `hidden desktop:block`).
+const DESKTOP_QUERY = "(hover: hover) and (pointer: fine) and (min-width: 1024px)";
+
+function subscribeDesktop(onChange: () => void): () => void {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return () => {};
+  const mql = window.matchMedia(DESKTOP_QUERY);
+  mql.addEventListener("change", onChange);
+  return () => mql.removeEventListener("change", onChange);
+}
+
+function useDesktopLayout(): boolean {
+  return useSyncExternalStore(
+    subscribeDesktop,
+    () => typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? window.matchMedia(DESKTOP_QUERY).matches
+      : false,
+    () => false,
+  );
+}
+
 /**
- * Render once, inside the primary nav (`position: fixed`), which is the persistent app bar on
- * every tab. It owns the single 1s ticker and draws the 3px line on the nav's top edge as an
- * absolute child, so it adds no height. Hidden, and not counting, while the bar is switched off
- * or a paywall is up (see PracticeBlocker).
+ * The one 1s ticker. Mount it once (AppSidebar). Renders nothing. Not counting, and so no bar,
+ * while the bar is switched off or a paywall is up (see PracticeBlocker).
  */
-export function PracticeTimeBar() {
+export function PracticeTimeTicker(): null {
+  const { enabled } = usePracticeSettings();
+  const blocked = usePracticeBlocked();
+  usePracticeTimeTicker(enabled && !blocked);
+  return null;
+}
+
+/**
+ * The 3px line, drawn on the edge of the persistent app bar: the top edge of the primary nav on
+ * phones (`edge="nav"`), the bottom edge of the TopNav header on desktop (`edge="header"`).
+ * Mount one of each; only the one matching the layout renders, so the page holds exactly one
+ * bar. Absolute inside a fixed or sticky bar, so it adds no height.
+ */
+export function PracticeTimeBar({ edge }: { edge: "nav" | "header" }) {
   const { enabled, goalMinutes } = usePracticeSettings();
   const blocked = usePracticeBlocked();
-  const active = enabled && !blocked;
-  usePracticeTimeTicker(active);
+  const desktop = useDesktopLayout();
   const seconds = useTodayPracticeSeconds();
   const progress = practiceProgress(seconds, goalMinutes);
+  const mine = (edge === "header") === desktop;
+  const visible = enabled && !blocked && mine;
 
   // One short pulse only when a tick carries the learner across the goal during this visit.
   const fill = useRef<HTMLDivElement>(null);
@@ -41,7 +73,7 @@ export function PracticeTimeBar() {
     });
   }, [seconds, progress.goalSeconds]);
 
-  if (!active) return null;
+  if (!visible) return null;
   return (
     <div
       role="progressbar"
@@ -50,7 +82,9 @@ export function PracticeTimeBar() {
       aria-valuemax={progress.goalSeconds}
       aria-valuenow={progress.valueNow}
       data-testid="practice-time-bar"
-      className="pointer-events-none absolute inset-x-0 -top-px h-[3px] overflow-hidden bg-foreground/25"
+      className={`pointer-events-none absolute inset-x-0 h-[3px] overflow-hidden bg-foreground/25 ${
+        edge === "nav" ? "-top-px" : "-bottom-px"
+      }`}
     >
       <div
         ref={fill}
@@ -62,64 +96,56 @@ export function PracticeTimeBar() {
   );
 }
 
-/** The on/off switch and daily goal for the bar. Device-local; lives on the Dashboard. */
+/** The on/off switch, daily goal and today's total. Device-local; sits with the other device preferences. */
 export function PracticeBarSetting() {
   const { enabled, goalMinutes } = usePracticeSettings();
   const seconds = useTodayPracticeSeconds();
   const progress = practiceProgress(seconds, goalMinutes);
   return (
-    <section
+    <div
+      role="group"
       aria-labelledby="practice-bar-heading"
-      className="rounded-2xl border border-border bg-card p-5"
+      className="rounded-xl border border-border/40 bg-card/30 px-4 py-3"
     >
-      <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gold/40 bg-gold/10">
-          <Timer className="h-5 w-5 text-gold-ink" strokeWidth={1.6} aria-hidden />
-        </div>
-        <div className="min-w-0 flex-1">
-          <h2 id="practice-bar-heading" className="text-sm font-semibold text-foreground">
+      <div className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <p id="practice-bar-heading" className="text-sm text-foreground">
             Practice bar
-          </h2>
-          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-            A thin gold line above the bottom bar fills with today&apos;s active practice time.
-            Saved on this device only.
           </p>
-          {enabled && (
-            <p
-              data-testid="practice-bar-today"
-              className="mt-2 font-mono text-xs tabular-nums text-foreground/80"
-            >
-              Today: {Math.floor(progress.valueNow / 60)} of {goalMinutes} min
-            </p>
-          )}
-          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <label className="flex items-center gap-3 text-sm text-foreground">
-              <Switch
-                checked={enabled}
-                onCheckedChange={setPracticeEnabled}
-                data-testid="practice-bar-switch"
-                aria-label="Show practice bar"
-              />
-              <span>{enabled ? "On" : "Off"}</span>
-            </label>
-            <label className="flex items-center gap-2 text-sm text-foreground">
-              <span className="text-muted-foreground">Daily goal</span>
-              <select
-                value={goalMinutes}
-                onChange={(event) => setPracticeGoalMinutes(Number(event.target.value))}
-                data-testid="practice-bar-goal"
-                className="h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                {GOAL_OPTIONS.map((minutes) => (
-                  <option key={minutes} value={minutes}>
-                    {minutes} minutes
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          <p className="text-xs text-muted-foreground">Gold line for today&apos;s practice. This device only.</p>
         </div>
+        <Switch
+          checked={enabled}
+          onCheckedChange={setPracticeEnabled}
+          data-testid="practice-bar-switch"
+          aria-labelledby="practice-bar-heading"
+        />
       </div>
-    </section>
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <label className="flex items-center gap-2 whitespace-nowrap text-sm text-foreground">
+          <span className="text-muted-foreground">Daily goal</span>
+          <select
+            value={goalMinutes}
+            onChange={(event) => setPracticeGoalMinutes(Number(event.target.value))}
+            data-testid="practice-bar-goal"
+            className="h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {GOAL_OPTIONS.map((minutes) => (
+              <option key={minutes} value={minutes}>
+                {minutes} minutes
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      {enabled && (
+        <p
+          data-testid="practice-bar-today"
+          className="mt-2 font-mono text-xs tabular-nums text-foreground/80"
+        >
+          Today: {Math.floor(progress.valueNow / 60)} of {goalMinutes} min
+        </p>
+      )}
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import { useApp } from "@/state/app-state";
 import { useWordMatch, type WMLeaderboardKey } from "@/state/word-match-state";
 import { generateWordMatchBoard, type WordMatchLevel } from "@/fns/word-match.functions";
 import { MODULES } from "@/data/modules";
+import { packBoardFor, prefetchTradePack } from "@/lib/trade-packs";
 
 const LEVEL_LABELS: Record<WordMatchLevel, { name: string; sub: string; pairs: number }> = {
   1: { name: "Level 1", sub: "6 pairs · A1–A2 vocab", pairs: 6 },
@@ -38,14 +39,33 @@ export function WordMatch() {
       ? app.userVocab.map((v) => v.word).slice(0, 20)
       : undefined;
 
+  // The selected module's trade pack: fetch it in the background when the module or language
+  // changes, so the first game starts from it and the service worker keeps it for offline use.
+  useEffect(() => {
+    prefetchTradePack(app.activeModuleId, app.selectedLanguage, app.nativeLanguage);
+  }, [app.activeModuleId, app.selectedLanguage, app.nativeLanguage]);
+
   useEffect(() => {
     wm.setFetcher(async ({ language, level, avoid }) => {
-      const res = await fetchBoard({ data: { language, level, avoid, topic, userWords } });
+      // Pack first (static, free, works offline). A pack board wins even when the learner has
+      // personal words; when the pack has nothing for this request, the live AI call runs.
+      const packed = app.activeModuleId
+        ? await packBoardFor({
+            moduleId: app.activeModuleId,
+            language,
+            nativeLanguage: app.nativeLanguage,
+            level,
+            avoid,
+          })
+        : null;
+      const res = packed
+        ? { data: packed, error: null }
+        : await fetchBoard({ data: { language, level, avoid, topic, userWords } });
       if (res.error || !res.data) throw new Error(res.error ?? "No board.");
       return res.data;
     });
     return () => wm.setFetcher(null);
-  }, [wm, fetchBoard, topic, userWords]);
+  }, [wm, fetchBoard, topic, userWords, app.activeModuleId, app.nativeLanguage]);
 
   const [selectedLevel, setSelectedLevel] = useState<WordMatchLevel>(1);
 
@@ -422,7 +442,7 @@ function Card({
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60",
         showFront
           ? isMatched
-            ? "border-emerald-500/60 bg-emerald-500/10 opacity-80"
+            ? "border-emerald-500/60 bg-emerald-500/10 opacity-100 dark:opacity-80"
             : "border-gold/70 bg-gradient-to-br from-gold/10 via-card/30 to-transparent"
           : "border-gold/40 bg-gradient-to-br from-card/60 via-background/50 to-card/40 hover:scale-[1.03] hover:border-gold/80",
         disabled && !showFront ? "opacity-60" : "",
@@ -445,7 +465,7 @@ function Card({
               : text.length > 8
                 ? "text-xs sm:text-sm"
                 : "text-sm sm:text-base",
-            isMatched ? "text-emerald-100" : "text-foreground",
+            isMatched ? "text-emerald-800 dark:text-emerald-100" : "text-foreground",
           ].join(" ")}
         >
           {text}

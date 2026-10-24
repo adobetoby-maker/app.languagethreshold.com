@@ -210,6 +210,59 @@ const CATALOG: AppModule[] = [
       "warranty", "estimate", "permit", "daily report", "ventilation", "punch list",
     ],
   },
+  // Gutters and siding: sister trades to roofing for supervisors who direct Spanish-speaking
+  // crews on residential and commercial exteriors. Their Foundation and Master stages are data
+  // (src/data/core60/manifest.ts).
+  {
+    id: "gutters",
+    name: "Gutter Installation Supervisor",
+    emoji: "🌧️",
+    category: "Trades",
+    blurb:
+      "Direct a gutter crew in Spanish: ladder and lift safety, measuring runs, the seamless machine, hangers, downspouts, tear-off, commercial box gutters and the closeout walk.",
+    priceCents: 999,
+    languages: ["Spanish"],
+    aiPersona:
+      "You are a gutter installer, crew lead, supplier, homeowner, general contractor, or inspector speaking the learner's target language with a supervisor who directs the crew on residential and commercial jobs. Use practical gutter language and ask the supervisor to clarify vague instructions. Treat slope toward the outlets, hanger spacing, fastener types, gutter size and downspout placement as job- and manufacturer-specific: confirm the product instructions, the job plan and local code rather than assuming a universal specification.",
+    userRole: "Gutter installation supervisor",
+    challengePrompts: [
+      "Run the morning briefing: who is on which run, where the ladders go, and the fall hazards today.",
+      "Have the crew measure a run and confirm the slope toward the outlet that the job plan specifies.",
+      "Direct the seamless gutter machine operator on coil color, length and how many pieces to run.",
+      "Stop the crew when the fascia behind an old gutter is rotten and explain what happens next.",
+      "Explain to a homeowner where the downspouts and splash blocks will go and answer their concern.",
+      "Walk the finished job with the crew lead: hangers, seams, outlets, cleanup and the punch list.",
+    ],
+    vocabFocus: [
+      "gutter", "downspout", "hanger", "fascia", "elbow", "outlet",
+      "end cap", "miter", "coil stock", "slope", "splash block", "box gutter",
+    ],
+  },
+  {
+    id: "siding",
+    name: "Siding Installation Supervisor",
+    emoji: "🏘️",
+    category: "Trades",
+    blurb:
+      "Direct a siding crew in Spanish on vinyl and fiber cement: house wrap and flashing, starter strip and J-channel, nailing per the manufacturer, silica dust control, trim, soffit and closeout.",
+    priceCents: 999,
+    languages: ["Spanish"],
+    aiPersona:
+      "You are a siding installer, crew lead, supplier, homeowner, general contractor, or inspector speaking the learner's target language with a supervisor who directs vinyl and fiber cement siding crews on residential and commercial jobs. Use practical siding language and ask the supervisor to clarify vague instructions. Treat nail type and spacing, clearances, gaps, overlaps, exposure and cutting methods as manufacturer- and job-specific: confirm the manufacturer's installation instructions, the job plan and local code rather than assuming a universal specification.",
+    userRole: "Siding installation supervisor",
+    challengePrompts: [
+      "Run the morning briefing: wall assignments, scaffold and ladder checks, and the hazards today.",
+      "Have the crew check the house wrap and window flashing before any siding goes on.",
+      "Correct a vinyl installer who nails the panels too tight and explain what the manufacturer requires.",
+      "Set up fiber cement cutting with dust control and stop the cut when the controls are not in place.",
+      "Explain to a homeowner how the crew protects the yard and when the work will be done.",
+      "Walk the finished wall with the crew lead: trim, caulk, corners, cleanup and the punch list.",
+    ],
+    vocabFocus: [
+      "siding", "house wrap", "flashing", "starter strip", "J-channel", "trim board",
+      "soffit", "fascia", "fiber cement", "vinyl", "caulk", "corner post",
+    ],
+  },
   {
     id: "emergency-medicine",
     name: "Emergency Medicine",

@@ -62,6 +62,8 @@ async function openTab(
   await page.goto(appUrl({ tab }));
 }
 
+// The phone settings sheet is modal, so the role tree hides the bar behind it; the test id still finds it.
+const barById = (page: Page) => page.getByTestId("practice-time-bar");
 const bar = (page: Page) => page.getByRole("progressbar", { name: /^Today's practice/ });
 
 test("the bar is on by default, is a labelled progressbar, and counts toward a 10 minute goal", async ({
@@ -75,26 +77,39 @@ test("the bar is on by default, is a labelled progressbar, and counts toward a 1
   await expect(bar(page)).toHaveAttribute("aria-label", /^Today's practice: 0 of 10 minutes$/);
 });
 
-test("it sits on the top edge of the primary bar and adds no layout height", async ({ page }) => {
+test("it sits on the edge of the persistent app bar and adds no layout height", async ({
+  page,
+  isMobile,
+}) => {
   await openTab(page, "reader", { seconds: 360 });
   await expect(bar(page)).toBeVisible({ timeout: 60_000 });
-  const nav = page.getByRole("navigation", { name: "Primary" });
-  const navBox = (await nav.boundingBox())!;
+  await expect(bar(page)).toHaveCount(1);
+  // Phone: the top edge of the bottom nav. Desktop: the bottom edge of the header.
+  const host = isMobile
+    ? page.getByRole("navigation", { name: "Primary" })
+    : page.locator("header").filter({ visible: true }).first();
+  const hostBox = (await host.boundingBox())!;
   const barBox = (await bar(page).boundingBox())!;
   expect(barBox.height).toBe(3);
   expect(barBox.width).toBeGreaterThan(250);
-  // The 3px line overlays the nav's own 1px top border and the first 2px inside it.
-  expect(barBox.y).toBeGreaterThanOrEqual(navBox.y - 1.5);
-  expect(barBox.y).toBeLessThanOrEqual(navBox.y);
-  // Turning the bar off must not move the nav.
+  if (isMobile) {
+    // The 3px line overlays the nav's own 1px top border and the first 2px inside it.
+    expect(barBox.y).toBeGreaterThanOrEqual(hostBox.y - 1.5);
+    expect(barBox.y).toBeLessThanOrEqual(hostBox.y);
+  } else {
+    const bottom = hostBox.y + hostBox.height;
+    expect(barBox.y + barBox.height).toBeGreaterThanOrEqual(bottom);
+    expect(barBox.y + barBox.height).toBeLessThanOrEqual(bottom + 1.5);
+  }
+  // Turning the bar off must not move the app bar.
   await page.evaluate((key) => {
     const o = JSON.parse(localStorage.getItem(key) ?? "{}");
     localStorage.setItem(key, JSON.stringify({ ...o, enabled: false }));
   }, PRACTICE_KEY);
   await page.reload();
-  await expect(nav).toBeVisible({ timeout: 60_000 });
+  await expect(host).toBeVisible({ timeout: 60_000 });
   await expect(bar(page)).toHaveCount(0);
-  expect((await nav.boundingBox())!.height).toBe(navBox.height);
+  expect((await host.boundingBox())!.height).toBe(hostBox.height);
 });
 
 test("seeded time fills the bar and the label reads in whole minutes", async ({ page }) => {
@@ -159,35 +174,44 @@ test("yesterday does not count toward today", async ({ page }) => {
   expect(Number(await bar(page).getAttribute("aria-valuenow"))).toBeLessThan(60);
 });
 
-test("Dashboard switch hides the bar and the goal select changes the target, both across reload", async ({
+/** Opens the device-preferences surface: the phone's App settings sheet or the desktop Learning settings popover. */
+async function openSettings(page: Page, isMobile: boolean): Promise<void> {
+  const name = isMobile ? "App settings" : "Learning settings";
+  await page.getByRole("button", { name, exact: true }).first().click();
+  await expect(page.getByTestId("practice-bar-switch")).toBeVisible();
+}
+
+test("settings switch hides the bar and the goal select changes the target, both across reload", async ({
   page,
+  isMobile,
 }) => {
-  await openTab(page, "dashboard", { seconds: 120 });
+  await openTab(page, "reader", { seconds: 120 });
+  await expect(barById(page)).toBeVisible({ timeout: 60_000 });
+  await openSettings(page, isMobile);
   const toggle = page.getByTestId("practice-bar-switch");
   const goal = page.getByTestId("practice-bar-goal");
-  await expect(toggle).toBeVisible({ timeout: 60_000 });
   await expect(toggle).toBeChecked();
   await expect(goal).toHaveValue("10");
-  await expect(bar(page)).toBeVisible();
   await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 10 min");
 
   await goal.selectOption("15");
   await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 15 min");
-  await expect(bar(page)).toHaveAttribute("aria-valuemax", "900");
-  await expect(bar(page)).toHaveAttribute("aria-label", /of 15 minutes$/);
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "900");
+  await expect(barById(page)).toHaveAttribute("aria-label", /of 15 minutes$/);
 
   await toggle.click();
   await expect(toggle).not.toBeChecked();
-  await expect(bar(page)).toHaveCount(0);
+  await expect(barById(page)).toHaveCount(0);
 
   await page.reload();
-  await expect(page.getByTestId("practice-bar-switch")).not.toBeChecked({ timeout: 60_000 });
+  await expect(barById(page)).toHaveCount(0);
+  await openSettings(page, isMobile);
+  await expect(page.getByTestId("practice-bar-switch")).not.toBeChecked();
   await expect(page.getByTestId("practice-bar-goal")).toHaveValue("15");
-  await expect(bar(page)).toHaveCount(0);
 
   await page.getByTestId("practice-bar-switch").click();
-  await expect(bar(page)).toBeVisible();
-  await expect(bar(page)).toHaveAttribute("aria-valuemax", "900");
+  await expect(barById(page)).toBeVisible();
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "900");
 });
 
 test("blocked storage never throws from the practice code", async ({

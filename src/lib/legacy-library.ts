@@ -25,7 +25,11 @@ const book = z.object({
   level: z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]).optional(),
 });
 const uuid = z.string().uuid();
-const claim = z.object({ schema: z.literal(1), actor: z.string().min(1), ids: z.record(uuid) });
+const claim = z.object({
+  schema: z.literal(1),
+  actor: z.string().min(1),
+  ids: z.record(z.string(), uuid),
+});
 function parse(raw: string) {
   if (raw.length > 8 * 1024 * 1024)
     throw Error("Older library save is too large to recover safely.");

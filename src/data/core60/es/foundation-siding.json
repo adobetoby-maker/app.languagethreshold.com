@@ -1,0 +1,929 @@
+{
+  "version": 1,
+  "module": "foundation-siding",
+  "baseModule": "siding",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Siding Installation Supervisor Foundation",
+  "threshold": "By Lesson 10, you can greet your siding crew, give numbers, times and measurements in feet and inches, describe walls and tools, ask simple questions, make polite requests and get help, and start Siding Installation Supervisor Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-23T16:49:57.205Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce Spanish vowels and key sounds and greet your siding crew at the start of the day.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings and introductions",
+      "words": [
+        {
+          "en": "the hammer",
+          "es": "el martillo",
+          "kind": "term",
+          "note": "ll sounds like the y in yes: mar-TEE-yo."
+        },
+        {
+          "en": "the ladder",
+          "es": "la escalera",
+          "kind": "term",
+          "note": "Every vowel is short and clear: es-ca-LE-ra."
+        },
+        {
+          "en": "the safety vest",
+          "es": "el chaleco",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term",
+          "note": "j sounds like a strong English h: CA-ha."
+        },
+        {
+          "en": "the boss",
+          "es": "el jefe",
+          "kind": "term",
+          "note": "j is a strong h: HE-fe. A woman boss is la jefa."
+        },
+        {
+          "en": "the saw",
+          "es": "la sierra",
+          "kind": "term",
+          "note": "rr is a rolled, trilled r."
+        },
+        {
+          "en": "the scaffold",
+          "es": "el andamio",
+          "kind": "term"
+        },
+        {
+          "en": "the wall",
+          "es": "la pared",
+          "kind": "term",
+          "note": "Stress falls on the last syllable: pa-RED."
+        },
+        {
+          "en": "the level",
+          "es": "el nivel",
+          "kind": "term"
+        },
+        {
+          "en": "the pencil",
+          "es": "el lápiz",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: LA-piz."
+        },
+        {
+          "en": "Good morning, everyone.",
+          "es": "Buenos días a todos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My name is Carlos and I'm the supervisor.",
+          "es": "Me llamo Carlos y soy el supervisor.",
+          "kind": "phrase",
+          "note": "A woman says soy la supervisora."
+        },
+        {
+          "en": "Nice to meet you, what's your name?",
+          "es": "Mucho gusto, ¿cómo se llama usted?",
+          "kind": "phrase",
+          "note": "Usted is formal; use it with someone new."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow, good work.",
+          "es": "Hasta mañana, buen trabajo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a crew member at the truck, say your name and role, and ask how to say hammer, ladder and level in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, times and simple siding measurements in feet and inches to your crew.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and feet, inches, pieces and packages",
+      "words": [
+        {
+          "en": "the foot",
+          "es": "el pie",
+          "kind": "term",
+          "note": "The unit of length; plural los pies."
+        },
+        {
+          "en": "the inch",
+          "es": "la pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "the measurement",
+          "es": "la medida",
+          "kind": "term"
+        },
+        {
+          "en": "the tape measure",
+          "es": "la cinta métrica",
+          "kind": "term",
+          "note": "Many crews just say la cinta."
+        },
+        {
+          "en": "the nails",
+          "es": "los clavos",
+          "kind": "term"
+        },
+        {
+          "en": "the piece",
+          "es": "la pieza",
+          "kind": "term"
+        },
+        {
+          "en": "the package",
+          "es": "el paquete",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the lunch",
+          "es": "el almuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "We start at 7 in the morning.",
+          "es": "Empezamos a las 7 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The wall is 24 feet long.",
+          "es": "La pared mide 24 pies de largo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It measures 10 feet 6 inches.",
+          "es": "Mide 10 pies y 6 pulgadas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 12 pieces in total.",
+          "es": "Son 12 piezas en total.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The break is at 10.",
+          "es": "El descanso es a las 10.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's half past 3.",
+          "es": "Son las 3 y media.",
+          "kind": "phrase",
+          "note": "Use son las for times from 2 on; es la una for 1."
+        }
+      ],
+      "speaking": "Tell a crew member the start time, the break time, and the length of one wall in feet and inches."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who people are and describe the condition of walls, scaffolds and panels on the job.",
+      "focus": "ser for what something or someone is, estar for its condition or location",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "Estar listo means ready; listos for a group."
+        },
+        {
+          "en": "safe",
+          "es": "seguro",
+          "kind": "term"
+        },
+        {
+          "en": "dangerous",
+          "es": "peligroso",
+          "kind": "term"
+        },
+        {
+          "en": "wet",
+          "es": "mojado",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term"
+        },
+        {
+          "en": "crooked",
+          "es": "torcido",
+          "kind": "term"
+        },
+        {
+          "en": "level",
+          "es": "nivelado",
+          "kind": "term"
+        },
+        {
+          "en": "damaged",
+          "es": "dañado",
+          "kind": "term"
+        },
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "the helper",
+          "es": "el ayudante",
+          "kind": "term",
+          "note": "A woman helper is la ayudante."
+        },
+        {
+          "en": "The scaffold is safe.",
+          "es": "El andamio está seguro.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The wall is wet.",
+          "es": "La pared está mojada.",
+          "kind": "phrase",
+          "note": "The adjective agrees: pared is feminine, so mojada."
+        },
+        {
+          "en": "This panel is crooked.",
+          "es": "Este panel está torcido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This is Juan, the new helper.",
+          "es": "Él es Juan, el ayudante nuevo.",
+          "kind": "phrase",
+          "note": "ser: who someone is."
+        },
+        {
+          "en": "I'm the supervisor on this job.",
+          "es": "Soy el supervisor de esta obra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you all ready?",
+          "es": "¿Están listos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Introduce a new helper to a crew member, then say whether the scaffold is safe and the wall is wet or clean."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what the crew has, what there is on site, and what you need or want for the job.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the safety glasses",
+          "es": "los lentes de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the hard hat",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine word with el before it: el agua fría."
+        },
+        {
+          "en": "the extension cord",
+          "es": "la extensión",
+          "kind": "term"
+        },
+        {
+          "en": "the drill",
+          "es": "el taladro",
+          "kind": "term"
+        },
+        {
+          "en": "the utility knife",
+          "es": "la navaja",
+          "kind": "term"
+        },
+        {
+          "en": "the compressor",
+          "es": "el compresor",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the nail gun",
+          "es": "la clavadora",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have gloves?",
+          "es": "¿Tienes guantes?",
+          "kind": "phrase",
+          "note": "Tú is informal, between coworkers."
+        },
+        {
+          "en": "There's water in the truck.",
+          "es": "Hay agua en la troca.",
+          "kind": "phrase",
+          "note": "Hay means there is or there are."
+        },
+        {
+          "en": "I need the extension cord, please.",
+          "es": "Necesito la extensión, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to see the wall first.",
+          "es": "Quiero ver la pared primero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to wear safety glasses.",
+          "es": "Hay que usar lentes de seguridad.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: a general rule for everyone."
+        },
+        {
+          "en": "You have to check the ladder before going up.",
+          "es": "Hay que revisar la escalera antes de subir.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a coworker if they have gloves and a hard hat, say what you need from the truck, and state one safety rule with hay que."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell the crew where you are going, what you will do today, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder",
+      "words": [
+        {
+          "en": "the job site",
+          "es": "la obra",
+          "kind": "term"
+        },
+        {
+          "en": "the store",
+          "es": "la tienda",
+          "kind": "term"
+        },
+        {
+          "en": "the front",
+          "es": "el frente",
+          "kind": "term"
+        },
+        {
+          "en": "the back",
+          "es": "la parte de atrás",
+          "kind": "term"
+        },
+        {
+          "en": "the left side",
+          "es": "el lado izquierdo",
+          "kind": "term"
+        },
+        {
+          "en": "the right side",
+          "es": "el lado derecho",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "now",
+          "es": "ahora",
+          "kind": "term"
+        },
+        {
+          "en": "later",
+          "es": "más tarde",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the store for more nails.",
+          "es": "Voy a la tienda por más clavos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to start on the front.",
+          "es": "Vamos a empezar por el frente.",
+          "kind": "phrase",
+          "note": "ir a + infinitive talks about a plan."
+        },
+        {
+          "en": "Today we're going to do the back.",
+          "es": "Hoy vamos a hacer la parte de atrás.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can finish this side today.",
+          "es": "Puedo terminar este lado hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't go up without a hard hat.",
+          "es": "No puedo subir sin casco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What are you going to do tomorrow?",
+          "es": "¿Qué vas a hacer mañana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a crew lead which side of the house you will do today, where you are going now, and what you can finish later."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you, your coworkers and the crew do every day on a siding job.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the panel",
+          "es": "el panel",
+          "kind": "term"
+        },
+        {
+          "en": "the window",
+          "es": "la ventana",
+          "kind": "term"
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "the edge",
+          "es": "el borde",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the mark",
+          "es": "la marca",
+          "kind": "term"
+        },
+        {
+          "en": "the cut",
+          "es": "el corte",
+          "kind": "term"
+        },
+        {
+          "en": "the trash",
+          "es": "la basura",
+          "kind": "term"
+        },
+        {
+          "en": "the ground",
+          "es": "el suelo",
+          "kind": "term"
+        },
+        {
+          "en": "I measure and you mark the line.",
+          "es": "Yo mido y tú marcas la línea.",
+          "kind": "phrase",
+          "note": "Medir changes e to i: mido, mides, but medimos."
+        },
+        {
+          "en": "You work with Luis at the window.",
+          "es": "Usted trabaja con Luis en la ventana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We clean up the trash at 4.",
+          "es": "Nosotros limpiamos la basura a las 4.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They cut the panels on the table.",
+          "es": "Ellos cortan los paneles en la mesa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you write down the measurements?",
+          "es": "¿Tú escribes las medidas?",
+          "kind": "phrase",
+          "note": "-ir verbs: escribo, escribes, escribe, escribimos, escriben."
+        }
+      ],
+      "speaking": "Tell a coworker who measures, who marks the line and who cuts, and say what time the crew cleans up the trash."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask simple questions about people, places, times and amounts on the job site.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "For more than one person: ¿quiénes?"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "It agrees: cuántos paneles, cuánta agua."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "The answer uses porque, one word: because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the restroom?",
+          "es": "¿Dónde está el baño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who has the house key?",
+          "es": "¿Quién tiene la llave de la casa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the material arrive?",
+          "es": "¿Cuándo llega el material?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many panels are left to do?",
+          "es": "¿Cuántos paneles faltan?",
+          "kind": "phrase",
+          "note": "Faltar means still needed or missing."
+        },
+        {
+          "en": "How is the front wall?",
+          "es": "¿Cómo está la pared del frente?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which is the right measurement?",
+          "es": "¿Cuál es la medida correcta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a crew member where the restroom is, who has the house key, and when the material arrives."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody, nothing and not yet, and ask for more, less or another piece.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: no hay nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: otro clavo, otra pieza."
+        },
+        {
+          "en": "the gap",
+          "es": "el espacio",
+          "kind": "term"
+        },
+        {
+          "en": "the problem",
+          "es": "el problema",
+          "kind": "term",
+          "note": "Masculine even though it ends in -a."
+        },
+        {
+          "en": "There's nobody on the scaffold.",
+          "es": "No hay nadie en el andamio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Never cut without a dust mask.",
+          "es": "Nunca corten sin mascarilla.",
+          "kind": "phrase",
+          "note": "Corten is the ustedes command, for the whole crew."
+        },
+        {
+          "en": "We haven't finished this wall yet.",
+          "es": "Todavía no terminamos esta pared.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another piece, this one is damaged.",
+          "es": "Necesito otra pieza, esta está dañada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Leave more of a gap, according to the manufacturer.",
+          "es": "Dejen más espacio, según el fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's okay.",
+          "es": "No pasa nada.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a crew member the wall isn't finished yet, ask for another piece because one is damaged, and say nobody cuts without a mask."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests to a homeowner and give simple usted commands to one worker.",
+      "focus": "¿Puede…? requests and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "the driveway",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the yard",
+          "es": "el jardín",
+          "kind": "term"
+        },
+        {
+          "en": "the plants",
+          "es": "las plantas",
+          "kind": "term"
+        },
+        {
+          "en": "the tarp",
+          "es": "la lona",
+          "kind": "term"
+        },
+        {
+          "en": "the dog",
+          "es": "el perro",
+          "kind": "term"
+        },
+        {
+          "en": "the fence",
+          "es": "la cerca",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "la clienta",
+          "kind": "term",
+          "note": "For a woman; a man is el cliente."
+        },
+        {
+          "en": "Can you move your car out of the driveway, please?",
+          "es": "¿Puede mover su carro de la entrada, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede…? with usted is polite with a homeowner."
+        },
+        {
+          "en": "Can you bring your dog into the house?",
+          "es": "¿Puede meter a su perro a la casa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please close the gate.",
+          "es": "Por favor, cierre el portón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put the tarp over the plants.",
+          "es": "Ponga la lona sobre las plantas.",
+          "kind": "phrase",
+          "note": "Usted command to one worker: ponga, from poner."
+        },
+        {
+          "en": "Wait here, please.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call me if you have a question.",
+          "es": "Llámeme si tiene una pregunta.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a homeowner politely to move the car and bring the dog inside, then tell one worker to put the tarp over the plants."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words you already know and ask for help or repetition on the job.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "the installation",
+          "es": "la instalación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the protection",
+          "es": "la protección",
+          "kind": "term"
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term",
+          "note": "-dad words are feminine and often match English -ty."
+        },
+        {
+          "en": "the quality",
+          "es": "la calidad",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "the ventilation",
+          "es": "la ventilación",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you repeat, please?",
+          "es": "No entiendo, ¿puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does this word mean?",
+          "es": "¿Qué significa esta palabra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help here.",
+          "es": "Necesito ayuda aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, call 911.",
+          "es": "Es una emergencia, llamen al 911.",
+          "kind": "phrase",
+          "note": "Llamen is the ustedes command, for everyone nearby."
+        }
+      ],
+      "speaking": "Tell a crew member you speak a little Spanish, ask them to repeat slowly, and ask what one safety word means."
+    }
+  ]
+}

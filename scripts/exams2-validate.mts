@@ -1,4 +1,5 @@
 // Built by TAC — 2026-10-23
+/// <reference types="node" />
 /**
  * Validate a private exams v2 bank file (design section 2, rules 1-10).
  *

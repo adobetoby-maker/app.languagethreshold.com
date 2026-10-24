@@ -1,4 +1,5 @@
 // Built by TAC — 2026-10-23
+/// <reference types="node" />
 /**
  * Shared helpers for the exams v2 authoring scripts. Nothing here prints item content: banks are
  * read, validated and summarised as ids, codes and counts only.
@@ -13,24 +14,51 @@ import { lessonSourceHash } from "../src/lib/exams2/source-hash.ts";
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
-/** Repository checkouts a private bank must never live in: this worktree and its main checkout. */
-function protectedRoots(): string[] {
-  const roots = new Set([realpathSync(REPO_ROOT)]);
+/** The shared parent folder of this repository's agent worktrees on the owner's machine. */
+export const WORKTREES_PARENT = "/Users/drive/lt-worktrees";
+
+const real = (path: string) => {
   try {
-    const common = execFileSync(
-      "git",
-      ["rev-parse", "--path-format=absolute", "--git-common-dir"],
-      {
-        cwd: REPO_ROOT,
-        encoding: "utf8",
-        stdio: ["ignore", "pipe", "ignore"],
-      },
-    ).trim();
-    if (common) roots.add(realpathSync(dirname(common)));
+    return realpathSync(path);
   } catch {
-    // Not a git checkout (e.g. a packaged copy): the script's own repository root still applies.
+    return resolve(path);
   }
-  return [...roots];
+};
+const gitOutput = (args: string[]) =>
+  execFileSync("git", args, {
+    cwd: REPO_ROOT,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"],
+  });
+
+/**
+ * Directories a private bank must never live in: this checkout, every git worktree of this
+ * repository (`git worktree list --porcelain`), the main checkout, and WORKTREES_PARENT.
+ * Both the literal and the symlink-resolved form of each root are returned.
+ */
+export function protectedRoots(): string[] {
+  const roots = new Set<string>([REPO_ROOT, WORKTREES_PARENT]);
+  try {
+    for (const line of gitOutput(["worktree", "list", "--porcelain"]).split("\n"))
+      if (line.startsWith("worktree ")) roots.add(line.slice("worktree ".length).trim());
+  } catch {
+    // Not a git checkout (e.g. a packaged copy): the fixed roots still apply.
+  }
+  try {
+    const common = gitOutput(["rev-parse", "--path-format=absolute", "--git-common-dir"]).trim();
+    if (common) roots.add(dirname(common));
+  } catch {
+    // As above.
+  }
+  return [...new Set([...roots].filter(Boolean).flatMap((root) => [resolve(root), real(root)]))];
+}
+
+/** True when `path`, literally or after resolving symlinks, is inside a protected root. */
+export function isProtectedPath(path: string, roots = protectedRoots()): boolean {
+  const candidates = [resolve(path), real(path)];
+  return candidates.some((candidate) =>
+    roots.some((root) => candidate === root || candidate.startsWith(root.replace(/\/$/, "") + "/")),
+  );
 }
 
 export class UsageError extends Error {}
@@ -45,11 +73,10 @@ export function readPrivateBank(path: string | undefined): { file: string; bank:
   } catch {
     throw new UsageError("The bank file does not exist.");
   }
-  for (const root of protectedRoots())
-    if (file === root || file.startsWith(root + "/"))
-      throw new UsageError(
-        "Private banks must stay outside the repository; move the file and retry.",
-      );
+  if (isProtectedPath(path))
+    throw new UsageError(
+      "Private banks must stay outside the repository and its worktrees; move the file and retry.",
+    );
   let bank: unknown;
   try {
     bank = JSON.parse(readFileSync(file, "utf8"));

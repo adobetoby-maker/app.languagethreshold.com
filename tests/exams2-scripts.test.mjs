@@ -4,10 +4,11 @@
 // No test contacts a real database: the one networked case points at a closed local port.
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
+import { isProtectedPath, protectedRoots, WORKTREES_PARENT } from "../scripts/exams2-common.mts";
 import { planImport } from "../scripts/exams2-import.mjs";
 import { bankSha256 } from "../src/lib/exams2/bank.ts";
 import { buildSyntheticBank, clone } from "./fixtures/exams2-synthetic-bank.mjs";
@@ -154,4 +155,54 @@ test("planImport: insert, idempotent no-op, draft update, never overwrite approv
     planImport({ ...draft, status: "retired" }, "b".repeat(64), reviews).action,
     "refuse",
   );
+});
+
+test("path guard: any worktree of this repository, the worktrees folder and symlinks into them", (t) => {
+  // A sibling worktree created outside /Users/drive/lt-worktrees, so only `git worktree list`
+  // can know it belongs to this repository. No checkout: it holds just the file we write.
+  const sibling = join(dir, "sibling-worktree");
+  const added = spawnSync(
+    "git",
+    ["worktree", "add", "--detach", "--no-checkout", sibling, "HEAD"],
+    {
+      encoding: "utf8",
+    },
+  );
+  assert.equal(added.status, 0, added.stderr);
+  t.after(() => spawnSync("git", ["worktree", "remove", "--force", sibling], { encoding: "utf8" }));
+  const inSibling = join(sibling, "private-bank.json");
+  writeFileSync(inSibling, JSON.stringify(BANK));
+  assert.ok(protectedRoots().some((root) => root.endsWith("sibling-worktree")));
+  for (const script of ["exams2-validate.mts", "exams2-import.mjs", "exams2-drift.mts"]) {
+    const refused = run(script, [inSibling]);
+    assert.equal(refused.code, 2, `${script}: ${refused.out}`);
+    assert.match(refused.out, /outside the repository and its worktrees/);
+  }
+  // A symlink outside every root that resolves into a worktree is refused too.
+  const links = join(dir, "links");
+  mkdirSync(links);
+  const link = join(links, "bank-link.json");
+  symlinkSync(inSibling, link);
+  assert.equal(run("exams2-validate.mts", [link]).code, 2);
+  const repoLink = join(links, "repo-link.json");
+  symlinkSync(join(process.cwd(), "package.json"), repoLink);
+  assert.equal(run("exams2-validate.mts", [repoLink]).code, 2);
+  // Anything under the shared worktrees folder, existing or not.
+  assert.equal(isProtectedPath(join(WORKTREES_PARENT, "some-other-worktree", "bank.json")), true);
+  assert.equal(isProtectedPath(WORKTREES_PARENT), true);
+  // A plain private folder is fine.
+  assert.equal(isProtectedPath(VALID), false);
+  assert.equal(run("exams2-validate.mts", [VALID]).code, 0);
+});
+
+test("the .mts authoring scripts pass ESLint (they are outside the main lint config)", () => {
+  const files = ["exams2-common.mts", "exams2-validate.mts", "exams2-drift.mts"].map(
+    (f) => `scripts/${f}`,
+  );
+  const result = spawnSync(
+    "node_modules/.bin/eslint",
+    ["--no-config-lookup", "-c", "scripts/exams2-eslint.config.mjs", ...files],
+    { encoding: "utf8" },
+  );
+  assert.equal(result.status, 0, result.stdout + result.stderr);
 });

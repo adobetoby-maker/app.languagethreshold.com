@@ -1,4 +1,5 @@
 // Built by TAC — 2026-10-23
+/// <reference types="node" />
 /**
  * Lesson drift check for an exams v2 bank (design section 2, rule 9). Warns only.
  *

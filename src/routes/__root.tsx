@@ -15,6 +15,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
+import { flushPendingEvents } from "../lib/ga-events";
 import { reloadNewestAppVersion } from "../lib/app-update";
 import { installChunkReloadListener } from "../lib/chunk-reload";
 import { initializePwaInstall } from "../lib/pwa-install";
@@ -147,6 +148,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
   const privatePage = isPrivateAssessmentUrl(href);
   useEffect(() => {
     window[`ga-disable-${GA_ID}`] = isSpeakingPrivacyMode() || isPrivateAssessmentContext();
+    flushPendingEvents();
   }, [href]);
   return (
     <html lang="en" suppressHydrationWarning>

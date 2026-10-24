@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { CheckCircle, Sparkles, Users } from "lucide-react";
 import { useSubscription } from "@/state/subscription-state";
+import { trackEvent } from "@/lib/ga-events";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/subscribe/success")({
   component: SuccessPage,
@@ -15,6 +17,36 @@ const JUNIOR_50_OFF = "https://buy.stripe.com/eVqeVf0vpcO9guB2Q6bfO0c";
 
 function SuccessPage() {
   const { refresh } = useSubscription();
+
+  useEffect(() => {
+    // Count the purchase only after the server confirms this Stripe session was completed by the
+    // signed-in learner. The session id is an order reference, not personal data.
+    const sessionId = new URLSearchParams(window.location.search).get("session_id");
+    if (!sessionId || !/^cs_(?:test|live)_[A-Za-z0-9]{8,200}$/.test(sessionId)) return;
+    const controller = new AbortController();
+    void (async () => {
+      const { data } = await supabase.auth.getSession();
+      const token = data.session?.access_token;
+      if (!token) return;
+      const response = await fetch(
+        `/api/verify-checkout?sessionId=${encodeURIComponent(sessionId)}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          cache: "no-store",
+          signal: controller.signal,
+        },
+      );
+      if (!response.ok) return;
+      const result = (await response.json()) as { paid?: unknown };
+      if (result.paid === true)
+        trackEvent(
+          "purchase",
+          { transaction_id: sessionId, currency: "USD" },
+          `purchase:${sessionId}`,
+        );
+    })().catch(() => undefined);
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => refresh(), 2000);

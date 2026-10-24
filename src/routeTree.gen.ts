@@ -43,8 +43,11 @@ import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
+import { Route as ApiOwnerActivityRouteImport } from './routes/api.owner-activity'
+import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analytics'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
+import { Route as ApiOwnerTeamsRouteImport } from './routes/api.owner-teams'
 import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
 import { Route as ApiPushRouteImport } from './routes/api.push'
@@ -60,6 +63,7 @@ import { Route as ApiTeamBillingRouteImport } from './routes/api.team-billing'
 import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitlement'
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
+import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
 
@@ -233,6 +237,16 @@ const ApiModuleRequestRoute = ApiModuleRequestRouteImport.update({
   path: '/api/module-request',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerActivityRoute = ApiOwnerActivityRouteImport.update({
+  id: '/api/owner-activity',
+  path: '/api/owner-activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerAnalyticsRoute = ApiOwnerAnalyticsRouteImport.update({
+  id: '/api/owner-analytics',
+  path: '/api/owner-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerCustomersRoute = ApiOwnerCustomersRouteImport.update({
   id: '/api/owner-customers',
   path: '/api/owner-customers',
@@ -241,6 +255,11 @@ const ApiOwnerCustomersRoute = ApiOwnerCustomersRouteImport.update({
 const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
   id: '/api/owner-discounts',
   path: '/api/owner-discounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerTeamsRoute = ApiOwnerTeamsRouteImport.update({
+  id: '/api/owner-teams',
+  path: '/api/owner-teams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiOwnerUsersRoute = ApiOwnerUsersRouteImport.update({
@@ -318,6 +337,11 @@ const ApiTutorRoute = ApiTutorRouteImport.update({
   path: '/api/tutor',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiVerifyCheckoutRoute = ApiVerifyCheckoutRouteImport.update({
+  id: '/api/verify-checkout',
+  path: '/api/verify-checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   id: '/subscribe/success',
   path: '/subscribe/success',
@@ -364,8 +388,11 @@ export interface FileRoutesByFullPath {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-activity': typeof ApiOwnerActivityRoute
+  '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
@@ -381,6 +408,7 @@ export interface FileRoutesByFullPath {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
 }
@@ -419,8 +447,11 @@ export interface FileRoutesByTo {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-activity': typeof ApiOwnerActivityRoute
+  '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
@@ -436,6 +467,7 @@ export interface FileRoutesByTo {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
 }
@@ -475,8 +507,11 @@ export interface FileRoutesById {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-activity': typeof ApiOwnerActivityRoute
+  '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
@@ -492,6 +527,7 @@ export interface FileRoutesById {
   '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
+  '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
 }
@@ -532,8 +568,11 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-activity'
+    | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
@@ -549,6 +588,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
   fileRoutesByTo: FileRoutesByTo
@@ -587,8 +627,11 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-activity'
+    | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
@@ -604,6 +647,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
   id:
@@ -642,8 +686,11 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-activity'
+    | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
@@ -659,6 +706,7 @@ export interface FileRouteTypes {
     | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
+    | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team_/accept'
   fileRoutesById: FileRoutesById
@@ -698,8 +746,11 @@ export interface RootRouteChildren {
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
+  ApiOwnerActivityRoute: typeof ApiOwnerActivityRoute
+  ApiOwnerAnalyticsRoute: typeof ApiOwnerAnalyticsRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
+  ApiOwnerTeamsRoute: typeof ApiOwnerTeamsRoute
   ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
   ApiPushRoute: typeof ApiPushRoute
@@ -715,6 +766,7 @@ export interface RootRouteChildren {
   ApiTeamEntitlementRoute: typeof ApiTeamEntitlementRoute
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
+  ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
 }
@@ -959,6 +1011,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiModuleRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-activity': {
+      id: '/api/owner-activity'
+      path: '/api/owner-activity'
+      fullPath: '/api/owner-activity'
+      preLoaderRoute: typeof ApiOwnerActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-analytics': {
+      id: '/api/owner-analytics'
+      path: '/api/owner-analytics'
+      fullPath: '/api/owner-analytics'
+      preLoaderRoute: typeof ApiOwnerAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-customers': {
       id: '/api/owner-customers'
       path: '/api/owner-customers'
@@ -971,6 +1037,13 @@ declare module '@tanstack/react-router' {
       path: '/api/owner-discounts'
       fullPath: '/api/owner-discounts'
       preLoaderRoute: typeof ApiOwnerDiscountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-teams': {
+      id: '/api/owner-teams'
+      path: '/api/owner-teams'
+      fullPath: '/api/owner-teams'
+      preLoaderRoute: typeof ApiOwnerTeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/owner-users': {
@@ -1078,6 +1151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTutorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/verify-checkout': {
+      id: '/api/verify-checkout'
+      path: '/api/verify-checkout'
+      fullPath: '/api/verify-checkout'
+      preLoaderRoute: typeof ApiVerifyCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/success': {
       id: '/subscribe/success'
       path: '/subscribe/success'
@@ -1130,8 +1210,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiModuleRequestRoute: ApiModuleRequestRoute,
+  ApiOwnerActivityRoute: ApiOwnerActivityRoute,
+  ApiOwnerAnalyticsRoute: ApiOwnerAnalyticsRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
+  ApiOwnerTeamsRoute: ApiOwnerTeamsRoute,
   ApiOwnerUsersRoute: ApiOwnerUsersRoute,
   ApiPlatformRoute: ApiPlatformRoute,
   ApiPushRoute: ApiPushRoute,
@@ -1147,6 +1230,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTeamEntitlementRoute: ApiTeamEntitlementRoute,
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
+  ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
 }

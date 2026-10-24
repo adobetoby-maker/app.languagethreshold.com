@@ -62,7 +62,7 @@ async function fixture(run) {
  const isCurrentUser=id=>c.actor===id;const canUseReader=id=>c.actor===id&&!c.signingOut;
  export const useAuth=()=>({user:c.actor?{id:c.actor,email:c.actor+'@synthetic.invalid'}:null,loading:!!c.loading,isCurrentUser,canUseReader});
  export const AuthProvider=({children})=>children;export const AuthModal=()=>null;export const ThemeToggle=()=>null;export const Link=({children,...props})=>({type:'a',props:{...props,children}});
- export const createFileRoute=()=>options=>({...options,useSearch:()=>({token:c.token})});
+ export const createFileRoute=()=>options=>({...options,useSearch:()=>({token:c.token}),useNavigate:()=>()=>{}});
  export const supabase={auth:{getSession:()=>{c.credentialReads++;return c.credentials?new Promise(resolve=>c.credentials.push(resolve)):Promise.resolve({data:{session:{user:{id:c.sdkActor??c.actor},access_token:'synthetic-token'}}})}}};
  `,
             }));

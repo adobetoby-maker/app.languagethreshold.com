@@ -3,6 +3,17 @@ import { ownerDateInput } from "@/lib/owner-users";
 import { useState } from "react";
 import type { OwnerDirectory, OwnerUser, OwnerUserResult, OwnerUsage } from "@/lib/owner-users";
 import { useOwnerResource } from "./use-owner-resource";
+import { OwnerAccountControls } from "./OwnerAccountControls";
+import { downloadCsv } from "@/lib/owner-format";
+import {
+  DIRECTORY_FILTER_LABELS,
+  DIRECTORY_FILTERS,
+  DIRECTORY_SORT_LABELS,
+  DIRECTORY_SORTS,
+  isDisabled,
+  type DirectoryFilter,
+  type DirectorySort,
+} from "@/lib/owner-directory";
 const field = "w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground";
 const button =
   "rounded-lg border border-border px-3 py-2 text-sm hover:border-gold disabled:opacity-50";
@@ -19,10 +30,13 @@ export function OwnerAccounts() {
   const [search, setSearch] = useState(""),
     [applied, setApplied] = useState(""),
     [page, setPage] = useState(0),
-    [selected, setSelected] = useState<OwnerUser | null>(null);
+    [selected, setSelected] = useState<OwnerUser | null>(null),
+    [filter, setFilter] = useState<DirectoryFilter>("all"),
+    [sort, setSort] = useState<DirectorySort>("created");
   const resource = useOwnerResource<OwnerDirectory>(
-    `/api/owner-users?search=${encodeURIComponent(applied)}&page=${page}`,
+    `/api/owner-users?search=${encodeURIComponent(applied)}&page=${page}&filter=${filter}&sort=${sort}`,
   );
+  const exporter = useOwnerResource<OwnerDirectory>("/api/owner-users", false);
   const [adding, setAdding] = useState(false),
     [email, setEmail] = useState(""),
     [name, setName] = useState(""),
@@ -56,6 +70,24 @@ export function OwnerAccounts() {
           ? e.message
           : "Could not add tester. Refresh and search for the email before retrying.",
       );
+    }
+  }
+  async function exportCsv() {
+    setError("");
+    setNotice("");
+    try {
+      const result = await exporter.run<OwnerUserResult>({
+        action: "export_csv",
+        search: applied,
+        filter,
+        sort,
+      });
+      if (result?.csv && result.filename) {
+        downloadCsv(result.csv, result.filename);
+        setNotice(result.notice);
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not export users. Try again.");
     }
   }
   return (
@@ -176,6 +208,54 @@ export function OwnerAccounts() {
           Refresh
         </button>
       </form>
+      <div className="mb-4 flex flex-wrap items-end gap-2">
+        <label className="text-sm">
+          Show
+          <select
+            className={field}
+            value={filter}
+            disabled={resource.busy}
+            onChange={(e) => {
+              setFilter(e.target.value as DirectoryFilter);
+              setPage(0);
+              setSelected(null);
+            }}
+          >
+            {DIRECTORY_FILTERS.map((value) => (
+              <option key={value} value={value}>
+                {DIRECTORY_FILTER_LABELS[value]}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="text-sm">
+          Sort by
+          <select
+            className={field}
+            value={sort}
+            disabled={resource.busy}
+            onChange={(e) => {
+              setSort(e.target.value as DirectorySort);
+              setPage(0);
+              setSelected(null);
+            }}
+          >
+            {DIRECTORY_SORTS.map((value) => (
+              <option key={value} value={value}>
+                {DIRECTORY_SORT_LABELS[value]}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          className={button}
+          disabled={exporter.busy || resource.loading}
+          onClick={() => void exportCsv()}
+        >
+          {exporter.busy ? "Exporting…" : "Export CSV"}
+        </button>
+      </div>
       {(error || resource.error) && (
         <p role="alert" className="my-3 text-red-700 dark:text-red-300">
           {error || resource.error}
@@ -194,6 +274,7 @@ export function OwnerAccounts() {
             <p className="mb-3 text-sm">
               {resource.data.total} matching accounts · Page {page + 1} of{" "}
               {Math.max(1, Math.ceil(resource.data.total / resource.data.pageSize))}
+              {resource.data.truncated && " · Only the newest 5,000 accounts are searched"}
             </p>
             <div className="grid gap-3 lg:grid-cols-2">
               {resource.data.users.map((account) => (
@@ -220,6 +301,11 @@ export function OwnerAccounts() {
                     {Math.round(account.activeSeconds30d / 60)} recorded minutes ·{" "}
                     {account.activeDays30d} active days
                   </span>
+                  {isDisabled(account) && (
+                    <span className="mt-1 inline-block rounded-full border border-red-600/60 px-2 py-0.5 text-xs font-semibold text-red-700 dark:text-red-300">
+                      Disabled
+                    </span>
+                  )}
                   <span className="block text-xs text-muted-foreground">
                     {account.confirmed
                       ? "Email confirmed"
@@ -524,6 +610,11 @@ function UserDetails({
           </>
         )
       )}
+      <OwnerAccountControls
+        key={`controls-${account.id}`}
+        account={account}
+        onChanged={onChanged}
+      />
       <OwnerCustomerTools key={account.id} userId={account.id} email={account.email} />
     </div>
   );

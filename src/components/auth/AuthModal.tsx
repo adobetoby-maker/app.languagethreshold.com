@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/state/auth-state";
+import { trackEvent } from "@/lib/ga-events";
 
 type Mode = "signin" | "signup" | "forgot" | "check-email";
 
@@ -62,6 +63,7 @@ export function AuthModal({
       const { error, needsConfirmation } = await signUp(email, password);
       setBusy(false);
       if (error) { setErr(error); return; }
+      trackEvent("sign_up", { method: "email" });
       if (needsConfirmation) {
         setCheckEmailMsg(
           `We sent a confirmation link to ${email}. Click it to activate your account, then sign in.`,

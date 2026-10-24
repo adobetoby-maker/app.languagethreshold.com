@@ -5,7 +5,12 @@ import {
   DEFAULT_PRACTICE_DATA,
   IDLE_CUTOFF_MS,
   applyTick,
+  clampGoalLessons,
   clampGoalMinutes,
+  clampGoalType,
+  goalProgress,
+  lessonProgress,
+  lessonsCompletedOn,
   crossedGoal,
   mergeDays,
   isCounting,
@@ -17,6 +22,7 @@ import {
   serializePracticeData,
   shouldSave,
 } from "../src/lib/practice-time.ts";
+import { core30SetMastered, core30StepOpened } from "../src/lib/core30-state.ts";
 
 const fresh = () => ({ ...DEFAULT_PRACTICE_DATA, days: {} });
 const at = (y, m, d, h = 12, min = 0, s = 0) => new Date(y, m - 1, d, h, min, s).getTime();
@@ -143,8 +149,8 @@ test("save throttle: nothing when clean, every 10s when dirty, immediately on fo
 
 test("parse: missing, malformed and partial storage fall back field by field", () => {
   const now = new Date(2026, 9, 22, 12);
-  assert.deepEqual(parsePracticeData(null, now), { enabled: true, goalMinutes: 10, days: {} });
-  assert.deepEqual(parsePracticeData("{not json", now), { enabled: true, goalMinutes: 10, days: {} });
+  assert.deepEqual(parsePracticeData(null, now), { enabled: true, goalType: "minutes", goalMinutes: 10, goalLessons: 1, days: {} });
+  assert.deepEqual(parsePracticeData("{not json", now), { enabled: true, goalType: "minutes", goalMinutes: 10, goalLessons: 1, days: {} });
   assert.deepEqual(parsePracticeData("[]", now).days, {});
   const partial = parsePracticeData(
     JSON.stringify({ enabled: "yes", goalMinutes: 18, days: { "2026-10-22": 42, "2020-01-01": 9, bad: "x" } }),
@@ -158,9 +164,21 @@ test("parse: missing, malformed and partial storage fall back field by field", (
 
 test("serialize then parse round-trips and prunes", () => {
   const now = new Date(2026, 9, 22, 12);
-  const data = { enabled: false, goalMinutes: 15, days: { "2026-10-22": 100, "2026-01-01": 50 } };
+  const data = {
+    enabled: false,
+    goalType: "lessons",
+    goalMinutes: 15,
+    goalLessons: 2,
+    days: { "2026-10-22": 100, "2026-01-01": 50 },
+  };
   const back = parsePracticeData(serializePracticeData(data, now), now);
-  assert.deepEqual(back, { enabled: false, goalMinutes: 15, days: { "2026-10-22": 100 } });
+  assert.deepEqual(back, {
+    enabled: false,
+    goalType: "lessons",
+    goalMinutes: 15,
+    goalLessons: 2,
+    days: { "2026-10-22": 100 },
+  });
 });
 
 test("mount with no interaction counts 0: a null interaction clock never counts", () => {
@@ -194,4 +212,172 @@ test("crossedGoal fires only for a one-second beat across an unchanged goal", ()
   assert.equal(crossedGoal({ seconds: 650, goalSeconds: g }, { seconds: 651, goalSeconds: g }), false);
   assert.equal(crossedGoal({ seconds: 599, goalSeconds: 900 }, { seconds: 600, goalSeconds: 600 }), false);
   assert.equal(crossedGoal({ seconds: 300, goalSeconds: g }, { seconds: 301, goalSeconds: g }), false);
+});
+
+// ---- lesson goal ----
+
+const MASTERED = (iso) => ({ visits: {}, masteredAt: iso });
+const scopedKey = (moduleId, target = "Spanish", native = "English", enrollment = null) =>
+  JSON.stringify(["core30", 1, moduleId, target, native, enrollment]);
+const localIso = (y, m, d, h = 12, min = 0) => new Date(y, m - 1, d, h, min).toISOString();
+
+test("migration: stored data from before lesson goals reads as a minutes goal with 1 lesson", () => {
+  const now = new Date(2026, 9, 22, 12);
+  const old = JSON.stringify({ v: 1, enabled: false, goalMinutes: 15, days: { "2026-10-22": 42 } });
+  assert.deepEqual(parsePracticeData(old, now), {
+    enabled: false,
+    goalType: "minutes",
+    goalMinutes: 15,
+    goalLessons: 1,
+    days: { "2026-10-22": 42 },
+  });
+});
+
+test("goal type and lessons goal: junk falls back, values snap to 1/2/3", () => {
+  assert.equal(clampGoalType("lessons"), "lessons");
+  assert.equal(clampGoalType("minutes"), "minutes");
+  assert.equal(clampGoalType("hours"), "minutes");
+  assert.equal(clampGoalType(undefined), "minutes");
+  assert.equal(clampGoalType(null), "minutes");
+  assert.equal(clampGoalLessons(1), 1);
+  assert.equal(clampGoalLessons(3), 3);
+  assert.equal(clampGoalLessons("2"), 2);
+  assert.equal(clampGoalLessons(0), 1);
+  assert.equal(clampGoalLessons(9), 3);
+  assert.equal(clampGoalLessons(1.5), 1);
+  assert.equal(clampGoalLessons("x"), 1);
+  assert.equal(clampGoalLessons(NaN), 1);
+  assert.equal(clampGoalLessons(undefined), 1);
+});
+
+test("parse: a stored lessons goal round-trips; junk type or count falls back field by field", () => {
+  const now = new Date(2026, 9, 22, 12);
+  const lessons = parsePracticeData(JSON.stringify({ goalType: "lessons", goalLessons: 2 }), now);
+  assert.equal(lessons.goalType, "lessons");
+  assert.equal(lessons.goalLessons, 2);
+  assert.equal(lessons.goalMinutes, 10);
+  const junk = parsePracticeData(JSON.stringify({ goalType: 7, goalLessons: "many" }), now);
+  assert.equal(junk.goalType, "minutes");
+  assert.equal(junk.goalLessons, 1);
+});
+
+test("lessons today: distinct lessons mastered on the local day, any module", () => {
+  const log = {
+    [scopedKey("roofing")]: {
+      lessons: {
+        1: MASTERED(localIso(2026, 10, 22, 9)),
+        2: MASTERED(localIso(2026, 10, 22, 21)),
+        3: MASTERED(localIso(2026, 10, 21, 23, 59)), // yesterday
+        4: { visits: { 1: localIso(2026, 10, 22) } }, // opened, never mastered
+      },
+    },
+    [scopedKey("foundation-medical")]: { lessons: { 1: MASTERED(localIso(2026, 10, 22, 13)) } },
+    [scopedKey("roofing", "French")]: { lessons: { 1: MASTERED(localIso(2026, 10, 22, 8)) } },
+  };
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 4);
+  assert.equal(lessonsCompletedOn(log, "2026-10-21"), 1);
+  assert.equal(lessonsCompletedOn(log, "2026-10-20"), 0);
+});
+
+test("lessons today: opening a lesson or visiting steps counts nothing", () => {
+  const log = {
+    [scopedKey("roofing")]: {
+      lessons: {
+        1: { visits: { 0: localIso(2026, 10, 22), "way:see": localIso(2026, 10, 22) }, wayVisits: { see: localIso(2026, 10, 22) } },
+      },
+    },
+  };
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 0);
+});
+
+test("lessons today: the real mastery reducer counts a lesson once, however often it is mastered", () => {
+  const moduleId = scopedKey("roofing");
+  const morning = localIso(2026, 10, 22, 9);
+  const evening = localIso(2026, 10, 22, 20);
+  let log = core30StepOpened({}, { moduleId, lesson: 1, step: 0, at: morning });
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 0); // opened is not completed
+  log = core30SetMastered(log, { moduleId, lesson: 1, at: morning });
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 1);
+  log = core30SetMastered(log, { moduleId, lesson: 1, at: evening }); // pressed again later the same day
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 1);
+  log = core30SetMastered(log, { moduleId, lesson: 2, at: evening });
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 2);
+  // The earliest stamp is kept, so lesson 1 is not a new lesson tomorrow.
+  assert.equal(lessonsCompletedOn(log, "2026-10-23"), 0);
+});
+
+test("lessons today: a legacy bare record and its claimed scoped copy count a lesson once", () => {
+  const stamp = localIso(2026, 10, 22, 9);
+  const bareOnly = { roofing: { lessons: { 1: MASTERED(stamp) } } };
+  assert.equal(lessonsCompletedOn(bareOnly, "2026-10-22"), 1);
+  const claimed = {
+    roofing: { lessons: { 1: MASTERED(stamp), 2: MASTERED(stamp) } },
+    [scopedKey("roofing")]: { lessons: { 1: MASTERED(stamp) } },
+  };
+  assert.equal(lessonsCompletedOn(claimed, "2026-10-22"), 2);
+});
+
+test("lessons today: day rollover at local midnight and bad data is ignored", () => {
+  const log = {
+    [scopedKey("roofing")]: {
+      lessons: {
+        1: MASTERED(localIso(2026, 10, 22, 23, 59)),
+        2: MASTERED(localIso(2026, 10, 23, 0, 0)),
+        3: MASTERED("not a date"),
+        4: { visits: {}, masteredAt: 12 },
+      },
+    },
+  };
+  assert.equal(lessonsCompletedOn(log, "2026-10-22"), 1);
+  assert.equal(lessonsCompletedOn(log, "2026-10-23"), 1);
+  assert.equal(lessonsCompletedOn(null, "2026-10-22"), 0);
+  assert.equal(lessonsCompletedOn(undefined, "2026-10-22"), 0);
+  assert.equal(lessonsCompletedOn({ [scopedKey("x")]: {} }, "2026-10-22"), 0);
+});
+
+test("lesson progress: fraction is min(lessons / goal, 1) with plural-aware labels", () => {
+  const none = lessonProgress(0, 1);
+  assert.equal(none.fraction, 0);
+  assert.equal(none.valueMax, 1);
+  assert.equal(none.reached, false);
+  assert.equal(none.label, "Today's practice: 0 of 1 lesson");
+  assert.equal(none.status, "0 of 1 lesson");
+  const one = lessonProgress(1, 1);
+  assert.equal(one.fraction, 1);
+  assert.equal(one.reached, true);
+  const half = lessonProgress(1, 2);
+  assert.equal(half.fraction, 0.5);
+  assert.equal(half.valueNow, 1);
+  assert.equal(half.valueMax, 2);
+  assert.equal(half.valueText, "1 of 2 lessons today");
+  assert.equal(half.status, "1 of 2 lessons");
+  const over = lessonProgress(5, 3);
+  assert.equal(over.fraction, 1);
+  assert.equal(over.valueNow, 3);
+  assert.equal(over.reached, true);
+  assert.equal(lessonProgress(-1, 2).valueNow, 0);
+  assert.equal(lessonProgress(NaN, 2).fraction, 0);
+  assert.equal(lessonProgress(1, 9).valueMax, 3); // goal snaps to 3
+});
+
+test("goalProgress picks the chosen unit; minutes keep their own text", () => {
+  const base = { seconds: 360, goalMinutes: 10, lessons: 1, goalLessons: 2 };
+  const minutes = goalProgress({ ...base, goalType: "minutes" });
+  assert.equal(minutes.fraction, 0.6);
+  assert.equal(minutes.valueMax, 600);
+  assert.equal(minutes.status, "6 of 10 min");
+  assert.equal(minutes.valueText, "6 of 10 minutes today");
+  const lessons = goalProgress({ ...base, goalType: "lessons" });
+  assert.equal(lessons.fraction, 0.5);
+  assert.equal(lessons.valueMax, 2);
+  assert.equal(lessons.status, "1 of 2 lessons");
+});
+
+test("goal-reached pulse works for lessons: only a one-lesson step across an unchanged goal", () => {
+  assert.equal(crossedGoal({ seconds: 0, goalSeconds: 1 }, { seconds: 1, goalSeconds: 1 }), true);
+  assert.equal(crossedGoal({ seconds: 1, goalSeconds: 2 }, { seconds: 2, goalSeconds: 2 }), true);
+  assert.equal(crossedGoal({ seconds: 2, goalSeconds: 3 }, { seconds: 3, goalSeconds: 3 }), true);
+  assert.equal(crossedGoal({ seconds: 1, goalSeconds: 1 }, { seconds: 2, goalSeconds: 1 }), false);
+  assert.equal(crossedGoal({ seconds: 0, goalSeconds: 3 }, { seconds: 2, goalSeconds: 3 }), false);
+  assert.equal(crossedGoal(null, { seconds: 1, goalSeconds: 1 }), false);
 });

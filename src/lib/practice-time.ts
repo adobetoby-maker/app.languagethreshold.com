@@ -1,6 +1,7 @@
 // Built by TAC — 2026-10-22
 // Pure logic for the practice time bar: what counts as practice, the day key, pruning, goal
 // clamping, and the stored shape. No DOM, no storage, no timers: the hook owns those.
+import type { Core30Log } from "./core30-plan";
 
 export const PRACTICE_TIME_KEY = "lt.practice-time.v1";
 /** Seconds of no pointer/key/touch activity after which the clock stops. */
@@ -11,19 +12,31 @@ export const RETAIN_DAYS = 14;
 export const SAVE_INTERVAL_MS = 10_000;
 export const GOAL_OPTIONS = [5, 10, 15, 20] as const;
 export const DEFAULT_GOAL_MINUTES = 10;
+/** What the bar fills toward: minutes of active practice, or lessons mastered. */
+export const GOAL_TYPES = ["minutes", "lessons"] as const;
+export type GoalType = (typeof GOAL_TYPES)[number];
+export const DEFAULT_GOAL_TYPE: GoalType = "minutes";
+export const LESSON_GOAL_OPTIONS = [1, 2, 3] as const;
+export const DEFAULT_GOAL_LESSONS = 1;
 
 export interface PracticeTimeData {
   /** Show the bar. Default on. */
   enabled: boolean;
+  /** What the bar measures. Stored data without it (shipped before lesson goals) means minutes. */
+  goalType: GoalType;
   /** Daily goal in minutes, always one of GOAL_OPTIONS. */
   goalMinutes: number;
+  /** Daily goal in lessons, always one of LESSON_GOAL_OPTIONS. */
+  goalLessons: number;
   /** Active practice seconds by local date (YYYY-MM-DD). */
   days: Record<string, number>;
 }
 
 export const DEFAULT_PRACTICE_DATA: PracticeTimeData = {
   enabled: true,
+  goalType: DEFAULT_GOAL_TYPE,
   goalMinutes: DEFAULT_GOAL_MINUTES,
+  goalLessons: DEFAULT_GOAL_LESSONS,
   days: {},
 };
 
@@ -42,6 +55,22 @@ export function clampGoalMinutes(value: unknown): number {
   if (typeof n !== "number" || !Number.isFinite(n)) return DEFAULT_GOAL_MINUTES;
   let best: number = GOAL_OPTIONS[0];
   for (const option of GOAL_OPTIONS) {
+    if (Math.abs(option - n) < Math.abs(best - n)) best = option;
+  }
+  return best;
+}
+
+/** Anything but the literal "lessons" is minutes: old and junk values keep today's behavior. */
+export function clampGoalType(value: unknown): GoalType {
+  return value === "lessons" ? "lessons" : "minutes";
+}
+
+/** Snaps any input to 1, 2 or 3 lessons (ties go lower); junk becomes 1. */
+export function clampGoalLessons(value: unknown): number {
+  const n = typeof value === "string" && value.trim() !== "" ? Number(value) : value;
+  if (typeof n !== "number" || !Number.isFinite(n)) return DEFAULT_GOAL_LESSONS;
+  let best: number = LESSON_GOAL_OPTIONS[0];
+  for (const option of LESSON_GOAL_OPTIONS) {
     if (Math.abs(option - n) < Math.abs(best - n)) best = option;
   }
   return best;
@@ -137,11 +166,19 @@ export function shouldSave(ctx: {
 export interface PracticeProgress {
   /** 0 to 1, clamped. */
   fraction: number;
+  /** Minutes goals only: the goal in seconds. For lessons goals it is the goal in lessons. */
   goalSeconds: number;
-  /** aria-valuenow: seconds, never above goalSeconds. */
+  /** aria-valuemax: seconds for a minutes goal, lessons for a lessons goal. */
+  valueMax: number;
+  /** aria-valuenow: seconds (minutes goal) or lessons (lessons goal), never above valueMax. */
   valueNow: number;
   reached: boolean;
+  /** aria-label of the bar. */
   label: string;
+  /** aria-valuetext: "6 of 10 minutes today" or "1 of 2 lessons today". */
+  valueText: string;
+  /** The settings status line after "Today: ": "6 of 10 min" or "1 of 2 lessons". */
+  status: string;
 }
 
 export function practiceProgress(seconds: number, goalMinutes: number): PracticeProgress {
@@ -149,13 +186,96 @@ export function practiceProgress(seconds: number, goalMinutes: number): Practice
   const goalSeconds = goal * 60;
   const safe = Number.isFinite(seconds) && seconds > 0 ? Math.floor(seconds) : 0;
   const valueNow = Math.min(safe, goalSeconds);
+  const whole = Math.floor(valueNow / 60);
   return {
     fraction: valueNow / goalSeconds,
     goalSeconds,
+    valueMax: goalSeconds,
     valueNow,
     reached: safe >= goalSeconds,
-    label: `Today's practice: ${Math.floor(valueNow / 60)} of ${goal} minutes`,
+    label: `Today's practice: ${whole} of ${goal} minutes`,
+    valueText: `${whole} of ${goal} minutes today`,
+    status: `${whole} of ${goal} min`,
   };
+}
+
+const lessonsWord = (goal: number) => (goal === 1 ? "lesson" : "lessons");
+
+/** Progress toward a lessons-per-day goal: min(lessonsToday / goal, 1). */
+export function lessonProgress(lessons: number, goalLessons: number): PracticeProgress {
+  const goal = clampGoalLessons(goalLessons);
+  const safe = Number.isFinite(lessons) && lessons > 0 ? Math.floor(lessons) : 0;
+  const valueNow = Math.min(safe, goal);
+  const word = lessonsWord(goal);
+  return {
+    fraction: valueNow / goal,
+    goalSeconds: goal,
+    valueMax: goal,
+    valueNow,
+    reached: safe >= goal,
+    label: `Today's practice: ${valueNow} of ${goal} ${word}`,
+    valueText: `${valueNow} of ${goal} ${word} today`,
+    status: `${valueNow} of ${goal} ${word}`,
+  };
+}
+
+/** The bar's progress for whichever goal type the learner chose. */
+export function goalProgress(input: {
+  goalType: GoalType;
+  seconds: number;
+  goalMinutes: number;
+  lessons: number;
+  goalLessons: number;
+}): PracticeProgress {
+  return input.goalType === "lessons"
+    ? lessonProgress(input.lessons, input.goalLessons)
+    : practiceProgress(input.seconds, input.goalMinutes);
+}
+
+function localDateKeyOf(iso: unknown): string | null {
+  if (typeof iso !== "string") return null;
+  const ms = Date.parse(iso);
+  return Number.isNaN(ms) ? null : localDateKey(new Date(ms));
+}
+
+/**
+ * Distinct lessons the learner declared mastered on the local calendar day `dateKey`, any module.
+ * The signal is Core 30/60 `masteredAt`, an ISO time written once when "I've mastered this
+ * lesson" is pressed (the earliest stamp is kept), so mastering again the same day, re-opening a
+ * lesson, or recording a lesson already mastered earlier never adds to it. Scoped log keys are
+ * JSON ["core30", 1, moduleId, target, native, enrollment]; an unclaimed legacy bare-module key
+ * is skipped for any lesson its scoped copy (made when the learner claims the record) holds.
+ */
+export function lessonsCompletedOn(log: Core30Log | null | undefined, dateKey: string): number {
+  if (!log || typeof log !== "object") return 0;
+  let count = 0;
+  const scopedToday = new Set<string>();
+  const bareToday = new Set<string>();
+  for (const [key, moduleLog] of Object.entries(log)) {
+    let moduleId = key;
+    let scoped = false;
+    try {
+      const parsed: unknown = JSON.parse(key);
+      if (Array.isArray(parsed) && parsed[0] === "core30" && typeof parsed[2] === "string") {
+        scoped = true;
+        moduleId = parsed[2];
+      }
+    } catch {
+      /* a bare module id is not JSON */
+    }
+    for (const [lesson, entry] of Object.entries(moduleLog?.lessons ?? {})) {
+      if (localDateKeyOf(entry?.masteredAt) !== dateKey) continue;
+      const id = `${moduleId}|${lesson}`;
+      if (scoped) {
+        count += 1;
+        scopedToday.add(id);
+      } else {
+        bareToday.add(id);
+      }
+    }
+  }
+  for (const id of bareToday) if (!scopedToday.has(id)) count += 1;
+  return count;
 }
 
 /** Reads the stored JSON; anything missing or malformed falls back to defaults field by field. */
@@ -176,7 +296,10 @@ export function parsePracticeData(raw: string | null | undefined, now: Date): Pr
   }
   return {
     enabled: typeof o.enabled === "boolean" ? o.enabled : true,
+    // Data saved before lesson goals has no type or lessons goal: it is a minutes goal.
+    goalType: clampGoalType(o.goalType),
     goalMinutes: o.goalMinutes === undefined ? DEFAULT_GOAL_MINUTES : clampGoalMinutes(o.goalMinutes),
+    goalLessons: o.goalLessons === undefined ? DEFAULT_GOAL_LESSONS : clampGoalLessons(o.goalLessons),
     days: pruneDays(days, now),
   };
 }
@@ -185,7 +308,9 @@ export function serializePracticeData(data: PracticeTimeData, now: Date): string
   return JSON.stringify({
     v: 1,
     enabled: data.enabled,
+    goalType: clampGoalType(data.goalType),
     goalMinutes: clampGoalMinutes(data.goalMinutes),
+    goalLessons: clampGoalLessons(data.goalLessons),
     days: pruneDays(data.days, now),
   });
 }

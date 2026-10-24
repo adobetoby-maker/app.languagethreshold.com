@@ -28,12 +28,13 @@ import {
 interface Props {
   set: JapaneseConjugationSet;
   onSpeak: (text: string) => void;
+  showTranslation?: boolean;
 }
 
 const REGISTER_ORDER: JapaneseRegister[] = ["plain", "polite", "honorific"];
 const TENSE_ORDER: JapaneseTense[] = ["present", "past"];
 
-export function JapaneseConjugationCard({ set, onSpeak }: Props) {
+export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }: Props) {
   const [register, setRegister] = useState<JapaneseRegister>("polite");
   const [tense, setTense] = useState<JapaneseTense>("present");
   const touchStart = useRef<{ x: number; y: number } | null>(null);
@@ -120,7 +121,12 @@ export function JapaneseConjugationCard({ set, onSpeak }: Props) {
           >
             {form}
           </button>
-          <span className="text-xs text-muted-foreground">{set.english}</span>
+          <span
+            aria-hidden={!showTranslation}
+            className={`text-xs text-muted-foreground ${showTranslation ? "" : "invisible"}`}
+          >
+            {set.english}
+          </span>
         </div>
 
         <div className="flex items-center justify-center gap-6 text-muted-foreground/50">
@@ -148,9 +154,7 @@ export function JapaneseConjugationCard({ set, onSpeak }: Props) {
         </DrawerTrigger>
         <DrawerContent className="max-h-[85vh]">
           <DrawerHeader>
-            <DrawerTitle className="font-display">
-              {set.infinitive} · full forms
-            </DrawerTitle>
+            <DrawerTitle className="font-display">{set.infinitive} · full forms</DrawerTitle>
           </DrawerHeader>
           <div className="px-4 pb-8 space-y-4 overflow-y-auto">
             {REGISTER_ORDER.map((reg) => (
@@ -175,7 +179,9 @@ export function JapaneseConjugationCard({ set, onSpeak }: Props) {
             ))}
             {set.teForm && (
               <div>
-                <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">te / ta</h4>
+                <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                  te / ta
+                </h4>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"

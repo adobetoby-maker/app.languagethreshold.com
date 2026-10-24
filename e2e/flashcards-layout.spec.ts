@@ -116,3 +116,63 @@ test("conjugation stays expanded below the deck row and card creation still work
     page.getByTestId("flashcards-your-deck").getByText("anclaje de prueba QA", { exact: true }),
   ).toBeVisible();
 });
+
+test("flipping preserves the frame and reveals usage English only on the back", async ({
+  page,
+}) => {
+  await page.goto(appUrl({ tab: "flashcards", module: "roofing" }));
+  const card = page.getByTestId("flashcards-study-card");
+  const grades = page.getByTestId("flashcards-grading");
+  const usage = page.getByRole("region", { name: "Card usage" });
+  const meaning = page.getByTestId("usage-meaning");
+  const translation = page.getByTestId("usage-translation");
+  await expect(card).toBeVisible();
+  await expect(usage).toBeAttached();
+  await expect(meaning).toBeHidden();
+  await expect(translation).toBeHidden();
+  await expect(
+    card.getByText("Tap, Enter or Space to reveal translation", { exact: true }),
+  ).toBeVisible();
+  for (const button of await grades.getByRole("button").all()) await expect(button).toBeDisabled();
+  const frame = () =>
+    page.evaluate(() => {
+      const selectors = [
+        '[data-testid="flashcards-study-card"]',
+        '[data-testid="flashcards-grading"]',
+        '[data-testid="flashcards-add-cards"]',
+        '[data-testid="flashcards-your-deck"]',
+        '[aria-label="Card usage"]',
+      ];
+      return selectors.map((selector) => {
+        const rect = document.querySelector(selector)!.getBoundingClientRect();
+        return { y: rect.top + scrollY, height: rect.height, width: rect.width };
+      });
+    });
+  const before = await frame();
+  await card.focus();
+  await page.keyboard.press("Enter");
+  await expect(meaning).toBeVisible();
+  await expect(translation).toBeVisible();
+  await expect(
+    card.getByText("Tap or Enter: flip back · Space: accept (Good) · 1–4: grade", { exact: true }),
+  ).toBeVisible();
+  for (const button of await grades.getByRole("button").all()) await expect(button).toBeEnabled();
+  expect(await frame()).toEqual(before);
+  await page.screenshot({
+    path: `test-results/flashcards-stable-back-${test.info().project.name}.png`,
+    fullPage: true,
+  });
+  await page.keyboard.press("Enter");
+  await expect(meaning).toBeHidden();
+  expect(await frame()).toEqual(before);
+  await page.keyboard.press("Space");
+  await expect(meaning).toBeVisible();
+  await page.keyboard.down("Space");
+  await expect(page.getByText("1 reviewed this session", { exact: true })).toBeVisible();
+  // Holding a key must not reveal/accept the next card again.
+  await page.keyboard.down("Space");
+  await page.keyboard.up("Space");
+  await expect(page.getByText("1 reviewed this session", { exact: true })).toBeVisible();
+  await expect(meaning).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

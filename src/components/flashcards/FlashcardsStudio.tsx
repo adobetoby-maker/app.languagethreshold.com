@@ -510,12 +510,12 @@ export function FlashcardsStudio() {
 
   const grade = useCallback(
     (g: SrsGrade) => {
-      if (!current) return;
+      if (!current || !flipped) return;
       reviewCard(current.id, g);
       setFlipped(false);
       setReviewedCount((n) => n + 1);
     },
-    [current, reviewCard],
+    [current, flipped, reviewCard],
   );
 
   useEffect(() => {
@@ -526,9 +526,13 @@ export function FlashcardsStudio() {
       if (target?.closest("button") && !target.closest('[data-testid="flashcards-study-card"]'))
         return;
 
+      if (e.repeat) {
+        if (["Enter", " ", "1", "2", "3", "4"].includes(e.key)) e.preventDefault();
+        return;
+      }
       if (e.key === "Enter") {
         e.preventDefault();
-        if (!flipped) setFlipped(true);
+        setFlipped((value) => !value);
         return;
       }
       if (e.key === " ") {
@@ -600,86 +604,101 @@ export function FlashcardsStudio() {
             data-testid="flashcards-study-card"
             aria-label="Flip flashcard"
             onClick={() => setFlipped((f) => !f)}
-            className="flex min-h-[260px] w-full max-w-xl flex-col items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
+            className="grid min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
           >
-            {!flipped ? (
-              <>
-                <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {current.partOfSpeech ?? "word"} · tap to flip
+            <div
+              aria-hidden={flipped}
+              className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
+            >
+              <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                {current.partOfSpeech ?? "word"} · tap to flip
+              </span>
+              {language === "Japanese" && showFurigana ? (
+                <span className="font-display text-4xl text-foreground leading-tight">
+                  <FuriganaText text={current.word} mode="above" script="hiragana" />
                 </span>
-                {language === "Japanese" && showFurigana ? (
-                  <span className="font-display text-4xl text-foreground leading-tight">
-                    <FuriganaText text={current.word} mode="above" script="hiragana" />
-                  </span>
-                ) : (
-                  <span className="font-display text-4xl text-foreground">{current.word}</span>
-                )}
-                {current.romanization && (
-                  <span className="mt-2 font-mono text-sm text-gold/80">
-                    {current.romanization}
-                  </span>
-                )}
-              </>
-            ) : (
-              <>
-                <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-                  ✦ translation
-                </span>
-                <span className="font-display text-3xl text-foreground">{current.translation}</span>
+              ) : (
+                <span className="font-display text-4xl text-foreground">{current.word}</span>
+              )}
+              {current.romanization && (
+                <span className="mt-2 font-mono text-sm text-gold/80">{current.romanization}</span>
+              )}
+            </div>
+            <div
+              aria-hidden={!flipped}
+              className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
+            >
+              <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                ✦ translation
+              </span>
+              <span className="font-display text-3xl text-foreground">{current.translation}</span>
 
-                {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
-                {japaneseConjugation && (
-                  <div className="mt-4 w-full max-w-sm space-y-2">
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        て{" "}
-                        <span className="text-foreground">
-                          {japaneseConjugation.teForm ?? japaneseConjugation.bases.te}
-                        </span>
+              {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
+              {japaneseConjugation && (
+                <div className="mt-4 w-full max-w-sm space-y-2">
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                      て{" "}
+                      <span className="text-foreground">
+                        {japaneseConjugation.teForm ?? japaneseConjugation.bases.te}
                       </span>
-                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        た{" "}
-                        <span className="text-foreground">
-                          {japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}
-                        </span>
+                    </span>
+                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                      た{" "}
+                      <span className="text-foreground">
+                        {japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}
                       </span>
-                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        -masu{" "}
-                        <span className="text-foreground">
-                          {japaneseConjugation.forms.polite.present}
-                        </span>
+                    </span>
+                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                      -masu{" "}
+                      <span className="text-foreground">
+                        {japaneseConjugation.forms.polite.present}
                       </span>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-1.5">
-                      {(["a", "i", "u", "e", "te"] as const).map((b) => (
-                        <span
-                          key={b}
-                          className="rounded-md bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                        >
-                          <span className="opacity-60 uppercase">{b}</span>{" "}
-                          <span className="text-foreground">{japaneseConjugation.bases[b]}</span>
-                        </span>
-                      ))}
-                    </div>
+                    </span>
                   </div>
-                )}
+                  <div className="flex flex-wrap justify-center gap-1.5">
+                    {(["a", "i", "u", "e", "te"] as const).map((b) => (
+                      <span
+                        key={b}
+                        className="rounded-md bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                      >
+                        <span className="opacity-60 uppercase">{b}</span>{" "}
+                        <span className="text-foreground">{japaneseConjugation.bases[b]}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-                {current.example && (
-                  <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
-                    <p className="font-display text-base italic text-foreground">
-                      {language === "Japanese" && showFurigana ? (
-                        <FuriganaText text={current.example} mode="above" script="hiragana" />
-                      ) : (
-                        `"${current.example}"`
-                      )}
-                    </p>
-                    <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-                      {current.exampleTranslation}
-                    </p>
-                  </div>
-                )}
-              </>
-            )}
+              {current.example && (
+                <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
+                  <p className="font-display text-base italic text-foreground">
+                    {language === "Japanese" && showFurigana ? (
+                      <FuriganaText text={current.example} mode="above" script="hiragana" />
+                    ) : (
+                      `"${current.example}"`
+                    )}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                    {current.exampleTranslation}
+                  </p>
+                </div>
+              )}
+            </div>
+            <span className="col-start-1 row-start-2 mt-4 grid text-xs leading-relaxed text-muted-foreground">
+              <span
+                aria-hidden={flipped}
+                className={`col-start-1 row-start-1 ${flipped ? "invisible" : ""}`}
+              >
+                Tap, Enter or Space to reveal translation
+              </span>
+              <span
+                aria-hidden={!flipped}
+                className={`col-start-1 row-start-1 ${flipped ? "" : "invisible"}`}
+              >
+                Tap or Enter: flip back · Space: accept (Good) · 1–4: grade
+              </span>
+            </span>
           </button>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
@@ -715,26 +734,26 @@ export function FlashcardsStudio() {
           </div>
 
           <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground/70">
-            {flipped ? "space next · 1-4 grade" : "enter / space to flip"}
+            Flip to reveal the answer, then choose a grade below.
           </div>
 
-          {flipped && (
-            <div className="grid w-full max-w-xl grid-cols-4 gap-2">
-              {GRADE_BUTTONS.map((b, i) => (
-                <button
-                  key={b.grade}
-                  onClick={() => grade(b.grade)}
-                  className={`flex flex-col items-center rounded-xl border px-2 py-3 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${b.cls}`}
-                >
-                  {b.label}
-                  <span className="mt-0.5 text-[9px] opacity-70">{b.hint}</span>
-                  <span className="mt-1 rounded border border-current/30 px-1 text-[8px] opacity-60">
-                    {i + 1}
-                  </span>
-                </button>
-              ))}
-            </div>
-          )}
+          <div data-testid="flashcards-grading" className="grid w-full max-w-xl grid-cols-4 gap-2">
+            {GRADE_BUTTONS.map((b, i) => (
+              <button
+                key={b.grade}
+                onClick={() => grade(b.grade)}
+                disabled={!flipped}
+                title={!flipped ? "Flip the card before grading" : b.label}
+                className={`flex flex-col items-center rounded-xl border px-2 py-3 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${b.cls}`}
+              >
+                {b.label}
+                <span className="mt-0.5 text-[9px] opacity-70">{b.hint}</span>
+                <span className="mt-1 rounded border border-current/30 px-1 text-[8px] opacity-60">
+                  {i + 1}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       ) : (
         <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-card/30 p-14 text-center backdrop-blur">
@@ -956,6 +975,7 @@ export function FlashcardsStudio() {
               conjugation={conjugation}
               personLabels={personLabels}
               onSpeak={speak}
+              showTranslation={flipped}
             />
           </div>
         )}
@@ -965,10 +985,18 @@ export function FlashcardsStudio() {
             <div className="mb-3 flex items-center gap-2 px-1">
               <BookOpen className="h-3.5 w-3.5 text-gold" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Verb structure · {japaneseConjugation.infinitive} · {japaneseConjugation.english}
+                Verb structure · {japaneseConjugation.infinitive}
+                <span aria-hidden={!flipped} className={flipped ? "" : "invisible"}>
+                  {" "}
+                  · {japaneseConjugation.english}
+                </span>
               </span>
             </div>
-            <JapaneseConjugationCard set={japaneseConjugation} onSpeak={speak} />
+            <JapaneseConjugationCard
+              set={japaneseConjugation}
+              onSpeak={speak}
+              showTranslation={flipped}
+            />
           </div>
         )}
         {!conjugation && !japaneseConjugation && activeCard && (
@@ -983,12 +1011,24 @@ export function FlashcardsStudio() {
                 : "Word usage"}{" "}
               · {activeCard.word}
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">{activeCard.translation}</p>
+            <p
+              data-testid="usage-meaning"
+              aria-hidden={!flipped}
+              className={`mt-1 text-sm text-muted-foreground ${flipped ? "" : "invisible"}`}
+            >
+              {activeCard.translation}
+            </p>
             {usageExample ? (
               <div className="mt-3 rounded-lg bg-background/40 p-3">
                 <p className="mb-1 text-xs font-semibold text-gold">Example</p>
                 <p className="font-display text-lg text-foreground">{usageExample.target}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{usageExample.native}</p>
+                <p
+                  data-testid="usage-translation"
+                  aria-hidden={!flipped}
+                  className={`mt-1 text-sm text-muted-foreground ${flipped ? "" : "invisible"}`}
+                >
+                  {usageExample.native}
+                </p>
                 <button
                   type="button"
                   onClick={() => speak(usageExample.target)}
@@ -1141,7 +1181,9 @@ function ConjugationCard({
   conjugation,
   personLabels,
   onSpeak,
+  showTranslation,
 }: {
+  showTranslation: boolean;
   conjugation: ConjugationSet;
   personLabels: { s1: string; s2: string; s3: string; p1: string; p2: string; p3: string };
   onSpeak: (word: string) => void;
@@ -1235,7 +1277,12 @@ function ConjugationCard({
           {conjugation.commonUses.map((u, i) => (
             <div key={i} className="flex items-baseline gap-2">
               <span className="font-display text-[13px] italic text-foreground">"{u.phrase}"</span>
-              <span className="font-mono text-[10px] text-muted-foreground">— {u.translation}</span>
+              <span
+                aria-hidden={!showTranslation}
+                className={`font-mono text-[10px] text-muted-foreground ${showTranslation ? "" : "invisible"}`}
+              >
+                — {u.translation}
+              </span>
             </div>
           ))}
         </div>

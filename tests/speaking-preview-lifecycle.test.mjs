@@ -77,7 +77,9 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       recognitions = [],
       timers = new Map();
     let timer = 0;
+    let speechQueueResets = 0;
     globalThis.window = {
+      speechSynthesis: { cancel() { speechQueueResets++; } },
       SpeechRecognition: class {
         constructor() {
           recognitions.push(this);
@@ -192,6 +194,17 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     const audio = c.audio.at(-1),
       start = audio.opts.onPlaybackStart;
     start();
+    tree = render();
+    assert.ok(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+    );
+    button(tree, "Stop reply — my turn").props.onClick();
+    assert.equal(audio.opts.signal.aborted, true, "learner can release a stuck second reply");
+    tree = render();
+    assert.notEqual(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+      true,
+    );
     audio.resolve();
     await tick();
     tree = render();
@@ -205,6 +218,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
     const silent = recognitions.at(-1);
+    assert.equal(speechQueueResets, 1, "second-turn microphone tap releases the prior device speech queue");
     silent.stop = () => {};
     tree = render();
     const beforeStop = new Set(timers.keys());

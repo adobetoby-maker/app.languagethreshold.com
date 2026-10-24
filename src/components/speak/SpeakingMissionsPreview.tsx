@@ -1115,6 +1115,9 @@ export function SpeakingMissionsPreview({
     }
     try {
       stopAudio();
+      // iPhone can retain the device speech queue after its reply has ended.
+      // Release it in this microphone tap before starting the next recognition.
+      window.speechSynthesis?.cancel();
       const recognition = new Constructor();
       recognition.lang = missionLocale;
       recognition.continuous = false;
@@ -2288,6 +2291,11 @@ export function SpeakingMissionsPreview({
       </p>
 
       <div className="mt-5 flex flex-col items-center gap-3">
+        {partnerSpeaking && (
+          <button type="button" onClick={stopAudio} className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold">
+            Stop reply — my turn
+          </button>
+        )}
         {recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
             Speech recognition is unavailable in this browser. Use the typed answer field above.

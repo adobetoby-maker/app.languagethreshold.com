@@ -7,10 +7,9 @@ const tick = () => new Promise((r) => setImmediate(r));
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/remote-owner-"));
   const saved = Object.fromEntries(
-    ["fetch", "Audio", "window", "SpeechSynthesisUtterance"].map((k) => [
-      k,
-      Object.getOwnPropertyDescriptor(globalThis, k),
-    ]),
+    ["fetch", "Audio", "window", "SpeechSynthesisUtterance", "setTimeout", "clearTimeout"].map(
+      (k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)],
+    ),
   );
   const urls = { create: URL.createObjectURL, revoke: URL.revokeObjectURL };
   try {
@@ -44,6 +43,14 @@ async function fixture(run) {
     });
     const m = await import(join(dir, "case.mjs")),
       c = m.c;
+    c.timers = new Map();
+    c.play = () => Promise.resolve();
+    globalThis.setTimeout = (fn, ms) => {
+      const id = { unref() {} };
+      c.timers.set(id, { fn, ms });
+      return id;
+    };
+    globalThis.clearTimeout = (id) => c.timers.delete(id);
     let current = true;
     const owner = { userId: "a", isCurrent: () => current };
     globalThis.fetch = (url, opts) =>
@@ -66,7 +73,7 @@ async function fixture(run) {
       }
       load() {}
       play() {
-        return Promise.resolve();
+        return c.play();
       }
     };
     globalThis.SpeechSynthesisUtterance = class {
@@ -234,4 +241,72 @@ test("routed abort cannot stop a newer direct mission voice while old credential
     assert.equal(audio.src, url);
     audio.onended();
     await direct;
+  }));
+
+test("generated reply whose play promise never settles times out and permits the next reply", () =>
+  fixture(async ({ m, c, opts }) => {
+    c.play = () => new Promise(() => {});
+    const work = m.speakMissionTts(opts);
+    const rejected = assert.rejects(work, /Partner audio stopped responding/);
+    c.sessions.shift()(auth());
+    await tick();
+    c.requests.at(-1).resolve(reply());
+    await tick();
+    const timeout = [...c.timers.values()][0];
+    assert.equal(timeout.ms, 8000);
+    timeout.fn();
+    await rejected;
+    assert.equal(c.audio[0].paused, true);
+    assert.equal(c.timers.size, 0);
+    assert.deepEqual(c.revoked, c.created);
+    c.play = () => Promise.resolve();
+    const next = m.speakMissionTts(opts);
+    c.sessions.shift()(auth());
+    await tick();
+    c.requests.at(-1).resolve(reply());
+    await tick();
+    const ended = c.audio[0].onended;
+    timeout.fn();
+    assert.equal(c.audio[0].onended, ended, "late deadline cannot stop newer playback");
+    c.audio[0].onended();
+    await next;
+    assert.equal(c.timers.size, 0);
+  }));
+
+test("generated reply missing its ended event releases playback after the duration deadline", () =>
+  fixture(async ({ m, c, opts }) => {
+    const work = m.speakMissionTts(opts);
+    const rejected = assert.rejects(work, /Partner audio stopped responding/);
+    c.sessions.shift()(auth());
+    await tick();
+    c.requests.at(-1).resolve(reply());
+    await tick();
+    const deadline = [...c.timers.values()][0];
+    assert.ok(deadline.ms >= 5000 && deadline.ms <= 90_000);
+    deadline.fn();
+    await rejected;
+    assert.equal(c.audio[0].onended, null);
+    assert.equal(c.timers.size, 0);
+    assert.deepEqual(c.revoked, c.created);
+  }));
+
+test("installed device reply missing end events settles and a second turn can play", () =>
+  fixture(async ({ m, c, owner }) => {
+    let starts = 0;
+    const first = m.speakRemote("First device reply", "es-CR", { deviceOnly: true, owner });
+    const utterance = c.utterances.at(-1);
+    utterance.onstart();
+    [...c.timers.values()][0].fn();
+    await first;
+    assert.equal(c.timers.size, 0);
+    const second = m.speakRemote("Second device reply", "es-CR", {
+      deviceOnly: true,
+      owner,
+      onPlaybackStart: () => starts++,
+    });
+    c.utterances.at(-1).onstart();
+    c.utterances.at(-1).onend();
+    await second;
+    assert.equal(starts, 1);
+    assert.equal(c.timers.size, 0);
   }));

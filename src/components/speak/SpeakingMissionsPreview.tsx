@@ -550,6 +550,11 @@ export function SpeakingMissionsPreview({
     stopAudio();
   }, [stopAudio]);
 
+  const activeCatalogModuleId =
+    appState.activeModuleId === "core"
+      ? "core-speaking"
+      : speakingCatalogModuleId(appState.activeModuleId ?? "");
+
   useEffect(() => {
     sessionOwnerRef.current = null;
     setAgeSaving(false);
@@ -564,13 +569,24 @@ export function SpeakingMissionsPreview({
     setStatus("ready");
     setWordRequest(null);
     setSelectedMission(null);
-    setCatalogModuleId(coreEntryRequestedRef.current ? "core-speaking" : null);
+    // Carry the current lesson module into Speak once per context change. Keep this
+    // independent of catalog hydration so All modules and Travel remain usable.
+    // Unavailable modules naturally fall back to the full catalog below.
+    setCatalogModuleId(
+      coreEntryRequestedRef.current ? "core-speaking" : activeCatalogModuleId || null,
+    );
     coreEntryRequestedRef.current = false;
     setCatalogCategory("All");
     setCatalogSearch("");
     setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
-  }, [appState.selectedLanguage, appState.activeModuleId, actor]);
+  }, [
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+    appState.activeModuleId,
+    activeCatalogModuleId,
+    actor,
+  ]);
 
   useEffect(() => {
     if (started) return;

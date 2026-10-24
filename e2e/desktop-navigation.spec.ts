@@ -234,3 +234,56 @@ test('Speak keeps a selected country lens collapsed and editable after save and 
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:`test-results/country-lens-${test.info().project.name}.png`});
 });
+
+test("Speak opens the current module missions and lets learners browse other modules", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto(appUrl({ tab: "core30", module: "roofing" }));
+  await expect(page.getByTestId("continue-learning")).toBeVisible();
+  const before = await readAppState(page);
+  const navigation = page.getByRole("navigation", {
+    name: isMobile ? "Primary" : "Desktop navigation",
+    exact: true,
+  });
+  await navigation.getByRole("button", { name: "Speak", exact: true }).click();
+  const moduleHeading = page.getByRole("heading", {
+    name: "🏠 Roofing Foreman",
+    exact: true,
+    level: 3,
+  });
+  await expect(moduleHeading).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "All Spanish modules", exact: true }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(moduleHeading).toBeVisible();
+  await page
+    .getByRole("button", { name: "All Spanish modules", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "All Spanish modules", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: /Core Speaking/, level: 3 }),
+  ).toBeVisible();
+  // Local browsing must not change the learner's selected lesson module.
+  expect((await readAppState(page)).activeModuleId).toBe("roofing");
+  await page.goto(appUrl({ tab: "speak", module: "core" }));
+  await expect(
+    page.getByRole("heading", { name: /Core Speaking/, level: 3 }),
+  ).toBeVisible();
+  await page.goto(appUrl({ tab: "speak", module: "roofing" }));
+  await expect(moduleHeading).toBeVisible();
+  const after = await readAppState(page);
+  expect(after.lessonProgress).toEqual(before.lessonProgress);
+  expect(after.core30Log).toEqual(before.core30Log);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: `test-results/speak-module-${test.info().project.name}.png`,
+  });
+});

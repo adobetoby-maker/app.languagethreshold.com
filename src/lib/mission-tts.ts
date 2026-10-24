@@ -317,7 +317,22 @@ export async function speakMissionTts({
 
     await new Promise<void>((resolve, reject) => {
       let settled = false;
+      let watchdog: ReturnType<typeof setTimeout> | undefined;
+      const arm = (milliseconds: number) => {
+        if (watchdog !== undefined) clearTimeout(watchdog);
+        watchdog = setTimeout(() => {
+          if (settled) return;
+          if (ownsGeneration()) audio.pause();
+          finish(
+            new Error(
+              "Partner audio stopped responding. Your turn is available; tap the reply’s speaker button to retry audio.",
+            ),
+          );
+        }, milliseconds);
+        (watchdog as { unref?: () => void }).unref?.();
+      };
       const cleanup = () => {
+        if (watchdog !== undefined) clearTimeout(watchdog);
         if (!ownsGeneration()) return;
         audio.onended = null;
         audio.onerror = null;
@@ -340,10 +355,20 @@ export async function speakMissionTts({
         if (cacheKey && current()) void forgetTtsAudio(cacheKey, owner?.userId);
         finish(new Error("The generated audio could not play."));
       };
+      // Safari can leave play() pending or omit ended after audio has finished.
+      // Neither case should hold the learner's next turn indefinitely.
+      arm(8000);
       audio
         .play()
         .then(() => {
-          if (!settled && current()) onPlaybackStart?.();
+          if (!settled && current()) {
+            const duration =
+              Number.isFinite(audio.duration) && audio.duration > 0
+                ? (audio.duration * 1000) / Math.max(audio.playbackRate, 0.5)
+                : (text.length * 110) / Math.max(speakingRate, 0.5);
+            arm(Math.min(90_000, Math.max(5000, duration + 3000)));
+            onPlaybackStart?.();
+          }
         })
         .catch((error) => finish(error));
     });

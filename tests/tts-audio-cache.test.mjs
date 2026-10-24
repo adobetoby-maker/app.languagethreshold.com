@@ -702,7 +702,7 @@ test("reset to first run clears every user's cached audio and the auth listener 
 
 const waitUntil = async (predicate, label) => {
   for (let i = 0; i < 200; i++) {
-    if (predicate()) return;
+    if (await predicate()) return;
     await tick();
   }
   assert.fail(`timed out waiting for ${label}`);
@@ -1299,6 +1299,12 @@ test("prefetchTts is gone and mission usage is never read from or written to the
     assert.equal(storedEntries(env.caches), 0, "nothing persisted for mission usage");
 
     await speak.mod.speakMissionTts(learner("tu respuesta"));
+    // This fixture ends playback in a microtask. Real cache writes also hash the
+    // request asynchronously, so playback completion need not mean the clip is cached yet.
+    await waitUntil(
+      async () => Boolean(await speak.mod.lookupTtsAudio(requestFor("tu respuesta"), "user-a")),
+      "learning cache write",
+    );
     await speak.mod.speakMissionTts(learner("tu respuesta"));
     assert.equal(speak.requests.length, 4, "learning usage still caches");
   } finally {

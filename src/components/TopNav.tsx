@@ -14,6 +14,7 @@ import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
+import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
 import { VoicePicker } from "./VoicePicker";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
@@ -118,6 +119,7 @@ export function TopNav() {
             >
               <p className="text-sm font-semibold">Learning settings</p>
               <DeviceVoiceHelp />
+              <AudioRoutingSettings />
               <PracticeBarSetting />
               <DropdownMenu>
                 <DropdownMenuTrigger

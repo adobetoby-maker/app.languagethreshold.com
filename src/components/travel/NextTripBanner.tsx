@@ -19,6 +19,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
   const plan = state.nextTrips[state.selectedLanguage] ?? null;
   const selected = getMatchingDestination(plan?.destinationId, state.selectedLanguage);
   const [editing, setEditing] = useState(!selected);
+  const [expanded, setExpanded] = useState(false);
   const [destinationInput, setDestinationInput] = useState(plan?.destinationId ?? "");
   const [dateInput, setDateInput] = useState(plan?.departureDate ?? "");
 
@@ -26,6 +27,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
     setDestinationInput(plan?.destinationId ?? "");
     setDateInput(plan?.departureDate ?? "");
     setEditing(!selected);
+    setExpanded(false);
   }, [plan?.departureDate, plan?.destinationId, selected, state.selectedLanguage]);
 
   if (destinations.length === 0) return null;
@@ -40,6 +42,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
       },
     });
     setEditing(false);
+    setExpanded(false);
   };
 
   const clear = () => {
@@ -50,6 +53,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
     setDestinationInput("");
     setDateInput("");
     setEditing(true);
+    setExpanded(false);
   };
 
   const daysRemaining = plan?.departureDate ? daysUntil(plan.departureDate) : null;
@@ -62,16 +66,20 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
           Math.min(100, Math.round(((prepWindowDays - daysRemaining) / prepWindowDays) * 100)),
         );
 
-  if (compact && selected && !editing) {
+  if (compact && selected && !editing && !expanded) {
     return (
-      <section className="rounded-2xl border border-cyan-400/30 bg-cyan-400/5 p-4">
+      <section
+        data-testid="next-trip-summary"
+        aria-label="Selected country lens"
+        className="rounded-2xl border border-cyan-400/30 bg-cyan-400/5 p-3"
+      >
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-2xl" aria-hidden>
             {selected.flag}
           </span>
           <div className="min-w-0 flex-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">
-              Next trip · {state.selectedLanguage}
+              Country lens
             </p>
             <p className="mt-0.5 font-serif text-lg text-foreground">
               {selected.country}
@@ -89,8 +97,17 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
           )}
           <button
             type="button"
+            onClick={() => setExpanded(true)}
+            aria-label="Show country lens details"
+            className="min-h-11 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
+          >
+            Details
+          </button>
+          <button
+            type="button"
             onClick={() => setEditing(true)}
-            className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:border-cyan-300/60 hover:text-cyan-200"
+            aria-label="Edit next trip"
+            className="min-h-11 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:border-cyan-300/60 hover:text-cyan-200"
           >
             Edit
           </button>
@@ -122,14 +139,26 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
             </p>
           </div>
           {selected && !editing && (
-            <button
-              type="button"
-              onClick={() => setEditing(true)}
-              aria-label="Edit next trip"
-              className="shrink-0 rounded-full border border-border p-2 text-muted-foreground hover:border-cyan-300/60 hover:text-cyan-200"
-            >
-              <Pencil className="h-3.5 w-3.5" />
-            </button>
+            <>
+              {compact && (
+                <button
+                  type="button"
+                  onClick={() => setExpanded(false)}
+                  aria-label="Collapse country lens details"
+                  className="min-h-11 rounded-full border border-border px-3 py-2 text-xs text-muted-foreground"
+                >
+                  Collapse
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setEditing(true)}
+                aria-label="Edit next trip"
+                className="shrink-0 rounded-full border border-border p-2 text-muted-foreground hover:border-cyan-300/60 hover:text-cyan-200"
+              >
+                <Pencil className="h-3.5 w-3.5" />
+              </button>
+            </>
           )}
         </div>
 

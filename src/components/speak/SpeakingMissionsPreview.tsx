@@ -58,12 +58,14 @@ import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry, consumeSpeakingMissionRequest } from "@/lib/speaking-navigation";
 import { browserReturnStorage, lessonMissionPrefix, readLessonReturn } from "@/lib/lesson-return";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
+import { speechRecognitionErrorMessage } from "@/lib/speech-recognition-errors";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
 import { PinyinText } from "@/components/reader/PinyinText";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { WatchTalkControl } from "./WatchTalkControl";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
+import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
@@ -120,8 +122,10 @@ type SpeechRecognitionEventLike = {
 
 type SpeechRecognitionErrorEventLike = { error?: string };
 
-/** How long Stop waits for the browser's onend before finishing the turn itself. */
+/** With text already available, recover promptly if the browser drops onend. */
 const STOP_FALLBACK_MS = 1200;
+/** Empty results may still be in transit after Stop; don't abort them after 1.2s. */
+const TRANSCRIPT_WAIT_MS = 8000;
 
 function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
   if (typeof window === "undefined") return null;
@@ -229,7 +233,15 @@ export function SpeakingMissionsPreview({
   }, [embeddedMissionPrefix]);
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
-  const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
+  const {
+    accent,
+    accentsForLanguage = [],
+    rate,
+    setAccent,
+    setRate,
+    voiceURI,
+    setVoiceURI,
+  } = useSpeech();
   const { session, isCurrentUser } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
@@ -251,6 +263,7 @@ export function SpeakingMissionsPreview({
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
+  const [finishingSpeech, setFinishingSpeech] = useState(false);
   const [objectiveIds, setObjectiveIds] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
@@ -273,6 +286,10 @@ export function SpeakingMissionsPreview({
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const finishRecognitionRef = useRef<(() => void) | null>(null);
+  const cancelRecognitionRef = useRef<(() => void) | null>(null);
+  const stoppingRecognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const recognitionHasTextRef = useRef(false);
+  const recognitionStopTimerRef = useRef<number | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const viewTopRef = useRef<HTMLElement | null>(null);
@@ -306,7 +323,9 @@ export function SpeakingMissionsPreview({
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
   const tripDestination = getTravelDestination(tripPlan?.destinationId);
   const activeTravelDestination =
-    tripDestination?.language === missionLanguage ? tripDestination : null;
+    selectedMission?.specialty === "Travel" && tripDestination?.language === missionLanguage
+      ? tripDestination
+      : null;
   const languageModules = useMemo(
     () => (missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : []),
     [appState.nativeLanguage, missionLanguage],
@@ -323,7 +342,7 @@ export function SpeakingMissionsPreview({
       availableModuleIds.has(speakingCatalogModuleId(mission.moduleId)),
     );
   }, [languageModules, allLanguageMissions]);
-  const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
+  const missionLocale = accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const {
     key: lifecycleKey,
@@ -373,13 +392,29 @@ export function SpeakingMissionsPreview({
       : partnerAudioSource === "text"
         ? true
         : ttsStatus === "ready" && partnerVoice !== null;
-  const voiceRegionLabel = activeTravelDestination
-    ? `${activeTravelDestination.flag} ${activeTravelDestination.country}`
-    : missionLocale === "es-CR"
-      ? "Neutral Costa Rica"
-      : missionLocale === "en-US"
-        ? "Neutral United States"
-        : missionLocale;
+  const voiceRegionLabel =
+    accentsForLanguage.find((option) => option.code === missionLocale)?.label ?? missionLocale;
+  const accentControl = (
+    <label className="grid gap-1 text-sm">
+      <span className="font-semibold text-foreground">Speaking accent</span>
+      <select
+        aria-label="Speaking accent"
+        value={accent}
+        onChange={(event) => setAccent(event.target.value)}
+        className="min-h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-foreground sm:max-w-sm"
+      >
+        {accentsForLanguage.map((option) => (
+          <option key={option.code} value={option.code}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <span className="text-xs leading-relaxed text-muted-foreground">
+        Uses your app voice accent for playback and microphone language. Available voices vary by
+        device.
+      </span>
+    </label>
+  );
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
     () => [...new Set(languageModules.map((module) => module.category))],
@@ -430,11 +465,6 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     setRecognitionSupported(recognitionConstructor() !== null);
   }, []);
-
-  useEffect(() => {
-    if (!activeTravelDestination || accent === activeTravelDestination.ttsLocale) return;
-    setAccent(activeTravelDestination.ttsLocale);
-  }, [accent, activeTravelDestination, setAccent]);
 
   useEffect(() => {
     let active = true;
@@ -537,8 +567,14 @@ export function SpeakingMissionsPreview({
 
   const stopActiveWork = useCallback(() => {
     cancelRef.current();
+    setFinishingSpeech(false);
     stopAudio();
   }, [stopAudio]);
+
+  const activeCatalogModuleId =
+    appState.activeModuleId === "core"
+      ? "core-speaking"
+      : speakingCatalogModuleId(appState.activeModuleId ?? "");
 
   useEffect(() => {
     sessionOwnerRef.current = null;
@@ -548,18 +584,30 @@ export function SpeakingMissionsPreview({
     setTurns([]);
     setTypedTurn("");
     setInterim("");
+    setFinishingSpeech(false);
     setObjectiveIds([]);
     setPartnerSpeaking(false);
     setStatus("ready");
     setWordRequest(null);
     setSelectedMission(null);
-    setCatalogModuleId(coreEntryRequestedRef.current ? "core-speaking" : null);
+    // Carry the current lesson module into Speak once per context change. Keep this
+    // independent of catalog hydration so All modules and Travel remain usable.
+    // Unavailable modules naturally fall back to the full catalog below.
+    setCatalogModuleId(
+      coreEntryRequestedRef.current ? "core-speaking" : activeCatalogModuleId || null,
+    );
     coreEntryRequestedRef.current = false;
     setCatalogCategory("All");
     setCatalogSearch("");
     setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
-  }, [appState.selectedLanguage, appState.activeModuleId, actor]);
+  }, [
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+    appState.activeModuleId,
+    activeCatalogModuleId,
+    actor,
+  ]);
 
   useEffect(() => {
     if (started) return;
@@ -1106,24 +1154,36 @@ export function SpeakingMissionsPreview({
     const Constructor = recognitionConstructor();
     if (!Constructor) {
       setErrorMessage(
-        "Speech recognition is unavailable in this browser. Use a supported browser such as Chrome or Safari.",
+        "Speech recognition is unavailable in this browser. Use keyboard dictation or type your answer, or open this website in Safari or Chrome.",
       );
       setStatus("error");
       return;
     }
     try {
       stopAudio();
+      // iPhone can retain the device speech queue after its reply has ended.
+      // Release it in this microphone tap before starting the next recognition.
+      window.speechSynthesis?.cancel();
       const recognition = new Constructor();
       recognition.lang = missionLocale;
       recognition.continuous = false;
       recognition.interimResults = true;
       let ended = false;
+      recognitionHasTextRef.current = false;
       const current = () => lease.isCurrent() && recognitionRef.current === recognition && !ended;
       const dispose = () => {
         recognition.onresult = null;
         recognition.onerror = null;
         recognition.onend = null;
-        if (recognitionRef.current === recognition) recognitionRef.current = null;
+        if (recognitionRef.current === recognition) {
+          recognitionRef.current = null;
+          stoppingRecognitionRef.current = null;
+          cancelRecognitionRef.current = null;
+          if (recognitionStopTimerRef.current !== null) {
+            window.clearTimeout(recognitionStopTimerRef.current);
+            recognitionStopTimerRef.current = null;
+          }
+        }
         if (finishRecognitionRef.current === finish) finishRecognitionRef.current = null;
         try {
           recognition.abort();
@@ -1135,7 +1195,6 @@ export function SpeakingMissionsPreview({
       const finalResults = new Map<number, string>();
       let finalText = "";
       let latestInterimText = "";
-      let recognitionError: string | null = null;
       recognition.onresult = (event) => {
         if (!current()) return;
         let interimText = "";
@@ -1149,15 +1208,22 @@ export function SpeakingMissionsPreview({
           .map(([, value]) => value)
           .join(" ");
         if (interimText) latestInterimText = interimText;
+        recognitionHasTextRef.current = Boolean(finalText.trim() || latestInterimText.trim());
         setInterim(interimText);
+        if (stoppingRecognitionRef.current === recognition && finalText.trim()) finish();
       };
       recognition.onerror = (event) => {
         if (!current()) return;
-        recognitionError = event?.error ?? "unknown";
-        if (recognitionError !== "no-speech" && recognitionError !== "aborted") {
-          setErrorMessage(`Microphone error: ${recognitionError}. Try again or type your answer.`);
-          setStatus("error");
-        }
+        // Some browsers omit onend after an error. Release immediately so a new
+        // user gesture can retry, and never auto-send a failed partial transcript.
+        ended = true;
+        release();
+        dispose();
+        setInterim("");
+        setFinishingSpeech(false);
+        const error = event?.error ?? "unknown";
+        setStatus(error === "aborted" ? "ready" : "error");
+        setErrorMessage(error === "aborted" ? null : speechRecognitionErrorMessage(error));
       };
       // iOS Safari can skip onend after partner audio played, so Stop also calls this directly.
       const finish = () => {
@@ -1166,6 +1232,7 @@ export function SpeakingMissionsPreview({
         release();
         dispose();
         setInterim("");
+        setFinishingSpeech(false);
         const capturedText = bestAvailableSpeechTranscript(finalText, latestInterimText);
         if (capturedText) {
           setTypedTurn(capturedText);
@@ -1177,17 +1244,24 @@ export function SpeakingMissionsPreview({
           }
           return;
         }
-        if (recognitionError === "aborted") return;
         setStatus((current) => (current === "error" ? current : "ready"));
         setErrorMessage(
-          recognitionError === "no-speech"
-            ? "I did not hear speech. Tap Retry, or use the keyboard microphone in the answer box."
-            : "No transcript was returned. Tap Retry, or use the keyboard microphone in the answer box.",
+          "No transcript was returned. Use Test microphone to check the audio input, then retry, use keyboard dictation, or type your answer.",
         );
       };
       recognition.onend = finish;
       recognitionRef.current = recognition;
       finishRecognitionRef.current = finish;
+      cancelRecognitionRef.current = () => {
+        if (!current()) return;
+        ended = true;
+        release();
+        dispose();
+        setInterim("");
+        setFinishingSpeech(false);
+        setStatus("ready");
+        setErrorMessage("Transcription cancelled. Your answer was not sent.");
+      };
       try {
         recognition.start();
       } catch (error) {
@@ -1196,6 +1270,7 @@ export function SpeakingMissionsPreview({
         throw error;
       }
       setStatus("listening");
+      setFinishingSpeech(false);
       setErrorMessage(null);
     } catch (error) {
       if (!lease.isCurrent()) return;
@@ -1211,15 +1286,22 @@ export function SpeakingMissionsPreview({
       setStatus((current) => (current === "listening" ? "ready" : current));
       return;
     }
+    if (stoppingRecognitionRef.current === recognition) return;
+    stoppingRecognitionRef.current = recognition;
+    setFinishingSpeech(true);
     try {
       recognition.stop();
     } catch {
       finish();
       return;
     }
-    window.setTimeout(() => {
-      if (recognitionRef.current === recognition) finish();
-    }, STOP_FALLBACK_MS);
+    if (recognitionRef.current !== recognition) return;
+    recognitionStopTimerRef.current = window.setTimeout(
+      () => {
+        if (recognitionRef.current === recognition) finish();
+      },
+      recognitionHasTextRef.current ? STOP_FALLBACK_MS : TRANSCRIPT_WAIT_MS,
+    );
   };
 
   const completedObjectiveCount =
@@ -1337,25 +1419,31 @@ export function SpeakingMissionsPreview({
             </p>
           )}
           <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
-            Practice a real situation
+            Choose your speaking goal
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Choose from {languageMissions.length} missions across {languageModules.length}{" "}
-            {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
-            daily living, then move into specialty practice.
-            Every mission supports woman and man partner versions and does not yet count toward
-            durable mastery.
+            Pick a situation, practice the conversation, and get feedback. Your goal stays visible while you speak.
           </p>
+          <p className="mt-2 text-xs text-muted-foreground">Speaking practice does not mark lessons mastered.</p>
         </div>
-        <div className="mb-5">
-          <NextTripBanner
-            onPracticeTravel={() => {
-              setCatalogModuleId(null);
-              setCatalogCategory("Travel");
-              setCatalogSearch("");
-            }}
-          />
-        </div>
+        <div className="mb-5">{accentControl}</div>
+        {(catalogModule?.category === "Travel" ||
+          (!catalogModule && catalogCategory === "Travel")) && (
+          <div className="mb-5">
+            <NextTripBanner
+              compact
+              onPracticeTravel={() => {
+                setCatalogModuleId(null);
+                setCatalogCategory("Travel");
+                setCatalogSearch("");
+              }}
+            />
+            <p className="mt-2 text-xs text-muted-foreground">
+              Your destination adds local words and travel context. Choose your speaking accent
+              separately above.
+            </p>
+          </div>
+        )}
         {catalogModule ? (
           <>
             <button
@@ -1376,7 +1464,11 @@ export function SpeakingMissionsPreview({
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
                 {catalogModule.id === "core-speaking" || !missionLanguage
                   ? catalogMissions.length
-                  : speakingCatalogMissionCount(languageMissions, catalogModule.id, missionLanguage)}{" "}
+                  : speakingCatalogMissionCount(
+                      languageMissions,
+                      catalogModule.id,
+                      missionLanguage,
+                    )}{" "}
                 speaking missions
               </p>
             </div>
@@ -1552,11 +1644,6 @@ export function SpeakingMissionsPreview({
           </span>
         </div>
         <h2 className="mt-2 font-serif text-3xl text-foreground">{selectedMission.title}</h2>
-        {selectedMission.specialty === "Travel" && (
-          <div className="mt-4">
-            <NextTripBanner compact />
-          </div>
-        )}
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {selectedMission.summary}
         </p>
@@ -1614,12 +1701,19 @@ export function SpeakingMissionsPreview({
           </details>
         </div>
 
+        {selectedMission.specialty === "Travel" && (
+          <div className="mt-4">
+            <NextTripBanner compact />
+          </div>
+        )}
+
         <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
           <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
             <span className="font-semibold text-gold">Set your choices.</span> Tappable choices have
             strong borders; the selected choice is filled gold. The goals and words above are
             reference information, not buttons.
           </div>
+          <div className="mb-4">{accentControl}</div>
           <fieldset>
             <legend className="text-sm font-semibold text-foreground">Choose partner audio</legend>
             <div className="mt-2 grid grid-cols-3 gap-2">
@@ -1656,10 +1750,7 @@ export function SpeakingMissionsPreview({
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
               Phone voice uses a voice installed on this device. Google preselects a short list for
-              {activeTravelDestination
-                ? ` ${activeTravelDestination.country}`
-                : ` ${selectedMission.language}`}
-              . Text-only keeps every mission usable without playback.
+              {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
@@ -1801,10 +1892,8 @@ export function SpeakingMissionsPreview({
                 ))}
               </select>
               <span className="text-xs leading-relaxed text-muted-foreground">
-                {activeTravelDestination
-                  ? `${activeTravelDestination.country} is selected for your trip, so only matching ${missionLocale} voices are shown when Google provides them.`
-                  : `No trip country is selected, so ${voiceRegionLabel} is the preselected textbook-style default.`}{" "}
-                The app preselects one for your partner choice; changing it is optional.
+                Matching {missionLocale} voices are shown when Google provides them. The app
+                preselects one for your partner choice; changing it is optional.
               </span>
               <button
                 type="button"
@@ -2188,6 +2277,8 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
+      <MicrophoneTestDialog key={lifecycleKey} disabled={status === "listening" || status === "thinking" || partnerSpeaking} />
+
       <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
         <div className="flex items-center gap-2 text-gold">
           <Lightbulb className="h-4 w-4" />
@@ -2284,6 +2375,11 @@ export function SpeakingMissionsPreview({
       </p>
 
       <div className="mt-5 flex flex-col items-center gap-3">
+        {partnerSpeaking && (
+          <button type="button" onClick={stopAudio} className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold">
+            Stop reply — my turn
+          </button>
+        )}
         {recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
             Speech recognition is unavailable in this browser. Use the typed answer field above.
@@ -2304,8 +2400,8 @@ export function SpeakingMissionsPreview({
             <button
               type="button"
               onClick={status === "listening" ? stopListening : startListening}
-              disabled={status === "thinking" || partnerSpeaking}
-              aria-label={status === "listening" ? "Stop listening" : "Start listening"}
+              disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
+              aria-label={finishingSpeech ? "Finishing transcription" : status === "listening" ? "Stop listening" : "Start listening"}
               className={
                 "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
                 (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
@@ -2319,7 +2415,7 @@ export function SpeakingMissionsPreview({
             </button>
             <p className="text-sm text-muted-foreground">
               {status === "listening"
-                ? "Listening… tap Stop when you finish"
+                ? finishingSpeech ? "Finishing transcription…" : "Listening… tap Stop when you finish"
                 : partnerSpeaking
                   ? "Partner is speaking… your microphone will unlock afterward"
                   : status === "thinking"
@@ -2327,6 +2423,11 @@ export function SpeakingMissionsPreview({
                     : `Your turn — tap the microphone and answer in ${selectedMission.language}`}
             </p>
           </>
+        )}
+        {finishingSpeech && (
+          <button type="button" onClick={() => cancelRecognitionRef.current?.()} className="min-h-11 rounded-full border px-4 py-2 text-sm">
+            Cancel transcription
+          </button>
         )}
       </div>
 

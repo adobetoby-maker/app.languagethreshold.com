@@ -44,7 +44,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(LongPressWordText|SpeakingConsentDialog))$/,
+                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -64,7 +64,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
- export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent';
+ export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent',MicrophoneTestDialog='mic-test';
  export const Check='span',ChevronLeft='span',Lightbulb='span',Mic='span',RotateCcw='span',Search='span',Send='span',Square='span',X='span';
  `,
             }));
@@ -75,9 +75,16 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     const { SpeakingMissionsPreview, c, SpeakingConsentSaveError } = await import(out),
       requests = [],
       recognitions = [],
-      timers = new Map();
+      timers = new Map(),
+      timerDelays = new Map();
     let timer = 0;
+    let speechQueueResets = 0;
     globalThis.window = {
+      speechSynthesis: {
+        cancel() {
+          speechQueueResets++;
+        },
+      },
       SpeechRecognition: class {
         constructor() {
           recognitions.push(this);
@@ -90,11 +97,15 @@ test("actual speaking missions isolate late replies, playback, microphone and co
           this.aborted = true;
         }
       },
-      setTimeout: (fn) => {
+      setTimeout: (fn, milliseconds) => {
         timers.set(++timer, fn);
+        timerDelays.set(timer, milliseconds);
         return timer;
       },
-      clearTimeout: (id) => timers.delete(id),
+      clearTimeout: (id) => {
+        timers.delete(id);
+        timerDelays.delete(id);
+      },
     };
     globalThis.document = {
       visibilityState: "visible",
@@ -192,6 +203,17 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     const audio = c.audio.at(-1),
       start = audio.opts.onPlaybackStart;
     start();
+    tree = render();
+    assert.ok(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+    );
+    button(tree, "Stop reply — my turn").props.onClick();
+    assert.equal(audio.opts.signal.aborted, true, "learner can release a stuck second reply");
+    tree = render();
+    assert.notEqual(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+      true,
+    );
     audio.resolve();
     await tick();
     tree = render();
@@ -205,6 +227,11 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
     const silent = recognitions.at(-1);
+    assert.equal(
+      speechQueueResets,
+      1,
+      "second-turn microphone tap releases the prior device speech queue",
+    );
     silent.stop = () => {};
     tree = render();
     const beforeStop = new Set(timers.keys());
@@ -212,20 +239,96 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       .find((n) => n.props?.["aria-label"] === "Stop listening")
       .props.onClick();
     tree = render();
-    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Stop listening"));
+    assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Finishing transcription"));
     const fallback = [...timers].filter(([id]) => !beforeStop.has(id));
     assert.equal(fallback.length, 1);
+    assert.equal(
+      timerDelays.get(fallback[0][0]),
+      8000,
+      "empty transcript gets a full grace period, not a 1.2s abort",
+    );
     timers.delete(fallback[0][0]);
     fallback[0][1]();
     tree = render();
     assert.equal(silent.aborted, true);
     assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"));
+    // A browser may emit an error without onend. Each failure must free the
+    // recorder for the next tap and must never submit the partial transcript.
+    const requestsBeforeFailures = requests.length;
+    for (const error of ["not-allowed", "audio-capture", "network", "no-speech", "aborted"]) {
+      const count = recognitions.length;
+      nodes(tree)
+        .find((n) => n.props?.["aria-label"] === "Start listening")
+        .props.onClick();
+      assert.equal(recognitions.length, count + 1, `retry after ${error} starts a fresh recorder`);
+      const failed = recognitions.at(-1);
+      const staleResult = failed.onresult,
+        staleEnd = failed.onend;
+      failed.onresult({
+        resultIndex: 0,
+        results: [
+          Object.assign([{ transcript: "Do not send failed partial" }], { isFinal: false }),
+        ],
+      });
+      failed.onerror({ error });
+      assert.equal(failed.aborted, true);
+      assert.equal(failed.onresult, null);
+      assert.equal(failed.onend, null);
+      staleResult({
+        resultIndex: 0,
+        results: [Object.assign([{ transcript: "Late failed final" }], { isFinal: true })],
+      });
+      staleEnd();
+      await tick();
+      tree = render();
+      if (error === "not-allowed") assert.match(text(tree), /browser settings/);
+      const resume = button(tree, "Resume mission");
+      if (resume) {
+        resume.props.onClick();
+        tree = render();
+      }
+      assert.ok(nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"));
+      assert.equal(
+        requests.length,
+        requestsBeforeFailures,
+        "failed recognition never sends a turn",
+      );
+    }
+    // Cancel while waiting must release the microphone and reject late results.
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    const cancelled = recognitions.at(-1),
+      lateCancelledResult = cancelled.onresult;
+    cancelled.stop = () => {};
+    tree = render();
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Stop listening")
+      .props.onClick();
+    tree = render();
+    button(tree, "Cancel transcription").props.onClick();
+    assert.equal(cancelled.aborted, true);
+    lateCancelledResult({
+      resultIndex: 0,
+      results: [Object.assign([{ transcript: "Do not send cancelled answer" }], { isFinal: true })],
+    });
+    await tick();
+    assert.equal(requests.length, requestsBeforeFailures);
+    tree = render();
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
     const rec = recognitions.at(-1),
       result = rec.onresult,
       end = rec.onend;
+    rec.stop = () => {};
+    tree = render();
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Stop listening")
+      .props.onClick();
+    tree = render();
+    assert.match(text(tree), /Finishing transcription/);
+    assert.equal(rec.aborted, undefined, "stopping capture must not abort pending results");
     const event = {
       resultIndex: 0,
       results: [Object.assign([{ transcript: "QA final" }], { isFinal: true })],
@@ -238,6 +341,11 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     assert.equal(requests.length, 3);
     assert.equal(JSON.parse(requests[2].opts.body).messages.at(-1).content, "QA final");
     assert.equal(rec.onresult, null);
+    assert.equal(
+      [...timers.keys()].filter((id) => timerDelays.get(id) === 8000).length,
+      0,
+      "a late final result clears its grace timer without waiting for onend",
+    );
     c.actor = "b";
     const writes = c.writes,
       actions = c.actions.length;

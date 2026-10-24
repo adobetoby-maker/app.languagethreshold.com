@@ -6,6 +6,8 @@ type MicTestHarness = {
   error: string;
   delay: boolean;
   resolve: null | (() => void);
+  tones: number;
+  finishTone: null | (() => void);
 };
 declare global {
   interface Window {
@@ -21,6 +23,8 @@ async function open(page: Page) {
       error: "",
       delay: false,
       resolve: null as null | (() => void),
+      tones: 0,
+      finishTone: null as null | (() => void),
     };
     Object.assign(window, { micTestHarness: h });
     const media = new EventTarget();
@@ -62,6 +66,25 @@ async function open(page: Page) {
         this.state = "closed";
         h.closed++;
         return Promise.resolve();
+      }
+      currentTime = 0;
+      destination = {};
+      createGain() {
+        return { gain: { value: 0 }, connect() {}, disconnect() {} };
+      }
+      createOscillator() {
+        const tone = {
+          frequency: { value: 0 },
+          onended: null as null | (() => void),
+          connect() {},
+          disconnect() {},
+          start() {
+            h.tones++;
+          },
+          stop() {},
+        };
+        h.finishTone = () => tone.onended?.();
+        return tone;
       }
       createMediaStreamSource() {
         return { connect() {} };
@@ -192,4 +215,32 @@ test("backgrounding stops local capture", async ({ page }) => {
   });
   await expect(dialog.getByRole("status")).toContainText("background");
   expect((await state(page)).stopped).toBe(1);
+});
+
+test("speaker test releases the mic, plays only on a tap and closes its audio context", async ({
+  page,
+}) => {
+  const dialog = await open(page);
+  expect(await page.evaluate(() => window.micTestHarness.tones)).toBe(0);
+  await dialog.getByRole("button", { name: "Test microphone", exact: true }).click();
+  await expect(dialog.getByText(/Sound detected/)).toBeVisible();
+  await expect(dialog.getByText(/Outputs reported by this browser: Speaker/)).toBeVisible();
+  await dialog.getByRole("button", { name: "Play test sound", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.micTestHarness.tones)).toBe(1);
+  expect((await state(page)).stopped).toBe(1);
+  await page.evaluate(() => window.micTestHarness.finishTone?.());
+  await expect(dialog.getByText(/Test tone finished/)).toBeVisible();
+  expect((await state(page)).closed).toBe(2);
+});
+test("closing during a speaker test stops its context and late ended events do nothing", async ({
+  page,
+}) => {
+  const dialog = await open(page);
+  await dialog.getByRole("button", { name: "Play test sound", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.micTestHarness.tones)).toBe(1);
+  expect((await state(page)).calls).toHaveLength(0);
+  await dialog.getByRole("button", { name: "Close", exact: true }).click();
+  await page.evaluate(() => window.micTestHarness.finishTone?.());
+  await expect(dialog).not.toBeVisible();
+  expect((await state(page)).closed).toBe(1);
 });

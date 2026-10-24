@@ -1,4 +1,5 @@
 import { DeviceVoiceHelp } from "@/components/settings/DeviceVoiceHelp";
+import { AudioRoutingSettings } from "@/components/settings/AudioRoutingSettings";
 import { ResetLearningData } from "@/components/auth/ResetLearningData";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
@@ -349,6 +350,7 @@ function AccountPage() {
 
           <div className="mb-4">
             <DeviceVoiceHelp />
+            <AudioRoutingSettings />
           </div>
 
           {/* ── Gift language ── */}

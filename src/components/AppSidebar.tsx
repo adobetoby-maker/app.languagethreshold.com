@@ -80,6 +80,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
+import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
 import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
@@ -866,6 +867,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <div className="mt-2">
             <DeviceVoiceHelp />
+            <AudioRoutingSettings />
           </div>
 
           <div className="mt-2">

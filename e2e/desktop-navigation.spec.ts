@@ -199,4 +199,11 @@ test("device voice setup instructions are reachable in desktop and phone setting
   ).toHaveAttribute("href", /^https:\/\/support\.apple\.com\//);
   for (const device of ["Mac", "Android", "Windows"])
     await expect(page.getByText(device, { exact: true }).filter({ visible: true })).toBeVisible();
+  await page.getByRole("button", { name: "Check audio routing", exact: true }).filter({ visible: true }).click();
+  const audio = page.getByRole("dialog", { name: "Audio & microphone", exact: true });
+  await expect(audio).toBeVisible();
+  await expect(audio.getByRole("button", { name: "Test microphone", exact: true })).toBeVisible();
+  await expect(audio.getByRole("button", { name: "Play test sound", exact: true })).toBeVisible();
+  await audio.getByRole("button", { name: "Close", exact: true }).click();
+  await expect(audio).not.toBeVisible();
 });

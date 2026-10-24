@@ -23,6 +23,7 @@ import {
   answerPolicy,
   bankSha256,
   FIXED_FORM_KINDS,
+  LESSON_COUNT,
   validateBank,
   type BankIssue,
   type BankItem,
@@ -41,12 +42,28 @@ import {
 } from "./adaptive.ts";
 import { completedItemReview, publicItem, type PublicItem } from "./public-item.ts";
 import {
+  coarsePct,
   publicFixedFormResult,
   scoreFixedForm,
   scoreItem,
   type ExamAnswer,
   type FixedFormResult,
 } from "./scoring.ts";
+import {
+  classifyAnswer,
+  examWindow,
+  FORM_QUESTIONS,
+  FORM_TITLES,
+  lockedMessage,
+  pickCore30Log,
+  questionTimer,
+  servedAtOf,
+  utcDateKey,
+  windowContext,
+  type FormWindow,
+  type WindowKind,
+} from "./timing.ts";
+import { extractCore30Log } from "../team-core30.ts";
 
 // ── Errors and responses ─────────────────────────────────────────────────────
 
@@ -265,13 +282,21 @@ export interface SessionRow {
   started_at: string;
   completed_at: string | null;
 }
-/** Diagnostic responses carry `y`; fixed-form responses carry only the answer. */
+/**
+ * One resolved question. Diagnostic responses also carry `y`. `servedAt` and `at` are the
+ * question clock (ISO times): when the question was served, and when its answer was recorded,
+ * which is also when the next question was served. `expired` marks a question with no answer
+ * that counts: the clock ran out, or the answer arrived after the 45 s + 5 s grace.
+ */
 export interface StoredResponse {
   itemId: string;
   answer: ExamAnswer | null;
   y?: number;
   dontKnow?: true;
   requestId?: string;
+  servedAt?: string;
+  at?: string;
+  expired?: true;
 }
 const SESSION_COLUMNS =
   "id,module_id,target_language,instruction_language,bank_version,kind,user_id,organization_id,public_secret_hash,seed,step,served,responses,result,score,total,status,ip_hash,started_at,completed_at";
@@ -408,9 +433,8 @@ export const examAnswerSchema = z.discriminatedUnion("type", [
     .strict(),
   z.object({ type: z.literal("dont_know") }).strict(),
 ]);
-const savedAnswers = z
-  .array(z.object({ itemId: itemIdSchema, answer: examAnswerSchema.nullable() }).strict())
-  .max(60);
+/** The longest session: form C has 60 questions. */
+const MAX_QUESTIONS = 60;
 
 export const examCheckAction = z.discriminatedUnion("action", [
   z
@@ -438,21 +462,22 @@ export const examCheckAction = z.discriminatedUnion("action", [
         .number()
         .int()
         .min(0)
-        .max(DIAGNOSTIC_LENGTH - 1),
+        .max(MAX_QUESTIONS - 1),
       itemId: itemIdSchema,
-      answer: examAnswerSchema,
+      /** null = the learner's 45 seconds ran out: the question is recorded as unanswered. */
+      answer: examAnswerSchema.nullable(),
       requestId: requestIdSchema,
       secret: secretSchema.optional(),
     })
     .strict(),
-  z
-    .object({ action: z.literal("save"), sessionId: sessionIdSchema, answers: savedAnswers })
-    .strict(),
+  /** End a fixed-form test now: questions not yet reached score 0. */
+  z.object({ action: z.literal("submit"), sessionId: sessionIdSchema }).strict(),
+  /** What the learner's exams page shows: the tests, their windows, status and best scores. */
   z
     .object({
-      action: z.literal("submit"),
-      sessionId: sessionIdSchema,
-      answers: savedAnswers.optional(),
+      action: z.literal("overview"),
+      target: languageSchema.default("Spanish"),
+      native: languageSchema.default("English"),
     })
     .strict(),
   z
@@ -478,6 +503,11 @@ export interface ExamCheckDeps {
   env: ExamEnv;
   /** null when the request carries no Authorization header; throws ExamApiError when invalid. */
   authenticate(): Promise<ExamUser | null>;
+  /**
+   * True for platform staff (any platform role, or the owner account). Staff can start any form
+   * to preview it: the A/B/C windows and the A / B retake limits do not apply to them.
+   */
+  isStaff?(userId: string): Promise<boolean>;
   /** Shared server request budget (consume_speaking_request). Window is at most 3600 s. */
   budget(namespace: string, value: string, limit: number, windowSeconds: number): Promise<boolean>;
   clientIp: string | null;
@@ -529,11 +559,11 @@ export async function handleExamCheck(input: ExamCheckAction, deps: ExamCheckDep
     case "resume":
       return resumeSession(input, deps);
     case "answer":
-      return answerDiagnostic(input, deps);
-    case "save":
-      return saveFixedForm(input, deps, false);
+      return answerQuestion(input, deps);
     case "submit":
-      return saveFixedForm(input, deps, true);
+      return submitFixedForm(input, deps);
+    case "overview":
+      return examOverview(input, deps);
     case "result":
       return sessionResult(input, deps);
     case "claim":
@@ -612,8 +642,13 @@ function fixedFormItems(loaded: LoadedBank, kind: FixedFormKind): BankItem[] {
   return loaded.bank.forms[kind].map((id) => loaded.items.get(id)!);
 }
 
-/** What a learner sees of an open or finished session. Never answer data. */
-export function sessionView(session: SessionRow, loaded: LoadedBank) {
+/**
+ * What a learner sees of an open or finished session. Never answer data. Every kind is served
+ * one question at a time: `item` is the current question (null once finished) and `timer` is its
+ * 45-second clock as measured by the server. Later questions are not sent until it is resolved,
+ * so nobody can read ahead while the clock runs.
+ */
+export function sessionView(session: SessionRow, loaded: LoadedBank, now: Date = new Date()) {
   const base = {
     sessionId: session.id,
     kind: session.kind,
@@ -624,27 +659,22 @@ export function sessionView(session: SessionRow, loaded: LoadedBank) {
     status: session.status,
     startedAt: session.started_at,
   };
-  if (session.kind === "diagnostic") {
-    const current = session.status === "in_progress" ? session.served[session.step] : undefined;
-    const item = current ? loaded.items.get(current) : undefined;
-    return {
-      ...base,
-      step: session.step,
-      total: DIAGNOSTIC_LENGTH,
-      item: item ? publicItem(item, { seed: session.seed }) : null,
-    };
-  }
-  const items = fixedFormItems(loaded, session.kind as FixedFormKind);
-  const answers: Record<string, ExamAnswer | null> = {};
-  for (const response of session.responses ?? []) answers[response.itemId] = response.answer;
+  const inProgress = session.status === "in_progress";
+  const currentId = !inProgress
+    ? undefined
+    : session.kind === "diagnostic"
+      ? session.served[session.step]
+      : loaded.bank.forms[session.kind as FixedFormKind][session.step];
+  const item = currentId ? loaded.items.get(currentId) : undefined;
   return {
     ...base,
-    total: items.length,
-    items:
-      session.status === "in_progress"
-        ? items.map((item) => publicItem(item, { seed: session.seed }))
-        : [],
-    answers: session.status === "in_progress" ? answers : {},
+    step: session.step,
+    total:
+      session.kind === "diagnostic"
+        ? DIAGNOSTIC_LENGTH
+        : loaded.bank.forms[session.kind as FixedFormKind].length,
+    item: item ? publicItem(item, { seed: session.seed }) : null,
+    timer: item ? questionTimer(servedAtOf(session, now.getTime()), now.getTime()) : null,
   };
 }
 
@@ -711,7 +741,23 @@ async function startSession(
   if (user) {
     const open = await findOpenSession(deps.db, user.id, key, input.kind);
     if (open?.bank_version === loaded.bank.version)
-      return { ...sessionView(open, loaded), resumed: true };
+      return { ...sessionView(open, loaded, now), resumed: true };
+    // A form's window is checked server-side, not just in the page. Platform staff can start any
+    // form to preview it. Checked before an open session is abandoned, like the budget below.
+    const staff = input.kind === "diagnostic" ? false : await isStaffUser(deps, user.id);
+    if (input.kind !== "diagnostic" && !staff) {
+      const window = await formWindow(deps, user.id, key, input.kind, now);
+      if (!window.open)
+        throw new ExamApiError(
+          403,
+          `This test isn't open yet. ${lockedMessage(window)}`,
+          "not_open",
+          {
+            ...(window.opensOn ? { opensOn: window.opensOn } : {}),
+            ...(window.lessons ? { lessons: window.lessons } : {}),
+          },
+        );
+    }
     // Checked before an open session is abandoned, so a refused start changes nothing.
     if (input.kind === "C") await formCStartBudget(deps.db, user.id, key, now);
     if (open) {
@@ -725,13 +771,16 @@ async function startSession(
           .select("id"),
       );
     }
-    await retakePolicy(deps.db, user.id, key, input.kind, now);
+    if (!staff) await retakePolicy(deps.db, user.id, key, input.kind, now);
   }
 
   const seed = toHex(randomOf(deps, 16));
   const secret = input.public ? Buffer.from(randomOf(deps, 32)).toString("base64url") : null;
+  // The first question is served now: for a fixed form that is the first id of the frozen list.
   const first =
-    input.kind === "diagnostic" ? nextDiagnosticItem(loaded.pool, seed, [])?.itemId : null;
+    input.kind === "diagnostic"
+      ? nextDiagnosticItem(loaded.pool, seed, [])?.itemId
+      : loaded.bank.forms[input.kind as FixedFormKind][0];
   const row = {
     module_id: key.moduleId,
     target_language: key.target,
@@ -757,12 +806,12 @@ async function startSession(
     // A parallel start won the one-open-session index: hand back that session.
     if (user && isUniqueViolation(inserted.error)) {
       const open = await findOpenSession(deps.db, user.id, key, input.kind);
-      if (open) return { ...sessionView(open, loaded), resumed: true };
+      if (open) return { ...sessionView(open, loaded, now), resumed: true };
     }
     throw storageError(inserted.error);
   }
   const session = inserted.data!;
-  return { ...sessionView(session, loaded), resumed: false, ...(secret ? { secret } : {}) };
+  return { ...sessionView(session, loaded, now), resumed: false, ...(secret ? { secret } : {}) };
 }
 
 async function findOpenSession(
@@ -855,62 +904,89 @@ async function resumeSession(
   const session = await ownedSession(deps, input.sessionId, input.secret);
   requireFresh(session, deps);
   const loaded = await loadSessionBank(deps.db, session);
-  return sessionView(session, loaded);
+  return sessionView(session, loaded, nowOf(deps));
 }
 
-async function answerDiagnostic(
+/**
+ * Record the answer to the current question, for a fixed form or the diagnostic. This is where
+ * the question clock is enforced:
+ * - The question must be the one the server is waiting on (`step` and `itemId`), so an answered
+ *   or expired question can never be edited and nothing can be answered out of order or ahead.
+ * - The clock started when the previous question was resolved. An answer within 45 s counts; up
+ *   to 5 s more is grace for network delay; after that the answer is dropped and the question is
+ *   recorded as unanswered (`expired`, 0 points; "I don't know" in the diagnostic's model).
+ * - `answer: null` is the page reporting that the clock ran out; it is recorded the same way.
+ * - Recording it serves the next question, and starts that question's clock, in the same write.
+ */
+async function answerQuestion(
   input: Extract<ExamCheckAction, { action: "answer" }>,
   deps: ExamCheckDeps,
 ) {
   const session = await ownedSession(deps, input.sessionId, input.secret);
-  if (session.kind !== "diagnostic")
-    throw new ExamApiError(400, "Save answers to this test instead.", "wrong_kind");
   const loaded = await loadSessionBank(deps.db, session);
+  const now = nowOf(deps);
   // Repeating a request id is harmless: return where the session is now.
   if ((session.responses ?? []).some((response) => response.requestId === input.requestId))
-    return { ...sessionView(session, loaded), repeated: true };
+    return { ...sessionView(session, loaded, now), repeated: true };
   if (session.status !== "in_progress")
-    throw new ExamApiError(409, "This check is already finished.", "finished");
+    throw new ExamApiError(409, "This test is already finished.", "finished");
   requireFresh(session, deps);
   if (input.step !== session.step)
     throw new ExamApiError(409, "This question was already answered.", "step_mismatch", {
       step: session.step,
     });
-  if (session.served[session.step] !== input.itemId)
+  const diagnostic = session.kind === "diagnostic";
+  const form = diagnostic ? null : loaded.bank.forms[session.kind as FixedFormKind];
+  const expectedId = diagnostic ? session.served[session.step] : form![session.step];
+  if (expectedId !== input.itemId)
     throw new ExamApiError(409, "That isn't the current question.", "item_mismatch", {
       step: session.step,
     });
   await sessionBudget(deps, session);
 
+  const servedAtMs = servedAtOf(session, now.getTime());
+  const { timing } = classifyAnswer(servedAtMs, now.getTime());
+  const late = timing === "late" && input.answer !== null;
+  const answer = timing === "late" ? null : (input.answer as ExamAnswer | null);
   const item = loaded.items.get(input.itemId)!;
-  const scored = scoreItem(item, input.answer as ExamAnswer, session.seed);
+  const scored = scoreItem(item, answer, session.seed);
   const response: StoredResponse = {
     itemId: item.id,
-    answer: input.answer as ExamAnswer,
-    y: scored.points,
+    answer,
     requestId: input.requestId,
-    ...(scored.dontKnow ? { dontKnow: true as const } : {}),
+    servedAt: new Date(servedAtMs).toISOString(),
+    at: now.toISOString(),
+    ...(answer === null ? { expired: true as const } : {}),
+    ...(diagnostic
+      ? {
+          y: scored.points,
+          ...(scored.dontKnow || answer === null ? { dontKnow: true as const } : {}),
+        }
+      : {}),
   };
   const responses = [...(session.responses ?? []), response];
-  const engine: DiagnosticResponse[] = responses.map((r) => ({
-    itemId: r.itemId,
-    y: r.y ?? 0,
-    ...(r.dontKnow ? { dontKnow: true } : {}),
-  }));
-  const next = nextDiagnosticItem(loaded.pool, session.seed, engine);
   const step = session.step + 1;
-  const patch: Record<string, unknown> = {
-    step,
-    responses,
-    served: next ? [...session.served, next.itemId] : session.served,
-  };
-  if (!next) {
-    const result = buildDiagnosticResult(loaded.pool, engine, linkOf(session));
-    patch.status = "completed";
-    patch.completed_at = nowOf(deps).toISOString();
-    patch.result = result;
-    patch.score = Math.round(engine.reduce((sum, r) => sum + r.y, 0) * 100) / 100;
-    patch.total = DIAGNOSTIC_LENGTH;
+  const patch: Record<string, unknown> = { step, responses };
+  if (diagnostic) {
+    const engine: DiagnosticResponse[] = responses.map((r) => ({
+      itemId: r.itemId,
+      y: r.y ?? 0,
+      ...(r.dontKnow ? { dontKnow: true } : {}),
+    }));
+    const next = nextDiagnosticItem(loaded.pool, session.seed, engine);
+    patch.served = next ? [...session.served, next.itemId] : session.served;
+    if (!next) {
+      const result = buildDiagnosticResult(loaded.pool, engine, linkOf(session));
+      patch.status = "completed";
+      patch.completed_at = now.toISOString();
+      patch.result = result;
+      patch.score = Math.round(engine.reduce((sum, r) => sum + r.y, 0) * 100) / 100;
+      patch.total = DIAGNOSTIC_LENGTH;
+    }
+  } else {
+    const nextId = form![step];
+    patch.served = nextId ? [...session.served, nextId] : session.served;
+    if (!nextId) Object.assign(patch, fixedFormCompletion(loaded, session, responses, now));
   }
   const { data } = await run<{ id: string }[] | null>(
     deps.db
@@ -925,75 +1001,289 @@ async function answerDiagnostic(
     // Another request moved the session first. A retry of the same request is fine.
     const current = await readSession(deps.db, session.id);
     if (current?.responses?.some((r) => r.requestId === input.requestId))
-      return { ...sessionView(current, loaded), repeated: true };
+      return { ...sessionView(current, loaded, now), repeated: true };
     throw new ExamApiError(409, "This question was already answered.", "step_mismatch", {
       step: current?.step ?? session.step,
     });
   }
-  return sessionView({ ...session, ...patch } as SessionRow, loaded);
+  return {
+    ...sessionView({ ...session, ...patch } as SessionRow, loaded, now),
+    // The page tells the learner when their answer was not counted.
+    outcome: late
+      ? ("late" as const)
+      : answer === null
+        ? ("expired" as const)
+        : ("recorded" as const),
+  };
 }
 
-async function saveFixedForm(
-  input:
-    Extract<ExamCheckAction, { action: "save" }> | Extract<ExamCheckAction, { action: "submit" }>,
+/** The columns that close a fixed-form session, scored from its recorded responses. */
+function fixedFormCompletion(
+  loaded: LoadedBank,
+  session: SessionRow,
+  responses: readonly StoredResponse[],
+  now: Date,
+) {
+  const result = scoreFixedForm(
+    loaded.bank,
+    session.kind as FixedFormKind,
+    responses.map((r) => ({ itemId: r.itemId, answer: r.answer })),
+    session.seed,
+    linkOf(session),
+  );
+  return {
+    status: "completed" as const,
+    completed_at: now.toISOString(),
+    result,
+    score: result.score,
+    total: result.total,
+  };
+}
+
+/** End a fixed-form test now. Questions not reached score 0. Idempotent once submitted. */
+async function submitFixedForm(
+  input: Extract<ExamCheckAction, { action: "submit" }>,
   deps: ExamCheckDeps,
-  submit: boolean,
 ) {
   const session = await ownedSession(deps, input.sessionId, undefined);
   if (session.kind === "diagnostic")
     throw new ExamApiError(400, "Answer the Spanish Check one question at a time.", "wrong_kind");
   const loaded = await loadSessionBank(deps.db, session);
-  const kind = session.kind as FixedFormKind;
-  if (session.status === "completed") {
-    if (submit) return completedResult(session, loaded);
-    throw new ExamApiError(409, "This test is already submitted.", "finished");
-  }
+  if (session.status === "completed") return completedResult(session, loaded);
   if (session.status !== "in_progress")
     throw new ExamApiError(409, "This test was closed. Start it again.", "closed");
-  const form = loaded.bank.forms[kind];
-  const onForm = new Set(form);
-  const merged = new Map<string, ExamAnswer | null>();
-  for (const response of session.responses ?? []) merged.set(response.itemId, response.answer);
-  for (const entry of input.answers ?? []) {
-    if (!onForm.has(entry.itemId))
-      throw new ExamApiError(400, "Check your exam request and try again.", "unknown_item");
-    merged.set(entry.itemId, entry.answer as ExamAnswer | null);
-  }
   await sessionBudget(deps, session);
-  const responses: StoredResponse[] = form
-    .filter((id) => merged.has(id))
-    .map((id) => ({ itemId: id, answer: merged.get(id) ?? null }));
-  const patch: Record<string, unknown> = { responses };
-  let result: FixedFormResult | null = null;
-  if (submit) {
-    result = scoreFixedForm(
-      loaded.bank,
-      kind,
-      responses.map((r) => ({ itemId: r.itemId, answer: r.answer })),
-      session.seed,
-      linkOf(session),
-    );
-    patch.status = "completed";
-    patch.completed_at = nowOf(deps).toISOString();
-    patch.result = result;
-    patch.score = result.score;
-    patch.total = result.total;
-  }
+  const patch = fixedFormCompletion(loaded, session, session.responses ?? [], nowOf(deps));
   const { data } = await run<{ id: string }[] | null>(
     deps.db
       .from("exam_sessions")
       .update(patch)
       .eq("id", session.id)
+      .eq("step", session.step)
       .eq("status", "in_progress")
       .select("id"),
   );
   if (!data?.length) {
     const current = await readSession(deps.db, session.id);
-    if (submit && current?.status === "completed") return completedResult(current, loaded);
-    throw new ExamApiError(409, "This test is already submitted.", "finished");
+    if (current?.status === "completed") return completedResult(current, loaded);
+    throw new ExamApiError(409, "This test changed. Reload it and try again.", "step_mismatch");
   }
-  if (submit) return completedResult({ ...session, ...patch } as SessionRow, loaded);
-  return { saved: responses.length, total: form.length, status: "in_progress" as const };
+  return completedResult({ ...session, ...patch } as SessionRow, loaded);
+}
+
+// ── Windows, staff and the overview ──────────────────────────────────────────
+
+async function isStaffUser(deps: ExamCheckDeps, userId: string): Promise<boolean> {
+  if (!deps.isStaff) return false;
+  try {
+    return await deps.isStaff(userId);
+  } catch {
+    return false;
+  }
+}
+
+/** The learner's saved Core 30 records (start dates, mastered lessons), nothing else of the profile. */
+async function readCore30Logs(db: ExamDb, userId: string) {
+  const { data } = await run<{ data: unknown } | null>(
+    db.from("profiles").select("data").eq("id", userId).maybeSingle(),
+  );
+  return extractCore30Log(data?.data);
+}
+
+async function formWindow(
+  deps: ExamCheckDeps,
+  userId: string,
+  key: BankKey,
+  kind: WindowKind,
+  now: Date,
+): Promise<FormWindow> {
+  const logs = await readCore30Logs(deps.db, userId);
+  const log = pickCore30Log(logs, key.moduleId, key.target, key.native);
+  return examWindow(kind, windowContext(log, LESSON_COUNT, utcDateKey(now.getTime())));
+}
+
+interface OverviewSessionRow {
+  id: string;
+  module_id: string;
+  kind: ExamKind;
+  status: SessionRow["status"];
+  step: number;
+  score: number | null;
+  total: number | null;
+  result: unknown;
+  started_at: string;
+  completed_at: string | null;
+}
+export interface FormScore {
+  /** A and B: exact percent. C: nearest 5 (see PublicFormCResult), never the exact score. */
+  pct: number;
+  passed?: boolean;
+  onTrack?: boolean;
+  at: string | null;
+}
+/** The percent, pass and on-track flags of a completed fixed-form row, in the public (coarse for C) form. */
+function formScore(row: OverviewSessionRow): FormScore {
+  const stored = (row.result ?? {}) as Partial<FixedFormResult>;
+  const exact =
+    typeof stored.pct === "number"
+      ? stored.pct
+      : row.total
+        ? Math.round(((row.score ?? 0) / row.total) * 1000) / 10
+        : 0;
+  if (row.kind === "C") {
+    const passed = stored.passed === true;
+    return { pct: coarsePct(exact, passed), passed, at: row.completed_at };
+  }
+  return {
+    pct: exact,
+    ...(row.kind === "B" ? { onTrack: stored.onTrack === true } : {}),
+    at: row.completed_at,
+  };
+}
+
+function formOverview(
+  kind: WindowKind,
+  window: FormWindow,
+  rows: readonly OverviewSessionRow[],
+  staff: boolean,
+  now: Date,
+) {
+  const completed = rows.filter((row) => row.status === "completed");
+  const open = rows.find((row) => row.status === "in_progress") ?? null;
+  const scored = completed.map((row) => ({ row, score: formScore(row) }));
+  const bestEntry = scored.reduce<(typeof scored)[number] | null>(
+    (best, entry) => (!best || entry.score.pct > best.score.pct ? entry : best),
+    null,
+  );
+  const lastEntry = scored[0] ?? null; // rows arrive newest first
+  const retake: { allowed: boolean; message?: string; retryAt?: string } = { allowed: true };
+  if (kind === "A" && completed.length && !staff) {
+    retake.allowed = false;
+    retake.message = "You've already taken the baseline test.";
+  }
+  if (kind === "B" && lastEntry?.row.completed_at && !staff) {
+    const retryAt = Date.parse(lastEntry.row.completed_at) + EXAM_LIMITS.bRetakeCooldownMs;
+    if (retryAt > now.getTime()) {
+      retake.allowed = false;
+      retake.retryAt = new Date(retryAt).toISOString();
+      retake.message = "You can retake the midpoint test one hour after your last attempt.";
+    }
+  }
+  if (kind === "C") {
+    const since = now.getTime() - 24 * 3600 * 1000;
+    const recent = rows
+      .map((row) => Date.parse(row.started_at))
+      .filter((started) => started >= since)
+      .sort((a, b) => a - b);
+    if (recent.length >= EXAM_LIMITS.cStartsPerDay) {
+      const retryAt = recent[recent.length - EXAM_LIMITS.cStartsPerDay] + 24 * 3600 * 1000;
+      retake.allowed = false;
+      retake.retryAt = new Date(retryAt).toISOString();
+      retake.message = `You can start the final test ${EXAM_LIMITS.cStartsPerDay} times a day. Your next attempt opens at ${utcMinute(retryAt)}.`;
+    }
+  }
+  return {
+    kind,
+    title: FORM_TITLES[kind],
+    questions: FORM_QUESTIONS[kind],
+    window: { ...window, message: lockedMessage(window) },
+    /** Staff can start a form that is still locked for learners. */
+    preview: staff && !window.open,
+    status: open
+      ? ("in_progress" as const)
+      : completed.length
+        ? ("completed" as const)
+        : ("not_taken" as const),
+    inProgress: open ? { sessionId: open.id, step: open.step, total: FORM_QUESTIONS[kind] } : null,
+    attempts: completed.length,
+    best: bestEntry?.score ?? null,
+    last: lastEntry?.score ?? null,
+    retake,
+  };
+}
+
+/**
+ * The exams page: which modules have an approved bank, and for the signed-in learner each of
+ * A / B / C with its window, status, best score and retake state. Open to signed-out visitors,
+ * who get the module list only. Nothing private: no item, answer or bank content.
+ */
+async function examOverview(
+  input: Extract<ExamCheckAction, { action: "overview" }>,
+  deps: ExamCheckDeps,
+) {
+  const now = nowOf(deps);
+  const user = await deps.authenticate();
+  const { data: banks } = await run<
+    | {
+        module_id: string;
+        version: string;
+        content_sha256: string;
+        approved_sha256: string | null;
+      }[]
+    | null
+  >(
+    deps.db
+      .from("exam_banks")
+      .select("module_id,version,content_sha256,approved_sha256")
+      .eq("target_language", input.target)
+      .eq("instruction_language", input.native)
+      .eq("status", "approved"),
+  );
+  const moduleIds = (banks ?? [])
+    .filter((bank) => bank.approved_sha256 && bank.approved_sha256 === bank.content_sha256)
+    .map((bank) => bank.module_id)
+    .sort();
+  const base = { target: input.target, native: input.native };
+  if (!user)
+    return {
+      ...base,
+      signedIn: false,
+      staff: false,
+      modules: moduleIds.map((moduleId) => ({ moduleId, forms: null })),
+    };
+  const staff = await isStaffUser(deps, user.id);
+  const logs = moduleIds.length ? await readCore30Logs(deps.db, user.id) : {};
+  const rows = moduleIds.length
+    ? ((
+        await run<OverviewSessionRow[] | null>(
+          deps.db
+            .from("exam_sessions")
+            .select("id,module_id,kind,status,step,score,total,result,started_at,completed_at")
+            .eq("user_id", user.id)
+            .eq("target_language", input.target)
+            .eq("instruction_language", input.native)
+            .in("kind", ["A", "B", "C"])
+            .in("module_id", moduleIds)
+            .order("started_at", { ascending: false })
+            .limit(200),
+        )
+      ).data ?? [])
+    : [];
+  const today = utcDateKey(now.getTime());
+  return {
+    ...base,
+    signedIn: true,
+    staff,
+    modules: moduleIds.map((moduleId) => {
+      const log = pickCore30Log(logs, moduleId, input.target, input.native);
+      const context = windowContext(log, LESSON_COUNT, today);
+      return {
+        moduleId,
+        forms: Object.fromEntries(
+          (["A", "B", "C"] as const).map((kind) => [
+            kind,
+            formOverview(
+              kind,
+              examWindow(kind, context),
+              rows.filter((row) => row.module_id === moduleId && row.kind === kind),
+              staff,
+              now,
+            ),
+          ]),
+        ),
+      };
+    }),
+  };
 }
 
 async function sessionResult(

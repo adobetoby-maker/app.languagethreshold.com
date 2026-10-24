@@ -6,6 +6,7 @@
 import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
 import { speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
+import { decideStickyRetry } from "@/lib/tts-audio-cache";
 import { configureUtterance, getVoicesForLocale } from "@/lib/voices";
 import type { SpeakingRequestOwner } from "@/lib/speaking-client";
 import { toast } from "sonner";
@@ -18,9 +19,21 @@ let shared: HTMLAudioElement | null = null;
 let generation = 0;
 let cancelPlayback: (() => void) | null = null;
 let warnedAboutMobileFallback = false;
+const VOICE_WAIT_TOAST_ID = "tts-voice-wait";
+/** Waits shorter than this stay silent; longer ones tell the learner the voice is coming. */
+const VOICE_WAIT_TOAST_AFTER_MS = 1500;
 function audioEl(): HTMLAudioElement {
   if (!shared) shared = new Audio();
   return shared;
+}
+
+/** Status and Retry-After carried by a failed /api/mission-tts call (MissionTtsHttpError). */
+function httpHint(error: unknown): { status: number | null; retryAfterSeconds: number | null } {
+  const hint = error as { status?: unknown; retryAfterSeconds?: unknown } | null;
+  return {
+    status: typeof hint?.status === "number" ? hint.status : null,
+    retryAfterSeconds: typeof hint?.retryAfterSeconds === "number" ? hint.retryAfterSeconds : null,
+  };
 }
 
 function selectedGoogleVoice(locale: string, preferredVoiceURI?: string | null) {
@@ -191,44 +204,75 @@ export async function speakRemote(
         if (heard !== null) notify(heard);
         return;
       }
-      try {
-        await speakMissionTts({
-          text,
-          voiceName: googleVoice.voiceName,
-          languageCode: googleVoice.languageCode,
-          speakingRate: rate,
-          usage: opts?.usage ?? "learning",
-          onPlaybackStart: notifyStart,
-          owner: opts?.owner,
-          signal: opts?.signal,
-        });
-        notify();
-        return;
-      } catch (error) {
-        if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
-        if (
-          !warnedAboutMobileFallback &&
-          typeof navigator !== "undefined" &&
-          isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
-        ) {
-          warnedAboutMobileFallback = true;
-          toast.warning("Clear voice unavailable", {
-            description:
-              "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
-            duration: 7000,
+      let retried = false;
+      for (;;) {
+        try {
+          await speakMissionTts({
+            text,
+            voiceName: googleVoice.voiceName,
+            languageCode: googleVoice.languageCode,
+            speakingRate: rate,
+            usage: opts?.usage ?? "learning",
+            onPlaybackStart: notifyStart,
+            owner: opts?.owner,
+            signal: opts?.signal,
           });
+          notify();
+          return;
+        } catch (error) {
+          if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
+          // Rate limited: keep the chosen Google voice and retry once after the server's hint.
+          const decision = decideStickyRetry({
+            ...httpHint(error),
+            alreadyRetried: retried,
+          });
+          if (decision.action === "retry") {
+            retried = true;
+            const showToast = decision.waitMs > VOICE_WAIT_TOAST_AFTER_MS;
+            if (showToast) {
+              toast.message("Loading voice…", {
+                id: VOICE_WAIT_TOAST_ID,
+                duration: decision.waitMs + 1000,
+              });
+            }
+            const waited = await new Promise<boolean>((resolve) => {
+              const done = (completed: boolean) => {
+                clearTimeout(timer);
+                if (cancelPlayback === cancelWait) cancelPlayback = null;
+                resolve(completed);
+              };
+              const cancelWait = () => done(false);
+              const timer = setTimeout(() => done(true), decision.waitMs);
+              cancelPlayback = cancelWait;
+            });
+            if (showToast) toast.dismiss(VOICE_WAIT_TOAST_ID);
+            if (!waited || !current()) return;
+            continue;
+          }
+          if (
+            !warnedAboutMobileFallback &&
+            typeof navigator !== "undefined" &&
+            isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
+          ) {
+            warnedAboutMobileFallback = true;
+            toast.warning("Clear voice unavailable", {
+              description:
+                "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
+              duration: 7000,
+            });
+          }
+          const heard = await speakOnDevice(
+            text,
+            locale,
+            rate,
+            opts?.voiceURI,
+            current,
+            notifyStart,
+            ownsGeneration,
+          );
+          if (heard !== null) notify(heard);
+          return;
         }
-        const heard = await speakOnDevice(
-          text,
-          locale,
-          rate,
-          opts?.voiceURI,
-          current,
-          notifyStart,
-          ownsGeneration,
-        );
-        if (heard !== null) notify(heard);
-        return;
       }
     }
 

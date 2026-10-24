@@ -1,3 +1,5 @@
+import { clearTtsAudioCache } from "./tts-audio-cache.ts";
+
 const APP_CACHE_PREFIX = "lt-";
 const UPDATE_QUERY_PARAM = "lt-update";
 const START_OVER_QUERY_PARAM = "lt-start-over";
@@ -74,7 +76,11 @@ export async function resetAppToFirstRun(
     // network is unavailable or the auth session has already expired.
   }
 
-  await Promise.allSettled([activeRuntime.clearCaches(), activeRuntime.unregisterServiceWorkers()]);
+  await Promise.allSettled([
+    activeRuntime.clearCaches(),
+    activeRuntime.unregisterServiceWorkers(),
+    clearTtsAudioCache(),
+  ]);
 
   try {
     activeRuntime.clearLocalStorage();

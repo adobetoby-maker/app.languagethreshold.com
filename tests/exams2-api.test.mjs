@@ -8,6 +8,7 @@ import { loadModule } from "./helpers/bundle.mjs";
 import { bankContent, bankSha256 } from "../src/lib/exams2/bank.ts";
 import { publicOptionId } from "../src/lib/exams2/public-item.ts";
 import { buildSyntheticBank, clone, signReviews } from "./fixtures/exams2-synthetic-bank.mjs";
+import { core30ScopeKey } from "../src/lib/core30-scope.ts";
 
 const server = await loadModule("src/lib/exams2/server.ts");
 const {
@@ -43,8 +44,32 @@ const PRIVATE_KEYS = [
 // ── Fake supabase-js ─────────────────────────────────────────────────────────
 let uuidCounter = 0;
 const uuid = () => `20000000-0000-4000-8000-${String(++uuidCounter).padStart(12, "0")}`;
+// A learner's saved profile: the Core 30 start date and mastered lessons decide the A/B/C windows.
+// Dates are fixed so the windows do not drift with the real clock.
+function profileRow(userId, { startDate = "2026-01-01", mastered = [], moduleId = "roofing" } = {}) {
+  const key = core30ScopeKey(moduleId, { targetLanguage: "Spanish", instructionLanguage: "English" });
+  return {
+    id: userId,
+    data: {
+      core30Log: {
+        [key]: {
+          ...(startDate ? { startDate } : {}),
+          lessons: Object.fromEntries(
+            mastered.map((n) => [String(n), { visits: {}, masteredAt: "2026-02-01T10:00:00.000Z" }]),
+          ),
+        },
+      },
+    },
+  };
+}
+const ALL_LESSONS = Array.from({ length: 30 }, (_, i) => i + 1);
 function fakeDb({ missing = false, failUpdate = () => null } = {}) {
-  const tables = { exam_banks: [], exam_sessions: [] };
+  // USER has finished the plan, so every window is open unless a test replaces the profile.
+  const tables = {
+    exam_banks: [],
+    exam_sessions: [],
+    profiles: [profileRow(USER.id, { mastered: ALL_LESSONS })],
+  };
   const calls = [];
   const violation = (code, message) => ({ data: null, error: { code, message } });
   function constraints(table, rows) {
@@ -195,7 +220,7 @@ function setup(options = {}) {
   return db;
 }
 let clock = Date.parse("2026-10-23T15:00:00.000Z");
-function deps(db, { user = USER, env = ENV, ip = "203.0.113.7", budget, now } = {}) {
+function deps(db, { user = USER, env = ENV, ip = "203.0.113.7", budget, now, staff = false } = {}) {
   const budgets = [];
   return {
     budgets,
@@ -203,6 +228,7 @@ function deps(db, { user = USER, env = ENV, ip = "203.0.113.7", budget, now } = 
     env,
     clientIp: ip,
     authenticate: async () => user,
+    isStaff: async (userId) => staff === true || (Array.isArray(staff) && staff.includes(userId)),
     budget: async (namespace, value, limit, windowSeconds) => {
       budgets.push({ namespace, value, limit, windowSeconds });
       return budget ? budget(namespace, value, limit, windowSeconds) : true;
@@ -236,6 +262,30 @@ function correctAnswer(publicItem, seed) {
   };
 }
 const sessionRow = (db, id) => db.tables.exam_sessions.find((row) => row.id === id);
+/**
+ * Answer a session's questions one at a time, the way the page does. `pick(item, index)` gives the
+ * answer for each question (null = the clock ran out). Stops after `count` questions if given.
+ * Returns the last response.
+ */
+async function play(d, started, pick, { count = Infinity, prefix = "req-play" } = {}) {
+  const seed = sessionRow(d.db, started.sessionId).seed;
+  let view = started;
+  for (let step = started.step; step < Math.min(started.total, started.step + count); step++) {
+    view = await call(
+      {
+        action: "answer",
+        sessionId: started.sessionId,
+        step,
+        itemId: view.item.id,
+        answer: pick(view.item, step, seed),
+        requestId: `${prefix}-${String(step).padStart(4, "0")}`,
+      },
+      d,
+    );
+  }
+  return view;
+}
+const right = (publicItem, _step, seed) => correctAnswer(publicItem, seed);
 const request = (body, { origin = ORIGIN } = {}) =>
   new Request(ORIGIN + "/api/exam-check", {
     method: "POST",
@@ -307,7 +357,7 @@ test("no approved bank is a 404; a tampered or unapproved bank is never served",
 
 // ── Fixed forms A / B / C ────────────────────────────────────────────────────
 
-test("form A: start sends all public items, resumes the open session, saves, submits, reviews", async () => {
+test("form A: one question at a time, resumes the open session, answers, reviews", async () => {
   const db = setup();
   const d = deps(db);
   await rejects(
@@ -315,62 +365,71 @@ test("form A: start sends all public items, resumes the open session, saves, sub
     401,
   );
   const started = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
-  assert.equal(started.items.length, 30);
-  assert.deepEqual(
-    started.items.map((entry) => entry.id),
-    BANK.forms.A,
-  );
+  assert.equal(started.total, 30);
+  assert.equal(started.step, 0);
+  assert.equal(started.items, undefined, "later questions are not sent");
+  assert.equal(started.item.id, BANK.forms.A[0]);
+  assert.deepEqual(started.timer, { limitMs: 45000, graceMs: 5000, elapsedMs: 0 });
   assert.equal(started.resumed, false);
   assert.equal(started.secret, undefined);
   assertNoPrivateKeys(started, "start A");
+  for (const id of BANK.forms.A.slice(1))
+    assert.ok(!JSON.stringify(started).includes(`"${id}"`), "no read-ahead");
   const row = sessionRow(db, started.sessionId);
   assert.equal(row.user_id, USER.id);
   assert.equal(row.ip_hash, null);
-  // MC options are shuffled per session seed and use opaque ids.
-  const mc = started.items.find((entry) => entry.type === "mc");
-  assert.ok(mc.options.every((option) => /^o[0-9a-f]{12}$/.test(option.id)));
+  assert.deepEqual(row.served, [BANK.forms.A[0]]);
 
   const again = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
   assert.equal(again.sessionId, started.sessionId);
   assert.equal(again.resumed, true);
+  assert.equal(again.item.id, started.item.id);
 
-  const half = started.items.slice(0, 15);
-  const saved = await call(
-    {
-      action: "save",
-      sessionId: started.sessionId,
-      answers: half.map((entry) => ({ itemId: entry.id, answer: correctAnswer(entry, row.seed) })),
-    },
+  // MC options are shuffled per session seed and use opaque ids.
+  const seen = [];
+  const half = await play(
     d,
+    started,
+    (entry, step, seed) => (seen.push(entry), right(entry, step, seed)),
+    { count: 15 },
   );
-  assert.deepEqual(saved, { saved: 15, total: 30, status: "in_progress" });
+  assert.equal(half.step, 15);
+  assert.deepEqual(
+    seen.map((entry) => entry.id),
+    BANK.forms.A.slice(0, 15),
+  );
+  const mc = seen.find((entry) => entry.type === "mc");
+  assert.ok(mc.options.every((option) => /^o[0-9a-f]{12}$/.test(option.id)));
+
   const resumed = await call({ action: "resume", sessionId: started.sessionId }, d);
-  assert.equal(Object.keys(resumed.answers).length, 15);
+  assert.equal(resumed.step, 15);
+  assert.equal(resumed.item.id, BANK.forms.A[15]);
   assertNoPrivateKeys(resumed, "resume A");
-  await rejects(
-    call(
-      {
-        action: "save",
-        sessionId: started.sessionId,
-        answers: [{ itemId: BANK.forms.C[0], answer: { type: "dont_know" } }],
-      },
-      d,
-    ),
-    400,
-    "unknown_item",
-  );
   await rejects(call({ action: "result", sessionId: started.sessionId }, d), 409, "not_finished");
-
-  const result = await call(
-    {
-      action: "submit",
-      sessionId: started.sessionId,
-      answers: started.items
-        .slice(15)
-        .map((entry) => ({ itemId: entry.id, answer: correctAnswer(entry, row.seed) })),
-    },
-    d,
+  const turn = { action: "answer", sessionId: started.sessionId, answer: { type: "dont_know" } };
+  // Not the current question, a form C question, and an already-answered question are all refused.
+  await rejects(
+    call({ ...turn, step: 15, itemId: BANK.forms.A[16], requestId: "req-order-0001" }, d),
+    409,
+    "item_mismatch",
   );
+  await rejects(
+    call({ ...turn, step: 15, itemId: BANK.forms.C[0], requestId: "req-order-0002" }, d),
+    409,
+    "item_mismatch",
+  );
+  await rejects(
+    call({ ...turn, step: 14, itemId: BANK.forms.A[14], requestId: "req-order-0003" }, d),
+    409,
+    "step_mismatch",
+  );
+  assert.equal(sessionRow(db, started.sessionId).responses.length, 15);
+
+  const last = await play(d, resumed, right, { prefix: "req-rest" });
+  assert.equal(last.status, "completed");
+  assert.equal(last.item, null);
+  assert.equal(last.timer, null);
+  const result = await call({ action: "result", sessionId: started.sessionId }, d);
   assert.equal(result.result.pct, 100);
   assert.equal(result.result.lessons.length, 30);
   assert.equal(result.review.length, 30);
@@ -381,7 +440,8 @@ test("form A: start sends all public items, resumes the open session, saves, sub
   assert.equal(stored.status, "completed");
   assert.equal(stored.score, 30);
   assert.equal(stored.total, 30);
-  // Submitting again is idempotent; A is taken once.
+  assert.equal(stored.step, 30);
+  // Submitting after the last answer is idempotent; A is taken once.
   const repeat = await call({ action: "submit", sessionId: started.sessionId }, d);
   assert.equal(repeat.result.pct, 100);
   await rejects(call({ action: "start", moduleId: "roofing", kind: "A" }, d), 409, "already_taken");
@@ -390,6 +450,7 @@ test("form A: start sends all public items, resumes the open session, saves, sub
 test("form B keeps a 1-hour retake cooldown", async () => {
   const db = setup();
   const started = await call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db));
+  // Ending the test early scores the questions not reached as 0.
   const done = await call({ action: "submit", sessionId: started.sessionId }, deps(db));
   assert.equal(done.result.pct, 0);
   assert.equal(done.result.onTrack, false);
@@ -409,14 +470,13 @@ test("form C result is a coarse percent, pass/fail and missed phases only; retak
   const db = setup();
   const d = deps(db);
   const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
-  assert.equal(started.items.length, 60);
-  const seed = sessionRow(db, started.sessionId).seed;
+  assert.equal(started.total, 60);
   // Right on every item except lesson 30 (two items): 58/60 = 96.7%, passed.
-  const answers = started.items.map((entry) => ({
-    itemId: entry.id,
-    answer: entry.lesson === 30 ? { type: "dont_know" } : correctAnswer(entry, seed),
-  }));
-  const submitted = await call({ action: "submit", sessionId: started.sessionId, answers }, d);
+  const finished = await play(d, started, (entry, step, seed) =>
+    entry.lesson === 30 ? { type: "dont_know" } : correctAnswer(entry, seed),
+  );
+  assert.equal(finished.status, "completed");
+  const submitted = await call({ action: "submit", sessionId: started.sessionId }, d);
   const fetched = await call({ action: "result", sessionId: started.sessionId }, d);
   for (const view of [submitted, fetched]) {
     assert.deepEqual(Object.keys(view).sort(), [
@@ -452,6 +512,415 @@ test("form C result is a coarse percent, pass/fail and missed phases only; retak
   assert.equal(fail.result.passed, false);
   assert.equal(fail.result.pct, 0);
   assert.equal(fail.result.missedPhases.length, 6);
+});
+
+// ── The 45-second question clock ─────────────────────────────────────────────
+
+const T = Date.parse("2026-10-23T15:00:00.000Z");
+const answerAt = (db, started, step, answer, ms, extra = {}) =>
+  call(
+    {
+      action: "answer",
+      sessionId: started.sessionId,
+      step,
+      itemId: BANK.forms.A[step],
+      answer,
+      requestId: `req-clock-${String(step).padStart(4, "0")}${extra.suffix ?? ""}`,
+    },
+    deps(db, { now: T + ms }),
+  );
+
+test("question clock: 45 s counts, 45-50 s is grace, later is dropped and recorded unanswered", async () => {
+  const db = setup();
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "A" },
+    deps(db, { now: T }),
+  );
+  const seed = sessionRow(db, started.sessionId).seed;
+  const correct = (id) => correctAnswer({ id }, seed);
+
+  // Question 1 answered at exactly 45 s: on time.
+  const r0 = await answerAt(db, started, 0, correct(BANK.forms.A[0]), 45_000);
+  assert.equal(r0.outcome, "recorded");
+  assert.deepEqual(r0.timer, { limitMs: 45000, graceMs: 5000, elapsedMs: 0 });
+  // Question 2 is served the moment question 1 was recorded: its clock starts at 45 s, not at 0.
+  // 50 s later (95 s after the start) is still inside the grace period.
+  const r1 = await answerAt(db, started, 1, correct(BANK.forms.A[1]), 95_000);
+  assert.equal(r1.outcome, "recorded");
+  // Question 3 served at 95 s; answered 50.001 s later is too late.
+  const r2 = await answerAt(db, started, 2, correct(BANK.forms.A[2]), 145_001);
+  assert.equal(r2.outcome, "late");
+  assert.equal(r2.step, 3);
+  assert.deepEqual(r2.timer, { limitMs: 45000, graceMs: 5000, elapsedMs: 0 });
+  const responses = sessionRow(db, started.sessionId).responses;
+  assert.deepEqual(
+    responses.map((r) => [r.itemId, r.answer === null, r.expired === true]),
+    [
+      [BANK.forms.A[0], false, false],
+      [BANK.forms.A[1], false, false],
+      [BANK.forms.A[2], true, true],
+    ],
+  );
+  assert.equal(responses[0].servedAt, new Date(T).toISOString());
+  assert.equal(responses[0].at, new Date(T + 45_000).toISOString());
+  assert.equal(responses[1].servedAt, responses[0].at, "the next clock starts when the last ended");
+  assert.equal(responses[2].servedAt, responses[1].at);
+
+  // Finish the rest on time, each answered 1 s after it was served.
+  let at = 145_001;
+  for (let step = 3; step < 30; step++) {
+    at += 1_000;
+    await answerAt(db, started, step, correct(BANK.forms.A[step]), at);
+  }
+  const stored = sessionRow(db, started.sessionId);
+  assert.equal(stored.status, "completed");
+  assert.equal(stored.score, 29, "the late answer scored 0");
+  assert.equal(stored.result.items[2].points, 0);
+  assert.equal(stored.result.items[3].points, 1);
+});
+
+test("question clock: a timed-out question is recorded unanswered and the next clock starts fresh", async () => {
+  const db = setup();
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "A" },
+    deps(db, { now: T }),
+  );
+  const expired = await answerAt(db, started, 0, null, 46_000);
+  assert.equal(expired.outcome, "expired");
+  assert.equal(expired.step, 1);
+  assert.equal(expired.item.id, BANK.forms.A[1]);
+  assert.deepEqual(expired.timer, { limitMs: 45000, graceMs: 5000, elapsedMs: 0 });
+  const [first] = sessionRow(db, started.sessionId).responses;
+  assert.equal(first.answer, null);
+  assert.equal(first.expired, true);
+  // An expired question can no longer be edited, even with a new request id.
+  await assert.rejects(
+    answerAt(db, started, 0, { type: "dont_know" }, 47_000, { suffix: "b" }),
+    (error) => error.status === 409 && error.code === "step_mismatch",
+  );
+  assert.equal(sessionRow(db, started.sessionId).responses.length, 1);
+  // Repeating the same request is harmless and does not move anything.
+  const repeat = await answerAt(db, started, 0, null, 48_000);
+  assert.equal(repeat.repeated, true);
+  assert.equal(repeat.step, 1);
+});
+
+test("question clock: leaving does not stop it, but only the question being shown is lost", async () => {
+  const db = setup();
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "B" },
+    deps(db, { now: T }),
+  );
+  const away = deps(db, { now: T + 10 * 60_000 });
+  const back = await call({ action: "resume", sessionId: started.sessionId }, away);
+  assert.equal(back.timer.elapsedMs, 10 * 60_000, "the server clock kept running");
+  assert.equal(sessionRow(db, started.sessionId).responses.length, 0, "resume changes nothing");
+  // A real answer sent now is dropped; the page sends null once it sees the clock is out.
+  const late = await call(
+    {
+      action: "answer",
+      sessionId: started.sessionId,
+      step: 0,
+      itemId: BANK.forms.B[0],
+      answer: { type: "dont_know" },
+      requestId: "req-away-0001",
+    },
+    away,
+  );
+  assert.equal(late.outcome, "late");
+  assert.equal(late.step, 1);
+  assert.equal(late.timer.elapsedMs, 0, "the next question is fresh");
+});
+
+test("question clock: answers cannot jump ahead or be saved in a batch", async () => {
+  const db = setup();
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "A" },
+    deps(db, { now: T }),
+  );
+  await assert.rejects(
+    answerAt(db, started, 5, { type: "dont_know" }, 1_000),
+    (error) => error.status === 409 && error.code === "step_mismatch",
+  );
+  assert.equal(sessionRow(db, started.sessionId).responses.length, 0);
+  // There is no batch action, so the clock cannot be skipped by sending many answers at once.
+  const sessionId = started.sessionId;
+  assert.equal(examCheckAction.safeParse({ action: "save", sessionId, answers: [] }).success, false);
+  assert.equal(
+    examCheckAction.safeParse({ action: "submit", sessionId, answers: [] }).success,
+    false,
+  );
+  assert.equal(examCheckAction.safeParse({ action: "submit", sessionId }).success, true);
+  // An answer only ever moves the session one step.
+  const view = await answerAt(db, started, 0, { type: "dont_know" }, 1_000);
+  assert.equal(view.step, 1);
+  assert.equal(sessionRow(db, started.sessionId).responses.length, 1);
+});
+
+test("question clock: the Spanish Check is timed too, and a timed-out question counts as I don't know", async () => {
+  const db = setup();
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "diagnostic" },
+    deps(db, { now: T }),
+  );
+  const first = await call(
+    {
+      action: "answer",
+      sessionId: started.sessionId,
+      step: 0,
+      itemId: started.item.id,
+      answer: null,
+      requestId: "req-diag-0001",
+    },
+    deps(db, { now: T + 45_000 }),
+  );
+  assert.equal(first.outcome, "expired");
+  const [one] = sessionRow(db, started.sessionId).responses;
+  assert.deepEqual([one.answer, one.expired, one.dontKnow, one.y], [null, true, true, 0]);
+  const seed = sessionRow(db, started.sessionId).seed;
+  const lateOne = await call(
+    {
+      action: "answer",
+      sessionId: started.sessionId,
+      step: 1,
+      itemId: first.item.id,
+      answer: correctAnswer(first.item, seed),
+      requestId: "req-diag-0002",
+    },
+    deps(db, { now: T + 45_000 + 50_001 }),
+  );
+  assert.equal(lateOne.outcome, "late");
+  assert.equal(sessionRow(db, started.sessionId).responses[1].y, 0);
+});
+
+// ── Windows ──────────────────────────────────────────────────────────────────
+
+const refused = async (promise) => {
+  try {
+    await promise;
+  } catch (error) {
+    assert.ok(error instanceof ExamApiError, String(error));
+    return error;
+  }
+  assert.fail("expected the start to be refused");
+};
+
+test("windows: A is always open; B opens on day 45 or after lessons 1-15; C on day 90 or all 30", async () => {
+  const db = setup();
+  // Plan started 2026-10-01, three lessons done. Today (clock) is 2026-10-23, day 22.
+  db.tables.profiles = [profileRow(USER.id, { startDate: "2026-10-01", mastered: [1, 2, 3] })];
+  const at = (iso) => deps(db, { now: Date.parse(iso) });
+  const a = await call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db));
+  assert.equal(a.kind, "A");
+
+  const b = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)));
+  assert.equal(b.status, 403);
+  assert.equal(b.code, "not_open");
+  assert.equal(b.extra.opensOn, "2026-11-15");
+  assert.deepEqual(b.extra.lessons, { from: 1, to: 15, done: 3 });
+  assert.match(b.message, /Opens Nov 15, 2026, or when lessons 1–15 are done\./);
+  const c = await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+  assert.equal(c.code, "not_open");
+  assert.equal(c.extra.opensOn, "2026-12-30");
+  assert.equal(
+    db.tables.exam_sessions.filter((row) => row.kind !== "A").length,
+    0,
+    "no session was made",
+  );
+
+  // Day 44 is still shut; day 45 opens B but not C.
+  await refused(
+    call({ action: "start", moduleId: "roofing", kind: "B" }, at("2026-11-14T23:00:00.000Z")),
+  );
+  const day45 = at("2026-11-15T00:30:00.000Z");
+  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "B" }, day45)).kind, "B");
+  await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, day45));
+  const day90 = at("2026-12-30T08:00:00.000Z");
+  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "C" }, day90)).kind, "C");
+});
+
+test("windows: lessons 1-15 mastered open B early (no start date needed); all 30 open C early", async () => {
+  const db = setup();
+  db.tables.profiles = [
+    profileRow(USER.id, { startDate: null, mastered: ALL_LESSONS.slice(0, 15) }),
+  ];
+  assert.equal(
+    (await call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db))).kind,
+    "B",
+  );
+  const c = await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+  assert.equal(c.code, "not_open");
+  assert.equal(c.extra.opensOn, undefined, "no start date, no date to show");
+  assert.match(c.message, /Opens when lessons 1–30 are done\./);
+  db.tables.profiles = [profileRow(USER.id, { startDate: null, mastered: ALL_LESSONS })];
+  assert.equal(
+    (await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db))).kind,
+    "C",
+  );
+  // A lesson flagged "needs practice" no longer counts as mastered.
+  const flagged = profileRow(USER.id, { startDate: null, mastered: ALL_LESSONS });
+  const key = Object.keys(flagged.data.core30Log)[0];
+  flagged.data.core30Log[key].lessons["7"].needsPractice = true;
+  db.tables.profiles = [flagged];
+  db.tables.exam_sessions = [];
+  await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+});
+
+test("windows: no profile row means B and C are shut; an unreadable profile fails closed", async () => {
+  const db = setup();
+  db.tables.profiles = [];
+  const shut = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)));
+  assert.equal(shut.code, "not_open");
+  delete db.tables.profiles;
+  const broken = await refused(
+    call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)),
+  );
+  assert.equal(broken.status, 503);
+  assert.equal(db.tables.exam_sessions.length, 0);
+});
+
+test("windows: platform staff can start any form to preview it; learners cannot", async () => {
+  const db = setup();
+  db.tables.profiles = [];
+  const staff = deps(db, { staff: true });
+  for (const kind of ["A", "B", "C"]) {
+    const started = await call({ action: "start", moduleId: "roofing", kind }, staff);
+    assert.equal(started.kind, kind);
+    assert.equal(started.item.id, BANK.forms[kind][0]);
+    await call({ action: "submit", sessionId: started.sessionId }, staff);
+  }
+  // Staff can also preview A and B again; the once-only and cool-down rules are for learners.
+  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "A" }, staff)).kind, "A");
+  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "B" }, staff)).kind, "B");
+  // Staff status belongs to the signed-in account, not to the request.
+  const other = deps(db, { user: OTHER, staff: [USER.id] });
+  const denied = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, other));
+  assert.equal(denied.code, "not_open");
+});
+
+test("windows: the Spanish Check has no window", async () => {
+  const db = setup();
+  db.tables.profiles = [];
+  const started = await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, deps(db));
+  assert.equal(started.kind, "diagnostic");
+});
+
+// ── Overview ─────────────────────────────────────────────────────────────────
+
+test("overview: kill switch, and signed-out visitors see only which modules have an approved bank", async () => {
+  const db = setup();
+  const off = await examCheckResponse(
+    request({ action: "overview" }),
+    deps(db, { env: { ...ENV, LT_EXAMS_V2: undefined } }),
+  );
+  assert.equal(off.status, 404);
+  assert.equal((await off.json()).code, "disabled");
+
+  const guest = await call({ action: "overview" }, deps(db, { user: null }));
+  assert.deepEqual(guest, {
+    target: "Spanish",
+    native: "English",
+    signedIn: false,
+    staff: false,
+    modules: [{ moduleId: "roofing", forms: null }],
+  });
+  // A draft or retired bank is not offered; another language pair has none.
+  db.tables.exam_banks[0].status = "draft";
+  assert.deepEqual((await call({ action: "overview" }, deps(db, { user: null }))).modules, []);
+  db.tables.exam_banks[0].status = "approved";
+  assert.deepEqual(
+    (await call({ action: "overview", target: "French" }, deps(db, { user: null }))).modules,
+    [],
+  );
+  db.tables.exam_banks[0].approved_sha256 = "0".repeat(64);
+  assert.deepEqual((await call({ action: "overview" }, deps(db, { user: null }))).modules, []);
+});
+
+test("overview: a learner sees A, B and C with window, status, best score and retake state", async () => {
+  const db = setup();
+  db.tables.profiles = [profileRow(USER.id, { startDate: "2026-10-01", mastered: [1, 2, 3] })];
+  const d = deps(db);
+  const fresh = await call({ action: "overview" }, d);
+  assert.equal(fresh.signedIn, true);
+  assert.equal(fresh.staff, false);
+  const [roofing] = fresh.modules;
+  assert.equal(roofing.moduleId, "roofing");
+  const { A, B, C } = roofing.forms;
+  assert.deepEqual([A.title, B.title, C.title], ["Baseline", "Midpoint", "Final"]);
+  assert.deepEqual([A.questions, B.questions, C.questions], [30, 30, 60]);
+  assert.equal(A.window.open, true);
+  assert.equal(B.window.open, false);
+  assert.equal(B.window.opensOn, "2026-11-15");
+  assert.equal(B.window.message, "Opens Nov 15, 2026, or when lessons 1–15 are done.");
+  assert.deepEqual(B.window.lessons, { from: 1, to: 15, done: 3 });
+  assert.equal(C.window.opensOn, "2026-12-30");
+  for (const form of [A, B, C]) {
+    assert.equal(form.status, "not_taken");
+    assert.equal(form.best, null);
+    assert.equal(form.inProgress, null);
+    assert.equal(form.retake.allowed, true);
+    assert.equal(form.preview, false);
+  }
+  assertNoPrivateKeys(fresh, "overview");
+
+  const a = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
+  const midway = await call({ action: "overview" }, d);
+  assert.deepEqual(midway.modules[0].forms.A.inProgress, {
+    sessionId: a.sessionId,
+    step: 0,
+    total: 30,
+  });
+  assert.equal(midway.modules[0].forms.A.status, "in_progress");
+  await play(d, a, right);
+  const done = (await call({ action: "overview" }, d)).modules[0].forms.A;
+  assert.equal(done.status, "completed");
+  assert.equal(done.attempts, 1);
+  assert.equal(done.best.pct, 100);
+  assert.equal(done.last.pct, 100);
+  assert.equal(done.retake.allowed, false);
+  assert.match(done.retake.message, /already taken the baseline/);
+});
+
+test("overview: form C scores are coarse, the retake budget and B cool-down show, staff see a preview flag", async () => {
+  const db = setup();
+  const d = deps(db);
+  // C: 58 of 60 right = 96.7%, shown as 95.
+  const c = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
+  await play(d, c, (entry, step, seed) =>
+    entry.lesson === 30 ? { type: "dont_know" } : correctAnswer(entry, seed),
+  );
+  let forms = (await call({ action: "overview" }, d)).modules[0].forms;
+  assert.deepEqual(forms.C.best, { pct: 95, passed: true, at: forms.C.best.at });
+  assert.ok(!JSON.stringify(forms.C).includes("96.7"));
+  assert.equal(forms.C.retake.allowed, true);
+  // Two more starts use the day's budget of three.
+  for (const minute of [10, 20]) {
+    const when = deps(db, { now: clock + minute * 60_000 });
+    const more = await call({ action: "start", moduleId: "roofing", kind: "C" }, when);
+    await call({ action: "submit", sessionId: more.sessionId }, when);
+  }
+  forms = (await call({ action: "overview" }, deps(db, { now: clock + 30 * 60_000 }))).modules[0]
+    .forms;
+  assert.equal(forms.C.attempts, 3);
+  assert.equal(forms.C.retake.allowed, false);
+  assert.equal(forms.C.retake.retryAt, new Date(clock + 24 * 3600_000).toISOString());
+  assert.equal(forms.C.best.passed, true, "best is still the passing attempt");
+
+  // B: finished a few minutes ago.
+  const b = await call({ action: "start", moduleId: "roofing", kind: "B" }, d);
+  await call({ action: "submit", sessionId: b.sessionId }, d);
+  const cooling = (await call({ action: "overview" }, d)).modules[0].forms.B;
+  assert.equal(cooling.retake.allowed, false);
+  assert.equal(cooling.retake.retryAt, new Date(clock + 3600_000).toISOString());
+  assert.equal(cooling.best.onTrack, false);
+
+  // Staff on a learner with a locked plan: forms still show their window, flagged as preview.
+  db.tables.profiles = [];
+  const staffForms = (await call({ action: "overview" }, deps(db, { staff: true }))).modules[0]
+    .forms;
+  assert.equal(staffForms.B.window.open, false);
+  assert.equal(staffForms.B.preview, true);
+  assert.equal(staffForms.A.preview, false);
 });
 
 test("form C: at most 3 starts per user per rolling 24 hours; resuming the open one is free", async () => {
@@ -511,7 +980,17 @@ test("ownership: another user cannot read, save or submit a signed-in session", 
   for (const action of ["resume", "result", "submit"])
     await rejects(call({ action, sessionId: started.sessionId }, other), 404, "not_found");
   await rejects(
-    call({ action: "save", sessionId: started.sessionId, answers: [] }, other),
+    call(
+      {
+        action: "answer",
+        sessionId: started.sessionId,
+        step: 0,
+        itemId: BANK.forms.C[0],
+        answer: { type: "dont_know" },
+        requestId: "req-other-0001",
+      },
+      other,
+    ),
     404,
     "not_found",
   );
@@ -562,11 +1041,7 @@ test("diagnostic: one item at a time, no feedback, mismatches rejected, idempote
   assert.equal(sessionRow(db, started.sessionId).responses.length, 1);
 
   await rejects(call({ action: "result", sessionId: started.sessionId }, d), 409, "not_finished");
-  await rejects(
-    call({ action: "save", sessionId: started.sessionId, answers: [] }, d),
-    400,
-    "wrong_kind",
-  );
+  await rejects(call({ action: "submit", sessionId: started.sessionId }, d), 400, "wrong_kind");
 
   // Answer the rest (step 1 onward); the session completes at step 50.
   let view = first;
@@ -924,7 +1399,20 @@ test("answers and saves are limited to 120 per session per minute", async () => 
     [["exams2:session-writes", started.sessionId, 120, 60]],
   );
   const fixed = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
-  await rejects(call({ action: "save", sessionId: fixed.sessionId, answers: [] }, limited), 429);
+  await rejects(
+    call(
+      {
+        action: "answer",
+        sessionId: fixed.sessionId,
+        step: 0,
+        itemId: fixed.item.id,
+        answer: { type: "dont_know" },
+        requestId: "req-limited-02",
+      },
+      limited,
+    ),
+    429,
+  );
 });
 
 test("an open session on a replaced bank version is abandoned and a new one starts", async () => {

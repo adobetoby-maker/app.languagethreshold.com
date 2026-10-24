@@ -4,9 +4,9 @@
 // by lesson; the phase layer is what stays usable. Figures are from simulated learners only.
 import assert from "node:assert/strict";
 import test from "node:test";
-import { MIN_PER_PHASE } from "../src/lib/exams2/adaptive.ts";
+import { MIN_PER_PHASE, MIN_TYPED } from "../src/lib/exams2/adaptive.ts";
 import { buildSyntheticBank } from "./fixtures/exams2-synthetic-bank.mjs";
-import { pct, SCATTERED_KINDS, simulate } from "./fixtures/exams2-simulation.mjs";
+import { ALL_KINDS, pct, SCATTERED_KINDS, simulate } from "./fixtures/exams2-simulation.mjs";
 
 const PER_KIND = 250;
 const SIM = simulate(buildSyntheticBank(), {
@@ -56,4 +56,44 @@ test("scattered sessions keep the guarantees: >= 6 per phase, exposure <= 45%", 
   }
   t.diagnostic(`max exposure ${pct(SIM.maxExposure)}`);
   assert.ok(SIM.maxExposure <= 0.45);
+});
+
+test("dense cue groups: never two of a group in a session, and every guarantee still holds", (t) => {
+  const bank = buildSyntheticBank();
+  const byId = new Map(bank.items.map((item) => [item.id, item]));
+  const poolIn = (lesson) => bank.diagnosticPool.filter((id) => byId.get(id).lesson === lesson);
+  const groups = [];
+  for (let lesson = 1; lesson <= 30; lesson++) {
+    const p = poolIn(lesson);
+    // Within the lesson: three disjoint pairs, so at most 3 of its 6 items can ever be served.
+    groups.push([p[0], p[1]], [p[2], p[3]], [p[4], p[5]]);
+    // Across neighbouring lessons: a chain, so ids sit in several groups.
+    if (lesson < 30) groups.push([p[0], poolIn(lesson + 1)[0]], [p[3], poolIn(lesson + 1)[2]]);
+  }
+  // Across each phase: one group of four.
+  for (const phase of bank.phases) groups.push(phase.lessons.slice(0, 4).map((l) => poolIn(l)[5]));
+  bank.cueGroups = groups;
+  const sim = simulate(bank, { kinds: ALL_KINDS, perKind: 25, baseSeed: 99 });
+  for (const { responses } of sim.sessions) {
+    const served = responses.map((r) => r.itemId);
+    assert.equal(served.length, 50);
+    for (const group of groups)
+      assert.ok(
+        served.filter((id) => group.includes(id)).length <= 1,
+        "two items of one cue group",
+      );
+    const lessons = new Set(served.map((id) => byId.get(id).lesson));
+    assert.equal(lessons.size, 30, "30/30 coverage");
+    const perPhase = new Map();
+    for (const id of served) {
+      const phase = sim.pool.phaseOf.get(byId.get(id).lesson);
+      perPhase.set(phase, (perPhase.get(phase) ?? 0) + 1);
+    }
+    assert.equal(perPhase.size, 6);
+    for (const n of perPhase.values()) assert.ok(n >= MIN_PER_PHASE, `phase got ${n}`);
+    assert.ok(served.filter((id) => byId.get(id).type === "typed").length >= MIN_TYPED);
+  }
+  t.diagnostic(
+    `${sim.sessions.length} sessions with ${groups.length} cue groups: all guarantees held`,
+  );
 });

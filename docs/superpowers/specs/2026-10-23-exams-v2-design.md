@@ -324,6 +324,12 @@ T2/T3/T4 and T7/T8 can run in parallel; their write sets don't overlap. T10 owns
 - The phases cover lessons 1–30 exactly once, in consecutive ascending groups.
 - There are 3–8 phases of 3–10 lessons each. That allows the real roofing grouping (5/5/10/5/5), and also the six-of-five split used in tests.
 
+Banks may also declare `cueGroups?: string[][]`. Each inner array lists item ids that cue each other.
+- Each group has at least 2 known ids and no repeats. An id may sit in several groups.
+- A fixed form (A, B or C) may not contain two items of one group; that is the error `form.cue_group`.
+- The diagnostic never serves two items of one group in a session. Before picking, the engine checks the item's group-mates would not leave an owed lesson, a short phase, the typed minimum or the 50 total with nothing left to serve.
+- In a test with 154 dense groups, all 150 sessions kept 30/30 coverage, at least 6 questions per phase and at least 8 typed items.
+
 `bankSha256()` is SHA-256 over canonical JSON of the bank without `reviews`. Blind reviews sign that hash. The importer stores it as `content_sha256`, the bank minus reviews as `content`, and the reviews as `review_records`.
 
 **How the validator reads the rules:**

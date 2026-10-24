@@ -115,6 +115,8 @@ export interface DiagnosticPool {
   byLesson: Map<number, BankItem[]>;
   /** Phase index of each lesson (1-based lesson -> index into bank.phases). */
   phaseOf: Map<number, number>;
+  /** Cue-group mates of each item (from bank.cueGroups); empty when the bank declares none. */
+  mates: Map<string, Set<string>>;
 }
 /** Index the bank's diagnostic pool once; reuse it across calls. */
 export function diagnosticPool(bank: ExamBank): DiagnosticPool {
@@ -134,7 +136,15 @@ export function diagnosticPool(bank: ExamBank): DiagnosticPool {
   });
   if (phaseOf.size !== LESSON_COUNT)
     throw new Error("The bank's phases must cover all 30 lessons.");
-  return { bank, byId, byLesson, phaseOf };
+  const mates = new Map<string, Set<string>>();
+  for (const group of Array.isArray(bank.cueGroups) ? bank.cueGroups : [])
+    for (const id of group)
+      for (const other of group)
+        if (other !== id) {
+          if (!mates.has(id)) mates.set(id, new Set());
+          mates.get(id)!.add(other);
+        }
+  return { bank, byId, byLesson, phaseOf, mates };
 }
 
 function responseItem(pool: DiagnosticPool, response: DiagnosticResponse): BankItem {
@@ -498,8 +508,11 @@ export function nextDiagnosticItem(
   const est = estimate(pool, responses);
   const used = new Set(responses.map((r) => r.itemId));
   if (used.size !== responses.length) throw new Error("An item was answered twice.");
+  // Cue groups: once one item of a group is served, the rest of the group is never served.
+  const blocked = new Set<string>();
+  for (const id of used) for (const mate of pool.mates.get(id) ?? []) blocked.add(mate);
   const unused = (lesson: number) =>
-    (pool.byLesson.get(lesson) ?? []).filter((item) => !used.has(item.id));
+    (pool.byLesson.get(lesson) ?? []).filter((item) => !used.has(item.id) && !blocked.has(item.id));
   const servedItems = responses.map((r) => pool.byId.get(r.itemId)!);
   const typedCount = servedItems.filter((item) => item.type === "typed").length;
   const remaining = DIAGNOSTIC_LENGTH - step;
@@ -508,8 +521,9 @@ export function nextDiagnosticItem(
 
   let lesson: number;
   let target: number;
-  if (step < SWEEP.length) {
-    lesson = sweepLesson(seed, step);
+  const sweep = step < SWEEP.length ? sweepLesson(seed, step) : 0;
+  if (sweep && unused(sweep).length) {
+    lesson = sweep;
     target = est.global.mu;
   } else {
     // Questions still owed: every uncovered lesson, and MIN_PER_PHASE per phase. One question
@@ -536,6 +550,9 @@ export function nextDiagnosticItem(
       );
       if (withTyped.length) candidates = withTyped;
     }
+    // Cue groups can leave a lesson that is still owed with nothing servable: fall back to any
+    // open lesson rather than break the one-per-group rule.
+    if (!candidates.length) candidates = est.lessons.filter(open);
     if (!candidates.length) throw new Error("The diagnostic pool cannot fill 50 questions.");
     const scored = candidates
       .map((l) => ({ l, score: lessonScore(l) }))
@@ -549,7 +566,8 @@ export function nextDiagnosticItem(
     target = chosen.mu;
   }
 
-  let items = unused(lesson);
+  const available = unused(lesson);
+  let items = available;
   if (!items.length) throw new Error("No unused items remain in the chosen lesson.");
   const lastTwo = servedItems.slice(-2).map((item) => item.type);
   const runType = lastTwo.length === 2 && lastTwo[0] === lastTwo[1] ? lastTwo[0] : null;
@@ -559,6 +577,18 @@ export function nextDiagnosticItem(
     items = typed;
   else if (runType && items.some((item) => item.type !== runType))
     items = items.filter((item) => item.type !== runType);
+
+  // With cue groups, avoid a pick whose group-mates would leave an owed lesson, a short phase
+  // or the typed minimum with nothing left to serve (the type preference yields first).
+  if (pool.mates.size) {
+    const strands = strandingCheck(pool, est, used, blocked, typedCount, remaining);
+    const safe = items.filter((item) => !strands(item));
+    if (safe.length) items = safe;
+    else {
+      const safeAny = available.filter((item) => !strands(item));
+      if (safeAny.length) items = safeAny;
+    }
+  }
 
   // Closest difficulty first; equal distances are ordered by a seeded hash so no single item is
   // always the first choice. A seeded pick among the items within ITEM_TOLERANCE of the closest
@@ -578,6 +608,50 @@ export function nextDiagnosticItem(
     step,
   ).item;
   return { step, itemId: chosen.id, lesson: chosen.lesson };
+}
+
+/**
+ * Would serving `item` make a guarantee impossible? Checks every uncovered lesson keeps a
+ * servable item, every phase can still reach MIN_PER_PHASE within its lesson caps, the typed
+ * minimum can still be met, and enough servable items remain to finish the 50.
+ */
+function strandingCheck(
+  pool: DiagnosticPool,
+  est: DiagnosticEstimate,
+  used: Set<string>,
+  blocked: Set<string>,
+  typedCount: number,
+  remaining: number,
+) {
+  return (item: BankItem): boolean => {
+    const gone = new Set(blocked);
+    gone.add(item.id);
+    for (const mate of pool.mates.get(item.id) ?? []) gone.add(mate);
+    const servable = (l: number) =>
+      (pool.byLesson.get(l) ?? []).filter((other) => !used.has(other.id) && !gone.has(other.id));
+    let total = 0;
+    let typedLeft = 0;
+    const room = new Map<number, number>();
+    for (let l = 1; l <= LESSON_COUNT; l++) {
+      const left = servable(l);
+      const seenAfter = est.lessons[l - 1].seen + (l === item.lesson ? 1 : 0);
+      if (seenAfter === 0 && left.length === 0) return true;
+      const space = Math.max(0, Math.min(left.length, lessonCap(l) - seenAfter));
+      room.set(l, space);
+      total += space;
+      typedLeft += left.filter((other) => other.type === "typed").length;
+    }
+    if (total < remaining - 1) return true;
+    const typedNeeded = MIN_TYPED - typedCount - (item.type === "typed" ? 1 : 0);
+    if (typedLeft < typedNeeded) return true;
+    for (const phase of est.phases) {
+      const inPhase = phase.lessons.includes(item.lesson) ? 1 : 0;
+      const need = MIN_PER_PHASE - phase.seen - inPhase;
+      const supply = phase.lessons.reduce((sum, l) => sum + room.get(l)!, 0);
+      if (need > 0 && supply < need) return true;
+    }
+    return false;
+  };
 }
 
 /**

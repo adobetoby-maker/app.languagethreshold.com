@@ -85,6 +85,12 @@ export interface ExamBank {
   items: BankItem[];
   forms: { A: string[]; B: string[]; C: string[] };
   diagnosticPool: string[];
+  /**
+   * Optional. Each inner array lists item ids that cue each other (one reveals another's answer).
+   * At most one item of a group is served in a diagnostic session, and no fixed form may hold two
+   * items of the same group. Groups have >= 2 ids; an id may appear in several groups.
+   */
+  cueGroups?: string[][];
   reviews: BlindReview[];
 }
 
@@ -585,6 +591,42 @@ function validateBankUnsafe(input: unknown, options: ValidateOptions): BankValid
     }
     // Pool items are drawn together in one session; cueing there is a warning, not a block.
     cueing(pool, "diagnostic", (issue) => warnings.push(issue));
+  }
+
+  // ── Rule 5: declared cue groups ────────────────────────────────────────────
+  if (bank.cueGroups !== undefined) {
+    if (!Array.isArray(bank.cueGroups)) err({ rule: 5, code: "cue_groups.shape" });
+    else {
+      const valid: string[][] = [];
+      bank.cueGroups.forEach((group, index) => {
+        if (!Array.isArray(group) || !group.every((id) => typeof id === "string"))
+          return err({ rule: 5, code: "cue_groups.shape", index });
+        const ids = group as string[];
+        if (ids.length < 2)
+          err({ rule: 5, code: "cue_groups.group_size", index, count: ids.length });
+        if (new Set(ids).size !== ids.length)
+          err({ rule: 5, code: "cue_groups.duplicate_in_group", index });
+        for (const id of ids)
+          if (!items.has(id))
+            err({
+              rule: 5,
+              code: "cue_groups.unknown_item",
+              index,
+              ...(idPattern?.test(id) ? { itemId: id } : {}),
+            });
+        valid.push(ids.filter((id) => items.has(id)));
+      });
+      // A fixed form may hold at most one item of any cue group.
+      for (const kind of FIXED_FORM_KINDS) {
+        const onForm = new Set(formIds[kind] ?? []);
+        valid.forEach((ids, index) => {
+          const present = [...new Set(ids)].filter((id) => onForm.has(id));
+          if (present.length > 1)
+            for (const id of present.slice(1))
+              err({ rule: 5, code: "form.cue_group", form: kind, index, itemId: id });
+        });
+      }
+    }
   }
 
   // ── Rule 5: disjoint sets and A/C difficulty match ─────────────────────────

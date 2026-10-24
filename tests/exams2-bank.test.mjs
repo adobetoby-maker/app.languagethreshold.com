@@ -534,6 +534,57 @@ test("rule 5: blueprints, disjoint forms, A/C difficulty, type mix and cueing", 
   assert.equal(across.ok, true, JSON.stringify(codes(across)));
 });
 
+test("rule 5: cueGroups (optional): shape, known ids, size, and one per fixed form", () => {
+  const pool = BASE.diagnosticPool;
+  // Absent is fine; valid groups (an id in several groups, groups spanning pool and forms) pass.
+  assert.equal(validateBank(BASE).ok, true);
+  const ok = check((b) => {
+    b.cueGroups = [
+      [pool[0], pool[1]],
+      [pool[1], pool[2], pool[3]],
+      [b.forms.A[0], b.forms.C[0]],
+      [b.forms.A[1], pool[7]],
+    ];
+  });
+  assert.equal(ok.ok, true, JSON.stringify(codes(ok)));
+  fails(
+    check((b) => (b.cueGroups = { a: [pool[0], pool[1]] })),
+    5,
+    "cue_groups.shape",
+  );
+  fails(
+    check((b) => (b.cueGroups = [[pool[0], 7]])),
+    5,
+    "cue_groups.shape",
+  );
+  fails(
+    check((b) => (b.cueGroups = ["ab"])),
+    5,
+    "cue_groups.shape",
+  );
+  fails(
+    check((b) => (b.cueGroups = [[pool[0]]])),
+    5,
+    "cue_groups.group_size",
+  );
+  fails(
+    check((b) => (b.cueGroups = [[pool[0], pool[0]]])),
+    5,
+    "cue_groups.duplicate_in_group",
+  );
+  const unknown = check((b) => (b.cueGroups = [[pool[0], "roofing.L01.i99"]]));
+  fails(unknown, 5, "cue_groups.unknown_item");
+  assert.ok(unknown.errors.some((e) => e.itemId === "roofing.L01.i99"));
+  const raw = check((b) => (b.cueGroups = [[pool[0], "not an id"]]));
+  assert.ok(!JSON.stringify(raw).includes("not an id"), "invalid ids are not echoed");
+  // Two items of one group on the same fixed form is an error, for each of A, B and C.
+  for (const kind of ["A", "B", "C"]) {
+    const result = check((b) => (b.cueGroups = [[b.forms[kind][0], b.forms[kind][3]]]));
+    fails(result, 5, "form.cue_group");
+    assert.ok(result.errors.some((e) => e.code === "form.cue_group" && e.form === kind));
+  }
+});
+
 test("rule 6: diagnostic pool size, difficulty spread and typed coverage per lesson", () => {
   const poolIn = (b, lesson) =>
     b.diagnosticPool.map((id) => item(b, id)).filter((e) => e.lesson === lesson);

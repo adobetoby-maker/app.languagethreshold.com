@@ -153,7 +153,7 @@ test.describe("Core 60 path", () => {
     await expect(banner).toContainText("Twenty lessons for the day that doesn't go as planned.");
     // The way back: Core 30 is a button again.
     await page.getByTestId("core60-step-core").click();
-    await expect(page.getByRole("heading", { name: "The Roofing Foreman Core 30" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "The Roofing Supervisor Core 30" })).toBeVisible();
   });
 });
 

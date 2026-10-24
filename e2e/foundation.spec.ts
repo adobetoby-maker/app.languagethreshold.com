@@ -178,7 +178,7 @@ test.describe("Roofing Foundation: signed in", () => {
     await openCore30(page, FOUNDATION, {}, "core60-path", FAKE_USER_ID);
     await expect(page.getByTestId("core60-step-core")).toHaveJSProperty("tagName", "BUTTON");
     await page.getByTestId("core60-step-core").click();
-    await expect(page.getByRole("heading", { name: "The Roofing Foreman Core 30" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "The Roofing Supervisor Core 30" })).toBeVisible();
     await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
     await expect(page.getByTestId("core60-step-foundation")).toContainText("New to Spanish? Start here.");
     await page.getByTestId("core60-step-foundation").click();

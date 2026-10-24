@@ -668,9 +668,9 @@ test.describe("Core 30 plan: Roofing", () => {
     }
     await expect(page30).toContainText("without switching languages");
     await expect(page30).toContainText("The Clinical Core 30");
-    await expect(page30).toContainText("Example from the Roofing Foreman course");
+    await expect(page30).toContainText("Example from the Roofing Supervisor course");
     await expect(page30).not.toContainText("roofing crew");
-    await expect(page30).not.toContainText("built from the Roofing Foreman course");
+    await expect(page30).not.toContainText("built from the Roofing Supervisor course");
     await expect(page30).toContainText("speaking mission, word lookup, and having the app read");
   });
 

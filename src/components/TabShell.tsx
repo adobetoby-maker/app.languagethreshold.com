@@ -14,7 +14,7 @@ import {
   reloadForChunkError,
 } from "@/lib/chunk-reload";
 
-/** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
+/** "Roofing Supervisor" for foundation-roofing: the course the Foundation leads into. */
 function foundationTrade(moduleId: string | null | undefined): string {
   const base = (moduleId ?? "").replace(/^foundation-/, "");
   return MODULES.find((m) => m.id === base)?.name ?? "Core 30";

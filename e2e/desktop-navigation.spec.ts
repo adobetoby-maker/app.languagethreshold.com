@@ -248,7 +248,7 @@ test("Speak opens the current module missions and lets learners browse other mod
   });
   await navigation.getByRole("button", { name: "Speak", exact: true }).click();
   const moduleHeading = page.getByRole("heading", {
-    name: "🏠 Roofing Foreman",
+    name: "🏠 Roofing Supervisor",
     exact: true,
     level: 3,
   });

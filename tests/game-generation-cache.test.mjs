@@ -8,7 +8,7 @@ import {
 const roofing = {
   language: "Spanish",
   level: 1,
-  topic: "Roofing Foreman",
+  topic: "Roofing Supervisor",
   cefr: "A2",
   axis: "person",
   avoid: [],

@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-15
-// Copy for the "How Core 30 works" page. Examples come from the Roofing Foreman course
+// Copy for the "How Core 30 works" page. Examples come from the Roofing Supervisor course
 // (roofing-lesson-words.ts); tests/core30-philosophy.test.mjs checks every example exists there.
 // The base copy is module- and language-neutral and uses {language}, {native}, {threshold} and
 // {headline} placeholders. buildCore30Philosophy() fills them for the learner's current module
@@ -92,7 +92,7 @@ export const CORE30_PHILOSOPHY: Core30Philosophy = {
     promise: "{threshold}",
     body: [
       "Core 30 courses follow the same six-way pattern. Each lesson covers one real moment from the module and teaches its words in {language}.",
-      "A word you only read is easy to lose. So every lesson makes you meet the same words in six different ways. The examples on this page come from the Roofing Foreman course (Spanish), but every Core 30 works the same way.",
+      "A word you only read is easy to lose. So every lesson makes you meet the same words in six different ways. The examples on this page come from the Roofing Supervisor course (Spanish), but every Core 30 works the same way.",
     ],
   },
   ways: {
@@ -308,7 +308,7 @@ const FALLBACK_PROMISE =
   "By the end of this course, you can use {language} in the real situations this module is built around.";
 
 const ROOFING_BODY: [string, string] = [
-  "Core 30 is built from the Roofing Foreman course. Each lesson covers one real moment on the job, such as naming the roof system, stopping a worker before they cover a soft deck, or tying off before access.",
+  "Core 30 is built from the Roofing Supervisor course. Each lesson covers one real moment on the job, such as naming the roof system, stopping a worker before they cover a soft deck, or tying off before access.",
   "A word you only read is easy to lose. So every lesson makes you meet the same words in six different ways. The examples on this page are roofing words, but every Core 30 works the same way.",
 ];
 
@@ -352,7 +352,7 @@ export function buildCore30Philosophy(ctx: PhilosophyContext): Core30Philosophy 
     copy.opening.body[0] = `Core 30 courses follow the same six-way pattern. Each lesson in ${ctx.headline.trim()} covers one real moment from the module and teaches its words in ${ctx.language}.`;
   }
 
-  const exampleSource = isRoofing ? "Example" : "Example from the Roofing Foreman course";
+  const exampleSource = isRoofing ? "Example" : "Example from the Roofing Supervisor course";
   const spanishTag = ctx.language === "Spanish" ? "" : " (Spanish)";
   copy.ways.items = copy.ways.items.map((way) => ({
     ...way,

@@ -135,7 +135,7 @@ const CATALOG: AppModule[] = [
   },
   {
     id: "roofing",
-    name: "Roofing Foreman",
+    name: "Roofing Supervisor",
     emoji: "🏠",
     category: "Trades",
     blurb:
@@ -144,7 +144,7 @@ const CATALOG: AppModule[] = [
     languages: ["Spanish"],
     aiPersona:
       "You are a roofing crew member, crew lead, supplier, or inspector speaking the learner's target language. Use practical roofing language and ask the learner to clarify instructions. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the selected product instructions and site plan rather than assuming a universal specification.",
-    userRole: "Roofing foreman",
+    userRole: "Roofing supervisor",
     challengePrompts: [
       "Run a morning roofing briefing covering assignments, material staging, and fall hazards.",
       "Direct tear-off and ask the crew to flag damaged deck panels before covering them.",
@@ -195,8 +195,8 @@ const CATALOG: AppModule[] = [
     priceCents: 999,
     languages: ["Spanish"],
     aiPersona:
-      "You are a roofing crew member, homeowner, insurance adjuster, or inspector speaking natural B1-B2 Spanish with a roofing foreman. In every mission, introduce ONE realistic complication partway through that the learner was not told about (for example a hidden rotten section of deck, a homeowner objection to the change order, a missing material, or a safety issue) and expect the learner to handle it in Spanish. Stay in character, keep a normal speaking pace, and ask the learner to clarify when their Spanish is vague. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the product instructions and site plan rather than assuming a universal specification.",
-    userRole: "Roofing foreman leading a crew in Spanish",
+      "You are a roofing crew member, homeowner, insurance adjuster, or inspector speaking natural B1-B2 Spanish with a roofing supervisor. In every mission, introduce ONE realistic complication partway through that the learner was not told about (for example a hidden rotten section of deck, a homeowner objection to the change order, a missing material, or a safety issue) and expect the learner to handle it in Spanish. Stay in character, keep a normal speaking pace, and ask the learner to clarify when their Spanish is vague. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the product instructions and site plan rather than assuming a universal specification.",
+    userRole: "Roofing supervisor leading a crew in Spanish",
     challengePrompts: [
       "Train a new roofer on a task and have them teach it back to you in Spanish.",
       "Explain a change order for hidden rotten decking to a worried homeowner and answer their objection.",

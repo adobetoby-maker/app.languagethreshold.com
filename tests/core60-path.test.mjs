@@ -154,7 +154,7 @@ test("Roofing Master is registered like the Core 30: Spanish, paid tabs, same pr
   assert.equal(master.category, "Trades");
   assert.deepEqual(master.languages, ["Spanish"]);
   assert.equal(master.priceCents, roofing.priceCents);
-  assert.equal(master.userRole, "Roofing foreman leading a crew in Spanish");
+  assert.equal(master.userRole, "Roofing supervisor leading a crew in Spanish");
   assert.match(master.aiPersona, /ONE realistic complication/);
   assert.ok(master.challengePrompts.length > 0 && master.vocabFocus.length > 0);
   const curriculum = getCurriculum("master-roofing");

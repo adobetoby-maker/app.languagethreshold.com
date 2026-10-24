@@ -80,6 +80,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
+import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
 import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
@@ -867,7 +868,13 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <div className="mt-2">
             <DeviceVoiceHelp />
-            <AudioRoutingSettings />
+            <AudioRoutingSettings
+              learningContext={JSON.stringify([
+                state.currentTab,
+                state.activeModuleId,
+                state.selectedLanguage,
+              ])}
+            />
           </div>
 
           <div className="mt-2">
@@ -914,6 +921,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               Loads newest version · keeps progress
             </span>
           </button>
+
+          <AppVersion />
 
           <button
             onClick={() => {

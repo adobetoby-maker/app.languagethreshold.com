@@ -12,7 +12,7 @@ import {
   publicItem,
   publicOptionId,
 } from "../src/lib/exams2/public-item.ts";
-import { scoreFixedForm, scoreItem } from "../src/lib/exams2/scoring.ts";
+import { publicFixedFormResult, scoreFixedForm, scoreItem } from "../src/lib/exams2/scoring.ts";
 import {
   buildSyntheticBank,
   clone,
@@ -55,7 +55,9 @@ test("the synthetic bank passes every rule, with counts only", () => {
   assert.equal(result.counts.diagnosticPool, 180);
   assert.equal(result.counts.lessons, 30);
   assert.equal(result.counts.reviews, 2);
-  assert.equal(validateBank(buildSyntheticBank({ poolPlan: POOL_PLAN_5 })).ok, true);
+  assert.equal(result.counts.phases, 6);
+  // Five diagnostic items per lesson is no longer enough (rule 6: at least 6).
+  fails(validateBank(buildSyntheticBank({ poolPlan: POOL_PLAN_5 })), 6, "pool.lesson_count");
 });
 
 test("rule 1: structure, ids, lessons, enums, explanation and sourceRefs", () => {
@@ -167,6 +169,145 @@ test("rule 1: structure, ids, lessons, enums, explanation and sourceRefs", () =>
     1,
     "typed.policy",
   );
+});
+
+test("rule 1: phases cover every lesson once, in consecutive ascending groups", () => {
+  fails(
+    check((b) => delete b.phases),
+    1,
+    "bank.phases_missing",
+  );
+  fails(
+    check((b) => (b.phases = b.phases.slice(0, 2))),
+    1,
+    "bank.phases_count",
+  );
+  fails(
+    check((b) => (b.phases[1].id = b.phases[0].id)),
+    1,
+    "phase.id_duplicate",
+  );
+  fails(
+    check((b) => (b.phases[1].id = "Phase Two")),
+    1,
+    "phase.id",
+  );
+  fails(
+    check((b) => (b.phases[2].title = " ")),
+    1,
+    "phase.title",
+  );
+  fails(
+    check((b) => (b.phases[0].lessons = [1, 2, 4, 5, 3])),
+    1,
+    "phase.not_consecutive",
+  );
+  fails(
+    check((b) => b.phases[5].lessons.pop()),
+    1,
+    "phase.lesson_coverage",
+  );
+  fails(
+    check((b) => b.phases[1].lessons.unshift(5)),
+    1,
+    "phase.order",
+  );
+  fails(
+    check((b) => (b.phases[3].lessons = "16-20")),
+    1,
+    "phase.lessons",
+  );
+  fails(
+    check((b) => {
+      b.phases[0].lessons = [1, 2];
+      b.phases[1].lessons = [3, 4, 5, 6, 7, 8, 9, 10];
+    }),
+    1,
+    "phase.size",
+  );
+  // Real roofing grouping (5, 5, 10, 5, 5) is allowed.
+  const roofing = check((b) => {
+    const span = (from, to) => Array.from({ length: to - from + 1 }, (_, i) => from + i);
+    b.phases = [
+      { id: "materials", title: "Materials", lessons: span(1, 5) },
+      { id: "tear-off", title: "Tear-off", lessons: span(6, 10) },
+      { id: "install", title: "Install", lessons: span(11, 20) },
+      { id: "safety", title: "Safety", lessons: span(21, 25) },
+      { id: "closeout", title: "Closeout", lessons: span(26, 30) },
+    ];
+  });
+  assert.equal(roofing.ok, true, JSON.stringify(codes(roofing)));
+});
+
+test("wrong JSON types anywhere become issues, never exceptions", () => {
+  const WRONG = [null, 0, 7.5, "", "text", true, [], [1, "x"], {}, { a: 1 }];
+  const itemFields = [
+    "id",
+    "rev",
+    "lesson",
+    "skill",
+    "difficulty",
+    "type",
+    "prompt",
+    "context",
+    "options",
+    "correctOptionId",
+    "accepted",
+    "policy",
+    "pairs",
+    "explanation",
+    "sourceRefs",
+    "author",
+  ];
+  let runs = 0;
+  for (const kind of ["mc", "typed", "match"])
+    for (const field of itemFields)
+      for (const value of WRONG) {
+        const bank = fresh();
+        firstOfType(bank, bank.forms.A, kind)[field] = clone(value);
+        const result = validateBank(bank);
+        assert.equal(typeof result.ok, "boolean");
+        assert.ok(
+          !result.errors.some((e) => e.code === "bank.unreadable"),
+          `${kind}.${field}=${JSON.stringify(value)} threw inside the validator`,
+        );
+        runs++;
+      }
+  // Nested members of the wrong type.
+  const nested = [
+    (b) => (firstOfType(b, b.forms.A, "mc").options[0] = "a"),
+    (b) => (firstOfType(b, b.forms.A, "mc").options[1].text = 5),
+    (b) => (firstOfType(b, b.forms.A, "match").pairs[0] = null),
+    (b) => (firstOfType(b, b.forms.A, "match").pairs[1].right = ["x"]),
+    (b) => (firstOfType(b, b.forms.A, "typed").accepted = "answer"),
+    (b) => (firstOfType(b, b.forms.A, "typed").accepted = [1, null]),
+    (b) => (b.items[0] = "item"),
+    (b) => (b.items = { a: 1 }),
+    (b) => (b.forms = []),
+    (b) => (b.forms.A = "all"),
+    (b) => (b.forms.C = [1, 2, 3]),
+    (b) => (b.diagnosticPool = { x: 1 }),
+    (b) => (b.lessons = "thirty"),
+    (b) => (b.lessons[0] = 3),
+    (b) => (b.phases = { a: 1 }),
+    (b) => (b.phases[0] = [1, 2, 3]),
+    (b) => (b.reviews = "two"),
+    (b) => (b.reviews[0] = 1),
+    (b) => (b.reviews[0].verdicts = ["accept"]),
+    (b) => (b.reviews[1].reviewer = { name: "x" }),
+    (b) => (b.reviews[0].notes = null),
+  ];
+  for (const mutate of nested) {
+    const bank = fresh();
+    mutate(bank);
+    const result = validateBank(bank);
+    assert.equal(result.ok, false, String(mutate));
+    assert.ok(!result.errors.some((e) => e.code === "bank.unreadable"), String(mutate));
+    runs++;
+  }
+  for (const input of [undefined, null, 1, "bank", [], [BASE]])
+    assert.equal(validateBank(input).ok, false);
+  assert.ok(runs > 400);
 });
 
 test("rule 2: multiple choice shape, rationales, all/none, and the longest-answer cue", () => {
@@ -358,6 +499,33 @@ test("rule 5: blueprints, disjoint forms, A/C difficulty, type mix and cueing", 
     5,
     "form.cueing",
   );
+  // An answer shown in another item's options, or a match pair shown together elsewhere, cues too.
+  fails(
+    check((b) => {
+      const answer = firstOfType(b, b.forms.A, "typed").accepted[0];
+      firstOfType(b, b.forms.A.slice(5), "mc").options[2].text = answer;
+    }),
+    5,
+    "form.cueing",
+  );
+  fails(
+    check((b) => {
+      const mc = firstOfType(b, b.forms.A, "mc");
+      const correct = mc.options.find((o) => o.id === mc.correctOptionId).text;
+      firstOfType(b, b.forms.A.slice(10), "match").pairs[3].right = correct;
+    }),
+    5,
+    "form.cueing",
+  );
+  fails(
+    check((b) => {
+      const match = firstOfType(b, b.forms.A, "match");
+      firstOfType(b, b.forms.A.slice(3), "mc").context =
+        `${match.pairs[0].left} means ${match.pairs[0].right}.`;
+    }),
+    5,
+    "form.cueing",
+  );
   // Cueing across different forms is allowed: forms are never shown together.
   const across = check((b) => {
     const answer = firstOfType(b, b.forms.A, "typed").accepted[0];
@@ -492,6 +660,17 @@ test("rule 8: two independent blind reviews of every item on the current hash", 
     check((b) => (b.items[0].author = "reviewer-agent-1")),
     8,
     "review.reviewer_is_author",
+  );
+  // Identities compare trimmed and case-insensitively; one reviewer twice counts once.
+  fails(
+    check((b) => (b.items[0].author = "  Reviewer-Agent-1 ")),
+    8,
+    "review.reviewer_is_author",
+  );
+  fails(
+    raw((b) => (b.reviews[1].reviewer = " REVIEWER-AGENT-1")),
+    8,
+    "reviews.too_few",
   );
   // A revised item (new rev) re-reviewed on the new hash passes again.
   const revised = fresh();
@@ -701,6 +880,36 @@ test("scoreFixedForm: totals, per-lesson table, links, C pass and B on-track bou
       link,
     ),
   );
+});
+
+test("publicFixedFormResult: form C sends only percent, pass/fail and missed lessons", () => {
+  const seed = "public-c";
+  const link = { target: "Spanish", native: "English" };
+  const full = scoreFixedForm(BASE, "C", answersFor(BASE, "C", seed, 50), seed, link);
+  assert.equal(full.items.length, 60, "the full result keeps per-item detail for the server");
+  const pub = publicFixedFormResult(full);
+  assert.deepEqual(Object.keys(pub).sort(), ["kind", "missedLessons", "passed", "pct"]);
+  assert.equal(pub.pct, full.pct);
+  assert.equal(pub.passed, true);
+  assert.deepEqual(
+    pub.missedLessons.map((m) => m.lesson),
+    full.missedLessons,
+  );
+  for (const missed of pub.missedLessons)
+    assert.deepEqual(Object.keys(missed).sort(), ["href", "lesson", "title"]);
+  const text = JSON.stringify(pub);
+  for (const id of BASE.forms.C) assert.ok(!text.includes(id), "item id leaked");
+  for (const key of ["items", "points", "score", "total", "itemId", "correct"])
+    assert.ok(!allKeys(pub).has(key), `${key} leaked`);
+  // A and B keep their per-lesson table, still with no item data.
+  const b = publicFixedFormResult(
+    scoreFixedForm(BASE, "B", answersFor(BASE, "B", seed, 21), seed, link),
+  );
+  assert.equal(b.onTrack, true);
+  assert.equal(b.lessons.length, 15);
+  for (const key of ["items", "points", "score", "total", "itemId"])
+    assert.ok(!allKeys(b).has(key), `${key} leaked`);
+  for (const id of BASE.forms.B) assert.ok(!JSON.stringify(b).includes(id));
 });
 
 const FORBIDDEN_KEYS = [

@@ -59,6 +59,13 @@ function makeItem(moduleId, lesson, index, type, difficulty, author = "author-ag
 const planA = (lesson) =>
   lesson % 15 === 0 || lesson % 15 === 7 ? "match" : lesson % 4 === 1 ? "typed" : "mc";
 
+/** Six phases of five consecutive lessons (roofing's 10-lesson install phase split in two). */
+export const SYNTHETIC_PHASES = Array.from({ length: 6 }, (_, p) => ({
+  id: `phase-${p + 1}`,
+  title: `Synthetic phase ${p + 1}`,
+  lessons: [1, 2, 3, 4, 5].map((n) => p * 5 + n),
+}));
+
 /** Diagnostic pool plans: (type, difficulty) of each item in every lesson. */
 export const POOL_PLAN_5 = [
   ["mc", 2],
@@ -120,6 +127,7 @@ export function buildSyntheticBank({
       title: `Synthetic lesson ${i + 1}`,
       sourceHash: sha256Hex(`synthetic lesson ${i + 1}`),
     })),
+    phases: SYNTHETIC_PHASES,
     items,
     forms,
     diagnosticPool,

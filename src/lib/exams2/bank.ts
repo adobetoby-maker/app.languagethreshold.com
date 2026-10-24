@@ -59,6 +59,13 @@ export interface BankLesson {
   title: string;
   sourceHash: string;
 }
+/** A group of consecutive lessons (a job phase). The diagnostic reports these first. */
+export interface BankPhase {
+  id: string;
+  title: string;
+  /** Consecutive lesson numbers, ascending. Every lesson 1-30 is in exactly one phase. */
+  lessons: number[];
+}
 export interface BlindReview {
   reviewer: string;
   independentOfAuthor: true;
@@ -74,6 +81,7 @@ export interface ExamBank {
   instructionLanguage: string;
   version: string;
   lessons: BankLesson[];
+  phases: BankPhase[];
   items: BankItem[];
   forms: { A: string[]; B: string[]; C: string[] };
   diagnosticPool: string[];
@@ -98,8 +106,13 @@ export const LIMITS = {
   formTypedMin: 0.2,
   formTypedMax: 0.35,
   formMatchMax: 0.15,
-  poolPerLessonMin: 5,
+  poolPerLessonMin: 6,
   minReviews: 2,
+  phasesMin: 3,
+  phasesMax: 8,
+  phaseLessonsMin: 3,
+  phaseLessonsMax: 10,
+  phaseTitleMax: 80,
 } as const;
 
 export interface BankIssue {
@@ -122,6 +135,7 @@ export interface BankValidation {
   counts: {
     items: number;
     lessons: number;
+    phases: number;
     reviews: number;
     forms: Record<FixedFormKind, number>;
     diagnosticPool: number;
@@ -179,14 +193,29 @@ export function itemIdPattern(moduleId: string): RegExp {
 
 /** Answers an item reveals if they appear elsewhere (mc correct text, typed accepted forms). */
 export function itemAnswers(item: BankItem): string[] {
-  if (item.type === "mc") {
-    const correct = item.options?.find((option) => option.id === item.correctOptionId);
-    return correct ? [correct.text] : [];
+  if (item.type === "mc" && Array.isArray(item.options)) {
+    const correct = item.options.find((option) => option?.id === item.correctOptionId);
+    return typeof correct?.text === "string" ? [correct.text] : [];
   }
-  if (item.type === "typed") return item.accepted ?? [];
+  if (item.type === "typed" && Array.isArray(item.accepted))
+    return item.accepted.filter((a) => typeof a === "string");
   return [];
 }
 
+/** Everything an item shows a learner: prompt, context, option texts and both match columns. */
+export function itemVisibleText(item: BankItem): string {
+  const parts = [str(item.prompt), str(item.context)];
+  if (Array.isArray(item.options)) for (const option of item.options) parts.push(str(option?.text));
+  if (Array.isArray(item.pairs))
+    for (const pair of item.pairs) parts.push(str(pair?.left), str(pair?.right));
+  return parts.filter(Boolean).join(" \u0000 ");
+}
+
+/** Reviewer and author identities compare trimmed and case-insensitively. */
+export const identity = (value: unknown) =>
+  typeof value === "string" ? value.normalize("NFC").trim().toLocaleLowerCase() : "";
+
+const str = (value: unknown): string => (typeof value === "string" ? value : "");
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 const isNonEmptyString = (value: unknown): value is string =>
@@ -200,7 +229,33 @@ const ALL_NONE = [
 ];
 const HEX64 = /^[0-9a-f]{64}$/;
 
+/**
+ * Validate an untrusted bank (parsed JSON). Wrong types anywhere become issues; the validator
+ * never throws on input shape.
+ */
 export function validateBank(input: unknown, options: ValidateOptions = {}): BankValidation {
+  try {
+    return validateBankUnsafe(input, options);
+  } catch {
+    // Defensive: any shape the checks below did not anticipate is reported, never thrown.
+    return {
+      ok: false,
+      errors: [{ rule: 1, code: "bank.unreadable" }],
+      warnings: [],
+      counts: {
+        items: 0,
+        lessons: 0,
+        phases: 0,
+        reviews: 0,
+        forms: { A: 0, B: 0, C: 0 },
+        diagnosticPool: 0,
+        byType: { mc: 0, typed: 0, match: 0 },
+      },
+    };
+  }
+}
+
+function validateBankUnsafe(input: unknown, options: ValidateOptions): BankValidation {
   const errors: BankIssue[] = [];
   const warnings: BankIssue[] = [];
   const err = (issue: BankIssue) => errors.push(issue);
@@ -208,6 +263,7 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
   const counts: BankValidation["counts"] = {
     items: 0,
     lessons: 0,
+    phases: 0,
     reviews: 0,
     forms: { A: 0, B: 0, C: 0 },
     diagnosticPool: 0,
@@ -260,6 +316,42 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
     counts.lessons = seen.size;
     if (seen.size !== LESSON_COUNT || lessons.length !== LESSON_COUNT)
       err({ rule: 1, code: "bank.lessons_count", count: lessons.length });
+  }
+
+  // ── Rule 1: phases (groups of consecutive lessons) ────────────────────────
+  const phases = Array.isArray(bank.phases) ? bank.phases : null;
+  if (!phases) err({ rule: 1, code: "bank.phases_missing" });
+  else {
+    counts.phases = phases.length;
+    if (phases.length < LIMITS.phasesMin || phases.length > LIMITS.phasesMax)
+      err({ rule: 1, code: "bank.phases_count", count: phases.length });
+    const ids = new Set<string>();
+    const covered = new Map<number, number>();
+    let previousLast = 0;
+    phases.forEach((phase, index) => {
+      const p = (code: string, extra: Partial<BankIssue> = {}) =>
+        err({ rule: 1, code, index, ...extra });
+      if (!isRecord(phase)) return p("phase.not_object");
+      if (typeof phase.id !== "string" || !/^[a-z][a-z0-9-]{0,39}$/.test(phase.id)) p("phase.id");
+      else if (ids.has(phase.id)) p("phase.id_duplicate");
+      else ids.add(phase.id);
+      if (!isNonEmptyString(phase.title) || phase.title.length > LIMITS.phaseTitleMax)
+        p("phase.title");
+      const list = Array.isArray(phase.lessons) ? phase.lessons : null;
+      if (!list || !list.every(isLesson)) return p("phase.lessons");
+      const numbers = list as number[];
+      if (numbers.length < LIMITS.phaseLessonsMin || numbers.length > LIMITS.phaseLessonsMax)
+        p("phase.size", { count: numbers.length });
+      if (!numbers.every((lesson, i) => i === 0 || lesson === numbers[i - 1] + 1))
+        p("phase.not_consecutive");
+      else if (numbers.length && numbers[0] <= previousLast) p("phase.order");
+      if (numbers.length) previousLast = Math.max(previousLast, numbers[numbers.length - 1]);
+      for (const lesson of numbers) covered.set(lesson, (covered.get(lesson) ?? 0) + 1);
+    });
+    for (let lesson = 1; lesson <= LESSON_COUNT; lesson++) {
+      const n = covered.get(lesson) ?? 0;
+      if (n !== 1) err({ rule: 1, code: "phase.lesson_coverage", lesson, count: n });
+    }
   }
 
   // ── Rules 1-4: items ───────────────────────────────────────────────────────
@@ -403,8 +495,7 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
           e(4, "match.right_duplicate");
       }
     }
-    if (idOk && !items.has(raw.id as string))
-      items.set(raw.id as string, raw as unknown as BankItem);
+    if (idOk && !items.has(raw.id as string)) items.set(raw.id as string, safeItem(raw));
   });
 
   if (mcCount > 0 && longestCorrect / mcCount > LIMITS.longestCorrectMaxShare)
@@ -415,13 +506,13 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
   // ("Match each Spanish term to its meaning") legitimately repeats across match items.
   const promptKeys = new Map<string, string>();
   for (const item of items.values()) {
-    if (typeof item.prompt !== "string") continue;
-    let key = loose(item.prompt) + "\u0000" + loose(item.context ?? "");
-    if (item.type === "match" && Array.isArray(item.pairs))
+    if (!item.prompt) continue;
+    let key = loose(item.prompt) + "\u0000" + loose(str(item.context));
+    if (item.type === "match")
       key +=
         "\u0000" +
-        item.pairs
-          .map((p) => loose(String(p?.left ?? "")) + "=" + loose(String(p?.right ?? "")))
+        (item.pairs ?? [])
+          .map((p) => loose(p.left) + "=" + loose(p.right))
           .sort()
           .join("|");
     if (promptKeys.has(key)) err({ rule: 7, code: "item.prompt_duplicate", itemId: item.id });
@@ -547,7 +638,7 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
           err({ rule: 8, code, index, ...extra });
         if (!isRecord(review)) return r("review.not_object");
         if (!isNonEmptyString(review.reviewer)) r("review.reviewer");
-        else reviewers.add(review.reviewer);
+        else reviewers.add(identity(review.reviewer));
         if (review.independentOfAuthor !== true) r("review.not_independent");
         if (typeof review.at !== "string" || Number.isNaN(Date.parse(review.at))) r("review.at");
         if (review.bankSha256 !== currentSha) r("review.stale_sha");
@@ -566,7 +657,8 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
           else if (verdict === "reject") r("review.rejected", { itemId: item.id });
           // A revise verdict on the current sha means the item still needs a new rev and a re-review.
           else if (verdict === "revise") r("review.revise_pending", { itemId: item.id });
-          if (item.author === review.reviewer) r("review.reviewer_is_author", { itemId: item.id });
+          if (identity(item.author) && identity(item.author) === identity(review.reviewer))
+            r("review.reviewer_is_author", { itemId: item.id });
         }
         if (missing) r("review.coverage", { count: missing });
         const unknown = Object.keys(verdicts).filter((id) => !items.has(id)).length;
@@ -592,24 +684,58 @@ export function validateBank(input: unknown, options: ValidateOptions = {}): Ban
   return done();
 
   function cueing(ids: string[], form: string, report: (issue: BankIssue) => void) {
+    // An item cues another when its answer shows anywhere the other item is visible: prompt,
+    // context, multiple-choice options or match columns. A match item is cued when one of its
+    // pairs (left and right) shows together in another item.
     const list = ids.map((id) => items.get(id)!);
-    const visible = list.map((entry) =>
-      typeof entry.prompt === "string"
-        ? " " + loose(entry.prompt + " " + (entry.context ?? "")) + " "
-        : "",
-    );
+    const visible = list.map((entry) => " " + loose(itemVisibleText(entry)) + " ");
+    const has = (j: number, phrase: string) =>
+      Boolean(phrase) && visible[j].includes(" " + phrase + " ");
     list.forEach((source, i) => {
-      const answers = itemAnswers(source)
-        .filter((a) => typeof a === "string")
-        .map(loose)
-        .filter(Boolean);
-      if (!answers.length) return;
+      const answers = itemAnswers(source).map(loose).filter(Boolean);
+      const pairs =
+        source.type === "match"
+          ? (source.pairs ?? []).map((p) => [loose(p.left), loose(p.right)] as const)
+          : [];
+      if (!answers.length && !pairs.length) return;
       const cued = list.some(
-        (_, j) => j !== i && answers.some((answer) => visible[j].includes(" " + answer + " ")),
+        (_, j) =>
+          j !== i &&
+          (answers.some((answer) => has(j, answer)) ||
+            pairs.some(([left, right]) => has(j, left) && has(j, right))),
       );
       if (cued) report({ rule: 5, code: "form.cueing", form, itemId: source.id });
     });
   }
+}
+
+/** A type-safe copy of a raw item for the cross-item checks: wrong types become empty values. */
+function safeItem(raw: Record<string, unknown>): BankItem {
+  const options = Array.isArray(raw.options)
+    ? raw.options.filter(isRecord).map((o) => ({ id: str(o.id), text: str(o.text) }))
+    : undefined;
+  const pairs = Array.isArray(raw.pairs)
+    ? raw.pairs.filter(isRecord).map((p) => ({ left: str(p.left), right: str(p.right) }))
+    : undefined;
+  return {
+    id: str(raw.id),
+    rev: Number.isInteger(raw.rev) ? (raw.rev as number) : 0,
+    lesson: isLesson(raw.lesson) ? raw.lesson : 0,
+    skill: raw.skill as ItemSkill,
+    difficulty: (DIFFICULTIES.includes(raw.difficulty as Difficulty)
+      ? raw.difficulty
+      : 0) as Difficulty,
+    type: raw.type as ItemType,
+    prompt: str(raw.prompt),
+    context: typeof raw.context === "string" ? raw.context : undefined,
+    options,
+    correctOptionId: str(raw.correctOptionId),
+    accepted: Array.isArray(raw.accepted) ? raw.accepted.filter(isNonEmptyString) : undefined,
+    pairs,
+    explanation: str(raw.explanation),
+    sourceRefs: Array.isArray(raw.sourceRefs) ? raw.sourceRefs.filter(isNonEmptyString) : [],
+    author: str(raw.author),
+  };
 }
 
 /** Items of a fixed form in their frozen order. Throws on an unknown id. */

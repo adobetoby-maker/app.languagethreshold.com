@@ -83,6 +83,10 @@ export interface LessonScore {
   pct: number;
   href: string;
 }
+/**
+ * Full fixed-form result. Server-side only: it carries per-item points (`items`), which for
+ * form C would reveal which answers were right. Send `publicFixedFormResult()` to clients.
+ */
 export interface FixedFormResult {
   kind: FixedFormKind;
   score: number;
@@ -172,4 +176,49 @@ export function scoreFixedForm(
   if (kind === "C") result.passed = quarters * 10 >= Math.round(total * 4 * C_PASS * 10);
   if (kind === "B") result.onTrack = quarters * 10 >= Math.round(total * 4 * B_ON_TRACK * 10);
   return result;
+}
+
+export interface PublicMissedLesson {
+  lesson: number;
+  title: string;
+  href: string;
+}
+/** Form C, client-safe: overall percent, pass/fail and which lessons lost points. Nothing else. */
+export interface PublicFormCResult {
+  kind: "C";
+  pct: number;
+  passed: boolean;
+  missedLessons: PublicMissedLesson[];
+}
+/** Forms A and B, client-safe: percent, the per-lesson table and missed lessons, no item data. */
+export interface PublicFormABResult {
+  kind: "A" | "B";
+  pct: number;
+  onTrack?: boolean;
+  lessons: { lesson: number; title: string; pct: number; href: string }[];
+  missedLessons: PublicMissedLesson[];
+}
+export type PublicFixedFormResult = PublicFormCResult | PublicFormABResult;
+
+/**
+ * The only fixed-form result that may leave the server. Built field by field from the full
+ * result; never includes item ids, per-item points or raw scores. Answer review for A and B
+ * comes separately from `completedItemReview`; form C never gets one.
+ */
+export function publicFixedFormResult(result: FixedFormResult): PublicFixedFormResult {
+  const byLesson = new Map(result.lessons.map((lesson) => [lesson.lesson, lesson]));
+  const missedLessons = result.missedLessons.map((n) => {
+    const lesson = byLesson.get(n)!;
+    return { lesson: n, title: lesson.title, href: lesson.href };
+  });
+  if (result.kind === "C")
+    return { kind: "C", pct: result.pct, passed: result.passed === true, missedLessons };
+  const out: PublicFormABResult = {
+    kind: result.kind,
+    pct: result.pct,
+    lessons: result.lessons.map(({ lesson, title, pct, href }) => ({ lesson, title, pct, href })),
+    missedLessons,
+  };
+  if (result.kind === "B") out.onTrack = result.onTrack === true;
+  return out;
 }

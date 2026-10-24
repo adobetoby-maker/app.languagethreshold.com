@@ -429,7 +429,7 @@ const ROOFING_CATALOG = {
   },
   master: {
     blurb: "Twenty advanced lessons for the day that doesn't go as planned: train a new roofer, explain a change order, walk an inspector across the roof, report a near-miss, and write the day's report in Spanish.",
-    userRole: "Roofing foreman leading a crew in Spanish",
+    userRole: "Roofing supervisor leading a crew in Spanish",
     challengePrompts: [
       "Train a new roofer on a task and have them teach it back to you in Spanish.",
       "Explain a change order for hidden rotten decking to a worried homeowner and answer their objection.",
@@ -452,7 +452,7 @@ Reference (Roofing, for the format and level only; do not copy it): ${JSON.strin
   }
   return `Also write catalog: this Master's own catalog card and Say it menu, in English.
 - blurb: one sentence (at most ${limits.maxBlurb} characters) starting "Twenty advanced lessons for the day that doesn't go as planned:" listing four or five things the learner does in ${lang}, specific to this work.
-- userRole: at most ${MAX_USER_ROLE} characters: the lead role in this work, in ${lang} (for example "Roofing foreman leading a crew in ${lang}", "Charge nurse leading a shift in ${lang}").
+- userRole: at most ${MAX_USER_ROLE} characters: the lead role in this work, in ${lang} (for example "Roofing supervisor leading a crew in ${lang}", "Charge nurse leading a shift in ${lang}").
 - challengePrompts: ${limits.minChallenges} to ${limits.maxChallenges} B1 to B2 Say it challenges, each ONE English sentence (at most ${limits.maxChallenge} characters) starting with a verb, drawn from the Master's blocks (teach and teach back, explain a problem or change to the client or patient, an inspector or auditor, a near miss or incident, the day's report). Not the Core 30's challenges (given in the request as scenarios), all different. Never use the words complication, surprise, twist or unannounced.
 Reference (Roofing, for the format and level only; do not copy it): ${JSON.stringify(ROOFING_CATALOG.master)}`;
 }

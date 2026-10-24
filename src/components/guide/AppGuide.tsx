@@ -2418,7 +2418,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         <div className="mb-4">
           <StageEyebrow moduleId={moduleId} />
           <h1 className="font-display text-2xl font-semibold tracking-tight">
-            {curriculum.headline}
+            {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}

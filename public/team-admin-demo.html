@@ -935,8 +935,8 @@
             "Assign first seat",
           ],
           [
-            "Assign Roofing Foreman",
-            "Choose Roofing Foreman for the crew, then add other modules for people who need them.",
+            "Assign Roofing Supervisor",
+            "Choose Roofing Supervisor for the crew, then add other modules for people who need them.",
             "Assign module",
           ],
           [
@@ -1012,7 +1012,7 @@
           renderSeats();
           $("employee-rows").insertAdjacentHTML(
             "beforeend",
-            `<tr><td><div class="employee-name">${esc(n)}</div><div class="employee-email">${esc(e)}</div></td><td><span class="status pending">Invite pending</span></td><td>Roofing Foreman</td><td>0 min</td><td>0/30</td><td><span class="status pending">Not started</span></td></tr>`,
+            `<tr><td><div class="employee-name">${esc(n)}</div><div class="employee-email">${esc(e)}</div></td><td><span class="status pending">Invite pending</span></td><td>Roofing Supervisor</td><td>0 min</td><td>0/30</td><td><span class="status pending">Not started</span></td></tr>`,
           );
           $("assign-dialog").close();
           $("prototype-alert").textContent = "Sample invitation added. No email was sent.";
@@ -1060,7 +1060,7 @@
           <div class="eyebrow">Roofing Spanish / Team operations</div>
           <h1>One place to review the course and the company setup.</h1>
           <p class="lead">
-            Inspect the real Roofing Foreman content, step through the team admin flow, and decide
+            Inspect the real Roofing Supervisor content, step through the team admin flow, and decide
             what you need in your platform-wide super-admin view.
           </p>
         </div>
@@ -1087,7 +1087,7 @@
           <div class="section-head">
             <div>
               <div class="eyebrow">Live module · merged PR #25</div>
-              <h2 id="roofing-title">Roofing Foreman</h2>
+              <h2 id="roofing-title">Roofing Supervisor</h2>
               <p>
                 Spanish for material calls, tear-off, installation, fall-protection communication,
                 and crew closeout. Review data here is loaded from the module source committed in
@@ -1271,7 +1271,7 @@
                     <div class="employee-email">maya@example.com</div>
                   </td>
                   <td><span class="status ready">Active</span></td>
-                  <td>Roofing Foreman</td>
+                  <td>Roofing Supervisor</td>
                   <td>3h 42m</td>
                   <td>27/30</td>
                   <td><span class="status pending">Test pending</span></td>
@@ -1282,7 +1282,7 @@
                     <div class="employee-email">luis@example.com</div>
                   </td>
                   <td><span class="status ready">Active</span></td>
-                  <td>Roofing Foreman</td>
+                  <td>Roofing Supervisor</td>
                   <td>5h 16m</td>
                   <td>30/30</td>
                   <td><span class="status ready">Issued · 88%</span></td>
@@ -1293,7 +1293,7 @@
                     <div class="employee-email">jordan@example.com</div>
                   </td>
                   <td><span class="status ready">Active</span></td>
-                  <td>Roofing Foreman, Construction Safety</td>
+                  <td>Roofing Supervisor, Construction Safety</td>
                   <td>2h 09m</td>
                   <td>14/30</td>
                   <td><span class="status pending">In progress</span></td>
@@ -1304,7 +1304,7 @@
                     <div class="employee-email">ana@example.com</div>
                   </td>
                   <td><span class="status pending">Invite pending</span></td>
-                  <td>Roofing Foreman</td>
+                  <td>Roofing Supervisor</td>
                   <td>0 min</td>
                   <td>0/30</td>
                   <td><span class="status pending">Not started</span></td>
@@ -1333,7 +1333,7 @@
                 <div class="form-row">
                   <label for="module-select">Module</label
                   ><select id="module-select">
-                    <option>Roofing Foreman</option>
+                    <option>Roofing Supervisor</option>
                     <option>Construction Foreman</option>
                     <option>Construction Safety</option>
                   </select>
@@ -1501,7 +1501,7 @@
                   <td>15</td>
                   <td>14</td>
                   <td>12</td>
-                  <td>Roofing Foreman</td>
+                  <td>Roofing Supervisor</td>
                   <td>Jun 18</td>
                 </tr>
                 <tr>
@@ -1553,13 +1553,13 @@
           <div id="email-admin" class="grid two">
             <div class="email">
               <small
-                >To: Company admin · Subject: Your Roofing Foreman team is ready to set up</small
+                >To: Company admin · Subject: Your Roofing Supervisor team is ready to set up</small
               >
               <hr />
               <strong>Welcome to Language Threshold for Teams.</strong>
               <p>
-                Your 15-seat Roofing Foreman workspace is ready for setup. Add your employees,
-                assign Roofing Foreman, and choose whether each assignment requires the 80%
+                Your 15-seat Roofing Supervisor workspace is ready for setup. Add your employees,
+                assign Roofing Supervisor, and choose whether each assignment requires the 80%
                 completion test.
               </p>
               <p>
@@ -1588,9 +1588,9 @@
           </div>
           <div id="email-employee" class="grid two" hidden>
             <div class="email">
-              <small>To: Employee · Subject: Start Roofing Foreman Spanish</small>
+              <small>To: Employee · Subject: Start Roofing Supervisor Spanish</small>
               <hr />
-              <strong>Your company assigned you Roofing Foreman Spanish.</strong>
+              <strong>Your company assigned you Roofing Supervisor Spanish.</strong>
               <p>
                 Practice roofing materials, tear-off, installation, safety communication, and
                 closeout on your own schedule. Your company chose the certificate goal: finish the
@@ -1667,7 +1667,7 @@
     <dialog id="assign-dialog">
       <h3>Assign an employee</h3>
       <p>
-        Reserve an available sample seat and assign Roofing Foreman. No invitation will be sent.
+        Reserve an available sample seat and assign Roofing Supervisor. No invitation will be sent.
       </p>
       <div class="form-row">
         <label for="employee-name-input">Employee name</label

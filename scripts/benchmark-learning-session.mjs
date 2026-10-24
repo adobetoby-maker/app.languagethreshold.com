@@ -207,7 +207,7 @@ await fn("custom-cards", "translatePhrases", {
     "We are ready",
   ],
   targetLanguage: "Spanish",
-  context: "roofing foreman language practice",
+  context: "roofing supervisor language practice",
 });
 await fn("grammar", "generateLessonContent", {
   language: "Spanish",
@@ -243,7 +243,7 @@ for (const feature of ["tutor", "speaking"]) {
               language: "Spanish",
               level: "Beginner",
               nativeLanguage: "English",
-              module: { id: "roofing", name: "Roofing Foreman", userRole: "Roofing crew foreman" },
+              module: { id: "roofing", name: "Roofing Supervisor", userRole: "Roofing crew supervisor" },
             },
           }
         : {

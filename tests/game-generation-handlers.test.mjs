@@ -93,7 +93,7 @@ for (const [name, exportName, fixture] of [
       const publicInput = {
         language: "Spanish",
         level: 1,
-        topic: "Roofing Foreman",
+        topic: "Roofing Supervisor",
         axis: "person",
       };
       assert.equal((await handler({ data: publicInput })).cached, false);

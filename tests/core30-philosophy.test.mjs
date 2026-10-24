@@ -127,21 +127,21 @@ test("the language being learned replaces the hard-coded Spanish", () => {
 
 test("a non-roofing module makes no roofing-crew promise and labels the roofing examples", () => {
   assert.doesNotMatch(ORTHO.opening.promise, /roofing/i);
-  assert.doesNotMatch(ORTHO.opening.body.join(" "), /built from the Roofing Foreman course/);
+  assert.doesNotMatch(ORTHO.opening.body.join(" "), /built from the Roofing Supervisor course/);
   assert.match(ORTHO.opening.body[0], /same six-way pattern/);
   assert.match(ORTHO.opening.body[0], /The Clinical Core 30/);
-  assert.match(ORTHO.opening.body[1], /come from the Roofing Foreman course/);
+  assert.match(ORTHO.opening.body[1], /come from the Roofing Supervisor course/);
   for (const w of ORTHO.ways.items) {
-    assert.match(w.exampleLabel, /^Example from the Roofing Foreman course \u00b7 Lesson \d+$/);
+    assert.match(w.exampleLabel, /^Example from the Roofing Supervisor course \u00b7 Lesson \d+$/);
   }
   // Another target language also flags that the example words are Spanish.
   for (const w of FRENCH_ORTHO.ways.items) {
-    assert.match(w.exampleLabel, /Roofing Foreman course \(Spanish\) \u00b7 Lesson \d+$/);
+    assert.match(w.exampleLabel, /Roofing Supervisor course \(Spanish\) \u00b7 Lesson \d+$/);
   }
 });
 
 test("the roofing module keeps its roofing lines", () => {
-  assert.match(ROOFING.opening.body[0], /built from the Roofing Foreman course/);
+  assert.match(ROOFING.opening.body[0], /built from the Roofing Supervisor course/);
   assert.match(ROOFING.opening.promise, /roofing crew/);
   for (const w of ROOFING.ways.items) {
     assert.match(w.exampleLabel, /^Example \u00b7 Lesson \d+$/);

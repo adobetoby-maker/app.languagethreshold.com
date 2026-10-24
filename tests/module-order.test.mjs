@@ -4,7 +4,7 @@ import { modulesInLearningOrder } from '../src/lib/module-order.ts';
 
 test('trades sort A–Z with Foundation, Core, Master together without mutating source', () => {
   const catalog = [
-    {id:'master-roofing',name:'Roofing Master'}, {id:'roofing',name:'Roofing Foreman'},
+    {id:'master-roofing',name:'Roofing Master'}, {id:'roofing',name:'Roofing Supervisor'},
     {id:'foundation-roofing',name:'Roofing Foundation'}, {id:'plumber',name:'Plumber'},
     {id:'foundation-plumber',name:'Plumber Foundation'}, {id:'master-plumber',name:'Plumber Master'},
   ];
@@ -19,7 +19,7 @@ test('trades sort A–Z with Foundation, Core, Master together without mutating 
 import { moduleLearningPaths } from '../src/lib/module-order.ts';
 test('one card contains exactly three ordered stage slots and never invents availability', () => {
  const catalog = [
-  {id:'roofing',name:'Roofing Foreman'}, {id:'foundation-roofing',name:'Roofing Foundation'},
+  {id:'roofing',name:'Roofing Supervisor'}, {id:'foundation-roofing',name:'Roofing Foundation'},
   {id:'master-roofing',name:'Roofing Master'}, {id:'plumber',name:'Plumber'},
  ];
  const before=JSON.stringify(catalog);

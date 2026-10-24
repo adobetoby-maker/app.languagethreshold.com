@@ -1,3 +1,4 @@
+import { AppVersion } from "@/components/settings/AppVersion";
 import { DeviceVoiceHelp } from "@/components/settings/DeviceVoiceHelp";
 import { AudioRoutingSettings } from "@/components/settings/AudioRoutingSettings";
 import { ResetLearningData } from "@/components/auth/ResetLearningData";
@@ -198,6 +199,7 @@ function AccountPage() {
           <Link to="/" className="text-xs text-gold underline underline-offset-2">
             ← Back to app
           </Link>
+          <AppVersion />
         </div>
       </div>
     );
@@ -270,6 +272,7 @@ function AccountPage() {
           </div>
 
           <PwaInstallControl variant="card" />
+          <AppVersion />
 
           <ResetLearningData />
 

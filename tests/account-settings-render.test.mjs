@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 test("actual Account route renders after sign-in without a learning provider or data writes", async () => {
-  const dir = mkdtempSync(resolve("node_modules/.cache/account-settings-"));
+  const cacheRoot = resolve("node_modules/.cache");
+  mkdirSync(cacheRoot, { recursive: true });
+  const dir = mkdtempSync(join(cacheRoot, "account-settings-"));
   try {
     await build({
       stdin: {

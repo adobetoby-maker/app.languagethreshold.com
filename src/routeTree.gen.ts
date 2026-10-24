@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
+import { Route as ExamBankRouteImport } from './routes/exam-bank'
 import { Route as ExamContentRouteImport } from './routes/exam-content'
 import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
@@ -33,6 +34,8 @@ import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-check
 import { Route as ApiCustomerReferralRouteImport } from './routes/api.customer-referral'
 import { Route as ApiCustomerUnsubscribeRouteImport } from './routes/api.customer-unsubscribe'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
+import { Route as ApiExamBankRouteImport } from './routes/api.exam-bank'
+import { Route as ApiExamCheckRouteImport } from './routes/api.exam-check'
 import { Route as ApiExamCleanupRouteImport } from './routes/api.exam-cleanup'
 import { Route as ApiExamContentRouteImport } from './routes/api.exam-content'
 import { Route as ApiExamPlansRouteImport } from './routes/api.exam-plans'
@@ -90,6 +93,11 @@ const CertificateRoute = CertificateRouteImport.update({
 const EmailPreferencesRoute = EmailPreferencesRouteImport.update({
   id: '/email-preferences',
   path: '/email-preferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamBankRoute = ExamBankRouteImport.update({
+  id: '/exam-bank',
+  path: '/exam-bank',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamContentRoute = ExamContentRouteImport.update({
@@ -185,6 +193,16 @@ const ApiCustomerUnsubscribeRoute = ApiCustomerUnsubscribeRouteImport.update({
 const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
   id: '/api/discussion',
   path: '/api/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExamBankRoute = ApiExamBankRouteImport.update({
+  id: '/api/exam-bank',
+  path: '/api/exam-bank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExamCheckRoute = ApiExamCheckRouteImport.update({
+  id: '/api/exam-check',
+  path: '/api/exam-check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiExamCleanupRoute = ApiExamCleanupRouteImport.update({
@@ -358,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/email-preferences': typeof EmailPreferencesRoute
+  '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -378,6 +397,8 @@ export interface FileRoutesByFullPath {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-bank': typeof ApiExamBankRoute
+  '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
@@ -417,6 +438,7 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/email-preferences': typeof EmailPreferencesRoute
+  '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -437,6 +459,8 @@ export interface FileRoutesByTo {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-bank': typeof ApiExamBankRoute
+  '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
@@ -477,6 +501,7 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/email-preferences': typeof EmailPreferencesRoute
+  '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -497,6 +522,8 @@ export interface FileRoutesById {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-bank': typeof ApiExamBankRoute
+  '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
@@ -538,6 +565,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/email-preferences'
+    | '/exam-bank'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -558,6 +586,8 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/exam-bank'
+    | '/api/exam-check'
     | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
@@ -597,6 +627,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/email-preferences'
+    | '/exam-bank'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -617,6 +648,8 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/exam-bank'
+    | '/api/exam-check'
     | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
@@ -656,6 +689,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/email-preferences'
+    | '/exam-bank'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -676,6 +710,8 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/exam-bank'
+    | '/api/exam-check'
     | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
@@ -716,6 +752,7 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   CertificateRoute: typeof CertificateRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
+  ExamBankRoute: typeof ExamBankRoute
   ExamContentRoute: typeof ExamContentRoute
   ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
@@ -736,6 +773,8 @@ export interface RootRouteChildren {
   ApiCustomerReferralRoute: typeof ApiCustomerReferralRoute
   ApiCustomerUnsubscribeRoute: typeof ApiCustomerUnsubscribeRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
+  ApiExamBankRoute: typeof ApiExamBankRoute
+  ApiExamCheckRoute: typeof ApiExamCheckRoute
   ApiExamCleanupRoute: typeof ApiExamCleanupRoute
   ApiExamContentRoute: typeof ApiExamContentRoute
   ApiExamPlansRoute: typeof ApiExamPlansRoute
@@ -806,6 +845,13 @@ declare module '@tanstack/react-router' {
       path: '/email-preferences'
       fullPath: '/email-preferences'
       preLoaderRoute: typeof EmailPreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam-bank': {
+      id: '/exam-bank'
+      path: '/exam-bank'
+      fullPath: '/exam-bank'
+      preLoaderRoute: typeof ExamBankRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exam-content': {
@@ -939,6 +985,20 @@ declare module '@tanstack/react-router' {
       path: '/api/discussion'
       fullPath: '/api/discussion'
       preLoaderRoute: typeof ApiDiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/exam-bank': {
+      id: '/api/exam-bank'
+      path: '/api/exam-bank'
+      fullPath: '/api/exam-bank'
+      preLoaderRoute: typeof ApiExamBankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/exam-check': {
+      id: '/api/exam-check'
+      path: '/api/exam-check'
+      fullPath: '/api/exam-check'
+      preLoaderRoute: typeof ApiExamCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/exam-cleanup': {
@@ -1180,6 +1240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   CertificateRoute: CertificateRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,
+  ExamBankRoute: ExamBankRoute,
   ExamContentRoute: ExamContentRoute,
   ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
@@ -1200,6 +1261,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCustomerReferralRoute: ApiCustomerReferralRoute,
   ApiCustomerUnsubscribeRoute: ApiCustomerUnsubscribeRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
+  ApiExamBankRoute: ApiExamBankRoute,
+  ApiExamCheckRoute: ApiExamCheckRoute,
   ApiExamCleanupRoute: ApiExamCleanupRoute,
   ApiExamContentRoute: ApiExamContentRoute,
   ApiExamPlansRoute: ApiExamPlansRoute,

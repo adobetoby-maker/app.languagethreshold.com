@@ -399,3 +399,44 @@ What the table shows:
 - Author 6 diagnostic items per lesson (180 in the pool).
 - Choose the phases with the owner. Roofing's job phases are 5/5/10/5/5; splitting install gives six groups of five.
 - Get each lesson's `sourceHash` from `node scripts/exams2-drift.mts --print-hashes roofing`.
+
+## Implementation notes: T6, T7, T11 (2026-10-23, branch feature/exams-v2-core)
+
+**T6 server API** (`src/lib/exams2/server.ts`, route `src/routes/api.exam-check.ts`, POST only, zod, 64 KB body cap):
+- Order of checks: kill switch `LT_EXAMS_V2` (off gives 404 "Exams aren't available yet."), then same-origin (an Origin header is required), then the body.
+- Actions:
+  - `start {moduleId, kind, public?, target="Spanish", native="English"}`. Signed-in sessions need auth (401). `public: true` is allowed only for `diagnostic` and only with `LT_EXAMS_PUBLIC=1`. It returns a 32-byte base64url secret once and stores only `sha256(secret)`. One open session per user, module, languages and kind is reused. If the approved bank version changed, the open session is marked `abandoned` and a new one starts. A/B/C send every public item in frozen order, with MC options shuffled by the session seed. The diagnostic sends only the current item.
+  - `resume {sessionId, secret?}`: added so a learner can pick a session up again on any device. Read-only. Public sessions give 410 after 24 hours.
+  - `answer {sessionId, step, itemId, answer, requestId, secret?}` (diagnostic only). Order: ownership, then the `requestId` repeat check, then status, then `step` and `itemId === served[step]`. Scoring happens on the server. The next item is recomputed by `nextDiagnosticItem`, which respects cueGroups. The write is optimistic: `where step=? and status='in_progress'`. The response carries only the next public item. At 50 answers the session stores `result` (the study map), `score` and `total`.
+  - `save` / `submit` (A/B/C): autosave merges answers for items on the form, and any other item id gives 400. `submit` scores on the server, stores the full `FixedFormResult` in `result` (server-only) and is idempotent.
+  - `result {sessionId, secret?}`:
+    - C: only `publicFixedFormResult` (percent, pass/fail at 80%, missed lessons). No item ids or review.
+    - A/B: that result plus an item review.
+    - Diagnostic: the stored study map (phases first, lessons "likely", hrefs) plus a review of the served items.
+    - Review items name the right answer `solution {optionId|text|pairs}` rather than using the bank's key names.
+  - `claim {sessionId, secret}` (signed in): attaches an unclaimed public session to the user. Claiming twice as the same user does nothing new. A session already claimed by another account gives 409.
+- Retakes: C and the diagnostic are unlimited with no cooldown (owner decision). From section 3, A is taken once (409) and B has a 1-hour cooldown (429 with `retryAfterSeconds`). Both are constants in `EXAM_LIMITS`.
+- Abuse limits:
+  - Public starts: 5 per IP per hour and 500 per hour site-wide, through `consumeServerRequestBudget`.
+  - Public starts per day: 20 per IP, counted from `exam_sessions.ip_hash` over the last 24 hours. The shared budget RPC refuses windows over 3600 s, so it cannot count a day.
+  - Answers and saves: 120 per session per minute.
+  - The IP is stored only as HMAC-SHA256 under `LT_EXAMS_IP_SALT`, or under a salt derived from `SUPABASE_SERVICE_ROLE_KEY` when that is unset.
+- Not found and not yours return the same 404. A missing migration (PGRST205/42P01) returns 503 "Exams are being set up. Please try again later." Banks are loaded only when `status` is approved or retired and `approved_sha256 = content_sha256`. The sha is recomputed from the content and the bank is re-validated with reviews skipped. Loaded banks are cached in memory, at most 8, keyed by `content_sha256`.
+- `organization_id` is left null; T10 decides how team sessions set it.
+
+**T7 owner approval** (`src/routes/exam-bank.tsx`, `src/routes/api.exam-bank.ts`; link added to the `/owner` header):
+- Every request runs `authenticatedTeamUser` and `requirePlatformOwner` before any parsing or bank read. POST also requires the same origin.
+- GET returns a list of summaries: status, sha with a recomputed-match flag, counts, a review summary per reviewer (verdict counts, signed against the current sha, independent), validator blocker codes and `approvable`.
+- GET with `?moduleId&target&native&version` returns an owner-only preview grouped by phase and lesson, with a placement per item (A/B/C/check pool/spare). Answers use preview names (`choices[].right`, `why`, `answers`).
+- POST `approve` requires:
+  - `confirmModuleId === moduleId`
+  - status `draft`
+  - the `sha256` the owner reviewed equals `content_sha256`
+  - the stored sha recomputes
+  - `validateBank` with reviews required on content plus `review_records`
+  - at least 2 independent reviewers signed against the current sha, with no revise or reject.
+- The approve step first retires the currently approved version, then sets `approved`, `approved_by` (the authenticated owner), `approved_at` and `approved_sha256`. If the approve step fails, the retired version is restored. Every list, preview, approval, refusal and failure is written to `platform_audit_events` with no content.
+
+**T11:** `scripts/verify-vercel-artifact.mjs` scans `.vercel/output/static` only. It fails on bank keys in data form: a quoted key `"correctOptionId":`, `"distractorRationale":` or `"accepted":` (escaped too), or an object-literal key `{correctOptionId:` / `,distractorRationale:`. Plain property reads are allowed, such as the legacy `/exam-content` page's `s.correctOptionId`. The learner UI (T8) should keep using the client names above.
+
+**New env vars:** `LT_EXAMS_V2`, `LT_EXAMS_PUBLIC` (both `1`/`true` to enable; default off), optional `LT_EXAMS_IP_SALT`.

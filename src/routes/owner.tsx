@@ -358,6 +358,9 @@ function OwnedOwnerDashboard() {
             <a href="/exam-content" className={secondary}>
               Private exam content
             </a>
+            <a href="/exam-bank" className={secondary}>
+              Exam banks
+            </a>
             <Link to="/team" className={secondary}>
               Teams
             </Link>

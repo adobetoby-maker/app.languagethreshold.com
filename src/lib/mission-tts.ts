@@ -1,6 +1,11 @@
 import type { GoogleTtsVoice, MissionTtsLanguage } from "@/data/mission-tts";
 import { speakingRequestHeaders, type SpeakingRequestOwner } from "@/lib/speaking-client";
-import { forgetTtsAudio, lookupTtsAudio, storeTtsAudio } from "@/lib/tts-audio-cache";
+import {
+  forgetTtsAudio,
+  lookupTtsAudio,
+  storeTtsAudio,
+  ttsAudioCacheEpoch,
+} from "@/lib/tts-audio-cache";
 
 export interface MissionTtsCapabilities {
   provider: "google-cloud-tts";
@@ -167,6 +172,8 @@ function startFlight(
   credentials?: Promise<RequestHeaders>,
 ): Flight {
   const controller = new AbortController();
+  // Taken before the request leaves: a sign-out while it is in flight must not repopulate the cache.
+  const cacheEpoch = ttsAudioCacheEpoch(owner?.userId);
   const flight: Flight = {
     controller,
     waiters: 0,
@@ -193,7 +200,9 @@ function startFlight(
     const blob = await response.blob();
     const reported = Number(response.headers.get("X-TTS-Rendered-Rate") ?? request.speakingRate);
     const renderedRate = Number.isFinite(reported) ? reported : request.speakingRate;
-    void storeTtsAudio(request, renderedRate, blob, owner?.userId);
+    if (!owner || owner.isCurrent()) {
+      void storeTtsAudio(request, renderedRate, blob, owner?.userId, cacheEpoch);
+    }
     return { blob, renderedRate };
   })().finally(() => {
     flight.settled = true;

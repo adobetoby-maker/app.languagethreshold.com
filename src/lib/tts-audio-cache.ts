@@ -290,6 +290,7 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
   let backendPromise: Promise<TtsPersistentBackend | null> | undefined;
   let indexPromise: Promise<CacheIndex> | undefined;
   let queue: Promise<void> = Promise.resolve();
+  let closed = false;
 
   const backend = () => {
     backendPromise ??= (async () => {
@@ -322,12 +323,13 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
 
   /** Serialises persistent writes so the index never races itself; never rejects. */
   const enqueue = (task: () => Promise<void>) => {
-    const run = queue.then(task).catch(() => undefined);
+    const run = queue.then(() => (closed ? undefined : task())).catch(() => undefined);
     queue = run;
     return run;
   };
 
   async function get(key: string): Promise<Blob | null> {
+    if (closed) return null;
     const hot = memory.get(key);
     if (hot) return hot;
     try {
@@ -345,7 +347,7 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
   }
 
   function put(key: string, blob: Blob): Promise<void> {
-    if (blob.size === 0) return Promise.resolve();
+    if (closed || blob.size === 0) return Promise.resolve();
     memory.set(key, blob);
     return enqueue(async () => {
       const store = await backend();
@@ -383,7 +385,7 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
   }
 
   function markRateLocked(voiceName: string): Promise<void> {
-    if (lockedVoices.has(voiceName)) return Promise.resolve();
+    if (closed || lockedVoices.has(voiceName)) return Promise.resolve();
     lockedVoices.add(voiceName);
     return enqueue(async () => {
       const store = await backend();
@@ -451,6 +453,11 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
     markRateLocked,
     /** Forget the in-memory tier only (a different user took over). */
     dropMemory: () => memory.clear(),
+    /** Permanently refuse further reads and writes (the store is being deleted). Queued tasks are skipped. */
+    close: () => {
+      closed = true;
+      memory.clear();
+    },
     /** Resolves when queued persistent writes have finished (tests, sign-out). */
     settled: () => queue,
     memoryKeys: () => memory.keys(),
@@ -463,6 +470,9 @@ export type TtsAudioCache = ReturnType<typeof createTtsAudioCache>;
 // can never read another's clips even if a clear fails. Signed-out callers (no user id)
 // and runtimes without Web Crypto get a memory-only cache.
 
+/** Before per-user stores existed, clips were written to a single unscoped store. */
+const LEGACY_STORE_NAMES = [TTS_CACHE_PREFIX, "lt-tts-v1"];
+
 async function userNamespace(userId: string): Promise<string | null> {
   const key = await ttsAudioCacheKey({
     voiceName: "namespace",
@@ -473,37 +483,58 @@ async function userNamespace(userId: string): Promise<string | null> {
   return key ? key.slice(0, 24) : null;
 }
 
-let active: { id: string; cache: TtsAudioCache } | undefined;
+/** Every live per-user handle, keyed by user id ("" is the signed-out, memory-only cache). */
+const handles = new Map<string, TtsAudioCache>();
+let activeUser: string | undefined;
+
+// A clear bumps these so a request that began before it cannot write afterwards.
+let globalClearEpoch = 0;
+const userClearEpochs = new Map<string, number>();
+
+/** Snapshot at request start; pass to storeTtsAudio so a sign-out in between refuses the write. */
+export function ttsAudioCacheEpoch(userId?: string | null): number {
+  return globalClearEpoch + (userClearEpochs.get(userId ?? "") ?? 0);
+}
+
+let legacyCleanup: Promise<void> | undefined;
 
 /** Browser-only: SSR and non-DOM runtimes get no cache at all. */
 async function cacheFor(userId?: string | null): Promise<TtsAudioCache | null> {
   if (typeof document === "undefined") return null;
-  const namespace = userId ? await userNamespace(userId) : null;
-  const id = namespace ?? "";
-  if (!active || active.id !== id) {
-    active?.cache.dropMemory();
+  legacyCleanup ??= deleteStores(null, true);
+  const id = userId ?? "";
+  const namespace = id ? await userNamespace(id) : null;
+  // Everything below is synchronous, so a handle is never created twice for one user.
+  let cache = handles.get(id);
+  if (!cache) {
     const name = `${TTS_CACHE_PREFIX}-${namespace}`;
-    active = {
-      id,
-      cache: createTtsAudioCache({
-        openBackend: namespace ? () => openDefaultBackend(name) : async () => null,
-      }),
-    };
+    cache = createTtsAudioCache({
+      openBackend: namespace ? () => openDefaultBackend(name) : async () => null,
+    });
+    handles.set(id, cache);
   }
-  return active.cache;
+  if (activeUser !== undefined && activeUser !== id) handles.get(activeUser)?.dropMemory();
+  activeUser = id;
+  return cache;
 }
 
 export async function lookupTtsAudio(request: TtsAudioRequest, userId?: string | null) {
   return (await (await cacheFor(userId))?.lookup(request)) ?? null;
 }
 
+/** Stores rendered audio. A write whose `epoch` predates a clear of this user is refused. */
 export async function storeTtsAudio(
   request: TtsAudioRequest,
   renderedRate: number,
   blob: Blob,
   userId?: string | null,
+  epoch?: number,
 ) {
-  await (await cacheFor(userId))?.store(request, renderedRate, blob);
+  const stale = () => epoch !== undefined && epoch !== ttsAudioCacheEpoch(userId);
+  if (stale()) return;
+  const cache = await cacheFor(userId);
+  if (stale()) return;
+  await cache?.store(request, renderedRate, blob);
 }
 
 export async function forgetTtsAudio(key: string, userId?: string | null) {
@@ -512,12 +543,14 @@ export async function forgetTtsAudio(key: string, userId?: string | null) {
 
 /** Resolves when queued persistent writes for the active user have finished. */
 export async function flushTtsAudioCache() {
-  await active?.cache.settled();
+  if (activeUser !== undefined) await handles.get(activeUser)?.settled();
 }
 
-async function deletePersistentStores(namespace: string | null): Promise<void> {
+async function deleteStores(namespace: string | null, legacyOnly = false): Promise<void> {
+  const scoped = namespace ? `${TTS_CACHE_PREFIX}-${namespace}` : null;
   const wanted = (name: string) =>
-    namespace ? name === `${TTS_CACHE_PREFIX}-${namespace}` : name.startsWith(TTS_CACHE_PREFIX);
+    LEGACY_STORE_NAMES.includes(name) ||
+    (!legacyOnly && (scoped ? name === scoped : name.startsWith(TTS_CACHE_PREFIX)));
   try {
     if (typeof caches !== "undefined") {
       for (const name of (await caches.keys()).filter(wanted)) await caches.delete(name);
@@ -527,10 +560,13 @@ async function deletePersistentStores(namespace: string | null): Promise<void> {
   }
   try {
     if (typeof indexedDB !== "undefined") {
-      const names = namespace
-        ? [`${TTS_CACHE_PREFIX}-${namespace}`]
-        : ((await indexedDB.databases?.()) ?? []).flatMap((db) => (db.name ? [db.name] : []));
-      for (const name of names.filter(wanted)) {
+      const listed = scoped || legacyOnly ? [] : ((await indexedDB.databases?.()) ?? []);
+      const names = new Set([
+        ...LEGACY_STORE_NAMES,
+        ...(scoped ? [scoped] : []),
+        ...listed.flatMap((db) => (db.name && wanted(db.name) ? [db.name] : [])),
+      ]);
+      for (const name of names) {
         await new Promise<void>((resolve) => {
           const request = indexedDB.deleteDatabase(name);
           request.onsuccess = request.onerror = request.onblocked = () => resolve();
@@ -544,20 +580,34 @@ async function deletePersistentStores(namespace: string | null): Promise<void> {
 
 /**
  * Wipe cached clips. Pass the departing user's id to remove their store; with no id every
- * user's store on this device goes. Call on sign-out, session end and user switch: Reader
- * can speak user-supplied text. Never throws.
+ * user's store on this device goes. The legacy unscoped store is always removed too. Writes
+ * already queued are cancelled and awaited before the store is deleted, and any request that
+ * began earlier is refused afterwards (see ttsAudioCacheEpoch). Call on sign-out, session
+ * end and user switch: Reader can speak user-supplied text. Never throws.
  */
 export async function clearTtsAudioCache(userId?: string | null): Promise<void> {
   try {
-    const departing = active;
-    const namespace = userId ? await userNamespace(userId) : null;
-    if (departing && (!userId || departing.id === namespace || !namespace)) {
-      active = undefined;
-      departing.cache.dropMemory();
-      await departing.cache.settled();
+    // Synchronous part first: nothing that began before this point may write afterwards.
+    let closing: TtsAudioCache[];
+    if (userId) {
+      userClearEpochs.set(userId, (userClearEpochs.get(userId) ?? 0) + 1);
+      const handle = handles.get(userId);
+      handles.delete(userId);
+      closing = handle ? [handle] : [];
+    } else {
+      globalClearEpoch += 1;
+      closing = [...handles.values()];
+      handles.clear();
     }
-    if (userId && !namespace) return; // memory-only runtime: nothing persisted
-    await deletePersistentStores(userId ? namespace : null);
+    if (activeUser !== undefined && !handles.has(activeUser)) activeUser = undefined;
+    for (const handle of closing) handle.close();
+    await Promise.all(closing.map((handle) => handle.settled()));
+    const namespace = userId ? await userNamespace(userId) : null;
+    if (userId && !namespace) {
+      await deleteStores(null, true);
+      return; // memory-only runtime: nothing else persisted
+    }
+    await deleteStores(namespace);
   } catch {
     // Best effort.
   }

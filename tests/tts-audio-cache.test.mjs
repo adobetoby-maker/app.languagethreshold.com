@@ -534,6 +534,12 @@ const requestFor = (text) => ({
   text,
 });
 
+// Opening a cache creates an empty store; what must never exist is a stored entry.
+const storedEntries = (caches) =>
+  [...caches.stores.entries()]
+    .filter(([name]) => name.startsWith("tts-audio-v1-"))
+    .reduce((sum, [, entries]) => sum + entries.size, 0);
+
 const persisted = (caches) =>
   [...caches.stores.keys()].filter((n) => n.startsWith("tts-audio-v1-"));
 
@@ -689,4 +695,237 @@ test("reset to first run clears every user's cached audio and the auth listener 
     /previousUser && previousUser !== nextUser\) \{[\s\S]*?clearTtsAudioCache\(previousUser\)/,
     "SIGNED_OUT, expiry and account switch all pass through acceptSession's identity-loss branch",
   );
+});
+
+// ---- sign-out races and the legacy unscoped store ----
+
+const waitUntil = async (predicate, label) => {
+  for (let i = 0; i < 200; i++) {
+    if (predicate()) return;
+    await tick();
+  }
+  assert.fail(`timed out waiting for ${label}`);
+};
+
+test("a store that began before a clear is refused afterwards, even when it is already queued", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    // 1. Request begins (epoch taken), user signs out, response arrives.
+    const epoch = mod.ttsAudioCacheEpoch("user-a");
+    await mod.clearTtsAudioCache("user-a");
+    assert.notEqual(mod.ttsAudioCacheEpoch("user-a"), epoch, "clear bumps the user's epoch");
+    await mod.storeTtsAudio(requestFor("llegó tarde"), 1, blobOf("late"), "user-a", epoch);
+    await mod.flushTtsAudioCache();
+    assert.equal(storedEntries(env.caches), 0, "stale write left nothing on disk");
+    assert.equal(await mod.lookupTtsAudio(requestFor("llegó tarde"), "user-a"), null);
+    assert.equal(storedEntries(env.caches), 0, "and the lookup did not resurrect an entry");
+
+    // 2. A request that begins after the clear is fine.
+    const fresh = mod.ttsAudioCacheEpoch("user-a");
+    await mod.storeTtsAudio(requestFor("nueva"), 1, blobOf("new"), "user-a", fresh);
+    await mod.flushTtsAudioCache();
+    assert.equal(persisted(env.caches).length, 1);
+
+    // 3. Other users' epochs are untouched by a user clear; a clear-all bumps everyone's.
+    const b = mod.ttsAudioCacheEpoch("user-b");
+    await mod.clearTtsAudioCache("user-a");
+    assert.equal(mod.ttsAudioCacheEpoch("user-b"), b);
+    await mod.clearTtsAudioCache();
+    assert.notEqual(mod.ttsAudioCacheEpoch("user-b"), b);
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("clear cancels and awaits queued writes of every handle, not just the active user's", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    // user-a stores, then user-b takes over (a's handle is no longer the active one).
+    await mod.storeTtsAudio(requestFor("de a"), 1, blobOf("a"), "user-a");
+    await mod.storeTtsAudio(requestFor("de b"), 1, blobOf("b"), "user-b");
+    // No flush: a's write may still be queued when the clear starts.
+    await mod.clearTtsAudioCache("user-a");
+    for (let i = 0; i < 20; i++) await tick();
+    await mod.flushTtsAudioCache();
+    const remaining = persisted(env.caches);
+    assert.equal(remaining.length, 1, "only user-b's store is left");
+    assert.equal(await mod.lookupTtsAudio(requestFor("de a"), "user-a"), null);
+    assert.ok(await mod.lookupTtsAudio(requestFor("de b"), "user-b"));
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("a closed cache handle skips queued writes and refuses new ones", async () => {
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    const backend = mod.createMemoryBackend();
+    const writes = [];
+    const slow = {
+      ...backend,
+      writeBlob: async (key, blob) => {
+        writes.push(key);
+        await tick();
+        return backend.writeBlob(key, blob);
+      },
+    };
+    const cache = mod.createTtsAudioCache({ openBackend: async () => slow });
+    const request = (text) => ({ voiceName: "v", languageCode: "es-US", speakingRate: 1, text });
+    const first = cache.store(request("uno"), 1, blobOf("uno"));
+    const second = cache.store(request("dos"), 1, blobOf("dos"));
+    await tick();
+    cache.close();
+    await Promise.all([first, second, cache.settled()]);
+    assert.ok(writes.length <= 1, "the write queued behind the first never ran");
+    await cache.store(request("tres"), 1, blobOf("tres"));
+    await cache.settled();
+    assert.ok(!writes.some((_, i) => i > 0));
+    assert.equal(await cache.lookup(request("tres")), null, "closed handle serves nothing");
+  } finally {
+    cleanup();
+  }
+});
+
+test("actual speakMissionTts does not repopulate the cache after sign-out or owner loss mid-request", async () => {
+  const env = stubBrowser();
+  const saved = Object.fromEntries(
+    ["fetch", "Audio"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+  );
+  const urls = { create: URL.createObjectURL, revoke: URL.revokeObjectURL };
+  const pending = [];
+  globalThis.Audio = class {
+    pause() {}
+    removeAttribute() {}
+    load() {}
+    play() {
+      queueMicrotask(() => this.onended?.());
+      return Promise.resolve();
+    }
+  };
+  globalThis.fetch = () =>
+    new Promise((resolve) =>
+      pending.push(() => resolve(new Response(new Blob(["mp3"]), { status: 200 }))),
+    );
+  URL.createObjectURL = () => "blob:x";
+  URL.revokeObjectURL = () => {};
+  const speakingClient = {
+    name: "speaking-client-stub",
+    setup(b) {
+      b.onResolve({ filter: /^@\/lib\/speaking-client$/ }, () => ({
+        path: "stub",
+        namespace: "stub",
+      }));
+      b.onLoad({ filter: /.*/, namespace: "stub" }, () => ({
+        contents: "export const speakingRequestHeaders = async () => ({});",
+      }));
+    },
+  };
+  const { mod, cleanup } = await bundle(
+    `export * from './src/lib/mission-tts'; export * from './src/lib/tts-audio-cache';`,
+    [speakingClient],
+  );
+  try {
+    let current = true;
+    const owner = { userId: "user-a", isCurrent: () => current };
+    const opts = (text) => ({
+      text,
+      voiceName: "es-US-Neural2-A",
+      languageCode: "es-US",
+      speakingRate: 1,
+      usage: "learning",
+      owner,
+    });
+    // Sanity: an uninterrupted play does persist.
+    const ok = mod.speakMissionTts(opts("control"));
+    await waitUntil(() => pending.length === 1, "request");
+    pending.shift()();
+    await ok;
+    await mod.flushTtsAudioCache();
+    assert.equal(persisted(env.caches).length, 1, "control play was stored");
+    await mod.clearTtsAudioCache("user-a");
+    assert.equal(persisted(env.caches).length, 0);
+
+    // Sign-out (clear) while the request is in flight.
+    const raced = mod.speakMissionTts(opts("durante cierre"));
+    await waitUntil(() => pending.length === 1, "request");
+    await mod.clearTtsAudioCache("user-a");
+    pending.shift()();
+    await raced.catch(() => {});
+    for (let i = 0; i < 20; i++) await tick();
+    await mod.flushTtsAudioCache();
+    assert.equal(storedEntries(env.caches), 0, "response after sign-out was not stored");
+
+    // The owner stops being current (account switch) while the request is in flight.
+    const lost = mod.speakMissionTts(opts("cambio de cuenta"));
+    await waitUntil(() => pending.length === 1, "request");
+    current = false;
+    pending.shift()();
+    await lost.catch(() => {});
+    for (let i = 0; i < 20; i++) await tick();
+    await mod.flushTtsAudioCache();
+    assert.equal(storedEntries(env.caches), 0, "response for a non-current owner was not stored");
+  } finally {
+    for (const [k, d] of Object.entries(saved)) {
+      if (d) Object.defineProperty(globalThis, k, d);
+      else delete globalThis[k];
+    }
+    URL.createObjectURL = urls.create;
+    URL.revokeObjectURL = urls.revoke;
+    env.restore();
+    cleanup();
+  }
+});
+
+test("the legacy unscoped store is removed on every clear and once at startup", async () => {
+  const env = stubBrowser();
+  const deletedDatabases = [];
+  const savedIdb = Object.getOwnPropertyDescriptor(globalThis, "indexedDB");
+  globalThis.indexedDB = {
+    databases: async () => [{ name: "tts-audio-v1" }, { name: "other-db" }],
+    deleteDatabase: (name) => {
+      deletedDatabases.push(name);
+      const request = {};
+      queueMicrotask(() => request.onsuccess?.());
+      return request;
+    },
+  };
+  const seedLegacy = () => {
+    env.caches.stores.set("tts-audio-v1", new Map()); // what commit 4522350 wrote
+    env.caches.stores.set("lt-tts-v1", new Map());
+    env.caches.stores.set("lt-v1-app-shell", new Map());
+  };
+  try {
+    // Startup cleanup: the first browser use removes the legacy store without any clear.
+    seedLegacy();
+    const first = await bundle(`export * from './src/lib/tts-audio-cache';`);
+    try {
+      await first.mod.lookupTtsAudio(requestFor("hola"), "user-a");
+      await waitUntil(() => !env.caches.stores.has("tts-audio-v1"), "startup cleanup");
+      assert.ok(!env.caches.stores.has("lt-tts-v1"));
+      assert.ok(env.caches.stores.has("lt-v1-app-shell"), "unrelated caches are untouched");
+      assert.ok(deletedDatabases.includes("tts-audio-v1"), "legacy IndexedDB database deleted too");
+
+      // Every clear removes it again, for a named user and for clear-all.
+      seedLegacy();
+      deletedDatabases.length = 0;
+      await first.mod.clearTtsAudioCache("user-a");
+      assert.ok(!env.caches.stores.has("tts-audio-v1") && !env.caches.stores.has("lt-tts-v1"));
+      assert.ok(deletedDatabases.includes("tts-audio-v1"));
+
+      seedLegacy();
+      await first.mod.clearTtsAudioCache();
+      assert.ok(!env.caches.stores.has("tts-audio-v1") && !env.caches.stores.has("lt-tts-v1"));
+      assert.ok(env.caches.stores.has("lt-v1-app-shell"));
+    } finally {
+      first.cleanup();
+    }
+  } finally {
+    if (savedIdb) Object.defineProperty(globalThis, "indexedDB", savedIdb);
+    else delete globalThis.indexedDB;
+    env.restore();
+  }
 });

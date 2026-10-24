@@ -34,7 +34,7 @@ export default defineConfig({
     {
       name: "desktop",
       testMatch:
-        /(owner-admin|exam-bank|desktop-navigation|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar)\.spec\.ts/,
+        /(owner-admin|exam-bank|desktop-navigation|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar|tts-cache)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },

@@ -109,7 +109,7 @@ export function Core30Philosophy({ onBack }: { onBack?: () => void }) {
       moduleId,
       language,
       nativeLanguage,
-      headline: curriculum?.headline ?? null,
+      headline: curriculum?.displayHeadline ?? curriculum?.headline ?? null,
       threshold: curriculum?.threshold ?? null,
     });
   }, [moduleId, language, nativeLanguage]);

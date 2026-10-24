@@ -209,7 +209,7 @@ test("device voice setup instructions are reachable in desktop and phone setting
 });
 
 test('Speak keeps a selected country lens collapsed and editable after save and reload', async ({page}) => {
- await page.goto(appUrl({tab:'speak',module:'core'}));
+ await page.goto(appUrl({tab:'speak',module:'international-travel'}));
  const banner = page.locator('section[aria-labelledby="next-trip-heading"]');
  const before = await readAppState(page);
  await banner.getByRole('combobox').selectOption('mexico');
@@ -286,4 +286,41 @@ test("Speak opens the current module missions and lets learners browse other mod
   await page.screenshot({
     path: `test-results/speak-module-${test.info().project.name}.png`,
   });
+});
+
+test("Speak keeps Roofing focused on missions and uses the chosen accent despite a saved trip", async ({
+  page,
+}) => {
+  await page.goto(appUrl({ tab: "speak", module: "roofing" }));
+  await expect(page.getByRole("heading", { name: "Choose your speaking goal" })).toBeVisible();
+  await seedAppState(page, {
+    nextTrips: { Spanish: { destinationId: "spain", departureDate: null } },
+  });
+  await page.reload();
+  const before = await readAppState(page);
+  const trip = page.locator(
+    'section[aria-labelledby="next-trip-heading"], [data-testid="next-trip-summary"]',
+  );
+  await expect(trip).toHaveCount(0);
+  const accent = page.getByRole("combobox", { name: "Speaking accent", exact: true });
+  await accent.selectOption("es-MX");
+  await expect(accent).toHaveValue("es-MX");
+  await page.reload();
+  await expect(accent).toHaveValue("es-MX");
+  await page
+    .getByRole("button")
+    .filter({
+      has: page.getByRole("heading", { name: "Lesson 30: Full Roofing Day", exact: true }),
+    })
+    .click();
+  await expect(page.getByText("Goals for this mission · reference", { exact: true })).toBeVisible();
+  await expect(accent).toHaveValue("es-MX");
+  await expect(trip).toHaveCount(0);
+  await accent.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: `test-results/speak-accent-${test.info().project.name}.png` });
+  const after = await readAppState(page);
+  expect(after.nextTrips).toEqual(before.nextTrips);
+  expect(after.lessonProgress).toEqual(before.lessonProgress);
+  expect(after.core30Log).toEqual(before.core30Log);
 });

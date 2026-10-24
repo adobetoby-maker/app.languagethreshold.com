@@ -233,7 +233,15 @@ export function SpeakingMissionsPreview({
   }, [embeddedMissionPrefix]);
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
-  const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
+  const {
+    accent,
+    accentsForLanguage = [],
+    rate,
+    setAccent,
+    setRate,
+    voiceURI,
+    setVoiceURI,
+  } = useSpeech();
   const { session, isCurrentUser } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
@@ -315,7 +323,9 @@ export function SpeakingMissionsPreview({
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
   const tripDestination = getTravelDestination(tripPlan?.destinationId);
   const activeTravelDestination =
-    tripDestination?.language === missionLanguage ? tripDestination : null;
+    selectedMission?.specialty === "Travel" && tripDestination?.language === missionLanguage
+      ? tripDestination
+      : null;
   const languageModules = useMemo(
     () => (missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : []),
     [appState.nativeLanguage, missionLanguage],
@@ -332,7 +342,7 @@ export function SpeakingMissionsPreview({
       availableModuleIds.has(speakingCatalogModuleId(mission.moduleId)),
     );
   }, [languageModules, allLanguageMissions]);
-  const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
+  const missionLocale = accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const {
     key: lifecycleKey,
@@ -382,13 +392,29 @@ export function SpeakingMissionsPreview({
       : partnerAudioSource === "text"
         ? true
         : ttsStatus === "ready" && partnerVoice !== null;
-  const voiceRegionLabel = activeTravelDestination
-    ? `${activeTravelDestination.flag} ${activeTravelDestination.country}`
-    : missionLocale === "es-CR"
-      ? "Neutral Costa Rica"
-      : missionLocale === "en-US"
-        ? "Neutral United States"
-        : missionLocale;
+  const voiceRegionLabel =
+    accentsForLanguage.find((option) => option.code === missionLocale)?.label ?? missionLocale;
+  const accentControl = (
+    <label className="grid gap-1 text-sm">
+      <span className="font-semibold text-foreground">Speaking accent</span>
+      <select
+        aria-label="Speaking accent"
+        value={accent}
+        onChange={(event) => setAccent(event.target.value)}
+        className="min-h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-foreground sm:max-w-sm"
+      >
+        {accentsForLanguage.map((option) => (
+          <option key={option.code} value={option.code}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <span className="text-xs leading-relaxed text-muted-foreground">
+        Uses your app voice accent for playback and microphone language. Available voices vary by
+        device.
+      </span>
+    </label>
+  );
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
     () => [...new Set(languageModules.map((module) => module.category))],
@@ -439,11 +465,6 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     setRecognitionSupported(recognitionConstructor() !== null);
   }, []);
-
-  useEffect(() => {
-    if (!activeTravelDestination || accent === activeTravelDestination.ttsLocale) return;
-    setAccent(activeTravelDestination.ttsLocale);
-  }, [accent, activeTravelDestination, setAccent]);
 
   useEffect(() => {
     let active = true;
@@ -1275,9 +1296,12 @@ export function SpeakingMissionsPreview({
       return;
     }
     if (recognitionRef.current !== recognition) return;
-    recognitionStopTimerRef.current = window.setTimeout(() => {
-      if (recognitionRef.current === recognition) finish();
-    }, recognitionHasTextRef.current ? STOP_FALLBACK_MS : TRANSCRIPT_WAIT_MS);
+    recognitionStopTimerRef.current = window.setTimeout(
+      () => {
+        if (recognitionRef.current === recognition) finish();
+      },
+      recognitionHasTextRef.current ? STOP_FALLBACK_MS : TRANSCRIPT_WAIT_MS,
+    );
   };
 
   const completedObjectiveCount =
@@ -1402,16 +1426,24 @@ export function SpeakingMissionsPreview({
           </p>
           <p className="mt-2 text-xs text-muted-foreground">Speaking practice does not mark lessons mastered.</p>
         </div>
-        <div className="mb-5">
-          <NextTripBanner
-            compact
-            onPracticeTravel={() => {
-              setCatalogModuleId(null);
-              setCatalogCategory("Travel");
-              setCatalogSearch("");
-            }}
-          />
-        </div>
+        <div className="mb-5">{accentControl}</div>
+        {(catalogModule?.category === "Travel" ||
+          (!catalogModule && catalogCategory === "Travel")) && (
+          <div className="mb-5">
+            <NextTripBanner
+              compact
+              onPracticeTravel={() => {
+                setCatalogModuleId(null);
+                setCatalogCategory("Travel");
+                setCatalogSearch("");
+              }}
+            />
+            <p className="mt-2 text-xs text-muted-foreground">
+              Your destination adds local words and travel context. Choose your speaking accent
+              separately above.
+            </p>
+          </div>
+        )}
         {catalogModule ? (
           <>
             <button
@@ -1432,7 +1464,11 @@ export function SpeakingMissionsPreview({
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
                 {catalogModule.id === "core-speaking" || !missionLanguage
                   ? catalogMissions.length
-                  : speakingCatalogMissionCount(languageMissions, catalogModule.id, missionLanguage)}{" "}
+                  : speakingCatalogMissionCount(
+                      languageMissions,
+                      catalogModule.id,
+                      missionLanguage,
+                    )}{" "}
                 speaking missions
               </p>
             </div>
@@ -1677,6 +1713,7 @@ export function SpeakingMissionsPreview({
             strong borders; the selected choice is filled gold. The goals and words above are
             reference information, not buttons.
           </div>
+          <div className="mb-4">{accentControl}</div>
           <fieldset>
             <legend className="text-sm font-semibold text-foreground">Choose partner audio</legend>
             <div className="mt-2 grid grid-cols-3 gap-2">
@@ -1713,10 +1750,7 @@ export function SpeakingMissionsPreview({
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
               Phone voice uses a voice installed on this device. Google preselects a short list for
-              {activeTravelDestination
-                ? ` ${activeTravelDestination.country}`
-                : ` ${selectedMission.language}`}
-              . Text-only keeps every mission usable without playback.
+              {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
@@ -1858,10 +1892,8 @@ export function SpeakingMissionsPreview({
                 ))}
               </select>
               <span className="text-xs leading-relaxed text-muted-foreground">
-                {activeTravelDestination
-                  ? `${activeTravelDestination.country} is selected for your trip, so only matching ${missionLocale} voices are shown when Google provides them.`
-                  : `No trip country is selected, so ${voiceRegionLabel} is the preselected textbook-style default.`}{" "}
-                The app preselects one for your partner choice; changing it is optional.
+                Matching {missionLocale} voices are shown when Google provides them. The app
+                preselects one for your partner choice; changing it is optional.
               </span>
               <button
                 type="button"

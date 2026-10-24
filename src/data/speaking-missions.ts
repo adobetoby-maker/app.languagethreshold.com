@@ -7,11 +7,12 @@ import {
   CORE_GRAMMAR_EXTENSIONS,
   CORE_VERBS,
   DAILY_LIVING_TOPICS,
-  RELATIONSHIPS_INTIMACY_TOPICS,
+  RELATIONSHIP_TOPICS,
   type CoreSpeakingSection,
   type CoreGrammarPattern,
   type CoreVerb,
   type DailyLivingTopic,
+  type RelationshipGroup,
 } from "./core-speaking.ts";
 import { isFoundationModule, isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
@@ -63,6 +64,7 @@ export interface SpeakingMission {
   sourceObjectiveId?: string;
   lessonTeaching?: Pick<LessonTeachingSettings, "stage" | "speaking">;
   coreSection?: CoreSpeakingSection;
+  relationshipGroup?: RelationshipGroup;
   coreOrder?: number;
   objectives: SpeakingMissionObjective[];
   openingLine: string;
@@ -975,67 +977,72 @@ function safetyRulesForDailyLiving(topic: DailyLivingTopic): string[] {
 
 const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string, string>> = {
   Spanish: {
+    "meeting-family": "Qué gusto conocerte. Nos han hablado mucho de ti. ¿Cómo estuvo el viaje?",
     "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
-    "relationship-status": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
+    "defining-relationship": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
     "affection-appreciation":
       "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
-    "relationship-expectations":
+    "living-together":
       "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
     "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
-    "safer-intimacy":
+    "sexual-health-conversation":
       "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
-    "relationship-conflict": "Me dolió lo que pasó, pero quiero escucharte y resolverlo contigo.",
-    "end-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
+    "disagreement-repair": "Me dolió lo que pasó, pero quiero escucharte y resolverlo contigo.",
+    "ending-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
   },
   Italian: {
+    "meeting-family": "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
     "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
-    "relationship-status": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
+    "defining-relationship": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
     "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
-    "relationship-expectations":
+    "living-together":
       "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
     "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
-    "safer-intimacy":
+    "sexual-health-conversation":
       "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
-    "relationship-conflict":
+    "disagreement-repair":
       "Quello che è successo mi ha ferito, ma voglio ascoltarti e risolverlo insieme.",
-    "end-relationship":
+    "ending-relationship":
       "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione.",
   },
   Japanese: {
+    "meeting-family": "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
     "dating-interest": "もっとあなたのことを知りたいです。今度、一緒にお茶しませんか。",
-    "relationship-status":
+    "defining-relationship":
       "私たちの関係について話したいです。あなたは今の関係をどう考えていますか。",
     "affection-appreciation": "あなたのことをとても大切に思っています。いつもありがとう。",
-    "relationship-expectations": "この関係に何を望んでいるか、お互いに話しませんか。",
+    "living-together": "この関係に何を望んでいるか、お互いに話しませんか。",
     "consent-boundaries": "抱きしめてもいいですか。嫌なら、遠慮なく言ってください。",
-    "safer-intimacy": "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
-    "relationship-conflict":
+    "sexual-health-conversation": "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
+    "disagreement-repair":
       "さっきのことで傷つきました。でも、あなたの話を聞いて一緒に解決したいです。",
-    "end-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
+    "ending-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
   },
   Chinese: {
+    "meeting-family": "很高兴见到你。我们常听到你的事。路上还顺利吗？",
     "dating-interest": "我很喜欢和你聊天。改天想不想一起喝杯咖啡？",
-    "relationship-status": "我想聊聊我们的关系。你会怎么形容我们现在的关系？",
+    "defining-relationship": "我想聊聊我们的关系。你会怎么形容我们现在的关系？",
     "affection-appreciation": "我想告诉你，我很珍惜你。听到这句话你有什么感觉？",
-    "relationship-expectations": "我想了解你对我们这段关系的期待，我们可以聊聊吗？",
+    "living-together": "我想了解你对我们这段关系的期待，我们可以聊聊吗？",
     "consent-boundaries": "我可以抱你一下吗？你可以说不要。",
-    "safer-intimacy": "在更进一步之前，我想聊聊怎样让我们都感到安全和自在。",
-    "relationship-conflict": "刚才的事让我有点难过，但我想听你说，我们一起解决。",
-    "end-relationship": "我想跟你说实话。我决定结束我们的这段关系。",
+    "sexual-health-conversation": "在更进一步之前，我想聊聊怎样让我们都感到安全和自在。",
+    "disagreement-repair": "刚才的事让我有点难过，但我想听你说，我们一起解决。",
+    "ending-relationship": "我想跟你说实话。我决定结束我们的这段关系。",
   },
   English: {
+    "meeting-family": "It is lovely to meet you. We have heard a lot about you. How was your trip?",
     "dating-interest": "I enjoy talking with you. Would you like to get coffee sometime?",
-    "relationship-status":
+    "defining-relationship":
       "I would like to talk about us. How would you describe our relationship?",
     "affection-appreciation": "I care about you very much, and I appreciate you.",
-    "relationship-expectations":
+    "living-together":
       "I would like to understand what you expect from our relationship. Can we talk about it?",
     "consent-boundaries": "Would it be okay if I hugged you? You can say no.",
-    "safer-intimacy":
+    "sexual-health-conversation":
       "Before we become intimate, I would like to talk about what helps both of us feel safe and comfortable.",
-    "relationship-conflict":
+    "disagreement-repair":
       "What happened hurt me, but I want to listen and work through it together.",
-    "end-relationship": "I want to be honest with you. I have decided to end our relationship.",
+    "ending-relationship": "I want to be honest with you. I have decided to end our relationship.",
   },
 };
 
@@ -1043,6 +1050,7 @@ function dailyLivingOpeningLine(
   topic: DailyLivingTopic,
   language: SpeakingMissionLanguage,
 ): string {
+  if (topic.openingLines) return topic.openingLines[language];
   const relationshipLine = RELATIONSHIP_OPENING_LINES[language][topic.id];
   if (relationshipLine) return relationshipLine;
 
@@ -1388,7 +1396,7 @@ function missionFromDailyLivingTopic(
     moduleEmoji: CORE_SPEAKING_MODULE.emoji,
     learnerRole: CORE_SPEAKING_MODULE.userRole,
     partnerRole: topic.partnerRole,
-    level: topicIndex < 20 ? "A1" : "A2",
+    level: topic.level ?? (topicIndex < 20 ? "A1" : "A2"),
     quickMinutes: 7,
     targetMinutes: 10,
     language,
@@ -1396,6 +1404,7 @@ function missionFromDailyLivingTopic(
     vocabulary: topic.concepts,
     sourcePrompts: [topic.objective],
     coreSection,
+    relationshipGroup: topic.relationshipGroup,
     coreOrder: topicIndex,
     objectives: [
       {
@@ -1538,14 +1547,14 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
     ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>
       missionFromDailyLivingTopic(topic, topicIndex, language, code, locale),
     ),
-    ...RELATIONSHIPS_INTIMACY_TOPICS.map((topic, topicIndex) =>
+    ...RELATIONSHIP_TOPICS.map((topic, topicIndex) =>
       missionFromDailyLivingTopic(
         topic,
         DAILY_LIVING_TOPICS.length + topicIndex,
         language,
         code,
         locale,
-        "Relationships & intimacy",
+        "Relationships",
       ),
     ),
   ];

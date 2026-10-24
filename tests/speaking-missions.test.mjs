@@ -11,11 +11,7 @@ import {
   MISSION_TTS_SUPPORTED_LANGUAGES,
   recommendedGoogleVoices,
 } from "../src/data/mission-tts.ts";
-import {
-  CORE_VERBS,
-  DAILY_LIVING_TOPICS,
-  RELATIONSHIPS_INTIMACY_TOPICS,
-} from "../src/data/core-speaking.ts";
+import { CORE_VERBS, DAILY_LIVING_TOPICS, RELATIONSHIP_TOPICS } from "../src/data/core-speaking.ts";
 import {
   findSpeakingMission,
   getAllSpeakingMissions,
@@ -95,10 +91,10 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
     new Set(DAILY_LIVING_TOPICS.map((topic) => topic.id)).size,
     DAILY_LIVING_TOPICS.length,
   );
-  assert.equal(RELATIONSHIPS_INTIMACY_TOPICS.length, 8);
+  assert.equal(RELATIONSHIP_TOPICS.length, 20);
   assert.equal(
-    new Set(RELATIONSHIPS_INTIMACY_TOPICS.map((topic) => topic.id)).size,
-    RELATIONSHIPS_INTIMACY_TOPICS.length,
+    new Set(RELATIONSHIP_TOPICS.map((topic) => topic.id)).size,
+    RELATIONSHIP_TOPICS.length,
   );
   for (const requiredTopic of [
     "answer-phone",
@@ -141,13 +137,20 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
       core.filter((mission) => mission.coreSection === "Daily living").length,
       DAILY_LIVING_TOPICS.length,
     );
-    const relationshipMissions = core.filter(
-      (mission) => mission.coreSection === "Relationships & intimacy",
+    const relationshipMissions = core.filter((mission) => mission.coreSection === "Relationships");
+    assert.equal(relationshipMissions.length, RELATIONSHIP_TOPICS.length);
+    const dating = relationshipMissions.filter(
+      (mission) => mission.relationshipGroup === "Dating & partners",
     );
-    assert.equal(relationshipMissions.length, RELATIONSHIPS_INTIMACY_TOPICS.length);
-    assert.ok(relationshipMissions.every((mission) => mission.riskClass === "intimacy"));
+    const everyday = relationshipMissions.filter(
+      (mission) => mission.relationshipGroup !== "Dating & partners",
+    );
+    assert.equal(dating.length, 11);
+    assert.equal(everyday.length, 9);
+    assert.ok(dating.every((mission) => mission.riskClass === "intimacy"));
+    assert.ok(everyday.every((mission) => mission.riskClass === undefined));
     assert.ok(
-      relationshipMissions.every(
+      dating.every(
         (mission) =>
           mission.safetyRules.some((rule) => rule.includes("Consent must be freely given")) &&
           mission.safetyRules.some((rule) => rule.includes("Never sexualize anyone under 18")),
@@ -172,13 +175,20 @@ test("speaking preview covers every authored topic in every speaking language", 
       challenges: 390,
       lessons: 1780 + master,
       curated: 6,
-      core: 141,
-      total: 2311 + 6 + master,
+      core: 153,
+      total: 2323 + 6 + master,
     }),
-    Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 141, total: 2145 },
-    Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 144, total: 2148 },
-    Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 141, total: 2151 },
-    English: withGenerated("English", { modules: 58, challenges: 364, lessons: 1710, curated: 0, core: 141, total: 2215 }),
+    Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
+    Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 156, total: 2160 },
+    Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2163 },
+    English: withGenerated("English", {
+      modules: 58,
+      challenges: 364,
+      lessons: 1710,
+      curated: 0,
+      core: 153,
+      total: 2227,
+    }),
   };
 
   assert.deepEqual(
@@ -239,7 +249,8 @@ test("speaking preview covers every authored topic in every speaking language", 
     .reduce((sum, gen) => sum + gen.challenges + gen.lessons, 0);
   // 1,220 of these are the travel (240 × 5 languages) and Spanish Sport Fishing (20) lesson-plan expansions;
   // 72 are the Spanish Gutters and Siding Core 30 (2 × (6 challenges + 30 lessons)).
-  const allMissions = 10970 + 6 + master + generated;
+  // Twelve new everyday relationship topics across the five speaking languages.
+  const allMissions = 11030 + 6 + master + generated;
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, allMissions);
@@ -336,7 +347,9 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
     // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
     // their own, so they do not count toward a zone's size here.
     const nonTravelCounts = Object.groupBy(
-      languageMissions.filter((mission) => mission.specialty !== "Travel" && !isStageModule(mission.moduleId)),
+      languageMissions.filter(
+        (mission) => mission.specialty !== "Travel" && !isStageModule(mission.moduleId),
+      ),
       (mission) => mission.specialty,
     );
     assert.ok(
@@ -552,14 +565,56 @@ test("Foundation and Master missions are catalogued under their base module, lab
     for (const stage of ["foundation", "master"]) {
       if (!entry[stage]) continue;
       const underBase = missions.filter(
-        (m) => speakingCatalogModuleId(m.moduleId) === entry.base && m.moduleId === `${stage}-${entry.base}`,
+        (m) =>
+          speakingCatalogModuleId(m.moduleId) === entry.base &&
+          m.moduleId === `${stage}-${entry.base}`,
       );
       const inLanguage = entry.language === "Spanish";
       assert.equal(underBase.length > 0, inLanguage, `${stage}-${entry.base} Spanish missions`);
       assert.equal(
-        getSpeakingMissions("Italian").filter((m) => m.moduleId === `${stage}-${entry.base}`).length,
+        getSpeakingMissions("Italian").filter((m) => m.moduleId === `${stage}-${entry.base}`)
+          .length,
         0,
       );
     }
+  }
+});
+
+test("relationship missions cover parents, friends and dates with topic-specific openings in every language", () => {
+  for (const { language, code } of SPEAKING_LANGUAGES) {
+    const missions = getSpeakingMissions(language).filter((m) => m.coreSection === "Relationships");
+    assert.equal(missions.filter((m) => m.relationshipGroup === "Family & parents").length, 4);
+    assert.equal(missions.filter((m) => m.relationshipGroup === "Friends").length, 5);
+    assert.equal(missions.filter((m) => m.relationshipGroup === "Dating & partners").length, 11);
+    for (const topic of RELATIONSHIP_TOPICS) {
+      const mission = missions.find(
+        (m) => m.scenarioId === `scenario_core_daily_${topic.id}_${code}`,
+      );
+      assert.ok(mission, `${language}/${topic.id}`);
+      assert.equal(mission.partnerRole, topic.partnerRole);
+      assert.equal(mission.objectives[0].description, topic.objective);
+      if (topic.openingLines) assert.equal(mission.openingLine, topic.openingLines[language]);
+      assert.notEqual(mission.openingLine, "Hello, how can I help you today?");
+    }
+    // Existing scenario/version and objective IDs are the progress keys: keep all eight.
+    for (const id of [
+      "dating-interest",
+      "consent-boundaries",
+      "defining-relationship",
+      "meeting-family",
+      "disagreement-repair",
+      "living-together",
+      "sexual-health-conversation",
+      "ending-relationship",
+    ]) {
+      const mission = missions.find((m) => m.scenarioId === `scenario_core_daily_${id}_${code}`);
+      assert.equal(mission.id, `scenario_version_core_daily_${id}_${code}_v1`);
+      assert.equal(mission.objectives[0].id, `objective_core_daily_${id}_${code}_task`);
+    }
+    assert.equal(
+      new Set(missions.map((m) => m.openingLine)).size,
+      20,
+      `${language} distinct partner openings`,
+    );
   }
 });

@@ -1,11 +1,12 @@
 import type { SpeakingMissionLanguage } from "./speaking-missions.ts";
+import { EVERYDAY_RELATIONSHIP_TOPICS } from "./relationship-speaking.ts";
 import { CHINESE_GRAMMAR_EXTENSIONS } from "./chinese-grammar-extensions.ts";
 
 export type CoreSpeakingSection =
   | "Essential verbs"
   | "Grammar patterns"
   | "Daily living"
-  | "Relationships & intimacy";
+  | "Relationships";
 
 export interface CoreVerb {
   id: string;
@@ -13,7 +14,13 @@ export interface CoreVerb {
   target: Partial<Record<Exclude<SpeakingMissionLanguage, "English">, string>>;
 }
 
+export const RELATIONSHIP_GROUPS = ["Family & parents", "Friends", "Dating & partners"] as const;
+export type RelationshipGroup = (typeof RELATIONSHIP_GROUPS)[number];
+
 export interface DailyLivingTopic {
+  relationshipGroup?: RelationshipGroup;
+  level?: "A1" | "A2";
+  openingLines?: Record<SpeakingMissionLanguage, string>;
   id: string;
   title: string;
   objective: string;
@@ -38,7 +45,7 @@ export const CORE_SPEAKING_MODULE = {
   emoji: "◈",
   category: "Core" as const,
   blurb:
-    "Build the verbs and grammar that power everyday speech, then use them in practical daily-life and relationship conversations.",
+    "Build the verbs and grammar that power everyday speech, then use them in daily life, with parents and friends, and on dates.",
   userRole: "Language learner handling an everyday conversation",
 };
 
@@ -198,17 +205,18 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
   { id: "service-complaint", title: "Complain about poor service", objective: "State the problem calmly, say what you want done, and escalate politely if refused.", partnerRole: "Manager handling complaints", concepts: ["problem", "desired outcome", "calm tone", "escalation"] },
 ];
 
-export const RELATIONSHIPS_INTIMACY_TOPICS: DailyLivingTopic[] = [
-  { id: "dating-interest", title: "Express interest and suggest a date", objective: "Express interest respectfully, invite someone to a public activity, and accept either answer without pressure.", partnerRole: "Person the learner would like to know better", concepts: ["interest", "invitation", "date", "respectful refusal"], riskClass: "intimacy" },
-  { id: "consent-boundaries", title: "Communicate consent and boundaries", objective: "Ask before physical affection, state a boundary clearly, and respond immediately to no or uncertainty.", partnerRole: "Learner's dating or romantic partner", concepts: ["consent", "boundary", "comfortable", "stop"], riskClass: "intimacy" },
+export const RELATIONSHIP_TOPICS: DailyLivingTopic[] = [
+  ...EVERYDAY_RELATIONSHIP_TOPICS,
+  { relationshipGroup: "Dating & partners", id: "dating-interest", title: "Express interest and suggest a date", objective: "Express interest respectfully, invite someone to a public activity, and accept either answer without pressure.", partnerRole: "Person the learner would like to know better", concepts: ["interest", "invitation", "date", "respectful refusal"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "consent-boundaries", title: "Communicate consent and boundaries", objective: "Ask before physical affection, state a boundary clearly, and respond immediately to no or uncertainty.", partnerRole: "Learner's dating or romantic partner", concepts: ["consent", "boundary", "comfortable", "stop"], riskClass: "intimacy" },
   // The hardest conversations in a new language are rarely the transactional
   // ones. Each of these rehearses the words for a moment people otherwise avoid
   // until their vocabulary catches up — and every one carries the intimacy
   // safety rules: non-graphic, consent-forward, never anyone under 18.
-  { id: "defining-relationship", title: "Talk about what you are to each other", objective: "Say what you are looking for, ask what they want, and accept a different answer without pressure.", partnerRole: "Person the learner is dating", concepts: ["intentions", "exclusivity", "expectations", "accepting difference"], riskClass: "intimacy" },
-  { id: "meeting-family", title: "Meet a partner's family", objective: "Introduce yourself warmly, answer questions about your intentions, and navigate an awkward one gracefully.", partnerRole: "Partner's parent or sibling", concepts: ["introduction", "respect", "intentions", "deflecting politely"], riskClass: "intimacy" },
-  { id: "disagreement-repair", title: "Disagree and repair afterwards", objective: "Say what upset you without blaming, hear their side, and agree how to handle it next time.", partnerRole: "Learner's partner after an argument", concepts: ["feelings", "listening", "repair", "agreement"], riskClass: "intimacy" },
-  { id: "living-together", title: "Discuss living together", objective: "Talk through space, chores, money, and guests, and say what you need without apologising for it.", partnerRole: "Partner planning to share a home", concepts: ["chores", "money", "privacy", "needs"], riskClass: "intimacy" },
-  { id: "sexual-health-conversation", title: "Talk about sexual health", objective: "Raise protection and testing plainly, ask what they prefer, and agree together before anything continues.", partnerRole: "Learner's partner", concepts: ["protection", "testing", "agreement", "comfort"], riskClass: "intimacy" },
-  { id: "ending-relationship", title: "End a relationship respectfully", objective: "Say clearly that it is over, give an honest reason without cruelty, and hear their response.", partnerRole: "Partner the learner is separating from", concepts: ["clarity", "honesty", "kindness", "closure"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "defining-relationship", title: "Talk about what you are to each other", objective: "Say what you are looking for, ask what they want, and accept a different answer without pressure.", partnerRole: "Person the learner is dating", concepts: ["intentions", "exclusivity", "expectations", "accepting difference"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "meeting-family", title: "Meet a partner's family", objective: "Introduce yourself warmly, answer questions about your intentions, and navigate an awkward one gracefully.", partnerRole: "Partner's parent or sibling", concepts: ["introduction", "respect", "intentions", "deflecting politely"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "disagreement-repair", title: "Disagree and repair afterwards", objective: "Say what upset you without blaming, hear their side, and agree how to handle it next time.", partnerRole: "Learner's partner after an argument", concepts: ["feelings", "listening", "repair", "agreement"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "living-together", title: "Discuss living together", objective: "Talk through space, chores, money, and guests, and say what you need without apologising for it.", partnerRole: "Partner planning to share a home", concepts: ["chores", "money", "privacy", "needs"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "sexual-health-conversation", title: "Talk about sexual health", objective: "Raise protection and testing plainly, ask what they prefer, and agree together before anything continues.", partnerRole: "Learner's partner", concepts: ["protection", "testing", "agreement", "comfort"], riskClass: "intimacy" },
+  { relationshipGroup: "Dating & partners", id: "ending-relationship", title: "End a relationship respectfully", objective: "Say clearly that it is over, give an honest reason without cruelty, and hear their response.", partnerRole: "Partner the learner is separating from", concepts: ["clarity", "honesty", "kindness", "closure"], riskClass: "intimacy" },
 ];

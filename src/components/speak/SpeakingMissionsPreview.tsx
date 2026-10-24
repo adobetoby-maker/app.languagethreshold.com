@@ -21,7 +21,11 @@ import {
   recommendedGoogleVoices,
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
-import type { CoreSpeakingSection } from "@/data/core-speaking";
+import {
+  RELATIONSHIP_GROUPS,
+  type RelationshipGroup,
+  type CoreSpeakingSection,
+} from "@/data/core-speaking";
 import {
   getSpeakingMissions,
   getSpeakingModules,
@@ -82,7 +86,7 @@ const CORE_SECTIONS: CoreSpeakingSection[] = [
   "Essential verbs",
   "Grammar patterns",
   "Daily living",
-  "Relationships & intimacy",
+  "Relationships",
 ];
 
 interface MissionTurn {
@@ -278,6 +282,7 @@ export function SpeakingMissionsPreview({
   );
   const [catalogSearch, setCatalogSearch] = useState("");
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
+  const [relationshipGroup, setRelationshipGroup] = useState<RelationshipGroup | "All">("All");
   const [typedTurn, setTypedTurn] = useState("");
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
@@ -459,7 +464,13 @@ export function SpeakingMissionsPreview({
     : [];
   const visibleCatalogMissions =
     catalogModule?.id === "core-speaking"
-      ? catalogMissions.filter((mission) => mission.coreSection === coreSection)
+      ? catalogMissions.filter(
+          (mission) =>
+            mission.coreSection === coreSection &&
+            (coreSection !== "Relationships" ||
+              relationshipGroup === "All" ||
+              mission.relationshipGroup === relationshipGroup),
+        )
       : catalogMissions;
 
   useEffect(() => {
@@ -1422,9 +1433,12 @@ export function SpeakingMissionsPreview({
             Choose your speaking goal
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Pick a situation, practice the conversation, and get feedback. Your goal stays visible while you speak.
+            Pick a situation, practice the conversation, and get feedback. Your goal stays visible
+            while you speak.
           </p>
-          <p className="mt-2 text-xs text-muted-foreground">Speaking practice does not mark lessons mastered.</p>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Speaking practice does not mark lessons mastered.
+          </p>
         </div>
         <div className="mb-5">{accentControl}</div>
         {(catalogModule?.category === "Travel" ||
@@ -1485,7 +1499,10 @@ export function SpeakingMissionsPreview({
                     <button
                       key={section}
                       type="button"
-                      onClick={() => setCoreSection(section)}
+                      onClick={() => {
+                        setCoreSection(section);
+                        setRelationshipGroup("All");
+                      }}
                       aria-pressed={coreSection === section}
                       className={
                         "rounded-xl border px-2 py-2.5 text-xs transition-colors " +
@@ -1503,18 +1520,42 @@ export function SpeakingMissionsPreview({
                 })}
               </div>
             )}
+            {catalogModule.id === "core-speaking" && coreSection === "Relationships" && (
+              <div
+                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
+                role="group"
+                aria-label="Relationship conversations"
+              >
+                {(["All", ...RELATIONSHIP_GROUPS] as const).map((group) => (
+                  <button
+                    key={group}
+                    type="button"
+                    aria-pressed={relationshipGroup === group}
+                    onClick={() => setRelationshipGroup(group)}
+                    className={`min-h-11 rounded-xl border px-3 py-2 text-sm ${relationshipGroup === group ? "border-gold bg-gold/15 text-gold" : "border-border text-muted-foreground hover:text-foreground"}`}
+                  >
+                    {group === "All" ? "All relationships" : group}
+                  </button>
+                ))}
+              </div>
+            )}
             <div className="grid gap-3 sm:grid-cols-2">
               {visibleCatalogMissions.map((mission) => {
                 const specialty = specialtyStyle(mission.specialty);
                 return (
                   <button
                     key={mission.id}
+                    data-testid="speaking-mission-card"
                     type="button"
                     onClick={() => selectMission(mission)}
                     className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
                   >
                     <div className="flex items-center justify-between gap-3 text-xs">
-                      <span style={{ color: specialty.color }}>{specialty.label}</span>
+                      <span style={{ color: specialty.color }}>
+                        {mission.relationshipGroup
+                          ? `${specialty.label} · ${mission.relationshipGroup}`
+                          : specialty.label}
+                      </span>
                       <span className="text-muted-foreground">
                         {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
                       </span>
@@ -2277,7 +2318,10 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
-      <MicrophoneTestDialog key={lifecycleKey} disabled={status === "listening" || status === "thinking" || partnerSpeaking} />
+      <MicrophoneTestDialog
+        key={lifecycleKey}
+        disabled={status === "listening" || status === "thinking" || partnerSpeaking}
+      />
 
       <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
         <div className="flex items-center gap-2 text-gold">
@@ -2321,16 +2365,35 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
-      {started && session && ageConfirmed && ageStatusActor === session.user.id && !ageUnknown && sessionOwnerRef.current === lifecycleKey && (
-        <WatchTalkControl key={`${lifecycleKey}:${missionLocale}`} locale={missionLocale ?? selectedMission.locale} title={selectedMission.title}
-          ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
-          onTurn={(text) => {
-            const lease = capture();
-            if (!lease.isCurrent() || sessionOwnerRef.current !== lifecycleKey || status !== "ready" || partnerSpeaking || typedTurn.trim()) return;
-            if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
-            else { setTypedTurn(text); setTranscriptSource("dictation"); }
-          }} />
-      )}
+      {started &&
+        session &&
+        ageConfirmed &&
+        ageStatusActor === session.user.id &&
+        !ageUnknown &&
+        sessionOwnerRef.current === lifecycleKey && (
+          <WatchTalkControl
+            key={`${lifecycleKey}:${missionLocale}`}
+            locale={missionLocale ?? selectedMission.locale}
+            title={selectedMission.title}
+            ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
+            onTurn={(text) => {
+              const lease = capture();
+              if (
+                !lease.isCurrent() ||
+                sessionOwnerRef.current !== lifecycleKey ||
+                status !== "ready" ||
+                partnerSpeaking ||
+                typedTurn.trim()
+              )
+                return;
+              if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
+              else {
+                setTypedTurn(text);
+                setTranscriptSource("dictation");
+              }
+            }}
+          />
+        )}
 
       <form
         className="mt-4 flex gap-2"
@@ -2376,7 +2439,11 @@ export function SpeakingMissionsPreview({
 
       <div className="mt-5 flex flex-col items-center gap-3">
         {partnerSpeaking && (
-          <button type="button" onClick={stopAudio} className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold">
+          <button
+            type="button"
+            onClick={stopAudio}
+            className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
+          >
             Stop reply — my turn
           </button>
         )}
@@ -2401,7 +2468,13 @@ export function SpeakingMissionsPreview({
               type="button"
               onClick={status === "listening" ? stopListening : startListening}
               disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
-              aria-label={finishingSpeech ? "Finishing transcription" : status === "listening" ? "Stop listening" : "Start listening"}
+              aria-label={
+                finishingSpeech
+                  ? "Finishing transcription"
+                  : status === "listening"
+                    ? "Stop listening"
+                    : "Start listening"
+              }
               className={
                 "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
                 (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
@@ -2415,7 +2488,9 @@ export function SpeakingMissionsPreview({
             </button>
             <p className="text-sm text-muted-foreground">
               {status === "listening"
-                ? finishingSpeech ? "Finishing transcription…" : "Listening… tap Stop when you finish"
+                ? finishingSpeech
+                  ? "Finishing transcription…"
+                  : "Listening… tap Stop when you finish"
                 : partnerSpeaking
                   ? "Partner is speaking… your microphone will unlock afterward"
                   : status === "thinking"
@@ -2425,7 +2500,11 @@ export function SpeakingMissionsPreview({
           </>
         )}
         {finishingSpeech && (
-          <button type="button" onClick={() => cancelRecognitionRef.current?.()} className="min-h-11 rounded-full border px-4 py-2 text-sm">
+          <button
+            type="button"
+            onClick={() => cancelRecognitionRef.current?.()}
+            className="min-h-11 rounded-full border px-4 py-2 text-sm"
+          >
             Cancel transcription
           </button>
         )}

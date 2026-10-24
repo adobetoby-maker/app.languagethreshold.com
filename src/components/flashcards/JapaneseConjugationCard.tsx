@@ -117,7 +117,7 @@ export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }
           <button
             type="button"
             onClick={() => onSpeak(form)}
-            className="font-display text-2xl text-foreground hover:text-primary transition-colors"
+            className="font-sans not-italic text-2xl text-foreground hover:text-primary transition-colors"
           >
             {form}
           </button>

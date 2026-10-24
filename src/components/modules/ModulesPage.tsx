@@ -97,7 +97,7 @@ function ModuleCard({
 
       {/* Name + category */}
       <div className="mb-1 flex items-start gap-2">
-        <h3 className="flex-1 font-display text-base italic leading-snug text-foreground">
+        <h3 className="flex-1 font-display text-base not-italic leading-snug text-foreground">
           {module.name}
         </h3>
       </div>
@@ -235,7 +235,7 @@ export function ModulesPage() {
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-2 mb-1">
             <Sparkles className="h-4 w-4 text-gold" />
-            <span className="font-display text-sm italic">
+            <span className="font-display text-sm not-italic">
               <span className="text-gold">✦</span> Module Library
             </span>
             <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -348,7 +348,7 @@ export function ModulesPage() {
                   ) : (
                     <div className="mb-4 flex items-center gap-3">
                       <span className="text-2xl">{meta.emoji}</span>
-                      <h2 className="font-display text-lg italic text-foreground">
+                      <h2 className="font-display text-lg not-italic text-foreground">
                         {category ?? "All modules · A–Z"}
                       </h2>
                       <div className="flex-1 border-t border-border/40" />

@@ -567,7 +567,7 @@ export function FlashcardsStudio() {
           <h1 className="font-display text-3xl text-foreground">
             {moduleFocused ? `${moduleName} cards` : `${language} flashcards`}
           </h1>
-          <p className="font-display text-sm italic text-muted-foreground">
+          <p className="font-sans text-sm not-italic text-muted-foreground">
             {moduleSection
               ? `Your selected module · ${language}`
               : "Choose a card set with Add cards below"}
@@ -607,28 +607,28 @@ export function FlashcardsStudio() {
             aria-label="Flip flashcard"
             aria-describedby="flashcards-shortcuts"
             onClick={() => setFlipped((f) => !f)}
-            className="grid min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
+            className="grid font-sans not-italic min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
           >
             <div
               aria-hidden={flipped}
               className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
             >
               {language === "Japanese" && showFurigana ? (
-                <span className="font-display text-4xl text-foreground leading-tight">
+                <span className="font-sans text-4xl text-foreground leading-tight">
                   <FuriganaText text={current.word} mode="above" script="hiragana" />
                 </span>
               ) : (
-                <span className="font-display text-4xl text-foreground">{current.word}</span>
+                <span className="font-sans text-4xl text-foreground">{current.word}</span>
               )}
               {current.romanization && (
-                <span className="mt-2 font-mono text-sm text-gold/80">{current.romanization}</span>
+                <span className="mt-2 font-sans text-sm text-gold/80">{current.romanization}</span>
               )}
             </div>
             <div
               aria-hidden={!flipped}
               className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
             >
-              <span className="font-display text-3xl text-foreground">{current.translation}</span>
+              <span className="font-sans text-3xl text-foreground">{current.translation}</span>
               {wordGloss ? (
                 <span
                   data-testid="flashcards-word-gloss"
@@ -637,15 +637,13 @@ export function FlashcardsStudio() {
                 >
                   {wordGloss.map((part, index) => (
                     <span key={index} className="flex flex-col items-center gap-1">
-                      <span className="font-display text-xl text-foreground">{part.word}</span>
+                      <span className="font-sans text-xl text-foreground">{part.word}</span>
                       <span className="text-sm text-muted-foreground">{part.meaning}</span>
                     </span>
                   ))}
                 </span>
               ) : (
-                <span className="mt-4 font-display text-xl text-muted-foreground">
-                  {current.word}
-                </span>
+                <span className="mt-4 font-sans text-xl text-muted-foreground">{current.word}</span>
               )}
 
               {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
@@ -687,14 +685,14 @@ export function FlashcardsStudio() {
 
               {hasDistinctFlashcardExample(current) && (
                 <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
-                  <p className="font-display text-base italic text-foreground">
+                  <p className="font-sans text-base not-italic text-foreground">
                     {language === "Japanese" && showFurigana ? (
                       <FuriganaText text={current.example} mode="above" script="hiragana" />
                     ) : (
                       `"${current.example}"`
                     )}
                   </p>
-                  <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                  <p className="mt-1 font-sans text-sm text-muted-foreground">
                     {current.exampleTranslation}
                   </p>
                 </div>
@@ -774,7 +772,7 @@ export function FlashcardsStudio() {
       ) : (
         <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-card/30 p-14 text-center backdrop-blur">
           <Sparkle className="h-6 w-6 text-gold" />
-          <p className="font-display text-lg italic text-foreground">
+          <p className="font-sans text-lg not-italic text-foreground">
             {allCards.length ? "All caught up" : "No cards in this set yet"}
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -1037,7 +1035,9 @@ export function FlashcardsStudio() {
             {usageExample ? (
               <div className="mt-3 rounded-lg bg-background/40 p-3">
                 <p className="mb-1 text-xs font-semibold text-gold">Example</p>
-                <p className="font-display text-lg text-foreground">{usageExample.target}</p>
+                <p className="font-sans text-lg not-italic text-foreground">
+                  {usageExample.target}
+                </p>
                 <p
                   data-testid="usage-translation"
                   aria-hidden={!flipped}
@@ -1250,7 +1250,7 @@ function ConjugationCard({
                         <span className="w-16 shrink-0 font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground">
                           {person}
                         </span>
-                        <span className="font-display text-[15px] text-foreground group-hover:text-gold">
+                        <span className="font-sans text-[15px] text-foreground group-hover:text-gold">
                           {form}
                         </span>
                       </button>
@@ -1268,15 +1268,13 @@ function ConjugationCard({
           <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
             Gerund
           </div>
-          <div className="mt-0.5 font-display text-[15px] text-foreground">
-            {conjugation.gerund}
-          </div>
+          <div className="mt-0.5 font-sans text-[15px] text-foreground">{conjugation.gerund}</div>
         </div>
         <div className="bg-card/40 px-4 py-3">
           <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
             Past participle
           </div>
-          <div className="mt-0.5 font-display text-[15px] text-foreground">
+          <div className="mt-0.5 font-sans text-[15px] text-foreground">
             {conjugation.pastParticiple}
           </div>
           <div className="mt-1 font-mono text-[10px] text-gold/80">
@@ -1292,7 +1290,7 @@ function ConjugationCard({
         <div className="space-y-1.5">
           {conjugation.commonUses.map((u, i) => (
             <div key={i} className="flex items-baseline gap-2">
-              <span className="font-display text-[13px] italic text-foreground">"{u.phrase}"</span>
+              <span className="font-sans text-[13px] not-italic text-foreground">"{u.phrase}"</span>
               <span
                 aria-hidden={!showTranslation}
                 className={`font-mono text-[10px] text-muted-foreground ${showTranslation ? "" : "invisible"}`}
@@ -1312,7 +1310,7 @@ function DeckRow({ card, onRemove }: { card: FlashcardEntry; onRemove: () => voi
   return (
     <div className="flex items-center justify-between gap-3 bg-card/20 px-4 py-2.5">
       <div className="flex min-w-0 items-center gap-3">
-        <span className="font-display text-[15px] text-foreground">{card.word}</span>
+        <span className="font-sans text-[15px] text-foreground">{card.word}</span>
         <span className="truncate font-mono text-[11px] text-muted-foreground">
           {card.translation}
         </span>

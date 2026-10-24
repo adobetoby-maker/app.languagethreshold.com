@@ -27,7 +27,7 @@ import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
 import { createAuthActorAccess } from "@/lib/auth-actor-access";
 import { clearSpeechForUser, unsavedSpeechCount } from "@/lib/assessments/speech-device";
-import { clearTtsAudioCache } from "@/lib/tts-audio-cache";
+import { clearTtsAudioCache, pruneTtsAudioStores } from "@/lib/tts-audio-cache";
 import {
   clearPrivateLearningDrafts,
   discardPrivateLearningDrafts,
@@ -121,6 +121,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setIdentityEpoch(identityVersion.current);
       }
       currentUser.current = nextUser;
+      // At startup and on every sign-in or switch, remove cached voice stores that belong to any
+      // other account (all of them when signed out), even if an earlier clear failed.
+      if (sessionEvents === 1 || previousUser !== nextUser) void pruneTtsAudioStores(nextUser);
       if (previousUser && previousUser !== nextUser) {
         const storage = browserExamStorage();
         const hadRecording = unsavedSpeechCount(previousUser) > 0;

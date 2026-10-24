@@ -146,13 +146,46 @@ export function planEviction(
   return evict;
 }
 
+/** Any single storage operation (open, read, queued write) gives up after this and counts as a miss. */
+export const TTS_CACHE_TIMEOUT_MS = 1500;
+/** A queued persistent write that has not finished by now is abandoned so the queue keeps moving. */
+export const TTS_CACHE_TASK_TIMEOUT_MS = 3000;
+/** Deleting stores on sign-out gives up after this; it must never hang sign-out. */
+export const TTS_CACHE_CLEAR_TIMEOUT_MS = 5000;
+/** A hit refreshes its stored timestamp; the index write is debounced by this long. */
+export const TTS_CACHE_TOUCH_DEBOUNCE_MS = 5000;
+
+/**
+ * Resolves with the promise's value, or with `fallback()` when it rejects or has not settled
+ * within `ms`. Never rejects, never leaves a timer behind.
+ */
+function withTimeout<T>(promise: Promise<T>, ms: number, fallback: () => T): Promise<T> {
+  return new Promise<T>((resolve) => {
+    const timer = setTimeout(() => resolve(fallback()), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      () => {
+        clearTimeout(timer);
+        resolve(fallback());
+      },
+    );
+  });
+}
+
 export interface TtsPersistentBackend {
   readBlob(key: string): Promise<Blob | null>;
   writeBlob(key: string, blob: Blob): Promise<void>;
   deleteBlob(key: string): Promise<void>;
+  /** Every stored clip key (not the index), so the index can be rebuilt after other tabs wrote. */
+  listKeys(): Promise<string[]>;
   readIndex(): Promise<unknown>;
   writeIndex(index: CacheIndex): Promise<void>;
   clear(): Promise<void>;
+  /** Release any open connection (IndexedDB) so the store can be deleted. */
+  close?(): void;
 }
 
 /** Plain in-process backend. Used by tests; production falls back to the memory LRU alone. */
@@ -163,6 +196,7 @@ export function createMemoryBackend(): TtsPersistentBackend {
     readBlob: async (key) => blobs.get(key) ?? null,
     writeBlob: async (key, blob) => void blobs.set(key, blob),
     deleteBlob: async (key) => void blobs.delete(key),
+    listKeys: async () => [...blobs.keys()],
     readIndex: async () => index,
     writeIndex: async (next) => {
       index = JSON.parse(JSON.stringify(next));
@@ -190,6 +224,14 @@ async function openCacheStorageBackend(name: string): Promise<TtsPersistentBacke
     },
     async deleteBlob(key) {
       await cache.delete(ENTRY_PATH + key);
+    },
+    async listKeys() {
+      return (await cache.keys()).flatMap((request) => {
+        const path = new URL(request.url, "http://local.invalid").pathname;
+        return path.startsWith(ENTRY_PATH) && path !== INDEX_PATH
+          ? [path.slice(ENTRY_PATH.length)]
+          : [];
+      });
     },
     async readIndex() {
       const response = await cache.match(INDEX_PATH);
@@ -223,6 +265,8 @@ async function openIndexedDbBackend(name: string): Promise<TtsPersistentBackend 
     open.onerror = () => reject(open.error ?? new Error("IndexedDB unavailable"));
     open.onblocked = () => reject(new Error("IndexedDB blocked"));
   });
+  // Another context deleting or upgrading this database must never be held up by our connection.
+  db.onversionchange = () => db.close();
   const store = (mode: IDBTransactionMode) => db.transaction("kv", mode).objectStore("kv");
   // Blobs are stored as bytes plus a type; older Safari versions mishandle Blobs in IndexedDB.
   return {
@@ -240,6 +284,12 @@ async function openIndexedDbBackend(name: string): Promise<TtsPersistentBackend 
     async deleteBlob(key) {
       await idbRequest(store("readwrite").delete(`a:${key}`));
     },
+    async listKeys() {
+      const keys = await idbRequest(store("readonly").getAllKeys());
+      return keys.flatMap((key) =>
+        typeof key === "string" && key.startsWith("a:") ? [key.slice(2)] : [],
+      );
+    },
     async readIndex() {
       return (await idbRequest(store("readonly").get("index"))) ?? null;
     },
@@ -248,6 +298,9 @@ async function openIndexedDbBackend(name: string): Promise<TtsPersistentBackend 
     },
     async clear() {
       await idbRequest(store("readwrite").clear());
+    },
+    close() {
+      db.close();
     },
   };
 }
@@ -291,14 +344,26 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
   let indexPromise: Promise<CacheIndex> | undefined;
   let queue: Promise<void> = Promise.resolve();
   let closed = false;
+  let touchTimer: ReturnType<typeof setTimeout> | undefined;
+  let touchDirty = false;
 
   const backend = () => {
     backendPromise ??= (async () => {
-      try {
-        return await openBackend();
-      } catch {
+      const opening = (async () => {
+        try {
+          return await openBackend();
+        } catch {
+          return null;
+        }
+      })();
+      let timedOut = false;
+      const opened = await withTimeout(opening, TTS_CACHE_TIMEOUT_MS, () => {
+        timedOut = true;
         return null;
-      }
+      });
+      // A store that opens after we gave up must not keep a connection that blocks its deletion.
+      if (timedOut || closed) void opening.then((late) => late?.close?.());
+      return opened;
     })();
     return backendPromise;
   };
@@ -308,11 +373,9 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
       const store = await backend();
       let loaded = emptyIndex();
       if (store) {
-        try {
-          loaded = parseCacheIndex(await store.readIndex());
-        } catch {
-          loaded = emptyIndex();
-        }
+        loaded = parseCacheIndex(
+          await withTimeout(store.readIndex(), TTS_CACHE_TIMEOUT_MS, () => null),
+        );
       }
       for (const voice of loaded.rateLocked) lockedVoices.add(voice);
       loaded.rateLocked = [...lockedVoices];
@@ -321,23 +384,81 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
     return indexPromise;
   };
 
-  /** Serialises persistent writes so the index never races itself; never rejects. */
+  /** Serialises persistent writes so the index never races itself; never rejects or stalls. */
   const enqueue = (task: () => Promise<void>) => {
-    const run = queue.then(() => (closed ? undefined : task())).catch(() => undefined);
+    const run = queue
+      .then(() =>
+        closed ? undefined : withTimeout(task(), TTS_CACHE_TASK_TIMEOUT_MS, () => undefined),
+      )
+      .catch(() => undefined);
     queue = run;
     return run;
   };
 
+  /** Re-sync the index with what is really stored: other tabs add and evict entries too. */
+  async function mergeKeys(store: TtsPersistentBackend, current: CacheIndex) {
+    try {
+      const keys = await withTimeout(store.listKeys(), TTS_CACHE_TIMEOUT_MS, () => null);
+      if (!keys) return;
+      const present = new Set(keys);
+      for (const key of Object.keys(current.entries)) {
+        if (!present.has(key)) delete current.entries[key];
+      }
+      for (const key of keys) {
+        if (current.entries[key]) continue;
+        const blob = await withTimeout(store.readBlob(key), TTS_CACHE_TIMEOUT_MS, () => null);
+        // Untracked entries count toward the caps and are the first to go (timestamp 0).
+        if (blob) current.entries[key] = { at: 0, size: blob.size };
+      }
+    } catch {
+      // Best effort: the tracked index is still usable.
+    }
+  }
+
+  function flushTouches(): Promise<void> {
+    if (touchTimer !== undefined) clearTimeout(touchTimer);
+    touchTimer = undefined;
+    if (!touchDirty || closed) return queue;
+    touchDirty = false;
+    return enqueue(async () => {
+      const store = await backend();
+      if (!store) return;
+      await store.writeIndex(await index());
+    });
+  }
+
+  /** A hit makes the entry the newest in the stored LRU order; the index write is debounced. */
+  function touch(key: string, size: number, fromStore: boolean) {
+    if (closed) return;
+    void index()
+      .then((current) => {
+        const entry = current.entries[key];
+        if (entry) entry.at = now();
+        else if (fromStore) current.entries[key] = { at: now(), size };
+        else return;
+        touchDirty = true;
+        if (touchTimer === undefined) {
+          touchTimer = setTimeout(() => void flushTouches(), TTS_CACHE_TOUCH_DEBOUNCE_MS);
+          (touchTimer as { unref?: () => void }).unref?.();
+        }
+      })
+      .catch(() => undefined);
+  }
+
   async function get(key: string): Promise<Blob | null> {
     if (closed) return null;
     const hot = memory.get(key);
-    if (hot) return hot;
+    if (hot) {
+      touch(key, hot.size, false);
+      return hot;
+    }
     try {
       const store = await backend();
       if (!store) return null;
-      const blob = await store.readBlob(key);
+      const blob = await withTimeout(store.readBlob(key), TTS_CACHE_TIMEOUT_MS, () => null);
       if (blob && blob.size > 0) {
         memory.set(key, blob);
+        touch(key, blob.size, true);
         return blob;
       }
     } catch {
@@ -355,7 +476,11 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
       const current = await index();
       await store.writeBlob(key, blob);
       current.entries[key] = { at: now(), size: blob.size };
-      for (const stale of planEviction(current.entries, maxEntries, maxBytes)) {
+      // Other tabs write and evict too: count what is really stored before choosing victims.
+      await mergeKeys(store, current);
+      current.entries[key] ??= { at: now(), size: blob.size };
+      const plan = planEviction(current.entries, maxEntries, maxBytes);
+      for (const stale of plan) {
         delete current.entries[stale];
         await store.deleteBlob(stale).catch(() => undefined);
       }
@@ -451,12 +576,20 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
     clear,
     isRateLocked,
     markRateLocked,
+    /** Persist pending hit timestamps now (otherwise they are written after a short debounce). */
+    flushTouches,
     /** Forget the in-memory tier only (a different user took over). */
     dropMemory: () => memory.clear(),
-    /** Permanently refuse further reads and writes (the store is being deleted). Queued tasks are skipped. */
+    /**
+     * Permanently refuse further reads and writes (the store is being deleted) and release any
+     * open connection so the deletion is not blocked. Queued tasks are skipped.
+     */
     close: () => {
       closed = true;
       memory.clear();
+      if (touchTimer !== undefined) clearTimeout(touchTimer);
+      touchTimer = undefined;
+      void backendPromise?.then((opened) => opened?.close?.());
     },
     /** Resolves when queued persistent writes have finished (tests, sign-out). */
     settled: () => queue,
@@ -501,7 +634,11 @@ let legacyCleanup: Promise<void> | undefined;
 /** Browser-only: SSR and non-DOM runtimes get no cache at all. */
 async function cacheFor(userId?: string | null): Promise<TtsAudioCache | null> {
   if (typeof document === "undefined") return null;
-  legacyCleanup ??= deleteStores(null, true);
+  legacyCleanup ??= withTimeout(
+    deleteStores({ legacyOnly: true }),
+    TTS_CACHE_CLEAR_TIMEOUT_MS,
+    () => undefined,
+  );
   const id = userId ?? "";
   const namespace = id ? await userNamespace(id) : null;
   // Everything below is synchronous, so a handle is never created twice for one user.
@@ -518,8 +655,16 @@ async function cacheFor(userId?: string | null): Promise<TtsAudioCache | null> {
   return cache;
 }
 
+/**
+ * Cached audio, or null. A stuck or failing store never delays playback: after
+ * TTS_CACHE_TIMEOUT_MS the lookup counts as a miss and the caller goes to the network.
+ */
 export async function lookupTtsAudio(request: TtsAudioRequest, userId?: string | null) {
-  return (await (await cacheFor(userId))?.lookup(request)) ?? null;
+  return withTimeout(
+    (async () => (await (await cacheFor(userId))?.lookup(request)) ?? null)(),
+    TTS_CACHE_TIMEOUT_MS,
+    () => null,
+  );
 }
 
 /** Stores rendered audio. A write whose `epoch` predates a clear of this user is refused. */
@@ -546,11 +691,25 @@ export async function flushTtsAudioCache() {
   if (activeUser !== undefined) await handles.get(activeUser)?.settled();
 }
 
-async function deleteStores(namespace: string | null, legacyOnly = false): Promise<void> {
-  const scoped = namespace ? `${TTS_CACHE_PREFIX}-${namespace}` : null;
+/**
+ * Deletes cached stores. Always removes the legacy unscoped store. Scoped stores are all removed
+ * unless `only` names the one to remove or `except` names one to keep.
+ */
+async function deleteStores({
+  only,
+  except,
+  legacyOnly = false,
+}: {
+  only?: string | null;
+  except?: string | null;
+  legacyOnly?: boolean;
+}): Promise<void> {
   const wanted = (name: string) =>
     LEGACY_STORE_NAMES.includes(name) ||
-    (!legacyOnly && (scoped ? name === scoped : name.startsWith(TTS_CACHE_PREFIX)));
+    (!legacyOnly &&
+      name.startsWith(`${TTS_CACHE_PREFIX}-`) &&
+      (only ? name === only : true) &&
+      name !== except);
   try {
     if (typeof caches !== "undefined") {
       for (const name of (await caches.keys()).filter(wanted)) await caches.delete(name);
@@ -560,16 +719,23 @@ async function deleteStores(namespace: string | null, legacyOnly = false): Promi
   }
   try {
     if (typeof indexedDB !== "undefined") {
-      const listed = scoped || legacyOnly ? [] : ((await indexedDB.databases?.()) ?? []);
+      const listed = only || legacyOnly ? [] : ((await indexedDB.databases?.()) ?? []);
       const names = new Set([
         ...LEGACY_STORE_NAMES,
-        ...(scoped ? [scoped] : []),
+        ...(only ? [only] : []),
         ...listed.flatMap((db) => (db.name && wanted(db.name) ? [db.name] : [])),
       ]);
       for (const name of names) {
+        // A blocked delete waits for our other connections to close on versionchange; it only
+        // reports done on success or error (or after a bounded wait), never on "blocked".
         await new Promise<void>((resolve) => {
+          const timer = setTimeout(resolve, TTS_CACHE_CLEAR_TIMEOUT_MS / 2);
+          const done = () => {
+            clearTimeout(timer);
+            resolve();
+          };
           const request = indexedDB.deleteDatabase(name);
-          request.onsuccess = request.onerror = request.onblocked = () => resolve();
+          request.onsuccess = request.onerror = done;
         });
       }
     }
@@ -578,39 +744,77 @@ async function deleteStores(namespace: string | null, legacyOnly = false): Promi
   }
 }
 
+/** Stops every listed handle from writing and waits (bounded) for its queued work to drain. */
+async function retire(closing: TtsAudioCache[]) {
+  for (const handle of closing) handle.close();
+  await Promise.all(
+    closing.map((handle) =>
+      withTimeout(handle.settled(), TTS_CACHE_CLEAR_TIMEOUT_MS / 2, () => undefined),
+    ),
+  );
+}
+
 /**
  * Wipe cached clips. Pass the departing user's id to remove their store; with no id every
  * user's store on this device goes. The legacy unscoped store is always removed too. Writes
- * already queued are cancelled and awaited before the store is deleted, and any request that
- * began earlier is refused afterwards (see ttsAudioCacheEpoch). Call on sign-out, session
- * end and user switch: Reader can speak user-supplied text. Never throws.
+ * already queued are cancelled and awaited (bounded) before the store is deleted, connections
+ * are closed so deletion is never blocked, and any request that began earlier is refused
+ * afterwards (see ttsAudioCacheEpoch). Call on sign-out, session end and user switch: Reader
+ * can speak user-supplied text. Never throws and never hangs.
  */
 export async function clearTtsAudioCache(userId?: string | null): Promise<void> {
-  try {
-    // Synchronous part first: nothing that began before this point may write afterwards.
-    let closing: TtsAudioCache[];
-    if (userId) {
-      userClearEpochs.set(userId, (userClearEpochs.get(userId) ?? 0) + 1);
-      const handle = handles.get(userId);
-      handles.delete(userId);
-      closing = handle ? [handle] : [];
-    } else {
-      globalClearEpoch += 1;
-      closing = [...handles.values()];
-      handles.clear();
-    }
-    if (activeUser !== undefined && !handles.has(activeUser)) activeUser = undefined;
-    for (const handle of closing) handle.close();
-    await Promise.all(closing.map((handle) => handle.settled()));
-    const namespace = userId ? await userNamespace(userId) : null;
-    if (userId && !namespace) {
-      await deleteStores(null, true);
-      return; // memory-only runtime: nothing else persisted
-    }
-    await deleteStores(namespace);
-  } catch {
-    // Best effort.
-  }
+  await withTimeout(
+    (async () => {
+      // Synchronous part first: nothing that began before this point may write afterwards.
+      let closing: TtsAudioCache[];
+      if (userId) {
+        userClearEpochs.set(userId, (userClearEpochs.get(userId) ?? 0) + 1);
+        const handle = handles.get(userId);
+        handles.delete(userId);
+        closing = handle ? [handle] : [];
+      } else {
+        globalClearEpoch += 1;
+        closing = [...handles.values()];
+        handles.clear();
+      }
+      if (activeUser !== undefined && !handles.has(activeUser)) activeUser = undefined;
+      await retire(closing);
+      const namespace = userId ? await userNamespace(userId) : null;
+      if (userId && !namespace) {
+        await deleteStores({ legacyOnly: true });
+        return; // memory-only runtime: nothing else persisted
+      }
+      await deleteStores({ only: namespace ? `${TTS_CACHE_PREFIX}-${namespace}` : null });
+    })(),
+    TTS_CACHE_CLEAR_TIMEOUT_MS,
+    () => undefined,
+  );
+}
+
+/**
+ * Remove every user's store except `currentUserId`'s (all of them when signed out), and the
+ * legacy store. Call on sign-in and at startup so a previous account's clips cannot linger
+ * after a failed clear. Never throws and never hangs.
+ */
+export async function pruneTtsAudioStores(currentUserId?: string | null): Promise<void> {
+  await withTimeout(
+    (async () => {
+      const keep = currentUserId ?? "";
+      const closing: TtsAudioCache[] = [];
+      for (const [id, handle] of [...handles]) {
+        if (id === "" || id === keep) continue;
+        userClearEpochs.set(id, (userClearEpochs.get(id) ?? 0) + 1);
+        handles.delete(id);
+        closing.push(handle);
+      }
+      if (activeUser !== undefined && !handles.has(activeUser)) activeUser = undefined;
+      await retire(closing);
+      const namespace = currentUserId ? await userNamespace(currentUserId) : null;
+      await deleteStores({ except: namespace ? `${TTS_CACHE_PREFIX}-${namespace}` : null });
+    })(),
+    TTS_CACHE_CLEAR_TIMEOUT_MS,
+    () => undefined,
+  );
 }
 
 // Sticky voice retry policy: pure, so tts.ts can import it without pulling in mission-tts.

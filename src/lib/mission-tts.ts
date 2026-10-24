@@ -134,6 +134,12 @@ interface TtsRequest {
   usage: "learning" | "mission";
 }
 
+/**
+ * Mission replies are personal and the server checks the account's age attestation on every
+ * one, so they are never read from or written to the device cache.
+ */
+const isCacheable = (request: TtsRequest) => request.usage !== "mission";
+
 interface Flight {
   promise: Promise<RenderedAudio>;
   controller: AbortController;
@@ -200,7 +206,7 @@ function startFlight(
     const blob = await response.blob();
     const reported = Number(response.headers.get("X-TTS-Rendered-Rate") ?? request.speakingRate);
     const renderedRate = Number.isFinite(reported) ? reported : request.speakingRate;
-    if (!owner || owner.isCurrent()) {
+    if (isCacheable(request) && (!owner || owner.isCurrent())) {
       void storeTtsAudio(request, renderedRate, blob, owner?.userId, cacheEpoch);
     }
     return { blob, renderedRate };
@@ -247,54 +253,6 @@ async function fetchRenderedAudio(
   }
 }
 
-const PREFETCH_INTERVAL_MS = 2500;
-const PREFETCH_MAX_ITEMS = 8;
-
-/**
- * Warm the audio cache for upcoming words, one request per 2.5 s so it never
- * competes with the per-minute rate limit. Stops at the first failure.
- */
-export async function prefetchTts(
-  items: Array<Omit<TtsRequest, "usage"> & { usage?: TtsRequest["usage"] }>,
-  { owner, signal }: { owner?: SpeakingRequestOwner; signal?: AbortSignal } = {},
-): Promise<number> {
-  let fetched = 0;
-  const seen = new Set<string>();
-  const controller = new AbortController();
-  const forward = () => controller.abort();
-  signal?.addEventListener("abort", forward, { once: true });
-  try {
-    for (const item of items.slice(0, PREFETCH_MAX_ITEMS)) {
-      const request: TtsRequest = { ...item, usage: item.usage ?? "learning" };
-      const dedupe = `${request.voiceName}|${request.languageCode}|${request.speakingRate}|${request.text.trim()}`;
-      if (seen.has(dedupe)) continue;
-      seen.add(dedupe);
-      if (controller.signal.aborted || (owner && !owner.isCurrent())) break;
-      if (await lookupTtsAudio(request, owner?.userId)) continue;
-      try {
-        await fetchRenderedAudio(request, owner, controller.signal);
-        fetched += 1;
-      } catch {
-        break;
-      }
-      await new Promise<void>((resolve) => {
-        const timer = setTimeout(resolve, PREFETCH_INTERVAL_MS);
-        controller.signal.addEventListener(
-          "abort",
-          () => {
-            clearTimeout(timer);
-            resolve();
-          },
-          { once: true },
-        );
-      });
-    }
-  } finally {
-    signal?.removeEventListener("abort", forward);
-  }
-  return fetched;
-}
-
 export async function speakMissionTts({
   text,
   voiceName,
@@ -337,7 +295,9 @@ export async function speakMissionTts({
     // Ask for credentials up front (a local session read) so a miss pays no extra delay.
     const credentials = speakingRequestHeaders(owner, controller.signal);
     credentials.catch(() => undefined);
-    const cached = await lookupTtsAudio(request, owner?.userId);
+    const cached = isCacheable(request)
+      ? await raceAbort(lookupTtsAudio(request, owner?.userId), controller.signal)
+      : null;
     checkCurrent();
     let rendered: RenderedAudio;
     let cacheKey: string | null = null;

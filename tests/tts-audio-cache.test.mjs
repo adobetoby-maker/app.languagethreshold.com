@@ -499,6 +499,7 @@ function fakeCacheStorage() {
       match: async (request) => entries.get(keyOf(request))?.clone(),
       put: async (request, response) => void entries.set(keyOf(request), response),
       delete: async (request) => entries.delete(keyOf(request)),
+      keys: async () => [...entries.keys()].map((url) => ({ url })),
     };
   };
   return {
@@ -927,5 +928,467 @@ test("the legacy unscoped store is removed on every clear and once at startup", 
     if (savedIdb) Object.defineProperty(globalThis, "indexedDB", savedIdb);
     else delete globalThis.indexedDB;
     env.restore();
+  }
+});
+
+// ---- fix round 1: hung stores, other users' stores, true LRU, mission usage ----
+
+const speakingClientStub = {
+  name: "speaking-client-stub",
+  setup(b) {
+    b.onResolve({ filter: /^@\/lib\/speaking-client$/ }, () => ({
+      path: "stub",
+      namespace: "stub",
+    }));
+    b.onLoad({ filter: /.*/, namespace: "stub" }, () => ({
+      contents: "export const speakingRequestHeaders = async () => ({});",
+    }));
+  },
+};
+
+/** mission-tts + cache bundled with a counting fetch and an Audio that ends immediately. */
+async function speakEnv() {
+  const saved = Object.fromEntries(
+    ["fetch", "Audio"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+  );
+  const urls = { create: URL.createObjectURL, revoke: URL.revokeObjectURL };
+  const requests = [];
+  globalThis.Audio = class {
+    pause() {}
+    removeAttribute() {}
+    load() {}
+    play() {
+      queueMicrotask(() => this.onended?.());
+      return Promise.resolve();
+    }
+  };
+  globalThis.fetch = async (_url, options) => {
+    requests.push(JSON.parse(options.body));
+    return new Response(new Blob(["mp3"]), { status: 200 });
+  };
+  URL.createObjectURL = () => "blob:x";
+  URL.revokeObjectURL = () => {};
+  const { mod, cleanup } = await bundle(
+    `export * from './src/lib/mission-tts'; export * from './src/lib/tts-audio-cache';`,
+    [speakingClientStub],
+  );
+  return {
+    mod,
+    requests,
+    restore() {
+      for (const [k, d] of Object.entries(saved)) {
+        if (d) Object.defineProperty(globalThis, k, d);
+        else delete globalThis[k];
+      }
+      URL.createObjectURL = urls.create;
+      URL.revokeObjectURL = urls.revoke;
+      cleanup();
+    },
+  };
+}
+
+const learner = (text, extra = {}) => ({
+  text,
+  voiceName: "es-US-Neural2-A",
+  languageCode: "es-US",
+  speakingRate: 1,
+  usage: "learning",
+  owner: { userId: "user-a", isCurrent: () => true },
+  ...extra,
+});
+
+/** A functional in-memory IndexedDB that, like the real one, blocks deletes on open connections. */
+function fakeIndexedDb() {
+  const dbs = new Map();
+  const stats = { blocked: 0, opens: 0 };
+  const req = (run) => {
+    const request = {};
+    setTimeout(() => {
+      try {
+        request.result = run();
+        request.onsuccess?.();
+      } catch (error) {
+        request.error = error;
+        request.onerror?.();
+      }
+    }, 0);
+    return request;
+  };
+  return {
+    dbs,
+    stats,
+    open(name) {
+      const request = {};
+      setTimeout(() => {
+        stats.opens += 1;
+        const fresh = !dbs.has(name);
+        if (fresh) dbs.set(name, { data: new Map(), connections: new Set() });
+        const record = dbs.get(name);
+        const db = {
+          onversionchange: null,
+          close: () => record.connections.delete(db),
+          createObjectStore() {},
+          transaction: () => ({
+            objectStore: () => ({
+              get: (key) => req(() => record.data.get(key)),
+              put: (value, key) => req(() => void record.data.set(key, value)),
+              delete: (key) => req(() => void record.data.delete(key)),
+              clear: () => req(() => void record.data.clear()),
+              getAllKeys: () => req(() => [...record.data.keys()]),
+            }),
+          }),
+        };
+        record.connections.add(db);
+        request.result = db;
+        if (fresh) request.onupgradeneeded?.();
+        request.onsuccess?.();
+      }, 0);
+      return request;
+    },
+    deleteDatabase(name) {
+      const request = {};
+      setTimeout(() => {
+        const record = dbs.get(name);
+        if (!record) return request.onsuccess?.();
+        for (const connection of [...record.connections]) connection.onversionchange?.();
+        const finish = () => {
+          dbs.delete(name);
+          request.onsuccess?.();
+        };
+        if (!record.connections.size) return finish();
+        stats.blocked += 1;
+        request.onblocked?.(); // real IndexedDB reports blocked, then waits for the closes
+        const poll = setInterval(() => {
+          if (!record.connections.size) {
+            clearInterval(poll);
+            finish();
+          }
+        }, 5);
+        setTimeout(() => clearInterval(poll), 10_000).unref?.();
+      }, 0);
+      return request;
+    },
+    databases: async () => [...dbs.keys()].map((name) => ({ name })),
+  };
+}
+
+function stubIdbBrowser() {
+  const saved = Object.fromEntries(
+    ["document", "caches", "indexedDB"].map((k) => [
+      k,
+      Object.getOwnPropertyDescriptor(globalThis, k),
+    ]),
+  );
+  const indexedDB = fakeIndexedDb();
+  globalThis.document = {};
+  delete globalThis.caches;
+  globalThis.indexedDB = indexedDB;
+  return {
+    indexedDB,
+    restore() {
+      for (const [k, d] of Object.entries(saved)) {
+        if (d) Object.defineProperty(globalThis, k, d);
+        else delete globalThis[k];
+      }
+    },
+  };
+}
+
+const scopedDbs = (indexedDB) =>
+  [...indexedDB.dbs.keys()].filter((n) => n.startsWith("tts-audio-v1-"));
+
+test("a hung Cache Storage open, read or write never delays playback or sign-out", async () => {
+  const env = stubBrowser();
+  const speak = await speakEnv();
+  try {
+    const hang = () => new Promise(() => {});
+    // 1. caches.open never settles.
+    env.caches.open = hang;
+    let started = performance.now();
+    await speak.mod.speakMissionTts(learner("palabra uno"));
+    assert.equal(speak.requests.length, 1, "fell through to the network");
+    assert.ok(performance.now() - started < 4000, "within the lookup timeout, not forever");
+
+    // The clip is still replayable this session from memory, with no further request.
+    started = performance.now();
+    await speak.mod.speakMissionTts(learner("palabra uno"));
+    assert.equal(speak.requests.length, 1);
+    assert.ok(performance.now() - started < 500);
+
+    // 2. A stuck stop is cancelled immediately: aborting does not wait out the timeout.
+    const waiting = speak.mod.speakMissionTts(learner("palabra dos")).then(
+      () => "played",
+      (error) => error.name,
+    );
+    await tick();
+    started = performance.now();
+    speak.mod.stopMissionTts();
+    assert.equal(await waiting, "AbortError");
+    assert.ok(performance.now() - started < 500, "abort is immediate");
+
+    // 3. Reads hang on an otherwise open store.
+    env.caches.open = async () => ({
+      match: hang,
+      put: hang,
+      delete: async () => true,
+      keys: async () => [],
+    });
+    await speak.mod.clearTtsAudioCache("user-a");
+    started = performance.now();
+    await speak.mod.speakMissionTts(learner("palabra tres"));
+    assert.equal(speak.requests.length, 2);
+    assert.ok(performance.now() - started < 4000);
+
+    // 4. Sign-out clear while a write is stuck still finishes in bounded time.
+    started = performance.now();
+    await speak.mod.clearTtsAudioCache("user-a");
+    assert.ok(performance.now() - started < 8000, "clear never hangs sign-out");
+  } finally {
+    speak.restore();
+    env.restore();
+  }
+});
+
+test("a hung or blocked IndexedDB open falls through to the network and does not leak a connection", async () => {
+  const env = stubIdbBrowser();
+  const speak = await speakEnv();
+  try {
+    const realOpen = env.indexedDB.open.bind(env.indexedDB);
+    let release;
+    const lateOpen = new Promise((resolve) => (release = resolve));
+    env.indexedDB.open = (name) => {
+      const request = {};
+      lateOpen.then(() => {
+        const inner = realOpen(name);
+        inner.onupgradeneeded = () => {
+          request.result = inner.result;
+          request.onupgradeneeded?.();
+        };
+        inner.onsuccess = () => {
+          request.result = inner.result;
+          request.onsuccess?.();
+        };
+      });
+      return request;
+    };
+    const started = performance.now();
+    await speak.mod.speakMissionTts(learner("palabra cuatro"));
+    assert.equal(speak.requests.length, 1);
+    assert.ok(performance.now() - started < 4000, "playback proceeded without the store");
+
+    // The open finally completes after we gave up: that connection must be closed again.
+    release();
+    for (let i = 0; i < 40; i++) await tick();
+    for (const record of env.indexedDB.dbs.values()) {
+      assert.equal(record.connections.size, 0, "late connection was released");
+    }
+  } finally {
+    speak.restore();
+    env.restore();
+  }
+});
+
+test("IndexedDB fallback: round-trips, and clear deletes even while another tab holds a connection", async () => {
+  const env = stubIdbBrowser();
+  const tabOne = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  const tabTwo = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    await tabOne.mod.storeTtsAudio(requestFor("via idb"), 1, blobOf("idb-audio"), "user-a");
+    await tabOne.mod.flushTtsAudioCache();
+    assert.equal(scopedDbs(env.indexedDB).length, 1, "stored through IndexedDB");
+    const hit = await tabTwo.mod.lookupTtsAudio(requestFor("via idb"), "user-a");
+    assert.equal(
+      await hit.blob.text(),
+      "idb-audio",
+      "the other tab reads it and now holds a connection",
+    );
+
+    const started = performance.now();
+    await tabOne.mod.clearTtsAudioCache("user-a");
+    assert.ok(performance.now() - started < 3000, "not held up by the other tab's connection");
+    assert.equal(scopedDbs(env.indexedDB).length, 0, "database is really gone, not just 'blocked'");
+  } finally {
+    tabOne.cleanup();
+    tabTwo.cleanup();
+    env.restore();
+  }
+});
+
+test("pruneTtsAudioStores keeps only the current user's store and drops the rest and the legacy one", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    for (const user of ["user-a", "user-b", "user-c"]) {
+      await mod.storeTtsAudio(requestFor(`de ${user}`), 1, blobOf(user), user);
+      await mod.flushTtsAudioCache();
+    }
+    env.caches.stores.set("tts-audio-v1", new Map());
+    env.caches.stores.set("lt-v1-app-shell", new Map());
+    assert.equal(persisted(env.caches).length, 3);
+
+    const epochA = mod.ttsAudioCacheEpoch("user-a");
+    await mod.pruneTtsAudioStores("user-b");
+    assert.equal(persisted(env.caches).length, 1, "only user-b's store remains");
+    assert.ok(!env.caches.stores.has("tts-audio-v1"), "legacy store removed");
+    assert.ok(env.caches.stores.has("lt-v1-app-shell"), "unrelated caches untouched");
+    assert.ok(await mod.lookupTtsAudio(requestFor("de user-b"), "user-b"));
+    assert.equal(await mod.lookupTtsAudio(requestFor("de user-a"), "user-a"), null);
+    assert.notEqual(
+      mod.ttsAudioCacheEpoch("user-a"),
+      epochA,
+      "in-flight writes for pruned users are refused",
+    );
+    const before = storedEntries(env.caches);
+    await mod.storeTtsAudio(requestFor("tarde"), 1, blobOf("late"), "user-a", epochA);
+    await mod.flushTtsAudioCache();
+    assert.equal(storedEntries(env.caches), before, "nothing was written back for user-a");
+
+    // Signed out at startup: every scoped store goes.
+    await mod.pruneTtsAudioStores(null);
+    assert.equal(persisted(env.caches).length, 0);
+    assert.equal(await mod.lookupTtsAudio(requestFor("de user-b"), "user-b"), null);
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("pruneTtsAudioStores also deletes other users' IndexedDB databases", async () => {
+  const env = stubIdbBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    for (const user of ["user-a", "user-b"]) {
+      await mod.storeTtsAudio(requestFor(`de ${user}`), 1, blobOf(user), user);
+      await mod.flushTtsAudioCache();
+    }
+    env.indexedDB.dbs.set("tts-audio-v1", { data: new Map(), connections: new Set() }); // legacy
+    env.indexedDB.dbs.set("unrelated-db", { data: new Map(), connections: new Set() });
+    assert.equal(scopedDbs(env.indexedDB).length, 2);
+    await mod.pruneTtsAudioStores("user-b");
+    assert.equal(scopedDbs(env.indexedDB).length, 1);
+    assert.ok(!env.indexedDB.dbs.has("tts-audio-v1"));
+    assert.ok(env.indexedDB.dbs.has("unrelated-db"));
+    assert.ok(await mod.lookupTtsAudio(requestFor("de user-b"), "user-b"));
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("the auth listener prunes at startup and on every identity change", async () => {
+  const { readFileSync } = await import("node:fs");
+  const authState = readFileSync("src/state/auth-state.tsx", "utf8");
+  assert.match(
+    authState,
+    /sessionEvents === 1 \|\| previousUser !== nextUser\) void pruneTtsAudioStores\(nextUser\)/,
+  );
+});
+
+test("prefetchTts is gone and mission usage is never read from or written to the cache", async () => {
+  const env = stubBrowser();
+  const speak = await speakEnv();
+  try {
+    assert.equal(speak.mod.prefetchTts, undefined, "unused export removed");
+    await speak.mod.speakMissionTts(learner("tu respuesta", { usage: "mission" }));
+    await speak.mod.speakMissionTts(learner("tu respuesta", { usage: "mission" }));
+    const { usage: _omitted, ...implicit } = learner("tu respuesta");
+    await speak.mod.speakMissionTts(implicit); // usage defaults to "mission"
+    await speak.mod.flushTtsAudioCache();
+    assert.equal(speak.requests.length, 3, "every mission reply asks the server (age attestation)");
+    assert.ok(speak.requests.every((body) => body.usage === "mission"));
+    assert.equal(storedEntries(env.caches), 0, "nothing persisted for mission usage");
+
+    await speak.mod.speakMissionTts(learner("tu respuesta"));
+    await speak.mod.speakMissionTts(learner("tu respuesta"));
+    assert.equal(speak.requests.length, 4, "learning usage still caches");
+  } finally {
+    speak.restore();
+    env.restore();
+  }
+});
+
+test("stored eviction is true LRU: a hit refreshes the entry and survives the debounced write", async () => {
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    const backend = mod.createMemoryBackend();
+    let clock = 100;
+    const open = () =>
+      mod.createTtsAudioCache({
+        openBackend: async () => backend,
+        maxEntries: 3,
+        memoryEntries: 1,
+        now: () => (clock += 10),
+      });
+    const first = open();
+    for (const word of ["a", "b", "c"]) await first.store(requestFor(word), 1, blobOf(word, 10));
+    await first.settled();
+
+    // A later session hits "a" (the oldest stored) and its timestamp is persisted.
+    const second = open();
+    assert.ok(await second.lookup(requestFor("a")));
+    await second.flushTouches();
+    await second.settled();
+    const index = await backend.readIndex();
+    const times = Object.values(index.entries).map((e) => e.at);
+    assert.equal(times.length, 3);
+    assert.ok(Math.max(...times) > 130, "the hit moved 'a' to the newest position");
+
+    // A fresh session adds "d": FIFO would evict "a"; LRU evicts "b".
+    const third = open();
+    await third.store(requestFor("d"), 1, blobOf("d", 10));
+    await third.settled();
+    const check = open();
+    assert.ok(await check.lookup(requestFor("a")), "recently used entry kept");
+    assert.equal(await check.lookup(requestFor("b")), null, "least recently used entry evicted");
+    assert.ok(await check.lookup(requestFor("c")));
+    assert.ok(await check.lookup(requestFor("d")));
+  } finally {
+    cleanup();
+  }
+});
+
+test("another tab's untracked clips are counted and evictable, and vanished ones leave the index", async () => {
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    const backend = mod.createMemoryBackend();
+    let clock = 1000;
+    const cache = mod.createTtsAudioCache({
+      openBackend: async () => backend,
+      maxEntries: 3,
+      now: () => (clock += 10),
+    });
+    await cache.store(requestFor("mia1"), 1, blobOf("mine1", 10));
+    await cache.settled();
+    // Another tab wrote clips this tab's index never heard of.
+    await backend.writeBlob("untracked-1", blobOf("other1", 10));
+    await backend.writeBlob("untracked-2", blobOf("other2", 10));
+    await cache.store(requestFor("mia2"), 1, blobOf("mine2", 10));
+    await cache.settled();
+
+    const keys = await backend.listKeys();
+    assert.equal(
+      keys.length,
+      3,
+      "total stays within the cap of 3 even though the index saw only 2",
+    );
+    assert.ok(
+      !keys.includes("untracked-1") || !keys.includes("untracked-2"),
+      "untracked entries were evicted",
+    );
+    const tracked = Object.keys((await backend.readIndex()).entries).sort();
+    assert.deepEqual(tracked, [...keys].sort(), "index matches what is really stored");
+
+    // A clip another tab evicted disappears from this tab's index on the next merge.
+    const [gone] = keys.filter((key) => key.startsWith("untracked"));
+    if (gone) await backend.deleteBlob(gone);
+    for (let i = 0; i < 25; i++) {
+      await cache.store(requestFor(`extra${i}`), 1, blobOf(`e${i}`, 10));
+    }
+    await cache.settled();
+    const finalKeys = (await backend.listKeys()).sort();
+    assert.equal(finalKeys.length, 3);
+    assert.deepEqual(Object.keys((await backend.readIndex()).entries).sort(), finalKeys);
+  } finally {
+    cleanup();
   }
 });

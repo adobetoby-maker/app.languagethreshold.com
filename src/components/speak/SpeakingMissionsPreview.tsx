@@ -1379,18 +1379,16 @@ export function SpeakingMissionsPreview({
             </p>
           )}
           <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
-            Practice a real situation
+            Choose your speaking goal
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Choose from {languageMissions.length} missions across {languageModules.length}{" "}
-            {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
-            daily living, then move into specialty practice.
-            Every mission supports woman and man partner versions and does not yet count toward
-            durable mastery.
+            Pick a situation, practice the conversation, and get feedback. Your goal stays visible while you speak.
           </p>
+          <p className="mt-2 text-xs text-muted-foreground">Speaking practice does not mark lessons mastered.</p>
         </div>
         <div className="mb-5">
           <NextTripBanner
+            compact
             onPracticeTravel={() => {
               setCatalogModuleId(null);
               setCatalogCategory("Travel");
@@ -1594,11 +1592,6 @@ export function SpeakingMissionsPreview({
           </span>
         </div>
         <h2 className="mt-2 font-serif text-3xl text-foreground">{selectedMission.title}</h2>
-        {selectedMission.specialty === "Travel" && (
-          <div className="mt-4">
-            <NextTripBanner compact />
-          </div>
-        )}
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {selectedMission.summary}
         </p>
@@ -1655,6 +1648,12 @@ export function SpeakingMissionsPreview({
             </div>
           </details>
         </div>
+
+        {selectedMission.specialty === "Travel" && (
+          <div className="mt-4">
+            <NextTripBanner compact />
+          </div>
+        )}
 
         <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
           <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">

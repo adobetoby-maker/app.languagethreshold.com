@@ -207,3 +207,30 @@ test("device voice setup instructions are reachable in desktop and phone setting
   await audio.getByRole("button", { name: "Close", exact: true }).click();
   await expect(audio).not.toBeVisible();
 });
+
+test('Speak keeps a selected country lens collapsed and editable after save and reload', async ({page}) => {
+ await page.goto(appUrl({tab:'speak',module:'core'}));
+ const banner = page.locator('section[aria-labelledby="next-trip-heading"]');
+ const before = await readAppState(page);
+ await banner.getByRole('combobox').selectOption('mexico');
+ await banner.getByRole('button',{name:'Save',exact:true}).click();
+ const summary = page.getByTestId('next-trip-summary');
+ await expect(summary).toContainText('Mexico');
+ await expect(banner).toHaveCount(0);
+ await summary.getByRole('button',{name:'Show country lens details'}).click();
+ await expect(banner.getByText('Country lens',{exact:true})).toBeVisible();
+ await banner.getByRole('button',{name:'Collapse country lens details'}).click();
+ await expect(summary).toBeVisible();
+ await summary.getByRole('button',{name:'Edit next trip'}).click();
+ await banner.getByRole('combobox').selectOption('spain');
+ await banner.getByRole('button',{name:'Save',exact:true}).click();
+ await expect(summary).toContainText('Spain');
+ await page.reload();
+ await expect(summary).toContainText('Spain');
+ await expect(banner).toHaveCount(0);
+ const after=await readAppState(page);
+ expect(after.lessonProgress).toEqual(before.lessonProgress);
+ expect(after.core30Log).toEqual(before.core30Log);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:`test-results/country-lens-${test.info().project.name}.png`});
+});

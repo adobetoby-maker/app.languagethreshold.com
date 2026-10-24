@@ -190,6 +190,17 @@ test("path guard: any worktree of this repository, the worktrees folder and syml
   // Anything under the shared worktrees folder, existing or not.
   assert.equal(isProtectedPath(join(WORKTREES_PARENT, "some-other-worktree", "bank.json")), true);
   assert.equal(isProtectedPath(WORKTREES_PARENT), true);
+  // macOS file systems are case-insensitive: other spellings of a protected folder are refused.
+  assert.equal(isProtectedPath("/users/drive/lt-worktrees/any/bank.json"), true);
+  assert.equal(isProtectedPath("/Users/drive/LT-WORKTREES/any/bank.json"), true);
+  const respelled = join(process.cwd(), "package.json").replace(
+    "/Users/drive/lt-worktrees/",
+    "/users/drive/LT-WORKTREES/",
+  );
+  assert.equal(isProtectedPath(respelled), true);
+  assert.equal(isProtectedPath(inSibling.toUpperCase()), true, "sibling worktree in another case");
+  if (respelled !== join(process.cwd(), "package.json"))
+    assert.equal(run("exams2-validate.mts", [respelled]).code, 2, "case variant via the CLI");
   // A plain private folder is fine.
   assert.equal(isProtectedPath(VALID), false);
   assert.equal(run("exams2-validate.mts", [VALID]).code, 0);

@@ -33,7 +33,7 @@ test("agreement table (scattered kinds): lesson-level and phase-level, per kind"
   }
 });
 
-test("phase confidence is calibrated: high-confidence phase calls are right >= 90% of the time", (t) => {
+test("in simulation, high-confidence phase calls are right >= 90% of the time (simulated truth)", (t) => {
   let right = 0;
   let total = 0;
   for (const kind of SCATTERED_KINDS) {

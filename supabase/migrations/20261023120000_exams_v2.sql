@@ -21,7 +21,7 @@ create table public.exam_banks (
   primary key (module_id, target_language, instruction_language, version),
   check (status <> 'approved' or (approved_by is not null and approved_at is not null
          and jsonb_array_length(review_records) >= 2)),
-  check ((status <> 'approved') or (approved_sha256 = content_sha256))
+  check ((status <> 'approved') or (approved_sha256 is not null and approved_sha256 = content_sha256))
 );
 create unique index exam_banks_one_approved on public.exam_banks(module_id,target_language,instruction_language) where status='approved';
 

@@ -8,6 +8,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildDiagnosticResult,
+  classify,
+  classifyPhase,
+  evidenceCeiling,
   DIAGNOSTIC_LENGTH,
   diagnosticPool,
   estimate,
@@ -194,4 +197,40 @@ test("a bank without phases covering all 30 lessons cannot run the diagnostic", 
   const bank = clone(BANK);
   bank.phases = bank.phases.slice(1);
   assert.throws(() => diagnosticPool(bank), /phases/);
+});
+
+test("confidence is capped by evidence: phases < 3 answers low, < 6 at most medium", () => {
+  // Direct: a posterior that looks certain still cannot claim more than its answers support.
+  const sure = { mastery: 0.03, sd: 0.01 };
+  assert.equal(classifyPhase({ ...sure, seen: 0 }).confidence, "low");
+  assert.equal(classifyPhase({ ...sure, seen: 2 }).confidence, "low");
+  assert.equal(classifyPhase({ ...sure, seen: 3 }).confidence, "medium");
+  assert.equal(classifyPhase({ ...sure, seen: 5 }).confidence, "medium");
+  assert.equal(classifyPhase({ ...sure, seen: 6 }).confidence, "high");
+  assert.equal(classify({ mu: -5, v: 0.01, seen: 0 }).confidence, "low");
+  assert.equal(classify({ mu: -5, v: 0.01, seen: 1 }).confidence, "medium");
+  assert.equal(classify({ mu: -5, v: 0.01, seen: 2 }).confidence, "high");
+  assert.equal(evidenceCeiling(5, "phase"), "medium");
+
+  // A partial session: 5 answers in phase 1, 1 in phase 2, none elsewhere, all "I don't know".
+  const inLesson = (lesson, n) => SIM.pool.byLesson.get(lesson).slice(0, n);
+  const items = [...inLesson(1, 2), ...inLesson(2, 2), ...inLesson(3, 1), ...inLesson(7, 1)];
+  const responses = items.map((item) => ({ itemId: item.id, y: 0, dontKnow: true }));
+  const result = buildDiagnosticResult(SIM.pool, responses, {
+    target: "Spanish",
+    native: "English",
+  });
+  const [first, second, ...rest] = result.phases;
+  assert.equal(first.seen, 5);
+  assert.notEqual(first.confidence, "high");
+  assert.equal(second.seen, 1);
+  assert.equal(second.confidence, "low");
+  for (const phase of rest) {
+    assert.equal(phase.seen, 0);
+    assert.equal(phase.confidence, "low");
+  }
+  for (const lesson of result.lessons.filter((l) => l.seen === 0))
+    assert.equal(lesson.confidence, "low");
+  for (const lesson of result.lessons.filter((l) => l.seen === 1))
+    assert.notEqual(lesson.confidence, "high");
 });

@@ -368,7 +368,25 @@ export function estimate(
 /** Chance of getting a medium item right with no guessing. */
 export const mastery = (belief: Belief) => sigmoid(belief.mu);
 
-export function classify(belief: Belief): {
+const CONFIDENCE_ORDER: Confidence[] = ["low", "medium", "high"];
+/** Lower `confidence` to at most `ceiling`. */
+function capConfidence(confidence: Confidence, ceiling: Confidence): Confidence {
+  return CONFIDENCE_ORDER[
+    Math.min(CONFIDENCE_ORDER.indexOf(confidence), CONFIDENCE_ORDER.indexOf(ceiling))
+  ];
+}
+/**
+ * Evidence ceilings on confidence, whatever the posterior says: a call resting on few answers
+ * of its own (most of it borrowed from neighbours or the global level) is never reported as sure.
+ * Lessons: 0 answers -> low, 1 answer -> at most medium. Phases: < 3 -> low, < 6 -> at most medium.
+ */
+export function evidenceCeiling(seen: number, scope: "lesson" | "phase"): Confidence {
+  if (scope === "lesson") return seen < 1 ? "low" : seen < 2 ? "medium" : "high";
+  return seen < 3 ? "low" : seen < MIN_PER_PHASE ? "medium" : "high";
+}
+
+/** Lesson call. With `seen` (answers in this lesson), confidence is capped by evidenceCeiling. */
+export function classify(belief: Belief & { seen?: number }): {
   status: LessonStatus;
   confidence: Confidence;
   mastery: number;
@@ -381,7 +399,9 @@ export function classify(belief: Belief): {
       : m < NEW_MASTERY
         ? "new"
         : "shaky";
-  const confidence: Confidence = sd < 0.6 ? "high" : sd < 0.9 ? "medium" : "low";
+  let confidence: Confidence = sd < 0.6 ? "high" : sd < 0.9 ? "medium" : "low";
+  if (belief.seen !== undefined)
+    confidence = capConfidence(confidence, evidenceCeiling(belief.seen, "lesson"));
   return { status, confidence, mastery: m };
 }
 
@@ -400,9 +420,10 @@ const normalCdf = (z: number) => {
 /**
  * Phase call, on the mastery scale: strong when mastery >= .75 and one sd below it is still
  * >= .55 (the lesson rule's caution), new below .45, otherwise shaky. Confidence is the chance,
- * under the posterior, that the phase really is in the called band: >= .8 high, >= .6 medium.
+ * under the posterior, that the phase really is in the called band: >= .8 high, >= .6 medium,
+ * capped by the phase's own answer count (evidenceCeiling).
  */
-export function classifyPhase(phase: Pick<PhaseEstimate, "mastery" | "sd">): {
+export function classifyPhase(phase: Pick<PhaseEstimate, "mastery" | "sd" | "seen">): {
   status: LessonStatus;
   confidence: Confidence;
   probability: number;
@@ -417,8 +438,10 @@ export function classifyPhase(phase: Pick<PhaseEstimate, "mastery" | "sd">): {
       : status === "new"
         ? below(NEW_MASTERY)
         : below(STRONG_MASTERY) - below(NEW_MASTERY);
-  const confidence: Confidence =
-    probability >= 0.8 ? "high" : probability >= 0.6 ? "medium" : "low";
+  const confidence = capConfidence(
+    probability >= 0.8 ? "high" : probability >= 0.6 ? "medium" : "low",
+    evidenceCeiling(phase.seen, "phase"),
+  );
   return { status, confidence, probability };
 }
 

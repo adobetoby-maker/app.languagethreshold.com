@@ -309,7 +309,7 @@ T2/T3/T4 and T7/T8 can run in parallel; their write sets don't overlap. T10 owns
 ## Implementation notes: T1-T4 (2026-10-23, branch feature/exams-v2-core, incl. fix round)
 
 **T1 migration** (`supabase/migrations/20261023120000_exams_v2.sql`, still not applied; the owner applies it). Changes from the SQL in section 1, made in the fix round:
-- `exam_banks.approved_sha256`, with the check `(status <> 'approved') or (approved_sha256 = content_sha256)`. An approval therefore names the exact content it approves.
+- `exam_banks.approved_sha256`, with the check `(status <> 'approved') or (approved_sha256 is not null and approved_sha256 = content_sha256)`. An approval therefore names the exact content it approves; a NULL hash cannot pass.
 - `exam_sessions_one_open` now includes `target_language` and `instruction_language`.
 - `lead_email`, `lead_consent_version` and `lead_consented_at` are dropped, since v1 builds no email capture.
 - New checks:
@@ -318,7 +318,7 @@ T2/T3/T4 and T7/T8 can run in parallel; their write sets don't overlap. T10 owns
   - `ip_hash` is a 64-character hex string when set
   - `served` ≤ 20 KB
   - `result` is an object ≤ 100 KB
-- The file was checked on a throwaway local Postgres 16 with stub `auth.users` and `team_organizations`, then deleted. All 7 invalid inserts were rejected and all valid ones accepted.
+- The file was checked on a throwaway local Postgres 16 with stub `auth.users` and `team_organizations`, then deleted. All 8 invalid inserts were rejected, including an approval with a NULL `approved_sha256`, and all valid ones were accepted.
 
 **Bank format.** In the fix round each bank gained `phases: { id, title, lessons[] }[]`.
 - The phases cover lessons 1–30 exactly once, in consecutive ascending groups.
@@ -379,14 +379,14 @@ The figures come from 400 learners per kind for the contiguous kinds and 250 per
 What the table shows:
 - **Lesson-level calls are reliable only when knowledge is contiguous.** For scattered knowledge they are near chance. Fifty questions over 30 lessons leave 1–3 answers per lesson. This is why the result labels lessons "likely" and leads with phases.
 - **Phase-level calls hold up better** across every kind: 72–93%.
-- **Phase confidence is calibrated.** Across the scattered kinds, high-confidence phase calls were right 95.1% of the time, and confidence is reported beside each phase.
+- **In these simulations, phase confidence tracked accuracy.** Across the scattered kinds, high-confidence phase calls were right 95.1% of the time, against simulated truth. Calibration on real learners has not been measured. Confidence is also capped by evidence: a phase with fewer than 3 of its own answers is always "low", and one with fewer than 6 is at most "medium". A lesson with 0 answers is "low", and with 1 answer at most "medium".
 - **Exposure and quotas:**
   - Maximum item exposure: 40.8% (contiguous sessions), 37.9% (scattered sessions).
   - Every session covered 30/30 lessons, gave each phase at least 6 questions and used at least 10 typed items.
 - **Test floors are regression guards set from these measurements, not targets or claims.**
   - Pooled lesson-level and phase-level agreement ≥ 85% (contiguous kinds).
   - Phase-level ≥ 68% for each scattered kind.
-  - High-confidence phase calls ≥ 90% right.
+  - High-confidence phase calls ≥ 90% right (simulated truth).
 - The design's literal model reached about 67% lesson-level agreement on the contiguous kinds.
 
 **For T5 (authoring):**

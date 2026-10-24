@@ -6,7 +6,7 @@
  */
 import { execFileSync } from "node:child_process";
 import { readFileSync, realpathSync } from "node:fs";
-import { dirname, isAbsolute, resolve } from "node:path";
+import { basename, dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { BankIssue, BankValidation } from "../src/lib/exams2/bank.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
@@ -17,11 +17,17 @@ export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 /** The shared parent folder of this repository's agent worktrees on the owner's machine. */
 export const WORKTREES_PARENT = "/Users/drive/lt-worktrees";
 
-const real = (path: string) => {
+/**
+ * Symlink-resolved path with the on-disk spelling (realpathSync.native). For a path that does
+ * not exist yet, the nearest existing ancestor is resolved and the rest appended.
+ */
+const real = (path: string): string => {
+  const absolute = resolve(path);
   try {
-    return realpathSync(path);
+    return realpathSync.native(absolute);
   } catch {
-    return resolve(path);
+    const parent = dirname(absolute);
+    return parent === absolute ? absolute : join(real(parent), basename(absolute));
   }
 };
 const gitOutput = (args: string[]) =>
@@ -53,11 +59,17 @@ export function protectedRoots(): string[] {
   return [...new Set([...roots].filter(Boolean).flatMap((root) => [resolve(root), real(root)]))];
 }
 
-/** True when `path`, literally or after resolving symlinks, is inside a protected root. */
+/**
+ * True when `path`, literally or after resolving symlinks, is inside a protected root.
+ * Compared case-insensitively: the macOS default file system is case-insensitive, so
+ * /users/drive/LT-WORKTREES/... is the same folder as /Users/drive/lt-worktrees/....
+ */
 export function isProtectedPath(path: string, roots = protectedRoots()): boolean {
-  const candidates = [resolve(path), real(path)];
+  const fold = (value: string) => value.normalize("NFC").toLowerCase().replace(/\/+$/, "");
+  const candidates = [resolve(path), real(path)].map(fold);
+  const folded = roots.flatMap((root) => [fold(resolve(root)), fold(real(root))]);
   return candidates.some((candidate) =>
-    roots.some((root) => candidate === root || candidate.startsWith(root.replace(/\/$/, "") + "/")),
+    folded.some((root) => candidate === root || candidate.startsWith(root + "/")),
   );
 }
 

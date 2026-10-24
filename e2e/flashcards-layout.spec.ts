@@ -105,16 +105,27 @@ test("conjugation stays expanded below the deck row and card creation still work
     "0 cards",
   );
   await expect(page.getByText("No cards in this set yet", { exact: true })).toBeVisible();
-  await page.getByLabel("English word or phrase").fill("QA roofing anchor");
-  await page.getByLabel("Spanish translation (optional for one card)").fill("anclaje de prueba QA");
+  await page.getByLabel("English word or phrase").fill("Roofing nails");
+  await page.getByLabel("Spanish translation (optional for one card)").fill("Clavos para techo");
   await page.getByRole("button", { name: "Add to study cards", exact: true }).click();
   await expect(
     page.getByRole("status").filter({ hasText: /added to your study flow/ }),
   ).toBeVisible();
   await page.getByTestId("flashcards-your-deck").locator("summary").click();
   await expect(
-    page.getByTestId("flashcards-your-deck").getByText("anclaje de prueba QA", { exact: true }),
+    page.getByTestId("flashcards-your-deck").getByText("Clavos para techo", { exact: true }),
   ).toBeVisible();
+  const gloss = page.getByTestId("flashcards-word-gloss");
+  await expect(gloss).toBeHidden();
+  await card.click();
+  await expect(gloss).toBeVisible();
+  await expect(gloss.locator(":scope > span")).toHaveText(["Clavosnails", "parafor", "techoroof"]);
+  await expect(card.getByText("Roofing nails", { exact: true })).toHaveCount(1);
+  await expect(card).not.toContainText("roofing term");
+  await page.screenshot({
+    path: `test-results/flashcards-gloss-${test.info().project.name}.png`,
+    fullPage: true,
+  });
 });
 
 test("flipping preserves the frame and reveals usage English only on the back", async ({

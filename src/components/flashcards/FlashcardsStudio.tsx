@@ -18,6 +18,7 @@ import { getAvailableModuleLessons } from "@/data/module-starters";
 import { useLibrary } from "@/state/library-state";
 import { getCurriculum } from "@/data/curriculum";
 import { getLessonDefinition, modulePracticeVersion } from "@/lib/lesson-definition";
+import { flashcardWordGloss, hasDistinctFlashcardExample } from "@/lib/flashcard-glosses";
 import { flashcardUsageExample } from "@/lib/flashcard-usage";
 import { authoredModuleDeck } from "@/lib/authored-module-deck";
 import { generateModuleDeck } from "@/fns/module-deck.functions";
@@ -497,6 +498,7 @@ export function FlashcardsStudio() {
       ) ?? []
     );
   }, [exampleModuleId, language, appState.nativeLanguage]);
+  const wordGloss = current ? flashcardWordGloss(current, appState.nativeLanguage) : null;
   const usageExample = activeCard ? flashcardUsageExample(activeCard, lessonSentences) : null;
   const personLabels =
     language in PERSON_LABEL ? PERSON_LABEL[language as keyof typeof PERSON_LABEL] : null;
@@ -611,9 +613,6 @@ export function FlashcardsStudio() {
               aria-hidden={flipped}
               className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
             >
-              <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                {current.partOfSpeech ?? "word"}
-              </span>
               {language === "Japanese" && showFurigana ? (
                 <span className="font-display text-4xl text-foreground leading-tight">
                   <FuriganaText text={current.word} mode="above" script="hiragana" />
@@ -629,10 +628,25 @@ export function FlashcardsStudio() {
               aria-hidden={!flipped}
               className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
             >
-              <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-                ✦ translation
-              </span>
               <span className="font-display text-3xl text-foreground">{current.translation}</span>
+              {wordGloss ? (
+                <span
+                  data-testid="flashcards-word-gloss"
+                  aria-label="Word-by-word meaning"
+                  className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-3"
+                >
+                  {wordGloss.map((part, index) => (
+                    <span key={index} className="flex flex-col items-center gap-1">
+                      <span className="font-display text-xl text-foreground">{part.word}</span>
+                      <span className="text-sm text-muted-foreground">{part.meaning}</span>
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                <span className="mt-4 font-display text-xl text-muted-foreground">
+                  {current.word}
+                </span>
+              )}
 
               {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
               {japaneseConjugation && (
@@ -671,7 +685,7 @@ export function FlashcardsStudio() {
                 </div>
               )}
 
-              {current.example && (
+              {hasDistinctFlashcardExample(current) && (
                 <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
                   <p className="font-display text-base italic text-foreground">
                     {language === "Japanese" && showFurigana ? (

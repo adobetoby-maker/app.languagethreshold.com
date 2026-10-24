@@ -38,6 +38,7 @@ const RequestSchema = z.object({
   usage: z.enum(["learning", "mission"]),
 });
 
+const TTS_RATE_LIMIT_RETRY_AFTER_SECONDS = 20;
 const GOOGLE_VOICE_CACHE_MS = 6 * 60 * 60 * 1000;
 const voiceCache = new Map<string, { expiresAt: number; voices: GoogleTtsVoice[] }>();
 
@@ -217,6 +218,7 @@ export const Route = createFileRoute("/api/mission-tts")({
                     : "Too many voice requests. Please wait a minute and try again.",
                 },
                 ipBudget.misconfigured ? 503 : 429,
+                ipBudget.misconfigured ? undefined : TTS_RATE_LIMIT_RETRY_AFTER_SECONDS,
               );
             }
 
@@ -253,6 +255,8 @@ export const Route = createFileRoute("/api/mission-tts")({
                     : "Too many voice requests. Please wait a minute and try again.",
                 },
                 budget.misconfigured ? 503 : 429,
+                // The per-minute window is a server-side counter, so the exact reset is unknown.
+                budget.misconfigured ? undefined : TTS_RATE_LIMIT_RETRY_AFTER_SECONDS,
               );
             }
             return null;

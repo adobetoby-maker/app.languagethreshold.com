@@ -1,5 +1,6 @@
 import type { GoogleTtsVoice, MissionTtsLanguage } from "@/data/mission-tts";
 import { speakingRequestHeaders, type SpeakingRequestOwner } from "@/lib/speaking-client";
+import { forgetTtsAudio, lookupTtsAudio, storeTtsAudio } from "@/lib/tts-audio-cache";
 
 export interface MissionTtsCapabilities {
   provider: "google-cloud-tts";
@@ -92,6 +93,199 @@ export async function getMissionTtsCapabilities(languageCode: string, signal?: A
   return observeCapabilitiesRequest(request, signal);
 }
 
+/** A non-2xx answer from /api/mission-tts, with what the caller needs to decide on a retry. */
+export class MissionTtsHttpError extends Error {
+  readonly status: number;
+  readonly retryAfterSeconds: number | null;
+  constructor(message: string, status: number, retryAfterSeconds: number | null) {
+    super(message);
+    this.name = "MissionTtsHttpError";
+    this.status = status;
+    this.retryAfterSeconds = retryAfterSeconds;
+  }
+}
+
+function parseRetryAfterSeconds(response: Response): number | null {
+  const raw = response.headers?.get?.("Retry-After");
+  if (raw === null || raw === undefined || raw.trim() === "") return null;
+  const seconds = Number(raw);
+  return Number.isFinite(seconds) && seconds >= 0 ? seconds : null;
+}
+
+const abortError = () => new DOMException("The request was aborted.", "AbortError");
+const isAbortError = (error: unknown) =>
+  error instanceof DOMException && error.name === "AbortError";
+
+interface RenderedAudio {
+  blob: Blob;
+  renderedRate: number;
+}
+
+interface TtsRequest {
+  text: string;
+  voiceName: string;
+  languageCode: string;
+  speakingRate: number;
+  usage: "learning" | "mission";
+}
+
+interface Flight {
+  promise: Promise<RenderedAudio>;
+  controller: AbortController;
+  waiters: number;
+  settled: boolean;
+}
+
+// Identical concurrent requests share one network call. Each caller waits on the
+// flight with its own signal; the call is cancelled only when nobody is left.
+const flights = new Map<string, Flight>();
+
+function raceAbort<T>(promise: Promise<T>, signal: AbortSignal): Promise<T> {
+  if (signal.aborted) return Promise.reject(abortError());
+  return new Promise<T>((resolve, reject) => {
+    const abort = () => reject(abortError());
+    signal.addEventListener("abort", abort, { once: true });
+    promise.then(
+      (value) => {
+        signal.removeEventListener("abort", abort);
+        resolve(value);
+      },
+      (error) => {
+        signal.removeEventListener("abort", abort);
+        reject(error);
+      },
+    );
+  });
+}
+
+type RequestHeaders = Awaited<ReturnType<typeof speakingRequestHeaders>>;
+
+function startFlight(
+  key: string,
+  request: TtsRequest,
+  owner: SpeakingRequestOwner | undefined,
+  credentials?: Promise<RequestHeaders>,
+): Flight {
+  const controller = new AbortController();
+  const flight: Flight = {
+    controller,
+    waiters: 0,
+    settled: false,
+    promise: Promise.resolve(null as unknown as RenderedAudio),
+  };
+  flight.promise = (async () => {
+    const headers = await (credentials ?? speakingRequestHeaders(owner, controller.signal));
+    if (controller.signal.aborted) throw abortError();
+    const response = await fetch("/api/mission-tts", {
+      method: "POST",
+      headers,
+      body: JSON.stringify(request),
+      signal: controller.signal,
+    });
+    if (!response.ok) {
+      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+      throw new MissionTtsHttpError(
+        payload?.error ?? "Google voice generation failed.",
+        response.status,
+        parseRetryAfterSeconds(response),
+      );
+    }
+    const blob = await response.blob();
+    const reported = Number(response.headers.get("X-TTS-Rendered-Rate") ?? request.speakingRate);
+    const renderedRate = Number.isFinite(reported) ? reported : request.speakingRate;
+    void storeTtsAudio(request, renderedRate, blob);
+    return { blob, renderedRate };
+  })().finally(() => {
+    flight.settled = true;
+    if (flights.get(key) === flight) flights.delete(key);
+  });
+  flight.promise.catch(() => undefined);
+  flights.set(key, flight);
+  return flight;
+}
+
+async function fetchRenderedAudio(
+  request: TtsRequest,
+  owner: SpeakingRequestOwner | undefined,
+  signal: AbortSignal,
+  credentials?: Promise<RequestHeaders>,
+): Promise<RenderedAudio> {
+  const key = JSON.stringify([
+    request.usage,
+    request.voiceName,
+    request.languageCode,
+    request.speakingRate,
+    request.text.trim(),
+    owner?.userId ?? "",
+  ]);
+  for (let attempt = 0; ; attempt += 1) {
+    if (signal.aborted) throw abortError();
+    const flight = flights.get(key) ?? startFlight(key, request, owner, credentials);
+    flight.waiters += 1;
+    try {
+      return await raceAbort(flight.promise, signal);
+    } catch (error) {
+      // The flight was cancelled by its starter, not by us: start our own once.
+      if (attempt === 0 && !signal.aborted && isAbortError(error)) continue;
+      throw error;
+    } finally {
+      flight.waiters -= 1;
+      if (flight.waiters === 0 && !flight.settled) {
+        flight.controller.abort();
+        if (flights.get(key) === flight) flights.delete(key);
+      }
+    }
+  }
+}
+
+const PREFETCH_INTERVAL_MS = 2500;
+const PREFETCH_MAX_ITEMS = 8;
+
+/**
+ * Warm the audio cache for upcoming words, one request per 2.5 s so it never
+ * competes with the per-minute rate limit. Stops at the first failure.
+ */
+export async function prefetchTts(
+  items: Array<Omit<TtsRequest, "usage"> & { usage?: TtsRequest["usage"] }>,
+  { owner, signal }: { owner?: SpeakingRequestOwner; signal?: AbortSignal } = {},
+): Promise<number> {
+  let fetched = 0;
+  const seen = new Set<string>();
+  const controller = new AbortController();
+  const forward = () => controller.abort();
+  signal?.addEventListener("abort", forward, { once: true });
+  try {
+    for (const item of items.slice(0, PREFETCH_MAX_ITEMS)) {
+      const request: TtsRequest = { ...item, usage: item.usage ?? "learning" };
+      const dedupe = `${request.voiceName}|${request.languageCode}|${request.speakingRate}|${request.text.trim()}`;
+      if (seen.has(dedupe)) continue;
+      seen.add(dedupe);
+      if (controller.signal.aborted || (owner && !owner.isCurrent())) break;
+      if (await lookupTtsAudio(request)) continue;
+      try {
+        await fetchRenderedAudio(request, owner, controller.signal);
+        fetched += 1;
+      } catch {
+        break;
+      }
+      await new Promise<void>((resolve) => {
+        const timer = setTimeout(resolve, PREFETCH_INTERVAL_MS);
+        controller.signal.addEventListener(
+          "abort",
+          () => {
+            clearTimeout(timer);
+            resolve();
+          },
+          { once: true },
+        );
+      });
+    }
+  } finally {
+    signal?.removeEventListener("abort", forward);
+  }
+  return fetched;
+}
+
 export async function speakMissionTts({
   text,
   voiceName,
@@ -129,26 +323,25 @@ export async function speakMissionTts({
   };
   signal?.addEventListener("abort", abortOwnedPlayback, { once: true });
   try {
-    const headers = await speakingRequestHeaders(owner, controller.signal);
+    // Audio rendered before never changes: play it from the device with no network.
+    const request: TtsRequest = { text, voiceName, languageCode, speakingRate, usage };
+    // Ask for credentials up front (a local session read) so a miss pays no extra delay.
+    const credentials = speakingRequestHeaders(owner, controller.signal);
+    credentials.catch(() => undefined);
+    const cached = await lookupTtsAudio(request);
     checkCurrent();
-
-    const response = await fetch("/api/mission-tts", {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ text, voiceName, languageCode, speakingRate, usage }),
-      signal: controller.signal,
-    });
-    checkCurrent();
-    if (!response.ok) {
-      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+    let rendered: RenderedAudio;
+    let cacheKey: string | null = null;
+    if (cached) {
+      rendered = cached;
+      cacheKey = cached.key;
+    } else {
+      rendered = await fetchRenderedAudio(request, owner, controller.signal, credentials);
       checkCurrent();
-      throw new Error(payload?.error ?? "Google voice generation failed.");
     }
 
     const audio = audioElement();
-    const blob = await response.blob();
-    checkCurrent();
-    const renderedRate = Number(response.headers.get("X-TTS-Rendered-Rate") ?? speakingRate);
+    const { blob, renderedRate } = rendered;
     activeObjectUrl = URL.createObjectURL(blob);
     audio.src = activeObjectUrl;
     audio.playbackRate = renderedRate === speakingRate ? 1 : speakingRate;
@@ -173,7 +366,11 @@ export async function speakMissionTts({
       finishActivePlayback = () =>
         finish(new DOMException("The request was aborted.", "AbortError"));
       audio.onended = () => finish();
-      audio.onerror = () => finish(new Error("The generated audio could not play."));
+      audio.onerror = () => {
+        // A stored clip that will not decode is dropped so the next play fetches a fresh one.
+        if (cacheKey && current()) void forgetTtsAudio(cacheKey);
+        finish(new Error("The generated audio could not play."));
+      };
       audio
         .play()
         .then(() => {

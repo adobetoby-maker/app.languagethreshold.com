@@ -179,14 +179,14 @@ function Core60PathCard({
           const showNudge = nudge && step.stage === "foundation";
           const body = (
             <>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 Step {index + 1}
                 {isCurrent ? " · You are here" : ""}
               </span>
-              <span className="mt-0.5 block text-sm font-semibold text-white">{step.label}</span>
+              <span className="mt-0.5 block text-sm font-semibold text-foreground">{step.label}</span>
               <span
                 data-testid={`core60-step-${step.stage}-count`}
-                className="mt-0.5 block text-xs text-white/60"
+                className="mt-0.5 block text-xs text-muted-foreground"
               >
                 {masteredIn(step.moduleId)} / {step.lessons} mastered
               </span>
@@ -202,7 +202,7 @@ function Core60PathCard({
                 </span>
               )}
               {comingSoon && (
-                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-white/50">
+                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-muted-foreground">
                   Coming soon
                 </span>
               )}
@@ -215,7 +215,7 @@ function Core60PathCard({
                 <div
                   data-testid={`core60-step-${step.stage}`}
                   aria-disabled="true"
-                  className={cn(base, "border-dashed border-white/10 bg-card/20")}
+                  className={cn(base, "border-dashed border-border bg-card/20")}
                 >
                   {body}
                 </div>
@@ -235,7 +235,7 @@ function Core60PathCard({
                   className={cn(
                     base,
                     "transition-colors hover:border-gold/50 hover:bg-gold/10",
-                    showNudge ? "border-gold/50 bg-gold/[0.07]" : "border-white/10 bg-card/40",
+                    showNudge ? "border-gold/50 bg-gold/[0.07]" : "border-border bg-card/40",
                   )}
                 >
                   {body}

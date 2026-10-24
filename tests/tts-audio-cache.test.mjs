@@ -486,3 +486,207 @@ test("actual speakMissionTts plays a repeat from cache with no network and share
     cleanup();
   }
 });
+
+// ---- per-user namespacing and clearing on sign-out ----
+
+function fakeCacheStorage() {
+  const stores = new Map();
+  const keyOf = (request) => (typeof request === "string" ? request : request.url);
+  const open = async (name) => {
+    if (!stores.has(name)) stores.set(name, new Map());
+    const entries = stores.get(name);
+    return {
+      match: async (request) => entries.get(keyOf(request))?.clone(),
+      put: async (request, response) => void entries.set(keyOf(request), response),
+      delete: async (request) => entries.delete(keyOf(request)),
+    };
+  };
+  return {
+    stores,
+    open,
+    keys: async () => [...stores.keys()],
+    delete: async (name) => stores.delete(name),
+  };
+}
+
+const stubBrowser = () => {
+  const saved = Object.fromEntries(
+    ["document", "caches"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+  );
+  const caches = fakeCacheStorage();
+  globalThis.document = {};
+  globalThis.caches = caches;
+  return {
+    caches,
+    restore() {
+      for (const [k, d] of Object.entries(saved)) {
+        if (d) Object.defineProperty(globalThis, k, d);
+        else delete globalThis[k];
+      }
+    },
+  };
+};
+
+const requestFor = (text) => ({
+  voiceName: "es-US-Neural2-A",
+  languageCode: "es-US",
+  speakingRate: 1,
+  text,
+});
+
+const persisted = (caches) =>
+  [...caches.stores.keys()].filter((n) => n.startsWith("tts-audio-v1-"));
+
+test("user B cannot read user A's cached audio; signed-out callers are memory only", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    await mod.storeTtsAudio(requestFor("secreto de a"), 1, blobOf("a-audio"), "user-a");
+    await mod.flushTtsAudioCache();
+    assert.equal(persisted(env.caches).length, 1, "user A got a persistent store");
+
+    assert.equal(
+      await mod.lookupTtsAudio(requestFor("secreto de a"), "user-b"),
+      null,
+      "B misses A's clip",
+    );
+    assert.equal(
+      await mod.lookupTtsAudio(requestFor("secreto de a"), null),
+      null,
+      "signed out misses it too",
+    );
+    await mod.storeTtsAudio(requestFor("de b"), 1, blobOf("b-audio"), "user-b");
+    await mod.flushTtsAudioCache();
+    const names = persisted(env.caches);
+    assert.equal(names.length, 2, "B has a separate store");
+    assert.equal(new Set(names).size, 2);
+    assert.ok(
+      !names.some((n) => n.includes("user-a") || n.includes("user-b")),
+      "raw ids never appear in names",
+    );
+
+    // A comes back: memory was dropped on the switch, so this proves the disk copy is A's alone.
+    const again = await mod.lookupTtsAudio(requestFor("secreto de a"), "user-a");
+    assert.equal(await again.blob.text(), "a-audio");
+    assert.equal(
+      await mod.lookupTtsAudio(requestFor("de b"), "user-a"),
+      null,
+      "A cannot read B's clip",
+    );
+
+    await mod.storeTtsAudio(requestFor("invitado"), 1, blobOf("guest"), null);
+    await mod.storeTtsAudio(requestFor("invitado2"), 1, blobOf("guest"), "");
+    await mod.flushTtsAudioCache();
+    assert.equal(persisted(env.caches).length, 2, "signed-out audio is never written to disk");
+    assert.ok(await mod.lookupTtsAudio(requestFor("invitado"), null), "but plays from memory");
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("clearTtsAudioCache removes only the named user's store and, with no id, every store", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(`export * from './src/lib/tts-audio-cache';`);
+  try {
+    for (const user of ["user-a", "user-b"]) {
+      await mod.storeTtsAudio(requestFor(`palabra ${user}`), 1, blobOf(user), user);
+      await mod.flushTtsAudioCache();
+    }
+    env.caches.stores.set("lt-v1-unrelated", new Map());
+    assert.equal(persisted(env.caches).length, 2);
+
+    await mod.clearTtsAudioCache("user-b");
+    assert.equal(persisted(env.caches).length, 1);
+    assert.equal(await mod.lookupTtsAudio(requestFor("palabra user-b"), "user-b"), null);
+    assert.ok(await mod.lookupTtsAudio(requestFor("palabra user-a"), "user-a"));
+
+    await mod.clearTtsAudioCache();
+    assert.equal(persisted(env.caches).length, 0);
+    assert.equal(await mod.lookupTtsAudio(requestFor("palabra user-a"), "user-a"), null);
+    assert.ok(env.caches.stores.has("lt-v1-unrelated"), "other caches are never touched");
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("sign-out removes the account's cached audio only after a successful local sign-out", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(
+    `export * from './src/lib/tts-audio-cache'; export { signOutWithDeviceSafety } from './src/lib/device-sign-out';`,
+  );
+  try {
+    const signOutWith = (overrides) =>
+      mod.signOutWithDeviceSafety({
+        actor: "user-a",
+        storage: null,
+        examPending: false,
+        confirmDiscard: () => true,
+        signOut: async () => ({}),
+        onExamDiscardApproved() {},
+        clearExamDrafts() {},
+        ...overrides,
+      });
+    const seed = async () => {
+      await mod.storeTtsAudio(requestFor("lectura privada"), 1, blobOf("reader"), "user-a");
+      await mod.flushTtsAudioCache();
+      assert.equal(persisted(env.caches).length, 1);
+    };
+
+    await seed();
+    const failed = await signOutWith({ signOut: async () => ({ error: new Error("offline") }) });
+    assert.equal(failed.signedOut, false);
+    assert.equal(persisted(env.caches).length, 1, "failed sign-out keeps the clips");
+
+    const others = await signOutWith({ scope: "others" });
+    assert.equal(others.signedOut, true);
+    assert.equal(
+      persisted(env.caches).length,
+      1,
+      "signing out other devices keeps this device's clips",
+    );
+
+    const done = await signOutWith({});
+    assert.equal(done.signedOut, true);
+    assert.equal(persisted(env.caches).length, 0, "local sign-out removed the store");
+    assert.equal(await mod.lookupTtsAudio(requestFor("lectura privada"), "user-a"), null);
+  } finally {
+    env.restore();
+    cleanup();
+  }
+});
+
+test("reset to first run clears every user's cached audio and the auth listener clears on session end", async () => {
+  const env = stubBrowser();
+  const { mod, cleanup } = await bundle(
+    `export * from './src/lib/tts-audio-cache'; export { resetAppToFirstRun } from './src/lib/app-update';`,
+  );
+  try {
+    for (const user of ["user-a", "user-b"]) {
+      await mod.storeTtsAudio(requestFor(user), 1, blobOf(user), user);
+      await mod.flushTtsAudioCache();
+    }
+    assert.equal(persisted(env.caches).length, 2);
+    let restarted = false;
+    await mod.resetAppToFirstRun(async () => true, {
+      clearCaches: async () => {},
+      unregisterServiceWorkers: async () => {},
+      clearLocalStorage() {},
+      clearSessionStorage() {},
+      restart: () => (restarted = true),
+    });
+    assert.ok(restarted);
+    assert.equal(persisted(env.caches).length, 0);
+  } finally {
+    env.restore();
+    cleanup();
+  }
+  const { readFileSync } = await import("node:fs");
+  const authState = readFileSync("src/state/auth-state.tsx", "utf8");
+  assert.match(
+    authState,
+    /previousUser && previousUser !== nextUser\) \{[\s\S]*?clearTtsAudioCache\(previousUser\)/,
+    "SIGNED_OUT, expiry and account switch all pass through acceptSession's identity-loss branch",
+  );
+});

@@ -3,6 +3,7 @@ import {
   clearLibraryDeviceForUser,
   type LibraryStorage,
 } from "./library-device.ts";
+import { clearTtsAudioCache } from "./tts-audio-cache.ts";
 
 /** Coordinates the actual SDK sign-out with explicit loss approval and owned Reader cleanup. */
 export async function signOutWithDeviceSafety({
@@ -62,6 +63,8 @@ export async function signOutWithDeviceSafety({
     return { signedOut: false, cancelled: false, cleanupComplete: false };
   }
   if (!local) return { signedOut: true, cancelled: false, cleanupComplete: true };
+  // Reader can speak user-supplied text: the account's cached voice audio leaves with it.
+  await clearTtsAudioCache(actor);
   let examsCleared = true;
   try {
     clearExamDrafts();

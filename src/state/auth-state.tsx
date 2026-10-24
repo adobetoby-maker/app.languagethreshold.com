@@ -27,6 +27,7 @@ import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
 import { createAuthActorAccess } from "@/lib/auth-actor-access";
 import { clearSpeechForUser, unsavedSpeechCount } from "@/lib/assessments/speech-device";
+import { clearTtsAudioCache } from "@/lib/tts-audio-cache";
 import {
   clearPrivateLearningDrafts,
   discardPrivateLearningDrafts,
@@ -126,6 +127,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Identity loss always stops a microphone. Durable owner-scoped answers stay
         // recoverable until an explicit, successful sign-out discards them.
         clearSpeechForUser(previousUser);
+        // Session ended, expired, or a different account took over: drop the old account's
+        // cached voice audio (Reader speaks user-supplied text). Never rejects.
+        void clearTtsAudioCache(previousUser);
         if (!discarded && signingOutFor.current !== previousUser) {
           const reader = pendingLibraryChanges(storage, previousUser);
           const completions = pendingTeamCompletions(storage, previousUser);

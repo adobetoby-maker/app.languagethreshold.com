@@ -193,7 +193,7 @@ function startFlight(
     const blob = await response.blob();
     const reported = Number(response.headers.get("X-TTS-Rendered-Rate") ?? request.speakingRate);
     const renderedRate = Number.isFinite(reported) ? reported : request.speakingRate;
-    void storeTtsAudio(request, renderedRate, blob);
+    void storeTtsAudio(request, renderedRate, blob, owner?.userId);
     return { blob, renderedRate };
   })().finally(() => {
     flight.settled = true;
@@ -261,7 +261,7 @@ export async function prefetchTts(
       if (seen.has(dedupe)) continue;
       seen.add(dedupe);
       if (controller.signal.aborted || (owner && !owner.isCurrent())) break;
-      if (await lookupTtsAudio(request)) continue;
+      if (await lookupTtsAudio(request, owner?.userId)) continue;
       try {
         await fetchRenderedAudio(request, owner, controller.signal);
         fetched += 1;
@@ -328,7 +328,7 @@ export async function speakMissionTts({
     // Ask for credentials up front (a local session read) so a miss pays no extra delay.
     const credentials = speakingRequestHeaders(owner, controller.signal);
     credentials.catch(() => undefined);
-    const cached = await lookupTtsAudio(request);
+    const cached = await lookupTtsAudio(request, owner?.userId);
     checkCurrent();
     let rendered: RenderedAudio;
     let cacheKey: string | null = null;
@@ -368,7 +368,7 @@ export async function speakMissionTts({
       audio.onended = () => finish();
       audio.onerror = () => {
         // A stored clip that will not decode is dropped so the next play fetches a fresh one.
-        if (cacheKey && current()) void forgetTtsAudio(cacheKey);
+        if (cacheKey && current()) void forgetTtsAudio(cacheKey, owner?.userId);
         finish(new Error("The generated audio could not play."));
       };
       audio

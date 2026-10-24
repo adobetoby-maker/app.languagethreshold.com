@@ -10,14 +10,17 @@
 // Keys are sha256 of `${voiceName}|${languageCode}|${renderedRate}|${text}` and
 // nothing else is stored with the audio (no user id, no account data).
 
-export const TTS_CACHE_NAME = "tts-audio-v1"; // deliberately NOT "lt-*": app-update.ts purges lt- caches on every update
+/**
+ * Cache Storage / IndexedDB name prefix; each signed-in user gets `${prefix}-${userHash}`.
+ * Deliberately NOT "lt-*": app-update.ts purges lt- caches on every update.
+ */
+export const TTS_CACHE_PREFIX = "tts-audio-v1";
 export const TTS_MEMORY_ENTRIES = 200;
 export const TTS_PERSISTENT_MAX_ENTRIES = 1500;
 export const TTS_PERSISTENT_MAX_BYTES = 60 * 1024 * 1024;
 
 const ENTRY_PATH = "/__tts-cache/";
 const INDEX_PATH = `${ENTRY_PATH}__index`;
-const IDB_NAME = "tts-audio-v1";
 
 export interface TtsAudioKeyParts {
   voiceName: string;
@@ -45,7 +48,10 @@ export async function ttsAudioCacheKey(parts: TtsAudioKeyParts): Promise<string 
 /** Least-recently-used map: reads refresh recency, inserts evict the oldest past the limit. */
 export class LruMap<V> {
   private readonly items = new Map<string, V>();
-  constructor(private readonly limit: number) {}
+  private readonly limit: number;
+  constructor(limit: number) {
+    this.limit = limit;
+  }
   get size() {
     return this.items.size;
   }
@@ -168,9 +174,9 @@ export function createMemoryBackend(): TtsPersistentBackend {
   };
 }
 
-async function openCacheStorageBackend(): Promise<TtsPersistentBackend | null> {
+async function openCacheStorageBackend(name: string): Promise<TtsPersistentBackend | null> {
   if (typeof caches === "undefined") return null;
-  const cache = await caches.open(TTS_CACHE_NAME);
+  const cache = await caches.open(name);
   return {
     async readBlob(key) {
       const response = await cache.match(ENTRY_PATH + key);
@@ -196,7 +202,7 @@ async function openCacheStorageBackend(): Promise<TtsPersistentBackend | null> {
       );
     },
     async clear() {
-      await caches.delete(TTS_CACHE_NAME);
+      await caches.delete(name);
     },
   };
 }
@@ -208,10 +214,10 @@ function idbRequest<T>(request: IDBRequest<T>): Promise<T> {
   });
 }
 
-async function openIndexedDbBackend(): Promise<TtsPersistentBackend | null> {
+async function openIndexedDbBackend(name: string): Promise<TtsPersistentBackend | null> {
   if (typeof indexedDB === "undefined") return null;
   const db = await new Promise<IDBDatabase>((resolve, reject) => {
-    const open = indexedDB.open(IDB_NAME, 1);
+    const open = indexedDB.open(name, 1);
     open.onupgradeneeded = () => open.result.createObjectStore("kv");
     open.onsuccess = () => resolve(open.result);
     open.onerror = () => reject(open.error ?? new Error("IndexedDB unavailable"));
@@ -247,15 +253,15 @@ async function openIndexedDbBackend(): Promise<TtsPersistentBackend | null> {
 }
 
 /** Cache Storage first; IndexedDB if it is missing or throws; null (memory only) otherwise. */
-export async function openDefaultBackend(): Promise<TtsPersistentBackend | null> {
+export async function openDefaultBackend(name: string): Promise<TtsPersistentBackend | null> {
   try {
-    const backend = await openCacheStorageBackend();
+    const backend = await openCacheStorageBackend(name);
     if (backend) return backend;
   } catch {
     // Safari private mode and some iOS PWA contexts reject caches.open; try IndexedDB next.
   }
   try {
-    return await openIndexedDbBackend();
+    return await openIndexedDbBackend(name);
   } catch {
     return null;
   }
@@ -275,7 +281,7 @@ export interface TtsAudioHit {
 }
 
 export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
-  const openBackend = options.openBackend ?? openDefaultBackend;
+  const openBackend = options.openBackend ?? (async () => null);
   const maxEntries = options.maxEntries ?? TTS_PERSISTENT_MAX_ENTRIES;
   const maxBytes = options.maxBytes ?? TTS_PERSISTENT_MAX_BYTES;
   const now = options.now ?? Date.now;
@@ -443,6 +449,8 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
     clear,
     isRateLocked,
     markRateLocked,
+    /** Forget the in-memory tier only (a different user took over). */
+    dropMemory: () => memory.clear(),
     /** Resolves when queued persistent writes have finished (tests, sign-out). */
     settled: () => queue,
     memoryKeys: () => memory.keys(),
@@ -451,31 +459,105 @@ export function createTtsAudioCache(options: TtsAudioCacheOptions = {}) {
 
 export type TtsAudioCache = ReturnType<typeof createTtsAudioCache>;
 
-let defaultCache: TtsAudioCache | undefined;
+// Per-user namespacing: one persistent store per signed-in user, so a different account
+// can never read another's clips even if a clear fails. Signed-out callers (no user id)
+// and runtimes without Web Crypto get a memory-only cache.
 
-/** Browser-only singleton: SSR and non-DOM runtimes get no cache at all. */
-function browserCache(): TtsAudioCache | null {
+async function userNamespace(userId: string): Promise<string | null> {
+  const key = await ttsAudioCacheKey({
+    voiceName: "namespace",
+    languageCode: "user",
+    renderedRate: 0,
+    text: userId,
+  });
+  return key ? key.slice(0, 24) : null;
+}
+
+let active: { id: string; cache: TtsAudioCache } | undefined;
+
+/** Browser-only: SSR and non-DOM runtimes get no cache at all. */
+async function cacheFor(userId?: string | null): Promise<TtsAudioCache | null> {
   if (typeof document === "undefined") return null;
-  defaultCache ??= createTtsAudioCache();
-  return defaultCache;
+  const namespace = userId ? await userNamespace(userId) : null;
+  const id = namespace ?? "";
+  if (!active || active.id !== id) {
+    active?.cache.dropMemory();
+    const name = `${TTS_CACHE_PREFIX}-${namespace}`;
+    active = {
+      id,
+      cache: createTtsAudioCache({
+        openBackend: namespace ? () => openDefaultBackend(name) : async () => null,
+      }),
+    };
+  }
+  return active.cache;
 }
 
-export async function lookupTtsAudio(request: TtsAudioRequest) {
-  return (await browserCache()?.lookup(request)) ?? null;
+export async function lookupTtsAudio(request: TtsAudioRequest, userId?: string | null) {
+  return (await (await cacheFor(userId))?.lookup(request)) ?? null;
 }
 
-export async function storeTtsAudio(request: TtsAudioRequest, renderedRate: number, blob: Blob) {
-  await browserCache()?.store(request, renderedRate, blob);
+export async function storeTtsAudio(
+  request: TtsAudioRequest,
+  renderedRate: number,
+  blob: Blob,
+  userId?: string | null,
+) {
+  await (await cacheFor(userId))?.store(request, renderedRate, blob);
 }
 
-export async function forgetTtsAudio(key: string) {
-  await browserCache()?.forget(key);
+export async function forgetTtsAudio(key: string, userId?: string | null) {
+  await (await cacheFor(userId))?.forget(key);
 }
 
-/** Wipe every cached clip. Call on sign-out: Reader can speak user-supplied text. */
-export async function clearTtsAudioCache(): Promise<void> {
+/** Resolves when queued persistent writes for the active user have finished. */
+export async function flushTtsAudioCache() {
+  await active?.cache.settled();
+}
+
+async function deletePersistentStores(namespace: string | null): Promise<void> {
+  const wanted = (name: string) =>
+    namespace ? name === `${TTS_CACHE_PREFIX}-${namespace}` : name.startsWith(TTS_CACHE_PREFIX);
   try {
-    await browserCache()?.clear();
+    if (typeof caches !== "undefined") {
+      for (const name of (await caches.keys()).filter(wanted)) await caches.delete(name);
+    }
+  } catch {
+    // Best effort.
+  }
+  try {
+    if (typeof indexedDB !== "undefined") {
+      const names = namespace
+        ? [`${TTS_CACHE_PREFIX}-${namespace}`]
+        : ((await indexedDB.databases?.()) ?? []).flatMap((db) => (db.name ? [db.name] : []));
+      for (const name of names.filter(wanted)) {
+        await new Promise<void>((resolve) => {
+          const request = indexedDB.deleteDatabase(name);
+          request.onsuccess = request.onerror = request.onblocked = () => resolve();
+        });
+      }
+    }
+  } catch {
+    // Best effort.
+  }
+}
+
+/**
+ * Wipe cached clips. Pass the departing user's id to remove their store; with no id every
+ * user's store on this device goes. Call on sign-out, session end and user switch: Reader
+ * can speak user-supplied text. Never throws.
+ */
+export async function clearTtsAudioCache(userId?: string | null): Promise<void> {
+  try {
+    const departing = active;
+    const namespace = userId ? await userNamespace(userId) : null;
+    if (departing && (!userId || departing.id === namespace || !namespace)) {
+      active = undefined;
+      departing.cache.dropMemory();
+      await departing.cache.settled();
+    }
+    if (userId && !namespace) return; // memory-only runtime: nothing persisted
+    await deletePersistentStores(userId ? namespace : null);
   } catch {
     // Best effort.
   }

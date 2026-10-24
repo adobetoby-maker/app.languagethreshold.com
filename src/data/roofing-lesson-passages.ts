@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-15
-// A short on-the-job reading for each of the 30 Roofing Foreman Core 30 lessons, shown in "See it".
+// A short on-the-job reading for each of the 30 Roofing Supervisor Core 30 lessons, shown in "See it".
 // Every passage reuses the Spanish terms and phrases from roofing-lesson-words.ts, so the learner
 // reads exactly what they practice next. Each sentence is written as an [es, en] pair so the
 // Spanish and the English translation can never fall out of step. Specifications (overlaps, nail

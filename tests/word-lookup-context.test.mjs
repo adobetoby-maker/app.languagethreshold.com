@@ -67,7 +67,7 @@ test("actual dictionary cache separates lesson senses, anchors prompts and rejec
       "Lesson-context fixture",
     );
     assert.equal(controls.calls, 2);
-    assert.match(controls.request.system, /Roofing Foreman; lesson 15: Valley Protection/);
+    assert.match(controls.request.system, /Roofing Supervisor; lesson 15: Valley Protection/);
     assert.match(controls.request.system, /Authored vocabulary anchors/);
     assert.match(controls.request.system, /not a different generic or geographic sense/);
     // General/private context remains request-local, even with a valid lesson reference.

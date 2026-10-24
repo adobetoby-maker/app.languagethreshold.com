@@ -1,17 +1,16 @@
-import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { MicrophoneTestDialog } from "@/components/speak/MicrophoneTestDialog";
 
 /** Changing the account or learning view must also release an open audio test. */
-export function AudioRoutingSettings() {
+export function AudioRoutingSettings({
+  learningContext = "account",
+}: {
+  learningContext?: string;
+}) {
   const { user } = useAuth();
-  const { state } = useApp();
-  const scope = JSON.stringify([
-    user?.id ?? null,
-    state.currentTab,
-    state.activeModuleId,
-    state.selectedLanguage,
-  ]);
+  // /account intentionally has no learning-state provider. Learning views pass
+  // their scope explicitly so changing view/module still releases the audio test.
+  const scope = JSON.stringify([user?.id ?? null, learningContext]);
   return (
     <section className="rounded-xl border border-border/50 bg-card/30 p-3 text-sm">
       <h3 className="font-semibold">Audio &amp; microphone</h3>

@@ -299,7 +299,7 @@ const team = {
     },
   ],
   modules: [
-    { id: "roofing", name: "Roofing Foreman" },
+    { id: "roofing", name: "Roofing Supervisor" },
     { id: "restaurant", name: "Restaurant" },
   ],
   emailEnabled: true,

@@ -178,7 +178,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "📋",
       blurb: "Assign tear-off, installation, and ground tasks before the crew climbs.",
       counterpart: "Spanish-speaking crew lead",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote: "Use short instructions, confirm understanding, and ask workers to report hazards.",
       phrases: phrases(ROOFING_EXTRA_PHRASES.briefing, "briefing"),
       vocab: ["crew lead", "roof pitch", "staging area", "tear-off", "deck", "weather"],
@@ -203,7 +203,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "🧹",
       blurb: "Direct removal, protect the deck, and report damaged sheathing.",
       counterpart: "Tear-off crew member",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote: "Be specific about the work area and ask for confirmation before covering damage.",
       phrases: [
         ...phrases(ROOFING_GUIDE_PHRASES.tearOff, "tear-off"),
@@ -231,7 +231,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "📐",
       blurb: "Communicate layout, overlap, edge, and valley work clearly.",
       counterpart: "Installation crew member",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote:
         "Treat dimensions as examples; confirm the actual product instructions and job specification.",
       phrases: phrases(
@@ -262,7 +262,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "🔨",
       blurb: "Coach installation quality while following the selected product specification.",
       counterpart: "Shingle installer",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote:
         "The guide's nail count and dimensions are language examples, not universal installation requirements; defer to product instructions.",
       phrases: [
@@ -293,7 +293,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "🦺",
       blurb: "Practice clear stop-work, anchor, footing, heat, and weather calls.",
       counterpart: "Crew member on the roof",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote:
         "Practice language only; a competent person must set the site-specific fall-protection plan.",
       phrases: [
@@ -322,7 +322,7 @@ export const ROOFING_CONTENT: TradesModuleContent = {
       emoji: "✅",
       blurb: "Review repairs, flashing, cleanup, and tomorrow's handoff.",
       counterpart: "Crew lead",
-      learnerRole: "Roofing foreman",
+      learnerRole: "Roofing supervisor",
       toneNote:
         "Use a collaborative walkthrough and ask for specific confirmation of unfinished work.",
       phrases: phrases(ROOFING_EXTRA_PHRASES.closeout, "closeout"),

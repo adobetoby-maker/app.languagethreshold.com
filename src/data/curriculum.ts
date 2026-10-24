@@ -62,6 +62,8 @@ export interface LessonGrammar {
 export interface ModuleCurriculum {
   moduleId: string;
   headline: string;
+  /** Optional learner-facing label; the original headline remains part of frozen review snapshots. */
+  displayHeadline?: string;
   threshold: string;
   lessons: Lesson[];
 }
@@ -4076,7 +4078,8 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
   },
   roofing: {
     moduleId: "roofing",
-    headline: "The Roofing Foreman Core 30",
+    headline: "The Roofing Foreman Core 30", // Frozen review title.
+    displayHeadline: "The Roofing Supervisor Core 30",
     threshold:
       "By Lesson 30, you can brief a roofing crew, direct tear-off and installation, raise a fall or weather concern, and close out the day in Spanish while verifying job-specific product instructions.",
     lessons: ROOFING_LESSONS,

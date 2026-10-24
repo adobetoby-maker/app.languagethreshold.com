@@ -484,7 +484,7 @@ export const Route = createFileRoute("/api/team")({
             await sendTeamEmail(
               org.billing_email,
               `${org.name} team setup summary`,
-              `Your Language Threshold team workspace is ready.\n\nPlan: ${entitlement.data?.term ?? "manual"}; status: ${entitlement.data?.status ?? "pending"}; seats: ${entitlement.data?.seat_limit ?? 0}; active learners: ${assigned}.\nAssigned modules: ${modules.join(", ") || "None yet"}.\n\nFor Roofing Foreman, the optional certificate requires all 30 lessons and at least 80% on a reviewed 25-question test.\n\nOpen your admin dashboard and walkthrough: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
+              `Your Language Threshold team workspace is ready.\n\nPlan: ${entitlement.data?.term ?? "manual"}; status: ${entitlement.data?.status ?? "pending"}; seats: ${entitlement.data?.seat_limit ?? 0}; active learners: ${assigned}.\nAssigned modules: ${modules.join(", ") || "None yet"}.\n\nFor Roofing Supervisor, the optional certificate requires all 30 lessons and at least 80% on a reviewed 25-question test.\n\nOpen your admin dashboard and walkthrough: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
             );
             await audit(db, user.id, "team.email_summary", body.orgId);
             return json({ ok: true });

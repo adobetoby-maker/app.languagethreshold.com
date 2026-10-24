@@ -62,7 +62,7 @@ export const Route = createFileRoute("/api/team-assessment")({
               .eq("module_id", "roofing")
               .maybeSingle();
             if (!assignment)
-              throw new TeamOperationError("Roofing Foreman is not assigned to you.");
+              throw new TeamOperationError("Roofing Supervisor is not assigned to you.");
             const { data: attempts, error } = await db
               .from("team_assessment_attempts")
               .select("id,question_ids,started_at,submitted_at")

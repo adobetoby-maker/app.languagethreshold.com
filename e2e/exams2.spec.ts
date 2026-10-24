@@ -327,11 +327,11 @@ test("module picker shows the three tests, their status and when each opens", as
 
   // Roofing, gutters and siding are offered; roofing has tests, the others say so.
   const picker = page.getByRole("group", { name: "Choose a module" });
-  await expect(picker.getByRole("button", { name: /Roofing Foreman/ })).toHaveAttribute(
+  await expect(picker.getByRole("button", { name: /Roofing Supervisor/ })).toHaveAttribute(
     "aria-pressed",
     "true",
   );
-  await expect(picker.getByRole("button", { name: /Roofing Foreman/ })).toContainText(
+  await expect(picker.getByRole("button", { name: /Roofing Supervisor/ })).toContainText(
     "Tests ready",
   );
   await expect(

@@ -162,7 +162,7 @@ export function ModuleStudyGuide({
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
             {embedded ? "✦ Reader study guide" : "✦ How to begin · First lesson"}
           </p>
-          <h2 className="font-display text-lg italic leading-snug text-foreground">
+          <h2 className="font-display text-lg not-italic leading-snug text-foreground">
             {module.name} <span className="text-muted-foreground">— in {language}</span>
           </h2>
           <p className="mt-1 text-xs leading-relaxed text-foreground/75">{module.blurb}</p>

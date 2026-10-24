@@ -26,6 +26,7 @@ import {
 } from "./foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
+import { MEDICAL_MISSION_LOGISTICS_CURRICULUM } from "./medical-mission-logistics-curriculum.ts";
 import { stageCurriculum } from "./core60-stages.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
@@ -4133,6 +4134,7 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
 
 // Merge extended curricula — import is at bottom to avoid circular init issues
 import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
+CURRICULA["medical-mission-logistics"] = MEDICAL_MISSION_LOGISTICS_CURRICULUM;
 Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 

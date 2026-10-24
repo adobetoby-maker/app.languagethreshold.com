@@ -78,6 +78,34 @@ export function moduleSupportsLearningPair(
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
   {
+    id: "medical-mission-logistics",
+    name: "Medical Mission Logistics",
+    emoji: "📦",
+    category: "Medical",
+    languages: ["Spanish"],
+    blurb:
+      "Coordinate buses, airport pickups, equipment and supply shipments, receiving, and local-team handoffs in Spanish.",
+    priceCents: 1999,
+    aiPersona:
+      "You are a host coordinator, driver, carrier, or hospital receiving colleague helping a nonclinical medical mission logistics volunteer. Practice realistic Spanish requests, clarification, and read-back confirmations. Follow host-team plans and authorized shipping partners; do not invent legal, customs, clinical, or equipment operating requirements. Escalate clinical questions and urgent problems to the responsible local staff.",
+    userRole: "Medical mission logistics coordinator",
+    challengePrompts: [
+      "Confirm a team bus booking with capacity, luggage space, pickup time, and meeting point.",
+      "Track a delayed equipment shipment and update the host receiving coordinator.",
+      "Compare delivered boxes with the packing list and report a missing or damaged item.",
+      "Give the local team a handoff covering transport, supplies, equipment, and unresolved issues.",
+    ],
+    vocabFocus: [
+      "team transport",
+      "buses",
+      "shipping",
+      "equipment",
+      "supplies",
+      "receiving",
+      "local coordination",
+    ],
+  },
+  {
     id: "lds-missionary",
     name: "LDS Missionary",
     emoji: "🕊️",

@@ -87,7 +87,8 @@ export function Exams2Page({
       .then((overview) => setGate({ status: "ready", overview }))
       .catch((cause) => {
         if (controller.signal.aborted) return;
-        if (cause instanceof ExamsApiError && cause.code === "disabled")
+        // Offline or no answer from the API: keep learners on the previous exams page.
+        if (!(cause instanceof ExamsApiError) || cause.code === "disabled")
           setGate({ status: "disabled" });
         else
           setGate({

@@ -32,6 +32,8 @@ export const MAX_PER_END_LESSON = 2;
 export const lessonCap = (lesson: number) =>
   lesson === 1 || lesson === LESSON_COUNT ? MAX_PER_END_LESSON : MAX_PER_LESSON;
 export const MIN_TYPED = 8;
+/** Every phase gets at least this many questions, so each phase result rests on real evidence. */
+export const MIN_PER_PHASE = 6;
 export const TYPED_FROM_STEP = 30;
 export const SWEEP = [2, 8, 14, 20, 26, 5, 11, 17, 23, 29] as const;
 export const GLOBAL_PRIOR = { mu: 0, v: 1.5 } as const;
@@ -60,9 +62,23 @@ export interface LessonEstimate extends Belief {
   seen: number;
   correct: number;
 }
+export interface PhaseEstimate {
+  /** Index into the bank's phases. */
+  index: number;
+  id: string;
+  title: string;
+  lessons: number[];
+  /** Mean of the phase's lesson masteries (chance of a medium item right). */
+  mastery: number;
+  /** Posterior standard deviation of `mastery`. */
+  sd: number;
+  seen: number;
+  correct: number;
+}
 export interface DiagnosticEstimate {
   global: Belief;
   lessons: LessonEstimate[];
+  phases: PhaseEstimate[];
 }
 export type LessonStatus = "strong" | "shaky" | "new";
 export type Confidence = "high" | "medium" | "low";
@@ -97,6 +113,8 @@ export interface DiagnosticPool {
   bank: ExamBank;
   byId: Map<string, BankItem>;
   byLesson: Map<number, BankItem[]>;
+  /** Phase index of each lesson (1-based lesson -> index into bank.phases). */
+  phaseOf: Map<number, number>;
 }
 /** Index the bank's diagnostic pool once; reuse it across calls. */
 export function diagnosticPool(bank: ExamBank): DiagnosticPool {
@@ -110,13 +128,21 @@ export function diagnosticPool(bank: ExamBank): DiagnosticPool {
     byId.set(id, item);
     byLesson.get(item.lesson)?.push(item);
   }
-  return { bank, byId, byLesson };
+  const phaseOf = new Map<number, number>();
+  (Array.isArray(bank.phases) ? bank.phases : []).forEach((phase, index) => {
+    for (const lesson of phase.lessons) phaseOf.set(lesson, index);
+  });
+  if (phaseOf.size !== LESSON_COUNT)
+    throw new Error("The bank's phases must cover all 30 lessons.");
+  return { bank, byId, byLesson, phaseOf };
 }
 
 function responseItem(pool: DiagnosticPool, response: DiagnosticResponse): BankItem {
   const item = pool.byId.get(response.itemId);
   if (!item) throw new Error("Response for an item outside the diagnostic pool.");
   if (!(response.y >= 0 && response.y <= 1)) throw new Error("Response score must be within 0..1.");
+  if (response.dontKnow === true && response.y !== 0)
+    throw new Error('An "I don\'t know" response must score 0.');
   return item;
 }
 
@@ -124,9 +150,11 @@ function responseItem(pool: DiagnosticPool, response: DiagnosticResponse): BankI
  * Lesson prior. Every lesson shares the global level (variance GLOBAL_PRIOR.v, as in the design)
  * plus a lesson effect. Core 30 lessons are sequential and grouped by job phase, so the lesson
  * effect is correlated between neighbouring lessons (AR(1) over lesson order) on top of an
- * independent part. Three prior models are fitted and averaged by their Laplace evidence:
+ * independent part. Four prior models are fitted and averaged by their Laplace evidence:
  *  - "even": small lesson effects; the learner is about equally good across the module.
  *  - "uneven": large lesson effects, moderately correlated with neighbours.
+ *  - "patchy": large lesson effects with no neighbour correlation (knowledge scattered
+ *    lesson by lesson).
  *  - "stretches": large, strongly neighbour-correlated effects; the learner knows long stretches
  *    of the module (the lessons studied so far, or one job phase) and not others.
  * The answers decide which description fits; nothing is assumed about the learner in advance.
@@ -134,6 +162,7 @@ function responseItem(pool: DiagnosticPool, response: DiagnosticResponse): BankI
 export const PRIOR_MODELS = [
   { name: "even", effectVariance: 0.1, correlation: 0.75, nuggetVariance: 0.1 },
   { name: "uneven", effectVariance: 3.0, correlation: 0.75, nuggetVariance: 0.4 },
+  { name: "patchy", effectVariance: 5.0, correlation: 0, nuggetVariance: 0 },
   { name: "stretches", effectVariance: 5.0, correlation: 0.92, nuggetVariance: 0.2 },
 ] as const;
 
@@ -259,6 +288,7 @@ function fitLessons(obs: readonly Observation[], prior: PreparedPrior) {
     return {
       mu: Array.from(theta),
       v: Array.from({ length: n }, (_, i) => posterior[i * n + i]),
+      cov: posterior,
       logEvidence: logLik - 0.5 * quad - 0.5 * prior.logDet - 0.5 * logDetH,
     };
   }
@@ -305,7 +335,34 @@ export function estimate(
       correct: correct[i],
     });
   }
-  return { global, lessons };
+  // Phases: mean lesson mastery, with its uncertainty from the joint posterior (delta method,
+  // using the lesson covariances), mixed over the prior models like the lessons.
+  const phases: PhaseEstimate[] = pool.bank.phases.map((phase, index) => {
+    const idx = phase.lessons.map((lesson) => lesson - 1);
+    let mean = 0;
+    let second = 0;
+    fits.forEach((fit, k) => {
+      const w = weights[k] / totalWeight;
+      const masteries = idx.map((i) => sigmoid(fit.mu[i]));
+      const g = masteries.map((m) => (m * (1 - m)) / idx.length);
+      const m = masteries.reduce((sum, value) => sum + value, 0) / idx.length;
+      let variance = 0;
+      idx.forEach((i, a) => idx.forEach((j, b) => (variance += g[a] * g[b] * fit.cov[i * n + j])));
+      mean += w * m;
+      second += w * (variance + m * m);
+    });
+    return {
+      index,
+      id: phase.id,
+      title: phase.title,
+      lessons: phase.lessons.slice(),
+      mastery: mean,
+      sd: Math.sqrt(Math.max(1e-12, second - mean * mean)),
+      seen: idx.reduce((sum, i) => sum + seen[i], 0),
+      correct: idx.reduce((sum, i) => sum + correct[i], 0),
+    };
+  });
+  return { global, lessons, phases };
 }
 
 /** Chance of getting a medium item right with no guessing. */
@@ -326,6 +383,43 @@ export function classify(belief: Belief): {
         : "shaky";
   const confidence: Confidence = sd < 0.6 ? "high" : sd < 0.9 ? "medium" : "low";
   return { status, confidence, mastery: m };
+}
+
+const normalCdf = (z: number) => {
+  // Abramowitz-Stegun 7.1.26 erf approximation (abs error < 1.5e-7).
+  const x = Math.abs(z) / Math.SQRT2;
+  const t = 1 / (1 + 0.3275911 * x);
+  const erf =
+    1 -
+    ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) *
+      t *
+      Math.exp(-x * x);
+  return z >= 0 ? 0.5 * (1 + erf) : 0.5 * (1 - erf);
+};
+
+/**
+ * Phase call, on the mastery scale: strong when mastery >= .75 and one sd below it is still
+ * >= .55 (the lesson rule's caution), new below .45, otherwise shaky. Confidence is the chance,
+ * under the posterior, that the phase really is in the called band: >= .8 high, >= .6 medium.
+ */
+export function classifyPhase(phase: Pick<PhaseEstimate, "mastery" | "sd">): {
+  status: LessonStatus;
+  confidence: Confidence;
+  probability: number;
+} {
+  const { mastery: m, sd } = phase;
+  const status: LessonStatus =
+    m >= STRONG_MASTERY && m - sd >= STRONG_LOWER ? "strong" : m < NEW_MASTERY ? "new" : "shaky";
+  const below = (x: number) => normalCdf((x - m) / sd);
+  const probability =
+    status === "strong"
+      ? 1 - below(STRONG_MASTERY)
+      : status === "new"
+        ? below(NEW_MASTERY)
+        : below(STRONG_MASTERY) - below(NEW_MASTERY);
+  const confidence: Confidence =
+    probability >= 0.8 ? "high" : probability >= 0.6 ? "medium" : "low";
+  return { status, confidence, probability };
 }
 
 /** Ground-truth class for a known mastery, with the same thresholds (used by simulations). */
@@ -395,11 +489,24 @@ export function nextDiagnosticItem(
     lesson = sweepLesson(seed, step);
     target = est.global.mu;
   } else {
-    const uncovered = est.lessons.filter((l) => l.seen === 0);
+    // Questions still owed: every uncovered lesson, and MIN_PER_PHASE per phase. One question
+    // can pay both. When what is owed fills the remaining steps, only paying picks are allowed.
+    const open = (l: LessonEstimate) => l.seen < lessonCap(l.lesson) && unused(l.lesson).length > 0;
+    const owed = est.phases.map((phase) => {
+      const uncoveredIn = phase.lessons.filter(
+        (lesson) => est.lessons[lesson - 1].seen === 0,
+      ).length;
+      return { uncoveredIn, short: Math.max(0, MIN_PER_PHASE - phase.seen) };
+    });
+    const required = owed.reduce((sum, o) => sum + Math.max(o.uncoveredIn, o.short), 0);
     let candidates =
-      uncovered.length >= remaining
-        ? uncovered
-        : est.lessons.filter((l) => l.seen < lessonCap(l.lesson) && unused(l.lesson).length > 0);
+      required >= remaining
+        ? est.lessons.filter((l) => {
+            if (!open(l)) return false;
+            const o = owed[pool.phaseOf.get(l.lesson)!];
+            return l.seen === 0 || o.short > o.uncoveredIn;
+          })
+        : est.lessons.filter(open);
     if (typedUrgent) {
       const withTyped = candidates.filter((l) =>
         unused(l.lesson).some((item) => item.type === "typed"),
@@ -459,6 +566,9 @@ export function replayDiagnostic(
   seed: string,
   responses: readonly DiagnosticResponse[],
 ): string[] {
+  // Every stored response must be valid on its own (known item, score in range, "I don't know"
+  // scored 0), including the last one, which no later step would re-check.
+  for (const response of responses) responseItem(pool, response);
   const served: string[] = [];
   for (let step = 0; step < responses.length; step++) {
     const next = nextDiagnosticItem(pool, seed, responses.slice(0, step));
@@ -472,20 +582,36 @@ export function replayDiagnostic(
 export interface DiagnosticLessonResult {
   lesson: number;
   title: string;
-  status: LessonStatus;
+  /** Index into `phases` of the phase this lesson belongs to. */
+  phase: number;
+  /** The lesson-level call is shown as "likely": 50 questions leave one to three per lesson. */
+  likely: LessonStatus;
   mastery: number;
   confidence: Confidence;
   seen: number;
   correct: number;
   href: string;
 }
+export interface DiagnosticPhaseResult {
+  id: string;
+  title: string;
+  lessons: number[];
+  status: LessonStatus;
+  mastery: number;
+  confidence: Confidence;
+  seen: number;
+  correct: number;
+}
 export interface DiagnosticResult {
   /** round(mean lesson mastery x 100): "You already know about N% of <Trade> Spanish". */
   overallPct: number;
+  /** The headline result: one strong/shaky/new call per phase, with confidence. */
+  phases: DiagnosticPhaseResult[];
+  /** Lesson detail under each phase, labelled "likely". */
   lessons: DiagnosticLessonResult[];
-  /** First lesson in course order that is not strong; null when every lesson is strong. */
+  /** First lesson in course order that is not likely strong; null when every lesson is. */
   startHere: number | null;
-  /** Shaky lessons in order, then new lessons in order. */
+  /** Likely-shaky lessons in order, then likely-new lessons in order. */
   studyOrder: number[];
   strong: number[];
 }
@@ -496,12 +622,26 @@ export function buildDiagnosticResult(
   link: { target: string; native: string },
 ): DiagnosticResult {
   const est = estimate(pool, responses);
+  const phases = est.phases.map((phase) => {
+    const { status, confidence } = classifyPhase(phase);
+    return {
+      id: phase.id,
+      title: phase.title,
+      lessons: phase.lessons,
+      status,
+      mastery: Math.round(phase.mastery * 1000) / 1000,
+      confidence,
+      seen: phase.seen,
+      correct: phase.correct,
+    };
+  });
   const lessons = est.lessons.map((belief) => {
     const { status, confidence, mastery: m } = classify(belief);
     return {
       lesson: belief.lesson,
       title: lessonTitle(pool.bank, belief.lesson),
-      status,
+      phase: pool.phaseOf.get(belief.lesson)!,
+      likely: status,
       mastery: Math.round(m * 1000) / 1000,
       confidence,
       seen: belief.seen,
@@ -518,11 +658,12 @@ export function buildDiagnosticResult(
   const meanMastery =
     est.lessons.reduce((sum, belief) => sum + mastery(belief), 0) / est.lessons.length;
   const ofStatus = (status: LessonStatus) =>
-    lessons.filter((l) => l.status === status).map((l) => l.lesson);
+    lessons.filter((l) => l.likely === status).map((l) => l.lesson);
   return {
     overallPct: Math.round(meanMastery * 100),
+    phases,
     lessons,
-    startHere: lessons.find((l) => l.status !== "strong")?.lesson ?? null,
+    startHere: lessons.find((l) => l.likely !== "strong")?.lesson ?? null,
     studyOrder: [...ofStatus("shaky"), ...ofStatus("new")],
     strong: ofStatus("strong"),
   };

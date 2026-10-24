@@ -4,6 +4,7 @@ import { AuthProvider } from "@/state/auth-state";
 import { AuthButton } from "@/components/auth/AuthButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ExamsArea } from "@/components/exams/ExamsArea";
+import { Exams2Page } from "@/components/exams2/Exams2Page";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export const Route = createFileRoute("/exams")({
@@ -27,6 +28,8 @@ export const Route = createFileRoute("/exams")({
         ? search.way
         : undefined,
     org: typeof search.org === "string" && uuid.test(search.org) ? search.org : undefined,
+    session:
+      typeof search.session === "string" && uuid.test(search.session) ? search.session : undefined,
     attempt:
       typeof search.attempt === "string" && uuid.test(search.attempt) ? search.attempt : undefined,
     review:
@@ -43,6 +46,24 @@ export const Route = createFileRoute("/exams")({
 });
 function ExamsPage() {
   const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  // The previous exams page. Links that carry its own parameters (a plan, an attempt, a review, a
+  // team) always open it; otherwise it shows only while the v2 switch is off.
+  const legacyExams = Boolean(search.attempt || search.review || search.org || search.fromPlan);
+  const exams = (
+    <ExamsArea
+      moduleId={search.module}
+      initialModuleFilter={search.module}
+      targetLanguage={search.target}
+      instructionLanguage={search.native}
+      orgId={search.org}
+      attemptId={search.attempt}
+      reviewMode={search.review}
+      returnPlanId={search.fromPlan}
+      returnLesson={search.lesson}
+      returnWay={search.way}
+    />
+  );
   return (
     <AuthProvider>
       <div className="min-h-screen bg-background px-4 py-6 text-foreground">
@@ -56,18 +77,23 @@ function ExamsPage() {
           </div>
         </header>
         <main>
-          <ExamsArea
-            moduleId={search.module}
-            initialModuleFilter={search.module}
-            targetLanguage={search.target}
-            instructionLanguage={search.native}
-            orgId={search.org}
-            attemptId={search.attempt}
-            reviewMode={search.review}
-            returnPlanId={search.fromPlan}
-            returnLesson={search.lesson}
-            returnWay={search.way}
-          />
+          {legacyExams ? (
+            exams
+          ) : (
+            <Exams2Page
+              legacy={exams}
+              target={search.target}
+              native={search.native}
+              moduleId={search.module}
+              sessionId={search.session}
+              onModuleChange={(module) =>
+                void navigate({ search: (prev) => ({ ...prev, module, session: undefined }) })
+              }
+              onSessionChange={(session) =>
+                void navigate({ search: (prev) => ({ ...prev, session }) })
+              }
+            />
+          )}
         </main>
       </div>
     </AuthProvider>

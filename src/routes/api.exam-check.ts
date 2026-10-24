@@ -4,12 +4,20 @@
 // the shared request budget.
 import { createFileRoute } from "@tanstack/react-router";
 import { consumeServerRequestBudget } from "@/lib/speaking-security";
-import { authenticatedTeamUser, teamAdminClient, TeamOperationError } from "@/lib/team-server";
+import {
+  authenticatedTeamUser,
+  readPlatformRole,
+  teamAdminClient,
+  TeamOperationError,
+} from "@/lib/team-server";
+import { isPlatformOwnerEmail } from "@/lib/owner-guards-server";
 import {
   examCheckResponse,
   examErrorResponse,
   ExamApiError,
+  examJson,
   examServiceFetch,
+  examsV2Enabled,
   trustedExamClientIp,
 } from "@/lib/exams2/server";
 
@@ -28,7 +36,14 @@ export const Route = createFileRoute("/api/exam-check")({
       POST: async ({ request }) => {
         try {
           const env = process.env;
+          // The kill switch answers before any database client is built, so the exams page can tell
+          // "switched off" (it shows the previous page) from a real outage.
+          if (!examsV2Enabled(env)) {
+            void request.body?.cancel().catch(() => {});
+            return examJson({ error: "Exams aren't available yet.", code: "disabled" }, 404);
+          }
           const db = teamAdminClient(examServiceFetch(request.signal, 8 * 1024 * 1024), request);
+          let signedIn: { id: string; email?: string | null; confirmed: boolean } | null = null;
           return await examCheckResponse(request, {
             db,
             env,
@@ -37,10 +52,23 @@ export const Route = createFileRoute("/api/exam-check")({
               if (!request.headers.get("authorization")) return null;
               try {
                 const user = await authenticatedTeamUser(request, db);
+                signedIn = { id: user.id, email: user.email, confirmed: !!user.email_confirmed_at };
                 return { id: user.id };
               } catch (error) {
                 throw asExamError(error);
               }
+            },
+            // Platform staff (any platform role, or the confirmed owner account) can start any
+            // form to preview it. A failed role lookup counts as "not staff".
+            isStaff: async (userId) => {
+              const who = signedIn as {
+                id: string;
+                email?: string | null;
+                confirmed: boolean;
+              } | null;
+              if (who?.id === userId && who.confirmed && isPlatformOwnerEmail(who.email))
+                return true;
+              return Boolean((await readPlatformRole(db, userId))?.role);
             },
             budget: (namespace, value, limit, windowSeconds) =>
               consumeServerRequestBudget(namespace, value, limit, windowSeconds, request.signal),

@@ -42,7 +42,7 @@ test("selected module opens its card first, with Add cards and a compact deck be
   await expect(
     page.getByRole("heading", { name: "Make your own flashcards", exact: true }),
   ).toBeVisible();
-  await expect(card).toContainText("tap to flip");
+  await expect(page.getByTestId("flashcards-shortcuts")).toContainText("reveal translation");
   await summary.click();
   await deck.locator("summary").click();
   await expect(deck).toHaveAttribute("open", "");
@@ -131,7 +131,9 @@ test("flipping preserves the frame and reveals usage English only on the back", 
   await expect(meaning).toBeHidden();
   await expect(translation).toBeHidden();
   await expect(
-    card.getByText("Tap, Enter or Space to reveal translation", { exact: true }),
+    page
+      .getByTestId("flashcards-shortcuts")
+      .getByText("Tap the card, Enter or Space to reveal translation", { exact: true }),
   ).toBeVisible();
   for (const button of await grades.getByRole("button").all()) await expect(button).toBeDisabled();
   const frame = () =>
@@ -154,7 +156,11 @@ test("flipping preserves the frame and reveals usage English only on the back", 
   await expect(meaning).toBeVisible();
   await expect(translation).toBeVisible();
   await expect(
-    card.getByText("Tap or Enter: flip back · Space: accept (Good) · 1–4: grade", { exact: true }),
+    page
+      .getByTestId("flashcards-shortcuts")
+      .getByText("Tap the card or Enter: flip back · Space: accept (Good) · 1–4: grade", {
+        exact: true,
+      }),
   ).toBeVisible();
   for (const button of await grades.getByRole("button").all()) await expect(button).toBeEnabled();
   expect(await frame()).toEqual(before);

@@ -603,6 +603,7 @@ export function FlashcardsStudio() {
           <button
             data-testid="flashcards-study-card"
             aria-label="Flip flashcard"
+            aria-describedby="flashcards-shortcuts"
             onClick={() => setFlipped((f) => !f)}
             className="grid min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
           >
@@ -611,7 +612,7 @@ export function FlashcardsStudio() {
               className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
             >
               <span className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                {current.partOfSpeech ?? "word"} · tap to flip
+                {current.partOfSpeech ?? "word"}
               </span>
               {language === "Japanese" && showFurigana ? (
                 <span className="font-display text-4xl text-foreground leading-tight">
@@ -685,20 +686,6 @@ export function FlashcardsStudio() {
                 </div>
               )}
             </div>
-            <span className="col-start-1 row-start-2 mt-4 grid text-xs leading-relaxed text-muted-foreground">
-              <span
-                aria-hidden={flipped}
-                className={`col-start-1 row-start-1 ${flipped ? "invisible" : ""}`}
-              >
-                Tap, Enter or Space to reveal translation
-              </span>
-              <span
-                aria-hidden={!flipped}
-                className={`col-start-1 row-start-1 ${flipped ? "" : "invisible"}`}
-              >
-                Tap or Enter: flip back · Space: accept (Good) · 1–4: grade
-              </span>
-            </span>
           </button>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
@@ -733,8 +720,23 @@ export function FlashcardsStudio() {
             </span>
           </div>
 
-          <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground/70">
-            Flip to reveal the answer, then choose a grade below.
+          <div
+            id="flashcards-shortcuts"
+            data-testid="flashcards-shortcuts"
+            className="grid w-full max-w-xl text-center text-xs leading-relaxed text-muted-foreground"
+          >
+            <span
+              aria-hidden={flipped}
+              className={`col-start-1 row-start-1 ${flipped ? "invisible" : ""}`}
+            >
+              Tap the card, Enter or Space to reveal translation
+            </span>
+            <span
+              aria-hidden={!flipped}
+              className={`col-start-1 row-start-1 ${flipped ? "" : "invisible"}`}
+            >
+              Tap the card or Enter: flip back · Space: accept (Good) · 1–4: grade
+            </span>
           </div>
 
           <div data-testid="flashcards-grading" className="grid w-full max-w-xl grid-cols-4 gap-2">

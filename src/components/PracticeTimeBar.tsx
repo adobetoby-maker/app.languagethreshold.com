@@ -1,15 +1,24 @@
 // Built by TAC — 2026-10-22
 import { useEffect, useRef, useSyncExternalStore } from "react";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Switch } from "@/components/ui/switch";
 import {
   setPracticeEnabled,
+  setPracticeGoalLessons,
   setPracticeGoalMinutes,
+  setPracticeGoalType,
   usePracticeBlocked,
+  usePracticeGoal,
   usePracticeSettings,
   usePracticeTimeTicker,
-  useTodayPracticeSeconds,
 } from "@/hooks/use-practice-time";
-import { GOAL_OPTIONS, crossedGoal, practiceProgress } from "@/lib/practice-time";
+import {
+  GOAL_OPTIONS,
+  LESSON_GOAL_OPTIONS,
+  clampGoalType,
+  crossedGoal,
+  type GoalType,
+} from "@/lib/practice-time";
 
 // The same query as the `desktop` variant in styles.css: it decides which app bar is on screen
 // (the phone bottom nav is `desktop:hidden`, the TopNav header is `hidden desktop:block`).
@@ -50,20 +59,25 @@ export function PracticeTimeTicker(): null {
  * bar. Absolute inside a fixed or sticky bar, so it adds no height.
  */
 export function PracticeTimeBar({ edge }: { edge: "nav" | "header" }) {
-  const { enabled, goalMinutes } = usePracticeSettings();
   const blocked = usePracticeBlocked();
   const desktop = useDesktopLayout();
-  const seconds = useTodayPracticeSeconds();
-  const progress = practiceProgress(seconds, goalMinutes);
+  const { settings, progress, count, ready } = usePracticeGoal();
+  const { enabled, goalType } = settings;
   const mine = (edge === "header") === desktop;
   const visible = enabled && !blocked && mine;
 
-  // One short pulse only when a tick carries the learner across the goal during this visit.
+  // One short pulse only when one step (a second, or a lesson) carries the learner across the
+  // goal during this visit. Switching goal type, or data still loading, starts the count over.
   const fill = useRef<HTMLDivElement>(null);
-  const previous = useRef<{ seconds: number; goalSeconds: number } | null>(null);
+  const previous = useRef<{ type: GoalType; seconds: number; goalSeconds: number } | null>(null);
   useEffect(() => {
-    const next = { seconds, goalSeconds: progress.goalSeconds };
-    const pulse = crossedGoal(previous.current, next);
+    if (!ready) {
+      previous.current = null;
+      return;
+    }
+    const before = previous.current?.type === goalType ? previous.current : null;
+    const next = { type: goalType, seconds: count, goalSeconds: progress.goalSeconds };
+    const pulse = crossedGoal(before, next);
     previous.current = next;
     if (!pulse) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
@@ -71,7 +85,7 @@ export function PracticeTimeBar({ edge }: { edge: "nav" | "header" }) {
       duration: 700,
       easing: "ease-out",
     });
-  }, [seconds, progress.goalSeconds]);
+  }, [count, progress.goalSeconds, goalType, ready]);
 
   if (!visible) return null;
   return (
@@ -79,8 +93,9 @@ export function PracticeTimeBar({ edge }: { edge: "nav" | "header" }) {
       role="progressbar"
       aria-label={progress.label}
       aria-valuemin={0}
-      aria-valuemax={progress.goalSeconds}
+      aria-valuemax={progress.valueMax}
       aria-valuenow={progress.valueNow}
+      aria-valuetext={progress.valueText}
       data-testid="practice-time-bar"
       className={`pointer-events-none absolute inset-x-0 h-[3px] overflow-hidden bg-foreground/25 ${
         edge === "nav" ? "-top-px" : "-bottom-px"
@@ -96,11 +111,12 @@ export function PracticeTimeBar({ edge }: { edge: "nav" | "header" }) {
   );
 }
 
-/** The on/off switch, daily goal and today's total. Device-local; sits with the other device preferences. */
+const TYPE_LABELS: Record<GoalType, string> = { minutes: "Minutes", lessons: "Lessons" };
+
+/** The on/off switch, goal type (minutes or lessons), daily goal and today's total. Device-local; sits with the other device preferences. */
 export function PracticeBarSetting() {
-  const { enabled, goalMinutes } = usePracticeSettings();
-  const seconds = useTodayPracticeSeconds();
-  const progress = practiceProgress(seconds, goalMinutes);
+  const { settings, progress } = usePracticeGoal();
+  const { enabled, goalType, goalMinutes, goalLessons } = settings;
   return (
     <div
       role="group"
@@ -121,21 +137,55 @@ export function PracticeBarSetting() {
           aria-labelledby="practice-bar-heading"
         />
       </div>
-      <div className="mt-3 flex items-center justify-between gap-3">
+      <div className="mt-3 space-y-2">
+        <RadioGroupPrimitive.Root
+          value={goalType}
+          onValueChange={(value) => setPracticeGoalType(clampGoalType(value))}
+          aria-label="Daily goal type"
+          orientation="horizontal"
+          data-testid="practice-bar-type"
+          className="grid grid-cols-2 gap-1 rounded-lg border border-border bg-background p-1"
+        >
+          {(Object.keys(TYPE_LABELS) as GoalType[]).map((type) => (
+            <RadioGroupPrimitive.Item
+              key={type}
+              value={type}
+              data-testid={`practice-bar-type-${type}`}
+              className="flex h-10 cursor-pointer items-center justify-center rounded-md text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=checked]:bg-gold data-[state=checked]:text-[#0B0B0F]"
+            >
+              {TYPE_LABELS[type]}
+            </RadioGroupPrimitive.Item>
+          ))}
+        </RadioGroupPrimitive.Root>
         <label className="flex items-center gap-2 whitespace-nowrap text-sm text-foreground">
           <span className="text-muted-foreground">Daily goal</span>
-          <select
-            value={goalMinutes}
-            onChange={(event) => setPracticeGoalMinutes(Number(event.target.value))}
-            data-testid="practice-bar-goal"
-            className="h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {GOAL_OPTIONS.map((minutes) => (
-              <option key={minutes} value={minutes}>
-                {minutes} minutes
-              </option>
-            ))}
-          </select>
+          {goalType === "minutes" ? (
+            <select
+              value={goalMinutes}
+              onChange={(event) => setPracticeGoalMinutes(Number(event.target.value))}
+              data-testid="practice-bar-goal"
+              className="h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {GOAL_OPTIONS.map((minutes) => (
+                <option key={minutes} value={minutes}>
+                  {minutes} minutes
+                </option>
+              ))}
+            </select>
+          ) : (
+            <select
+              value={goalLessons}
+              onChange={(event) => setPracticeGoalLessons(Number(event.target.value))}
+              data-testid="practice-bar-goal-lessons"
+              className="h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {LESSON_GOAL_OPTIONS.map((lessons) => (
+                <option key={lessons} value={lessons}>
+                  {lessons} {lessons === 1 ? "lesson" : "lessons"}
+                </option>
+              ))}
+            </select>
+          )}
         </label>
       </div>
       {enabled && (
@@ -143,7 +193,7 @@ export function PracticeBarSetting() {
           data-testid="practice-bar-today"
           className="mt-2 font-mono text-xs tabular-nums text-foreground/80"
         >
-          Today: {Math.floor(progress.valueNow / 60)} of {goalMinutes} min
+          Today: {progress.status}
         </p>
       )}
     </div>

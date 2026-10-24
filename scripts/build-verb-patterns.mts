@@ -33,6 +33,10 @@ function readJson<T>(file: string): T {
 // that ships change es.json and force a re-sign of the review report each time.
 // The six stage files below were already part of the signed compile before this rule, so they stay
 // in (dropping them changes es.json and voids the sign-off); no other stage file is read.
+// This new course has lesson-level verb practice, but is outside the already signed global
+// Verb Games pool until its additions receive a separate review. Shipping a course must not
+// silently invalidate the signed pool used by every other learner.
+const PENDING_REVIEW_MODULES: ReadonlySet<string> = new Set(["medical-mission-logistics"]);
 const STAGE_PREFIX = /^(foundation|master)-/;
 const SIGNED_STAGE_FILES: ReadonlySet<string> = new Set([
   "foundation-electrician.json",
@@ -51,11 +55,17 @@ export function isExcludedStageFile(fileName: string, moduleId?: string): boolea
 
 export async function readCompileInput(root: string): Promise<CompileInput> {
   const lessonFiles: LessonFile[] = [];
-  for (const name of readdirSync(path.join(root, LESSON_DIR)).filter((n) => n.endsWith(".json")).sort()) {
-    if (isExcludedStageFile(name)) continue;
-    const file = readJson<{ module?: string; lessons?: LessonFile["lessons"] }>(path.join(root, LESSON_DIR, name));
-    if (!file.module || !file.lessons) throw new Error(`${LESSON_DIR}/${name}: missing module or lessons`);
-    if (isExcludedStageFile(name, file.module)) continue;
+  for (const name of readdirSync(path.join(root, LESSON_DIR))
+    .filter((n) => n.endsWith(".json"))
+    .sort()) {
+    if (isExcludedStageFile(name) || PENDING_REVIEW_MODULES.has(name.replace(/\.json$/, "")))
+      continue;
+    const file = readJson<{ module?: string; lessons?: LessonFile["lessons"] }>(
+      path.join(root, LESSON_DIR, name),
+    );
+    if (!file.module || !file.lessons)
+      throw new Error(`${LESSON_DIR}/${name}: missing module or lessons`);
+    if (isExcludedStageFile(name, file.module) || PENDING_REVIEW_MODULES.has(file.module)) continue;
     lessonFiles.push({ module: file.module, lessons: file.lessons });
   }
   const core = KNOWN_VERBS.filter((v) => v.language === "Spanish").map((v) => ({
@@ -92,10 +102,14 @@ async function main(): Promise<void> {
       onDisk = null;
     }
     if (!onDisk || onDisk.data !== json || onDisk.report !== out.reportMarkdown) {
-      console.error("verb patterns are stale: run `node scripts/build-verb-patterns.mts` and commit the result");
+      console.error(
+        "verb patterns are stale: run `node scripts/build-verb-patterns.mts` and commit the result",
+      );
       process.exit(1);
     }
-    console.log(`verb patterns are current (${out.data.verbs.length} verbs, signedOff=${out.data.signedOff})`);
+    console.log(
+      `verb patterns are current (${out.data.verbs.length} verbs, signedOff=${out.data.signedOff})`,
+    );
     return;
   }
 

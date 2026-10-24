@@ -1,29 +1,47 @@
 // Built by TAC — 2026-10-22
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
+import { useApp } from "@/state/app-state";
 import {
+  DEFAULT_GOAL_LESSONS,
   DEFAULT_GOAL_MINUTES,
+  DEFAULT_GOAL_TYPE,
   DEFAULT_PRACTICE_DATA,
   PRACTICE_TIME_KEY,
   applyTick,
+  clampGoalLessons,
   clampGoalMinutes,
+  clampGoalType,
+  goalProgress,
+  lessonsCompletedOn,
+  localDateKey,
   mergeDays,
   pruneDays,
   parsePracticeData,
   secondsToday,
   serializePracticeData,
   shouldSave,
+  type GoalType,
+  type PracticeProgress,
   type PracticeTimeData,
 } from "@/lib/practice-time";
 
 // Device-local store shared by the bar (reads), the ticker (writes seconds) and the settings
-// card (writes enabled / goal). Module-level so all three see one copy of the data.
+// card (writes enabled / goal type / goals). Module-level so all three see one copy of the data.
+// Minutes always keep counting; lessons are not stored here but read from the Core 30 log.
 
 export interface PracticeSettings {
   enabled: boolean;
+  goalType: GoalType;
   goalMinutes: number;
+  goalLessons: number;
 }
 
-const SERVER_SETTINGS: PracticeSettings = { enabled: true, goalMinutes: DEFAULT_GOAL_MINUTES };
+const SERVER_SETTINGS: PracticeSettings = {
+  enabled: true,
+  goalType: DEFAULT_GOAL_TYPE,
+  goalMinutes: DEFAULT_GOAL_MINUTES,
+  goalLessons: DEFAULT_GOAL_LESSONS,
+};
 
 let data: PracticeTimeData = { ...DEFAULT_PRACTICE_DATA, days: {} };
 let loaded = false;
@@ -31,6 +49,7 @@ let dirty = false;
 let lastSaveAt = 0;
 let settings: PracticeSettings = SERVER_SETTINGS;
 let today = 0;
+let dayKey = "";
 // Module scope so a remount (or the ticker pausing for the paywall) earns no free credit.
 let lastInteractionAt: number | null = null;
 let blockers = 0;
@@ -74,8 +93,23 @@ function load(): boolean {
 
 function refreshDerived(now: number): boolean {
   let changed = false;
-  if (settings.enabled !== data.enabled || settings.goalMinutes !== data.goalMinutes) {
-    settings = { enabled: data.enabled, goalMinutes: data.goalMinutes };
+  if (
+    settings.enabled !== data.enabled ||
+    settings.goalType !== data.goalType ||
+    settings.goalMinutes !== data.goalMinutes ||
+    settings.goalLessons !== data.goalLessons
+  ) {
+    settings = {
+      enabled: data.enabled,
+      goalType: data.goalType,
+      goalMinutes: data.goalMinutes,
+      goalLessons: data.goalLessons,
+    };
+    changed = true;
+  }
+  const key = localDateKey(new Date(now));
+  if (key !== dayKey) {
+    dayKey = key;
     changed = true;
   }
   const seconds = secondsToday(data, now);
@@ -151,9 +185,73 @@ export function useTodayPracticeSeconds(): number {
   );
 }
 
-function update(patch: Partial<Pick<PracticeTimeData, "enabled" | "goalMinutes">>) {
+/** The learner's local calendar date, refreshed by the ticker so lessons roll over at midnight. */
+export function useTodayKey(): string {
+  return useSyncExternalStore(
+    subscribe,
+    () => {
+      ensureLoaded();
+      return dayKey;
+    },
+    () => "",
+  );
+}
+
+/**
+ * Distinct lessons mastered on today's local date, from the Core 30 log; null until the app has
+ * loaded its saved state (so a late hydration is never mistaken for a lesson finished just now).
+ */
+export function useLessonsToday(): number | null {
+  const { state } = useApp();
+  const key = useTodayKey();
+  const { hydrated, core30Log } = state;
+  return useMemo(
+    () => (hydrated && key ? lessonsCompletedOn(core30Log, key) : null),
+    [hydrated, core30Log, key],
+  );
+}
+
+export interface PracticeGoalView {
+  settings: PracticeSettings;
+  progress: PracticeProgress;
+  /** Today's count in the chosen unit (seconds or lessons), for the goal-reached pulse. */
+  count: number;
+  /** False until the chosen goal's data has loaded; no pulse is judged before then. */
+  ready: boolean;
+}
+
+/** What the bar and the settings line show: the chosen goal type's progress. */
+export function usePracticeGoal(): PracticeGoalView {
+  const settings = usePracticeSettings();
+  const seconds = useTodayPracticeSeconds();
+  const lessons = useLessonsToday();
+  const progress = goalProgress({
+    goalType: settings.goalType,
+    seconds,
+    goalMinutes: settings.goalMinutes,
+    lessons: lessons ?? 0,
+    goalLessons: settings.goalLessons,
+  });
+  const lessonsGoal = settings.goalType === "lessons";
+  return {
+    settings,
+    progress,
+    count: lessonsGoal ? (lessons ?? 0) : seconds,
+    ready: !lessonsGoal || lessons !== null,
+  };
+}
+
+function update(
+  patch: Partial<Pick<PracticeTimeData, "enabled" | "goalType" | "goalMinutes" | "goalLessons">>,
+) {
   ensureLoaded();
-  data = { ...data, ...patch, goalMinutes: clampGoalMinutes(patch.goalMinutes ?? data.goalMinutes) };
+  data = {
+    ...data,
+    ...patch,
+    goalType: clampGoalType(patch.goalType ?? data.goalType),
+    goalMinutes: clampGoalMinutes(patch.goalMinutes ?? data.goalMinutes),
+    goalLessons: clampGoalLessons(patch.goalLessons ?? data.goalLessons),
+  };
   dirty = true;
   flush(true);
   if (refreshDerived(Date.now())) emit();
@@ -165,6 +263,14 @@ export function setPracticeEnabled(enabled: boolean) {
 
 export function setPracticeGoalMinutes(minutes: number) {
   update({ goalMinutes: minutes });
+}
+
+export function setPracticeGoalType(goalType: GoalType) {
+  update({ goalType });
+}
+
+export function setPracticeGoalLessons(lessons: number) {
+  update({ goalLessons: lessons });
 }
 
 const INTERACTION_EVENTS = ["pointerdown", "keydown", "touchstart"] as const;

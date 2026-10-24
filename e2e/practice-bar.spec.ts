@@ -1,8 +1,9 @@
 // Built by TAC — 2026-10-22
 import { expect, test, type Page } from "@playwright/test";
-import { appUrl, profileKey } from "./app-state.ts";
+import { appUrl, core30Key, profileKey } from "./app-state.ts";
 
 const PRACTICE_KEY = "lt.practice-time.v1";
+const MODULE = "roofing";
 
 /**
  * Opens `tab` past onboarding with an optional practice-time record. An init script seeds it on
@@ -11,13 +12,23 @@ const PRACTICE_KEY = "lt.practice-time.v1";
 async function openTab(
   page: Page,
   tab: string,
-  practice?: { seconds?: number; enabled?: boolean; goalMinutes?: number },
+  practice?: {
+    seconds?: number;
+    enabled?: boolean;
+    goalMinutes?: number;
+    goalType?: "minutes" | "lessons";
+    goalLessons?: number;
+  },
+  /** Extra saved app state (module, Core 30 log) written on the first load of the page. */
+  appData?: Record<string, unknown>,
+  module: string | null = null,
 ): Promise<void> {
   const seconds = practice?.seconds ?? 0;
   await page.addInitScript(
-    ({ profile, practiceKey, tab, practice, seconds }) => {
+    ({ profile, practiceKey, tab, practice, seconds, appData }) => {
       try {
-        if (!localStorage.getItem(profile)) {
+        const first = !sessionStorage.getItem("pb-spec-seeded");
+        if (!localStorage.getItem(profile) || (first && appData)) {
           localStorage.setItem(
             profile,
             JSON.stringify({
@@ -27,6 +38,7 @@ async function openTab(
                 selectedLanguage: "Spanish",
                 currentTab: tab,
                 onboardingComplete: true,
+                ...appData,
               },
             }),
           );
@@ -48,6 +60,9 @@ async function openTab(
                 v: 1,
                 enabled: practice.enabled ?? true,
                 goalMinutes: practice.goalMinutes ?? 10,
+                // Omitted on purpose when unset: that is what data saved before lesson goals looks like.
+                ...(practice.goalType ? { goalType: practice.goalType } : {}),
+                ...(practice.goalLessons ? { goalLessons: practice.goalLessons } : {}),
                 days: seconds > 0 ? { [key]: seconds } : {},
               }),
             );
@@ -57,9 +72,9 @@ async function openTab(
         /* storage blocked */
       }
     },
-    { profile: profileKey(), practiceKey: PRACTICE_KEY, tab, practice, seconds },
+    { profile: profileKey(), practiceKey: PRACTICE_KEY, tab, practice, seconds, appData },
   );
-  await page.goto(appUrl({ tab }));
+  await page.goto(appUrl({ tab, module }));
 }
 
 // The phone settings sheet is modal, so the role tree hides the bar behind it; the test id still finds it.
@@ -233,4 +248,157 @@ test("blocked storage never throws from the practice code", async ({
   page.on("pageerror", (e) => errors.push(e.message));
   await page.waitForTimeout(2500);
   expect(errors.filter((m) => /practice/i.test(m))).toEqual([]);
+});
+
+// ---- lesson goal ----
+
+const pad = (n: number) => String(n).padStart(2, "0");
+const localDay = (offsetDays = 0) => {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+/** A lesson log entry mastered `daysAgo` days ago at noon local time. */
+const masteredLesson = (daysAgo: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  d.setHours(12, 0, 0, 0);
+  return { visits: {}, masteredAt: d.toISOString() };
+};
+
+test("data saved before lesson goals is a minutes goal, and the settings default to Minutes", async ({
+  page,
+  isMobile,
+}) => {
+  // Seeded without goalType/goalLessons: the shape the shipped bar wrote.
+  await openTab(page, "reader", { seconds: 120, goalMinutes: 15 });
+  await expect(barById(page)).toBeVisible({ timeout: 60_000 });
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "900");
+  await openSettings(page, isMobile);
+  await expect(page.getByTestId("practice-bar-type-minutes")).toBeChecked();
+  await expect(page.getByTestId("practice-bar-goal")).toHaveValue("15");
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 15 min");
+});
+
+test("choosing Lessons switches the goal, the status line, the bar labels, and survives reload", async ({
+  page,
+  isMobile,
+}) => {
+  await openTab(page, "reader", { seconds: 120 });
+  await expect(barById(page)).toBeVisible({ timeout: 60_000 });
+  await openSettings(page, isMobile);
+  const minutes = page.getByTestId("practice-bar-type-minutes");
+  const lessons = page.getByTestId("practice-bar-type-lessons");
+  await expect(minutes).toBeChecked();
+  await expect(page.getByRole("radiogroup", { name: "Daily goal type" })).toBeVisible();
+
+  await lessons.click();
+  await expect(lessons).toBeChecked();
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 0 of 1 lesson");
+  await expect(page.getByTestId("practice-bar-goal")).toHaveCount(0);
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "1");
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "0");
+  await expect(barById(page)).toHaveAttribute("aria-label", "Today's practice: 0 of 1 lesson");
+  await expect(barById(page)).toHaveAttribute("aria-valuetext", "0 of 1 lesson today");
+
+  await page.getByTestId("practice-bar-goal-lessons").selectOption("2");
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 0 of 2 lessons");
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "2");
+  await expect(barById(page)).toHaveAttribute("aria-valuetext", "0 of 2 lessons today");
+
+  await page.reload();
+  await expect(barById(page)).toHaveAttribute("aria-label", "Today's practice: 0 of 2 lessons");
+  await openSettings(page, isMobile);
+  await expect(page.getByTestId("practice-bar-type-lessons")).toBeChecked();
+  await expect(page.getByTestId("practice-bar-goal-lessons")).toHaveValue("2");
+
+  // Back to Minutes: the minutes already counted today are still there.
+  await page.getByTestId("practice-bar-type-minutes").click();
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 2 of 10 min");
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "600");
+});
+
+test("the bar fills with lessons mastered today, not yesterday's or unmastered ones", async ({
+  page,
+}) => {
+  const key = core30Key(MODULE);
+  await openTab(
+    page,
+    "reader",
+    { seconds: 500, goalType: "lessons", goalLessons: 2 },
+    {
+      activeModuleId: MODULE,
+      core30Log: {
+        [key]: {
+          startDate: localDay(-3),
+          lessons: {
+            1: masteredLesson(0),
+            2: masteredLesson(1), // yesterday
+            3: { visits: { 0: new Date().toISOString() } }, // opened only
+          },
+        },
+      },
+    },
+    MODULE,
+  );
+  await expect(barById(page)).toBeVisible({ timeout: 60_000 });
+  await expect(barById(page)).toHaveAttribute("aria-valuemax", "2");
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "1");
+  await expect(barById(page)).toHaveAttribute("aria-label", "Today's practice: 1 of 2 lessons");
+  await expect(barById(page)).toHaveAttribute("aria-valuetext", "1 of 2 lessons today");
+  const fill = await page.getByTestId("practice-time-fill").evaluate((el) => {
+    return el.getBoundingClientRect().width / el.parentElement!.getBoundingClientRect().width;
+  });
+  expect(fill).toBeGreaterThan(0.45);
+  expect(fill).toBeLessThan(0.55);
+});
+
+test("a lesson goal ignores the clock: idle minutes do not move the bar", async ({ page }) => {
+  await openTab(page, "reader", { seconds: 100, goalType: "lessons", goalLessons: 1 });
+  await expect(barById(page)).toBeVisible({ timeout: 60_000 });
+  await page.mouse.click(5, 5);
+  await page.waitForTimeout(3500);
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "0");
+});
+
+test("mastering a lesson through the real Core 60 flow fills a 1-lesson goal, and it persists", async ({
+  page,
+  isMobile,
+}) => {
+  await openTab(
+    page,
+    "core30",
+    { goalType: "lessons", goalLessons: 1 },
+    {
+      activeModuleId: MODULE,
+      core30Log: { [core30Key(MODULE)]: { startDate: localDay(), lessons: {} } },
+    },
+    MODULE,
+  );
+  await expect(page.getByTestId("core30-plan-card")).toBeVisible({ timeout: 60_000 });
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "0");
+
+  await page.getByRole("button", { name: /Today: Lesson 1/ }).click();
+  await expect(page.getByText("✕ Exit")).toBeVisible();
+  // Opening the lesson is not completing it.
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "0");
+  await page.getByTestId("core30-mastered-button").click();
+  await expect(page.getByText(/Lesson complete/)).toBeVisible();
+
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "1");
+  await expect(barById(page)).toHaveAttribute("aria-label", "Today's practice: 1 of 1 lesson");
+  // The fill eases in over 400ms, so poll until it settles.
+  await expect
+    .poll(() =>
+      page.getByTestId("practice-time-fill").evaluate((el) => {
+        return el.getBoundingClientRect().width / el.parentElement!.getBoundingClientRect().width;
+      }),
+    )
+    .toBeGreaterThan(0.99);
+
+  await page.reload();
+  await expect(barById(page)).toHaveAttribute("aria-valuenow", "1", { timeout: 60_000 });
+  await openSettings(page, isMobile);
+  await expect(page.getByTestId("practice-bar-type-lessons")).toBeChecked();
+  await expect(page.getByTestId("practice-bar-today")).toHaveText("Today: 1 of 1 lesson");
 });

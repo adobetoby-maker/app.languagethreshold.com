@@ -171,12 +171,12 @@ test("speaking preview covers every authored topic in every speaking language", 
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
-      modules: 60,
-      challenges: 390,
-      lessons: 1780 + master,
+      modules: 61,
+      challenges: 394,
+      lessons: 1810 + master,
       curated: 6,
       core: 153,
-      total: 2323 + 6 + master,
+      total: 2357 + 6 + master,
     }),
     Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
     Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 156, total: 2160 },
@@ -188,6 +188,7 @@ test("speaking preview covers every authored topic in every speaking language", 
       curated: 0,
       core: 153,
       total: 2227,
+
     }),
   };
 
@@ -250,7 +251,9 @@ test("speaking preview covers every authored topic in every speaking language", 
   // 1,220 of these are the travel (240 × 5 languages) and Spanish Sport Fishing (20) lesson-plan expansions;
   // 72 are the Spanish Gutters and Siding Core 30 (2 × (6 challenges + 30 lessons)).
   // Twelve new everyday relationship topics across the five speaking languages.
-  const allMissions = 11030 + 6 + master + generated;
+  // Medical Mission Logistics adds four challenges and 30 lesson plans.
+  const allMissions = 11030 + 34 + 6 + master + generated;
+
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, allMissions);

@@ -306,44 +306,90 @@ T2/T3/T4 and T7/T8 can run in parallel; their write sets don't overlap. T10 owns
 - Test C retakes: unlimited, best score counts, no cooldown. C still never reveals answers. Pass at 80%.
 - Scope order: roofing first, then gutters, siding. Auto-scored item types only (mc, typed, match).
 
-## Implementation notes: T1-T4 (2026-10-23, branch feature/exams-v2-core)
+## Implementation notes: T1-T4 (2026-10-23, branch feature/exams-v2-core, incl. fix round)
 
-**T1 migration.** `supabase/migrations/20261023120000_exams_v2.sql` is byte-for-byte the SQL in section 1, plus a header saying the owner applies it. Nothing was applied anywhere. Two points for the owner's review, left unchanged:
-- `exam_sessions` keeps `lead_email`, `lead_consent_version` and `lead_consented_at`, although v1 builds no email capture.
-- `exam_sessions_one_open` is unique on (user, module, kind) without the language pair, so one learner can't have two open sessions of the same kind in two language pairs.
+**T1 migration** (`supabase/migrations/20261023120000_exams_v2.sql`, still not applied; the owner applies it). Changes from the SQL in section 1, made in the fix round:
+- `exam_banks.approved_sha256`, with the check `(status <> 'approved') or (approved_sha256 = content_sha256)`. An approval therefore names the exact content it approves.
+- `exam_sessions_one_open` now includes `target_language` and `instruction_language`.
+- `lead_email`, `lead_consent_version` and `lead_consented_at` are dropped, since v1 builds no email capture.
+- New checks:
+  - `score`/`total` ≥ 0 and `score ≤ total`
+  - `seed` 1–128 characters
+  - `ip_hash` is a 64-character hex string when set
+  - `served` ≤ 20 KB
+  - `result` is an object ≤ 100 KB
+- The file was checked on a throwaway local Postgres 16 with stub `auth.users` and `team_organizations`, then deleted. All 7 invalid inserts were rejected and all valid ones accepted.
 
-**Bank hash and storage.** `bankSha256()` is SHA-256 over canonical JSON (sorted keys, no whitespace) of the bank without `reviews`. Blind reviews sign that value. The importer stores the bank minus `reviews` in `exam_banks.content`, that hash in `content_sha256`, and the reviews in `review_records`.
+**Bank format.** In the fix round each bank gained `phases: { id, title, lessons[] }[]`.
+- The phases cover lessons 1–30 exactly once, in consecutive ascending groups.
+- There are 3–8 phases of 3–10 lessons each. That allows the real roofing grouping (5/5/10/5/5), and also the six-of-five split used in tests.
 
-**How the validator reads the rules** (`src/lib/exams2/bank.ts`):
-- Rule 2: "correct answer is the longest" means strictly longest after normalizing; ties don't count.
-- Rule 3: the answer-leak check covers both prompt and context. `accents: "require"` is an error unless an accepted answer actually has an accent.
-- Rule 5, A/C difficulty: takes, for each lesson, the difference between A's item difficulty and the mean of C's two, and averages that over lessons. The limit is ≤ 0.15.
-- Rule 5, cueing: an mc correct-option text, or a typed accepted answer, appearing as a phrase in another item's prompt or context within A, B or C. Inside the diagnostic pool it is only a warning.
-- Rule 7: the duplicate key is prompt plus context. Match items also add their pairs, so a shared generic instruction is allowed.
-- Rule 8: every review must be signed against the current hash, by at least 2 distinct reviewers. Any `reject` is an error, and so is a `revise` on the current hash. Editing an item changes the hash, so all reviews must be redone. There is no partial re-review.
-- Rule 1 also rejects fields that belong to another item type. Validator output never echoes text: an id is shown only when it matches the id pattern.
+`bankSha256()` is SHA-256 over canonical JSON of the bank without `reviews`. Blind reviews sign that hash. The importer stores it as `content_sha256`, the bank minus reviews as `content`, and the reviews as `review_records`.
 
-**Public items.** Option ids are opaque per session (`publicOptionId(seed, item, option)`), so an authored id like `a` never reveals the answer. Match right-hand columns are always shuffled, and never left in the authored (answer) order. In match scoring each right-hand entry counts once.
+**How the validator reads the rules:**
+- Rule 2: the "longest correct option" count uses strictly longest options after normalizing.
+- Rule 3: the answer-leak check covers both prompt and context. `accents: "require"` needs an accented answer.
+- Rule 5, A/C difficulty: the per-lesson absolute differences, averaged over lessons, must be ≤ 0.15.
+- Rule 5, cueing: an answer (mc correct text, typed accepted form) counts as cued when it shows anywhere in another item of the same form: prompt, context, mc options or match columns. A match pair counts as cued when its left and right both show together in another item. Inside the diagnostic pool this is only a warning.
+- Rule 6: at least **6** diagnostic items per lesson (fix round; it was 5).
+- Rule 7: the duplicate key is prompt plus context, plus the pairs for match items.
+- Rule 8: all reviews must be signed against the current hash. Reviewer and author names are compared trimmed and case-insensitively, and the same reviewer twice counts once. Any `reject`, or a `revise` on the current hash, is an error.
+- Wrong JSON types anywhere become validation issues. A fuzz test (more than 400 cases) checks that validation never throws.
 
-**Adaptive engine: changes from section 4, all measured in simulation.** The learners come in three kinds: progress through lessons 1..k, even level, and known job phases. Truth is σ(θ) with the same thresholds.
+**Public data.**
+- `publicItem` only ever sends whitelisted fields, and option ids are opaque per session.
+- `publicFixedFormResult` is the only fixed-form result that leaves the server:
+  - Form C: overall percent, pass/fail and the missed lessons.
+  - A and B: the per-lesson table, without item ids or points.
+- Per-item points stay in the server-only `FixedFormResult`.
 
-| | Design as written | Shipped |
-|---|---|---|
-| Lesson model | Independent update per lesson, seeded from G | All 30 lessons fitted jointly. Each lesson shares G plus its own effect, correlated with neighbouring lessons (AR(1)). Three priors ("even", "uneven", "stretches") are averaged by Laplace evidence. G itself stays as designed. |
-| Opening sweep | Fixed SWEEP list | SWEEP shifted -1/0/+1 by seed |
-| Lesson score | (n=0 ? 3 : 1)·sd·exp(…) | (n=0 ? 3 : 1)·exp(…), with no sd factor |
-| Per-lesson cap | 4 | 3, and 2 for lessons 1 and 30 |
-| Lesson pick | Seeded among the top 3 within 10% of best | Seeded among the top 5 within 25% of best |
-| Item pick | Seeded between the 2 closest by \|b−target\| | Seeded among items within 1 logit of the closest (at least 2) |
+**Adaptive engine.** Differences from section 4:
+- Lessons are fitted jointly under four prior models, averaged by Laplace evidence:
+  - "even" (small lesson effects)
+  - "uneven" (large effects, correlation 0.75)
+  - "patchy" (large effects, uncorrelated)
+  - "stretches" (large effects, correlation 0.92)
+- Opening sweep shifted −1/0/+1 by seed.
+- Lesson score without the sd factor.
+- At most 3 items per lesson (2 for lessons 1 and 30).
+- Lesson pick among the top 5 within 25% of the best; item pick among items within 1 logit of the closest.
+- **Phases** (fix round):
+  - Each phase gets at least 6 questions.
+  - Phase mastery is the mean of its lessons' masteries, with uncertainty from the joint posterior covariance.
+  - The call is made on the mastery scale: strong when ≥ .75 and still ≥ .55 one sd below; new when < .45.
+  - Confidence is the posterior chance that the call is right: high at ≥ .8, medium at ≥ .6.
+- The result leads with phases. Lessons are listed under their phase as **"likely"** strong/shaky/new.
+- "I don't know" with a score above 0 is rejected.
 
-- **Design as written:** about 67% agreement and 60% maximum exposure (150 learners, 5-item pool).
-- **Shipped, 6-item pool:**
-  - agreement: 85.5% over 1,500 learners (84.7%, 86.4% and 85.3% per 500), against a target of ≥ 85%
-  - maximum exposure: 41.6% over 1,500 learners (42.4%, 45.2% and 41.0% per 500)
-  - every session covered 30/30 lessons, used at most 3 items per lesson and at least 11 typed items
-- **Shipped, 5-item pool (the design's 150):** about 85.7% agreement but 50.7% maximum exposure.
+**Simulation results.**
 
-Conclusions:
-- The ≥ 85% target is close to the limit of 50 questions over 30 lessons with the conservative "strong" rule. Seven independent populations of 500 scored between 84.7% and 86.4%.
-- Picking the most probable class (MAP) instead of "m ≥ .75 and σ(μ−sd) ≥ .55" would add about 2 points. I left the design's rule in place because it only calls a lesson strong when it is confident.
-- For T5: draft 6 diagnostic items per lesson (180) to keep exposure under 45%.
+> **Caveat:** all agreement figures below come from simulated learners scored against their own simulated truth, with the engine's thresholds. They describe the engine on these learner models only. Real agreement depends on how real learners' knowledge is structured, and those patterns have not been measured yet. There is **no single headline accuracy number**, and marketing copy must not claim one.
+
+The figures come from 400 learners per kind for the contiguous kinds and 250 per kind for the scattered kinds, on the synthetic bank with a 6-item pool and 6 phases of 5. Truth for a phase is the mean of its true lesson masteries.
+
+| Learner kind | Lesson-level agreement | Phase-level agreement | Right when the phase call is high confidence | … medium | … low |
+|---|---|---|---|---|---|
+| progress (studied 1..k) | 90.5% | 92.5% | 99.4% | 75.1% | 51.0% |
+| even (same level everywhere) | 83.6% | 87.6% | 97.7% | 73.4% | 50.5% |
+| phase (knows some job phases) | 82.1% | 84.9% | 99.9% | 62.5% | 40.5% |
+| independent (each lesson a coin flip) | 50.6% | 74.5% | 96.5% | 76.4% | 60.1% |
+| random-half (15 random lessons known) | 47.7% | 72.7% | 95.8% | 76.3% | 59.6% |
+| mid-level (partly learned everywhere) | 74.4% | 85.3% | 94.5% | 82.1% | 58.1% |
+
+What the table shows:
+- **Lesson-level calls are reliable only when knowledge is contiguous.** For scattered knowledge they are near chance. Fifty questions over 30 lessons leave 1–3 answers per lesson. This is why the result labels lessons "likely" and leads with phases.
+- **Phase-level calls hold up better** across every kind: 72–93%.
+- **Phase confidence is calibrated.** Across the scattered kinds, high-confidence phase calls were right 95.1% of the time, and confidence is reported beside each phase.
+- **Exposure and quotas:**
+  - Maximum item exposure: 40.8% (contiguous sessions), 37.9% (scattered sessions).
+  - Every session covered 30/30 lessons, gave each phase at least 6 questions and used at least 10 typed items.
+- **Test floors are regression guards set from these measurements, not targets or claims.**
+  - Pooled lesson-level and phase-level agreement ≥ 85% (contiguous kinds).
+  - Phase-level ≥ 68% for each scattered kind.
+  - High-confidence phase calls ≥ 90% right.
+- The design's literal model reached about 67% lesson-level agreement on the contiguous kinds.
+
+**For T5 (authoring):**
+- Author 6 diagnostic items per lesson (180 in the pool).
+- Choose the phases with the owner. Roofing's job phases are 5/5/10/5/5; splitting install gives six groups of five.
+- Get each lesson's `sourceHash` from `node scripts/exams2-drift.mts --print-hashes roofing`.

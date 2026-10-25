@@ -517,6 +517,47 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     await tick();
     assert.equal(c.writes, afterAcknowledgement);
     unmount();
+
+    // Signing in must retain the chosen public mission, without carrying private work
+    // or automatically starting a conversation for the newly authenticated actor.
+    c.slots = []; c.effects = []; c.actor = null; c.session = null;
+    c.waitRead = false; c.confirmed = true;
+    props.embeddedMissionPrefix = undefined;
+    window.requestAnimationFrame = () => 1; window.cancelAnimationFrame = () => {};
+    window.location = { href: "https://app.example/?tab=speak&module=construction-foreman&target=Spanish&native=English" };
+    window.history = { state: null, replaceState(_state, _title, path) {
+      window.location.href = new URL(path, window.location.href).href;
+    }};
+    tree = await ready();
+    const missionCard = nodes(tree).find(n => n.props?.["data-testid"] === "speaking-mission-card" && text(n).includes("Pre-shift safety briefing"));
+    assert.ok(missionCard);
+    missionCard.props.onClick();
+    tree = await ready();
+    button(tree, "Sign in to start mission").props.onClick();
+    tree = render();
+    assert.equal(nodes(tree).find(n => n.type === "auth").props.open, true);
+    const returnUrl = window.location.href;
+    assert.equal(new URL(returnUrl).searchParams.get("mission"), "scenario_version_construction_safety_briefing_es_v1");
+    const requestsBeforeSignIn = requests.length, audioBeforeSignIn = c.audio.length;
+    c.actor = "signed-in-learner";
+    tree = await ready();
+    assert.match(text(tree), /Pre-shift safety briefing/);
+    assert.ok(button(tree, "Start mission"), "email sign-in returns to the same setup");
+    assert.equal(nodes(tree).find(n => n.type === "auth").props.open, false);
+    assert.equal(requests.length, requestsBeforeSignIn, "sign-in does not auto-send a turn");
+    assert.equal(c.audio.length, audioBeforeSignIn, "sign-in does not auto-start recording or playback");
+
+    // A fresh component after an OAuth redirect restores that same explicit mission.
+    unmount(); c.slots = []; c.effects = [];
+    window.location.href = returnUrl;
+    tree = await ready();
+    assert.match(text(tree), /Pre-shift safety briefing/);
+    assert.ok(button(tree, "Start mission"));
+    button(tree, "All missions").props.onClick();
+    tree = await ready();
+    assert.equal(new URL(window.location.href).searchParams.has("mission"), false);
+    assert.equal(button(tree, "Start mission"), undefined, "leaving does not reopen the mission");
+    unmount();
   } finally {
     for (const [k, d] of Object.entries(old)) {
       if (d) Object.defineProperty(globalThis, k, d);

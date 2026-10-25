@@ -1,4 +1,9 @@
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
+import {
+  clearSpeakingAuthMission,
+  rememberSpeakingAuthMission,
+  speakingAuthMission,
+} from "@/lib/speaking-auth-return";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useStageCurriculaVersion } from "@/hooks/use-stage-curriculum";
 import { loadStageCurriculum, stageModulesOfBase } from "@/data/core60-stages";
@@ -734,6 +739,7 @@ export function SpeakingMissionsPreview({
 
   const startMissionSession = () => {
     if (!capture().isCurrent() || !selectedMission || !partnerAudioReady) return;
+    clearSpeakingAuthMission();
     stopActiveWork();
     sessionOwnerRef.current = lifecycleKey;
     practiceRecordedRef.current = false;
@@ -886,6 +892,12 @@ export function SpeakingMissionsPreview({
     if (!capture().isCurrent()) return;
     if (!selectedMission || !partnerAudioReady || ageSaving) return;
     if (!session) {
+      if (!embeddedMissionPrefix)
+        rememberSpeakingAuthMission(selectedMission.id, {
+          moduleId: appState.activeModuleId,
+          target: appState.selectedLanguage,
+          native: appState.nativeLanguage,
+        });
       setAuthOpen(true);
       return;
     }
@@ -903,6 +915,7 @@ export function SpeakingMissionsPreview({
 
   const exitMission = () => {
     if (!capture().isCurrent()) return;
+    clearSpeakingAuthMission();
     stopActiveWork();
     sessionOwnerRef.current = null;
     setWordRequest(null);
@@ -920,6 +933,32 @@ export function SpeakingMissionsPreview({
     sessionStartedAtRef.current = null;
     practiceRecordedRef.current = false;
   };
+
+  // A sign-in resets all private work. Reopen only the explicitly requested public setup.
+  useEffect(() => {
+    if (embeddedMissionPrefix) return;
+    let id: string | null = null;
+    try {
+      id = speakingAuthMission(window.location.href, {
+        moduleId: appState.activeModuleId,
+        target: appState.selectedLanguage,
+        native: appState.nativeLanguage,
+      });
+    } catch {
+      return;
+    }
+    const mission = languageMissions.find((item) => item.id === id);
+    if (!mission) return;
+    setSelectedMission(mission);
+    if (actor !== null) setAuthOpen(false);
+  }, [
+    actor,
+    appState.activeModuleId,
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+    languageMissions,
+    embeddedMissionPrefix,
+  ]);
 
   const selectMission = (mission: SpeakingMission) => {
     if (!capture().isCurrent()) return;
@@ -2288,126 +2327,11 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
-      <MicrophoneTestDialog
-        key={lifecycleKey}
-        disabled={status === "listening" || status === "thinking" || partnerSpeaking}
-      />
-
-      <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
-        <div className="flex items-center gap-2 text-gold">
-          <Lightbulb className="h-4 w-4" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
-        </div>
-        <p className="mt-2 text-sm leading-relaxed text-foreground">
-          {latestFeedback ?? "Your first coaching note will appear here after you answer."}
-        </p>
-      </div>
-
-      {lastResponseTiming && (
-        <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-          Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
-          {lastResponseTiming.voiceStartedMs !== undefined
-            ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
-            : ""}
-        </p>
-      )}
-
-      {transcriptSource === "dictation" && typedTurn.trim() && (
-        <div
-          role="status"
-          className="mt-4 rounded-2xl border border-emerald-400/35 bg-emerald-400/10 p-3"
-        >
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-            Review what your phone heard
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-foreground">
-            Edit the transcript below if needed, then tap Send. It will not be submitted until you
-            approve it.
-          </p>
-          <button
-            type="button"
-            onClick={startListening}
-            disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-            className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
-          >
-            Retry microphone
-          </button>
-        </div>
-      )}
-
-      {started &&
-        session &&
-        ageConfirmed &&
-        ageStatusActor === session.user.id &&
-        !ageUnknown &&
-        sessionOwnerRef.current === lifecycleKey && (
-          <WatchTalkControl
-            key={`${lifecycleKey}:${missionLocale}`}
-            locale={missionLocale ?? selectedMission.locale}
-            title={selectedMission.title}
-            ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
-            onTurn={(text) => {
-              const lease = capture();
-              if (
-                !lease.isCurrent() ||
-                sessionOwnerRef.current !== lifecycleKey ||
-                status !== "ready" ||
-                partnerSpeaking ||
-                typedTurn.trim()
-              )
-                return;
-              if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
-              else {
-                setTypedTurn(text);
-                setTranscriptSource("dictation");
-              }
-            }}
-          />
-        )}
-
-      <form
-        className="mt-4 flex gap-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          const text = typedTurn.trim();
-          if (!text || status === "thinking" || partnerSpeaking) return;
-          gated(() => void sendLearnerTurn(text));
-        }}
+      <div
+        role="group"
+        aria-label="Conversation microphone"
+        className="mt-3 flex flex-col items-center gap-2 text-center"
       >
-        <label className="sr-only" htmlFor="mission-typed-turn">
-          Type your answer in {selectedMission.language}
-        </label>
-        <input
-          id="mission-typed-turn"
-          value={typedTurn}
-          onChange={(event) => {
-            setTypedTurn(event.target.value);
-            setTranscriptSource("typed");
-          }}
-          disabled={status === "thinking" || status === "listening"}
-          maxLength={2000}
-          placeholder={`Type an answer in ${selectedMission.language}…`}
-          className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
-        />
-        <button
-          type="submit"
-          disabled={
-            !typedTurn.trim() || status === "thinking" || status === "listening" || partnerSpeaking
-          }
-          aria-label="Send typed answer"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
-        >
-          <Send className="h-4 w-4" />
-        </button>
-      </form>
-      <p className="mt-1 text-center text-xs text-muted-foreground">
-        {spokenTurnFlow === "quick"
-          ? "Quick response sends when your phone detects that you finished speaking."
-          : "Review mode waits for you to approve the transcript."}{" "}
-        You can also use the iPhone keyboard microphone in this answer box.
-      </p>
-
-      <div className="mt-5 flex flex-col items-center gap-3">
         {partnerSpeaking && (
           <button
             type="button"
@@ -2419,7 +2343,7 @@ export function SpeakingMissionsPreview({
         )}
         {recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
-            Speech recognition is unavailable in this browser. Use the typed answer field above.
+            Speech recognition is unavailable in this browser. Use the typed answer field below.
           </p>
         ) : status === "error" ? (
           <button
@@ -2479,6 +2403,125 @@ export function SpeakingMissionsPreview({
           </button>
         )}
       </div>
+
+      {transcriptSource === "dictation" && typedTurn.trim() && (
+        <div
+          role="status"
+          className="mt-4 rounded-2xl border border-emerald-400/35 bg-emerald-400/10 p-3"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
+            Review what your phone heard
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground">
+            Edit the transcript below if needed, then tap Send. It will not be submitted until you
+            approve it.
+          </p>
+          <button
+            type="button"
+            onClick={startListening}
+            disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+            className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+          >
+            Retry microphone
+          </button>
+        </div>
+      )}
+
+      <form
+        className="mt-4 flex gap-2"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const text = typedTurn.trim();
+          if (!text || status === "thinking" || partnerSpeaking) return;
+          gated(() => void sendLearnerTurn(text));
+        }}
+      >
+        <label className="sr-only" htmlFor="mission-typed-turn">
+          Type your answer in {selectedMission.language}
+        </label>
+        <input
+          id="mission-typed-turn"
+          value={typedTurn}
+          onChange={(event) => {
+            setTypedTurn(event.target.value);
+            setTranscriptSource("typed");
+          }}
+          disabled={status === "thinking" || status === "listening"}
+          maxLength={2000}
+          placeholder={`Type an answer in ${selectedMission.language}…`}
+          className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
+        />
+        <button
+          type="submit"
+          disabled={
+            !typedTurn.trim() || status === "thinking" || status === "listening" || partnerSpeaking
+          }
+          aria-label="Send typed answer"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+        >
+          <Send className="h-4 w-4" />
+        </button>
+      </form>
+      <p className="mt-1 text-center text-xs text-muted-foreground">
+        {spokenTurnFlow === "quick"
+          ? "Quick response sends when your phone detects that you finished speaking."
+          : "Review mode waits for you to approve the transcript."}{" "}
+        You can also use the iPhone keyboard microphone in this answer box.
+      </p>
+
+      {started &&
+        session &&
+        ageConfirmed &&
+        ageStatusActor === session.user.id &&
+        !ageUnknown &&
+        sessionOwnerRef.current === lifecycleKey && (
+          <WatchTalkControl
+            key={`${lifecycleKey}:${missionLocale}`}
+            locale={missionLocale ?? selectedMission.locale}
+            title={selectedMission.title}
+            ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
+            onTurn={(text) => {
+              const lease = capture();
+              if (
+                !lease.isCurrent() ||
+                sessionOwnerRef.current !== lifecycleKey ||
+                status !== "ready" ||
+                partnerSpeaking ||
+                typedTurn.trim()
+              )
+                return;
+              if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
+              else {
+                setTypedTurn(text);
+                setTranscriptSource("dictation");
+              }
+            }}
+          />
+        )}
+
+      <MicrophoneTestDialog
+        key={lifecycleKey}
+        disabled={status === "listening" || status === "thinking" || partnerSpeaking}
+      />
+
+      <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
+        <div className="flex items-center gap-2 text-gold">
+          <Lightbulb className="h-4 w-4" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">
+          {latestFeedback ?? "Your first coaching note will appear here after you answer."}
+        </p>
+      </div>
+
+      {lastResponseTiming && (
+        <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+          Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
+          {lastResponseTiming.voiceStartedMs !== undefined
+            ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
+            : ""}
+        </p>
+      )}
 
       {wordRequest && (
         <WordCard

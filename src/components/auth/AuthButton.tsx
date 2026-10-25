@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { LogIn, LogOut, User as UserIcon, Users, Settings } from "lucide-react";
+import { LogIn, LogOut, User as UserIcon, Users, Settings, Shield } from "lucide-react";
+import { useOwnerResource } from "@/components/owner/use-owner-resource";
 import { useAuth } from "@/state/auth-state";
 import { useSubscription } from "@/state/subscription-state";
 import { useNavigate } from "@tanstack/react-router";
@@ -20,6 +21,8 @@ export function AuthButton() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [recoveryOpen, setRecoveryOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const ownerAccess = useOwnerResource<{ owner: boolean }>("/api/platform?view=access", menuOpen);
 
   if (loading) {
     return <div className="h-10 w-10 rounded-full border border-border/70 bg-card/60" />;
@@ -48,7 +51,7 @@ export function AuthButton() {
           modal menu captures the sheet's body pointer lock as its restore value;
           identity changes can unmount both layers in the same commit. Let the
           sheet own modality so menu teardown cannot restore a stale body lock. */}
-      <DropdownMenu modal={false}>
+      <DropdownMenu modal={false} onOpenChange={setMenuOpen}>
         <DropdownMenuTrigger
           title={user.email ?? "Account"}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-display text-sm font-semibold text-gold hover:bg-gold/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -74,6 +77,15 @@ export function AuthButton() {
             <Settings className="mr-2 h-3.5 w-3.5" />
             Account & Settings
           </DropdownMenuItem>
+          {ownerAccess.data?.owner === true && (
+            <DropdownMenuItem
+              onSelect={() => navigate({ to: "/owner" })}
+              className="font-mono text-xs uppercase tracking-[0.16em]"
+            >
+              <Shield className="mr-2 h-3.5 w-3.5" />
+              Owner dashboard
+            </DropdownMenuItem>
+          )}
           <DropdownMenuItem
             onSelect={() => navigate({ to: "/team" })}
             className="font-mono text-xs uppercase tracking-[0.16em]"

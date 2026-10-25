@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import { ownedTeamRequest, type TeamRequestOwner } from "@/lib/team-client";
-import { documentWordParts, isDocumentWord, type DocumentWordCard } from "@/lib/document-words";
+import {
+  documentWordParts,
+  isDocumentWord,
+  documentWordKey,
+  type DocumentWordCard,
+  type InitialDocumentDefinition,
+} from "@/lib/document-words";
 
 export function DocumentWordText({
   text,
@@ -8,12 +14,14 @@ export function DocumentWordText({
   passage,
   side,
   owner,
+  definitions,
 }: {
   text: string;
   documentId: string;
   passage: number;
   side: "en" | "target";
   owner: TeamRequestOwner;
+  definitions?: InitialDocumentDefinition[];
 }) {
   const [result, setResult] = useState<{
     word: string;
@@ -24,6 +32,13 @@ export function DocumentWordText({
   const sequence = useRef(0);
   async function lookup(word: string) {
     const current = ++sequence.current;
+    const initial = definitions?.find(
+      (entry) => entry.side === side && entry.word === documentWordKey(word),
+    );
+    if (initial) {
+      setResult({ word, card: initial.card });
+      return;
+    }
     setResult({ word, loading: true });
     try {
       const response = await ownedTeamRequest<{ card: DocumentWordCard }>(owner, "/api/documents", {
@@ -92,8 +107,8 @@ export function DocumentWordText({
           {result.card && (
             <>
               <p>{result.card.meaning}</p>
-              <p>{result.card.grammar}</p>
-              <p>{result.card.context}</p>
+              {result.card.grammar && <p>{result.card.grammar}</p>}
+              {result.card.context && <p>{result.card.context}</p>}
               <small>
                 Saved privately with this document. Reopening uses no translation characters.
               </small>

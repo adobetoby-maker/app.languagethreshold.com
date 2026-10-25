@@ -47,7 +47,7 @@ async function fixture() {
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
             contents: `
- export const c={rows:[],calls:0,denial:null,fail:false,missing:false,saveFail:false};
+ export const c={initialDefs:[],rows:[],calls:0,denial:null,fail:false,missing:false,saveFail:false};
  export class TeamOperationError extends Error{constructor(message,status=400){super(message);this.status=status}}
  export const json=(v,status=200)=>new Response(JSON.stringify(v),{status});
  export const checkLearningGenerationBudget=async()=>c.denial;
@@ -55,7 +55,7 @@ async function fixture() {
  export const db={from(table){let filters=[],op='read',value;
  const q={select(){return q},eq(k,v){filters.push(r=>r[k]===v);return q},is(k,v){filters.push(r=>(r[k]??null)===v);return q},lte(k,v){filters.push(r=>r[k]<=v);return q},
  insert(v){op='insert';value=v;return q},update(v){op='update';value=v;return q},delete(){op='delete';return q},
- maybeSingle:async()=>table==='study_documents'?{data:c.missing||!filters.every(f=>f({id:'doc',user_id:'owner',state:'ready'}))?null:{sentences:[{en:'Do not use damaged equipment.',target:'No use equipo dañado.'}],source_language:'English',target_language:'Spanish'},error:null}:{data:c.rows.find(r=>filters.every(f=>f(r)))??null,error:null},
+ maybeSingle:async()=>table==='study_documents'?{data:c.missing||!filters.every(f=>f({id:'doc',user_id:'owner',state:'ready'}))?null:{sentences:[{en:'Do not use damaged equipment.',target:'No use equipo dañado.',definitions:c.initialDefs}],source_language:'English',target_language:'Spanish'},error:null}:{data:c.rows.find(r=>filters.every(f=>f(r)))??null,error:null},
  then(resolve){let matches=c.rows.filter(r=>filters.every(f=>f(r)));let result={data:matches,error:null};
  if(op==='insert'){if(c.rows.some(r=>r.document_id===value.document_id&&r.passage_index===value.passage_index&&r.side===value.side&&r.word===value.word))result={data:null,error:{code:'23505'}};else{c.rows.push({...value,card:null});result.data=[value]}}
  if(op==='update'){if(c.saveFail&&value.card)result={data:null,error:{message:'DB down'}};else{matches.forEach(r=>Object.assign(r,value));result.data=matches}}
@@ -154,6 +154,29 @@ test("expired claims recover and failed storage never reports a saved definition
     f.c.saveFail = false;
     await f.lookupDocumentWord(f.db, "owner", request, data);
     assert.equal(f.c.rows.length, 1);
+  } finally {
+    rmSync(f.dir, { recursive: true, force: true });
+  }
+});
+
+test("initial document definitions return without any lookup provider call or budget check", async () => {
+  const f = await fixture();
+  try {
+    f.c.initialDefs = [
+      {
+        side: "target",
+        word: "equipo",
+        card: { headword: "equipo", meaning: "Equipment.", grammar: "", context: "" },
+      },
+    ];
+    f.c.fail = true;
+    f.c.denial = { error: "Budget reached", status: 429 };
+    const result = await (await f.lookupDocumentWord(f.db, "owner", request, data)).json();
+    assert.equal(result.cached, true);
+    assert.equal(result.card.meaning, "Equipment.");
+    assert.equal(f.c.calls, 0);
+    assert.equal(f.c.rows.length, 0);
+    await assert.rejects(f.lookupDocumentWord(f.db, "other", request, data), /not found/);
   } finally {
     rmSync(f.dir, { recursive: true, force: true });
   }

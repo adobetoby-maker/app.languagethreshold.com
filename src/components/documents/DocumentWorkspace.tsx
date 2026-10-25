@@ -394,8 +394,9 @@ export function DocumentWorkspace() {
                   </button>
                 </div>
                 <p className="document-muted">
-                  Tap a word for its meaning in context. Definitions save privately to your account
-                  and do not use translation characters. Notes save on this device.
+                  New translations include a saved starter glossary. Tap a word for its meaning in
+                  context. Definitions save privately to your account and do not use translation
+                  characters. Notes save on this device.
                 </p>
                 <div className="document-columns">
                   <strong>Original</strong>
@@ -410,6 +411,7 @@ export function DocumentWorkspace() {
                         documentId={active.id}
                         passage={index}
                         side="en"
+                        definitions={pair.definitions}
                         owner={owner}
                       />
                       <DocumentWordText
@@ -418,6 +420,7 @@ export function DocumentWorkspace() {
                         documentId={active.id}
                         passage={index}
                         side="target"
+                        definitions={pair.definitions}
                         owner={owner}
                       />
                     </div>

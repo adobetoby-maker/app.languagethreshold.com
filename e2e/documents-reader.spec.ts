@@ -41,7 +41,24 @@ test("private document words open, close, retry and reopen after reload", async 
               title: "Practice safety sheet",
               source_language: "English",
               target_language: "Spanish",
-              sentences: [{ en: "Do not use damaged equipment.", target: "No use equipo dañado." }],
+              sentences: [
+                {
+                  en: "Do not use damaged equipment.",
+                  target: "No use equipo dañado.",
+                  definitions: [
+                    {
+                      side: "target",
+                      word: "dañado",
+                      card: {
+                        headword: "dañado",
+                        meaning: "Damaged; not in good condition.",
+                        grammar: "",
+                        context: "",
+                      },
+                    },
+                  ],
+                },
+              ],
               created_at: "2026-10-25T00:00:00Z",
             },
           ],
@@ -80,12 +97,20 @@ test("private document words open, close, retry and reopen after reload", async 
   });
   await page.goto("/documents", { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: /Practice safety sheet/ }).click();
+  await page.getByRole("button", { name: "Define dañado", exact: true }).click();
+  await expect(page.getByText("Damaged; not in good condition.")).toBeVisible();
+  expect(calls).toBe(0);
+  await page.getByRole("button", { name: "Close definition" }).click();
   await page.getByRole("button", { name: "Define equipo", exact: true }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toBeVisible();
   await page.getByRole("button", { name: "Close definition" }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toHaveCount(0);
   await page.reload();
   await page.getByRole("button", { name: /Practice safety sheet/ }).click();
+  await page.getByRole("button", { name: "Define dañado", exact: true }).click();
+  await expect(page.getByText("Damaged; not in good condition.")).toBeVisible();
+  expect(calls).toBe(1);
+  await page.getByRole("button", { name: "Close definition" }).click();
   await page.getByRole("button", { name: "Define equipo", exact: true }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toBeVisible();
   await expect(page.getByText("49,863", { exact: false })).toBeVisible();

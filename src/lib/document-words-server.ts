@@ -3,7 +3,12 @@ import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { TeamOperationError, json, type teamAdminClient } from "./team-server";
 import { checkLearningGenerationBudget } from "./learning-generation-security";
-import { documentWordParts, documentWordKey, isDocumentWord } from "./document-words";
+import {
+  documentWordParts,
+  documentWordKey,
+  isDocumentWord,
+  initialDocumentDefinition,
+} from "./document-words";
 
 const cardSchema = z.object({
   headword: z.string().min(1).max(200),
@@ -35,6 +40,8 @@ export async function lookupDocumentWord(
     )
   )
     throw new TeamOperationError("Choose a word in this document.");
+  const initial = initialDocumentDefinition(doc.data.sentences[data.passage], data.side, word);
+  if (initial) return json({ card: cardSchema.parse(initial), cached: true });
   const query = () =>
     db
       .from("document_word_cards")

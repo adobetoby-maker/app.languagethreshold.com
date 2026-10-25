@@ -1,6 +1,10 @@
 # Saved document word definitions
 
-On `/documents`, tap a word in either language to see its headword, meaning, grammar and meaning in the original sentence. New definitions use Haiku 5.5. They do not spend the character balance used to translate a full document; existing server lookup request limits apply.
+New document translations return a starter glossary of up to 60 useful terms in the same model request. The glossary saves inside the document’s aligned passage JSON, in the same `document_finish` transaction as the translation; no second write can leave a document partially saved. The app opens these definitions directly from the loaded document, including after a reload or on another device. The authenticated lookup endpoint also checks this glossary before the dictionary cache, budget check or provider call.
+
+Only entries whose words occur in the stated passage and language side are accepted. Definitions stay contextual to each passage; nonexistent words, invalid passage indices, malformed entries and duplicate word/side/passage entries are discarded. Old documents and words outside the starter glossary retain the existing first-tap lookup flow. No automatic backfill or extra deduction from translation characters is performed.
+
+On `/documents`, tap a word in either language to see its headword, meaning, grammar and meaning in the original sentence. The starter glossary uses the selected document model: Haiku 5.5 for everyday documents or Sonnet 5.5 for complex wording. First-tap definitions outside that glossary use Haiku 5.5. They do not spend the character balance used to translate a full document; existing server lookup request limits apply.
 
 Definitions are stored server-side in `document_word_cards`, privately scoped to the account, document, passage, language side and normalized word. The authenticated route checks document ownership and that the selected word actually occurs in that passage before reading or creating a definition. These entries are never placed in the public lesson cache.
 

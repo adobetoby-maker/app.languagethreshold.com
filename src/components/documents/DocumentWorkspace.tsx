@@ -1,3 +1,4 @@
+import { DocumentWordText } from "./DocumentWordText";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { BookOpen, Plus, Upload, ArrowRight, Printer, FileText, Loader2 } from "lucide-react";
 import { useNotes } from "@/state/notes-state";
@@ -18,22 +19,30 @@ export function DocumentWorkspace() {
   const [authOpen, setAuthOpen] = useState(false);
   const [buying, setBuying] = useState(false);
   const userId = user?.id ?? "";
+  const [requestEpoch, setRequestEpoch] = useState(0);
   const translationRequest = useRef<{ fingerprint: string; id: string } | null>(null);
   const owner = useMemo(() => {
     const controller = new AbortController();
     return {
+      epoch: requestEpoch,
       userId,
-      isCurrent: () => !!userId && isCurrentUser(userId),
+      isCurrent: () => !!userId && !controller.signal.aborted && isCurrentUser(userId),
       signal: controller.signal,
       controller,
     };
-  }, [userId, isCurrentUser]);
+  }, [userId, isCurrentUser, requestEpoch]);
   const refresh = useCallback(async () => {
     if (!owner.userId) return;
     const result = await ownedTeamRequest<DocumentAllowance>(owner, "/api/documents");
     if (owner.isCurrent()) setAllowance(result);
   }, [owner]);
   useEffect(() => {
+    // React Strict Mode replays mount effects after their cleanup. A canceled owner
+    // must get a fresh request scope before attempting to load private documents.
+    if (owner.signal.aborted) {
+      setRequestEpoch((epoch) => epoch + 1);
+      return;
+    }
     setAllowance(null);
     setSelectedId("");
     setOpened(false);
@@ -385,7 +394,8 @@ export function DocumentWorkspace() {
                   </button>
                 </div>
                 <p className="document-muted">
-                  Add a note beneath any passage. Notes save as you type on this device.
+                  Tap a word for its meaning in context. Definitions save privately to your account
+                  and do not use translation characters. Notes save on this device.
                 </p>
                 <div className="document-columns">
                   <strong>Original</strong>
@@ -394,8 +404,22 @@ export function DocumentWorkspace() {
                 {active.sentences.map((pair, index) => (
                   <div key={index} className="document-passage">
                     <div className="document-pair">
-                      <p>{pair.en}</p>
-                      <p>{pair.target}</p>
+                      <DocumentWordText
+                        key={`${userId}:${active.id}:${index}:en`}
+                        text={pair.en}
+                        documentId={active.id}
+                        passage={index}
+                        side="en"
+                        owner={owner}
+                      />
+                      <DocumentWordText
+                        key={`${userId}:${active.id}:${index}:target`}
+                        text={pair.target}
+                        documentId={active.id}
+                        passage={index}
+                        side="target"
+                        owner={owner}
+                      />
                     </div>
                     <label className="document-note">
                       Note {index + 1}

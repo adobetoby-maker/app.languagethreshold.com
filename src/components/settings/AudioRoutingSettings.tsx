@@ -1,3 +1,4 @@
+import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { SoundEffectsSettings } from "./SoundEffectsSettings";
 import { useAuth } from "@/state/auth-state";
 import { MicrophoneTestDialog } from "@/components/speak/MicrophoneTestDialog";
@@ -20,6 +21,7 @@ export function AudioRoutingSettings({
       </p>
       <MicrophoneTestDialog key={scope} triggerLabel="Check audio routing" />
       <SoundEffectsSettings />
+      <SpeakingPrivacyPrompt />
     </section>
   );
 }

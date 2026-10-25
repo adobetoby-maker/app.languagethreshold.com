@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check, ChevronDown, MapPin, Pencil, Plane, X } from "lucide-react";
+import { Calendar, Check, ChevronDown, MapPin, Pencil, Plane, X } from "lucide-react";
 import {
   getTravelDestination,
   getTravelDestinations,
@@ -21,9 +21,11 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
   const [editing, setEditing] = useState(!selected);
   const [expanded, setExpanded] = useState(false);
   const [destinationInput, setDestinationInput] = useState(plan?.destinationId ?? "");
+  const [dateInput, setDateInput] = useState(plan?.departureDate ?? "");
 
   useEffect(() => {
     setDestinationInput(plan?.destinationId ?? "");
+    setDateInput(plan?.departureDate ?? "");
     setEditing(!selected);
     setExpanded(false);
   }, [plan?.departureDate, plan?.destinationId, selected, state.selectedLanguage]);
@@ -36,7 +38,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
       type: "SET_NEXT_TRIP",
       payload: {
         language: state.selectedLanguage,
-        plan: { destinationId: destinationInput, departureDate: plan?.departureDate ?? null },
+        plan: { destinationId: destinationInput, departureDate: dateInput || null },
       },
     });
     setEditing(false);
@@ -49,10 +51,12 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
       payload: { language: state.selectedLanguage, plan: null },
     });
     setDestinationInput("");
+    setDateInput("");
     setEditing(true);
     setExpanded(false);
   };
 
+  const daysRemaining = plan?.departureDate ? daysUntil(plan.departureDate) : null;
   if (compact && selected && !editing && !expanded) {
     return (
       <section
@@ -68,7 +72,10 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">
               Country lens
             </p>
-            <p className="mt-0.5 font-serif text-lg text-foreground">{selected.country}</p>
+            <p className="mt-0.5 font-serif text-lg text-foreground">
+              {selected.country}
+              {daysRemaining !== null && daysRemaining >= 0 ? ` · ${daysRemaining} days` : ""}
+            </p>
           </div>
           {onPracticeTravel && (
             <button
@@ -147,7 +154,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
         </div>
 
         {editing ? (
-          <div className="mt-5 grid gap-3 rounded-2xl border border-border/70 bg-background/45 p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+          <div className="mt-5 grid gap-3 rounded-2xl border border-border/70 bg-background/45 p-4 sm:grid-cols-[minmax(0,1fr)_180px_auto] sm:items-end">
             <label className="block">
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
                 Destination country
@@ -168,6 +175,18 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
                 <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               </span>
             </label>
+            <label className="block">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                Departure date
+              </span>
+              <input
+                type="date"
+                value={dateInput}
+                min={todayKey()}
+                onChange={(event) => setDateInput(event.target.value)}
+                className="mt-1.5 w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:border-cyan-300/60 focus:outline-none"
+              />
+            </label>
             <div className="flex gap-2">
               <button
                 type="button"
@@ -182,6 +201,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
                   type="button"
                   onClick={() => {
                     setDestinationInput(plan?.destinationId ?? "");
+                    setDateInput(plan?.departureDate ?? "");
                     setEditing(false);
                   }}
                   aria-label="Cancel editing next trip"
@@ -195,6 +215,8 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
         ) : selected ? (
           <DestinationBrief
             destination={selected}
+            departureDate={plan?.departureDate ?? null}
+            daysRemaining={daysRemaining}
             onPracticeTravel={onPracticeTravel}
             onClear={clear}
             nativeLanguage={state.nativeLanguage}
@@ -207,17 +229,36 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
 
 function DestinationBrief({
   destination,
+  departureDate,
+  daysRemaining,
   onPracticeTravel,
   onClear,
   nativeLanguage,
 }: {
   destination: TravelDestination;
+  departureDate: string | null;
+  daysRemaining: number | null;
   onPracticeTravel?: () => void;
   onClear: () => void;
   nativeLanguage: NativeLanguage;
 }) {
   return (
     <div className="mt-5 space-y-5">
+      {departureDate && daysRemaining !== null && (
+        <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/5 p-4">
+          <div className="flex flex-wrap items-baseline gap-2">
+            <Calendar className="h-4 w-4 text-cyan-200" />
+            <span className="font-serif text-2xl text-cyan-100">{Math.max(0, daysRemaining)}</span>
+            <span className="text-sm text-foreground/75">
+              {daysRemaining === 1 ? "day" : "days"} until your next threshold
+            </span>
+            <span className="ml-auto font-mono text-[10px] text-muted-foreground">
+              {formatDate(departureDate)}
+            </span>
+          </div>
+        </div>
+      )}
+
       <div>
         <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-300">
           <MapPin className="h-3 w-3" /> Country lens
@@ -285,4 +326,26 @@ function DestinationBrief({
 function getMatchingDestination(id: string | undefined, language: string) {
   const destination = getTravelDestination(id);
   return destination?.language === language ? destination : null;
+}
+
+function daysUntil(dateString: string): number {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const target = new Date(`${dateString}T00:00:00`);
+  return Math.round((target.getTime() - today.getTime()) / 86_400_000);
+}
+
+function todayKey(): string {
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${today.getFullYear()}-${month}-${day}`;
+}
+
+function formatDate(dateString: string): string {
+  return new Date(`${dateString}T00:00:00`).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }

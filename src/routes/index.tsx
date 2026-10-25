@@ -1,3 +1,4 @@
+import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
 import { legacyExamsLocation } from "@/lib/exam-navigation";
 import { createFileRoute, redirect } from "@tanstack/react-router";
@@ -85,9 +86,20 @@ function GatedTabShell() {
       </p>
     );
   return (
-    <SubscriptionGate currentTab={state.currentTab}>
-      <TabShell />
-    </SubscriptionGate>
+    <>
+      <SpeakingPrivacyPrompt
+        startup
+        ready={state.hydrated && state.onboardingComplete}
+        skipStartup={
+          state.currentTab === "core30" ||
+          (typeof window !== "undefined" &&
+            new URLSearchParams(window.location.search).has("lesson"))
+        }
+      />
+      <SubscriptionGate currentTab={state.currentTab}>
+        <TabShell />
+      </SubscriptionGate>
+    </>
   );
 }
 

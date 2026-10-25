@@ -1,3 +1,4 @@
+import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { SpeakingPreparation } from "./SpeakingPreparation";
 import { SPEAKING_STEPS, type SpeakingStep } from "@/lib/speaking-preparation";
@@ -52,12 +53,7 @@ import {
   type MissionTtsCapabilities,
 } from "@/lib/mission-tts";
 import { pickVoice, subscribeVoices } from "@/lib/voices";
-import {
-  getSpeakingAgeAttestation,
-  saveSpeakingAgeAttestation,
-  SpeakingConsentSaveError,
-  speakingRequestHeaders,
-} from "@/lib/speaking-client";
+import { getSpeakingAgeAttestation, speakingRequestHeaders } from "@/lib/speaking-client";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAiGate } from "@/state/ai-gate-state";
@@ -77,7 +73,6 @@ import { FuriganaText } from "@/components/reader/FuriganaText";
 import { PinyinText } from "@/components/reader/PinyinText";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { WatchTalkControl } from "./WatchTalkControl";
-import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -238,15 +233,15 @@ export function SpeakingMissionsPreview({
     return () => onFocusChange?.(false);
   }, [selectedMission, onFocusChange]);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [consentRevision, setConsentRevision] = useState(0);
+  useEffect(() => {
+    const refresh = () => setConsentRevision((value) => value + 1);
+    window.addEventListener(SPEAKING_CONSENT_CHANGED, refresh);
+    return () => window.removeEventListener(SPEAKING_CONSENT_CHANGED, refresh);
+  }, []);
   const [ageLoaded, setAgeLoaded] = useState(false);
   const [ageStatusActor, setAgeStatusActor] = useState<string | null>(null);
-  const [ageSaving, setAgeSaving] = useState(false);
-  const [ageUncertainActor, setAgeUncertainActor] = useState<string | null>(null);
-  const ageUncertainRef = useRef<string | null>(null);
-  const ageConfirmedActorRef = useRef<string | null>(null);
   const ageReadRevisionRef = useRef(0);
-  const ageUnknown = Boolean(session && ageUncertainActor === session.user.id);
-  const [consentOpen, setConsentOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
@@ -289,7 +284,6 @@ export function SpeakingMissionsPreview({
   const previousViewKeyRef = useRef<string | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
   const practiceRecordedRef = useRef(false);
-  const ageSaveRef = useRef<AbortController | null>(null);
   const audioRef = useRef<AbortController | null>(null);
   const sessionOwnerRef = useRef<string | null>(null);
   const [coreEntryRequested] = useState(() =>
@@ -353,7 +347,6 @@ export function SpeakingMissionsPreview({
   const cancelRef = useRef(cancel);
   useEffect(() => {
     cancelRef.current = cancel;
-    setAgeSaving(false);
   }, [cancel]);
   const availableGoogleVoices = useMemo(
     () => recommendedGoogleVoices(ttsCapabilities?.voices ?? [], missionLocale, partnerVersion),
@@ -482,7 +475,6 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     if (!session) {
       setAgeConfirmed(false);
-      ageConfirmedActorRef.current = null;
       setAgeStatusActor(null);
       setAgeLoaded(true);
       return;
@@ -498,11 +490,9 @@ export function SpeakingMissionsPreview({
         if (
           controller.signal.aborted ||
           !isCurrentUser(session.user.id) ||
-          revision !== ageReadRevisionRef.current ||
-          ageSaveRef.current
+          revision !== ageReadRevisionRef.current
         )
           return;
-        ageConfirmedActorRef.current = confirmed ? session.user.id : null;
         setAgeStatusActor(session.user.id);
         setAgeConfirmed(confirmed);
         setAgeLoaded(true);
@@ -511,19 +501,17 @@ export function SpeakingMissionsPreview({
         if (
           controller.signal.aborted ||
           !isCurrentUser(session.user.id) ||
-          revision !== ageReadRevisionRef.current ||
-          ageSaveRef.current
+          revision !== ageReadRevisionRef.current
         )
           return;
         if (error instanceof DOMException && error.name === "AbortError") return;
-        ageConfirmedActorRef.current = null;
         setAgeStatusActor(session.user.id);
         setAgeConfirmed(false);
         setAgeLoaded(true);
         setErrorMessage("Speaking confirmation could not be loaded. Please try again.");
       });
     return () => controller.abort();
-  }, [session, isCurrentUser]);
+  }, [session, isCurrentUser, consentRevision]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -577,8 +565,6 @@ export function SpeakingMissionsPreview({
 
   useEffect(() => {
     sessionOwnerRef.current = null;
-    setAgeSaving(false);
-    setConsentOpen(false);
     setStarted(false);
     setTurns([]);
     setTypedTurn("");
@@ -778,132 +764,9 @@ export function SpeakingMissionsPreview({
     void speakPartnerText(opening.text);
   };
 
-  const confirmAgeAndBegin = async () => {
-    const lease = capture();
-    if (!lease.isCurrent() || ageSaveRef.current) return;
-    if (
-      session &&
-      (ageUncertainRef.current === session.user.id ||
-        ageConfirmedActorRef.current === session.user.id)
-    )
-      return;
-    if (!session) {
-      setConsentOpen(false);
-      setAuthOpen(true);
-      return;
-    }
-    const controller = new AbortController();
-    ageSaveRef.current = controller;
-    ageReadRevisionRef.current++;
-    const release = lease.own(() => {
-      controller.abort();
-      if (ageSaveRef.current === controller) ageSaveRef.current = null;
-    });
-    const current = () =>
-      lease.isCurrent() && !controller.signal.aborted && ageSaveRef.current === controller;
-    setAgeSaving(true);
-    setErrorMessage(null);
-    try {
-      const saved = await saveSpeakingAgeAttestation(true, controller.signal, current, {
-        userId: session.user.id,
-        isCurrent: current,
-      });
-      if (!current()) return;
-      if (!saved) throw new SpeakingConsentSaveError("unknown");
-      ageReadRevisionRef.current++;
-      ageConfirmedActorRef.current = session.user.id;
-      setAgeStatusActor(session.user.id);
-      setAgeConfirmed(true);
-      setAgeLoaded(true);
-      setConsentOpen(false);
-      setAgeSaving(false);
-      ageSaveRef.current = null;
-      release();
-      startMissionSession();
-    } catch (error) {
-      if (current()) {
-        ageReadRevisionRef.current++;
-        if (error instanceof SpeakingConsentSaveError && error.outcome === "unknown") {
-          ageUncertainRef.current = session.user.id;
-          setAgeUncertainActor(session.user.id);
-          setAgeStatusActor(session.user.id);
-          setAgeConfirmed(false);
-          setAgeLoaded(true);
-          setErrorMessage(
-            "We could not confirm the saved status. Check it before sending another request.",
-          );
-        } else {
-          setErrorMessage("The speaking confirmation could not be saved. Please try again.");
-        }
-      }
-    } finally {
-      if (current()) {
-        setAgeSaving(false);
-        ageSaveRef.current = null;
-      }
-      release();
-    }
-  };
-
-  const checkSavedSpeakingConfirmation = async () => {
-    const lease = capture();
-    if (
-      !lease.isCurrent() ||
-      !session ||
-      ageSaveRef.current ||
-      ageUncertainRef.current !== session.user.id
-    )
-      return;
-    const controller = new AbortController();
-    ageSaveRef.current = controller;
-    ageReadRevisionRef.current++;
-    const release = lease.own(() => {
-      controller.abort();
-      if (ageSaveRef.current === controller) ageSaveRef.current = null;
-    });
-    const current = () =>
-      lease.isCurrent() && !controller.signal.aborted && ageSaveRef.current === controller;
-    setAgeSaving(true);
-    setErrorMessage(null);
-    try {
-      const confirmed = await getSpeakingAgeAttestation(controller.signal, {
-        userId: session.user.id,
-        isCurrent: current,
-      });
-      if (!current()) return;
-      ageReadRevisionRef.current++;
-      ageConfirmedActorRef.current = confirmed ? session.user.id : null;
-      setAgeStatusActor(session.user.id);
-      setAgeLoaded(true);
-      setAgeConfirmed(confirmed);
-      if (confirmed) {
-        ageUncertainRef.current = null;
-        setAgeUncertainActor(null);
-        setConsentOpen(false);
-      } else {
-        setErrorMessage(
-          "A saved confirmation is not visible yet. The earlier request may still finish. Check again later.",
-        );
-      }
-    } catch {
-      if (current()) {
-        ageReadRevisionRef.current++;
-        setErrorMessage(
-          "We could not check the saved status. The earlier request may still finish.",
-        );
-      }
-    } finally {
-      if (current()) {
-        setAgeSaving(false);
-        ageSaveRef.current = null;
-      }
-      release();
-    }
-  };
-
   const requestMissionStart = () => {
     if (!capture().isCurrent()) return;
-    if (!selectedMission || !partnerAudioReady || ageSaving) return;
+    if (!selectedMission || !partnerAudioReady) return;
     if (!session) {
       if (!embeddedMissionPrefix)
         rememberSpeakingAuthMission(selectedMission.id, {
@@ -914,13 +777,11 @@ export function SpeakingMissionsPreview({
       setAuthOpen(true);
       return;
     }
-    if (ageUncertainRef.current === session.user.id) {
-      setConsentOpen(true);
-      return;
-    }
     if (!ageLoaded || ageStatusActor !== session.user.id) return;
     if (!ageConfirmed) {
-      setConsentOpen(true);
+      setErrorMessage(
+        "AI conversation is off. Enable speaking privacy in Settings; other lesson activities remain available.",
+      );
       return;
     }
     startMissionSession();
@@ -1713,17 +1574,6 @@ export function SpeakingMissionsPreview({
         className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
-        <SpeakingConsentDialog
-          open={consentOpen}
-          saving={ageSaving}
-          unknown={ageUnknown}
-          onCheckSavedStatus={() => void checkSavedSpeakingConfirmation()}
-          error={errorMessage}
-          language={selectedMission.language}
-          audioSource={partnerAudioSource}
-          onOpenChange={setConsentOpen}
-          onConfirm={() => void confirmAgeAndBegin()}
-        />
         <button
           type="button"
           onClick={closeMission}
@@ -1795,7 +1645,7 @@ export function SpeakingMissionsPreview({
             <button
               type="button"
               onClick={requestMissionStart}
-              disabled={!partnerAudioReady || ageSaving || Boolean(session && !ageLoaded)}
+              disabled={!partnerAudioReady || Boolean(session && !ageLoaded)}
               className="min-h-12 w-full rounded-2xl bg-gold px-4 py-3 font-semibold text-black shadow-lg shadow-gold/10 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {!session
@@ -1804,6 +1654,12 @@ export function SpeakingMissionsPreview({
                   ? "Checking account…"
                   : "Start mission"}
             </button>
+            {session && ageLoaded && !ageConfirmed && (
+              <p role="status" className="mt-2 text-sm text-muted-foreground">
+                AI conversation is off. Enable it in Settings → Speaking privacy, or continue with
+                the other lesson activities.
+              </p>
+            )}
             <p className="mt-2 text-center text-[11px] text-muted-foreground">
               AI feedback and objective observations are advisory practice signals. They are not a
               proficiency score, certification, or saved mastery tier.
@@ -1965,11 +1821,7 @@ export function SpeakingMissionsPreview({
                 </p>
               </fieldset>
               <div className="mt-4 border-t border-border/60 pt-4 text-sm">
-                {ageUnknown ? (
-                  <p role="status" className="text-muted-foreground">
-                    Confirmation status is unconfirmed. Use Start to check its saved status.
-                  </p>
-                ) : session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
+                {session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
                   <p className="text-muted-foreground">
                     Checking your saved speaking confirmation…
                   </p>
@@ -1980,8 +1832,8 @@ export function SpeakingMissionsPreview({
                   </p>
                 ) : (
                   <p className="text-muted-foreground">
-                    The first time you tap Start, one large confirmation appears. Confirm once and
-                    you will not be asked again.
+                    AI conversation is off. You can enable it in Settings → Speaking privacy. Other
+                    lesson activities remain available.
                   </p>
                 )}
               </div>
@@ -2164,17 +2016,6 @@ export function SpeakingMissionsPreview({
         className="scroll-mt-4 mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
-        <SpeakingConsentDialog
-          open={consentOpen}
-          saving={ageSaving}
-          unknown={ageUnknown}
-          onCheckSavedStatus={() => void checkSavedSpeakingConfirmation()}
-          error={errorMessage}
-          language={selectedMission.language}
-          audioSource={partnerAudioSource}
-          onOpenChange={setConsentOpen}
-          onConfirm={() => void confirmAgeAndBegin()}
-        />
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
           Mission recap
         </p>
@@ -2603,7 +2444,6 @@ export function SpeakingMissionsPreview({
             session &&
             ageConfirmed &&
             ageStatusActor === session.user.id &&
-            !ageUnknown &&
             sessionOwnerRef.current === lifecycleKey && (
               <WatchTalkControl
                 key={`${lifecycleKey}:${missionLocale}`}

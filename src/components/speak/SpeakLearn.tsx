@@ -1,3 +1,4 @@
+import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Mic, Square, Trash2 } from "lucide-react";
@@ -15,7 +16,7 @@ import { ChallengePanel, type SpeakChallenge } from "@/components/speak/Challeng
 import { SpeakingMissionsPreview } from "@/components/speak/SpeakingMissionsPreview";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { useAiGate } from "@/state/ai-gate-state";
-import { speakingRequestHeaders } from "@/lib/speaking-client";
+import { getSpeakingAgeAttestation, speakingRequestHeaders } from "@/lib/speaking-client";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 
@@ -161,6 +162,33 @@ export function SpeakLearn() {
     ]),
   );
   const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(lifecycleKey);
+  const [consentStatus, setConsentStatus] = useState<{ owner: string | null; allowed: boolean }>({
+    owner: null,
+    allowed: false,
+  });
+  const [consentRevision, setConsentRevision] = useState(0);
+  const conversationAllowed = !!actor && consentStatus.owner === actor && consentStatus.allowed;
+  useEffect(() => {
+    const refresh = () => setConsentRevision((value) => value + 1);
+    window.addEventListener(SPEAKING_CONSENT_CHANGED, refresh);
+    return () => window.removeEventListener(SPEAKING_CONSENT_CHANGED, refresh);
+  }, []);
+  useEffect(() => {
+    setConsentStatus({ owner: actor, allowed: false });
+    if (!actor || surface !== "conversation") return;
+    const controller = new AbortController();
+    getSpeakingAgeAttestation(controller.signal, {
+      userId: actor,
+      isCurrent: () => !controller.signal.aborted && isCurrentUser(actor),
+    })
+      .then((allowed) => {
+        if (!controller.signal.aborted && isCurrentUser(actor))
+          setConsentStatus({ owner: actor, allowed });
+      })
+      .catch(() => {});
+    return () => controller.abort();
+  }, [actor, surface, isCurrentUser, consentRevision]);
+
   useEffect(() => {
     setListening(false);
     setInterim("");
@@ -401,6 +429,7 @@ export function SpeakLearn() {
   };
 
   const submitTurn = (text: string) => {
+    if (!conversationAllowed) return;
     const trimmed = text.trim();
     if (!trimmed) return;
     gated(() => doSubmitTurn(trimmed));
@@ -444,6 +473,7 @@ export function SpeakLearn() {
   };
 
   const startListening = () => {
+    if (!conversationAllowed) return;
     const lease = capture();
     if (!lease.isCurrent() || recognitionRef.current || abortRef.current) return;
     const Ctor = getRecognitionCtor();
@@ -530,6 +560,7 @@ export function SpeakLearn() {
   const stopListening = () => recognitionRef.current?.stop();
 
   const sendChip = (text: string) => {
+    if (!conversationAllowed) return;
     if (!capture().isCurrent() || abortRef.current) return;
     speakAloud(text);
     submitTurn(text);
@@ -693,6 +724,12 @@ export function SpeakLearn() {
           aria-label="Free conversation practice"
         >
           {transcript}
+          {!conversationAllowed && (
+            <p role="status" className="text-center text-xs text-muted-foreground">
+              AI conversation is off. Sign in and enable it in Settings → Speaking privacy. Other
+              lessons stay available.
+            </p>
+          )}
           <div className="flex shrink-0 flex-col items-center gap-1">
             {supported === false ? (
               <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-center text-sm text-muted-foreground">
@@ -704,7 +741,7 @@ export function SpeakLearn() {
               <>
                 <button
                   onClick={listening ? stopListening : startListening}
-                  disabled={thinking}
+                  disabled={thinking || !conversationAllowed}
                   aria-label={listening ? "Stop listening" : "Start listening"}
                   className={
                     "relative flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +

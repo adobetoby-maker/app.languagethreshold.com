@@ -187,7 +187,13 @@ interface LibraryContextValue {
 
 const Ctx = createContext<LibraryContextValue | null>(null);
 
-export function LibraryProvider({ children }: { children: ReactNode }) {
+export function LibraryProvider({
+  children,
+  independentSelection = false,
+}: {
+  children: ReactNode;
+  independentSelection?: boolean;
+}) {
   const { user, canUseReader } = useAuth();
   const actor = user?.id ?? null;
   const { state: appState, profileReadyUserId } = useApp();
@@ -344,7 +350,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   // so picking French left you on the Spanish default — and that default is
   // `classic-quixote`, a C2 text, shown to absolute beginners. DUO-002 P0-4.
   useEffect(() => {
-    if (!readyToSelect) return;
+    if (!readyToSelect || independentSelection) return;
     const cur = state.entries.find((e) => e.id === state.selectedId);
     const needsReselect = !cur || !cur.available || cur.language !== selectedLanguage;
     if (!needsReselect) return;
@@ -366,7 +372,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
       // Module passages can arrive in a later seed chunk and still need to take priority.
       rawDispatch({ type: "SELECT", payload: easiest.id });
     }
-  }, [state.entries, state.selectedId, selectedLanguage, readyToSelect]);
+  }, [state.entries, state.selectedId, selectedLanguage, readyToSelect, independentSelection]);
 
   return (
     <Ctx.Provider

@@ -468,6 +468,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           aria-label="Desktop navigation"
           className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
         >
+          <a
+            href="/documents"
+            className="mx-1 rounded-lg border border-gold/30 px-2 py-3 text-center text-xs text-gold"
+          >
+            My Documents
+          </a>
           {desktopVisible.map((item) => {
             const { key, Icon } = item;
             const { label, short } =
@@ -596,6 +602,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <a
+            href="/documents"
+            className="rounded-lg border border-gold/40 px-2 py-2.5 text-xs text-gold"
+          >
+            Docs
+          </a>
           {/* Module picker */}
           <button
             onClick={() => setModuleDialogOpen(true)}

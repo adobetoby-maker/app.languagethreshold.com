@@ -13,6 +13,7 @@ import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
 import { Route as ExamBankRouteImport } from './routes/exam-bank'
 import { Route as ExamContentRouteImport } from './routes/exam-content'
@@ -88,6 +89,11 @@ const AccountRoute = AccountRouteImport.update({
 const CertificateRoute = CertificateRouteImport.update({
   id: '/certificate',
   path: '/certificate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmailPreferencesRoute = EmailPreferencesRouteImport.update({
@@ -375,6 +381,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
@@ -437,6 +444,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
@@ -500,6 +508,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
   '/exam-content': typeof ExamContentRoute
@@ -564,6 +573,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/documents'
     | '/email-preferences'
     | '/exam-bank'
     | '/exam-content'
@@ -626,6 +636,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/documents'
     | '/email-preferences'
     | '/exam-bank'
     | '/exam-content'
@@ -688,6 +699,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/documents'
     | '/email-preferences'
     | '/exam-bank'
     | '/exam-content'
@@ -751,6 +763,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
   CertificateRoute: typeof CertificateRoute
+  DocumentsRoute: typeof DocumentsRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
   ExamBankRoute: typeof ExamBankRoute
   ExamContentRoute: typeof ExamContentRoute
@@ -838,6 +851,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate'
       fullPath: '/certificate'
       preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/email-preferences': {
@@ -1239,6 +1259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
   CertificateRoute: CertificateRoute,
+  DocumentsRoute: DocumentsRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,
   ExamBankRoute: ExamBankRoute,
   ExamContentRoute: ExamContentRoute,

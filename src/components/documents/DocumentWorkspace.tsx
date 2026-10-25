@@ -529,14 +529,14 @@ export function DocumentWorkspace() {
                   <small>{text.length.toLocaleString()} / 8,000 characters</small>
                 </div>
                 <label>
-                  Translation style
+                  Translation level
                   <select
                     value={quality}
                     onChange={(event) => setQuality(event.target.value as "standard" | "detailed")}
                     disabled={busy}
                   >
-                    <option value="standard">Everyday documents · Haiku</option>
-                    <option value="detailed">Complex wording · Sonnet</option>
+                    <option value="standard">Standard · Everyday documents</option>
+                    <option value="detailed">Detailed · Complex wording</option>
                   </select>
                 </label>
                 <p className="document-muted">

@@ -1,3 +1,4 @@
+import { LessonCorrection } from "@/components/support/LessonCorrection";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
@@ -183,7 +184,9 @@ function Core60PathCard({
                 Step {index + 1}
                 {isCurrent ? " · You are here" : ""}
               </span>
-              <span className="mt-0.5 block text-sm font-semibold text-foreground">{step.label}</span>
+              <span className="mt-0.5 block text-sm font-semibold text-foreground">
+                {step.label}
+              </span>
               <span
                 data-testid={`core60-step-${step.stage}-count`}
                 className="mt-0.5 block text-xs text-muted-foreground"
@@ -1439,6 +1442,15 @@ function OwnedLessonRunner({
         </p>
         <div className="mt-3">{lessonButtons("top")}</div>
       </div>
+
+      <LessonCorrection
+        key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}:${userId ?? "guest"}`}
+        moduleId={moduleId}
+        lessonNumber={lesson.n}
+        lessonTitle={lesson.title}
+        language={state.selectedLanguage}
+        nativeLanguage={state.nativeLanguage}
+      />
 
       {/* Six ways of learning, one lesson, one page */}
       <nav

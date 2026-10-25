@@ -46,6 +46,7 @@ import { Route as ApiExamReviewersRouteImport } from './routes/api.exam-reviewer
 import { Route as ApiExamsRouteImport } from './routes/api.exams'
 import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
+import { Route as ApiLessonCorrectionRouteImport } from './routes/api.lesson-correction'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
@@ -260,6 +261,11 @@ const ApiFieldPrepRoute = ApiFieldPrepRouteImport.update({
   path: '/api/field-prep',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLessonCorrectionRoute = ApiLessonCorrectionRouteImport.update({
+  id: '/api/lesson-correction',
+  path: '/api/lesson-correction',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiMissionTtsRoute = ApiMissionTtsRouteImport.update({
   id: '/api/mission-tts',
   path: '/api/mission-tts',
@@ -439,6 +445,7 @@ export interface FileRoutesByFullPath {
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/lesson-correction': typeof ApiLessonCorrectionRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
@@ -506,6 +513,7 @@ export interface FileRoutesByTo {
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/lesson-correction': typeof ApiLessonCorrectionRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
@@ -574,6 +582,7 @@ export interface FileRoutesById {
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/lesson-correction': typeof ApiLessonCorrectionRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
@@ -643,6 +652,7 @@ export interface FileRouteTypes {
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/lesson-correction'
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
@@ -710,6 +720,7 @@ export interface FileRouteTypes {
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/lesson-correction'
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
@@ -777,6 +788,7 @@ export interface FileRouteTypes {
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/lesson-correction'
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
@@ -845,6 +857,7 @@ export interface RootRouteChildren {
   ApiExamsRoute: typeof ApiExamsRoute
   ApiFamilyAddKidRoute: typeof ApiFamilyAddKidRoute
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
+  ApiLessonCorrectionRoute: typeof ApiLessonCorrectionRoute
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
@@ -1136,6 +1149,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiFieldPrepRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/lesson-correction': {
+      id: '/api/lesson-correction'
+      path: '/api/lesson-correction'
+      fullPath: '/api/lesson-correction'
+      preLoaderRoute: typeof ApiLessonCorrectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/mission-tts': {
       id: '/api/mission-tts'
       path: '/api/mission-tts'
@@ -1373,6 +1393,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiExamsRoute: ApiExamsRoute,
   ApiFamilyAddKidRoute: ApiFamilyAddKidRoute,
   ApiFieldPrepRoute: ApiFieldPrepRoute,
+  ApiLessonCorrectionRoute: ApiLessonCorrectionRoute,
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiModuleRequestRoute: ApiModuleRequestRoute,

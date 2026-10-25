@@ -14,7 +14,7 @@ This first version requires the iPhone mission to stay in the foreground. It doe
 
 ## Native source and builds
 
-The existing locally maintained Capacitor iPhone wrapper is now tracked under `ios/`, including its existing speech plugin and app/push/status/biometric package references. The original local checkout was not modified. Its bundle ID remains `com.languagethreshold.app`; the embedded Watch app uses `com.languagethreshold.app.watchkitapp`. Version 1.0 build 4. Native dependencies are pinned through the npm lockfile and the Swift package resolution; Capacitor uses 8.5.1, avoiding the 8.5.0 internal-proxy vulnerability.
+The existing locally maintained Capacitor iPhone wrapper is now tracked under `ios/`, including its existing speech plugin and app/push/status/biometric package references. The original local checkout was not modified. Its bundle ID remains `com.languagethreshold.app`; the embedded Watch app uses `com.languagethreshold.app.watchkitapp`. Version 1.0 build 5. Native dependencies are pinned through the npm lockfile and the Swift package resolution; Capacitor uses 8.5.1, avoiding the 8.5.0 internal-proxy vulnerability.
 
 - Run `npm ci` at the repository root.
 - Open `ios/App/App.xcodeproj` in Xcode. Schemes: **App** and **LanguageThresholdWatch**.
@@ -64,3 +64,11 @@ The phone performs on-device Speech recognition only. The existing server receiv
 - [ ] Repeat turns produce exactly one learner/partner exchange each and temporary audio is removed; existing saved learning data remains.
 
 Sources: [Watch Connectivity](https://developer.apple.com/documentation/watchconnectivity), [transferFile device testing requirement](https://developer.apple.com/documentation/watchconnectivity/wcsession/transferfile(_:metadata:)), [on-device recognition](https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest/requiresondevicerecognition).
+
+## iPhone microphone follow-up — build 5
+
+The iPhone screen microphone now uses the native `PhoneDictation` plugin when installed, rather than WebKit speech recognition. Each tap creates a new AVAudioEngine and on-device speech request. Stop removes the input tap, ends the audio stream and deactivates the recording session before delivering the final transcript; cancellation, backgrounding and late callbacks are scoped to that tap. No raw audio file or speech recording is uploaded or saved. A language without on-device recognition gets an explicit error and can use keyboard dictation or typing. Existing Safari/browser speech recognition remains the web fallback.
+
+Generated partner replies also unload their completed media source before the next microphone turn. Existing conversation consent, access checks and progress identities are unchanged.
+
+Regression checks cover three consecutive native-bridge turns, old/wrong request events, permission failure, pending setup cancellation, and completed-reply audio release. These checks and simulator compilation do not prove physical microphone capture. On a real iPhone, install build 5 without uninstalling, allow Microphone and Speech Recognition for Language Threshold, and test three spoken exchanges with the iPhone screen microphone in both Quick response and Review modes. Repeat the separate Watch checks above.

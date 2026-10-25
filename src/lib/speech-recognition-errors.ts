@@ -1,6 +1,12 @@
 /** Browser recognition failures need actionable guidance, without discarding typed answers. */
 export function speechRecognitionErrorMessage(error: string): string {
   switch (error) {
+    case "native-not-allowed":
+      return "Allow Microphone and Speech Recognition for Language Threshold in iPhone Settings, then tap the microphone again. You can also type your answer.";
+    case "native-audio-capture":
+      return "The iPhone microphone could not start. Close other recording apps and try again, or type your answer.";
+    case "native-language-not-supported":
+      return "On-device speech recognition is unavailable for this language on your iPhone. Use keyboard dictation or type your answer.";
     case "not-allowed":
     case "service-not-allowed":
       return "Microphone or speech recognition access is blocked. Allow microphone access in this website’s browser settings, then tap the microphone again. You can also type or use your keyboard’s dictation button.";

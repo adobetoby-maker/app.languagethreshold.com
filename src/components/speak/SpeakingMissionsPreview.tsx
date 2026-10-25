@@ -1,3 +1,4 @@
+import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useStageCurriculaVersion } from "@/hooks/use-stage-curriculum";
 import { loadStageCurriculum, stageModulesOfBase } from "@/data/core60-stages";
@@ -104,41 +105,10 @@ interface MissionTurnResponse {
   shouldEnd: boolean;
 }
 
-type SpeechRecognitionLike = {
-  lang: string;
-  continuous: boolean;
-  interimResults: boolean;
-  start: () => void;
-  stop: () => void;
-  abort: () => void;
-  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
-  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
-  onend: (() => void) | null;
-};
-
-type SpeechRecognitionEventLike = {
-  resultIndex: number;
-  results: ArrayLike<{
-    isFinal: boolean;
-    0: { transcript: string };
-  }>;
-};
-
-type SpeechRecognitionErrorEventLike = { error?: string };
-
 /** With text already available, recover promptly if the browser drops onend. */
 const STOP_FALLBACK_MS = 1200;
 /** Empty results may still be in transit after Stop; don't abort them after 1.2s. */
 const TRANSCRIPT_WAIT_MS = 8000;
-
-function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
-  if (typeof window === "undefined") return null;
-  const speechWindow = window as typeof window & {
-    SpeechRecognition?: new () => SpeechRecognitionLike;
-    webkitSpeechRecognition?: new () => SpeechRecognitionLike;
-  };
-  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
-}
 
 function specialtyStyle(specialty: SpeakingMission["specialty"]) {
   const styles: Record<SpeakingMission["specialty"], { color: string }> = {

@@ -193,3 +193,43 @@ test("flipping preserves the frame and reveals usage English only on the back", 
   await expect(meaning).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test("reward chime follows a successful grade and can be switched off without changing voices", async ({
+  page,
+  isMobile,
+}) => {
+  await page.addInitScript(() => {
+    const NativeAudio = window.AudioContext;
+    (window as unknown as { rewardContexts: number }).rewardContexts = 0;
+    window.AudioContext = class extends NativeAudio {
+      constructor(options?: AudioContextOptions) {
+        super(options);
+        (window as unknown as { rewardContexts: number }).rewardContexts++;
+      }
+    };
+  });
+  await page.goto(appUrl({ tab: "flashcards", module: "roofing" }));
+  const card = page.getByTestId("flashcards-study-card");
+  await expect(card).toBeVisible();
+  await card.click();
+  await page.getByRole("button", { name: /^Good/ }).click();
+  const count = () =>
+    page.evaluate(() => (window as unknown as { rewardContexts: number }).rewardContexts);
+  await expect.poll(count).toBe(1);
+  if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
+  else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
+  const sounds = page
+    .getByRole("switch", { name: "Flashcard sound effects", exact: true })
+    .filter({ visible: true });
+  await expect(sounds).toBeChecked();
+  await sounds.uncheck();
+  await expect(
+    page.getByRole("button", { name: "Preview reward sound" }).filter({ visible: true }),
+  ).toBeDisabled();
+  await page.reload();
+  await expect(card).toBeVisible();
+  await card.click();
+  await page.getByRole("button", { name: /^Easy/ }).click();
+  expect(await count()).toBe(0);
+  expect(await page.evaluate(() => localStorage.getItem("lt.sound-effects.v1"))).toBe("off");
+});

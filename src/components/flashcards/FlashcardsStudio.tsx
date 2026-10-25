@@ -1,3 +1,4 @@
+import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus } from "lucide-react";
 import { useApp } from "@/state/app-state";
@@ -514,6 +515,7 @@ export function FlashcardsStudio() {
     (g: SrsGrade) => {
       if (!current || !flipped) return;
       reviewCard(current.id, g);
+      if (g === "good" || g === "easy") void playFlashcardSuccess();
       setFlipped(false);
       setReviewedCount((n) => n + 1);
     },

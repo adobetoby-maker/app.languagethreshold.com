@@ -218,6 +218,8 @@ test("Speak keeps a selected country lens collapsed and editable after save and 
   await page.getByText("Choose another mission or change settings", { exact: true }).click();
   const banner = page.locator('section[aria-labelledby="next-trip-heading"]');
   const before = await readAppState(page);
+  await expect(banner.locator('input[type="date"]')).toHaveCount(0);
+  await expect(banner.getByText(/until your next threshold/)).toHaveCount(0);
   await banner.getByRole("combobox").selectOption("mexico");
   await banner.getByRole("button", { name: "Save", exact: true }).click();
   const summary = page.getByTestId("next-trip-summary");

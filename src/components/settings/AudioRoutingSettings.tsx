@@ -1,3 +1,4 @@
+import { SoundEffectsSettings } from "./SoundEffectsSettings";
 import { useAuth } from "@/state/auth-state";
 import { MicrophoneTestDialog } from "@/components/speak/MicrophoneTestDialog";
 
@@ -18,6 +19,7 @@ export function AudioRoutingSettings({
         Check your microphone input and where you hear replies.
       </p>
       <MicrophoneTestDialog key={scope} triggerLabel="Check audio routing" />
+      <SoundEffectsSettings />
     </section>
   );
 }

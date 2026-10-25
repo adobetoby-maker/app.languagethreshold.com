@@ -539,7 +539,14 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-8 text-center text-xs text-muted-foreground border-t border-border pt-6">
-          Questions? Email <span className="text-foreground">support@languagethreshold.com</span>
+          Questions?{" "}
+          <a href="/support" className="text-foreground underline">
+            Contact support
+          </a>{" "}
+          or email{" "}
+          <a href="mailto:support@languagethreshold.com" className="text-foreground underline">
+            support@languagethreshold.com
+          </a>
         </div>
       </div>
     </div>

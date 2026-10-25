@@ -3,6 +3,7 @@ export const OWNER_TABS = [
   { id: "overview", label: "Overview" },
   { id: "analytics", label: "Analytics" },
   { id: "users", label: "Users" },
+  { id: "support", label: "Support" },
   { id: "companies", label: "Companies" },
   { id: "money", label: "Money" },
   { id: "activity", label: "Activity" },

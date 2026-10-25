@@ -1,3 +1,5 @@
+import { curriculumVocabulary, type CurriculumWordMatch } from "@/lib/curriculum-vocabulary";
+import { CurriculumPracticeLinks } from "./CurriculumPracticeLinks";
 import { useWordCardCache } from "@/state/word-card-cache";
 import { wordCardCacheKey } from "@/lib/word-card-cache";
 import { useEffect, useLayoutEffect, useRef, useState, useCallback, useMemo } from "react";
@@ -219,34 +221,53 @@ export function WordCard({
     };
   }, [onClose]);
 
-  // Fetch card
+  const [practice, setPractice] = useState<{ key: string; matches: CurriculumWordMatch[] }>({
+    key: "",
+    matches: [],
+  });
+  const practiceMatches = practice.key === lookupKey ? practice.matches : [];
+  // Public curriculum first; a dictionary model is only needed for words not in the app.
   useEffect(() => {
     const cached = cache.get(lookupKey);
-    if (cached) {
-      setLookupState({ scope: cache, key: lookupKey, card: cached, error: null, loading: false });
-      return;
-    }
     let active = true;
-    if (typeof navigator !== "undefined" && navigator.onLine === false) {
-      setLookupState({
-        scope: cache,
-        key: lookupKey,
-        card: null,
-        error: "offline",
-        loading: false,
-      });
-      return;
-    }
-    setLookupState({ scope: cache, key: lookupKey, card: null, error: null, loading: true });
-    lookup({
-      data: {
-        word: request.word,
-        sentence: request.sentence,
-        language: request.language,
-        nativeLanguage: state.nativeLanguage,
-        lesson: request.lesson,
-      },
-    })
+    setLookupState({ scope: cache, key: lookupKey, card: cached, error: null, loading: !cached });
+    curriculumVocabulary(
+      request.word,
+      request.language,
+      state.nativeLanguage,
+      request.lesson?.moduleId,
+    )
+      .catch(() => [] as CurriculumWordMatch[])
+      .then((matches) => {
+        if (!active) return { card: null, error: null };
+        setPractice({ key: lookupKey, matches });
+        if (matches.length)
+          return {
+            card: {
+              headword: request.word,
+              baseDefinition: [...new Set(matches.map((match) => match.meaning))].join("; "),
+              partOfSpeech: "",
+              phonetic: "",
+              conjugationNote: "",
+              contextNuance: "App lesson vocabulary; check the meaning against your sentence.",
+              exampleSentence: "",
+              exampleTranslation: "",
+            },
+            error: null,
+          };
+        if (cached) return { card: cached, error: null };
+        if (typeof navigator !== "undefined" && navigator.onLine === false)
+          return { card: null, error: "offline" };
+        return lookup({
+          data: {
+            word: request.word,
+            sentence: request.sentence,
+            language: request.language,
+            nativeLanguage: state.nativeLanguage,
+            lesson: request.lesson,
+          },
+        });
+      })
       .then((res) => {
         if (!active) return;
         if (res.card) cache.set(lookupKey, res.card);
@@ -460,6 +481,7 @@ export function WordCard({
             </div>
 
             <p className="mt-3 text-sm leading-relaxed text-foreground/90">{card.baseDefinition}</p>
+            <CurriculumPracticeLinks matches={practiceMatches} />
             {showingLessonWord && (
               <p role="status" className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 From this lesson’s word list · draft content. More dictionary detail and Tutor

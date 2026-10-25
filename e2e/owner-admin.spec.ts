@@ -335,6 +335,17 @@ const activityLog = {
 };
 
 type Posted = { path: string; body: Record<string, unknown> };
+const supportFixture = {
+  id: "8200000000000-00000000-0000-4000-8000-000000000001",
+  from: "crew@example.test",
+  to: "support@languagethreshold.com",
+  subject: "Help setting up a crew",
+  receivedAt: "2026-10-25T10:00:00.000Z",
+  status: "needs_reply",
+  forwarding: "request_completed",
+  previewUnavailable: false,
+  preview: "Please help our crew get started. <script>not executable</script>",
+};
 async function openOwner(page: Page, tab = "overview", { gaConfigured = true } = {}) {
   const posted: Posted[] = [];
   await page.addInitScript(
@@ -395,6 +406,10 @@ async function openOwner(page: Page, tab = "overview", { gaConfigured = true } =
           return team;
         case "/api/owner-activity":
           return activityLog;
+        case "/api/owner-support":
+          return url.searchParams.has("id")
+            ? { configured: true, ticket: supportFixture }
+            : { configured: true, tickets: [supportFixture], nextCursor: null };
         default:
           return { error: "unmocked " + url.pathname };
       }
@@ -412,6 +427,7 @@ const TABS = [
   ["overview", "Total accounts"],
   ["analytics", "Website traffic · Google Analytics"],
   ["users", "Users and usage"],
+  ["support", "Support inbox"],
   ["companies", "Companies and seat use"],
   ["money", "Site P/L ledger"],
   ["activity", "Activity log"],
@@ -541,4 +557,39 @@ test("capture owner tab screenshots", async ({ browser }, info) => {
     }
     await context.close();
   }
+});
+
+test("support inbox reviews the recipient and message before a single reply request", async ({
+  page,
+}) => {
+  const posted = await openOwner(page, "support");
+  await page.getByRole("button", { name: /Help setting up a crew/ }).click();
+  await expect(page.getByLabel("Support conversation")).toBeVisible();
+  await expect(page.getByText(supportFixture.preview, { exact: true })).toBeVisible();
+  expect(await page.locator("script").filter({ hasText: "not executable" }).count()).toBe(0);
+  await page
+    .getByRole("textbox", { name: "Reply to crew@example.test" })
+    .fill("Happy to help with your crew.");
+  await page.getByRole("button", { name: "Send support reply", exact: true }).click();
+  expect(posted.filter((p) => p.path === "/api/owner-support")).toHaveLength(0);
+  await expect(page.getByRole("group", { name: "Confirm: Send support reply" })).toContainText(
+    "crew@example.test",
+  );
+  await page.getByRole("button", { name: "Send this reply", exact: true }).click();
+  await expect.poll(() => posted.filter((p) => p.path === "/api/owner-support").length).toBe(1);
+  expect(posted.at(-1)?.body.action).toBe("reply");
+  expect(posted.at(-1)?.body.to).toBeUndefined();
+  await expect(
+    page.getByRole("button", { name: "Send support reply", exact: true }),
+  ).toBeDisabled();
+  await page.screenshot({ path: `test-results/support-inbox-${test.info().project.name}.png`, fullPage: true });
+});
+
+test("public support page has one working email destination and crew help", async ({ page }) => {
+  await page.goto("/support");
+  await expect(page.getByRole("heading", { name: "How can we help?" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Set up a crew" })).toHaveAttribute(
+    "href",
+    "mailto:support@languagethreshold.com?subject=Help%20setting%20up%20a%20crew",
+  );
 });

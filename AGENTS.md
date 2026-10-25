@@ -90,3 +90,7 @@ supabase/
 
 - `.vercel/project.json` project identity
 - `src/routeTree.gen.ts` — auto-generated, never edit manually
+
+# Customer-facing translation language
+
+Describe translation choices by the level of work requested, such as Standard for everyday documents and Detailed for technical or complex wording. Do not expose model names in customer-facing controls or marketing copy. Keep model identifiers in the implementation.

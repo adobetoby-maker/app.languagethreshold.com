@@ -464,6 +464,10 @@ function AccountPage() {
 
           <p className="text-center text-xs text-muted-foreground">
             Questions?{" "}
+            <a href="/support" className="text-gold underline underline-offset-2">
+              Get help
+            </a>
+            {" or email "}
             <a
               href="mailto:support@languagethreshold.com"
               className="text-gold underline underline-offset-2"

@@ -9,7 +9,6 @@ import {
   stageLessonLabel,
   stageLessonShort,
   hasCore30Checkpoints,
-  showFoundationNudge,
 } from "@/lib/core60-path";
 import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
 import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
@@ -140,112 +139,38 @@ function StageEyebrow({ moduleId }: { moduleId: string }) {
  * page you are on is marked current; the others open that stage's page. On the Core 30 page the
  * Foundation step also nudges a beginner until the Foundation is mastered.
  */
-function Core60PathCard({
-  moduleId,
-  context,
-}: {
-  moduleId: string;
-  context: Core30ProgressContext;
-}) {
-  const { state } = useApp();
+function Core60PathCard({ moduleId }: { moduleId: string }) {
   const openCore30Of = useOpenCore30Of();
   const path = core60PathOf(moduleId);
   if (!path) return null;
-  const masteredIn = (stepModuleId: string) =>
-    masteredLessons(
-      state.core30Log[
-        core30ScopeKey(
-          stepModuleId,
-          stepModuleId === moduleId
-            ? context
-            : { targetLanguage: state.selectedLanguage, instructionLanguage: state.nativeLanguage },
-        )
-      ],
-    ).length;
-  const foundationStep = path.steps[0];
-  const nudge = showFoundationNudge(path, masteredIn(foundationStep.moduleId));
+  const labels = { foundation: "Foundation", core: "Core", master: "Master" };
   return (
-    <div
-      data-testid="core60-path"
-      className="mb-5 rounded-2xl border border-gold/25 bg-gold/[0.05] p-4"
-    >
-      <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-        Core 60 path · {path.tradeLabel}
-      </p>
-      <ol className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-3">
-        {path.steps.map((step, index) => {
+    <nav data-testid="core60-path" aria-label="Lesson levels" className="mb-5">
+      <ol className="grid grid-cols-3 gap-2">
+        {path.steps.map((step) => {
           const isCurrent = step.stage === path.current;
-          const comingSoon = !step.available;
-          const showNudge = nudge && step.stage === "foundation";
-          const body = (
-            <>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Step {index + 1}
-                {isCurrent ? " · You are here" : ""}
-              </span>
-              <span className="mt-0.5 block text-sm font-semibold text-foreground">{step.label}</span>
-              <span
-                data-testid={`core60-step-${step.stage}-count`}
-                className="mt-0.5 block text-xs text-muted-foreground"
-              >
-                {masteredIn(step.moduleId)} / {step.lessons} mastered
-              </span>
-              {showNudge && (
-                <span className="mt-1 block text-xs font-semibold text-gold">
-                  New to Spanish? Start here.
-                </span>
-              )}
-              {!isCurrent && !comingSoon && (
-                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-xs font-semibold text-gold">
-                  Open
-                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden="true" />
-                </span>
-              )}
-              {comingSoon && (
-                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-muted-foreground">
-                  Coming soon
-                </span>
-              )}
-            </>
-          );
-          const base = "flex h-full min-h-11 w-full flex-col rounded-xl border p-3 text-left";
+          const label = labels[step.stage];
+          const base = "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
           return (
-            <li key={step.stage} className="h-full min-w-0">
-              {comingSoon ? (
-                <div
-                  data-testid={`core60-step-${step.stage}`}
-                  aria-disabled="true"
-                  className={cn(base, "border-dashed border-border bg-card/20")}
-                >
-                  {body}
+            <li key={step.stage} className="min-w-0">
+              {!step.available ? (
+                <div data-testid={`core60-step-${step.stage}`} aria-disabled="true" className={cn(base, "border-dashed border-border text-muted-foreground")}>
+                  {label}<span className="sr-only"> — Coming soon</span>
                 </div>
               ) : isCurrent ? (
-                <div
-                  data-testid={`core60-step-${step.stage}`}
-                  aria-current="step"
-                  className={cn(base, "border-gold/60 bg-gold/10")}
-                >
-                  {body}
+                <div data-testid={`core60-step-${step.stage}`} aria-current="step" className={cn(base, "border-gold/60 bg-gold/10 text-gold")}>
+                  {label}
                 </div>
               ) : (
-                <button
-                  type="button"
-                  data-testid={`core60-step-${step.stage}`}
-                  onClick={() => openCore30Of(step.moduleId)}
-                  className={cn(
-                    base,
-                    "transition-colors hover:border-gold/50 hover:bg-gold/10",
-                    showNudge ? "border-gold/50 bg-gold/[0.07]" : "border-border bg-card/40",
-                  )}
-                >
-                  {body}
+                <button type="button" data-testid={`core60-step-${step.stage}`} onClick={() => openCore30Of(step.moduleId)} className={cn(base, "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10")}>
+                  {label}
                 </button>
               )}
             </li>
           );
         })}
       </ol>
-    </div>
+    </nav>
   );
 }
 
@@ -2464,7 +2389,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         <>
           {/* The Core 60 path (Foundation, Core 30, Master 20), above the lesson and the plan */}
           {!reviewOpen && !runnerActive && (
-            <Core60PathCard moduleId={moduleId} context={progressContext} />
+            <Core60PathCard moduleId={moduleId} />
           )}
 
           {/* Celebration banner */}
@@ -2472,7 +2397,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
               <p className="text-xs text-white/60 mt-1">
-                Continue when you’re ready, or follow the dates in your plan.
+                Continue when you’re ready.
               </p>
             </div>
           )}
@@ -2612,6 +2537,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
+            <details data-testid="study-options" open={activeAssessmentPlan ? true : undefined} className="my-4 rounded-xl border border-border/50 p-3">
+              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Study options</summary>
             <Core30PlanCard
               enrollmentId={activeAssessmentPlan}
               reviewEveryDays={approvedPlanTiming.reviewEveryDays}
@@ -2635,6 +2562,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 setReviewOpen(true);
               }}
             />
+            </details>
           )}
 
           {!runnerActive && <LegacyCore30History moduleId={moduleId} context={progressContext} />}

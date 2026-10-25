@@ -82,6 +82,7 @@ async function openCore30(
       core30Log: log ? { [core30Key(moduleId, language)]: log } : {},
     });
     await page.goto(appUrl({ tab: "core30", module: moduleId, target: language }));
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     // A dropped seed leaves the app on its default tab, so only wait a short while before retrying.
     await page
       .getByTestId("core30-plan-card")
@@ -186,7 +187,7 @@ test.describe("Core 30 plan: Roofing", () => {
   test("1. start the plan: Day 1 of 90 and Lesson 1", async ({ page }) => {
     await openCore30(page);
     const card = page.getByTestId("core30-plan-card");
-    await expect(card.locator('input[type="date"]')).toHaveValue(dateKey(0));
+    await expect(card.locator('input[type="date"]')).toHaveCount(0);
     await expect(card.getByText("Day 1 of 90")).toHaveCount(0);
     await card.getByTestId("core30-start-plan").click();
     await expect(card.getByText("Day 1 of 90")).toBeVisible();

@@ -2289,6 +2289,7 @@ export function SpeakingMissionsPreview({
       )}
 
       <div
+        role="group"
         aria-label="Conversation microphone"
         className="mt-3 flex flex-col items-center gap-2 text-center"
       >

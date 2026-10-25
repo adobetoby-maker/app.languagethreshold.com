@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 import { audit, sendTeamEmail, teamAdminClient } from "@/lib/team-server";
+import { fulfillDocumentSession, fulfillDocumentInvoice } from "@/lib/document-billing-server";
 import { syncTeamSubscription } from "@/lib/team-subscription";
 
 async function getSupabaseAdmin() {
@@ -83,10 +84,18 @@ export const Route = createFileRoute("/api/stripe-webhook")({
         }
 
         try {
+          // Document add-ons never change the learner’s course subscription.
+          if (
+            event.type.startsWith("customer.subscription.") &&
+            (event.data.object as Stripe.Subscription).metadata?.documentPurchase
+          )
+            return new Response("ok");
           switch (event.type) {
             // ── Trial / checkout ──────────────────────────────────────────
+            case "checkout.session.async_payment_succeeded":
             case "checkout.session.completed": {
               const session = event.data.object as Stripe.Checkout.Session;
+              if (await fulfillDocumentSession(stripe, session)) break;
               if (session.metadata?.customModuleRequestId) {
                 if (session.payment_status !== "paid" || session.amount_total !== 2000)
                   throw new Error("Custom module request payment was not confirmed at $20.");
@@ -235,6 +244,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
               const inv = event.data.object as Stripe.Invoice;
               const subId = invoiceSubscriptionId(inv);
               const subscription = subId ? await stripe.subscriptions.retrieve(subId) : null;
+              if (await fulfillDocumentInvoice(stripe, inv, subscription)) break;
               if (subscription) await syncTeamSubscription(subscription);
               await recordStripeEntry(
                 `invoice:${inv.id}`,
@@ -257,7 +267,9 @@ export const Route = createFileRoute("/api/stripe-webhook")({
               const inv = event.data.object as Stripe.Invoice;
               const subId = invoiceSubscriptionId(inv);
               if (subId) {
-                await syncTeamSubscription(await stripe.subscriptions.retrieve(subId));
+                const subscription = await stripe.subscriptions.retrieve(subId);
+                if (subscription.metadata?.documentPurchase) break;
+                await syncTeamSubscription(subscription);
               }
               const userId = inv.metadata?.userId;
               if (userId) {

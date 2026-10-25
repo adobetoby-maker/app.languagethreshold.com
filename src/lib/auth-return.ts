@@ -11,6 +11,7 @@ const AUTH_RETURN_KEY = "lt_auth_return";
 const AUTH_RETURN_MS = 15 * 60 * 1000;
 const RETURN_PATHS = new Set([
   "/module-request",
+  "/documents",
   "/team",
   "/owner",
   "/account",

@@ -35,6 +35,7 @@ import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-check
 import { Route as ApiCustomerReferralRouteImport } from './routes/api.customer-referral'
 import { Route as ApiCustomerUnsubscribeRouteImport } from './routes/api.customer-unsubscribe'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
+import { Route as ApiDocumentsRouteImport } from './routes/api.documents'
 import { Route as ApiExamBankRouteImport } from './routes/api.exam-bank'
 import { Route as ApiExamCheckRouteImport } from './routes/api.exam-check'
 import { Route as ApiExamCleanupRouteImport } from './routes/api.exam-cleanup'
@@ -199,6 +200,11 @@ const ApiCustomerUnsubscribeRoute = ApiCustomerUnsubscribeRouteImport.update({
 const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
   id: '/api/discussion',
   path: '/api/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDocumentsRoute = ApiDocumentsRouteImport.update({
+  id: '/api/documents',
+  path: '/api/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiExamBankRoute = ApiExamBankRouteImport.update({
@@ -404,6 +410,7 @@ export interface FileRoutesByFullPath {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/documents': typeof ApiDocumentsRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -467,6 +474,7 @@ export interface FileRoutesByTo {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/documents': typeof ApiDocumentsRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -531,6 +539,7 @@ export interface FileRoutesById {
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/documents': typeof ApiDocumentsRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -596,6 +605,7 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/documents'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -659,6 +669,7 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/documents'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -722,6 +733,7 @@ export interface FileRouteTypes {
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
+    | '/api/documents'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -786,6 +798,7 @@ export interface RootRouteChildren {
   ApiCustomerReferralRoute: typeof ApiCustomerReferralRoute
   ApiCustomerUnsubscribeRoute: typeof ApiCustomerUnsubscribeRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
+  ApiDocumentsRoute: typeof ApiDocumentsRoute
   ApiExamBankRoute: typeof ApiExamBankRoute
   ApiExamCheckRoute: typeof ApiExamCheckRoute
   ApiExamCleanupRoute: typeof ApiExamCleanupRoute
@@ -1005,6 +1018,13 @@ declare module '@tanstack/react-router' {
       path: '/api/discussion'
       fullPath: '/api/discussion'
       preLoaderRoute: typeof ApiDiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/documents': {
+      id: '/api/documents'
+      path: '/api/documents'
+      fullPath: '/api/documents'
+      preLoaderRoute: typeof ApiDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/exam-bank': {
@@ -1282,6 +1302,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCustomerReferralRoute: ApiCustomerReferralRoute,
   ApiCustomerUnsubscribeRoute: ApiCustomerUnsubscribeRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
+  ApiDocumentsRoute: ApiDocumentsRoute,
   ApiExamBankRoute: ApiExamBankRoute,
   ApiExamCheckRoute: ApiExamCheckRoute,
   ApiExamCleanupRoute: ApiExamCleanupRoute,

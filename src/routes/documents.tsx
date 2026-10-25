@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AuthProvider } from "@/state/auth-state";
 import { AppProvider } from "@/state/app-state";
-import { LibraryProvider } from "@/state/library-state";
 import { NotesProvider } from "@/state/notes-state";
 import { DocumentWorkspace } from "@/components/documents/DocumentWorkspace";
 
@@ -19,11 +18,9 @@ export const Route = createFileRoute("/documents")({
   component: () => (
     <AuthProvider>
       <AppProvider>
-        <LibraryProvider independentSelection>
-          <NotesProvider>
-            <DocumentWorkspace />
-          </NotesProvider>
-        </LibraryProvider>
+        <NotesProvider>
+          <DocumentWorkspace />
+        </NotesProvider>
       </AppProvider>
     </AuthProvider>
   ),

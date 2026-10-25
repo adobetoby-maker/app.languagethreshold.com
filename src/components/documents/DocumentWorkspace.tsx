@@ -1,20 +1,113 @@
-import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { BookOpen, Plus, Upload, ArrowRight, Printer, FileText, Loader2 } from "lucide-react";
-import { translateDocument } from "@/fns/library.functions";
-import { useLibrary } from "@/state/library-state";
 import { useNotes } from "@/state/notes-state";
 import { useAuth } from "@/state/auth-state";
 import { LANGUAGES, type Language } from "@/data/languages";
 import { documentPassages, DOCUMENT_LIMIT } from "@/lib/document-translation";
 import { extractFromFile } from "@/lib/extract-book";
+import { ownedTeamRequest } from "@/lib/team-client";
+import type { DocumentAllowance, SavedDocument } from "@/lib/document-client";
+import { AuthModal } from "@/components/auth/AuthModal";
 import "./documents.css";
 
 export function DocumentWorkspace() {
-  const library = useLibrary();
   const notes = useNotes();
-  const { user } = useAuth();
-  const translate = useServerFn(translateDocument);
+  const { user, isCurrentUser } = useAuth();
+  const [allowance, setAllowance] = useState<DocumentAllowance | null>(null);
+  const [selectedId, setSelectedId] = useState("");
+  const [authOpen, setAuthOpen] = useState(false);
+  const [buying, setBuying] = useState(false);
+  const userId = user?.id ?? "";
+  const translationRequest = useRef<{ fingerprint: string; id: string } | null>(null);
+  const owner = useMemo(() => {
+    const controller = new AbortController();
+    return {
+      userId,
+      isCurrent: () => !!userId && isCurrentUser(userId),
+      signal: controller.signal,
+      controller,
+    };
+  }, [userId, isCurrentUser]);
+  const refresh = useCallback(async () => {
+    if (!owner.userId) return;
+    const result = await ownedTeamRequest<DocumentAllowance>(owner, "/api/documents");
+    if (owner.isCurrent()) setAllowance(result);
+  }, [owner]);
+  useEffect(() => {
+    setAllowance(null);
+    setSelectedId("");
+    setOpened(false);
+    setError("");
+    setBusy(false);
+    setBuying(false);
+    setText("");
+    setTitle("");
+    if (owner.userId)
+      void refresh().catch((err) => {
+        if (owner.isCurrent())
+          setError(err instanceof Error ? err.message : "Could not load documents.");
+      });
+    let timer: ReturnType<typeof setInterval> | undefined;
+    if (
+      owner.userId &&
+      new URL(window.location.href).searchParams.get("purchase") === "processing"
+    ) {
+      let attempts = 0;
+      timer = setInterval(() => {
+        void refresh().catch(() => {});
+        if (++attempts >= 10 && timer) clearInterval(timer);
+      }, 3000);
+    }
+    return () => {
+      owner.controller.abort();
+      if (timer) clearInterval(timer);
+    };
+  }, [owner, refresh]);
+  async function cancelStorage() {
+    if (
+      !window.confirm(
+        "Cancel the $5/month storage add-on at the end of its paid period? Existing documents remain readable. New documents will use the included 10-slot limit after that period.",
+      )
+    )
+      return;
+    setBuying(true);
+    setError("");
+    try {
+      await ownedTeamRequest(owner, "/api/documents", { action: "cancel-storage" });
+      if (owner.isCurrent())
+        setError(
+          "Storage renewal canceled. Your extra slots remain available through the paid period.",
+        );
+    } catch (err) {
+      if (owner.isCurrent())
+        setError(err instanceof Error ? err.message : "Could not cancel storage renewal.");
+    } finally {
+      if (owner.isCurrent()) setBuying(false);
+    }
+  }
+  async function purchase(kind: "storage" | "translations" | "portal") {
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
+    setBuying(true);
+    setError("");
+    try {
+      const result = await ownedTeamRequest<{ url: string }>(
+        owner,
+        "/api/documents",
+        kind === "portal"
+          ? { action: "portal" }
+          : { action: "checkout", kind, id: crypto.randomUUID() },
+      );
+      if (owner.isCurrent()) window.location.assign(result.url);
+    } catch (err) {
+      if (owner.isCurrent())
+        setError(err instanceof Error ? err.message : "Could not open checkout.");
+    } finally {
+      if (owner.isCurrent()) setBuying(false);
+    }
+  }
   const [opened, setOpened] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -24,12 +117,8 @@ export function DocumentWorkspace() {
   const [busy, setBusy] = useState(false);
   const [extracting, setExtracting] = useState(false);
   const [error, setError] = useState("");
-  const documents = library.state.entries.filter(
-    (entry) => entry.section === "custom" && entry.subtitle.startsWith("Document · "),
-  );
-  const active = opened
-    ? documents.find((entry) => entry.id === library.state.selectedId)
-    : undefined;
+  const documents = allowance?.documents ?? [];
+  const active = opened ? documents.find((entry) => entry.id === selectedId) : undefined;
   const annotations = active ? notes.forText(active.id) : [];
   const activeNotes = annotations.filter((note) => note.pane === "left");
 
@@ -49,12 +138,14 @@ export function DocumentWorkspace() {
         throw new Error(
           "No readable text found. For scanned documents, copy the text using your device’s text recognition, then paste it here.",
         );
+      if (owner.signal.aborted) return;
       setText(content);
       if (!title) setTitle(file.name.replace(/\.[^.]+$/, ""));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not read the file.");
+      if (!owner.signal.aborted)
+        setError(err instanceof Error ? err.message : "Could not read the file.");
     } finally {
-      setExtracting(false);
+      if (!owner.signal.aborted) setExtracting(false);
     }
   }
   async function createDocument(event: React.FormEvent) {
@@ -70,37 +161,40 @@ export function DocumentWorkspace() {
       setError("Choose two different languages.");
       return;
     }
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
+    const fingerprint = JSON.stringify({ userId, title, text, source, target, quality });
+    if (translationRequest.current?.fingerprint !== fingerprint)
+      translationRequest.current = { fingerprint, id: crypto.randomUUID() };
     setBusy(true);
     try {
-      const result = await translate({
-        data: {
-          title: title.trim(),
-          text,
-          sourceLanguage: source,
-          targetLanguage: target,
-          quality,
-        },
-      });
-      if (!result.data) throw new Error(result.error || "Translation could not be completed.");
-      await library.addCustomEntry({
-        id: "",
+      const result = await ownedTeamRequest<{ document: SavedDocument }>(owner, "/api/documents", {
+        action: "translate",
+        id: translationRequest.current.id,
         title: title.trim(),
-        subtitle: `Document · ${source} → ${target}`,
-        language: target,
-        targetLabel: target,
-        sentences: result.data.sentences,
-        section: "custom",
-        flag: "📄",
-        available: true,
-        createdAt: Date.now(),
+        text,
+        sourceLanguage: source,
+        targetLanguage: target,
+        quality,
       });
+      if (!owner.isCurrent()) return;
+      setAllowance((current) =>
+        current ? { ...current, documents: [result.document, ...current.documents] } : current,
+      );
+      setSelectedId(result.document.id);
+      await refresh();
       setOpened(true);
+      translationRequest.current = null;
       setText("");
       setTitle("");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save your document.");
+      if (owner.isCurrent())
+        setError(err instanceof Error ? err.message : "Could not save your document.");
+      if (owner.isCurrent()) void refresh().catch(() => {});
     } finally {
-      setBusy(false);
+      if (owner.isCurrent()) setBusy(false);
     }
   }
   function updateNote(index: number, value: string) {
@@ -118,6 +212,7 @@ export function DocumentWorkspace() {
   }
   return (
     <div className="document-workspace">
+      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
       <header className="document-header">
         <a href="/" className="document-brand">
           Language<span>Threshold</span>
@@ -171,7 +266,7 @@ export function DocumentWorkspace() {
                 className="document-saved"
                 disabled={busy}
                 onClick={() => {
-                  library.dispatch({ type: "SELECT", payload: doc.id });
+                  setSelectedId(doc.id);
                   setOpened(true);
                   setError("");
                 }}
@@ -179,20 +274,66 @@ export function DocumentWorkspace() {
                 <FileText size={17} />
                 <span>
                   {doc.title}
-                  <small>{doc.subtitle.replace("Document · ", "")}</small>
+                  <small>{`${doc.source_language} → ${doc.target_language}`}</small>
                 </span>
               </button>
             ))}
-            <p className="document-storage">
-              Readings save on this device
-              {user
-                ? " and use your library’s account sync"
-                : ". Sign in from the learning app to sync your library"}
-              . Notes stay on this device.
-            </p>
-            {library.syncError && (
-              <p role="status">Saved locally. Account sync needs attention: {library.syncError}</p>
+            <section className="document-allowance" aria-label="Document allowance">
+              <h3>Your allowance</h3>
+              {user ? (
+                <>
+                  <p>
+                    {documents.length} / {allowance?.limit ?? "…"} documents
+                  </p>
+                  <p>
+                    {allowance?.monthlyRemaining.toLocaleString() ?? "…"} monthly characters left
+                  </p>
+                  <p>
+                    {allowance?.purchasedRemaining.toLocaleString() ?? "…"} purchased characters
+                    left
+                  </p>
+                  <button
+                    disabled={busy}
+                    onClick={() => void refresh().catch((err) => setError(err.message))}
+                  >
+                    Refresh allowance
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p>10 saved documents · 50,000 translation characters per calendar month.</p>
+                  <button onClick={() => setAuthOpen(true)}>Sign in to save documents</button>
+                </>
+              )}
+              <p>
+                Monthly characters reset on the first of each month (UTC). Purchased characters
+                carry over until used.
+              </p>
+              <button disabled={buying || busy} onClick={() => void purchase("storage")}>
+                100 extra slots · $5/month
+              </button>
+              <button disabled={buying || busy} onClick={() => void purchase("translations")}>
+                50,000 extra characters · $5 once
+              </button>
+              {allowance?.hasBilling && (
+                <button disabled={buying} onClick={() => void purchase("portal")}>
+                  Manage billing / cancel storage
+                </button>
+              )}
+              <p>
+                Reading and notes use no translation allowance. Canceling storage keeps existing
+                documents readable; adding new ones requires space within your current limit.
+              </p>
+            </section>
+            {allowance?.storageSubscription && (
+              <button disabled={buying} onClick={() => void cancelStorage()}>
+                Cancel storage renewal
+              </button>
             )}
+            <p className="document-storage">
+              Documents save to your account. Notes stay on this device. Up to 8,000 characters per
+              document.
+            </p>
           </aside>
           <section className="document-paper">
             {error && (
@@ -206,10 +347,41 @@ export function DocumentWorkspace() {
                   <div>
                     <p className="document-eyebrow">SAVED READING</p>
                     <h2>{active.title}</h2>
-                    <p>{active.subtitle.replace("Document · ", "")}</p>
+                    <p>{`${active.source_language} → ${active.target_language}`}</p>
                   </div>
                   <button onClick={() => window.print()}>
                     <Printer size={17} /> Print / PDF
+                  </button>
+                  <button
+                    disabled={busy}
+                    onClick={async () => {
+                      if (
+                        !window.confirm(
+                          `Delete “${active.title}”? This frees one document slot. Translation characters already used are not refunded.`,
+                        )
+                      )
+                        return;
+                      setBusy(true);
+                      try {
+                        await ownedTeamRequest(owner, "/api/documents", {
+                          action: "delete",
+                          id: active.id,
+                        });
+                        if (owner.isCurrent()) {
+                          setOpened(false);
+                          await refresh();
+                        }
+                      } catch (err) {
+                        if (owner.isCurrent())
+                          setError(
+                            err instanceof Error ? err.message : "Could not delete document.",
+                          );
+                      } finally {
+                        if (owner.isCurrent()) setBusy(false);
+                      }
+                    }}
+                  >
+                    Delete document
                   </button>
                 </div>
                 <p className="document-muted">
@@ -217,7 +389,7 @@ export function DocumentWorkspace() {
                 </p>
                 <div className="document-columns">
                   <strong>Original</strong>
-                  <strong>{active.targetLabel}</strong>
+                  <strong>{active.target_language}</strong>
                 </div>
                 {active.sentences.map((pair, index) => (
                   <div key={index} className="document-passage">
@@ -343,7 +515,7 @@ export function DocumentWorkspace() {
                 <button
                   className="document-primary"
                   type="submit"
-                  disabled={busy || extracting || !library.readyToSelect}
+                  disabled={busy || extracting || (!!user && !allowance)}
                 >
                   {busy ? <Loader2 className="animate-spin" size={18} /> : <ArrowRight size={18} />}{" "}
                   {busy ? "Translating and saving…" : "Translate & save to My Documents"}

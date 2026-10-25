@@ -1,10 +1,10 @@
-import type { SentencePair } from "@/data/library";
+import type { DocumentSentence } from "./document-words";
 export interface SavedDocument {
   id: string;
   title: string;
   source_language: string;
   target_language: string;
-  sentences: SentencePair[];
+  sentences: DocumentSentence[];
   created_at: string;
 }
 export interface DocumentAllowance {

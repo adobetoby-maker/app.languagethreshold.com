@@ -189,7 +189,7 @@ export function json(data: unknown, status = 200) {
 export class TeamOperationError extends Error {
   constructor(
     message: string,
-    readonly status: 400 | 403 | 499 | 503 = 400,
+    readonly status: 400 | 403 | 404 | 409 | 429 | 499 | 503 = 400,
   ) {
     super(message);
   }

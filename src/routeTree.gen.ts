@@ -25,6 +25,7 @@ import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferRouteImport } from './routes/refer'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
@@ -52,6 +53,7 @@ import { Route as ApiOwnerActivityRouteImport } from './routes/api.owner-activit
 import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analytics'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
+import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
 import { Route as ApiOwnerTeamsRouteImport } from './routes/api.owner-teams'
 import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
@@ -150,6 +152,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamRoute = TeamRouteImport.update({
@@ -287,6 +294,11 @@ const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
   path: '/api/owner-discounts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerSupportRoute = ApiOwnerSupportRouteImport.update({
+  id: '/api/owner-support',
+  path: '/api/owner-support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerTeamsRoute = ApiOwnerTeamsRouteImport.update({
   id: '/api/owner-teams',
   path: '/api/owner-teams',
@@ -400,6 +412,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
@@ -427,6 +440,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -464,6 +478,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
@@ -491,6 +506,7 @@ export interface FileRoutesByTo {
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -529,6 +545,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account_/password': typeof AccountPasswordRoute
@@ -556,6 +573,7 @@ export interface FileRoutesById {
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -595,6 +613,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/support'
     | '/team'
     | '/terms'
     | '/account/password'
@@ -622,6 +641,7 @@ export interface FileRouteTypes {
     | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
@@ -659,6 +679,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/support'
     | '/team'
     | '/terms'
     | '/account/password'
@@ -686,6 +707,7 @@ export interface FileRouteTypes {
     | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
@@ -723,6 +745,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/support'
     | '/team'
     | '/terms'
     | '/account_/password'
@@ -750,6 +773,7 @@ export interface FileRouteTypes {
     | '/api/owner-analytics'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
@@ -788,6 +812,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ReferRoute: typeof ReferRoute
+  SupportRoute: typeof SupportRoute
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
@@ -815,6 +840,7 @@ export interface RootRouteChildren {
   ApiOwnerAnalyticsRoute: typeof ApiOwnerAnalyticsRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
+  ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
   ApiOwnerTeamsRoute: typeof ApiOwnerTeamsRoute
   ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
@@ -948,6 +974,13 @@ declare module '@tanstack/react-router' {
       path: '/refer'
       fullPath: '/refer'
       preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/team': {
@@ -1139,6 +1172,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerDiscountsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-support': {
+      id: '/api/owner-support'
+      path: '/api/owner-support'
+      fullPath: '/api/owner-support'
+      preLoaderRoute: typeof ApiOwnerSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-teams': {
       id: '/api/owner-teams'
       path: '/api/owner-teams'
@@ -1292,6 +1332,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ReferRoute: ReferRoute,
+  SupportRoute: SupportRoute,
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   AccountPasswordRoute: AccountPasswordRoute,
@@ -1319,6 +1360,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerAnalyticsRoute: ApiOwnerAnalyticsRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
+  ApiOwnerSupportRoute: ApiOwnerSupportRoute,
   ApiOwnerTeamsRoute: ApiOwnerTeamsRoute,
   ApiOwnerUsersRoute: ApiOwnerUsersRoute,
   ApiPlatformRoute: ApiPlatformRoute,

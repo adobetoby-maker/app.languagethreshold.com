@@ -1,3 +1,4 @@
+import { lookupDocumentWord } from "@/lib/document-words-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { randomBytes } from "node:crypto";
 import { z } from "zod";
@@ -18,6 +19,13 @@ import {
   checkLearningGenerationBudget,
 } from "@/lib/learning-generation-security";
 const schema = z.discriminatedUnion("action", [
+  z.object({
+    action: z.literal("lookup"),
+    id: z.string().uuid(),
+    passage: z.number().int().min(0).max(8000),
+    side: z.enum(["en", "target"]),
+    word: z.string().min(1).max(100),
+  }),
   z.object({
     action: z.literal("translate"),
     id: z.string().uuid(),
@@ -84,6 +92,7 @@ export const Route = createFileRoute("/api/documents")({
           const db = teamAdminClient(undefined, request),
             user = await authenticatedTeamUser(request, db),
             data = prepared.data;
+          if (data.action === "lookup") return await lookupDocumentWord(db, user.id, request, data);
           if (data.action === "translate") {
             if (data.sourceLanguage === data.targetLanguage)
               throw new TeamOperationError("Choose two different languages.");

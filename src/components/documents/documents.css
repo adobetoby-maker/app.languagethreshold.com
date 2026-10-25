@@ -283,7 +283,8 @@
   overflow-wrap: anywhere;
   margin: 20px 0;
 }
-.document-pair p + p {
+.document-pair p + p,
+.document-pair > .document-word-text + .document-word-text > p {
   color: #146e73;
 }
 .document-passage {
@@ -439,4 +440,73 @@
 }
 .document-allowance p {
   margin: 10px 0;
+}
+
+/* Dictionary words inherit the prose; keyboard focus and touch retain a clear target. */
+.document-workspace .document-word {
+  display: inline;
+  padding: 3px 0;
+  margin: -3px 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}
+.document-workspace .document-word:hover,
+.document-workspace .document-word:focus-visible {
+  background: #e4eeeb;
+  outline: 2px solid #146e73;
+}
+.document-word-text {
+  display: contents;
+}
+.document-word-text > p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-definition {
+  grid-column: 1 / -1;
+  order: 1;
+  min-width: 0;
+  position: relative;
+  padding: 20px;
+  margin: 12px 0;
+  background: #edf4f1;
+  border: 1px solid #b9cfca;
+  border-radius: 12px;
+}
+.document-definition strong {
+  display: block;
+  padding-right: 24px;
+  color: #146e73;
+}
+.document-definition p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.document-definition small {
+  display: block;
+  color: #52616a;
+  line-height: 1.6;
+}
+.document-workspace .document-definition-close {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  padding: 8px 12px;
+  border: 0;
+  background: transparent;
+  color: #132737;
+  font-size: 24px;
+}
+@media print {
+  .document-definition {
+    display: none;
+  }
 }

@@ -17,7 +17,12 @@ import { ownedTeamRequest } from "@/lib/team-client";
 import { trackEvent } from "@/lib/ga-events";
 import { assessmentCsv } from "@/lib/assessments/export";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
-import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
+import {
+  TEAM_MIN_SEATS,
+  teamPeriodCents,
+  teamPurchaseSelection,
+  type TeamTerm,
+} from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import type { Core30Log } from "@/lib/core30-plan";
@@ -654,9 +659,12 @@ function OwnedAdminWorkspace({
   const [inviteRole, setInviteRole] = useState<"learner" | "admin">("learner");
   const [delivery, setDelivery] = useState<"manual" | "email">("manual");
   const [inviteLinks, setInviteLinks] = useState<InviteLink[]>([]);
-  const [term, setTerm] = useState<TeamTerm>("monthly");
+  const selection = teamPurchaseSelection(
+    typeof window === "undefined" ? "" : window.location.search,
+  );
+  const [term, setTerm] = useState<TeamTerm>(selection.term);
   const [initialSeats, setInitialSeats] = useState(
-    Math.max(TEAM_MIN_SEATS, data.entitlement.seat_limit),
+    Math.max(selection.seats, TEAM_MIN_SEATS, data.entitlement.seat_limit),
   );
   const [addSeats, setAddSeats] = useState(1);
   const [quote, setQuote] = useState<{

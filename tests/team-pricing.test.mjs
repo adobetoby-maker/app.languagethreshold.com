@@ -31,3 +31,19 @@ test("the marginal seat price drops after ten seats without a total-price cliff"
 test("team checkout rejects fewer than five seats", () => {
   assert.throws(() => teamPeriodCents(4, "monthly"), /at least 5/);
 });
+
+test("public seat selections preserve valid choices without accepting client prices", async () => {
+  const { teamPurchaseSelection } = await import("../src/lib/team-pricing.ts");
+  assert.deepEqual(teamPurchaseSelection("?seats=15&term=annual&price=1"), {
+    seats: 15,
+    term: "annual",
+  });
+  assert.deepEqual(teamPurchaseSelection("?seats=10&term=quarterly"), {
+    seats: 10,
+    term: "quarterly",
+  });
+  for (const seats of ["", "4", "5.5", "1001", "Infinity", "-5", "nope"]) {
+    assert.equal(teamPurchaseSelection(`?seats=${seats}`).seats, 5);
+  }
+  assert.equal(teamPurchaseSelection("?seats=1000&term=bad").term, "monthly");
+});

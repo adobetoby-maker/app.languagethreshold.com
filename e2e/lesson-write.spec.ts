@@ -67,6 +67,10 @@ async function openCore30(page: Page) {
  * the lesson page has one, otherwise the kit's mode tabs.
  */
 async function openKitMode(page: Page, mode: "write" | "type") {
+  const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+  if (mode === "type" && await workspace.isVisible()) {
+    await workspace.getByRole("button", { name: "Back to lesson", exact: true }).click();
+  }
   const kit = page.getByTestId("practice-kit");
   const section = page.getByTestId(`lesson-nav-${mode}`);
   if ((await section.count()) > 0) await section.click();
@@ -453,8 +457,8 @@ test.describe("Write it: handwriting practice (Roofing lesson 1)", () => {
   test("7. Type mode: a near miss shows answer feedback with the missing letter", async ({
     page,
   }) => {
-    const kit = await openWriteMode(page);
-    await openKitMode(page, "type");
+    await openWriteMode(page);
+    const kit = await openKitMode(page, "type");
     const prompt = kit.getByText("Type this in Spanish").locator("xpath=following-sibling::p[1]");
     await expect(prompt).toBeVisible();
     const english = (await prompt.innerText()).trim();
@@ -482,8 +486,8 @@ test.describe("Write it: handwriting practice (Roofing lesson 1)", () => {
   });
 
   test("8. Type mode: a missing accent is right, with an accent tip", async ({ page }) => {
-    const kit = await openWriteMode(page);
-    await openKitMode(page, "type");
+    await openWriteMode(page);
+    const kit = await openKitMode(page, "type");
     // Shuffled order: step through until a word with an accent comes up.
     for (let i = 0; i < WORDS.length; i += 1) {
       const prompt = kit.getByText("Type this in Spanish").locator("xpath=following-sibling::p[1]");

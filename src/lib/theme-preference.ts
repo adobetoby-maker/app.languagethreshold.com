@@ -25,7 +25,7 @@ export function applyDarkMode(dark: boolean) {
   document.documentElement.style.colorScheme = dark ? "dark" : "light";
   document
     .querySelector('meta[name="theme-color"]')
-    ?.setAttribute("content", dark ? "#192232" : "#f5f1e7");
+    ?.setAttribute("content", dark ? "#192232" : "#f6f2e9");
 }
 
 export function saveDarkModePreference(dark: boolean) {

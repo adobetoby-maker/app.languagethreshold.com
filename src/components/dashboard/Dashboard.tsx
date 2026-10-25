@@ -11,7 +11,7 @@ import {
   NotebookPen,
 } from "lucide-react";
 import { ACHIEVEMENTS, nextTierProgress, useApp, type Language } from "@/state/app-state";
-import { POINTS_PER_TIER, RANK_BADGE, RANK_COLOR, RANK_TITLE, useMatch } from "@/state/match-state";
+import { POINTS_PER_TIER, RANK_BADGE, RANK_TITLE, useMatch } from "@/state/match-state";
 import { CountUp } from "@/components/CountUp";
 import { flagFor } from "@/state/library-state";
 import { ModuleBadgesPanel } from "@/components/dashboard/ModuleBadgesPanel";
@@ -91,16 +91,16 @@ export function Dashboard() {
   }));
 
   return (
-    <div className="fade-in space-y-10">
+    <div className="progress-dashboard fade-in space-y-10">
       {/* Header */}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+          <div className="font-sans text-xs uppercase tracking-wide text-gold-ink">
             ✦ Trophy Case
           </div>
-          <h1 className="mt-2 font-display text-4xl italic text-foreground">Your Dashboard</h1>
+          <h1 className="mt-2 font-display text-4xl text-foreground">Your Dashboard</h1>
           <button
-            className="mt-3 min-h-11 rounded-xl border border-gold/40 px-4 text-sm text-gold"
+            className="mt-3 min-h-11 rounded-xl border border-gold/40 px-4 text-sm text-gold-ink"
             onClick={() => dispatch({ type: "SET_TAB", payload: "exams" })}
           >
             Exams and assessed progress
@@ -111,7 +111,7 @@ export function Dashboard() {
         </div>
         <a
           href="#my-notes"
-          className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
+          className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold-ink transition-colors hover:bg-gold/15"
         >
           <NotebookPen className="h-4 w-4" strokeWidth={1.7} />
           My Notes
@@ -123,20 +123,20 @@ export function Dashboard() {
         {stats.map((s, i) => (
           <div
             key={i}
-            className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-5"
+            className="relative overflow-hidden rounded-2xl border border-border/60 bg-card p-5"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
             <div className="flex items-center gap-2">
               <s.icon
-                className={`h-3.5 w-3.5 ${s.hot ? "text-gold" : "text-gold/70"}`}
+                className={`h-3.5 w-3.5 ${s.hot ? "text-gold-ink" : "text-gold-ink"}`}
                 strokeWidth={1.8}
               />
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                 {s.label}
               </span>
             </div>
             <div
-              className={`mt-3 font-display text-2xl ${s.hot ? "text-gold" : "text-foreground"}`}
+              className={`mt-3 font-display text-2xl ${s.hot ? "text-gold-ink" : "text-foreground"}`}
             >
               {s.isXp ? <CountUp value={s.value as number} /> : s.value}
             </div>
@@ -165,7 +165,7 @@ export function Dashboard() {
         className="relative overflow-hidden rounded-2xl border p-6"
         style={{
           borderColor: `${m.glowColor}66`,
-          background: `linear-gradient(135deg, ${m.glowColor}14, transparent 70%)`,
+          background: "var(--card)",
           boxShadow: `0 0 40px -20px ${m.glowColor}80`,
         }}
       >
@@ -184,26 +184,29 @@ export function Dashboard() {
               {RANK_BADGE[m.tier]}
             </div>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                 <Swords className="mr-1 inline h-3 w-3" /> Language Match
               </div>
-              <div className="mt-1 font-display text-2xl italic" style={{ color: m.glowColor }}>
+              <div
+                className="mt-1 font-display text-2xl"
+                style={{ color: "var(--progress-accent-ink)" }}
+              >
                 {m.tier}
               </div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                 {RANK_TITLE[m.tier]}
               </div>
             </div>
           </div>
           <div className="text-right">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
               Practice Points
             </div>
             <div className="mt-1 font-display text-2xl text-foreground">
               {m.points}
               <span className="ml-1 text-xs text-muted-foreground">/ {POINTS_PER_TIER}</span>
             </div>
-            <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="mt-1 font-sans text-xs uppercase tracking-wide text-muted-foreground">
               {m.wins}W · {m.losses}L · {m.ties}T
             </div>
           </div>
@@ -223,29 +226,29 @@ export function Dashboard() {
       {/* Module badge ladder */}
       <ModuleBadgesPanel />
 
-      <div className="rounded-2xl border border-border/60 bg-card/60 p-6">
+      <div className="rounded-2xl border border-border/60 bg-card p-6">
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
               Tier Progress
             </div>
-            <div className="mt-1 font-display text-lg italic text-foreground">
+            <div className="mt-1 font-display text-lg text-foreground">
               {progress.current}
               {progress.next && (
                 <>
                   <span className="mx-2 text-muted-foreground">→</span>
-                  <span className="text-gold">{progress.next}</span>
+                  <span className="text-gold-ink">{progress.next}</span>
                 </>
               )}
             </div>
           </div>
-          <div className="text-right font-mono text-xs text-muted-foreground">
+          <div className="text-right font-sans text-xs text-muted-foreground">
             {progress.next ? (
               <>
-                <CountUp value={progress.xpToNext} className="text-gold" /> XP to next
+                <CountUp value={progress.xpToNext} className="text-gold-ink" /> XP to next
               </>
             ) : (
-              <span className="text-gold">Maxed ✦</span>
+              <span className="text-gold-ink">Maxed ✦</span>
             )}
           </div>
         </div>
@@ -255,26 +258,26 @@ export function Dashboard() {
             style={{ width: `${progress.pct}%` }}
           />
         </div>
-        <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <div className="mt-2 flex justify-between font-sans text-xs uppercase tracking-wide text-muted-foreground">
           <span>{progress.base} XP</span>
           <span>{progress.target} XP</span>
         </div>
       </div>
 
       {/* Spoken Challenges Cleared */}
-      <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
+      <section className="rounded-2xl border border-border/60 bg-card p-6">
         <div className="mb-4 flex items-baseline justify-between">
-          <h2 className="flex items-center gap-2 font-display text-2xl italic text-foreground">
-            <Trophy className="h-5 w-5 text-gold" strokeWidth={1.6} />
+          <h2 className="flex items-center gap-2 font-display text-2xl text-foreground">
+            <Trophy className="h-5 w-5 text-gold-ink" strokeWidth={1.6} />
             Challenges Cleared
           </h2>
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
             {state.challengesCleared} total · last {state.recentChallenges.length}
           </span>
         </div>
         {state.recentChallenges.length === 0 ? (
           <p className="text-sm text-muted-foreground">
-            Speak a challenge in <span className="text-gold">Speak & Learn</span> to fill this
+            Speak a challenge in <span className="text-gold-ink">Speak & Learn</span> to fill this
             trophy shelf with mastered sentences.
           </p>
         ) : (
@@ -288,28 +291,28 @@ export function Dashboard() {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <span
-                        className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] ${
+                        className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-sans text-xs uppercase tracking-wide ${
                           c.kind === "reach"
-                            ? "border-gold/60 bg-gold/15 text-gold"
+                            ? "border-gold/60 bg-gold/15 text-gold-ink"
                             : "border-border/60 bg-background/40 text-muted-foreground"
                         }`}
                       >
                         <Sparkles className="h-3 w-3" strokeWidth={1.8} />
                         {c.kind === "reach" ? "Reach" : "Grammar"}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                      <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                         {LANG_FLAGS[c.language] ?? flagFor(c.language)} {c.language}
                       </span>
-                      <span className="font-mono text-[10px] text-gold">+{c.xp} XP</span>
+                      <span className="font-sans text-xs text-gold-ink">+{c.xp} XP</span>
                     </div>
-                    <p className="mt-2 font-display text-base italic leading-snug text-foreground">
+                    <p className="mt-2 font-display text-base leading-snug text-foreground">
                       “{c.sentence}”
                     </p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    <p className="mt-1 font-sans text-xs uppercase tracking-wide text-muted-foreground">
                       {c.hint}
                     </p>
                   </div>
-                  <span className="shrink-0 font-mono text-[10px] text-muted-foreground/70">
+                  <span className="shrink-0 font-sans text-xs text-muted-foreground">
                     {new Date(c.clearedAt).toLocaleDateString(undefined, {
                       month: "short",
                       day: "numeric",
@@ -325,8 +328,8 @@ export function Dashboard() {
       {/* Achievements grid */}
       <section>
         <div className="mb-4 flex items-baseline justify-between">
-          <h2 className="font-display text-2xl italic text-foreground">Achievements</h2>
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          <h2 className="font-display text-2xl text-foreground">Achievements</h2>
+          <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
             {state.achievements.length} / {ACHIEVEMENTS.length}
           </span>
         </div>
@@ -340,7 +343,7 @@ export function Dashboard() {
                 className={`group relative overflow-hidden rounded-xl border p-4 transition-all ${
                   unlocked
                     ? "border-gold/60 bg-gradient-to-br from-gold/15 via-card to-card shadow-gold"
-                    : "border-border/50 bg-card/40 opacity-60 hover:opacity-90"
+                    : "border-border/50 bg-card "
                 }`}
               >
                 {unlocked && (
@@ -355,10 +358,10 @@ export function Dashboard() {
                     {a.title}
                   </div>
                   {!unlocked && (
-                    <Lock className="h-3.5 w-3.5 text-muted-foreground/70" strokeWidth={1.6} />
+                    <Lock className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.6} />
                   )}
                 </div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                <div className="mt-2 font-sans text-xs uppercase tracking-wide text-muted-foreground">
                   {unlocked ? "Unlocked" : a.hint}
                 </div>
               </div>
@@ -368,10 +371,10 @@ export function Dashboard() {
       </section>
 
       {/* Activity chart */}
-      <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
+      <section className="rounded-2xl border border-border/60 bg-card p-6">
         <div className="mb-4 flex items-baseline justify-between">
-          <h2 className="font-display text-2xl italic text-foreground">Activity</h2>
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          <h2 className="font-display text-2xl text-foreground">Activity</h2>
+          <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
             Last 7 days
           </span>
         </div>
@@ -390,10 +393,10 @@ export function Dashboard() {
                       title={`${s.xp} XP`}
                     />
                   </div>
-                  <div className="font-mono text-[10px] text-muted-foreground">
+                  <div className="font-sans text-xs text-muted-foreground">
                     {s.xp > 0 ? s.xp : "–"}
                   </div>
-                  <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground/70">
+                  <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                     {s.date ? formatDay(s.date) : "—"}
                   </div>
                 </div>
@@ -404,8 +407,8 @@ export function Dashboard() {
       </section>
 
       {/* Language history */}
-      <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
-        <h2 className="mb-4 font-display text-2xl italic text-foreground">Languages Practiced</h2>
+      <section className="rounded-2xl border border-border/60 bg-card p-6">
+        <h2 className="mb-4 font-display text-2xl text-foreground">Languages Practiced</h2>
         <div className="flex flex-wrap gap-3">
           {langHistory.map((l) => (
             <div
@@ -414,10 +417,10 @@ export function Dashboard() {
             >
               <span className="text-xl leading-none">{l.flag}</span>
               <div className="flex flex-col">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
+                <span className="font-sans text-xs uppercase tracking-wide text-foreground">
                   {l.lang}
                 </span>
-                <span className="font-mono text-[10px] text-muted-foreground">
+                <span className="font-sans text-xs text-muted-foreground">
                   {formatMinutes(l.seconds)} spoken
                 </span>
               </div>

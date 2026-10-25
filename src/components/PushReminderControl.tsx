@@ -293,15 +293,15 @@ function OwnedPushReminderControl() {
   return (
     <section className="rounded-2xl border border-cyan-400/25 bg-cyan-400/5 p-5">
       <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-300/35 bg-cyan-300/10">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-300/35 bg-[var(--info-surface)]">
           {settings?.enabled ? (
-            <BellRing className="h-4.5 w-4.5 text-cyan-200" />
+            <BellRing className="h-4.5 w-4.5 text-[var(--info-ink)]" />
           ) : (
-            <BellOff className="h-4.5 w-4.5 text-cyan-200" />
+            <BellOff className="h-4.5 w-4.5 text-[var(--info-ink)]" />
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">
+          <p className="font-sans text-xs uppercase tracking-wide text-[var(--info-ink)]">
             Daily practice reminder
           </p>
           <h2 className="mt-1 font-serif text-xl text-foreground">
@@ -361,7 +361,7 @@ function OwnedPushReminderControl() {
                 type="button"
                 onClick={() => void checkSavedSettings()}
                 disabled={busy || loading}
-                className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-foreground hover:bg-background disabled:opacity-50"
+                className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-foreground hover:bg-background disabled:bg-muted disabled:text-muted-foreground disabled:border-border"
               >
                 {busy ? "Checking saved settings…" : "Check saved settings"}
               </button>
@@ -387,7 +387,7 @@ function OwnedPushReminderControl() {
                 type="button"
                 onClick={() => void disable()}
                 disabled={busy || loading || unconfirmed}
-                className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-muted-foreground hover:text-foreground disabled:opacity-50"
+                className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-muted-foreground hover:text-foreground disabled:bg-muted disabled:text-muted-foreground disabled:border-border"
               >
                 Turn off
               </button>
@@ -397,7 +397,7 @@ function OwnedPushReminderControl() {
               type="button"
               onClick={() => void enable()}
               disabled={busy || loading || !settings}
-              className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-cyan-300 px-4 py-2 text-xs font-semibold text-slate-950 disabled:opacity-45"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-cyan-300 px-4 py-2 text-xs font-semibold text-slate-950 disabled:bg-muted disabled:text-muted-foreground disabled:border-border"
             >
               {busy ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -410,12 +410,12 @@ function OwnedPushReminderControl() {
 
           {isIos() && !isStandalone() && (
             <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
-              <Smartphone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-200" />
+              <Smartphone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--info-ink)]" />
               iPhone notifications work after you add the app to your Home Screen and open it there.
             </p>
           )}
           {message && (
-            <p role="alert" className="mt-3 text-xs leading-relaxed text-amber-300">
+            <p role="alert" className="mt-3 text-xs leading-relaxed text-[var(--streak-ink)]">
               {message}
             </p>
           )}

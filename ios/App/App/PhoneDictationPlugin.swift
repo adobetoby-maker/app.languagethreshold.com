@@ -18,6 +18,7 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private var tapped = false
+    private var previousAudioConfiguration: (category: AVAudioSession.Category, mode: AVAudioSession.Mode, options: AVAudioSession.CategoryOptions)?
     private var latestText = ""
     private var limit: Timer?
     private var finishDeadline: Timer?
@@ -39,7 +40,12 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
         request?.endAudio()
         engine = nil
         // Do this before telling JS it may play the partner's reply.
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        if let previous = previousAudioConfiguration {
+            previousAudioConfiguration = nil
+            let session = AVAudioSession.sharedInstance()
+            try? session.setActive(false, options: .notifyOthersOnDeactivation)
+            try? session.setCategory(previous.category, mode: previous.mode, options: previous.options)
+        }
     }
     private func finish(error: String? = nil) {
         guard let id = requestID else { return }
@@ -85,6 +91,7 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
         }
         do {
             let audioSession = AVAudioSession.sharedInstance()
+            previousAudioConfiguration = (audioSession.category, audioSession.mode, audioSession.categoryOptions)
             try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetoothHFP])
             try audioSession.setActive(true)
             let engine = AVAudioEngine()

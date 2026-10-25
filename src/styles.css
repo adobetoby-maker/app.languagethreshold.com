@@ -71,38 +71,33 @@
       var(--lt-floating-gap) + var(--lt-floating-gap) + var(--lt-floating-gap)
   );
 
-  --midnight: oklch(0.22 0.04 255);
-  --gold: oklch(0.74 0.13 80);
-  --gold-ink: oklch(0.48 0.11 70);
-  --gold-soft: oklch(0.86 0.08 85);
-  --ivory: oklch(0.96 0.012 80);
+  /* Document Reader palette: warm paper, navy ink and teal actions. */
+  --midnight: #081525;
+  --gold: #d7a63a;
+  --gold-ink: #86600f;
+  --gold-soft: #f0dfa9;
+  --ivory: #f6f2e9;
 
-  --background: oklch(0.96 0.012 80); /* ivory */
-  --foreground: oklch(0.22 0.04 255); /* midnight */
-
-  --card: oklch(0.98 0.008 80);
+  --background: var(--ivory);
+  --foreground: #132737;
+  --card: #ffffff;
   --card-foreground: var(--foreground);
-  --popover: oklch(0.98 0.008 80);
+  --popover: #ffffff;
   --popover-foreground: var(--foreground);
 
-  --primary: oklch(0.22 0.04 255); /* midnight */
-  --primary-foreground: oklch(0.96 0.012 80);
-
-  --secondary: oklch(0.92 0.015 80);
+  --primary: #146e73;
+  --primary-foreground: #ffffff;
+  --secondary: #e8efeb;
   --secondary-foreground: var(--foreground);
-
-  --muted: oklch(0.92 0.015 80);
-  --muted-foreground: oklch(0.45 0.03 255);
-
-  --accent: oklch(0.74 0.13 80); /* gold */
-  --accent-foreground: oklch(0.22 0.04 255);
-
-  --destructive: oklch(0.577 0.22 27);
-  --destructive-foreground: oklch(0.98 0.005 80);
-
-  --border: oklch(0.88 0.02 80);
-  --input: oklch(0.88 0.02 80);
-  --ring: oklch(0.74 0.13 80);
+  --muted: #edf1ec;
+  --muted-foreground: #52616a;
+  --accent: #e4eeeb;
+  --accent-foreground: #132737;
+  --destructive: #b42332;
+  --destructive-foreground: #ffffff;
+  --border: #d4ded7;
+  --input: #bac8c4;
+  --ring: #146e73;
 }
 
 /* Remove the phone nav budget on real desktop only — iPad keeps the tall mobile budget
@@ -115,6 +110,11 @@
 
 /* Dark mode = midnight luxe */
 .dark {
+  /* Keep the existing midnight palette independent of Light mode. */
+  --midnight: oklch(0.22 0.04 255);
+  --gold: oklch(0.74 0.13 80);
+  --gold-soft: oklch(0.86 0.08 85);
+  --ivory: oklch(0.96 0.012 80);
   --gold-ink: var(--gold);
   --background: oklch(0.18 0.035 255); /* deep midnight */
   --foreground: oklch(0.98 0.005 80); /* near-white — crisper on dark bg */

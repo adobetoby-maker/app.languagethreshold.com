@@ -153,7 +153,7 @@ export function Core30PlanCard({
                 className="min-h-11 rounded-xl px-5 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-40"
                 style={GOLD_BUTTON}
               >
-                Start my {pace.planDays}-day plan
+                Start lessons
               </button>
             </div>
           </div>

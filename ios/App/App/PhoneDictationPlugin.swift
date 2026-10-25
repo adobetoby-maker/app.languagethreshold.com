@@ -3,6 +3,20 @@ import UIKit
 import Speech
 import AVFoundation
 
+// BEGIN phone dictation locale order
+func phoneDictationLocales(requested: String, supported: [String]) -> [String] {
+    func normalized(_ value: String) -> String { value.replacingOccurrences(of: "_", with: "-").lowercased() }
+    let wanted = normalized(requested)
+    let family = String(wanted.split(separator: "-").first ?? "")
+    let preferred = ["es": "es-mx", "en": "en-us", "it": "it-it", "ja": "ja-jp"][family]
+    // Unsupported Spanish/English regions can use a same-language recognizer.
+    // Do not silently turn a Chinese dialect into a different spoken language.
+    let candidates = supported.filter { normalized($0) == wanted || (preferred != nil && normalized($0).hasPrefix(family + "-")) }
+    func rank(_ value: String) -> Int { normalized(value) == wanted ? 0 : (normalized(value) == preferred ? 1 : 2) }
+    return candidates.sorted { rank($0) == rank($1) ? normalized($0) < normalized($1) : rank($0) < rank($1) }
+}
+// END phone dictation locale order
+
 /// Foreground, on-device iPhone dictation. Every tap owns a fresh engine/task.
 @objc(PhoneDictationPlugin)
 final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
@@ -86,7 +100,10 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
     }
     private func record(id: String, locale: String, call: CAPPluginCall) {
         guard UIApplication.shared.applicationState != .background else { finish(error: "aborted"); call.reject("Keep the mission open.", "aborted"); return }
-        guard let recognizer = SFSpeechRecognizer(locale: Locale(identifier: locale)), recognizer.isAvailable, recognizer.supportsOnDeviceRecognition else {
+        let locales = phoneDictationLocales(requested: locale, supported: SFSpeechRecognizer.supportedLocales().map(\.identifier))
+        let recognizer = locales.lazy.compactMap { SFSpeechRecognizer(locale: Locale(identifier: $0)) }
+            .first { $0.isAvailable && $0.supportsOnDeviceRecognition }
+        guard let recognizer else {
             finish(error: "language-not-supported"); call.reject("On-device speech recognition is unavailable for this language.", "language-not-supported"); return
         }
         do {

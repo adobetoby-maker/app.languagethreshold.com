@@ -701,9 +701,12 @@ test("reset to first run clears every user's cached audio and the auth listener 
 // ---- sign-out races and the legacy unscoped store ----
 
 const waitUntil = async (predicate, label) => {
-  for (let i = 0; i < 200; i++) {
+  // Crypto/cache work can outlast hundreds of immediate ticks on a busy CI host.
+  // Use elapsed time so the test waits for real asynchronous completion.
+  const deadline = performance.now() + 5_000;
+  while (performance.now() < deadline) {
     if (await predicate()) return;
-    await tick();
+    await new Promise((resolve) => setTimeout(resolve, 10));
   }
   assert.fail(`timed out waiting for ${label}`);
 };

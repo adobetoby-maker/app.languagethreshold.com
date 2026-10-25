@@ -134,6 +134,7 @@ final class LanguageThresholdBridgeViewController: CAPBridgeViewController {
         super.capacitorDidLoad()
         bridge?.registerPluginInstance(NativeSpeechPlugin())
         bridge?.registerPluginInstance(WatchTalkPlugin())
+        bridge?.registerPluginInstance(PhoneDictationPlugin())
     }
 }
 

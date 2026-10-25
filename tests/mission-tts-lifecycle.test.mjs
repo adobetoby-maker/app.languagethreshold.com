@@ -34,7 +34,7 @@ test("actual mission playback rejects stopped/late work without touching newer a
     const currentEnd=audio.onended;
     plays[0].reject(new Error("late old play rejection"));await tick();
     assert.equal(audio.src,"blob:qa-2");assert.equal(audio.onended,currentEnd);assert.ok(!revoked.includes("blob:qa-2"));
-    plays[1].resolve();await tick();audio.onended();assert.equal(await second,"finished");assert.equal(starts,0);
+    plays[1].resolve();await tick();audio.onended();assert.equal(await second,"finished");assert.equal(starts,0);assert.equal(audio.src,"","finished reply releases the media source before the next microphone turn");
     const third=m.speakMissionTts({...opts,onPlaybackStart:()=>starts++}).then(()=>"finished",e=>e.name);
     await tick();requests[3].resolve(response());await tick();m.stopMissionTts();assert.equal(await third,"AbortError");
     plays[2].resolve();await tick();assert.equal(starts,0,"late play success cannot call prior owner callback");assert.equal(audio.src,"");
@@ -46,7 +46,7 @@ test("actual mission playback rejects stopped/late work without touching newer a
     const preAborted=new AbortController();preAborted.abort();
     await assert.rejects(m.speakMissionTts({...opts,signal:preAborted.signal}),{name:"AbortError"});
     assert.equal(requests.length,6);assert.equal(audio.src,"blob:qa-5");
-    audio.onended();await newer;
+    audio.onended();await newer;assert.equal(audio.src,"","the next reply also releases its audio session");
     const liveOwner=new AbortController();
     const ownedStop=m.speakMissionTts({...opts,signal:liveOwner.signal}).then(()=>"finished",e=>e.name);
     await tick();requests[6].resolve(response());await tick();liveOwner.abort();

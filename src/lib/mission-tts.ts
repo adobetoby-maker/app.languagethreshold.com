@@ -337,6 +337,11 @@ export async function speakMissionTts({
         audio.onended = null;
         audio.onerror = null;
         finishActivePlayback = null;
+        // An ended media element can retain the iPhone playback session. Release
+        // its source before the next microphone tap, while still owning it.
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
         releaseObjectUrl();
       };
       const finish = (error?: unknown) => {

@@ -1,4 +1,9 @@
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
+import {
+  clearSpeakingAuthMission,
+  rememberSpeakingAuthMission,
+  speakingAuthMission,
+} from "@/lib/speaking-auth-return";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useStageCurriculaVersion } from "@/hooks/use-stage-curriculum";
 import { loadStageCurriculum, stageModulesOfBase } from "@/data/core60-stages";
@@ -734,6 +739,7 @@ export function SpeakingMissionsPreview({
 
   const startMissionSession = () => {
     if (!capture().isCurrent() || !selectedMission || !partnerAudioReady) return;
+    clearSpeakingAuthMission();
     stopActiveWork();
     sessionOwnerRef.current = lifecycleKey;
     practiceRecordedRef.current = false;
@@ -886,6 +892,12 @@ export function SpeakingMissionsPreview({
     if (!capture().isCurrent()) return;
     if (!selectedMission || !partnerAudioReady || ageSaving) return;
     if (!session) {
+      if (!embeddedMissionPrefix)
+        rememberSpeakingAuthMission(selectedMission.id, {
+          moduleId: appState.activeModuleId,
+          target: appState.selectedLanguage,
+          native: appState.nativeLanguage,
+        });
       setAuthOpen(true);
       return;
     }
@@ -903,6 +915,7 @@ export function SpeakingMissionsPreview({
 
   const exitMission = () => {
     if (!capture().isCurrent()) return;
+    clearSpeakingAuthMission();
     stopActiveWork();
     sessionOwnerRef.current = null;
     setWordRequest(null);
@@ -920,6 +933,32 @@ export function SpeakingMissionsPreview({
     sessionStartedAtRef.current = null;
     practiceRecordedRef.current = false;
   };
+
+  // A sign-in resets all private work. Reopen only the explicitly requested public setup.
+  useEffect(() => {
+    if (embeddedMissionPrefix) return;
+    let id: string | null = null;
+    try {
+      id = speakingAuthMission(window.location.href, {
+        moduleId: appState.activeModuleId,
+        target: appState.selectedLanguage,
+        native: appState.nativeLanguage,
+      });
+    } catch {
+      return;
+    }
+    const mission = languageMissions.find((item) => item.id === id);
+    if (!mission) return;
+    setSelectedMission(mission);
+    if (actor !== null) setAuthOpen(false);
+  }, [
+    actor,
+    appState.activeModuleId,
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+    languageMissions,
+    embeddedMissionPrefix,
+  ]);
 
   const selectMission = (mission: SpeakingMission) => {
     if (!capture().isCurrent()) return;
@@ -2483,7 +2522,6 @@ export function SpeakingMissionsPreview({
             : ""}
         </p>
       )}
-
 
       {wordRequest && (
         <WordCard

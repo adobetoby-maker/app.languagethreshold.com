@@ -210,3 +210,18 @@ test("focused auth callback retains explicit lesson/plan return while removing c
   rememberAuthReturn(current, saved, 1000);
   assert.equal(consumeAuthReturn("/", true, saved, 2000), authReturnPath(current));
 });
+
+
+test("speaking authentication retains only a valid public mission selection", () => {
+  const path = "/?tab=speak&module=roofing&target=Spanish&native=English&mission=roofing.lesson-02.v1&email=private&access_token=secret";
+  const result = authReturnPath(path);
+  assert.equal(new URL(result, "https://qa.invalid").searchParams.get("mission"), "roofing.lesson-02.v1");
+  assert.ok(!result.includes("private") && !result.includes("secret"));
+  assert.equal(authenticationRedirectUrl("https://preview.example" + path), "https://preview.example" + result);
+  const saved = storage(); rememberAuthReturn(path, saved, 1000);
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), result);
+  for (const mission of ["https://outside.invalid", "x".repeat(201), "../outside", "bad id"]) {
+    assert.equal(new URL(authReturnPath("/?tab=speak&mission=" + encodeURIComponent(mission)), "https://qa.invalid").searchParams.has("mission"), false);
+  }
+  assert.equal(new URL(authReturnPath("/?tab=reader&mission=public-id"), "https://qa.invalid").searchParams.has("mission"), false);
+});

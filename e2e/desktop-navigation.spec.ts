@@ -199,7 +199,10 @@ test("device voice setup instructions are reachable in desktop and phone setting
   ).toHaveAttribute("href", /^https:\/\/support\.apple\.com\//);
   for (const device of ["Mac", "Android", "Windows"])
     await expect(page.getByText(device, { exact: true }).filter({ visible: true })).toBeVisible();
-  await page.getByRole("button", { name: "Check audio routing", exact: true }).filter({ visible: true }).click();
+  await page
+    .getByRole("button", { name: "Check audio routing", exact: true })
+    .filter({ visible: true })
+    .click();
   const audio = page.getByRole("dialog", { name: "Audio & microphone", exact: true });
   await expect(audio).toBeVisible();
   await expect(audio.getByRole("button", { name: "Test microphone", exact: true })).toBeVisible();
@@ -208,31 +211,35 @@ test("device voice setup instructions are reachable in desktop and phone setting
   await expect(audio).not.toBeVisible();
 });
 
-test('Speak keeps a selected country lens collapsed and editable after save and reload', async ({page}) => {
- await page.goto(appUrl({tab:'speak',module:'international-travel'}));
- const banner = page.locator('section[aria-labelledby="next-trip-heading"]');
- const before = await readAppState(page);
- await banner.getByRole('combobox').selectOption('mexico');
- await banner.getByRole('button',{name:'Save',exact:true}).click();
- const summary = page.getByTestId('next-trip-summary');
- await expect(summary).toContainText('Mexico');
- await expect(banner).toHaveCount(0);
- await summary.getByRole('button',{name:'Show country lens details'}).click();
- await expect(banner.getByText('Country lens',{exact:true})).toBeVisible();
- await banner.getByRole('button',{name:'Collapse country lens details'}).click();
- await expect(summary).toBeVisible();
- await summary.getByRole('button',{name:'Edit next trip'}).click();
- await banner.getByRole('combobox').selectOption('spain');
- await banner.getByRole('button',{name:'Save',exact:true}).click();
- await expect(summary).toContainText('Spain');
- await page.reload();
- await expect(summary).toContainText('Spain');
- await expect(banner).toHaveCount(0);
- const after=await readAppState(page);
- expect(after.lessonProgress).toEqual(before.lessonProgress);
- expect(after.core30Log).toEqual(before.core30Log);
- expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await page.screenshot({path:`test-results/country-lens-${test.info().project.name}.png`});
+test("Speak keeps a selected country lens collapsed and editable after save and reload", async ({
+  page,
+}) => {
+  await page.goto(appUrl({ tab: "speak", module: "international-travel" }));
+  await page.getByText("Choose another mission or change settings", { exact: true }).click();
+  const banner = page.locator('section[aria-labelledby="next-trip-heading"]');
+  const before = await readAppState(page);
+  await banner.getByRole("combobox").selectOption("mexico");
+  await banner.getByRole("button", { name: "Save", exact: true }).click();
+  const summary = page.getByTestId("next-trip-summary");
+  await expect(summary).toContainText("Mexico");
+  await expect(banner).toHaveCount(0);
+  await summary.getByRole("button", { name: "Show country lens details" }).click();
+  await expect(banner.getByText("Country lens", { exact: true })).toBeVisible();
+  await banner.getByRole("button", { name: "Collapse country lens details" }).click();
+  await expect(summary).toBeVisible();
+  await summary.getByRole("button", { name: "Edit next trip" }).click();
+  await banner.getByRole("combobox").selectOption("spain");
+  await banner.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(summary).toContainText("Spain");
+  await page.reload();
+  await page.getByText("Choose another mission or change settings", { exact: true }).click();
+  await expect(summary).toContainText("Spain");
+  await expect(banner).toHaveCount(0);
+  const after = await readAppState(page);
+  expect(after.lessonProgress).toEqual(before.lessonProgress);
+  expect(after.core30Log).toEqual(before.core30Log);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: `test-results/country-lens-${test.info().project.name}.png` });
 });
 
 test("Speak opens the current module missions and lets learners browse other modules", async ({
@@ -247,42 +254,29 @@ test("Speak opens the current module missions and lets learners browse other mod
     exact: true,
   });
   await navigation.getByRole("button", { name: "Speak", exact: true }).click();
-  const moduleHeading = page.getByRole("heading", {
-    name: "🏠 Roofing Supervisor",
-    exact: true,
-    level: 3,
-  });
-  await expect(moduleHeading).toBeVisible();
+  const recommended = page.getByRole("group", { name: "Recommended speaking practice" });
+  await expect(recommended).toContainText("Roofing Supervisor");
   await expect(
-    page.getByRole("button", { name: "All Spanish modules", exact: true }),
+    recommended.getByRole("button", { name: /Start practice|Continue practice/ }),
   ).toBeVisible();
   await page.reload();
-  await expect(moduleHeading).toBeVisible();
-  await page
-    .getByRole("button", { name: "All Spanish modules", exact: true })
-    .click();
-  await expect(
-    page.getByRole("button", { name: "All Spanish modules", exact: true }),
-  ).toHaveCount(0);
-  await expect(
-    page.getByRole("heading", { name: /Core Speaking/, level: 3 }),
-  ).toBeVisible();
+  await expect(recommended).toContainText("Roofing Supervisor");
+  await page.getByText("Choose another mission or change settings", { exact: true }).click();
+  await page.getByRole("button", { name: "All Spanish modules", exact: true }).click();
+  await expect(page.getByRole("button", { name: "All Spanish modules", exact: true })).toHaveCount(
+    0,
+  );
+  await expect(page.getByRole("heading", { name: /Core Speaking/, level: 3 })).toBeVisible();
   // Local browsing must not change the learner's selected lesson module.
   expect((await readAppState(page)).activeModuleId).toBe("roofing");
   await page.goto(appUrl({ tab: "speak", module: "core" }));
-  await expect(
-    page.getByRole("heading", { name: /Core Speaking/, level: 3 }),
-  ).toBeVisible();
+  await expect(recommended).toContainText("Core Speaking");
   await page.goto(appUrl({ tab: "speak", module: "roofing" }));
-  await expect(moduleHeading).toBeVisible();
+  await expect(recommended).toContainText("Roofing Supervisor");
   const after = await readAppState(page);
   expect(after.lessonProgress).toEqual(before.lessonProgress);
   expect(after.core30Log).toEqual(before.core30Log);
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({
     path: `test-results/speak-module-${test.info().project.name}.png`,
   });
@@ -292,7 +286,7 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
   page,
 }) => {
   await page.goto(appUrl({ tab: "speak", module: "roofing" }));
-  await expect(page.getByRole("heading", { name: "Choose your speaking goal" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Your next speaking practice" })).toBeVisible();
   await seedAppState(page, {
     nextTrips: { Spanish: { destinationId: "spain", departureDate: null } },
   });
@@ -302,10 +296,12 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
     'section[aria-labelledby="next-trip-heading"], [data-testid="next-trip-summary"]',
   );
   await expect(trip).toHaveCount(0);
+  await page.getByText("Choose another mission or change settings", { exact: true }).click();
   const accent = page.getByRole("combobox", { name: "Speaking accent", exact: true });
   await accent.selectOption("es-MX");
   await expect(accent).toHaveValue("es-MX");
   await page.reload();
+  await page.getByText("Choose another mission or change settings", { exact: true }).click();
   await expect(accent).toHaveValue("es-MX");
   await page
     .getByRole("button")
@@ -313,6 +309,7 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
       has: page.getByRole("heading", { name: "Lesson 30: Full Roofing Day", exact: true }),
     })
     .click();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(page.getByText("Goals for this mission · reference", { exact: true })).toBeVisible();
   await expect(accent).toHaveValue("es-MX");
   await expect(trip).toHaveCount(0);

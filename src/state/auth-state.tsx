@@ -1,4 +1,8 @@
 import {
+  clearSpeakingAuthNavigation,
+  rememberSpeakingAuthNavigation,
+} from "@/lib/speaking-auth-return";
+import {
   createContext,
   Fragment,
   useCallback,
@@ -197,6 +201,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
+    rememberSpeakingAuthNavigation(authenticationRedirectUrl(window.location.href));
     clearGoogleAuthPending();
     rememberAuthReturn(
       window.location.pathname + window.location.search,
@@ -209,6 +214,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       options: { emailRedirectTo: redirectUrl },
     });
     if (error || data.session) clearAuthReturn(browserAuthReturnStorage());
+    if (error) clearSpeakingAuthNavigation();
     return {
       error: error?.message ?? null,
       needsConfirmation: !error && !data.session,
@@ -216,10 +222,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
+    rememberSpeakingAuthNavigation(authenticationRedirectUrl(window.location.href));
     clearGoogleAuthPending();
     clearAuthReturn(browserAuthReturnStorage());
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (!error) return { error: null };
+    clearSpeakingAuthNavigation();
     const msg = error.message.toLowerCase();
     if (msg.includes("invalid") || msg.includes("credentials") || msg.includes("wrong"))
       return { error: "Incorrect email or password." };
@@ -231,6 +239,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
+    rememberSpeakingAuthNavigation(authenticationRedirectUrl(window.location.href));
     rememberAuthReturn(
       window.location.pathname + window.location.search,
       browserAuthReturnStorage(),
@@ -251,6 +260,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       clearAuthReturn(browserAuthReturnStorage());
       clearGoogleAuthPending();
+      clearSpeakingAuthNavigation();
       toast.error("Google sign-in could not start. Try again or use email sign-in.");
     }
   }, []);

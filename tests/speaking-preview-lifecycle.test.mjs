@@ -533,6 +533,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     assert.ok(missionCard);
     missionCard.props.onClick();
     tree = await ready();
+    button(tree, "Conversation").props.onClick();
+    tree = render();
     button(tree, "Sign in to start mission").props.onClick();
     tree = render();
     assert.equal(nodes(tree).find(n => n.type === "auth").props.open, true);

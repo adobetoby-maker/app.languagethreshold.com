@@ -1,3 +1,4 @@
+import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
 import { legacyExamsLocation } from "@/lib/exam-navigation";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { type ReactNode, useEffect, useRef, useState } from "react";
@@ -74,8 +75,15 @@ export const Route = createFileRoute("/")({
 });
 
 function GatedTabShell() {
-  const { state } = useApp();
+  const { state, profileReadyUserId } = useApp();
+  const { user, loading } = useAuth();
   useLessonReturnGuard(state.currentTab);
+  if (loading || (user && profileReadyUserId !== user.id))
+    return (
+      <p role="status" className="py-6 text-sm text-muted-foreground">
+        Opening your learning space…
+      </p>
+    );
   return (
     <SubscriptionGate currentTab={state.currentTab}>
       <TabShell />
@@ -102,6 +110,8 @@ function UrlModuleBridge() {
     });
     if (identity === null) return;
     appliedFor.current = identity;
+    const speakingReturn = userId ? consumeSpeakingAuthNavigation() : null;
+    if (speakingReturn) window.history.replaceState(window.history.state, "", speakingReturn);
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
     const coreLink = moduleId === "core";

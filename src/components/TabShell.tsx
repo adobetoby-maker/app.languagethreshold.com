@@ -113,6 +113,14 @@ export function TabShell() {
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 
   useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      document.querySelector("main")?.scrollTo({ top: 0, behavior: "instant" });
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [state.currentTab]);
+
+  useEffect(() => {
     const storageKey = `lt.tool-purpose-dismissed.${state.currentTab}`;
     try {
       setPurposeTab(localStorage.getItem(storageKey) === "1" ? null : state.currentTab);
@@ -158,7 +166,7 @@ export function TabShell() {
       <TabErrorBoundary tabKey={state.currentTab}>
         <Suspense fallback={<TabFallback />}>
           <>
-            {state.currentTab !== "core30" && purposeBanner}
+            {state.currentTab !== "core30" && state.currentTab !== "speak" && purposeBanner}
             <Component />
             {/* Keep course availability guidance without putting it ahead of Continue. */}
             {state.currentTab === "core30" && purposeBanner}

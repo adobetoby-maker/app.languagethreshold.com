@@ -1,3 +1,6 @@
+import { usePracticeViewport } from "@/hooks/use-practice-viewport";
+import { SpeakingPreparation } from "./SpeakingPreparation";
+import { SPEAKING_STEPS, type SpeakingStep } from "@/lib/speaking-preparation";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import {
   clearSpeakingAuthMission,
@@ -201,9 +204,11 @@ function highStakesNotice(mission: SpeakingMission) {
 export function SpeakingMissionsPreview({
   embeddedMissionPrefix,
   onEmbeddedClose,
+  onFocusChange,
 }: {
   embeddedMissionPrefix?: string;
   onEmbeddedClose?: () => void;
+  onFocusChange?: (focused: boolean) => void;
 } = {}) {
   useEffect(() => {
     if (!embeddedMissionPrefix) return;
@@ -224,6 +229,14 @@ export function SpeakingMissionsPreview({
   const { session, isCurrentUser } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
+  const [practiceStep, setPracticeStep] = useState<SpeakingStep>(
+    embeddedMissionPrefix ? "conversation" : "hear",
+  );
+  const practiceViewport = usePracticeViewport(`${selectedMission?.id}:${started}:${practiceStep}`);
+  useEffect(() => {
+    onFocusChange?.(selectedMission !== null);
+    return () => onFocusChange?.(false);
+  }, [selectedMission, onFocusChange]);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [ageLoaded, setAgeLoaded] = useState(false);
   const [ageStatusActor, setAgeStatusActor] = useState<string | null>(null);
@@ -558,7 +571,7 @@ export function SpeakingMissionsPreview({
   }, [stopAudio]);
 
   const activeCatalogModuleId =
-    appState.activeModuleId === "core"
+    !appState.activeModuleId || appState.activeModuleId === "core"
       ? "core-speaking"
       : speakingCatalogModuleId(appState.activeModuleId ?? "");
 
@@ -950,6 +963,7 @@ export function SpeakingMissionsPreview({
     const mission = languageMissions.find((item) => item.id === id);
     if (!mission) return;
     setSelectedMission(mission);
+    setPracticeStep("conversation");
     if (actor !== null) setAuthOpen(false);
   }, [
     actor,
@@ -963,6 +977,7 @@ export function SpeakingMissionsPreview({
   const selectMission = (mission: SpeakingMission) => {
     if (!capture().isCurrent()) return;
     exitMission();
+    setPracticeStep(embeddedMissionPrefix ? "conversation" : "hear");
     setSelectedMission(mission);
     appDispatch({
       type: "SET_SPEAKING_FOCUS",
@@ -1431,229 +1446,256 @@ export function SpeakingMissionsPreview({
         aria-labelledby="mission-preview-heading"
         className="scroll-mt-4 mt-5"
       >
-        <div className="mb-5 rounded-2xl border border-gold/30 bg-gold/10 p-4">
-          {/* Internal build label: dev server only, never shown to learners. */}
-          {import.meta.env.DEV && (
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-              UX preview · {missionLanguage}
-            </p>
-          )}
-          <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
-            Choose your speaking goal
+        <div className="mb-3">
+          <h2 id="mission-preview-heading" className="font-serif text-xl">
+            Your next speaking practice
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Pick a situation, practice the conversation, and get feedback. Your goal stays visible
-            while you speak.
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Speaking practice does not mark lessons mastered.
+          <p className="mt-1 text-sm text-muted-foreground">
+            Hear it. Try an answer. Have the conversation.
           </p>
         </div>
-        <div className="mb-5">{accentControl}</div>
-        {(catalogModule?.category === "Travel" ||
-          (!catalogModule && catalogCategory === "Travel")) && (
-          <div className="mb-5">
-            <NextTripBanner
-              compact
-              onPracticeTravel={() => {
-                setCatalogModuleId(null);
-                setCatalogCategory("Travel");
-                setCatalogSearch("");
-              }}
-            />
-            <p className="mt-2 text-xs text-muted-foreground">
-              Your destination adds local words and travel context. Choose your speaking accent
-              separately above.
-            </p>
-          </div>
-        )}
-        {catalogModule ? (
-          <>
-            <button
-              type="button"
-              onClick={() => setCatalogModuleId(null)}
-              className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <ChevronLeft className="h-4 w-4" /> All {missionLanguage} modules
-            </button>
-            <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
-              <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
-              <h3 className="mt-1 font-serif text-2xl text-foreground">
-                {catalogModule.emoji} {catalogModule.name}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {catalogModule.blurb}
-              </p>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
-                {catalogModule.id === "core-speaking" || !missionLanguage
-                  ? catalogMissions.length
-                  : speakingCatalogMissionCount(
-                      languageMissions,
-                      catalogModule.id,
-                      missionLanguage,
-                    )}{" "}
-                speaking missions
+        {catalogModule &&
+          (() => {
+            const focusId = appState.speakingFocusByLanguage?.[missionLanguage]?.missionId;
+            const next =
+              catalogMissions.find((item) => item.id === focusId) ??
+              visibleCatalogMissions.find((item) => item.sourceObjectiveId) ??
+              visibleCatalogMissions[0];
+            return next ? (
+              <div
+                role="group"
+                aria-label="Recommended speaking practice"
+                className="mb-3 rounded-2xl border border-gold/40 bg-gold/10 p-4"
+              >
+                <p className="text-xs text-muted-foreground">
+                  {catalogModule.emoji} {catalogModule.name}
+                </p>
+                <h3 className="mt-2 line-clamp-2 font-serif text-xl">
+                  {speakingCatalogTitle(next)}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  A short warm-up, then a focused conversation.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => selectMission(next)}
+                  className="mt-3 min-h-12 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black"
+                >
+                  {focusId === next.id ? "Continue practice" : "Start practice"}
+                </button>
+              </div>
+            ) : null;
+          })()}
+        <details className="rounded-2xl border border-border p-3" open={!catalogModule}>
+          <summary className="min-h-11 cursor-pointer py-3 text-sm font-medium">
+            {catalogModule ? "Choose another mission or change settings" : "Choose your module"}
+          </summary>
+          <div className="mb-5">{accentControl}</div>
+          {(catalogModule?.category === "Travel" ||
+            (!catalogModule && catalogCategory === "Travel")) && (
+            <div className="mb-5">
+              <NextTripBanner
+                compact
+                onPracticeTravel={() => {
+                  setCatalogModuleId(null);
+                  setCatalogCategory("Travel");
+                  setCatalogSearch("");
+                }}
+              />
+              <p className="mt-2 text-xs text-muted-foreground">
+                Your destination adds local words and travel context. Choose your speaking accent
+                separately above.
               </p>
             </div>
-            {catalogModule.id === "core-speaking" && (
-              <div
-                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
-                aria-label="Core speaking sections"
+          )}
+          {catalogModule ? (
+            <>
+              <button
+                type="button"
+                onClick={() => setCatalogModuleId(null)}
+                className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
               >
-                {CORE_SECTIONS.map((section) => {
-                  const count = catalogMissions.filter(
-                    (mission) => mission.coreSection === section,
-                  ).length;
+                <ChevronLeft className="h-4 w-4" /> All {missionLanguage} modules
+              </button>
+              <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
+                <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
+                <h3 className="mt-1 font-serif text-2xl text-foreground">
+                  {catalogModule.emoji} {catalogModule.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {catalogModule.blurb}
+                </p>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                  {catalogModule.id === "core-speaking" || !missionLanguage
+                    ? catalogMissions.length
+                    : speakingCatalogMissionCount(
+                        languageMissions,
+                        catalogModule.id,
+                        missionLanguage,
+                      )}{" "}
+                  speaking missions
+                </p>
+              </div>
+              {catalogModule.id === "core-speaking" && (
+                <div
+                  className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
+                  aria-label="Core speaking sections"
+                >
+                  {CORE_SECTIONS.map((section) => {
+                    const count = catalogMissions.filter(
+                      (mission) => mission.coreSection === section,
+                    ).length;
+                    return (
+                      <button
+                        key={section}
+                        type="button"
+                        onClick={() => {
+                          setCoreSection(section);
+                          setRelationshipGroup("All");
+                        }}
+                        aria-pressed={coreSection === section}
+                        className={
+                          "rounded-xl border px-2 py-2.5 text-xs transition-colors " +
+                          (coreSection === section
+                            ? "border-gold bg-gold/15 text-gold"
+                            : "border-border text-muted-foreground hover:text-foreground")
+                        }
+                      >
+                        <span className="block">{section}</span>
+                        <span className="mt-0.5 block font-mono text-[9px] opacity-75">
+                          {count} missions
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+              {catalogModule.id === "core-speaking" && coreSection === "Relationships" && (
+                <div
+                  className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
+                  role="group"
+                  aria-label="Relationship conversations"
+                >
+                  {(["All", ...RELATIONSHIP_GROUPS] as const).map((group) => (
+                    <button
+                      key={group}
+                      type="button"
+                      aria-pressed={relationshipGroup === group}
+                      onClick={() => setRelationshipGroup(group)}
+                      className={`min-h-11 rounded-xl border px-3 py-2 text-sm ${relationshipGroup === group ? "border-gold bg-gold/15 text-gold" : "border-border text-muted-foreground hover:text-foreground"}`}
+                    >
+                      {group === "All" ? "All relationships" : group}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className="grid gap-3 sm:grid-cols-2">
+                {visibleCatalogMissions.map((mission) => {
+                  const specialty = specialtyStyle(mission.specialty);
                   return (
                     <button
-                      key={section}
+                      key={mission.id}
+                      data-testid="speaking-mission-card"
                       type="button"
-                      onClick={() => {
-                        setCoreSection(section);
-                        setRelationshipGroup("All");
-                      }}
-                      aria-pressed={coreSection === section}
-                      className={
-                        "rounded-xl border px-2 py-2.5 text-xs transition-colors " +
-                        (coreSection === section
-                          ? "border-gold bg-gold/15 text-gold"
-                          : "border-border text-muted-foreground hover:text-foreground")
-                      }
+                      onClick={() => selectMission(mission)}
+                      className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
                     >
-                      <span className="block">{section}</span>
-                      <span className="mt-0.5 block font-mono text-[9px] opacity-75">
-                        {count} missions
-                      </span>
+                      <div className="flex items-center justify-between gap-3 text-xs">
+                        <span style={{ color: specialty.color }}>
+                          {mission.relationshipGroup
+                            ? `${specialty.label} · ${mission.relationshipGroup}`
+                            : specialty.label}
+                        </span>
+                        <span className="text-muted-foreground">
+                          {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
+                        </span>
+                      </div>
+                      <h3
+                        className="mt-3 font-serif text-xl text-foreground"
+                        data-testid={
+                          speakingStageName(mission.moduleId)
+                            ? "speak-catalog-stage-mission"
+                            : undefined
+                        }
+                      >
+                        {speakingCatalogTitle(mission)}
+                      </h3>
+                      <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                        Woman + man partner versions
+                      </p>
                     </button>
                   );
                 })}
               </div>
-            )}
-            {catalogModule.id === "core-speaking" && coreSection === "Relationships" && (
-              <div
-                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
-                role="group"
-                aria-label="Relationship conversations"
-              >
-                {(["All", ...RELATIONSHIP_GROUPS] as const).map((group) => (
+            </>
+          ) : (
+            <>
+              <label className="relative mb-3 block">
+                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <span className="sr-only">Search {missionLanguage} modules</span>
+                <input
+                  type="search"
+                  value={catalogSearch}
+                  onChange={(event) => setCatalogSearch(event.target.value)}
+                  placeholder="Search core, specialties, or mission topics…"
+                  className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-3 text-sm text-foreground"
+                />
+              </label>
+              <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+                {(["All", ...catalogCategories] as const).map((category) => (
                   <button
-                    key={group}
+                    key={category}
                     type="button"
-                    aria-pressed={relationshipGroup === group}
-                    onClick={() => setRelationshipGroup(group)}
-                    className={`min-h-11 rounded-xl border px-3 py-2 text-sm ${relationshipGroup === group ? "border-gold bg-gold/15 text-gold" : "border-border text-muted-foreground hover:text-foreground"}`}
+                    onClick={() => setCatalogCategory(category)}
+                    className={
+                      "shrink-0 rounded-full border px-3 py-1.5 text-xs transition-colors " +
+                      (catalogCategory === category
+                        ? "border-gold bg-gold/15 text-gold"
+                        : "border-border text-muted-foreground hover:text-foreground")
+                    }
                   >
-                    {group === "All" ? "All relationships" : group}
+                    {category}
                   </button>
                 ))}
               </div>
-            )}
-            <div className="grid gap-3 sm:grid-cols-2">
-              {visibleCatalogMissions.map((mission) => {
-                const specialty = specialtyStyle(mission.specialty);
-                return (
-                  <button
-                    key={mission.id}
-                    data-testid="speaking-mission-card"
-                    type="button"
-                    onClick={() => selectMission(mission)}
-                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
-                  >
-                    <div className="flex items-center justify-between gap-3 text-xs">
-                      <span style={{ color: specialty.color }}>
-                        {mission.relationshipGroup
-                          ? `${specialty.label} · ${mission.relationshipGroup}`
-                          : specialty.label}
-                      </span>
-                      <span className="text-muted-foreground">
-                        {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
-                      </span>
-                    </div>
-                    <h3
-                      className="mt-3 font-serif text-xl text-foreground"
-                      data-testid={
-                        speakingStageName(mission.moduleId)
-                          ? "speak-catalog-stage-mission"
-                          : undefined
-                      }
+              <div className="grid gap-3 sm:grid-cols-2">
+                {filteredCatalogModules.map((module) => {
+                  const missionCount = missionLanguage
+                    ? speakingCatalogMissionCount(languageMissions, module.id, missionLanguage)
+                    : 0;
+                  const specialty = specialtyStyle(module.category);
+                  return (
+                    <button
+                      key={module.id}
+                      type="button"
+                      onClick={() => {
+                        setCatalogModuleId(module.id);
+                        if (module.id === "core-speaking") setCoreSection("Essential verbs");
+                      }}
+                      className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
                     >
-                      {speakingCatalogTitle(mission)}
-                    </h3>
-                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
-                      Woman + man partner versions
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-          </>
-        ) : (
-          <>
-            <label className="relative mb-3 block">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <span className="sr-only">Search {missionLanguage} modules</span>
-              <input
-                type="search"
-                value={catalogSearch}
-                onChange={(event) => setCatalogSearch(event.target.value)}
-                placeholder="Search core, specialties, or mission topics…"
-                className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-3 text-sm text-foreground"
-              />
-            </label>
-            <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
-              {(["All", ...catalogCategories] as const).map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => setCatalogCategory(category)}
-                  className={
-                    "shrink-0 rounded-full border px-3 py-1.5 text-xs transition-colors " +
-                    (catalogCategory === category
-                      ? "border-gold bg-gold/15 text-gold"
-                      : "border-border text-muted-foreground hover:text-foreground")
-                  }
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {filteredCatalogModules.map((module) => {
-                const missionCount = missionLanguage
-                  ? speakingCatalogMissionCount(languageMissions, module.id, missionLanguage)
-                  : 0;
-                const specialty = specialtyStyle(module.category);
-                return (
-                  <button
-                    key={module.id}
-                    type="button"
-                    onClick={() => {
-                      setCatalogModuleId(module.id);
-                      if (module.id === "core-speaking") setCoreSection("Essential verbs");
-                    }}
-                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
-                  >
-                    <div className="flex items-center justify-between gap-3 text-xs">
-                      <span style={{ color: specialty.color }}>{specialty.label}</span>
-                      <span className="text-muted-foreground">{missionCount} missions</span>
-                    </div>
-                    <h3 className="mt-3 font-serif text-xl text-foreground">
-                      {module.emoji} {module.name}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      {module.blurb}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-            {filteredCatalogModules.length === 0 && (
-              <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
-                No {missionLanguage} module matches that search.
-              </p>
-            )}
-          </>
-        )}
+                      <div className="flex items-center justify-between gap-3 text-xs">
+                        <span style={{ color: specialty.color }}>{specialty.label}</span>
+                        <span className="text-muted-foreground">{missionCount} missions</span>
+                      </div>
+                      <h3 className="mt-3 font-serif text-xl text-foreground">
+                        {module.emoji} {module.name}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {module.blurb}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+              {filteredCatalogModules.length === 0 && (
+                <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
+                  No {missionLanguage} module matches that search.
+                </p>
+              )}
+            </>
+          )}
+        </details>
       </section>
     );
   }
@@ -1662,8 +1704,13 @@ export function SpeakingMissionsPreview({
     const specialty = specialtyStyle(selectedMission.specialty);
     return (
       <section
-        ref={viewTopRef}
-        className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
+        ref={(node) => {
+          viewTopRef.current = node;
+          practiceViewport.ref.current = node;
+        }}
+        style={practiceViewport.style}
+        data-testid="focused-speaking-frame"
+        className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         <SpeakingConsentDialog
@@ -1685,7 +1732,7 @@ export function SpeakingMissionsPreview({
           <ChevronLeft className="h-4 w-4" />{" "}
           {embeddedMissionPrefix ? "Close practice" : "All missions"}
         </button>
-        <div className="mt-5 flex items-center justify-between gap-3 text-xs">
+        <div className="flex shrink-0 items-center justify-between gap-3 text-xs">
           <span style={{ color: specialty.color }}>
             {selectedMission.moduleEmoji} {selectedMission.moduleName} · {selectedMission.level}
           </span>
@@ -1693,10 +1740,9 @@ export function SpeakingMissionsPreview({
             {selectedMission.quickMinutes}–{selectedMission.targetMinutes} min
           </span>
         </div>
-        <h2 className="mt-2 font-serif text-3xl text-foreground">{selectedMission.title}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          {selectedMission.summary}
-        </p>
+        <h2 className="line-clamp-2 shrink-0 font-serif text-xl leading-tight text-foreground sm:text-2xl">
+          {selectedMission.title}
+        </h2>
         {practiceNotice && (
           <div
             role="alert"
@@ -1706,332 +1752,401 @@ export function SpeakingMissionsPreview({
           </div>
         )}
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Goals for this mission · reference
-            </p>
-            <ul className="mt-2 space-y-2 text-sm text-foreground/85">
-              {selectedMission.objectives.map((objective) => (
-                <li key={objective.id} className="flex gap-2">
-                  <span className="text-gold">○</span>
-                  <span>
-                    {objective.description}
-                    {objective.critical ? " *" : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <details
-            open={
-              !selectedMission.lessonTeaching ||
-              selectedMission.lessonTeaching.speaking.wordBank === "visible"
-            }
-          >
-            <summary className="min-h-11 cursor-pointer py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Words you may use · reference
-            </summary>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {selectedMission.vocabulary.map((word) => (
-                <span
-                  key={word}
-                  className="furigana-line rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
-                >
-                  {showFurigana ? (
-                    <FuriganaText text={word} mode="above" script="hiragana" />
-                  ) : showPinyin ? (
-                    <PinyinText text={word} />
-                  ) : (
-                    word
-                  )}
-                </span>
-              ))}
-            </div>
-          </details>
+        <div
+          role="tablist"
+          aria-label="Speaking practice steps"
+          className="grid shrink-0 grid-cols-3 gap-1 rounded-xl bg-background/60 p-1"
+        >
+          {SPEAKING_STEPS.map((step) => (
+            <button
+              key={step.id}
+              type="button"
+              role="tab"
+              aria-selected={practiceStep === step.id}
+              onClick={() => {
+                stopAudio();
+                setPracticeStep(step.id);
+              }}
+              className={`min-h-11 rounded-lg px-1 py-2 text-xs ${practiceStep === step.id ? "bg-gold text-black" : "text-muted-foreground"}`}
+            >
+              {step.label}
+            </button>
+          ))}
         </div>
-
-        {selectedMission.specialty === "Travel" && (
-          <div className="mt-4">
-            <NextTripBanner compact />
-          </div>
-        )}
-
-        <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
-          <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
-            <span className="font-semibold text-gold">Set your choices.</span> Tappable choices have
-            strong borders; the selected choice is filled gold. The goals and words above are
-            reference information, not buttons.
-          </div>
-          <div className="mb-4">{accentControl}</div>
-          <fieldset>
-            <legend className="text-sm font-semibold text-foreground">Choose partner audio</legend>
-            <div className="mt-2 grid grid-cols-3 gap-2">
-              {(["device", "google", "text"] as const).map((source) => {
-                const selected = partnerAudioSource === source;
-                const available = source !== "google" || ttsStatus !== "unavailable";
-                return (
-                  <button
-                    key={source}
-                    type="button"
-                    onClick={() => available && setPartnerAudioSource(source)}
-                    disabled={!available}
-                    aria-pressed={selected}
-                    className={
-                      "min-h-14 rounded-xl border-2 px-2 py-2.5 text-sm font-medium transition-colors " +
-                      (selected
-                        ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                        : available
-                          ? "border-border bg-card text-foreground hover:border-gold/60"
-                          : "cursor-not-allowed border-border bg-card text-muted-foreground opacity-40")
-                    }
-                  >
-                    <span className="flex items-center justify-center gap-1.5">
-                      {selected && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
-                      {source === "device"
-                        ? "Phone voice"
-                        : source === "text"
-                          ? "Text only"
-                          : "Google voice"}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Phone voice uses a voice installed on this device. Google preselects a short list for
-              {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
+        {practiceStep !== "conversation" ? (
+          <SpeakingPreparation
+            key={`${selectedMission.id}:${practiceStep}`}
+            mission={selectedMission}
+            step={practiceStep}
+            audioReady={partnerAudioReady}
+            play={(text) => void speakPartnerText(text)}
+            stop={stopAudio}
+            next={() => {
+              stopAudio();
+              setPracticeStep(practiceStep === "hear" ? "respond" : "conversation");
+            }}
+          />
+        ) : (
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <p className="mb-3 text-sm text-muted-foreground">
+              Use the words and goals you practiced in a short conversation. Start when you're
+              ready.
             </p>
-          </fieldset>
-          <fieldset className="mt-4 border-t border-border/60 pt-4">
-            <legend className="text-sm font-semibold text-foreground">
-              Choose conversation partner
-            </legend>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              {(["woman", "man"] as const).map((version) => {
-                const selected = partnerVersion === version;
-                return (
-                  <button
-                    key={version}
-                    type="button"
-                    onClick={() => {
-                      setPartnerVersion(version);
-                      setSelectedGoogleVoiceName(null);
-                    }}
-                    aria-pressed={selected}
-                    className={
-                      "min-h-14 rounded-xl border-2 px-3 py-2.5 text-sm font-medium transition-colors " +
-                      (selected
-                        ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                        : "border-border bg-card text-foreground hover:border-gold/60")
-                    }
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      {selected && <Check className="h-4 w-4" aria-hidden="true" />}
-                      {version === "woman" ? "Woman partner" : "Man partner"}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Same objectives, with the partner&apos;s natural self-reference, phrasing, and
-              response rhythm adapted for this version.
-            </p>
-          </fieldset>
-          <div className="mt-4 border-t border-border/60 pt-4 text-sm">
-            {ageUnknown ? (
-              <p role="status" className="text-muted-foreground">
-                Confirmation status is unconfirmed. Use Start to check its saved status.
-              </p>
-            ) : session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
-              <p className="text-muted-foreground">Checking your saved speaking confirmation…</p>
-            ) : ageConfirmed ? (
-              <p className="flex items-center gap-2 text-emerald-300">
-                <Check className="h-4 w-4" aria-hidden="true" /> Speaking confirmation saved to this
-                account
-              </p>
-            ) : (
-              <p className="text-muted-foreground">
-                The first time you tap Start, one large confirmation appears. Confirm once and you
-                will not be asked again.
-              </p>
-            )}
-          </div>
-          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-            <span className="font-semibold text-foreground">Choose coaching language</span>
-            <select
-              value={feedbackLanguage}
-              onChange={(event) => setFeedbackLanguage(event.target.value as FeedbackLanguage)}
-              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-            >
-              <option value="Native language">{appState.nativeLanguage}</option>
-              <option value="Target language">{selectedMission.language}</option>
-              <option value="Adaptive">Adaptive</option>
-            </select>
-          </label>
-          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-            <span className="font-semibold text-foreground">Choose spoken turn flow</span>
-            <select
-              value={spokenTurnFlow}
-              onChange={(event) => setSpokenTurnFlow(event.target.value as SpokenTurnFlow)}
-              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-            >
-              <option value="quick">Quick response · send after silence</option>
-              <option value="review">Review transcript before sending</option>
-            </select>
-            <span className="text-xs leading-relaxed text-muted-foreground">
-              Quick response feels more conversational. Review mode lets you correct what the phone
-              heard before the partner replies.
-            </span>
-          </label>
-          <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
-            <div>
-              <p className="text-sm text-muted-foreground">
-                {partnerAudioSource === "device"
-                  ? "Current app voice"
-                  : partnerAudioSource === "text"
-                    ? "Text-only partner"
-                    : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
-              </p>
-              <p className="mt-0.5 text-xs text-foreground/80">
-                {partnerAudioSource === "device"
-                  ? `Best available ${selectedMission.language} voice from this phone or browser`
-                  : partnerAudioSource === "text"
-                    ? "Read each partner line without generated playback"
-                    : partnerVoice
-                      ? `${partnerVoice.label} · ${partnerVoice.name}`
-                      : `No Google ${selectedMission.language} voice available`}
-              </p>
-            </div>
-            <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-              {partnerAudioSource === "device"
-                ? "Device voice"
-                : partnerAudioSource === "text"
-                  ? "No audio"
-                  : "Server voice"}
-            </span>
-          </div>
-          {partnerAudioSource === "text" ? (
-            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Partner lines remain visible and replay is disabled in text-only mode.
-            </p>
-          ) : partnerAudioSource === "google" && partnerVoice ? (
-            <label className="mt-3 grid gap-1 text-sm">
-              <span className="font-semibold text-foreground">
-                Choose Google voice · {voiceRegionLabel}
-              </span>
-              <select
-                value={partnerVoice.name}
-                onChange={(event) => {
-                  const voice = availableGoogleVoices.find(
-                    (candidate) => candidate.name === event.target.value,
-                  );
-                  if (!voice) return;
-                  setSelectedGoogleVoiceName(voice.name);
-                  setVoiceURI(encodeGoogleVoicePreference(voice));
-                  if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
-                  if (voice.ssmlGender === "MALE") setPartnerVersion("man");
-                }}
-                className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-              >
-                {availableGoogleVoices.map((voice) => (
-                  <option key={voice.name} value={voice.name}>
-                    {voice.label} · {voice.languageCodes[0] ?? selectedMission.locale}
-                  </option>
-                ))}
-              </select>
-              <span className="text-xs leading-relaxed text-muted-foreground">
-                Matching {missionLocale} voices are shown when Google provides them. The app
-                preselects one for your partner choice; changing it is optional.
-              </span>
-              <button
-                type="button"
-                onClick={() =>
-                  void speakPartnerText(
-                    partnerVoiceSample(selectedMission.language, partnerVersion),
-                  )
-                }
-                className="mt-2 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
-              >
-                ▶ Play voice sample · {partnerSpeed}×
-              </button>
-            </label>
-          ) : partnerAudioReady ? (
             <button
               type="button"
-              onClick={() =>
-                void speakPartnerText(partnerVoiceSample(selectedMission.language, partnerVersion))
-              }
-              className="mt-3 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+              onClick={requestMissionStart}
+              disabled={!partnerAudioReady || ageSaving || Boolean(session && !ageLoaded)}
+              className="min-h-12 w-full rounded-2xl bg-gold px-4 py-3 font-semibold text-black shadow-lg shadow-gold/10 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              ▶ Play {partnerAudioSource === "device" ? "phone" : partnerVersion} voice sample ·{" "}
-              {partnerSpeed}×
+              {!session
+                ? "Sign in to start mission"
+                : !ageLoaded
+                  ? "Checking account…"
+                  : "Start mission"}
             </button>
-          ) : (
-            <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
-              {partnerAudioSource === "device"
-                ? `A ${selectedMission.language} device voice is unavailable in this browser.`
-                : ttsStatus === "checking"
-                  ? "Checking Google partner voice availability…"
-                  : `Google Cloud voices are unavailable for ${selectedMission.language}.`}
+            <p className="mt-2 text-center text-[11px] text-muted-foreground">
+              AI feedback and objective observations are advisory practice signals. They are not a
+              proficiency score, certification, or saved mastery tier.
             </p>
-          )}
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            {partnerAudioSource === "device"
-              ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
-              : partnerAudioSource === "google"
-                ? "Google server voices are independent of voices installed on this phone. The selected voice follows this mission and the site-wide voice setting."
-                : "Text-only mode does not generate audio."}
-          </p>
-          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-            <span className="flex items-center justify-between gap-3 text-muted-foreground">
-              <span className="font-semibold text-foreground">Choose partner speed</span>
-              <span className="font-mono text-gold">{partnerSpeed}×</span>
-            </span>
-            <select
-              value={partnerSpeed}
-              onChange={(event) => setRate(Number(event.target.value))}
-              disabled={partnerAudioSource === "text"}
-              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-            >
-              {MISSION_TTS_SPEEDS.map((speed) => (
-                <option key={speed} value={speed}>
-                  {speed}×
-                  {speed === 0.5
-                    ? " · very slow"
-                    : speed === 0.75
-                      ? " · careful"
-                      : speed === 1
-                        ? " · natural"
-                        : speed === 1.5
-                          ? " · challenge"
-                          : ""}
-                </option>
-              ))}
-            </select>
-            <span className="text-xs leading-relaxed text-muted-foreground">
-              Start slower for comprehension, then repeat the same mission faster to train your ear.
-            </span>
-          </label>
-        </div>
 
-        <button
-          type="button"
-          onClick={requestMissionStart}
-          disabled={!partnerAudioReady || ageSaving || Boolean(session && !ageLoaded)}
-          className="mt-5 min-h-14 w-full rounded-2xl bg-gold px-4 py-3 font-semibold text-black shadow-lg shadow-gold/10 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {!session
-            ? "Sign in to start mission"
-            : !ageLoaded
-              ? "Checking account…"
-              : "Start mission"}
-        </button>
-        <p className="mt-2 text-center text-xs text-muted-foreground">
-          AI feedback and objective observations are advisory practice signals. They are not a
-          proficiency score, certification, or saved mastery tier.
-        </p>
+            {!partnerAudioReady && (
+              <button
+                type="button"
+                onClick={() => setPartnerAudioSource("text")}
+                className="mt-2 min-h-11 w-full rounded-xl border border-border px-3 py-2 text-sm"
+              >
+                Continue with text only
+              </button>
+            )}
+          </div>
+        )}
+        <details className="relative shrink-0 rounded-xl border border-border px-3">
+          <summary className="min-h-11 cursor-pointer py-3 text-sm">
+            Practice settings & reference
+          </summary>
+          <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+            <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+              {selectedMission.summary}
+            </p>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Goals for this mission · reference
+                </p>
+                <ul className="mt-2 space-y-2 text-sm text-foreground/85">
+                  {selectedMission.objectives.map((objective) => (
+                    <li key={objective.id} className="flex gap-2">
+                      <span className="text-gold">○</span>
+                      <span>
+                        {objective.description}
+                        {objective.critical ? " *" : ""}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <details
+                open={
+                  !selectedMission.lessonTeaching ||
+                  selectedMission.lessonTeaching.speaking.wordBank === "visible"
+                }
+              >
+                <summary className="min-h-11 cursor-pointer py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Words you may use · reference
+                </summary>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {selectedMission.vocabulary.map((word) => (
+                    <span
+                      key={word}
+                      className="furigana-line rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
+                    >
+                      {showFurigana ? (
+                        <FuriganaText text={word} mode="above" script="hiragana" />
+                      ) : showPinyin ? (
+                        <PinyinText text={word} />
+                      ) : (
+                        word
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </details>
+            </div>
+
+            {selectedMission.specialty === "Travel" && (
+              <div className="mt-4">
+                <NextTripBanner compact />
+              </div>
+            )}
+
+            <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
+              <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
+                <span className="font-semibold text-gold">Set your choices.</span> Tappable choices
+                have strong borders; the selected choice is filled gold. The goals and words above
+                are reference information, not buttons.
+              </div>
+              <div className="mb-4">{accentControl}</div>
+              <fieldset>
+                <legend className="text-sm font-semibold text-foreground">
+                  Choose partner audio
+                </legend>
+                <div className="mt-2 grid grid-cols-3 gap-2">
+                  {(["device", "google", "text"] as const).map((source) => {
+                    const selected = partnerAudioSource === source;
+                    const available = source !== "google" || ttsStatus !== "unavailable";
+                    return (
+                      <button
+                        key={source}
+                        type="button"
+                        onClick={() => available && setPartnerAudioSource(source)}
+                        disabled={!available}
+                        aria-pressed={selected}
+                        className={
+                          "min-h-14 rounded-xl border-2 px-2 py-2.5 text-sm font-medium transition-colors " +
+                          (selected
+                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
+                            : available
+                              ? "border-border bg-card text-foreground hover:border-gold/60"
+                              : "cursor-not-allowed border-border bg-card text-muted-foreground opacity-40")
+                        }
+                      >
+                        <span className="flex items-center justify-center gap-1.5">
+                          {selected && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                          {source === "device"
+                            ? "Phone voice"
+                            : source === "text"
+                              ? "Text only"
+                              : "Google voice"}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Phone voice uses a voice installed on this device. Google preselects a short list
+                  for
+                  {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
+                </p>
+              </fieldset>
+              <fieldset className="mt-4 border-t border-border/60 pt-4">
+                <legend className="text-sm font-semibold text-foreground">
+                  Choose conversation partner
+                </legend>
+                <div className="mt-2 grid grid-cols-2 gap-2">
+                  {(["woman", "man"] as const).map((version) => {
+                    const selected = partnerVersion === version;
+                    return (
+                      <button
+                        key={version}
+                        type="button"
+                        onClick={() => {
+                          setPartnerVersion(version);
+                          setSelectedGoogleVoiceName(null);
+                        }}
+                        aria-pressed={selected}
+                        className={
+                          "min-h-14 rounded-xl border-2 px-3 py-2.5 text-sm font-medium transition-colors " +
+                          (selected
+                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
+                            : "border-border bg-card text-foreground hover:border-gold/60")
+                        }
+                      >
+                        <span className="flex items-center justify-center gap-2">
+                          {selected && <Check className="h-4 w-4" aria-hidden="true" />}
+                          {version === "woman" ? "Woman partner" : "Man partner"}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Same objectives, with the partner&apos;s natural self-reference, phrasing, and
+                  response rhythm adapted for this version.
+                </p>
+              </fieldset>
+              <div className="mt-4 border-t border-border/60 pt-4 text-sm">
+                {ageUnknown ? (
+                  <p role="status" className="text-muted-foreground">
+                    Confirmation status is unconfirmed. Use Start to check its saved status.
+                  </p>
+                ) : session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
+                  <p className="text-muted-foreground">
+                    Checking your saved speaking confirmation…
+                  </p>
+                ) : ageConfirmed ? (
+                  <p className="flex items-center gap-2 text-emerald-300">
+                    <Check className="h-4 w-4" aria-hidden="true" /> Speaking confirmation saved to
+                    this account
+                  </p>
+                ) : (
+                  <p className="text-muted-foreground">
+                    The first time you tap Start, one large confirmation appears. Confirm once and
+                    you will not be asked again.
+                  </p>
+                )}
+              </div>
+              <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+                <span className="font-semibold text-foreground">Choose coaching language</span>
+                <select
+                  value={feedbackLanguage}
+                  onChange={(event) => setFeedbackLanguage(event.target.value as FeedbackLanguage)}
+                  className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
+                >
+                  <option value="Native language">{appState.nativeLanguage}</option>
+                  <option value="Target language">{selectedMission.language}</option>
+                  <option value="Adaptive">Adaptive</option>
+                </select>
+              </label>
+              <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+                <span className="font-semibold text-foreground">Choose spoken turn flow</span>
+                <select
+                  value={spokenTurnFlow}
+                  onChange={(event) => setSpokenTurnFlow(event.target.value as SpokenTurnFlow)}
+                  className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
+                >
+                  <option value="quick">Quick response · send after silence</option>
+                  <option value="review">Review transcript before sending</option>
+                </select>
+                <span className="text-xs leading-relaxed text-muted-foreground">
+                  Quick response feels more conversational. Review mode lets you correct what the
+                  phone heard before the partner replies.
+                </span>
+              </label>
+              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    {partnerAudioSource === "device"
+                      ? "Current app voice"
+                      : partnerAudioSource === "text"
+                        ? "Text-only partner"
+                        : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
+                  </p>
+                  <p className="mt-0.5 text-xs text-foreground/80">
+                    {partnerAudioSource === "device"
+                      ? `Best available ${selectedMission.language} voice from this phone or browser`
+                      : partnerAudioSource === "text"
+                        ? "Read each partner line without generated playback"
+                        : partnerVoice
+                          ? `${partnerVoice.label} · ${partnerVoice.name}`
+                          : `No Google ${selectedMission.language} voice available`}
+                  </p>
+                </div>
+                <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                  {partnerAudioSource === "device"
+                    ? "Device voice"
+                    : partnerAudioSource === "text"
+                      ? "No audio"
+                      : "Server voice"}
+                </span>
+              </div>
+              {partnerAudioSource === "text" ? (
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  Partner lines remain visible and replay is disabled in text-only mode.
+                </p>
+              ) : partnerAudioSource === "google" && partnerVoice ? (
+                <label className="mt-3 grid gap-1 text-sm">
+                  <span className="font-semibold text-foreground">
+                    Choose Google voice · {voiceRegionLabel}
+                  </span>
+                  <select
+                    value={partnerVoice.name}
+                    onChange={(event) => {
+                      const voice = availableGoogleVoices.find(
+                        (candidate) => candidate.name === event.target.value,
+                      );
+                      if (!voice) return;
+                      setSelectedGoogleVoiceName(voice.name);
+                      setVoiceURI(encodeGoogleVoicePreference(voice));
+                      if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
+                      if (voice.ssmlGender === "MALE") setPartnerVersion("man");
+                    }}
+                    className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
+                  >
+                    {availableGoogleVoices.map((voice) => (
+                      <option key={voice.name} value={voice.name}>
+                        {voice.label} · {voice.languageCodes[0] ?? selectedMission.locale}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="text-xs leading-relaxed text-muted-foreground">
+                    Matching {missionLocale} voices are shown when Google provides them. The app
+                    preselects one for your partner choice; changing it is optional.
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      void speakPartnerText(
+                        partnerVoiceSample(selectedMission.language, partnerVersion),
+                      )
+                    }
+                    className="mt-2 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+                  >
+                    ▶ Play voice sample · {partnerSpeed}×
+                  </button>
+                </label>
+              ) : partnerAudioReady ? (
+                <button
+                  type="button"
+                  onClick={() =>
+                    void speakPartnerText(
+                      partnerVoiceSample(selectedMission.language, partnerVersion),
+                    )
+                  }
+                  className="mt-3 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+                >
+                  ▶ Play {partnerAudioSource === "device" ? "phone" : partnerVersion} voice sample ·{" "}
+                  {partnerSpeed}×
+                </button>
+              ) : (
+                <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
+                  {partnerAudioSource === "device"
+                    ? `A ${selectedMission.language} device voice is unavailable in this browser.`
+                    : ttsStatus === "checking"
+                      ? "Checking Google partner voice availability…"
+                      : `Google Cloud voices are unavailable for ${selectedMission.language}.`}
+                </p>
+              )}
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                {partnerAudioSource === "device"
+                  ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
+                  : partnerAudioSource === "google"
+                    ? "Google server voices are independent of voices installed on this phone. The selected voice follows this mission and the site-wide voice setting."
+                    : "Text-only mode does not generate audio."}
+              </p>
+              <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+                <span className="flex items-center justify-between gap-3 text-muted-foreground">
+                  <span className="font-semibold text-foreground">Choose partner speed</span>
+                  <span className="font-mono text-gold">{partnerSpeed}×</span>
+                </span>
+                <select
+                  value={partnerSpeed}
+                  onChange={(event) => setRate(Number(event.target.value))}
+                  disabled={partnerAudioSource === "text"}
+                  className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
+                >
+                  {MISSION_TTS_SPEEDS.map((speed) => (
+                    <option key={speed} value={speed}>
+                      {speed}×
+                      {speed === 0.5
+                        ? " · very slow"
+                        : speed === 0.75
+                          ? " · careful"
+                          : speed === 1
+                            ? " · natural"
+                            : speed === 1.5
+                              ? " · challenge"
+                              : ""}
+                    </option>
+                  ))}
+                </select>
+                <span className="text-xs leading-relaxed text-muted-foreground">
+                  Start slower for comprehension, then repeat the same mission faster to train your
+                  ear.
+                </span>
+              </label>
+            </div>
+          </div>
+        </details>
       </section>
     );
   }
@@ -2146,13 +2261,23 @@ export function SpeakingMissionsPreview({
   }
 
   return (
-    <section ref={viewTopRef} className="scroll-mt-4 mt-5">
-      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+    <section
+      ref={(node) => {
+        viewTopRef.current = node;
+        practiceViewport.ref.current = node;
+      }}
+      style={practiceViewport.style}
+      data-testid="focused-speaking-frame"
+      className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
+    >
+      <div className="flex shrink-0 flex-nowrap items-start justify-between gap-2">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
             Mission in progress
           </p>
-          <h2 className="mt-1 font-serif text-2xl text-foreground">{selectedMission.title}</h2>
+          <h2 className="line-clamp-2 font-serif text-lg leading-tight text-foreground">
+            {selectedMission.title}
+          </h2>
           <p className="mt-1 text-xs text-muted-foreground">
             {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
             {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
@@ -2176,83 +2301,10 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
-      <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
-        {selectedMission.objectives.map((objective) => {
-          const completed = objectiveIds.includes(objective.id);
-          const skipped = skippedObjectiveIds.includes(objective.id);
-          return (
-            <span
-              key={objective.id}
-              className={
-                "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
-                (completed
-                  ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
-                  : skipped
-                    ? "border-border/60 bg-background/30 text-muted-foreground line-through"
-                    : "border-border text-muted-foreground")
-              }
-              title={objective.description}
-            >
-              {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
-              {objective.description}
-            </span>
-          );
-        })}
-      </div>
-
-      <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
-          {activeObjective ? "Your next goal" : "Practice goals addressed"}
-        </p>
-        <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
-          {activeObjective
-            ? activeObjective.description
-            : "Continue naturally or end the mission when the practical exchange feels complete."}
-        </p>
-        {activeObjective && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setTypedTurn(clarificationPhrase(selectedMission.language));
-                setTranscriptSource("typed");
-              }}
-              disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-              className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
-            >
-              Help me ask for an example
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setSkippedObjectiveIds((current) =>
-                  current.includes(activeObjective.id) ? current : [...current, activeObjective.id],
-                )
-              }
-              disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-              className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
-            >
-              Skip this goal
-            </button>
-          </div>
-        )}
-        {selectedMission.vocabulary.length > 0 && activeObjective && (
-          <details
-            open={
-              !selectedMission.lessonTeaching ||
-              selectedMission.lessonTeaching.speaking.wordBank === "visible"
-            }
-            className="mt-2 text-xs leading-relaxed text-muted-foreground"
-          >
-            <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
-            <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
-          </details>
-        )}
-      </div>
-
       <div
         ref={transcriptRef}
-        className="h-[390px] overflow-y-auto rounded-3xl border border-border/60 bg-card/40 p-4"
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        aria-label="Conversation"
         aria-live="polite"
       >
         <ul className="flex flex-col gap-3">
@@ -2314,9 +2366,6 @@ export function SpeakingMissionsPreview({
           )}
         </ul>
       </div>
-      <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
-        Press and hold any dialogue word for its definition.
-      </p>
 
       {errorMessage && (
         <div
@@ -2330,7 +2379,7 @@ export function SpeakingMissionsPreview({
       <div
         role="group"
         aria-label="Conversation microphone"
-        className="mt-3 flex flex-col items-center gap-2 text-center"
+        className="flex shrink-0 flex-col items-center gap-1 text-center"
       >
         {partnerSpeaking && (
           <button
@@ -2370,7 +2419,7 @@ export function SpeakingMissionsPreview({
                     : "Start listening"
               }
               className={
-                "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
+                "flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
                 (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
               }
             >
@@ -2407,14 +2456,13 @@ export function SpeakingMissionsPreview({
       {transcriptSource === "dictation" && typedTurn.trim() && (
         <div
           role="status"
-          className="mt-4 rounded-2xl border border-emerald-400/35 bg-emerald-400/10 p-3"
+          className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
         >
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
             Review what your phone heard
           </p>
           <p className="mt-1 text-sm leading-relaxed text-foreground">
-            Edit the transcript below if needed, then tap Send. It will not be submitted until you
-            approve it.
+            Edit below, then tap Send to approve.
           </p>
           <button
             type="button"
@@ -2428,7 +2476,7 @@ export function SpeakingMissionsPreview({
       )}
 
       <form
-        className="mt-4 flex gap-2"
+        className="flex shrink-0 gap-2"
         onSubmit={(event) => {
           event.preventDefault();
           const text = typedTurn.trim();
@@ -2462,66 +2510,148 @@ export function SpeakingMissionsPreview({
           <Send className="h-4 w-4" />
         </button>
       </form>
-      <p className="mt-1 text-center text-xs text-muted-foreground">
-        {spokenTurnFlow === "quick"
-          ? "Quick response sends when your phone detects that you finished speaking."
-          : "Review mode waits for you to approve the transcript."}{" "}
-        You can also use the iPhone keyboard microphone in this answer box.
-      </p>
 
-      {started &&
-        session &&
-        ageConfirmed &&
-        ageStatusActor === session.user.id &&
-        !ageUnknown &&
-        sessionOwnerRef.current === lifecycleKey && (
-          <WatchTalkControl
-            key={`${lifecycleKey}:${missionLocale}`}
-            locale={missionLocale ?? selectedMission.locale}
-            title={selectedMission.title}
-            ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
-            onTurn={(text) => {
-              const lease = capture();
-              if (
-                !lease.isCurrent() ||
-                sessionOwnerRef.current !== lifecycleKey ||
-                status !== "ready" ||
-                partnerSpeaking ||
-                typedTurn.trim()
-              )
-                return;
-              if (spokenTurnFlow === "quick") gated(() => void sendLearnerTurn(text, "dictation"));
-              else {
-                setTypedTurn(text);
-                setTranscriptSource("dictation");
-              }
-            }}
+      <details className="relative shrink-0 rounded-xl border border-border px-3">
+        <summary className="min-h-11 cursor-pointer py-3 text-sm">
+          Practice tools & coaching
+        </summary>
+        <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+          <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
+            {selectedMission.objectives.map((objective) => {
+              const completed = objectiveIds.includes(objective.id);
+              const skipped = skippedObjectiveIds.includes(objective.id);
+              return (
+                <span
+                  key={objective.id}
+                  className={
+                    "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
+                    (completed
+                      ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
+                      : skipped
+                        ? "border-border/60 bg-background/30 text-muted-foreground line-through"
+                        : "border-border text-muted-foreground")
+                  }
+                  title={objective.description}
+                >
+                  {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
+                  {objective.description}
+                </span>
+              );
+            })}
+          </div>
+          <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
+              {activeObjective ? "Your next goal" : "Practice goals addressed"}
+            </p>
+            <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
+              {activeObjective
+                ? activeObjective.description
+                : "Continue naturally or end the mission when the practical exchange feels complete."}
+            </p>
+            {activeObjective && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTypedTurn(clarificationPhrase(selectedMission.language));
+                    setTranscriptSource("typed");
+                  }}
+                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+                  className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
+                >
+                  Help me ask for an example
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setSkippedObjectiveIds((current) =>
+                      current.includes(activeObjective.id)
+                        ? current
+                        : [...current, activeObjective.id],
+                    )
+                  }
+                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+                  className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
+                >
+                  Skip this goal
+                </button>
+              </div>
+            )}
+            {selectedMission.vocabulary.length > 0 && activeObjective && (
+              <details
+                open={
+                  !selectedMission.lessonTeaching ||
+                  selectedMission.lessonTeaching.speaking.wordBank === "visible"
+                }
+                className="mt-2 text-xs leading-relaxed text-muted-foreground"
+              >
+                <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
+                <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
+              </details>
+            )}
+          </div>
+          <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+            Press and hold any dialogue word for its definition.
+          </p>{" "}
+          <p className="mt-1 text-center text-xs text-muted-foreground">
+            {spokenTurnFlow === "quick"
+              ? "Quick response sends when your phone detects that you finished speaking."
+              : "Review mode waits for you to approve the transcript."}{" "}
+            You can also use the iPhone keyboard microphone in this answer box.
+          </p>{" "}
+          {started &&
+            session &&
+            ageConfirmed &&
+            ageStatusActor === session.user.id &&
+            !ageUnknown &&
+            sessionOwnerRef.current === lifecycleKey && (
+              <WatchTalkControl
+                key={`${lifecycleKey}:${missionLocale}`}
+                locale={missionLocale ?? selectedMission.locale}
+                title={selectedMission.title}
+                ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
+                onTurn={(text) => {
+                  const lease = capture();
+                  if (
+                    !lease.isCurrent() ||
+                    sessionOwnerRef.current !== lifecycleKey ||
+                    status !== "ready" ||
+                    partnerSpeaking ||
+                    typedTurn.trim()
+                  )
+                    return;
+                  if (spokenTurnFlow === "quick")
+                    gated(() => void sendLearnerTurn(text, "dictation"));
+                  else {
+                    setTypedTurn(text);
+                    setTranscriptSource("dictation");
+                  }
+                }}
+              />
+            )}
+          <MicrophoneTestDialog
+            key={lifecycleKey}
+            disabled={status === "listening" || status === "thinking" || partnerSpeaking}
           />
-        )}
-
-      <MicrophoneTestDialog
-        key={lifecycleKey}
-        disabled={status === "listening" || status === "thinking" || partnerSpeaking}
-      />
-
-      <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
-        <div className="flex items-center gap-2 text-gold">
-          <Lightbulb className="h-4 w-4" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+          <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
+            <div className="flex items-center gap-2 text-gold">
+              <Lightbulb className="h-4 w-4" />
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">
+              {latestFeedback ?? "Your first coaching note will appear here after you answer."}
+            </p>
+          </div>
+          {lastResponseTiming && (
+            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+              Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
+              {lastResponseTiming.voiceStartedMs !== undefined
+                ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
+                : ""}
+            </p>
+          )}
         </div>
-        <p className="mt-2 text-sm leading-relaxed text-foreground">
-          {latestFeedback ?? "Your first coaching note will appear here after you answer."}
-        </p>
-      </div>
-
-      {lastResponseTiming && (
-        <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-          Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
-          {lastResponseTiming.voiceStartedMs !== undefined
-            ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
-            : ""}
-        </p>
-      )}
+      </details>
 
       {wordRequest && (
         <WordCard

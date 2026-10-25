@@ -103,7 +103,9 @@ function SuccessPage() {
                 <p className="text-sm font-bold text-foreground">
                   Special offer — Junior Linguist 50% off
                 </p>
-                <p className="text-xs text-muted-foreground">Only for new Language Threshold subscribers</p>
+                <p className="text-xs text-muted-foreground">
+                  Only for new Language Threshold subscribers
+                </p>
               </div>
             </div>
           </div>
@@ -138,6 +140,10 @@ function SuccessPage() {
 
         <p className="mt-8 text-center text-xs text-muted-foreground">
           A receipt has been sent to your email. Questions?{" "}
+          <a href="/support" className="text-gold underline underline-offset-2">
+            Get help
+          </a>
+          {" or email "}
           <a
             href="mailto:support@languagethreshold.com"
             className="text-gold underline underline-offset-2"

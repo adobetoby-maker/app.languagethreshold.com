@@ -14,6 +14,8 @@ const KEYS = [
   "PLATFORM_OWNER_EMAIL",
   "GA_PROPERTY_ID",
   "GA_SERVICE_ACCOUNT_JSON",
+  "SUPPORT_INBOX_URL",
+  "SUPPORT_INBOX_TOKEN",
 ];
 
 async function fixture(run) {
@@ -23,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -52,6 +54,8 @@ async function fixture(run) {
     process.env.SUPABASE_SERVICE_ROLE_KEY = "fake-service";
     for (const k of ["PLATFORM_OWNER_EMAIL", "GA_PROPERTY_ID", "GA_SERVICE_ACCOUNT_JSON"])
       delete process.env[k];
+    delete process.env.SUPPORT_INBOX_URL;
+    delete process.env.SUPPORT_INBOX_TOKEN;
     const c = { role: "learner", calls: [], stripe: false };
     globalThis.fetch = async (input, init) => {
       const url = new URL(String(input));
@@ -90,12 +94,33 @@ async function fixture(run) {
 }
 
 const reads = [
+  ["support", "/api/owner-support"],
+  ["support", "/api/owner-support?id=8200000000000-00000000-0000-4000-8000-000000000001"],
   ["analytics", "/api/owner-analytics?part=app&range=30"],
   ["analytics", "/api/owner-analytics?part=ga&range=7"],
   ["teams", `/api/owner-teams?org=${ORG}`],
   ["activity", "/api/owner-activity?page=0"],
 ];
 const writes = [
+  [
+    "support",
+    "/api/owner-support",
+    {
+      action: "status",
+      id: "8200000000000-00000000-0000-4000-8000-000000000001",
+      status: "resolved",
+    },
+  ],
+  [
+    "support",
+    "/api/owner-support",
+    {
+      action: "reply",
+      id: "8200000000000-00000000-0000-4000-8000-000000000001",
+      text: "Hello",
+      requestId: ORG,
+    },
+  ],
   ["teams", "/api/owner-teams", { action: "revoke_invite", orgId: ORG, invitationId: ORG }],
   ["activity", "/api/owner-activity", { action: "export", filters: {} }],
   ["users", "/api/owner-users", { action: "enable", userId: ORG }],

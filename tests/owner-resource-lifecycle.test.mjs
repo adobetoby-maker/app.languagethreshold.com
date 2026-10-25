@@ -110,3 +110,28 @@ test("only one mutation runs at a time; pending signout suppresses stale success
     await assert.rejects(first, /cancelled/);
     assert.equal(render().data, undefined);
   }));
+
+test("same-resource refresh keeps edits mounted but an account change immediately hides old data", () =>
+  fixture(async (c, render) => {
+    render();
+    await tick();
+    c.requests[0].resolve(Response.json({ users: ["a-private"] }));
+    await tick();
+    let view = render();
+    view.refresh();
+    render();
+    view = render();
+    assert.equal(view.loading, true);
+    assert.deepEqual(view.data, { users: ["a-private"] });
+    await tick();
+    c.actor = "b";
+    view = render();
+    assert.equal(view.data, undefined);
+    assert.equal(c.requests[1].init.signal.aborted, true);
+    await tick();
+    c.requests[1].resolve(Response.json({ users: ["a-stale"] }));
+    c.requests[2].resolve(Response.json({ users: ["b-private"] }));
+    await tick();
+    view = render();
+    assert.deepEqual(view.data, { users: ["b-private"] });
+  }));

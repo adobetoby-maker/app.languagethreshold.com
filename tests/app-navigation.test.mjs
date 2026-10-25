@@ -116,3 +116,11 @@ test("staying on Games keeps the Verbs sub-route", () => {
   assert.equal(params(next).get("verbs"), "unit");
   assert.equal(params(next).get("vfamily"), "es.present.go-yo");
 });
+
+
+test("speaking return selection survives only its current tab and learning pair", () => {
+  const current = "/?tab=speak&module=roofing&target=Spanish&native=English&mission=public-mission";
+  assert.equal(params(appNavigationLocation(current, {...context, tab: "speak"})).get("mission"), "public-mission");
+  for (const next of [{...context, tab: "reader"}, {...context, tab:"speak", moduleId:"landscaper"}, {...context, tab:"speak", target:"French"}])
+    assert.equal(params(appNavigationLocation(current, next)).has("mission"), false);
+});

@@ -1,4 +1,5 @@
 import { appTab } from "./app-navigation.ts";
+import { speakingMissionId } from "./speaking-auth-return.ts";
 import { examsLocation, legacyExamsLocation, examLessonNumber } from "./exam-navigation.ts";
 import {
   LANGUAGES,
@@ -62,6 +63,8 @@ export function authReturnPath(value: string): string | null {
     if (moduleId && /^[a-z0-9][a-z0-9-]{0,79}$/i.test(moduleId)) params.set("module", moduleId);
     if (target && LANGUAGES.includes(target as Language)) params.set("target", target);
     if (native && NATIVE_LANGUAGES.includes(native as NativeLanguage)) params.set("native", native);
+    const mission = speakingMissionId(url.searchParams.get("mission"));
+    if (tab === "speak" && mission) params.set("mission", mission);
     const lesson = url.searchParams.get("lesson"),
       way = url.searchParams.get("way"),
       plan = url.searchParams.get("plan");

@@ -18,7 +18,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';export {Route as customers} from '@/routes/api.owner-customers';export {Route as referral} from '@/routes/api.customer-referral';export {Route as unsubscribe} from '@/routes/api.customer-unsubscribe';`,
+        contents: `export {Route as platform} from '@/routes/api.platform';export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';export {Route as customers} from '@/routes/api.owner-customers';export {Route as referral} from '@/routes/api.customer-referral';export {Route as unsubscribe} from '@/routes/api.customer-unsubscribe';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -182,6 +182,23 @@ test("customer writes require owner authorization; public referral/preferences r
     const guest = await api.referral.server.handlers.POST({
       request: req("/api/customer-referral", { code: uid }, false),
     });
+    assert.equal(guest.status, 403);
+    assert.equal(c.calls.length, 0);
+  }));
+
+
+test("account-menu owner discovery uses the existing policy and reads no customer report", () =>
+  fixture(async (api, c, req) => {
+    for (const role of ["learner", "support", "owner"]) {
+      c.role = role; c.calls = [];
+      const result = await api.platform.server.handlers.GET({ request: req("/api/platform?view=access") });
+      assert.equal(result.status, role === "owner" ? 200 : 403);
+      if (role === "owner") assert.deepEqual(await result.json(), { owner: true });
+      assert.equal(result.headers.get("cache-control"), "private, no-store");
+      assert.deepEqual(c.calls, ["/auth/v1/user", "/rest/v1/platform_admin_roles"]);
+    }
+    c.calls = [];
+    const guest = await api.platform.server.handlers.GET({ request: req("/api/platform?view=access", undefined, false) });
     assert.equal(guest.status, 403);
     assert.equal(c.calls.length, 0);
   }));

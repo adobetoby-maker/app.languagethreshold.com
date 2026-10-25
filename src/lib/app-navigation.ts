@@ -63,6 +63,8 @@ export function appNavigationLocation(
     params.get("target") === context.target &&
     params.get("native") === context.native;
   if (!sameTrack) params.delete("plan");
+  if (!sameTrack || context.tab !== "speak" || params.get("tab") !== "speak")
+    params.delete("mission");
   // Lesson position belongs only to the current Core 30 module/pair. The runner owns
   // changes within that position; other tools must not leave stale lesson/way markers.
   if (!sameTrack || context.tab !== "core30" || params.get("tab") !== "core30") {

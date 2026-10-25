@@ -20,7 +20,13 @@ export function useOwnerResource<T>(path: string | null, load = true) {
     flight.current = controller;
     const release = lease.own(() => controller.abort());
     const current = () => lease.isCurrent() && canUseReader(userId!) && !controller.signal.aborted;
-    setState({ key, loading: true });
+    // Keep the same account/resource visible during refresh so unsaved owner edits survive.
+    // A changed lifecycle key or account still hides all previous private data.
+    setState((previous) => ({
+      key,
+      data: previous?.key === key ? previous.data : undefined,
+      loading: true,
+    }));
     void ownedTeamRequest<T>({ userId, isCurrent: current, signal: controller.signal }, path).then(
       (data) => {
         if (current()) setState({ key, data, loading: false });

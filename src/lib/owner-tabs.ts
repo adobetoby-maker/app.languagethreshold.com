@@ -4,6 +4,7 @@ export const OWNER_TABS = [
   { id: "analytics", label: "Analytics" },
   { id: "users", label: "Users" },
   { id: "support", label: "Support" },
+  { id: "email", label: "Email & contacts" },
   { id: "companies", label: "Companies" },
   { id: "money", label: "Money" },
   { id: "activity", label: "Activity" },

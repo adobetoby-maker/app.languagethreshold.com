@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { ownedTeamRequest } from "@/lib/team-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
+import { OwnerCrm } from "@/components/owner/OwnerCrm";
 import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
 import { OwnerSupport } from "@/components/owner/OwnerSupport";
 import { OwnerDiscounts } from "@/components/owner/OwnerDiscounts";
@@ -471,6 +472,9 @@ function OwnedOwnerDashboard() {
             </OwnerTabPanel>
             <OwnerTabPanel id="support" active={tab === "support"}>
               <OwnerSupport />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="email" active={tab === "email"}>
+              <OwnerCrm />
             </OwnerTabPanel>
             <OwnerTabPanel id="companies" active={tab === "companies"}>
               {teamOrg && (

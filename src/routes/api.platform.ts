@@ -56,6 +56,9 @@ export const Route = createFileRoute("/api/platform")({
           const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
+          // Menu discovery checks the existing owner policy without loading customer data.
+          if (new URL(request.url).searchParams.get("view") === "access")
+            return json({ owner: true });
           const since =
             new URL(request.url).searchParams.get("since") ??
             new Date(Date.now() - 365 * 86400000).toISOString().slice(0, 10);

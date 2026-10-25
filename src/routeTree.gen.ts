@@ -51,6 +51,7 @@ import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-fiel
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
 import { Route as ApiOwnerActivityRouteImport } from './routes/api.owner-activity'
 import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analytics'
+import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
 import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
@@ -284,6 +285,11 @@ const ApiOwnerAnalyticsRoute = ApiOwnerAnalyticsRouteImport.update({
   path: '/api/owner-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerCrmRoute = ApiOwnerCrmRouteImport.update({
+  id: '/api/owner-crm',
+  path: '/api/owner-crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerCustomersRoute = ApiOwnerCustomersRouteImport.update({
   id: '/api/owner-customers',
   path: '/api/owner-customers',
@@ -438,6 +444,7 @@ export interface FileRoutesByFullPath {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -504,6 +511,7 @@ export interface FileRoutesByTo {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -571,6 +579,7 @@ export interface FileRoutesById {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -639,6 +648,7 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-support'
@@ -705,6 +715,7 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-support'
@@ -771,6 +782,7 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-support'
@@ -838,6 +850,7 @@ export interface RootRouteChildren {
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
   ApiOwnerActivityRoute: typeof ApiOwnerActivityRoute
   ApiOwnerAnalyticsRoute: typeof ApiOwnerAnalyticsRoute
+  ApiOwnerCrmRoute: typeof ApiOwnerCrmRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
   ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
@@ -1158,6 +1171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-crm': {
+      id: '/api/owner-crm'
+      path: '/api/owner-crm'
+      fullPath: '/api/owner-crm'
+      preLoaderRoute: typeof ApiOwnerCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-customers': {
       id: '/api/owner-customers'
       path: '/api/owner-customers'
@@ -1358,6 +1378,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiModuleRequestRoute: ApiModuleRequestRoute,
   ApiOwnerActivityRoute: ApiOwnerActivityRoute,
   ApiOwnerAnalyticsRoute: ApiOwnerAnalyticsRoute,
+  ApiOwnerCrmRoute: ApiOwnerCrmRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
   ApiOwnerSupportRoute: ApiOwnerSupportRoute,

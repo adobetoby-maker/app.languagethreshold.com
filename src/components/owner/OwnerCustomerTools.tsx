@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { OwnerEmailAI } from "./OwnerEmailAI";
 import { useOwnerResource } from "./use-owner-resource";
 import { referralLink, type CustomerData } from "@/lib/customer-communications";
 const field = "w-full rounded-lg border border-border bg-background p-3";
@@ -103,6 +104,13 @@ export function OwnerCustomerTools({ userId, email }: { userId: string; email: s
           {r.data.unsubscribed && (
             <p>This customer has stopped promotional emails. Sending is blocked.</p>
           )}
+          <OwnerEmailAI
+            onDraft={(draft) => {
+              setSubject(draft.subject);
+              setBody(draft.body);
+              setPermission(false);
+            }}
+          />
           <form
             className="grid gap-3"
             onSubmit={(e) => {

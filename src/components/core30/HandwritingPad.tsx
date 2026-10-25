@@ -342,7 +342,7 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
         <div
           ref={wrapRef}
           className="relative h-44 w-full overflow-hidden rounded-xl border border-gold/30 sm:h-52"
-          style={{ backgroundColor: PAPER }}
+          style={{ backgroundColor: PAPER, touchAction: "none", overscrollBehavior: "none" }}
         >
           <canvas
             ref={canvasRef}

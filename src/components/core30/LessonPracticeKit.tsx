@@ -29,6 +29,7 @@ import { cn } from "@/lib/utils";
 import { useHandwritingReader, type WriteOutcome } from "@/hooks/use-handwriting-reader";
 import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VerbPractice } from "@/components/core30/VerbPractice";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
@@ -91,6 +92,7 @@ export interface LessonPracticeKitProps {
    * only; the standalone six-tab kit ignores them.
    */
   verbs?: LessonVerb[];
+  writingResponse?: ReactNode;
 }
 
 interface KitLanguages {
@@ -896,6 +898,38 @@ function InkPreview({ png }: { png: string }) {
   );
 }
 
+function WritingWorkspace({ children, response, onClose }: { children: ReactNode; response?: ReactNode; onClose: () => void }) {
+  const [activity, setActivity] = useState("words");
+  return (
+    <Dialog open onOpenChange={(open) => { if (!open) onClose(); }}>
+      <DialogContent
+        data-testid="writing-workspace"
+        className="inset-0 left-0 top-0 flex h-[100dvh] max-h-none w-full max-w-none translate-x-0 translate-y-0 flex-col gap-2 overflow-hidden rounded-none border-0 p-3 pt-[max(12px,env(safe-area-inset-top))] pb-[max(12px,env(safe-area-inset-bottom))] sm:rounded-none data-[state=open]:animate-none data-[state=closed]:animate-none duration-0 [&>button:last-child]:hidden"
+        onPointerDownOutside={(event) => event.preventDefault()}
+        onInteractOutside={(event) => event.preventDefault()}
+      >
+        <header className="flex shrink-0 items-center justify-between gap-3">
+          <DialogTitle className={response ? "sr-only" : "text-base"}>Writing practice</DialogTitle>
+          {response && (
+            <select aria-label="Writing activity" value={activity} onChange={(event) => setActivity(event.target.value)} className="min-h-11 min-w-0 rounded-lg border border-border bg-background px-2 text-sm font-semibold">
+              <option value="words">Practice words</option>
+              <option value="response">Write a response</option>
+            </select>
+          )}
+          <button type="button" onClick={onClose} className={ghostBtn}>Back to lesson</button>
+        </header>
+        <DialogDescription className="sr-only">Write on the pad with your finger. The lesson stays still. Use Back to lesson to leave writing practice.</DialogDescription>
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain" data-testid="writing-workspace-body">
+          <div className="mx-auto w-full max-w-xl">
+            <div data-testid="writing-words" hidden={activity !== "words"}>{children}</div>
+            {response && <div hidden={activity !== "response"}>{response}</div>}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
   const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
@@ -1085,8 +1119,8 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
   const result = step.phase === "result" ? step : null;
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between gap-2">
+    <div className="space-y-2" data-testid="write-work">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         {toggle}
         <span className="font-mono text-sm font-semibold text-muted-foreground">
           {stage === "copy" ? `Matched ${copyScore}` : `Score ${answerScore}`}
@@ -1101,7 +1135,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
       <ProgressBar value={index + (resultDone ? 1 : 0)} total={list.length} />
 
       {stage === "copy" ? (
-        <div className={cn(panel, "text-center")}>
+        <div className={cn(panel, "h-28 overflow-y-auto p-3 text-center")}>
           <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Copy this {target} word
           </p>
@@ -1109,7 +1143,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
             <p
               lang={languageTag(target)}
               data-testid="write-copy-word"
-              className="break-words text-3xl font-bold text-gold"
+              className="min-w-0 break-words text-xl font-bold text-gold sm:text-3xl"
             >
               {word.es}
             </p>
@@ -1118,7 +1152,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
           <p className="mt-1 break-words text-sm text-muted-foreground">{word.en}</p>
         </div>
       ) : (
-        <div className={cn(panel, "text-center")}>
+        <div className={cn(panel, "h-28 overflow-y-auto p-3 text-center")}>
           <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Write this in {target}
           </p>
@@ -1140,7 +1174,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
         guideText={stage === "copy" ? word.es : undefined}
         onChange={setInked}
         label={stage === "copy" ? `Copy the word ${word.es}` : `Write the ${target} answer`}
-        className={step.phase === "write" ? undefined : "hidden"}
+        className={step.phase === "write" ? "lesson-writing-pad" : "hidden"}
       />
       {step.phase === "write" && (
         <>
@@ -1432,6 +1466,7 @@ export function LessonPracticeKit({
   matchingBatchSize,
   listeningItems,
   verbs,
+  writingResponse,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
   const languages = useMemo(
@@ -1657,7 +1692,11 @@ export function LessonPracticeKit({
                   onComplete={() => complete("verbs")}
                 />
               )}
-              {mode === "write" && <WriteMode words={words} onComplete={() => complete("write")} />}
+              {mode === "write" && (
+                <WritingWorkspace response={writingResponse} onClose={() => setMode("study")}>
+                  <WriteMode words={words} onComplete={() => complete("write")} />
+                </WritingWorkspace>
+              )}
             </>
           )}
         </div>

@@ -1195,3 +1195,8 @@ rt,
 [data-games-grid]:has([data-verbs-open]) > button {
   display: none;
 }
+
+/* The writing workspace owns the viewport; finger gestures on its paper draw ink. */
+.lesson-writing-pad > div:first-child {
+  height: clamp(120px, 25dvh, 208px);
+}

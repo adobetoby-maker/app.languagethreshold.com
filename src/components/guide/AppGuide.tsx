@@ -1471,6 +1471,7 @@ function OwnedLessonRunner({
                 // for Spanish, Spanish native for the English-for-work stages), so this matches.
                 nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
+                writingResponse={definition?.teaching ? <LessonResponsePractice definition={definition} mode="write" /> : undefined}
                 mode={kitMode}
                 onModeChange={onKitModeChange}
                 onActivity={() => recordStepOpened(wordDrillStep)}
@@ -1512,7 +1513,7 @@ function OwnedLessonRunner({
           </div>
         )}
         {definition?.teaching &&
-          (["type", "write"] as const).map((mode) => (
+          (["type"] as const).map((mode) => (
             <div
               key={`${userId ?? "anonymous"}:${definition.id}:${mode}`}
               hidden={section !== mode}

@@ -15,11 +15,11 @@ export function ModuleBadgesPanel() {
   return (
     <section className="space-y-6">
       <div className="flex items-baseline justify-between">
-        <h2 className="flex items-center gap-2 font-display text-2xl italic text-foreground">
-          <Puzzle className="h-5 w-5 text-gold" strokeWidth={1.6} />
+        <h2 className="flex items-center gap-2 font-display text-2xl text-foreground">
+          <Puzzle className="h-5 w-5 text-gold-ink" strokeWidth={1.6} />
           Module Badges
         </h2>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
           Climb the ladder of your active module
         </span>
       </div>
@@ -30,7 +30,7 @@ export function ModuleBadgesPanel() {
           className="relative overflow-hidden rounded-2xl border p-6"
           style={{
             borderColor: `${activeLadder.accent}66`,
-            background: `linear-gradient(135deg, ${activeLadder.accent}14, transparent 70%)`,
+            background: "var(--card)",
             boxShadow: `0 0 40px -20px ${activeLadder.accent}80`,
           }}
         >
@@ -49,12 +49,12 @@ export function ModuleBadgesPanel() {
                 {progress.current.emoji}
               </div>
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                   {activeModule.emoji} {activeModule.name}
                 </div>
                 <div
-                  className="mt-1 font-display text-2xl italic"
-                  style={{ color: activeLadder.accent }}
+                  className="mt-1 font-display text-2xl"
+                  style={{ color: "var(--progress-accent-ink)" }}
                 >
                   {progress.current.title}
                 </div>
@@ -64,16 +64,16 @@ export function ModuleBadgesPanel() {
               </div>
             </div>
             <div className="text-right">
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                 Challenges Cleared
               </div>
               <div className="mt-1 font-display text-2xl text-foreground">{progress.cleared}</div>
               {progress.next ? (
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <div className="mt-1 font-sans text-xs uppercase tracking-wide text-muted-foreground">
                   {progress.toNext} to {progress.next.title}
                 </div>
               ) : (
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                <div className="mt-1 font-sans text-xs uppercase tracking-wide text-gold-ink">
                   Maxed ✦
                 </div>
               )}
@@ -106,10 +106,10 @@ export function ModuleBadgesPanel() {
                       : `Locked — clear ${b.threshold} challenges`
                   }
                   className={`relative overflow-hidden rounded-xl border p-3 transition-all ${
-                    isCurrent ? "shadow-gold" : unlocked ? "" : "opacity-55 hover:opacity-80"
+                    isCurrent ? "shadow-gold" : unlocked ? "" : ""
                   }`}
                   style={{
-                    borderColor: unlocked ? `${activeLadder.accent}80` : "hsl(var(--border) / 0.5)",
+                    borderColor: unlocked ? `${activeLadder.accent}80` : "var(--border)",
                     background: unlocked
                       ? `linear-gradient(160deg, ${activeLadder.accent}1f, transparent 70%)`
                       : undefined,
@@ -128,7 +128,7 @@ export function ModuleBadgesPanel() {
                       {unlocked ? b.emoji : "✦"}
                     </span>
                     {!unlocked && (
-                      <Lock className="h-3.5 w-3.5 text-muted-foreground/70" strokeWidth={1.6} />
+                      <Lock className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.6} />
                     )}
                   </div>
                   <div
@@ -138,7 +138,7 @@ export function ModuleBadgesPanel() {
                   >
                     {b.title}
                   </div>
-                  <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+                  <div className="mt-1 font-sans text-xs uppercase tracking-wide text-muted-foreground">
                     {b.threshold === 0 ? "Starter" : `${b.threshold} clears`}
                   </div>
                 </div>
@@ -147,14 +147,14 @@ export function ModuleBadgesPanel() {
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-border/60 bg-card/40 p-6 text-sm text-muted-foreground">
+        <div className="rounded-2xl border border-dashed border-border/60 bg-card p-6 text-sm text-muted-foreground">
           Activate a module from the top nav to start climbing its badge ladder.
         </div>
       )}
 
       {/* Other modules — show top rank as preview */}
       <div>
-        <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="mb-3 font-sans text-xs uppercase tracking-wide text-muted-foreground">
           Other Ladders
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -172,7 +172,7 @@ export function ModuleBadgesPanel() {
                   }
                 }}
                 disabled={!owned}
-                className="group relative overflow-hidden rounded-xl border border-border/60 bg-card/60 p-4 text-left transition-all hover:border-gold/50 disabled:cursor-not-allowed disabled:opacity-60"
+                className="group relative overflow-hidden rounded-xl border border-border/60 bg-card p-4 text-left transition-all hover:border-gold/50 disabled:cursor-not-allowed disabled:border-dashed"
                 style={{
                   background: owned
                     ? `linear-gradient(160deg, ${ladder.accent}10, transparent 70%)`
@@ -180,18 +180,18 @@ export function ModuleBadgesPanel() {
                 }}
               >
                 <div className="flex items-center justify-between">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <div className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
                     {m.emoji} {m.name}
                   </div>
                   {!owned && (
-                    <span className="rounded-full border border-gold/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-gold">
+                    <span className="rounded-full border border-gold/40 px-2 py-0.5 font-sans text-xs uppercase tracking-wider text-gold-ink">
                       Pro or Team
                     </span>
                   )}
                 </div>
                 <div
-                  className="mt-2 font-display text-base italic"
-                  style={{ color: ladder.accent }}
+                  className="mt-2 font-display text-base"
+                  style={{ color: "var(--progress-accent-ink)" }}
                 >
                   Top rank · {top.emoji} {top.title}
                 </div>

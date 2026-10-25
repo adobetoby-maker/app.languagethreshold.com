@@ -278,7 +278,7 @@ function TutorNavButton() {
       aria-expanded={open}
       className={cn(
         "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] transition-colors",
-        open ? "text-gold" : "text-muted-foreground hover:text-gold",
+        open ? "text-gold-ink" : "text-muted-foreground hover:text-gold-ink",
       )}
     >
       {open && (
@@ -458,7 +458,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               {mod.emoji}
             </span>
           ) : (
-            <span className="font-display text-gold text-lg leading-none">✦</span>
+            <span className="font-display text-gold-ink text-lg leading-none">✦</span>
           )}
         </div>
 
@@ -470,7 +470,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         >
           <a
             href="/documents"
-            className="mx-1 rounded-lg border border-gold/30 px-2 py-3 text-center text-xs text-gold"
+            className="mx-1 rounded-lg border border-gold/30 px-2 py-3 text-center text-xs text-gold-ink"
           >
             My Documents
           </a>
@@ -491,7 +491,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 className={cn(
                   "relative flex min-h-10 max-h-[3.25rem] w-full flex-1 basis-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 transition-all",
                   active
-                    ? "bg-gold/15 text-gold"
+                    ? "bg-gold/15 text-gold-ink"
                     : "text-muted-foreground hover:bg-card/80 hover:text-foreground",
                 )}
               >
@@ -513,7 +513,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             <button
               onClick={onOpenMatch}
               title="Language Match"
-              className="flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 text-muted-foreground transition-all hover:bg-card/80 hover:text-gold"
+              className="flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 text-muted-foreground transition-all hover:bg-card/80 hover:text-gold-ink"
             >
               <Trophy className="h-[17px] w-[17px]" strokeWidth={1.6} />
               <span className="font-mono text-[8.5px] tracking-wide">Match</span>
@@ -526,20 +526,20 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
             <span className="flex items-center gap-1">
               <Flame
-                className={cn("h-3 w-3", fiery ? "text-gold" : "text-gold/50")}
+                className={cn("h-3 w-3", fiery ? "text-gold-ink" : "text-gold-ink")}
                 strokeWidth={1.8}
               />
               <span
                 className={cn(
                   "font-mono text-[10px]",
-                  fiery ? "font-bold text-gold" : "text-foreground",
+                  fiery ? "font-bold text-gold-ink" : "text-foreground",
                 )}
               >
                 {state.streak}d
               </span>
             </span>
             <span className="flex items-center gap-1">
-              <Star className="h-3 w-3 text-gold/50" strokeWidth={1.8} />
+              <Star className="h-3 w-3 text-gold-ink" strokeWidth={1.8} />
               <CountUp value={state.xp} className="font-mono text-[10px] text-foreground" />
             </span>
           </div>
@@ -563,7 +563,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             onClick={openAddWord}
             aria-label="Add a word to My Vocab from this page"
             title="Add word"
-            className="flex shrink-0 items-center justify-center rounded-lg border border-gold/40 bg-card/50 px-3 py-2.5 text-gold transition-colors hover:border-gold/70"
+            className="flex shrink-0 items-center justify-center rounded-lg border border-gold/40 bg-card/50 px-3 py-2.5 text-gold-ink transition-colors hover:border-gold/70"
           >
             <BookmarkPlus className="h-3.5 w-3.5" strokeWidth={1.8} />
           </button>
@@ -572,7 +572,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <DropdownMenu>
             <DropdownMenuTrigger
               aria-label={`Learning language: ${state.selectedLanguage}`}
-              className="flex shrink-0 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold focus:outline-none"
+              className="flex shrink-0 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold-ink focus:outline-none"
             >
               <span>{state.selectedLanguage}</span>
               <ChevronDown className="h-3 w-3 opacity-50" />
@@ -593,7 +593,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   }}
                   className="font-mono text-xs uppercase tracking-[0.16em]"
                 >
-                  <span className={state.selectedLanguage === lang ? "text-gold" : "opacity-50"}>
+                  <span
+                    className={state.selectedLanguage === lang ? "text-gold-ink" : "opacity-50"}
+                  >
                     ◈
                   </span>
                   {lang}
@@ -604,7 +606,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <a
             href="/documents"
-            className="rounded-lg border border-gold/40 px-2 py-2.5 text-xs text-gold"
+            className="rounded-lg border border-gold/40 px-2 py-2.5 text-xs text-gold-ink"
           >
             Docs
           </a>
@@ -612,10 +614,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <button
             onClick={() => setModuleDialogOpen(true)}
             title={mod ? mod.name : "Core (Free)"}
-            className="flex min-w-0 flex-1 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold"
+            className="flex min-w-0 flex-1 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold-ink"
           >
             {/* The module emoji already says "module"; the puzzle icon only earns its width on Core. */}
-            {!mod && <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold/70" />}
+            {!mod && <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold-ink" />}
             <span className="min-w-0 truncate">
               {mod ? `${mod.emoji} ${mod.name}` : "Core (Free)"}
             </span>
@@ -649,7 +651,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 aria-haspopup="dialog"
                 className={cn(
                   "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] transition-colors desktop:hidden",
-                  inBar ? "text-muted-foreground hover:text-gold" : "text-gold",
+                  inBar ? "text-muted-foreground hover:text-gold-ink" : "text-gold-ink",
                 )}
               >
                 {!inBar && (
@@ -673,7 +675,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 transition-colors min-h-[44px]",
-                  active ? "text-gold" : "text-muted-foreground hover:text-foreground",
+                  active ? "text-gold-ink" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {active && (
@@ -716,7 +718,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               otherwise lands on the Native select's top-right corner. */}
           <div className="mt-8 mb-3 grid grid-cols-2 gap-2">
             <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
                 Learning
               </span>
               <select
@@ -738,7 +740,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </select>
             </label>
             <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
                 Native
               </span>
               <select
@@ -776,7 +778,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               would require plumbing selection/position state that lives in
               ParallelReader.tsx, out of scope here, so this is
               display-plus-speak, not a full re-open. */}
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
             Recent words
           </p>
           <button
@@ -784,7 +786,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25 cursor-pointer min-h-[44px]"
           >
             <span className="flex items-center gap-2.5 text-sm text-foreground">
-              <History className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              <History className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
               {recentWords.length > 0 ? `${recentWords.length} looked up` : "None looked up yet"}
             </span>
             <ChevronDown
@@ -805,9 +807,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   <button
                     key={word}
                     onClick={() => speakWord(word)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-gold/25 hover:text-gold cursor-pointer min-h-[44px]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink cursor-pointer min-h-[44px]"
                   >
-                    <Volume2 className="h-3.5 w-3.5 text-gold/70" strokeWidth={1.6} />
+                    <Volume2 className="h-3.5 w-3.5 text-gold-ink" strokeWidth={1.6} />
                     {word}
                   </button>
                 ))
@@ -818,7 +820,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           {/* Free-text note — saved through useNotes() with a stable
               sentinel textId so it never collides with per-reading
               annotations. */}
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
             Quick note
           </p>
           <div className="mt-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
@@ -848,7 +850,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               title="Draw a character to insert"
               className={`mt-2 flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
                 noteDrawMode
-                  ? "border-gold/60 bg-gold/10 text-gold"
+                  ? "border-gold/60 bg-gold/10 text-gold-ink"
                   : "border-border/50 text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -857,9 +859,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             <button
               onClick={saveSidebarNote}
               disabled={!noteDraft.trim()}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-gold/25 hover:text-gold disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer min-h-[44px]"
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer min-h-[44px]"
             >
-              <NotebookPen className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              <NotebookPen className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
               Save note
             </button>
             {noteSaved && lastSidebarNote?.noteText && (
@@ -869,7 +871,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             )}
           </div>
 
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
             App settings
           </p>
 
@@ -900,9 +902,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           >
             <span className="flex items-center gap-2.5 text-sm text-foreground">
               {state.darkMode ? (
-                <Moon className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+                <Moon className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
               ) : (
-                <Sun className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+                <Sun className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
               )}
               Appearance
             </span>
@@ -922,7 +924,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             disabled={updatingApp}
             className="mt-3 flex min-h-12 w-full items-center justify-between rounded-xl border-2 border-gold/40 bg-gold/10 px-4 py-3 text-left transition-colors hover:border-gold/70 disabled:cursor-wait disabled:opacity-60"
           >
-            <span className="flex items-center gap-2.5 text-sm font-semibold text-gold">
+            <span className="flex items-center gap-2.5 text-sm font-semibold text-gold-ink">
               <RefreshCw
                 className={cn("h-4 w-4", updatingApp && "animate-spin")}
                 strokeWidth={1.8}
@@ -959,7 +961,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               if (items.length === 0) return null;
               return (
                 <div key={group}>
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
                     {group}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -980,7 +982,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                           className={cn(
                             "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
                             active
-                              ? "border-gold/40 bg-gold/15 text-gold"
+                              ? "border-gold/40 bg-gold/15 text-gold-ink"
                               : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
                           )}
                         >

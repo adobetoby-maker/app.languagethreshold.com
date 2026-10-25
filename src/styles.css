@@ -12,7 +12,8 @@
 
 @theme inline {
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-display: Georgia, Cambria, "Times New Roman", serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -98,6 +99,12 @@
   --border: #d4ded7;
   --input: #bac8c4;
   --ring: #146e73;
+  --info-ink: #155366;
+  --info-surface: #e9f2f5;
+  --info-border: #a9c6cf;
+  --streak-ink: #823810;
+  --streak-surface: #fff3e5;
+  --progress-accent-ink: #146e73;
 }
 
 /* Remove the phone nav budget on real desktop only — iPad keeps the tall mobile budget
@@ -116,6 +123,12 @@
   --gold-soft: oklch(0.86 0.08 85);
   --ivory: oklch(0.96 0.012 80);
   --gold-ink: var(--gold);
+  --info-ink: #c5e8f2;
+  --info-surface: #17323e;
+  --info-border: #4a7380;
+  --streak-ink: #ffd2a6;
+  --streak-surface: #372a20;
+  --progress-accent-ink: #b8e5dc;
   --background: oklch(0.18 0.035 255); /* deep midnight */
   --foreground: oklch(0.98 0.005 80); /* near-white — crisper on dark bg */
 
@@ -394,7 +407,7 @@
 }
 .achievement-toast [data-title] {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1rem;
   color: var(--foreground);
 }
@@ -1194,4 +1207,38 @@ rt,
 [data-games-hub]:has([data-verbs-open]) > :not(:first-child):not([data-games-grid]),
 [data-games-grid]:has([data-verbs-open]) > button {
   display: none;
+}
+
+/* Product typography: upright letterforms, including semantic emphasis and utility classes.
+   Important also covers intentional inline italic styles in older learning components. */
+body,
+body * {
+  font-style: normal !important;
+}
+body {
+  font-synthesis: none;
+}
+body :is(em, cite) {
+  font-weight: 600;
+}
+.progress-dashboard {
+  line-height: 1.6;
+}
+.progress-dashboard :is(h1, h2, h3) {
+  font-weight: 600;
+  line-height: 1.25;
+}
+.progress-dashboard :is(p, span, a, button, h1, h2, h3) {
+  text-shadow: none;
+}
+
+/* Achievement labels must remain readable on both themed toast surfaces. */
+.achievement-toast[data-sonner-toast] [data-description] {
+  color: var(--muted-foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  opacity: 1 !important;
 }

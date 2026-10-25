@@ -32,7 +32,7 @@ export function TopNav() {
     <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] desktop:block">
       <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap xl:gap-6 sm:px-6 sm:py-0">
         <div className="flex items-center gap-2 sm:gap-2.5">
-          <Sparkle className="h-5 w-5 text-gold" strokeWidth={1.5} fill="currentColor" />
+          <Sparkle className="h-5 w-5 text-gold-ink" strokeWidth={1.5} fill="currentColor" />
           <span className="font-display text-lg font-semibold tracking-tight xl:text-2xl">
             Language Threshold
           </span>
@@ -40,7 +40,7 @@ export function TopNav() {
 
         <DropdownMenu>
           <DropdownMenuTrigger className="group order-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:order-none sm:w-auto sm:px-5 sm:text-xs">
-            <span className="text-gold">◈</span>
+            <span className="text-gold-ink">◈</span>
             <span>{state.selectedLanguage}</span>
             <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-data-[state=open]:rotate-180" />
           </DropdownMenuTrigger>
@@ -59,7 +59,7 @@ export function TopNav() {
                 }}
                 className="font-mono text-xs uppercase tracking-[0.16em]"
               >
-                <span className={state.selectedLanguage === lang ? "text-gold" : "opacity-60"}>
+                <span className={state.selectedLanguage === lang ? "text-gold-ink" : "opacity-60"}>
                   ◈
                 </span>
                 {lang}
@@ -73,9 +73,9 @@ export function TopNav() {
           title="Change module"
           className="group order-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 transition-all hover:border-gold/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:order-none sm:w-auto sm:px-4"
         >
-          <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold" strokeWidth={1.8} />
+          <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold-ink" strokeWidth={1.8} />
           {getModule(state.activeModuleId) ? (
-            <span className="truncate max-w-[100px] xl:max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold">
+            <span className="truncate max-w-[100px] xl:max-w-[160px] font-mono text-sm font-bold uppercase tracking-[0.18em] text-gold-ink">
               {getModule(state.activeModuleId)!.emoji} {getModule(state.activeModuleId)!.name}
             </span>
           ) : (
@@ -93,7 +93,7 @@ export function TopNav() {
             onClick={() => window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT))}
             aria-label="Add a word to My Vocab from this page"
             title="Add word"
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:text-gold"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:text-gold-ink"
           >
             <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -151,7 +151,9 @@ export function TopNav() {
                       onSelect={() => dispatch({ type: "SET_NATIVE_LANGUAGE", payload: lang })}
                       className="font-mono text-xs uppercase tracking-[0.16em]"
                     >
-                      <span className={state.nativeLanguage === lang ? "text-gold" : "opacity-60"}>
+                      <span
+                        className={state.nativeLanguage === lang ? "text-gold-ink" : "opacity-60"}
+                      >
                         ◈
                       </span>
                       {lang}
@@ -165,7 +167,7 @@ export function TopNav() {
                 <button
                   onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
                   aria-label="Toggle theme"
-                  className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/60 text-foreground/80 transition-all hover:border-gold/60 hover:text-gold"
+                  className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/60 text-foreground/80 transition-all hover:border-gold/60 hover:text-gold-ink"
                 >
                   {state.darkMode ? (
                     <Sun className="h-4 w-4" strokeWidth={1.6} />

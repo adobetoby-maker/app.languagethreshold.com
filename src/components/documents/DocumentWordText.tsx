@@ -1,3 +1,5 @@
+import { curriculumVocabulary, type CurriculumWordMatch } from "@/lib/curriculum-vocabulary";
+import { CurriculumPracticeLinks } from "@/components/reader/CurriculumPracticeLinks";
 import { useRef, useState } from "react";
 import { ownedTeamRequest, type TeamRequestOwner } from "@/lib/team-client";
 import {
@@ -15,6 +17,8 @@ export function DocumentWordText({
   side,
   owner,
   definitions,
+  language,
+  nativeLanguage,
 }: {
   text: string;
   documentId: string;
@@ -22,16 +26,40 @@ export function DocumentWordText({
   side: "en" | "target";
   owner: TeamRequestOwner;
   definitions?: InitialDocumentDefinition[];
+  language: string;
+  nativeLanguage: string;
 }) {
   const [result, setResult] = useState<{
     word: string;
     card?: DocumentWordCard;
     error?: string;
     loading?: boolean;
+    matches?: CurriculumWordMatch[];
   } | null>(null);
   const sequence = useRef(0);
   async function lookup(word: string) {
     const current = ++sequence.current;
+    setResult({ word, loading: true });
+    let matches: CurriculumWordMatch[] = [];
+    try {
+      matches = await curriculumVocabulary(word, language, nativeLanguage);
+    } catch {
+      /* saved/AI fallbacks remain available */
+    }
+    if (!owner.isCurrent() || sequence.current !== current) return;
+    if (matches.length) {
+      setResult({
+        word,
+        matches,
+        card: {
+          headword: word,
+          meaning: [...new Set(matches.map((match) => match.meaning))].join("; "),
+          grammar: "",
+          context: "App lesson vocabulary. Check the meaning against your sentence.",
+        },
+      });
+      return;
+    }
     const initial = definitions?.find(
       (entry) => entry.side === side && entry.word === documentWordKey(word),
     );
@@ -109,8 +137,11 @@ export function DocumentWordText({
               <p>{result.card.meaning}</p>
               {result.card.grammar && <p>{result.card.grammar}</p>}
               {result.card.context && <p>{result.card.context}</p>}
+              {result.matches && <CurriculumPracticeLinks matches={result.matches} />}
               <small>
-                Saved privately with this document. Reopening uses no translation characters.
+                {result.matches
+                  ? "From the app’s built-in vocabulary. No AI call or translation characters used."
+                  : "Saved privately with this document. Reopening uses no translation characters."}
               </small>
             </>
           )}

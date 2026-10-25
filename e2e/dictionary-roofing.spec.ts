@@ -26,3 +26,38 @@ test("dictionary: Roofing chip lists entries without the Roofing module", async 
   await expect(page.getByText(/^0 results?$/i)).toHaveCount(0);
   await expect(page.getByText("Roofing crew language").first()).toBeVisible();
 });
+
+test("existing curriculum word opens a card with lesson links and no dictionary API call", async ({
+  page,
+}) => {
+  let calls = 0;
+  await page.route("**/_serverFn/**", async (route) => {
+    const encoded = route
+      .request()
+      .url()
+      .match(/\/_serverFn\/([^?/]+)/)?.[1];
+    let name = "";
+    try {
+      name = JSON.parse(Buffer.from(encoded ?? "", "base64url").toString()).export ?? "";
+    } catch {
+      /* other request */
+    }
+    if (name.includes("lookupWord")) {
+      calls++;
+      await route.fulfill({ status: 503, body: "Unexpected dictionary call" });
+    } else await route.continue();
+  });
+  test.setTimeout(45000);
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const welcome = page.getByRole("dialog", { name: "Choose your learning language" });
+  await welcome.waitFor({ timeout: 5000 }).catch(() => {});
+  if (await welcome.isVisible()) {
+    await welcome.getByRole("button", { name: /^\s*Spanish/ }).click();
+    await page.getByRole("button", { name: "Start reading", exact: true }).click();
+  }
+  await page.getByRole("button", { name: "tren", exact: true }).first().click();
+  const practice = page.getByRole("region", { name: "Practice this word" });
+  await expect(practice).toBeVisible();
+  await expect(practice.getByRole("link").first()).toHaveAttribute("href", /lesson=/);
+  expect(calls).toBe(0);
+});

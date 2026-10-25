@@ -13,3 +13,13 @@ Reopening a definition, including after a browser reload or on another device, r
 RLS is enabled, with all direct access revoked from anonymous and authenticated client roles. The server service role accesses the cache after authenticating and checking document ownership. Notes remain device-local as before.
 
 Validation covers account ownership, fabricated inputs, repeated/case-normalized taps, concurrent calls, failed providers, generation budget denials, expired claims and failed database writes. Browser tests use synthetic account/document/definition responses at desktop and iPhone sizes; they exercise open, close, reload, retry and horizontal overflow without making paid AI requests.
+
+## Built-in vocabulary and practice links
+
+Document word cards and the main Reader's word cards first check a static Spanish–English vocabulary index built from the app's authored lesson terms and existing Spanish dictionary. Matching needs no dictionary/AI API call and uses no translation characters. The index is a lazy-loaded app asset, reused after its first load; private document text is not sent anywhere for this lookup.
+
+Matches show the existing bilingual meaning and up to five practice destinations. Lesson destinations use the normal module/lesson/language links and retain the app's normal access checks. A dictionary-only term links to the app dictionary rather than inventing a lesson reference. The current lesson's module is preferred when available.
+
+Matching preserves accents and inflections, handles exact slash-separated alternatives, and removes a leading article only when the remaining entry is a single word. It never assigns a compound phrase's meaning to one of its tokens. Multiple authored meanings stay visible; the local lookup does not infer the meaning in the user's private sentence. Other language pairs and unknown words retain the saved-glossary and existing AI lookup paths.
+
+Regenerate with `npm run vocabulary:index`. Production builds regenerate the index automatically so curriculum edits do not leave stale lesson references. The generated index contains public app vocabulary only, with no user documents, progress or account data.

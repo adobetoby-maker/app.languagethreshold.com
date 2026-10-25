@@ -41,16 +41,17 @@ async function fixture() {
           b.onResolve(
             {
               filter:
-                /^(fixture|@anthropic-ai\/sdk|\.\/team-server|\.\/learning-generation-security)$/,
+                /^(fixture|@anthropic-ai\/sdk|\.\/team-server|\.\/learning-generation-security|\.\/curriculum-vocabulary)$/,
             },
             () => ({ path: "fixture", namespace: "fixture" }),
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
             contents: `
- export const c={initialDefs:[],rows:[],calls:0,denial:null,fail:false,missing:false,saveFail:false};
+ export const c={curriculumMatches:[],initialDefs:[],rows:[],calls:0,denial:null,fail:false,missing:false,saveFail:false};
  export class TeamOperationError extends Error{constructor(message,status=400){super(message);this.status=status}}
  export const json=(v,status=200)=>new Response(JSON.stringify(v),{status});
  export const checkLearningGenerationBudget=async()=>c.denial;
+ export const curriculumVocabulary=async()=>c.curriculumMatches;
  export const teamAdminClient=()=>db;
  export const db={from(table){let filters=[],op='read',value;
  const q={select(){return q},eq(k,v){filters.push(r=>r[k]===v);return q},is(k,v){filters.push(r=>(r[k]??null)===v);return q},lte(k,v){filters.push(r=>r[k]<=v);return q},
@@ -176,6 +177,32 @@ test("initial document definitions return without any lookup provider call or bu
     assert.equal(result.card.meaning, "Equipment.");
     assert.equal(f.c.calls, 0);
     assert.equal(f.c.rows.length, 0);
+    await assert.rejects(f.lookupDocumentWord(f.db, "other", request, data), /not found/);
+  } finally {
+    rmSync(f.dir, { recursive: true, force: true });
+  }
+});
+
+test("built-in curriculum definitions bypass generation and remain behind document ownership", async () => {
+  const f = await fixture();
+  try {
+    f.c.curriculumMatches = [
+      {
+        word: "equipo",
+        meaning: "Equipment",
+        moduleId: "roofing",
+        moduleName: "Roofing",
+        lesson: 1,
+        title: "Safety",
+        href: "/?module=roofing&tab=core30&lesson=1",
+      },
+    ];
+    f.c.fail = true;
+    f.c.denial = { status: 429, error: "Wait" };
+    const result = await (await f.lookupDocumentWord(f.db, "owner", request, data)).json();
+    assert.equal(result.card.meaning, "Equipment");
+    assert.equal(result.matches[0].moduleId, "roofing");
+    assert.equal(f.c.calls, 0);
     await assert.rejects(f.lookupDocumentWord(f.db, "other", request, data), /not found/);
   } finally {
     rmSync(f.dir, { recursive: true, force: true });

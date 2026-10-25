@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node scripts/verify-client-env.mjs && vite build && node scripts/vercel-adapter.mjs",
+    "vocabulary:index": "node scripts/build-curriculum-word-index.mts",
+    "build": "node scripts/build-curriculum-word-index.mts && node scripts/verify-client-env.mjs && vite build && node scripts/vercel-adapter.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "node scripts/lint-changed.mjs",

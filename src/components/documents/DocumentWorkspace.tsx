@@ -411,6 +411,8 @@ export function DocumentWorkspace() {
                         documentId={active.id}
                         passage={index}
                         side="en"
+                        language={active.source_language}
+                        nativeLanguage={active.target_language}
                         definitions={pair.definitions}
                         owner={owner}
                       />
@@ -420,6 +422,8 @@ export function DocumentWorkspace() {
                         documentId={active.id}
                         passage={index}
                         side="target"
+                        language={active.target_language}
+                        nativeLanguage={active.source_language}
                         definitions={pair.definitions}
                         owner={owner}
                       />

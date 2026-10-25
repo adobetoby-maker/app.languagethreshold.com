@@ -44,13 +44,13 @@ test("private document words open, close, retry and reopen after reload", async 
               sentences: [
                 {
                   en: "Do not use damaged equipment.",
-                  target: "No use equipo dañado.",
+                  target: "No use nuvex zaltro. Use una escalera.",
                   definitions: [
                     {
                       side: "target",
-                      word: "dañado",
+                      word: "zaltro",
                       card: {
-                        headword: "dañado",
+                        headword: "zaltro",
                         meaning: "Damaged; not in good condition.",
                         grammar: "",
                         context: "",
@@ -77,7 +77,7 @@ test("private document words open, close, retry and reopen after reload", async 
       id: docId,
       passage: 0,
       side: "target",
-      word: "equipo",
+      word: "nuvex",
     });
     if (failNext) {
       failNext = false;
@@ -86,7 +86,7 @@ test("private document words open, close, retry and reopen after reload", async 
     return route.fulfill({
       json: {
         card: {
-          headword: "equipo",
+          headword: "nuvex",
           meaning: "Equipment: tools used for a task.",
           grammar: "A masculine singular noun.",
           context: "Here it refers to equipment used on the job.",
@@ -97,21 +97,28 @@ test("private document words open, close, retry and reopen after reload", async 
   });
   await page.goto("/documents", { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: /Practice safety sheet/ }).click();
-  await page.getByRole("button", { name: "Define dañado", exact: true }).click();
+  await page.getByRole("button", { name: "Define escalera", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Practice this word" })).toBeVisible();
+  await expect(
+    page.getByRole("region", { name: "Practice this word" }).getByRole("link").first(),
+  ).toHaveAttribute("href", /lesson=/);
+  expect(calls).toBe(0);
+  await page.getByRole("button", { name: "Close definition" }).click();
+  await page.getByRole("button", { name: "Define zaltro", exact: true }).click();
   await expect(page.getByText("Damaged; not in good condition.")).toBeVisible();
   expect(calls).toBe(0);
   await page.getByRole("button", { name: "Close definition" }).click();
-  await page.getByRole("button", { name: "Define equipo", exact: true }).click();
+  await page.getByRole("button", { name: "Define nuvex", exact: true }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toBeVisible();
   await page.getByRole("button", { name: "Close definition" }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toHaveCount(0);
   await page.reload();
   await page.getByRole("button", { name: /Practice safety sheet/ }).click();
-  await page.getByRole("button", { name: "Define dañado", exact: true }).click();
+  await page.getByRole("button", { name: "Define zaltro", exact: true }).click();
   await expect(page.getByText("Damaged; not in good condition.")).toBeVisible();
   expect(calls).toBe(1);
   await page.getByRole("button", { name: "Close definition" }).click();
-  await page.getByRole("button", { name: "Define equipo", exact: true }).click();
+  await page.getByRole("button", { name: "Define nuvex", exact: true }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toBeVisible();
   await expect(page.getByText("49,863", { exact: false })).toBeVisible();
   const width = await page.evaluate(() => ({
@@ -126,7 +133,7 @@ test("private document words open, close, retry and reopen after reload", async 
   });
   await page.getByRole("button", { name: "Close definition" }).click();
   failNext = true;
-  await page.getByRole("button", { name: "Define equipo", exact: true }).click();
+  await page.getByRole("button", { name: "Define nuvex", exact: true }).click();
   await expect(page.getByRole("alert")).toContainText("Please retry");
   await page.getByRole("button", { name: "Retry", exact: true }).click();
   await expect(page.getByText("Equipment: tools used for a task.")).toBeVisible();

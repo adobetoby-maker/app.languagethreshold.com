@@ -1,3 +1,4 @@
+import { curriculumVocabulary, type CurriculumWordMatch } from "./curriculum-vocabulary";
 import Anthropic from "@anthropic-ai/sdk";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
@@ -40,6 +41,27 @@ export async function lookupDocumentWord(
     )
   )
     throw new TeamOperationError("Choose a word in this document.");
+  let matches: CurriculumWordMatch[] = [];
+  try {
+    matches = await curriculumVocabulary(
+      data.word,
+      data.side === "en" ? doc.data.source_language : doc.data.target_language,
+      data.side === "en" ? doc.data.target_language : doc.data.source_language,
+    );
+  } catch {
+    /* static asset unavailable: use existing saved/AI fallbacks */
+  }
+  if (matches?.length)
+    return json({
+      card: {
+        headword: data.word,
+        meaning: [...new Set(matches.map((match) => match.meaning))].join("; "),
+        grammar: "",
+        context: "App lesson vocabulary. Check the meaning against your sentence.",
+      },
+      matches,
+      cached: true,
+    });
   const initial = initialDocumentDefinition(doc.data.sentences[data.passage], data.side, word);
   if (initial) return json({ card: cardSchema.parse(initial), cached: true });
   const query = () =>

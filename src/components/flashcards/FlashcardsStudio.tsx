@@ -597,7 +597,7 @@ export function FlashcardsStudio() {
           </div>
         </div>
 
-        {moduleSection && (generatingFieldDeck || fieldDeckError) && (
+        {moduleSection && !current && (generatingFieldDeck || fieldDeckError) && (
           <div
             role="status"
             className="mb-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
@@ -850,6 +850,24 @@ export function FlashcardsStudio() {
           </div>
         )}
       </PhoneActivity>
+
+      {moduleSection && current && (generatingFieldDeck || fieldDeckError) && (
+        <div
+          role="status"
+          className="mt-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
+        >
+          {generatingFieldDeck ? `Preparing ${moduleName} cards…` : fieldDeckError}
+          {fieldDeckError && !generatingFieldDeck && (
+            <button
+              type="button"
+              onClick={() => void loadFieldDeck(true)}
+              className="ml-2 min-h-11 text-gold underline"
+            >
+              Retry field cards
+            </button>
+          )}
+        </div>
+      )}
 
       <details
         key={`${language}:${moduleId}`}

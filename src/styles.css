@@ -1477,6 +1477,22 @@ body :is(em, cite) {
     text-transform: none;
   }
 }
+@media (max-width: 360px) {
+  /* Japanese adds a furigana control. Keep its audio and furigana buttons in
+     one row so grading remains above the phone dock; announce the session
+     count to assistive tech without reserving a second row for it. */
+  .flashcards-tools > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
 @media (max-width: 767px) {
   /* A changed usage example below the card must not become the page's anchor. */
   main:has(.phone-activity) {

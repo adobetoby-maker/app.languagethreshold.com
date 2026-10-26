@@ -552,7 +552,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       {/* The familiar bottom navigation is reserved for phones and touch tablets. */}
       <nav
         aria-label="Primary"
-        className="fixed bottom-0 inset-x-0 z-40 flex flex-col desktop:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]"
+        className="lt-bottom-nav relative z-40 flex flex-col desktop:hidden border-t border-border/50 bg-background [padding-bottom:env(safe-area-inset-bottom)]"
       >
         <PracticeTimeBar edge="nav" />
         {/* Mobile-only: Add word + language + module + voice + settings. One tight row that

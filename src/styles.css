@@ -215,6 +215,48 @@
     letter-spacing: 0.01em;
   }
 
+  /* Touch layout owns one dynamic viewport. Navigation is a real second row,
+     so Safari cannot leave a fixed overlay suspended after an iPad resize or
+     keyboard dismissal, and content never scrolls behind the navigation. */
+  .lt-app-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .lt-main-column {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+  }
+
+  .lt-bottom-nav {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .lt-app-shell .lt-scroll-safe {
+    /* The nav reserves its own space; leave room only for floating tools. */
+    padding-bottom: calc(var(--lt-bottom-strip-budget) - var(--lt-nav-height)) !important;
+    scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) - var(--lt-nav-height));
+    overscroll-behavior-y: contain;
+  }
+
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    .lt-app-shell {
+      display: flex;
+      height: auto;
+      min-height: 100dvh;
+      overflow: visible;
+    }
+
+    .lt-main-column {
+      overflow: visible;
+    }
+  }
+
   .lt-scroll-safe {
     padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom)) !important;
     scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom));

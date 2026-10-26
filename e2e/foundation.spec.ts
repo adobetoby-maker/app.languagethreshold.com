@@ -99,6 +99,8 @@ async function openCore30(
       { id: moduleId, log: core30Log, user: userId, target, native },
     );
     await page.goto(`/?tab=core30&module=${moduleId}&target=${target}&native=${native}`);
+    if (ready === "core30-plan-card")
+      await page.getByTestId("study-options").locator(":scope > summary").click();
     await page
       .getByTestId(ready)
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
@@ -139,12 +141,13 @@ test.describe("Roofing Foundation: signed in", () => {
     await expect(card).not.toContainText("90");
     const path = page.getByTestId("core60-path");
     await expect(path).toBeVisible();
-    await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute("aria-current", "step");
-    await expect(page.getByTestId("core60-step-foundation")).toContainText(
-      "Foundation · 10 lessons · free",
+    await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute(
+      "aria-current",
+      "step",
     );
-    await expect(page.getByTestId("core60-step-core")).toContainText("Core 30 · 30 lessons");
-    await expect(page.getByTestId("core60-step-master")).toContainText("Master 20 · 20 lessons");
+    await expect(page.getByTestId("core60-step-foundation")).toContainText("Foundation");
+    await expect(page.getByTestId("core60-step-core")).toContainText("Core");
+    await expect(page.getByTestId("core60-step-master")).toContainText("Master");
     // The next lesson is promoted above the detailed stage path.
     const pathBox = await path.boundingBox();
     const nextUp = await page.getByText(/Your next lesson · Foundation Lesson 1/).boundingBox();
@@ -170,7 +173,7 @@ test.describe("Roofing Foundation: signed in", () => {
     await expect(card).toContainText("14-day plan");
     await expect(card).toContainText("Learn all 10 lessons in 14 days");
     await expect(card).toContainText("One new lesson every day.");
-    await expect(page.getByTestId("core30-start-plan")).toHaveText("Start my 14-day plan");
+    await expect(page.getByTestId("core30-start-plan")).toHaveText("Start lessons");
   });
 
   test("the path goes from the Foundation to Roofing and back", async ({ page }) => {
@@ -178,12 +181,19 @@ test.describe("Roofing Foundation: signed in", () => {
     await openCore30(page, FOUNDATION, {}, "core60-path", FAKE_USER_ID);
     await expect(page.getByTestId("core60-step-core")).toHaveJSProperty("tagName", "BUTTON");
     await page.getByTestId("core60-step-core").click();
-    await expect(page.getByRole("heading", { name: "The Roofing Supervisor Core 30" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "The Roofing Supervisor Core 30" }),
+    ).toBeVisible();
     await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
-    await expect(page.getByTestId("core60-step-foundation")).toContainText("New to Spanish? Start here.");
+    await expect(page.getByTestId("core60-step-foundation")).toContainText(
+      "New to Spanish? Start here.",
+    );
     await page.getByTestId("core60-step-foundation").click();
     await expect(page.getByRole("heading", { name: "The Roofing Foundation" })).toBeVisible();
-    await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute(
+      "aria-current",
+      "step",
+    );
   });
 });
 
@@ -222,19 +232,16 @@ test.describe("fmg Foundation (English target): lesson 1 word list", () => {
 });
 
 test.describe("Roofing Core 30 links to the Foundation", () => {
-  test("shows the path with the beginner nudge, and the Foundation step switches module", async ({
-    page,
-  }) => {
+  test("shows three compact levels, and the Foundation step switches module", async ({ page }) => {
     await openCore30(page, "roofing", {}, "core60-path");
     await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
     const step = page.getByTestId("core60-step-foundation");
-    await expect(step).toContainText("Foundation · 10 lessons · free");
-    await expect(step).toContainText("0 / 10 mastered");
-    await expect(step).toContainText("New to Spanish? Start here.");
+    await expect(step).toContainText("Foundation");
+    await expect(step).toHaveText("Foundation");
     // The path sits above the plan card.
     const pathBox = await page.getByTestId("core60-path").boundingBox();
-    const planBox = await page.getByTestId("core30-plan-card").boundingBox();
-    expect(pathBox!.y).toBeLessThan(planBox!.y);
+    expect(pathBox!.height).toBeLessThan(100);
+    await expect(page.getByTestId("core30-plan-card")).not.toBeVisible();
     await step.click();
     // A guest lands on the sign-in prompt of the Foundation: the module did switch.
     await expect(page.getByTestId("foundation-signin-prompt")).toBeVisible();
@@ -260,6 +267,6 @@ test.describe("Roofing Core 30 links to the Foundation", () => {
   test("keeps the 90-day plan on the Roofing page", async ({ page }) => {
     await openCore30(page, "roofing", {}, "core30-plan-card");
     await expect(page.getByTestId("core30-plan-card")).toContainText("90-day plan");
-    await expect(page.getByTestId("core30-start-plan")).toHaveText("Start my 90-day plan");
+    await expect(page.getByTestId("core30-start-plan")).toHaveText("Start lessons");
   });
 });

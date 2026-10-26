@@ -389,6 +389,7 @@ test.describe("Core 30 plan: Roofing", () => {
 
     // Lesson 1 is the module's current lesson, so mastering it also closes the runner.
     await expect(page.getByText(/Lesson complete/)).toBeVisible();
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await expect(page.getByTestId("core30-plan-card").getByText("1 / 30")).toBeVisible();
     await expect(page.getByRole("button", { name: /Today: Lesson 2/ })).toBeVisible();
 
@@ -450,6 +451,7 @@ test.describe("Core 30 plan: Roofing", () => {
     expect(afterReview!.lessons["1"].needsPractice).toBeFalsy();
 
     await page.getByRole("button", { name: "Back to Core 60" }).click();
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await expect(card.getByText(/Needs practice: Lesson 2/)).toBeVisible();
     await expect(card.getByText("Today", { exact: true })).toHaveCount(0);
 
@@ -654,6 +656,7 @@ test.describe("Core 30 plan: Roofing", () => {
     expect(await currentTabOf(page)).toBe("core30");
     await page.getByTestId("core30-philosophy-back").click();
     await expect(page.getByTestId("core30-philosophy")).toHaveCount(0);
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await expect(page.getByTestId("core30-plan-card")).toBeVisible();
   });
 

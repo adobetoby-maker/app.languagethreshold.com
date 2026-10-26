@@ -106,17 +106,17 @@ export function NotesCard() {
     <section
       id="my-notes"
       aria-labelledby="my-notes-heading"
-      className="scroll-mt-24 rounded-2xl border border-border/60 bg-card/60 p-6"
+      className="scroll-mt-24 rounded-2xl border border-border/60 bg-card p-6"
     >
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <h2
           id="my-notes-heading"
-          className="flex items-center gap-2 font-display text-2xl italic text-foreground"
+          className="flex items-center gap-2 font-display text-2xl text-foreground"
         >
-          <NotebookPen className="h-5 w-5 text-gold" strokeWidth={1.6} />
+          <NotebookPen className="h-5 w-5 text-gold-ink" strokeWidth={1.6} />
           My Notes
         </h2>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
           {counts.all - counts.highlights} {counts.all - counts.highlights === 1 ? "note" : "notes"}{" "}
           · {counts.highlights} {counts.highlights === 1 ? "highlight" : "highlights"}
         </span>
@@ -136,7 +136,7 @@ export function NotesCard() {
             }
             dispatch({ type: "SET_TAB", payload: "characters" });
           }}
-          className="mb-5 inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
+          className="mb-5 inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold-ink transition-colors hover:bg-gold/15"
         >
           Open character and radical practice
         </button>
@@ -157,7 +157,7 @@ export function NotesCard() {
             }}
             autoFocus
             rows={3}
-            className="border-gold/40 bg-background/80 font-mono text-[12px]"
+            className="border-gold/40 bg-background/80 font-sans text-[12px]"
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
@@ -172,9 +172,9 @@ export function NotesCard() {
               type="button"
               onClick={() => setDrawMode((v) => !v)}
               title="Draw a character to insert"
-              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-sans text-xs uppercase tracking-wide transition-colors duration-200 ${
                 drawMode
-                  ? "border-gold/60 bg-gold/10 text-gold"
+                  ? "border-gold/60 bg-gold/10 text-gold-ink"
                   : "border-border/50 text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -184,7 +184,7 @@ export function NotesCard() {
               <button
                 type="button"
                 onClick={handleCancelAdding}
-                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-sans text-xs uppercase tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
               >
                 <X className="h-3 w-3" /> Cancel
               </button>
@@ -192,7 +192,7 @@ export function NotesCard() {
                 type="button"
                 onClick={handleAdd}
                 disabled={!draft.trim()}
-                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-sans text-xs uppercase tracking-wide text-midnight transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:border-border"
               >
                 <Check className="h-3 w-3" /> Save note
               </button>
@@ -203,7 +203,7 @@ export function NotesCard() {
         <button
           type="button"
           onClick={() => setAdding(true)}
-          className="mb-5 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors duration-200 hover:bg-gold/15"
+          className="mb-5 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold-ink transition-colors duration-200 hover:bg-gold/15"
         >
           <Plus className="h-3.5 w-3.5" /> Add a note
         </button>
@@ -242,11 +242,11 @@ export function NotesCard() {
                 onClick={() => setFilter(value)}
                 className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition-colors ${
                   filter === value
-                    ? "border-gold/60 bg-gold/15 text-gold"
+                    ? "border-gold/60 bg-gold/15 text-gold-ink"
                     : "border-border/60 text-muted-foreground hover:border-gold/40 hover:text-foreground"
                 }`}
               >
-                {label} <span className="ml-1 opacity-70">{counts[value]}</span>
+                {label} <span className="ml-1">{counts[value]}</span>
               </button>
             ))}
           </div>
@@ -255,8 +255,8 @@ export function NotesCard() {
 
       {annotations.length === 0 ? (
         <p className="text-sm text-muted-foreground">
-          Highlight any sentence in the <span className="text-gold">Reader</span> to save it here as
-          a note — or add a standalone thought above.
+          Highlight any sentence in the <span className="text-gold-ink">Reader</span> to save it
+          here as a note — or add a standalone thought above.
         </p>
       ) : filteredAnnotations.length === 0 ? (
         <p className="text-sm text-muted-foreground">
@@ -276,7 +276,7 @@ export function NotesCard() {
         <div className="space-y-5">
           {groups.map((g) => (
             <div key={g.textId}>
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <p className="mb-2 font-sans text-xs uppercase tracking-wide text-muted-foreground">
                 {titleForText(g.textId)}
               </p>
               <ul className="space-y-3">
@@ -329,7 +329,7 @@ function NoteRow({
   return (
     <li className="group rounded-xl border border-border/60 bg-background/40 p-3 transition-colors duration-200 hover:border-gold/40">
       {ann.selectedText && (
-        <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] italic leading-snug text-foreground">
+        <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] leading-snug text-foreground">
           "{ann.selectedText}"
         </div>
       )}
@@ -349,7 +349,7 @@ function NoteRow({
             }}
             autoFocus
             rows={3}
-            className="border-gold/40 bg-background/80 font-mono text-[12px]"
+            className="border-gold/40 bg-background/80 font-sans text-[12px]"
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
@@ -364,9 +364,9 @@ function NoteRow({
               type="button"
               onClick={() => setDrawMode((v) => !v)}
               title="Draw a character to insert"
-              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-sans text-xs uppercase tracking-wide transition-colors duration-200 ${
                 drawMode
-                  ? "border-gold/60 bg-gold/10 text-gold"
+                  ? "border-gold/60 bg-gold/10 text-gold-ink"
                   : "border-border/50 text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -376,14 +376,14 @@ function NoteRow({
               <button
                 type="button"
                 onClick={cancel}
-                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-sans text-xs uppercase tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
               >
                 <X className="h-3 w-3" /> Cancel
               </button>
               <button
                 type="button"
                 onClick={commit}
-                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90"
+                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-sans text-xs uppercase tracking-wide text-midnight transition-opacity duration-200 hover:opacity-90"
               >
                 <Check className="h-3 w-3" /> Save
               </button>
@@ -394,7 +394,7 @@ function NoteRow({
         <button
           type="button"
           onClick={startEdit}
-          className="block w-full cursor-text rounded-md px-1 py-0.5 text-left whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-foreground/80 transition-colors duration-200 hover:bg-gold/5"
+          className="block w-full cursor-text rounded-md px-1 py-0.5 text-left whitespace-pre-wrap font-sans text-xs leading-relaxed text-foreground/80 transition-colors duration-200 hover:bg-gold/5"
           title="Click to edit"
         >
           {ann.noteText}
@@ -403,7 +403,7 @@ function NoteRow({
         <button
           type="button"
           onClick={startEdit}
-          className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border border-dashed border-border/60 px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:border-gold/50 hover:text-gold"
+          className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border border-dashed border-border/60 px-2 py-1.5 font-sans text-xs uppercase tracking-wide text-muted-foreground transition-colors duration-200 hover:border-gold/50 hover:text-gold-ink"
         >
           <Pencil className="h-3 w-3" />
           Add a note
@@ -416,7 +416,7 @@ function NoteRow({
             type="button"
             onClick={startEdit}
             aria-label="Edit note"
-            className="cursor-pointer rounded-full p-1.5 text-muted-foreground opacity-60 transition-colors duration-200 hover:bg-gold/15 hover:text-gold group-hover:opacity-100"
+            className="cursor-pointer rounded-full p-1.5 text-muted-foreground opacity-60 transition-colors duration-200 hover:bg-gold/15 hover:text-gold-ink group-hover:opacity-100"
           >
             <Pencil className="h-3.5 w-3.5" />
           </button>

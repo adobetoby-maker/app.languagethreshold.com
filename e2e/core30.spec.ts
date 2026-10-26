@@ -54,6 +54,7 @@ test.describe("desktop navigation", () => {
     await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
     await expect(page.getByText(/Core 60/).first()).toBeVisible();
     await expect.poll(() => currentTab(page)).toBe("core30");
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await expect(page.getByText(/lessons complete/i)).toBeVisible();
     await page.getByRole("button", { name: /Start Lesson 1/ }).click();
     await expect(page.getByText("✕ Exit")).toBeVisible();

@@ -83,21 +83,26 @@ const FEATURES_FREE = [
   "Onboarding + language selection",
 ];
 
+type BillingPlan = "monthly" | "annual" | "family" | "junior";
+function isBillingPlan(value: string | null): value is BillingPlan {
+  return value === "monthly" || value === "annual" || value === "family" || value === "junior";
+}
+
 export default function PricingPage() {
   const { user, loading: authLoading } = useAuth();
   const { teamActive, status } = useSubscription();
   const hasPlan = teamActive || status === "active" || status === "trialing";
-  const [billing, setBilling] = useState<"monthly" | "annual" | "family" | "junior">("annual");
+  const [billing, setBilling] = useState<BillingPlan>("monthly");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("plan");
     try {
       const selected = requested ?? sessionStorage.getItem("lt.pricing.plan.v1");
-      if (selected === "monthly" || selected === "annual") setBilling(selected);
-      if (requested === "monthly" || requested === "annual")
+      if (isBillingPlan(selected)) setBilling(selected);
+      if (isBillingPlan(requested))
         sessionStorage.setItem("lt.pricing.plan.v1", requested);
     } catch {
-      if (requested === "monthly" || requested === "annual") setBilling(requested);
+      if (isBillingPlan(requested)) setBilling(requested);
     }
   }, []);
 
@@ -154,11 +159,10 @@ export default function PricingPage() {
             </span>
           </div>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl mb-3">
-            One plan. Every module.
+            Individual or family. Clear pricing.
           </h1>
           <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-            Medical, construction, sports, missionary, climbing — all included. Built for people who
-            use Spanish at work, not in a classroom.
+            Individual: $19/month for one learner. Family: $249/year for up to 6 profiles, including Junior Linguist. Annual plans are billed once per year.
           </p>
         </div>
 
@@ -190,14 +194,16 @@ export default function PricingPage() {
           <>
             {/* Billing toggle */}
             <div className="flex justify-center mb-8">
-              <div className="inline-flex rounded-lg border border-border bg-card p-1 text-sm">
+              <div role="group" aria-label="Choose billing plan" className="grid w-full grid-cols-2 gap-1 rounded-lg border border-border bg-card p-1 text-sm sm:grid-cols-4">
                 <button
+                  aria-pressed={billing === "monthly"}
                   onClick={() => setBilling("monthly")}
                   className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "monthly" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
                 >
                   Monthly
                 </button>
                 <button
+                  aria-pressed={billing === "annual"}
                   onClick={() => setBilling("annual")}
                   className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "annual" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
                 >
@@ -207,6 +213,7 @@ export default function PricingPage() {
                   </span>
                 </button>
                 <button
+                  aria-pressed={billing === "family"}
                   onClick={() => setBilling("family")}
                   className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "family" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
                 >
@@ -216,6 +223,7 @@ export default function PricingPage() {
                   </span>
                 </button>
                 <button
+                  aria-pressed={billing === "junior"}
                   onClick={() => setBilling("junior")}
                   className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "junior" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
                 >
@@ -228,15 +236,16 @@ export default function PricingPage() {
             {(billing === "monthly" || billing === "annual") && (
               <div className="rounded-2xl border border-gold/40 bg-card overflow-hidden mb-6">
                 <div className="bg-gradient-to-r from-gold/10 to-transparent border-b border-gold/20 px-6 py-5">
+                  <h2 className="text-base font-semibold text-foreground mb-3">{billing === "annual" ? "Individual annual" : "Individual monthly"} · 1 learner</h2>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold text-foreground">
-                      {billing === "annual" ? "$12.42" : "$19"}
+                      {billing === "annual" ? "$149" : "$19"}
                     </span>
-                    <span className="text-muted-foreground text-sm">/month</span>
-                    {billing === "annual" && (
-                      <span className="text-xs text-muted-foreground">billed $149/year</span>
-                    )}
+                    <span className="text-muted-foreground text-sm">{billing === "annual" ? "/year" : "/month"}</span>
                   </div>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {billing === "annual" ? "$149 billed once per year. About $12.42/month, billed annually." : "$19 billed each month. Renews monthly until canceled."}
+                  </p>
                   <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1">
                     <Sparkles className="h-3 w-3 text-gold" />
                     {billing === "annual"
@@ -342,15 +351,15 @@ export default function PricingPage() {
                   <div className="flex items-center gap-2 mb-1">
                     <Users className="h-4 w-4 text-violet-400" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-violet-400">
-                      Family Plan
+                      Family annual · Up to 6 profiles
                     </span>
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold text-foreground">$249</span>
                     <span className="text-muted-foreground text-sm">/year</span>
                   </div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    ~$20.75/month · Includes Junior Linguist for kids
+                  <div className="mt-2 text-sm text-muted-foreground">
+                    $249 billed once per year. Equivalent to $20.75/month, billed annually. Includes Junior Linguist for kids.
                   </div>
                 </div>
                 <div className="px-6 py-5">
@@ -376,7 +385,7 @@ export default function PricingPage() {
                     )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
-                    7-day free trial · Cancel anytime · All 6 seats activate immediately
+                    7-day trial · $249/year for up to 6 family profiles · Renewal terms in checkout
                   </p>
                 </div>
               </div>

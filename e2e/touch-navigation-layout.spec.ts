@@ -36,12 +36,12 @@ for (const device of [
       });
       await page.goto("/?tab=speak&module=core&target=Spanish&native=English");
       const nav = page.getByRole("navigation", { name: "Primary", exact: true });
+      await page.getByRole("button", { name: "Start practice", exact: true }).click();
       await page
-        .getByRole("button")
-        .filter({ has: page.getByRole("heading", { name: /Core Speaking/, level: 3 }) })
+        .getByRole("tablist", { name: "Speaking practice steps" })
+        .getByRole("tab", { name: "Conversation", exact: true })
         .click();
-      await page.getByTestId("speaking-mission-card").first().click();
-      await expect(page.getByText("Choose conversation partner", { exact: true })).toBeVisible();
+      await expect(page.getByTestId("focused-speaking-frame")).toBeVisible();
       await expectLayout(page);
       const start = page.getByRole("button", { name: "Sign in to start mission", exact: true });
       await start.scrollIntoViewIfNeeded();

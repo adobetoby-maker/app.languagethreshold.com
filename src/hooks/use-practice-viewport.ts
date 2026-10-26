@@ -11,9 +11,15 @@ export function usePracticeViewport(context: string) {
       const viewport = window.visualViewport;
       const bottom = (viewport?.height ?? window.innerHeight) + (viewport?.offsetTop ?? 0);
       const main = element.closest("main");
+      // Touch navigation now reserves a separate grid row below main. Fit inside
+      // that scroll area as well as the visual viewport (including the keyboard).
+      const contentBottom = main ? Math.min(bottom, main.getBoundingClientRect().bottom) : bottom;
       const reserved = main ? parseFloat(getComputedStyle(main).paddingBottom) || 0 : 24;
       setHeight(
-        Math.max(160, Math.floor(bottom - element.getBoundingClientRect().top - reserved - 12)),
+        Math.max(
+          160,
+          Math.floor(contentBottom - element.getBoundingClientRect().top - reserved - 12),
+        ),
       );
     };
     const frame = window.requestAnimationFrame(measure);

@@ -121,7 +121,7 @@ export function LessonResponsePractice({
             rows={Math.max(3, count + 1)}
             value={current.text}
             onChange={(event) => update({ text: event.target.value })}
-            className="mt-2 w-full rounded-xl border border-border bg-background p-3"
+            className="mt-2 w-full rounded-xl border border-border bg-background p-3 text-base"
           />
         </label>
       ) : (
@@ -181,7 +181,7 @@ export function LessonResponsePractice({
                 maxLength={4000}
                 value={current.transcript}
                 onChange={(event) => update({ transcript: event.target.value })}
-                className="mt-2 w-full rounded-xl border border-border bg-background p-3"
+                className="mt-2 w-full rounded-xl border border-border bg-background p-3 text-base"
               />
             </label>
           )}

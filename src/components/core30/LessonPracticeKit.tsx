@@ -911,7 +911,7 @@ function WritingWorkspace({ children, response, onClose }: { children: ReactNode
         <header className="mx-auto grid w-full max-w-xl shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
           <DialogTitle className={response ? "sr-only" : "text-base"}>Writing practice</DialogTitle>
           {response && (
-            <select aria-label="Writing activity" value={activity} onChange={(event) => setActivity(event.target.value)} className="min-h-11 w-full min-w-0 max-w-full rounded-lg border border-border bg-background px-2 text-sm font-semibold">
+            <select aria-label="Writing activity" value={activity} onChange={(event) => setActivity(event.target.value)} className="min-h-11 w-full min-w-0 max-w-full rounded-lg border border-border bg-background px-2 text-base font-semibold sm:text-sm">
               <option value="words">Words</option>
               <option value="response">Response</option>
             </select>

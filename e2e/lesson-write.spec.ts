@@ -205,6 +205,7 @@ for (const size of [
     const work = await openWriteMode(page);
     if (size.largeText) await page.addStyleTag({ content: "html { font-size: 20px !important; }" });
     const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+    expect(await workspace.getByRole("combobox", { name: "Writing activity" }).evaluate((el) => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(16);
     const header = [workspace.getByRole("combobox", { name: "Writing activity" }), workspace.getByRole("button", { name: "Back to lesson", exact: true })];
     const modes = [work.getByTestId("write-stage-copy"), work.getByTestId("write-stage-answer")];
     for (const pair of [header, modes]) {

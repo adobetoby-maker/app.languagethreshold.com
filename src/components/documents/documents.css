@@ -510,3 +510,62 @@
     display: none;
   }
 }
+
+/* Match the app's larger phone reading scale, including notes and definitions. */
+@media screen and (max-width: 767px) {
+  .document-workspace {
+    font-size: 18px;
+  }
+  .document-header a,
+  .document-header > a:last-child {
+    font-size: 16px;
+  }
+  .document-header > a:last-child {
+    max-width: 120px;
+  }
+  .document-brand small {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .document-intro > p:not(.document-eyebrow) {
+    font-size: 19px;
+  }
+  .document-workspace button {
+    font-size: 16px;
+  }
+  .document-paper label {
+    font-size: 16px;
+  }
+  .document-paper input:not([type="file"]),
+  .document-paper textarea,
+  .document-paper select,
+  .document-note textarea {
+    font-size: 18px;
+  }
+  .document-muted,
+  .document-definition p,
+  .document-definition small {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .document-import .document-upload {
+    font-size: 16px;
+  }
+  .document-pair p {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+  .document-eyebrow,
+  .document-steps,
+  .document-saved small,
+  .document-storage,
+  .document-columns,
+  .document-caution,
+  .document-import small,
+  .document-upload input,
+  .document-allowance,
+  .document-footer {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+}

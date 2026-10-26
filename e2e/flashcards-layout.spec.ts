@@ -161,8 +161,10 @@ test("flipping preserves the frame and reveals usage English only on the back", 
         return { y: rect.top + scrollY, height: rect.height, width: rect.width };
       });
     });
-  const before = await frame();
+  // Focus may scroll the app content when the phone text scale is larger.
+  // Measure after that intentional scroll so the assertion isolates flipping.
   await card.focus();
+  const before = await frame();
   await page.keyboard.press("Enter");
   await expect(meaning).toBeVisible();
   await expect(translation).toBeVisible();

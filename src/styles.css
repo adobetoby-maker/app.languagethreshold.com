@@ -1289,3 +1289,59 @@ body :is(em, cite) {
   text-transform: none !important;
   opacity: 1 !important;
 }
+
+/* Phone reading scale: keep the layout rem stable while enlarging text itself. */
+@media screen and (max-width: 767px) {
+  :root {
+    --text-xs: 0.875rem;
+    --text-xs--line-height: 1.5;
+    --text-sm: 1rem;
+    --text-sm--line-height: 1.6;
+    --text-base: 1.125rem;
+    --text-base--line-height: 1.65;
+    --text-lg: 1.25rem;
+    --text-lg--line-height: 1.5;
+    --text-xl: 1.5rem;
+    --text-xl--line-height: 1.4;
+  }
+
+  body {
+    font-size: 1.125rem;
+  }
+
+  /* Many older panels use fixed pixel labels rather than the shared scale. */
+  :is(
+    [class~="text-[8px]"],
+    [class~="text-[9px]"],
+    [class~="text-[10px]"],
+    [class~="text-[11px]"]
+  ) {
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+  [class~="text-[12px]"] {
+    font-size: 0.9375rem !important;
+    line-height: 1.5;
+  }
+  [class~="text-[13px]"] {
+    font-size: 1rem !important;
+  }
+  :is([class~="text-[14px]"], [class~="text-[15px]"], [class~="text-[16px]"]) {
+    font-size: 1.125rem !important;
+  }
+  :is([class~="text-[17px]"], [class~="text-[18px]"], .reader-prose) {
+    font-size: 1.25rem !important;
+    line-height: 1.8;
+  }
+
+  /* The eight dock labels need a compact scale to remain visible together. */
+  .lt-bottom-nav [class~="text-[9px]"] {
+    font-size: 0.75rem !important;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+  .achievement-toast[data-sonner-toast] [data-description] {
+    font-size: 0.9375rem !important;
+  }
+}

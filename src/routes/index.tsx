@@ -232,17 +232,17 @@ function Index() {
                                       <IdiomMasterProvider>
                                         <FalseFriendsProvider>
                                           <DailyChallengeProvider>
-                                            <div className="flex min-h-screen bg-background text-foreground">
+                                            <div className="lt-app-shell bg-background text-foreground">
                                               {/* Left sidebar (desktop) + bottom nav (mobile) */}
                                               <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
 
                                               {/* Main column */}
-                                              <div className="flex min-w-0 flex-1 flex-col">
+                                              <div className="lt-main-column flex min-h-0 min-w-0 flex-1 flex-col">
                                                 <TopNav />
                                                 <SaveProgressBanner />
                                                 {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
-                                                <main className="lt-scroll-safe lt-safe-top-main flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10">
+                                                <main className="lt-scroll-safe lt-safe-top-main min-h-0 flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10">
                                                   <AppDemo />
                                                   <GatedTabShell />
                                                 </main>

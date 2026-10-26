@@ -1,3 +1,4 @@
+import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
@@ -263,6 +264,7 @@ function DrillView({
   }
 
   function score(got: boolean) {
+    if (got) void playFlashcardSuccess();
     if (got) dispatch({ type: "SCORE_PATTERN", payload: pattern.id });
     setDrill((d) => {
       if (!d) return d;
@@ -514,7 +516,8 @@ export function PatternLab() {
       <div className="flex flex-col items-center justify-center gap-4 py-20 text-center px-6">
         <BookOpen className="h-10 w-10 text-muted-foreground/30" />
         <p className="text-muted-foreground text-sm">
-          Grammar patterns for {lang} are not yet available. Switch to Spanish for the full pattern library.
+          Grammar patterns for {lang} are not yet available. Switch to Spanish for the full pattern
+          library.
         </p>
       </div>
     );

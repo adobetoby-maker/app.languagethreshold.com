@@ -46,13 +46,17 @@ test("reward audio honors off, closes resources, and never blocks on unavailable
   try {
     setSoundEffectsEnabled(true);
     await playFlashcardSuccess();
-    assert.deepEqual(
-      notes.map((n) => n.frequency.value),
-      [784, 988],
-    );
-    notes[1].onended();
+    assert.ok(notes.length > 1, "cash reward contains a short multi-tone ring");
+    const cashNotes = notes.map((n) => n.frequency.value);
+    notes.find((n) => n.onended).onended();
     assert.equal(contexts[0].state, "closed");
-    await playFlashcardSuccess();
+    const previousNoteCount = notes.length;
+    await playFlashcardSuccess("good-job");
+    assert.notDeepEqual(
+      notes.slice(previousNoteCount).map((n) => n.frequency.value),
+      cashNotes,
+      "Good must sound different from Got it and Easy",
+    );
     setSoundEffectsEnabled(false);
     assert.equal(contexts[1].state, "closed");
     await playFlashcardSuccess();

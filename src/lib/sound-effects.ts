@@ -40,8 +40,32 @@ export function subscribeSoundEffects(update: () => void) {
   };
 }
 
-/** A clear, original two-note chime, generated locally after an explicit click/keypress. */
-export async function playFlashcardSuccess() {
+export type RewardSound = "cash" | "good-job";
+
+type Tone = {
+  frequency: number;
+  start: number;
+  duration: number;
+  volume: number;
+  type?: OscillatorType;
+};
+// A soft "cha" followed by a bright bell with quiet metallic partials.
+const CASH_TONES: Tone[] = [
+  { frequency: 1800, start: 0, duration: 0.045, volume: 0.025, type: "triangle" },
+  { frequency: 1046.5, start: 0.065, duration: 0.25, volume: 0.075 },
+  { frequency: 2093, start: 0.065, duration: 0.18, volume: 0.02 },
+  { frequency: 1567.98, start: 0.13, duration: 0.48, volume: 0.1 },
+  { frequency: 3135.96, start: 0.13, duration: 0.26, volume: 0.02 },
+];
+// A warmer ascending major chord for an encouraging "good job" response.
+const GOOD_JOB_TONES: Tone[] = [
+  { frequency: 523.25, start: 0, duration: 0.17, volume: 0.1 },
+  { frequency: 659.25, start: 0.09, duration: 0.17, volume: 0.1 },
+  { frequency: 783.99, start: 0.18, duration: 0.26, volume: 0.11 },
+];
+
+/** Original UI sounds, synthesized locally only after a learner action. */
+export async function playFlashcardSuccess(sound: RewardSound = "cash") {
   if (typeof window === "undefined" || !soundEffectsEnabled()) return;
   const Audio =
     window.AudioContext ??
@@ -65,20 +89,24 @@ export async function playFlashcardSuccess() {
       return;
     }
     const now = context.currentTime;
-    for (const [index, frequency] of [784, 988].entries()) {
+    // End cleanup belongs to the longest ringing tone, not the last scheduled tone.
+    const tones = [...(sound === "good-job" ? GOOD_JOB_TONES : CASH_TONES)].sort(
+      (a, b) => a.start + a.duration - (b.start + b.duration),
+    );
+    for (const [index, tone] of tones.entries()) {
       const note = context.createOscillator();
       const gain = context.createGain();
-      const start = now + index * 0.085;
-      note.type = "sine";
-      note.frequency.value = frequency;
+      const start = now + tone.start;
+      note.type = tone.type ?? "sine";
+      note.frequency.value = tone.frequency;
       gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(0.14, start + 0.008);
-      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.15);
+      gain.gain.linearRampToValueAtTime(tone.volume, start + 0.004);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + tone.duration);
       note.connect(gain);
       gain.connect(context.destination);
       note.start(start);
-      note.stop(start + 0.16);
-      if (index === 1) note.onended = release;
+      note.stop(start + tone.duration + 0.01);
+      if (index === tones.length - 1) note.onended = release;
     }
   } catch {
     // Audio availability must never block grading or navigation.

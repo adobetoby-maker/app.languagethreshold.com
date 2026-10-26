@@ -515,7 +515,8 @@ export function FlashcardsStudio() {
     (g: SrsGrade) => {
       if (!current || !flipped) return;
       reviewCard(current.id, g);
-      if (g === "good" || g === "easy") void playFlashcardSuccess();
+      if (g === "good") void playFlashcardSuccess("good-job");
+      else if (g === "easy") void playFlashcardSuccess("cash");
       setFlipped(false);
       setReviewedCount((n) => n + 1);
     },

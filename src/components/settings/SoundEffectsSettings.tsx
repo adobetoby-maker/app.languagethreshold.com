@@ -21,7 +21,8 @@ export function SoundEffectsSettings() {
         />
       </label>
       <p className="mt-1 text-xs text-muted-foreground">
-        A short chime for Got it, Good or Easy. Saved on this device. Voice playback stays separate.
+        A light cha-ching for Got it and Easy; an encouraging chime for Good. Saved on this device.
+        Voice playback stays separate.
       </p>
       <button
         type="button"
@@ -30,6 +31,14 @@ export function SoundEffectsSettings() {
         className="mt-2 min-h-11 rounded-full border border-border px-4 py-2 text-xs disabled:opacity-40"
       >
         Preview reward sound
+      </button>
+      <button
+        type="button"
+        disabled={!enabled}
+        onClick={() => void playFlashcardSuccess("good-job")}
+        className="mt-2 ml-2 min-h-11 rounded-full border border-border px-4 py-2 text-xs disabled:opacity-40"
+      >
+        Preview good-job sound
       </button>
     </div>
   );

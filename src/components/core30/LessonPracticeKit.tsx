@@ -1,3 +1,4 @@
+import { playFlashcardSuccess } from "@/lib/sound-effects";
 // Built by TAC — 2026-10-15
 import {
   createContext,
@@ -57,14 +58,7 @@ import {
   SPECIAL_CHARS_BY_LANGUAGE,
 } from "@/lib/lesson-words-core";
 
-export type PracticeMode =
-  | "study"
-  | "flashcards"
-  | "match"
-  | "verbs"
-  | "listen"
-  | "type"
-  | "write";
+export type PracticeMode = "study" | "flashcards" | "match" | "verbs" | "listen" | "type" | "write";
 
 export interface LessonPracticeKitProps {
   words: LessonWord[];
@@ -276,6 +270,7 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
   const finished = queue.length === 0;
 
   const answer = (outcome: "got" | "again") => {
+    if (outcome === "got") void playFlashcardSuccess();
     const next = advanceDeck(queue, outcome);
     setQueue(next);
     setFlipped(false);
@@ -898,10 +893,23 @@ function InkPreview({ png }: { png: string }) {
   );
 }
 
-function WritingWorkspace({ children, response, onClose }: { children: ReactNode; response?: ReactNode; onClose: () => void }) {
+function WritingWorkspace({
+  children,
+  response,
+  onClose,
+}: {
+  children: ReactNode;
+  response?: ReactNode;
+  onClose: () => void;
+}) {
   const [activity, setActivity] = useState("words");
   return (
-    <Dialog open onOpenChange={(open) => { if (!open) onClose(); }}>
+    <Dialog
+      open
+      onOpenChange={(open) => {
+        if (!open) onClose();
+      }}
+    >
       <DialogContent
         data-testid="writing-workspace"
         className="inset-0 left-0 top-0 flex h-[100dvh] max-h-none w-full max-w-none translate-x-0 translate-y-0 flex-col gap-2 overflow-hidden rounded-none border-0 p-3 pt-[max(12px,env(safe-area-inset-top))] pb-[max(12px,env(safe-area-inset-bottom))] sm:rounded-none data-[state=open]:animate-none data-[state=closed]:animate-none duration-0 [&>button:last-child]:hidden"
@@ -911,17 +919,32 @@ function WritingWorkspace({ children, response, onClose }: { children: ReactNode
         <header className="mx-auto grid w-full max-w-xl shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
           <DialogTitle className={response ? "sr-only" : "text-base"}>Writing practice</DialogTitle>
           {response && (
-            <select aria-label="Writing activity" value={activity} onChange={(event) => setActivity(event.target.value)} className="min-h-11 w-full min-w-0 max-w-full rounded-lg border border-border bg-background px-2 text-base font-semibold sm:text-sm">
+            <select
+              aria-label="Writing activity"
+              value={activity}
+              onChange={(event) => setActivity(event.target.value)}
+              className="min-h-11 w-full min-w-0 max-w-full rounded-lg border border-border bg-background px-2 text-base font-semibold sm:text-sm"
+            >
               <option value="words">Words</option>
               <option value="response">Response</option>
             </select>
           )}
-          <button type="button" onClick={onClose} className={ghostBtn}>Back to lesson</button>
+          <button type="button" onClick={onClose} className={ghostBtn}>
+            Back to lesson
+          </button>
         </header>
-        <DialogDescription className="sr-only">Write on the pad with your finger. The lesson stays still. Use Back to lesson to leave writing practice.</DialogDescription>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain" data-testid="writing-workspace-body">
+        <DialogDescription className="sr-only">
+          Write on the pad with your finger. The lesson stays still. Use Back to lesson to leave
+          writing practice.
+        </DialogDescription>
+        <div
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
+          data-testid="writing-workspace-body"
+        >
           <div className="mx-auto w-full max-w-xl">
-            <div data-testid="writing-words" hidden={activity !== "words"}>{children}</div>
+            <div data-testid="writing-words" hidden={activity !== "words"}>
+              {children}
+            </div>
             {response && <div hidden={activity !== "response"}>{response}</div>}
           </div>
         </div>
@@ -1362,7 +1385,10 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                     <button
                       type="button"
                       className={cn(primaryBtn, "min-w-0 flex-1 whitespace-normal break-words")}
-                      onClick={() => advance(true)}
+                      onClick={() => {
+                        void playFlashcardSuccess();
+                        advance(true);
+                      }}
                     >
                       <Check className="h-4 w-4" aria-hidden="true" />
                       Got it

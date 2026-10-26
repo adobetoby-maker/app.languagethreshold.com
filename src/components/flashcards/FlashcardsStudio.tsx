@@ -46,25 +46,25 @@ const GRADE_BUTTONS: { grade: SrsGrade; label: string; hint: string; cls: string
     grade: "again",
     label: "Again",
     hint: "< 1d",
-    cls: "border-rose-500/40 bg-rose-500/10 text-rose-700 dark:text-rose-300 hover:bg-rose-500/20",
+    cls: "border-rose-400 bg-rose-300 text-rose-950 enabled:hover:bg-rose-200",
   },
   {
     grade: "hard",
     label: "Hard",
     hint: "1d",
-    cls: "border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20",
+    cls: "border-amber-400 bg-amber-300 text-amber-950 enabled:hover:bg-amber-200",
   },
   {
     grade: "good",
     label: "Good",
     hint: "6d",
-    cls: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20",
+    cls: "border-emerald-400 bg-emerald-300 text-emerald-950 enabled:hover:bg-emerald-200",
   },
   {
     grade: "easy",
     label: "Easy",
     hint: "16d+",
-    cls: "border-sky-500/40 bg-sky-500/10 text-sky-300 hover:bg-sky-500/20",
+    cls: "border-sky-400 bg-sky-300 text-sky-950 enabled:hover:bg-sky-200",
   },
 ];
 
@@ -753,6 +753,14 @@ export function FlashcardsStudio() {
             </span>
           </div>
 
+          <p
+            className="min-h-12 max-w-xl text-center text-sm font-medium text-foreground"
+            aria-live="polite"
+          >
+            {flipped
+              ? "Choose how well you remembered it."
+              : "Reveal the answer to enable grading."}
+          </p>
           <div data-testid="flashcards-grading" className="grid w-full max-w-xl grid-cols-4 gap-2">
             {GRADE_BUTTONS.map((b, i) => (
               <button
@@ -760,11 +768,11 @@ export function FlashcardsStudio() {
                 onClick={() => grade(b.grade)}
                 disabled={!flipped}
                 title={!flipped ? "Flip the card before grading" : b.label}
-                className={`flex flex-col items-center rounded-xl border px-2 py-3 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${b.cls}`}
+                className={`flex flex-col items-center rounded-xl border-2 px-2 py-3 font-sans text-sm font-bold tracking-normal shadow-sm transition-colors disabled:cursor-not-allowed disabled:border-dashed ${b.cls}`}
               >
                 {b.label}
-                <span className="mt-0.5 text-[9px] opacity-70">{b.hint}</span>
-                <span className="mt-1 rounded border border-current/30 px-1 text-[8px] opacity-60">
+                <span className="mt-0.5 text-xs font-medium">{b.hint}</span>
+                <span className="mt-1 rounded border border-current/50 px-1.5 text-xs font-semibold">
                   {i + 1}
                 </span>
               </button>

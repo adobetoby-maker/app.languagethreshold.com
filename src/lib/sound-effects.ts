@@ -40,7 +40,7 @@ export function subscribeSoundEffects(update: () => void) {
   };
 }
 
-/** A quiet, original two-note chime, generated locally after an explicit click/keypress. */
+/** A clear, original two-note chime, generated locally after an explicit click/keypress. */
 export async function playFlashcardSuccess() {
   if (typeof window === "undefined" || !soundEffectsEnabled()) return;
   const Audio =
@@ -72,7 +72,7 @@ export async function playFlashcardSuccess() {
       note.type = "sine";
       note.frequency.value = frequency;
       gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(0.055, start + 0.008);
+      gain.gain.linearRampToValueAtTime(0.14, start + 0.008);
       gain.gain.exponentialRampToValueAtTime(0.001, start + 0.15);
       note.connect(gain);
       gain.connect(context.destination);

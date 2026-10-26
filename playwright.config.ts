@@ -41,7 +41,7 @@ export default defineConfig({
     {
       name: "iphone-pwa",
       testMatch:
-        /(iphone-page-audit|iphone-activity-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|voice-switch|pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|word-match-pack|sentence-conjugation-pack|practice-bar|exams2)\.spec\.ts/,
+        /(iphone-page-audit|iphone-activity-layout|core-language-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|voice-switch|pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|word-match-pack|sentence-conjugation-pack|practice-bar|exams2)\.spec\.ts/,
       dependencies: ["setup"],
       use: { ...iPhone, browserName: "chromium", storageState: STATE },
     },

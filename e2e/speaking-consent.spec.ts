@@ -47,10 +47,11 @@ test("construction and medical plans start without date selection while Travel k
 }) => {
   for (const module of ["roofing", "orthopedics"]) {
     await page.goto(appUrl({ tab: "core30", module }));
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     const plan = page.getByTestId("core30-plan-card");
     await expect(plan).toBeVisible();
     await expect(plan.locator('input[type="date"]')).toHaveCount(0);
-    await expect(plan.getByRole("button", { name: /Start my.*day plan/ })).toBeVisible();
+    await expect(plan.getByRole("button", { name: "Start lessons", exact: true })).toBeVisible();
   }
   await page.goto(appUrl({ tab: "speak", module: "international-travel" }));
   await page.getByText("Choose another mission or change settings", { exact: true }).click();

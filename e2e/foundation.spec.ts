@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { readAppState } from "./app-state";
 
 // The free Roofing Foundation (module foundation-roofing): ten beginner lessons in front of the
 // Roofing Core 30. Free with an account: a guest sees a sign-in prompt (never the paid trial),
@@ -185,9 +186,7 @@ test.describe("Roofing Foundation: signed in", () => {
       page.getByRole("heading", { name: "The Roofing Supervisor Core 30" }),
     ).toBeVisible();
     await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
-    await expect(page.getByTestId("core60-step-foundation")).toContainText(
-      "New to Spanish? Start here.",
-    );
+    await expect(page.getByTestId("core60-step-foundation")).toHaveText("Foundation");
     await page.getByTestId("core60-step-foundation").click();
     await expect(page.getByRole("heading", { name: "The Roofing Foundation" })).toBeVisible();
     await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute(
@@ -248,7 +247,7 @@ test.describe("Roofing Core 30 links to the Foundation", () => {
     await expect(page).toHaveURL(/module=foundation-roofing/);
   });
 
-  test("drops the nudge once all ten Foundation lessons are mastered", async ({ page }) => {
+  test("keeps Foundation compact and preserves all ten mastered lessons", async ({ page }) => {
     const lessons: Record<string, unknown> = {};
     for (let n = 1; n <= 10; n++) {
       lessons[String(n)] = { visits: {}, masteredAt: "2026-03-02T12:00:00.000Z" };
@@ -260,7 +259,12 @@ test.describe("Roofing Core 30 links to the Foundation", () => {
       "core30-plan-card",
     );
     await expect(page.getByTestId("core60-path")).toBeVisible();
-    await expect(page.getByTestId("core60-step-foundation")).toContainText("10 / 10 mastered");
+    await expect(page.getByTestId("core60-step-foundation")).toHaveText("Foundation");
+    const saved = (await readAppState(page)).core30Log as Record<
+      string,
+      { lessons: Record<string, unknown> }
+    >;
+    expect(saved[scopeKey(FOUNDATION)].lessons).toEqual(lessons);
     await expect(page.getByText("New to Spanish? Start here.")).toHaveCount(0);
   });
 

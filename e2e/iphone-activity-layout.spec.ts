@@ -61,6 +61,24 @@ for (const size of [
     const card = page.getByTestId("flashcards-study-card"),
       grades = page.getByTestId("flashcards-grading");
     await expect(card).toBeVisible();
+    const directions = page.getByRole("group", { name: "Card direction" });
+    const spanishFirst = directions.getByRole("button", { name: "ES to EN" });
+    const englishFirst = directions.getByRole("button", { name: "EN to ES" });
+    await expect(spanishFirst).toHaveAttribute("aria-pressed", "true");
+    const front = card.locator(":scope > div").first();
+    const back = card.locator(":scope > div").nth(1);
+    const spanishWord = await front.innerText();
+    await englishFirst.click();
+    await expect(englishFirst).toHaveAttribute("aria-pressed", "true");
+    await expect(front).not.toHaveText(spanishWord);
+    await expect(back).toHaveAttribute("aria-hidden", "true");
+    await expect(page.getByTestId("usage-meaning")).toHaveAttribute("aria-hidden", "true");
+    await card.click();
+    await expect(back).toHaveAttribute("aria-hidden", "false");
+    await expect(back).toContainText(spanishWord.trim());
+    await spanishFirst.click();
+    await expect(front).toContainText(spanishWord.trim());
+    await expect(back).toHaveAttribute("aria-hidden", "true");
     const before = await readAppState(page);
     const ids = ["flashcards-study-card", "flashcards-grading"];
     const a = await geometry(page, ids);

@@ -1358,12 +1358,14 @@ body :is(em, cite) {
   }
   .flashcards-heading {
     flex-shrink: 0;
+    margin-bottom: 0.25rem;
   }
   .flashcards-heading > div:first-child > div:first-child {
     display: none;
   }
   .flashcards-working {
     flex: 1;
+    gap: 0.25rem;
   }
   .flashcards-working > :not(.flashcards-face) {
     flex-shrink: 0;
@@ -1385,7 +1387,7 @@ body :is(em, cite) {
     font-size: 1.5rem;
     line-height: 1.25;
   }
-  .flashcards-working > div:nth-child(2) button {
+  .flashcards-tools button {
     min-height: 44px;
   }
   [data-testid="flashcards-shortcuts"] {

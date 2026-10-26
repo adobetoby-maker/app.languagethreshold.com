@@ -1112,7 +1112,14 @@ test("a hung Cache Storage open, read or write never delays playback or sign-out
     assert.equal(speak.requests.length, 1, "fell through to the network");
     assert.ok(performance.now() - started < 4000, "within the lookup timeout, not forever");
 
-    // The clip is still replayable this session from memory, with no further request.
+    // The fake Audio ends in a microtask, before the fire-and-forget cache write
+    // necessarily finishes hashing on a busy CI host. Observe that write before
+    // checking memory replay; persistent storage is still hung throughout.
+    await waitUntil(
+      async () => !!(await speak.mod.lookupTtsAudio(learner("palabra uno"), "user-a")),
+      "the rendered clip in the session memory cache",
+    );
+    // The clip is replayable this session from memory, with no further request.
     started = performance.now();
     await speak.mod.speakMissionTts(learner("palabra uno"));
     assert.equal(speak.requests.length, 1);

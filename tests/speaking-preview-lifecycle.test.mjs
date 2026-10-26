@@ -80,6 +80,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     let timer = 0;
     let speechQueueResets = 0;
     globalThis.window = {
+      addEventListener() {},
+      removeEventListener() {},
       speechSynthesis: {
         cancel() {
           speechQueueResets++;
@@ -387,168 +389,80 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     );
     assert.equal(c.writes, afterHeaderCleanup);
     c.waitHeaders = false;
-    // Consent save is user-invoked in fixtures only; late acknowledgement cannot start a mission.
+    // The startup/settings prompt owns consent; entering a mission never opens a blocking modal.
     c.slots = [];
+    c.effects = [];
     c.actor = "a";
     c.confirmed = false;
     tree = await ready();
+    const beforeConsentRequests = requests.length,
+      beforeConsentAudio = c.audio.length;
     button(tree, "Start mission").props.onClick();
     tree = render();
-    const dialog = nodes(tree).find((n) => n.type === "consent");
-    dialog.props.onConfirm();
-    dialog.props.onConfirm();
-    assert.equal(c.saves.length, 1);
-    const save = c.saves[0];
-    unmount();
-    const saveWrites = c.writes,
-      audioCount = c.audio.length;
-    assert.equal(save.signal.aborted, true);
-    save.resolve(true);
-    await tick();
-    assert.equal(c.writes, saveWrites);
-    assert.equal(c.audio.length, audioCount);
-    // An uncertain write stays latched across stale confirmation callbacks. Checks are read-only.
-    c.slots = [];
-    c.saves = [];
-    c.reads = [];
-    c.waitRead = false;
-    c.actor = "a";
-    c.confirmed = false;
-    tree = await ready();
-    button(tree, "Start mission").props.onClick();
-    tree = render();
-    const originalConfirm = nodes(tree).find((n) => n.type === "consent").props.onConfirm;
-    originalConfirm();
-    c.saves[0].reject(new SpeakingConsentSaveError("unknown"));
-    await tick();
-    tree = render();
-    originalConfirm();
-    assert.equal(c.saves.length, 1, "uncertain save cannot be resent by retained callback");
-    let recovery = nodes(tree).find((n) => n.type === "consent");
-    assert.equal(recovery.props.unknown, true);
-    c.waitRead = true;
-    recovery.props.onCheckSavedStatus();
-    recovery.props.onCheckSavedStatus();
-    assert.equal(c.reads.length, 1);
-    const recoveryAudio = c.audio.length;
-    c.reads[0].resolve(false);
-    await tick();
-    tree = render();
-    recovery = nodes(tree).find((n) => n.type === "consent");
-    assert.equal(recovery.props.unknown, true);
-    assert.match(recovery.props.error, /earlier request may still finish/);
-    originalConfirm();
-    assert.equal(c.saves.length, 1);
-    recovery.props.onCheckSavedStatus();
-    assert.equal(c.reads.length, 2);
-    c.reads[1].resolve(true);
-    await tick();
-    tree = render();
-    assert.equal(nodes(tree).find((n) => n.type === "consent").props.open, false);
-    originalConfirm();
-    assert.equal(
-      c.saves.length,
-      1,
-      "acknowledged status also blocks a retained confirmation callback",
-    );
-    assert.equal(c.audio.length, recoveryAudio, "read-only recovery cannot start playback");
-    assert.ok(button(tree, "Start mission"));
-    c.actor = "b";
-    tree = render();
-    button(tree, "Start mission").props.onClick();
-    await tick();
-    assert.equal(
-      c.audio.length,
-      recoveryAudio,
-      "A saved status cannot start B before B loads its own status",
-    );
-    unmount();
-    // A status check started under A cannot apply under B.
-    c.slots = [];
-    c.saves = [];
-    c.reads = [];
-    c.waitRead = false;
-    c.actor = "a";
-    c.confirmed = false;
-    tree = await ready();
-    button(tree, "Start mission").props.onClick();
-    tree = render();
-    nodes(tree)
-      .find((n) => n.type === "consent")
-      .props.onConfirm();
-    c.saves[0].reject(new SpeakingConsentSaveError("unknown"));
-    await tick();
-    tree = render();
-    c.waitRead = true;
-    nodes(tree)
-      .find((n) => n.type === "consent")
-      .props.onCheckSavedStatus();
-    const pendingRead = c.reads[0];
-    c.actor = "b";
-    tree = await ready();
-    const afterSwitchWrites = c.writes;
-    assert.equal(pendingRead.signal.aborted, true);
-    pendingRead.resolve(true);
-    await tick();
-    assert.equal(c.writes, afterSwitchWrites);
-    unmount();
-    // A read started during a same-account refresh cannot replace a newer write acknowledgement.
-    c.slots = [];
-    c.saves = [];
-    c.reads = [];
-    c.waitRead = false;
-    c.actor = "a";
-    c.confirmed = false;
-    tree = await ready();
-    button(tree, "Start mission").props.onClick();
-    tree = render();
-    nodes(tree)
-      .find((n) => n.type === "consent")
-      .props.onConfirm();
-    c.waitRead = true;
-    c.session = { user: { id: "a" } };
-    tree = render();
-    assert.equal(c.reads.length, 1);
-    c.saves[0].resolve(true);
-    await tick();
-    tree = render();
-    const afterAcknowledgement = c.writes;
-    c.reads[0].resolve(false);
-    await tick();
-    assert.equal(c.writes, afterAcknowledgement);
+    assert.equal(nodes(tree).filter((n) => n.type === "consent").length, 0);
+    assert.match(JSON.stringify(tree), /AI conversation is off/);
+    assert.equal(requests.length, beforeConsentRequests);
+    assert.equal(c.audio.length, beforeConsentAudio);
+    assert.equal(c.saves.length, 0, "lesson entry cannot write consent");
     unmount();
 
     // Signing in must retain the chosen public mission, without carrying private work
     // or automatically starting a conversation for the newly authenticated actor.
-    c.slots = []; c.effects = []; c.actor = null; c.session = null;
-    c.waitRead = false; c.confirmed = true;
+    c.slots = [];
+    c.effects = [];
+    c.actor = null;
+    c.session = null;
+    c.waitRead = false;
+    c.confirmed = true;
     props.embeddedMissionPrefix = undefined;
-    window.requestAnimationFrame = () => 1; window.cancelAnimationFrame = () => {};
-    window.location = { href: "https://app.example/?tab=speak&module=construction-foreman&target=Spanish&native=English" };
-    window.history = { state: null, replaceState(_state, _title, path) {
-      window.location.href = new URL(path, window.location.href).href;
-    }};
+    window.requestAnimationFrame = () => 1;
+    window.cancelAnimationFrame = () => {};
+    window.location = {
+      href: "https://app.example/?tab=speak&module=construction-foreman&target=Spanish&native=English",
+    };
+    window.history = {
+      state: null,
+      replaceState(_state, _title, path) {
+        window.location.href = new URL(path, window.location.href).href;
+      },
+    };
     tree = await ready();
-    const missionCard = nodes(tree).find(n => n.props?.["data-testid"] === "speaking-mission-card" && text(n).includes("Pre-shift safety briefing"));
+    const missionCard = nodes(tree).find(
+      (n) =>
+        n.props?.["data-testid"] === "speaking-mission-card" &&
+        text(n).includes("Pre-shift safety briefing"),
+    );
     assert.ok(missionCard);
     missionCard.props.onClick();
     tree = await ready();
+    button(tree, "Conversation").props.onClick();
+    tree = render();
     button(tree, "Sign in to start mission").props.onClick();
     tree = render();
-    assert.equal(nodes(tree).find(n => n.type === "auth").props.open, true);
+    assert.equal(nodes(tree).find((n) => n.type === "auth").props.open, true);
     const returnUrl = window.location.href;
-    assert.equal(new URL(returnUrl).searchParams.get("mission"), "scenario_version_construction_safety_briefing_es_v1");
-    const requestsBeforeSignIn = requests.length, audioBeforeSignIn = c.audio.length;
+    assert.equal(
+      new URL(returnUrl).searchParams.get("mission"),
+      "scenario_version_construction_safety_briefing_es_v1",
+    );
+    const requestsBeforeSignIn = requests.length,
+      audioBeforeSignIn = c.audio.length;
     c.actor = "signed-in-learner";
     tree = await ready();
     assert.match(text(tree), /Pre-shift safety briefing/);
     assert.ok(button(tree, "Start mission"), "email sign-in returns to the same setup");
-    assert.equal(nodes(tree).find(n => n.type === "auth").props.open, false);
+    assert.equal(nodes(tree).find((n) => n.type === "auth").props.open, false);
     assert.equal(requests.length, requestsBeforeSignIn, "sign-in does not auto-send a turn");
-    assert.equal(c.audio.length, audioBeforeSignIn, "sign-in does not auto-start recording or playback");
+    assert.equal(
+      c.audio.length,
+      audioBeforeSignIn,
+      "sign-in does not auto-start recording or playback",
+    );
 
     // A fresh component after an OAuth redirect restores that same explicit mission.
-    unmount(); c.slots = []; c.effects = [];
+    unmount();
+    c.slots = [];
+    c.effects = [];
     window.location.href = returnUrl;
     tree = await ready();
     assert.match(text(tree), /Pre-shift safety briefing/);

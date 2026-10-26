@@ -57,15 +57,6 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
   };
 
   const daysRemaining = plan?.departureDate ? daysUntil(plan.departureDate) : null;
-  const prepWindowDays = 90;
-  const prepPercent =
-    daysRemaining === null
-      ? 0
-      : Math.max(
-          0,
-          Math.min(100, Math.round(((prepWindowDays - daysRemaining) / prepWindowDays) * 100)),
-        );
-
   if (compact && selected && !editing && !expanded) {
     return (
       <section
@@ -226,7 +217,6 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
             destination={selected}
             departureDate={plan?.departureDate ?? null}
             daysRemaining={daysRemaining}
-            prepPercent={prepPercent}
             onPracticeTravel={onPracticeTravel}
             onClear={clear}
             nativeLanguage={state.nativeLanguage}
@@ -241,7 +231,6 @@ function DestinationBrief({
   destination,
   departureDate,
   daysRemaining,
-  prepPercent,
   onPracticeTravel,
   onClear,
   nativeLanguage,
@@ -249,7 +238,6 @@ function DestinationBrief({
   destination: TravelDestination;
   departureDate: string | null;
   daysRemaining: number | null;
-  prepPercent: number;
   onPracticeTravel?: () => void;
   onClear: () => void;
   nativeLanguage: NativeLanguage;
@@ -268,15 +256,6 @@ function DestinationBrief({
               {formatDate(departureDate)}
             </span>
           </div>
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-border/50">
-            <div
-              className="h-full rounded-full bg-cyan-300 transition-[width] duration-500"
-              style={{ width: `${prepPercent}%` }}
-            />
-          </div>
-          <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
-            {prepPercent}% of a 90-day preparation window complete
-          </p>
         </div>
       )}
 

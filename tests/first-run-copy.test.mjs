@@ -32,9 +32,9 @@ test("first-run daily-life count matches the Core Speaking catalog", () => {
   }
 });
 
-test("the Speak UX preview label is dev-only", () => {
+test("Speak entry has no internal UX preview label", () => {
   const speak = read("src/components/speak/SpeakingMissionsPreview.tsx");
-  assert.match(speak, /\{import\.meta\.env\.DEV && \(\s*<p[^>]*>\s*UX preview · \{missionLanguage\}/);
+  assert.doesNotMatch(speak, /UX preview/);
 });
 
 test("module library filter chips skip empty categories", () => {

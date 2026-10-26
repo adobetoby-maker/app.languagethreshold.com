@@ -1251,6 +1251,11 @@ rt,
   display: none;
 }
 
+/* The writing workspace owns the viewport; finger gestures on its paper draw ink. */
+.lesson-writing-pad > div:first-child {
+  height: clamp(120px, 25dvh, 208px);
+}
+
 /* Product typography: upright letterforms, including semantic emphasis and utility classes.
    Important also covers intentional inline italic styles in older learning components. */
 body,

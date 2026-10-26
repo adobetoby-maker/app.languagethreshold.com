@@ -65,7 +65,7 @@ async function fixture(component, action) {
               contents: `
  import {speakingRequestHeaders as realHeaders} from "./src/lib/speaking-client.ts";
  export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
- export const c={sessions:[],realHeaders:false,google:[],slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
+ export const c={consent:true,sessions:[],realHeaders:false,google:[],slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
  const changed=${changed.toString()};
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
@@ -77,6 +77,7 @@ async function fixture(component, action) {
  export const useSpeak=()=>({turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},useSpeech=()=>({accent:c.accent,voiceURI:c.voice,rate:1,setVoiceURI:v=>c.voice=v,setAccent:v=>c.accent=v,accentsForLanguage:[{code:'es-CR',label:'QA accent'}],settingsHydrated:true});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=opts=>new Promise(resolve=>{c.google.push({opts,resolve});opts.signal?.addEventListener("abort",resolve,{once:true});});
+ export const getSpeakingAgeAttestation=async()=>c.consent;
  export const speakingRequestHeaders=(owner,signal)=>c.realHeaders?realHeaders(owner,signal):c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({}),setSpeakingPrivacyMode=()=>{};
  export const getMissionTtsCapabilities=(_locale,signal)=>new Promise(resolve=>c.capabilities.push({signal,resolve}));
  export const getVoicesForLocale=()=>[{voiceURI:'qa-device',name:'QA device voice',lang:'es-CR'}],pickVoice=()=>getVoicesForLocale()[0],subscribeVoices=()=>()=>{},isIosDevice=()=>false;
@@ -98,6 +99,8 @@ async function fixture(component, action) {
     Date.now = () => c.now;
     globalThis.localStorage = { getItem: () => null, setItem: () => {} };
     globalThis.window = {
+      addEventListener() {},
+      removeEventListener() {},
       SpeechRecognition: class {
         constructor() {
           recognitions.push(this);
@@ -159,6 +162,8 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
   fixture("SpeakLearn", async ({ c, render, unmount, button, requests, recognitions, finish }) => {
     let tree = render();
     button(tree, "Free conversation").props.onClick();
+    render();
+    await tick();
     tree = render();
     const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
     chip.props.onClick();
@@ -294,6 +299,8 @@ test("actual SpeakLearn binds chat and tip credential lookup to the originating 
   fixture("SpeakLearn", async ({ c, render, button, requests }) => {
     c.realHeaders = true;
     button(render(), "Free conversation").props.onClick();
+    render();
+    await tick();
     const tree = render();
     nodes(tree)
       .find((n) => n.type === "button" && text(n).includes("ciudad"))
@@ -326,4 +333,23 @@ test("VoicePicker Google preview passes original SDK owner and invalidates it on
       .props.onOpenChange(false);
     assert.equal(opts.signal.aborted, true);
     assert.equal(opts.owner.isCurrent(), false);
+  }));
+
+test("free conversation without saved consent cannot record or send a topic", () =>
+  fixture("SpeakLearn", async ({ c, render, button, requests, recognitions }) => {
+    c.consent = false;
+    button(render(), "Free conversation").props.onClick();
+    render();
+    await tick();
+    const tree = render();
+    const mic = nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening");
+    assert.equal(mic.props.disabled, true);
+    mic.props.onClick();
+    nodes(tree)
+      .find((n) => n.type === "button" && text(n).includes("ciudad"))
+      .props.onClick();
+    await tick();
+    assert.equal(recognitions.length, 0);
+    assert.equal(requests.length, 0);
+    assert.equal(c.audio.length, 0);
   }));

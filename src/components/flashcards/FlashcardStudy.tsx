@@ -1,3 +1,4 @@
+import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useState } from "react";
 import { Volume2, X, RotateCcw } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
@@ -79,6 +80,7 @@ export function FlashcardStudy({
       dispatch({ type: "MASTER_VOCAB_WORD", payload: current.key });
     }
     if (grade >= 3) {
+      void playFlashcardSuccess();
       dispatch({ type: "ADD_XP", payload: 1 });
       setQueue((q) => q.slice(1));
       setGotIt((n) => n + 1);

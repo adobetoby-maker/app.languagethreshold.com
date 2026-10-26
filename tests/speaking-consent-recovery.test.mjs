@@ -239,9 +239,31 @@ test("actual consent dialog checks saved status in uncertain mode and retains ex
       .find((n) => n.type === "dialog")
       .props.onOpenChange(false);
     assert.equal(closed, 0);
+    const skippable = m.SpeakingConsentDialog({
+      ...props,
+      saving: true,
+      allowSkipWhileSaving: true,
+    });
+    const skip = nodes(skippable).filter((n) => n.type === "button")[1];
+    assert.equal(skip.props.disabled, false);
+    skip.props.onClick();
+    assert.equal(closed, 1);
     tree = m.SpeakingConsentDialog({ ...props, unknown: false });
     buttons = nodes(tree).filter((n) => n.type === "button");
-    assert.match(text(buttons[0]), /I am 13 or older/);
+    assert.equal(text(buttons[0]), "Agree & continue");
+    assert.match(text(tree), /I am 13 or older/);
+    assert.match(text(tree), /Anthropic/);
+    assert.match(text(tree), /does not upload raw audio/);
+    assert.equal(
+      nodes(tree).some((n) => n.type === "input" && n.props.type === "checkbox"),
+      false,
+    );
+    assert.deepEqual(
+      nodes(tree)
+        .filter((n) => n.type === "a")
+        .map((n) => n.props.href),
+      ["/privacy", "/terms"],
+    );
     buttons[0].props.onClick();
     assert.equal(writes, 1);
     assert.equal(reads, 1);

@@ -11,10 +11,7 @@ test("Core Relationships separates parents, friends and dates without changing l
   });
   await page.goto(appUrl({ tab: "speak", module: "core" }));
   const openCore = () =>
-    page
-      .getByRole("button")
-      .filter({ has: page.getByRole("heading", { name: /Core Speaking/, level: 3 }) })
-      .click();
+    page.getByText("Choose another mission or change settings", { exact: true }).click();
   await openCore();
   const sections = page.getByLabel("Core speaking sections", { exact: true });
   await expect(sections).toBeVisible();
@@ -39,11 +36,14 @@ test("Core Relationships separates parents, friends and dates without changing l
   await expect(
     page.getByRole("heading", { name: "Check in with your parents", exact: true, level: 2 }),
   ).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(
     page.getByText(/Ask how things are going, listen and ask a follow-up question/).first(),
   ).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(page.getByText(/Respectful communication practice only/)).toHaveCount(0);
   await page.getByRole("button", { name: "All missions", exact: true }).click();
+  await openCore();
   await filters.getByRole("button", { name: "Friends", exact: true }).click();
   await expect(cards).toHaveCount(5);
   await cards
@@ -58,8 +58,11 @@ test("Core Relationships separates parents, friends and dates without changing l
       level: 2,
     }),
   ).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(page.getByText(/listen without rushing to fix things/).first()).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await page.getByRole("button", { name: "All missions", exact: true }).click();
+  await openCore();
   await filters.getByRole("button", { name: "Dating & partners", exact: true }).click();
   await expect(cards).toHaveCount(11);
   await cards
@@ -74,10 +77,13 @@ test("Core Relationships separates parents, friends and dates without changing l
       level: 2,
     }),
   ).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(
     page.getByText(/respect any topic the other person prefers not to discuss/).first(),
   ).toBeVisible();
+  await page.getByText("Practice settings & reference", { exact: true }).click();
   await page.getByRole("button", { name: "All missions", exact: true }).click();
+  await openCore();
   await filters.getByRole("button", { name: "All relationships", exact: true }).click();
   await expect(cards).toHaveCount(20);
   await page.reload();

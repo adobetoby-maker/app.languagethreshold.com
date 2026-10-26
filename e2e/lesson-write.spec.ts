@@ -50,6 +50,7 @@ async function openCore30(page: Page) {
       core30Log: { [core30Key(MODULE)]: { startDate, lessons: {} } },
     });
     await page.goto(appUrl({ tab: "core30", module: MODULE }));
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await page
       .getByTestId("core30-plan-card")
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
@@ -66,6 +67,10 @@ async function openCore30(page: Page) {
  * the lesson page has one, otherwise the kit's mode tabs.
  */
 async function openKitMode(page: Page, mode: "write" | "type") {
+  const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+  if (mode === "type" && await workspace.isVisible()) {
+    await workspace.getByRole("button", { name: "Back to lesson", exact: true }).click();
+  }
   const kit = page.getByTestId("practice-kit");
   const section = page.getByTestId(`lesson-nav-${mode}`);
   if ((await section.count()) > 0) await section.click();
@@ -83,16 +88,21 @@ async function openWriteMode(page: Page) {
   await page.getByRole("button", { name: /Today: Lesson 1/ }).click();
   await expect(page.getByText("✕ Exit")).toBeVisible();
   const kit = await openKitMode(page, "write");
-  await expect(kit.getByTestId("write-stage-copy")).toBeVisible();
-  return kit;
+  const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+  await expect(workspace.getByTestId("write-stage-copy")).toBeVisible();
+  return workspace.getByTestId("writing-words");
 }
 
 /** Draws one wavy stroke across the pad: touch on a phone, mouse on a desktop. */
 async function drawStroke(page: Page, pad: Locator, touch: boolean) {
   const canvas = pad.getByTestId("handwriting-canvas");
   // Centre the pad: on a phone the lesson's sticky section bar would cover it at the top edge.
-  await canvas.evaluate((el) => el.scrollIntoView({ block: "center" }));
-  await page.waitForTimeout(250);
+  await expect(canvas).toBeInViewport();
+  const scrollBefore = await page.evaluate(() => ({
+    page: window.scrollY,
+    lesson: document.querySelector("main")?.scrollTop ?? 0,
+    workspace: document.querySelector('[data-testid="writing-workspace-body"]')?.scrollTop ?? 0,
+  }));
   const box = await canvas.boundingBox();
   expect(box, "the pad has a size").toBeTruthy();
   const { x, y, width, height } = box!;
@@ -115,6 +125,11 @@ async function drawStroke(page: Page, pad: Locator, touch: boolean) {
     await page.mouse.up();
   }
   await expect(canvas).toHaveAttribute("data-ink", "true");
+  expect(await page.evaluate(() => ({
+    page: window.scrollY,
+    lesson: document.querySelector("main")?.scrollTop ?? 0,
+    workspace: document.querySelector('[data-testid="writing-workspace-body"]')?.scrollTop ?? 0,
+  }))).toEqual(scrollBefore);
 }
 
 /** The seroval body TanStack Start returns for the handwriting reader: { text, error }. */
@@ -178,6 +193,71 @@ async function shownAnswerWord(kit: Locator) {
   expect(word, `prompt "${en}" is a lesson-1 word`).toBeTruthy();
   return word!;
 }
+
+for (const size of [
+  { width: 320, height: 568, largeText: true },
+  { width: 375, height: 667, largeText: true },
+  { width: 430, height: 932, largeText: false },
+]) {
+  test(`writing fields do not overlap at ${size.width} wide${size.largeText ? " with larger text" : ""}`, async ({ page, isMobile }) => {
+    test.skip(!isMobile, "Responsive phone layout check");
+    await page.setViewportSize({ width: size.width, height: size.height });
+    const work = await openWriteMode(page);
+    if (size.largeText) await page.addStyleTag({ content: "html { font-size: 20px !important; }" });
+    const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+    expect(await workspace.getByRole("combobox", { name: "Writing activity" }).evaluate((el) => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(16);
+    const header = [workspace.getByRole("combobox", { name: "Writing activity" }), workspace.getByRole("button", { name: "Back to lesson", exact: true })];
+    const modes = [work.getByTestId("write-stage-copy"), work.getByTestId("write-stage-answer")];
+    for (const pair of [header, modes]) {
+      const boxes = await Promise.all(pair.map((control) => control.boundingBox()));
+      expect(boxes.every(Boolean)).toBe(true);
+      for (const box of boxes) {
+        expect(box!.x).toBeGreaterThanOrEqual(0);
+        expect(box!.x + box!.width).toBeLessThanOrEqual(size.width);
+        expect(box!.height).toBeGreaterThanOrEqual(44);
+      }
+      expect(boxes[0]!.x + boxes[0]!.width).toBeLessThanOrEqual(boxes[1]!.x);
+    }
+    const word = work.getByTestId("write-copy-word");
+    const audio = work.getByRole("button", { name: /^Play Spanish audio:/ });
+    const wordBox = await word.boundingBox();
+    const audioBox = await audio.boundingBox();
+    expect(wordBox!.x + wordBox!.width).toBeLessThanOrEqual(audioBox!.x);
+    const overflow = await workspace.evaluate((el) => el.scrollWidth - el.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+    await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("response");
+    await expect(workspace.getByRole("region", { name: "Handwritten lesson response" })).toBeVisible();
+    expect(await workspace.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(1);
+  });
+}
+
+test("fixed writing workspace keeps pad and lesson steady on a short phone", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Touch regression uses the phone project");
+  await page.setViewportSize({ width: 390, height: 667 });
+  const work = await openWriteMode(page);
+  const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+  await expect(workspace).toHaveCSS("position", "fixed");
+  const pad = work.getByTestId("handwriting-canvas");
+  const before = await pad.boundingBox();
+  const check = await work.getByTestId("write-check").boundingBox();
+  expect(before!.y).toBeGreaterThanOrEqual(0);
+  expect(check!.y + check!.height).toBeLessThanOrEqual(667);
+  await drawStroke(page, work.getByTestId("handwriting-pad"), true);
+  await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("response");
+  const response = workspace.getByRole("region", { name: "Handwritten lesson response", exact: true });
+  await drawStroke(page, response.getByTestId("handwriting-pad"), true);
+  await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("words");
+  await expect(pad).toHaveAttribute("data-ink", "true");
+  await work.getByTestId("write-compare").click();
+  await work.getByRole("button", { name: "Matches", exact: true }).click();
+  await expect(work.getByText(`2 of ${TERMS.length} · copy`)).toBeVisible();
+  const after = await pad.boundingBox();
+  expect(Math.abs(after!.y - before!.y), `pad before=${before!.y}, after=${after!.y}`).toBeLessThanOrEqual(1);
+  await expect(pad).toHaveAttribute("data-ink", "false");
+  await workspace.getByRole("button", { name: "Back to lesson", exact: true }).click();
+  await expect(page.getByRole("dialog", { name: "Writing practice" })).toHaveCount(0);
+  await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
+});
 
 test.describe("Write it: handwriting practice (Roofing lesson 1)", () => {
   test("1. copy it: write over the word, compare it yourself, mark Matches", async ({
@@ -414,8 +494,8 @@ test.describe("Write it: handwriting practice (Roofing lesson 1)", () => {
   test("7. Type mode: a near miss shows answer feedback with the missing letter", async ({
     page,
   }) => {
-    const kit = await openWriteMode(page);
-    await openKitMode(page, "type");
+    await openWriteMode(page);
+    const kit = await openKitMode(page, "type");
     const prompt = kit.getByText("Type this in Spanish").locator("xpath=following-sibling::p[1]");
     await expect(prompt).toBeVisible();
     const english = (await prompt.innerText()).trim();
@@ -443,8 +523,8 @@ test.describe("Write it: handwriting practice (Roofing lesson 1)", () => {
   });
 
   test("8. Type mode: a missing accent is right, with an accent tip", async ({ page }) => {
-    const kit = await openWriteMode(page);
-    await openKitMode(page, "type");
+    await openWriteMode(page);
+    const kit = await openKitMode(page, "type");
     // Shuffled order: step through until a word with an accent comes up.
     for (let i = 0; i < WORDS.length; i += 1) {
       const prompt = kit.getByText("Type this in Spanish").locator("xpath=following-sibling::p[1]");

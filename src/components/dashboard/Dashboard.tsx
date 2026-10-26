@@ -1,3 +1,4 @@
+import { getModule } from "@/data/modules";
 import { useMemo } from "react";
 import {
   Flame,
@@ -146,12 +147,14 @@ export function Dashboard() {
 
       <NotesCard />
 
-      {state.nextTrips[state.selectedLanguage] && (
-        <NextTripBanner
-          compact
-          onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
-        />
-      )}
+      {getModule((state.activeModuleId ?? "").replace(/^(foundation|master)-/, ""))?.category ===
+        "Travel" &&
+        state.nextTrips[state.selectedLanguage] && (
+          <NextTripBanner
+            compact
+            onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
+          />
+        )}
 
       <PracticeStreakCard />
 

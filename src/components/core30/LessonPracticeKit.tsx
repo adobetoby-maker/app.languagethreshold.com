@@ -29,6 +29,7 @@ import { cn } from "@/lib/utils";
 import { useHandwritingReader, type WriteOutcome } from "@/hooks/use-handwriting-reader";
 import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VerbPractice } from "@/components/core30/VerbPractice";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
@@ -91,6 +92,7 @@ export interface LessonPracticeKitProps {
    * only; the standalone six-tab kit ignores them.
    */
   verbs?: LessonVerb[];
+  writingResponse?: ReactNode;
 }
 
 interface KitLanguages {
@@ -896,6 +898,38 @@ function InkPreview({ png }: { png: string }) {
   );
 }
 
+function WritingWorkspace({ children, response, onClose }: { children: ReactNode; response?: ReactNode; onClose: () => void }) {
+  const [activity, setActivity] = useState("words");
+  return (
+    <Dialog open onOpenChange={(open) => { if (!open) onClose(); }}>
+      <DialogContent
+        data-testid="writing-workspace"
+        className="inset-0 left-0 top-0 flex h-[100dvh] max-h-none w-full max-w-none translate-x-0 translate-y-0 flex-col gap-2 overflow-hidden rounded-none border-0 p-3 pt-[max(12px,env(safe-area-inset-top))] pb-[max(12px,env(safe-area-inset-bottom))] sm:rounded-none data-[state=open]:animate-none data-[state=closed]:animate-none duration-0 [&>button:last-child]:hidden"
+        onPointerDownOutside={(event) => event.preventDefault()}
+        onInteractOutside={(event) => event.preventDefault()}
+      >
+        <header className="mx-auto grid w-full max-w-xl shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+          <DialogTitle className={response ? "sr-only" : "text-base"}>Writing practice</DialogTitle>
+          {response && (
+            <select aria-label="Writing activity" value={activity} onChange={(event) => setActivity(event.target.value)} className="min-h-11 w-full min-w-0 max-w-full rounded-lg border border-border bg-background px-2 text-base font-semibold sm:text-sm">
+              <option value="words">Words</option>
+              <option value="response">Response</option>
+            </select>
+          )}
+          <button type="button" onClick={onClose} className={ghostBtn}>Back to lesson</button>
+        </header>
+        <DialogDescription className="sr-only">Write on the pad with your finger. The lesson stays still. Use Back to lesson to leave writing practice.</DialogDescription>
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain" data-testid="writing-workspace-body">
+          <div className="mx-auto w-full max-w-xl">
+            <div data-testid="writing-words" hidden={activity !== "words"}>{children}</div>
+            {response && <div hidden={activity !== "response"}>{response}</div>}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
   const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
@@ -1006,7 +1040,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
     <div
       role="group"
       aria-label="Writing stage"
-      className="inline-flex rounded-xl border border-border/50 bg-card/30 p-1"
+      className="grid w-full min-w-0 grid-cols-2 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
     >
       {(
         [
@@ -1021,7 +1055,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
           aria-pressed={stage === id}
           onClick={() => switchStage(id)}
           className={cn(
-            "min-h-11 cursor-pointer rounded-lg px-3 text-xs font-bold transition-all duration-200",
+            "min-h-11 min-w-0 cursor-pointer break-words rounded-lg px-2 py-2 text-xs font-bold transition-all duration-200",
             stage === id
               ? "bg-gold text-background"
               : "text-muted-foreground hover:text-foreground",
@@ -1085,31 +1119,26 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
   const result = step.phase === "result" ? step : null;
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between gap-2">
-        {toggle}
-        <span className="font-mono text-sm font-semibold text-muted-foreground">
-          {stage === "copy" ? `Matched ${copyScore}` : `Score ${answerScore}`}
-        </span>
-      </div>
-      <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground">
+    <div className="space-y-2" data-testid="write-work">
+      {toggle}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs font-semibold text-muted-foreground">
         <span>
           {index + 1} of {list.length} · {stage === "copy" ? "copy" : word.kind}
         </span>
-        <span>{stage === "copy" ? "Terms" : "Terms, then phrases"}</span>
+        <span>{stage === "copy" ? `Matched ${copyScore}` : `Score ${answerScore}`}</span>
       </div>
       <ProgressBar value={index + (resultDone ? 1 : 0)} total={list.length} />
 
       {stage === "copy" ? (
-        <div className={cn(panel, "text-center")}>
+        <div className={cn(panel, "h-28 overflow-y-auto p-3 text-center")}>
           <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Copy this {target} word
           </p>
-          <div className="flex items-center justify-center gap-3">
+          <div className="grid grid-cols-[minmax(0,1fr)_44px] items-center gap-3">
             <p
               lang={languageTag(target)}
               data-testid="write-copy-word"
-              className="break-words text-3xl font-bold text-gold"
+              className="min-w-0 break-words text-xl font-bold text-gold sm:text-3xl"
             >
               {word.es}
             </p>
@@ -1118,7 +1147,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
           <p className="mt-1 break-words text-sm text-muted-foreground">{word.en}</p>
         </div>
       ) : (
-        <div className={cn(panel, "text-center")}>
+        <div className={cn(panel, "h-28 overflow-y-auto p-3 text-center")}>
           <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Write this in {target}
           </p>
@@ -1140,7 +1169,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
         guideText={stage === "copy" ? word.es : undefined}
         onChange={setInked}
         label={stage === "copy" ? `Copy the word ${word.es}` : `Write the ${target} answer`}
-        className={step.phase === "write" ? undefined : "hidden"}
+        className={step.phase === "write" ? "lesson-writing-pad" : "hidden"}
       />
       {step.phase === "write" && (
         <>
@@ -1150,7 +1179,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
               data-testid="write-check"
               disabled={!inked}
               onClick={() => void check()}
-              className={cn(primaryBtn, "flex-1")}
+              className={cn(primaryBtn, "min-w-0 flex-1 whitespace-normal break-words")}
             >
               Check
             </button>
@@ -1159,7 +1188,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
               data-testid="write-compare"
               disabled={!inked}
               onClick={compareMyself}
-              className={cn(ghostBtn, "flex-1")}
+              className={cn(ghostBtn, "min-w-0 flex-1 whitespace-normal break-words")}
             >
               {stage === "copy" ? "Done — compare" : "Show answer"}
             </button>
@@ -1216,7 +1245,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                         <button
                           type="button"
                           data-testid="write-try-again"
-                          className={cn(primaryBtn, "flex-1")}
+                          className={cn(primaryBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                           onClick={keepWriting}
                         >
                           Try again
@@ -1224,7 +1253,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                         <button
                           type="button"
                           data-testid="write-start-over"
-                          className={cn(ghostBtn, "flex-1")}
+                          className={cn(ghostBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                           onClick={resetStep}
                         >
                           Start over
@@ -1293,7 +1322,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                 <button
                   type="button"
                   data-testid="write-check-again"
-                  className={cn(primaryBtn, "flex-1")}
+                  className={cn(primaryBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                   onClick={() => void check()}
                 >
                   <RotateCcw className="h-4 w-4" aria-hidden="true" />
@@ -1302,7 +1331,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                 <button
                   type="button"
                   data-testid="write-start-over"
-                  className={cn(ghostBtn, "flex-1")}
+                  className={cn(ghostBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                   onClick={resetStep}
                 >
                   Start over
@@ -1313,7 +1342,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                   <>
                     <button
                       type="button"
-                      className={cn(ghostBtn, "flex-1")}
+                      className={cn(ghostBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                       onClick={() => advance(true)}
                     >
                       <Check className="h-4 w-4" aria-hidden="true" />
@@ -1324,7 +1353,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                   <>
                     <button
                       type="button"
-                      className={cn(ghostBtn, "flex-1")}
+                      className={cn(ghostBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                       onClick={() => advance(false)}
                     >
                       <XCircle className="h-4 w-4" aria-hidden="true" />
@@ -1332,7 +1361,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
                     </button>
                     <button
                       type="button"
-                      className={cn(primaryBtn, "flex-1")}
+                      className={cn(primaryBtn, "min-w-0 flex-1 whitespace-normal break-words")}
                       onClick={() => advance(true)}
                     >
                       <Check className="h-4 w-4" aria-hidden="true" />
@@ -1432,6 +1461,7 @@ export function LessonPracticeKit({
   matchingBatchSize,
   listeningItems,
   verbs,
+  writingResponse,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
   const languages = useMemo(
@@ -1657,7 +1687,11 @@ export function LessonPracticeKit({
                   onComplete={() => complete("verbs")}
                 />
               )}
-              {mode === "write" && <WriteMode words={words} onComplete={() => complete("write")} />}
+              {mode === "write" && (
+                <WritingWorkspace response={writingResponse} onClose={() => setMode("study")}>
+                  <WriteMode words={words} onComplete={() => complete("write")} />
+                </WritingWorkspace>
+              )}
             </>
           )}
         </div>

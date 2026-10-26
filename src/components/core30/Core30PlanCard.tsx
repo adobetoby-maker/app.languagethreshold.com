@@ -1,3 +1,4 @@
+import { getModule } from "@/data/modules";
 import { core30ScopeKey } from "@/lib/core30-scope";
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
@@ -53,6 +54,8 @@ export function Core30PlanCard({
   managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
+  const allowDateSelection =
+    getModule(moduleId.replace(/^(foundation|master)-/, ""))?.category === "Travel";
   // Foundation and Master modules run their own plan; every other module keeps 3 days / 4 days / 90 days.
   const pace = core30PaceFor(moduleId);
   const reviewDays = reviewEveryDays ?? pace.reviewEveryDays;
@@ -61,9 +64,11 @@ export function Core30PlanCard({
     ? `One new lesson ${
         pace.newLessonEveryDays === 1 ? "every day" : `every ${pace.newLessonEveryDays} days`
       }.`
-    : `${["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven"][
-        Math.round(7 / pace.newLessonEveryDays)
-      ]} new lessons a week.`;
+    : `${
+        ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven"][
+          Math.round(7 / pace.newLessonEveryDays)
+        ]
+      } new lessons a week.`;
   const context = {
     targetLanguage: state.selectedLanguage,
     instructionLanguage: state.nativeLanguage,
@@ -97,10 +102,11 @@ export function Core30PlanCard({
     : undefined;
 
   function saveStartDate() {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(draftDate)) return;
+    const startDate = allowDateSelection ? draftDate : today;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(startDate)) return;
     dispatch({
       type: "CORE30_SET_START_DATE",
-      payload: { moduleId, context, date: draftDate, at: new Date().toISOString() },
+      payload: { moduleId, context, date: startDate, at: new Date().toISOString() },
     });
     setChangingDate(false);
   }
@@ -121,30 +127,33 @@ export function Core30PlanCard({
               Learn all {totalLessons} lessons in {pace.planDays} days
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              {cadenceLine} Every {reviewDays} days you review every lesson you
-              have mastered so far. You mark each lesson mastered yourself; the app records the
-              steps you open.
+              {cadenceLine} Every {reviewDays} days you review every lesson you have mastered so
+              far. You mark each lesson mastered yourself; the app records the steps you open.
             </p>
-            <label className="mt-4 block text-[11px] text-white/50" htmlFor="core30-start-date">
-              Start date
-            </label>
+            {allowDateSelection && (
+              <label className="mt-4 block text-[11px] text-white/50" htmlFor="core30-start-date">
+                Start date
+              </label>
+            )}
             <div className="mt-1 flex flex-wrap items-center gap-2">
-              <input
-                id="core30-start-date"
-                type="date"
-                value={draftDate}
-                onChange={(e) => setDraftDate(e.target.value)}
-                className="min-h-11 rounded-lg border border-white/15 bg-background/60 px-3 text-sm text-white"
-              />
+              {allowDateSelection && (
+                <input
+                  id="core30-start-date"
+                  type="date"
+                  value={draftDate}
+                  onChange={(e) => setDraftDate(e.target.value)}
+                  className="min-h-11 rounded-lg border border-white/15 bg-background/60 px-3 text-sm text-white"
+                />
+              )}
               <button
                 type="button"
                 data-testid="core30-start-plan"
                 onClick={saveStartDate}
-                disabled={!draftDate}
+                disabled={allowDateSelection && !draftDate}
                 className="min-h-11 rounded-xl px-5 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-40"
                 style={GOLD_BUTTON}
               >
-                Start my {pace.planDays}-day plan
+                Start lessons
               </button>
             </div>
           </div>
@@ -360,7 +369,7 @@ export function Core30PlanCard({
           >
             Manage assessment dates and pauses
           </a>
-        ) : changingDate ? (
+        ) : allowDateSelection && changingDate ? (
           <div className="flex flex-wrap items-center gap-2">
             <label className="sr-only" htmlFor="core30-change-date">
               New start date
@@ -387,7 +396,7 @@ export function Core30PlanCard({
               Cancel
             </button>
           </div>
-        ) : (
+        ) : allowDateSelection ? (
           <button
             type="button"
             onClick={() => {
@@ -398,7 +407,7 @@ export function Core30PlanCard({
           >
             Change start date ({formatPlanDate(plan.startDate)})
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );

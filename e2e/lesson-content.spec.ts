@@ -65,6 +65,7 @@ async function openModuleCore30(page: Page) {
     });
     // Name the module in the address: the app routes a bare Core 30 link to its default module.
     await page.goto(`/?tab=core30&module=${MODULE}&target=Spanish&native=English`);
+    await page.getByTestId("study-options").locator(":scope > summary").click();
     await page
       .getByTestId("core30-plan-card")
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })

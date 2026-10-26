@@ -122,12 +122,12 @@ export function AnswerFeedback({
         className,
       )}
     >
-      <div className="flex items-center gap-2">
+      <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2">
         <VerdictIcon verdict={tone} />
-        <p className="font-semibold" data-testid="answer-feedback-verdict">
+        <p className="min-w-0 break-words font-semibold" data-testid="answer-feedback-verdict">
           {verdictHeadline(comparison.verdict, scoredCorrect)}
         </p>
-        {action ? <div className="ml-auto">{action}</div> : null}
+        {action ? <div className="shrink-0">{action}</div> : null}
       </div>
 
       <div>

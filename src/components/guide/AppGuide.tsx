@@ -1455,8 +1455,15 @@ function OwnedLessonRunner({
             </h5>
             <div className="mt-3">
               <LessonPracticeKit
-                // A fresh kit per word list, so a regenerated list never shows stale rounds.
-                key={`${state.selectedLanguage}:${state.nativeLanguage}:${words.length}`}
+                // Reset card and round state when the lesson or its word list changes, even
+                // when the replacement list has the same number of words.
+                key={JSON.stringify([
+                  moduleId,
+                  lesson.n,
+                  state.selectedLanguage,
+                  state.nativeLanguage,
+                  words.map(({ es, en, kind }) => [es, en, kind]),
+                ])}
                 words={words}
                 moduleId={moduleId}
                 lessonNumber={lesson.n}

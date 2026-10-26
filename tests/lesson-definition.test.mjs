@@ -45,6 +45,22 @@ test("a new language track cannot inherit Spanish content or verified readiness"
   assert.throws(() => lessonObjectiveId("../private", 1));
 });
 
+test("English-for-work definitions use only their English/Spanish authored pair", () => {
+  const args = {
+    moduleId: "foundation-fmg",
+    lessonNumber: 1,
+    targetLanguage: "English",
+    instructionLanguage: "Spanish",
+    contentVersion: "qa-unreleased",
+  };
+  const english = getLessonDefinition(args);
+  assert.ok(english.words.length >= 12);
+  assert.equal(english.words[0].es, "the doctor");
+  assert.equal(english.words[0].en, "el médico");
+  assert.deepEqual(getLessonDefinition({ ...args, instructionLanguage: "French" }).words, []);
+  assert.deepEqual(getLessonDefinition({ ...args, targetLanguage: "Spanish" }).words, []);
+});
+
 test("listening grows from the word list to aligned connected passage messages", () => {
   const first = getLessonDefinition({ ...input, lessonNumber: 1 });
   const middle = getLessonDefinition({ ...input, lessonNumber: 15 });

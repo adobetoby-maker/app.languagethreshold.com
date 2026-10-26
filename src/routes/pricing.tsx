@@ -1,7 +1,8 @@
+import { individualCheckoutUrl } from "@/lib/individual-checkout";
 import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "@/lib/individual-pricing";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle, Sparkles, ChevronRight, Users } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
@@ -31,26 +32,15 @@ const MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.monthly;
 const ANNUAL_PRICE_ID = INDIVIDUAL_PRICES.annual;
 const FAMILY_PRICE_ID = INDIVIDUAL_PRICES.family;
 
-// Fallback Payment Links — live Stripe links created 2026-05-26
-const MONTHLY_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.monthly;
-const ANNUAL_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.annual;
-const FAMILY_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.family;
 const JUNIOR_ANNUAL_LINK = INDIVIDUAL_PAYMENT_LINKS.junior;
 
 async function startCheckout(
   plan: string,
   priceId: string | undefined,
-  fallbackLink: string,
   userId: string,
   userEmail?: string,
 ) {
-  // Counted only once a checkout destination exists: the API URL or the payment-link fallback.
-  const beginCheckout = () => trackEvent("begin_checkout", { plan, currency: "USD" });
-  if (!priceId) {
-    beginCheckout();
-    window.location.href = fallbackLink;
-    return;
-  }
+  if (!priceId) throw new Error("This plan is temporarily unavailable. Please try again shortly.");
   const { data: auth } = await supabase.auth.getSession();
   if (!auth.session || auth.session.user.id !== userId) {
     window.location.href = "/?redirect=pricing";
@@ -64,13 +54,8 @@ async function startCheckout(
     },
     body: JSON.stringify({ priceId, userId, userEmail }),
   });
-  if (!res.ok) {
-    beginCheckout();
-    window.location.href = fallbackLink;
-    return;
-  }
-  const { url } = (await res.json()) as { url: string };
-  beginCheckout();
+  const url = await individualCheckoutUrl(res);
+  trackEvent("begin_checkout", { plan, currency: "USD" });
   window.location.href = url;
 }
 
@@ -104,44 +89,52 @@ export default function PricingPage() {
   const hasPlan = teamActive || status === "active" || status === "trialing";
   const [billing, setBilling] = useState<"monthly" | "annual" | "family" | "junior">("annual");
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("plan");
+    try {
+      const selected = requested ?? sessionStorage.getItem("lt.pricing.plan.v1");
+      if (selected === "monthly" || selected === "annual") setBilling(selected);
+      if (requested === "monthly" || requested === "annual")
+        sessionStorage.setItem("lt.pricing.plan.v1", requested);
+    } catch {
+      if (requested === "monthly" || requested === "annual") setBilling(requested);
+    }
+  }, []);
 
+  const [checkoutError, setCheckoutError] = useState("");
   const handleSubscribe = async () => {
-    // Wait for auth to resolve — redirecting while loading sends logged-in users to /?redirect=pricing
     if (authLoading) return;
     if (!user) {
+      try {
+        sessionStorage.setItem("lt.pricing.plan.v1", billing);
+      } catch {
+        /* Keep sign-in usable when storage is blocked. */
+      }
       window.location.href = "/?redirect=pricing";
       return;
     }
     setLoading(true);
-    if (billing === "monthly") {
-      await startCheckout(
-        "monthly",
-        MONTHLY_PRICE_ID,
-        MONTHLY_PAYMENT_LINK,
-        user.id,
-        user.email ?? undefined,
+    setCheckoutError("");
+    try {
+      if (billing === "junior") {
+        trackEvent("begin_checkout", { plan: "junior", currency: "USD" });
+        window.location.href = JUNIOR_ANNUAL_LINK;
+      } else {
+        const priceId =
+          billing === "monthly"
+            ? MONTHLY_PRICE_ID
+            : billing === "annual"
+              ? ANNUAL_PRICE_ID
+              : FAMILY_PRICE_ID;
+        await startCheckout(billing, priceId, user.id, user.email ?? undefined);
+      }
+    } catch (error) {
+      setCheckoutError(
+        error instanceof Error ? error.message : "We could not open checkout. Please try again.",
       );
-    } else if (billing === "annual") {
-      await startCheckout(
-        "annual",
-        ANNUAL_PRICE_ID,
-        ANNUAL_PAYMENT_LINK,
-        user.id,
-        user.email ?? undefined,
-      );
-    } else if (billing === "junior") {
-      trackEvent("begin_checkout", { plan: "junior", currency: "USD" });
-      window.location.href = JUNIOR_ANNUAL_LINK;
-    } else {
-      await startCheckout(
-        "family",
-        FAMILY_PRICE_ID,
-        FAMILY_PAYMENT_LINK,
-        user.id,
-        user.email ?? undefined,
-      );
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -157,7 +150,7 @@ export default function PricingPage() {
           </Link>
           <div className="flex justify-center mb-4">
             <span className="rounded-full bg-gold/10 border border-gold/30 px-4 py-1.5 text-xs font-semibold text-gold uppercase tracking-wider">
-              7-day free trial
+              {billing === "junior" ? "Annual kids plan" : "7-day free trial"}
             </span>
           </div>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl mb-3">
@@ -185,6 +178,14 @@ export default function PricingPage() {
           </div>
         )}
 
+        {checkoutError && (
+          <p
+            role="alert"
+            className="mb-6 rounded-lg border border-red-500/40 bg-card p-4 text-sm text-foreground"
+          >
+            {checkoutError}
+          </p>
+        )}
         {!hasPlan && (
           <>
             {/* Billing toggle */}
@@ -229,13 +230,11 @@ export default function PricingPage() {
                 <div className="bg-gradient-to-r from-gold/10 to-transparent border-b border-gold/20 px-6 py-5">
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold text-foreground">
-                      {billing === "annual" ? "$12" : "$19"}
+                      {billing === "annual" ? "$12.42" : "$19"}
                     </span>
                     <span className="text-muted-foreground text-sm">/month</span>
                     {billing === "annual" && (
-                      <span className="text-xs text-muted-foreground">
-                        billed $149/year · less than Rosetta Stone or Pimsleur
-                      </span>
+                      <span className="text-xs text-muted-foreground">billed $149/year</span>
                     )}
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1">
@@ -271,7 +270,7 @@ export default function PricingPage() {
                     )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
-                    No credit card required during trial · Cancel before day 7 to pay nothing
+                    Seven-day trial · Payment details and renewal terms are shown in checkout
                   </p>
                 </div>
               </div>
@@ -296,7 +295,7 @@ export default function PricingPage() {
                     ~$6.58/month · Save 34%
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground">
-                    7-day free trial — cancel anytime
+                    Annual subscription · Renewal terms shown in checkout
                   </div>
                 </div>
                 <div className="px-6 py-5">
@@ -325,12 +324,12 @@ export default function PricingPage() {
                       "Preparing checkout…"
                     ) : (
                       <>
-                        Start free trial <ChevronRight className="h-4 w-4" />
+                        Continue to checkout <ChevronRight className="h-4 w-4" />
                       </>
                     )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
-                    7-day free trial · No credit card required
+                    Payment and renewal terms are shown in checkout
                   </p>
                 </div>
               </div>

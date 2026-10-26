@@ -27,3 +27,16 @@ export function teamPeriodCents(seats: number, term: TeamTerm) {
 
 /** Shared catalog identity for team checkout and scoped owner discounts. */
 export const teamPriceLookupKey = (term: TeamTerm) => `language-threshold-team-${term}-v3`;
+
+/** Public funnel estimates select seats and term only; the server owns all prices. */
+export function teamPurchaseSelection(search: string): { seats: number; term: TeamTerm } {
+  const params = new URLSearchParams(search);
+  const raw = params.get("seats");
+  const seats = raw && /^\d+$/.test(raw) ? Number(raw) : TEAM_MIN_SEATS;
+  const term = params.get("term");
+  return {
+    seats:
+      Number.isInteger(seats) && seats >= TEAM_MIN_SEATS && seats <= 1000 ? seats : TEAM_MIN_SEATS,
+    term: term === "annual" || term === "quarterly" ? term : "monthly",
+  };
+}

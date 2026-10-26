@@ -34,7 +34,7 @@ export default defineConfig({
     {
       name: "desktop",
       testMatch:
-        /(progress-readability|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar|tts-cache|exams2)\.spec\.ts/,
+        /(touch-navigation-layout|progress-readability|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar|tts-cache|exams2)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },

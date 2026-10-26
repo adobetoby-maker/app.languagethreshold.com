@@ -194,6 +194,42 @@ async function shownAnswerWord(kit: Locator) {
   return word!;
 }
 
+for (const size of [
+  { width: 320, height: 568, largeText: true },
+  { width: 375, height: 667, largeText: true },
+  { width: 430, height: 932, largeText: false },
+]) {
+  test(`writing fields do not overlap at ${size.width} wide${size.largeText ? " with larger text" : ""}`, async ({ page, isMobile }) => {
+    test.skip(!isMobile, "Responsive phone layout check");
+    await page.setViewportSize({ width: size.width, height: size.height });
+    const work = await openWriteMode(page);
+    if (size.largeText) await page.addStyleTag({ content: "html { font-size: 20px !important; }" });
+    const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
+    const header = [workspace.getByRole("combobox", { name: "Writing activity" }), workspace.getByRole("button", { name: "Back to lesson", exact: true })];
+    const modes = [work.getByTestId("write-stage-copy"), work.getByTestId("write-stage-answer")];
+    for (const pair of [header, modes]) {
+      const boxes = await Promise.all(pair.map((control) => control.boundingBox()));
+      expect(boxes.every(Boolean)).toBe(true);
+      for (const box of boxes) {
+        expect(box!.x).toBeGreaterThanOrEqual(0);
+        expect(box!.x + box!.width).toBeLessThanOrEqual(size.width);
+        expect(box!.height).toBeGreaterThanOrEqual(44);
+      }
+      expect(boxes[0]!.x + boxes[0]!.width).toBeLessThanOrEqual(boxes[1]!.x);
+    }
+    const word = work.getByTestId("write-copy-word");
+    const audio = work.getByRole("button", { name: /^Play Spanish audio:/ });
+    const wordBox = await word.boundingBox();
+    const audioBox = await audio.boundingBox();
+    expect(wordBox!.x + wordBox!.width).toBeLessThanOrEqual(audioBox!.x);
+    const overflow = await workspace.evaluate((el) => el.scrollWidth - el.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+    await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("response");
+    await expect(workspace.getByRole("region", { name: "Handwritten lesson response" })).toBeVisible();
+    expect(await workspace.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(1);
+  });
+}
+
 test("fixed writing workspace keeps pad and lesson steady on a short phone", async ({ page, isMobile }) => {
   test.skip(!isMobile, "Touch regression uses the phone project");
   await page.setViewportSize({ width: 390, height: 667 });

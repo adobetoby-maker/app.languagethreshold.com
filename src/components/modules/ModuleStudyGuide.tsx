@@ -165,18 +165,36 @@ export function ModuleStudyGuide({
           <h2 className="font-display text-lg not-italic leading-snug text-foreground">
             {module.name} <span className="text-muted-foreground">— in {language}</span>
           </h2>
-          <p className="mt-1 text-xs leading-relaxed text-foreground/75">{module.blurb}</p>
+          <p className="mt-1 hidden sm:block text-xs leading-relaxed text-foreground/75">
+            {module.blurb}
+          </p>
+          <details className="sm:hidden">
+            <summary className="min-h-11 cursor-pointer py-2 text-sm text-muted-foreground">
+              About this specialty
+            </summary>
+            <p className="text-sm">{module.blurb}</p>
+          </details>
         </div>
         {!embedded && (
           <button
             onClick={dismiss}
             aria-label="Dismiss study guide"
-            className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
+            className="min-h-11 min-w-11 rounded-full p-1 text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
           >
             <X className="h-3.5 w-3.5" />
           </button>
         )}
       </header>
+
+      {!embedded && (
+        <button
+          type="button"
+          onClick={() => go("core30")}
+          className="mb-4 min-h-11 w-full rounded-xl border border-gold/60 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold"
+        >
+          Open lesson plan
+        </button>
+      )}
 
       {/* 4 quadrants */}
       <div className="grid gap-3 md:grid-cols-2">

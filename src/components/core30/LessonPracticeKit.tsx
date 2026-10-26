@@ -290,7 +290,7 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
   const shownLang = languageTag(shownIsTarget ? target : native);
 
   return (
-    <div className="space-y-3">
+    <div className="stable-word-practice space-y-3">
       <div className="flex items-center justify-between gap-2">
         <div
           role="group"
@@ -344,7 +344,7 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
             onClick={() => setFlipped((v) => !v)}
             aria-label={flipped ? "Show the front of the card" : "Flip the card"}
             className={cn(
-              "flex min-h-[200px] w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border p-5 text-center transition-all duration-300",
+              "flex h-[200px] overflow-y-auto overscroll-contain w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border p-5 text-center transition-all duration-300",
               flipped ? "border-gold/50 bg-gold/10" : "border-border/50 bg-card/30",
             )}
           >
@@ -363,13 +363,11 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
             {flipped && word.note ? (
               <span className="break-words text-xs text-muted-foreground">{word.note}</span>
             ) : null}
-            {!flipped && <span className="text-xs text-muted-foreground">Tap to flip</span>}
           </button>
-          <div className="flex items-center gap-2">
+          <div data-testid="lesson-cards-grading" className="flex items-center gap-2">
             <SpeakButton text={word.es} speak={speak} />
             <button
               type="button"
-              disabled={!flipped}
               onClick={() => answer("again")}
               className={cn(ghostBtn, "flex-1")}
             >
@@ -378,7 +376,6 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
             </button>
             <button
               type="button"
-              disabled={!flipped}
               onClick={() => answer("got")}
               className={cn(primaryBtn, "flex-1")}
             >
@@ -386,11 +383,9 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
               Got it
             </button>
           </div>
-          {!flipped && (
-            <p className="text-center text-xs text-muted-foreground">
-              Flip the card, then mark it Got it or Again.
-            </p>
-          )}
+          <p className="text-center text-xs text-muted-foreground">
+            Tap the card to flip. Already know it? Grade either side.
+          </p>
         </>
       )}
     </div>
@@ -625,7 +620,7 @@ function ListenMode({
 
   if (finished) {
     return (
-      <div className="space-y-3">
+      <div className="stable-word-practice space-y-3">
         <DoneNotice>
           Listening check finished: {score} / {order.length} correct.
         </DoneNotice>
@@ -638,7 +633,7 @@ function ListenMode({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="stable-word-practice space-y-3">
       <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground">
         <span>
           {contextual ? "Message" : "Word"} {index + 1} of {order.length}
@@ -647,7 +642,13 @@ function ListenMode({
       </div>
       <ProgressBar value={index + (picked !== null ? 1 : 0)} total={order.length} />
 
-      <div className={cn(panel, "flex flex-col items-center gap-3 py-6 text-center")}>
+      <div
+        data-testid="lesson-listening-prompt"
+        className={cn(
+          panel,
+          "flex h-[176px] overflow-y-auto overscroll-contain flex-col items-center justify-center gap-2 py-3 text-center",
+        )}
+      >
         <button
           type="button"
           onClick={() => speak(current.es)}
@@ -657,14 +658,19 @@ function ListenMode({
           <Volume2 className="h-7 w-7" aria-hidden="true" />
         </button>
         <p className="text-sm text-muted-foreground">Listen, then pick the {native} meaning.</p>
-        {picked !== null && (
-          <p lang={languageTag(target)} className="break-words text-lg font-bold text-gold">
-            {current.es}
-          </p>
-        )}
+        <p
+          aria-hidden={picked === null}
+          lang={languageTag(target)}
+          className={cn("break-words text-lg font-bold text-gold", picked === null && "invisible")}
+        >
+          {current.es}
+        </p>
       </div>
 
-      <div className="grid gap-2">
+      <div
+        data-testid="lesson-listening-options"
+        className="grid h-60 content-start gap-2 overflow-y-auto overscroll-contain"
+      >
         {options.map((option) => {
           const isAnswer = option === current.en;
           const isPicked = picked === option;
@@ -697,11 +703,15 @@ function ListenMode({
         })}
       </div>
 
-      {picked !== null && (
-        <button type="button" className={cn(primaryBtn, "w-full")} onClick={next}>
-          {index + 1 >= order.length ? "See score" : "Next word"}
-        </button>
-      )}
+      <button
+        type="button"
+        data-testid="lesson-listening-next"
+        disabled={picked === null}
+        className={cn(primaryBtn, "w-full")}
+        onClick={next}
+      >
+        {index + 1 >= order.length ? "See score" : "Next word"}
+      </button>
     </div>
   );
 }
@@ -741,7 +751,7 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
     setIndex(index + 1);
     setValue("");
     setResult(null);
-    requestAnimationFrame(() => inputRef.current?.focus());
+    requestAnimationFrame(() => inputRef.current?.focus({ preventScroll: true }));
   };
 
   const restart = () => {
@@ -755,7 +765,7 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
 
   if (finished) {
     return (
-      <div className="space-y-3">
+      <div className="stable-word-practice space-y-3">
         <DoneNotice>
           Typing practice finished: {score} / {order.length} correct.
         </DoneNotice>
@@ -768,7 +778,7 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3">
+    <form onSubmit={submit} className="stable-word-practice space-y-3">
       <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground">
         <span>
           {index + 1} of {order.length} · {current.kind}
@@ -777,7 +787,10 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
       </div>
       <ProgressBar value={index + (result !== null ? 1 : 0)} total={order.length} />
 
-      <div className={cn(panel, "text-center")}>
+      <div
+        data-testid="typing-prompt"
+        className={cn(panel, "h-28 overflow-y-auto overscroll-contain text-center")}
+      >
         <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
           Type this in {target}
         </p>
@@ -807,45 +820,57 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
         )}
       />
 
-      {result === null && specialChars.length > 0 && (
-        <div className="flex flex-wrap gap-2" aria-label={`${target} letters`}>
-          {specialChars.map((char) => (
-            <button
-              key={char}
-              type="button"
-              onClick={() => {
-                setValue((v) => v + char);
-                inputRef.current?.focus();
-              }}
-              className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-border/50 bg-card/30 px-2 text-base font-semibold transition-all duration-200 hover:border-gold/40 active:scale-95"
-            >
-              {char}
-            </button>
-          ))}
-        </div>
+      {specialChars.length > 0 && (
+        <details className="rounded-xl border border-border/50 px-3">
+          <summary className="min-h-11 cursor-pointer py-2 text-sm">Accented letters</summary>
+          <div className="flex flex-wrap gap-2 pb-2" aria-label={`${target} letters`}>
+            {specialChars.map((char) => (
+              <button
+                key={char}
+                type="button"
+                disabled={result !== null}
+                onClick={() => {
+                  setValue((v) => v + char);
+                  inputRef.current?.focus({ preventScroll: true });
+                }}
+                className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-border/50 bg-card/30 px-2 text-base font-semibold transition-all duration-200 hover:border-gold/40 active:scale-95"
+              >
+                {char}
+              </button>
+            ))}
+          </div>
+        </details>
       )}
 
-      {result === null ? (
-        <button type="submit" disabled={!value.trim()} className={cn(primaryBtn, "w-full")}>
-          Check
-        </button>
-      ) : (
-        <>
-          <AnswerFeedback
-            given={value}
-            expected={current.es}
-            language={target}
-            scoredCorrect={result === "right"}
-            action={<SpeakButton text={current.es} speak={speak} className="h-9 w-9" />}
-          />
-          {current.note ? (
-            <p className="break-words text-xs text-muted-foreground">{current.note}</p>
-          ) : null}
-          <button type="button" className={cn(primaryBtn, "w-full")} onClick={next}>
-            {index + 1 >= order.length ? "See score" : "Next word"}
-          </button>
-        </>
-      )}
+      <button
+        data-testid="typing-primary"
+        type={result === null ? "submit" : "button"}
+        disabled={result === null && !value.trim()}
+        className={cn(primaryBtn, "w-full")}
+        onClick={result !== null ? next : undefined}
+      >
+        {result === null ? "Check" : index + 1 >= order.length ? "See score" : "Next word"}
+      </button>
+      <div
+        data-testid="typing-feedback"
+        className="h-40 overflow-y-auto overscroll-contain"
+        aria-live="polite"
+      >
+        {result !== null && (
+          <>
+            <AnswerFeedback
+              given={value}
+              expected={current.es}
+              language={target}
+              scoredCorrect={result === "right"}
+              action={<SpeakButton text={current.es} speak={speak} className="h-9 w-9" />}
+            />
+            {current.note ? (
+              <p className="break-words text-xs text-muted-foreground">{current.note}</p>
+            ) : null}
+          </>
+        )}
+      </div>
     </form>
   );
 }

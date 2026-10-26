@@ -1,3 +1,4 @@
+import { PhoneActivity } from "@/components/PhoneActivity";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
@@ -123,7 +124,7 @@ export function ListeningDrill() {
   // ── No-run lobby ───────────────────────────────────────────────────────
   if (!run) {
     return (
-      <div className="mx-auto max-w-3xl space-y-6">
+      <div data-testid="listening-lobby" className="mx-auto max-w-3xl space-y-3 sm:space-y-6">
         <Header />
         <LevelPicker
           language={app.selectedLanguage}
@@ -133,19 +134,24 @@ export function ListeningDrill() {
         />
         <button
           onClick={() => ld.startRun(app.selectedLanguage, selectedLevel)}
-          className="group relative w-full overflow-hidden rounded-2xl border border-gold/60 bg-gradient-to-br from-gold/10 via-gold/5 to-transparent px-6 py-6 text-left transition-all hover:border-gold hover:from-gold/20"
+          className="group relative w-full overflow-hidden rounded-2xl border border-gold/60 bg-gradient-to-br from-gold/10 via-gold/5 to-transparent px-4 py-3 sm:px-6 sm:py-6 text-left transition-all hover:border-gold hover:from-gold/20"
         >
           <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
             ▶ Start Run
           </div>
-          <div className="mt-1 font-display text-3xl font-semibold">
+          <div className="mt-1 font-display text-xl sm:text-3xl font-semibold">
             5 listening rounds in {app.selectedLanguage}
           </div>
           <div className="mt-1 text-sm text-muted-foreground">
             {LEVEL_LABELS[selectedLevel].sub}
           </div>
         </button>
-        <Leaderboard language={app.selectedLanguage} />
+        <details className="rounded-xl border border-border p-3">
+          <summary className="min-h-11 cursor-pointer text-sm font-semibold">
+            Your listening statistics
+          </summary>
+          <Leaderboard language={app.selectedLanguage} />
+        </details>
       </div>
     );
   }
@@ -214,7 +220,11 @@ export function ListeningDrill() {
 
   // ── Mid-run question ──────────────────────────────────────────────────
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
+    <PhoneActivity
+      context="listening-run"
+      data-testid="listening-run"
+      className="listening-run mx-auto max-w-3xl space-y-2 sm:space-y-6"
+    >
       <RunHeader
         index={run.index}
         total={ld.RUN_LENGTH}
@@ -237,7 +247,7 @@ export function ListeningDrill() {
       )}
 
       {cur && <QuestionCard q={cur} onReplay={onReplay} onAnswer={onAnswer} onNext={onNext} />}
-    </div>
+    </PhoneActivity>
   );
 }
 
@@ -277,12 +287,12 @@ function LevelPicker({
   const accuracy =
     stats.totalAttempts === 0 ? 0 : Math.round((stats.totalCorrect / stats.totalAttempts) * 100);
   return (
-    <div className="rounded-2xl border border-border/60 bg-card/30 p-5">
+    <div className="rounded-2xl border border-border/60 bg-card/30 p-3 sm:p-5">
       <div className="mb-3 flex items-baseline justify-between">
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           Difficulty · {language}
         </div>
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <div className="hidden sm:flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           <span>
             Best <span className="text-foreground">{stats.bestStreak}</span>
           </span>
@@ -305,7 +315,10 @@ function LevelPicker({
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
               {LEVEL_LABELS[l].name}
             </div>
-            <div className="mt-1 text-xs text-foreground/80">{LEVEL_LABELS[l].sub}</div>
+            <div className="mt-1 text-xs text-foreground/80">
+              <span className="sm:hidden">{["Easy", "Medium", "Hard"][l - 1]}</span>
+              <span className="hidden sm:inline">{LEVEL_LABELS[l].sub}</span>
+            </div>
           </button>
         ))}
       </div>
@@ -358,7 +371,10 @@ function QuestionCard({
   const correctIdx = q.question.correctIndex;
 
   return (
-    <div className="rounded-2xl border border-border/60 bg-card/40 p-6">
+    <div
+      data-testid="listening-question"
+      className="listening-question rounded-2xl border border-border/60 bg-card/40 p-3 sm:p-6"
+    >
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <span className="rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
           {q.question.cefr}
@@ -369,7 +385,7 @@ function QuestionCard({
       </div>
 
       {/* Big play button */}
-      <div className="mt-5 flex flex-col items-center">
+      <div className="listening-play mt-5 flex flex-col items-center">
         <button
           onClick={onReplay}
           className="group relative inline-flex h-24 w-24 items-center justify-center rounded-full border-2 border-gold/60 bg-gradient-to-br from-gold/20 via-gold/10 to-transparent text-gold shadow-[0_0_40px_-10px_rgba(212,175,55,0.6)] transition-all hover:scale-105 hover:border-gold hover:from-gold/30 active:scale-95"
@@ -384,7 +400,10 @@ function QuestionCard({
       </div>
 
       {/* Options */}
-      <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <div
+        data-testid="listening-options"
+        className="listening-options mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2"
+      >
         {q.question.options.map((opt, i) => {
           const isSelected = q.selectedIndex === i;
           const isCorrectOpt = i === correctIdx;
@@ -417,49 +436,37 @@ function QuestionCard({
         })}
       </div>
 
-      {/* Reveal panel */}
-      {reveal && (
-        <div className="mt-5 space-y-3">
-          <div
-            className={`rounded-xl border p-3 ${
-              q.correct
-                ? "border-emerald-500/40 bg-emerald-500/10"
-                : "border-rose-500/40 bg-rose-500/10"
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              {q.correct ? (
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              ) : (
-                <XCircle className="h-4 w-4 text-rose-400" />
-              )}
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-                {q.correct ? "Correct" : "Not quite"}
-              </span>
-            </div>
-            <p className="mt-1 font-display text-base text-foreground/95">{q.question.phrase}</p>
-            <p className="mt-1 text-[13px] text-muted-foreground">
-              {q.question.englishTranslation}
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-violet-500/30 bg-violet-500/10 p-3">
-            <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-violet-300">
-              <Ear className="h-3 w-3" /> Listen for
-            </div>
-            <p className="mt-1 text-sm text-foreground/90">{q.question.listenFor}</p>
-          </div>
-
-          <div className="flex items-center justify-end">
-            <button
-              onClick={onNext}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gold/10 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold/20"
-            >
-              Next <ChevronRight className="h-3.5 w-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
+      <div
+        data-testid="listening-feedback"
+        className="listening-feedback mt-3 rounded-xl border border-border bg-background/30 p-3"
+        aria-live="polite"
+      >
+        {reveal ? (
+          <>
+            <p className="text-sm font-semibold">{q.correct ? "Correct" : "Not quite"}</p>
+            <p className="text-base text-foreground">{q.question.phrase}</p>
+            <p className="text-sm text-muted-foreground">{q.question.englishTranslation}</p>
+            <details>
+              <summary className="min-h-11 cursor-pointer text-sm text-gold">
+                <Ear className="mr-1 inline h-4 w-4" />
+                Listen for
+              </summary>
+              <p className="text-sm">{q.question.listenFor}</p>
+            </details>
+          </>
+        ) : (
+          <p className="text-sm text-muted-foreground">Listen, then choose an answer above.</p>
+        )}
+      </div>
+      <button
+        data-testid="listening-next"
+        type="button"
+        disabled={!reveal}
+        onClick={onNext}
+        className="mt-2 min-h-11 shrink-0 rounded-full border border-gold/60 bg-gold/10 px-5 py-2 text-sm font-semibold text-gold disabled:opacity-50"
+      >
+        Next <ChevronRight className="inline h-4 w-4" />
+      </button>
     </div>
   );
 }

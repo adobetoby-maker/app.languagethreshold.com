@@ -190,6 +190,10 @@ test("Reader, More, Modules and Practice Lab lead with their activity", async ({
     "position",
     "static",
   );
+  await expect(page.getByRole("button", { name: "Open margin notes", exact: true })).toHaveCSS(
+    "translate",
+    "none",
+  );
   for (const name of ["Previous reading", "Next reading"]) {
     const box = await page.getByRole("button", { name, exact: true }).boundingBox();
     expect(box!.x).toBeGreaterThanOrEqual(0);

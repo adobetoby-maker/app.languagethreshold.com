@@ -16,8 +16,10 @@ import {
 export function NotesPanel({
   textId,
   onGoTo,
+  inlineOnPhone = false,
 }: {
   textId: string;
+  inlineOnPhone?: boolean;
   onGoTo: (pane: "left" | "right", sentenceIndex: number) => void;
 }) {
   const { forText, add, remove, update } = useNotes();
@@ -44,7 +46,7 @@ export function NotesPanel({
         <button
           type="button"
           aria-label="Open margin notes"
-          className="fixed right-0 top-1/2 z-30 -translate-y-1/2 rounded-l-2xl border border-r-0 border-gold/40 bg-card/90 px-2 py-4 shadow-luxe backdrop-blur transition-colors hover:bg-gold/10"
+          className={`${inlineOnPhone ? "reader-notes-trigger " : ""}fixed right-0 top-1/2 z-30 -translate-y-1/2 rounded-l-2xl border border-r-0 border-gold/40 bg-card/90 px-2 py-4 shadow-luxe backdrop-blur transition-colors hover:bg-gold/10`}
         >
           <span className="flex flex-col items-center gap-2">
             <NotebookPen className="h-4 w-4 text-gold" />

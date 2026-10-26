@@ -166,10 +166,11 @@ export function TabShell() {
       <TabErrorBoundary tabKey={state.currentTab}>
         <Suspense fallback={<TabFallback />}>
           <>
-            {state.currentTab !== "core30" && state.currentTab !== "speak" && purposeBanner}
-            <Component />
-            {/* Keep course availability guidance without putting it ahead of Continue. */}
-            {state.currentTab === "core30" && purposeBanner}
+            <div data-testid="tab-activity">
+              <Component />
+            </div>
+            {/* Start with the activity; optional help must not displace its controls. */}
+            {state.currentTab !== "speak" && purposeBanner}
             <span hidden data-demo-screen={state.currentTab} />
           </>
         </Suspense>

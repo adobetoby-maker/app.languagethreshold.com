@@ -231,7 +231,7 @@ export function ModulesPage() {
   return (
     <div className="flex h-full flex-col overflow-hidden">
       {/* Page header */}
-      <div className="border-b border-border/60 bg-card/30 px-6 py-5 backdrop-blur">
+      <div className="border-b border-border/60 bg-card/30 px-4 py-3 sm:px-6 sm:py-5 backdrop-blur">
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-2 mb-1">
             <Sparkles className="h-4 w-4 text-gold" />
@@ -249,13 +249,6 @@ export function ModulesPage() {
                 ? "Explore every specialty in the public demo. A Pro or Team plan includes the full library."
                 : "Preview any specialty. A Pro or Team plan includes the full library."}
           </p>
-          <Link
-            to="/module-request"
-            className="mt-2 inline-block text-xs font-semibold text-gold underline underline-offset-2"
-          >
-            Need a different specialty? Request a custom module for $20 →
-          </Link>
-
           {/* Search */}
           <div className="relative mt-4">
             <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
@@ -264,47 +257,52 @@ export function ModulesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search modules, roles, or keywords…"
-              className="w-full rounded-xl border border-border/60 bg-background/60 py-2.5 pl-9 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/50 focus:outline-none"
+              className="w-full rounded-xl border border-border/60 bg-background/60 py-2.5 pl-9 pr-4 text-base text-foreground placeholder:text-muted-foreground focus:border-gold/50 focus:outline-none"
             />
           </div>
 
-          {/* Category filter */}
-          <div className="mt-3 flex gap-1.5 flex-wrap">
-            <button
-              onClick={() => setActiveCategory("All")}
-              className={
-                "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors " +
-                (activeCategory === "All"
-                  ? "border-gold/60 bg-gold/15 text-gold"
-                  : "border-border/50 bg-background/30 text-muted-foreground hover:text-foreground")
-              }
-            >
-              All {search ? `(${filtered.length})` : `(${totalModules})`}
-            </button>
-            {categoryCounts.map(({ category: cat, count }) => {
-              const meta = CATEGORY_META[cat];
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={
-                    "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors " +
-                    (activeCategory === cat
-                      ? `border-gold/60 bg-gold/15 text-gold`
-                      : "border-border/50 bg-background/30 text-muted-foreground hover:text-foreground")
-                  }
-                >
-                  {meta.emoji} {cat} ({count})
-                </button>
-              );
-            })}
-          </div>
+          <details data-testid="module-filters" className="mt-2">
+            <summary className="min-h-11 cursor-pointer text-sm font-semibold">
+              Categories · {activeCategory}
+            </summary>
+            {/* Category filter */}
+            <div className="mt-3 flex gap-1.5 flex-wrap">
+              <button
+                onClick={() => setActiveCategory("All")}
+                className={
+                  "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors " +
+                  (activeCategory === "All"
+                    ? "border-gold/60 bg-gold/15 text-gold"
+                    : "border-border/50 bg-background/30 text-muted-foreground hover:text-foreground")
+                }
+              >
+                All {search ? `(${filtered.length})` : `(${totalModules})`}
+              </button>
+              {categoryCounts.map(({ category: cat, count }) => {
+                const meta = CATEGORY_META[cat];
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={
+                      "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors " +
+                      (activeCategory === cat
+                        ? `border-gold/60 bg-gold/15 text-gold`
+                        : "border-border/50 bg-background/30 text-muted-foreground hover:text-foreground")
+                    }
+                  >
+                    {meta.emoji} {cat} ({count})
+                  </button>
+                );
+              })}
+            </div>
+          </details>
         </div>
       </div>
 
       {/* Module grid */}
-      <div className="lt-scroll-safe custom-scroll flex-1 overflow-y-auto px-6 py-6">
-        <div className="mx-auto max-w-5xl space-y-10">
+      <div className="lt-scroll-safe custom-scroll flex-1 overflow-y-auto px-4 py-3 sm:px-6 sm:py-6">
+        <div className="mx-auto max-w-5xl space-y-6">
           {activeCategory === "Travel" && (
             <NextTripBanner
               onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
@@ -386,6 +384,12 @@ export function ModulesPage() {
             })
           )}
         </div>
+        <Link
+          to="/module-request"
+          className="mt-2 inline-block text-xs font-semibold text-gold underline underline-offset-2"
+        >
+          Need a different specialty? Request a custom module for $20 →
+        </Link>
       </div>
     </div>
   );

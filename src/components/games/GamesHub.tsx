@@ -253,12 +253,11 @@ export function GamesHub() {
   const dailyBadge = daily.badge();
 
   return (
-    <div data-games-hub="" className="mx-auto max-w-4xl space-y-6">
+    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 sm:space-y-6">
       <div>
-        <h1 className="font-display text-3xl font-semibold">Practice Lab</h1>
+        <h1 className="font-display text-2xl sm:text-3xl font-semibold">Practice Lab</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Quick games and verb patterns, one leaderboard story. Each game persists per-language
-          stats.
+          Choose a game or practice a verb pattern.
         </p>
       </div>
 
@@ -310,16 +309,8 @@ export function GamesHub() {
         </span>
       </button>
 
-      {/* Grand totals strip */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        <Stat label="Best streak" value={grand.bestStreak} Icon={Flame} />
-        <Stat label="Perfect runs" value={grand.perfect} Icon={Award} />
-        <Stat label="Accuracy" value={`${grandAcc}%`} Icon={Trophy} />
-        <Stat label="Total answers" value={grand.attempts} Icon={Trophy} />
-      </div>
-
       {/* Game cards */}
-      <div data-games-grid="" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-games-grid="" className="grid grid-cols-2 gap-3 lg:grid-cols-3">
         {GAMES.map((g) => {
           const stats =
             g.id === "match"
@@ -345,7 +336,7 @@ export function GamesHub() {
             <button
               key={g.id}
               onClick={() => launch(g)}
-              className="group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70"
+              className="group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-3 sm:p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70"
             >
               <div className="flex items-center justify-between">
                 <g.Icon className="h-6 w-6 text-gold" strokeWidth={1.6} />
@@ -379,6 +370,18 @@ export function GamesHub() {
         activeModule={state.activeModuleId ?? null}
       />
 
+      <details data-testid="practice-statistics" className="rounded-xl border border-border p-3">
+        <summary className="min-h-11 cursor-pointer text-sm font-semibold">
+          Your practice statistics
+        </summary>
+        {/* Grand totals strip */}
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <Stat label="Best streak" value={grand.bestStreak} Icon={Flame} />
+          <Stat label="Perfect runs" value={grand.perfect} Icon={Award} />
+          <Stat label="Accuracy" value={`${grandAcc}%`} Icon={Trophy} />
+          <Stat label="Total answers" value={grand.attempts} Icon={Trophy} />
+        </div>
+      </details>
       {/* Cross-game achievements panel */}
       <CrossGameAchievements />
 

@@ -610,12 +610,12 @@ export function ParallelReader() {
   }
 
   return (
-    <div className="fade-in mx-auto w-full max-w-6xl">
+    <div className="fade-in reader-page mx-auto w-full max-w-6xl">
       <LessonReturnPill kind="see" />
 
       {/* Library readings are separate from the module's Core 30 lessons. */}
       {lessonIds.length > 1 && (
-        <div className="mb-4 flex items-center gap-2 rounded-xl border border-border/50 bg-card/40 px-4 py-2.5">
+        <div className="reader-reading-nav mb-3 flex items-center gap-2 rounded-xl border border-border/50 bg-card/40 px-3 py-2">
           <button
             onClick={() => goToLesson(currentLessonIndex - 1)}
             disabled={currentLessonIndex <= 0}
@@ -625,7 +625,7 @@ export function ParallelReader() {
             <ChevronLeft className="h-3 w-3" /> Prev
           </button>
 
-          <div className="flex flex-1 items-center justify-center gap-1.5">
+          <div className="hidden sm:flex flex-1 items-center justify-center gap-1.5">
             {lessonIds.map((id, idx) => (
               <button
                 key={id}
@@ -662,14 +662,14 @@ export function ParallelReader() {
       )}
 
       {/* Library bar */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border/60 bg-card/50 px-5 py-3 backdrop-blur">
+      <div className="mb-3 flex flex-nowrap items-center justify-between gap-2 rounded-2xl border border-border/60 bg-card/50 px-3 py-2 sm:px-5 sm:py-3 backdrop-blur">
         <button
           onClick={() => setDrawerOpen(true)}
-          className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/60 px-4 py-1.5 font-display text-sm italic text-foreground transition-colors hover:border-gold/60"
+          className="inline-flex flex-1 min-w-0 max-w-full items-center gap-2 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 font-display text-sm not-italic text-foreground transition-colors hover:border-gold/60"
         >
           <Library className="h-3.5 w-3.5 text-gold" />
           <span className="text-gold">✦</span>
-          {selected.title}
+          <span className="truncate">{selected.title}</span>
         </button>
         <div className="flex items-center gap-2">
           <button
@@ -678,6 +678,7 @@ export function ParallelReader() {
           >
             Open Library
           </button>
+          <NotesPanel textId={selected.id} onGoTo={handleGoTo} inlineOnPhone />
         </div>
       </div>
 
@@ -726,218 +727,221 @@ export function ParallelReader() {
         </div>
       )}
 
-      {/* Toolbar */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 px-1">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <Type className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Size
-            </span>
-            <div className="flex overflow-hidden rounded-full border border-border/70">
-              {(["S", "M", "L"] as TextSize[]).map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setSize(s)}
-                  data-active={size === s}
-                  className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Floating word search */}
-          {searchOpen ? (
+      <details data-testid="reader-options" className="mb-3 rounded-xl border border-border/60 p-3">
+        <summary className="min-h-11 cursor-pointer text-sm font-semibold">Reading options</summary>
+        {/* Toolbar */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 px-1">
+          <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <input
-                autoFocus
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && searchQuery.trim()) handleSearch(searchQuery.trim());
-                  if (e.key === "Escape") {
-                    setSearchOpen(false);
-                    setSearchQuery("");
-                  }
-                }}
-                placeholder={`Look up in ${state.selectedLanguage}…`}
-                className="w-44 rounded-full border border-gold/40 bg-background/60 px-3 py-1 font-mono text-[11px] text-foreground/90 placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
-              />
-              <button
-                onClick={() => {
-                  setSearchOpen(false);
-                  setSearchQuery("");
-                }}
-                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground hover:border-gold/60 hover:text-gold"
-              >
-                <X className="h-3 w-3" />
-              </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => setSearchOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-card/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
-            >
-              <Search className="h-3 w-3" />
-              Search
-            </button>
-          )}
-        </div>
-
-        <div className="flex items-center gap-4">
-          {selected.language === "Japanese" && (
-            <div className="flex items-center gap-2">
-              <Languages className="h-3.5 w-3.5 text-muted-foreground" />
+              <Type className="h-3.5 w-3.5 text-muted-foreground" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Furigana
+                Size
               </span>
               <div className="flex overflow-hidden rounded-full border border-border/70">
-                {(
-                  [
-                    { v: "off", label: "Off" },
-                    { v: "above", label: "Above" },
-                  ] as { v: FuriganaMode; label: string }[]
-                ).map(({ v, label }) => (
+                {(["S", "M", "L"] as TextSize[]).map((s) => (
                   <button
-                    key={v}
-                    onClick={() => setFuriganaMode(v)}
-                    data-active={furiganaMode === v}
-                    title={v === "off" ? "Hide readings" : "Tiny hiragana above kanji"}
+                    key={s}
+                    onClick={() => setSize(s)}
+                    data-active={size === s}
                     className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
                   >
-                    {label}
+                    {s}
                   </button>
                 ))}
               </div>
-              {furiganaMode !== "off" && (
+            </div>
+
+            {/* Floating word search */}
+            {searchOpen ? (
+              <div className="flex items-center gap-2">
+                <input
+                  autoFocus
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && searchQuery.trim()) handleSearch(searchQuery.trim());
+                    if (e.key === "Escape") {
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    }
+                  }}
+                  placeholder={`Look up in ${state.selectedLanguage}…`}
+                  className="w-44 rounded-full border border-gold/40 bg-background/60 px-3 py-1 font-mono text-[11px] text-foreground/90 placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
+                />
+                <button
+                  onClick={() => {
+                    setSearchOpen(false);
+                    setSearchQuery("");
+                  }}
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground hover:border-gold/60 hover:text-gold"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-card/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
+              >
+                <Search className="h-3 w-3" />
+                Search
+              </button>
+            )}
+          </div>
+
+          <div className="flex items-center gap-4">
+            {selected.language === "Japanese" && (
+              <div className="flex items-center gap-2">
+                <Languages className="h-3.5 w-3.5 text-muted-foreground" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Furigana
+                </span>
                 <div className="flex overflow-hidden rounded-full border border-border/70">
                   {(
                     [
-                      { v: "hiragana", label: "あ" },
-                      { v: "romaji", label: "A" },
-                    ] as { v: FuriganaScript; label: string }[]
+                      { v: "off", label: "Off" },
+                      { v: "above", label: "Above" },
+                    ] as { v: FuriganaMode; label: string }[]
                   ).map(({ v, label }) => (
                     <button
                       key={v}
-                      onClick={() => setFuriganaScript(v)}
-                      data-active={furiganaScript === v}
-                      title={v === "hiragana" ? "Show kana readings" : "Show romaji (Hepburn)"}
+                      onClick={() => setFuriganaMode(v)}
+                      data-active={furiganaMode === v}
+                      title={v === "off" ? "Hide readings" : "Tiny hiragana above kanji"}
                       className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
                     >
                       {label}
                     </button>
                   ))}
                 </div>
-              )}
-            </div>
-          )}
-          {selected.language === "Korean" && (
-            <div className="flex items-center gap-2">
-              <Languages className="h-3.5 w-3.5 text-muted-foreground" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Romaja
-              </span>
-              <div className="flex overflow-hidden rounded-full border border-border/70">
-                {(
-                  [
-                    { v: "off", label: "Off" },
-                    { v: "above", label: "Above" },
-                  ] as { v: FuriganaMode; label: string }[]
-                ).map(({ v, label }) => (
-                  <button
-                    key={v}
-                    onClick={() => setRomajaMode(v)}
-                    data-active={romajaMode === v}
-                    title={v === "off" ? "Hide readings" : "Tiny romaja above each syllable"}
-                    className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
-                  >
-                    {label}
-                  </button>
-                ))}
+                {furiganaMode !== "off" && (
+                  <div className="flex overflow-hidden rounded-full border border-border/70">
+                    {(
+                      [
+                        { v: "hiragana", label: "あ" },
+                        { v: "romaji", label: "A" },
+                      ] as { v: FuriganaScript; label: string }[]
+                    ).map(({ v, label }) => (
+                      <button
+                        key={v}
+                        onClick={() => setFuriganaScript(v)}
+                        data-active={furiganaScript === v}
+                        title={v === "hiragana" ? "Show kana readings" : "Show romaji (Hepburn)"}
+                        className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-          )}
-          {selected.language === "Chinese" && (
-            <div className="flex items-center gap-2">
-              <Languages className="h-3.5 w-3.5 text-muted-foreground" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Pinyin
-              </span>
-              <div className="flex overflow-hidden rounded-full border border-border/70">
-                {(
-                  [
-                    { v: "off", label: "Off" },
-                    { v: "above", label: "Above" },
-                  ] as { v: "off" | "above"; label: string }[]
-                ).map(({ v, label }) => (
-                  <button
-                    key={v}
-                    onClick={() => setPinyinMode(v)}
-                    data-active={pinyinMode === v}
-                    title={v === "off" ? "Hide readings" : "Tiny pinyin above hanzi"}
-                    className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
-                  >
-                    {label}
-                  </button>
-                ))}
+            )}
+            {selected.language === "Korean" && (
+              <div className="flex items-center gap-2">
+                <Languages className="h-3.5 w-3.5 text-muted-foreground" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Romaja
+                </span>
+                <div className="flex overflow-hidden rounded-full border border-border/70">
+                  {(
+                    [
+                      { v: "off", label: "Off" },
+                      { v: "above", label: "Above" },
+                    ] as { v: FuriganaMode; label: string }[]
+                  ).map(({ v, label }) => (
+                    <button
+                      key={v}
+                      onClick={() => setRomajaMode(v)}
+                      data-active={romajaMode === v}
+                      title={v === "off" ? "Hide readings" : "Tiny romaja above each syllable"}
+                      className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-          <label className="flex cursor-pointer items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Auto-scroll
-            </span>
+            )}
+            {selected.language === "Chinese" && (
+              <div className="flex items-center gap-2">
+                <Languages className="h-3.5 w-3.5 text-muted-foreground" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Pinyin
+                </span>
+                <div className="flex overflow-hidden rounded-full border border-border/70">
+                  {(
+                    [
+                      { v: "off", label: "Off" },
+                      { v: "above", label: "Above" },
+                    ] as { v: "off" | "above"; label: string }[]
+                  ).map(({ v, label }) => (
+                    <button
+                      key={v}
+                      onClick={() => setPinyinMode(v)}
+                      data-active={pinyinMode === v}
+                      title={v === "off" ? "Hide readings" : "Tiny pinyin above hanzi"}
+                      className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            <label className="flex cursor-pointer items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Auto-scroll
+              </span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={autoScroll}
+                onClick={() => setAutoScroll((v) => !v)}
+                className="relative h-5 w-10 rounded-full border border-border/70 bg-muted transition-colors data-[on=true]:bg-gold"
+                data-on={autoScroll}
+                title="When ON, the reader follows the spoken sentence. When OFF, the page stays where you scrolled."
+              >
+                <span
+                  className="absolute top-0.5 h-4 w-4 rounded-full bg-background transition-transform"
+                  style={{ transform: autoScroll ? "translateX(22px)" : "translateX(2px)" }}
+                />
+              </button>
+            </label>
+            <label className="flex cursor-pointer items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Sync Scroll
+              </span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={syncScroll}
+                onClick={() => setSyncScroll((v) => !v)}
+                className="relative h-5 w-10 rounded-full border border-border/70 bg-muted transition-colors data-[on=true]:bg-gold"
+                data-on={syncScroll}
+              >
+                <span
+                  className="absolute top-0.5 h-4 w-4 rounded-full bg-background transition-transform"
+                  style={{ transform: syncScroll ? "translateX(22px)" : "translateX(2px)" }}
+                />
+              </button>
+            </label>
             <button
               type="button"
-              role="switch"
-              aria-checked={autoScroll}
-              onClick={() => setAutoScroll((v) => !v)}
-              className="relative h-5 w-10 rounded-full border border-border/70 bg-muted transition-colors data-[on=true]:bg-gold"
-              data-on={autoScroll}
-              title="When ON, the reader follows the spoken sentence. When OFF, the page stays where you scrolled."
+              onClick={() => setFullscreen((v) => !v)}
+              title={fullscreen ? "Exit fullscreen reader" : "Fullscreen target language only"}
+              className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/15"
             >
-              <span
-                className="absolute top-0.5 h-4 w-4 rounded-full bg-background transition-transform"
-                style={{ transform: autoScroll ? "translateX(22px)" : "translateX(2px)" }}
-              />
+              {fullscreen ? <Minimize2 className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />}
+              {fullscreen ? "Exit" : "Focus"}
             </button>
-          </label>
-          <label className="flex cursor-pointer items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Sync Scroll
-            </span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={syncScroll}
-              onClick={() => setSyncScroll((v) => !v)}
-              className="relative h-5 w-10 rounded-full border border-border/70 bg-muted transition-colors data-[on=true]:bg-gold"
-              data-on={syncScroll}
-            >
-              <span
-                className="absolute top-0.5 h-4 w-4 rounded-full bg-background transition-transform"
-                style={{ transform: syncScroll ? "translateX(22px)" : "translateX(2px)" }}
-              />
-            </button>
-          </label>
-          <button
-            type="button"
-            onClick={() => setFullscreen((v) => !v)}
-            title={fullscreen ? "Exit fullscreen reader" : "Fullscreen target language only"}
-            className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/15"
-          >
-            {fullscreen ? <Minimize2 className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />}
-            {fullscreen ? "Exit" : "Focus"}
-          </button>
+          </div>
         </div>
-      </div>
 
-      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
-        Tap a word on either side for its meaning, audio and a flashcard. Ask the Tutor to explain
-        how it works in the sentence.
-      </ActionHint>
+        <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
+          Tap a word on either side for its meaning, audio and a flashcard. Ask the Tutor to explain
+          how it works in the sentence.
+        </ActionHint>
+      </details>
 
       {/* Reader */}
       <div
@@ -1074,8 +1078,6 @@ export function ParallelReader() {
       </details>
 
       <LibraryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-
-      <NotesPanel textId={selected.id} onGoTo={handleGoTo} />
 
       <div data-selection-ui>
         <SelectionMenu

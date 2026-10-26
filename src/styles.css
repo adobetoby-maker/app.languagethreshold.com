@@ -1345,3 +1345,253 @@ body :is(em, cite) {
     font-size: 0.9375rem !important;
   }
 }
+
+/* Phone activities keep a stable working frame. Libraries and long passages
+   remain scrollable; unusually long card/answer text scrolls inside its frame. */
+@media (max-width: 767px) {
+  .phone-activity {
+    display: flex;
+    flex-direction: column;
+    height: max(360px, var(--phone-activity-height, calc(100dvh - 14rem)));
+    min-height: 360px;
+    overflow-anchor: none;
+  }
+  .flashcards-heading {
+    flex-shrink: 0;
+  }
+  .flashcards-heading > div:first-child > div:first-child {
+    display: none;
+  }
+  .flashcards-working {
+    flex: 1;
+  }
+  .flashcards-working > :not(.flashcards-face) {
+    flex-shrink: 0;
+  }
+  .flashcards-face {
+    flex: 1;
+    min-height: 100px;
+    width: 100%;
+    padding: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    overflow-wrap: anywhere;
+  }
+  .flashcards-face .text-4xl {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+  .flashcards-face .text-3xl {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  .flashcards-working > div:nth-child(2) button {
+    min-height: 44px;
+  }
+  [data-testid="flashcards-shortcuts"] {
+    min-height: 36px;
+  }
+  [data-testid="flashcards-grading"] button {
+    min-height: 56px;
+    padding: 6px 4px;
+  }
+  .listening-run > :not(.listening-question) {
+    flex-shrink: 0;
+  }
+  .listening-question {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .listening-question > :not(.listening-options) {
+    flex-shrink: 0;
+  }
+  .listening-play {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 0;
+  }
+  .listening-play > button {
+    height: 44px;
+    width: 44px;
+  }
+  .listening-play > button > svg {
+    height: 24px;
+    width: 24px;
+  }
+  .listening-play > div {
+    margin-top: 0;
+  }
+  .listening-options {
+    flex: 1;
+    min-height: 44px;
+    align-content: start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-direction: column;
+  }
+  .listening-options > button {
+    flex-shrink: 0;
+    min-height: 44px;
+    height: auto;
+    padding: 8px;
+    min-width: 0;
+  }
+  .listening-feedback {
+    height: 88px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .reader-page {
+    overflow-anchor: none;
+  }
+}
+@media (max-width: 767px) {
+  .flashcards-heading h1 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .flashcards-heading > div:first-child > p {
+    display: none;
+  }
+  .flashcards-tools {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .flashcards-tools > span {
+    font-family: var(--font-sans);
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  .flashcards-tools > button {
+    font-family: var(--font-sans);
+    letter-spacing: normal;
+    text-transform: none;
+  }
+}
+@media (max-width: 767px) {
+  /* A changed usage example below the card must not become the page's anchor. */
+  main:has(.phone-activity) {
+    overflow-anchor: none;
+  }
+}
+@layer base {
+  @media (max-width: 767px) {
+    /* These working frames have no floating Reader player. The nav already has
+     its own grid row, so reserving its old overlay budget scrolls grades away. */
+    main.lt-scroll-safe:has(.phone-activity),
+    main.lt-scroll-safe:has(.stable-word-practice) {
+      padding-bottom: 12px !important;
+      scroll-padding-bottom: 12px !important;
+    }
+  }
+}
+@media (max-width: 360px) {
+  .lt-bottom-nav [class~="text-[9px]"] {
+    font-size: 0.6875rem !important;
+  }
+  .lt-bottom-nav .flex-1 {
+    min-width: 0;
+  }
+}
+@media (max-width: 767px) {
+  main:has(.stable-word-practice) {
+    overflow-anchor: none;
+  }
+}
+@media (max-width: 767px) {
+  .flashcards-review {
+    min-height: 24rem;
+  }
+  .flashcards-face {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+  }
+  .flashcards-face > div {
+    position: absolute;
+    inset: 0;
+    justify-content: safe center;
+    padding: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+@media (max-width: 767px) {
+  [data-testid="lesson-listening-prompt"] {
+    display: grid;
+    height: 96px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 4px 12px;
+    text-align: left;
+  }
+  [data-testid="lesson-listening-prompt"] > button {
+    grid-row: span 2;
+    height: 44px;
+    width: 44px;
+  }
+  [data-testid="lesson-listening-options"] {
+    height: 160px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The sticky lesson modes already name the activity. Keep its working controls
+     directly below them instead of repeating a second introductory header. */
+  [data-testid="lesson-section-kit"] {
+    padding: 12px;
+  }
+  [data-testid="lesson-section-kit"] > header {
+    display: none;
+  }
+  [data-testid="lesson-practice-section"] {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+  [data-testid="lesson-practice-section"] > h5 {
+    display: none;
+  }
+  [data-testid="lesson-practice-section"] > div {
+    margin-top: 0;
+  }
+  [data-testid="flashcard"] {
+    justify-content: safe center;
+  }
+}
+
+@media (max-width: 767px) {
+  .reader-reading-nav {
+    justify-content: space-between;
+  }
+  .reader-reading-nav > span {
+    font-family: var(--font-sans);
+    letter-spacing: normal;
+    text-transform: none;
+  }
+  .reader-notes-trigger {
+    position: static;
+    transform: none;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px;
+    border-right-width: 1px;
+    border-radius: 12px;
+  }
+  .reader-notes-trigger > span {
+    flex-direction: row;
+  }
+  .reader-notes-trigger > span > :last-child {
+    display: none;
+  }
+  .reader-page .lt-reader-sentence {
+    overflow-wrap: anywhere;
+  }
+}

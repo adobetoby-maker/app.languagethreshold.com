@@ -1,3 +1,4 @@
+import { PhoneActivity } from "@/components/PhoneActivity";
 import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus } from "lucide-react";
@@ -513,14 +514,14 @@ export function FlashcardsStudio() {
 
   const grade = useCallback(
     (g: SrsGrade) => {
-      if (!current || !flipped) return;
+      if (!current) return;
       reviewCard(current.id, g);
       if (g === "good") void playFlashcardSuccess("good-job");
       else if (g === "easy") void playFlashcardSuccess("cash");
       setFlipped(false);
       setReviewedCount((n) => n + 1);
     },
-    [current, flipped, reviewCard],
+    [current, reviewCard],
   );
 
   useEffect(() => {
@@ -546,7 +547,7 @@ export function FlashcardsStudio() {
         else grade("good");
         return;
       }
-      if (flipped && ["1", "2", "3", "4"].includes(e.key)) {
+      if (["1", "2", "3", "4"].includes(e.key)) {
         e.preventDefault();
         grade(GRADE_BUTTONS[Number(e.key) - 1].grade);
       }
@@ -561,238 +562,242 @@ export function FlashcardsStudio() {
 
   return (
     <div className="fade-in mx-auto w-full max-w-5xl">
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-3 px-1">
-        <div>
-          <div className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-            <Layers className="h-3.5 w-3.5" />
-            Flashcards
+      <PhoneActivity
+        context={`flashcards:${!!current}`}
+        data-testid="flashcards-review"
+        className="flashcards-review"
+      >
+        <div className="flashcards-heading mb-3 sm:mb-6 flex flex-wrap items-end justify-between gap-2 px-1">
+          <div>
+            <div className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <Layers className="h-3.5 w-3.5" />
+              Flashcards
+            </div>
+            <h1 className="font-display text-xl sm:text-3xl text-foreground">
+              {moduleFocused ? `${moduleName} cards` : `${language} flashcards`}
+            </h1>
+            <p className="font-sans text-sm not-italic text-muted-foreground">
+              {moduleSection
+                ? `Your selected module · ${language}`
+                : "Choose a card set with Add cards below"}
+            </p>
           </div>
-          <h1 className="font-display text-3xl text-foreground">
-            {moduleFocused ? `${moduleName} cards` : `${language} flashcards`}
-          </h1>
-          <p className="font-sans text-sm not-italic text-muted-foreground">
-            {moduleSection
-              ? `Your selected module · ${language}`
-              : "Choose a card set with Add cards below"}
-          </p>
+          <div className="flex gap-2 font-mono text-[10px] uppercase tracking-[0.18em]">
+            <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-gold">
+              {dueCards.length} due
+            </span>
+            <span className="rounded-full border border-border/60 bg-card/40 px-3 py-1 text-muted-foreground">
+              {allCards.length} total
+            </span>
+          </div>
         </div>
-        <div className="flex gap-2 font-mono text-[10px] uppercase tracking-[0.18em]">
-          <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-gold">
-            {dueCards.length} due
-          </span>
-          <span className="rounded-full border border-border/60 bg-card/40 px-3 py-1 text-muted-foreground">
-            {allCards.length} total
-          </span>
-        </div>
-      </div>
 
-      {moduleSection && (generatingFieldDeck || fieldDeckError) && (
-        <div
-          role="status"
-          className="mb-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
-        >
-          {generatingFieldDeck ? `Preparing ${moduleName} cards…` : fieldDeckError}
-          {fieldDeckError && !generatingFieldDeck && (
-            <button
-              type="button"
-              onClick={() => void loadFieldDeck(true)}
-              className="ml-2 min-h-11 text-gold underline"
-            >
-              Retry field cards
-            </button>
-          )}
-        </div>
-      )}
-      {current ? (
-        <div className="flex flex-col items-center gap-5">
-          <button
-            data-testid="flashcards-study-card"
-            aria-label="Flip flashcard"
-            aria-describedby="flashcards-shortcuts"
-            onClick={() => setFlipped((f) => !f)}
-            className="grid font-sans not-italic min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
+        {moduleSection && (generatingFieldDeck || fieldDeckError) && (
+          <div
+            role="status"
+            className="mb-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
           >
-            <div
-              aria-hidden={flipped}
-              className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
-            >
-              {language === "Japanese" && showFurigana ? (
-                <span className="font-sans text-4xl text-foreground leading-tight">
-                  <FuriganaText text={current.word} mode="above" script="hiragana" />
-                </span>
-              ) : (
-                <span className="font-sans text-4xl text-foreground">{current.word}</span>
-              )}
-              {current.romanization && (
-                <span className="mt-2 font-sans text-sm text-gold/80">{current.romanization}</span>
-              )}
-            </div>
-            <div
-              aria-hidden={!flipped}
-              className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
-            >
-              <span className="font-sans text-3xl text-foreground">{current.translation}</span>
-              {wordGloss ? (
-                <span
-                  data-testid="flashcards-word-gloss"
-                  aria-label="Word-by-word meaning"
-                  className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-3"
-                >
-                  {wordGloss.map((part, index) => (
-                    <span key={index} className="flex flex-col items-center gap-1">
-                      <span className="font-sans text-xl text-foreground">{part.word}</span>
-                      <span className="text-sm text-muted-foreground">{part.meaning}</span>
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                <span className="mt-4 font-sans text-xl text-muted-foreground">{current.word}</span>
-              )}
-
-              {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
-              {japaneseConjugation && (
-                <div className="mt-4 w-full max-w-sm space-y-2">
-                  <div className="flex flex-wrap items-center justify-center gap-2">
-                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                      て{" "}
-                      <span className="text-foreground">
-                        {japaneseConjugation.teForm ?? japaneseConjugation.bases.te}
-                      </span>
-                    </span>
-                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                      た{" "}
-                      <span className="text-foreground">
-                        {japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}
-                      </span>
-                    </span>
-                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                      -masu{" "}
-                      <span className="text-foreground">
-                        {japaneseConjugation.forms.polite.present}
-                      </span>
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-1.5">
-                    {(["a", "i", "u", "e", "te"] as const).map((b) => (
-                      <span
-                        key={b}
-                        className="rounded-md bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                      >
-                        <span className="opacity-60 uppercase">{b}</span>{" "}
-                        <span className="text-foreground">{japaneseConjugation.bases[b]}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {hasDistinctFlashcardExample(current) && (
-                <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
-                  <p className="font-sans text-base not-italic text-foreground">
-                    {language === "Japanese" && showFurigana ? (
-                      <FuriganaText text={current.example} mode="above" script="hiragana" />
-                    ) : (
-                      `"${current.example}"`
-                    )}
-                  </p>
-                  <p className="mt-1 font-sans text-sm text-muted-foreground">
-                    {current.exampleTranslation}
-                  </p>
-                </div>
-              )}
-            </div>
-          </button>
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                speak(current.word);
-              }}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
-            >
-              <Volume2 className="h-3 w-3" /> Pronounce
-            </button>
-            {language === "Japanese" && (
+            {generatingFieldDeck ? `Preparing ${moduleName} cards…` : fieldDeckError}
+            {fieldDeckError && !generatingFieldDeck && (
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowFurigana((v) => !v);
-                }}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${
-                  showFurigana
-                    ? "border-gold/50 bg-gold/10 text-gold"
-                    : "border-border/70 bg-background/40 text-muted-foreground hover:border-gold/40"
-                }`}
-                title={showFurigana ? "Hide furigana" : "Show furigana on cards"}
+                onClick={() => void loadFieldDeck(true)}
+                className="ml-2 min-h-11 text-gold underline"
               >
-                あ Furigana {showFurigana ? "ON" : "OFF"}
+                Retry field cards
               </button>
             )}
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              {reviewedCount} reviewed this session
-            </span>
           </div>
-
-          <div
-            id="flashcards-shortcuts"
-            data-testid="flashcards-shortcuts"
-            className="grid w-full max-w-xl text-center text-xs leading-relaxed text-muted-foreground"
-          >
-            <span
-              aria-hidden={flipped}
-              className={`col-start-1 row-start-1 ${flipped ? "invisible" : ""}`}
+        )}
+        {current ? (
+          <div className="flashcards-working flex min-h-0 flex-col items-center gap-2 sm:gap-5">
+            <button
+              data-testid="flashcards-study-card"
+              aria-label="Flip flashcard"
+              aria-describedby="flashcards-shortcuts"
+              onClick={() => setFlipped((f) => !f)}
+              className="flashcards-face grid font-sans not-italic min-h-[260px] w-full max-w-xl items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-8 text-center shadow-luxe backdrop-blur transition-colors hover:border-gold/40"
             >
-              Tap the card, Enter or Space to reveal translation
-            </span>
-            <span
-              aria-hidden={!flipped}
-              className={`col-start-1 row-start-1 ${flipped ? "" : "invisible"}`}
-            >
-              Tap the card or Enter: flip back · Space: accept (Good) · 1–4: grade
-            </span>
-          </div>
-
-          <p
-            className="min-h-12 max-w-xl text-center text-sm font-medium text-foreground"
-            aria-live="polite"
-          >
-            {flipped
-              ? "Choose how well you remembered it."
-              : "Reveal the answer to enable grading."}
-          </p>
-          <div data-testid="flashcards-grading" className="grid w-full max-w-xl grid-cols-4 gap-2">
-            {GRADE_BUTTONS.map((b, i) => (
-              <button
-                key={b.grade}
-                onClick={() => grade(b.grade)}
-                disabled={!flipped}
-                title={!flipped ? "Flip the card before grading" : b.label}
-                className={`flex flex-col items-center rounded-xl border-2 px-2 py-3 font-sans text-sm font-bold tracking-normal shadow-sm transition-colors disabled:cursor-not-allowed disabled:border-dashed ${b.cls}`}
+              <div
+                aria-hidden={flipped}
+                className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
               >
-                {b.label}
-                <span className="mt-0.5 text-xs font-medium">{b.hint}</span>
-                <span className="mt-1 rounded border border-current/50 px-1.5 text-xs font-semibold">
-                  {i + 1}
-                </span>
+                {language === "Japanese" && showFurigana ? (
+                  <span className="font-sans text-4xl text-foreground leading-tight">
+                    <FuriganaText text={current.word} mode="above" script="hiragana" />
+                  </span>
+                ) : (
+                  <span className="font-sans text-4xl text-foreground">{current.word}</span>
+                )}
+                {current.romanization && (
+                  <span className="mt-2 font-sans text-sm text-gold/80">
+                    {current.romanization}
+                  </span>
+                )}
+              </div>
+              <div
+                aria-hidden={!flipped}
+                className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
+              >
+                <span className="font-sans text-3xl text-foreground">{current.translation}</span>
+                {wordGloss ? (
+                  <span
+                    data-testid="flashcards-word-gloss"
+                    aria-label="Word-by-word meaning"
+                    className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-3"
+                  >
+                    {wordGloss.map((part, index) => (
+                      <span key={index} className="flex flex-col items-center gap-1">
+                        <span className="font-sans text-xl text-foreground">{part.word}</span>
+                        <span className="text-sm text-muted-foreground">{part.meaning}</span>
+                      </span>
+                    ))}
+                  </span>
+                ) : (
+                  <span className="mt-4 font-sans text-xl text-muted-foreground">
+                    {current.word}
+                  </span>
+                )}
+
+                {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
+                {japaneseConjugation && (
+                  <div className="mt-4 w-full max-w-sm space-y-2">
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                        て{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.teForm ?? japaneseConjugation.bases.te}
+                        </span>
+                      </span>
+                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                        た{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}
+                        </span>
+                      </span>
+                      <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+                        -masu{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.forms.polite.present}
+                        </span>
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-1.5">
+                      {(["a", "i", "u", "e", "te"] as const).map((b) => (
+                        <span
+                          key={b}
+                          className="rounded-md bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        >
+                          <span className="opacity-60 uppercase">{b}</span>{" "}
+                          <span className="text-foreground">{japaneseConjugation.bases[b]}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {hasDistinctFlashcardExample(current) && (
+                  <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
+                    <p className="font-sans text-base not-italic text-foreground">
+                      {language === "Japanese" && showFurigana ? (
+                        <FuriganaText text={current.example} mode="above" script="hiragana" />
+                      ) : (
+                        `"${current.example}"`
+                      )}
+                    </p>
+                    <p className="mt-1 font-sans text-sm text-muted-foreground">
+                      {current.exampleTranslation}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </button>
+
+            <div className="flashcards-tools flex flex-wrap items-center justify-center gap-2">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  speak(current.word);
+                }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
+              >
+                <Volume2 className="h-3 w-3" /> Pronounce
               </button>
-            ))}
+              {language === "Japanese" && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowFurigana((v) => !v);
+                  }}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${
+                    showFurigana
+                      ? "border-gold/50 bg-gold/10 text-gold"
+                      : "border-border/70 bg-background/40 text-muted-foreground hover:border-gold/40"
+                  }`}
+                  title={showFurigana ? "Hide furigana" : "Show furigana on cards"}
+                >
+                  あ Furigana {showFurigana ? "ON" : "OFF"}
+                </button>
+              )}
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                {reviewedCount} reviewed<span className="sr-only"> this session</span>
+              </span>
+            </div>
+
+            <div
+              id="flashcards-shortcuts"
+              data-testid="flashcards-shortcuts"
+              className="grid w-full max-w-xl text-center text-xs leading-relaxed text-muted-foreground"
+            >
+              <span
+                aria-hidden={flipped}
+                className={`col-start-1 row-start-1 ${flipped ? "invisible" : ""}`}
+              >
+                Tap the card or Enter to flip · 1–4: grade either side
+              </span>
+              <span
+                aria-hidden={!flipped}
+                className={`col-start-1 row-start-1 ${flipped ? "" : "invisible"}`}
+              >
+                Tap the card or Enter to flip · Space: Good · 1–4: grade
+              </span>
+            </div>
+
+            <div
+              data-testid="flashcards-grading"
+              className="grid w-full max-w-xl grid-cols-4 gap-2"
+            >
+              {GRADE_BUTTONS.map((b, i) => (
+                <button
+                  key={b.grade}
+                  onClick={() => grade(b.grade)}
+                  title={`${b.label} — grade from either side`}
+                  className={`flex flex-col items-center rounded-xl border-2 px-2 py-3 font-sans text-sm font-bold tracking-normal shadow-sm transition-colors disabled:cursor-not-allowed disabled:border-dashed ${b.cls}`}
+                >
+                  {b.label}
+                  <span className="mt-0.5 text-xs font-medium">{b.hint}</span>
+                  <span className="mt-1 hidden sm:inline rounded border border-current/50 px-1.5 text-xs font-semibold">
+                    {i + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-card/30 p-14 text-center backdrop-blur">
-          <Sparkle className="h-6 w-6 text-gold" />
-          <p className="font-sans text-lg not-italic text-foreground">
-            {allCards.length ? "All caught up" : "No cards in this set yet"}
-          </p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-            {nextUp
-              ? `Next review in ${daysUntil(nextUp.srs.dueDate)}`
-              : "Add words from the Reader to build your deck"}
-          </p>
-        </div>
-      )}
+        ) : (
+          <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-card/30 p-14 text-center backdrop-blur">
+            <Sparkle className="h-6 w-6 text-gold" />
+            <p className="font-sans text-lg not-italic text-foreground">
+              {allCards.length ? "All caught up" : "No cards in this set yet"}
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              {nextUp
+                ? `Next review in ${daysUntil(nextUp.srs.dueDate)}`
+                : "Add words from the Reader to build your deck"}
+            </p>
+          </div>
+        )}
+      </PhoneActivity>
 
       <details
         key={`${language}:${moduleId}`}

@@ -336,6 +336,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
+  const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
   const [updatingApp, setUpdatingApp] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
   const [resettingApp, setResettingApp] = useState(false);
@@ -631,7 +632,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           {/* Appearance and other preferences remain in the familiar More sheet. */}
           <button
-            onClick={() => setMoreSheetOpen(true)}
+            onClick={() => {
+              setMoreView("settings");
+              setMoreSheetOpen(true);
+            }}
             aria-label="App settings"
             className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:text-foreground"
           >
@@ -647,7 +651,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             const inBar = BAR_TABS.some((t) => t.key === state.currentTab);
             return (
               <button
-                onClick={() => setMoreSheetOpen(true)}
+                onClick={() => {
+                  setMoreView("tabs");
+                  setMoreSheetOpen(true);
+                }}
                 aria-haspopup="dialog"
                 className={cn(
                   "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] transition-colors desktop:hidden",
@@ -767,235 +774,261 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             Every available tab, grouped by section. Tap one to switch.
           </SheetDescription>
 
-          {/* Language Match is not listed here. It already has a card in Games
-              Hub, and Games is a primary tab in the bottom nav — one tap, not
-              two — so a second entry in this sheet was duplication. The desktop
-              icon rail keeps its shortcut. */}
-
-          {/* Recently looked-up words — collapsible history built from
-              speech-state's setLastWord() calls (WordCard.tsx). Tap a word
-              to hear it spoken again; re-opening the WordCard popup itself
-              would require plumbing selection/position state that lives in
-              ParallelReader.tsx, out of scope here, so this is
-              display-plus-speak, not a full re-open. */}
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-            Recent words
-          </p>
-          <button
-            onClick={() => setRecentWordsOpen((v) => !v)}
-            className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25 cursor-pointer min-h-[44px]"
-          >
-            <span className="flex items-center gap-2.5 text-sm text-foreground">
-              <History className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
-              {recentWords.length > 0 ? `${recentWords.length} looked up` : "None looked up yet"}
-            </span>
-            <ChevronDown
-              className={cn(
-                "h-3.5 w-3.5 text-muted-foreground transition-transform duration-200",
-                recentWordsOpen && "rotate-180",
-              )}
-            />
-          </button>
-          {recentWordsOpen && (
-            <div className="mt-2 flex flex-wrap gap-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
-              {recentWords.length === 0 ? (
-                <span className="text-sm text-muted-foreground">
-                  Tap a word in the reader to start building your history.
-                </span>
-              ) : (
-                recentWords.map((word) => (
-                  <button
-                    key={word}
-                    onClick={() => speakWord(word)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink cursor-pointer min-h-[44px]"
-                  >
-                    <Volume2 className="h-3.5 w-3.5 text-gold-ink" strokeWidth={1.6} />
-                    {word}
-                  </button>
-                ))
-              )}
-            </div>
-          )}
-
-          {/* Free-text note — saved through useNotes() with a stable
-              sentinel textId so it never collides with per-reading
-              annotations. */}
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-            Quick note
-          </p>
-          <div className="mt-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
-            {/* Was a bare <textarea> — and this is the one note surface a phone
-                user reaches in two taps, yet the only one that could not accept
-                a drawn character or compose CJK properly. Now uses the same
-                input and canvas as the Dashboard card and Reader panel. */}
-            <MultilingualNoteInput
-              language={state.selectedLanguage}
-              value={noteDraft}
-              onChange={setNoteDraft}
-              onSave={saveSidebarNote}
-              rows={3}
-              className="border-border/40 bg-background/60"
-            />
-            {noteDrawMode && (
-              <div className="mt-2 overflow-hidden rounded-xl border border-gold/20">
-                <HandwritingCanvas
-                  onRecognized={(text) => setNoteDraft((prev) => prev + text)}
-                  insertLabel="Insert →"
-                />
-              </div>
-            )}
-            <button
-              type="button"
-              onClick={() => setNoteDrawMode((v) => !v)}
-              title="Draw a character to insert"
-              className={`mt-2 flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
-                noteDrawMode
-                  ? "border-gold/60 bg-gold/10 text-gold-ink"
-                  : "border-border/50 text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <PenLine className="h-3 w-3" /> Draw
-            </button>
-            <button
-              onClick={saveSidebarNote}
-              disabled={!noteDraft.trim()}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer min-h-[44px]"
-            >
-              <NotebookPen className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
-              Save note
-            </button>
-            {noteSaved && lastSidebarNote?.noteText && (
-              <p className="mt-2 text-xs text-muted-foreground">
-                Saved: <span className="text-foreground">{lastSidebarNote.noteText}</span>
-              </p>
-            )}
-          </div>
-
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-            App settings
-          </p>
-
           <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
             <span className="text-sm text-foreground">Your account</span>
             <AuthButton />
           </div>
 
-          <div className="mt-2">
-            <DeviceVoiceHelp />
-            <AudioRoutingSettings
-              learningContext={JSON.stringify([
-                state.currentTab,
-                state.activeModuleId,
-                state.selectedLanguage,
-              ])}
-            />
-          </div>
-
-          <div className="mt-2">
-            <PracticeBarSetting />
-          </div>
-
-          {/* Theme toggle — labeled row so the setting is discoverable */}
-          <button
-            onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
-            className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
-          >
-            <span className="flex items-center gap-2.5 text-sm text-foreground">
-              {state.darkMode ? (
-                <Moon className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
-              ) : (
-                <Sun className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
-              )}
-              Appearance
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              {state.darkMode ? "Dark — tap for light" : "Light — tap for dark"}
-            </span>
-          </button>
-
-          <PwaInstallControl />
-
-          <button
-            onClick={() => {
-              if (updatingApp) return;
-              setUpdatingApp(true);
-              void reloadNewestAppVersion();
-            }}
-            disabled={updatingApp}
-            className="mt-3 flex min-h-12 w-full items-center justify-between rounded-xl border-2 border-gold/40 bg-gold/10 px-4 py-3 text-left transition-colors hover:border-gold/70 disabled:cursor-wait disabled:opacity-60"
-          >
-            <span className="flex items-center gap-2.5 text-sm font-semibold text-gold-ink">
-              <RefreshCw
-                className={cn("h-4 w-4", updatingApp && "animate-spin")}
-                strokeWidth={1.8}
-              />
-              {updatingApp ? "Updating app…" : "Update app"}
-            </span>
-            <span className="max-w-[46%] text-right text-[10px] leading-tight text-muted-foreground">
-              Loads newest version · keeps progress
-            </span>
-          </button>
-
-          <AppVersion />
-
-          <button
-            onClick={() => {
-              setMoreSheetOpen(false);
-              setResetDialogOpen(true);
-            }}
-            disabled={resettingApp}
-            className="mt-2 flex min-h-12 w-full items-center justify-between rounded-xl border border-destructive/45 bg-destructive/10 px-4 py-3 text-left transition-colors hover:border-destructive/75 disabled:cursor-wait disabled:opacity-60"
-          >
-            <span className="flex items-center gap-2.5 text-sm font-semibold text-destructive">
-              <RotateCcw className="h-4 w-4" strokeWidth={1.8} />
-              Start app from beginning
-            </span>
-            <span className="max-w-[42%] text-right text-[10px] leading-tight text-muted-foreground">
-              Signs out · clears this device
-            </span>
-          </button>
-
-          <div className="mt-2 space-y-5">
-            {TAB_GROUP_ORDER.map((group) => {
-              const items = visible.filter((item) => item.group === group);
-              if (items.length === 0) return null;
-              return (
-                <div key={group}>
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                    {group}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((item) => {
-                      const { key, Icon } = item;
-                      const { label } =
-                        key === "fieldPrep"
-                          ? fieldPrepLabel(state.activeModuleId)
-                          : { label: item.label };
-                      const active = state.currentTab === key;
-                      return (
-                        <button
-                          key={key}
-                          onClick={() => {
-                            switchTab(key);
-                            setMoreSheetOpen(false);
-                          }}
-                          className={cn(
-                            "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
-                            active
-                              ? "border-gold/40 bg-gold/15 text-gold-ink"
-                              : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
-                          )}
-                        >
-                          <Icon className="h-5 w-5 shrink-0" strokeWidth={1.6} />
-                          <span className="text-[10px] leading-tight tracking-wide">{label}</span>
-                        </button>
-                      );
-                    })}
+          <div hidden={moreView === "settings"}>
+            <div className="mt-2 space-y-5">
+              {TAB_GROUP_ORDER.map((group) => {
+                const items = visible.filter((item) => item.group === group);
+                if (items.length === 0) return null;
+                return (
+                  <div key={group}>
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                      {group}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {items.map((item) => {
+                        const { key, Icon } = item;
+                        const { label } =
+                          key === "fieldPrep"
+                            ? fieldPrepLabel(state.activeModuleId)
+                            : { label: item.label };
+                        const active = state.currentTab === key;
+                        return (
+                          <button
+                            key={key}
+                            onClick={() => {
+                              switchTab(key);
+                              setMoreSheetOpen(false);
+                            }}
+                            className={cn(
+                              "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
+                              active
+                                ? "border-gold/40 bg-gold/15 text-gold-ink"
+                                : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
+                            )}
+                          >
+                            <Icon className="h-5 w-5 shrink-0" strokeWidth={1.6} />
+                            <span className="text-[10px] leading-tight tracking-wide">{label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
+                );
+              })}
+            </div>
+
+            {/* Language Match is not listed here. It already has a card in Games
+              Hub, and Games is a primary tab in the bottom nav — one tap, not
+              two — so a second entry in this sheet was duplication. The desktop
+              icon rail keeps its shortcut. */}
+
+            {/* Recently looked-up words — collapsible history built from
+              speech-state's setLastWord() calls (WordCard.tsx). Tap a word
+              to hear it spoken again; re-opening the WordCard popup itself
+              would require plumbing selection/position state that lives in
+              ParallelReader.tsx, out of scope here, so this is
+              display-plus-speak, not a full re-open. */}
+            <details data-testid="more-recent">
+              <summary className="mt-4 min-h-11 cursor-pointer text-sm font-semibold">
+                Recent words
+              </summary>
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                Recent words
+              </p>
+              <button
+                onClick={() => setRecentWordsOpen((v) => !v)}
+                className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25 cursor-pointer min-h-[44px]"
+              >
+                <span className="flex items-center gap-2.5 text-sm text-foreground">
+                  <History className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                  {recentWords.length > 0
+                    ? `${recentWords.length} looked up`
+                    : "None looked up yet"}
+                </span>
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 text-muted-foreground transition-transform duration-200",
+                    recentWordsOpen && "rotate-180",
+                  )}
+                />
+              </button>
+              {recentWordsOpen && (
+                <div className="mt-2 flex flex-wrap gap-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+                  {recentWords.length === 0 ? (
+                    <span className="text-sm text-muted-foreground">
+                      Tap a word in the reader to start building your history.
+                    </span>
+                  ) : (
+                    recentWords.map((word) => (
+                      <button
+                        key={word}
+                        onClick={() => speakWord(word)}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink cursor-pointer min-h-[44px]"
+                      >
+                        <Volume2 className="h-3.5 w-3.5 text-gold-ink" strokeWidth={1.6} />
+                        {word}
+                      </button>
+                    ))
+                  )}
                 </div>
-              );
-            })}
+              )}
+            </details>
+            {/* Free-text note — saved through useNotes() with a stable
+              sentinel textId so it never collides with per-reading
+              annotations. */}
+            <details data-testid="more-note">
+              <summary className="mt-3 min-h-11 cursor-pointer text-sm font-semibold">
+                Quick note
+              </summary>
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                Quick note
+              </p>
+              <div className="mt-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+                {/* Was a bare <textarea> — and this is the one note surface a phone
+                user reaches in two taps, yet the only one that could not accept
+                a drawn character or compose CJK properly. Now uses the same
+                input and canvas as the Dashboard card and Reader panel. */}
+                <MultilingualNoteInput
+                  language={state.selectedLanguage}
+                  value={noteDraft}
+                  onChange={setNoteDraft}
+                  onSave={saveSidebarNote}
+                  rows={3}
+                  className="border-border/40 bg-background/60"
+                />
+                {noteDrawMode && (
+                  <div className="mt-2 overflow-hidden rounded-xl border border-gold/20">
+                    <HandwritingCanvas
+                      onRecognized={(text) => setNoteDraft((prev) => prev + text)}
+                      insertLabel="Insert →"
+                    />
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setNoteDrawMode((v) => !v)}
+                  title="Draw a character to insert"
+                  className={`mt-2 flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                    noteDrawMode
+                      ? "border-gold/60 bg-gold/10 text-gold-ink"
+                      : "border-border/50 text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <PenLine className="h-3 w-3" /> Draw
+                </button>
+                <button
+                  onClick={saveSidebarNote}
+                  disabled={!noteDraft.trim()}
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-gold/25 hover:text-gold-ink disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer min-h-[44px]"
+                >
+                  <NotebookPen className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                  Save note
+                </button>
+                {noteSaved && lastSidebarNote?.noteText && (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Saved: <span className="text-foreground">{lastSidebarNote.noteText}</span>
+                  </p>
+                )}
+              </div>
+            </details>
           </div>
+          {moreView === "settings" && (
+            <button
+              type="button"
+              className="my-2 min-h-11 text-sm text-gold-ink"
+              onClick={() => setMoreView("tabs")}
+            >
+              Back to all tabs
+            </button>
+          )}
+          <details data-testid="more-settings" open={moreView === "settings" ? true : undefined}>
+            <summary className="mt-3 min-h-11 cursor-pointer text-sm font-semibold">
+              App settings
+            </summary>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+              App settings
+            </p>
+
+            <div className="mt-2">
+              <DeviceVoiceHelp />
+              <AudioRoutingSettings
+                learningContext={JSON.stringify([
+                  state.currentTab,
+                  state.activeModuleId,
+                  state.selectedLanguage,
+                ])}
+              />
+            </div>
+
+            <div className="mt-2">
+              <PracticeBarSetting />
+            </div>
+
+            {/* Theme toggle — labeled row so the setting is discoverable */}
+            <button
+              onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
+              className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
+            >
+              <span className="flex items-center gap-2.5 text-sm text-foreground">
+                {state.darkMode ? (
+                  <Moon className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                ) : (
+                  <Sun className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                )}
+                Appearance
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                {state.darkMode ? "Dark — tap for light" : "Light — tap for dark"}
+              </span>
+            </button>
+
+            <PwaInstallControl />
+
+            <button
+              onClick={() => {
+                if (updatingApp) return;
+                setUpdatingApp(true);
+                void reloadNewestAppVersion();
+              }}
+              disabled={updatingApp}
+              className="mt-3 flex min-h-12 w-full items-center justify-between rounded-xl border-2 border-gold/40 bg-gold/10 px-4 py-3 text-left transition-colors hover:border-gold/70 disabled:cursor-wait disabled:opacity-60"
+            >
+              <span className="flex items-center gap-2.5 text-sm font-semibold text-gold-ink">
+                <RefreshCw
+                  className={cn("h-4 w-4", updatingApp && "animate-spin")}
+                  strokeWidth={1.8}
+                />
+                {updatingApp ? "Updating app…" : "Update app"}
+              </span>
+              <span className="max-w-[46%] text-right text-[10px] leading-tight text-muted-foreground">
+                Loads newest version · keeps progress
+              </span>
+            </button>
+
+            <AppVersion />
+
+            <button
+              onClick={() => {
+                setMoreSheetOpen(false);
+                setResetDialogOpen(true);
+              }}
+              disabled={resettingApp}
+              className="mt-2 flex min-h-12 w-full items-center justify-between rounded-xl border border-destructive/45 bg-destructive/10 px-4 py-3 text-left transition-colors hover:border-destructive/75 disabled:cursor-wait disabled:opacity-60"
+            >
+              <span className="flex items-center gap-2.5 text-sm font-semibold text-destructive">
+                <RotateCcw className="h-4 w-4" strokeWidth={1.8} />
+                Start app from beginning
+              </span>
+              <span className="max-w-[42%] text-right text-[10px] leading-tight text-muted-foreground">
+                Signs out · clears this device
+              </span>
+            </button>
+          </details>
           <p className="mt-6 text-center text-[11px] text-muted-foreground">
             <a href="/terms" className="underline underline-offset-2 hover:text-foreground">
               Terms of Service

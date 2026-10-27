@@ -105,4 +105,13 @@ test("Reader woman/man switch changes the top-bar voice and persists across relo
   await page.reload();
   await expect(man).toHaveAttribute("aria-pressed", "true", { timeout: 60_000 });
   await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
+  await topVoice.click();
+  const closeVoice = page.getByRole("menuitem", { name: "Close voice selection", exact: true });
+  await expect(closeVoice).toBeVisible();
+  await page.getByRole("menu").evaluate((menu) => { menu.scrollTop = menu.scrollHeight; });
+  await expect(closeVoice).toBeInViewport();
+  await closeVoice.click();
+  await expect(page.getByRole("menu")).not.toBeVisible();
+  await expect(topVoice).toBeFocused();
+  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
 });

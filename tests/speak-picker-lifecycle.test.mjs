@@ -83,7 +83,7 @@ async function fixture(component, action) {
  export const getVoicesForLocale=()=>[{voiceURI:'qa-device',name:'QA device voice',lang:'es-CR'}],pickVoice=()=>getVoicesForLocale()[0],subscribeVoices=()=>()=>{},isIosDevice=()=>false;
  export const getModule=()=>null,matchesFocus=()=>false,celebrate=()=>{},looseIncludes=()=>false;
  export const toast=Object.assign((...a)=>c.errors.push(a),{error:(...a)=>c.errors.push(a)});
- export const Mic='span',Square='span',Trash2='span',AlertTriangle='span',AudioLines='span',ChevronDown='span',Cloud='span',Smartphone='span';
+ export const Mic='span',Square='span',Trash2='span',AlertTriangle='span',AudioLines='span',ChevronDown='span',Cloud='span',Smartphone='span',X='span';
  export const ChallengePanel='section',SpeakingMissionsPreview='section',ModuleMatchPanel='section',LessonReturnPill='section';
  export const DropdownMenu='menu',DropdownMenuContent='menucontent',DropdownMenuItem='menuitem',DropdownMenuLabel='label',DropdownMenuSeparator='hr',DropdownMenuTrigger='button';
  `,

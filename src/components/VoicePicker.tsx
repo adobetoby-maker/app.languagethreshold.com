@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, AudioLines, ChevronDown, Cloud, Smartphone } from "lucide-react";
+import { AlertTriangle, AudioLines, ChevronDown, Cloud, Smartphone, X } from "lucide-react";
 import { toast } from "sonner";
 import {
   DropdownMenu,
@@ -263,9 +263,17 @@ export function VoicePicker({
         side={compact ? "top" : "bottom"}
         className="max-h-[70vh] w-[min(360px,calc(100vw-1.5rem))] overflow-y-auto border-border/70 bg-popover/95 backdrop-blur-xl"
       >
-        <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          Accent and voice
-        </DropdownMenuLabel>
+        <div className="sticky -top-1 z-10 flex items-center justify-between border-b border-border bg-popover px-2 pb-2 pt-1">
+          <DropdownMenuLabel className="text-sm font-semibold text-foreground">
+            Accent and voice
+          </DropdownMenuLabel>
+          <DropdownMenuItem
+            aria-label="Close voice selection"
+            className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg"
+          >
+            <X className="h-5 w-5" aria-hidden="true" />
+          </DropdownMenuItem>
+        </div>
         <div className="px-2 pb-2">
           <label
             htmlFor="site-voice-accent"

@@ -1,9 +1,14 @@
+import { useOverlayState } from "@/hooks/use-overlay-history";
+import { X } from "lucide-react";
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { cn } from "@/lib/utils";
 
-const Popover = PopoverPrimitive.Root;
+const Popover = (props: React.ComponentProps<typeof PopoverPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return <PopoverPrimitive.Root {...props} {...state} />;
+};
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 
@@ -12,7 +17,7 @@ const PopoverAnchor = PopoverPrimitive.Anchor;
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
->(({ className, align = "center", sideOffset = 4, ...props }, ref) => (
+>(({ className, children, align = "center", sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <PopoverPrimitive.Content
       ref={ref}
@@ -23,7 +28,18 @@ const PopoverContent = React.forwardRef<
         className,
       )}
       {...props}
-    />
+    >
+      <div data-overlay-close className="sticky top-0 z-30 flex justify-end bg-popover py-1">
+        <PopoverPrimitive.Close
+          type="button"
+          aria-label="Close settings"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </PopoverPrimitive.Close>
+      </div>
+      {children}
+    </PopoverPrimitive.Content>
   </PopoverPrimitive.Portal>
 ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;

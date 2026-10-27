@@ -35,7 +35,15 @@ export function FirstRunEntry() {
   if (!state.hydrated || state.onboardingComplete || hasDirectEntry) return null;
 
   if (!languageChosen) {
-    return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;
+    return (
+      <LanguageFirstStep
+        onChosen={() => setLanguageChosen(true)}
+        onDismiss={() => {
+          dispatch({ type: "COMPLETE_ONBOARDING" });
+          dispatch({ type: "SET_TAB", payload: "reader" });
+        }}
+      />
+    );
   }
 
   const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
@@ -53,6 +61,7 @@ export function FirstRunEntry() {
   return (
     <LearningEntryModal
       title="Start learning"
+      onDismiss={() => enter("reader")}
       description="Choose reading, speaking or the app guide to enter your learning space."
       className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background"
     >

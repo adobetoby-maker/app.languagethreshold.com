@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { X } from "lucide-react";
 import type { CjkCharacter } from "@/data/cjk";
 import { findRadical } from "@/data/cjk";
@@ -16,6 +17,7 @@ export function CharacterDetail({
   onClose: () => void;
   onSelectRadical?: (glyph: string) => void;
 }) {
+  useOverlayHistory(true, onClose);
   const readings =
     character.language === "Japanese"
       ? [
@@ -40,7 +42,7 @@ export function CharacterDetail({
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground hover:border-gold/40 hover:text-gold"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/50 text-muted-foreground hover:border-gold/40 hover:text-gold"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
@@ -81,18 +83,24 @@ export function CharacterDetail({
                   onClick={() => onSelectRadical?.(part.glyph)}
                   className="flex items-start gap-3 rounded-xl border border-border/50 bg-card/50 p-3 text-left transition-colors hover:border-gold/40"
                 >
-                  <span className="font-display text-3xl leading-none text-foreground">{part.glyph}</span>
+                  <span className="font-display text-3xl leading-none text-foreground">
+                    {part.glyph}
+                  </span>
                   <span className="min-w-0 flex-1">
                     <span className="block text-sm font-medium text-foreground">
                       {part.meaning}
                       {catalog?.japaneseName || catalog?.pinyin ? (
                         <span className="ml-2 font-mono text-xs text-gold">
-                          {character.language === "Japanese" ? catalog?.japaneseName : catalog?.pinyin}
+                          {character.language === "Japanese"
+                            ? catalog?.japaneseName
+                            : catalog?.pinyin}
                         </span>
                       ) : null}
                     </span>
                     {part.role && (
-                      <span className="mt-0.5 block text-xs text-muted-foreground">{part.role}</span>
+                      <span className="mt-0.5 block text-xs text-muted-foreground">
+                        {part.role}
+                      </span>
                     )}
                     {part.position && (
                       <span className="mt-1 inline-block rounded-full border border-border/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
@@ -126,8 +134,8 @@ export function CharacterDetail({
               {character.strokeOrderHint}
             </p>
             <p className="mt-2 text-[11px] text-muted-foreground">
-              Animated stroke diagrams can plug in later (e.g. KanjiVG). Practice with the writing pad
-              using this order.
+              Animated stroke diagrams can plug in later (e.g. KanjiVG). Practice with the writing
+              pad using this order.
             </p>
           </section>
         )}
@@ -139,7 +147,10 @@ export function CharacterDetail({
             </h3>
             <div className="space-y-2">
               {character.examples.map((ex) => (
-                <div key={ex.text} className="rounded-xl border border-border/40 bg-card/40 px-4 py-3">
+                <div
+                  key={ex.text}
+                  className="rounded-xl border border-border/40 bg-card/40 px-4 py-3"
+                >
                   <div className="font-display text-lg text-foreground">{ex.text}</div>
                   {ex.reading && (
                     <div className="mt-0.5 font-mono text-xs text-gold">{ex.reading}</div>

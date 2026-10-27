@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useRef, useState } from "react";
 import { Star, X } from "lucide-react";
 import type { LtAnalytics } from "@/lib/lt-analytics";
@@ -21,6 +22,7 @@ export function PostSessionFeedback({
   onClose,
 }: PostSessionFeedbackProps) {
   const alive = useRef(false);
+  useOverlayHistory(true, onClose);
   const flight = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
@@ -76,7 +78,8 @@ export function PostSessionFeedback({
       <div className="relative w-full max-w-md rounded-2xl border border-gold/30 bg-card/95 p-6 shadow-luxe backdrop-blur-xl">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-1 text-muted-foreground hover:text-foreground"
+          aria-label="Close session feedback"
+          className="absolute right-2 top-2 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-foreground"
         >
           <X className="h-4 w-4" />
         </button>

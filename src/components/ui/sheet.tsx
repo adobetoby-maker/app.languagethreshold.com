@@ -1,5 +1,7 @@
 "use client";
 
+import { useOverlayState } from "@/hooks/use-overlay-history";
+
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -7,7 +9,10 @@ import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const Sheet = SheetPrimitive.Root;
+const Sheet = (props: React.ComponentProps<typeof SheetPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return <SheetPrimitive.Root {...props} {...state} />;
+};
 
 const SheetTrigger = SheetPrimitive.Trigger;
 
@@ -61,10 +66,18 @@ const SheetContent = React.forwardRef<
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
+      <div
+        data-overlay-close
+        className="sticky top-0 z-30 -mt-2 flex justify-end bg-background py-1"
+      >
+        <SheetPrimitive.Close
+          type="button"
+          aria-label="Close"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </SheetPrimitive.Close>
+      </div>
       {children}
     </SheetPrimitive.Content>
   </SheetPortal>

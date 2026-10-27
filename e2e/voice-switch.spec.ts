@@ -108,10 +108,117 @@ test("Reader woman/man switch changes the top-bar voice and persists across relo
   await topVoice.click();
   const closeVoice = page.getByRole("menuitem", { name: "Close voice selection", exact: true });
   await expect(closeVoice).toBeVisible();
-  await page.getByRole("menu").evaluate((menu) => { menu.scrollTop = menu.scrollHeight; });
+  await page.getByRole("menu").evaluate((menu) => {
+    menu.scrollTop = menu.scrollHeight;
+  });
   await expect(closeVoice).toBeInViewport();
   await closeVoice.click();
   await expect(page.getByRole("menu")).not.toBeVisible();
   await expect(topVoice).toBeFocused();
   await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
+});
+
+test("Back dismisses voice selection without leaving the reader; X removes its history step", async ({
+  page,
+}) => {
+  await stubVoices(page);
+  await openReader(page);
+  const url = page.url();
+  const trigger = page.getByTestId("site-voice-button").filter({ visible: true });
+  await trigger.click();
+  await expect(page.getByRole("menu")).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole("menu")).not.toBeVisible();
+  await expect(page).toHaveURL(url);
+  await trigger.click();
+  await page.getByRole("menuitem", { name: "Close voice selection" }).click();
+  await expect(page.getByRole("menu")).not.toBeVisible();
+  await expect
+    .poll(() => page.evaluate(() => window.history.state?.["lt.openOverlays"] ?? []))
+    .toEqual([]);
+  await expect(page).toHaveURL(url);
+});
+
+test("module search always has an X and Back returns to the same reading page", async ({
+  page,
+  isMobile,
+}) => {
+  await stubVoices(page);
+  await openReader(page);
+  const url = page.url();
+  const trigger = isMobile
+    ? page.getByTitle("Core (Free)", { exact: true })
+    : page.getByTitle("Change module", { exact: true });
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "Select Module" });
+  await dialog.getByPlaceholder("Search modules…").fill("roof");
+  const close = dialog.getByRole("button", { name: "Close", exact: true });
+  await expect(close).toBeInViewport();
+  await close.click();
+  await expect(dialog).not.toBeVisible();
+  await expect(page).toHaveURL(url);
+  await trigger.click();
+  await expect(dialog).toBeVisible();
+  await page.goBack();
+  await expect(dialog).not.toBeVisible();
+  await expect(page).toHaveURL(url);
+});
+
+test("settings and nested native-language menu close one layer at a time", async ({
+  page,
+  isMobile,
+}) => {
+  await stubVoices(page);
+  await openReader(page);
+  const url = page.url();
+  await page
+    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
+    .click();
+  const panel = page.getByRole("dialog").filter({ visible: true }).last();
+  await expect(panel).toBeVisible();
+  if (!isMobile) {
+    await page.getByTitle(/^Native language:/).click();
+    await expect(page.getByRole("menu")).toBeVisible();
+    await page.goBack();
+    await expect(page.getByRole("menu")).not.toBeVisible();
+    await expect(panel).toBeVisible();
+  }
+  await page.goBack();
+  await expect(panel).not.toBeVisible();
+  await expect(page).toHaveURL(url);
+});
+
+test("reader focus and unsaved vocabulary panels have X exits and support Back", async ({
+  page,
+}) => {
+  await stubVoices(page);
+  await openReader(page);
+  const url = page.url();
+  await page.getByTestId("reader-options").locator("summary").click();
+  await page.getByTitle("Fullscreen target language only", { exact: true }).click();
+  const closeReader = page.getByRole("button", { name: "Close fullscreen reader" });
+  await expect(closeReader).toBeInViewport();
+  await page.goBack();
+  await expect(closeReader).not.toBeVisible();
+  await page
+    .getByRole("button", { name: "Add a word to My Vocab from this page", exact: true })
+    .filter({ visible: true })
+    .click();
+  const vocab = page.getByRole("dialog", { name: "Add to My Vocab" });
+  await expect(vocab.getByRole("button", { name: "Close", exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(vocab).not.toBeVisible();
+  await expect(page).toHaveURL(url);
+});
+
+test("margin notes have a visible X and Back dismisses the sheet", async ({ page }) => {
+  await stubVoices(page);
+  await openReader(page);
+  const url = page.url();
+  await page.getByRole("button", { name: "Open margin notes", exact: true }).click();
+  const notes = page.getByRole("dialog", { name: "Margin Notes" });
+  await expect(notes.getByRole("button", { name: "Close", exact: true })).toBeInViewport();
+  await page.goBack();
+  await expect(notes).not.toBeVisible();
+  await expect(page).toHaveURL(url);
 });

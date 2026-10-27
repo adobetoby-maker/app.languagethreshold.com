@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { curriculumVocabulary, type CurriculumWordMatch } from "@/lib/curriculum-vocabulary";
 import { CurriculumPracticeLinks } from "./CurriculumPracticeLinks";
 import { useWordCardCache } from "@/state/word-card-cache";
@@ -106,6 +107,7 @@ export function WordCard({
   onXp: (n: number) => void;
 }) {
   const lookup = useServerFn(lookupWord);
+  useOverlayHistory(true, onClose);
   const cache = useWordCardCache();
   const { setLastWord, accent, voiceURI } = useSpeech();
   const tutor = useTutor();
@@ -205,19 +207,16 @@ export function WordCard({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.word, request.x, request.y]);
 
-  // Click-away + Esc
+  // Click-away; Escape and Back are handled by useOverlayHistory.
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) onClose();
     };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     // delay so the originating click doesn't immediately close it
     const t = setTimeout(() => document.addEventListener("mousedown", onDoc), 0);
-    document.addEventListener("keydown", onKey);
     return () => {
       clearTimeout(t);
       document.removeEventListener("mousedown", onDoc);
-      document.removeEventListener("keydown", onKey);
     };
   }, [onClose]);
 
@@ -375,7 +374,7 @@ export function WordCard({
            button, so taps land on the content and the X does nothing — the
            only way out was tapping outside. Gold + a larger glyph so it reads
            as the exit at a glance. */
-        className="absolute left-2 top-2 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold/60 bg-background/90 text-gold shadow-md transition-colors hover:border-gold hover:bg-gold/15"
+        className="sticky left-2 top-2 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold/60 bg-background/90 text-gold shadow-md transition-colors hover:border-gold hover:bg-gold/15"
       >
         <X className="h-5 w-5" strokeWidth={2.5} />
       </button>

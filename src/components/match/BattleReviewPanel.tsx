@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useState } from "react";
 import { Volume2, X } from "lucide-react";
 import { toast } from "sonner";
@@ -28,6 +29,7 @@ interface Props {
 }
 
 export function BattleReviewPanel({ words, onPlayAgain, onHome, onClose }: Props) {
+  useOverlayHistory(true, onClose);
   return (
     <div
       className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md px-4"
@@ -40,7 +42,7 @@ export function BattleReviewPanel({ words, onPlayAgain, onHome, onClose }: Props
         <button
           onClick={onClose}
           aria-label="Close review"
-          className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 hover:border-gold/60 hover:text-gold"
+          className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 text-white hover:border-gold/60 hover:text-gold"
         >
           <X className="h-4 w-4" />
         </button>

@@ -469,12 +469,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           aria-label="Desktop navigation"
           className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
         >
-          <a
-            href="/documents"
-            className="mx-1 rounded-lg border border-gold/30 px-2 py-3 text-center text-xs text-gold-ink"
-          >
-            My Documents
-          </a>
           {desktopVisible.map((item) => {
             const { key, Icon } = item;
             const { label, short } =
@@ -507,6 +501,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             );
           })}
         </nav>
+
+        <a
+          href="/advanced"
+          title="Advanced tools"
+          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-border/50 px-1 py-1 text-muted-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
+        >
+          <GraduationCap className="h-[17px] w-[17px]" strokeWidth={1.6} />
+          <span className="font-mono text-[9px] tracking-wide">Advanced</span>
+        </a>
 
         {/* Language Match */}
         {onOpenMatch && (
@@ -605,12 +608,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a
-            href="/documents"
-            className="rounded-lg border border-gold/40 px-2 py-2.5 text-xs text-gold-ink"
-          >
-            Docs
-          </a>
           {/* Module picker */}
           <button
             onClick={() => setModuleDialogOpen(true)}
@@ -820,6 +817,17 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               Hub, and Games is a primary tab in the bottom nav — one tap, not
               two — so a second entry in this sheet was duplication. The desktop
               icon rail keeps its shortcut. */}
+
+            <a
+              href="/advanced"
+              className="mt-5 flex min-h-12 w-full items-center justify-between rounded-xl border border-border/50 bg-card/30 px-4 py-3 text-sm text-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
+            >
+              <span className="flex items-center gap-2.5">
+                <GraduationCap className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                Advanced tools
+              </span>
+              <span className="text-xs text-muted-foreground">Documents</span>
+            </a>
 
             {/* Recently looked-up words — collapsible history built from
               speech-state's setLastWord() calls (WordCard.tsx). Tap a word

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdvancedRouteImport } from './routes/advanced'
 import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
@@ -88,6 +89,11 @@ const IndexRoute = IndexRouteImport.update({
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvancedRoute = AdvancedRouteImport.update({
+  id: '/advanced',
+  path: '/advanced',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CertificateRoute = CertificateRouteImport.update({
@@ -404,6 +410,7 @@ const TeamAcceptRoute = TeamAcceptRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -471,6 +478,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -539,6 +547,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -608,6 +617,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -675,6 +685,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -742,6 +753,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -810,6 +822,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  AdvancedRoute: typeof AdvancedRoute
   CertificateRoute: typeof CertificateRoute
   DocumentsRoute: typeof DocumentsRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
@@ -896,6 +909,13 @@ declare module '@tanstack/react-router' {
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advanced': {
+      id: '/advanced'
+      path: '/advanced'
+      fullPath: '/advanced'
+      preLoaderRoute: typeof AdvancedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/certificate': {
@@ -1338,6 +1358,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  AdvancedRoute: AdvancedRoute,
   CertificateRoute: CertificateRoute,
   DocumentsRoute: DocumentsRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,

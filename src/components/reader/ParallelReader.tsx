@@ -28,7 +28,6 @@ import { SelectionMenu, type SelectionInfo } from "./SelectionMenu";
 import { NoteBubble } from "./NoteBubble";
 import { NotesPanel } from "./NotesPanel";
 import { MiniPlayer } from "./MiniPlayer";
-import { VoiceGenderSwitch } from "./VoiceGenderSwitch";
 import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
@@ -1017,7 +1016,6 @@ export function ParallelReader() {
                     <Volume2 className="h-3 w-3" />
                   </button>
                 )}
-                <VoiceGenderSwitch />
                 <span className="hidden font-display text-xs italic text-muted-foreground sm:inline">
                   target
                 </span>

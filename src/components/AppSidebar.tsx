@@ -82,7 +82,7 @@ import {
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
-import { VoicePicker } from "./VoicePicker";
+import { VoiceSettings } from "./settings/VoiceSettings";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
 
@@ -625,11 +625,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             <ChevronDown className="h-3 w-3 shrink-0 opacity-50" />
           </button>
 
-          {/* Site-wide voice choice must be reachable on phones, where TopNav is hidden. */}
-          <div className="shrink-0">
-            <VoicePicker compact />
-          </div>
-
           {/* Appearance and other preferences remain in the familiar More sheet. */}
           <button
             onClick={() => {
@@ -955,6 +950,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </p>
 
             <div className="mt-2">
+              <VoiceSettings />
               <DeviceVoiceHelp />
               <AudioRoutingSettings
                 learningContext={JSON.stringify([

@@ -48,19 +48,28 @@ export function useSiteVoice(): SiteVoice {
 
   useEffect(() => {
     const controller = new AbortController();
-    getMissionTtsCapabilities(accent, controller.signal)
-      .then((capabilities) => {
-        if (controller.signal.aborted) return;
-        setGoogleReady(capabilities.ready);
-        setGoogleVoices(googleVoicesForLocale(capabilities.voices, accent));
-      })
-      .catch((error) => {
-        if (controller.signal.aborted) return;
-        if (error instanceof DOMException && error.name === "AbortError") return;
-        setGoogleReady(false);
-        setGoogleVoices([]);
-      });
-    return () => controller.abort();
+    const refresh = () => {
+      getMissionTtsCapabilities(accent, controller.signal)
+        .then((capabilities) => {
+          if (controller.signal.aborted) return;
+          setGoogleReady(capabilities.ready);
+          setGoogleVoices(googleVoicesForLocale(capabilities.voices, accent));
+        })
+        .catch((error) => {
+          if (controller.signal.aborted) return;
+          if (error instanceof DOMException && error.name === "AbortError") return;
+          setGoogleReady(false);
+          setGoogleVoices([]);
+        });
+    };
+    refresh();
+    if (typeof window !== "undefined" && window.addEventListener)
+      window.addEventListener("online", refresh);
+    return () => {
+      controller.abort();
+      if (typeof window !== "undefined" && window.removeEventListener)
+        window.removeEventListener("online", refresh);
+    };
   }, [accent]);
 
   const current = useMemo((): VoiceIdentity | null => {

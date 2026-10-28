@@ -187,7 +187,7 @@ test("device voice setup instructions are reachable in desktop and phone setting
   if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
   else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
   await page
-    .getByText("Add voices to your device", { exact: true })
+    .getByText("Offline voice help", { exact: true })
     .filter({ visible: true })
     .click();
   await page.getByText("iPhone / iPad", { exact: true }).filter({ visible: true }).click();
@@ -299,12 +299,18 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
   );
   await expect(trip).toHaveCount(0);
   await page.getByText("Choose another mission or change settings", { exact: true }).click();
-  const accent = page.getByRole("combobox", { name: "Speaking accent", exact: true });
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
+  const accent = page.getByRole("combobox", {
+    name: "Accent and microphone language",
+    exact: true,
+  });
   await accent.selectOption("es-MX");
   await expect(accent).toHaveValue("es-MX");
   await page.reload();
   await page.getByText("Choose another mission or change settings", { exact: true }).click();
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
   await expect(accent).toHaveValue("es-MX");
+  await page.goBack();
   await page
     .getByRole("button")
     .filter({
@@ -313,8 +319,10 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
     .click();
   await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(page.getByText("Goals for this mission · reference", { exact: true })).toBeVisible();
-  await expect(accent).toHaveValue("es-MX");
+  await expect(page.getByText(/Voice: Female/).first()).toBeVisible();
   await expect(trip).toHaveCount(0);
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
+  await expect(accent).toHaveValue("es-MX");
   await accent.scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: `test-results/speak-accent-${test.info().project.name}.png` });

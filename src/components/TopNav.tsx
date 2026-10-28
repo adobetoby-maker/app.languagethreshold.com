@@ -12,11 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
-import { VoicePicker } from "./VoicePicker";
+import { VoiceSettings } from "./settings/VoiceSettings";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
 import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
@@ -97,12 +96,6 @@ export function TopNav() {
           >
             <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
           </button>
-          <VoiceGenderSwitch
-            label="Site voice"
-            showUnavailable
-            className="shrink-0 [&_button]:h-11 [&_button]:min-w-11"
-          />
-          <VoicePicker compact showLabel />
           <Popover>
             <PopoverTrigger asChild>
               <button
@@ -116,9 +109,10 @@ export function TopNav() {
             </PopoverTrigger>
             <PopoverContent
               align="end"
-              className="max-h-[75vh] w-[min(340px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
+              className="max-h-[75vh] w-[min(440px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
             >
               <p className="text-sm font-semibold">Learning settings</p>
+              <VoiceSettings />
               <DeviceVoiceHelp />
               <AudioRoutingSettings
                 learningContext={JSON.stringify([

@@ -27,11 +27,12 @@ test("pending identity/profile/link restoration cannot rewrite an incoming lesso
   );
 });
 test("leaving Core 30 updates the tab and clears stale position without losing same-track plan context", () => {
-  const next = appNavigationLocation(incoming, context),
+  const next = appNavigationLocation(incoming.replace("#practice", "&focus=1#practice"), context),
     p = params(next);
   assert.equal(p.get("tab"), "reader");
   assert.equal(p.get("lesson"), null);
   assert.equal(p.get("way"), null);
+  assert.equal(p.get("focus"), null);
   assert.equal(p.get("plan"), "qa-plan");
   assert.equal(p.get("utm_source"), "qa");
   assert.equal(new URL(next, "https://qa.invalid").hash, "#practice");
@@ -117,10 +118,16 @@ test("staying on Games keeps the Verbs sub-route", () => {
   assert.equal(params(next).get("vfamily"), "es.present.go-yo");
 });
 
-
 test("speaking return selection survives only its current tab and learning pair", () => {
   const current = "/?tab=speak&module=roofing&target=Spanish&native=English&mission=public-mission";
-  assert.equal(params(appNavigationLocation(current, {...context, tab: "speak"})).get("mission"), "public-mission");
-  for (const next of [{...context, tab: "reader"}, {...context, tab:"speak", moduleId:"landscaper"}, {...context, tab:"speak", target:"French"}])
+  assert.equal(
+    params(appNavigationLocation(current, { ...context, tab: "speak" })).get("mission"),
+    "public-mission",
+  );
+  for (const next of [
+    { ...context, tab: "reader" },
+    { ...context, tab: "speak", moduleId: "landscaper" },
+    { ...context, tab: "speak", target: "French" },
+  ])
     assert.equal(params(appNavigationLocation(current, next)).has("mission"), false);
 });

@@ -70,6 +70,9 @@ export interface LessonPracticeKitProps {
   /** Controlled mode: pass with `onModeChange` so a parent can switch the kit (e.g. open Match). */
   mode?: PracticeMode;
   onModeChange?: (mode: PracticeMode) => void;
+  /** Full-screen lesson flow: hide secondary navigation/actions and report objective completion. */
+  focusMode?: boolean;
+  onModeComplete?: (mode: PracticeMode) => void;
   /**
    * The language being learned (default "Spanish"). It sets the speech locale, the language
    * names in labels, the typing check, and the language "Add to my flashcards" saves under.
@@ -1513,6 +1516,8 @@ export function LessonPracticeKit({
   listeningItems,
   verbs,
   writingResponse,
+  focusMode = false,
+  onModeComplete,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
   const languages = useMemo(
@@ -1542,8 +1547,9 @@ export function LessonPracticeKit({
       fired.current.add(activity);
       setCompleted(new Set(fired.current));
       onActivity?.(activity);
+      onModeComplete?.(activity);
     },
-    [onActivity],
+    [onActivity, onModeComplete],
   );
 
   const addAll = () => {
@@ -1644,7 +1650,7 @@ export function LessonPracticeKit({
               })}
             </div>
           </>
-        ) : recallTabs.some((m) => m.id === mode) ? (
+        ) : !focusMode && recallTabs.some((m) => m.id === mode) ? (
           <div
             role="tablist"
             aria-label="Recall practice"
@@ -1747,7 +1753,7 @@ export function LessonPracticeKit({
           )}
         </div>
 
-        {words.length > 0 && (
+        {words.length > 0 && !focusMode && (
           <div className="border-t border-border/40 pt-3">
             <button
               type="button"

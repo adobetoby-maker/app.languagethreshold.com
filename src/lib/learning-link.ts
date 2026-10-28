@@ -89,6 +89,20 @@ export function lessonLocation(
   } else {
     params.delete("lesson");
     params.delete("way");
+    params.delete("focus");
+  }
+  return url.pathname + url.search + url.hash;
+}
+
+/** Add or remove the distraction-free lesson shell without changing the active lesson. */
+export function lessonFocusLocation(current: string, enabled: boolean): string | null {
+  const url = new URL(current, "https://lesson.invalid");
+  if (url.pathname !== "/" || url.searchParams.get("tab") !== "core30") return null;
+  if (enabled) {
+    if (!url.searchParams.has("lesson")) return null;
+    url.searchParams.set("focus", "1");
+  } else {
+    url.searchParams.delete("focus");
   }
   return url.pathname + url.search + url.hash;
 }

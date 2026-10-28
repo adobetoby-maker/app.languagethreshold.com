@@ -70,6 +70,7 @@ export function appNavigationLocation(
   if (!sameTrack || context.tab !== "core30" || params.get("tab") !== "core30") {
     params.delete("lesson");
     params.delete("way");
+    params.delete("focus");
   }
   // The Verbs sub-route lives only under the Games tab.
   if (context.tab !== "games") for (const key of VERB_ROUTE_PARAMS) params.delete(key);

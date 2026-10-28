@@ -15,6 +15,7 @@ import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
 import {
   requestedLesson,
   lessonLocation,
+  lessonFocusLocation,
   lessonOverviewLocation,
   canRestoreLessonReturn,
 } from "@/lib/learning-link";
@@ -75,6 +76,7 @@ import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPracti
 import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
+import { Core60FocusFlow } from "@/components/core30/Core60FocusFlow";
 import { LessonReader } from "@/components/core30/LessonReader";
 import { LessonResponsePractice } from "@/components/core30/LessonResponsePractice";
 import {
@@ -150,19 +152,37 @@ function Core60PathCard({ moduleId }: { moduleId: string }) {
         {path.steps.map((step) => {
           const isCurrent = step.stage === path.current;
           const label = labels[step.stage];
-          const base = "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
+          const base =
+            "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
           return (
             <li key={step.stage} className="min-w-0">
               {!step.available ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-disabled="true" className={cn(base, "border-dashed border-border text-muted-foreground")}>
-                  {label}<span className="sr-only"> — Coming soon</span>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-disabled="true"
+                  className={cn(base, "border-dashed border-border text-muted-foreground")}
+                >
+                  {label}
+                  <span className="sr-only"> — Coming soon</span>
                 </div>
               ) : isCurrent ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-current="step" className={cn(base, "border-gold/60 bg-gold/10 text-gold")}>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-current="step"
+                  className={cn(base, "border-gold/60 bg-gold/10 text-gold")}
+                >
                   {label}
                 </div>
               ) : (
-                <button type="button" data-testid={`core60-step-${step.stage}`} onClick={() => openCore30Of(step.moduleId)} className={cn(base, "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10")}>
+                <button
+                  type="button"
+                  data-testid={`core60-step-${step.stage}`}
+                  onClick={() => openCore30Of(step.moduleId)}
+                  className={cn(
+                    base,
+                    "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10",
+                  )}
+                >
                   {label}
                 </button>
               )}
@@ -722,6 +742,7 @@ function OwnedLessonRunner({
   onExit,
   onNavigate,
   onSectionChange,
+  focusMode = false,
 }: {
   enrollmentId?: string;
   lesson: Lesson;
@@ -734,6 +755,7 @@ function OwnedLessonRunner({
   onExit: () => void;
   onNavigate: (n: number) => void;
   onSectionChange?: (section: SectionId) => void;
+  focusMode?: boolean;
 }) {
   const { state, dispatch } = useApp();
   const { user, canUseReader } = useAuth();
@@ -1143,7 +1165,7 @@ function OwnedLessonRunner({
   }
 
   /** One mounted completion action, including any team requests and mastered-lesson chain. */
-  async function finishLesson(mark: boolean) {
+  async function finishLesson(mark: boolean, closeOnSequential = true): Promise<boolean> {
     const lease = capture();
     if (
       !state.hydrated ||
@@ -1153,7 +1175,7 @@ function OwnedLessonRunner({
       markFlight.current ||
       completed.current
     )
-      return;
+      return false;
     const controller = new AbortController();
     markFlight.current = controller;
     const release = lease.own(() => controller.abort());
@@ -1166,9 +1188,9 @@ function OwnedLessonRunner({
     setMarking(true);
     try {
       const sequential = isCurrentSequential;
-      if (!mark && !sequential) return;
-      if (sequential && !(await recordSequentialCompletion(owner, current))) return;
-      if (!current()) return;
+      if (!mark && !sequential) return false;
+      if (sequential && !(await recordSequentialCompletion(owner, current))) return false;
+      if (!current()) return false;
       if (mark)
         dispatch({
           type: "CORE30_SET_MASTERED",
@@ -1187,7 +1209,8 @@ function OwnedLessonRunner({
           `lesson_mastered:${moduleId}:${lesson.n}`,
         );
       completed.current = sequential;
-      if (sequential) onComplete();
+      if (sequential && closeOnSequential) onComplete();
+      return true;
     } finally {
       if (lease.isCurrent() && markFlight.current === controller) setMarking(false);
       if (markFlight.current === controller) markFlight.current = null;
@@ -1200,6 +1223,9 @@ function OwnedLessonRunner({
   }
   function markMastered() {
     return finishLesson(true);
+  }
+  function markMasteredInFocus() {
+    return finishLesson(true, false);
   }
 
   async function retrySavedTeamCompletion() {
@@ -1339,6 +1365,34 @@ function OwnedLessonRunner({
     </header>
   );
 
+  if (focusMode) {
+    return (
+      <Core60FocusFlow
+        lessonNumber={lesson.n}
+        totalLessons={totalLessons}
+        title={lesson.title}
+        objective={lesson.objective}
+        moduleId={moduleId}
+        language={state.selectedLanguage}
+        nativeLanguage={state.nativeLanguage}
+        words={words}
+        verbs={verbs}
+        matchingBatchSize={definition?.teaching?.matchingBatchSize}
+        listeningItems={
+          definition?.teaching && definition.teaching.stage !== "supported"
+            ? definition.listeningItems
+            : undefined
+        }
+        loading={lessonWords.status === "loading"}
+        error={lessonWords.error}
+        onRetry={lessonWords.retry}
+        onFinish={markMasteredInFocus}
+        onExit={() => leaveLesson(onExit)}
+        onNext={() => leaveLesson(() => onNavigate(lesson.n + 1))}
+      />
+    );
+  }
+
   return (
     <div className="space-y-4">
       {/* Lesson header */}
@@ -1471,7 +1525,11 @@ function OwnedLessonRunner({
                 // for Spanish, Spanish native for the English-for-work stages), so this matches.
                 nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
-                writingResponse={definition?.teaching ? <LessonResponsePractice definition={definition} mode="write" /> : undefined}
+                writingResponse={
+                  definition?.teaching ? (
+                    <LessonResponsePractice definition={definition} mode="write" />
+                  ) : undefined
+                }
                 mode={kitMode}
                 onModeChange={onKitModeChange}
                 onActivity={() => recordStepOpened(wordDrillStep)}
@@ -2154,6 +2212,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const [openLessonN, setOpenLessonN] = useState<number | null>(
     linkedLesson?.lesson ?? returnTarget?.lesson ?? null,
   );
+  const [focusMode, setFocusMode] = useState(() => {
+    if (!restoreView || typeof window === "undefined" || !linkedLesson) return false;
+    return new URLSearchParams(window.location.search).get("focus") === "1";
+  });
   const [initialWay, setInitialWay] = useState<SectionId | undefined>(
     (linkedLesson?.way as SectionId | undefined) ?? returnTarget?.section,
   );
@@ -2227,6 +2289,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
   function openLessonFromPlan(n: number, way: SectionId = "see") {
+    setFocusMode(false);
     if (!restoreView) {
       // All entry points use the standalone runner, which owns refreshable
       // lesson/way links. Set the location before mounting that runner so it
@@ -2236,7 +2299,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
         { lesson: n, way },
       );
-      if (next) window.history.replaceState(window.history.state, "", next);
+      const standard = next ? lessonFocusLocation(next, false) : null;
+      if (standard) window.history.replaceState(window.history.state, "", standard);
       dispatch({ type: "SET_TAB", payload: "core30" });
       scrollLessonPageToTop();
       return;
@@ -2246,6 +2310,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     setInitialWay(way);
     setOpenLessonN(n);
     scrollLessonPageToTop();
+  }
+
+  function openFocusLesson(n: number) {
+    const lesson = lessonLocation(
+      window.location.href,
+      { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+      { lesson: n, way: "recall" },
+    );
+    const next = lesson ? lessonFocusLocation(lesson, true) : null;
+    if (next) window.history.replaceState(window.history.state, "", next);
+    if (!restoreView) {
+      dispatch({ type: "SET_TAB", payload: "core30" });
+      return;
+    }
+    setReviewOpen(false);
+    setHowOpen(false);
+    setInitialWay("recall");
+    setFocusMode(true);
+    setOpenLessonN(n);
+  }
+
+  function exitFocusLesson() {
+    const overview = lessonLocation(
+      window.location.href,
+      { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+      null,
+    );
+    if (overview) window.history.replaceState(window.history.state, "", overview);
+    setFocusMode(false);
+    setInitialWay(undefined);
+    setOpenLessonN(null);
   }
 
   function handleComplete() {
@@ -2311,6 +2406,16 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
               {stageLessonLabel(moduleId, continueLesson.n)}
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+            </button>
+
+            <button
+              type="button"
+              data-testid="core60-focus-start"
+              onClick={() => openFocusLesson(continueLesson.n)}
+              className="mb-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-gold/35 bg-gold/[0.06] px-4 text-sm font-semibold text-foreground transition-colors hover:bg-gold/10"
+            >
+              <Sparkle className="h-4 w-4 text-gold" aria-hidden="true" />
+              Focus mode · one task at a time
             </button>
 
             {resumePosition && (
@@ -2389,17 +2494,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {!howOpen && (
         <>
           {/* The Core 60 path (Foundation, Core 30, Master 20), above the lesson and the plan */}
-          {!reviewOpen && !runnerActive && (
-            <Core60PathCard moduleId={moduleId} />
-          )}
+          {!reviewOpen && !runnerActive && <Core60PathCard moduleId={moduleId} />}
 
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">
-                Continue when you’re ready.
-              </p>
+              <p className="text-xs text-white/60 mt-1">Continue when you’re ready.</p>
             </div>
           )}
 
@@ -2424,9 +2525,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               initialSection={initialWay}
               onSectionChange={setInitialWay}
               syncLocation={restoreView}
+              focusMode={focusMode}
               onComplete={handleComplete}
-              onExit={() => setOpenLessonN(null)}
-              onNavigate={openLessonFromPlan}
+              onExit={focusMode ? exitFocusLesson : () => setOpenLessonN(null)}
+              onNavigate={focusMode ? openFocusLesson : openLessonFromPlan}
             />
           )}
 
@@ -2538,31 +2640,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
-            <details data-testid="study-options" open={activeAssessmentPlan ? true : undefined} className="my-4 rounded-xl border border-border/50 p-3">
-              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Study options</summary>
-            <Core30PlanCard
-              enrollmentId={activeAssessmentPlan}
-              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
-              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
-              managedPlanUrl={
-                activeAssessmentPlan
-                  ? examsLocation({
-                      moduleId,
-                      target: state.selectedLanguage,
-                      native: state.nativeLanguage,
-                      orgId: approvedPlanTiming.organizationId,
-                      returnPlanId: activeAssessmentPlan,
-                    })
-                  : undefined
-              }
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
+            <details
+              data-testid="study-options"
+              open={activeAssessmentPlan ? true : undefined}
+              className="my-4 rounded-xl border border-border/50 p-3"
+            >
+              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">
+                Study options
+              </summary>
+              <Core30PlanCard
+                enrollmentId={activeAssessmentPlan}
+                reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+                assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+                managedPlanUrl={
+                  activeAssessmentPlan
+                    ? examsLocation({
+                        moduleId,
+                        target: state.selectedLanguage,
+                        native: state.nativeLanguage,
+                        orgId: approvedPlanTiming.organizationId,
+                        returnPlanId: activeAssessmentPlan,
+                      })
+                    : undefined
+                }
+                moduleId={moduleId}
+                totalLessons={totalLessons}
+                onOpenLesson={openLessonFromPlan}
+                onStartReview={() => {
+                  setOpenLessonN(null);
+                  setReviewOpen(true);
+                }}
+              />
             </details>
           )}
 

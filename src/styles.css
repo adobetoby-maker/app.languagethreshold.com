@@ -255,6 +255,13 @@
     .lt-main-column {
       overflow: visible;
     }
+
+    /* Desktop scroll belongs to the document. An auto-overflow main has no
+       scroll range here, but containment still swallows wheel/trackpad input. */
+    .lt-app-shell > .lt-main-column > main.lt-scroll-safe {
+      overflow: visible;
+      overscroll-behavior-y: auto;
+    }
   }
 
   .lt-scroll-safe {

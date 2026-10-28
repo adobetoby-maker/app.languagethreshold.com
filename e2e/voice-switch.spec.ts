@@ -208,6 +208,10 @@ test("margin notes have a visible X and Back dismisses the sheet", async ({ page
   await page.getByRole("button", { name: "Open margin notes", exact: true }).click();
   const notes = page.getByRole("dialog", { name: "Margin Notes" });
   await expect(notes.getByRole("button", { name: "Close", exact: true })).toBeInViewport();
+  const header = await notes.locator("[data-overlay-close]").boundingBox();
+  const body = await notes.locator("[data-overlay-scroll-body]").boundingBox();
+  expect(body!.y).toBeGreaterThanOrEqual(header!.y + header!.height - 1);
+  expect(body!.y + body!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
   await page.goBack();
   await expect(notes).not.toBeVisible();
   await expect(page).toHaveURL(url);
@@ -325,4 +329,61 @@ test("signed-in Google previews use the curated pair and keep listening separate
   await page.goto(appUrl({ tab: "speak" }));
   await expect(page.getByRole("heading", { name: "Your next speaking practice" })).toBeVisible();
   await expect.poll(savedListeningVoice).toContain("Charon");
+});
+
+test("Settings scrolls below its close row without covering controls", async ({
+  page,
+  isMobile,
+}) => {
+  await stubVoices(page);
+  await openReader(page);
+  await page
+    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
+    .click();
+  const panel = page.getByRole("dialog").filter({ visible: true }).last();
+  const body = panel.locator("[data-overlay-scroll-body]");
+  const close = panel.locator("[data-overlay-close]");
+  await expect(body).toBeVisible();
+  for (const theme of ["light", "dark"]) {
+    await page.evaluate(
+      (mode) => document.documentElement.classList.toggle("dark", mode === "dark"),
+      theme,
+    );
+    for (const position of [0, 0.5, 1]) {
+      await body.evaluate((el, fraction) => {
+        el.scrollTop = (el.scrollHeight - el.clientHeight) * fraction;
+      }, position);
+      const headerBox = await close.boundingBox();
+      const bodyBox = await body.boundingBox();
+      expect(bodyBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height - 1);
+      expect(bodyBox!.y + bodyBox!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+      await expect(close.getByRole("button")).toBeInViewport();
+    }
+  }
+  await close.getByRole("button").click();
+  await expect(panel).toHaveCount(0);
+});
+
+test("word definitions scroll within the card below the X", async ({ page }) => {
+  await stubVoices(page);
+  await openReader(page);
+  await page.getByRole("button", { name: "tren", exact: true }).first().click();
+  const card = page.locator(".word-card-pop");
+  await expect(card.getByRole("region", { name: "Practice this word" })).toBeVisible();
+  const close = card.getByRole("button", { name: "Close", exact: true });
+  const body = card.locator("[data-word-card-scroll-body]");
+  // Force a long definition so this checks scrolling even on a tall desktop.
+  await body.evaluate((el) => {
+    const extra = document.createElement("p");
+    extra.textContent = "A long study note. ".repeat(300);
+    el.append(extra);
+    el.scrollTop = el.scrollHeight;
+  });
+  const closeBox = await close.boundingBox();
+  const bodyBox = await body.boundingBox();
+  expect(bodyBox!.y).toBeGreaterThanOrEqual(closeBox!.y + closeBox!.height - 1);
+  expect(bodyBox!.y + bodyBox!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+  await expect(close).toBeInViewport();
+  await close.click();
+  await expect(card).toHaveCount(0);
 });

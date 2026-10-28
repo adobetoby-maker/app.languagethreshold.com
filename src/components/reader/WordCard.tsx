@@ -327,7 +327,7 @@ export function WordCard({
         maxHeight:
           "calc(100dvh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
       }}
-      className="word-card-pop z-50 overflow-y-auto overscroll-contain rounded-2xl border border-gold/50 bg-card/85 shadow-luxe backdrop-blur-2xl"
+      className="word-card-pop z-50 flex flex-col overflow-hidden overscroll-contain rounded-2xl border border-gold/50 bg-card/85 shadow-luxe backdrop-blur-2xl"
     >
       {/* Ensure ruby / furigana and okurigana share a common baseline so
           kanji + following kana sit level (and with the romaji line below). */}
@@ -374,7 +374,7 @@ export function WordCard({
            button, so taps land on the content and the X does nothing — the
            only way out was tapping outside. Gold + a larger glyph so it reads
            as the exit at a glance. */
-        className="sticky left-2 top-2 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold/60 bg-background/90 text-gold shadow-md transition-colors hover:border-gold hover:bg-gold/15"
+        className="relative z-20 m-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-gold/60 bg-background/90 text-gold shadow-md transition-colors hover:border-gold hover:bg-gold/15"
       >
         <X className="h-5 w-5" strokeWidth={2.5} />
       </button>
@@ -388,11 +388,8 @@ export function WordCard({
           the user is dragging inside the card.
       */}
       <div
-        className="overflow-y-auto overscroll-contain px-5 pb-5 pt-12 [-webkit-overflow-scrolling:touch]"
-        style={{
-          maxHeight:
-            "min(80vh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 48px))",
-        }}
+        data-word-card-scroll-body
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-5 pt-3 [-webkit-overflow-scrolling:touch]"
       >
         {/* When the lookup fails there is still something worth showing: the word
             the learner tapped and the sentence it came from. Both are local

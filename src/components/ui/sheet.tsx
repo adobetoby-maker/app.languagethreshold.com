@@ -57,18 +57,31 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends
     React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
+    VariantProps<typeof sheetVariants> {
+  scrollBody?: boolean;
+}
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", className, children, scrollBody = false, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
-    <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn(
+        sheetVariants({ side }),
+        className,
+        scrollBody && "flex flex-col overflow-hidden",
+      )}
+      {...props}
+    >
       <div
         data-overlay-close
-        className="sticky top-0 z-30 -mt-2 flex justify-end bg-background py-1"
+        className={cn(
+          "flex justify-end bg-background py-1",
+          scrollBody ? "shrink-0 border-b border-border pb-2" : "sticky top-0 z-30 -mt-2",
+        )}
       >
         <SheetPrimitive.Close
           type="button"
@@ -78,7 +91,16 @@ const SheetContent = React.forwardRef<
           <X className="h-5 w-5" aria-hidden="true" />
         </SheetPrimitive.Close>
       </div>
-      {children}
+      {scrollBody ? (
+        <div
+          data-overlay-scroll-body
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain pt-3"
+        >
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </SheetPrimitive.Content>
   </SheetPortal>
 ));

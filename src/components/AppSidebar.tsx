@@ -707,6 +707,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       {/* Mobile-only: full tab list, grouped the same way the desktop sidebar implies. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
+          scrollBody
           side="bottom"
           className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
         >
@@ -716,9 +717,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               no way to see or change it. Plain <select> rather than a dropdown
               menu: inside a bottom sheet iOS gives the native picker wheel,
               which is easier to hit and cannot be mis-scrolled. */}
-          {/* mt-8 clears the sheet's absolutely-positioned close button, which
-              otherwise lands on the Native select's top-right corner. */}
-          <div className="mt-8 mb-3 grid grid-cols-2 gap-2">
+          <div className="mb-3 grid grid-cols-2 gap-2">
             <label className="flex flex-col gap-1">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
                 Learning

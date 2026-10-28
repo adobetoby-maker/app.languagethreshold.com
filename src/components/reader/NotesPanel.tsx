@@ -59,8 +59,9 @@ export function NotesPanel({
       </SheetTrigger>
 
       <SheetContent
+        scrollBody
         side="right"
-        className="h-dvh w-[360px] max-w-[88vw] border-l border-gold/30 bg-card/95 p-0 shadow-luxe backdrop-blur-xl sm:max-w-[360px]"
+        className="h-dvh w-[360px] max-w-[88vw] border-l border-gold/30 bg-card/95 p-0 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] shadow-luxe backdrop-blur-xl sm:max-w-[360px]"
       >
         <SheetDescription className="sr-only">
           Review highlights and notes for this reading passage.
@@ -68,9 +69,7 @@ export function NotesPanel({
         <div className="flex items-center justify-between gap-2 border-b border-border/60 px-5 py-4 pr-12">
           <div className="flex items-center gap-2">
             <span className="text-gold">✦</span>
-            <SheetTitle className="font-display text-lg italic text-foreground">
-              Margin Notes
-            </SheetTitle>
+            <SheetTitle className="font-display text-lg text-foreground">Margin Notes</SheetTitle>
           </div>
           <span className="rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
             {noteCount} note{noteCount === 1 ? "" : "s"}
@@ -81,7 +80,7 @@ export function NotesPanel({
           <ChevronRight className="h-4 w-4 rotate-180" /> Back to reading
         </SheetClose>
 
-        <div className="custom-scroll h-[calc(100dvh-125px)] overflow-y-auto px-4 py-4">
+        <div className="px-4 py-4">
           {adding ? (
             <div className="mb-4 rounded-xl border border-gold/40 bg-gold/5 p-3">
               <MultilingualNoteInput

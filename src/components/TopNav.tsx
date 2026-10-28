@@ -108,6 +108,7 @@ export function TopNav() {
               </button>
             </PopoverTrigger>
             <PopoverContent
+              scrollBody
               align="end"
               className="max-h-[75vh] w-[min(440px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
             >

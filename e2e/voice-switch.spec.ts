@@ -39,9 +39,7 @@ async function stubVoices(page: Page): Promise<void> {
 
 async function openReader(page: Page): Promise<void> {
   await page.goto("/");
-  const woman = page
-    .getByRole("group", { name: "Reader voice", exact: true })
-    .getByTestId("voice-switch-woman");
+  const ready = page.getByRole("button", { name: "billete", exact: true }).first();
   for (let attempt = 0; attempt < 3; attempt++) {
     await seedAppState(page, {
       selectedLanguage: "Spanish",
@@ -50,93 +48,85 @@ async function openReader(page: Page): Promise<void> {
     });
     await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
     await page.goto(appUrl({ tab: "reader" }));
-    await woman.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
-    if (await woman.isVisible()) break;
+    await ready.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
+    if (await ready.isVisible()) break;
   }
-  await expect(woman).toBeVisible({ timeout: 60_000 });
+  await expect(ready).toBeVisible({ timeout: 60_000 });
 }
 
-test("Reader woman/man switch changes the top-bar voice and persists across reload", async ({
+test("voice changes live only in Settings and listening/speaking choices persist independently", async ({
   page,
   isMobile,
 }) => {
   await stubVoices(page);
   await openReader(page);
-
-  const woman = page
-    .getByRole("group", { name: "Reader voice", exact: true })
-    .getByTestId("voice-switch-woman");
-  const man = page
-    .getByRole("group", { name: "Reader voice", exact: true })
-    .getByTestId("voice-switch-man");
-  const topVoice = page.getByTestId("site-voice-button").filter({ visible: true });
-  const topLabel = topVoice.getByTestId("site-voice-label");
-
-  await woman.click();
-  await expect(woman).toHaveAttribute("aria-pressed", "true");
-  await expect(woman).toHaveAttribute("aria-label", "Woman's voice — Paulina, Mexico");
-  await expect(man).toHaveAttribute("aria-label", "Man's voice — Juan, Mexico");
-  await expect(topLabel).toHaveText(/paulina/i, { useInnerText: true });
-  if (!isMobile) {
-    await expect(topLabel).toHaveText(/paulina · mexico/i, { useInnerText: true });
-    expect((await topLabel.boundingBox())!.width).toBeGreaterThan(50);
-  }
-  await expect(topVoice).toHaveAttribute(
-    "aria-label",
-    /^Voice: Paulina, Mexican Spanish, woman\. Change voice(?:\. iPhone device voice quality may vary)?$/,
+  await expect(page.getByTestId("site-voice-button")).toHaveCount(0);
+  await expect(page.getByRole("group", { name: "Reader voice", exact: true })).toHaveCount(0);
+  await page
+    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
+    .click();
+  const settings = page.getByRole("region", { name: "Voice settings", exact: true });
+  const listening = settings.getByRole("group", { name: "Listening voice", exact: true });
+  const speaking = settings.getByRole("group", { name: "Speaking partner voice", exact: true });
+  await expect(listening.getByRole("button", { name: "Female", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
   );
-
-  if (!isMobile) {
-    const headerSwitch = page.locator("header").getByRole("group", { name: "Site voice" });
-    await expect(headerSwitch).toBeVisible();
-    await headerSwitch.getByTestId("voice-switch-man").click();
-  } else {
-    await expect(page.locator("header")).not.toBeVisible();
-    await man.click();
-  }
-  await expect(man).toHaveAttribute("aria-pressed", "true");
-  await expect(woman).toHaveAttribute("aria-pressed", "false");
-  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
-  await expect(topVoice).toHaveAttribute(
-    "aria-label",
-    /^Voice: Juan, Mexican Spanish, man\. Change voice(?:\. iPhone device voice quality may vary)?$/,
+  await listening.getByRole("button", { name: "Male", exact: true }).click();
+  await expect(speaking.getByRole("button", { name: "Female", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
   );
-
+  await expect(settings.getByRole("status")).toContainText("Sign in");
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          JSON.parse(localStorage.getItem("lt.learner-device.v1.speech.guest") || "null")?.data
+            ?.standardVoicesByLang?.Spanish?.listeningGender,
+      ),
+    )
+    .toBe("man");
   await page.reload();
-  await expect(man).toHaveAttribute("aria-pressed", "true", { timeout: 60_000 });
-  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
-  await topVoice.click();
-  const closeVoice = page.getByRole("menuitem", { name: "Close voice selection", exact: true });
-  await expect(closeVoice).toBeVisible();
-  await page.getByRole("menu").evaluate((menu) => {
-    menu.scrollTop = menu.scrollHeight;
-  });
-  await expect(closeVoice).toBeInViewport();
-  await closeVoice.click();
-  await expect(page.getByRole("menu")).not.toBeVisible();
-  await expect(topVoice).toBeFocused();
-  await expect(topLabel).toHaveText(/juan/i, { useInnerText: true });
+  await page
+    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
+    .click();
+  await expect(listening.getByRole("button", { name: "Male", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(speaking.getByRole("button", { name: "Female", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
 });
 
-test("Back dismisses voice selection without leaving the reader; X removes its history step", async ({
+test("Back dismisses voice settings without leaving the reader and X cleans up its history", async ({
   page,
+  isMobile,
 }) => {
   await stubVoices(page);
   await openReader(page);
   const url = page.url();
-  const trigger = page.getByTestId("site-voice-button").filter({ visible: true });
+  const trigger = page.getByRole("button", {
+    name: isMobile ? "App settings" : "Learning settings",
+    exact: true,
+  });
   await trigger.click();
-  await expect(page.getByRole("menu")).toBeVisible();
+  const panel = page.getByRole("dialog").filter({ visible: true }).last();
+  await expect(page.getByTestId("voice-settings")).toBeVisible();
   await page.goBack();
-  await expect(page.getByRole("menu")).not.toBeVisible();
+  await expect(panel).not.toBeVisible();
   await expect(page).toHaveURL(url);
   await trigger.click();
-  await page.getByRole("menuitem", { name: "Close voice selection" }).click();
-  await expect(page.getByRole("menu")).not.toBeVisible();
+  await panel
+    .getByRole("button", { name: /^Close( settings)?$/, exact: true })
+    .first()
+    .click();
+  await expect(panel).not.toBeVisible();
   await expect
     .poll(() => page.evaluate(() => window.history.state?.["lt.openOverlays"] ?? []))
     .toEqual([]);
-  await expect(page).toHaveURL(url);
 });
 
 test("module search always has an X and Back returns to the same reading page", async ({
@@ -221,4 +211,118 @@ test("margin notes have a visible X and Back dismisses the sheet", async ({ page
   await page.goBack();
   await expect(notes).not.toBeVisible();
   await expect(page).toHaveURL(url);
+});
+
+test("signed-in Google previews use the curated pair and keep listening separate from speaking", async ({
+  page,
+  isMobile,
+}) => {
+  const id = "00000000-0000-4000-8000-00000000a055";
+  const b64 = (v: object) => Buffer.from(JSON.stringify(v)).toString("base64url");
+  const exp = Math.floor(Date.now() / 1000) + 86400;
+  const user = {
+    id,
+    aud: "authenticated",
+    role: "authenticated",
+    email: "voice-e2e@example.test",
+    app_metadata: { provider: "email" },
+    user_metadata: {},
+    created_at: "2026-01-01T00:00:00Z",
+  };
+  const session = {
+    access_token: `${b64({ alg: "HS256", typ: "JWT" })}.${b64({ sub: id, aud: "authenticated", role: "authenticated", exp })}.e2e`,
+    refresh_token: "voice-fixture",
+    token_type: "bearer",
+    expires_at: exp,
+    expires_in: 86400,
+    user,
+  };
+  await page.addInitScript(
+    ({ session, id }) => {
+      localStorage.setItem("sb-pollhlkgltdkdskdzsgd-auth-token", JSON.stringify(session));
+      localStorage.setItem("lt.languageChosen", "1");
+      localStorage.setItem(
+        `lt.profile-device.v1.user.${id}`,
+        JSON.stringify({
+          schema: 1,
+          userId: id,
+          data: {
+            selectedLanguage: "Spanish",
+            nativeLanguage: "English",
+            currentTab: "reader",
+            onboardingComplete: true,
+            activeModuleId: null,
+          },
+        }),
+      );
+    },
+    { session, id },
+  );
+  await page.route("**/auth/v1/user", (route) => route.fulfill({ json: user }));
+  const requests: { voiceName: string }[] = [];
+  await page.route("**/api/mission-tts**", async (route) => {
+    if (route.request().method() === "POST") {
+      requests.push(route.request().postDataJSON() as { voiceName: string });
+      await route.fulfill({
+        status: 503,
+        json: { error: "Synthetic audio; no provider call in browser tests" },
+      });
+      return;
+    }
+    await route.fulfill({
+      json: {
+        provider: "google-cloud-tts",
+        ready: true,
+        supportedLanguages: ["Spanish"],
+        speakingRates: [1],
+        voices: [
+          {
+            name: "es-US-Chirp3-HD-Aoede",
+            languageCodes: ["es-US"],
+            ssmlGender: "FEMALE",
+            naturalSampleRateHertz: 24000,
+            label: "Female",
+            tier: "Chirp 3 HD",
+          },
+          {
+            name: "es-US-Chirp3-HD-Charon",
+            languageCodes: ["es-US"],
+            ssmlGender: "MALE",
+            naturalSampleRateHertz: 24000,
+            label: "Male",
+            tier: "Chirp 3 HD",
+          },
+        ],
+      },
+    });
+  });
+  await page.goto(appUrl({ tab: "reader" }));
+  await page
+    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
+    .click();
+  const settings = page.getByRole("region", { name: "Voice settings", exact: true });
+  await expect(settings.getByRole("status")).toContainText("Google voices are ready");
+  const savedListeningVoice = () =>
+    page.evaluate(
+      (id) =>
+        JSON.parse(localStorage.getItem(`lt.learner-device.v1.speech.user.${id}`) || "null")?.data
+          ?.voiceByLang?.Spanish ?? "",
+      id,
+    );
+  await expect.poll(savedListeningVoice).toContain("Aoede");
+  await settings.getByRole("button", { name: "Test listening voice", exact: true }).click();
+  await expect.poll(() => requests.at(-1)?.voiceName).toBe("es-US-Chirp3-HD-Aoede");
+  await settings
+    .getByRole("group", { name: "Listening voice", exact: true })
+    .getByRole("button", { name: "Male", exact: true })
+    .click();
+  await settings.getByRole("button", { name: "Test listening voice", exact: true }).click();
+  await expect.poll(() => requests.at(-1)?.voiceName).toBe("es-US-Chirp3-HD-Charon");
+  await expect.poll(savedListeningVoice).toContain("Charon");
+  await settings.getByRole("button", { name: "Test speaking voice", exact: true }).click();
+  await expect.poll(() => requests.at(-1)?.voiceName).toBe("es-US-Chirp3-HD-Aoede");
+  await expect.poll(savedListeningVoice).toContain("Charon");
+  await page.goto(appUrl({ tab: "speak" }));
+  await expect(page.getByRole("heading", { name: "Your next speaking practice" })).toBeVisible();
+  await expect.poll(savedListeningVoice).toContain("Charon");
 });

@@ -1,3 +1,8 @@
+import {
+  DEFAULT_STANDARD_VOICES,
+  openVoiceSettings,
+  standardGoogleVoice,
+} from "@/data/standard-voices";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { SpeakingPreparation } from "./SpeakingPreparation";
@@ -22,15 +27,7 @@ import {
   Square,
   X,
 } from "lucide-react";
-import {
-  decodeGoogleVoicePreference,
-  defaultGoogleVoice,
-  encodeGoogleVoicePreference,
-  isMissionTtsSpeed,
-  MISSION_TTS_SPEEDS,
-  recommendedGoogleVoices,
-  type MissionPartnerVersion,
-} from "@/data/mission-tts";
+import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
 import {
   RELATIONSHIP_GROUPS,
   type RelationshipGroup,
@@ -78,7 +75,6 @@ import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
-type PartnerAudioSource = "device" | "google" | "text";
 type SpokenTurnFlow = "quick" | "review";
 
 interface ResponseTiming {
@@ -216,10 +212,8 @@ export function SpeakingMissionsPreview({
     accent,
     accentsForLanguage = [],
     rate,
-    setAccent,
-    setRate,
     voiceURI,
-    setVoiceURI,
+    voiceSettings = DEFAULT_STANDARD_VOICES,
   } = useSpeech();
   const { session, isCurrentUser } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
@@ -245,8 +239,8 @@ export function SpeakingMissionsPreview({
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
-  const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
-  const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
+  const partnerVersion = voiceSettings.speakingGender;
+  const partnerAudioSource = voiceSettings.speakingAudioSource;
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -257,7 +251,6 @@ export function SpeakingMissionsPreview({
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
   const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
   const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
-  const [selectedGoogleVoiceName, setSelectedGoogleVoiceName] = useState<string | null>(null);
   const [deviceVoiceAvailable, setDeviceVoiceAvailable] = useState(false);
   const [catalogModuleId, setCatalogModuleId] = useState<string | null>(null);
   const [catalogCategory, setCatalogCategory] = useState<SpeakingMission["specialty"] | "All">(
@@ -348,30 +341,11 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     cancelRef.current = cancel;
   }, [cancel]);
-  const availableGoogleVoices = useMemo(
-    () => recommendedGoogleVoices(ttsCapabilities?.voices ?? [], missionLocale, partnerVersion),
-    [missionLocale, partnerVersion, ttsCapabilities?.voices],
+  const partnerVoice = standardGoogleVoice(
+    ttsCapabilities?.voices ?? [],
+    missionLocale,
+    partnerVersion,
   );
-  const globalGooglePreference = decodeGoogleVoicePreference(voiceURI);
-  const targetGoogleGender = partnerVersion === "woman" ? "FEMALE" : "MALE";
-  const globalGoogleVoice = availableGoogleVoices.find(
-    (voice) =>
-      voice.name === globalGooglePreference?.voiceName &&
-      (voice.ssmlGender === targetGoogleGender ||
-        voice.ssmlGender === "NEUTRAL" ||
-        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
-  );
-  const selectedGoogleVoice = availableGoogleVoices.find(
-    (voice) =>
-      voice.name === selectedGoogleVoiceName &&
-      (voice.ssmlGender === targetGoogleGender ||
-        voice.ssmlGender === "NEUTRAL" ||
-        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
-  );
-  const partnerVoice =
-    selectedGoogleVoice ??
-    globalGoogleVoice ??
-    defaultGoogleVoice(availableGoogleVoices, missionLocale, partnerVersion);
   const partnerAudioReady =
     partnerAudioSource === "device"
       ? deviceVoiceAvailable
@@ -381,25 +355,21 @@ export function SpeakingMissionsPreview({
   const voiceRegionLabel =
     accentsForLanguage.find((option) => option.code === missionLocale)?.label ?? missionLocale;
   const accentControl = (
-    <label className="grid gap-1 text-sm">
-      <span className="font-semibold text-foreground">Speaking accent</span>
-      <select
-        aria-label="Speaking accent"
-        value={accent}
-        onChange={(event) => setAccent(event.target.value)}
-        className="min-h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-foreground sm:max-w-sm"
+    <div className="rounded-xl border border-border bg-card p-3 text-sm">
+      <p className="font-semibold">
+        Voice: {partnerVersion === "woman" ? "Female" : "Male"} · {voiceRegionLabel}
+      </p>
+      <p className="mt-1 text-muted-foreground">
+        Your speaking voice comes from Settings → Voices & audio. Listening has its own setting.
+      </p>
+      <button
+        type="button"
+        onClick={openVoiceSettings}
+        className="mt-2 min-h-11 rounded-lg border border-border px-3 font-semibold"
       >
-        {accentsForLanguage.map((option) => (
-          <option key={option.code} value={option.code}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <span className="text-xs leading-relaxed text-muted-foreground">
-        Uses your app voice accent for playback and microphone language. Available voices vary by
-        device.
-      </span>
-    </label>
+        Open voice settings
+      </button>
+    </div>
   );
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
@@ -531,15 +501,6 @@ export function SpeakingMissionsPreview({
   }, [missionLocale]);
 
   useEffect(() => {
-    setSelectedGoogleVoiceName(null);
-  }, [missionLocale]);
-
-  useEffect(() => {
-    if (partnerAudioSource !== "google" || !partnerVoice) return;
-    setVoiceURI(encodeGoogleVoicePreference(partnerVoice));
-  }, [partnerAudioSource, partnerVoice, setVoiceURI]);
-
-  useEffect(() => {
     transcriptRef.current?.scrollTo({
       top: transcriptRef.current.scrollHeight,
       behavior: "smooth",
@@ -585,7 +546,6 @@ export function SpeakingMissionsPreview({
     setCatalogCategory("All");
     setCatalogSearch("");
     setCoreSection("Essential verbs");
-    setPartnerAudioSource("device");
   }, [
     appState.selectedLanguage,
     appState.nativeLanguage,
@@ -593,11 +553,6 @@ export function SpeakingMissionsPreview({
     activeCatalogModuleId,
     actor,
   ]);
-
-  useEffect(() => {
-    if (started) return;
-    setPartnerAudioSource(decodeGoogleVoicePreference(voiceURI) ? "google" : "device");
-  }, [appState.selectedLanguage, started, voiceURI]);
 
   useEffect(() => {
     if (embeddedMissionPrefix) return;
@@ -1668,10 +1623,10 @@ export function SpeakingMissionsPreview({
             {!partnerAudioReady && (
               <button
                 type="button"
-                onClick={() => setPartnerAudioSource("text")}
+                onClick={openVoiceSettings}
                 className="mt-2 min-h-11 w-full rounded-xl border border-border px-3 py-2 text-sm"
               >
-                Continue with text only
+                Open audio settings or choose text only
               </button>
             )}
           </div>
@@ -1737,89 +1692,11 @@ export function SpeakingMissionsPreview({
 
             <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
               <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
-                <span className="font-semibold text-gold">Set your choices.</span> Tappable choices
-                have strong borders; the selected choice is filled gold. The goals and words above
-                are reference information, not buttons.
+                <span className="font-semibold text-gold">Practice preferences.</span> Voices are
+                managed in Settings → Voices & audio. The goals and words above are reference
+                information.
               </div>
               <div className="mb-4">{accentControl}</div>
-              <fieldset>
-                <legend className="text-sm font-semibold text-foreground">
-                  Choose partner audio
-                </legend>
-                <div className="mt-2 grid grid-cols-3 gap-2">
-                  {(["device", "google", "text"] as const).map((source) => {
-                    const selected = partnerAudioSource === source;
-                    const available = source !== "google" || ttsStatus !== "unavailable";
-                    return (
-                      <button
-                        key={source}
-                        type="button"
-                        onClick={() => available && setPartnerAudioSource(source)}
-                        disabled={!available}
-                        aria-pressed={selected}
-                        className={
-                          "min-h-14 rounded-xl border-2 px-2 py-2.5 text-sm font-medium transition-colors " +
-                          (selected
-                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                            : available
-                              ? "border-border bg-card text-foreground hover:border-gold/60"
-                              : "cursor-not-allowed border-border bg-card text-muted-foreground opacity-40")
-                        }
-                      >
-                        <span className="flex items-center justify-center gap-1.5">
-                          {selected && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
-                          {source === "device"
-                            ? "Phone voice"
-                            : source === "text"
-                              ? "Text only"
-                              : "Google voice"}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Phone voice uses a voice installed on this device. Google preselects a short list
-                  for
-                  {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
-                </p>
-              </fieldset>
-              <fieldset className="mt-4 border-t border-border/60 pt-4">
-                <legend className="text-sm font-semibold text-foreground">
-                  Choose conversation partner
-                </legend>
-                <div className="mt-2 grid grid-cols-2 gap-2">
-                  {(["woman", "man"] as const).map((version) => {
-                    const selected = partnerVersion === version;
-                    return (
-                      <button
-                        key={version}
-                        type="button"
-                        onClick={() => {
-                          setPartnerVersion(version);
-                          setSelectedGoogleVoiceName(null);
-                        }}
-                        aria-pressed={selected}
-                        className={
-                          "min-h-14 rounded-xl border-2 px-3 py-2.5 text-sm font-medium transition-colors " +
-                          (selected
-                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                            : "border-border bg-card text-foreground hover:border-gold/60")
-                        }
-                      >
-                        <span className="flex items-center justify-center gap-2">
-                          {selected && <Check className="h-4 w-4" aria-hidden="true" />}
-                          {version === "woman" ? "Woman partner" : "Man partner"}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Same objectives, with the partner&apos;s natural self-reference, phrasing, and
-                  response rhythm adapted for this version.
-                </p>
-              </fieldset>
               <div className="mt-4 border-t border-border/60 pt-4 text-sm">
                 {session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
                   <p className="text-muted-foreground">
@@ -1864,66 +1741,20 @@ export function SpeakingMissionsPreview({
                   phone heard before the partner replies.
                 </span>
               </label>
-              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
-                <div>
-                  <p className="text-sm text-muted-foreground">
-                    {partnerAudioSource === "device"
-                      ? "Current app voice"
-                      : partnerAudioSource === "text"
-                        ? "Text-only partner"
-                        : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
-                  </p>
-                  <p className="mt-0.5 text-xs text-foreground/80">
-                    {partnerAudioSource === "device"
-                      ? `Best available ${selectedMission.language} voice from this phone or browser`
-                      : partnerAudioSource === "text"
-                        ? "Read each partner line without generated playback"
-                        : partnerVoice
-                          ? `${partnerVoice.label} · ${partnerVoice.name}`
-                          : `No Google ${selectedMission.language} voice available`}
-                  </p>
-                </div>
-                <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-                  {partnerAudioSource === "device"
-                    ? "Device voice"
-                    : partnerAudioSource === "text"
-                      ? "No audio"
-                      : "Server voice"}
-                </span>
-              </div>
-              {partnerAudioSource === "text" ? (
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  Partner lines remain visible and replay is disabled in text-only mode.
+              <div className="mt-4 rounded-xl border border-border bg-card p-3 text-sm">
+                <p className="font-semibold">
+                  {partnerAudioSource === "google"
+                    ? "Standard Google voice"
+                    : partnerAudioSource === "device"
+                      ? "Device fallback"
+                      : "Text only"}{" "}
+                  · {partnerSpeed}×
                 </p>
-              ) : partnerAudioSource === "google" && partnerVoice ? (
-                <label className="mt-3 grid gap-1 text-sm">
-                  <span className="font-semibold text-foreground">
-                    Choose Google voice · {voiceRegionLabel}
-                  </span>
-                  <select
-                    value={partnerVoice.name}
-                    onChange={(event) => {
-                      const voice = availableGoogleVoices.find(
-                        (candidate) => candidate.name === event.target.value,
-                      );
-                      if (!voice) return;
-                      setSelectedGoogleVoiceName(voice.name);
-                      setVoiceURI(encodeGoogleVoicePreference(voice));
-                      if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
-                      if (voice.ssmlGender === "MALE") setPartnerVersion("man");
-                    }}
-                    className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-                  >
-                    {availableGoogleVoices.map((voice) => (
-                      <option key={voice.name} value={voice.name}>
-                        {voice.label} · {voice.languageCodes[0] ?? selectedMission.locale}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="text-xs leading-relaxed text-muted-foreground">
-                    Matching {missionLocale} voices are shown when Google provides them. The app
-                    preselects one for your partner choice; changing it is optional.
-                  </span>
+                <p className="mt-1 text-muted-foreground">
+                  Voice, accent, speed and audio fallback are managed in Settings → Voices & audio.
+                  Changing the speaking voice does not change the listening voice.
+                </p>
+                {partnerAudioSource !== "text" && partnerAudioReady && (
                   <button
                     type="button"
                     onClick={() =>
@@ -1931,71 +1762,18 @@ export function SpeakingMissionsPreview({
                         partnerVoiceSample(selectedMission.language, partnerVersion),
                       )
                     }
-                    className="mt-2 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+                    className="mt-2 min-h-11 rounded-lg border border-border px-3 font-semibold"
                   >
-                    ▶ Play voice sample · {partnerSpeed}×
+                    Play speaking voice sample
                   </button>
-                </label>
-              ) : partnerAudioReady ? (
-                <button
-                  type="button"
-                  onClick={() =>
-                    void speakPartnerText(
-                      partnerVoiceSample(selectedMission.language, partnerVersion),
-                    )
-                  }
-                  className="mt-3 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
-                >
-                  ▶ Play {partnerAudioSource === "device" ? "phone" : partnerVersion} voice sample ·{" "}
-                  {partnerSpeed}×
-                </button>
-              ) : (
-                <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
-                  {partnerAudioSource === "device"
-                    ? `A ${selectedMission.language} device voice is unavailable in this browser.`
-                    : ttsStatus === "checking"
-                      ? "Checking Google partner voice availability…"
-                      : `Google Cloud voices are unavailable for ${selectedMission.language}.`}
-                </p>
-              )}
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                {partnerAudioSource === "device"
-                  ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
-                  : partnerAudioSource === "google"
-                    ? "Google server voices are independent of voices installed on this phone. The selected voice follows this mission and the site-wide voice setting."
-                    : "Text-only mode does not generate audio."}
-              </p>
-              <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-                <span className="flex items-center justify-between gap-3 text-muted-foreground">
-                  <span className="font-semibold text-foreground">Choose partner speed</span>
-                  <span className="font-mono text-gold">{partnerSpeed}×</span>
-                </span>
-                <select
-                  value={partnerSpeed}
-                  onChange={(event) => setRate(Number(event.target.value))}
-                  disabled={partnerAudioSource === "text"}
-                  className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-                >
-                  {MISSION_TTS_SPEEDS.map((speed) => (
-                    <option key={speed} value={speed}>
-                      {speed}×
-                      {speed === 0.5
-                        ? " · very slow"
-                        : speed === 0.75
-                          ? " · careful"
-                          : speed === 1
-                            ? " · natural"
-                            : speed === 1.5
-                              ? " · challenge"
-                              : ""}
-                    </option>
-                  ))}
-                </select>
-                <span className="text-xs leading-relaxed text-muted-foreground">
-                  Start slower for comprehension, then repeat the same mission faster to train your
-                  ear.
-                </span>
-              </label>
+                )}
+                {!partnerAudioReady && (
+                  <p role="status" className="mt-2">
+                    Google audio is unavailable. Choose device fallback or text only in Settings to
+                    continue.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </details>

@@ -1,3 +1,11 @@
+import {
+  DEFAULT_STANDARD_VOICES,
+  readStandardVoiceSettings,
+  standardGoogleVoice,
+  type StandardVoiceSettings,
+} from "@/data/standard-voices";
+import { encodeGoogleVoicePreference } from "@/data/mission-tts";
+import { getMissionTtsCapabilities } from "@/lib/mission-tts";
 import { useAuth } from "@/state/auth-state";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
@@ -82,6 +90,8 @@ interface SpeechCtx {
   voiceURI: string | null;
   setVoiceURI: (uri: string | null) => void;
   settingsHydrated: boolean;
+  voiceSettings: StandardVoiceSettings;
+  setVoiceSettings: (patch: Partial<StandardVoiceSettings>) => void;
 
   // Last clicked word (from WordCard)
   lastWord: string | null;
@@ -115,6 +125,7 @@ interface SavedSpeech {
   listenedCount?: number;
   voiceByLang?: Record<string, string>;
   accentByLang?: Record<string, string>;
+  standardVoicesByLang?: Record<string, StandardVoiceSettings>;
 }
 const RECENT_WORDS_CAP = 20;
 
@@ -162,6 +173,7 @@ export function SpeechProvider({
   const [rate, setRateState] = useState(1);
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
+  const [voiceSettings, setVoiceSettingsState] = useState(DEFAULT_STANDARD_VOICES);
   const [settingsHydrated, setSettingsHydrated] = useState(false);
   const voiceLanguageRef = useRef(language);
   const [lastWord, setLastWordState] = useState<string | null>(null);
@@ -204,11 +216,17 @@ export function SpeechProvider({
       const voiceByLang = { ...(prev.voiceByLang ?? {}) };
       if (voiceURI) voiceByLang[language] = voiceURI;
       else delete voiceByLang[language];
-      device.write({ ...prev, rate, listenedCount, voiceByLang });
+      device.write({
+        ...prev,
+        rate,
+        listenedCount,
+        voiceByLang,
+        standardVoicesByLang: { ...prev.standardVoicesByLang, [language]: voiceSettings },
+      });
     } catch {
       /* ignore */
     }
-  }, [device, rate, listenedCount, voiceURI, language, settingsHydrated]);
+  }, [device, rate, listenedCount, voiceURI, language, settingsHydrated, voiceSettings]);
 
   // The account-keyed provider remounts on identity change. Never hydrate another learner's history.
   useEffect(() => {
@@ -231,8 +249,8 @@ export function SpeechProvider({
     try {
       const raw = device.read();
       const parsed = (raw as SavedSpeech | null) ?? {};
-      const v = parsed.voiceByLang?.[language];
-      setVoiceURIState(typeof v === "string" ? v : null);
+      setVoiceSettingsState(readStandardVoiceSettings(parsed.standardVoicesByLang?.[language]));
+      setVoiceURIState(null);
       const savedAccent = parsed.accentByLang?.[language];
       setAccentState(
         typeof savedAccent === "string" &&
@@ -242,6 +260,7 @@ export function SpeechProvider({
       );
     } catch {
       setVoiceURIState(null);
+      setVoiceSettingsState(DEFAULT_STANDARD_VOICES);
       setAccentState(accentsForLanguage[0].code);
     }
     invalidatePlayback();
@@ -279,6 +298,47 @@ export function SpeechProvider({
     setCurrent(null);
     setActiveSentenceIndex(-1);
   }, [invalidatePlayback]);
+
+  const setVoiceSettings = useCallback(
+    (patch: Partial<StandardVoiceSettings>) => {
+      stop();
+      setVoiceSettingsState((current) => readStandardVoiceSettings({ ...current, ...patch }));
+    },
+    [stop],
+  );
+
+  // Standard Google listening voice on every platform, with an honest device fallback
+  // for signed-out learners or an unavailable provider. The account subtree owns this request.
+  useEffect(() => {
+    if (!settingsHydrated) return;
+    const controller = new AbortController();
+    if (!actor) {
+      setVoiceURIState(DEVICE_DEFAULT_VOICE);
+      return () => controller.abort();
+    }
+    const refresh = () => {
+      getMissionTtsCapabilities(accent, controller.signal)
+        .then((capabilities) => {
+          if (controller.signal.aborted || !isCurrentUser(actor)) return;
+          const voice = capabilities.ready
+            ? standardGoogleVoice(capabilities.voices, accent, voiceSettings.listeningGender)
+            : null;
+          setVoiceURIState(voice ? encodeGoogleVoicePreference(voice) : DEVICE_DEFAULT_VOICE);
+        })
+        .catch(() => {
+          if (!controller.signal.aborted && isCurrentUser(actor))
+            setVoiceURIState(DEVICE_DEFAULT_VOICE);
+        });
+    };
+    refresh();
+    if (typeof window !== "undefined" && window.addEventListener)
+      window.addEventListener("online", refresh);
+    return () => {
+      controller.abort();
+      if (typeof window !== "undefined" && window.removeEventListener)
+        window.removeEventListener("online", refresh);
+    };
+  }, [actor, accent, voiceSettings.listeningGender, settingsHydrated, isCurrentUser]);
 
   const setRate = useCallback((n: number) => {
     setRateState(n);
@@ -460,6 +520,8 @@ export function SpeechProvider({
       voiceURI,
       setVoiceURI,
       settingsHydrated,
+      voiceSettings,
+      setVoiceSettings,
       lastWord,
       setLastWord,
       recentWords,
@@ -481,6 +543,8 @@ export function SpeechProvider({
       voiceURI,
       setVoiceURI,
       settingsHydrated,
+      voiceSettings,
+      setVoiceSettings,
       lastWord,
       setLastWord,
       recentWords,

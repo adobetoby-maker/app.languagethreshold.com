@@ -50,16 +50,14 @@ test("Continue is first and resumes the saved step without rewriting mastery", a
 
 test("compact preferences retain accent and appearance controls", async ({ page, isMobile }) => {
   await page.goto(appUrl({ tab: "reader" }));
-  const voice = page.getByTestId("site-voice-button").filter({ visible: true });
-  await voice.click();
-  await expect(page.getByLabel("Spanish accent / region")).toBeVisible();
-  await page.keyboard.press("Escape");
   if (isMobile) {
     await page.getByRole("button", { name: "App settings", exact: true }).click();
+    await expect(page.getByLabel("Accent and microphone language")).toBeVisible();
     await expect(page.getByRole("button", { name: /Appearance/ })).toBeVisible();
     await expect(page.getByText("Your account", { exact: true })).toBeVisible();
   } else {
     await page.getByRole("button", { name: "Learning settings", exact: true }).click();
+    await expect(page.getByLabel("Accent and microphone language")).toBeVisible();
     await expect(page.getByText("Appearance", { exact: true })).toBeVisible();
     await page.getByTitle("Native language: English").click();
     await expect(page.getByRole("menuitem", { name: /French/ })).toBeVisible();

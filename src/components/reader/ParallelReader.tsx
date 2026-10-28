@@ -1049,6 +1049,14 @@ export function ParallelReader() {
                 annotations={annotations}
                 activeSentenceIndex={activeSentenceIndex}
                 onWordClick={handleWord}
+                onSpeakSentence={(text, index) => {
+                  if (playing && activeSentenceIndex === index) {
+                    stop();
+                    return;
+                  }
+                  speakSentence(text, index);
+                }}
+                playing={playing}
                 accent
                 furiganaMode={selected.language === "Japanese" ? furiganaMode : "off"}
                 furiganaScript={furiganaScript}
@@ -1124,6 +1132,8 @@ function Pane({
   annotations,
   activeSentenceIndex,
   onWordClick,
+  onSpeakSentence,
+  playing = false,
   accent,
   furiganaMode = "off",
   furiganaScript = "hiragana",
@@ -1143,6 +1153,8 @@ function Pane({
     x: number,
     y: number,
   ) => void;
+  onSpeakSentence?: (text: string, sentenceIndex: number) => void;
+  playing?: boolean;
   accent?: boolean;
   furiganaMode?: FuriganaMode;
   furiganaScript?: FuriganaScript;
@@ -1178,6 +1190,32 @@ function Pane({
               isActive ? "border-l-gold bg-gold/15" : "border-l-transparent hover:border-l-gold/40"
             } ${lineNeedsExtraLeading ? "furigana-line" : ""}`}
           >
+            {onSpeakSentence && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onSpeakSentence(s, i);
+                }}
+                aria-label={
+                  isActive && playing
+                    ? `Stop phrase ${i + 1}`
+                    : `Listen to phrase ${i + 1}`
+                }
+                title={isActive && playing ? "Stop phrase" : "Listen to this phrase"}
+                className={`float-right ml-2 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 ${
+                  isActive && playing
+                    ? "border-gold bg-gold/20 text-gold"
+                    : "border-border/60 bg-background/70 text-muted-foreground hover:border-gold/60 hover:bg-gold/10 hover:text-gold"
+                }`}
+              >
+                {isActive && playing ? (
+                  <Square className="h-3.5 w-3.5" aria-hidden="true" />
+                ) : (
+                  <Volume2 className="h-4 w-4" aria-hidden="true" />
+                )}
+              </button>
+            )}
             {useRubyRenderer ? (
               // Fast path: no annotations on this sentence — render with
               // furigana/romaja. Once the user adds notes/highlights we fall

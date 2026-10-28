@@ -1574,6 +1574,15 @@ body :is(em, cite) {
   }
 }
 
+@media (max-width: 767px) and (max-height: 600px) {
+  /* Core cards share one frame across modules and language pairs. On short
+     phones, reserve room for both grading buttons above the bottom nav. Long
+     translations continue scrolling inside the card instead of moving the page. */
+  [data-testid="practice-kit"] [data-testid="flashcard"] {
+    height: 120px;
+  }
+}
+
 @media (max-width: 767px) {
   .reader-reading-nav {
     justify-content: space-between;

@@ -1,5 +1,7 @@
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
+import { getModule } from "../data/modules.ts";
 import { moduleTeachingSettings } from "../data/module-teaching.ts";
+import { authoredWordsPair, pickAuthoredWords } from "./lesson-words-core.ts";
 import type { LessonTeachingSettings } from "./teaching-settings.ts";
 export { ROOFING_PRACTICE_VERSION, modulePracticeVersion } from "../data/module-teaching.ts";
 import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
@@ -43,8 +45,12 @@ export function getLessonDefinition(input: {
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
-  const words =
-    targetLanguage === "Spanish" && instructionLanguage === "English" ? (source.words ?? []) : [];
+  const words = pickAuthoredWords(
+    source.words,
+    targetLanguage,
+    instructionLanguage,
+    authoredWordsPair(getModule(moduleId)?.learnDirection),
+  ) ?? [];
   const teaching = moduleTeachingSettings(
     moduleId,
     lessonNumber,

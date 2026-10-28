@@ -61,7 +61,7 @@ export function NotesPanel({
       <SheetContent
         scrollBody
         side="right"
-        className="h-dvh w-[360px] max-w-[88vw] border-l border-gold/30 bg-card/95 p-0 shadow-luxe backdrop-blur-xl sm:max-w-[360px]"
+        className="h-dvh w-[360px] max-w-[88vw] border-l border-gold/30 bg-card/95 p-0 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] shadow-luxe backdrop-blur-xl sm:max-w-[360px]"
       >
         <SheetDescription className="sr-only">
           Review highlights and notes for this reading passage.

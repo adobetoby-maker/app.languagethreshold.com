@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { X, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
@@ -93,6 +94,7 @@ export function AppDemo() {
 }
 
 export function AppTour({ onClose }: { onClose: () => void }) {
+  useOverlayHistory(true, onClose);
   const { state, dispatch } = useApp();
   const [stepIndex, setStepIndex] = useState(0);
   const [playing, setPlaying] = useState(false);

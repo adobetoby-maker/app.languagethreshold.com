@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import {
   currentTutorLesson,
   resolveTutorLesson,
@@ -7,7 +8,7 @@ import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { Sparkles, Send, Minus, Trash2 } from "lucide-react";
+import { Sparkles, Send, X, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useLibrary, flagFor } from "@/state/library-state";
@@ -55,6 +56,7 @@ export function TutorPanel() {
   const { state: appState, dispatch } = useApp();
   const { selected } = useLibrary();
   const tutor = useTutor();
+  useOverlayHistory(tutor.state.open, () => tutor.setOpen(false));
   const { gated } = useAiGate();
 
   const lessonSearch = typeof window === "undefined" ? "" : window.location.search;
@@ -110,16 +112,6 @@ export function TutorPanel() {
       document.body.style.overflow = prev;
     };
   }, [tutor.state.open]);
-
-  // Esc to close
-  useEffect(() => {
-    if (!tutor.state.open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") tutor.setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [tutor.state.open, tutor]);
 
   const cefr = useMemo(() => LEVEL_TO_CEFR[appState.level] ?? "A1", [appState.level]);
   const passage = useMemo(
@@ -370,10 +362,10 @@ export function TutorPanel() {
             )}
             <button
               onClick={() => tutor.setOpen(false)}
-              aria-label="Minimize tutor"
+              aria-label="Close tutor"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
             >
-              <Minus className="h-4 w-4" />
+              <X className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
         </div>

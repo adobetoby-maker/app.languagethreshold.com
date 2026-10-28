@@ -61,7 +61,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-h-[82vh] w-full max-w-2xl overflow-hidden p-0 gap-0 border-border/60 bg-background [&>button]:hidden">
+      <DialogContent className="max-h-[82vh] w-full max-w-2xl overflow-hidden p-0 gap-0 border-border/60 bg-background">
         <DialogTitle className="sr-only">Select Module</DialogTitle>
 
         {/* Coming soon guard for non-Spanish languages */}
@@ -98,16 +98,13 @@ export function ModulePickerDialog({ open, onClose }: Props) {
               />
               {query ? (
                 <button
+                  aria-label="Clear module search"
                   onClick={() => setQuery("")}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </button>
-              ) : (
-                <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-                  <X className="h-4 w-4" />
-                </button>
-              )}
+              ) : null}
             </div>
 
             {/* Category filter tabs */}

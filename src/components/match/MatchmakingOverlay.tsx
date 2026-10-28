@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { applyPracticePoints } from "@/lib/practice-points";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
@@ -74,6 +75,7 @@ function generateOpponent(language: Language, tier: RankTier): Opponent {
 }
 
 export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useOverlayHistory(open, onClose);
   const { state, dispatch } = useApp();
   const language = state.selectedLanguage;
   const {
@@ -167,16 +169,6 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
     setOpponent(null);
     setPhase("idle");
   };
-
-  // Esc to close (only when not mid-countdown so we don't strand the player)
-  useEffect(() => {
-    if (!open) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && phase !== "countdown" && phase !== "battling") onClose();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [open, phase, onClose]);
 
   useEffect(() => () => clearTimers(), []);
 
@@ -279,8 +271,8 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
         </div>
 
         {/* Close + corner Leaderboard chip */}
-        {phase !== "countdown" && phase !== "battling" && (
-          <div className="absolute right-6 top-6 z-20 flex items-center gap-2">
+        {!showLeaderboard && !showReview && !(pendingRankUp && phase === "result") && (
+          <div className="absolute right-6 top-6 z-[60] flex items-center gap-2">
             <button
               onClick={() => setShowLeaderboard(true)}
               aria-label="Open Leaderboard"
@@ -291,7 +283,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
             <button
               onClick={onClose}
               aria-label="Close Language Match"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/70 backdrop-blur transition-colors hover:border-gold/60 hover:text-gold"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/70 backdrop-blur transition-colors hover:border-gold/60 hover:text-gold"
             >
               <X className="h-4 w-4" />
             </button>

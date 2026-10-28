@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Library,
@@ -105,6 +106,7 @@ export function ParallelReader() {
   const [syncScroll, setSyncScroll] = useState(true);
   const [autoScroll, setAutoScroll] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
+  useOverlayHistory(fullscreen, () => setFullscreen(false));
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [furiganaMode, setFuriganaMode] = useState<FuriganaMode>("above");
@@ -949,7 +951,7 @@ export function ParallelReader() {
         tabIndex={-1}
         role="region"
         aria-label="Selected reading"
-        className={`relative scroll-mt-20 overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur md:scroll-mt-40 ${fullscreen ? "fixed inset-2 z-40 md:inset-6" : ""}`}
+        className={`scroll-mt-20 overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur md:scroll-mt-40 ${fullscreen ? "fixed inset-2 z-50 md:inset-6" : "relative"}`}
       >
         <div className={fullscreen ? "grid grid-cols-1" : "grid grid-cols-2"}>
           {!fullscreen && (
@@ -1024,9 +1026,10 @@ export function ParallelReader() {
                     type="button"
                     onClick={() => setFullscreen(false)}
                     title="Exit fullscreen"
-                    className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold hover:bg-gold/15"
+                    aria-label="Close fullscreen reader"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-background px-3 text-sm text-foreground hover:bg-accent"
                   >
-                    <Minimize2 className="h-3 w-3" /> Exit
+                    <X className="h-5 w-5" aria-hidden="true" /> Close
                   </button>
                 )}
               </div>

@@ -1,5 +1,6 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useState } from "react";
-import { Sparkles, Mail, ArrowRight, Lock } from "lucide-react";
+import { Sparkles, Mail, ArrowRight, Lock, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ interface Props {
 
 export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
   const { state } = useApp();
+  useOverlayHistory(true, onClose);
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +37,7 @@ export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
           callCount: 3,
         }),
       });
-      const result = await res.json() as { ok: boolean };
+      const result = (await res.json()) as { ok: boolean };
 
       if (result.ok) {
         onEmailCaptured();
@@ -56,9 +58,10 @@ export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
         <button
           type="button"
           onClick={onClose}
-          className="absolute -top-8 right-0 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+          aria-label="Close"
+          className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-foreground"
         >
-          Maybe later →
+          <X className="h-5 w-5" aria-hidden="true" />
         </button>
 
         <div className="rounded-2xl border border-border/60 bg-card/95 p-7 shadow-2xl">
@@ -71,12 +74,10 @@ export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
                 </div>
               </div>
 
-              <h2 className="text-xl font-bold text-center mb-1">
-                You're getting it.
-              </h2>
+              <h2 className="text-xl font-bold text-center mb-1">You're getting it.</h2>
               <p className="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
-                Drop your email to keep going — no password, no card.
-                Free through August 2026 while we're in beta.
+                Drop your email to keep going — no password, no card. Free through August 2026 while
+                we're in beta.
               </p>
 
               <form onSubmit={handleEmailSubmit} className="space-y-3">
@@ -122,8 +123,8 @@ export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
                 Beta is over — thanks for being here early.
               </h2>
               <p className="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
-                Language Threshold is now a paid product. Start a 7-day free
-                trial to keep your streak going.
+                Language Threshold is now a paid product. Start a 7-day free trial to keep your
+                streak going.
               </p>
 
               <Link

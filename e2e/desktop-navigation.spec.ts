@@ -331,3 +331,20 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
   expect(after.lessonProgress).toEqual(before.lessonProgress);
   expect(after.core30Log).toEqual(before.core30Log);
 });
+
+test("desktop wheel scrolling reaches the lower lesson content and returns to the top", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "Desktop document scrolling; touch layouts use the inner main scroller.");
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(appUrl({ tab: "core30", module: "roofing" }));
+  await expect(page.getByTestId("continue-learning")).toBeVisible();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  // Wheel over ordinary lesson content, not the page scrollbar or sidebar.
+  await page.mouse.move(1000, 400);
+  await page.mouse.wheel(0, 650);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.mouse.wheel(0, -2000);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});

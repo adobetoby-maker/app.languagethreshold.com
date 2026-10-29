@@ -48,3 +48,9 @@ export function schedule(fields: SrsFields, grade: SrsGrade, now: number = Date.
 export function isDue(fields: SrsFields, now: number = Date.now()): boolean {
   return fields.dueDate <= now;
 }
+
+/** UI hints come from the exact scheduler used when saving a rating. */
+export function nextReviewLabel(fields: SrsFields, grade: SrsGrade, now = Date.now()): string {
+  const days = schedule(fields, grade, now).interval;
+  return days === 1 ? "1 day" : `${days} days`;
+}

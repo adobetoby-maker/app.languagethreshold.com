@@ -1,3 +1,5 @@
+import { useLessonReview } from "@/hooks/use-lesson-review";
+import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
@@ -2203,6 +2205,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
     }
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
+  const cardReview = useLessonReview(moduleId, progressContext);
+  const [cardReviewOpen, setCardReviewOpen] = useState(false);
   if (!curriculum) return null;
   const core30Log = state.core30Log[progressKey];
   const practiceLesson = curriculum.lessons.find(
@@ -2227,6 +2231,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
   function openLessonFromPlan(n: number, way: SectionId = "see") {
+    if (cardReview.ready && cardReview.shouldReviewBefore(n) && cardReview.start(cardReview.pending)) {
+      setCardReviewOpen(true);
+      scrollLessonPageToTop();
+      return;
+    }
     if (!restoreView) {
       // All entry points use the standalone runner, which owns refreshable
       // lesson/way links. Set the location before mounting that runner so it
@@ -2255,8 +2264,31 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     setTimeout(() => setJustCompleted(false), 4000);
   }
 
+  if (cardReviewOpen && cardReview.round) return <LessonReviewCards
+    review={cardReview}
+    onClose={() => setCardReviewOpen(false)}
+    onContinue={() => { setCardReviewOpen(false); setOpenLessonN(null); scrollLessonPageToTop(); }}
+  />;
+
+  function openCardReview(boundary: number | null) {
+    if (cardReview.start(boundary)) {
+      setCardReviewOpen(true);
+      scrollLessonPageToTop();
+    } else toast.info("No encountered cards are available for this review yet. Open the lesson words first.");
+  }
+
   return (
     <section>
+      {!runnerActive && cardReview.ready && <div data-testid="lesson-review-checkpoint" className="mb-4 space-y-3 rounded-2xl border border-gold/40 bg-card p-4">
+        <h2 className="font-display text-lg font-semibold">Short review rounds</h2>
+        <p className="text-sm text-muted-foreground">Take a short review after every three lessons and at the end of your path. Practice up to 12 words and phrases you have already learned.</p>
+        <div className="flex flex-wrap gap-2">
+          {(cardReview.round || cardReview.pending !== null) && <button type="button" onClick={() => openCardReview(cardReview.pending)} className="min-h-11 rounded-xl bg-gold px-4 text-sm font-semibold text-midnight">
+            {cardReview.round ? "Resume review" : `Review after lesson ${cardReview.pending}`}
+          </button>}
+          <button type="button" disabled={!cardReview.round && !cardReview.dueCount} onClick={() => openCardReview(null)} className="min-h-11 rounded-xl border border-border px-4 text-sm disabled:opacity-50">Due review · {cardReview.dueCount}</button>
+        </div>
+      </div>}
       {/* Current lesson card or all-done state */}
       {!howOpen &&
         !reviewOpen &&
@@ -2507,6 +2539,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                                   : ""}
                           </span>
                         </button>
+                        {cardReview.checkpoints.filter(checkpoint => checkpoint.moduleId === moduleId && checkpoint.afterLesson === l.n).map(checkpoint => <button
+                          type="button"
+                          key={`review-${checkpoint.n}`}
+                          data-testid={`review-checkpoint-${checkpoint.n}`}
+                          disabled={!cardReview.ready || !checkpoint.unlocked}
+                          onClick={() => openCardReview(checkpoint.n)}
+                          className="my-2 min-h-11 w-full rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-left text-sm font-semibold text-foreground disabled:opacity-60"
+                        >Review after lesson {checkpoint.n} · {checkpoint.complete ? "Completed · practice again" : checkpoint.unlocked ? "Ready" : "Complete these lessons first"}</button>)}
                       </li>
                     );
                   })}

@@ -63,6 +63,7 @@ export interface FlashcardEntry {
   blockId?: string; // matches FlashBlock.id (block cards only)
   addedAt: number;
   srs: SrsFields;
+  reviewHistory?: { grade: SrsGrade; at: number }[];
 }
 
 interface State {
@@ -546,7 +547,7 @@ function reducer(state: State, action: Action): State {
         ...state,
         cards: {
           ...state.cards,
-          [card.id]: { ...card, srs: schedule(card.srs, action.payload.grade, now) },
+          [card.id]: { ...card, srs: schedule(card.srs, action.payload.grade, now), reviewHistory: [...(card.reviewHistory ?? []), { grade: action.payload.grade, at: now }] },
         },
       };
     }

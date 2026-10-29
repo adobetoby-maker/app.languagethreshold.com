@@ -107,6 +107,15 @@ test("actual flashcard reducer preserves reviewed cards, adds missing lesson wor
     );
     assert.strictEqual(add(next, "lesson", pairs), next);
     assert.equal(Object.keys(old.cards).length, 1);
+    const reviewed = reduce(next, { type: "REVIEW_CARD", payload: { id, grade: "again", now: 50000 } });
+    assert.equal(reviewed.cards[id].srs.repetitions, 0);
+    assert.equal(reviewed.cards[id].srs.dueDate, 50000 + 86400000);
+    assert.deepEqual(reviewed.cards[id].reviewHistory, [{ grade: "again", at: 50000 }]);
+    const resynced = add(reviewed, "lesson", pairs);
+    assert.strictEqual(resynced.cards[id], reviewed.cards[id]);
+    const hydrated = reduce(initial, { type: "HYDRATE", payload: JSON.parse(JSON.stringify(resynced)) });
+    assert.deepEqual(hydrated.cards[id], reviewed.cards[id]);
+
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

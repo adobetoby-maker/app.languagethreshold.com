@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle, BookmarkPlus } from "lucide-react";
 import { useApp, LANGUAGES, NATIVE_LANGUAGES, type NativeLanguage } from "@/state/app-state";
 import { getModule } from "@/data/modules";
@@ -26,6 +27,14 @@ import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
 export function TopNav() {
   const { state, dispatch } = useApp();
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  useEffect(() => {
+    const open = () => {
+      if (window.matchMedia(DESKTOP_GUIDE_MEDIA).matches) setSettingsOpen(true);
+    };
+    window.addEventListener(SITE_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(SITE_SETTINGS_EVENT, open);
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] desktop:block">
@@ -96,7 +105,7 @@ export function TopNav() {
           >
             <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
           </button>
-          <Popover>
+          <Popover open={settingsOpen} onOpenChange={setSettingsOpen}>
             <PopoverTrigger asChild>
               <button
                 type="button"

@@ -1,3 +1,4 @@
+import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
 import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
 import { legacyExamsLocation } from "@/lib/exam-navigation";
@@ -93,7 +94,8 @@ function GatedTabShell() {
         skipStartup={
           state.currentTab === "core30" ||
           (typeof window !== "undefined" &&
-            new URLSearchParams(window.location.search).has("lesson"))
+            (new URLSearchParams(window.location.search).has("lesson") ||
+              ["settings", "add-word"].includes(new URLSearchParams(window.location.search).get("panel") ?? "")))
         }
       />
       <SubscriptionGate currentTab={state.currentTab}>
@@ -278,6 +280,7 @@ function Index() {
                                               />
                                             )}
                                             <UrlModuleBridge />
+                                            <TutorSiteGuide />
                                             <TutorPanel />
                                             <LevelUpOverlay />
                                             <CefrCompletionBridge />

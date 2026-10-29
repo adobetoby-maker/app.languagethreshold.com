@@ -1,3 +1,4 @@
+import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { PracticeBarSetting, PracticeTimeBar, PracticeTimeTicker } from "./PracticeTimeBar";
 import {
@@ -337,6 +338,16 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
+  useEffect(() => {
+    const open = () => {
+      if (!window.matchMedia(DESKTOP_GUIDE_MEDIA).matches) {
+        setMoreView("settings");
+        setMoreSheetOpen(true);
+      }
+    };
+    window.addEventListener(SITE_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(SITE_SETTINGS_EVENT, open);
+  }, []);
   const [updatingApp, setUpdatingApp] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
   const [resettingApp, setResettingApp] = useState(false);

@@ -1,3 +1,9 @@
+import {
+  externalTutorHref,
+  localSiteGuideReply,
+  resolveSiteGuideHref,
+  type SiteGuideContext,
+} from "@/lib/site-guide";
 import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import {
   currentTutorLesson,
@@ -29,6 +35,8 @@ const LEVEL_TO_CEFR: Record<string, string> = {
 };
 
 const QUICK_PROMPTS = [
+  { label: "Help me get started", value: () => "Help me get started using this site" },
+  { label: "Find a feature", value: () => "I want to " },
   {
     label: "Explain selected word 🔍",
     value: (w?: string) =>
@@ -133,6 +141,29 @@ export function TutorPanel() {
   const send = (text: string) => {
     const trimmed = text.trim();
     if (!trimmed || streaming) return;
+    const reply = localSiteGuideReply(trimmed, {
+      moduleId: appState.activeModuleId,
+      language: appState.selectedLanguage,
+      nativeLanguage: appState.nativeLanguage,
+      currentTab: appState.currentTab,
+    });
+    if (reply) {
+      setError(null);
+      setInput("");
+      tutor.addMessage(threadId, {
+        id: crypto.randomUUID(),
+        role: "user",
+        content: trimmed,
+        createdAt: Date.now(),
+      });
+      tutor.addMessage(threadId, {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: reply,
+        createdAt: Date.now(),
+      });
+      return;
+    }
     gated(() => doSend(trimmed));
   };
 
@@ -174,6 +205,7 @@ export function TutorPanel() {
           messages: recentConversationMessages([...messages, userMsg]),
           context: {
             language: appState.selectedLanguage,
+            site: { currentTab: appState.currentTab },
             level: cefr,
             nativeLanguage: appState.nativeLanguage,
             textTitle: sourceContext?.textTitle ?? lesson?.title ?? selected.title,
@@ -309,7 +341,7 @@ export function TutorPanel() {
     return (
       <button
         onClick={() => tutor.setOpen(true)}
-        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] desktop:right-6 desktop:inline-flex"
+        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] desktop:right-6 desktop:inline-flex"
         aria-label="Open AI Tutor"
       >
         <Sparkles className="h-4 w-4 text-gold" />
@@ -345,7 +377,7 @@ export function TutorPanel() {
         <div className="flex shrink-0 items-center justify-between border-b border-border/60 px-4 py-3">
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-gold" />
-            <span className="font-display text-sm italic">
+            <span className="font-display text-sm">
               <span className="text-gold">✦</span> Language Threshold Tutor
             </span>
             <span className="text-base">{flagFor(appState.selectedLanguage)}</span>
@@ -411,17 +443,26 @@ export function TutorPanel() {
               <div className="mx-auto mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/50 text-gold">
                 ✦
               </div>
-              <p className="font-display text-sm italic text-foreground/90">
-                I'm your tutor for {appState.selectedLanguage}.
+              <p className="font-display text-sm text-foreground/90">
+                I'm your {appState.selectedLanguage} tutor and site guide.
               </p>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                Ask me anything about the text
+                Ask about the language, or tell me what you want to do here.
               </p>
             </div>
           )}
 
           {messages.map((m) => (
-            <MessageBubble key={m.id} message={m} />
+            <MessageBubble
+              key={m.id}
+              message={m}
+              siteContext={{
+                moduleId: appState.activeModuleId,
+                language: appState.selectedLanguage,
+                nativeLanguage: appState.nativeLanguage,
+                currentTab: appState.currentTab,
+              }}
+            />
           ))}
 
           {streaming &&
@@ -436,12 +477,16 @@ export function TutorPanel() {
         </div>
 
         {/* Quick prompts */}
-        <div className="flex shrink-0 flex-wrap gap-1.5 border-t border-border/60 px-3 py-2">
+        <div
+          aria-label="Quick tutor prompts"
+          role="group"
+          className="flex shrink-0 gap-2 overflow-x-auto overscroll-x-contain border-t border-border/60 px-3 py-2"
+        >
           {QUICK_PROMPTS.map((q) => (
             <button
               key={q.label}
               onClick={() => setInput(q.value(sourceContext?.selectedWord))}
-              className="min-h-11 rounded-full border border-border/70 bg-background/40 px-2.5 py-2 font-mono text-[10px] tracking-wide text-foreground/80 transition-colors hover:border-gold/60 hover:text-gold"
+              className="min-h-11 shrink-0 whitespace-nowrap rounded-full border border-border/70 bg-background/40 px-3 py-2 font-sans text-sm text-foreground transition-colors hover:border-gold/60 hover:text-gold"
             >
               {q.label}
             </button>
@@ -465,6 +510,7 @@ export function TutorPanel() {
                 send(input);
               }
             }}
+            aria-label="Message your tutor"
             placeholder="Ask your tutor…"
             rows={1}
             className="custom-scroll min-h-11 max-h-32 flex-1 resize-none rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none"
@@ -499,7 +545,13 @@ export function TutorPanel() {
   );
 }
 
-function MessageBubble({ message }: { message: TutorMessage }) {
+function MessageBubble({
+  message,
+  siteContext,
+}: {
+  message: TutorMessage;
+  siteContext: SiteGuideContext;
+}) {
   if (message.role === "user") {
     return (
       <div className="flex justify-end">
@@ -515,8 +567,39 @@ function MessageBubble({ message }: { message: TutorMessage }) {
         ✦
       </div>
       <div className="max-w-[85%] rounded-2xl rounded-bl-sm border border-gold/30 bg-gold/[0.06] px-3.5 py-2 text-sm text-foreground/95">
-        <div className="prose prose-sm prose-invert max-w-none [&_code]:font-mono [&_p]:m-0 [&_p+p]:mt-2 [&_strong]:text-gold">
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{message.content || " "}</ReactMarkdown>
+        <div className="prose prose-sm prose-invert max-w-none font-sans not-italic [&_code]:font-mono [&_p]:m-0 [&_p+p]:mt-2 [&_strong]:text-gold">
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              a: ({ href, children }) => {
+                const known = href ? resolveSiteGuideHref(href, siteContext) : null;
+                if (known)
+                  return (
+                    <a
+                      href={known}
+                      className="inline-flex min-h-11 items-center rounded-lg border border-gold/50 bg-gold/10 px-3 py-2 font-semibold text-foreground underline underline-offset-4"
+                    >
+                      {children}
+                    </a>
+                  );
+                const external = href ? externalTutorHref(href) : null;
+                if (external)
+                  return (
+                    <a
+                      href={external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4"
+                    >
+                      {children}
+                    </a>
+                  );
+                return <span>{children}</span>;
+              },
+            }}
+          >
+            {message.content || " "}
+          </ReactMarkdown>
         </div>
       </div>
     </div>

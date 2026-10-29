@@ -1,3 +1,4 @@
+import { siteGuideInstructions } from "@/lib/site-guide";
 import {
   withConversationProvider,
   ConversationProviderError,
@@ -66,6 +67,7 @@ export const BodySchema = z.object({
   messages: z.array(MessageSchema).min(1).max(40),
   context: z.object({
     language: z.string().min(1).max(40),
+    site: z.object({ currentTab: z.string().max(40) }).optional(),
     level: z.string().min(1).max(40),
     nativeLanguage: z.string().max(40).optional(),
     textTitle: z.string().max(200).optional(),
@@ -258,9 +260,15 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
   const baseStr = base.filter(Boolean).join("\n");
   const modulePrompt =
     !lesson && ctx.module ? `${baseStr}\n${buildModuleAddendum(ctx.module)}` : baseStr;
+  const websiteGuide = siteGuideInstructions({
+    moduleId: ctx.lesson?.moduleId ?? ctx.module?.id,
+    language: ctx.language,
+    nativeLanguage: ctx.nativeLanguage,
+    currentTab: ctx.site?.currentTab,
+  });
   return ctx.lesson && lesson
-    ? `${modulePrompt}\n\n${lessonTutorInstructions(ctx.lesson)}`
-    : modulePrompt;
+    ? `${modulePrompt}\n\n${lessonTutorInstructions(ctx.lesson)}\n\n${websiteGuide}`
+    : `${modulePrompt}\n\n${websiteGuide}`;
 }
 
 /**

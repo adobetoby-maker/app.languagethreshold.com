@@ -313,6 +313,15 @@
     }
   }
 
+  .lt-tutor-guide-offer {
+    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
+  }
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    .lt-tutor-guide-offer {
+      bottom: 5.5rem;
+    }
+  }
+
   .lt-tutor-above-nav {
     bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
   }

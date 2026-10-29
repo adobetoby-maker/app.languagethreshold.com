@@ -61,6 +61,24 @@ for (const size of [
     const card = page.getByTestId("flashcards-study-card"),
       grades = page.getByTestId("flashcards-grading");
     await expect(card).toBeVisible();
+    const directions = page.getByRole("group", { name: "Card direction" });
+    const spanishFirst = directions.getByRole("button", { name: "ES to EN" });
+    const englishFirst = directions.getByRole("button", { name: "EN to ES" });
+    await expect(spanishFirst).toHaveAttribute("aria-pressed", "true");
+    const front = card.locator(":scope > div").first();
+    const back = card.locator(":scope > div").nth(1);
+    const spanishWord = await front.innerText();
+    await englishFirst.click();
+    await expect(englishFirst).toHaveAttribute("aria-pressed", "true");
+    await expect(front).not.toHaveText(spanishWord);
+    await expect(back).toHaveAttribute("aria-hidden", "true");
+    await expect(page.getByTestId("usage-meaning")).toHaveAttribute("aria-hidden", "true");
+    await card.click();
+    await expect(back).toHaveAttribute("aria-hidden", "false");
+    await expect(back).toContainText(spanishWord.trim());
+    await spanishFirst.click();
+    await expect(front).toContainText(spanishWord.trim());
+    await expect(back).toHaveAttribute("aria-hidden", "true");
     const before = await readAppState(page);
     const ids = ["flashcards-study-card", "flashcards-grading"];
     const a = await geometry(page, ids);
@@ -314,4 +332,51 @@ test("larger phone text keeps card grades separate and the flip frame steady", a
   await card.press("Enter");
   const b = await geometry(page, ["flashcards-study-card", "flashcards-grading"]);
   expect(b.boxes.map((box) => box.height)).toEqual(a.boxes.map((box) => box.height));
+});
+
+test("general Cards retain one phone frame across languages and modules, including a deck error", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(!isMobile);
+  const cases = [
+    { module: "construction-foreman", target: "Spanish", native: "English" },
+    { module: "construction-foreman", target: "French", native: "English" },
+    { module: "construction-foreman", target: "Japanese", native: "English" },
+    { module: "construction-foreman", target: "English", native: "Spanish" },
+    { module: "roofing", target: "Spanish", native: "English" },
+    { module: "nursing", target: "Spanish", native: "English" },
+  ];
+  for (const size of [
+    { width: 320, height: 568 },
+    { width: 375, height: 667 },
+  ]) {
+    await page.setViewportSize(size);
+    for (const entry of cases) {
+      const label = `${size.width} ${entry.module} ${entry.target}/${entry.native}`;
+      await page.goto(appUrl({ tab: "flashcards", ...entry }));
+      const card = page.getByTestId("flashcards-study-card");
+      const grades = page.getByTestId("flashcards-grading");
+      await expect(card, `${label}: card available`).toBeVisible();
+      await expect(grades.getByRole("button").first()).toBeEnabled();
+      const beforeProgress = (await readAppState(page)).core30Log;
+      const a = await geometry(page, ["flashcards-study-card", "flashcards-grading"]);
+      await card.click();
+      const b = await geometry(page, ["flashcards-study-card", "flashcards-grading"]);
+      expect(a.overflow, `${label}: horizontal fit`).toBeLessThanOrEqual(0);
+      expect(a.boxes[1].bottom, `${label}: grades above nav`).toBeLessThanOrEqual(a.nav);
+      expect(b.boxes, `${label}: flip keeps geometry`).toEqual(a.boxes);
+      expect(b.scroll, `${label}: flip keeps scroll`).toBe(a.scroll);
+      expect((await readAppState(page)).core30Log, `${label}: flip keeps progress`).toEqual(
+        beforeProgress,
+      );
+      const fieldError = page.getByRole("status").filter({ hasText: /practice content|field cards/i });
+      if (await fieldError.count()) {
+        const errorBox = await fieldError.first().boundingBox();
+        expect(errorBox!.y, `${label}: deck error follows working controls`).toBeGreaterThan(
+          a.boxes[1].bottom,
+        );
+      }
+    }
+  }
 });

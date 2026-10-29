@@ -28,6 +28,7 @@ import { getCuratedModulePairs } from "@/data/curated-module-pairs";
 import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
+import { languageCode, languageTag } from "@/lib/lesson-words-core";
 import { FuriganaText } from "@/components/reader/FuriganaText";
 import { JapaneseConjugationCard } from "./JapaneseConjugationCard";
 import type { SrsGrade } from "@/lib/srs";
@@ -74,6 +75,7 @@ export function FlashcardsStudio() {
   const language = appState.selectedLanguage;
   const moduleId = appState.activeModuleId;
   const moduleName = getModule(moduleId)?.name ?? "Module";
+  const [direction, setDirection] = useState<"target-native" | "native-target">("target-native");
   const [flipped, setFlipped] = useState(false);
   const [reviewedCount, setReviewedCount] = useState(0);
   const [showFurigana, setShowFurigana] = useState(true);
@@ -432,6 +434,9 @@ export function FlashcardsStudio() {
     [dueCardsForCategories, language, selectedCategories],
   );
   const current = dueCards[0];
+  const targetFirst = direction === "target-native";
+  const frontLanguage = targetFirst ? language : appState.nativeLanguage;
+  const backLanguage = targetFirst ? appState.nativeLanguage : language;
   useEffect(() => setFlipped(false), [current?.id]);
   const speakOwned = useOwnedSpeaker(
     JSON.stringify([language, moduleId, current?.id, accent, voiceURI]),
@@ -569,7 +574,7 @@ export function FlashcardsStudio() {
           </div>
         </div>
 
-        {moduleSection && (generatingFieldDeck || fieldDeckError) && (
+        {moduleSection && !current && (generatingFieldDeck || fieldDeckError) && (
           <div
             role="status"
             className="mb-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
@@ -588,6 +593,35 @@ export function FlashcardsStudio() {
         )}
         {current ? (
           <div className="flashcards-working flex min-h-0 flex-col items-center gap-2 sm:gap-5">
+            <div
+              role="group"
+              aria-label="Card direction"
+              className="flashcards-direction inline-flex max-w-full rounded-xl border border-border/60 bg-card/40 p-1"
+            >
+              {(
+                [
+                  ["target-native", `${languageCode(language)} to ${languageCode(appState.nativeLanguage)}`],
+                  ["native-target", `${languageCode(appState.nativeLanguage)} to ${languageCode(language)}`],
+                ] as const
+              ).map(([choice, label]) => (
+                <button
+                  key={choice}
+                  type="button"
+                  aria-pressed={direction === choice}
+                  onClick={() => {
+                    setDirection(choice);
+                    setFlipped(false);
+                  }}
+                  className={`min-h-11 rounded-lg px-3 font-sans text-xs font-bold transition-colors ${
+                    direction === choice
+                      ? "bg-gold text-background"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             <button
               data-testid="flashcards-study-card"
               aria-label="Flip flashcard"
@@ -597,16 +631,19 @@ export function FlashcardsStudio() {
             >
               <div
                 aria-hidden={flipped}
+                lang={languageTag(frontLanguage)}
                 className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "invisible" : ""}`}
               >
-                {language === "Japanese" && showFurigana ? (
+                {targetFirst && language === "Japanese" && showFurigana ? (
                   <span className="font-sans text-4xl text-foreground leading-tight">
                     <FuriganaText text={current.word} mode="above" script="hiragana" />
                   </span>
                 ) : (
-                  <span className="font-sans text-4xl text-foreground">{current.word}</span>
+                  <span className="font-sans text-4xl text-foreground">
+                    {targetFirst ? current.word : current.translation}
+                  </span>
                 )}
-                {current.romanization && (
+                {targetFirst && current.romanization && (
                   <span className="mt-2 font-sans text-sm text-gold/80">
                     {current.romanization}
                   </span>
@@ -616,7 +653,22 @@ export function FlashcardsStudio() {
                 aria-hidden={!flipped}
                 className={`col-start-1 row-start-1 flex flex-col items-center ${flipped ? "" : "invisible"}`}
               >
-                <span className="font-sans text-3xl text-foreground">{current.translation}</span>
+                <span lang={languageTag(backLanguage)} className="font-sans text-3xl text-foreground">
+                  {!targetFirst && language === "Japanese" && showFurigana ? (
+                    <FuriganaText text={current.word} mode="above" script="hiragana" />
+                  ) : targetFirst ? current.translation : current.word}
+                </span>
+                {!targetFirst && current.romanization && (
+                  <span className="mt-2 font-sans text-sm text-gold/80">{current.romanization}</span>
+                )}
+                {!targetFirst && (
+                  <span
+                    lang={languageTag(appState.nativeLanguage)}
+                    className="mt-3 font-sans text-lg text-muted-foreground"
+                  >
+                    {current.translation}
+                  </span>
+                )}
                 {wordGloss ? (
                   <span
                     data-testid="flashcards-word-gloss"
@@ -625,16 +677,16 @@ export function FlashcardsStudio() {
                   >
                     {wordGloss.map((part, index) => (
                       <span key={index} className="flex flex-col items-center gap-1">
-                        <span className="font-sans text-xl text-foreground">{part.word}</span>
-                        <span className="text-sm text-muted-foreground">{part.meaning}</span>
+                        <span lang={languageTag(language)} className="font-sans text-xl text-foreground">{part.word}</span>
+                        <span lang={languageTag(appState.nativeLanguage)} className="text-sm text-muted-foreground">{part.meaning}</span>
                       </span>
                     ))}
                   </span>
-                ) : (
-                  <span className="mt-4 font-sans text-xl text-muted-foreground">
+                ) : targetFirst ? (
+                  <span lang={languageTag(frontLanguage)} className="mt-4 font-sans text-xl text-muted-foreground">
                     {current.word}
                   </span>
-                )}
+                ) : null}
 
                 {/* Japanese verb structure: te / ta + example (mirrors Romance gerund / participle) */}
                 {japaneseConjugation && (
@@ -675,14 +727,14 @@ export function FlashcardsStudio() {
 
                 {hasDistinctFlashcardExample(current) && (
                   <div className="mt-5 rounded-xl border border-border/50 bg-background/30 px-4 py-3">
-                    <p className="font-sans text-base not-italic text-foreground">
+                    <p lang={languageTag(language)} className="font-sans text-base not-italic text-foreground">
                       {language === "Japanese" && showFurigana ? (
                         <FuriganaText text={current.example} mode="above" script="hiragana" />
                       ) : (
                         `"${current.example}"`
                       )}
                     </p>
-                    <p className="mt-1 font-sans text-sm text-muted-foreground">
+                    <p lang={languageTag(appState.nativeLanguage)} className="mt-1 font-sans text-sm text-muted-foreground">
                       {current.exampleTranslation}
                     </p>
                   </div>
@@ -762,6 +814,24 @@ export function FlashcardsStudio() {
           </div>
         )}
       </PhoneActivity>
+
+      {moduleSection && current && (generatingFieldDeck || fieldDeckError) && (
+        <div
+          role="status"
+          className="mt-4 rounded-xl border border-border p-3 text-sm text-muted-foreground"
+        >
+          {generatingFieldDeck ? `Preparing ${moduleName} cards…` : fieldDeckError}
+          {fieldDeckError && !generatingFieldDeck && (
+            <button
+              type="button"
+              onClick={() => void loadFieldDeck(true)}
+              className="ml-2 min-h-11 text-gold underline"
+            >
+              Retry field cards
+            </button>
+          )}
+        </div>
+      )}
 
       <details
         key={`${language}:${moduleId}`}
@@ -957,7 +1027,11 @@ export function FlashcardsStudio() {
         </details>
 
         {conjugation && personLabels && activeCard && (
-          <div key={activeCard.id} className="space-y-3">
+          <div
+            key={activeCard.id}
+            aria-hidden={!targetFirst && !flipped}
+            className={`space-y-3 ${!targetFirst && !flipped ? "invisible" : ""}`}
+          >
             <div className="mb-3 flex items-center gap-2 px-1">
               <BookOpen className="h-3.5 w-3.5 text-gold" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -975,7 +1049,11 @@ export function FlashcardsStudio() {
         )}
 
         {japaneseConjugation && activeCard && (
-          <div key={`ja-${activeCard.id}`} className="mt-4 w-full">
+          <div
+            key={`ja-${activeCard.id}`}
+            aria-hidden={!targetFirst && !flipped}
+            className={`mt-4 w-full ${!targetFirst && !flipped ? "invisible" : ""}`}
+          >
             <div className="mb-3 flex items-center gap-2 px-1">
               <BookOpen className="h-3.5 w-3.5 text-gold" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -1003,27 +1081,27 @@ export function FlashcardsStudio() {
               activeCard.partOfSpeech === "roofing term"
                 ? "Noun usage"
                 : "Word usage"}{" "}
-              · {activeCard.word}
+              · {targetFirst ? activeCard.word : activeCard.translation}
             </h2>
             <p
               data-testid="usage-meaning"
               aria-hidden={!flipped}
               className={`mt-1 text-sm text-muted-foreground ${flipped ? "" : "invisible"}`}
             >
-              {activeCard.translation}
+              {targetFirst ? activeCard.translation : activeCard.word}
             </p>
             {usageExample ? (
               <div className="mt-3 rounded-lg bg-background/40 p-3">
                 <p className="mb-1 text-xs font-semibold text-gold">Example</p>
                 <p className="font-sans text-lg not-italic text-foreground">
-                  {usageExample.target}
+                  {targetFirst ? usageExample.target : usageExample.native}
                 </p>
                 <p
                   data-testid="usage-translation"
                   aria-hidden={!flipped}
                   className={`mt-1 text-sm text-muted-foreground ${flipped ? "" : "invisible"}`}
                 >
-                  {usageExample.native}
+                  {targetFirst ? usageExample.native : usageExample.target}
                 </p>
                 <button
                   type="button"

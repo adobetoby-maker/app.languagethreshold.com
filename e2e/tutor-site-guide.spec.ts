@@ -13,6 +13,9 @@ async function openSiteTutor(page: import("@playwright/test").Page, isMobile: bo
     onboardingComplete: true,
   });
   await page.goto(appUrl({ tab: "reader", module: "roofing" }));
+  await expect(
+    page.getByRole("button", { name: "✦ Roofing: Materials", exact: true }),
+  ).toBeVisible();
   await page
     .getByRole("button", { name: isMobile ? "Ask Tutor" : "Open AI Tutor", exact: true })
     .click();
@@ -64,6 +67,9 @@ test("voice and Add word links open the actual panels without changing preferenc
   await expect(page).not.toHaveURL(/panel=/);
   await page.screenshot({ path: `test-results/tutor-settings-${test.info().project.name}.png` });
   await page.goto(appUrl({ tab: "reader", module: "roofing" }));
+  await expect(
+    page.getByRole("button", { name: "✦ Roofing: Materials", exact: true }),
+  ).toBeVisible();
   await page
     .getByRole("button", { name: isMobile ? "Ask Tutor" : "Open AI Tutor", exact: true })
     .click();

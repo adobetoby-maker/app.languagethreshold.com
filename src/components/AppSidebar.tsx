@@ -514,6 +514,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </nav>
 
         <a
+          href="/pricing"
+          title="Pricing"
+          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-gold/35 px-1 py-1 text-gold-ink transition-colors hover:bg-gold/10"
+        >
+          <Star className="h-[17px] w-[17px]" strokeWidth={1.6} />
+          <span className="font-mono text-[9px] tracking-wide">Pricing</span>
+        </a>
+
+        <a
           href="/advanced"
           title="Advanced tools"
           className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-border/50 px-1 py-1 text-muted-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
@@ -778,7 +787,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
             <span className="text-sm text-foreground">Your account</span>
-            <AuthButton />
+            <div className="flex items-center gap-3">
+              <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
+                Pricing
+              </a>
+              <AuthButton />
+            </div>
           </div>
 
           <div hidden={moreView === "settings"}>

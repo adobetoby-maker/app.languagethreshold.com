@@ -73,6 +73,15 @@ const websiteSchema = {
   url: "https://app.languagethreshold.com",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Language Threshold",
+  url: "https://languagethreshold.com",
+  logo: "https://app.languagethreshold.com/icons/icon-512.png",
+  email: "support@languagethreshold.com",
+};
+
 export const Route = createRootRoute({
   head: () => ({
     scripts: [
@@ -83,6 +92,10 @@ export const Route = createRootRoute({
       {
         type: "application/ld+json",
         children: JSON.stringify(websiteSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationSchema),
       },
     ],
     meta: [

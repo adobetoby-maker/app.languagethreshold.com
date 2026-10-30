@@ -23,11 +23,19 @@ export function usePracticeViewport(context: string) {
       );
     };
     const frame = window.requestAnimationFrame(measure);
+    // The shared navigation and safe-area rows can settle after the first paint.
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+    const main = element.closest("main");
+    if (main) observer?.observe(main);
+    if (element.parentElement) observer?.observe(element.parentElement);
+    const nav = document.querySelector(".lt-bottom-nav");
+    if (nav) observer?.observe(nav);
     window.addEventListener("resize", measure);
     window.visualViewport?.addEventListener("resize", measure);
     window.visualViewport?.addEventListener("scroll", measure);
     return () => {
       window.cancelAnimationFrame(frame);
+      observer?.disconnect();
       window.removeEventListener("resize", measure);
       window.visualViewport?.removeEventListener("resize", measure);
       window.visualViewport?.removeEventListener("scroll", measure);

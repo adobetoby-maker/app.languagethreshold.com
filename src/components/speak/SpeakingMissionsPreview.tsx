@@ -906,6 +906,19 @@ export function SpeakingMissionsPreview({
     });
     const current = () =>
       lease.isCurrent() && !controller.signal.aborted && requestRef.current === controller;
+    const timeout = window.setTimeout(() => {
+      if (!current()) return;
+      setTurns((turns) => turns.filter((turn) => turn.id !== learnerTurn.id));
+      setTypedTurn(learnerText);
+      setTranscriptSource(learnerTranscriptSource ?? "typed");
+      setStatus("error");
+      setErrorMessage(
+        "The reply took too long. Resume to resend your answer, or reset the conversation.",
+      );
+      requestRef.current = null;
+      controller.abort();
+    }, 45_000);
+    const releaseTimeout = lease.own(() => window.clearTimeout(timeout));
 
     try {
       const history: Array<{ role: "user" | "assistant"; content: string }> = previousTurns
@@ -987,6 +1000,8 @@ export function SpeakingMissionsPreview({
         error instanceof Error ? error.message : "The mission partner could not respond.",
       );
     } finally {
+      window.clearTimeout(timeout);
+      releaseTimeout();
       if (current()) requestRef.current = null;
       release();
     }
@@ -1526,7 +1541,7 @@ export function SpeakingMissionsPreview({
         }}
         style={practiceViewport.style}
         data-testid="focused-speaking-frame"
-        className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
+        className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         <button
@@ -1887,7 +1902,7 @@ export function SpeakingMissionsPreview({
       }}
       style={practiceViewport.style}
       data-testid="focused-speaking-frame"
-      className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
+      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
     >
       <div className="flex shrink-0 flex-nowrap items-start justify-between gap-2">
         <div>
@@ -1900,15 +1915,28 @@ export function SpeakingMissionsPreview({
           <p className="mt-1 text-xs text-muted-foreground">
             {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
             {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
+            <span className="block text-gold-ink">
+              {turns.filter((turn) => turn.role === "partner" && !turn.opening).length} exchanges ·
+              4-exchange goal
+            </span>
           </p>
         </div>
-        <button
-          type="button"
-          onClick={finishMission}
-          className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
-        >
-          <X className="h-3.5 w-3.5" /> End
-        </button>
+        <div className="flex shrink-0 flex-col gap-1">
+          <button
+            type="button"
+            onClick={requestMissionStart}
+            className="flex min-h-11 items-center justify-center gap-1 rounded-full border border-border px-3 text-sm text-foreground"
+          >
+            <RotateCcw className="h-4 w-4" /> Reset
+          </button>
+          <button
+            type="button"
+            onClick={finishMission}
+            className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
+          >
+            <X className="h-3.5 w-3.5" /> End
+          </button>
+        </div>
       </div>
 
       {practiceNotice && (
@@ -1923,6 +1951,7 @@ export function SpeakingMissionsPreview({
       <div
         ref={transcriptRef}
         className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        role="region"
         aria-label="Conversation"
         aria-live="polite"
       >
@@ -1971,7 +2000,7 @@ export function SpeakingMissionsPreview({
           ))}
           {interim && (
             <li className="flex justify-end">
-              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm italic">
+              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm">
                 {interim}
               </div>
             </li>
@@ -1998,7 +2027,7 @@ export function SpeakingMissionsPreview({
       <div
         role="group"
         aria-label="Conversation microphone"
-        className="flex shrink-0 flex-col items-center gap-1 text-center"
+        className="flex shrink-0 flex-wrap items-center justify-center gap-2 text-center"
       >
         {partnerSpeaking && (
           <button
@@ -2025,7 +2054,7 @@ export function SpeakingMissionsPreview({
             Resume mission
           </button>
         ) : (
-          <>
+          <div className="flex items-center justify-center gap-3">
             <button
               type="button"
               onClick={status === "listening" ? stopListening : startListening}
@@ -2057,9 +2086,9 @@ export function SpeakingMissionsPreview({
                   ? "Partner is speaking… your microphone will unlock afterward"
                   : status === "thinking"
                     ? "Partner is replying…"
-                    : `Your turn — tap the microphone and answer in ${selectedMission.language}`}
+                    : `Your turn — answer in ${selectedMission.language}`}
             </p>
-          </>
+          </div>
         )}
         {finishingSpeech && (
           <button

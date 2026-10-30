@@ -189,7 +189,7 @@ export function missionSystemPrompt(
     "If the learner communicates successfully by describing or repairing around a missing word, continue naturally and recognize the recovery in coaching.",
     feedbackRule,
     "Set safetyStop to true if the learner presents a real emergency or asks for real medical, legal, financial, or safety advice. When safetyStop is true, briefly redirect them to an appropriate real-world professional or local emergency service and end the roleplay.",
-    "Do not close the situation while a critical learner-facing goal remains unaddressed. Set shouldEnd only when the practical situation has reached a natural close or safety requires ending practice.",
+    "Aim for at least four learner-and-partner exchanges. Keep asking a short follow-up before that goal; end sooner only when safety requires it. Do not close the situation while a critical learner-facing goal remains unaddressed. Set shouldEnd only when the practical situation has reached a natural close or safety requires ending practice.",
     "Always respond through the speaking_mission_turn tool and nowhere else.",
   ].join("\n");
 }
@@ -525,6 +525,7 @@ export const Route = createFileRoute("/api/speak")({
                 shouldEnd:
                   parsed.data.safetyStop ||
                   (parsed.data.shouldEnd &&
+                    missionMessages.filter((message) => message.role === "user").length >= 4 &&
                     criticalSpeakingObjectivesAddressed(mission.objectives, addressedObjectiveIds)),
               };
               const aiMs = Date.now() - providerStartedAt;

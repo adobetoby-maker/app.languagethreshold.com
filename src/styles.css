@@ -1610,3 +1610,12 @@ body :is(em, cite) {
     overflow-wrap: anywhere;
   }
 }
+
+/* Speaking has its own reply and microphone controls. Fill the space above the
+   navigation instead of reserving unused Reader/Tutor floating-control rows. */
+@layer base {
+  main.lt-scroll-safe:has(.lt-speaking-frame) {
+    padding-bottom: 12px !important;
+    scroll-padding-bottom: 12px;
+  }
+}

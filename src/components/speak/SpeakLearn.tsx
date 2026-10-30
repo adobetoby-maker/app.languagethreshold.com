@@ -1,7 +1,9 @@
+import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
+import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Mic, Square, Trash2 } from "lucide-react";
+import { Mic, Square, RotateCcw, Send } from "lucide-react";
 import { toast } from "sonner";
 import { useApp, type Language } from "@/state/app-state";
 import { useSpeak } from "@/state/speak-state";
@@ -83,37 +85,6 @@ const TOPIC_CHIPS: Record<Language, string[]> = {
   ],
 };
 
-type SpeechRecognitionLike = {
-  lang: string;
-  continuous: boolean;
-  interimResults: boolean;
-  start: () => void;
-  stop: () => void;
-  abort: () => void;
-  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
-  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
-  onend: (() => void) | null;
-};
-
-type SpeechRecognitionEventLike = {
-  resultIndex: number;
-  results: ArrayLike<{
-    isFinal: boolean;
-    0: { transcript: string };
-  }>;
-};
-
-type SpeechRecognitionErrorEventLike = { error?: string };
-
-function getRecognitionCtor(): (new () => SpeechRecognitionLike) | null {
-  if (typeof window === "undefined") return null;
-  const speechWindow = window as typeof window & {
-    SpeechRecognition?: new () => SpeechRecognitionLike;
-    webkitSpeechRecognition?: new () => SpeechRecognitionLike;
-  };
-  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
-}
-
 export function SpeakLearn() {
   const { state, dispatch } = useApp();
   const { gated } = useAiGate();
@@ -137,6 +108,9 @@ export function SpeakLearn() {
   const [listening, setListening] = useState(false);
   const [interim, setInterim] = useState("");
   const [thinking, setThinking] = useState(false);
+  const [typedTurn, setTypedTurn] = useState("");
+  const [conversationError, setConversationError] = useState<string | null>(null);
+  const finishRecognitionRef = useRef<(() => void) | null>(null);
   const [challenge, setChallenge] = useState<SpeakChallenge | null>(null);
   const [missionFocused, setMissionFocused] = useState(false);
   const [surface, setSurface] = useState<"missions" | "conversation">("missions");
@@ -193,6 +167,8 @@ export function SpeakLearn() {
     setListening(false);
     setInterim("");
     setThinking(false);
+    setTypedTurn("");
+    setConversationError(null);
   }, [lifecycleKey]);
   const stopPractice = () => {
     if (!capture().isCurrent()) return;
@@ -209,7 +185,7 @@ export function SpeakLearn() {
   }, []);
 
   useEffect(() => {
-    setSupported(getRecognitionCtor() !== null);
+    setSupported(recognitionConstructor() !== null);
   }, []);
 
   useEffect(() => {
@@ -221,7 +197,7 @@ export function SpeakLearn() {
       top: transcriptRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [turns.length, interim, thinking]);
+  }, [turns, interim, thinking]);
 
   // Track conversation minutes — start clock on first user turn, flush on unmount
   useEffect(() => {
@@ -294,6 +270,7 @@ export function SpeakLearn() {
     const lease = capture();
     if (!lease.isCurrent() || abortRef.current) return;
     setThinking(true);
+    setConversationError(null);
     const ctrl = new AbortController();
     abortRef.current = ctrl;
     const release = lease.own(() => {
@@ -302,13 +279,28 @@ export function SpeakLearn() {
     });
     const current = () => lease.isCurrent() && !ctrl.signal.aborted && abortRef.current === ctrl;
     let closeReader: (() => void) | undefined;
+    const timeout = window.setTimeout(() => {
+      if (!current()) return;
+      setThinking(false);
+      setTypedTurn(userText);
+      setConversationError(
+        "The reply took too long. Send your answer again, or reset the conversation.",
+      );
+      abortRef.current = null;
+      ctrl.abort();
+      closeReader?.();
+    }, 45_000);
+    const releaseTimeout = lease.own(() => window.clearTimeout(timeout));
 
     // Build history payload from existing turns + new user turn
     const history = [
-      ...turns.map((t) => ({
-        role: t.role === "user" ? ("user" as const) : ("assistant" as const),
-        content: t.text,
-      })),
+      ...turns
+        .filter((t) => t.text.trim())
+        .slice(-38)
+        .map((t) => ({
+          role: t.role === "user" ? ("user" as const) : ("assistant" as const),
+          content: t.text,
+        })),
       { role: "user" as const, content: userText },
     ];
 
@@ -348,14 +340,13 @@ export function SpeakLearn() {
           /* ignore */
         }
         if (!current()) return;
+        setTypedTurn(userText);
+        setConversationError(msg);
         toast("Conversation paused", { description: msg });
         setThinking(false);
         return;
       }
-      if (!res.body) {
-        setThinking(false);
-        return;
-      }
+      if (!res.body) throw new Error("The partner returned no reply. Please try again.");
 
       const aiTurn = addTurn("ai", "");
       const reader = res.body.getReader();
@@ -405,6 +396,8 @@ export function SpeakLearn() {
 
       if (!current()) return;
       setThinking(false);
+      if (!done) throw new Error("The reply was interrupted. Please try again.");
+      if (!full.trim()) throw new Error("The partner returned no reply. Please try again.");
       if (full.trim()) {
         speakAloud(full);
         incrementExchanges();
@@ -413,12 +406,18 @@ export function SpeakLearn() {
     } catch (e: unknown) {
       if (!current()) return;
       setThinking(false);
+      setTypedTurn(userText);
+      setConversationError(
+        "Could not finish the reply. Send your answer again, or reset the conversation.",
+      );
       if (!(e instanceof DOMException && e.name === "AbortError")) {
         toast("Network error", {
           description: "Couldn't reach the conversation partner.",
         });
       }
     } finally {
+      window.clearTimeout(timeout);
+      releaseTimeout();
       closeReader?.();
       if (current()) {
         setThinking(false);
@@ -438,6 +437,8 @@ export function SpeakLearn() {
   const doSubmitTurn = (trimmed: string) => {
     if (!capture().isCurrent() || abortRef.current || !learningPairIsValid) return;
     if (sessionStartRef.current == null) sessionStartRef.current = Date.now();
+    setTypedTurn("");
+    setConversationError(null);
     const userTurn = addTurn("user", trimmed);
 
     // Challenge completion check
@@ -476,7 +477,7 @@ export function SpeakLearn() {
     if (!conversationAllowed) return;
     const lease = capture();
     if (!lease.isCurrent() || recognitionRef.current || abortRef.current) return;
-    const Ctor = getRecognitionCtor();
+    const Ctor = recognitionConstructor();
     if (!Ctor) {
       toast("Speech recognition not supported", {
         description: "Try Chrome or Edge for the best Speak & Learn experience.",
@@ -484,15 +485,21 @@ export function SpeakLearn() {
       return;
     }
     try {
+      stopOwned();
+      window.speechSynthesis?.cancel();
       const rec = new Ctor();
       rec.lang = accent;
       rec.continuous = false;
       rec.interimResults = true;
 
       let finalText = "";
+      let latestInterim = "";
+      let stopTimer: number | undefined;
       let ended = false;
       const current = () => lease.isCurrent() && recognitionRef.current === rec && !ended;
       const dispose = () => {
+        window.clearTimeout(stopTimer);
+        if (recognitionRef.current === rec) finishRecognitionRef.current = null;
         rec.onresult = null;
         rec.onerror = null;
         rec.onend = null;
@@ -517,6 +524,7 @@ export function SpeakLearn() {
           .sort(([a], [b]) => a - b)
           .map(([, value]) => value)
           .join(" ");
+        if (interimText) latestInterim = interimText;
         setInterim(interimText);
       };
       rec.onerror = (e) => {
@@ -526,18 +534,39 @@ export function SpeakLearn() {
         dispose();
         setListening(false);
         setInterim("");
+        setConversationError("The microphone stopped. Try again, or type your answer.");
         if (e?.error && e.error !== "no-speech" && e.error !== "aborted") {
           toast("Mic error", { description: String(e.error) });
         }
       };
-      rec.onend = () => {
+      const finish = () => {
         if (!current()) return;
         ended = true;
         release();
         dispose();
         setListening(false);
         setInterim("");
-        if (finalText.trim()) submitTurn(finalText);
+        const text = bestAvailableSpeechTranscript(finalText, latestInterim);
+        if (text) submitTurn(text);
+        else
+          setConversationError(
+            "No speech was returned. Try the microphone again, or type your answer.",
+          );
+      };
+      rec.onend = finish;
+      finishRecognitionRef.current = () => {
+        if (!current()) return;
+        try {
+          rec.stop();
+        } catch {
+          finish();
+          return;
+        }
+        if (current())
+          stopTimer = window.setTimeout(
+            finish,
+            finalText.trim() || latestInterim.trim() ? 800 : 5000,
+          );
       };
 
       recognitionRef.current = rec;
@@ -557,7 +586,7 @@ export function SpeakLearn() {
     }
   };
 
-  const stopListening = () => recognitionRef.current?.stop();
+  const stopListening = () => finishRecognitionRef.current?.();
 
   const sendChip = (text: string) => {
     if (!conversationAllowed) return;
@@ -572,6 +601,8 @@ export function SpeakLearn() {
     () => (
       <div
         ref={transcriptRef}
+        role="region"
+        aria-label="Conversation replies"
         className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
       >
         {isEmpty && !interim ? (
@@ -619,7 +650,7 @@ export function SpeakLearn() {
             ))}
             {interim && (
               <li className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm italic text-foreground/80">
+                <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm text-foreground/80">
                   {interim}
                 </div>
               </li>
@@ -650,22 +681,24 @@ export function SpeakLearn() {
           <p className="mt-1 text-sm text-muted-foreground">
             {surface === "missions"
               ? `Practice a focused ${language} situation with a clear goal.`
-              : `A patient ${language} conversation partner. Tap, talk, learn.`}
-            {surface === "conversation" && exchanges > 0 && (
-              <span className="ml-2 text-gold">· {exchanges} exchanges</span>
-            )}
+              : exchanges < 4
+                ? `${exchanges} / 4 exchanges`
+                : `${exchanges} exchanges · Goal reached`}
           </p>
         </div>
-        {surface === "conversation" && turns.length > 0 && (
+        {surface === "conversation" && (
           <button
             onClick={() => {
               stopPractice();
               clear();
+              setTypedTurn("");
+              setConversationError(null);
+              sessionStartRef.current = null;
             }}
-            className="flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground"
           >
-            <Trash2 className="h-3.5 w-3.5" />
-            Clear
+            <RotateCcw className="h-4 w-4" />
+            Reset
           </button>
         )}
       </header>
@@ -720,17 +753,22 @@ export function SpeakLearn() {
         <section
           ref={conversationViewport.ref}
           style={conversationViewport.style}
-          className="mt-3 flex min-h-0 flex-col gap-2 overflow-hidden"
+          className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-hidden"
           aria-label="Free conversation practice"
         >
           {transcript}
+          {conversationError && (
+            <p role="alert" className="shrink-0 text-sm text-foreground">
+              {conversationError}
+            </p>
+          )}
           {!conversationAllowed && (
             <p role="status" className="text-center text-xs text-muted-foreground">
               AI conversation is off. Sign in and enable it in Settings → Speaking privacy. Other
               lessons stay available.
             </p>
           )}
-          <div className="flex shrink-0 flex-col items-center gap-1">
+          <div className="flex shrink-0 items-center justify-center gap-3">
             {supported === false ? (
               <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-center text-sm text-muted-foreground">
                 Speech recognition isn’t available in this browser.
@@ -744,7 +782,7 @@ export function SpeakLearn() {
                   disabled={thinking || !conversationAllowed}
                   aria-label={listening ? "Stop listening" : "Start listening"}
                   className={
-                    "relative flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +
+                    "relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +
                     (listening
                       ? "bg-gold listening-rings"
                       : "tutor-pulse bg-primary hover:bg-primary/90")
@@ -766,6 +804,31 @@ export function SpeakLearn() {
               </>
             )}
           </div>
+          <form
+            className="flex shrink-0 gap-2"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (!thinking && !listening) submitTurn(typedTurn);
+            }}
+          >
+            <input
+              aria-label={`Type an answer in ${language}`}
+              value={typedTurn}
+              onChange={(event) => setTypedTurn(event.target.value)}
+              disabled={thinking || listening || !conversationAllowed}
+              maxLength={2000}
+              placeholder={`Type an answer in ${language}…`}
+              className="min-h-11 min-w-0 flex-1 rounded-xl border border-border bg-background px-3 text-base"
+            />
+            <button
+              type="submit"
+              aria-label="Send answer"
+              disabled={!typedTurn.trim() || thinking || listening || !conversationAllowed}
+              className="min-h-11 min-w-11 rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
+            >
+              <Send className="h-5 w-5" />
+            </button>
+          </form>
           <details className="relative shrink-0 rounded-xl border border-border px-3">
             <summary className="min-h-11 cursor-pointer py-3 text-sm">Topics & challenges</summary>
             <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">

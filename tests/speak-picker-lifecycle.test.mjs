@@ -73,7 +73,7 @@ async function fixture(component, action) {
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||!deps||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const dispatch=a=>c.dispatches.push(a),isCurrentUser=id=>c.actor===id;
  export const useApp=()=>({state:c.state,dispatch}),useAuth=()=>({user:c.actor?{id:c.actor}:null,session:c.actor?{user:{id:c.actor}}:null,isCurrentUser}),useAiGate=()=>({gated:fn=>fn()});
- const addTurn=(role,text)=>{const t={id:'turn-'+c.turns.length,role,text};c.turns=[...c.turns,t];return t;},appendToTurn=(id,delta)=>{c.turns=c.turns.map(t=>t.id===id?{...t,text:t.text+delta}:t);},setTipFor=(id,tip)=>c.tips.push({id,tip}),incrementExchanges=()=>c.exchanges++,addSeconds=s=>c.seconds.push(s),clear=()=>{c.turns=[];};
+ const addTurn=(role,text)=>{const t={id:'turn-'+c.turns.length,role,text};c.turns=[...c.turns,t];return t;},appendToTurn=(id,delta)=>{c.turns=c.turns.map(t=>t.id===id?{...t,text:t.text+delta}:t);},setTipFor=(id,tip)=>c.tips.push({id,tip}),incrementExchanges=()=>c.exchanges++,addSeconds=s=>c.seconds.push(s),clear=()=>{c.turns=[];c.exchanges=0;};
  export const useSpeak=()=>({turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},useSpeech=()=>({accent:c.accent,voiceURI:c.voice,rate:1,setVoiceURI:v=>c.voice=v,setAccent:v=>c.accent=v,accentsForLanguage:[{code:'es-CR',label:'QA accent'}],settingsHydrated:true});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=opts=>new Promise(resolve=>{c.google.push({opts,resolve});opts.signal?.addEventListener("abort",resolve,{once:true});});
@@ -85,6 +85,7 @@ async function fixture(component, action) {
  export const toast=Object.assign((...a)=>c.errors.push(a),{error:(...a)=>c.errors.push(a)});
  export const Mic='span',Square='span',Trash2='span',AlertTriangle='span',AudioLines='span',ChevronDown='span',Cloud='span',Smartphone='span',X='span';
  export const ChallengePanel='section',SpeakingMissionsPreview='section',ModuleMatchPanel='section',LessonReturnPill='section';
+ export const RotateCcw='span',Send='span';
  export const DropdownMenu='menu',DropdownMenuContent='menucontent',DropdownMenuItem='menuitem',DropdownMenuLabel='label',DropdownMenuSeparator='hr',DropdownMenuTrigger='button';
  `,
             }));
@@ -96,11 +97,19 @@ async function fixture(component, action) {
       { c } = mod;
     const requests = [],
       recognitions = [];
+    c.timerId = 0;
+    c.timers = new Map();
     Date.now = () => c.now;
     globalThis.localStorage = { getItem: () => null, setItem: () => {} };
     globalThis.window = {
       addEventListener() {},
       removeEventListener() {},
+      setTimeout: (fn, ms) => {
+        const id = ++c.timerId;
+        c.timers.set(id, { fn, ms });
+        return id;
+      },
+      clearTimeout: (id) => c.timers.delete(id),
       SpeechRecognition: class {
         constructor() {
           recognitions.push(this);
@@ -172,7 +181,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     assert.equal(requests.length, 2);
     assert.equal(c.turns.filter((t) => t.role === "user").length, 1);
     tree = render();
-    button(tree, "Clear").props.onClick();
+    button(tree, "Reset").props.onClick();
     tree = render();
     assert.equal(
       requests.every((r) => r.opts.signal.aborted),
@@ -210,7 +219,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     assert.equal(c.dispatches.filter((a) => a.type === "ADD_XP" && a.payload === 10).length, 1);
     const lastAudio = c.audio.at(-1);
     tree = render();
-    button(tree, "Clear").props.onClick();
+    button(tree, "Reset").props.onClick();
     assert.equal(lastAudio.opts.signal.aborted, true);
     activeTip.resolve({ ok: true, json: async () => ({ tip: "late positive tip" }) });
     await tick();
@@ -223,7 +232,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     await tick();
     assert.equal(c.headers.length, 2);
     tree = render();
-    button(tree, "Clear").props.onClick();
+    button(tree, "Reset").props.onClick();
     for (const resolve of c.headers.splice(0)) resolve({});
     await tick();
     assert.equal(requests.length, 4, "cancelled credentials must not dispatch a later request");
@@ -352,4 +361,81 @@ test("free conversation without saved consent cannot record or send a topic", ()
     assert.equal(recognitions.length, 0);
     assert.equal(requests.length, 0);
     assert.equal(c.audio.length, 0);
+  }));
+
+test("four spoken exchanges recover missing end events, reset cancels a pending fifth, and a timed-out reply can restart", () =>
+  fixture("SpeakLearn", async ({ c, render, button, requests, recognitions, finish, unmount }) => {
+    let tree = render();
+    button(tree, "Free conversation").props.onClick();
+    render();
+    await tick();
+    tree = render();
+    for (let round = 1; round <= 4; round++) {
+      nodes(tree)
+        .find((n) => n.props?.["aria-label"] === "Start listening")
+        .props.onClick();
+      const rec = recognitions.at(-1);
+      const lateEnd = rec.onend;
+      rec.stop = () => {}; // Safari may never dispatch onend after Stop.
+      rec.onresult({
+        resultIndex: 0,
+        results: [{ isFinal: round % 2 === 0, 0: { transcript: `QA spoken ${round}` } }],
+      });
+      tree = render();
+      nodes(tree)
+        .find((n) => n.props?.["aria-label"] === "Stop listening")
+        .props.onClick();
+      const stop = [...c.timers.values()].find((t) => t.ms === 800);
+      assert.ok(stop);
+      stop.fn();
+      lateEnd();
+      await tick();
+      const chats = requests.filter((r) => r.mode === "chat");
+      assert.equal(chats.length, round, "one send per tap, including late duplicate end");
+      assert.equal(JSON.parse(chats.at(-1).opts.body).messages.length, round * 2 - 1);
+      await finish(chats.at(-1));
+      requests.at(-1).resolve({ ok: true, json: async () => ({ tip: null }) });
+      await tick();
+      tree = render();
+      assert.notEqual(
+        nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+        true,
+      );
+    }
+    assert.equal(c.exchanges, 4);
+    assert.match(text(tree), /4 exchanges · Goal reached/);
+    const input = nodes(tree).find((n) => n.type === "input");
+    input.props.onChange({ target: { value: "pending fifth" } });
+    tree = render();
+    nodes(tree)
+      .find((n) => n.type === "form")
+      .props.onSubmit({ preventDefault() {} });
+    await tick();
+    const pending = requests.filter((r) => r.mode === "chat").at(-1);
+    button(render(), "Reset").props.onClick();
+    assert.equal(pending.opts.signal.aborted, true);
+    await finish(pending);
+    assert.equal(c.turns.length, 0);
+    tree = render();
+    nodes(tree)
+      .find((n) => n.type === "input")
+      .props.onChange({ target: { value: "new session" } });
+    tree = render();
+    nodes(tree)
+      .find((n) => n.type === "form")
+      .props.onSubmit({ preventDefault() {} });
+    await tick();
+    const next = requests.filter((r) => r.mode === "chat").at(-1);
+    assert.equal(JSON.parse(next.opts.body).messages.length, 1);
+    const deadline = [...c.timers.values()].find((t) => t.ms === 45000);
+    assert.ok(deadline);
+    deadline.fn();
+    assert.equal(next.opts.signal.aborted, true);
+    tree = render();
+    assert.match(text(tree), /reply took too long/);
+    assert.notEqual(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+      true,
+    );
+    unmount();
   }));

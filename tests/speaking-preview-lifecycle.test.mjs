@@ -389,6 +389,49 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     );
     assert.equal(c.writes, afterHeaderCleanup);
     c.waitHeaders = false;
+    // A stalled mission request must preserve the answer and release the microphone.
+    c.slots = [];
+    c.effects = [];
+    c.actor = "a";
+    c.confirmed = true;
+    tree = await begin();
+    send(tree, "QA timeout answer");
+    await tick();
+    const timedOutRequest = requests.at(-1);
+    const deadline = [...timers.entries()].find(([id]) => timerDelays.get(id) === 45000);
+    assert.ok(deadline);
+    deadline[1]();
+    tree = render();
+    assert.equal(timedOutRequest.opts.signal.aborted, true);
+    assert.match(text(tree), /reply took too long/);
+    assert.equal(
+      nodes(tree).find((n) => n.type === "input" && n.props.id === "mission-typed-turn").props
+        .value,
+      "QA timeout answer",
+    );
+    button(tree, "Reset").props.onClick();
+    await tick();
+    const freshAudio = c.audio.at(-1);
+    freshAudio.resolve();
+    await tick();
+    tree = render();
+    timedOutRequest.resolve({
+      ok: true,
+      json: async () => ({
+        assistantText: "late timeout reply",
+        provisionalObjectiveIds: [],
+        shouldEnd: false,
+        deferredFeedback: [],
+      }),
+      body: { cancel: async () => {} },
+    });
+    await tick();
+    assert.doesNotMatch(text(render()), /late timeout reply/);
+    assert.notEqual(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+      true,
+    );
+    unmount();
     // The startup/settings prompt owns consent; entering a mission never opens a blocking modal.
     c.slots = [];
     c.effects = [];

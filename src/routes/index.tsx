@@ -2,7 +2,7 @@ import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
 import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
 import { legacyExamsLocation } from "@/lib/exam-navigation";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Toaster } from "sonner";
 import { AppProvider, useApp } from "@/state/app-state";
@@ -66,11 +66,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Language Threshold — A Premium Language Learning Experience" },
+      { title: "Language Threshold - Job-Specific Language Training for Nurses, Foremen & Teams" },
       {
         name: "description",
         content:
-          "Language Threshold is an editorial, immersive way to learn Spanish, French, German, Italian, Japanese, Korean and Portuguese.",
+          "Role-specific AI language training: medical, construction and mission Spanish plus 7 more languages. Bilingual reading, AI conversation practice, Field Prep roleplay.",
       },
     ],
   }),
@@ -88,6 +88,7 @@ function GatedTabShell() {
     );
   return (
     <>
+      {!user && <ProductIntro />}
       <SpeakingPrivacyPrompt
         startup
         ready={state.hydrated && state.onboardingComplete}
@@ -95,13 +96,59 @@ function GatedTabShell() {
           state.currentTab === "core30" ||
           (typeof window !== "undefined" &&
             (new URLSearchParams(window.location.search).has("lesson") ||
-              ["settings", "add-word"].includes(new URLSearchParams(window.location.search).get("panel") ?? "")))
+              ["settings", "add-word"].includes(
+                new URLSearchParams(window.location.search).get("panel") ?? "",
+              )))
         }
       />
       <SubscriptionGate currentTab={state.currentTab}>
         <TabShell />
       </SubscriptionGate>
     </>
+  );
+}
+
+function ProductIntro() {
+  return (
+    <section className="mx-auto mb-8 mt-4 max-w-5xl rounded-3xl border border-gold/25 bg-card/60 px-6 py-10 sm:px-10">
+      <p className="mb-3 text-sm font-semibold text-gold-ink">
+        Job-specific language training for nurses, foremen, teams, coaches, and missionaries
+      </p>
+      <h1 className="max-w-3xl text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+        Practice the conversations your work actually needs.
+      </h1>
+      <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+        Build enough confidence to hold a basic conversation, then use it while you are learning it.
+        Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
+        situations in Field Prep.
+      </p>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <Link
+          to="/pricing"
+          className="rounded-xl bg-gold px-5 py-3 font-semibold text-background hover:opacity-90"
+        >
+          Start the 7-day free trial
+        </Link>
+        <a
+          href="#learning-space"
+          className="rounded-xl border border-border px-5 py-3 font-semibold text-foreground hover:border-gold/50"
+        >
+          Try the free lessons
+        </a>
+      </div>
+      <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
+        {[
+          ["Medical", "Rehearse an intake, explain care, and check understanding."],
+          ["Construction", "Run a morning brief, give directions, and reinforce safety."],
+          ["Mission & teams", "Prepare for the conversations your assignment calls for."],
+        ].map(([title, copy]) => (
+          <div key={title} className="rounded-xl border border-border/70 bg-background/50 p-4">
+            <p className="font-semibold text-foreground">{title}</p>
+            <p className="mt-1 leading-relaxed text-muted-foreground">{copy}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -266,7 +313,10 @@ function Index() {
                                                 <SaveProgressBanner />
                                                 {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
-                                                <main className="lt-scroll-safe lt-safe-top-main min-h-0 flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10">
+                                                <main
+                                                  id="learning-space"
+                                                  className="lt-scroll-safe lt-safe-top-main min-h-0 flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10"
+                                                >
                                                   <AppDemo />
                                                   <GatedTabShell />
                                                 </main>

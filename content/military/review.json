@@ -1,0 +1,36 @@
+{
+  "title": "Military English",
+  "moduleId": "military",
+  "targetLanguage": "English",
+  "nativeLanguage": "Spanish",
+  "levels": { "foundation": 10, "core": 30, "master": 20 },
+  "status": "authored-draft",
+  "reviewed": false,
+  "scope": "Military language learning: small-unit terminology, administrative radio communication, weapons and equipment identification, document comprehension, briefings and safety reporting.",
+  "references": [
+    {
+      "publication": "FM 3-90, Tactics",
+      "edition": "May 2023",
+      "url": "https://armypubs.army.mil/epubs/DR_pubs/DR_a/ARN38160-FM_3-90-000-WEB-1.pdf",
+      "use": "Terminology and topic reference; lesson prose is original and is not an official translation."
+    },
+    {
+      "publication": "ATP 3-21.8, Infantry Rifle Platoon and Squad",
+      "edition": "January 2024; verify applicable changes during review",
+      "url": "https://home.army.mil/benning/8117/7919/3106/20260316_ATP_3-21.8.pdf",
+      "use": "Small-unit organization and vocabulary reference."
+    }
+  ],
+  "reviewNeeded": [
+    "Bilingual military subject-matter review of definitions and Spanish equivalents, including country-specific unit and rank names.",
+    "Radio procedure terminology review against the intended service and applicable communications publication.",
+    "Expand classroom readings into richer authentic dialogues and add reviewed source excerpts where appropriate.",
+    "Check progression with Spanish-speaking English learners and assess listening, speaking, reading and writing independently."
+  ],
+  "limitations": [
+    "No DLI affiliation, official test preparation designation or ILR certification is claimed.",
+    "Audio uses the existing app playback path; no new recorded voice assets or offline speech engine are included.",
+    "Weapons lessons teach names, distinctions and safety-reporting language, not operating procedures."
+  ],
+  "rebuild": "python3 scripts/build-military-content.py"
+}

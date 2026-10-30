@@ -11,6 +11,7 @@ export type SpeechRecognitionLike = {
   start(): void;
   stop(): void;
   abort(): void;
+  onstart?: (() => void) | null;
   onresult: ((event: SpeechRecognitionEventLike) => void) | null;
   onerror: ((event: { error?: string }) => void) | null;
   onend: (() => void) | null;
@@ -33,11 +34,34 @@ interface PhoneDictationPlugin {
 }
 const PhoneDictation = registerPlugin<PhoneDictationPlugin>("PhoneDictation");
 
+let nativeRelease: Promise<void> = Promise.resolve();
+function releaseNative(requestId: string) {
+  // Cancel is asynchronous across the Capacitor bridge. A new tap must wait for it.
+  // The deadline also prevents a broken bridge from poisoning every later session.
+  nativeRelease = nativeRelease.then(async () => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      await Promise.race([
+        PhoneDictation.cancel({ requestId }).catch(() => {}),
+        new Promise<void>((resolve) => {
+          timer = setTimeout(resolve, 2000);
+        }),
+      ]);
+    } catch {
+      // Cleanup failure must not permanently block later user-initiated attempts.
+    } finally {
+      clearTimeout(timer);
+    }
+  });
+}
+
 /** One native session per tap. Late results and cleanup can only affect that tap. */
 export class NativePhoneRecognition implements SpeechRecognitionLike {
+  private static active: NativePhoneRecognition | null = null;
   lang = "";
   continuous = false;
   interimResults = true;
+  onstart: SpeechRecognitionLike["onstart"] = null;
   onresult: SpeechRecognitionLike["onresult"] = null;
   onerror: SpeechRecognitionLike["onerror"] = null;
   onend: SpeechRecognitionLike["onend"] = null;
@@ -48,11 +72,15 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
   private stopping = false;
   start() {
     if (this.started || this.ended) throw new Error("This recording has already started.");
+    NativePhoneRecognition.active?.abort();
+    NativePhoneRecognition.active = this;
     this.started = true;
     void this.connect();
   }
   private async connect() {
     try {
+      await nativeRelease;
+      if (this.ended) return;
       const listener = await PhoneDictation.addListener("dictation", (event) => {
         if (this.ended || event.requestId !== this.requestId) return;
         if (event.error) {
@@ -66,6 +94,7 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
           });
         if (event.ended && !this.ended) {
           this.ended = true;
+          if (NativePhoneRecognition.active === this) NativePhoneRecognition.active = null;
           this.removeListener();
           this.onend?.();
         }
@@ -75,9 +104,12 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
         return;
       }
       this.listener = listener;
+      await nativeRelease;
+      if (this.ended) return;
       await PhoneDictation.start({ requestId: this.requestId, locale: this.lang });
       if (this.ended) return;
       if (this.stopping) await PhoneDictation.stop({ requestId: this.requestId });
+      else this.onstart?.();
     } catch (error) {
       if (!this.ended) this.fail((error as { code?: string })?.code ?? "audio-capture");
     }
@@ -91,7 +123,8 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
     if (this.ended) return;
     this.ended = true;
     this.removeListener();
-    void PhoneDictation.cancel({ requestId: this.requestId }).catch(() => {});
+    if (NativePhoneRecognition.active === this) NativePhoneRecognition.active = null;
+    releaseNative(this.requestId);
     this.onerror?.({
       error: error === "aborted" || error === "no-speech" ? error : `native-${error}`,
     });
@@ -108,7 +141,8 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
     if (this.ended) return;
     this.ended = true;
     this.removeListener();
-    void PhoneDictation.cancel({ requestId: this.requestId }).catch(() => {});
+    if (NativePhoneRecognition.active === this) NativePhoneRecognition.active = null;
+    releaseNative(this.requestId);
   }
 }
 

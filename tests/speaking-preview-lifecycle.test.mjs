@@ -91,7 +91,10 @@ test("actual speaking missions isolate late replies, playback, microphone and co
         constructor() {
           recognitions.push(this);
         }
-        start() {}
+        start() {
+          if (c.startError) this.onerror?.({ error: c.startError });
+          else if (!c.silentStart) this.onstart?.();
+        }
         stop() {
           this.onend?.();
         }
@@ -431,6 +434,45 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
       true,
     );
+    unmount();
+    c.slots = [];
+    c.effects = [];
+    c.actor = "a";
+    c.confirmed = true;
+    tree = await begin();
+    c.startError = "audio-capture";
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(button(tree, "Resume mission"));
+    assert.doesNotMatch(text(tree), /Listening…/);
+    button(tree, "Resume mission").props.onClick();
+    tree = render();
+    c.startError = null;
+    c.silentStart = true;
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(nodes(tree).find((n) => n.props?.["aria-label"] === "Cancel microphone"));
+    const startDeadline = [...timers.entries()].find(([id]) => timerDelays.get(id) === 12000);
+    assert.ok(startDeadline);
+    startDeadline[1]();
+    tree = render();
+    assert.match(text(tree), /microphone did not start/);
+    assert.ok(button(tree, "Resume mission"));
+    button(tree, "Resume mission").props.onClick();
+    tree = render();
+    c.silentStart = false;
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(nodes(tree).find((n) => n.props?.["aria-label"] === "Stop listening"));
+    button(tree, "Reset").props.onClick();
+    await tick();
+    assert.equal(recognitions.at(-1).aborted, true);
     unmount();
     // The startup/settings prompt owns consent; entering a mission never opens a blocking modal.
     c.slots = [];

@@ -1,6 +1,10 @@
 /** Browser recognition failures need actionable guidance, without discarding typed answers. */
 export function speechRecognitionErrorMessage(error: string): string {
   switch (error) {
+    case "start-timeout":
+      return "The microphone did not start. Tap it to retry, or type your answer. If another app is recording, stop it first.";
+    case "speech-timeout":
+      return "No new speech came through, so recording stopped. Tap the microphone to retry, or type your answer.";
     case "native-not-allowed":
       return "Allow Microphone and Speech Recognition for Language Threshold in iPhone Settings, then tap the microphone again. You can also type your answer.";
     case "native-audio-capture":
@@ -16,6 +20,7 @@ export function speechRecognitionErrorMessage(error: string): string {
       return "The browser’s speech recognition service could not connect. Check your internet connection and try again, or use keyboard dictation or type your answer.";
     case "language-not-supported":
       return "The browser’s speech recognition service does not support this language. Use keyboard dictation or type your answer.";
+    case "native-no-speech":
     case "no-speech":
       return "I did not hear speech. Tap the microphone to retry, or use keyboard dictation or type your answer.";
     default:

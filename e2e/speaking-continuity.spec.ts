@@ -78,12 +78,16 @@ async function prepare(page: Page, mission: boolean, theme: string) {
           "scenario_version_construction_safety_briefing_es_v1",
         );
       const recognitions: object[] = [];
+      let behavior = "normal";
       class Recognition {
+        onstart: (() => void) | null = null;
         onresult: ((e: unknown) => void) | null = null;
         onend: (() => void) | null = null;
         onerror: ((e: unknown) => void) | null = null;
         start() {
           recognitions.push(this);
+          if (behavior === "sync-error") this.onerror?.({ error: "audio-capture" });
+          else if (behavior === "normal") this.onstart?.();
         }
         stop() {}
         abort() {}
@@ -91,6 +95,9 @@ async function prepare(page: Page, mission: boolean, theme: string) {
       Object.assign(window, {
         SpeechRecognition: Recognition,
         speakingFixture: {
+          setBehavior(value: string) {
+            behavior = value;
+          },
           emit(text: string) {
             const rec = recognitions.at(-1) as Recognition;
             rec.onresult?.({
@@ -209,3 +216,99 @@ for (const mission of [false, true])
       );
     });
   }
+
+for (const mission of [false, true]) {
+  test(`${mission ? "mission" : "free conversation"}: microphone failure, silent bridge and retry never show false Listening`, async ({
+    page,
+  }) => {
+    await page.clock.install();
+    const requests = await prepare(page, mission, "dark");
+    const frame = mission
+      ? page.getByTestId("focused-speaking-frame")
+      : page.getByRole("region", { name: "Free conversation practice" });
+    const setBehavior = (value: string) =>
+      page.evaluate(
+        (value) =>
+          (
+            window as unknown as { speakingFixture: { setBehavior(value: string): void } }
+          ).speakingFixture.setBehavior(value),
+        value,
+      );
+    const resume = async () => {
+      if (mission) await frame.getByRole("button", { name: "Resume mission", exact: true }).click();
+    };
+    await setBehavior("sync-error");
+    await frame.getByRole("button", { name: "Start listening", exact: true }).click();
+    await expect(frame.getByRole("alert")).toContainText("could not access a microphone");
+    await expect(frame.getByRole("button", { name: "Stop listening", exact: true })).toHaveCount(0);
+    await expect(frame.getByRole("textbox")).toBeEnabled();
+    await resume();
+    await setBehavior("silent");
+    await frame.getByRole("button", { name: "Start listening", exact: true }).click();
+    await expect(
+      frame.getByRole("button", { name: "Cancel microphone", exact: true }),
+    ).toBeVisible();
+    await expect(frame.getByRole("alert")).toHaveCount(0);
+    await page.clock.fastForward(12001);
+    await expect(frame.getByRole("alert")).toContainText("microphone did not start");
+    await expect(frame.getByRole("button", { name: "Stop listening", exact: true })).toHaveCount(0);
+    await resume();
+    await setBehavior("normal");
+    await frame.getByRole("button", { name: "Start listening", exact: true }).click();
+    await page.evaluate(() =>
+      (window as unknown as { speakingFixture: { emit(text: string): void } }).speakingFixture.emit(
+        "Conservar estas palabras",
+      ),
+    );
+    await page.clock.fastForward(15001);
+    await expect(frame.getByRole("alert")).toContainText("No new speech came through");
+    await expect(frame.getByRole("textbox")).toHaveValue("Conservar estas palabras");
+    expect(requests).toHaveLength(0);
+    await page.getByRole("button", { name: "Reset", exact: true }).click();
+    await frame.getByRole("button", { name: "Start listening", exact: true }).click();
+    await page.evaluate(() =>
+      (window as unknown as { speakingFixture: { emit(text: string): void } }).speakingFixture.emit(
+        "Ahora sí funciona",
+      ),
+    );
+    await frame.getByRole("button", { name: "Stop listening", exact: true }).click();
+    await page.clock.fastForward(1300);
+    await expect(frame.getByText("Respuesta 1:", { exact: false })).toBeVisible();
+    expect(requests).toHaveLength(1);
+  });
+}
+
+test("a cancelled free-conversation microphone does not block the scenario microphone", async ({
+  page,
+}) => {
+  const requests = await prepare(page, false, "dark");
+  await page.evaluate(() =>
+    (
+      window as unknown as { speakingFixture: { setBehavior(value: string): void } }
+    ).speakingFixture.setBehavior("silent"),
+  );
+  await page.getByRole("button", { name: "Start listening", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Cancel microphone", exact: true })).toBeVisible();
+  await page.getByRole("tab", { name: "Scenario missions", exact: true }).click();
+  await page.getByRole("button", { name: "Start practice", exact: true }).click();
+  await page
+    .getByRole("tablist", { name: "Speaking practice steps" })
+    .getByRole("tab", { name: "Conversation", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Start mission", exact: true }).click();
+  await page.evaluate(() =>
+    (
+      window as unknown as { speakingFixture: { setBehavior(value: string): void } }
+    ).speakingFixture.setBehavior("normal"),
+  );
+  await page.getByRole("button", { name: "Start listening", exact: true }).click();
+  await page.evaluate(() =>
+    (window as unknown as { speakingFixture: { emit(text: string): void } }).speakingFixture.emit(
+      "Hola desde la misión",
+    ),
+  );
+  await page.getByRole("button", { name: "Stop listening", exact: true }).click();
+  await expect(page.getByText("Respuesta 1:", { exact: false })).toBeVisible();
+  expect(requests).toHaveLength(1);
+  expect(requests[0].mode).toBe("mission");
+});

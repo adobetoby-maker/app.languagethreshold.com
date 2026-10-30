@@ -114,7 +114,10 @@ async function fixture(component, action) {
         constructor() {
           recognitions.push(this);
         }
-        start() {}
+        start() {
+          if (c.startError) this.onerror?.({ error: c.startError });
+          else if (!c.silentStart) this.onstart?.();
+        }
         stop() {
           this.onend?.();
         }
@@ -437,5 +440,75 @@ test("four spoken exchanges recover missing end events, reset cancels a pending 
       nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
       true,
     );
+    unmount();
+  }));
+
+test("iPhone microphone errors never leave false Listening; retry clears warning, silent starts and lost results recover", () =>
+  fixture("SpeakLearn", async ({ c, render, button, recognitions, requests, unmount }) => {
+    let tree = render();
+    button(tree, "Free conversation").props.onClick();
+    render();
+    await tick();
+    tree = render();
+    const mic = (tree, label) => nodes(tree).find((n) => n.props?.["aria-label"] === label);
+    c.startError = "audio-capture";
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Start listening"));
+    assert.equal(mic(tree, "Stop listening"), undefined);
+    assert.match(text(tree), /could not access a microphone/);
+    c.startError = null;
+    c.silentStart = true;
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Cancel microphone"));
+    assert.doesNotMatch(text(tree), /could not access a microphone/);
+    const failed = recognitions.at(-1),
+      lateStart = failed.onstart;
+    [...c.timers.values()].find((t) => t.ms === 12000).fn();
+    tree = render();
+    assert.match(text(tree), /microphone did not start/);
+    assert.ok(mic(tree, "Start listening"));
+    lateStart();
+    assert.ok(mic(render(), "Start listening"));
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    const rec = recognitions.at(-1);
+    rec.onstart();
+    tree = render();
+    assert.ok(mic(tree, "Stop listening"));
+    rec.onresult({
+      resultIndex: 0,
+      results: [{ isFinal: false, 0: { transcript: "Keep these words" } }],
+    });
+    [...c.timers.values()].find((t) => t.ms === 15000).fn();
+    tree = render();
+    assert.ok(mic(tree, "Start listening"));
+    assert.match(text(tree), /No new speech came through/);
+    assert.equal(nodes(tree).find((n) => n.type === "input").props.value, "Keep these words");
+    assert.equal(requests.length, 0, "stalled recording never auto-sends partial words");
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    mic(tree, "Cancel microphone").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Start listening"));
+    c.silentStart = false;
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Stop listening"));
+    button(tree, "Scenario missions").props.onClick();
+    tree = render();
+    assert.equal(recognitions.at(-1).aborted, true);
+    button(tree, "Free conversation").props.onClick();
+    render();
+    await tick();
+    tree = render();
+    mic(tree, "Start listening").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Stop listening"));
+    button(tree, "Reset").props.onClick();
+    tree = render();
+    assert.ok(mic(tree, "Start listening"));
+    assert.equal(c.timers.size, 0);
     unmount();
   }));

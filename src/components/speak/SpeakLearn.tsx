@@ -1,3 +1,5 @@
+import { watchRecognition } from "@/lib/recognition-watchdog";
+import { speechRecognitionErrorMessage } from "@/lib/speech-recognition-errors";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
@@ -106,6 +108,8 @@ export function SpeakLearn() {
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [listening, setListening] = useState(false);
+  const [startingMic, setStartingMic] = useState(false);
+  const micActive = listening || startingMic;
   const [interim, setInterim] = useState("");
   const [thinking, setThinking] = useState(false);
   const [typedTurn, setTypedTurn] = useState("");
@@ -165,6 +169,7 @@ export function SpeakLearn() {
 
   useEffect(() => {
     setListening(false);
+    setStartingMic(false);
     setInterim("");
     setThinking(false);
     setTypedTurn("");
@@ -175,6 +180,7 @@ export function SpeakLearn() {
     cancel();
     stopOwned();
     setListening(false);
+    setStartingMic(false);
     setInterim("");
     setThinking(false);
   };
@@ -496,8 +502,10 @@ export function SpeakLearn() {
       let latestInterim = "";
       let stopTimer: number | undefined;
       let ended = false;
+      let stopping = false;
       const current = () => lease.isCurrent() && recognitionRef.current === rec && !ended;
       const dispose = () => {
+        readiness.dispose();
         window.clearTimeout(stopTimer);
         if (recognitionRef.current === rec) finishRecognitionRef.current = null;
         rec.onresult = null;
@@ -510,10 +518,19 @@ export function SpeakLearn() {
           /* Browser may already have stopped. */
         }
       };
+      const readiness = watchRecognition(
+        rec,
+        () => current() && !stopping,
+        () => {
+          setStartingMic(false);
+          setListening(true);
+        },
+      );
       const release = lease.own(dispose);
       const finalResults = new Map<number, string>();
       rec.onresult = (e) => {
         if (!current()) return;
+        readiness.progress();
         let interimText = "";
         for (let i = e.resultIndex; i < e.results.length; i++) {
           const r = e.results[i];
@@ -533,8 +550,11 @@ export function SpeakLearn() {
         release();
         dispose();
         setListening(false);
+        setStartingMic(false);
         setInterim("");
-        setConversationError("The microphone stopped. Try again, or type your answer.");
+        const draft = bestAvailableSpeechTranscript(finalText, latestInterim);
+        if (draft) setTypedTurn(draft);
+        setConversationError(speechRecognitionErrorMessage(e?.error ?? "unknown"));
         if (e?.error && e.error !== "no-speech" && e.error !== "aborted") {
           toast("Mic error", { description: String(e.error) });
         }
@@ -545,6 +565,7 @@ export function SpeakLearn() {
         release();
         dispose();
         setListening(false);
+        setStartingMic(false);
         setInterim("");
         const text = bestAvailableSpeechTranscript(finalText, latestInterim);
         if (text) submitTurn(text);
@@ -555,7 +576,17 @@ export function SpeakLearn() {
       };
       rec.onend = finish;
       finishRecognitionRef.current = () => {
-        if (!current()) return;
+        if (!current() || stopping) return;
+        if (!readiness.hasStarted()) {
+          ended = true;
+          release();
+          dispose();
+          setListening(false);
+          setStartingMic(false);
+          setConversationError(null);
+          return;
+        }
+        stopping = true;
         try {
           rec.stop();
         } catch {
@@ -571,8 +602,10 @@ export function SpeakLearn() {
 
       recognitionRef.current = rec;
       try {
+        setConversationError(null);
+        setStartingMic(true);
+        setListening(false);
         rec.start();
-        setListening(true);
       } catch (err) {
         release();
         dispose();
@@ -580,6 +613,9 @@ export function SpeakLearn() {
       }
     } catch (err) {
       if (!lease.isCurrent()) return;
+      setStartingMic(false);
+      setListening(false);
+      setConversationError("The microphone could not start. Tap it to retry, or type your answer.");
       toast("Could not start mic", {
         description: err instanceof Error ? err.message : "Unknown error",
       });
@@ -778,9 +814,15 @@ export function SpeakLearn() {
             ) : (
               <>
                 <button
-                  onClick={listening ? stopListening : startListening}
+                  onClick={micActive ? stopListening : startListening}
                   disabled={thinking || !conversationAllowed}
-                  aria-label={listening ? "Stop listening" : "Start listening"}
+                  aria-label={
+                    startingMic
+                      ? "Cancel microphone"
+                      : listening
+                        ? "Stop listening"
+                        : "Start listening"
+                  }
                   className={
                     "relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +
                     (listening
@@ -788,18 +830,20 @@ export function SpeakLearn() {
                       : "tutor-pulse bg-primary hover:bg-primary/90")
                   }
                 >
-                  {listening ? (
+                  {micActive ? (
                     <Square className="h-7 w-7" fill="currentColor" />
                   ) : (
                     <Mic className="h-8 w-8" />
                   )}
                 </button>
                 <p className="text-sm text-muted-foreground">
-                  {listening
-                    ? "Listening… speak naturally"
-                    : thinking
-                      ? "Partner is replying…"
-                      : "Tap the mic to speak"}
+                  {startingMic
+                    ? "Starting microphone… tap to cancel"
+                    : listening
+                      ? "Listening… speak naturally"
+                      : thinking
+                        ? "Partner is replying…"
+                        : "Tap the mic to speak"}
                 </p>
               </>
             )}
@@ -808,14 +852,14 @@ export function SpeakLearn() {
             className="flex shrink-0 gap-2"
             onSubmit={(event) => {
               event.preventDefault();
-              if (!thinking && !listening) submitTurn(typedTurn);
+              if (!thinking && !micActive) submitTurn(typedTurn);
             }}
           >
             <input
               aria-label={`Type an answer in ${language}`}
               value={typedTurn}
               onChange={(event) => setTypedTurn(event.target.value)}
-              disabled={thinking || listening || !conversationAllowed}
+              disabled={thinking || micActive || !conversationAllowed}
               maxLength={2000}
               placeholder={`Type an answer in ${language}…`}
               className="min-h-11 min-w-0 flex-1 rounded-xl border border-border bg-background px-3 text-base"
@@ -823,7 +867,7 @@ export function SpeakLearn() {
             <button
               type="submit"
               aria-label="Send answer"
-              disabled={!typedTurn.trim() || thinking || listening || !conversationAllowed}
+              disabled={!typedTurn.trim() || thinking || micActive || !conversationAllowed}
               className="min-h-11 min-w-11 rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
             >
               <Send className="h-5 w-5" />
@@ -862,7 +906,7 @@ export function SpeakLearn() {
                         <button
                           key={p}
                           onClick={() => sendChip(p)}
-                          disabled={listening || thinking}
+                          disabled={micActive || thinking}
                           className="shrink-0 rounded-full border border-gold/50 bg-background/70 px-4 py-1.5 text-sm text-foreground transition-all hover:border-gold hover:bg-gold/15 disabled:opacity-40"
                         >
                           {p}
@@ -894,7 +938,7 @@ export function SpeakLearn() {
                         <button
                           key={chip}
                           onClick={() => sendChip(chip)}
-                          disabled={listening || thinking}
+                          disabled={micActive || thinking}
                           className={
                             "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
                             (inMod

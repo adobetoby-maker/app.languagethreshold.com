@@ -1,3 +1,4 @@
+import { watchRecognition } from "@/lib/recognition-watchdog";
 import {
   DEFAULT_STANDARD_VOICES,
   openVoiceSettings,
@@ -72,7 +73,7 @@ import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { WatchTalkControl } from "./WatchTalkControl";
 import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
-type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
+type MissionStatus = "ready" | "starting" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
 type SpokenTurnFlow = "quick" | "review";
@@ -1038,6 +1039,7 @@ export function SpeakingMissionsPreview({
       recognitionHasTextRef.current = false;
       const current = () => lease.isCurrent() && recognitionRef.current === recognition && !ended;
       const dispose = () => {
+        readiness.dispose();
         recognition.onresult = null;
         recognition.onerror = null;
         recognition.onend = null;
@@ -1057,12 +1059,18 @@ export function SpeakingMissionsPreview({
           /* Already stopped. */
         }
       };
+      const readiness = watchRecognition(
+        recognition,
+        () => current() && stoppingRecognitionRef.current !== recognition,
+        () => setStatus("listening"),
+      );
       const release = lease.own(dispose);
       const finalResults = new Map<number, string>();
       let finalText = "";
       let latestInterimText = "";
       recognition.onresult = (event) => {
         if (!current()) return;
+        readiness.progress();
         let interimText = "";
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index];
@@ -1087,6 +1095,11 @@ export function SpeakingMissionsPreview({
         dispose();
         setInterim("");
         setFinishingSpeech(false);
+        const draft = bestAvailableSpeechTranscript(finalText, latestInterimText);
+        if (draft) {
+          setTypedTurn(draft);
+          setTranscriptSource("dictation");
+        }
         const error = event?.error ?? "unknown";
         setStatus(error === "aborted" ? "ready" : "error");
         setErrorMessage(error === "aborted" ? null : speechRecognitionErrorMessage(error));
@@ -1129,15 +1142,15 @@ export function SpeakingMissionsPreview({
         setErrorMessage("Transcription cancelled. Your answer was not sent.");
       };
       try {
+        setStatus("starting");
+        setFinishingSpeech(false);
+        setErrorMessage(null);
         recognition.start();
       } catch (error) {
         release();
         dispose();
         throw error;
       }
-      setStatus("listening");
-      setFinishingSpeech(false);
-      setErrorMessage(null);
     } catch (error) {
       if (!lease.isCurrent()) return;
       setStatus("error");
@@ -1146,6 +1159,10 @@ export function SpeakingMissionsPreview({
   };
 
   const stopListening = () => {
+    if (status === "starting") {
+      cancelRecognitionRef.current?.();
+      return;
+    }
     const recognition = recognitionRef.current;
     const finish = finishRecognitionRef.current;
     if (!recognition || !finish) {
@@ -2057,14 +2074,18 @@ export function SpeakingMissionsPreview({
           <div className="flex items-center justify-center gap-3">
             <button
               type="button"
-              onClick={status === "listening" ? stopListening : startListening}
+              onClick={
+                status === "listening" || status === "starting" ? stopListening : startListening
+              }
               disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
               aria-label={
                 finishingSpeech
                   ? "Finishing transcription"
-                  : status === "listening"
-                    ? "Stop listening"
-                    : "Start listening"
+                  : status === "starting"
+                    ? "Cancel microphone"
+                    : status === "listening"
+                      ? "Stop listening"
+                      : "Start listening"
               }
               className={
                 "flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
@@ -2078,15 +2099,17 @@ export function SpeakingMissionsPreview({
               )}
             </button>
             <p className="text-sm text-muted-foreground">
-              {status === "listening"
-                ? finishingSpeech
-                  ? "Finishing transcription…"
-                  : "Listening… tap Stop when you finish"
-                : partnerSpeaking
-                  ? "Partner is speaking… your microphone will unlock afterward"
-                  : status === "thinking"
-                    ? "Partner is replying…"
-                    : `Your turn — answer in ${selectedMission.language}`}
+              {status === "starting"
+                ? "Starting microphone… tap to cancel"
+                : status === "listening"
+                  ? finishingSpeech
+                    ? "Finishing transcription…"
+                    : "Listening… tap Stop when you finish"
+                  : partnerSpeaking
+                    ? "Partner is speaking… your microphone will unlock afterward"
+                    : status === "thinking"
+                      ? "Partner is replying…"
+                      : `Your turn — answer in ${selectedMission.language}`}
             </p>
           </div>
         )}
@@ -2115,7 +2138,12 @@ export function SpeakingMissionsPreview({
           <button
             type="button"
             onClick={startListening}
-            disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+            disabled={
+              status === "thinking" ||
+              status === "listening" ||
+              status === "starting" ||
+              partnerSpeaking
+            }
             className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
           >
             Retry microphone
@@ -2142,7 +2170,7 @@ export function SpeakingMissionsPreview({
             setTypedTurn(event.target.value);
             setTranscriptSource("typed");
           }}
-          disabled={status === "thinking" || status === "listening"}
+          disabled={status === "thinking" || status === "listening" || status === "starting"}
           maxLength={2000}
           placeholder={`Type an answer in ${selectedMission.language}…`}
           className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
@@ -2150,7 +2178,11 @@ export function SpeakingMissionsPreview({
         <button
           type="submit"
           disabled={
-            !typedTurn.trim() || status === "thinking" || status === "listening" || partnerSpeaking
+            !typedTurn.trim() ||
+            status === "thinking" ||
+            status === "listening" ||
+            status === "starting" ||
+            partnerSpeaking
           }
           aria-label="Send typed answer"
           className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
@@ -2204,7 +2236,12 @@ export function SpeakingMissionsPreview({
                     setTypedTurn(clarificationPhrase(selectedMission.language));
                     setTranscriptSource("typed");
                   }}
-                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+                  disabled={
+                    status === "thinking" ||
+                    status === "listening" ||
+                    status === "starting" ||
+                    partnerSpeaking
+                  }
                   className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
                 >
                   Help me ask for an example
@@ -2218,7 +2255,12 @@ export function SpeakingMissionsPreview({
                         : [...current, activeObjective.id],
                     )
                   }
-                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+                  disabled={
+                    status === "thinking" ||
+                    status === "listening" ||
+                    status === "starting" ||
+                    partnerSpeaking
+                  }
                   className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
                 >
                   Skip this goal
@@ -2278,7 +2320,12 @@ export function SpeakingMissionsPreview({
             )}
           <MicrophoneTestDialog
             key={lifecycleKey}
-            disabled={status === "listening" || status === "thinking" || partnerSpeaking}
+            disabled={
+              status === "starting" ||
+              status === "listening" ||
+              status === "thinking" ||
+              partnerSpeaking
+            }
           />
           <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
             <div className="flex items-center gap-2 text-gold">

@@ -31,12 +31,12 @@ test("native iPhone dictation records repeated turns and rejects late events, sc
             }));
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
-export const c={platform:'ios',available:true,listeners:[],starts:[],stops:[],cancels:[],delayListener:false};
+export const c={platform:'ios',available:true,listeners:[],starts:[],stops:[],cancels:[],delayListener:false,delayCancel:false};
 export const Capacitor={getPlatform:()=>c.platform,isPluginAvailable:()=>c.available};
 export const registerPlugin=()=>({
  addListener:async(name,fn)=>{const entry={fn,removed:false};c.listeners.push(entry);if(c.delayListener)await new Promise(r=>entry.release=r);return {remove:async()=>{entry.removed=true}}},
  start:options=>new Promise((resolve,reject)=>c.starts.push({options,resolve,reject})),
- stop:async options=>{c.stops.push(options)},cancel:async options=>{c.cancels.push(options)}
+ stop:async options=>{c.stops.push(options)},cancel:options=>{if(c.delayCancel)return new Promise(resolve=>c.cancels.push({...options,resolve}));c.cancels.push(options);return Promise.resolve();}
 });`,
             }));
           },
@@ -61,7 +61,9 @@ export const registerPlugin=()=>({
       rec.lang = "es-MX";
       const results = [],
         errors = [];
-      let ends = 0;
+      let ends = 0,
+        ready = 0;
+      rec.onstart = () => ready++;
       rec.onresult = (e) => results.push(e.results[0]);
       rec.onerror = (e) => errors.push(e);
       rec.onend = () => ends++;
@@ -73,8 +75,10 @@ export const registerPlugin=()=>({
       assert.equal(allIds.has(id), false);
       allIds.add(id);
       assert.equal(start.options.locale, "es-MX");
+      assert.equal(ready, 0, "native start acceptance is still pending");
       start.resolve();
       await tick();
+      assert.equal(ready, 1);
       listener.fn({ requestId: "wrong", text: "cross-context", final: true, ended: true });
       assert.equal(results.length, 0);
       listener.fn({ requestId: id, text: `partial ${turn}`, final: false });
@@ -130,10 +134,35 @@ export const registerPlugin=()=>({
     next.abort();
     fresh.resolve();
     await tick();
+    // A mode switch must wait for native cancellation before opening the next audio engine.
+    const retiring = new NativePhoneRecognition();
+    retiring.start();
+    await tick();
+    c.starts.at(-1).resolve();
+    await tick();
+    c.delayCancel = true;
+    retiring.abort();
+    const startsBefore = c.starts.length,
+      replacement = new NativePhoneRecognition();
+    let ready = 0;
+    replacement.onstart = () => ready++;
+    replacement.start();
+    await tick();
+    assert.equal(c.starts.length, startsBefore);
+    c.cancels.at(-1).resolve();
+    await tick();
+    assert.equal(c.starts.length, startsBefore + 1);
+    const heldStart = c.starts.at(-1);
+    c.delayCancel = false;
+    replacement.abort();
+    heldStart.resolve();
+    await tick();
+    assert.equal(ready, 0, "late native readiness cannot resurrect a cancelled turn");
     c.delayListener = true;
     const notStarted = new NativePhoneRecognition();
     const count = c.starts.length;
     notStarted.start();
+    await tick();
     notStarted.abort();
     c.listeners.at(-1).release();
     await tick();

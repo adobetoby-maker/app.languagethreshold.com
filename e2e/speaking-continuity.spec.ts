@@ -435,7 +435,7 @@ for (const mission of [false, true]) {
       // Let the real MediaRecorder collect one timeslice from synthetic microphone input.
       await page.waitForTimeout(1100);
       await page.getByRole("button", { name: "Stop recording", exact: true }).click();
-      const input = page.getByRole("textbox", { name: "Type an answer in Spanish" });
+      const input = page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ });
       await expect(input).toHaveValue(`Hola, esta es mi respuesta grabada ${turn}.`);
       await expect(page.getByRole("button", { name: "Play recording", exact: true })).toBeVisible();
       console.log(
@@ -461,7 +461,7 @@ for (const mission of [false, true]) {
     await expect(page.getByRole("button", { name: "Play recording", exact: true })).toBeVisible();
     failTranscription = false;
     await page.getByRole("button", { name: "Retry transcription", exact: true }).click();
-    await expect(page.getByRole("textbox", { name: "Type an answer in Spanish" })).toHaveValue(
+    await expect(page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ })).toHaveValue(
       "Hola, esta es mi respuesta grabada 10.",
     );
     expect(requests.length).toBe(initial + 8);

@@ -1,13 +1,11 @@
+import { SpeakingConversationControls } from "./SpeakingConversationControls";
+import { conversationGoogleVoice } from "@/lib/conversation-voice";
 import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { RecordedReplyControl } from "./RecordedReplyControl";
 import { supportsReplyRecording } from "@/lib/reply-audio-capture";
 import { watchRecognition } from "@/lib/recognition-watchdog";
-import {
-  DEFAULT_STANDARD_VOICES,
-  openVoiceSettings,
-  standardGoogleVoice,
-} from "@/data/standard-voices";
+import { DEFAULT_STANDARD_VOICES, openVoiceSettings } from "@/data/standard-voices";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { SpeakingPreparation } from "./SpeakingPreparation";
@@ -251,7 +249,7 @@ export function SpeakingMissionsPreview({
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("review");
   const partnerVersion = voiceSettings.speakingGender;
-  const partnerAudioSource = voiceSettings.speakingAudioSource;
+  const partnerAudioSource = "google" as typeof voiceSettings.speakingAudioSource;
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -273,6 +271,7 @@ export function SpeakingMissionsPreview({
   const [typedTurn, setTypedTurn] = useState("");
   const replyField = useSpeakingReplyField(typedTurn);
   const [hideReplyText, setHideReplyText] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(true);
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
   const [useRecordedAudio, setUseRecordedAudio] = useState(false);
   const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
@@ -362,17 +361,12 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     cancelRef.current = cancel;
   }, [cancel]);
-  const partnerVoice = standardGoogleVoice(
+  const partnerVoice = conversationGoogleVoice(
     ttsCapabilities?.voices ?? [],
     missionLocale,
     partnerVersion,
   );
-  const partnerAudioReady =
-    partnerAudioSource === "device"
-      ? deviceVoiceAvailable
-      : partnerAudioSource === "text"
-        ? true
-        : ttsStatus === "ready" && partnerVoice !== null;
+  const partnerAudioReady = true;
   const voiceRegionLabel =
     accentsForLanguage.find((option) => option.code === missionLocale)?.label ?? missionLocale;
   const accentControl = (
@@ -381,7 +375,8 @@ export function SpeakingMissionsPreview({
         Voice: {partnerVersion === "woman" ? "Female" : "Male"} · {voiceRegionLabel}
       </p>
       <p className="mt-1 text-muted-foreground">
-        Your speaking voice comes from Settings → Voices & audio. Listening has its own setting.
+        Conversation uses Google Chirp 3 HD voices. Choose the voice gender in Settings → Voices &
+        audio.
       </p>
       <button
         type="button"
@@ -1991,36 +1986,6 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
-      <div className="flex shrink-0 items-center justify-between gap-2">
-        <button
-          type="button"
-          aria-pressed={hideReplyText}
-          disabled={partnerAudioSource === "text"}
-          onClick={() => {
-            setHideReplyText((value) => !value);
-            if (!hideReplyText) setAutomaticReplyAudio(true);
-          }}
-          className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
-        >
-          {hideReplyText ? "Show reply text" : "Hide reply text"}
-        </button>
-        <button
-          type="button"
-          disabled={
-            status === "thinking" ||
-            audioCaptureBusy ||
-            partnerAudioSource === "text" ||
-            !turns.some((turn) => turn.role === "partner")
-          }
-          onClick={() => {
-            const reply = [...turns].reverse().find((turn) => turn.role === "partner");
-            if (reply) void speakPartnerText(reply.text);
-          }}
-          className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
-        >
-          Repeat reply
-        </button>
-      </div>
       <div
         ref={transcriptRef}
         className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
@@ -2064,14 +2029,15 @@ export function SpeakingMissionsPreview({
                     )}
                   </span>
                 </div>
-                {turn.feedback?.map((feedback, index) => (
-                  <p
-                    key={`${turn.id}-feedback-${index}`}
-                    className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
-                  >
-                    💡 {feedback}
-                  </p>
-                ))}
+                {showFeedback &&
+                  turn.feedback?.map((feedback, index) => (
+                    <p
+                      key={`${turn.id}-feedback-${index}`}
+                      className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
+                    >
+                      💡 {feedback}
+                    </p>
+                  ))}
               </div>
             </li>
           ))}
@@ -2287,22 +2253,6 @@ export function SpeakingMissionsPreview({
           Practice tools & coaching
         </summary>
         <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
-          <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
-            <span>Read replies aloud</span>
-            <select
-              aria-label="Reply audio"
-              disabled={status === "thinking" || status === "starting" || status === "listening"}
-              value={automaticReplyAudio ? "automatic" : "manual"}
-              onChange={(event) => {
-                stopAudio();
-                setAutomaticReplyAudio(event.target.value === "automatic");
-              }}
-              className="min-h-11 rounded-xl border border-border bg-background px-2"
-            >
-              <option value="manual">Tap to play</option>
-              <option value="automatic">Automatic</option>
-            </select>
-          </label>
           <label className="mb-3 flex items-center justify-between gap-2 text-sm">
             <span>Voice input</span>
             <select
@@ -2459,15 +2409,20 @@ export function SpeakingMissionsPreview({
               partnerSpeaking
             }
           />
-          <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
-            <div className="flex items-center gap-2 text-gold">
-              <Lightbulb className="h-4 w-4" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+          {showFeedback && (
+            <div
+              className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4"
+              aria-live="polite"
+            >
+              <div className="flex items-center gap-2 text-gold">
+                <Lightbulb className="h-4 w-4" />
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground">
+                {latestFeedback ?? "Your first coaching note will appear here after you answer."}
+              </p>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground">
-              {latestFeedback ?? "Your first coaching note will appear here after you answer."}
-            </p>
-          </div>
+          )}
           {lastResponseTiming && (
             <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
               Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
@@ -2478,6 +2433,28 @@ export function SpeakingMissionsPreview({
           )}
         </div>
       </details>
+      <SpeakingConversationControls
+        text={!hideReplyText}
+        feedback={showFeedback}
+        voice={automaticReplyAudio}
+        onText={() => setHideReplyText((value) => !value)}
+        onFeedback={() => setShowFeedback((value) => !value)}
+        onVoice={() => {
+          stopAudio();
+          setAutomaticReplyAudio((value) => !value);
+        }}
+        repeatDisabled={
+          status === "thinking" ||
+          status === "listening" ||
+          status === "starting" ||
+          audioCaptureBusy ||
+          !turns.some((turn) => turn.role === "partner")
+        }
+        onRepeat={() => {
+          const reply = [...turns].reverse().find((turn) => turn.role === "partner");
+          if (reply) void speakPartnerText(reply.text);
+        }}
+      />
 
       {wordRequest && (
         <WordCard

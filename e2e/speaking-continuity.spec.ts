@@ -29,11 +29,27 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
   await page.route("**/api/speaking-consent", (route) =>
     route.fulfill({ json: { attested: true } }),
   );
-  await page.route("**/api/mission-tts**", (route) =>
-    route.fulfill({
-      json: { ready: false, voices: [], supportedLanguages: [], speakingRates: [1] },
-    }),
-  );
+  await page.route("**/api/mission-tts**", (route) => {
+    if (route.request().method() === "POST") {
+      expect(route.request().postDataJSON().voiceName).toContain("-Chirp3-HD-");
+      return route.fulfill({ contentType: "audio/mpeg", body: Buffer.from("synthetic HD audio") });
+    }
+    return route.fulfill({
+      json: {
+        ready: true,
+        voices: [
+          {
+            name: "es-US-Chirp3-HD-Aoede",
+            languageCodes: ["es-US"],
+            ssmlGender: "FEMALE",
+            tier: "Chirp 3 HD",
+          },
+        ],
+        supportedLanguages: ["Spanish"],
+        speakingRates: [1],
+      },
+    });
+  });
   await page.route("**/api/tts**", (route) =>
     route.fulfill({ status: 503, json: { error: "No audio provider in fixture" } }),
   );
@@ -81,6 +97,11 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
         );
       const recognitions: object[] = [];
       let playbackStarts = 0;
+      HTMLMediaElement.prototype.play = function () {
+        playbackStarts++;
+        queueMicrotask(() => this.onended?.call(this, new Event("ended")));
+        return Promise.resolve();
+      };
       let behavior = "normal";
       class Recognition {
         onstart: (() => void) | null = null;
@@ -151,7 +172,7 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
   const requests: Array<{ mode: string; messages?: Array<{ role: string; content: string }> }> = [];
   await page.route("**/api/speak", (route) => {
     const body = route.request().postDataJSON();
-    if (body.mode === "tip") return route.fulfill({ json: { tip: null } });
+    if (body.mode === "tip") return route.fulfill({ json: { tip: "Buena respuesta de prueba." } });
     requests.push(body);
     const assistantText = `Respuesta ${requests.length}: Gracias por tu respuesta. ¿Qué harías después para ayudar al equipo? Podemos seguir hablando de tu día y del trabajo.`;
     if (body.mode === "mission")
@@ -201,7 +222,10 @@ for (const mission of [false, true])
       });
       const mic = frame.getByRole("button", { name: "Start listening", exact: true });
       await expect(mic).toBeEnabled();
-      await expect(frame.getByLabel("Reply audio", { exact: true })).toHaveValue("manual");
+      await expect(
+        frame.getByRole("button", { name: "Automatic voice replies", exact: true }),
+      ).toHaveAttribute("aria-pressed", "true");
+      await frame.getByRole("button", { name: "Automatic voice replies", exact: true }).click();
       for (let round = 1; round <= 12; round++) {
         await mic.click();
         await expect(
@@ -478,7 +502,7 @@ for (const mission of [false, true]) {
       await expect.poll(() => requests.length).toBe(initial + turn);
       await expect(page.getByRole("button", { name: "Record reply", exact: true })).toBeEnabled();
       if (turn === 1) {
-        await page.getByRole("button", { name: "Hide reply text", exact: true }).click();
+        await page.getByRole("button", { name: "Reply text", exact: true }).click();
         await expect(page.getByText("Respuesta 1:", { exact: false })).toHaveCount(0);
         await expect(page.getByText("Audio reply", { exact: true }).first()).toBeVisible();
         const starts = await page.evaluate(() =>
@@ -497,8 +521,27 @@ for (const mission of [false, true]) {
           )
           .toBeGreaterThan(starts);
         await page.screenshot({ path: info.outputPath("audio-only.png") });
-        await page.getByRole("button", { name: "Show reply text", exact: true }).click();
+        await page.getByRole("button", { name: "Reply text", exact: true }).click();
         await expect(page.getByText("Respuesta 1:", { exact: false })).toBeVisible();
+        const coaching = page
+          .getByText(mission ? /Una respuesta clara/ : /Buena respuesta de prueba/)
+          .first();
+        await expect(coaching).toBeVisible();
+        const feedback = page.getByRole("button", { name: "Coaching feedback", exact: true });
+        await feedback.click();
+        await expect(
+          page.getByText(mission ? /Una respuesta clara/ : /Buena respuesta de prueba/),
+        ).toHaveCount(0);
+        await feedback.click();
+        await expect(coaching).toBeVisible();
+        const voice = page.getByRole("button", { name: "Automatic voice replies", exact: true });
+        await voice.click();
+        await expect(voice).toHaveAttribute("aria-pressed", "false");
+        await voice.click();
+        await expect(voice).toHaveAttribute("aria-pressed", "true");
+        await expect(
+          page.getByRole("group", { name: "Conversation controls", exact: true }),
+        ).toBeInViewport();
       }
     }
     console.log(`Eight recording turns completed (${mission ? "mission" : "free"})`);

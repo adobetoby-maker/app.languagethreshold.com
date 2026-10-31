@@ -1,3 +1,7 @@
+import { SpeakingConversationControls } from "./SpeakingConversationControls";
+import { conversationGoogleVoice } from "@/lib/conversation-voice";
+import { encodeGoogleVoicePreference } from "@/data/mission-tts";
+import { getMissionTtsCapabilities, type MissionTtsCapabilities } from "@/lib/mission-tts";
 import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
 import { SpeakingGuestConsent } from "./SpeakingGuestConsent";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
@@ -113,7 +117,21 @@ export function SpeakLearn() {
   } = useSpeak();
   const language = state.selectedLanguage;
   const learningPairIsValid = language !== state.nativeLanguage;
-  const { accent: chosenAccent, voiceURI } = useSpeech();
+  const { accent: chosenAccent, voiceURI, voiceSettings } = useSpeech();
+  const [conversationVoices, setConversationVoices] = useState<MissionTtsCapabilities | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    setConversationVoices(null);
+    void getMissionTtsCapabilities(
+      chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code,
+      controller.signal,
+    )
+      .then((value) => {
+        if (!controller.signal.aborted) setConversationVoices(value);
+      })
+      .catch(() => {});
+    return () => controller.abort();
+  }, [chosenAccent, language]);
   const accent = chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code;
   const chips = TOPIC_CHIPS[language];
 
@@ -133,6 +151,7 @@ export function SpeakLearn() {
   const [typedTurn, setTypedTurn] = useState("");
   const replyField = useSpeakingReplyField(typedTurn);
   const [hideReplyText, setHideReplyText] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(true);
   const [conversationError, setConversationError] = useState<string | null>(null);
   const finishRecognitionRef = useRef<(() => void) | null>(null);
   const [challenge, setChallenge] = useState<SpeakChallenge | null>(null);
@@ -248,10 +267,17 @@ export function SpeakLearn() {
     };
   }, [addSeconds, dispatch, language, actor, isCurrentUser]);
 
+  const qualityVoice = conversationGoogleVoice(
+    conversationVoices?.ready ? conversationVoices.voices : [],
+    accent,
+    voiceSettings?.speakingGender ?? "woman",
+  );
+  const qualityVoiceURI = qualityVoice ? encodeGoogleVoicePreference(qualityVoice) : null;
   const speakAloud = useCallback(
     (text: string): void => {
       if (!audioCaptureBusy)
-        speakOwned(text, accent, voiceURI, 1, {
+        speakOwned(text, accent, qualityVoiceURI, 1, {
+          cloudOnly: true,
           onerror: () =>
             toast("Reply voice paused", {
               description: "Tap the reply’s speaker to hear it again.",
@@ -259,7 +285,7 @@ export function SpeakLearn() {
             }),
         });
     },
-    [speakOwned, accent, voiceURI, audioCaptureBusy],
+    [speakOwned, accent, qualityVoiceURI, audioCaptureBusy],
   );
 
   const awardExchange = () => {
@@ -714,7 +740,7 @@ export function SpeakLearn() {
                         : t.text || (t.role === "ai" ? "…" : "")}
                     </span>
                   </div>
-                  {t.tip && (
+                  {showFeedback && t.tip && (
                     <div className="mt-1 inline-block rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs text-gold">
                       💡 Tip: {t.tip}
                     </div>
@@ -740,7 +766,7 @@ export function SpeakLearn() {
         )}
       </div>
     ),
-    [turns, interim, isEmpty, language, thinking, speakAloud, hideReplyText],
+    [turns, interim, isEmpty, language, thinking, speakAloud, hideReplyText, showFeedback],
   );
 
   return (
@@ -831,36 +857,6 @@ export function SpeakLearn() {
           className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-y-auto"
           aria-label="Free conversation practice"
         >
-          <div className="flex shrink-0 items-center justify-between gap-2">
-            <button
-              type="button"
-              aria-pressed={hideReplyText}
-              onClick={() => {
-                setHideReplyText((value) => !value);
-                if (!hideReplyText) setAutomaticReplyAudio(true);
-              }}
-              className="min-h-11 rounded-xl border border-border px-3 text-sm"
-            >
-              {hideReplyText ? "Show reply text" : "Hide reply text"}
-            </button>
-            <button
-              type="button"
-              disabled={
-                thinking ||
-                audioCaptureBusy ||
-                !turns.some((turn) => turn.role === "ai" && turn.text.trim())
-              }
-              onClick={() => {
-                const reply = [...turns]
-                  .reverse()
-                  .find((turn) => turn.role === "ai" && turn.text.trim());
-                if (reply) speakAloud(reply.text);
-              }}
-              className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
-            >
-              Repeat reply
-            </button>
-          </div>
           {transcript}
           {conversationError && (
             <p role="alert" className="shrink-0 text-sm text-foreground">
@@ -982,22 +978,6 @@ export function SpeakLearn() {
           <details className="relative shrink-0 rounded-xl border border-border px-3">
             <summary className="min-h-11 cursor-pointer py-3 text-sm">Topics & challenges</summary>
             <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
-              <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
-                <span>Read replies aloud</span>
-                <select
-                  aria-label="Reply audio"
-                  disabled={thinking || micActive}
-                  value={automaticReplyAudio ? "automatic" : "manual"}
-                  onChange={(event) => {
-                    stopOwned();
-                    setAutomaticReplyAudio(event.target.value === "automatic");
-                  }}
-                  className="min-h-11 rounded-xl border border-border bg-background px-2"
-                >
-                  <option value="manual">Tap to play</option>
-                  <option value="automatic">Automatic</option>
-                </select>
-              </label>
               <label className="mb-3 flex items-center justify-between gap-2 text-sm">
                 <span>Voice input</span>
                 <select
@@ -1094,6 +1074,29 @@ export function SpeakLearn() {
               </div>
             </div>
           </details>
+          <SpeakingConversationControls
+            text={!hideReplyText}
+            feedback={showFeedback}
+            voice={automaticReplyAudio}
+            onText={() => setHideReplyText((value) => !value)}
+            onFeedback={() => setShowFeedback((value) => !value)}
+            onVoice={() => {
+              stopOwned();
+              setAutomaticReplyAudio((value) => !value);
+            }}
+            repeatDisabled={
+              thinking ||
+              micActive ||
+              audioCaptureBusy ||
+              !turns.some((turn) => turn.role === "ai" && turn.text.trim())
+            }
+            onRepeat={() => {
+              const reply = [...turns]
+                .reverse()
+                .find((turn) => turn.role === "ai" && turn.text.trim());
+              if (reply) speakAloud(reply.text);
+            }}
+          />
         </section>
       )}
     </div>

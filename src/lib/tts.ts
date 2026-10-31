@@ -163,6 +163,7 @@ export async function speakRemote(
     owner?: SpeakingRequestOwner;
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
+    cloudOnly?: boolean;
     onPlaybackStart?: () => void;
   },
 ): Promise<void> {
@@ -193,8 +194,16 @@ export async function speakRemote(
     };
     const rate = opts?.rate ?? 1;
     const googleVoice = opts?.deviceOnly ? null : selectedGoogleVoice(locale, opts?.voiceURI);
+    if (opts?.cloudOnly && !googleVoice) {
+      notify(false);
+      return;
+    }
     if (googleVoice) {
       if (opts?.owner && !opts.owner.userId) {
+        if (opts.cloudOnly) {
+          notify(false);
+          return;
+        }
         const heard = await speakOnDevice(
           text,
           locale,
@@ -251,6 +260,10 @@ export async function speakRemote(
             if (showToast) toast.dismiss(VOICE_WAIT_TOAST_ID);
             if (!waited || !current()) return;
             continue;
+          }
+          if (opts?.cloudOnly) {
+            notify(false);
+            return;
           }
           if (
             !warnedAboutMobileFallback &&

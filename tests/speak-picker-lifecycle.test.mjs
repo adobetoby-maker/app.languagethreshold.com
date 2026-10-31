@@ -8,6 +8,8 @@ const changed = (a, b) => !a || a.some((v, i) => v !== b[i]);
 function nodes(n, out = []) {
   if (Array.isArray(n)) n.forEach((v) => nodes(v, out));
   else if (n && typeof n === "object") {
+    if (typeof n.type === "function" && n.type.name === "SpeakingConversationControls")
+      return nodes(n.type(n.props), out);
     out.push(n);
     nodes(n.props?.children, out);
   }
@@ -179,9 +181,11 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     render();
     await tick();
     tree = render();
-    const audioMode = nodes(tree).find((n) => n.props?.["aria-label"] === "Reply audio");
-    assert.equal(audioMode.props.value, "automatic");
-    audioMode.props.onChange({ target: { value: "automatic" } });
+    const audioMode = nodes(tree).find(
+      (n) => n.props?.["aria-label"] === "Automatic voice replies",
+    );
+    assert.equal(audioMode.props["aria-pressed"], true);
+
     tree = render();
     const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
     chip.props.onClick();

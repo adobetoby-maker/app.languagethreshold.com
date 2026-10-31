@@ -7,6 +7,8 @@ const tick = () => new Promise((r) => setImmediate(r));
 function nodes(n, out = []) {
   if (Array.isArray(n)) n.forEach((v) => nodes(v, out));
   else if (n && typeof n === "object") {
+    if (typeof n.type === "function" && n.type.name === "SpeakingConversationControls")
+      return nodes(n.type(n.props), out);
     out.push(n);
     nodes(n.props?.children, out);
   }
@@ -61,8 +63,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  const setAccent=()=>{},setRate=()=>{},setVoiceURI=()=>{};export const useSpeech=()=>({accent:'es-CR',rate:1,voiceURI:null,voiceSettings:{listeningGender:'woman',speakingGender:'woman',speakingAudioSource:'device'},setAccent,setRate,setVoiceURI});
  const owned=o=>{if(!o||o.userId!==c.actor||!o.isCurrent())throw new Error("Expected current speaking request owner");};
  export class SpeakingConsentSaveError extends Error {constructor(outcome){super('Synthetic unconfirmed save');this.outcome=outcome;}};export const getSpeakingAgeAttestation=async(signal,owner)=>{owned(owner);return c.waitRead?new Promise((resolve,reject)=>c.reads.push({signal,owner,resolve,reject})):c.confirmed;},saveSpeakingAgeAttestation=(value,signal,current,owner)=>{owned(owner);return new Promise((resolve,reject)=>c.saves.push({value,signal,current,owner,resolve,reject}));},speakingRequestHeaders=(owner)=>{owned(owner);return c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});};
- export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
- export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
+ export const getMissionTtsCapabilities=async()=>({ready:true,voices:[{name:"es-US-Chirp3-HD-Aoede",languageCodes:["es-US"],ssmlGender:"FEMALE",tier:"Chirp 3 HD"}]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
+ export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=opts=>new Promise(resolve=>{c.audio.push({text:opts.text,locale:opts.languageCode,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
  export const RecordedReplyControl=()=>null;
  export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent',MicrophoneTestDialog='mic-test';
@@ -153,16 +155,16 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       await tick();
       tree = render();
       if (!c.audio.length) {
-        const mode = nodes(tree).find((n) => n.props?.["aria-label"] === "Reply audio");
-        assert.equal(mode.props.value, "manual", "test branch starts without automatic playback");
-        mode.props.onChange({ target: { value: "automatic" } });
+        const mode = nodes(tree).find((n) => n.props?.["aria-label"] === "Automatic voice replies");
+        assert.equal(mode.props["aria-pressed"], false);
+        mode.props.onClick();
         tree = render();
         button(tree, "Reset").props.onClick();
         await tick();
         tree = render();
       }
       const audio = c.audio.at(-1);
-      assert.equal(audio.opts.deviceOnly, true);
+      assert.equal(audio.opts.voiceName, "es-US-Chirp3-HD-Aoede");
       audio.opts.onPlaybackStart?.();
       audio.resolve();
       await tick();

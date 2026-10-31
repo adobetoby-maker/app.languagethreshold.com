@@ -47,7 +47,7 @@ export function useOwnedPlayback(
       voiceURI?: string | null,
       rate = 0.9,
       /** Optional: told when this playback fails (no voice, a speech error, a failed fetch). */
-      events?: { onerror?: () => void },
+      events?: { onerror?: () => void; cloudOnly?: boolean },
     ) => {
       if (
         !mounted.current ||
@@ -65,6 +65,7 @@ export function useOwnedPlayback(
         rate,
         signal: controller.signal,
         onerror: events?.onerror,
+        cloudOnly: events?.cloudOnly,
         owner: {
           userId: actor ?? "",
           isCurrent: () =>

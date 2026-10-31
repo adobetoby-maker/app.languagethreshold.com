@@ -1624,3 +1624,16 @@ body :is(em, cite) {
 body:has([data-speaking-session="active"]) .lt-learning-selectors {
   display: none;
 }
+/* Published editorial content uses the app's existing typography and palette. */
+.blog-content { line-height: 1.8; overflow-wrap: anywhere; }
+.blog-content h2 { font-family: var(--font-display, Georgia, serif); font-size: 1.6rem; margin: 2rem 0 1rem; scroll-margin-top: 5rem; }
+.blog-content h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 .75rem; }
+.blog-content p, .blog-content ul, .blog-content ol, .blog-content blockquote { margin: 1rem 0; }
+.blog-content ul { list-style: disc; padding-inline-start: 1.5rem; }
+.blog-content ol { list-style: decimal; padding-inline-start: 1.5rem; }
+.blog-content a { color: var(--gold, #b48b40); text-decoration: underline; text-underline-offset: 3px; }
+.blog-content blockquote { border-inline-start: 3px solid currentColor; padding-inline-start: 1rem; }
+.blog-content table { display: block; overflow-x: auto; border-collapse: collapse; max-width: 100%; }
+.blog-content td, .blog-content th { border: 1px solid currentColor; padding: .6rem; }
+.blog-content code { white-space: pre-wrap; }
+.blog-content nav { border-block: 1px solid currentColor; padding-block: 1rem; margin-block: 2rem; }

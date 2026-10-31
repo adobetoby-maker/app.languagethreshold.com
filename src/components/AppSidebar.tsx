@@ -1,3 +1,4 @@
+import { BlogNavLink } from "./blog/BlogNavLink";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { PracticeBarSetting, PracticeTimeBar, PracticeTimeTicker } from "./PracticeTimeBar";
@@ -511,6 +512,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </button>
             );
           })}
+          <BlogNavLink />
         </nav>
 
         <a
@@ -1057,6 +1059,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
             </button>
           </details>
+          <BlogNavLink />
           <p className="mt-6 text-center text-[11px] text-muted-foreground">
             <a href="/terms" className="underline underline-offset-2 hover:text-foreground">
               Terms of Service

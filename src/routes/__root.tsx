@@ -77,8 +77,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Language Threshold",
-  url: "https://languagethreshold.com",
-  logo: "https://app.languagethreshold.com/icons/icon-512.png",
+  url: "https://app.languagethreshold.com",
+  logo: "https://app.languagethreshold.com/icons/og-image.png",
   email: "support@languagethreshold.com",
 };
 

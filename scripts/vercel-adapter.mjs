@@ -172,6 +172,8 @@ writeFileSync(
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },
       { src: "/roofing-review-data\\.js", dest: "/roofing-review-data.js" },
+      { src: "/robots\\.txt", dest: "/robots.txt" },
+      { src: "/21c653b50cda6af04ed977771f54e96b\\.txt", dest: "/21c653b50cda6af04ed977771f54e96b.txt" },
       { src: "/(.*)", dest: "/" },
     ],
   }),

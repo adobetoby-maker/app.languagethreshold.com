@@ -26,6 +26,7 @@ import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferRouteImport } from './routes/refer'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -74,6 +75,8 @@ import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitl
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
 import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
@@ -162,6 +165,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -404,6 +412,16 @@ const ApiVerifyCheckoutRoute = ApiVerifyCheckoutRouteImport.update({
   path: '/api/verify-checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   id: '/subscribe/success',
   path: '/subscribe/success',
@@ -443,6 +461,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -491,10 +510,12 @@ export interface FileRoutesByFullPath {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -514,6 +535,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -562,10 +584,12 @@ export interface FileRoutesByTo {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -586,6 +610,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -634,10 +659,12 @@ export interface FileRoutesById {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -659,6 +686,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -707,10 +735,12 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -730,6 +760,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -778,10 +809,12 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -801,6 +834,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -849,10 +883,12 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team_/accept'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -873,6 +909,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ReferRoute: typeof ReferRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
@@ -921,10 +958,12 @@ export interface RootRouteChildren {
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
   ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
   VsClinicalingoRoute: typeof VsClinicalingoRoute
   VsDuolingoRoute: typeof VsDuolingoRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1046,6 +1085,13 @@ declare module '@tanstack/react-router' {
       path: '/refer'
       fullPath: '/refer'
       preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -1384,6 +1430,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiVerifyCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/success': {
       id: '/subscribe/success'
       path: '/subscribe/success'
@@ -1433,6 +1493,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ReferRoute: ReferRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
@@ -1481,10 +1542,12 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
   ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
+  BlogSlugRoute: BlogSlugRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
   VsClinicalingoRoute: VsClinicalingoRoute,
   VsDuolingoRoute: VsDuolingoRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

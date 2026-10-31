@@ -121,6 +121,11 @@ writeFileSync(
     ...assessmentCleanupSchedule(process.env),
     routes: [
       {
+        src: "/([a-z0-9])",
+        status: 302,
+        headers: { location: "/?utm_source=heycatch&utm_campaign=$1" },
+      },
+      {
         src: "/assets/(.+)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
         dest: "/assets/$1",

@@ -1,6 +1,7 @@
 // Built by TAC — 2026-10-23
 import { isPrivateAssessmentContext, privacyParam, privacyPathname } from "./assessment-privacy";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "./speaking-privacy";
+import { trackHeyCatchOutcome } from "./heycatch";
 
 declare global {
   interface Window {
@@ -197,6 +198,7 @@ function sendNow(name: string, params: GaEventParams, onceKey?: string): boolean
     return false;
   }
   if (onceKey) markSent(onceKey);
+  trackHeyCatchOutcome(name, params);
   return true;
 }
 

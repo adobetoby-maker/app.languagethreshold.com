@@ -463,6 +463,24 @@ for (const mission of [false, true]) {
       return route.fulfill({ json: { text: `Hola, esta es mi respuesta grabada ${uploads}.` } });
     });
     const requests = await prepare(page, mission, "dark", true);
+    if (mission) {
+      await expect(page.locator(".lt-learning-selectors")).toBeHidden();
+      await expect(page.getByText("goals practiced", { exact: false })).toBeVisible();
+      const tools = page.getByLabel("Lesson goals and tools", { exact: true });
+      await expect(tools).toBeInViewport();
+      await tools.click();
+      await expect(page.getByLabel("Mission objectives", { exact: true })).toBeVisible();
+      await tools.click();
+      await expect(page.getByLabel("Mission objectives", { exact: true })).toBeHidden();
+      await page.screenshot({ path: info.outputPath("focused-lesson.png") });
+      await page.evaluate(() => document.documentElement.classList.remove("dark"));
+      await page.screenshot({
+        path: info.outputPath("focused-lesson-light.png"),
+        animations: "disabled",
+      });
+      await page.evaluate(() => document.documentElement.classList.add("dark"));
+    }
+
     const initial = requests.length;
     const draftField = page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ });
     const longDraft =
@@ -523,14 +541,18 @@ for (const mission of [false, true]) {
         await page.screenshot({ path: info.outputPath("audio-only.png") });
         await page.getByRole("button", { name: "Reply text", exact: true }).click();
         await expect(page.getByText("Respuesta 1:", { exact: false })).toBeVisible();
-        const coaching = page
+        const replies = page.getByRole("region", {
+          name: mission ? "Conversation" : "Conversation replies",
+          exact: true,
+        });
+        const coaching = replies
           .getByText(mission ? /Una respuesta clara/ : /Buena respuesta de prueba/)
           .first();
         await expect(coaching).toBeVisible();
         const feedback = page.getByRole("button", { name: "Coaching feedback", exact: true });
         await feedback.click();
         await expect(
-          page.getByText(mission ? /Una respuesta clara/ : /Buena respuesta de prueba/),
+          replies.getByText(mission ? /Una respuesta clara/ : /Buena respuesta de prueba/),
         ).toHaveCount(0);
         await feedback.click();
         await expect(coaching).toBeVisible();

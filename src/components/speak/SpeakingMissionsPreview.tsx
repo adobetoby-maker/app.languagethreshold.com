@@ -1945,39 +1945,233 @@ export function SpeakingMissionsPreview({
       }}
       style={practiceViewport.style}
       data-testid="focused-speaking-frame"
+      data-speaking-session="active"
       className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-y-auto"
     >
-      <div className="flex shrink-0 flex-nowrap items-start justify-between gap-2">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            Mission in progress
-          </p>
+      <div className="relative flex shrink-0 items-start justify-between gap-2">
+        <div className="min-w-0">
           <h2 className="line-clamp-2 font-serif text-lg leading-tight text-foreground">
             {selectedMission.title}
           </h2>
-          <p className="mt-1 text-xs text-muted-foreground">
-            {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
-            {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
-            <span className="block text-gold-ink">
-              {turns.filter((turn) => turn.role === "partner" && !turn.opening).length} exchanges ·
-              4-exchange goal
-            </span>
+          <p className="mt-1 text-sm text-muted-foreground" role="status">
+            {completedObjectiveCount}/{selectedMission.objectives.length} goals practiced
           </p>
         </div>
-        <div className="flex shrink-0 flex-col gap-1">
+        <div className="flex shrink-0 gap-1">
+          <details className="shrink-0">
+            <summary
+              aria-label="Lesson goals and tools"
+              title="Lesson goals and tools"
+              className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-border text-foreground [&::-webkit-details-marker]:hidden"
+            >
+              <Lightbulb aria-hidden="true" className="h-4 w-4" />
+            </summary>
+            <div className="absolute top-full inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+              <label className="mb-3 flex items-center justify-between gap-2 text-sm">
+                <span>Voice input</span>
+                <select
+                  aria-label="Voice input"
+                  value={useRecordedAudio ? "audio" : "browser"}
+                  disabled={
+                    status === "thinking" ||
+                    status === "listening" ||
+                    status === "starting" ||
+                    audioCaptureBusy
+                  }
+                  onChange={(event) => {
+                    stopAudio();
+                    setUseRecordedAudio(event.target.value === "audio");
+                  }}
+                  className="min-h-11 rounded-xl border border-border bg-background px-2"
+                >
+                  <option value="audio">Audio recording</option>
+                  <option value="browser">Browser dictation</option>
+                </select>
+              </label>
+              <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
+                {selectedMission.objectives.map((objective) => {
+                  const completed = objectiveIds.includes(objective.id);
+                  const skipped = skippedObjectiveIds.includes(objective.id);
+                  return (
+                    <span
+                      key={objective.id}
+                      className={
+                        "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
+                        (completed
+                          ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
+                          : skipped
+                            ? "border-border/60 bg-background/30 text-muted-foreground line-through"
+                            : "border-border text-muted-foreground")
+                      }
+                      title={objective.description}
+                    >
+                      {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
+                      {objective.description}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
+                  {activeObjective ? "Your next goal" : "Practice goals addressed"}
+                </p>
+                <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
+                  {activeObjective
+                    ? activeObjective.description
+                    : "Continue naturally or end the mission when the practical exchange feels complete."}
+                </p>
+                {activeObjective && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setTypedTurn(clarificationPhrase(selectedMission.language));
+                        setTranscriptSource("typed");
+                      }}
+                      disabled={
+                        status === "thinking" ||
+                        status === "listening" ||
+                        status === "starting" ||
+                        partnerSpeaking
+                      }
+                      className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
+                    >
+                      Help me ask for an example
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSkippedObjectiveIds((current) =>
+                          current.includes(activeObjective.id)
+                            ? current
+                            : [...current, activeObjective.id],
+                        )
+                      }
+                      disabled={
+                        status === "thinking" ||
+                        status === "listening" ||
+                        status === "starting" ||
+                        partnerSpeaking
+                      }
+                      className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
+                    >
+                      Skip this goal
+                    </button>
+                  </div>
+                )}
+                {selectedMission.vocabulary.length > 0 && activeObjective && (
+                  <details
+                    open={
+                      !selectedMission.lessonTeaching ||
+                      selectedMission.lessonTeaching.speaking.wordBank === "visible"
+                    }
+                    className="mt-2 text-xs leading-relaxed text-muted-foreground"
+                  >
+                    <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
+                    <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
+                  </details>
+                )}
+              </div>
+              <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+                Press and hold any dialogue word for its definition.
+              </p>{" "}
+              <p className="mt-1 text-center text-xs text-muted-foreground">
+                {spokenTurnFlow === "quick"
+                  ? "Quick response sends when your phone detects that you finished speaking."
+                  : "Review mode waits for you to approve the transcript."}{" "}
+                You can also use the iPhone keyboard microphone in this answer box.
+              </p>{" "}
+              {started &&
+                session &&
+                ageConfirmed &&
+                ageStatusActor === session.user.id &&
+                sessionOwnerRef.current === lifecycleKey && (
+                  <WatchTalkControl
+                    key={`${lifecycleKey}:${missionLocale}`}
+                    locale={missionLocale ?? selectedMission.locale}
+                    title={selectedMission.title}
+                    ready={
+                      status === "ready" &&
+                      !partnerSpeaking &&
+                      !typedTurn.trim() &&
+                      !audioCaptureBusy
+                    }
+                    onTurn={(text) => {
+                      const lease = capture();
+                      if (
+                        !lease.isCurrent() ||
+                        sessionOwnerRef.current !== lifecycleKey ||
+                        status !== "ready" ||
+                        partnerSpeaking ||
+                        audioCaptureBusy ||
+                        typedTurn.trim()
+                      )
+                        return;
+                      if (spokenTurnFlow === "quick")
+                        gated(() => void sendLearnerTurn(text, "dictation"));
+                      else {
+                        setTypedTurn(text);
+                        setTranscriptSource("dictation");
+                      }
+                    }}
+                  />
+                )}
+              <MicrophoneTestDialog
+                key={lifecycleKey}
+                disabled={
+                  audioCaptureBusy ||
+                  status === "starting" ||
+                  status === "listening" ||
+                  status === "thinking" ||
+                  partnerSpeaking
+                }
+              />
+              {showFeedback && (
+                <div
+                  className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4"
+                  aria-live="polite"
+                >
+                  <div className="flex items-center gap-2 text-gold">
+                    <Lightbulb className="h-4 w-4" />
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em]">
+                      Latest coaching
+                    </p>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground">
+                    {latestFeedback ??
+                      "Your first coaching note will appear here after you answer."}
+                  </p>
+                </div>
+              )}
+              {lastResponseTiming && (
+                <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                  Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
+                  {lastResponseTiming.voiceStartedMs !== undefined
+                    ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
+                    : ""}
+                </p>
+              )}
+            </div>
+          </details>
           <button
             type="button"
             onClick={requestMissionStart}
-            className="flex min-h-11 items-center justify-center gap-1 rounded-full border border-border px-3 text-sm text-foreground"
+            aria-label="Reset"
+            title="Reset lesson"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground"
           >
-            <RotateCcw className="h-4 w-4" /> Reset
+            <RotateCcw aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only">Reset</span>
           </button>
           <button
             type="button"
             onClick={finishMission}
-            className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
+            aria-label="End"
+            title="End lesson"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground"
           >
-            <X className="h-3.5 w-3.5" /> End
+            <X aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only">End</span>
           </button>
         </div>
       </div>
@@ -2253,191 +2447,6 @@ export function SpeakingMissionsPreview({
         </button>
       </form>
 
-      <details className="relative shrink-0 rounded-xl border border-border px-3">
-        <summary className="min-h-11 cursor-pointer py-3 text-sm">
-          Practice tools & coaching
-        </summary>
-        <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
-          <label className="mb-3 flex items-center justify-between gap-2 text-sm">
-            <span>Voice input</span>
-            <select
-              aria-label="Voice input"
-              value={useRecordedAudio ? "audio" : "browser"}
-              disabled={
-                status === "thinking" ||
-                status === "listening" ||
-                status === "starting" ||
-                audioCaptureBusy
-              }
-              onChange={(event) => {
-                stopAudio();
-                setUseRecordedAudio(event.target.value === "audio");
-              }}
-              className="min-h-11 rounded-xl border border-border bg-background px-2"
-            >
-              <option value="audio">Audio recording</option>
-              <option value="browser">Browser dictation</option>
-            </select>
-          </label>
-          <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
-            {selectedMission.objectives.map((objective) => {
-              const completed = objectiveIds.includes(objective.id);
-              const skipped = skippedObjectiveIds.includes(objective.id);
-              return (
-                <span
-                  key={objective.id}
-                  className={
-                    "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
-                    (completed
-                      ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
-                      : skipped
-                        ? "border-border/60 bg-background/30 text-muted-foreground line-through"
-                        : "border-border text-muted-foreground")
-                  }
-                  title={objective.description}
-                >
-                  {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
-                  {objective.description}
-                </span>
-              );
-            })}
-          </div>
-          <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
-              {activeObjective ? "Your next goal" : "Practice goals addressed"}
-            </p>
-            <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
-              {activeObjective
-                ? activeObjective.description
-                : "Continue naturally or end the mission when the practical exchange feels complete."}
-            </p>
-            {activeObjective && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setTypedTurn(clarificationPhrase(selectedMission.language));
-                    setTranscriptSource("typed");
-                  }}
-                  disabled={
-                    status === "thinking" ||
-                    status === "listening" ||
-                    status === "starting" ||
-                    partnerSpeaking
-                  }
-                  className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
-                >
-                  Help me ask for an example
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setSkippedObjectiveIds((current) =>
-                      current.includes(activeObjective.id)
-                        ? current
-                        : [...current, activeObjective.id],
-                    )
-                  }
-                  disabled={
-                    status === "thinking" ||
-                    status === "listening" ||
-                    status === "starting" ||
-                    partnerSpeaking
-                  }
-                  className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
-                >
-                  Skip this goal
-                </button>
-              </div>
-            )}
-            {selectedMission.vocabulary.length > 0 && activeObjective && (
-              <details
-                open={
-                  !selectedMission.lessonTeaching ||
-                  selectedMission.lessonTeaching.speaking.wordBank === "visible"
-                }
-                className="mt-2 text-xs leading-relaxed text-muted-foreground"
-              >
-                <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
-                <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
-              </details>
-            )}
-          </div>
-          <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
-            Press and hold any dialogue word for its definition.
-          </p>{" "}
-          <p className="mt-1 text-center text-xs text-muted-foreground">
-            {spokenTurnFlow === "quick"
-              ? "Quick response sends when your phone detects that you finished speaking."
-              : "Review mode waits for you to approve the transcript."}{" "}
-            You can also use the iPhone keyboard microphone in this answer box.
-          </p>{" "}
-          {started &&
-            session &&
-            ageConfirmed &&
-            ageStatusActor === session.user.id &&
-            sessionOwnerRef.current === lifecycleKey && (
-              <WatchTalkControl
-                key={`${lifecycleKey}:${missionLocale}`}
-                locale={missionLocale ?? selectedMission.locale}
-                title={selectedMission.title}
-                ready={
-                  status === "ready" && !partnerSpeaking && !typedTurn.trim() && !audioCaptureBusy
-                }
-                onTurn={(text) => {
-                  const lease = capture();
-                  if (
-                    !lease.isCurrent() ||
-                    sessionOwnerRef.current !== lifecycleKey ||
-                    status !== "ready" ||
-                    partnerSpeaking ||
-                    audioCaptureBusy ||
-                    typedTurn.trim()
-                  )
-                    return;
-                  if (spokenTurnFlow === "quick")
-                    gated(() => void sendLearnerTurn(text, "dictation"));
-                  else {
-                    setTypedTurn(text);
-                    setTranscriptSource("dictation");
-                  }
-                }}
-              />
-            )}
-          <MicrophoneTestDialog
-            key={lifecycleKey}
-            disabled={
-              audioCaptureBusy ||
-              status === "starting" ||
-              status === "listening" ||
-              status === "thinking" ||
-              partnerSpeaking
-            }
-          />
-          {showFeedback && (
-            <div
-              className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4"
-              aria-live="polite"
-            >
-              <div className="flex items-center gap-2 text-gold">
-                <Lightbulb className="h-4 w-4" />
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-foreground">
-                {latestFeedback ?? "Your first coaching note will appear here after you answer."}
-              </p>
-            </div>
-          )}
-          {lastResponseTiming && (
-            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-              Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
-              {lastResponseTiming.voiceStartedMs !== undefined
-                ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
-                : ""}
-            </p>
-          )}
-        </div>
-      </details>
       <SpeakingConversationControls
         text={!hideReplyText}
         feedback={showFeedback}

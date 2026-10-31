@@ -1619,3 +1619,8 @@ body :is(em, cite) {
     scroll-padding-bottom: 12px;
   }
 }
+
+/* Keep the active lesson focused; selectors return when the session ends. */
+body:has([data-speaking-session="active"]) .lt-learning-selectors {
+  display: none;
+}

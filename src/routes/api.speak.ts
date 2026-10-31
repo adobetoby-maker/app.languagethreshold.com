@@ -185,6 +185,7 @@ export function missionSystemPrompt(
     "Mark any previously uncredited objective when the newest learner message and conversation context provide clear evidence; IDs must come from the objective list.",
     "Treat objective evidence as provisional UX feedback, never as durable mastery or certification.",
     "Do not interrupt the roleplay for a minor grammar error.",
+    "Help the learner accomplish the current lesson goal through the conversation: ask one short, natural question that invites the missing communication. If they are stuck or ask for help, model one simple example or sentence starter, then invite them to try in their own words. Credit only what the learner actually communicates; do not award an objective for your own example. Once a goal is met, guide toward the next unmet goal without repeating completed tasks.",
     "After every learner turn, put one brief coaching note in deferredFeedback. If the current goal was not achieved, say plainly what is still missing and give a short sentence starter. If correction is useful, give only the single highest-value correction. Otherwise name what the learner communicated successfully.",
     "If the learner communicates successfully by describing or repairing around a missing word, continue naturally and recognize the recovery in coaching.",
     feedbackRule,

@@ -573,7 +573,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         {/* Mobile-only: Add word + language + module + voice + settings. One tight row that
            fits 375px with nothing clipped: the module chip is the only flexible one and
            truncates; every control stays reachable. Add word lives here on phones and in the compact header on desktop. */}
-        <div className="flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
+        <div className="lt-learning-selectors flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
           <button
             onClick={openAddWord}
             aria-label="Add a word to My Vocab from this page"

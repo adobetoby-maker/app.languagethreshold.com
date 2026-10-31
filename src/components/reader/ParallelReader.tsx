@@ -97,7 +97,14 @@ export function ParallelReader() {
     readingContentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   const { state, dispatch } = useApp();
-  const { selected, state: lib, dispatch: libDispatch, readyToSelect } = useLibrary();
+  const {
+    selected,
+    state: lib,
+    dispatch: libDispatch,
+    readyToSelect,
+    seedError,
+    retrySeeds,
+  } = useLibrary();
   const { add: addAnnotation, forText } = useNotes();
   const { activeSentenceIndex, speakSentence, speakSentences, stop, playing } = useSpeech();
   const tutor = useTutor();
@@ -604,8 +611,24 @@ export function ParallelReader() {
 
   if (!readyToSelect) {
     return (
+      <div
+        role={seedError ? "alert" : "status"}
+        className="mx-auto max-w-6xl p-6 text-muted-foreground"
+      >
+        {seedError ?? "Loading your saved reading…"}
+        {seedError && (
+          <button type="button" onClick={retrySeeds} className="ml-2 underline">
+            Try again
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  if (selected.id === "__loading__") {
+    return (
       <p role="status" className="mx-auto max-w-6xl p-6 text-muted-foreground">
-        Loading your saved reading…
+        No reading is available for this language and module yet.
       </p>
     );
   }
@@ -1198,9 +1221,7 @@ function Pane({
                   onSpeakSentence(s, i);
                 }}
                 aria-label={
-                  isActive && playing
-                    ? `Stop phrase ${i + 1}`
-                    : `Listen to phrase ${i + 1}`
+                  isActive && playing ? `Stop phrase ${i + 1}` : `Listen to phrase ${i + 1}`
                 }
                 title={isActive && playing ? "Stop phrase" : "Listen to this phrase"}
                 className={`float-right ml-2 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 ${

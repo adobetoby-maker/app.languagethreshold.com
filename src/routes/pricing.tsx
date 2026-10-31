@@ -1,3 +1,4 @@
+import { RefundGuaranteeCallout } from "../components/legal/RefundGuarantee";
 import { FounderStoryLink } from "../components/FounderStoryLink";
 import { individualCheckoutUrl } from "@/lib/individual-checkout";
 import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "@/lib/individual-pricing";
@@ -292,6 +293,7 @@ export default function PricingPage() {
                   <p className="mt-3 text-center text-xs text-muted-foreground">
                     Seven-day trial · Payment details and renewal terms are shown in checkout
                   </p>
+                  <RefundGuaranteeCallout />
                 </div>
               </div>
             )}
@@ -399,6 +401,7 @@ export default function PricingPage() {
                   <p className="mt-3 text-center text-xs text-muted-foreground">
                     7-day trial · $249/year for up to 6 family profiles · Renewal terms in checkout
                   </p>
+                  <RefundGuaranteeCallout />
                 </div>
               </div>
             )}

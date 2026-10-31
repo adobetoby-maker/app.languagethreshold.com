@@ -37,6 +37,15 @@ still needs a connection. Explicit offline lesson downloads now include only the
 language core and selected trade's reading chunks, preserving the existing 512-asset
 and 64MiB limits rather than increasing them.
 
+## Startup navigation fix
+
+Preview testing found BlogNavLink called useQuery without any QueryClientProvider in
+this app, crashing the homepage. It also fetched full blog articles every two minutes
+just to decide whether to show a navigation item. The link now points directly at the
+existing /blog page, which owns content loading and its empty state. This removes both
+the crash and an unrelated first-visit data request. A render test covers provider-free
+navigation.
+
 ## Build measurements
 
 Baseline: main 7953e99db522d629dfafc3a166c30840a3cd2d82, from the immediately preceding

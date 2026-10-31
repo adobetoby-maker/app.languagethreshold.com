@@ -20,6 +20,7 @@ import { VoiceSettings } from "./settings/VoiceSettings";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
 import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
+import { Link } from "@tanstack/react-router";
 
 // Uses the canonical list from app-state. A local copy here is how Chinese
 // went missing from this switcher while the first-run gate offered it.
@@ -96,6 +97,12 @@ export function TopNav() {
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
         <div className="flex items-center gap-2">
+          <Link
+            to="/pricing"
+            className="inline-flex min-h-11 items-center rounded-full border border-gold/40 px-4 text-sm font-semibold text-gold-ink hover:bg-gold/10"
+          >
+            Pricing
+          </Link>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT))}

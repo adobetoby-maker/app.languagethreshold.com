@@ -18,11 +18,11 @@ export const Route = createFileRoute("/pricing")({
   ),
   head: () => ({
     meta: [
-      { title: "Pricing — Language Threshold" },
+      { title: "Language Threshold Pricing — 7-Day Free Trial" },
       {
         name: "description",
         content:
-          "Start free for 7 days. Full access to 660+ professional Spanish lessons for medical and construction workers. Family plan includes Junior Linguist.",
+          "Start free for 7 days. 660+ role-specific lessons in Spanish, French, German, Italian, Japanese, Korean, Portuguese and Pashto. Family plan includes Junior Linguist.",
       },
     ],
   }),
@@ -99,8 +99,7 @@ export default function PricingPage() {
     try {
       const selected = requested ?? sessionStorage.getItem("lt.pricing.plan.v1");
       if (isBillingPlan(selected)) setBilling(selected);
-      if (isBillingPlan(requested))
-        sessionStorage.setItem("lt.pricing.plan.v1", requested);
+      if (isBillingPlan(requested)) sessionStorage.setItem("lt.pricing.plan.v1", requested);
     } catch {
       if (isBillingPlan(requested)) setBilling(requested);
     }
@@ -162,7 +161,8 @@ export default function PricingPage() {
             Individual or family. Clear pricing.
           </h1>
           <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-            Individual: $19/month for one learner. Family: $249/year for up to 6 profiles, including Junior Linguist. Annual plans are billed once per year.
+            Individual: $19/month for one learner. Family: $249/year for up to 6 profiles, including
+            Junior Linguist. Annual plans are billed once per year.
           </p>
         </div>
 
@@ -194,7 +194,11 @@ export default function PricingPage() {
           <>
             {/* Billing toggle */}
             <div className="flex justify-center mb-8">
-              <div role="group" aria-label="Choose billing plan" className="grid w-full grid-cols-2 gap-1 rounded-lg border border-border bg-card p-1 text-sm sm:grid-cols-4">
+              <div
+                role="group"
+                aria-label="Choose billing plan"
+                className="grid w-full grid-cols-2 gap-1 rounded-lg border border-border bg-card p-1 text-sm sm:grid-cols-4"
+              >
                 <button
                   aria-pressed={billing === "monthly"}
                   onClick={() => setBilling("monthly")}
@@ -209,7 +213,7 @@ export default function PricingPage() {
                 >
                   Annual
                   <span className="ml-1.5 rounded bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-bold text-emerald-400">
-                    BEST VALUE
+                    SAVE $79/YEAR
                   </span>
                 </button>
                 <button
@@ -236,15 +240,21 @@ export default function PricingPage() {
             {(billing === "monthly" || billing === "annual") && (
               <div className="rounded-2xl border border-gold/40 bg-card overflow-hidden mb-6">
                 <div className="bg-gradient-to-r from-gold/10 to-transparent border-b border-gold/20 px-6 py-5">
-                  <h2 className="text-base font-semibold text-foreground mb-3">{billing === "annual" ? "Individual annual" : "Individual monthly"} · 1 learner</h2>
+                  <h2 className="text-base font-semibold text-foreground mb-3">
+                    {billing === "annual" ? "Individual annual" : "Individual monthly"} · 1 learner
+                  </h2>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold text-foreground">
                       {billing === "annual" ? "$149" : "$19"}
                     </span>
-                    <span className="text-muted-foreground text-sm">{billing === "annual" ? "/year" : "/month"}</span>
+                    <span className="text-muted-foreground text-sm">
+                      {billing === "annual" ? "/year" : "/month"}
+                    </span>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {billing === "annual" ? "$149 billed once per year. About $12.42/month, billed annually." : "$19 billed each month. Renews monthly until canceled."}
+                    {billing === "annual"
+                      ? "$149 billed once per year. Save $79 versus 12 monthly payments (about 35%)."
+                      : "$19 billed each month. Renews monthly until canceled."}
                   </p>
                   <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1">
                     <Sparkles className="h-3 w-3 text-gold" />
@@ -359,7 +369,8 @@ export default function PricingPage() {
                     <span className="text-muted-foreground text-sm">/year</span>
                   </div>
                   <div className="mt-2 text-sm text-muted-foreground">
-                    $249 billed once per year. Equivalent to $20.75/month, billed annually. Includes Junior Linguist for kids.
+                    $249 billed once per year. Equivalent to $20.75/month, billed annually. Includes
+                    Junior Linguist for kids.
                   </div>
                 </div>
                 <div className="px-6 py-5">
@@ -547,6 +558,16 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-8 text-center text-xs text-muted-foreground border-t border-border pt-6">
+          <p className="mb-4 text-sm text-foreground">
+            Language Threshold was built around the conversations people need on the job. Read the{" "}
+            <a
+              href="https://languagethreshold.com/founder"
+              className="font-semibold text-gold underline"
+            >
+              founder story
+            </a>
+            .
+          </p>
           Questions?{" "}
           <a href="/support" className="text-foreground underline">
             Contact support

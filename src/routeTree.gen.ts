@@ -76,6 +76,8 @@ import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
+import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
+import { Route as VsDuolingoRouteImport } from './routes/vs.duolingo'
 
 const Char91indexChar93Route = Char91indexChar93RouteImport.update({
   id: '/index',
@@ -412,6 +414,16 @@ const TeamAcceptRoute = TeamAcceptRouteImport.update({
   path: '/team/accept',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VsClinicalingoRoute = VsClinicalingoRouteImport.update({
+  id: '/vs/clinicalingo',
+  path: '/vs/clinicalingo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VsDuolingoRoute = VsDuolingoRouteImport.update({
+  id: '/vs/duolingo',
+  path: '/vs/duolingo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -481,6 +493,8 @@ export interface FileRoutesByFullPath {
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -550,6 +564,8 @@ export interface FileRoutesByTo {
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -620,6 +636,8 @@ export interface FileRoutesById {
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -691,6 +709,8 @@ export interface FileRouteTypes {
     | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -760,6 +780,8 @@ export interface FileRouteTypes {
     | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
   id:
     | '__root__'
     | '/'
@@ -829,6 +851,8 @@ export interface FileRouteTypes {
     | '/api/verify-checkout'
     | '/subscribe/success'
     | '/team_/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -899,6 +923,8 @@ export interface RootRouteChildren {
   ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
+  VsClinicalingoRoute: typeof VsClinicalingoRoute
+  VsDuolingoRoute: typeof VsDuolingoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1372,6 +1398,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamAcceptRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vs/clinicalingo': {
+      id: '/vs/clinicalingo'
+      path: '/vs/clinicalingo'
+      fullPath: '/vs/clinicalingo'
+      preLoaderRoute: typeof VsClinicalingoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vs/duolingo': {
+      id: '/vs/duolingo'
+      path: '/vs/duolingo'
+      fullPath: '/vs/duolingo'
+      preLoaderRoute: typeof VsDuolingoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1443,6 +1483,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
+  VsClinicalingoRoute: VsClinicalingoRoute,
+  VsDuolingoRoute: VsDuolingoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -78,6 +78,43 @@ export function moduleSupportsLearningPair(
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
   {
+    id: "military",
+    name: "Military English",
+    emoji: "🎖️",
+    category: "English for Work",
+    blurb:
+      "Small-team tactics terminology, radio communication, weapons and equipment vocabulary, briefings, and military classroom English. Spanish support and plain-English explanations across Foundation, Core, and Master.",
+    priceCents: 999,
+    languages: ["English"],
+    nativeLanguages: ["Spanish"],
+    learnDirection: "en-target",
+    aiPersona:
+      "You are a military English language instructor helping a Spanish-speaking student. Teach in clear English, explain unfamiliar terms in plain English, and offer Spanish clarification when needed. Use fictional classroom scenarios and distinguish country-specific ranks and unit names. Practice terminology, listening comprehension, administrative radio exchanges, briefings, equipment identification, and safety reporting. Explain roger as receipt and wilco as receipt, understanding, and intended compliance; do not combine over and out. Discuss tactics and weapons as language and document-comprehension topics; do not provide combat execution drills, targeting, weapon operation, or live operational advice. Qualified instructors and current authorized publications govern technical procedures. Never imply DLI affiliation or official proficiency certification.",
+    userRole: "Spanish-speaking military student learning English",
+    challengePrompts: [
+      "Introduce yourself, your rank, and your training role in English.",
+      "Explain team, squad, and platoon in plain English, noting that national organizations differ.",
+      "Clarify a fictional administrative radio message and confirm a corrected classroom time.",
+      "Identify weapon and equipment terms in a labeled classroom illustration.",
+      "Give an equipment availability briefing and distinguish confirmed facts from assumptions.",
+      "Summarize a training paragraph and explain an unfamiliar term to a classmate.",
+    ],
+    vocabFocus: [
+      "team",
+      "squad",
+      "platoon",
+      "radio",
+      "call sign",
+      "roger",
+      "wilco",
+      "rifle",
+      "magazine",
+      "ammunition",
+      "briefing",
+      "clarification",
+    ],
+  },
+  {
     id: "medical-mission-logistics",
     name: "Medical Mission Logistics",
     emoji: "📦",

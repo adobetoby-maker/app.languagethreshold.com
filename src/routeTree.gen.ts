@@ -21,6 +21,7 @@ import { Route as ExamContentRouteImport } from './routes/exam-content'
 import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -140,6 +141,11 @@ const ExamsRoute = ExamsRouteImport.update({
 const FamilySetupRoute = FamilySetupRouteImport.update({
   id: '/family-setup',
   path: '/family-setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ModuleRequestRoute = ModuleRequestRouteImport.update({
@@ -455,6 +461,7 @@ export interface FileRoutesByFullPath {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
@@ -529,6 +536,7 @@ export interface FileRoutesByTo {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
@@ -604,6 +612,7 @@ export interface FileRoutesById {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
@@ -680,6 +689,7 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
@@ -754,6 +764,7 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
@@ -828,6 +839,7 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
@@ -903,6 +915,7 @@ export interface RootRouteChildren {
   ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
   FamilySetupRoute: typeof FamilySetupRoute
+  FounderRoute: typeof FounderRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
@@ -1050,6 +1063,13 @@ declare module '@tanstack/react-router' {
       path: '/family-setup'
       fullPath: '/family-setup'
       preLoaderRoute: typeof FamilySetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/module-request': {
@@ -1487,6 +1507,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
   FamilySetupRoute: FamilySetupRoute,
+  FounderRoute: FounderRoute,
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,

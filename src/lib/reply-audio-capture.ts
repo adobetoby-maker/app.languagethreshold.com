@@ -1,3 +1,4 @@
+import { beginBrowserRecordingSession } from "./browser-audio-session";
 import { encodeReplyWav } from "./reply-audio";
 
 export function supportsReplyRecording() {
@@ -27,6 +28,7 @@ export function captureReplyAudio(events: {
     decodeTimer = 0;
   const chunks: Blob[] = [];
   let size = 0;
+  const releaseAudioSession = beginBrowserRecordingSession();
   const closeInput = () => {
     cancelAnimationFrame(frame);
     window.clearTimeout(limit);
@@ -35,6 +37,7 @@ export function captureReplyAudio(events: {
       track.stop();
     });
     stream = null;
+    releaseAudioSession();
   };
   const cancel = () => {
     if (disposed) return;

@@ -124,7 +124,7 @@ export function SpeakLearn() {
   }, []);
   const [supported, setSupported] = useState<boolean | null>(null);
   const [listening, setListening] = useState(false);
-  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
+  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(true);
   const [startingMic, setStartingMic] = useState(false);
   const micActive = listening || startingMic;
   const [interim, setInterim] = useState("");
@@ -246,8 +246,15 @@ export function SpeakLearn() {
   }, [addSeconds, dispatch, language, actor, isCurrentUser]);
 
   const speakAloud = useCallback(
-    (text: string) => {
-      if (!audioCaptureBusy) speakOwned(text, accent, voiceURI, 1);
+    (text: string): void => {
+      if (!audioCaptureBusy)
+        speakOwned(text, accent, voiceURI, 1, {
+          onerror: () =>
+            toast("Reply voice paused", {
+              description: "Tap the reply’s speaker to hear it again.",
+              action: { label: "Play reply", onClick: () => speakAloud(text) },
+            }),
+        });
     },
     [speakOwned, accent, voiceURI, audioCaptureBusy],
   );
@@ -935,7 +942,7 @@ export function SpeakLearn() {
             <summary className="min-h-11 cursor-pointer py-3 text-sm">Topics & challenges</summary>
             <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
               <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
-                <span>V3 capture test · Reply audio</span>
+                <span>Read replies aloud</span>
                 <select
                   aria-label="Reply audio"
                   disabled={thinking || micActive}

@@ -1,3 +1,4 @@
+import { prepareBrowserPlayback } from "./browser-audio-session";
 // Site-wide TTS routing. A learner-selected Google Cloud voice follows them
 // across Reader, cards, games, listening drills, Speak, and specialty modules.
 // Device speech remains the no-cost fallback. Pashto keeps the ElevenLabs
@@ -89,6 +90,7 @@ function speakOnDevice(
   if (typeof window === "undefined" || !window.speechSynthesis) {
     return Promise.resolve(false as boolean | null);
   }
+  prepareBrowserPlayback();
   const utterance = new SpeechSynthesisUtterance(text);
   configureUtterance(
     utterance,
@@ -136,6 +138,7 @@ function speakOnDevice(
     heldUtterance = utterance;
     arm(DEVICE_SPEECH_START_MS, false);
     try {
+      if (window.speechSynthesis.paused) window.speechSynthesis.resume();
       window.speechSynthesis.speak(utterance);
     } catch {
       done(false);
@@ -315,6 +318,7 @@ export async function speakRemote(
       el.pause();
       el.src = objectUrl;
       el.playbackRate = rate;
+      prepareBrowserPlayback();
       el.onplaying = notifyStart;
 
       const completed = await new Promise<boolean | null>((resolve) => {

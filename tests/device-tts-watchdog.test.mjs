@@ -51,6 +51,7 @@ test("device speech settles when the browser never fires start or end", async ()
     };
     const utterances = [];
     let cancels = 0;
+    let resumes = 0;
     globalThis.SpeechSynthesisUtterance = class {
       constructor(text) {
         this.text = text;
@@ -58,7 +59,15 @@ test("device speech settles when the browser never fires start or end", async ()
       }
     };
     globalThis.window = {
-      speechSynthesis: { speak() {}, cancel: () => cancels++ },
+      speechSynthesis: {
+        paused: true,
+        resume() {
+          resumes++;
+          this.paused = false;
+        },
+        speak() {},
+        cancel: () => cancels++,
+      },
     };
     const m = await import(join(dir, "case.mjs"));
     const fire = () => {
@@ -76,6 +85,7 @@ test("device speech settles when the browser never fires start or end", async ()
       .then(() => (settled = true));
     await new Promise((r) => setImmediate(r));
     assert.equal(settled, false);
+    assert.equal(resumes, 1, "resume a suspended speech queue before playback");
     const before = cancels;
     fire();
     await silent;

@@ -278,7 +278,7 @@ export function SpeakingMissionsPreview({
     setUseRecordedAudio(supportsReplyRecording());
   }, []);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
-  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
+  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(true);
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
@@ -2246,7 +2246,7 @@ export function SpeakingMissionsPreview({
         </summary>
         <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
           <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
-            <span>V3 capture test · Reply audio</span>
+            <span>Read replies aloud</span>
             <select
               aria-label="Reply audio"
               disabled={status === "thinking" || status === "starting" || status === "listening"}

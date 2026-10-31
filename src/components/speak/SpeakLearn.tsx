@@ -1,3 +1,4 @@
+import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
 import { SpeakingGuestConsent } from "./SpeakingGuestConsent";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { RecordedReplyControl } from "./RecordedReplyControl";
@@ -130,6 +131,8 @@ export function SpeakLearn() {
   const [interim, setInterim] = useState("");
   const [thinking, setThinking] = useState(false);
   const [typedTurn, setTypedTurn] = useState("");
+  const replyField = useSpeakingReplyField(typedTurn);
+  const [hideReplyText, setHideReplyText] = useState(false);
   const [conversationError, setConversationError] = useState<string | null>(null);
   const finishRecognitionRef = useRef<(() => void) | null>(null);
   const [challenge, setChallenge] = useState<SpeakChallenge | null>(null);
@@ -672,7 +675,7 @@ export function SpeakLearn() {
         ref={transcriptRef}
         role="region"
         aria-label="Conversation replies"
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
+        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
       >
         {isEmpty && !interim ? (
           <div className="flex h-full flex-col items-center justify-center text-center">
@@ -706,7 +709,9 @@ export function SpeakLearn() {
                       </button>
                     )}
                     <span className="leading-relaxed whitespace-pre-wrap">
-                      {t.text || (t.role === "ai" ? "…" : "")}
+                      {t.role === "ai" && hideReplyText
+                        ? "Audio reply"
+                        : t.text || (t.role === "ai" ? "…" : "")}
                     </span>
                   </div>
                   {t.tip && (
@@ -735,7 +740,7 @@ export function SpeakLearn() {
         )}
       </div>
     ),
-    [turns, interim, isEmpty, language, thinking, speakAloud],
+    [turns, interim, isEmpty, language, thinking, speakAloud, hideReplyText],
   );
 
   return (
@@ -823,9 +828,39 @@ export function SpeakLearn() {
         <section
           ref={conversationViewport.ref}
           style={conversationViewport.style}
-          className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-hidden"
+          className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-y-auto"
           aria-label="Free conversation practice"
         >
+          <div className="flex shrink-0 items-center justify-between gap-2">
+            <button
+              type="button"
+              aria-pressed={hideReplyText}
+              onClick={() => {
+                setHideReplyText((value) => !value);
+                if (!hideReplyText) setAutomaticReplyAudio(true);
+              }}
+              className="min-h-11 rounded-xl border border-border px-3 text-sm"
+            >
+              {hideReplyText ? "Show reply text" : "Hide reply text"}
+            </button>
+            <button
+              type="button"
+              disabled={
+                thinking ||
+                audioCaptureBusy ||
+                !turns.some((turn) => turn.role === "ai" && turn.text.trim())
+              }
+              onClick={() => {
+                const reply = [...turns]
+                  .reverse()
+                  .find((turn) => turn.role === "ai" && turn.text.trim());
+                if (reply) speakAloud(reply.text);
+              }}
+              className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
+            >
+              Repeat reply
+            </button>
+          </div>
           {transcript}
           {conversationError && (
             <p role="alert" className="shrink-0 text-sm text-foreground">
@@ -898,14 +933,18 @@ export function SpeakLearn() {
               </>
             )}
           </div>
-          {!micActive && !thinking && !audioCaptureBusy && typedTurn.trim() && (
-            <p
-              role="status"
-              className="shrink-0 rounded-xl border border-primary/40 bg-primary/10 px-3 py-2 text-sm text-foreground"
-            >
-              Reply ready. Review or edit the words below, then tap Send answer to confirm.
-            </p>
-          )}
+          {!useRecordedAudio &&
+            !micActive &&
+            !thinking &&
+            !audioCaptureBusy &&
+            typedTurn.trim() && (
+              <p
+                role="status"
+                className="shrink-0 rounded-xl border border-primary/40 bg-primary/10 px-3 py-2 text-sm text-foreground"
+              >
+                Reply ready. Review or edit the words below, then tap Send answer to confirm.
+              </p>
+            )}
           <form
             className="flex shrink-0 gap-2"
             onSubmit={(event) => {
@@ -913,14 +952,16 @@ export function SpeakLearn() {
               if (!thinking && !micActive && !audioCaptureBusy) submitTurn(typedTurn);
             }}
           >
-            <input
+            <textarea
+              ref={replyField}
+              rows={typedTurn.trim() ? 4 : 2}
               aria-label={`Type an answer in ${language}`}
               value={typedTurn}
               onChange={(event) => setTypedTurn(event.target.value)}
               disabled={thinking || micActive || audioCaptureBusy || !conversationAllowed}
               maxLength={2000}
               placeholder={`Type an answer in ${language}…`}
-              className="min-h-11 min-w-0 flex-1 rounded-xl border border-border bg-background px-3 text-base"
+              className="min-h-16 max-h-[28dvh] min-w-0 flex-1 resize-y overflow-y-auto rounded-xl border border-border bg-background px-3 py-2 text-base leading-relaxed"
             />
             <button
               type="submit"
@@ -932,7 +973,7 @@ export function SpeakLearn() {
                 audioCaptureBusy ||
                 !conversationAllowed
               }
-              className="flex min-h-11 min-w-11 items-center rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
+              className="flex min-h-11 min-w-11 self-end items-center rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
             >
               <Send className="h-5 w-5" />
               <span className="ml-2">Send</span>

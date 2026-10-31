@@ -1,3 +1,4 @@
+import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { RecordedReplyControl } from "./RecordedReplyControl";
 import { supportsReplyRecording } from "@/lib/reply-audio-capture";
@@ -270,6 +271,8 @@ export function SpeakingMissionsPreview({
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
   const [relationshipGroup, setRelationshipGroup] = useState<RelationshipGroup | "All">("All");
   const [typedTurn, setTypedTurn] = useState("");
+  const replyField = useSpeakingReplyField(typedTurn);
+  const [hideReplyText, setHideReplyText] = useState(false);
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
   const [useRecordedAudio, setUseRecordedAudio] = useState(false);
   const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
@@ -1942,7 +1945,7 @@ export function SpeakingMissionsPreview({
       }}
       style={practiceViewport.style}
       data-testid="focused-speaking-frame"
-      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
+      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-y-auto"
     >
       <div className="flex shrink-0 flex-nowrap items-start justify-between gap-2">
         <div>
@@ -1988,9 +1991,39 @@ export function SpeakingMissionsPreview({
         </div>
       )}
 
+      <div className="flex shrink-0 items-center justify-between gap-2">
+        <button
+          type="button"
+          aria-pressed={hideReplyText}
+          disabled={partnerAudioSource === "text"}
+          onClick={() => {
+            setHideReplyText((value) => !value);
+            if (!hideReplyText) setAutomaticReplyAudio(true);
+          }}
+          className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
+        >
+          {hideReplyText ? "Show reply text" : "Hide reply text"}
+        </button>
+        <button
+          type="button"
+          disabled={
+            status === "thinking" ||
+            audioCaptureBusy ||
+            partnerAudioSource === "text" ||
+            !turns.some((turn) => turn.role === "partner")
+          }
+          onClick={() => {
+            const reply = [...turns].reverse().find((turn) => turn.role === "partner");
+            if (reply) void speakPartnerText(reply.text);
+          }}
+          className="min-h-11 rounded-xl border border-border px-3 text-sm disabled:opacity-40"
+        >
+          Repeat reply
+        </button>
+      </div>
       <div
         ref={transcriptRef}
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
         role="region"
         aria-label="Conversation"
         aria-live="polite"
@@ -2020,11 +2053,15 @@ export function SpeakingMissionsPreview({
                     </button>
                   )}
                   <span className="furigana-line leading-relaxed">
-                    <LongPressWordText
-                      text={turn.text}
-                      onWordLookup={openWordDefinition}
-                      reading={readingScript}
-                    />
+                    {turn.role === "partner" && hideReplyText ? (
+                      "Audio reply"
+                    ) : (
+                      <LongPressWordText
+                        text={turn.text}
+                        onWordLookup={openWordDefinition}
+                        reading={readingScript}
+                      />
+                    )}
                   </span>
                 </div>
                 {turn.feedback?.map((feedback, index) => (
@@ -2164,34 +2201,37 @@ export function SpeakingMissionsPreview({
         )}
       </div>
 
-      {!audioCaptureBusy && transcriptSource === "dictation" && typedTurn.trim() && (
-        <div
-          role="status"
-          className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
-        >
-          <p className="text-sm font-medium text-foreground">
-            Reply captured — review what your phone heard
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-foreground">
-            Edit below, then tap Send to confirm your reply.
-          </p>
-          {!useRecordedAudio && (
-            <button
-              type="button"
-              onClick={startListening}
-              disabled={
-                status === "thinking" ||
-                status === "listening" ||
-                status === "starting" ||
-                partnerSpeaking
-              }
-              className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
-            >
-              Retry microphone
-            </button>
-          )}
-        </div>
-      )}
+      {!useRecordedAudio &&
+        !audioCaptureBusy &&
+        transcriptSource === "dictation" &&
+        typedTurn.trim() && (
+          <div
+            role="status"
+            className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
+          >
+            <p className="text-sm font-medium text-foreground">
+              Reply captured — review what your phone heard
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-foreground">
+              Edit below, then tap Send to confirm your reply.
+            </p>
+            {!useRecordedAudio && (
+              <button
+                type="button"
+                onClick={startListening}
+                disabled={
+                  status === "thinking" ||
+                  status === "listening" ||
+                  status === "starting" ||
+                  partnerSpeaking
+                }
+                className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+              >
+                Retry microphone
+              </button>
+            )}
+          </div>
+        )}
 
       <form
         className="flex shrink-0 gap-2"
@@ -2205,7 +2245,9 @@ export function SpeakingMissionsPreview({
         <label className="sr-only" htmlFor="mission-typed-turn">
           Type your answer in {selectedMission.language}
         </label>
-        <input
+        <textarea
+          ref={replyField}
+          rows={typedTurn.trim() ? 4 : 2}
           id="mission-typed-turn"
           value={typedTurn}
           onChange={(event) => {
@@ -2220,7 +2262,7 @@ export function SpeakingMissionsPreview({
           }
           maxLength={2000}
           placeholder={`Type an answer in ${selectedMission.language}…`}
-          className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
+          className="min-h-16 max-h-[28dvh] min-w-0 flex-1 resize-y overflow-y-auto rounded-xl border border-border bg-background px-3 py-2.5 text-base leading-relaxed text-foreground"
         />
         <button
           type="submit"
@@ -2233,7 +2275,7 @@ export function SpeakingMissionsPreview({
             partnerSpeaking
           }
           aria-label="Send typed answer"
-          className="inline-flex h-11 gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+          className="inline-flex h-11 self-end gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
         >
           <Send className="h-4 w-4" />
           <span>Send</span>

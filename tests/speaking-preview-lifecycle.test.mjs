@@ -170,7 +170,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     };
     const send = (tree, phrase = "QA learner turn") => {
       nodes(tree)
-        .find((n) => n.type === "input" && n.props.id === "mission-typed-turn")
+        .find((n) => n.type === "textarea" && n.props.id === "mission-typed-turn")
         .props.onChange({ target: { value: phrase } });
       tree = render();
       const form = nodes(tree).find((n) => n.type === "form");
@@ -428,7 +428,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     assert.equal(timedOutRequest.opts.signal.aborted, true);
     assert.match(text(tree), /reply took too long/);
     assert.equal(
-      nodes(tree).find((n) => n.type === "input" && n.props.id === "mission-typed-turn").props
+      nodes(tree).find((n) => n.type === "textarea" && n.props.id === "mission-typed-turn").props
         .value,
       "QA timeout answer",
     );

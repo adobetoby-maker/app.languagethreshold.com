@@ -66,7 +66,7 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
           data: {
             standardVoicesByLang: {
               Spanish: {
-                speakingAudioSource: "text",
+                speakingAudioSource: recordedAudio ? "device" : "text",
                 listeningGender: "woman",
                 speakingGender: "woman",
               },
@@ -80,6 +80,7 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
           "scenario_version_construction_safety_briefing_es_v1",
         );
       const recognitions: object[] = [];
+      let playbackStarts = 0;
       let behavior = "normal";
       class Recognition {
         onstart: (() => void) | null = null;
@@ -102,6 +103,9 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
           setBehavior(value: string) {
             behavior = value;
           },
+          playbackStarts() {
+            return playbackStarts;
+          },
           captureStarts() {
             return recognitions.length;
           },
@@ -112,6 +116,16 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
               results: [{ isFinal: true, 0: { transcript: text } }],
             });
           },
+        },
+      });
+      // Plain fixture voices need a fixture utterance too; the native setter rejects plain objects.
+      Object.defineProperty(window, "SpeechSynthesisUtterance", {
+        configurable: true,
+        value: class {
+          text: string;
+          constructor(text: string) {
+            this.text = text;
+          }
         },
       });
       const synth = window.speechSynthesis;
@@ -126,8 +140,10 @@ export async function prepare(page: Page, mission: boolean, theme: string, recor
               default: true,
             },
           ] as SpeechSynthesisVoice[];
-        synth.speak = (utterance) =>
+        synth.speak = (utterance) => {
+          playbackStarts++;
           queueMicrotask(() => utterance.onend?.(new Event("end") as SpeechSynthesisEvent));
+        };
       }
     },
     { id, session, mission, theme, recordedAudio },
@@ -398,7 +414,7 @@ for (const mission of [false, true]) {
 for (const mission of [false, true]) {
   test(`recorded audio ${mission ? "mission" : "free"}: eight actual recorder cycles and reset`, async ({
     page,
-  }) => {
+  }, info) => {
     test.skip(
       process.env.E2E_RECORDED_AUDIO !== "1",
       "Use playwright.recording.config.ts for synthetic microphone input",
@@ -424,6 +440,22 @@ for (const mission of [false, true]) {
     });
     const requests = await prepare(page, mission, "dark", true);
     const initial = requests.length;
+    const draftField = page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ });
+    const longDraft =
+      "Quiero explicar lo que hice hoy.\n" +
+      "Trabajé con mi equipo y aprendí nuevas palabras para conversar con más confianza. ".repeat(
+        5,
+      );
+    await draftField.fill(longDraft);
+    await expect(draftField).toHaveValue(longDraft);
+    expect(await draftField.evaluate((el) => el.tagName)).toBe("TEXTAREA");
+    expect(
+      await draftField.evaluate((el) => el.getBoundingClientRect().height),
+    ).toBeGreaterThanOrEqual(96);
+    await draftField.press("Enter");
+    expect(requests.length).toBe(initial);
+    await page.screenshot({ path: info.outputPath("large-reply.png") });
+    await draftField.fill("");
     for (let turn = 1; turn <= 8; turn++) {
       await page.getByRole("button", { name: "Record reply", exact: true }).click();
       const allow = page.getByRole("button", { name: /Allow/ });
@@ -445,6 +477,29 @@ for (const mission of [false, true]) {
       await page.getByRole("button", { name: /^Send/ }).click();
       await expect.poll(() => requests.length).toBe(initial + turn);
       await expect(page.getByRole("button", { name: "Record reply", exact: true })).toBeEnabled();
+      if (turn === 1) {
+        await page.getByRole("button", { name: "Hide reply text", exact: true }).click();
+        await expect(page.getByText("Respuesta 1:", { exact: false })).toHaveCount(0);
+        await expect(page.getByText("Audio reply", { exact: true }).first()).toBeVisible();
+        const starts = await page.evaluate(() =>
+          (
+            window as unknown as { speakingFixture: { playbackStarts(): number } }
+          ).speakingFixture.playbackStarts(),
+        );
+        await page.getByRole("button", { name: "Repeat reply", exact: true }).click();
+        await expect
+          .poll(() =>
+            page.evaluate(() =>
+              (
+                window as unknown as { speakingFixture: { playbackStarts(): number } }
+              ).speakingFixture.playbackStarts(),
+            ),
+          )
+          .toBeGreaterThan(starts);
+        await page.screenshot({ path: info.outputPath("audio-only.png") });
+        await page.getByRole("button", { name: "Show reply text", exact: true }).click();
+        await expect(page.getByText("Respuesta 1:", { exact: false })).toBeVisible();
+      }
     }
     console.log(`Eight recording turns completed (${mission ? "mission" : "free"})`);
     expect(uploads).toBe(8);
@@ -461,9 +516,9 @@ for (const mission of [false, true]) {
     await expect(page.getByRole("button", { name: "Play recording", exact: true })).toBeVisible();
     failTranscription = false;
     await page.getByRole("button", { name: "Retry transcription", exact: true }).click();
-    await expect(page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ })).toHaveValue(
-      "Hola, esta es mi respuesta grabada 10.",
-    );
+    await expect(
+      page.getByRole("textbox", { name: /Type (an|your) answer in Spanish/ }),
+    ).toHaveValue("Hola, esta es mi respuesta grabada 10.");
     expect(requests.length).toBe(initial + 8);
     await page.getByRole("button", { name: "Reset", exact: true }).click();
     await expect(page.getByRole("button", { name: "Play recording", exact: true })).toHaveCount(0);

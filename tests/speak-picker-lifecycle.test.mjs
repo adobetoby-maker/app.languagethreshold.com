@@ -431,7 +431,7 @@ test("four spoken exchanges recover missing end events, reset cancels a pending 
     }
     assert.equal(c.exchanges, 4);
     assert.match(text(tree), /4 exchanges · Goal reached/);
-    const input = nodes(tree).find((n) => n.type === "input");
+    const input = nodes(tree).find((n) => n.type === "textarea");
     input.props.onChange({ target: { value: "pending fifth" } });
     tree = render();
     nodes(tree)
@@ -445,7 +445,7 @@ test("four spoken exchanges recover missing end events, reset cancels a pending 
     assert.equal(c.turns.length, 0);
     tree = render();
     nodes(tree)
-      .find((n) => n.type === "input")
+      .find((n) => n.type === "textarea")
       .props.onChange({ target: { value: "new session" } });
     tree = render();
     nodes(tree)
@@ -509,7 +509,7 @@ test("iPhone microphone errors never leave false Listening; retry clears warning
     tree = render();
     assert.ok(mic(tree, "Start listening"));
     assert.match(text(tree), /No new speech came through/);
-    assert.equal(nodes(tree).find((n) => n.type === "input").props.value, "Keep these words");
+    assert.equal(nodes(tree).find((n) => n.type === "textarea").props.value, "Keep these words");
     assert.equal(requests.length, 0, "stalled recording never auto-sends partial words");
     mic(tree, "Start listening").props.onClick();
     tree = render();

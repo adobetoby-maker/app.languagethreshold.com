@@ -1,4 +1,4 @@
-import { speakingTestPrincipal, isSpeakingTestActor } from "./speaking-test-access";
+import { speakingTestPrincipal, isSpeakingTestActor } from "./speaking-test-access.ts";
 import { isIP } from "node:net";
 import { readPrivateServiceJson } from "./private-service-json.ts";
 

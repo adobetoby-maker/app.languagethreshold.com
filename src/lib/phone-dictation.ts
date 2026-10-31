@@ -146,13 +146,86 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
   }
 }
 
-export function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
+/** Browser capture owns its callbacks until end, just like a native V3 capture ID.
+ * In particular, cleanup after a normal end must not send a second abort to Safari.
+ */
+export class BrowserPhoneRecognition implements SpeechRecognitionLike {
+  private static active: BrowserPhoneRecognition | null = null;
+  lang = "";
+  continuous = false;
+  interimResults = true;
+  onstart: SpeechRecognitionLike["onstart"] = null;
+  onresult: SpeechRecognitionLike["onresult"] = null;
+  onerror: SpeechRecognitionLike["onerror"] = null;
+  onend: SpeechRecognitionLike["onend"] = null;
+  private recording: SpeechRecognitionLike | null = null;
+  private ended = false;
+  private started = false;
+
+  start() {
+    if (this.started || this.ended) throw new Error("This recording has already started.");
+    const Constructor = browserRecognitionConstructor();
+    if (!Constructor) throw new Error("Speech recognition is unavailable.");
+    BrowserPhoneRecognition.active?.abort();
+    BrowserPhoneRecognition.active = this;
+    this.started = true;
+    const recording = new Constructor();
+    this.recording = recording;
+    recording.lang = this.lang;
+    recording.continuous = this.continuous;
+    recording.interimResults = this.interimResults;
+    recording.onstart = () => {
+      if (!this.ended) this.onstart?.();
+    };
+    recording.onresult = (event) => {
+      if (!this.ended) this.onresult?.(event);
+    };
+    recording.onerror = (event) => {
+      if (!this.ended) this.onerror?.(event);
+    };
+    recording.onend = () => {
+      if (this.ended) return;
+      this.ended = true;
+      this.detach();
+      this.onend?.();
+    };
+    try {
+      recording.start();
+    } catch (error) {
+      this.abort();
+      throw error;
+    }
+  }
+  private detach() {
+    if (this.recording) {
+      this.recording.onstart = null;
+      this.recording.onresult = null;
+      this.recording.onerror = null;
+      this.recording.onend = null;
+    }
+    if (BrowserPhoneRecognition.active === this) BrowserPhoneRecognition.active = null;
+  }
+  stop() {
+    if (!this.ended) this.recording?.stop();
+  }
+  abort() {
+    if (this.ended) return;
+    this.ended = true;
+    this.detach();
+    this.recording?.abort();
+  }
+}
+function browserRecognitionConstructor(): (new () => SpeechRecognitionLike) | null {
   if (typeof window === "undefined") return null;
-  if (Capacitor.getPlatform() === "ios" && Capacitor.isPluginAvailable("PhoneDictation"))
-    return NativePhoneRecognition;
   const speech = window as typeof window & {
     SpeechRecognition?: new () => SpeechRecognitionLike;
     webkitSpeechRecognition?: new () => SpeechRecognitionLike;
   };
   return speech.SpeechRecognition ?? speech.webkitSpeechRecognition ?? null;
+}
+export function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
+  if (typeof window === "undefined") return null;
+  if (Capacitor.getPlatform() === "ios" && Capacitor.isPluginAvailable("PhoneDictation"))
+    return NativePhoneRecognition;
+  return browserRecognitionConstructor() ? BrowserPhoneRecognition : null;
 }

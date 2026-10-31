@@ -177,6 +177,10 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     render();
     await tick();
     tree = render();
+    const audioMode = nodes(tree).find((n) => n.props?.["aria-label"] === "Reply audio");
+    assert.equal(audioMode.props.value, "manual");
+    audioMode.props.onChange({ target: { value: "automatic" } });
+    tree = render();
     const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
     chip.props.onClick();
     chip.props.onClick();

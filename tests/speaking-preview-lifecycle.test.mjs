@@ -150,6 +150,15 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       start.props.onClick();
       await tick();
       tree = render();
+      if (!c.audio.length) {
+        const mode = nodes(tree).find((n) => n.props?.["aria-label"] === "Reply audio");
+        assert.equal(mode.props.value, "manual", "test branch starts without automatic playback");
+        mode.props.onChange({ target: { value: "automatic" } });
+        tree = render();
+        button(tree, "Reset").props.onClick();
+        await tick();
+        tree = render();
+      }
       const audio = c.audio.at(-1);
       assert.equal(audio.opts.deviceOnly, true);
       audio.opts.onPlaybackStart?.();
@@ -227,7 +236,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       nodes(tree).some((n) => n.props?.text === "stale partner"),
       false,
     );
-    // iOS Safari can drop onend after partner audio; Stop must still end the listening turn.
+    // iOS Safari can retain a speaking queue after partner audio.
+    window.speechSynthesis.speaking = true;
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
@@ -237,6 +247,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       1,
       "second-turn microphone tap releases the prior device speech queue",
     );
+    window.speechSynthesis.speaking = false;
     silent.stop = () => {};
     tree = render();
     const beforeStop = new Set(timers.keys());

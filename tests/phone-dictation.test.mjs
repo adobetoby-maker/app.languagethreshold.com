@@ -43,17 +43,66 @@ export const registerPlugin=()=>({
         },
       ],
     });
-    const { recognitionConstructor, NativePhoneRecognition, c } = await import(
-      join(dir, "case.mjs")
-    );
+    const { recognitionConstructor, NativePhoneRecognition, BrowserPhoneRecognition, c } =
+      await import(join(dir, "case.mjs"));
     assert.equal(recognitionConstructor(), NativePhoneRecognition);
     const web = class {};
     window.webkitSpeechRecognition = web;
     c.available = false;
-    assert.equal(recognitionConstructor(), web);
+    assert.equal(recognitionConstructor(), BrowserPhoneRecognition);
     c.available = true;
     c.platform = "web";
-    assert.equal(recognitionConstructor(), web);
+    assert.equal(recognitionConstructor(), BrowserPhoneRecognition);
+    const browsers = [];
+    window.webkitSpeechRecognition = class {
+      constructor() {
+        browsers.push(this);
+      }
+      start() {
+        this.onstart?.();
+      }
+      stop() {
+        this.stops = (this.stops ?? 0) + 1;
+      }
+      abort() {
+        this.aborts = (this.aborts ?? 0) + 1;
+      }
+    };
+    for (let turn = 0; turn < 4; turn++) {
+      const rec = new (recognitionConstructor())();
+      let ends = 0,
+        results = 0;
+      rec.onresult = () => results++;
+      rec.onend = () => {
+        ends++;
+        rec.abort();
+      };
+      rec.start();
+      const raw = browsers.at(-1),
+        lateResult = raw.onresult,
+        lateEnd = raw.onend;
+      raw.onresult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "test" } }] });
+      rec.stop();
+      raw.onend();
+      assert.equal(raw.stops, 1);
+      assert.equal(raw.aborts, undefined, "normal end cleanup never aborts Safari again");
+      lateResult({});
+      lateEnd();
+      assert.equal(results, 1);
+      assert.equal(ends, 1);
+    }
+    const oldBrowser = new BrowserPhoneRecognition();
+    oldBrowser.start();
+    const retired = browsers.at(-1),
+      staleResult = retired.onresult;
+    oldBrowser.onresult = () => assert.fail("late result escaped capture owner");
+    const nextBrowser = new BrowserPhoneRecognition();
+    nextBrowser.start();
+    assert.equal(retired.aborts, 1);
+    staleResult({});
+    nextBrowser.abort();
+    nextBrowser.abort();
+    assert.equal(browsers.at(-1).aborts, 1);
     c.platform = "ios";
     const allIds = new Set();
     for (let turn = 0; turn < 3; turn++) {

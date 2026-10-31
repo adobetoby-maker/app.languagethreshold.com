@@ -263,6 +263,7 @@ export function SpeakingMissionsPreview({
   const [typedTurn, setTypedTurn] = useState("");
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
+  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
@@ -717,7 +718,7 @@ export function SpeakingMissionsPreview({
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
-    void speakPartnerText(opening.text);
+    if (automaticReplyAudio) void speakPartnerText(opening.text);
   };
 
   const requestMissionStart = () => {
@@ -984,12 +985,13 @@ export function SpeakingMissionsPreview({
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
-      void speakPartnerText(payload.assistantText, () => {
-        setLastResponseTiming({
-          replyReadyMs,
-          voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),
+      if (automaticReplyAudio)
+        void speakPartnerText(payload.assistantText, () => {
+          setLastResponseTiming({
+            replyReadyMs,
+            voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),
+          });
         });
-      });
     } catch (error) {
       if (!current()) return;
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -1030,7 +1032,8 @@ export function SpeakingMissionsPreview({
       stopAudio();
       // iPhone can retain the device speech queue after its reply has ended.
       // Release it in this microphone tap before starting the next recognition.
-      window.speechSynthesis?.cancel();
+      if (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+        window.speechSynthesis.cancel();
       const recognition = new Constructor();
       recognition.lang = missionLocale;
       recognition.continuous = false;
@@ -1580,6 +1583,7 @@ export function SpeakingMissionsPreview({
         <h2 className="line-clamp-2 shrink-0 font-serif text-xl leading-tight text-foreground sm:text-2xl">
           {selectedMission.title}
         </h2>
+
         {practiceNotice && (
           <div
             role="alert"
@@ -2199,6 +2203,22 @@ export function SpeakingMissionsPreview({
           Practice tools & coaching
         </summary>
         <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+          <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
+            <span>V3 capture test · Reply audio</span>
+            <select
+              aria-label="Reply audio"
+              disabled={status === "thinking" || status === "starting" || status === "listening"}
+              value={automaticReplyAudio ? "automatic" : "manual"}
+              onChange={(event) => {
+                stopAudio();
+                setAutomaticReplyAudio(event.target.value === "automatic");
+              }}
+              className="min-h-11 rounded-xl border border-border bg-background px-2"
+            >
+              <option value="manual">Tap to play</option>
+              <option value="automatic">Automatic</option>
+            </select>
+          </label>
           <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
             {selectedMission.objectives.map((objective) => {
               const completed = objectiveIds.includes(objective.id);

@@ -108,6 +108,7 @@ export function SpeakLearn() {
 
   const [supported, setSupported] = useState<boolean | null>(null);
   const [listening, setListening] = useState(false);
+  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
   const [startingMic, setStartingMic] = useState(false);
   const micActive = listening || startingMic;
   const [interim, setInterim] = useState("");
@@ -405,7 +406,7 @@ export function SpeakLearn() {
       if (!done) throw new Error("The reply was interrupted. Please try again.");
       if (!full.trim()) throw new Error("The partner returned no reply. Please try again.");
       if (full.trim()) {
-        speakAloud(full);
+        if (automaticReplyAudio) speakAloud(full);
         incrementExchanges();
         awardExchange();
       }
@@ -492,7 +493,8 @@ export function SpeakLearn() {
     }
     try {
       stopOwned();
-      window.speechSynthesis?.cancel();
+      if (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+        window.speechSynthesis.cancel();
       const rec = new Ctor();
       rec.lang = accent;
       rec.continuous = false;
@@ -800,6 +802,7 @@ export function SpeakLearn() {
               {conversationError}
             </p>
           )}
+
           {!conversationAllowed && (
             <p role="status" className="text-center text-xs text-muted-foreground">
               AI conversation is off. Sign in and enable it in Settings → Speaking privacy. Other
@@ -889,6 +892,22 @@ export function SpeakLearn() {
           <details className="relative shrink-0 rounded-xl border border-border px-3">
             <summary className="min-h-11 cursor-pointer py-3 text-sm">Topics & challenges</summary>
             <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+              <label className="flex shrink-0 items-center justify-between gap-2 text-sm text-foreground">
+                <span>V3 capture test · Reply audio</span>
+                <select
+                  aria-label="Reply audio"
+                  disabled={thinking || micActive}
+                  value={automaticReplyAudio ? "automatic" : "manual"}
+                  onChange={(event) => {
+                    stopOwned();
+                    setAutomaticReplyAudio(event.target.value === "automatic");
+                  }}
+                  className="min-h-11 rounded-xl border border-border bg-background px-2"
+                >
+                  <option value="manual">Tap to play</option>
+                  <option value="automatic">Automatic</option>
+                </select>
+              </label>
               <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
 
               <ChallengePanel

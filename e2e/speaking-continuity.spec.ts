@@ -173,6 +173,7 @@ for (const mission of [false, true])
       });
       const mic = frame.getByRole("button", { name: "Start listening", exact: true });
       await expect(mic).toBeEnabled();
+      await expect(frame.getByLabel("Reply audio", { exact: true })).toHaveValue("manual");
       for (let round = 1; round <= 4; round++) {
         await mic.click();
         await expect(

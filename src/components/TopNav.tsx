@@ -1,3 +1,4 @@
+import { FounderStoryLink } from "./FounderStoryLink";
 import { useEffect, useState } from "react";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle, BookmarkPlus } from "lucide-react";
@@ -187,6 +188,7 @@ export function TopNav() {
                   )}
                 </button>
               </div>
+              <FounderStoryLink />
               <AppVersion />
             </PopoverContent>
           </Popover>

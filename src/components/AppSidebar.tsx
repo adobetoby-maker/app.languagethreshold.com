@@ -1,3 +1,4 @@
+import { FounderStoryLink } from "./FounderStoryLink";
 import { BlogNavLink } from "./blog/BlogNavLink";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
@@ -1040,6 +1041,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
             </button>
 
+            <FounderStoryLink />
             <AppVersion />
 
             <button

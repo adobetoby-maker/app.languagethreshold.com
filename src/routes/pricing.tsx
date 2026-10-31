@@ -1,3 +1,4 @@
+import { FounderStoryLink } from "../components/FounderStoryLink";
 import { individualCheckoutUrl } from "@/lib/individual-checkout";
 import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "@/lib/individual-pricing";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -558,16 +559,9 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-8 text-center text-xs text-muted-foreground border-t border-border pt-6">
-          <p className="mb-4 text-sm text-foreground">
-            Language Threshold was built around the conversations people need on the job. Read the{" "}
-            <a
-              href="https://languagethreshold.com/founder"
-              className="font-semibold text-gold underline"
-            >
-              founder story
-            </a>
-            .
-          </p>
+          <div className="mb-5">
+            <FounderStoryLink />
+          </div>
           Questions?{" "}
           <a href="/support" className="text-foreground underline">
             Contact support

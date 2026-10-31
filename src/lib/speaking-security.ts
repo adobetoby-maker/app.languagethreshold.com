@@ -1,3 +1,4 @@
+import { speakingTestPrincipal, isSpeakingTestActor } from "./speaking-test-access";
 import { isIP } from "node:net";
 import { readPrivateServiceJson } from "./private-service-json.ts";
 
@@ -68,6 +69,8 @@ export async function authenticateSpeakingRequest(
   signal?: AbortSignal,
 ): Promise<SpeakingPrincipal | null> {
   requireSpeakingSignal(signal);
+  const preview = speakingTestPrincipal(request);
+  if (preview && !request.headers.has("authorization")) return preview;
   const token = bearerToken(request);
   const url = supabaseUrl();
   const publishableKey = supabasePublishableKey();
@@ -177,11 +180,22 @@ export async function enforceSpeakingRateLimit(
   limit = USER_REQUESTS_PER_MINUTE,
   signal?: AbortSignal,
 ): Promise<SpeakingLimitResult> {
+  if (isSpeakingTestActor(userId)) {
+    const guestBudget = await consumeServerRequestBudget(
+      "speaking-test:hour",
+      purpose,
+      200,
+      3600,
+      signal,
+    );
+    if (!guestBudget) return { allowed: false, misconfigured: false };
+  }
   const allowed = await consumeServerRequestBudget(`user:${purpose}`, userId, limit, 60, signal);
   return { allowed, misconfigured: false };
 }
 
 export async function hasSpeakingAgeAttestation(userId: string, signal?: AbortSignal) {
+  if (isSpeakingTestActor(userId)) return true;
   requireSpeakingSignal(signal);
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();

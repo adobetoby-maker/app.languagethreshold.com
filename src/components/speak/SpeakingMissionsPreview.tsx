@@ -1,3 +1,4 @@
+import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { RecordedReplyControl } from "./RecordedReplyControl";
 import { supportsReplyRecording } from "@/lib/reply-audio-capture";
 import { watchRecognition } from "@/lib/recognition-watchdog";
@@ -59,7 +60,7 @@ import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
-import { useAuth } from "@/state/auth-state";
+
 import { AuthModal } from "@/components/auth/AuthModal";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
@@ -174,11 +175,11 @@ function clarificationPhrase(language: SpeakingMissionLanguage) {
 }
 
 function highStakesNotice(mission: SpeakingMission) {
-  if (mission.riskClass === "emergency") {
-    return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
-  }
   if (mission.specialty === "Medical" || mission.riskClass === "medical") {
     return null;
+  }
+  if (mission.riskClass === "emergency") {
+    return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
   }
   if (mission.riskClass === "financial") {
     return "Language practice only — not financial advice. Use fictional account and payment details.";
@@ -209,7 +210,13 @@ export function SpeakingMissionsPreview({
     setSpeakingPrivacyMode(true);
     return () => setSpeakingPrivacyMode(false);
   }, [embeddedMissionPrefix]);
-  const { gated } = useAiGate();
+  const speakingAuth = useSpeakingAuth();
+  const { gated: accountGated } = useAiGate();
+  const gated = speakingAuth.isTestGuest
+    ? (action: () => void | Promise<void>) => {
+        void action();
+      }
+    : accountGated;
   const { state: appState, dispatch: appDispatch } = useApp();
   const {
     accent,
@@ -218,7 +225,7 @@ export function SpeakingMissionsPreview({
     voiceURI,
     voiceSettings = DEFAULT_STANDARD_VOICES,
   } = useSpeech();
-  const { session, isCurrentUser } = useAuth();
+  const { session, isCurrentUser } = speakingAuth;
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [practiceStep, setPracticeStep] = useState<SpeakingStep>(
@@ -346,6 +353,7 @@ export function SpeakingMissionsPreview({
       selectedMission?.id,
       embeddedMissionPrefix,
     ]),
+    speakingAuth,
   );
   const cancelRef = useRef(cancel);
   useEffect(() => {

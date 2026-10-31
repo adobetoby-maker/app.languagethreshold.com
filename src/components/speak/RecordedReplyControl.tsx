@@ -1,3 +1,4 @@
+import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { useEffect, useRef, useState } from "react";
 import { Mic, Square } from "lucide-react";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
@@ -28,7 +29,7 @@ export function RecordedReplyControl({
   onTranscript(text: string): void;
   onBusyChange(busy: boolean): void;
 }) {
-  const { actor, capture, cancel } = usePracticeLifecycle(scope);
+  const { actor, capture, cancel } = usePracticeLifecycle(scope, useSpeakingAuth());
   const [phase, setPhase] = useState<Phase>("idle");
   const [available, setAvailable] = useState<boolean | null>(null);
   const [consentOpen, setConsentOpen] = useState(false);

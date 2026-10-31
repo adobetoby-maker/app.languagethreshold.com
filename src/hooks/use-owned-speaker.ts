@@ -8,8 +8,12 @@ export function useOwnedSpeaker(scope?: string) {
 }
 
 /** Explicit Stop has the same actor/scope boundaries as starting playback. */
-export function useOwnedPlayback(scope?: string) {
-  const { user, isCurrentUser } = useAuth();
+export function useOwnedPlayback(
+  scope?: string,
+  override?: { user: { id: string } | null; isCurrentUser(id: string): boolean },
+) {
+  const auth = useAuth();
+  const { user, isCurrentUser } = override ?? auth;
   const actor = user?.id ?? null;
   const mounted = useRef(false);
   const activeScope = useRef(scope);

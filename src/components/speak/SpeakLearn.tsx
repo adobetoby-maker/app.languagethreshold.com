@@ -1,3 +1,5 @@
+import { SpeakingGuestConsent } from "./SpeakingGuestConsent";
+import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { RecordedReplyControl } from "./RecordedReplyControl";
 import { supportsReplyRecording } from "@/lib/reply-audio-capture";
 import { watchRecognition } from "@/lib/recognition-watchdog";
@@ -14,7 +16,7 @@ import { useSpeak } from "@/state/speak-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
-import { useAuth } from "@/state/auth-state";
+
 import { celebrate, looseIncludes } from "@/lib/confetti";
 import { getModule } from "@/data/modules";
 import { matchesFocus } from "@/lib/module-filter";
@@ -91,7 +93,13 @@ const TOPIC_CHIPS: Record<Language, string[]> = {
 
 export function SpeakLearn() {
   const { state, dispatch } = useApp();
-  const { gated } = useAiGate();
+  const speakingAuth = useSpeakingAuth();
+  const { gated: accountGated } = useAiGate();
+  const gated = speakingAuth.isTestGuest
+    ? (action: () => void | Promise<void>) => {
+        void action();
+      }
+    : accountGated;
   const {
     turns,
     exchanges,
@@ -132,7 +140,7 @@ export function SpeakLearn() {
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const sessionStartRef = useRef<number | null>(null);
-  const { isCurrentUser } = useAuth();
+  const { isCurrentUser } = speakingAuth;
   const {
     key: lifecycleKey,
     actor,
@@ -147,8 +155,9 @@ export function SpeakLearn() {
       voiceURI,
       surface,
     ]),
+    speakingAuth,
   );
-  const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(lifecycleKey);
+  const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(lifecycleKey, speakingAuth);
   const [consentStatus, setConsentStatus] = useState<{ owner: string | null; allowed: boolean }>({
     owner: null,
     allowed: false,
@@ -724,6 +733,7 @@ export function SpeakLearn() {
 
   return (
     <div className="fade-in mx-auto max-w-3xl">
+      <SpeakingGuestConsent />
       <LessonReturnPill kind="say" />
       <header
         hidden={surface === "missions" && missionFocused}

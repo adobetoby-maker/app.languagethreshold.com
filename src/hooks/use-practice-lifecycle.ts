@@ -2,8 +2,12 @@ import { useCallback, useEffect, useRef } from "react";
 import { useAuth } from "@/state/auth-state";
 
 /** Per-mounted practice work. A lease owns resources and rejects late callbacks. */
-export function usePracticeLifecycle(context: string) {
-  const { user, isCurrentUser } = useAuth();
+export function usePracticeLifecycle(
+  context: string,
+  override?: { user: { id: string } | null; isCurrentUser(id: string): boolean },
+) {
+  const auth = useAuth();
+  const { user, isCurrentUser } = override ?? auth;
   const actor = user?.id ?? null;
   const key = JSON.stringify([actor, context]);
   const active = useRef<string | null>(null);

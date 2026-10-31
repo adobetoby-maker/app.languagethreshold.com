@@ -56,7 +56,7 @@ async function fixture(component, action) {
             b.onResolve(
               {
                 filter:
-                  /^(\.\/RecordedReplyControl|fixture|react|lucide-react|sonner|@\/state\/(app|speak|speech|auth|ai-gate)-state|@\/lib\/(tts|voices|mission-tts|pwa-install|confetti|module-filter|speaking-client|speaking-privacy)|@\/data\/modules|@\/components\/(speak\/(ChallengePanel|SpeakingMissionsPreview)|modules\/ModuleMatchPanel|core30\/LessonReturnPill|ui\/dropdown-menu))$/,
+                  /^(\.\/(RecordedReplyControl|SpeakingGuestConsent)|fixture|react|lucide-react|sonner|@\/state\/(app|speak|speech|auth|ai-gate)-state|@\/lib\/(tts|voices|mission-tts|pwa-install|confetti|module-filter|speaking-client|speaking-privacy)|@\/data\/modules|@\/components\/(speak\/(ChallengePanel|SpeakingMissionsPreview)|modules\/ModuleMatchPanel|core30\/LessonReturnPill|ui\/dropdown-menu))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -84,7 +84,7 @@ async function fixture(component, action) {
  export const getModule=()=>null,matchesFocus=()=>false,celebrate=()=>{},looseIncludes=()=>false;
  export const toast=Object.assign((...a)=>c.errors.push(a),{error:(...a)=>c.errors.push(a)});
  export const Mic='span',Square='span',Trash2='span',AlertTriangle='span',AudioLines='span',ChevronDown='span',Cloud='span',Smartphone='span',X='span';
- export const RecordedReplyControl=()=>null;
+ export const SpeakingGuestConsent=()=>null,RecordedReplyControl=()=>null;
  export const ChallengePanel='section',SpeakingMissionsPreview='section',ModuleMatchPanel='section',LessonReturnPill='section';
  export const RotateCcw='span',Send='span';
  export const DropdownMenu='menu',DropdownMenuContent='menucontent',DropdownMenuItem='menuitem',DropdownMenuLabel='label',DropdownMenuSeparator='hr',DropdownMenuTrigger='button';

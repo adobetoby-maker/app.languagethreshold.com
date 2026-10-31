@@ -1,3 +1,8 @@
+import {
+  isSpeakingTestActor,
+  isSpeakingTestHost,
+  SPEAKING_TEST_ACTOR_PREFIX,
+} from "./speaking-test-access";
 import { supabase } from "@/integrations/supabase/client";
 
 export class SpeakingConsentSaveError extends Error {
@@ -14,9 +19,24 @@ export class SpeakingConsentSaveError extends Error {
 
 export type SpeakingRequestOwner = { userId: string; isCurrent: () => boolean };
 
-export async function speakingRequestHeaders(owner?: SpeakingRequestOwner, signal?: AbortSignal) {
+export async function speakingRequestHeaders(
+  owner?: SpeakingRequestOwner,
+  signal?: AbortSignal,
+): Promise<Record<string, string>> {
   requireCurrent(signal, owner?.isCurrent);
   if (owner && !owner.userId) throw new DOMException("Cancelled", "AbortError");
+  if (
+    owner &&
+    isSpeakingTestActor(owner.userId) &&
+    typeof window !== "undefined" &&
+    isSpeakingTestHost(window.location?.hostname ?? "")
+  ) {
+    return {
+      "Content-Type": "application/json",
+      "x-speaking-test-adult": "true",
+      "x-speaking-test-session": owner.userId.slice(SPEAKING_TEST_ACTOR_PREFIX.length),
+    };
+  }
   const { data } = await supabase.auth.getSession();
   requireCurrent(signal, owner?.isCurrent);
   const token = data.session?.access_token;
@@ -88,6 +108,15 @@ export async function getSpeakingAgeAttestation(
   owner?: SpeakingRequestOwner,
 ) {
   const current = owner?.isCurrent;
+  if (
+    owner &&
+    isSpeakingTestActor(owner.userId) &&
+    typeof window !== "undefined" &&
+    isSpeakingTestHost(window.location?.hostname ?? "")
+  ) {
+    requireCurrent(signal, current);
+    return true;
+  }
   try {
     return await withConfirmationWait(signal, current, async (operation) => {
       const headers = await speakingRequestHeaders(owner, operation);

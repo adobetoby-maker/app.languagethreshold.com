@@ -88,7 +88,7 @@ function GatedTabShell() {
     );
   return (
     <>
-      {!user && <ProductIntro />}
+      {!user && state.currentTab === "reader" && <ProductIntro />}
       <SpeakingPrivacyPrompt
         startup
         ready={state.hydrated && state.onboardingComplete}

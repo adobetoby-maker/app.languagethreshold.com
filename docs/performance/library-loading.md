@@ -14,12 +14,15 @@ in browser/service-worker caches. Learner-owned custom books retain existing sto
 and synchronization behavior.
 
 Core contains general literary/cultural readings and a usable general starter for each
-authored language. Module assignment uses the existing explicit lesson IDs first,
-including parent-trade readings for Foundation/Master. Explicit readings never migrate
-into unrelated modules through keyword overlap. Supplementary readings without an
-explicit lesson assignment use the bookshelf's existing title/first-six-sentence
-vocabulary-focus matcher. The build fails if any reading is left unassigned. These
-loading groups do not change lesson order, which still comes from module-starters.
+authored language. Module assignment uses explicit lesson IDs, including parent-trade
+readings for Foundation/Master; missionary books belong to the missionary module.
+Keyword matching is not used for loading: preview testing showed it pulled software,
+finance and other unrelated readings into nursing through generic vocabulary.
+Legacy readings without an explicit assignment are preserved in a reserved
+`__unassigned__` generated pack that is never loaded automatically and is not a
+selectable module. These readings need editorial module assignments before they can
+appear in the scoped bookshelf; no ownership or new lesson content is invented.
+Existing lesson order still comes from module-starters.
 
 Generate all packs from ALL_SEEDS at build time. Content is partitioned by shared module
 ownership so overlapping modules import shared chunks rather than duplicate passages.

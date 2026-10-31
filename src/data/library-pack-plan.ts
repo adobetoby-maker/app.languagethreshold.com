@@ -1,7 +1,6 @@
 import type { LibraryEntry } from "@/state/library-state";
 import { MODULES } from "./modules";
 import { getLessons } from "./module-starters";
-import { matchesFocus } from "@/lib/module-filter";
 
 // General reading shared by every module. Professional and faith passages belong
 // to module packs, even when their historical category happens to be "Culture".
@@ -32,35 +31,23 @@ export function planLibraryPacks(entries: LibraryEntry[]) {
     }
   }
   const coreIds = new Set(core.map((entry) => entry.id));
-  const authoredIds = new Set(
-    MODULES.flatMap((module) =>
-      [...new Set(entries.map((entry) => entry.language))].flatMap((language) =>
-        getLessons(module.id, language),
-      ),
-    ),
-  );
   const modules: Record<string, LibraryEntry[]> = {};
   for (const module of MODULES) {
+    const parentId = module.id.replace(/^(foundation|master)-/, "");
     modules[module.id] = entries.filter((entry) => {
       if (coreIds.has(entry.id)) return false;
-      // Explicit lesson ownership wins over keyword overlap. Stage modules can
-      // reuse their parent trade's authored readings without fetching other trades.
-      const parentId = module.id.replace(/^(foundation|master)-/, "");
-      if (
+      // Authored lesson ownership is authoritative. Keyword matching also
+      // matched software/finance/trade texts to nursing through generic words.
+      return (
         getLessons(module.id, entry.language).includes(entry.id) ||
-        getLessons(parentId, entry.language).includes(entry.id)
-      )
-        return true;
-      if (authoredIds.has(entry.id)) return false;
-      const sentences = entry.chapters
-        ? entry.chapters.flatMap((chapter) => chapter.sentences)
-        : entry.sentences;
-      const haystack = `${entry.title} ${entry.subtitle ?? ""} ${sentences
-        .slice(0, 6)
-        .map((sentence) => `${sentence.en} ${sentence.target}`)
-        .join(" ")}`;
-      return matchesFocus(haystack, module.vocabFocus);
+        getLessons(parentId, entry.language).includes(entry.id) ||
+        (parentId === "lds-missionary" && entry.section === "missionary")
+      );
     });
   }
+  // Preserve legacy readings in generated source snapshots, but never fetch this
+  // reserved pack automatically or expose it as a selectable app module.
+  const assigned = new Set([...core, ...Object.values(modules).flat()].map((entry) => entry.id));
+  modules.__unassigned__ = entries.filter((entry) => !assigned.has(entry.id));
   return { core, modules };
 }

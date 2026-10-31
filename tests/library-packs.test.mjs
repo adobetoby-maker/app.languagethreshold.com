@@ -36,6 +36,10 @@ test("core/module packs preserve authored content and stay within the selected l
   const spanishCore = await LIBRARY_PACK_LOADERS["Spanish/core"]();
   const nursing = await LIBRARY_PACK_LOADERS["Spanish/nursing"]();
   assert.ok(
+    nursing.every((entry) => entry.category === "Medical"),
+    "nursing must not fetch unrelated software/finance/trade content",
+  );
+  assert.ok(
     !nursing.some((e) => e.id === "seed-es-ortho-fracture"),
     "explicit orthopedic reading must not load for nursing",
   );

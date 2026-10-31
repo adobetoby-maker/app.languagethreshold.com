@@ -176,7 +176,7 @@ function highStakesNotice(mission: SpeakingMission) {
     return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
   }
   if (mission.specialty === "Medical" || mission.riskClass === "medical") {
-    return "Language practice only — not medical advice, diagnosis, or dosing guidance. Contact a qualified clinician for real care.";
+    return null;
   }
   if (mission.riskClass === "financial") {
     return "Language practice only — not financial advice. Use fictional account and payment details.";

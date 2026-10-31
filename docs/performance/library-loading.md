@@ -20,7 +20,7 @@ Keyword matching is not used for loading: preview testing showed it pulled softw
 finance and other unrelated readings into nursing through generic vocabulary.
 Legacy readings without an explicit assignment are preserved in a reserved
 `__unassigned__` generated pack that is never loaded automatically and is not a
-selectable module. These readings need editorial module assignments before they can
+selectable module. These 180 readings need editorial module assignments before they can
 appear in the scoped bookshelf; no ownership or new lesson content is invented.
 Existing lesson order still comes from module-starters.
 
@@ -58,13 +58,13 @@ Gzip sizes use Node zlib at level 9.
 | Authored reading data loaded | gzip bytes | Reduction versus baseline |
 | --- | ---: | ---: |
 | Baseline multilingual all-seeds chunk | 428,845 | — |
-| Spanish core + Nursing | 29,862 | 93.0% |
+| Spanish core + Nursing | 4,675 | 98.9% |
 | Spanish core + Roofing | 5,937 | 98.6% |
 
 No all-seeds chunk remains in the candidate client output. These measurements exclude
 the shell/loader registry, optional scripture and tool bundles, so they are not whole-page
 payload savings or page latency claims. Shared shards trade several small parallel
-requests for reusable content: core + Roofing uses two chunks; core + Nursing uses 23.
+requests for reusable content: core + Roofing and core + Nursing each use two chunks.
 
 Reproduce after building both worktrees:
 

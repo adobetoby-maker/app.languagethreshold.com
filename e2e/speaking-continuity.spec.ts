@@ -90,13 +90,18 @@ async function prepare(page: Page, mission: boolean, theme: string) {
           else if (behavior === "normal") this.onstart?.();
         }
         stop() {}
-        abort() {}
+        abort() {
+          this.onend?.();
+        }
       }
       Object.assign(window, {
         SpeechRecognition: Recognition,
         speakingFixture: {
           setBehavior(value: string) {
             behavior = value;
+          },
+          captureStarts() {
+            return recognitions.length;
           },
           emit(text: string) {
             const rec = recognitions.at(-1) as Recognition;
@@ -160,7 +165,7 @@ async function prepare(page: Page, mission: boolean, theme: string) {
 
 for (const mission of [false, true])
   for (const theme of ["light", "dark"]) {
-    test(`${mission ? "mission" : "free conversation"} ${theme}: four spoken exchanges, readable replies, and reset without refresh`, async ({
+    test(`${mission ? "mission" : "free conversation"} ${theme}: twelve spoken exchanges, readable replies, and reset without refresh`, async ({
       page,
     }, info) => {
       const requests = await prepare(page, mission, theme);
@@ -174,7 +179,7 @@ for (const mission of [false, true])
       const mic = frame.getByRole("button", { name: "Start listening", exact: true });
       await expect(mic).toBeEnabled();
       await expect(frame.getByLabel("Reply audio", { exact: true })).toHaveValue("manual");
-      for (let round = 1; round <= 4; round++) {
+      for (let round = 1; round <= 12; round++) {
         await mic.click();
         await expect(
           frame.getByText("Microphone started — waiting for words…", { exact: true }),
@@ -201,7 +206,7 @@ for (const mission of [false, true])
       }
       const box = await transcript.boundingBox();
       expect(box!.height).toBeGreaterThan(info.project.name === "desktop" ? 300 : 180);
-      const last = transcript.getByText("Respuesta 4:", { exact: false });
+      const last = transcript.getByText("Respuesta 12:", { exact: false });
       await expect(last).toBeInViewport();
       const nav = page.locator(".lt-bottom-nav");
       if (await nav.isVisible()) {
@@ -213,7 +218,7 @@ for (const mission of [false, true])
         path: `test-results/speaking-${mission ? "mission" : "free"}-${theme}-${info.project.name}.png`,
       });
       await page.getByRole("button", { name: "Reset", exact: true }).click();
-      await expect(transcript.getByText("Respuesta 4:", { exact: false })).toHaveCount(0);
+      await expect(transcript.getByText("Respuesta 12:", { exact: false })).toHaveCount(0);
       await mic.click();
       await page.evaluate(() =>
         (
@@ -224,7 +229,7 @@ for (const mission of [false, true])
       await frame
         .getByRole("button", { name: mission ? "Send typed answer" : "Send answer", exact: true })
         .click();
-      await expect(transcript.getByText("Respuesta 5:", { exact: false })).toBeVisible();
+      await expect(transcript.getByText("Respuesta 13:", { exact: false })).toBeVisible();
       expect(requests.at(-1)!.messages!.length).toBe(mission ? 2 : 1);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
@@ -331,3 +336,54 @@ test("a cancelled free-conversation microphone does not block the scenario micro
   expect(requests).toHaveLength(1);
   expect(requests[0].mode).toBe("mission");
 });
+
+for (const mission of [false, true]) {
+  test(`${mission ? "mission" : "free conversation"}: silent sixth recording recovers once after five replies`, async ({
+    page,
+  }) => {
+    await page.clock.install();
+    const requests = await prepare(page, mission, "dark");
+    const frame = mission
+      ? page.getByTestId("focused-speaking-frame")
+      : page.getByRole("region", { name: "Free conversation practice" });
+    const mic = frame.getByRole("button", { name: "Start listening", exact: true });
+    const capture = async (text: string) => {
+      await page.evaluate(
+        (text) =>
+          (
+            window as unknown as { speakingFixture: { emit(text: string): void } }
+          ).speakingFixture.emit(text),
+        text,
+      );
+      await frame.getByRole("button", { name: "Stop listening", exact: true }).click();
+      await page.clock.fastForward(1300);
+      await expect(frame.getByRole("textbox")).toHaveValue(text);
+      await frame
+        .getByRole("button", { name: mission ? "Send typed answer" : "Send answer", exact: true })
+        .click();
+    };
+    for (let turn = 1; turn <= 5; turn++) {
+      await mic.click();
+      await capture(`Turno ${turn}`);
+      await expect(frame.getByText(`Respuesta ${turn}:`, { exact: false })).toBeVisible();
+    }
+    await mic.click();
+    await expect(
+      frame.getByText("Microphone started — waiting for words…", { exact: true }),
+    ).toBeVisible();
+    await page.clock.fastForward(8001);
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          (
+            window as unknown as { speakingFixture: { captureStarts(): number } }
+          ).speakingFixture.captureStarts(),
+        ),
+      )
+      .toBe(7);
+    expect(requests).toHaveLength(5);
+    await capture("Ahora vuelve a escuchar");
+    await expect(frame.getByText("Respuesta 6:", { exact: false })).toBeVisible();
+    expect(requests).toHaveLength(6);
+  });
+}

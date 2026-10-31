@@ -12,6 +12,7 @@ export type SpeechRecognitionLike = {
   stop(): void;
   abort(): void;
   onstart?: (() => void) | null;
+  onrestart?: (() => void) | null;
   onresult: ((event: SpeechRecognitionEventLike) => void) | null;
   onerror: ((event: { error?: string }) => void) | null;
   onend: (() => void) | null;
@@ -146,73 +147,176 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
   }
 }
 
-/** Browser capture owns its callbacks until end, just like a native V3 capture ID.
- * In particular, cleanup after a normal end must not send a second abort to Safari.
- */
+// One browser service is reused after a normal end, as V3 reuses its recognizer.
+// A cancelled/failed service is discarded, and a replacement waits for its end event.
+let browserService: SpeechRecognitionLike | null = null;
+let browserServiceConstructor: (new () => SpeechRecognitionLike) | null = null;
+let browserShutdown: Promise<void> | null = null;
+const BROWSER_RELEASE_WAIT_MS = 1200;
+export const BROWSER_NO_WORDS_RETRY_MS = 8000;
+
+function releaseBrowserService(
+  recording: SpeechRecognitionLike,
+  alreadyEnded: boolean,
+  discard: boolean,
+) {
+  recording.onstart = null;
+  recording.onresult = null;
+  recording.onerror = null;
+  recording.onend = null;
+  if (discard && browserService === recording) browserService = null;
+  if (alreadyEnded) return Promise.resolve();
+  let finish!: () => void;
+  const shutdown = new Promise<void>((resolve) => {
+    finish = resolve;
+  });
+  browserShutdown = shutdown;
+  let settled = false;
+  const done = () => {
+    if (settled) return;
+    settled = true;
+    window.clearTimeout(timer);
+    recording.onend = null;
+    if (browserShutdown === shutdown) browserShutdown = null;
+    finish();
+  };
+  const timer = window.setTimeout(() => {
+    if (browserService === recording) browserService = null;
+    done();
+  }, BROWSER_RELEASE_WAIT_MS);
+  recording.onend = done;
+  try {
+    recording.abort();
+  } catch {
+    done();
+  }
+  return shutdown;
+}
+
 export class BrowserPhoneRecognition implements SpeechRecognitionLike {
   private static active: BrowserPhoneRecognition | null = null;
   lang = "";
   continuous = false;
   interimResults = true;
   onstart: SpeechRecognitionLike["onstart"] = null;
+  onrestart: SpeechRecognitionLike["onrestart"] = null;
   onresult: SpeechRecognitionLike["onresult"] = null;
   onerror: SpeechRecognitionLike["onerror"] = null;
   onend: SpeechRecognitionLike["onend"] = null;
   private recording: SpeechRecognitionLike | null = null;
   private ended = false;
   private started = false;
+  private stopRequested = false;
+  private hasWords = false;
+  private retries = 0;
+  private noWordsTimer: number | undefined;
 
   start() {
     if (this.started || this.ended) throw new Error("This recording has already started.");
-    const Constructor = browserRecognitionConstructor();
-    if (!Constructor) throw new Error("Speech recognition is unavailable.");
     BrowserPhoneRecognition.active?.abort();
     BrowserPhoneRecognition.active = this;
     this.started = true;
-    const recording = new Constructor();
-    this.recording = recording;
-    recording.lang = this.lang;
-    recording.continuous = this.continuous;
-    recording.interimResults = this.interimResults;
-    recording.onstart = () => {
-      if (!this.ended) this.onstart?.();
-    };
-    recording.onresult = (event) => {
-      if (!this.ended) this.onresult?.(event);
-    };
-    recording.onerror = (event) => {
-      if (!this.ended) this.onerror?.(event);
-    };
-    recording.onend = () => {
-      if (this.ended) return;
-      this.ended = true;
-      this.detach();
-      this.onend?.();
-    };
+    if (browserShutdown) void browserShutdown.then(() => this.begin());
+    else this.begin();
+  }
+  private begin() {
+    if (this.ended || BrowserPhoneRecognition.active !== this) return;
     try {
+      const Constructor = browserRecognitionConstructor();
+      if (!Constructor) throw new Error("Speech recognition is unavailable.");
+      if (!browserService || browserServiceConstructor !== Constructor) {
+        browserService = new Constructor();
+        browserServiceConstructor = Constructor;
+      }
+      const recording = browserService;
+      this.recording = recording;
+      recording.lang = this.lang;
+      recording.continuous = this.continuous;
+      recording.interimResults = this.interimResults;
+      const current = () => !this.ended && this.recording === recording;
+      recording.onstart = () => {
+        if (!current()) return;
+        this.onstart?.();
+        window.clearTimeout(this.noWordsTimer);
+        if (!this.hasWords && !this.stopRequested) {
+          this.noWordsTimer = window.setTimeout(
+            () => {
+              if (!current() || this.hasWords || this.stopRequested) return;
+              if (this.retries === 0) this.retry(false);
+              else {
+                this.onerror?.({ error: "speech-timeout" });
+                this.abort();
+              }
+            },
+            this.retries === 0 ? BROWSER_NO_WORDS_RETRY_MS : 15000,
+          );
+        }
+      };
+      recording.onresult = (event) => {
+        if (!current()) return;
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          if (event.results[i][0].transcript.trim()) this.hasWords = true;
+        }
+        if (this.hasWords) window.clearTimeout(this.noWordsTimer);
+        this.onresult?.(event);
+      };
+      recording.onerror = (event) => {
+        if (!current()) return;
+        if (
+          event.error === "no-speech" &&
+          !this.hasWords &&
+          !this.stopRequested &&
+          this.retries === 0
+        ) {
+          this.retry(false);
+          return;
+        }
+        this.onerror?.(event);
+      };
+      recording.onend = () => {
+        if (!current()) return;
+        if (!this.hasWords && !this.stopRequested && this.retries === 0) {
+          this.retry(true);
+          return;
+        }
+        this.ended = true;
+        window.clearTimeout(this.noWordsTimer);
+        this.recording = null;
+        if (BrowserPhoneRecognition.active === this) BrowserPhoneRecognition.active = null;
+        void releaseBrowserService(recording, true, false);
+        this.onend?.();
+      };
       recording.start();
-    } catch (error) {
+    } catch {
+      this.onerror?.({ error: "audio-capture" });
       this.abort();
-      throw error;
     }
   }
-  private detach() {
-    if (this.recording) {
-      this.recording.onstart = null;
-      this.recording.onresult = null;
-      this.recording.onerror = null;
-      this.recording.onend = null;
-    }
-    if (BrowserPhoneRecognition.active === this) BrowserPhoneRecognition.active = null;
+  private retry(alreadyEnded: boolean) {
+    const recording = this.recording;
+    if (this.ended || !recording || this.hasWords || this.stopRequested || this.retries !== 0)
+      return;
+    this.retries++;
+    window.clearTimeout(this.noWordsTimer);
+    this.recording = null;
+    const released = releaseBrowserService(recording, alreadyEnded, true);
+    this.onrestart?.();
+    void released.then(() => this.begin());
   }
   stop() {
-    if (!this.ended) this.recording?.stop();
+    if (this.ended) return;
+    this.stopRequested = true;
+    window.clearTimeout(this.noWordsTimer);
+    this.recording?.stop();
   }
   abort() {
     if (this.ended) return;
     this.ended = true;
-    this.detach();
-    this.recording?.abort();
+    window.clearTimeout(this.noWordsTimer);
+    if (BrowserPhoneRecognition.active === this) BrowserPhoneRecognition.active = null;
+    const recording = this.recording;
+    this.recording = null;
+    if (recording) void releaseBrowserService(recording, false, true);
   }
 }
 function browserRecognitionConstructor(): (new () => SpeechRecognitionLike) | null {

@@ -123,6 +123,7 @@ async function fixture(component, action) {
         }
         abort() {
           this.aborted = true;
+          this.onend?.();
         }
       },
     };

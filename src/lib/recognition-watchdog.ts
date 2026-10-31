@@ -8,6 +8,7 @@ export function watchRecognition(
   recognition: SpeechRecognitionLike,
   current: () => boolean,
   onStarted: () => void,
+  onRestarting?: () => void,
 ) {
   let started = false;
   let disposed = false;
@@ -27,6 +28,12 @@ export function watchRecognition(
     wait(MICROPHONE_SILENCE_WAIT_MS, "speech-timeout");
   };
   recognition.onstart = progress;
+  recognition.onrestart = () => {
+    if (disposed || !current()) return;
+    started = false;
+    onRestarting?.();
+    wait(MICROPHONE_START_WAIT_MS, "start-timeout");
+  };
   wait(MICROPHONE_START_WAIT_MS, "start-timeout");
   return {
     progress,
@@ -35,6 +42,7 @@ export function watchRecognition(
       disposed = true;
       window.clearTimeout(timer);
       recognition.onstart = null;
+      recognition.onrestart = null;
     },
   };
 }

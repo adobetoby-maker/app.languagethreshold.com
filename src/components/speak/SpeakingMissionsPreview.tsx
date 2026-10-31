@@ -1066,6 +1066,7 @@ export function SpeakingMissionsPreview({
         recognition,
         () => current() && stoppingRecognitionRef.current !== recognition,
         () => setStatus("listening"),
+        () => setStatus("starting"),
       );
       const release = lease.own(dispose);
       const finalResults = new Map<number, string>();

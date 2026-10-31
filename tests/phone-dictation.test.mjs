@@ -9,7 +9,7 @@ test("native iPhone dictation records repeated turns and rejects late events, sc
   mkdirSync(resolve("node_modules/.cache"), { recursive: true });
   const dir = mkdtempSync(resolve("node_modules/.cache/phone-dictation-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window");
-  globalThis.window = {};
+  globalThis.window = { setTimeout, clearTimeout };
   try {
     await build({
       stdin: {
@@ -66,9 +66,10 @@ export const registerPlugin=()=>({
       }
       abort() {
         this.aborts = (this.aborts ?? 0) + 1;
+        if (!this.delayEnd) this.onend?.();
       }
     };
-    for (let turn = 0; turn < 4; turn++) {
+    for (let turn = 0; turn < 20; turn++) {
       const rec = new (recognitionConstructor())();
       let ends = 0,
         results = 0;
@@ -84,13 +85,14 @@ export const registerPlugin=()=>({
       raw.onresult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "test" } }] });
       rec.stop();
       raw.onend();
-      assert.equal(raw.stops, 1);
+      assert.equal(raw.stops, turn + 1);
       assert.equal(raw.aborts, undefined, "normal end cleanup never aborts Safari again");
       lateResult({});
       lateEnd();
       assert.equal(results, 1);
       assert.equal(ends, 1);
     }
+    assert.equal(browsers.length, 1, "twenty successful turns reuse one browser speech service");
     const oldBrowser = new BrowserPhoneRecognition();
     oldBrowser.start();
     const retired = browsers.at(-1),
@@ -103,6 +105,77 @@ export const registerPlugin=()=>({
     nextBrowser.abort();
     nextBrowser.abort();
     assert.equal(browsers.at(-1).aborts, 1);
+    await tick();
+    // A replacement cannot start until the old service acknowledges shutdown.
+    const browserPending = new BrowserPhoneRecognition();
+    browserPending.start();
+    const waiting = browsers.at(-1);
+    waiting.delayEnd = true;
+    const browserReplacement = new BrowserPhoneRecognition();
+    const beforeRelease = browsers.length;
+    browserReplacement.start();
+    assert.equal(browsers.length, beforeRelease);
+    waiting.onend();
+    await tick();
+    assert.equal(browsers.length, beforeRelease + 1);
+    browserReplacement.abort();
+    await tick();
+    // A recognizer which says started but returns no words gets one fresh attempt.
+    const timers = new Map();
+    let timerId = 0;
+    window.setTimeout = (fn, ms) => {
+      const id = ++timerId;
+      timers.set(id, { fn, ms });
+      return id;
+    };
+    window.clearTimeout = (id) => timers.delete(id);
+    const stalled = new BrowserPhoneRecognition();
+    let restarts = 0,
+      received = 0;
+    stalled.onrestart = () => restarts++;
+    stalled.onresult = () => received++;
+    stalled.start();
+    const stuck = browsers.at(-1),
+      lateResult = stuck.onresult;
+    const retryTimer = [...timers.values()].find((t) => t.ms === 8000);
+    assert.ok(retryTimer);
+    retryTimer.fn();
+    await tick();
+    assert.equal(restarts, 1);
+    assert.notEqual(browsers.at(-1), stuck);
+    lateResult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "late" } }] });
+    assert.equal(received, 0);
+    assert.equal([...timers.values()].filter((t) => t.ms === 8000).length, 0, "no retry loop");
+    assert.ok(
+      [...timers.values()].find((t) => t.ms === 15000),
+      "second attempt has an independent no-words deadline",
+    );
+    browsers
+      .at(-1)
+      .onresult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "recovered" } }] });
+    assert.equal(received, 1);
+    stalled.stop();
+    browsers.at(-1).onend();
+    stalled.abort();
+    assert.equal(timers.size, 0, "successful result cancels all recovery deadlines");
+    const noWords = new BrowserPhoneRecognition();
+    const noWordsErrors = [];
+    noWords.onerror = (event) => noWordsErrors.push(event.error);
+    noWords.start();
+    [...timers.values()].find((t) => t.ms === 8000).fn();
+    await tick();
+    const secondDeadline = [...timers.values()].find((t) => t.ms === 15000);
+    browsers
+      .at(-1)
+      .onresult({ resultIndex: 0, results: [{ isFinal: false, 0: { transcript: " " } }] });
+    secondDeadline.fn();
+    assert.deepEqual(
+      noWordsErrors,
+      ["speech-timeout"],
+      "empty result events cannot keep a silent recognizer alive",
+    );
+    window.setTimeout = setTimeout;
+    window.clearTimeout = clearTimeout;
     c.platform = "ios";
     const allIds = new Set();
     for (let turn = 0; turn < 3; turn++) {

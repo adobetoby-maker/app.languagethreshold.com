@@ -100,6 +100,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
         }
         abort() {
           this.aborted = true;
+          this.onend?.();
         }
       },
       setTimeout: (fn, milliseconds) => {

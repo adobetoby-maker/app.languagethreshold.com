@@ -527,6 +527,10 @@ export function SpeakLearn() {
           setStartingMic(false);
           setListening(true);
         },
+        () => {
+          setStartingMic(true);
+          setListening(false);
+        },
       );
       const release = lease.own(dispose);
       const finalResults = new Map<number, string>();

@@ -1,15 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { getBlogArticles } from "../../fns/blog.functions";
+// Navigation does not need to fetch article bodies or initialize a query client.
+// The blog page owns article loading and its empty state.
 export function BlogNavLink() {
-  const { data } = useQuery({
-    queryKey: ["published-blog"],
-    queryFn: () => getBlogArticles(),
-    staleTime: 120000,
-    refetchInterval: 120000,
-  });
-  return data?.length ? (
+  return (
     <a href="/blog" className="block px-3 py-2 text-sm text-foreground hover:text-gold">
       Blog
     </a>
-  ) : null;
+  );
 }

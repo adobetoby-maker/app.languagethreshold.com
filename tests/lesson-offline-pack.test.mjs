@@ -144,7 +144,10 @@ test("download availability belongs to an authored exact pair, not every module 
   const { offlineLessonPackId } = await loadModule("src/lib/offline-lesson-tracks.ts");
   assert.equal(offlineLessonPackId("landscaper", "Spanish", "English"), "landscaper-es-en");
   assert.equal(offlineLessonPackId("roofing", "Spanish", "English"), "roofing-es-en");
-  assert.equal(offlineLessonPackId("construction-foreman", "Spanish", "English"), "construction-foreman-es-en");
+  assert.equal(
+    offlineLessonPackId("construction-foreman", "Spanish", "English"),
+    "construction-foreman-es-en",
+  );
   for (const input of [
     ["landscaper", "Spanish", "French"],
     ["landscaper", "French", "English"],
@@ -153,4 +156,24 @@ test("download availability belongs to an authored exact pair, not every module 
     ["framer", "Spanish", "English"],
   ])
     assert.equal(offlineLessonPackId(...input), null);
+});
+
+test("offline trade packs include only their language core and selected module reading shards", async () => {
+  const root = mkdtempSync(path.join(tmpdir(), "lt-scoped-pack-"));
+  try {
+    mkdirSync(path.join(root, "assets"));
+    writeFileSync(path.join(root, "assets", "app-123.js"), "public shell");
+    const manifest = JSON.parse(readFileSync("src/data/library-pack-manifest.json", "utf8"));
+    const selected = [...new Set([...manifest["Spanish/core"], ...manifest["Spanish/roofing"]])];
+    const excluded = manifest["French/core"][0];
+    for (const hash of [...selected, excluded])
+      writeFileSync(path.join(root, "assets", `${hash}-test.js`), "public reading");
+    const pack = await buildOfflineLessonPack(root);
+    const urls = pack.assets.map((asset) => asset.url);
+    for (const hash of selected) assert.ok(urls.includes(`/assets/${hash}-test.js`));
+    assert.ok(!urls.includes(`/assets/${excluded}-test.js`));
+    assert.ok(urls.includes("/assets/app-123.js"));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

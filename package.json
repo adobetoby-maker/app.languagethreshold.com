@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "vocabulary:index": "node scripts/build-curriculum-word-index.mts",
-    "build": "node scripts/seo/generate-sitemap-pages.mjs && node scripts/build-curriculum-word-index.mts && node scripts/verify-client-env.mjs && vite build && node scripts/vercel-adapter.mjs",
+    "build": "node scripts/build-library-packs.mjs && node scripts/seo/generate-sitemap-pages.mjs && node scripts/build-curriculum-word-index.mts && node scripts/verify-client-env.mjs && vite build && node scripts/vercel-adapter.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "node scripts/lint-changed.mjs",

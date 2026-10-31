@@ -1,3 +1,5 @@
+import { RecordedReplyControl } from "./RecordedReplyControl";
+import { supportsReplyRecording } from "@/lib/reply-audio-capture";
 import { watchRecognition } from "@/lib/recognition-watchdog";
 import {
   DEFAULT_STANDARD_VOICES,
@@ -262,6 +264,12 @@ export function SpeakingMissionsPreview({
   const [relationshipGroup, setRelationshipGroup] = useState<RelationshipGroup | "All">("All");
   const [typedTurn, setTypedTurn] = useState("");
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
+  const [useRecordedAudio, setUseRecordedAudio] = useState(false);
+  const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
+  const [audioCaptureKey, setAudioCaptureKey] = useState(0);
+  useEffect(() => {
+    setUseRecordedAudio(supportsReplyRecording());
+  }, []);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
   const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
@@ -517,6 +525,7 @@ export function SpeakingMissionsPreview({
 
   const stopActiveWork = useCallback(() => {
     cancelRef.current();
+    setAudioCaptureKey((value) => value + 1);
     setFinishingSpeech(false);
     stopAudio();
   }, [stopAudio]);
@@ -619,7 +628,7 @@ export function SpeakingMissionsPreview({
   const speakPartnerText = useCallback(
     async (text: string, onPlaybackStart?: () => void) => {
       const lease = capture();
-      if (!lease.isCurrent() || activeAudioScope.current !== audioScope) return;
+      if (!lease.isCurrent() || activeAudioScope.current !== audioScope || audioCaptureBusy) return;
       stopAudio();
       if (partnerAudioSource === "text") return;
       const controller = new AbortController();
@@ -688,6 +697,7 @@ export function SpeakingMissionsPreview({
       partnerSpeed,
       partnerVoice,
       stopAudio,
+      audioCaptureBusy,
       ttsStatus,
       voiceURI,
     ],
@@ -2060,7 +2070,22 @@ export function SpeakingMissionsPreview({
             Stop reply — my turn
           </button>
         )}
-        {recognitionSupported === false ? (
+        {useRecordedAudio ? (
+          <RecordedReplyControl
+            key={`${lifecycleKey}:${audioCaptureKey}:${ageConfirmed}`}
+            scope={`${lifecycleKey}:${audioCaptureKey}`}
+            locale={missionLocale}
+            disabled={status === "thinking" || partnerSpeaking}
+            onBegin={stopAudio}
+            onBusyChange={setAudioCaptureBusy}
+            onTranscript={(text) => {
+              setTypedTurn(text);
+              setTranscriptSource("dictation");
+              setErrorMessage(null);
+              setStatus("ready");
+            }}
+          />
+        ) : recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
             Speech recognition is unavailable in this browser. Use the typed answer field below.
           </p>
@@ -2131,7 +2156,7 @@ export function SpeakingMissionsPreview({
         )}
       </div>
 
-      {transcriptSource === "dictation" && typedTurn.trim() && (
+      {!audioCaptureBusy && transcriptSource === "dictation" && typedTurn.trim() && (
         <div
           role="status"
           className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
@@ -2142,19 +2167,21 @@ export function SpeakingMissionsPreview({
           <p className="mt-1 text-sm leading-relaxed text-foreground">
             Edit below, then tap Send to confirm your reply.
           </p>
-          <button
-            type="button"
-            onClick={startListening}
-            disabled={
-              status === "thinking" ||
-              status === "listening" ||
-              status === "starting" ||
-              partnerSpeaking
-            }
-            className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
-          >
-            Retry microphone
-          </button>
+          {!useRecordedAudio && (
+            <button
+              type="button"
+              onClick={startListening}
+              disabled={
+                status === "thinking" ||
+                status === "listening" ||
+                status === "starting" ||
+                partnerSpeaking
+              }
+              className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+            >
+              Retry microphone
+            </button>
+          )}
         </div>
       )}
 
@@ -2163,7 +2190,7 @@ export function SpeakingMissionsPreview({
         onSubmit={(event) => {
           event.preventDefault();
           const text = typedTurn.trim();
-          if (!text || status === "thinking" || partnerSpeaking) return;
+          if (!text || status === "thinking" || partnerSpeaking || audioCaptureBusy) return;
           gated(() => void sendLearnerTurn(text));
         }}
       >
@@ -2177,7 +2204,12 @@ export function SpeakingMissionsPreview({
             setTypedTurn(event.target.value);
             setTranscriptSource("typed");
           }}
-          disabled={status === "thinking" || status === "listening" || status === "starting"}
+          disabled={
+            status === "thinking" ||
+            status === "listening" ||
+            status === "starting" ||
+            audioCaptureBusy
+          }
           maxLength={2000}
           placeholder={`Type an answer in ${selectedMission.language}…`}
           className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
@@ -2186,6 +2218,7 @@ export function SpeakingMissionsPreview({
           type="submit"
           disabled={
             !typedTurn.trim() ||
+            audioCaptureBusy ||
             status === "thinking" ||
             status === "listening" ||
             status === "starting" ||
@@ -2218,6 +2251,27 @@ export function SpeakingMissionsPreview({
             >
               <option value="manual">Tap to play</option>
               <option value="automatic">Automatic</option>
+            </select>
+          </label>
+          <label className="mb-3 flex items-center justify-between gap-2 text-sm">
+            <span>Voice input</span>
+            <select
+              aria-label="Voice input"
+              value={useRecordedAudio ? "audio" : "browser"}
+              disabled={
+                status === "thinking" ||
+                status === "listening" ||
+                status === "starting" ||
+                audioCaptureBusy
+              }
+              onChange={(event) => {
+                stopAudio();
+                setUseRecordedAudio(event.target.value === "audio");
+              }}
+              className="min-h-11 rounded-xl border border-border bg-background px-2"
+            >
+              <option value="audio">Audio recording</option>
+              <option value="browser">Browser dictation</option>
             </select>
           </label>
           <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
@@ -2322,7 +2376,9 @@ export function SpeakingMissionsPreview({
                 key={`${lifecycleKey}:${missionLocale}`}
                 locale={missionLocale ?? selectedMission.locale}
                 title={selectedMission.title}
-                ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
+                ready={
+                  status === "ready" && !partnerSpeaking && !typedTurn.trim() && !audioCaptureBusy
+                }
                 onTurn={(text) => {
                   const lease = capture();
                   if (
@@ -2330,6 +2386,7 @@ export function SpeakingMissionsPreview({
                     sessionOwnerRef.current !== lifecycleKey ||
                     status !== "ready" ||
                     partnerSpeaking ||
+                    audioCaptureBusy ||
                     typedTurn.trim()
                   )
                     return;
@@ -2345,6 +2402,7 @@ export function SpeakingMissionsPreview({
           <MicrophoneTestDialog
             key={lifecycleKey}
             disabled={
+              audioCaptureBusy ||
               status === "starting" ||
               status === "listening" ||
               status === "thinking" ||

@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { appUrl } from "./app-state";
 
 // Synthetic account and provider responses only: no real microphone, AI or account writes.
-async function prepare(page: Page, mission: boolean, theme: string) {
+export async function prepare(page: Page, mission: boolean, theme: string, recordedAudio = false) {
   const id = "00000000-0000-4000-8000-00000000c044";
   const exp = Math.floor(Date.now() / 1000) + 86400;
   const b64 = (v: object) => Buffer.from(JSON.stringify(v)).toString("base64url");
@@ -38,7 +38,9 @@ async function prepare(page: Page, mission: boolean, theme: string) {
     route.fulfill({ status: 503, json: { error: "No audio provider in fixture" } }),
   );
   await page.addInitScript(
-    ({ id, session, mission, theme }) => {
+    ({ id, session, mission, theme, recordedAudio }) => {
+      if (!recordedAudio)
+        Object.defineProperty(window, "MediaRecorder", { value: undefined, configurable: true });
       localStorage.setItem("sb-pollhlkgltdkdskdzsgd-auth-token", JSON.stringify(session));
       localStorage.setItem("lt.languageChosen", "1");
       localStorage.setItem(
@@ -128,7 +130,7 @@ async function prepare(page: Page, mission: boolean, theme: string) {
           queueMicrotask(() => utterance.onend?.(new Event("end") as SpeechSynthesisEvent));
       }
     },
-    { id, session, mission, theme },
+    { id, session, mission, theme, recordedAudio },
   );
   const requests: Array<{ mode: string; messages?: Array<{ role: string; content: string }> }> = [];
   await page.route("**/api/speak", (route) => {
@@ -390,5 +392,81 @@ for (const mission of [false, true]) {
     await capture("Ahora vuelve a escuchar");
     await expect(frame.getByText("Respuesta 6:", { exact: false })).toBeVisible();
     expect(requests).toHaveLength(6);
+  });
+}
+
+for (const mission of [false, true]) {
+  test(`recorded audio ${mission ? "mission" : "free"}: eight actual recorder cycles and reset`, async ({
+    page,
+  }) => {
+    test.skip(
+      process.env.E2E_RECORDED_AUDIO !== "1",
+      "Use playwright.recording.config.ts for synthetic microphone input",
+    );
+    let uploads = 0;
+    let failTranscription = false;
+    await page.route("**/api/speaking-transcribe", async (route) => {
+      if (route.request().method() === "GET")
+        return route.fulfill({ json: { available: true, provider: "ElevenLabs", maxSeconds: 40 } });
+      const body = route.request().postDataJSON();
+      expect(body.audioConsent).toBe("recorded-reply-v1");
+      const bytes = Buffer.from(body.audio, "base64");
+      expect(bytes.toString("ascii", 0, 4)).toBe("RIFF");
+      expect(bytes.length).toBeGreaterThan(3244);
+      expect(bytes.subarray(44).some((value) => value !== 0)).toBe(true);
+      uploads++;
+      if (failTranscription)
+        return route.fulfill({
+          status: 502,
+          json: { error: "Synthetic transcription failure. Retry your captured clip." },
+        });
+      return route.fulfill({ json: { text: `Hola, esta es mi respuesta grabada ${uploads}.` } });
+    });
+    const requests = await prepare(page, mission, "dark", true);
+    const initial = requests.length;
+    for (let turn = 1; turn <= 8; turn++) {
+      await page.getByRole("button", { name: "Record reply", exact: true }).click();
+      const allow = page.getByRole("button", { name: /Allow/ });
+      if (await allow.isVisible()) await allow.click();
+      await expect(page.getByRole("button", { name: "Stop recording", exact: true })).toBeVisible();
+      await expect(
+        page.getByText("Sound detected · tap Stop when finished", { exact: true }),
+      ).toBeVisible();
+      // Let the real MediaRecorder collect one timeslice from synthetic microphone input.
+      await page.waitForTimeout(1100);
+      await page.getByRole("button", { name: "Stop recording", exact: true }).click();
+      const input = page.getByRole("textbox", { name: "Type an answer in Spanish" });
+      await expect(input).toHaveValue(`Hola, esta es mi respuesta grabada ${turn}.`);
+      await expect(page.getByRole("button", { name: "Play recording", exact: true })).toBeVisible();
+      console.log(
+        `Recording cycle ${turn} captured actual WAV audio (${mission ? "mission" : "free"})`,
+      );
+      expect(requests.length).toBe(initial + turn - 1);
+      await page.getByRole("button", { name: /^Send/ }).click();
+      await expect.poll(() => requests.length).toBe(initial + turn);
+      await expect(page.getByRole("button", { name: "Record reply", exact: true })).toBeEnabled();
+    }
+    console.log(`Eight recording turns completed (${mission ? "mission" : "free"})`);
+    expect(uploads).toBe(8);
+    failTranscription = true;
+    await page.getByRole("button", { name: "Record reply", exact: true }).click();
+    await expect(
+      page.getByText("Sound detected · tap Stop when finished", { exact: true }),
+    ).toBeVisible();
+    await page.waitForTimeout(1100);
+    await page.getByRole("button", { name: "Stop recording", exact: true }).click();
+    await expect(
+      page.getByRole("button", { name: "Retry transcription", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("button", { name: "Play recording", exact: true })).toBeVisible();
+    failTranscription = false;
+    await page.getByRole("button", { name: "Retry transcription", exact: true }).click();
+    await expect(page.getByRole("textbox", { name: "Type an answer in Spanish" })).toHaveValue(
+      "Hola, esta es mi respuesta grabada 10.",
+    );
+    expect(requests.length).toBe(initial + 8);
+    await page.getByRole("button", { name: "Reset", exact: true }).click();
+    await expect(page.getByRole("button", { name: "Play recording", exact: true })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Record reply", exact: true })).toBeEnabled();
   });
 }

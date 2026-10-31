@@ -63,6 +63,7 @@ import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
+import { Route as ApiSpeakingTranscribeRouteImport } from './routes/api.speaking-transcribe'
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
 import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
 import { Route as ApiTeamRouteImport } from './routes/api.team'
@@ -346,6 +347,11 @@ const ApiSpeakingConsentRoute = ApiSpeakingConsentRouteImport.update({
   path: '/api/speaking-consent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSpeakingTranscribeRoute = ApiSpeakingTranscribeRouteImport.update({
+  id: '/api/speaking-transcribe',
+  path: '/api/speaking-transcribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSportsNewsRoute = ApiSportsNewsRouteImport.update({
   id: '/api/sports-news',
   path: '/api/sports-news',
@@ -462,6 +468,7 @@ export interface FileRoutesByFullPath {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -530,6 +537,7 @@ export interface FileRoutesByTo {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -599,6 +607,7 @@ export interface FileRoutesById {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -669,6 +678,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -737,6 +747,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -805,6 +816,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -874,6 +886,7 @@ export interface RootRouteChildren {
   ApiPushCronRoute: typeof ApiPushCronRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
+  ApiSpeakingTranscribeRoute: typeof ApiSpeakingTranscribeRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
   ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
   ApiTeamRoute: typeof ApiTeamRoute
@@ -1268,6 +1281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSpeakingConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/speaking-transcribe': {
+      id: '/api/speaking-transcribe'
+      path: '/api/speaking-transcribe'
+      fullPath: '/api/speaking-transcribe'
+      preLoaderRoute: typeof ApiSpeakingTranscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/sports-news': {
       id: '/api/sports-news'
       path: '/api/sports-news'
@@ -1410,6 +1430,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPushCronRoute: ApiPushCronRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
+  ApiSpeakingTranscribeRoute: ApiSpeakingTranscribeRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,
   ApiStripeWebhookRoute: ApiStripeWebhookRoute,
   ApiTeamRoute: ApiTeamRoute,

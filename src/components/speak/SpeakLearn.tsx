@@ -1,3 +1,5 @@
+import { RecordedReplyControl } from "./RecordedReplyControl";
+import { supportsReplyRecording } from "@/lib/reply-audio-capture";
 import { watchRecognition } from "@/lib/recognition-watchdog";
 import { speechRecognitionErrorMessage } from "@/lib/speech-recognition-errors";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
@@ -106,6 +108,12 @@ export function SpeakLearn() {
   const accent = chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code;
   const chips = TOPIC_CHIPS[language];
 
+  const [useRecordedAudio, setUseRecordedAudio] = useState(false);
+  const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
+  const [audioCaptureKey, setAudioCaptureKey] = useState(0);
+  useEffect(() => {
+    setUseRecordedAudio(supportsReplyRecording());
+  }, []);
   const [supported, setSupported] = useState<boolean | null>(null);
   const [listening, setListening] = useState(false);
   const [automaticReplyAudio, setAutomaticReplyAudio] = useState(false);
@@ -179,6 +187,7 @@ export function SpeakLearn() {
   const stopPractice = () => {
     if (!capture().isCurrent()) return;
     cancel();
+    setAudioCaptureKey((value) => value + 1);
     stopOwned();
     setListening(false);
     setStartingMic(false);
@@ -229,9 +238,9 @@ export function SpeakLearn() {
 
   const speakAloud = useCallback(
     (text: string) => {
-      speakOwned(text, accent, voiceURI, 1);
+      if (!audioCaptureBusy) speakOwned(text, accent, voiceURI, 1);
     },
-    [speakOwned, accent, voiceURI],
+    [speakOwned, accent, voiceURI, audioCaptureBusy],
   );
 
   const awardExchange = () => {
@@ -814,7 +823,20 @@ export function SpeakLearn() {
             </p>
           )}
           <div className="flex shrink-0 items-center justify-center gap-3">
-            {supported === false ? (
+            {useRecordedAudio ? (
+              <RecordedReplyControl
+                key={`${lifecycleKey}:${audioCaptureKey}:${conversationAllowed}`}
+                scope={`${lifecycleKey}:${audioCaptureKey}`}
+                locale={accent}
+                disabled={thinking || !conversationAllowed}
+                onBegin={stopOwned}
+                onBusyChange={setAudioCaptureBusy}
+                onTranscript={(text) => {
+                  setTypedTurn(text);
+                  setConversationError(null);
+                }}
+              />
+            ) : supported === false ? (
               <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-center text-sm text-muted-foreground">
                 Speech recognition isn’t available in this browser.
                 <br />
@@ -859,7 +881,7 @@ export function SpeakLearn() {
               </>
             )}
           </div>
-          {!micActive && !thinking && typedTurn.trim() && (
+          {!micActive && !thinking && !audioCaptureBusy && typedTurn.trim() && (
             <p
               role="status"
               className="shrink-0 rounded-xl border border-primary/40 bg-primary/10 px-3 py-2 text-sm text-foreground"
@@ -871,14 +893,14 @@ export function SpeakLearn() {
             className="flex shrink-0 gap-2"
             onSubmit={(event) => {
               event.preventDefault();
-              if (!thinking && !micActive) submitTurn(typedTurn);
+              if (!thinking && !micActive && !audioCaptureBusy) submitTurn(typedTurn);
             }}
           >
             <input
               aria-label={`Type an answer in ${language}`}
               value={typedTurn}
               onChange={(event) => setTypedTurn(event.target.value)}
-              disabled={thinking || micActive || !conversationAllowed}
+              disabled={thinking || micActive || audioCaptureBusy || !conversationAllowed}
               maxLength={2000}
               placeholder={`Type an answer in ${language}…`}
               className="min-h-11 min-w-0 flex-1 rounded-xl border border-border bg-background px-3 text-base"
@@ -886,7 +908,13 @@ export function SpeakLearn() {
             <button
               type="submit"
               aria-label="Send answer"
-              disabled={!typedTurn.trim() || thinking || micActive || !conversationAllowed}
+              disabled={
+                !typedTurn.trim() ||
+                thinking ||
+                micActive ||
+                audioCaptureBusy ||
+                !conversationAllowed
+              }
               className="flex min-h-11 min-w-11 items-center rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
             >
               <Send className="h-5 w-5" />
@@ -910,6 +938,22 @@ export function SpeakLearn() {
                 >
                   <option value="manual">Tap to play</option>
                   <option value="automatic">Automatic</option>
+                </select>
+              </label>
+              <label className="mb-3 flex items-center justify-between gap-2 text-sm">
+                <span>Voice input</span>
+                <select
+                  aria-label="Voice input"
+                  value={useRecordedAudio ? "audio" : "browser"}
+                  disabled={thinking || micActive || audioCaptureBusy}
+                  onChange={(event) => {
+                    stopOwned();
+                    setUseRecordedAudio(event.target.value === "audio");
+                  }}
+                  className="min-h-11 rounded-xl border border-border bg-background px-2"
+                >
+                  <option value="audio">Audio recording</option>
+                  <option value="browser">Browser dictation</option>
                 </select>
               </label>
               <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />

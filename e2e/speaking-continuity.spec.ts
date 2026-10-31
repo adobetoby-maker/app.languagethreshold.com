@@ -169,6 +169,11 @@ for (const mission of [false, true])
       page,
     }, info) => {
       const requests = await prepare(page, mission, theme);
+      const celebration = page.getByRole("button", {
+        name: "Close level celebration",
+        exact: true,
+      });
+      await page.addLocatorHandler(celebration, () => celebration.click());
       const frame = mission
         ? page.getByTestId("focused-speaking-frame")
         : page.getByRole("region", { name: "Free conversation practice" });

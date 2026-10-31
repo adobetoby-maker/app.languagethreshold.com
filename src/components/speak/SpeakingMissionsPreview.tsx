@@ -239,7 +239,7 @@ export function SpeakingMissionsPreview({
   const ageReadRevisionRef = useRef(0);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
-  const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
+  const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("review");
   const partnerVersion = voiceSettings.speakingGender;
   const partnerAudioSource = voiceSettings.speakingAudioSource;
   const [status, setStatus] = useState<MissionStatus>("ready");
@@ -1083,7 +1083,7 @@ export function SpeakingMissionsPreview({
           .join(" ");
         if (interimText) latestInterimText = interimText;
         recognitionHasTextRef.current = Boolean(finalText.trim() || latestInterimText.trim());
-        setInterim(interimText);
+        setInterim([finalText, interimText].filter(Boolean).join(" "));
         if (stoppingRecognitionRef.current === recognition && finalText.trim()) finish();
       };
       recognition.onerror = (event) => {
@@ -2098,13 +2098,15 @@ export function SpeakingMissionsPreview({
                 <Mic className="h-8 w-8" />
               )}
             </button>
-            <p className="text-sm text-muted-foreground">
+            <p role="status" className="text-sm text-muted-foreground">
               {status === "starting"
                 ? "Starting microphone… tap to cancel"
                 : status === "listening"
                   ? finishingSpeech
                     ? "Finishing transcription…"
-                    : "Listening… tap Stop when you finish"
+                    : interim.trim()
+                      ? "Words received — tap Stop to review"
+                      : "Microphone started — waiting for words…"
                   : partnerSpeaking
                     ? "Partner is speaking… your microphone will unlock afterward"
                     : status === "thinking"
@@ -2129,11 +2131,11 @@ export function SpeakingMissionsPreview({
           role="status"
           className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-            Review what your phone heard
+          <p className="text-sm font-medium text-foreground">
+            Reply captured — review what your phone heard
           </p>
           <p className="mt-1 text-sm leading-relaxed text-foreground">
-            Edit below, then tap Send to approve.
+            Edit below, then tap Send to confirm your reply.
           </p>
           <button
             type="button"
@@ -2185,9 +2187,10 @@ export function SpeakingMissionsPreview({
             partnerSpeaking
           }
           aria-label="Send typed answer"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+          className="inline-flex h-11 gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
         >
           <Send className="h-4 w-4" />
+          <span>Send</span>
         </button>
       </form>
 

@@ -542,7 +542,7 @@ export function SpeakLearn() {
           .map(([, value]) => value)
           .join(" ");
         if (interimText) latestInterim = interimText;
-        setInterim(interimText);
+        setInterim([finalText, interimText].filter(Boolean).join(" "));
       };
       rec.onerror = (e) => {
         if (!current()) return;
@@ -568,8 +568,10 @@ export function SpeakLearn() {
         setStartingMic(false);
         setInterim("");
         const text = bestAvailableSpeechTranscript(finalText, latestInterim);
-        if (text) submitTurn(text);
-        else
+        if (text) {
+          setTypedTurn(text);
+          setConversationError(null);
+        } else
           setConversationError(
             "No speech was returned. Try the microphone again, or type your answer.",
           );
@@ -836,11 +838,13 @@ export function SpeakLearn() {
                     <Mic className="h-8 w-8" />
                   )}
                 </button>
-                <p className="text-sm text-muted-foreground">
+                <p role="status" className="text-sm text-muted-foreground">
                   {startingMic
                     ? "Starting microphone… tap to cancel"
                     : listening
-                      ? "Listening… speak naturally"
+                      ? interim.trim()
+                        ? "Words received — tap Stop to review"
+                        : "Microphone started — waiting for words…"
                       : thinking
                         ? "Partner is replying…"
                         : "Tap the mic to speak"}
@@ -848,6 +852,14 @@ export function SpeakLearn() {
               </>
             )}
           </div>
+          {!micActive && !thinking && typedTurn.trim() && (
+            <p
+              role="status"
+              className="shrink-0 rounded-xl border border-primary/40 bg-primary/10 px-3 py-2 text-sm text-foreground"
+            >
+              Reply ready. Review or edit the words below, then tap Send answer to confirm.
+            </p>
+          )}
           <form
             className="flex shrink-0 gap-2"
             onSubmit={(event) => {
@@ -868,9 +880,10 @@ export function SpeakLearn() {
               type="submit"
               aria-label="Send answer"
               disabled={!typedTurn.trim() || thinking || micActive || !conversationAllowed}
-              className="min-h-11 min-w-11 rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
+              className="flex min-h-11 min-w-11 items-center rounded-xl bg-primary p-3 text-primary-foreground disabled:opacity-40"
             >
               <Send className="h-5 w-5" />
+              <span className="ml-2">Send</span>
             </button>
           </form>
           <details className="relative shrink-0 rounded-xl border border-border px-3">

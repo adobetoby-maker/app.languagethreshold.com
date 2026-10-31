@@ -256,6 +256,13 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     end();
     end();
     await tick();
+    assert.equal(requests.length, 4, "captured speech waits for confirmation");
+    tree = render();
+    assert.match(text(tree), /Reply ready/);
+    nodes(tree)
+      .find((n) => n.type === "form")
+      .props.onSubmit({ preventDefault() {} });
+    await tick();
     assert.equal(requests.length, 6);
     assert.equal(c.turns.filter((t) => t.role === "user").at(-1).text, "QA final");
     assert.equal(rec.onresult, null);
@@ -392,6 +399,17 @@ test("four spoken exchanges recover missing end events, reset cancels a pending 
       assert.ok(stop);
       stop.fn();
       lateEnd();
+      await tick();
+      assert.equal(
+        requests.filter((r) => r.mode === "chat").length,
+        round - 1,
+        "no send before confirmation",
+      );
+      tree = render();
+      assert.match(text(tree), /Reply ready/);
+      nodes(tree)
+        .find((n) => n.type === "form")
+        .props.onSubmit({ preventDefault() {} });
       await tick();
       const chats = requests.filter((r) => r.mode === "chat");
       assert.equal(chats.length, round, "one send per tap, including late duplicate end");

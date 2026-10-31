@@ -343,6 +343,13 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     end();
     end();
     await tick();
+    assert.equal(requests.length, 2, "captured speech waits for confirmation");
+    tree = render();
+    assert.match(text(tree), /Reply captured/);
+    nodes(tree)
+      .find((n) => n.type === "form")
+      .props.onSubmit({ preventDefault() {} });
+    await tick();
     assert.equal(requests.length, 3);
     assert.equal(JSON.parse(requests[2].opts.body).messages.at(-1).content, "QA final");
     assert.equal(rec.onresult, null);

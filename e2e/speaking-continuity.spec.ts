@@ -175,6 +175,9 @@ for (const mission of [false, true])
       await expect(mic).toBeEnabled();
       for (let round = 1; round <= 4; round++) {
         await mic.click();
+        await expect(
+          frame.getByText("Microphone started — waiting for words…", { exact: true }),
+        ).toBeVisible();
         await page.evaluate(
           (text) =>
             (
@@ -182,7 +185,15 @@ for (const mission of [false, true])
             ).speakingFixture.emit(text),
           `Hola, respuesta ${round}`,
         );
+        await expect(
+          frame.getByText("Words received — tap Stop to review", { exact: true }),
+        ).toBeVisible();
         await frame.getByRole("button", { name: "Stop listening", exact: true }).click();
+        await expect(frame.getByRole("textbox")).toHaveValue(`Hola, respuesta ${round}`);
+        expect(requests.length).toBe(round - 1);
+        await frame
+          .getByRole("button", { name: mission ? "Send typed answer" : "Send answer", exact: true })
+          .click();
         await expect(transcript.getByText(`Respuesta ${round}:`, { exact: false })).toBeVisible();
         await expect(mic).toBeEnabled();
         expect(requests.length).toBe(round);
@@ -209,6 +220,9 @@ for (const mission of [false, true])
         ).speakingFixture.emit("Nueva conversación"),
       );
       await frame.getByRole("button", { name: "Stop listening", exact: true }).click();
+      await frame
+        .getByRole("button", { name: mission ? "Send typed answer" : "Send answer", exact: true })
+        .click();
       await expect(transcript.getByText("Respuesta 5:", { exact: false })).toBeVisible();
       expect(requests.at(-1)!.messages!.length).toBe(mission ? 2 : 1);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
@@ -273,6 +287,9 @@ for (const mission of [false, true]) {
     );
     await frame.getByRole("button", { name: "Stop listening", exact: true }).click();
     await page.clock.fastForward(1300);
+    await frame
+      .getByRole("button", { name: mission ? "Send typed answer" : "Send answer", exact: true })
+      .click();
     await expect(frame.getByText("Respuesta 1:", { exact: false })).toBeVisible();
     expect(requests).toHaveLength(1);
   });
@@ -308,6 +325,7 @@ test("a cancelled free-conversation microphone does not block the scenario micro
     ),
   );
   await page.getByRole("button", { name: "Stop listening", exact: true }).click();
+  await page.getByRole("button", { name: "Send typed answer", exact: true }).click();
   await expect(page.getByText("Respuesta 1:", { exact: false })).toBeVisible();
   expect(requests).toHaveLength(1);
   expect(requests[0].mode).toBe("mission");

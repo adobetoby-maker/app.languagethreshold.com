@@ -540,3 +540,47 @@ test("iPhone microphone errors never leave false Listening; retry clears warning
     assert.equal(c.timers.size, 0);
     unmount();
   }));
+
+test("reply uses HD voices loaded during the AI request and respects Voice switched off before its response", () =>
+  fixture("SpeakLearn", async ({ c, render, button, requests, finish }) => {
+    let tree = render();
+    button(tree, "Free conversation").props.onClick();
+    render();
+    await tick();
+    tree = render();
+    const send = () => {
+      const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
+      chip.props.onClick();
+    };
+    send();
+    await tick();
+    const first = requests.find((r) => r.mode === "chat");
+    assert.ok(first);
+    c.capabilities[0].resolve({
+      ready: true,
+      voices: [
+        {
+          name: "es-US-Chirp3-HD-Aoede",
+          languageCodes: ["es-US"],
+          ssmlGender: "FEMALE",
+          tier: "Chirp 3 HD",
+        },
+      ],
+    });
+    await tick();
+    tree = render();
+    await finish(first);
+    tree = render();
+    assert.equal(c.audio.at(-1).opts.voiceURI, "google:es-US:es-US-Chirp3-HD-Aoede");
+    assert.equal(c.audio.at(-1).opts.cloudOnly, true);
+    send();
+    await tick();
+    tree = render();
+    const voice = nodes(tree).find((n) => n.props?.["aria-label"] === "Automatic voice replies");
+    voice.props.onClick();
+    tree = render();
+    const count = c.audio.length;
+    await finish(requests.filter((r) => r.mode === "chat").at(-1));
+    render();
+    assert.equal(c.audio.length, count);
+  }));

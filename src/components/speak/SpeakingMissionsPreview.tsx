@@ -281,6 +281,8 @@ export function SpeakingMissionsPreview({
   }, []);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
   const [automaticReplyAudio, setAutomaticReplyAudio] = useState(true);
+  const currentAutomaticReplyAudio = useRef(automaticReplyAudio);
+  currentAutomaticReplyAudio.current = automaticReplyAudio;
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
@@ -709,6 +711,9 @@ export function SpeakingMissionsPreview({
     ],
   );
 
+  const currentPartnerPlayback = useRef(speakPartnerText);
+  currentPartnerPlayback.current = speakPartnerText;
+
   const startMissionSession = () => {
     if (!capture().isCurrent() || !selectedMission || !partnerAudioReady) return;
     clearSpeakingAuthMission();
@@ -734,7 +739,7 @@ export function SpeakingMissionsPreview({
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
-    if (automaticReplyAudio) void speakPartnerText(opening.text);
+    if (currentAutomaticReplyAudio.current) void speakPartnerText(opening.text);
   };
 
   const requestMissionStart = () => {
@@ -1001,8 +1006,8 @@ export function SpeakingMissionsPreview({
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
-      if (automaticReplyAudio)
-        void speakPartnerText(payload.assistantText, () => {
+      if (currentAutomaticReplyAudio.current)
+        void currentPartnerPlayback.current(payload.assistantText, () => {
           setLastResponseTiming({
             replyReadyMs,
             voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),

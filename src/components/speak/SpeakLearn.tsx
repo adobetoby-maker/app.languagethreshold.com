@@ -144,6 +144,8 @@ export function SpeakLearn() {
   const [supported, setSupported] = useState<boolean | null>(null);
   const [listening, setListening] = useState(false);
   const [automaticReplyAudio, setAutomaticReplyAudio] = useState(true);
+  const currentAutomaticReplyAudio = useRef(automaticReplyAudio);
+  currentAutomaticReplyAudio.current = automaticReplyAudio;
   const [startingMic, setStartingMic] = useState(false);
   const micActive = listening || startingMic;
   const [interim, setInterim] = useState("");
@@ -273,10 +275,12 @@ export function SpeakLearn() {
     voiceSettings?.speakingGender ?? "woman",
   );
   const qualityVoiceURI = qualityVoice ? encodeGoogleVoicePreference(qualityVoice) : null;
+  const currentQualityVoiceURI = useRef(qualityVoiceURI);
+  currentQualityVoiceURI.current = qualityVoiceURI;
   const speakAloud = useCallback(
     (text: string): void => {
       if (!audioCaptureBusy)
-        speakOwned(text, accent, qualityVoiceURI, 1, {
+        speakOwned(text, accent, currentQualityVoiceURI.current, 1, {
           cloudOnly: true,
           onerror: () =>
             toast("Reply voice paused", {
@@ -285,7 +289,7 @@ export function SpeakLearn() {
             }),
         });
     },
-    [speakOwned, accent, qualityVoiceURI, audioCaptureBusy],
+    [speakOwned, accent, audioCaptureBusy],
   );
 
   const awardExchange = () => {
@@ -460,7 +464,7 @@ export function SpeakLearn() {
       if (!done) throw new Error("The reply was interrupted. Please try again.");
       if (!full.trim()) throw new Error("The partner returned no reply. Please try again.");
       if (full.trim()) {
-        if (automaticReplyAudio) speakAloud(full);
+        if (currentAutomaticReplyAudio.current) speakAloud(full);
         incrementExchanges();
         awardExchange();
       }

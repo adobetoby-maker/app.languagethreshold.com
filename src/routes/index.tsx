@@ -16,14 +16,9 @@ import { SpeakProvider } from "@/state/speak-state";
 import { TutorProvider } from "@/state/tutor-state";
 import { MatchProvider } from "@/state/match-state";
 import { LeaderboardProvider } from "@/state/leaderboard-state";
-import { ConjugationProvider } from "@/state/conjugation-state";
-import { SentenceBuildProvider } from "@/state/sentence-build-state";
-import { ListeningDrillProvider } from "@/state/listening-drill-state";
-import { WordMatchProvider } from "@/state/word-match-state";
-import { IdiomMasterProvider } from "@/state/idiom-master-state";
-import { FalseFriendsProvider } from "@/state/false-friends-state";
 import { DailyChallengeProvider } from "@/state/daily-challenge-state";
-import { DailyChallengeBridge } from "@/components/games/DailyChallengeBridge";
+import { MatchChallengeBridge } from "@/components/games/MatchChallengeBridge";
+import { DeferredGameProviders } from "@/components/games/DeferredGameProviders";
 import { TopNav } from "@/components/TopNav";
 import { AppDemo } from "@/components/onboarding/AppTour";
 import { AppSidebar } from "@/components/AppSidebar";
@@ -102,7 +97,9 @@ function GatedTabShell() {
         }
       />
       <SubscriptionGate currentTab={state.currentTab}>
-        <TabShell />
+        <DeferredGameProviders>
+          <TabShell />
+        </DeferredGameProviders>
       </SubscriptionGate>
     </>
   );
@@ -296,60 +293,46 @@ function Index() {
                         <SpeechBridge>
                           <SpeakBridge>
                             <TutorProvider>
-                              <ConjugationProvider>
-                                <SentenceBuildProvider>
-                                  <ListeningDrillProvider>
-                                    <WordMatchProvider>
-                                      <IdiomMasterProvider>
-                                        <FalseFriendsProvider>
-                                          <DailyChallengeProvider>
-                                            <div className="lt-app-shell bg-background text-foreground">
-                                              {/* Left sidebar (desktop) + bottom nav (mobile) */}
-                                              <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
+                              <DailyChallengeProvider>
+                                <div className="lt-app-shell bg-background text-foreground">
+                                  {/* Left sidebar (desktop) + bottom nav (mobile) */}
+                                  <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
 
-                                              {/* Main column */}
-                                              <div className="lt-main-column flex min-h-0 min-w-0 flex-1 flex-col">
-                                                <TopNav />
-                                                <SaveProgressBanner />
-                                                {/* Shared bottom-strip budget reserves the nav,
+                                  {/* Main column */}
+                                  <div className="lt-main-column flex min-h-0 min-w-0 flex-1 flex-col">
+                                    <TopNav />
+                                    <SaveProgressBanner />
+                                    {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
-                                                <main
-                                                  id="learning-space"
-                                                  className="lt-scroll-safe lt-safe-top-main min-h-0 flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10"
-                                                >
-                                                  <AppDemo />
-                                                  <GatedTabShell />
-                                                </main>
-                                              </div>
-                                            </div>
+                                    <main
+                                      id="learning-space"
+                                      className="lt-scroll-safe lt-safe-top-main min-h-0 flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10"
+                                    >
+                                      <AppDemo />
+                                      <GatedTabShell />
+                                    </main>
+                                  </div>
+                                </div>
 
-                                            <FirstRunEntry />
-                                            {personalizationOpen && (
-                                              <OnboardingWizard
-                                                onClose={() => setPersonalizationOpen(false)}
-                                              />
-                                            )}
-                                            <UrlModuleBridge />
-                                            <TutorSiteGuide />
-                                            <TutorPanel />
-                                            <LevelUpOverlay />
-                                            <CefrCompletionBridge />
-                                            <MatchmakingOverlay
-                                              open={matchOpen}
-                                              onClose={() => setMatchOpen(false)}
-                                            />
-                                            <MatchAchievementsBridge />
-                                            <DailyChallengeBridge />
-                                            <PushReminderSync />
-                                            <GlobalVocabCapture />
-                                            <TeamActivityBridge />
-                                          </DailyChallengeProvider>
-                                        </FalseFriendsProvider>
-                                      </IdiomMasterProvider>
-                                    </WordMatchProvider>
-                                  </ListeningDrillProvider>
-                                </SentenceBuildProvider>
-                              </ConjugationProvider>
+                                <FirstRunEntry />
+                                {personalizationOpen && (
+                                  <OnboardingWizard onClose={() => setPersonalizationOpen(false)} />
+                                )}
+                                <UrlModuleBridge />
+                                <TutorSiteGuide />
+                                <TutorPanel />
+                                <LevelUpOverlay />
+                                <CefrCompletionBridge />
+                                <MatchmakingOverlay
+                                  open={matchOpen}
+                                  onClose={() => setMatchOpen(false)}
+                                />
+                                <MatchAchievementsBridge />
+                                <MatchChallengeBridge />
+                                <PushReminderSync />
+                                <GlobalVocabCapture />
+                                <TeamActivityBridge />
+                              </DailyChallengeProvider>
                             </TutorProvider>
                             <Toaster
                               theme="dark"

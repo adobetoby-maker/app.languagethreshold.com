@@ -37,68 +37,18 @@ execFileSync(
   { stdio: "inherit" },
 );
 
-// CJS entry: loaded by Vercel's Nodejs launcher, dynamically imports the
-// bundled server and adapts Node.js req/res → Web Fetch API.
+// Keep the Node bridge testable; measure bootstrap separately from render time.
+cpSync("scripts/vercel-node-handler.cjs", `${out}/functions/index.func/node-handler.cjs`);
 writeFileSync(
   `${out}/functions/index.func/entry.cjs`,
   `
-let _server = null
+let server
 process.env.LT_INTERNAL_LESSON_CONTENT_ROOT = require('node:path').join(__dirname, 'lesson-content')
-async function getServer() {
-  if (!_server) _server = require('./server.cjs').default
-  return _server
-}
-
-module.exports = async function handler(req, res) {
-  const server = await getServer()
-
-  const proto = req.headers['x-forwarded-proto'] || 'https'
-  const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'localhost'
-  const url = proto + '://' + host + req.url
-
-  const body = await new Promise((resolve) => {
-    const chunks = []
-    req.on('data', c => chunks.push(Buffer.from(c)))
-    req.on('end', () => resolve(Buffer.concat(chunks)))
-    req.on('error', () => resolve(Buffer.alloc(0)))
-  })
-
-  const webRequest = new Request(url, {
-    method: req.method,
-    headers: Object.fromEntries(
-      Object.entries(req.headers)
-        .filter(([, v]) => v !== undefined)
-        .map(([k, v]) => [k, Array.isArray(v) ? v.join(', ') : String(v)])
-    ),
-    body: ['GET', 'HEAD'].includes(req.method) ? undefined : (body.length > 0 ? body : undefined),
-  })
-
-  const webResponse = await server.fetch(webRequest)
-
-  res.statusCode = webResponse.status
-  for (const [k, v] of webResponse.headers.entries()) {
-    res.setHeader(k, v)
-  }
-
-  if (!webResponse.body) {
-    res.end()
-    return
-  }
-
-  const reader = webResponse.body.getReader()
-  try {
-    while (true) {
-      const { done, value } = await reader.read()
-      if (done) break
-      if (!res.write(Buffer.from(value))) {
-        await new Promise(resolve => res.once('drain', resolve))
-      }
-    }
-  } finally {
-    reader.releaseLock()
-  }
-  res.end()
-}
+const { createNodeHandler } = require('./node-handler.cjs')
+module.exports = createNodeHandler(async () => {
+  if (!server) server = require('./server.cjs').default
+  return server
+})
 `,
 );
 
@@ -173,7 +123,10 @@ writeFileSync(
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },
       { src: "/roofing-review-data\\.js", dest: "/roofing-review-data.js" },
       { src: "/robots\\.txt", dest: "/robots.txt" },
-      { src: "/21c653b50cda6af04ed977771f54e96b\\.txt", dest: "/21c653b50cda6af04ed977771f54e96b.txt" },
+      {
+        src: "/21c653b50cda6af04ed977771f54e96b\\.txt",
+        dest: "/21c653b50cda6af04ed977771f54e96b.txt",
+      },
       { src: "/(.*)", dest: "/" },
     ],
   }),

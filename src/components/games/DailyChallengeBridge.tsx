@@ -6,7 +6,6 @@ import { useListeningDrill } from "@/state/listening-drill-state";
 import { useWordMatch } from "@/state/word-match-state";
 import { useIdiomMaster } from "@/state/idiom-master-state";
 import { useFalseFriends } from "@/state/false-friends-state";
-import { useMatch } from "@/state/match-state";
 import { useDailyChallenge } from "@/state/daily-challenge-state";
 
 /**
@@ -30,7 +29,6 @@ export function DailyChallengeBridge() {
   const wm = useWordMatch();
   const idiom = useIdiomMaster();
   const ff = useFalseFriends();
-  const match = useMatch();
 
   // Sum of every "completion-worthy" counter across all games.
   // For 5-question-run games we use totalAttempts. For Word Match we use
@@ -50,7 +48,6 @@ export function DailyChallengeBridge() {
     )) {
       if (v?.totalGames) s += v.totalGames;
     }
-    s += match.matchesPlayed ?? 0;
     return s;
   })();
 

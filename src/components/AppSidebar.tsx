@@ -709,13 +709,23 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
       </nav>
 
-      {/* Mobile-only: full tab list, grouped the same way the desktop sidebar implies. */}
+      {/* Mobile-only: a left drawer keeps the grouped tools available without
+          covering the whole activity or changing the familiar bottom dock. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
           scrollBody
-          side="bottom"
-          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
+          side="left"
+          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)] desktop:hidden"
         >
+          <SheetTitle className="font-display text-xl text-foreground">
+            Language Threshold
+          </SheetTitle>
+          <SheetDescription className="sr-only">
+            More navigation, grouped by learning activity. Choose a destination or close the menu.
+          </SheetDescription>
+          <p className="mb-4 mt-1 text-sm font-semibold text-gold-ink">
+            {moreView === "settings" ? "Settings" : "Explore"}
+          </p>
           {/* Which pair of languages you are working in, above everything else.
               The bottom strip shows the target only, and native was reachable
               solely from TopNav — which is desktop-only, so on a phone there was
@@ -768,12 +778,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </label>
           </div>
 
-          <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
-          <SheetDescription className="sr-only">
-            Every available tab, grouped by section. Tap one to switch.
-          </SheetDescription>
-
-          <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+          <div className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-3 py-3">
             <span className="text-sm text-foreground">Your account</span>
             <div className="flex items-center gap-3">
               <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">

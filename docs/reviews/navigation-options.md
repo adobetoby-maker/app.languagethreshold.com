@@ -14,7 +14,10 @@ existing tab navigation, Exams routing, Pricing and settings remain available.
 The query selector works only in preview/development builds. Production always uses
 Sections until a reviewed choice is made; there is no variant chooser in the product.
 The mobile dock keeps Reader, Cards, Speak and Core 60, plus More and Tutor, reducing
-crowding. More uses the same categorized list as desktop and closes after a selection.
+crowding. More opens a left-side drawer inspired by the supplied phone reference:
+the current activity remains visible behind a dimmed backdrop, a compact brand
+header sits above language selection, and the same categorized list as desktop
+closes after a selection. The drawer also contains account and settings access.
 No tools are removed. Standard buttons retain keyboard support, visible focus,
 44px minimum touch targets, aria-current and expandable-menu semantics. Desktop
 navigation scrolls independently on shorter screens.

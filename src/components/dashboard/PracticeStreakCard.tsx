@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { CalendarDays, Flame, Plane, RotateCcw, ShieldCheck } from "lucide-react";
+import { Bell, Flame, Plane, RotateCcw, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { MAX_TRAVEL_BREAK_DAYS, recoveryLessonsRemaining } from "@/lib/practice-streak";
 import { useApp } from "@/state/app-state";
@@ -17,7 +17,8 @@ function recentDays() {
     date.setDate(date.getDate() - (6 - index));
     return {
       key: localDateKey(date),
-      label: new Intl.DateTimeFormat(undefined, { weekday: "narrow" }).format(date),
+      label: new Intl.DateTimeFormat(undefined, { weekday: "short" }).format(date),
+      fullLabel: new Intl.DateTimeFormat(undefined, { weekday: "long", month: "long", day: "numeric" }).format(date),
     };
   });
 }
@@ -34,13 +35,30 @@ export function PracticeStreakCard() {
   const [breakDays, setBreakDays] = useState(3);
   const streak = state.practiceStreak;
   const recoveryRemaining = recoveryLessonsRemaining(streak);
-  const days = useMemo(recentDays, [streak.practiceDates]);
   const today = localDateKey();
+  const days = useMemo(recentDays, [today, streak.practiceDates]);
   const breakActive = Boolean(
     streak.travelBreak &&
     today >= streak.travelBreak.startsOn &&
     today <= streak.travelBreak.endsOn,
   );
+  const practicedToday = streak.practiceDates.includes(today);
+  const headline = recoveryRemaining > 0
+    ? "Your streak can be restored"
+    : streak.current === 0
+      ? "Start your streak today"
+      : streak.current === 1
+        ? "You’ve started a streak!"
+        : `${streak.current} days of showing up`;
+  const guidance = recoveryRemaining > 0
+    ? `Complete ${recoveryRemaining} more ${recoveryRemaining === 1 ? "practice activity" : "practice activities"} today to restore your ${streak.recovery?.previousStreak}-day streak.`
+    : breakActive
+      ? `Your travel break protects your streak through ${formatBreakEnd(streak.travelBreak!.endsOn)}.`
+      : practicedToday
+        ? "Today counts. Come back tomorrow to keep it going."
+        : streak.current > 0
+          ? "Complete a lesson or speaking mission today to keep your streak."
+          : "Complete a lesson or speaking mission to begin. One day at a time.";
 
   function useTravelPass() {
     if (streak.travelPasses <= 0 || breakActive) return;
@@ -52,38 +70,17 @@ export function PracticeStreakCard() {
   }
 
   return (
-    <section className="overflow-hidden rounded-2xl border border-orange-300/30 bg-card">
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex min-w-0 items-start gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-orange-300/35 bg-[var(--streak-surface)]">
-              <Flame className="h-5 w-5 text-[var(--streak-ink)]" />
-            </div>
-            <div>
-              <p className="font-sans text-xs uppercase tracking-wide text-[var(--streak-ink)]">
-                Lesson streak
-              </p>
-              <h2 className="mt-1 font-serif text-2xl text-foreground">
-                {streak.current} {streak.current === 1 ? "day" : "days"}
-              </h2>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Best {streak.best} · {streak.today.lessonsCompleted} completed today
-              </p>
-            </div>
-          </div>
-          <div className="text-right">
-            <p className="font-display text-3xl text-[var(--info-ink)] tabular-nums">
-              {streak.travelPasses}
-            </p>
-            <p className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
-              travel {streak.travelPasses === 1 ? "pass" : "passes"}
-            </p>
-          </div>
+    <section aria-labelledby="streak-heading" className="overflow-hidden rounded-2xl border border-orange-300/30 bg-card px-4 py-7 text-center sm:px-8">
+      <div className="mx-auto max-w-lg">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--streak-surface)]" aria-hidden="true">
+          <Flame className="h-8 w-8 text-[var(--streak-ink)]" />
         </div>
+        <h2 id="streak-heading" className="mt-4 font-serif text-2xl text-foreground sm:text-3xl">{headline}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{guidance}</p>
 
         <div
           role="group"
-          className="mt-5 grid grid-cols-7 gap-2"
+          className="mt-6 grid grid-cols-7 gap-1 rounded-2xl border border-border/70 bg-background/40 px-2 py-3 sm:gap-2"
           aria-label="Last seven practice days"
         >
           {days.map((day) => {
@@ -100,7 +97,7 @@ export function PracticeStreakCard() {
                         ? "border-orange-300/60 bg-[var(--streak-surface)] text-[var(--streak-ink)]"
                         : "border-border/70 text-muted-foreground")
                   }
-                  title={completed ? "Practice completed" : "No completed practice"}
+                  aria-label={`${day.fullLabel}: ${completed ? "practice completed" : day.key === today ? "not practiced yet" : "no completed practice"}`}
                 >
                   {completed ? "✓" : "·"}
                 </span>
@@ -109,8 +106,20 @@ export function PracticeStreakCard() {
           })}
         </div>
 
+        <p className="mt-3 text-sm text-muted-foreground">
+          {streak.current} {streak.current === 1 ? "day" : "days"} now · Best {streak.best}
+        </p>
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+          <button type="button" onClick={() => dispatch({ type: "SET_TAB", payload: "core30" })} className="min-h-11 rounded-xl bg-gold px-5 py-2 text-sm font-semibold text-slate-950">
+            Continue learning
+          </button>
+          <a href="#daily-practice-reminder" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-foreground">
+            <Bell className="h-4 w-4" aria-hidden="true" /> Reminder settings
+          </a>
+        </div>
+
         {recoveryRemaining > 0 ? (
-          <div className="mt-5 rounded-xl border border-orange-300/45 bg-[var(--streak-surface)] p-4">
+          <div className="mt-5 rounded-xl border border-orange-300/45 bg-[var(--streak-surface)] p-4 text-left">
             <div className="flex items-start gap-3">
               <RotateCcw className="mt-0.5 h-4 w-4 shrink-0 text-[var(--streak-ink)]" />
               <div className="min-w-0 flex-1">
@@ -118,7 +127,7 @@ export function PracticeStreakCard() {
                   Restore your {streak.recovery?.previousStreak}-day streak
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-[var(--streak-ink)]">
-                  Complete {recoveryRemaining} more {recoveryRemaining === 1 ? "lesson" : "lessons"}
+                  Complete {recoveryRemaining} more {recoveryRemaining === 1 ? "practice activity" : "practice activities"}
                   today. The progress disappears tomorrow if recovery is unfinished.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -141,7 +150,7 @@ export function PracticeStreakCard() {
             </div>
           </div>
         ) : breakActive && streak.travelBreak ? (
-          <div className="mt-5 flex items-start gap-3 rounded-xl border border-[var(--info-border)] bg-[var(--info-surface)] p-4">
+          <div className="mt-5 flex items-start gap-3 rounded-xl border border-[var(--info-border)] bg-[var(--info-surface)] p-4 text-left">
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[var(--info-ink)]" />
             <div>
               <p className="font-semibold text-[var(--info-ink)]">
@@ -153,35 +162,20 @@ export function PracticeStreakCard() {
               </p>
             </div>
           </div>
-        ) : (
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/60 bg-background/30 p-4">
-            <div className="flex items-start gap-3">
-              <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-[var(--streak-ink)]" />
-              <div>
-                <p className="text-sm font-medium text-foreground">
-                  {streak.lastPracticeDate === today
-                    ? "Today’s streak is protected"
-                    : "Complete one lesson to protect today"}
-                </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  Earn one travel pass at every seven-day milestone, up to three.
-                </p>
-              </div>
-            </div>
-            {streak.travelPasses > 0 && !planningBreak && (
-              <button
-                type="button"
-                onClick={() => setPlanningBreak(true)}
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--info-border)] px-4 py-2 text-xs font-semibold text-[var(--info-ink)]"
-              >
-                <Plane className="h-3.5 w-3.5" /> Plan travel break
-              </button>
-            )}
-          </div>
+        ) : null}
+
+        {streak.travelPasses > 0 && !breakActive && !planningBreak && (
+          <details className="mt-5 rounded-xl border border-border/60 px-4 py-3 text-left">
+            <summary className="cursor-pointer text-sm text-foreground">Travel passes ({streak.travelPasses})</summary>
+            <p className="mt-2 text-sm text-muted-foreground">Earn a pass every seven days, up to three. Use one to pause reminders and protect your streak while away.</p>
+            <button type="button" onClick={() => setPlanningBreak(true)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--info-border)] px-4 py-2 text-sm font-semibold text-[var(--info-ink)]">
+              <Plane className="h-4 w-4" /> Plan travel break
+            </button>
+          </details>
         )}
 
         {planningBreak && !breakActive && (
-          <div className="mt-3 rounded-xl border border-[var(--info-border)] bg-[var(--info-surface)] p-4">
+          <div className="mt-3 rounded-xl border border-[var(--info-border)] bg-[var(--info-surface)] p-4 text-left">
             <p className="text-sm font-semibold text-[var(--info-ink)]">Use one travel pass</p>
             <p className="mt-1 text-xs leading-relaxed text-[var(--info-ink)]">
               Protect your current streak and pause reminders while you are away.

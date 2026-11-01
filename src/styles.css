@@ -1637,3 +1637,43 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
 .blog-content td, .blog-content th { border: 1px solid currentColor; padding: .6rem; }
 .blog-content code { white-space: pre-wrap; }
 .blog-content nav { border-block: 1px solid currentColor; padding-block: 1rem; margin-block: 2rem; }
+
+/* iPhone free conversation: the transcript owns the space reclaimed from the nav. */
+.lt-speaking-navigation {
+  display: none;
+}
+@media (max-width: 767px) {
+  .lt-app-shell:has(.lt-free-conversation) {
+    grid-template-rows: minmax(0, 1fr);
+  }
+  body:has(.lt-free-conversation) .lt-bottom-nav,
+  .lt-free-conversation .lt-speaking-title,
+  .lt-free-conversation .lt-speaking-type {
+    display: none;
+  }
+  body:has(.lt-free-conversation) .lt-speaking-navigation {
+    display: flex;
+    position: fixed;
+    left: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 45;
+  }
+  .lt-free-conversation [aria-label="Conversation controls"] {
+    margin-left: 56px;
+    min-height: 48px;
+  }
+  .lt-free-conversation [aria-label="Conversation controls"] button {
+    font-size: 12px;
+    padding-inline: 0;
+  }
+  .lt-free-conversation .lt-speaking-frame {
+    margin-top: 0;
+    overflow-y: auto;
+  }
+  .lt-free-conversation [aria-label="Conversation replies"] {
+    min-height: 80px;
+  }
+  main.lt-scroll-safe:has(.lt-free-conversation) {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 4px) !important;
+  }
+}

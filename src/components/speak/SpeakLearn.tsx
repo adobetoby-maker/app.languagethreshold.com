@@ -116,6 +116,12 @@ export function SpeakLearn() {
     clear,
   } = useSpeak();
   const language = state.selectedLanguage;
+  // Saved speaking practice advances the next session, never a running session.
+  const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce(
+    (sum, seconds) => sum + (seconds ?? 0),
+    0,
+  );
+  const exchangeGoal = Math.min(16, 4 + 2 * Math.floor(practiceSeconds / 1800));
   const learningPairIsValid = language !== state.nativeLanguage;
   const { accent: chosenAccent, voiceURI, voiceSettings } = useSpeech();
   const [conversationVoices, setConversationVoices] = useState<MissionTtsCapabilities | null>(null);
@@ -774,22 +780,147 @@ export function SpeakLearn() {
   );
 
   return (
-    <div className="fade-in mx-auto max-w-3xl">
+    <div
+      className={`fade-in mx-auto max-w-3xl ${surface === "conversation" ? "lt-free-conversation" : ""}`}
+    >
       <SpeakingGuestConsent />
       <LessonReturnPill kind="say" />
       <header
         hidden={surface === "missions" && missionFocused}
         className="mb-3 flex items-end justify-between"
       >
-        <div>
-          <h1 className="font-serif text-2xl text-foreground">Speak & Learn</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {surface === "missions"
-              ? `Practice a focused ${language} situation with a clear goal.`
-              : exchanges < 4
-                ? `${exchanges} / 4 exchanges`
-                : `${exchanges} exchanges · Goal reached`}
-          </p>
+        <div className="flex min-w-0 items-center gap-2">
+          {surface === "conversation" && (
+            <details className="lt-conversation-topics relative shrink-0">
+              <summary
+                aria-label="Topics & challenges"
+                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-border [&::-webkit-details-marker]:hidden"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-5 w-5"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <span className="sr-only">Topics & challenges</span>
+              </summary>
+              <div className="absolute left-0 top-12 z-30 max-h-[60dvh] w-[min(85vw,32rem)] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+                <button
+                  type="button"
+                  onClick={() => setSurface("missions")}
+                  className="mb-3 min-h-11 rounded-xl border border-border px-3 text-sm"
+                >
+                  Scenario missions
+                </button>
+                <label className="mb-3 flex items-center justify-between gap-2 text-sm">
+                  <span>Voice input</span>
+                  <select
+                    aria-label="Voice input"
+                    value={useRecordedAudio ? "audio" : "browser"}
+                    disabled={thinking || micActive || audioCaptureBusy}
+                    onChange={(event) => {
+                      stopOwned();
+                      setUseRecordedAudio(event.target.value === "audio");
+                    }}
+                    className="min-h-11 rounded-xl border border-border bg-background px-2"
+                  >
+                    <option value="audio">Audio recording</option>
+                    <option value="browser">Browser dictation</option>
+                  </select>
+                </label>
+                <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
+
+                <ChallengePanel
+                  language={language}
+                  nativeLanguage={state.nativeLanguage}
+                  level={state.level}
+                  active={challenge}
+                  onStart={(c) => setChallenge(c)}
+                  onSpeakAloud={speakAloud}
+                />
+
+                {(() => {
+                  const mod = getModule(state.activeModuleId);
+                  if (!mod) return null;
+                  return (
+                    <div className="mt-6 rounded-3xl border border-gold/40 bg-gold/10 p-4 backdrop-blur">
+                      <div className="mb-2 flex items-center gap-2">
+                        <span className="text-base leading-none">{mod.emoji}</span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                          ◈ In {mod.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          · roleplay as {mod.userRole}
+                        </span>
+                      </div>
+                      <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
+                        {mod.challengePrompts.map((p) => (
+                          <button
+                            key={p}
+                            onClick={() => sendChip(p)}
+                            disabled={micActive || thinking}
+                            className="shrink-0 rounded-full border border-gold/50 bg-background/70 px-4 py-1.5 text-sm text-foreground transition-all hover:border-gold hover:bg-gold/15 disabled:opacity-40"
+                          >
+                            {p}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                <div className="mt-6">
+                  <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
+                    Topic starters
+                  </p>
+                  <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
+                    {(() => {
+                      const mod = getModule(state.activeModuleId);
+                      const focus = mod?.vocabFocus ?? null;
+                      const ordered = focus
+                        ? [...chips].sort((a, b) => {
+                            const am = matchesFocus(a, focus) ? 1 : 0;
+                            const bm = matchesFocus(b, focus) ? 1 : 0;
+                            return bm - am;
+                          })
+                        : chips;
+                      return ordered.map((chip) => {
+                        const inMod = !!focus && matchesFocus(chip, focus);
+                        return (
+                          <button
+                            key={chip}
+                            onClick={() => sendChip(chip)}
+                            disabled={micActive || thinking}
+                            className={
+                              "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
+                              (inMod
+                                ? "border-gold/60 hover:border-gold"
+                                : "border-gold/30 hover:border-gold/60")
+                            }
+                          >
+                            {inMod && <span className="mr-1 text-gold">◈</span>}
+                            {chip}
+                          </button>
+                        );
+                      });
+                    })()}
+                  </div>
+                </div>
+              </div>
+            </details>
+          )}
+          <div>
+            <h1 className="lt-speaking-title font-serif text-2xl text-foreground">Speak & Learn</h1>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {surface === "missions"
+                ? `Practice a focused ${language} situation with a clear goal.`
+                : `${exchanges} / ${exchangeGoal} exchanges${exchanges >= exchangeGoal ? " · Goal reached" : ""}`}
+            </p>
+          </div>
         </div>
         {surface === "conversation" && (
           <button
@@ -812,7 +943,7 @@ export function SpeakLearn() {
         hidden={surface === "missions" && missionFocused}
         role="tablist"
         aria-label="Speaking practice type"
-        className="grid grid-cols-2 rounded-2xl border border-border/70 bg-card/40 p-1"
+        className="lt-speaking-type grid grid-cols-2 rounded-2xl border border-border/70 bg-card/40 p-1"
       >
         <button
           type="button"
@@ -979,105 +1110,6 @@ export function SpeakLearn() {
               <span className="ml-2">Send</span>
             </button>
           </form>
-          <details className="relative shrink-0 rounded-xl border border-border px-3">
-            <summary className="min-h-11 cursor-pointer py-3 text-sm">Topics & challenges</summary>
-            <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
-              <label className="mb-3 flex items-center justify-between gap-2 text-sm">
-                <span>Voice input</span>
-                <select
-                  aria-label="Voice input"
-                  value={useRecordedAudio ? "audio" : "browser"}
-                  disabled={thinking || micActive || audioCaptureBusy}
-                  onChange={(event) => {
-                    stopOwned();
-                    setUseRecordedAudio(event.target.value === "audio");
-                  }}
-                  className="min-h-11 rounded-xl border border-border bg-background px-2"
-                >
-                  <option value="audio">Audio recording</option>
-                  <option value="browser">Browser dictation</option>
-                </select>
-              </label>
-              <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
-
-              <ChallengePanel
-                language={language}
-                nativeLanguage={state.nativeLanguage}
-                level={state.level}
-                active={challenge}
-                onStart={(c) => setChallenge(c)}
-                onSpeakAloud={speakAloud}
-              />
-
-              {(() => {
-                const mod = getModule(state.activeModuleId);
-                if (!mod) return null;
-                return (
-                  <div className="mt-6 rounded-3xl border border-gold/40 bg-gold/10 p-4 backdrop-blur">
-                    <div className="mb-2 flex items-center gap-2">
-                      <span className="text-base leading-none">{mod.emoji}</span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                        ◈ In {mod.name}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        · roleplay as {mod.userRole}
-                      </span>
-                    </div>
-                    <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
-                      {mod.challengePrompts.map((p) => (
-                        <button
-                          key={p}
-                          onClick={() => sendChip(p)}
-                          disabled={micActive || thinking}
-                          className="shrink-0 rounded-full border border-gold/50 bg-background/70 px-4 py-1.5 text-sm text-foreground transition-all hover:border-gold hover:bg-gold/15 disabled:opacity-40"
-                        >
-                          {p}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })()}
-
-              <div className="mt-6">
-                <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
-                  Topic starters
-                </p>
-                <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
-                  {(() => {
-                    const mod = getModule(state.activeModuleId);
-                    const focus = mod?.vocabFocus ?? null;
-                    const ordered = focus
-                      ? [...chips].sort((a, b) => {
-                          const am = matchesFocus(a, focus) ? 1 : 0;
-                          const bm = matchesFocus(b, focus) ? 1 : 0;
-                          return bm - am;
-                        })
-                      : chips;
-                    return ordered.map((chip) => {
-                      const inMod = !!focus && matchesFocus(chip, focus);
-                      return (
-                        <button
-                          key={chip}
-                          onClick={() => sendChip(chip)}
-                          disabled={micActive || thinking}
-                          className={
-                            "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
-                            (inMod
-                              ? "border-gold/60 hover:border-gold"
-                              : "border-gold/30 hover:border-gold/60")
-                          }
-                        >
-                          {inMod && <span className="mr-1 text-gold">◈</span>}
-                          {chip}
-                        </button>
-                      );
-                    });
-                  })()}
-                </div>
-              </div>
-            </div>
-          </details>
           <SpeakingConversationControls
             text={!hideReplyText}
             feedback={showFeedback}

@@ -8,28 +8,30 @@ import {
 /** Public lesson practice only. Exam banks and learner drafts are never pack inputs. */
 export function publicLessonOfflinePack(
   packId: OfflineLessonPackId,
-  definitions: LessonDefinition[] = Array.from({ length: 30 }, (_, index) =>
-    getLessonDefinition({
-      moduleId: OFFLINE_LESSON_TRACKS[packId].moduleId,
-      lessonNumber: index + 1,
-      targetLanguage: "Spanish",
-      instructionLanguage: "English",
-      contentVersion: modulePracticeVersion(
-        OFFLINE_LESSON_TRACKS[packId].moduleId,
-        "Spanish",
-        "English",
-      ),
-    }),
+  definitions: LessonDefinition[] = Array.from(
+    { length: OFFLINE_LESSON_TRACKS[packId].lessons },
+    (_, index) =>
+      getLessonDefinition({
+        moduleId: OFFLINE_LESSON_TRACKS[packId].moduleId,
+        lessonNumber: index + 1,
+        targetLanguage: OFFLINE_LESSON_TRACKS[packId].target,
+        instructionLanguage: OFFLINE_LESSON_TRACKS[packId].native,
+        contentVersion: modulePracticeVersion(
+          OFFLINE_LESSON_TRACKS[packId].moduleId,
+          OFFLINE_LESSON_TRACKS[packId].target,
+          OFFLINE_LESSON_TRACKS[packId].native,
+        ),
+      }),
   ).filter((lesson): lesson is LessonDefinition => lesson !== null),
 ) {
   if (
-    definitions.length !== 30 ||
+    definitions.length !== OFFLINE_LESSON_TRACKS[packId].lessons ||
     definitions.some(
       (lesson, index) =>
         lesson.moduleId !== OFFLINE_LESSON_TRACKS[packId].moduleId ||
         lesson.lessonNumber !== index + 1 ||
-        lesson.targetLanguage !== "Spanish" ||
-        lesson.instructionLanguage !== "English" ||
+        lesson.targetLanguage !== OFFLINE_LESSON_TRACKS[packId].target ||
+        lesson.instructionLanguage !== OFFLINE_LESSON_TRACKS[packId].native ||
         !lesson.teaching ||
         !lesson.reading?.sentences.length ||
         lesson.reading.sentences.some((sentence) => !sentence.target || !sentence.native) ||
@@ -37,16 +39,18 @@ export function publicLessonOfflinePack(
         lesson.words.filter((word) => word.kind === "phrase").length < 4,
     )
   )
-    throw new Error("Lesson pack requires thirty ordered, complete Spanish/English lesson drafts.");
+    throw new Error(
+      `Lesson pack requires ${OFFLINE_LESSON_TRACKS[packId].lessons === 30 ? "thirty" : OFFLINE_LESSON_TRACKS[packId].lessons} ordered, complete ${OFFLINE_LESSON_TRACKS[packId].target}/${OFFLINE_LESSON_TRACKS[packId].native} lesson drafts.`,
+    );
   return {
     schema: 1,
     moduleId: OFFLINE_LESSON_TRACKS[packId].moduleId,
-    targetLanguage: "Spanish",
-    instructionLanguage: "English",
+    targetLanguage: OFFLINE_LESSON_TRACKS[packId].target,
+    instructionLanguage: OFFLINE_LESSON_TRACKS[packId].native,
     contentVersion: modulePracticeVersion(
       OFFLINE_LESSON_TRACKS[packId].moduleId,
-      "Spanish",
-      "English",
+      OFFLINE_LESSON_TRACKS[packId].target,
+      OFFLINE_LESSON_TRACKS[packId].native,
     ),
     contentStatus: "draft",
     purpose: "lesson-practice",

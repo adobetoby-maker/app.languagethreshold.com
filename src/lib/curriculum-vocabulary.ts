@@ -9,7 +9,13 @@ export interface CurriculumWordMatch {
   href: string;
 }
 export interface CurriculumVocabularyData {
-  modules: { id: string; name: string; lessons: Record<string, string | undefined> }[];
+  modules: {
+    id: string;
+    name: string;
+    target?: string;
+    native?: string;
+    lessons: Record<string, string | undefined>;
+  }[];
   entries: (string | number)[][];
 }
 const normalized = (word: string) =>
@@ -41,8 +47,8 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
           ? "/?tab=dictionary&target=Spanish&native=English"
           : moduleLessonUrl({
               moduleId: module.id,
-              target: "Spanish",
-              native: "English",
+              target: module.target ?? "Spanish",
+              native: module.native ?? "English",
               lesson,
               way: "see",
             }),

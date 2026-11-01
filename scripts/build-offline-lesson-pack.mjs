@@ -75,7 +75,7 @@ export async function buildOfflineLessonPack(staticRoot, packId = "roofing-es-en
   writeFileSync(path.join(directory, filename), content);
   writeFileSync(path.join(directory, `${packId}.json`), JSON.stringify(manifest));
   console.log(
-    `✓ ${packId} draft pack: 30 lessons, ${assets.length} hashed app assets, ${manifest.totalBytes} bytes; installation is separate`,
+    `✓ ${packId} draft pack: ${pack.lessons.length} lessons, ${assets.length} hashed app assets, ${manifest.totalBytes} bytes; installation is separate`,
   );
   return manifest;
 }

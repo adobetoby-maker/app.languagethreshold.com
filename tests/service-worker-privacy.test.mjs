@@ -106,7 +106,7 @@ function runtime() {
 }
 test("private routes and legacy Exams entry never read or write the public cache, even offline", async () => {
   const r = runtime();
-  const cache = await r.caches.open("lt-v19");
+  const cache = await r.caches.open("lt-v20");
   await cache.put("/", new Response("public shell"));
   for (const path of [
     "/exam-content",
@@ -137,7 +137,7 @@ test("no-store and private navigation responses are delivered without being cach
     const r = runtime();
     r.network(new Response("sensitive", { headers: { "Cache-Control": directive } }));
     assert.equal(await (await r.fetch("/public-page")).text(), "sensitive");
-    assert.equal(await (await r.caches.open("lt-v19")).match("/public-page"), undefined);
+    assert.equal(await (await r.caches.open("lt-v20")).match("/public-page"), undefined);
   }
 });
 test("public root stays cacheable while plan and return-plan URLs use only the public shell offline", async () => {
@@ -147,7 +147,7 @@ test("public root stays cacheable while plan and return-plan URLs use only the p
     await r.fetch("/");
     r.network(new Response("context fixture"));
     await r.fetch(path);
-    assert.equal(await (await r.caches.open("lt-v19")).match(path), undefined);
+    assert.equal(await (await r.caches.open("lt-v20")).match(path), undefined);
     r.offline();
     assert.equal(await (await r.fetch(path)).text(), "public");
   }
@@ -172,16 +172,16 @@ test("worker activation purges the previous general cache but retains complete p
   await r.caches.open("lt-v17");
   // the cache name the worker used before /trade-packs/ was added must be purged too
   await r.caches.open("lt-v18");
-  await r.caches.open("lt-v19");
+  await r.caches.open("lt-v20");
   await r.caches.open("lt-lesson-pack-fixture");
   await r.activate();
-  assert.deepEqual([...r.stores.keys()], ["lt-v19", "lt-lesson-pack-fixture"]);
+  assert.deepEqual([...r.stores.keys()], ["lt-v20", "lt-lesson-pack-fixture"]);
 });
 test("initial automatic shell caching also honors private response policy", async () => {
   const r = runtime();
   r.network(new Response("private shell", { headers: { "Cache-Control": "no-store" } }));
   await r.install();
-  assert.equal(await (await r.caches.open("lt-v19")).match("/"), undefined);
+  assert.equal(await (await r.caches.open("lt-v20")).match("/"), undefined);
 });
 test("a trade pack is cached on first load and served from the cache when the network fails", async () => {
   const r = runtime();
@@ -192,7 +192,7 @@ test("a trade pack is cached on first load and served from the cache when the ne
   assert.equal(await first.text(), body);
   assert.equal(r.calls(), 1);
   // the pack is now in the current cache
-  assert.equal(await (await (await r.caches.open("lt-v19")).match(path)).text(), body);
+  assert.equal(await (await (await r.caches.open("lt-v20")).match(path)).text(), body);
 
   r.offline();
   const offline = await r.fetch(path, { asset: true });
@@ -206,5 +206,5 @@ test("a private response is never stored as a trade pack", async () => {
   const path = "/trade-packs/es/roofing.json";
   r.network(new Response("{}", { headers: { "Cache-Control": "no-store" } }));
   await r.fetch(path, { asset: true });
-  assert.equal(await (await r.caches.open("lt-v19")).match(path), undefined);
+  assert.equal(await (await r.caches.open("lt-v20")).match(path), undefined);
 });

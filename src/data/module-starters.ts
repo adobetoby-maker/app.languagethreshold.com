@@ -522,6 +522,18 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const militaryCount =
+    moduleId === "military"
+      ? 30
+      : moduleId === "foundation-military"
+        ? 10
+        : moduleId === "master-military"
+          ? 20
+          : 0;
+  if (militaryCount)
+    return language === "English"
+      ? Array.from({ length: militaryCount }, (_, i) => `seed-en-${moduleId}-lesson-${i + 1}`)
+      : [];
   const lessons = MODULE_LESSONS[moduleId];
   if (!lessons) return [];
   if (language === "English" && !lessons.English?.length) {
@@ -549,19 +561,21 @@ export function englishModuleSeedsFromSpanish(entries: LibraryEntry[]): LibraryE
   return [...ids].flatMap((id) => {
     const source = byId.get(id);
     if (!source?.available || source.language !== "Spanish" || !source.sentences.length) return [];
-    return [{
-      ...source,
-      id: englishFromSpanishSeedId(id),
-      language: "English" as const,
-      targetLabel: "English",
-      flag: "🇺🇸",
-      subtitle: source.subtitle ? `${source.subtitle} · Español → English` : "Español → English",
-      sentences: source.sentences.map(({ en, target }) => ({ en: target, target: en })),
-      chapters: source.chapters?.map((chapter) => ({
-        ...chapter,
-        sentences: chapter.sentences.map(({ en, target }) => ({ en: target, target: en })),
-      })),
-    }];
+    return [
+      {
+        ...source,
+        id: englishFromSpanishSeedId(id),
+        language: "English" as const,
+        targetLabel: "English",
+        flag: "🇺🇸",
+        subtitle: source.subtitle ? `${source.subtitle} · Español → English` : "Español → English",
+        sentences: source.sentences.map(({ en, target }) => ({ en: target, target: en })),
+        chapters: source.chapters?.map((chapter) => ({
+          ...chapter,
+          sentences: chapter.sentences.map(({ en, target }) => ({ en: target, target: en })),
+        })),
+      },
+    ];
   });
 }
 

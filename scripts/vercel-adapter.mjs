@@ -17,6 +17,8 @@ cpSync("dist/client", `${out}/static`, { recursive: true });
 await buildOfflineLessonPack(`${out}/static`);
 await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
 await buildOfflineLessonPack(`${out}/static`, "construction-foreman-es-en");
+for (const pack of ["foundation-military-en-es", "military-en-es", "master-military-en-es"])
+  await buildOfflineLessonPack(`${out}/static`, pack);
 
 // Bundle server.js + all npm dependencies (h3-v2, @tanstack/*, seroval, etc.)
 // into a single CJS file. Vercel function has no node_modules at runtime so
@@ -141,12 +143,12 @@ writeFileSync(
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
       {
-        src: "/lesson-packs/((?:roofing|landscaper|construction-foreman)-es-en\\.json)",
+        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman)-es-en|(?:foundation-military|military|master-military)-en-es)\\.json)",
         headers: { "cache-control": "no-store" },
         dest: "/lesson-packs/$1",
       },
       {
-        src: "/lesson-packs/((?:roofing|landscaper|construction-foreman)-es-en-[a-f0-9]{64}\\.json)",
+        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman)-es-en|(?:foundation-military|military|master-military)-en-es)-[a-f0-9]{64}\\.json)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
         dest: "/lesson-packs/$1",
       },

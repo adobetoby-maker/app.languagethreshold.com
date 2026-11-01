@@ -6,6 +6,8 @@ import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
 import { authoredLessonReading } from "./lesson-reading.ts";
 
 import { lessonObjectiveId } from "./learning-identity.ts";
+import { getModule } from "../data/modules.ts";
+import { authoredWordsPair, pickAuthoredWords } from "./lesson-words-core.ts";
 export { lessonObjectiveId } from "./learning-identity.ts";
 
 export interface LessonDefinition {
@@ -44,7 +46,12 @@ export function getLessonDefinition(input: {
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
   const words =
-    targetLanguage === "Spanish" && instructionLanguage === "English" ? (source.words ?? []) : [];
+    pickAuthoredWords(
+      source.words,
+      targetLanguage,
+      instructionLanguage,
+      authoredWordsPair(getModule(moduleId)?.learnDirection),
+    ) ?? [];
   const teaching = moduleTeachingSettings(
     moduleId,
     lessonNumber,

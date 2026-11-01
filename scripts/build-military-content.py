@@ -15,6 +15,21 @@ thresholds = {
 }
 for row in rows:
     row['content']['words'] = row['lesson']['words']
+
+# One source for the shared reader/teaching definition and lesson speaking cards.
+# Public content remains separately loadable by the normal lesson-content hook.
+practice = {}
+for row in rows:
+    module = 'military' if row['stage'] == 'core' else f"{row['stage']}-military"
+    practice.setdefault(module, {})[str(row['lesson']['n'])] = {
+        'stage': row['stage'],
+        'reading': row['content']['passage'],
+        'speaking': row['lesson']['speaking'],
+        'openingLine': row['lesson']['openingLine'],
+        'partnerRole': row['lesson']['partnerRole'],
+    }
+(ROOT / 'src/data/military-practice.json').write_text(
+    json.dumps(practice, ensure_ascii=False, indent=2) + '\n')
 for stage, count in counts.items():
     selected = [row for row in rows if row['stage'] == stage]
     assert len(selected) == count

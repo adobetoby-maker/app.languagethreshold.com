@@ -1,6 +1,7 @@
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "../data/construction-foreman-lesson-content.ts";
+import { militaryLessonPractice } from "../data/military-practice.ts";
 
 /** Authored translations belong to an exact pair, never just a target language. */
 export function authoredLessonReading(
@@ -9,6 +10,19 @@ export function authoredLessonReading(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
+  if (targetLanguage === "English" && instructionLanguage === "Spanish" && lessonNumber) {
+    const draft = militaryLessonPractice(moduleId, lessonNumber);
+    return draft
+      ? {
+          id: `${moduleId}-lesson-${lessonNumber}`,
+          title: draft.reading.title,
+          sentences: draft.reading.target.map((target, i) => ({
+            target,
+            en: draft.reading.native[i],
+          })),
+        }
+      : null;
+  }
   if (targetLanguage !== "Spanish" || instructionLanguage !== "English" || !lessonNumber)
     return null;
   const passage =
@@ -47,5 +61,8 @@ export function exactLessonLibraryId(
 }
 
 export function libraryTranslationLanguage(id: string | null) {
-  return id?.startsWith("esl-") ? "Spanish" : "English";
+  return id?.startsWith("esl-") ||
+    /^seed-en-(?:foundation-|master-)?military-lesson-/.test(id ?? "")
+    ? "Spanish"
+    : "English";
 }

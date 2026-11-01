@@ -19,6 +19,7 @@ import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
+import { militaryLessonPractice } from "./military-practice.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
@@ -1186,7 +1187,8 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const form = (language === "Spanish" ? word.es : word.en).trim();
+    const authoredTarget = module.learnDirection === "en-target" ? "English" : "Spanish";
+    const form = (language === authoredTarget ? word.es : word.en).trim();
     const key = form.toLocaleLowerCase();
     if (!form || seen.has(key)) continue;
     seen.add(key);
@@ -1205,7 +1207,13 @@ function missionFromLesson(
   lesson: Lesson,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
-  const teaching = moduleTeachingSettings(module.id, lesson.n, language, "English");
+  const teaching = moduleTeachingSettings(
+    module.id,
+    lesson.n,
+    language,
+    module.learnDirection === "en-target" ? "Spanish" : "English",
+  );
+  const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>
@@ -1226,14 +1234,19 @@ function missionFromLesson(
     moduleName: module.name,
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
-    partnerRole: partnerRoleFor(module, language),
-    level: isMasterModule(module.id) ? "B1" : "A2",
+    partnerRole: military?.partnerRole ?? partnerRoleFor(module, language),
+    level: military?.stage === "foundation" ? "A1" : isMasterModule(module.id) ? "B1" : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
     locale,
     vocabulary: lessonMissionVocabulary(module, lesson, language),
-    sourcePrompts: projectedSteps,
+    sourcePrompts: military
+      ? [
+          ...projectedSteps,
+          ...(lesson.words ?? []).filter((w) => w.note).map((w) => `${w.es}: ${w.note}`),
+        ]
+      : projectedSteps,
     sourceObjectiveId: lessonObjectiveId(module.id, lesson.n),
     ...(teaching ? { lessonTeaching: { stage: teaching.stage, speaking: teaching.speaking } } : {}),
     objectives: [
@@ -1253,7 +1266,7 @@ function missionFromLesson(
         critical: true,
       },
     ],
-    openingLine: openingLineForModule(module, language, specialty),
+    openingLine: military?.openingLine ?? openingLineForModule(module, language, specialty),
     safetyRules: safetyRulesForModule(module, specialty, riskClass),
     riskClass,
     ...(isMasterModule(module.id) ? { surpriseComplication: true } : {}),

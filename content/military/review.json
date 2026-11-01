@@ -3,7 +3,11 @@
   "moduleId": "military",
   "targetLanguage": "English",
   "nativeLanguage": "Spanish",
-  "levels": { "foundation": 10, "core": 30, "master": 20 },
+  "levels": {
+    "foundation": 10,
+    "core": 30,
+    "master": 20
+  },
   "status": "authored-draft",
   "reviewed": false,
   "scope": "Military language learning: small-unit terminology, administrative radio communication, weapons and equipment identification, document comprehension, briefings and safety reporting.",
@@ -32,5 +36,47 @@
     "Audio uses the existing app playback path; no new recorded voice assets or offline speech engine are included.",
     "Weapons lessons teach names, distinctions and safety-reporting language, not operating procedures."
   ],
-  "rebuild": "python3 scripts/build-military-content.py"
+  "rebuild": "python3 scripts/build-military-content.py",
+  "updated": "2026-11-01",
+  "practiceIntegration": {
+    "levels": {
+      "foundation": 10,
+      "core": 30,
+      "master": 20
+    },
+    "speakingOpenings": 60,
+    "alignedReaderPassages": 60,
+    "practiceModes": [
+      "see",
+      "recall",
+      "hear",
+      "type",
+      "say",
+      "write"
+    ],
+    "offlinePacks": [
+      "foundation-military-en-es",
+      "military-en-es",
+      "master-military-en-es"
+    ],
+    "dictionary": "Authored English headwords and Spanish meanings link to the English course.",
+    "teaching": "Foundation supported; Core progressively supported/connected/independent; Master independent."
+  },
+  "roofingComparison": {
+    "matched": [
+      "10/30/20 path and stable lesson identities",
+      "Lesson vocabulary, phrases and plain-English notes",
+      "Inline reading, full Reader and aligned translations",
+      "Six practice modes, response prompts and staged listening",
+      "Lesson speaking cards and Master surprise complications",
+      "Public lesson download packs and exact language-pair matching",
+      "Dictionary lesson links and shared flashcard/review workflows"
+    ],
+    "remaining": [
+      "Roofing has a bespoke trade-guide/phrase pack; Military currently uses its lesson-linked Reader passages and cards.",
+      "A bespoke Military assessment question bank equivalent to Roofing’s formal assessment bank is not included.",
+      "Human bilingual military terminology review and learner validation remain pending.",
+      "Recorded human audio is not included; playback uses the existing speech path, and offline listening depends on device voices."
+    ]
+  }
 }

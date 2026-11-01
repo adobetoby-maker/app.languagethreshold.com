@@ -8,6 +8,7 @@ import {
 
 export function OfflineLessonDownload({ packId }: { packId: OfflineLessonPackId }) {
   const label = OFFLINE_LESSON_TRACKS[packId].label;
+  const track = OFFLINE_LESSON_TRACKS[packId];
   const generation = useRef({ value: 0 });
   const [saved, setSaved] = useState<LessonDownloadStatus | null>(null);
   const [busy, setBusy] = useState(false);
@@ -80,8 +81,8 @@ export function OfflineLessonDownload({ packId }: { packId: OfflineLessonPackId 
       </summary>
       <p className="mt-2 text-sm">
         {saved?.ready
-          ? "30 lesson texts and the app files are saved on this browser."
-          : "Download all 30 Spanish lessons with English instructions before going offline."}
+          ? `${track.lessons} lesson texts and the app files are saved on this browser.`
+          : `Download all ${track.lessons} ${track.target} lessons with ${track.native} support before going offline.`}
       </p>
       <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-relaxed text-muted-foreground">
         <li>
@@ -89,7 +90,7 @@ export function OfflineLessonDownload({ packId }: { packId: OfflineLessonPackId 
           content. Tapped words can show exact matches from this lesson’s word list.
         </li>
         <li>
-          Listening needs a Spanish voice installed on your device. Audio recordings are not
+          Listening needs a {track.target} voice installed on your device. Audio recordings are not
           included.
         </li>
         <li>

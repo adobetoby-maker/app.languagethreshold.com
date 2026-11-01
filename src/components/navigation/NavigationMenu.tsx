@@ -61,14 +61,17 @@ export function NavigationMenu({
     containsActive: boolean,
     initiallyOpen: boolean,
   ) {
-    const open = containsActive || !(collapsed[id] ?? !initiallyOpen);
+    // Keep the active section visible by default, but let the learner close it.
+    // A new active tab gets a fresh default rather than inheriting a prior fold.
+    const stateKey = `${id}:${active}`;
+    const open = !(collapsed[stateKey] ?? !(containsActive || initiallyOpen));
     return (
       <div key={id}>
         <button
           type="button"
           aria-expanded={open}
           aria-controls={`${mobile ? "mobile" : "desktop"}-${id}`}
-          onClick={() => setCollapsed((value) => ({ ...value, [id]: open }))}
+          onClick={() => setCollapsed((value) => ({ ...value, [stateKey]: open }))}
           className="flex min-h-11 w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-gold-ink hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         >
           {label}

@@ -726,67 +726,80 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <p className="mb-4 mt-1 text-sm font-semibold text-gold-ink">
             {moreView === "settings" ? "Settings" : "Explore"}
           </p>
-          {/* Which pair of languages you are working in, above everything else.
+          <details
+            className="group mb-3 rounded-xl border border-border/40 bg-card/30 px-3 py-1"
+            open={moreView === "settings" ? true : undefined}
+          >
+            <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold text-foreground">
+              <SlidersHorizontal className="h-4 w-4 text-gold-ink" aria-hidden="true" />
+              Language and account
+              <ChevronDown
+                className="ml-auto h-4 w-4 transition-transform group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            {/* Which pair of languages you are working in.
               The bottom strip shows the target only, and native was reachable
               solely from TopNav — which is desktop-only, so on a phone there was
               no way to see or change it. Plain <select> rather than a dropdown
-              menu: inside a bottom sheet iOS gives the native picker wheel,
+               menu: inside the drawer iOS gives the native picker wheel,
               which is easier to hit and cannot be mis-scrolled. */}
-          <div className="mb-3 grid grid-cols-2 gap-2">
-            <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                Learning
-              </span>
-              <select
-                value={state.selectedLanguage}
-                onChange={(e) => {
-                  const lang = e.target.value as Language;
-                  dispatch({ type: "SET_LANGUAGE", payload: lang });
-                  if (lang === "English" && state.nativeLanguage === "English") {
-                    dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+            <div className="mb-3 grid grid-cols-2 gap-2">
+              <label className="flex flex-col gap-1">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                  Learning
+                </span>
+                <select
+                  value={state.selectedLanguage}
+                  onChange={(e) => {
+                    const lang = e.target.value as Language;
+                    dispatch({ type: "SET_LANGUAGE", payload: lang });
+                    if (lang === "English" && state.nativeLanguage === "English") {
+                      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+                    }
+                  }}
+                  className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+                >
+                  {LANGUAGES.map((lang) => (
+                    <option key={lang} value={lang}>
+                      {lang}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                  Native
+                </span>
+                <select
+                  value={state.nativeLanguage}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "SET_NATIVE_LANGUAGE",
+                      payload: e.target.value as NativeLanguage,
+                    })
                   }
-                }}
-                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
-              >
-                {LANGUAGES.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                Native
-              </span>
-              <select
-                value={state.nativeLanguage}
-                onChange={(e) =>
-                  dispatch({
-                    type: "SET_NATIVE_LANGUAGE",
-                    payload: e.target.value as NativeLanguage,
-                  })
-                }
-                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
-              >
-                {NATIVE_LANGUAGES.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          <div className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-3 py-3">
-            <span className="text-sm text-foreground">Your account</span>
-            <div className="flex items-center gap-3">
-              <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
-                Pricing
-              </a>
-              <AuthButton />
+                  className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+                >
+                  {NATIVE_LANGUAGES.map((lang) => (
+                    <option key={lang} value={lang}>
+                      {lang}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
-          </div>
+
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-3 py-3">
+              <span className="text-sm text-foreground">Your account</span>
+              <div className="flex items-center gap-3">
+                <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
+                  Pricing
+                </a>
+                <AuthButton />
+              </div>
+            </div>
+          </details>
 
           <div hidden={moreView === "settings"}>
             <div className="mt-2 space-y-5">

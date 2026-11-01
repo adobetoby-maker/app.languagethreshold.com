@@ -576,6 +576,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
       </aside>
 
+      <button
+        type="button"
+        aria-label="Navigation, language and module"
+        onClick={() => {
+          setMoreView("tabs");
+          setMoreSheetOpen(true);
+        }}
+        className="lt-speaking-navigation h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-background text-foreground shadow-lg"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
       {/* The familiar bottom navigation is reserved for phones and touch tablets. */}
       <nav
         aria-label="Primary"
@@ -782,6 +794,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </select>
             </label>
           </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMoreSheetOpen(false);
+              setModuleDialogOpen(true);
+            }}
+            className="mb-3 flex min-h-11 w-full items-center justify-between rounded-xl border border-border/60 bg-card/30 px-3 py-2 text-sm"
+          >
+            <span>Module: {mod ? `${mod.emoji} ${mod.name}` : "Core (Free)"}</span>
+            <ChevronDown className="h-4 w-4" />
+          </button>
 
           <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
           <SheetDescription className="sr-only">

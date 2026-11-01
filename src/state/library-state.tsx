@@ -19,6 +19,10 @@ import { toast } from "sonner";
 import { createLibraryRemote } from "@/lib/library-remote";
 import { LANGUAGES } from "@/data/languages";
 import { createLibraryDevice, readLibraryPreferences } from "@/lib/library-device";
+import { LIBRARY_PACK_LOADERS } from "@/data/library-pack-loaders";
+import { LDS_PACK_LOADERS } from "@/data/lds-pack-loaders";
+import { appendLanguageSeeds } from "@/lib/library-seed-set";
+import { createLibraryPackCache } from "@/lib/library-pack-cache";
 import { readerSelectionScope } from "@/lib/reader-selection";
 
 function browserLibraryStorage() {
@@ -60,8 +64,7 @@ type Action =
   | { type: "REPLACE_BY_ID"; payload: LibraryEntry }
   | { type: "REMOVE_ENTRY"; payload: string }
   | { type: "SET_CUSTOM_ENTRIES"; payload: LibraryEntry[] }
-  | { type: "LOAD_SEEDS"; payload: LibraryEntry[] }
-  | { type: "APPEND_SEEDS"; payload: LibraryEntry[] }
+  | { type: "APPEND_LANGUAGE_SEEDS"; payload: LibraryEntry[]; language: string }
   | { type: "SET_READ_STATUS"; payload: { id: string; status: ReadStatus } }
   | { type: "SET_LANGUAGE_FILTER"; payload: Language[] };
 
@@ -125,23 +128,11 @@ function reducer(state: LibraryState, action: Action): LibraryState {
       const nonCustom = state.entries.filter((e) => e.section !== "custom");
       return { ...state, entries: [...action.payload, ...nonCustom] };
     }
-    case "LOAD_SEEDS": {
-      // Merge seeds in, preserving custom entries and any LDS packs already
-      // loaded by APPEND_SEEDS (race-condition guard: LDS chunks are smaller
-      // and may resolve before the main all-seeds chunk).
-      const customs = state.entries.filter((e) => e.section === "custom");
-      const preloadedMissionary = state.entries.filter((e) => e.section === "missionary");
-      const preloadedIds = new Set(preloadedMissionary.map((e) => e.id));
-      const dedupedPayload = action.payload.filter((e) => !preloadedIds.has(e.id));
-      return { ...state, entries: [...customs, ...preloadedMissionary, ...dedupedPayload] };
-    }
-    case "APPEND_SEEDS": {
-      // Add new entries without overwriting existing ones (idempotent).
-      const existingIds = new Set(state.entries.map((e) => e.id));
-      const novel = action.payload.filter((e) => !existingIds.has(e.id));
-      if (novel.length === 0) return state;
-      return { ...state, entries: [...state.entries, ...novel] };
-    }
+    case "APPEND_LANGUAGE_SEEDS":
+      return {
+        ...state,
+        entries: appendLanguageSeeds(state.entries, action.payload, action.language),
+      };
     case "SELECT": {
       const cur = state.readStatus[action.payload];
       const readStatus =
@@ -179,6 +170,8 @@ interface LibraryContextValue {
   syncError: string | null;
   legacySaved: boolean;
   readyToSelect: boolean;
+  seedError: string | null;
+  retrySeeds: () => void;
   syncLibrary: () => void;
   recoverOlderLibrary: (confirmed: boolean) => number;
   setReadStatus: (id: string, status: ReadStatus) => void;
@@ -248,48 +241,69 @@ export function LibraryProvider({
       ...localState,
       entries: [
         ...deviceState.books,
-        ...localState.entries.filter((entry) => entry.section !== "custom"),
+        ...localState.entries.filter(
+          (entry) => entry.section !== "custom" && entry.language === appState.selectedLanguage,
+        ),
       ],
     }),
-    [localState, deviceState.books],
+    [localState, deviceState.books, appState.selectedLanguage],
   );
+  const selectedLanguage = appState.selectedLanguage;
+  const activeModuleId = appState.activeModuleId;
+  const selectionKey = `${selectedLanguage}/${activeModuleId ?? "core"}`;
+  const [readySelection, setReadySelection] = useState<string | null>(null);
+  const [seedError, setSeedError] = useState<string | null>(null);
+  const [retryToken, setRetryToken] = useState(0);
+  const loadPack = useMemo(() => createLibraryPackCache(LIBRARY_PACK_LOADERS), []);
+  const loadScriptures = useMemo(() => createLibraryPackCache(LDS_PACK_LOADERS), []);
+  const currentLanguage = useRef(selectedLanguage);
+  currentLanguage.current = selectedLanguage;
   const readyToSelect =
     appState.hydrated &&
     (!actor || profileReadyUserId === actor) &&
+    readySelection === selectionKey &&
     (initialLibraryReady ||
       state.entries.some((entry) => entry.id === state.selectedId && entry.available));
-  const selectedLanguage = appState.selectedLanguage;
-  const loadedLangPacksRef = useRef(new Set<string>());
-  const selectedLangRef = useRef(selectedLanguage);
-  const triggerLdsPack = useCallback(
-    (lang: string, loaders: Record<string, () => Promise<LibraryEntry[]>>) => {
-      if (loadedLangPacksRef.current.has(lang)) return;
-      const loader = loaders[lang];
-      if (!loader) return;
-      loadedLangPacksRef.current.add(lang);
-      loader().then((entries) => rawDispatch({ type: "APPEND_SEEDS", payload: entries }));
-    },
-    [],
-  );
 
   useEffect(() => {
-    selectedLangRef.current = selectedLanguage;
-  }, [selectedLanguage]);
-
-  // Load all-seeds lazily, then immediately load the active language's LDS pack.
-  useEffect(() => {
-    import("@/data/all-seeds").then(({ ALL_SEEDS, LDS_PACK_LOADERS }) => {
-      rawDispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
-      triggerLdsPack(selectedLangRef.current, LDS_PACK_LOADERS);
-    });
-  }, [triggerLdsPack]);
-
-  // When the user switches language, load that language's LDS pack on demand.
-  useEffect(() => {
-    import("@/data/all-seeds").then(({ LDS_PACK_LOADERS }) => {
-      triggerLdsPack(selectedLanguage, LDS_PACK_LOADERS);
-    });
-  }, [selectedLanguage, triggerLdsPack]);
+    if (!appState.hydrated || (actor && profileReadyUserId !== actor)) return;
+    let active = true;
+    setSeedError(null);
+    // Only these two selections initiate loads. Module content is appended so
+    // changing modules in this language preserves already loaded readings.
+    const keys = [`${selectedLanguage}/core`];
+    if (activeModuleId) keys.push(`${selectedLanguage}/${activeModuleId}`);
+    const scriptures = activeModuleId?.includes("lds-missionary")
+      ? loadScriptures(selectedLanguage)
+      : Promise.resolve([]);
+    void Promise.all([Promise.all(keys.map(loadPack)), scriptures])
+      .then(([packs, scriptureEntries]) => {
+        if (!mounted.current || currentLanguage.current !== selectedLanguage) return;
+        rawDispatch({
+          type: "APPEND_LANGUAGE_SEEDS",
+          language: selectedLanguage,
+          payload: [...packs.flat(), ...scriptureEntries],
+        });
+        if (active) setReadySelection(selectionKey);
+      })
+      .catch(() => {
+        if (active)
+          setSeedError("Could not load your reading. Check your connection and try again.");
+      });
+    return () => {
+      active = false;
+    };
+  }, [
+    selectedLanguage,
+    activeModuleId,
+    selectionKey,
+    loadPack,
+    loadScriptures,
+    retryToken,
+    appState.hydrated,
+    actor,
+    profileReadyUserId,
+  ]);
 
   useEffect(() => {
     device.savePreferences({
@@ -326,22 +340,24 @@ export function LibraryProvider({
 
   const selected = useMemo(
     () =>
-      state.entries.find((e) => e.id === state.selectedId && e.available) ??
-      state.entries.find((e) => e.available) ??
-      state.entries[0] ??
+      state.entries.find(
+        (e) => e.id === state.selectedId && e.available && e.language === selectedLanguage,
+      ) ??
+      state.entries.find((e) => e.available && e.language === selectedLanguage) ??
+      state.entries.find((e) => e.language === selectedLanguage) ??
       // Fallback until seeds load (entries is empty on initial SSR render)
       ({
         id: "__loading__",
         title: "",
         subtitle: "",
-        language: "Spanish",
+        language: selectedLanguage,
         targetLabel: "",
         sentences: [],
         section: "classic",
         flag: "",
         available: false,
       } as LibraryEntry),
-    [state.entries, state.selectedId],
+    [state.entries, state.selectedId, selectedLanguage],
   );
 
   // Keep the open text consistent with the learner's chosen language and level.
@@ -388,6 +404,8 @@ export function LibraryProvider({
         syncError: deviceState.error,
         legacySaved: deviceState.legacySaved,
         readyToSelect,
+        seedError,
+        retrySeeds: () => setRetryToken((value) => value + 1),
         syncLibrary: () => {
           void device.sync();
         },

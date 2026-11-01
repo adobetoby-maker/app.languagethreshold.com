@@ -6,7 +6,7 @@ import path from "node:path";
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
 
 /** Static allowlist: no server output, private routes, source maps or account data. */
-export function offlineAssetInventory(staticRoot) {
+export function offlineAssetInventory(staticRoot, libraryShards = null) {
   const assets = [];
   function visit(directory) {
     for (const entry of readdirSync(directory, { withFileTypes: true })) {
@@ -14,6 +14,10 @@ export function offlineAssetInventory(staticRoot) {
       if (entry.isSymbolicLink()) throw new Error("Offline assets cannot be symbolic links.");
       if (entry.isDirectory()) visit(file);
       else if (entry.isFile() && /\.(?:js|mjs|css|woff2?|png|svg|jpg|webp|ico)$/.test(entry.name)) {
+        // A lesson download needs its language's core + selected trade, not the
+        // entire multilingual library. Keep the existing 512-asset safety bound.
+        const shard = entry.name.match(/^([a-f0-9]{16})-.*\.js$/)?.[1];
+        if (libraryShards && shard && !libraryShards.has(shard)) continue;
         const bytes = readFileSync(file);
         const url = "/" + path.relative(staticRoot, file).split(path.sep).join("/");
         assets.push({ url, bytes: bytes.length, sha256: digest(bytes) });
@@ -44,10 +48,16 @@ export async function buildOfflineLessonPack(staticRoot, packId = "roofing-es-en
     "data:text/javascript;base64," +
       Buffer.from(compiled.outputFiles[0].contents).toString("base64")
   );
-  const content = JSON.stringify(publicLessonOfflinePack(packId));
+  const pack = publicLessonOfflinePack(packId);
+  const content = JSON.stringify(pack);
   const hash = digest(content);
   const filename = `${packId}-${hash}.json`;
-  const assets = offlineAssetInventory(staticRoot);
+  const libraryManifest = JSON.parse(readFileSync("src/data/library-pack-manifest.json", "utf8"));
+  const libraryShards = new Set([
+    ...(libraryManifest[`${pack.targetLanguage}/core`] ?? []),
+    ...(libraryManifest[`${pack.targetLanguage}/${pack.moduleId}`] ?? []),
+  ]);
+  const assets = offlineAssetInventory(staticRoot, libraryShards);
   const appVersion = digest(JSON.stringify(assets));
   const manifest = {
     schema: 1,

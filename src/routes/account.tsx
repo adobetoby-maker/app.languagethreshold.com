@@ -338,14 +338,14 @@ function AccountPage() {
                     Switch to annual — save 35%
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    $149/year vs $228/year monthly. Same full access.
+                    $149/year instead of $228 across 12 monthly payments. Save $79 a year.
                   </p>
                 </div>
                 <a
-                  href={ANNUAL_LINK ?? "/pricing?billing=annual"}
+                  href={ANNUAL_LINK ?? "/pricing?plan=annual"}
                   className="shrink-0 rounded-lg bg-gold px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Upgrade →
+                  {ANNUAL_LINK ? "Upgrade →" : "Compare plans →"}
                 </a>
               </div>
             </section>

@@ -1,3 +1,6 @@
+import { NavigationMenu } from "./navigation/NavigationMenu";
+import { navigationVersion, type NavigationVersion } from "@/lib/navigation-menu";
+import { appBuildInfo } from "@/lib/app-build-info";
 import { FounderStoryLink } from "./FounderStoryLink";
 import { BlogNavLink } from "./blog/BlogNavLink";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
@@ -248,8 +251,6 @@ const TAB_ITEMS: {
   { key: "core30", label: "Core 60", short: "Core 60", group: "Play", Icon: ListChecks },
 ];
 
-const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", "Play"];
-
 const VISITED_KEY = "lt.visitedTabs.session";
 const TAB_XP = 5;
 
@@ -259,8 +260,6 @@ const TAB_XP = 5;
 const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
   { key: "reader", Icon: BookOpen, label: "Reader" },
   { key: "flashcards", Icon: Layers, label: "Cards" },
-  { key: "grammar", Icon: GraduationCap, label: "Grammar" },
-  { key: "games", Icon: Gamepad2, label: "Games" },
   { key: "speak", Icon: Mic2, label: "Speak" },
   { key: "core30", Icon: ListChecks, label: "Core 60" },
 ];
@@ -333,6 +332,14 @@ function fieldPrepLabel(moduleId: string | null): { label: string; short: string
 }
 
 export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
+  const [navVersion, setNavVersion] = useState<NavigationVersion>("sections");
+  useEffect(() => {
+    const update = () =>
+      setNavVersion(navigationVersion(window.location.search, appBuildInfo.environment));
+    update();
+    window.addEventListener("popstate", update);
+    return () => window.removeEventListener("popstate", update);
+  }, []);
   const { state, dispatch } = useApp();
   const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
@@ -425,15 +432,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     { key: "modules" as TabKey, label: "Modules", short: "Modules", Icon: Puzzle },
     ...visible.filter((item) => item.key === "core30"),
     ...visible
-      .filter((item) => item.key !== "core30" && item.key !== "exams")
-      .map((item) =>
-        item.key === "games" ? { ...item, label: "Practice Lab", short: "Practice Lab" } : item,
-      ),
+      .filter((item) => item.key !== "core30")
+      .map((item) => (item.key === "games" ? { ...item, label: "Games", short: "Games" } : item)),
     ...(state.selectedLanguage === "Japanese"
       ? [{ key: "kana" as TabKey, label: "Kana Pad", short: "Kana Pad", Icon: PenLine }]
       : []),
     { key: "anatomy" as TabKey, label: "Anatomy", short: "Anatomy", Icon: Activity },
   ];
+
+  const navigationItems = desktopVisible.map((item) => ({
+    ...item,
+    label: item.key === "fieldPrep" ? fieldPrepLabel(state.activeModuleId).label : item.label,
+  }));
 
   function switchTab(key: TabKey) {
     if (key === "exams") {
@@ -464,7 +474,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     <>
       <PracticeTimeTicker />
       {/* ── Desktop sidebar ─────────────────────────────────── */}
-      <aside className="hidden desktop:flex flex-col w-[108px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
+      <aside className="hidden desktop:flex flex-col w-[224px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
         <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
@@ -482,37 +492,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           aria-label="Desktop navigation"
           className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
         >
-          {desktopVisible.map((item) => {
-            const { key, Icon } = item;
-            const { label, short } =
-              key === "fieldPrep"
-                ? fieldPrepLabel(state.activeModuleId)
-                : { label: item.label, short: item.short };
-            const active = state.currentTab === key;
-            return (
-              <button
-                key={key}
-                data-tour={key}
-                aria-current={active ? "page" : undefined}
-                onClick={() => switchTab(key)}
-                title={label}
-                className={cn(
-                  "relative flex min-h-10 max-h-[3.25rem] w-full flex-1 basis-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 transition-all",
-                  active
-                    ? "bg-gold/15 text-gold-ink"
-                    : "text-muted-foreground hover:bg-card/80 hover:text-foreground",
-                )}
-              >
-                {active && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-r-full bg-gold" />
-                )}
-                <Icon className="h-[17px] w-[17px] shrink-0" strokeWidth={1.6} />
-                <span className="w-full truncate text-center font-mono text-[12px] leading-tight tracking-normal">
-                  {short}
-                </span>
-              </button>
-            );
-          })}
+          <NavigationMenu
+            items={navigationItems}
+            active={state.currentTab}
+            onSelect={switchTab}
+            version={navVersion}
+          />
           <BlogNavLink />
         </nav>
 
@@ -800,45 +785,16 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <div hidden={moreView === "settings"}>
             <div className="mt-2 space-y-5">
-              {TAB_GROUP_ORDER.map((group) => {
-                const items = visible.filter((item) => item.group === group);
-                if (items.length === 0) return null;
-                return (
-                  <div key={group}>
-                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                      {group}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((item) => {
-                        const { key, Icon } = item;
-                        const { label } =
-                          key === "fieldPrep"
-                            ? fieldPrepLabel(state.activeModuleId)
-                            : { label: item.label };
-                        const active = state.currentTab === key;
-                        return (
-                          <button
-                            key={key}
-                            onClick={() => {
-                              switchTab(key);
-                              setMoreSheetOpen(false);
-                            }}
-                            className={cn(
-                              "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
-                              active
-                                ? "border-gold/40 bg-gold/15 text-gold-ink"
-                                : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
-                            )}
-                          >
-                            <Icon className="h-5 w-5 shrink-0" strokeWidth={1.6} />
-                            <span className="text-[10px] leading-tight tracking-wide">{label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+              <NavigationMenu
+                items={navigationItems}
+                active={state.currentTab}
+                version={navVersion}
+                mobile
+                onSelect={(key) => {
+                  switchTab(key);
+                  setMoreSheetOpen(false);
+                }}
+              />
             </div>
 
             {/* Language Match is not listed here. It already has a card in Games

@@ -33,6 +33,7 @@ export const Route = createFileRoute("/pricing")({
 const MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.monthly;
 const ANNUAL_PRICE_ID = INDIVIDUAL_PRICES.annual;
 const FAMILY_PRICE_ID = INDIVIDUAL_PRICES.family;
+const FAMILY_MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.familyMonthly;
 
 const JUNIOR_ANNUAL_LINK = INDIVIDUAL_PAYMENT_LINKS.junior;
 
@@ -85,9 +86,9 @@ const FEATURES_FREE = [
   "Onboarding + language selection",
 ];
 
-type BillingPlan = "monthly" | "annual" | "family" | "junior";
+type BillingPlan = "monthly" | "annual" | "family-monthly" | "family" | "junior";
 function isBillingPlan(value: string | null): value is BillingPlan {
-  return value === "monthly" || value === "annual" || value === "family" || value === "junior";
+  return value === "monthly" || value === "annual" || value === "family-monthly" || value === "family" || value === "junior";
 }
 
 export default function PricingPage() {
@@ -131,6 +132,8 @@ export default function PricingPage() {
             ? MONTHLY_PRICE_ID
             : billing === "annual"
               ? ANNUAL_PRICE_ID
+              : billing === "family-monthly"
+                ? FAMILY_MONTHLY_PRICE_ID
               : FAMILY_PRICE_ID;
         await startCheckout(billing, priceId, user.id, user.email ?? undefined);
       }
@@ -163,8 +166,8 @@ export default function PricingPage() {
             Individual or family. Clear pricing.
           </h1>
           <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-            Individual: $19/month for one learner. Family: $249/year for up to 6 profiles, including
-            Junior Linguist. Annual plans are billed once per year.
+            Individual: $19/month or $149/year for one learner. Family: $35/month or $249/year
+            for up to 6 profiles, including Junior Linguist.
           </p>
         </div>
 
@@ -199,7 +202,7 @@ export default function PricingPage() {
               <div
                 role="group"
                 aria-label="Choose billing plan"
-                className="grid w-full grid-cols-2 gap-1 rounded-lg border border-border bg-card p-1 text-sm sm:grid-cols-4"
+                className="grid w-full grid-cols-2 gap-1 rounded-lg border border-border bg-card p-1 text-sm sm:grid-cols-5"
               >
                 <button
                   aria-pressed={billing === "monthly"}
@@ -219,11 +222,18 @@ export default function PricingPage() {
                   </span>
                 </button>
                 <button
+                  aria-pressed={billing === "family-monthly"}
+                  onClick={() => setBilling("family-monthly")}
+                  className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "family-monthly" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
+                >
+                  Family monthly
+                </button>
+                <button
                   aria-pressed={billing === "family"}
                   onClick={() => setBilling("family")}
                   className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "family" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
                 >
-                  Family
+                  Family annual
                   <span className="ml-1.5 rounded bg-violet-500/20 px-1.5 py-0.5 text-[10px] font-bold text-violet-400">
                     +JUNIOR
                   </span>
@@ -358,22 +368,24 @@ export default function PricingPage() {
             )}
 
             {/* Family tier */}
-            {billing === "family" && (
+            {(billing === "family" || billing === "family-monthly") && (
               <div className="rounded-2xl border border-violet-500/40 bg-card overflow-hidden mb-6">
                 <div className="bg-gradient-to-r from-violet-500/10 to-transparent border-b border-violet-500/20 px-6 py-5">
                   <div className="flex items-center gap-2 mb-1">
                     <Users className="h-4 w-4 text-violet-400" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-violet-400">
-                      Family annual · Up to 6 profiles
+                      Family {billing === "family-monthly" ? "monthly" : "annual"} · Up to 6 profiles
                     </span>
                   </div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-foreground">$249</span>
-                    <span className="text-muted-foreground text-sm">/year</span>
+                    {billing === "family" && <span className="text-sm text-muted-foreground"><span className="line-through">$420/year</span> <span className="text-xs">in 12 monthly payments</span></span>}
+                    <span className="text-4xl font-bold text-foreground">{billing === "family-monthly" ? "$35" : "$249"}</span>
+                    <span className="text-muted-foreground text-sm">/{billing === "family-monthly" ? "month" : "year"}</span>
                   </div>
                   <div className="mt-2 text-sm text-muted-foreground">
-                    $249 billed once per year. Equivalent to $20.75/month, billed annually. Includes
-                    Junior Linguist for kids.
+                    {billing === "family-monthly"
+                      ? "$35 billed each month after the trial. Renews monthly until canceled. Includes Junior Linguist for kids."
+                      : "$249 billed once per year after the trial. Save $171 versus 12 monthly payments. Includes Junior Linguist for kids."}
                   </div>
                 </div>
                 <div className="px-6 py-5">
@@ -387,19 +399,21 @@ export default function PricingPage() {
                   </ul>
                   <button
                     onClick={handleSubscribe}
-                    disabled={loading || authLoading}
+                    disabled={loading || authLoading || (billing === "family-monthly" && !FAMILY_MONTHLY_PRICE_ID)}
                     className="w-full flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
                     {loading ? (
                       "Preparing checkout…"
                     ) : (
                       <>
-                        Start family plan <ChevronRight className="h-4 w-4" />
+                        Start family {billing === "family-monthly" ? "monthly" : "annual"} plan <ChevronRight className="h-4 w-4" />
                       </>
                     )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
-                    7-day trial · $249/year for up to 6 family profiles · Renewal terms in checkout
+                    {billing === "family-monthly" && !FAMILY_MONTHLY_PRICE_ID
+                      ? "Family monthly checkout is being prepared. Choose another plan for now."
+                      : `7-day trial · ${billing === "family-monthly" ? "$35/month" : "$249/year"} for up to 6 family profiles · Renewal terms in checkout`}
                   </p>
                   <RefundGuaranteeCallout />
                 </div>

@@ -1,5 +1,5 @@
 import type Stripe from "stripe";
-import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "./individual-pricing";
+import { configuredIndividualPriceIds, INDIVIDUAL_PAYMENT_LINKS } from "./individual-pricing";
 import { teamPriceLookupKey } from "./team-pricing";
 import { TeamOperationError } from "./team-server";
 const unavailable = () =>
@@ -15,7 +15,7 @@ function product(price: Stripe.Price) {
 /** Scope offers to this app's actual plans, never the Stripe account's other businesses. */
 export async function ownerDiscountProducts(stripe: Stripe) {
   const individual = await Promise.all(
-    Object.values(INDIVIDUAL_PRICES).map((id) => stripe.prices.retrieve(id)),
+    configuredIndividualPriceIds().map((id) => stripe.prices.retrieve(id)),
   );
   const products = new Set(individual.map(product));
   let after: string | undefined, junior: Stripe.PaymentLink | undefined;

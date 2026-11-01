@@ -3,7 +3,11 @@ export const INDIVIDUAL_PRICES = {
   monthly: import.meta.env?.VITE_STRIPE_PRICE_MONTHLY || "price_1TbKk2QjohgWhWidZ7BQKWbL",
   annual: import.meta.env?.VITE_STRIPE_PRICE_ANNUAL || "price_1TbKk4QjohgWhWid1m86409i",
   family: import.meta.env?.VITE_STRIPE_PRICE_FAMILY || "price_1TbKk5QjohgWhWidSuAbMeTq",
+  familyMonthly: import.meta.env?.VITE_STRIPE_PRICE_FAMILY_MONTHLY || "",
 };
+
+export const configuredIndividualPriceIds = () =>
+  Object.values(INDIVIDUAL_PRICES).filter((id): id is string => Boolean(id));
 
 export const INDIVIDUAL_PAYMENT_LINKS = {
   monthly: "https://buy.stripe.com/14A9AVemfg0l1zH8aqbfO08",

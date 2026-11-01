@@ -68,7 +68,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
  export const RecordedReplyControl=()=>null;
  export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent',MicrophoneTestDialog='mic-test';
- export const Check='span',ChevronLeft='span',Lightbulb='span',Mic='span',RotateCcw='span',Search='span',Send='span',Square='span',X='span';
+ export const Check='span',ChevronLeft='span',Lightbulb='span',Languages='span',Mic='span',RotateCcw='span',Search='span',Send='span',Square='span',X='span';
  `,
             }));
           },
@@ -180,6 +180,16 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       return form;
     };
     let tree = await begin();
+    assert.ok(button(tree, "Translate"), "partner reply offers on-demand translation");
+    assert.equal(button(tree, "Mixed").props["aria-pressed"], true);
+    button(tree, "Native").props.onClick();
+    tree = render();
+    assert.equal(button(tree, "Native").props["aria-pressed"], true);
+    button(tree, "Target").props.onClick();
+    tree = render();
+    assert.equal(button(tree, "Target").props["aria-pressed"], true);
+    button(tree, "Mixed").props.onClick();
+    tree = render();
     const form = send(tree);
     form.props.onSubmit({ preventDefault() {} });
     await tick();

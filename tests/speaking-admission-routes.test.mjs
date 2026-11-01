@@ -84,6 +84,8 @@ async function fixture(run, { realSecurity = false } = {}) {
                 input:
                   args.tools[0].name === "grammar_tip"
                     ? { tip: "synthetic-tip" }
+                    : args.tools[0].name === "speaking_translation"
+                      ? { translation: "synthetic-native-translation" }
                     : args.tools[0].name === "speaking_mission_turn"
                       ? {
                           assistantText: "synthetic-partner",
@@ -222,6 +224,58 @@ const missionBody = (c) => ({
     { role: "user", content: "synthetic-private-learner-text" },
   ],
 });
+const translationBody = (c) => ({
+  mode: "translate",
+  language: c.mission.language,
+  level: c.mission.level,
+  nativeLanguage: "English",
+  scenarioVersionId: c.mission.id,
+  userText: c.mission.openingLine,
+});
+test("on-demand speaking translation is private, consent-gated, bounded and separate from coaching", () =>
+  fixture(async (h, c) => {
+    c.age = async () => false;
+    const denied = await h.speak.POST(request("speak", translationBody(c)));
+    assert.equal(denied.status, 403);
+    privateHeaders(denied);
+    assert.equal(c.models.length, 0);
+    c.age = async () => true;
+    for (const invalid of [
+      { userText: "" },
+      { userText: "x".repeat(1201) },
+      { scenarioVersionId: "unknown-scenario" },
+      { language: "French" },
+    ]) {
+      const response = await h.speak.POST(request("speak", { ...translationBody(c), ...invalid }));
+      assert.equal(response.status, 400);
+      privateHeaders(response);
+    }
+    assert.equal(c.models.length, 0);
+    const translated = await h.speak.POST(request("speak", translationBody(c)));
+    assert.equal(translated.status, 200);
+    privateHeaders(translated);
+    assert.deepEqual(await translated.json(), { translation: "synthetic-native-translation" });
+    assert.equal(c.models.at(-1).messages.length, 1, "only the selected line is translated");
+    assert.equal(c.models.at(-1).messages[0].content, c.mission.openingLine);
+    assert.match(c.models.at(-1).system, /untrusted text/);
+    c.provider = async () => ({ content: [{ type: "tool_use", input: { translation: "" } }] });
+    const malformed = await h.speak.POST(request("speak", translationBody(c)));
+    assert.equal(malformed.status, 502);
+    privateHeaders(malformed);
+    assert.deepEqual(await malformed.json(), { error: "Translation is unavailable. Try again." });
+
+    c.provider = async () => ({ content: [{ type: "tool_use", input: {
+      assistantText: "synthetic-partner",
+      deferredFeedback: ["synthetic-coaching"],
+      provisionalObjectiveIds: [], shouldEnd: false, safetyStop: false,
+    } }] });
+    const mission = await h.speak.POST(request("speak", {
+      ...missionBody(c), feedbackLanguage: "Mixed", nativeLanguage: "English",
+    }));
+    assert.equal(mission.status, 200);
+    assert.match(c.models.at(-1).system, /concise English explanation/);
+    assert.match(c.models.at(-1).system, /short Spanish model phrase/);
+  }));
 test("speaking and consent malformed/oversized bodies fail privately before admission or writes", () =>
   fixture(async (h, c) => {
     for (const [route, path, limit] of [

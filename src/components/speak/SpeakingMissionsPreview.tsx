@@ -23,6 +23,7 @@ import {
   Check,
   ChevronLeft,
   Lightbulb,
+  Languages,
   Mic,
   RotateCcw,
   Search,
@@ -76,7 +77,7 @@ import { WatchTalkControl } from "./WatchTalkControl";
 import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
 type MissionStatus = "ready" | "starting" | "listening" | "thinking" | "complete" | "error";
-type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
+type FeedbackLanguage = "Native language" | "Target language" | "Mixed";
 type CompletionReason = "learner" | "natural" | "limit";
 type SpokenTurnFlow = "quick" | "review";
 
@@ -246,12 +247,16 @@ export function SpeakingMissionsPreview({
   const [ageStatusActor, setAgeStatusActor] = useState<string | null>(null);
   const ageReadRevisionRef = useRef(0);
   const [authOpen, setAuthOpen] = useState(false);
-  const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
+  const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Mixed");
   const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("review");
   const partnerVersion = voiceSettings.speakingGender;
   const partnerAudioSource = "google" as typeof voiceSettings.speakingAudioSource;
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
+  const [translations, setTranslations] = useState<Record<string, string>>({});
+  const [revealedTranslations, setRevealedTranslations] = useState<string[]>([]);
+  const [translatingTurnId, setTranslatingTurnId] = useState<string | null>(null);
+  const [translationError, setTranslationError] = useState<string | null>(null);
   const [interim, setInterim] = useState("");
   const [finishingSpeech, setFinishingSpeech] = useState(false);
   const [objectiveIds, setObjectiveIds] = useState<string[]>([]);
@@ -293,6 +298,7 @@ export function SpeakingMissionsPreview({
   const recognitionHasTextRef = useRef(false);
   const recognitionStopTimerRef = useRef<number | null>(null);
   const requestRef = useRef<AbortController | null>(null);
+  const translationRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const viewTopRef = useRef<HTMLElement | null>(null);
   const previousViewKeyRef = useRef<string | null>(null);
@@ -533,6 +539,9 @@ export function SpeakingMissionsPreview({
 
   const stopActiveWork = useCallback(() => {
     cancelRef.current();
+    translationRef.current?.abort();
+    translationRef.current = null;
+    setTranslatingTurnId(null);
     setAudioCaptureKey((value) => value + 1);
     setFinishingSpeech(false);
     stopAudio();
@@ -545,8 +554,14 @@ export function SpeakingMissionsPreview({
 
   useEffect(() => {
     sessionOwnerRef.current = null;
+    translationRef.current?.abort();
+    translationRef.current = null;
+    setTranslatingTurnId(null);
     setStarted(false);
     setTurns([]);
+    setTranslations({});
+    setRevealedTranslations([]);
+    setTranslationError(null);
     setTypedTurn("");
     setInterim("");
     setFinishingSpeech(false);
@@ -728,6 +743,9 @@ export function SpeakingMissionsPreview({
       opening: true,
     };
     setTurns([opening]);
+    setTranslations({});
+    setRevealedTranslations([]);
+    setTranslationError(null);
     setObjectiveIds([]);
     setSkippedObjectiveIds([]);
     setErrorMessage(null);
@@ -773,6 +791,9 @@ export function SpeakingMissionsPreview({
     setWordRequest(null);
     setStarted(false);
     setTurns([]);
+    setTranslations({});
+    setRevealedTranslations([]);
+    setTranslationError(null);
     setInterim("");
     setObjectiveIds([]);
     setSkippedObjectiveIds([]);
@@ -889,6 +910,68 @@ export function SpeakingMissionsPreview({
     (objective) =>
       !objectiveIds.includes(objective.id) && !skippedObjectiveIds.includes(objective.id),
   );
+
+  async function togglePartnerTranslation(turn: MissionTurn) {
+    if (!selectedMission || turn.role !== "partner" || !capture().isCurrent()) return;
+    setTranslationError(null);
+    if (translations[turn.id]) {
+      setRevealedTranslations((current) => current.includes(turn.id)
+        ? current.filter((id) => id !== turn.id)
+        : [...current, turn.id]);
+      return;
+    }
+    if (translationRef.current || sessionOwnerRef.current !== lifecycleKey) return;
+    const lease = capture();
+    const controller = new AbortController();
+    translationRef.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() &&
+      !controller.signal.aborted && translationRef.current === controller &&
+      sessionOwnerRef.current === lifecycleKey;
+    setTranslatingTurnId(turn.id);
+    setTranslationError(null);
+    try {
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        controller.signal,
+      );
+      if (!current()) return;
+      const response = await fetch("/api/speak", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          mode: "translate",
+          language: selectedMission.language,
+          level: selectedMission.level,
+          nativeLanguage: appState.nativeLanguage,
+          scenarioVersionId: selectedMission.id,
+          userText: turn.text,
+        }),
+        signal: controller.signal,
+      });
+      if (!current()) {
+        void response.body?.cancel().catch(() => {});
+        return;
+      }
+      const payload = (await response.json()) as { translation?: unknown; error?: string };
+      if (!current()) return;
+      if (!response.ok || typeof payload.translation !== "string" || !payload.translation.trim()) {
+        throw new Error(payload.error || "Translation is unavailable. Try again.");
+      }
+      const translated = payload.translation.trim();
+      setTranslations((value) => ({ ...value, [turn.id]: translated }));
+      setRevealedTranslations((value) => [...value, turn.id]);
+    } catch (error) {
+      if (current()) setTranslationError(
+        error instanceof Error ? error.message : "Translation is unavailable. Try again.",
+      );
+    } finally {
+      if (translationRef.current === controller) translationRef.current = null;
+      if (lease.isCurrent()) setTranslatingTurnId(null);
+      release();
+      controller.abort();
+    }
+  }
 
   const sendLearnerTurn = async (
     text: string,
@@ -1781,7 +1864,7 @@ export function SpeakingMissionsPreview({
                 >
                   <option value="Native language">{appState.nativeLanguage}</option>
                   <option value="Target language">{selectedMission.language}</option>
-                  <option value="Adaptive">Adaptive</option>
+                  <option value="Mixed">Mixed · explanation + example</option>
                 </select>
               </label>
               <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
@@ -2176,6 +2259,29 @@ export function SpeakingMissionsPreview({
         </div>
       </div>
 
+      <div className="shrink-0" role="group" aria-label="Coaching feedback language">
+        <p className="mb-1 text-xs font-medium text-muted-foreground">Feedback language · next reply</p>
+        <div className="grid grid-cols-3 gap-1 rounded-xl border border-border bg-card/50 p-1">
+          {([
+            ["Native language", "Native"],
+            ["Target language", "Target"],
+            ["Mixed", "Mixed"],
+          ] as const).map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={feedbackLanguage === value}
+              aria-label={`${label} feedback`}
+              title={value === "Native language" ? appState.nativeLanguage : value === "Target language" ? selectedMission.language : "Native explanation with a target-language example"}
+              onClick={() => setFeedbackLanguage(value)}
+              className={`min-h-10 rounded-lg px-2 text-sm font-medium ${feedbackLanguage === value ? "bg-primary/15 text-foreground" : "text-muted-foreground"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {practiceNotice && (
         <div
           role="alert"
@@ -2228,6 +2334,29 @@ export function SpeakingMissionsPreview({
                     )}
                   </span>
                 </div>
+                {turn.role === "partner" && (
+                  <div className="mt-1">
+                    <button
+                      type="button"
+                      aria-expanded={revealedTranslations.includes(turn.id)}
+                      disabled={translatingTurnId === turn.id}
+                      onClick={() => void togglePartnerTranslation(turn)}
+                      className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-gold disabled:opacity-60"
+                    >
+                      <Languages className="h-4 w-4" aria-hidden="true" />
+                      {translatingTurnId === turn.id
+                        ? "Translating…"
+                        : revealedTranslations.includes(turn.id)
+                          ? "Hide translation"
+                          : "Translate"}
+                    </button>
+                    {revealedTranslations.includes(turn.id) && translations[turn.id] && (
+                      <p id={`translation-${turn.id}`} className="rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm leading-relaxed text-foreground">
+                        {translations[turn.id]}
+                      </p>
+                    )}
+                  </div>
+                )}
                 {showFeedback &&
                   turn.feedback?.map((feedback, index) => (
                     <p
@@ -2253,6 +2382,9 @@ export function SpeakingMissionsPreview({
                 Partner is responding…
               </div>
             </li>
+          )}
+          {translationError && (
+            <li role="alert" className="text-sm text-[var(--streak-ink)]">{translationError}</li>
           )}
         </ul>
       </div>

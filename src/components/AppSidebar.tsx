@@ -33,6 +33,7 @@ import {
   LibraryBig,
   ArrowRightLeft,
   Menu,
+  X,
   Sun,
   Moon,
   Sparkles,
@@ -339,6 +340,10 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
+  const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
+  useEffect(() => {
+    setSpeakingNavOpen(false);
+  }, [state.currentTab]);
   const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
   useEffect(() => {
     const open = () => {
@@ -579,10 +584,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       <button
         type="button"
         aria-label="Navigation, language and module"
-        onClick={() => {
-          setMoreView("tabs");
-          setMoreSheetOpen(true);
-        }}
+        aria-expanded={speakingNavOpen}
+        aria-controls="mobile-primary-navigation"
+        onClick={() => setSpeakingNavOpen((open) => !open)}
         className="lt-speaking-navigation h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-background text-foreground shadow-lg"
       >
         <Menu className="h-5 w-5" />
@@ -590,9 +594,20 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
       {/* The familiar bottom navigation is reserved for phones and touch tablets. */}
       <nav
+        id="mobile-primary-navigation"
+        data-speaking-open={speakingNavOpen}
         aria-label="Primary"
         className="lt-bottom-nav relative z-40 flex flex-col desktop:hidden border-t border-border/50 bg-background [padding-bottom:env(safe-area-inset-bottom)]"
       >
+        <button
+          type="button"
+          aria-label="Hide navigation"
+          onClick={() => setSpeakingNavOpen(false)}
+          className="lt-speaking-navigation-close min-h-11 items-center justify-center gap-2 border-b border-border/30 text-sm text-foreground"
+        >
+          <X className="h-4 w-4" />
+          Back to conversation
+        </button>
         <PracticeTimeBar edge="nav" />
         {/* Mobile-only: Add word + language + module + voice + settings. One tight row that
            fits 375px with nothing clipped: the module chip is the only flexible one and

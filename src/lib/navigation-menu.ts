@@ -36,3 +36,38 @@ export function navigationVersion(search: string, environment: string): Navigati
   const value = new URLSearchParams(search).get("navVersion");
   return value === "accordion" || value === "focused" ? value : "sections";
 }
+
+const TOOL_ORDER: TabKey[] = [
+  "reader",
+  "core30",
+  "story",
+  "modules",
+  "guide",
+  "dashboard",
+  "exams",
+  "missionary",
+  "orthopedics",
+  "speak",
+  "flashcards",
+  "fieldPrep",
+  "games",
+  "penpal",
+  "listeningDrill",
+  "conjugation",
+  "sentenceBuild",
+  "wordMatch",
+  "idiomMaster",
+  "falseFriends",
+  "anatomy",
+  "kana",
+  "discussions",
+  "grammar",
+  "dictionary",
+  "cognates",
+  "patterns",
+  "characters",
+];
+export function navigationRank(key: TabKey): number {
+  const rank = TOOL_ORDER.indexOf(key);
+  return rank === -1 ? TOOL_ORDER.length : rank;
+}

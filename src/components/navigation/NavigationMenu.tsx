@@ -5,6 +5,7 @@ import {
   NAVIGATION_GROUPS,
   PRIMARY_NAVIGATION,
   navigationGroup,
+  navigationRank,
   type NavigationVersion,
 } from "@/lib/navigation-menu";
 import { cn } from "@/lib/utils";
@@ -85,7 +86,9 @@ export function NavigationMenu({
   return (
     <div className={cn("space-y-4", mobile && "py-2")} data-navigation-version={version}>
       {NAVIGATION_GROUPS.map((group) => {
-        const members = items.filter((item) => navigationGroup(item.key) === group);
+        const members = items
+          .filter((item) => navigationGroup(item.key) === group)
+          .sort((a, b) => navigationRank(a.key) - navigationRank(b.key));
         if (!members.length) return null;
         const primary = members.filter((item) => PRIMARY_NAVIGATION.has(item.key));
         const more = members.filter((item) => !PRIMARY_NAVIGATION.has(item.key));

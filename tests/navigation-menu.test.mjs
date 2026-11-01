@@ -58,6 +58,10 @@ for (const version of ["sections", "accordion", "focused"]) {
       for (const group of ["Learn", "Practice", "Reference"])
         assert.ok(html.includes(`aria-label="${group}"`));
       assert.equal((html.match(/aria-current="page"/g) ?? []).length, 1);
+      assert.ok(
+        html.indexOf('data-tour="reader"') < html.indexOf('data-tour="modules"'),
+        "learning action precedes administration",
+      );
       assert.match(html, /aria-expanded="true"/); // active long-tail item's parent is expanded
       assert.match(html, /Practice Lab/);
     }

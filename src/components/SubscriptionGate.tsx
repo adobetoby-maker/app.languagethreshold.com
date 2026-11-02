@@ -101,6 +101,9 @@ export function SubscriptionGate({ currentTab, children }: Props) {
   const moduleFree = MODULE_FREE_TABS[activeModuleId] ?? null;
   const isMissionaryModule = activeModuleId === "lds-missionary";
 
+  // Course discovery contains no gated lesson or provider action.
+  if (currentTab === "core30" && !activeModuleId) return <>{children}</>;
+
   // Free tabs bypass the gate entirely
   if (FREE_TABS.has(currentTab)) return <>{children}</>;
   if (moduleFree?.has(currentTab)) return <>{children}</>;
@@ -135,7 +138,11 @@ export function SubscriptionGate({ currentTab, children }: Props) {
     dispatch({ type: "SET_TAB", payload: "core30" });
     const next = lessonLocation(
       window.location.href,
-      { moduleId: foundationOffer.id, target: state.selectedLanguage, native: state.nativeLanguage },
+      {
+        moduleId: foundationOffer.id,
+        target: state.selectedLanguage,
+        native: state.nativeLanguage,
+      },
       null,
     );
     if (next) window.history.replaceState(window.history.state, "", next);

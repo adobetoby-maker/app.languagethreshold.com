@@ -20,7 +20,13 @@ export type Core60StageKind = "foundation" | "master";
 /** Lessons per stage file: a Foundation has 10, a Master 20. */
 export const CORE60_STAGE_LESSONS: Record<Core60StageKind, number> = { foundation: 10, master: 20 };
 
-export const CORE60_LESSON_TYPES = ["Teach-back", "Case", "People", "Document", "Capstone"] as const;
+export const CORE60_LESSON_TYPES = [
+  "Teach-back",
+  "Case",
+  "People",
+  "Document",
+  "Capstone",
+] as const;
 export const CORE60_BLOCKS = ["A", "B", "C", "D", "E"] as const;
 
 // ─── File format ─────────────────────────────────────────────────────────────
@@ -236,6 +242,10 @@ export function deriveStageModule(
     challengePrompts: own.challengePrompts ?? [...base.challengePrompts],
     vocabFocus: own.vocabFocus ?? [...base.vocabFocus],
   };
+  if (base.authoredPair) {
+    derived.authoredPair = { ...base.authoredPair };
+    if (base.id === "spanish-basics") derived.aiPersona = base.aiPersona;
+  }
   if (base.learnDirection) derived.learnDirection = base.learnDirection;
   if (base.nativeLanguages) derived.nativeLanguages = [...base.nativeLanguages];
   return derived;

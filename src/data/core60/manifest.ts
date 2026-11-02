@@ -14,6 +14,21 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "spanish-basics",
+    language: "Spanish",
+    tradeLabel: "Spanish 101",
+    foundation: {
+      blurb:
+        "Start from zero: greetings, articles, plurals, pronouns, ser, estar, hay, numbers and questions.",
+    },
+    master: {
+      userRole: "A Spanish 101 learner applying familiar grammar independently",
+      blurb:
+        "Twenty guided applications of beginner grammar. Revisit mistakes and build independence; this is practice, not proficiency certification.",
+    },
+  },
+
+  {
     base: "military",
     language: "English",
     tradeLabel: "Military English",

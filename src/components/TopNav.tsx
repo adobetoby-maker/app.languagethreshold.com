@@ -18,6 +18,7 @@ import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
 import { VoiceSettings } from "./settings/VoiceSettings";
+import { ReviewIntervalSettings } from "./flashcards/ReviewIntervalSettings";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
 import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
@@ -140,6 +141,7 @@ export function TopNav() {
                 ])}
               />
               <PracticeBarSetting />
+              <ReviewIntervalSettings />
               <DropdownMenu>
                 <DropdownMenuTrigger
                   title={`Native language: ${state.nativeLanguage}`}

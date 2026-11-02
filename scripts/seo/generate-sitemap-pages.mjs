@@ -54,13 +54,17 @@ const pages = routes.map((urlPath) => {
         .join("\0"),
     )
     .digest("hex");
+  // Hosted Git builds can be shallow. If a source hash changed, the checked-out
+  // commit is a real source date even when earlier file history is unavailable.
   const lastmod = fullHistory
     ? execFileSync("git", ["log", "-1", "--format=%cI", "--", ...files], {
         encoding: "utf8",
       }).trim()
     : cache[urlPath]?.sha256 === sha256
       ? cache[urlPath].lastmod
-      : undefined;
+      : execFileSync("git", ["show", "-s", "--format=%cI", "HEAD"], {
+          encoding: "utf8",
+        }).trim();
   if (!lastmod || !Number.isFinite(Date.parse(lastmod)))
     throw new Error(`No source date for ${urlPath}`);
   cache[urlPath] = { sha256, lastmod };

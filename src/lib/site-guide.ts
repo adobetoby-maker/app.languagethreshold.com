@@ -189,7 +189,7 @@ export const SITE_DESTINATIONS: readonly SiteDestination[] = [
     label: "Cards",
     tab: "flashcards",
     description:
-      "Flip vocabulary cards, hear pronunciation, and rate Again, Hard, Good, or Easy. Each rating shows the next interval calculated from your saved schedule.",
+      "Flip vocabulary cards, hear pronunciation, and rate Again, Hard, Good, or Easy. Hard, Good, and Easy return after the intervals in Card settings; Study whole deck again gives the selected deck a fresh pass without clearing progress.",
     aliases: [
       "card",
       "cards",

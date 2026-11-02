@@ -710,9 +710,22 @@ function stickyTopOffset(): number {
   return Math.max(0, Math.ceil(bar.getBoundingClientRect().bottom));
 }
 
-/** Scrolls the lesson's step bar to the top of the page, just below any sticky top bar. */
+/** Keeps the newly opened step visible; the phone step bar is fixed at the bottom. */
 function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior) {
   if (!el) return;
+  if (
+    window.matchMedia("(max-width: 767px)").matches &&
+    el.classList.contains("lt-core60-section-nav")
+  ) {
+    const visibleStep = document.querySelector<HTMLElement>(
+      '.lt-core60-lesson-active section[data-testid^="lesson-section-"]:not([hidden])',
+    );
+    if (visibleStep) {
+      visibleStep.style.scrollMarginTop = `${stickyTopOffset() + 8}px`;
+      visibleStep.scrollIntoView({ behavior, block: "start" });
+    }
+    return;
+  }
   const offset = stickyTopOffset();
   if (offset > 0) el.style.scrollMarginTop = `${offset + 8}px`;
   else el.style.removeProperty("scroll-margin-top");
@@ -1013,7 +1026,7 @@ function OwnedLessonRunner({
     if (KIT_SECTIONS.includes(next)) setKitMode(modeForSection(next));
     // Opening a way of learning is the record; the passage (See it) is recorded on first use.
     if (next !== "see") recordStepOpened(stepForSection[next]);
-    if (scroll) {
+    if (scroll || window.matchMedia("(max-width: 767px)").matches) {
       requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
     }
   }
@@ -1021,6 +1034,11 @@ function OwnedLessonRunner({
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);
     setSection(sectionForMode(mode));
+  }
+
+  function selectRecallMode(mode: PracticeMode) {
+    onKitModeChange(mode);
+    requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
   }
 
   /** Record the opened practice without leaving the lesson. */
@@ -1372,6 +1390,12 @@ function OwnedLessonRunner({
   );
 
   const panelClass = "rounded-2xl border border-white/[0.08] bg-card/40 p-4";
+  const recallOptions: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
+    { id: "study", label: "Study", Icon: BookOpen },
+    { id: "flashcards", label: "Cards", Icon: Layers },
+    { id: "match", label: "Match", Icon: Puzzle },
+    ...(verbs.length > 0 ? [{ id: "verbs" as const, label: "Verbs", Icon: Repeat2 }] : []),
+  ];
   const panelHeader = (def: SectionDef, n: number) => (
     <header>
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
@@ -1386,7 +1410,7 @@ function OwnedLessonRunner({
   return (
     <div className="space-y-4">
       {/* Lesson header */}
-      <div className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
+      <div className="lt-core60-lesson-header rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
@@ -1402,7 +1426,7 @@ function OwnedLessonRunner({
             ✕ Exit
           </button>
         </div>
-        <p className="text-sm text-white/60 mt-1">
+        <p className="lt-core60-lesson-goal text-sm text-white/60 mt-1">
           <span className="text-gold/80 mr-1">Goal:</span>
           {lesson.objective}
         </p>
@@ -1414,7 +1438,7 @@ function OwnedLessonRunner({
         ref={navRef}
         aria-label="Ways of learning this lesson"
         data-testid="lesson-section-nav"
-        className="sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
+        className="lt-core60-section-nav sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
       >
         {SECTIONS.map(({ id, label, Icon }) => {
           const active = section === id;
@@ -1426,7 +1450,10 @@ function OwnedLessonRunner({
               data-testid={`lesson-nav-${id}`}
               aria-current={active ? "step" : undefined}
               aria-label={label}
-              onClick={() => selectSection(id)}
+              onClick={() => {
+                if (id !== "recall" || section !== "recall") selectSection(id);
+              }}
+              aria-controls={id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined}
               className={cn(
                 "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
                 active
@@ -1448,6 +1475,22 @@ function OwnedLessonRunner({
             </button>
           );
         })}
+        {section === "recall" && (
+          <div id="lesson-recall-menu" data-testid="lesson-recall-menu" className="lt-core60-recall-menu" role="group" aria-label="Recall activities">
+            {recallOptions.map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                type="button"
+                data-testid={`lesson-recall-${id}`}
+                aria-current={kitMode === id ? "true" : undefined}
+                onClick={() => selectRecallMode(id)}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* 1 · See it */}
@@ -2350,7 +2393,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }
 
   return (
-    <section>
+    <section
+      className={cn(
+        runnerActive && "lt-core60-lesson-active",
+        runnerActive && planStarted && "lt-core60-plan-started",
+      )}
+    >
       {!runnerActive && cardReview.ready && (
         <div
           data-testid="lesson-review-checkpoint"
@@ -2390,38 +2438,46 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         continueLesson && (
           <div
             data-testid="continue-learning"
-            className="mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5"
+            className={cn(
+              "mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60",
+              planStarted ? "p-3 sm:p-5" : "p-5",
+            )}
           >
-            <div className="flex items-start justify-between gap-3 mb-3">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                  {resumePosition
-                    ? "Continue learning"
-                    : practiceLesson
-                      ? "Practice again"
-                      : "Your next lesson"}{" "}
-                  · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
-                  {continueLesson.n}
-                </p>
-                <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+            {!planStarted && (
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                    {resumePosition
+                      ? "Continue learning"
+                      : practiceLesson
+                        ? "Practice again"
+                        : "Your next lesson"}{" "}
+                    · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
+                    {continueLesson.n}
+                  </p>
+                  <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+                </div>
+                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                  <span className="text-[11px] font-mono text-gold">
+                    ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                <span className="text-[11px] font-mono text-gold">
-                  ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                </span>
-              </div>
-            </div>
+            )}
 
-            <p className="text-sm text-muted-foreground mb-4">
-              <span className="text-gold/80">Goal: </span>
-              {continueLesson.objective}
-            </p>
+            {!planStarted && (
+              <p className="text-sm text-muted-foreground mb-4">
+                <span className="text-gold/80">Goal: </span>
+                {continueLesson.objective}
+              </p>
+            )}
 
             {/* Start stays reachable before the detailed six-mode preview. */}
             <button
               onClick={() => openLessonFromPlan(continueLesson.n, resumePosition?.way ?? "see")}
               className={cn(
-                "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                !planStarted && "mb-4",
                 planStarted && "border border-gold/40 bg-transparent text-gold",
               )}
               style={
@@ -2435,32 +2491,39 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             >
               {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
               {stageLessonLabel(moduleId, continueLesson.n)}
+              {planStarted && (
+                <span className="min-w-0 truncate font-normal text-foreground/80">
+                  · {continueLesson.title}
+                </span>
+              )}
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </button>
 
-            {resumePosition && (
+            {!planStarted && resumePosition && (
               <p className="mb-3 text-sm text-muted-foreground">
                 Pick up at {SECTIONS.find((step) => step.id === resumePosition.way)?.label}
               </p>
             )}
-            <details>
-              <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
-                Six ways to practice this lesson
-              </summary>
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-            </details>
+            {!planStarted && (
+              <details>
+                <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+                  Six ways to practice this lesson
+                </summary>
+                <div className="space-y-1.5 mb-5">
+                  {SECTIONS.map((step, i) => (
+                    <div
+                      key={step.id}
+                      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                        {i + 1}
+                      </span>
+                      <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
           </div>
         )}
 

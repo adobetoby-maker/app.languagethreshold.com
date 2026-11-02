@@ -151,7 +151,7 @@ test.describe("Roofing Foundation: signed in", () => {
     await expect(page.getByTestId("core60-step-master")).toContainText("Master");
     // The next lesson is promoted above the detailed stage path.
     const pathBox = await path.boundingBox();
-    const nextUp = await page.getByText(/Your next lesson · Foundation Lesson 1/).boundingBox();
+    const nextUp = await page.getByTestId("continue-learning").boundingBox();
     expect(nextUp!.y).toBeLessThan(pathBox!.y);
     await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Roofing · Step 1 of 3");
     await page

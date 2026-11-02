@@ -295,9 +295,9 @@
     "version": 1,
     "targetLanguage": "Spanish",
     "nativeLanguage": "English",
-    "texts": 3706,
-    "clips": 7412,
-    "requiredClips": 7412,
+    "texts": 3713,
+    "clips": 7426,
+    "requiredClips": 7426,
     "missingClips": 0,
     "voices": {
       "female": "es-US-Chirp3-HD-Aoede",
@@ -305,8 +305,8 @@
     },
     "provider": "Google Cloud Chirp 3 HD",
     "language": "es-US",
-    "bytes": 79318464,
-    "totalDurationSeconds": 19829.62,
+    "bytes": 79384416,
+    "totalDurationSeconds": 19846.1,
     "minimumDurationSeconds": 0.264,
     "maximumDurationSeconds": 9.816,
     "validation": "Every required text has a female and male MP3 with ffprobe-validated nonzero duration. No human listening signoff.",
@@ -319,17 +319,28 @@
     "modules": 21,
     "lessons": 1260,
     "preservedEarlierModules": 16,
-    "testFlightUploaded": false
+    "testFlightUploaded": false,
+    "verificationResult": "/Volumes/Drive 2/projects/knowledge-base/3-resources/clients/language-threshold/agent-build-cache/spanish-next-core60/results/SpanishFinalResources.xcresult",
+    "maintenance": "Legacy V3 audio import preserves valid later V4 recordings; isolated preservation check passed. Existing local-session signout scope restored to match its regression contract."
   },
   "validation": {
-    "sourceLessons": "300/300 validated",
-    "goldForms": "3 test groups passed",
-    "websiteUnitTests": "Passed before final recording index; merged-source rerun in progress",
-    "websiteCourseBrowserTests": "12/12 passed across desktop and iPhone-sized Chromium",
-    "releaseSmoke": "Merged-source final rerun pending",
-    "native": "Final audio-resource test run pending"
+    "sourceLessons": "300/300 valid; five mapped-60-draft exact-pair source audits",
+    "goldForms": "Three explicit gold-form groups and all 33 frozen Spanish 101 present-reference paradigms match",
+    "websiteUnitTests": "2808 passed, 0 failed",
+    "typecheck": "passed",
+    "changedSourceLint": "passed",
+    "websiteCourseBrowserTests": "16 passed across desktop and iPhone-sized Chromium; all six modes, Reader handoff, ten checked verbs, and both actual recorded voices without synthesis calls",
+    "releaseSmoke": "190 passed, 47 deliberately skipped, 0 failed on desktop and iPhone-sized Chromium",
+    "native": "34 unit tests and 2 iPhone simulator flows passed; every authored item and pattern form has both bundled voices",
+    "dependencyAudit": "No high/critical production advisories; one existing moderate advisory is below the repository gate",
+    "recordedAudio": "7426/7426 MP3 files validated with ffprobe; both genders and exact normalized lookup keys; no human listening signoff"
   },
   "publication": {
-    "status": "local source and resources; release checks pending"
+    "status": "Validated source and resources; main publication pending"
+  },
+  "sourceAssetHashes": {
+    "src/data/spanish-next-core.json": "3ef77bfe26e4307c4c7471069ac8acbe3d913cc5287750b1c71048ba52a04f4a",
+    "src/data/spanish-next-practice.json": "863c328eddaa23ecd42c00e978713550a56fe6a01d0feeb0f90b36576ff3733d",
+    "src/data/spanish-next-recordings.json": "5fcfbd599899c4488cb2e4b9ac1be09aa8d9c4561590177bfd597a4dbca3eb07"
   }
 }

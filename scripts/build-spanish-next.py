@@ -61,6 +61,7 @@ if (SRC/'lexicon.json').exists():lex+=read(SRC/'lexicon.json')
 for v,en in GLOSS.items():lex.append(dict(es=v,en='to '+en))
 knownverbs={v[0]:v for v in read(ROOT/'content/spanish-basics/verbs.json')}
 for v in knownverbs:
+ assert present(v)==knownverbs[v][2:7],(v,'frozen present reference mismatch')
  if v not in GLOSS:GLOSS[v]=knownverbs[v][1].removeprefix('to ')
 def reference(v):
  f=present(v)
@@ -142,7 +143,17 @@ for course,rows in [('spanish-102',base+masters),('spanish-frequent-verbs',frequ
     assert len(checks)==3,(module,n,'checks')
    if 'pattern' in row:chosen=row['pattern']['verbs'];vnames=[v['infinitive'] for v in chosen]
    else:
-    primary=row.get('primaryVerb');vnames=([primary] if primary else [])+[v for v in DEFAULT_V if v!=primary];vnames=vnames[:5 if stage=='master' else 3]
+    primary=row.get('primaryVerb')
+    def relevance(v):
+     root=v.removesuffix('se')[:-2]
+     used=appears(v) or any(appears(form) for form in present(v)+preterite(v))
+     if len(root)>=3 and re.search(r'(?<!\w)'+re.escape(root)+r'\w*',text):used=True
+     if v=='haber' and any(appears(f) for f in ['hay','había','hubo','habían','haya','hayan']):used=True
+     named=bool(re.search(r'(?<!\w)'+re.escape(v)+r'(?!\w)',rule.lower()))
+     return (not used,not named)
+    relevant=sorted(GLOSS,key=relevance)
+    vnames=([primary] if primary else [])+[v for v in relevant if v!=primary]
+    vnames=vnames[:5 if stage=='master' else 3]
    content[str(n)]=dict(passage=dict(title=scene,target=target,native=native),words=words,verbs=[verb_reference(v) for v in vnames])
    teaching=dict(stage=stage,reading=dict(title=scene,target=target,native=native),grammar=grammar,speaking=speaking,openingLine=target[0],partnerRole='A Spanish-speaking classmate solving the situation with you',checks=checks)
    if 'pattern' in row:teaching['pattern']=row['pattern']

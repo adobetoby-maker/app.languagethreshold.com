@@ -13,6 +13,7 @@ const { defaultBrowserType: _ignored, ...iPhone } = devices["iPhone 15"];
 
 export default defineConfig({
   testDir: "e2e",
+  outputDir: process.env.E2E_OUTPUT_DIR ?? "test-results",
   timeout: 120_000,
   expect: { timeout: 60_000 },
   fullyParallel: true,

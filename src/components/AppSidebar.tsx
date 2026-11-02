@@ -756,7 +756,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         <SheetContent
           scrollBody
           side="bottom"
-          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
+          className="h-[80vh] max-h-[80vh] overflow-hidden border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
         >
           {/* Which pair of languages you are working in, above everything else.
               The bottom strip shows the target only, and native was reachable

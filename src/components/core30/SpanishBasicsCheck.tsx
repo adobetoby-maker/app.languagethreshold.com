@@ -25,9 +25,11 @@ export function SpanishBasicsCheck({
     if (!input || passed) return;
     const start = input.selectionStart ?? answers[focused].length;
     const end = input.selectionEnd ?? start;
-    const next = [...answers];
-    next[focused] = next[focused].slice(0, start) + letter + next[focused].slice(end);
-    setAnswers(next);
+    setAnswers((current) => {
+      const next = [...current];
+      next[focused] = next[focused].slice(0, start) + letter + next[focused].slice(end);
+      return next;
+    });
     setResults(null);
     requestAnimationFrame(() => {
       input.focus();
@@ -47,7 +49,9 @@ export function SpanishBasicsCheck({
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          const next = checks.map((check, i) => correctSpanishCloze(answers[i], check.answer));
+          const next = checks.map((check, i) =>
+            correctSpanishCloze(inputs.current[i]?.value ?? answers[i], check.answer),
+          );
           setResults(next);
           if (next.every(Boolean)) onPassed();
         }}
@@ -74,9 +78,12 @@ export function SpanishBasicsCheck({
               aria-label={`Grammar answer ${i + 1}`}
               className="mt-2 min-h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground disabled:opacity-70"
               onChange={(e) => {
-                const next = [...answers];
-                next[i] = e.target.value;
-                setAnswers(next);
+                const value = e.target.value;
+                setAnswers((current) => {
+                  const next = [...current];
+                  next[i] = value;
+                  return next;
+                });
                 setResults(null);
               }}
             />

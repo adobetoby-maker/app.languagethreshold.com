@@ -353,10 +353,13 @@ test("Settings scrolls below its close row without covering controls", async ({
       await body.evaluate((el, fraction) => {
         el.scrollTop = (el.scrollHeight - el.clientHeight) * fraction;
       }, position);
-      const headerBox = await close.boundingBox();
-      const bodyBox = await body.boundingBox();
-      expect(bodyBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height - 1);
-      expect(bodyBox!.y + bodyBox!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+      await expect.poll(() => panel.evaluate((root) => {
+        const header = root.querySelector("[data-overlay-close]")?.getBoundingClientRect();
+        const scrollBody = root.querySelector("[data-overlay-scroll-body]")?.getBoundingClientRect();
+        return Boolean(header && scrollBody
+          && scrollBody.top >= header.bottom - 1
+          && scrollBody.bottom <= window.innerHeight + 1);
+      })).toBe(true);
       await expect(close.getByRole("button")).toBeInViewport();
     }
   }

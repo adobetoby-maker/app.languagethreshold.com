@@ -606,7 +606,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           className="lt-speaking-navigation-close min-h-11 items-center justify-center gap-2 border-b border-border/30 text-sm text-foreground"
         >
           <X className="h-4 w-4" />
-          Back to conversation
+          <span className="lt-speaking-close-copy">Back to conversation</span>
+          <span className="lt-core60-close-copy">Back to lesson</span>
         </button>
         <PracticeTimeBar edge="nav" />
         {/* Mobile-only: Add word + language + module + voice + settings. One tight row that

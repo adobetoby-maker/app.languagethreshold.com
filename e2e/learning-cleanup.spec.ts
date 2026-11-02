@@ -86,3 +86,61 @@ test("new lesson entry ignores a resume from another language", async ({ page })
   await card.getByRole("button", { name: "Start Lesson 1", exact: true }).click();
   await expect(page).toHaveURL(/lesson=1/);
 });
+
+test("started Core 60 overview puts next lesson in one compact button", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
+  const log = { startDate: new Date().toISOString().slice(0, 10), lessons: {} };
+  await seedAppState(page, {
+    activeModuleId: "roofing",
+    currentTab: "core30",
+    onboardingComplete: true,
+    core30Log: { [core30Key("roofing")]: log },
+  });
+  await page.goto(appUrl({ tab: "core30", module: "roofing" }));
+  const card = page.getByTestId("continue-learning");
+  await expect(
+    card.getByRole("button", { name: /Start Lesson 1.*Name the Roof System/ }),
+  ).toBeVisible();
+  await expect(card).not.toContainText("Goal:");
+  await expect(card).not.toContainText("Six ways to practice");
+  const before = await readAppState(page);
+  expect(before.core30Log).toEqual({ [core30Key("roofing")]: log });
+  await card.getByRole("button", { name: /Start Lesson 1.*Name the Roof System/ }).click();
+  await expect(page).toHaveURL(/lesson=1/);
+  if (await page.getByTestId("lesson-quick-next").isVisible()) {
+    await expect(page.getByText("Goal:", { exact: true })).toBeHidden();
+  }
+  const after = await readAppState(page);
+  expect(after.lessonProgress).toEqual(before.lessonProgress);
+  expect(JSON.stringify(after.core30Log)).not.toContain("masteredAt");
+});
+
+test("phone Core 60 lesson gives the screen to practice and opens navigation on demand", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(!isMobile);
+  await page.goto("/?tab=core30&module=roofing&target=Spanish&native=English&lesson=1&way=recall");
+  await expect(page.getByTestId("practice-mode-study")).toBeVisible();
+  const primary = page.getByRole("navigation", { name: "Primary", exact: true });
+  const menu = page.getByRole("button", { name: "Navigation, language and module" });
+  const next = page.getByTestId("lesson-quick-next");
+  await expect(primary).toBeHidden();
+  await expect(menu).toBeVisible();
+  await expect(next).toContainText("Next lesson");
+  await expect(next).toBeInViewport();
+  const before = await readAppState(page);
+  await menu.click();
+  await expect(primary).toBeVisible();
+  await expect(primary.getByRole("button", { name: "Hide navigation" })).toContainText(
+    "Back to lesson",
+  );
+  await primary.getByRole("button", { name: "Hide navigation" }).click();
+  await expect(primary).toBeHidden();
+  await next.click();
+  await expect(page).toHaveURL(/lesson=2/);
+  const after = await readAppState(page);
+  expect(after.lessonProgress).toEqual(before.lessonProgress);
+  expect(JSON.stringify(after.core30Log)).not.toContain("masteredAt");
+});

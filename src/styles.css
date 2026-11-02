@@ -1625,48 +1625,130 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
   display: none;
 }
 /* Published editorial content uses the app's existing typography and palette. */
-.blog-content { line-height: 1.8; overflow-wrap: anywhere; }
-.blog-content h2 { font-family: var(--font-display, Georgia, serif); font-size: 1.6rem; margin: 2rem 0 1rem; scroll-margin-top: 5rem; }
-.blog-content h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 .75rem; }
-.blog-content p, .blog-content ul, .blog-content ol, .blog-content blockquote { margin: 1rem 0; }
-.blog-content ul { list-style: disc; padding-inline-start: 1.5rem; }
-.blog-content ol { list-style: decimal; padding-inline-start: 1.5rem; }
-.blog-content a { color: var(--gold, #b48b40); text-decoration: underline; text-underline-offset: 3px; }
-.blog-content blockquote { border-inline-start: 3px solid currentColor; padding-inline-start: 1rem; }
-.blog-content table { display: block; overflow-x: auto; border-collapse: collapse; max-width: 100%; }
-.blog-content td, .blog-content th { border: 1px solid currentColor; padding: .6rem; }
-.blog-content code { white-space: pre-wrap; }
-.blog-content nav { border-block: 1px solid currentColor; padding-block: 1rem; margin-block: 2rem; }
+.blog-content {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.blog-content h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem;
+  scroll-margin-top: 5rem;
+}
+.blog-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+.blog-content p,
+.blog-content ul,
+.blog-content ol,
+.blog-content blockquote {
+  margin: 1rem 0;
+}
+.blog-content ul {
+  list-style: disc;
+  padding-inline-start: 1.5rem;
+}
+.blog-content ol {
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
+}
+.blog-content a {
+  color: var(--gold, #b48b40);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-content blockquote {
+  border-inline-start: 3px solid currentColor;
+  padding-inline-start: 1rem;
+}
+.blog-content table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  max-width: 100%;
+}
+.blog-content td,
+.blog-content th {
+  border: 1px solid currentColor;
+  padding: 0.6rem;
+}
+.blog-content code {
+  white-space: pre-wrap;
+}
+.blog-content nav {
+  border-block: 1px solid currentColor;
+  padding-block: 1rem;
+  margin-block: 2rem;
+}
 
 /* iPhone free conversation: the transcript owns the space reclaimed from the nav. */
 .lt-speaking-navigation,
-.lt-speaking-navigation-close {
+.lt-speaking-navigation-close,
+.lt-core60-close-copy,
+.lt-core60-quick-next {
   display: none;
 }
 @media (max-width: 767px) {
-  .lt-app-shell:has(.lt-free-conversation) {
+  .lt-app-shell:has(.lt-free-conversation, .lt-core60-lesson-active) {
     grid-template-rows: minmax(0, 1fr);
   }
-  body:has(.lt-free-conversation) .lt-bottom-nav:not([data-speaking-open="true"]),
+  body:has(.lt-free-conversation, .lt-core60-lesson-active)
+    .lt-bottom-nav:not([data-speaking-open="true"]),
   .lt-free-conversation .lt-speaking-title,
   .lt-free-conversation .lt-speaking-type {
     display: none;
   }
-  body:has(.lt-free-conversation) .lt-speaking-navigation {
+  body:has(.lt-free-conversation, .lt-core60-lesson-active) .lt-speaking-navigation {
     display: flex;
     position: fixed;
     left: 12px;
     bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 45;
   }
-  .lt-app-shell:has(.lt-free-conversation):has(.lt-bottom-nav[data-speaking-open="true"]) {
+  .lt-app-shell:has(.lt-free-conversation, .lt-core60-lesson-active):has(
+      .lt-bottom-nav[data-speaking-open="true"]
+    ) {
     grid-template-rows: minmax(0, 1fr) auto;
   }
-  body:has(.lt-free-conversation):has(.lt-bottom-nav[data-speaking-open="true"]) .lt-speaking-navigation {
+  body:has(.lt-free-conversation, .lt-core60-lesson-active):has(
+      .lt-bottom-nav[data-speaking-open="true"]
+    )
+    .lt-speaking-navigation {
     display: none;
   }
-  body:has(.lt-free-conversation) .lt-bottom-nav[data-speaking-open="true"] .lt-speaking-navigation-close {
+  body:has(.lt-free-conversation, .lt-core60-lesson-active)
+    .lt-bottom-nav[data-speaking-open="true"]
+    .lt-speaking-navigation-close {
     display: flex;
+  }
+  body:has(.lt-core60-lesson-active) .lt-speaking-close-copy {
+    display: none;
+  }
+  body:has(.lt-core60-lesson-active) .lt-core60-close-copy {
+    display: inline;
+  }
+  .lt-core60-quick-next {
+    display: inline-flex;
+    position: fixed;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 45;
+  }
+  body:has(.lt-core60-lesson-active):has(.lt-bottom-nav[data-speaking-open="true"])
+    .lt-core60-quick-next {
+    display: none;
+  }
+  .lt-core60-plan-started .lt-core60-lesson-goal {
+    display: none;
+  }
+  .lt-core60-plan-started .lt-core60-lesson-header {
+    padding: 12px;
+  }
+  main.lt-scroll-safe:has(.lt-core60-lesson-active) {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(64px + env(safe-area-inset-bottom));
   }
   .lt-free-conversation [aria-label="Conversation controls"] {
     margin-left: 56px;

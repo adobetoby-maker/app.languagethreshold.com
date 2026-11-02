@@ -154,15 +154,25 @@ function Core60PathCard({ moduleId }: { moduleId: string }) {
         {path.steps.map((step) => {
           const isCurrent = step.stage === path.current;
           const label = labels[step.stage];
-          const base = "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
+          const base =
+            "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
           return (
             <li key={step.stage} className="min-w-0">
               {!step.available ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-disabled="true" className={cn(base, "border-dashed border-border text-muted-foreground")}>
-                  {label}<span className="sr-only"> — Coming soon</span>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-disabled="true"
+                  className={cn(base, "border-dashed border-border text-muted-foreground")}
+                >
+                  {label}
+                  <span className="sr-only"> — Coming soon</span>
                 </div>
               ) : isCurrent ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-current="step" className={cn(base, "border-gold/60 bg-gold/10 text-gold")}>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-current="step"
+                  className={cn(base, "border-gold/60 bg-gold/10 text-gold")}
+                >
                   {label}
                 </div>
               ) : (
@@ -1363,7 +1373,7 @@ function OwnedLessonRunner({
   return (
     <div className="space-y-4">
       {/* Lesson header */}
-      <div className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
+      <div className="lt-core60-lesson-header rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
@@ -1379,7 +1389,7 @@ function OwnedLessonRunner({
             ✕ Exit
           </button>
         </div>
-        <p className="text-sm text-white/60 mt-1">
+        <p className="lt-core60-lesson-goal text-sm text-white/60 mt-1">
           <span className="text-gold/80 mr-1">Goal:</span>
           {lesson.objective}
         </p>
@@ -1690,6 +1700,17 @@ function OwnedLessonRunner({
       </section>
 
       {lessonButtons("bottom")}
+      {lesson.n < totalLessons && (
+        <button
+          type="button"
+          data-testid="lesson-quick-next"
+          onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
+          className="lt-core60-quick-next min-h-12 items-center gap-2 rounded-full border border-gold/50 bg-background px-4 text-sm font-semibold text-gold shadow-lg"
+        >
+          Next lesson · {stageLessonShort(moduleId, lesson.n + 1)}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </button>
+      )}
     </div>
   );
 }
@@ -2257,7 +2278,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
   function openLessonFromPlan(n: number, way: SectionId = "see") {
-    if (cardReview.ready && cardReview.shouldReviewBefore(n) && cardReview.start(cardReview.pending)) {
+    if (
+      cardReview.ready &&
+      cardReview.shouldReviewBefore(n) &&
+      cardReview.start(cardReview.pending)
+    ) {
       setCardReviewOpen(true);
       scrollLessonPageToTop();
       return;
@@ -2314,7 +2339,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }
 
   return (
-    <section>
+    <section
+      className={cn(
+        runnerActive && "lt-core60-lesson-active",
+        runnerActive && planStarted && "lt-core60-plan-started",
+      )}
+    >
       {!runnerActive && cardReview.ready && (
         <div
           data-testid="lesson-review-checkpoint"
@@ -2354,38 +2384,46 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         continueLesson && (
           <div
             data-testid="continue-learning"
-            className="mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5"
+            className={cn(
+              "mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60",
+              planStarted ? "p-3 sm:p-5" : "p-5",
+            )}
           >
-            <div className="flex items-start justify-between gap-3 mb-3">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                  {resumePosition
-                    ? "Continue learning"
-                    : practiceLesson
-                      ? "Practice again"
-                      : "Your next lesson"}{" "}
-                  · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
-                  {continueLesson.n}
-                </p>
-                <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+            {!planStarted && (
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                    {resumePosition
+                      ? "Continue learning"
+                      : practiceLesson
+                        ? "Practice again"
+                        : "Your next lesson"}{" "}
+                    · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
+                    {continueLesson.n}
+                  </p>
+                  <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+                </div>
+                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                  <span className="text-[11px] font-mono text-gold">
+                    ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                <span className="text-[11px] font-mono text-gold">
-                  ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                </span>
-              </div>
-            </div>
+            )}
 
-            <p className="text-sm text-muted-foreground mb-4">
-              <span className="text-gold/80">Goal: </span>
-              {continueLesson.objective}
-            </p>
+            {!planStarted && (
+              <p className="text-sm text-muted-foreground mb-4">
+                <span className="text-gold/80">Goal: </span>
+                {continueLesson.objective}
+              </p>
+            )}
 
             {/* Start stays reachable before the detailed six-mode preview. */}
             <button
               onClick={() => openLessonFromPlan(continueLesson.n, resumePosition?.way ?? "see")}
               className={cn(
-                "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                !planStarted && "mb-4",
                 planStarted && "border border-gold/40 bg-transparent text-gold",
               )}
               style={
@@ -2399,32 +2437,39 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             >
               {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
               {stageLessonLabel(moduleId, continueLesson.n)}
+              {planStarted && (
+                <span className="min-w-0 truncate font-normal text-foreground/80">
+                  · {continueLesson.title}
+                </span>
+              )}
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </button>
 
-            {resumePosition && (
+            {!planStarted && resumePosition && (
               <p className="mb-3 text-sm text-muted-foreground">
                 Pick up at {SECTIONS.find((step) => step.id === resumePosition.way)?.label}
               </p>
             )}
-            <details>
-              <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
-                Six ways to practice this lesson
-              </summary>
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-            </details>
+            {!planStarted && (
+              <details>
+                <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+                  Six ways to practice this lesson
+                </summary>
+                <div className="space-y-1.5 mb-5">
+                  {SECTIONS.map((step, i) => (
+                    <div
+                      key={step.id}
+                      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                        {i + 1}
+                      </span>
+                      <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
           </div>
         )}
 
@@ -2436,8 +2481,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" &&
-            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) && (
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(
+              moduleId,
+            ) && (
               <button
                 className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
                 onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
@@ -2493,9 +2541,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">
-                Continue when you’re ready.
-              </p>
+              <p className="text-xs text-white/60 mt-1">Continue when you’re ready.</p>
             </div>
           )}
 
@@ -2656,31 +2702,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
-            <details data-testid="study-options" open={activeAssessmentPlan ? true : undefined} className="my-4 rounded-xl border border-border/50 p-3">
-              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Study options</summary>
-            <Core30PlanCard
-              enrollmentId={activeAssessmentPlan}
-              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
-              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
-              managedPlanUrl={
-                activeAssessmentPlan
-                  ? examsLocation({
-                      moduleId,
-                      target: state.selectedLanguage,
-                      native: state.nativeLanguage,
-                      orgId: approvedPlanTiming.organizationId,
-                      returnPlanId: activeAssessmentPlan,
-                    })
-                  : undefined
-              }
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
+            <details
+              data-testid="study-options"
+              open={activeAssessmentPlan ? true : undefined}
+              className="my-4 rounded-xl border border-border/50 p-3"
+            >
+              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">
+                Study options
+              </summary>
+              <Core30PlanCard
+                enrollmentId={activeAssessmentPlan}
+                reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+                assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+                managedPlanUrl={
+                  activeAssessmentPlan
+                    ? examsLocation({
+                        moduleId,
+                        target: state.selectedLanguage,
+                        native: state.nativeLanguage,
+                        orgId: approvedPlanTiming.organizationId,
+                        returnPlanId: activeAssessmentPlan,
+                      })
+                    : undefined
+                }
+                moduleId={moduleId}
+                totalLessons={totalLessons}
+                onOpenLesson={openLessonFromPlan}
+                onStartReview={() => {
+                  setOpenLessonN(null);
+                  setReviewOpen(true);
+                }}
+              />
             </details>
           )}
 

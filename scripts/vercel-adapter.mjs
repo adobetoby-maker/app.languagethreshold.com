@@ -127,6 +127,7 @@ writeFileSync(
       },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
+      { src: "/review-demo\\.html", dest: "/review-demo.html", headers: { "x-robots-tag": "noindex, nofollow" } },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },
       { src: "/roofing-review-data\\.js", dest: "/roofing-review-data.js" },
       { src: "/robots\\.txt", dest: "/robots.txt" },

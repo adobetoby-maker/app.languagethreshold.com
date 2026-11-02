@@ -32,6 +32,19 @@ test("selected module opens its card first, with Add cards and a compact deck be
           ?.cards ?? {},
     );
   const beforeCards = await readCards();
+  const directions = page.getByRole("group", { name: "Card direction" });
+  const spanishFirst = directions.getByRole("button", { name: "ES to EN" });
+  const englishFirst = directions.getByRole("button", { name: "EN to ES" });
+  await expect(spanishFirst).toHaveAttribute("aria-pressed", "true");
+  await englishFirst.click();
+  await expect(englishFirst).toHaveAttribute("aria-pressed", "true");
+  await expect(card.locator(":scope > div").first()).toContainText(/shingle/i);
+  await expect(card.locator(":scope > div").nth(1)).toHaveAttribute("aria-hidden", "true");
+  await card.click();
+  await expect(card.locator(":scope > div").nth(1)).toContainText("Teja asfáltica");
+  await spanishFirst.click();
+  await expect(card.locator(":scope > div").nth(1)).toHaveAttribute("aria-hidden", "true");
+  expect(await readCards()).toEqual(beforeCards);
   // Opening deck-management controls with the keyboard must not flip/grade a card.
   const summary = add.locator("summary");
   await summary.focus();

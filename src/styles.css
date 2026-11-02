@@ -1374,12 +1374,14 @@ body :is(em, cite) {
   }
   .flashcards-heading {
     flex-shrink: 0;
+    margin-bottom: 0.25rem;
   }
   .flashcards-heading > div:first-child > div:first-child {
     display: none;
   }
   .flashcards-working {
     flex: 1;
+    gap: 0.25rem;
   }
   .flashcards-working > :not(.flashcards-face) {
     flex-shrink: 0;
@@ -1401,7 +1403,7 @@ body :is(em, cite) {
     font-size: 1.5rem;
     line-height: 1.25;
   }
-  .flashcards-working > div:nth-child(2) button {
+  .flashcards-tools button {
     min-height: 44px;
   }
   [data-testid="flashcards-shortcuts"] {
@@ -1489,6 +1491,22 @@ body :is(em, cite) {
     font-family: var(--font-sans);
     letter-spacing: normal;
     text-transform: none;
+  }
+}
+@media (max-width: 360px) {
+  /* Japanese adds a furigana control. Keep its audio and furigana buttons in
+     one row so grading remains above the phone dock; announce the session
+     count to assistive tech without reserving a second row for it. */
+  .flashcards-tools > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }
 @media (max-width: 767px) {

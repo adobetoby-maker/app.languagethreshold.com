@@ -11,3 +11,5 @@ Website source: `src/lib/lesson-verb-games.ts`, `src/components/core30/LessonVer
 V4 source: `Shared/LessonVerbGames.swift`, `App/LessonVerbGamesView.swift`, `App/PracticeSessionView.swift`. This is native iPhone/iPad source integration; no TestFlight upload is implied.
 
 Validation covers lesson-local answers across all 360 lessons, pattern precedence, Unicode/accents and ambiguity filtering. Browser tests play all five games in Core usage verbs, Core conjugation patterns and Master common patterns on desktop and phone. Native tests cover all lesson banks and a UI flow through the taught pattern.
+
+For local browser runners that stall while recording/closing traces, `E2E_TRACE=off npm run smoke:e2e -- --phone` runs the same assertions with screenshot diagnostics and without trace files. The default remains `retain-on-failure`.

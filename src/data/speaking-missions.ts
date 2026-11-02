@@ -628,6 +628,7 @@ function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): s
 const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpecialty, string>> = {
   Spanish: {
     Core: "Hola. ¿En qué puedo ayudarle hoy?",
+    "Core Basics": "Hola. ¿En qué puedo ayudarle hoy?",
     Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
     Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
     Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
@@ -640,6 +641,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Italian: {
     Core: "Buongiorno. Come posso aiutarla oggi?",
+    "Core Basics": "Buongiorno. Come posso aiutarla oggi?",
     Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
     Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
     Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
@@ -652,6 +654,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Japanese: {
     Core: "こんにちは。今日はどうされましたか。",
+    "Core Basics": "こんにちは。今日はどうされましたか。",
     Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
     Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
     Trades: "おはようございます。この状況では、まず何をすればよいですか。",
@@ -664,6 +667,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Chinese: {
     Core: "你好。今天有什么可以帮您的？",
+    "Core Basics": "你好。今天有什么可以帮您的？",
     Faith: "你好。谢谢你来。今天想聊些什么？",
     Medical: "你好。谢谢您接待我。您需要先了解什么情况？",
     Trades: "早上好。这种情况下我们应该先做什么？",
@@ -676,6 +680,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   English: {
     Core: "Hello. How can I help you today?",
+    "Core Basics": "Hello. How can I help you today?",
     Faith: "Hello. Thank you for coming. What would you like to talk about?",
     Medical: "Hello. Thank you for seeing me. What do you need to know first?",
     Trades: "Good morning. What should we do first in this situation?",
@@ -895,6 +900,7 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
     "This is language practice only; do not present the roleplay as professional advice.";
   switch (category) {
     case "Core":
+    case "Core Basics":
       return [
         practiceOnly,
         "Use fictional personal, account, payment, medical, and location details during roleplay.",

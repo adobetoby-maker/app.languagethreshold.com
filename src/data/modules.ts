@@ -13,6 +13,7 @@ export interface AppModule {
   name: string;
   emoji: string;
   category:
+    | "Core Basics"
     | "Faith"
     | "Medical"
     | "Trades"
@@ -86,7 +87,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-usage-verbs",
     name: "Spanish Usage-First Verbs · Core 60",
     emoji: "📊",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },
@@ -106,7 +107,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-common-patterns",
     name: "Spanish Common Grammar Patterns · Core 60",
     emoji: "🧩",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },
@@ -126,7 +127,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-102",
     name: "Spanish 102 · Core 60",
     emoji: "📘",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },
@@ -146,7 +147,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-frequent-verbs",
     name: "Spanish Frequent Verbs · Core 60",
     emoji: "💬",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },
@@ -166,7 +167,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-conjugation-patterns",
     name: "Spanish Conjugation Patterns · Core 60",
     emoji: "🔁",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },
@@ -186,7 +187,7 @@ const CATALOG: AppModule[] = [
     id: "spanish-basics",
     name: "Spanish 101 · General Core 60",
     emoji: "🌱",
-    category: "Education",
+    category: "Core Basics",
     languages: ["Spanish"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Spanish", native: "English" },

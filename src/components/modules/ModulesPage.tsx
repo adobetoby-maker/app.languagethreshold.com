@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, Sparkles, CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
@@ -13,6 +14,7 @@ import { useLibrary } from "@/state/library-state";
 import { getAvailableModuleLessons } from "@/data/module-starters";
 
 const CATEGORY_ORDER: AppModule["category"][] = [
+  "Core Basics",
   "English for Work",
   "Faith",
   "Medical",
@@ -25,6 +27,7 @@ const CATEGORY_ORDER: AppModule["category"][] = [
 ];
 
 const CATEGORY_META: Record<AppModule["category"], { emoji: string; color: string }> = {
+  "Core Basics": { emoji: "🌱", color: "text-emerald-400 border-emerald-400/40 bg-emerald-400/10" },
   "English for Work": {
     emoji: "🗣️",
     color: "text-indigo-400 border-indigo-400/40 bg-indigo-400/10",
@@ -187,13 +190,7 @@ export function ModulesPage() {
         path.module,
         ...path.stages.flatMap((stage) => (stage.module ? [stage.module] : [])),
       ];
-      return (
-        matchesCat &&
-        (!q ||
-          modules.some((m) =>
-            [m.name, m.blurb, m.userRole, ...m.vocabFocus].join(" ").toLowerCase().includes(q),
-          ))
-      );
+      return matchesCat && (!q || modules.some((m) => moduleMatchesSearch(m, q)));
     });
   }, [paths, search, activeCategory]);
   const groups = [

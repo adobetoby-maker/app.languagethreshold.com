@@ -175,9 +175,7 @@ test("Master applies familiar beginner grammar with English support", async ({ p
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test("Spanish 101 card lists retain independent word choices across reload", async ({
-  page,
-}) => {
+test("Spanish 101 card lists retain independent word choices across reload", async ({ page }) => {
   await openCourse(page, "foundation-spanish-basics", true);
   await page
     .getByRole("button", { name: "Practice Spanish 101 vocabulary · My card lists", exact: true })
@@ -198,4 +196,31 @@ test("Spanish 101 card lists retain independent word choices across reload", asy
   await expect(page.getByRole("checkbox").first()).toBeChecked();
   await page.getByLabel("Find a word").fill("yo hablo");
   await expect(page.getByText("yo hablo", { exact: true }).first()).toBeVisible();
+});
+
+test("Core Basics is second after All and searchable in the library and picker", async ({
+  page,
+}) => {
+  await openCourse(page, "foundation-spanish-basics");
+  await page.goto("/?tab=modules&target=Spanish&native=English");
+  const filters = page.getByTestId("module-filters");
+  await filters.locator("summary").click();
+  await expect(filters.getByRole("button").nth(0)).toContainText("All");
+  await expect(filters.getByRole("button").nth(1)).toContainText("Core Basics (6)");
+  await filters.getByRole("button", { name: /Core Basics/ }).click();
+  await expect(page.locator("[data-module-id]")).toHaveCount(6);
+  await page.screenshot({ path: "/tmp/core-basics-category-phone.png" });
+  await page.getByPlaceholder("Search modules, roles, or keywords…").fill("high use grammar");
+  await expect(page.locator("[data-module-id]")).toHaveCount(1);
+  await expect(page.locator('[data-module-id="spanish-common-patterns"]')).toBeVisible();
+  await page
+    .getByRole("navigation", { name: "Primary", exact: true })
+    .getByRole("button", { name: /Spanish 101/ })
+    .click();
+  const picker = page.getByRole("dialog", { name: "Select Module" });
+  await picker.getByRole("button", { name: "Core Basics", exact: true }).click();
+  await expect(picker.locator("[data-module-id]")).toHaveCount(6);
+  await picker.getByPlaceholder("Search modules…").fill("high frequency verbs");
+  await expect(picker.locator('[data-module-id="spanish-frequent-verbs"]')).toBeVisible();
+  await expect(picker.locator('[data-module-id="roofing"]')).toHaveCount(0);
 });

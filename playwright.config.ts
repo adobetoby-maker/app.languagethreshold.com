@@ -24,7 +24,7 @@ export default defineConfig({
     baseURL,
     channel,
     screenshot: "only-on-failure",
-    trace: "retain-on-failure",
+    trace: process.env.E2E_TRACE === "off" ? "off" : "retain-on-failure",
   },
   projects: [
     {

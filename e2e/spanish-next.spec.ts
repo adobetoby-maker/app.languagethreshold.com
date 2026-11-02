@@ -211,3 +211,107 @@ test("authored HD recordings play both selected voices without a synthesis reque
   }
   expect(synthesisRequests).toBe(0);
 });
+
+for (const moduleId of [
+  "spanish-usage-verbs",
+  "spanish-conjugation-patterns",
+  "master-spanish-common-patterns",
+])
+  test(`${moduleId}: lesson-local matching, hangman, choices and typing`, async ({ page }) => {
+    await openCourse(page, moduleId);
+    await page
+      .getByRole("button", { name: /^Start (?:Foundation |Master )?Lesson 1$/, exact: true })
+      .click();
+    const games = page.getByRole("region", { name: "Lesson verb games", exact: true });
+    await expect(games).toBeVisible();
+    const raw = JSON.parse(readFileSync(`public/lesson-content/es/${moduleId}.json`, "utf8"))
+      .lessons["1"];
+    const pattern = practice[moduleId]["1"].pattern;
+    const source = pattern?.verbs ?? raw.verbs;
+    const forms = source.flatMap(
+      (v: { infinitive: string; native: string; forms: Record<string, string> }) =>
+        Object.entries(v.forms).map(([person, answer]) => ({
+          verb: v.infinitive,
+          person,
+          answer,
+          native: v.native,
+        })),
+    );
+    await games.getByRole("button", { name: "Match verb meanings", exact: true }).click();
+    for (let i = 0; i < Math.min(source.length, 10); i++) {
+      const round = games.getByTestId("lesson-verb-game-round");
+      // Select the first unmatched prompt; answer buttons are in the other column.
+      const left = round
+        .locator(".grid.grid-cols-2 > div")
+        .first()
+        .getByRole("button", { disabled: false })
+        .first();
+      const meaning = await left.innerText();
+      const verb = source.find((v: { native: string }) => v.native === meaning);
+      await left.click();
+      await round.getByRole("button", { name: verb.infinitive, exact: true }).click();
+    }
+    await expect(games).toContainText("Round complete");
+    for (const game of ["Match conjugations", "Hangman", "Choose the form", "Type the form"]) {
+      await games.getByRole("button", { name: game, exact: true }).click();
+      const round = games.getByTestId("lesson-verb-game-round");
+      if (game === "Match conjugations") {
+        const left = round.locator(".grid.grid-cols-2 > div").first().getByRole("button").first();
+        const prompt = await left.innerText();
+        const verb = prompt.split(" · ")[1];
+        const person = prompt.split(" · ")[0];
+        const form = forms.find(
+          (v: { verb: string; person: string }) =>
+            v.verb === verb &&
+            (v.person.replaceAll("_", " / ") === person ||
+              (
+                { tu: "tú", el: "él / ella / usted", ellos: "ellos / ellas / ustedes" } as Record<
+                  string,
+                  string
+                >
+              )[v.person] === person),
+        );
+        await left.click();
+        await round.getByRole("button", { name: form.answer, exact: true }).click();
+        await expect(round).toContainText("Matched.");
+        continue;
+      }
+      const prompt = await round.locator("p.font-semibold").innerText();
+      const verb = prompt.split(" · ")[1];
+      const person = prompt.split(" · ")[0];
+      const form = forms.find(
+        (v: { verb: string; person: string }) =>
+          v.verb === verb &&
+          (v.person.replaceAll("_", " / ") === person ||
+            (
+              { tu: "tú", el: "él / ella / usted", ellos: "ellos / ellas / ustedes" } as Record<
+                string,
+                string
+              >
+            )[v.person] === person),
+      );
+      expect(form).toBeTruthy();
+      if (game === "Hangman") {
+        for (const letter of new Set(
+          [...form.answer.toLowerCase()].filter((c) => /[a-záéíóúüñ]/.test(c)),
+        ))
+          await round.getByRole("button", { name: letter, exact: true }).click();
+        await expect(round).toContainText("Solved.");
+        if (moduleId === "spanish-conjugation-patterns")
+          await page.screenshot({ path: `/tmp/lt-verb-games-${test.info().project.name}.png` });
+      } else if (game === "Choose the form") {
+        await round.getByRole("button", { name: form.answer, exact: true }).click();
+        await expect(round).toContainText("Correct.");
+      } else {
+        await round.getByLabel("Game Spanish form").fill("wrong");
+        await round.getByRole("button", { name: "Check form", exact: true }).click();
+        await expect(round).toContainText("Try again.");
+        await round.getByLabel("Game Spanish form").fill(form.answer);
+        await round.getByRole("button", { name: "Check form", exact: true }).click();
+        await expect(round).toContainText("Correct.");
+      }
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+  });

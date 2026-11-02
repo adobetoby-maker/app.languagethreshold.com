@@ -28,6 +28,7 @@ const courses = [
   "spanish-conjugation-patterns",
   "spanish-usage-verbs",
   "spanish-common-patterns",
+  "spanish-cognates",
 ];
 const missions = getSpeakingMissions("Spanish");
 for (const base of courses)
@@ -145,7 +146,7 @@ test("60 distinct frequent verbs and 28 explicitly named teaching families have 
   assert.equal(patterns.length, 60);
   assert.equal(new Set(patterns.slice(0, 28)).size, 28);
   assert.match(spanishBasicsLesson("spanish-frequent-verbs", 19).grammar.focus, /vulgar/);
-  assert.equal(SPANISH_NEXT_READERS.length, 300);
+  assert.equal(SPANISH_NEXT_READERS.length, 360);
 });
 test("recordings preserve accents, voice gender and safe filenames without opposite-voice substitution", () => {
   const manifest = {

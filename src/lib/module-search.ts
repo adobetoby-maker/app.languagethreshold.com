@@ -1,6 +1,7 @@
 import type { AppModule } from "../data/modules.ts";
 
 const CORE_ALIASES: Record<string, string> = {
+  "spanish-cognates": "cognates cognados false friends false cognates similar words word families",
   "spanish-basics": "Spanish 101 beginner starter basic learning foundations",
   "spanish-102": "Spanish 102 next beginner basic learning",
   "spanish-frequent-verbs": "high frequency verbs frequent verbs common verbs",

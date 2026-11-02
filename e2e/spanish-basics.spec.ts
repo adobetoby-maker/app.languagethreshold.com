@@ -206,9 +206,9 @@ test("Core Basics is second after All and searchable in the library and picker",
   const filters = page.getByTestId("module-filters");
   await filters.locator("summary").click();
   await expect(filters.getByRole("button").nth(0)).toContainText("All");
-  await expect(filters.getByRole("button").nth(1)).toContainText("Core Basics (6)");
+  await expect(filters.getByRole("button").nth(1)).toContainText("Core Basics (7)");
   await filters.getByRole("button", { name: /Core Basics/ }).click();
-  await expect(page.locator("[data-module-id]")).toHaveCount(6);
+  await expect(page.locator("[data-module-id]")).toHaveCount(7);
   await page.screenshot({ path: "/tmp/core-basics-category-phone.png" });
   await page.getByPlaceholder("Search modules, roles, or keywords…").fill("high use grammar");
   await expect(page.locator("[data-module-id]")).toHaveCount(1);
@@ -219,7 +219,7 @@ test("Core Basics is second after All and searchable in the library and picker",
     .click();
   const picker = page.getByRole("dialog", { name: "Select Module" });
   await picker.getByRole("button", { name: "Core Basics", exact: true }).click();
-  await expect(picker.locator("[data-module-id]")).toHaveCount(6);
+  await expect(picker.locator("[data-module-id]")).toHaveCount(7);
   await picker.getByPlaceholder("Search modules…").fill("high frequency verbs");
   await expect(picker.locator('[data-module-id="spanish-frequent-verbs"]')).toBeVisible();
   await expect(picker.locator('[data-module-id="roofing"]')).toHaveCount(0);

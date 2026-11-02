@@ -36,7 +36,7 @@ function readJson<T>(file: string): T {
 // This new course has lesson-level verb practice, but is outside the already signed global
 // Verb Games pool until its additions receive a separate review. Shipping a course must not
 // silently invalidate the signed pool used by every other learner.
-const PENDING_REVIEW_MODULES: ReadonlySet<string> = new Set(["medical-mission-logistics", "spanish-basics", "spanish-102", "spanish-frequent-verbs", "spanish-conjugation-patterns", "spanish-usage-verbs", "spanish-common-patterns"]);
+const PENDING_REVIEW_MODULES: ReadonlySet<string> = new Set(["medical-mission-logistics", "spanish-cognates", "spanish-basics", "spanish-102", "spanish-frequent-verbs", "spanish-conjugation-patterns", "spanish-usage-verbs", "spanish-common-patterns"]);
 const STAGE_PREFIX = /^(foundation|master)-/;
 const SIGNED_STAGE_FILES: ReadonlySet<string> = new Set([
   "foundation-electrician.json",

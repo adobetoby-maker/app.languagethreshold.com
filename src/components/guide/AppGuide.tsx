@@ -1706,7 +1706,7 @@ function OwnedLessonRunner({
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
         {basics && (!masteredAt || needsPractice) && (
-          <SpanishBasicsCheck checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
+          <SpanishBasicsCheck topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"} checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
         )}
         {masteredAt && !needsPractice ? (
           <>
@@ -2563,6 +2563,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                     ["spanish-conjugation-patterns", "Conjugation Patterns"],
                     ["spanish-usage-verbs", "Usage-First Verbs"],
                     ["spanish-common-patterns", "Common Grammar Patterns"],
+                    ["spanish-cognates", "Cognates"],
                   ].map(([id, label], index) => (
                     <li key={id}>
                       <a

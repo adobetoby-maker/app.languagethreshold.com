@@ -84,6 +84,27 @@ export function moduleSupportsLearningPair(
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
   {
+    id: "spanish-cognates",
+    name: "Spanish Cognates · Core 60",
+    emoji: "🔗",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Recognize familiar word families, pronounce and spell them in Spanish, and avoid false friends. Sixty contextual lessons with English support; human teaching review pending.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher helping an English-speaking learner use cognates in context. Treat spelling patterns as clues, never guaranteed translations. Explain pronunciation, gender, regional usage and false friends accurately, then ask for original examples.",
+    userRole:
+      "A Spanish learner building vocabulary through cognates and checking misleading lookalikes",
+    challengePrompts: [
+      "Use a familiar word in a new situation and explain its meaning.",
+      "Correct a false-friend misunderstanding politely.",
+    ],
+    vocabFocus: ["cognates", "word families", "false friends", "pronunciation", "context"],
+  },
+  {
     id: "spanish-usage-verbs",
     name: "Spanish Usage-First Verbs · Core 60",
     emoji: "📊",

@@ -6,6 +6,7 @@ const { ownerDiscountAction, checkDiscount } = await loadModule("src/lib/owner-d
 const { manageOwnerDiscount } = await loadModule("src/lib/owner-discounts-server.ts", {
   external: ["stripe"],
 });
+const { INDIVIDUAL_PRICES } = await loadModule("src/lib/individual-pricing.ts");
 const input = () =>
   ownerDiscountAction.parse({
     action: "create",
@@ -23,7 +24,10 @@ function fixture() {
   const calls = [];
   const stripe = {
     prices: {
-      retrieve: async (id) => ({ active: true, product: "prod_" + id.replace(/\W|_/g, "") }),
+      retrieve: async (id) => ({
+        active: true,
+        product: "prod_" + (id === INDIVIDUAL_PRICES.familyMonthly ? INDIVIDUAL_PRICES.family : id).replace(/\W|_/g, ""),
+      }),
       list: async ({ lookup_keys }) => ({
         data: [
           {

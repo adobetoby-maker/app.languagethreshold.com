@@ -1,4 +1,4 @@
-import { INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
+import { configuredIndividualPriceIds, INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { randomBytes } from "node:crypto";
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/api/create-checkout")({
             user = await authenticatedTeamUser(request, db);
           if (prepared.data.userId !== user.id)
             throw new TeamOperationError("Sign in with the account purchasing this plan.", 403);
-          const prices = Object.values(INDIVIDUAL_PRICES);
+          const prices = configuredIndividualPriceIds();
           if (!prices.includes(prepared.data.priceId))
             throw new TeamOperationError("This plan is not available. Refresh the pricing page.");
           const key = process.env.STRIPE_SECRET_KEY;
@@ -39,6 +39,20 @@ export const Route = createFileRoute("/api/create-checkout")({
             maxNetworkRetries: 0,
             timeout: 15000,
           });
+          if (prepared.data.priceId === INDIVIDUAL_PRICES.familyMonthly) {
+            const [monthly, annual] = await Promise.all([
+              stripe.prices.retrieve(prepared.data.priceId),
+              stripe.prices.retrieve(INDIVIDUAL_PRICES.family),
+            ]);
+            const productId = (price: Stripe.Price) =>
+              typeof price.product === "string" ? price.product : price.product.id;
+            if (
+              !monthly.active || monthly.currency !== "usd" || monthly.unit_amount !== 3500 ||
+              monthly.recurring?.interval !== "month" || productId(monthly) !== productId(annual)
+            ) {
+              throw new TeamOperationError("Family monthly checkout is not configured yet.", 503);
+            }
+          }
           const origin = new URL(request.url).origin;
           const session = await stripe.checkout.sessions.create({
             mode: "subscription",

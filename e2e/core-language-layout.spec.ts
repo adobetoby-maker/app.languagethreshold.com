@@ -74,7 +74,7 @@ test("Core card frame and grading fit every language and representative modules 
             scroll: main.scrollTop,
             card: { x: card.x, y: card.y, width: card.width, height: card.height },
             grading: { x: grading.x, y: grading.y, right: grading.right, bottom: grading.bottom },
-            navTop: nav.top,
+            navTop: nav.height > 0 ? nav.top : innerHeight,
           };
         });
       const front = await readFrame();

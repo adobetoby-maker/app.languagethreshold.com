@@ -167,6 +167,15 @@ async function goSection(page: Page, section: Section) {
   await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute("aria-current", "step");
 }
 
+async function chooseRecallPractice(page: Page, mode: "study" | "flashcards" | "match" | "verbs") {
+  if ((page.viewportSize()?.width ?? 1440) < 768) {
+    await page.getByTestId("lesson-nav-recall").click();
+    await page.getByTestId("lesson-recall-menu").getByTestId(`lesson-recall-${mode}`).click();
+  } else {
+    await page.getByTestId(`practice-mode-${mode}`).click();
+  }
+}
+
 const currentTabOf = (page: Page) => currentTab(page);
 
 /** Opens the lesson's practice kit (Recall it); the duplicate heading is hidden on phones. */
@@ -336,7 +345,7 @@ test.describe("Core 30 plan: Roofing", () => {
     }
 
     // Memory match: pair every Spanish tile with its English tile.
-    await kit.getByTestId("practice-mode-match").click();
+    await chooseRecallPractice(page, "match");
     const enOf = new Map(LESSON_1_TERMS.map((w) => [w.es, w.en]));
     const tiles = kit.getByTestId("match-tile");
     await expect(tiles.first()).toBeVisible();
@@ -539,7 +548,7 @@ test.describe("Core 30 plan: Roofing", () => {
     expect(await currentTabOf(page)).toBe("core30");
     await expect(page.getByTestId("lesson-practice-section")).toBeVisible();
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
-    await page.getByTestId("practice-mode-flashcards").click();
+    await chooseRecallPractice(page, "flashcards");
     await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute(
       "aria-selected",
       "true",
@@ -547,7 +556,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await goSection(page, "see");
     await goSection(page, "recall");
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
-    await page.getByTestId("practice-mode-match").click();
+    await chooseRecallPractice(page, "match");
     await expect(page.getByTestId("match-tile").first()).toBeVisible();
     await expect(page.getByTestId("lesson-nav-recall")).toHaveAttribute("aria-current", "step");
     // Opening the word-drill section is recorded (step index 1), still inside this lesson.
@@ -567,7 +576,11 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("tablist", { name: "Practice mode" })).toHaveCount(0);
     await expect(page.getByTestId("practice-recall-switch")).toHaveCount(0);
     await goSection(page, "recall");
-    await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
+    if ((page.viewportSize()?.width ?? 1440) < 768) {
+      await expect(page.getByTestId("practice-recall-switch")).toBeHidden();
+    } else {
+      await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
+    }
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await expect(page.getByTestId("practice-mode-type")).toHaveCount(0);
   });
@@ -794,7 +807,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
     // Recall opens directly on the Study list.
-    await kit.getByTestId("practice-mode-study").click();
+    await chooseRecallPractice(page, "study");
     const panel = kit.getByRole("tabpanel");
     await expect(panel.locator('li p[lang="fr"]')).toHaveCount(STUB_WORDS.length);
     expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
@@ -804,7 +817,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     expect(requests[0]).toContain("orthopedics");
 
     // Match uses the 8 stubbed terms only.
-    await kit.getByTestId("practice-mode-match").click();
+    await chooseRecallPractice(page, "match");
     const terms = STUB_WORDS.filter((w) => w.kind === "term");
     await expect(kit.getByText(`0 / ${terms.length} pairs`)).toBeVisible();
     const enOf = new Map(terms.map((w) => [w.es, w.en]));
@@ -918,7 +931,7 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
       page.getByRole("heading", { includeHidden: true, name: "Practice this lesson's words (12)" }),
     ).toBeAttached();
     await expect(page.getByTestId("practice-kit")).toBeVisible();
-    await page.getByTestId("practice-mode-study").click();
+    await chooseRecallPractice(page, "study");
     const panel = page.getByTestId("practice-kit").getByRole("tabpanel");
     await expect(panel.locator('li p[lang="fr"]')).toHaveCount(12);
     expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(

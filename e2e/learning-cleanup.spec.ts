@@ -125,7 +125,7 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
 }) => {
   test.skip(!isMobile);
   await page.goto("/?tab=core30&module=roofing&target=Spanish&native=English&lesson=1&way=recall");
-  await expect(page.getByTestId("practice-mode-study")).toBeVisible();
+  await expect(page.getByTestId("practice-mode-study")).toBeHidden();
   const primary = page.getByRole("navigation", { name: "Primary", exact: true });
   const menu = page.getByRole("button", { name: "Navigation, language and module" });
   const modes = page.getByTestId("lesson-section-nav");
@@ -141,6 +141,19 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   expect(menuBox!.x + menuBox!.width).toBeLessThanOrEqual(seeBox!.x);
   expect(menuBox!.y).toBeGreaterThanOrEqual(modesBox!.y);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.getByTestId("lesson-nav-recall").click();
+  const recallMenu = page.getByTestId("lesson-recall-menu");
+  await expect(recallMenu).toBeVisible();
+  await page.screenshot({ path: "test-results/core60-recall-menu-iphone.png" });
+  await recallMenu.getByTestId("lesson-recall-flashcards").click();
+  await expect(page.getByTestId("flashcard")).toBeVisible();
+  await expect(recallMenu).toHaveCount(0);
+  await page.getByTestId("lesson-nav-recall").click();
+  await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-match").click();
+  await expect(page.getByTestId("match-tile").first()).toBeVisible();
+  await page.getByTestId("lesson-nav-recall").click();
+  await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-study").click();
+  await expect(page.getByRole("region", { name: "Terms" })).toBeVisible();
   await page.screenshot({ path: "test-results/core60-focused-iphone.png" });
   await expect(
     page.getByTestId("lesson-nav-top").getByRole("button", { name: /Next lesson/ }),

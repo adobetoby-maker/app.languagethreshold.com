@@ -812,6 +812,7 @@ function OwnedLessonRunner({
   const navRef = useRef<HTMLElement>(null);
   const masteryRef = useRef<HTMLElement>(null);
   const [section, setSection] = useState<SectionId>(initialSection ?? "see");
+  const [recallMenuOpen, setRecallMenuOpen] = useState(false);
   const [kitMode, setKitMode] = useState<PracticeMode>(() =>
     modeForSection(initialSection ?? "see"),
   );
@@ -1022,6 +1023,7 @@ function OwnedLessonRunner({
   }
 
   function selectSection(next: SectionId, scroll = false) {
+    setRecallMenuOpen(false);
     setSection(next);
     if (KIT_SECTIONS.includes(next)) setKitMode(modeForSection(next));
     // Opening a way of learning is the record; the passage (See it) is recorded on first use.
@@ -1034,6 +1036,12 @@ function OwnedLessonRunner({
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);
     setSection(sectionForMode(mode));
+  }
+
+  function selectRecallMode(mode: PracticeMode) {
+    onKitModeChange(mode);
+    setRecallMenuOpen(false);
+    requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
   }
 
   /** Record the opened practice without leaving the lesson. */
@@ -1385,6 +1393,12 @@ function OwnedLessonRunner({
   );
 
   const panelClass = "rounded-2xl border border-white/[0.08] bg-card/40 p-4";
+  const recallOptions: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
+    { id: "study", label: "Study", Icon: BookOpen },
+    { id: "flashcards", label: "Cards", Icon: Layers },
+    { id: "match", label: "Match", Icon: Puzzle },
+    ...(verbs.length > 0 ? [{ id: "verbs" as const, label: "Verbs", Icon: Repeat2 }] : []),
+  ];
   const panelHeader = (def: SectionDef, n: number) => (
     <header>
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
@@ -1439,7 +1453,16 @@ function OwnedLessonRunner({
               data-testid={`lesson-nav-${id}`}
               aria-current={active ? "step" : undefined}
               aria-label={label}
-              onClick={() => selectSection(id)}
+              aria-description={id === "recall" ? "On phones, tap again to choose Study, Cards, Match, or Verbs" : undefined}
+              onClick={() => {
+                if (id === "recall" && window.matchMedia("(max-width: 767px)").matches && section === "recall") {
+                  setRecallMenuOpen((open) => !open);
+                } else {
+                  selectSection(id);
+                }
+              }}
+              aria-expanded={id === "recall" ? recallMenuOpen : undefined}
+              aria-controls={id === "recall" ? "lesson-recall-menu" : undefined}
               className={cn(
                 "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
                 active
@@ -1449,6 +1472,7 @@ function OwnedLessonRunner({
             >
               <Icon className="h-4 w-4" aria-hidden="true" />
               {label.replace(" it", "")}
+              {id === "recall" && <ChevronDown className="lt-core60-recall-caret h-3 w-3" aria-hidden="true" />}
               {opened && (
                 <Check
                   className={cn(
@@ -1461,6 +1485,23 @@ function OwnedLessonRunner({
             </button>
           );
         })}
+        {recallMenuOpen && (
+          <div id="lesson-recall-menu" data-testid="lesson-recall-menu" className="lt-core60-recall-menu" role="group" aria-label="Recall activities">
+            {recallOptions.map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                type="button"
+                data-testid={`lesson-recall-${id}`}
+                aria-current={kitMode === id ? "true" : undefined}
+                onClick={() => selectRecallMode(id)}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {label}
+                {kitMode === id && <Check className="ml-auto h-4 w-4" aria-hidden="true" />}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* 1 · See it */}

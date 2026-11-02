@@ -3,7 +3,7 @@ export const INDIVIDUAL_PRICES = {
   monthly: import.meta.env?.VITE_STRIPE_PRICE_MONTHLY || "price_1TbKk2QjohgWhWidZ7BQKWbL",
   annual: import.meta.env?.VITE_STRIPE_PRICE_ANNUAL || "price_1TbKk4QjohgWhWid1m86409i",
   family: import.meta.env?.VITE_STRIPE_PRICE_FAMILY || "price_1TbKk5QjohgWhWidSuAbMeTq",
-  familyMonthly: import.meta.env?.VITE_STRIPE_PRICE_FAMILY_MONTHLY || "",
+  familyMonthly: "price_1UXAVdQjohgWhWid2hc7IjBD",
 };
 
 export const configuredIndividualPriceIds = () =>

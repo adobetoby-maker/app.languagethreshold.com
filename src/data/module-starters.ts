@@ -522,6 +522,23 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const nextCourse = [
+    "spanish-102",
+    "spanish-frequent-verbs",
+    "spanish-conjugation-patterns",
+    "spanish-usage-verbs",
+    "spanish-common-patterns",
+  ].find((id) => [id, `foundation-${id}`, `master-${id}`].includes(moduleId));
+  if (nextCourse) {
+    const count = moduleId.startsWith("foundation-")
+      ? 10
+      : moduleId.startsWith("master-")
+        ? 20
+        : 30;
+    return language === "Spanish"
+      ? Array.from({ length: count }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
+      : [];
+  }
   const basicsCount =
     moduleId === "spanish-basics"
       ? 30

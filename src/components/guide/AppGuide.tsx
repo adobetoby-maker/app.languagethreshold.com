@@ -1,3 +1,6 @@
+import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
+import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
+import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
@@ -806,7 +809,17 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const words = lessonWords.words;
+  const patternWords = useMemo(
+    () => spanishPatternWords(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage),
+    [moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage],
+  );
+  const words = useMemo(
+    () =>
+      patternWords
+        ? [...patternWords, ...lessonWords.words.filter((word) => word.kind === "phrase")]
+        : lessonWords.words,
+    [patternWords, lessonWords.words],
+  );
   const hasWords = words.length > 0;
   // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
   const lessonContent = useLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
@@ -1457,6 +1470,15 @@ function OwnedLessonRunner({
                 ))}
               </ul>
             </div>
+          )}
+          {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
+          {basics && verbs.length > 0 && (
+            <LessonVerbGames
+              key={`${moduleId}:${lesson.n}`}
+              verbs={verbs}
+              language={state.selectedLanguage}
+              pattern={basics?.pattern}
+            />
           )}
           <LessonReader
             moduleId={moduleId}
@@ -2493,6 +2515,49 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Practice Spanish 101 vocabulary · My card lists
               </button>
             )}
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            spanishBasicsLesson(moduleId, 1) && (
+              <nav
+                aria-label="General Spanish course sequence"
+                className="mt-4 rounded-xl border border-border p-3"
+              >
+                <p className="text-sm font-semibold">Continue your Spanish</p>
+                <ol className="mt-2 space-y-1">
+                  {[
+                    ["spanish-basics", "Spanish 101"],
+                    ["spanish-102", "Spanish 102"],
+                    ["spanish-frequent-verbs", "Frequent Verbs"],
+                    ["spanish-conjugation-patterns", "Conjugation Patterns"],
+                    ["spanish-usage-verbs", "Usage-First Verbs"],
+                    ["spanish-common-patterns", "Common Grammar Patterns"],
+                  ].map(([id, label], index) => (
+                    <li key={id}>
+                      <a
+                        className="inline-flex min-h-11 items-center text-sm underline"
+                        href={`/?tab=core30&module=foundation-${id}&target=Spanish&native=English`}
+                      >
+                        {index + 1}. {label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+          {moduleId.includes("spanish-usage-verbs") && (
+            <p className="mt-3 text-sm text-muted-foreground">
+              Rank counts group a verb’s inflected forms together. This course follows the Spanish
+              Web 2011 sample; rankings vary by genre.{" "}
+              <a
+                className="underline"
+                href="https://www.sketchengine.eu/spanish-word-list/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Frequency source
+              </a>
+            </p>
+          )}
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (

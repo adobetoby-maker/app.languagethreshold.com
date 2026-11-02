@@ -1,3 +1,4 @@
+import { spanishBasicsLesson } from "@/data/spanish-basics";
 // Built by TAC — 2026-10-15
 import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Languages, Pause, Play, Volume2 } from "lucide-react";
@@ -127,7 +128,8 @@ export function LessonReader({
   const basicsReaderId =
     language === "Spanish" &&
     state.nativeLanguage === "English" &&
-    ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) &&
+    lessonNumber &&
+    spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) &&
     lessonNumber
       ? `seed-es-${moduleId}-lesson-${lessonNumber}`
       : null;

@@ -14,6 +14,66 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "spanish-usage-verbs",
+    language: "Spanish",
+    tradeLabel: "Spanish Usage-First Verbs",
+    foundation: {
+      blurb: "Ten initial lessons with English explanations and guided Spanish practice.",
+    },
+    master: {
+      blurb:
+        "Twenty applications with longer bilingual readings and independent practice. Human teaching review pending.",
+    },
+  },
+  {
+    base: "spanish-common-patterns",
+    language: "Spanish",
+    tradeLabel: "Spanish Common Grammar Patterns",
+    foundation: {
+      blurb: "Ten initial lessons with English explanations and guided Spanish practice.",
+    },
+    master: {
+      blurb:
+        "Twenty applications with longer bilingual readings and independent practice. Human teaching review pending.",
+    },
+  },
+  {
+    base: "spanish-102",
+    language: "Spanish",
+    tradeLabel: "Spanish 102",
+    foundation: {
+      blurb: "Ten guided lessons introducing the course focus. Spanish with English explanations.",
+    },
+    master: {
+      blurb:
+        "Twenty applications with longer readings and independent practice. Human language review pending; practice is not proficiency certification.",
+    },
+  },
+  {
+    base: "spanish-frequent-verbs",
+    language: "Spanish",
+    tradeLabel: "Spanish Frequent Verbs",
+    foundation: {
+      blurb: "Ten guided lessons introducing the course focus. Spanish with English explanations.",
+    },
+    master: {
+      blurb:
+        "Twenty applications with longer readings and independent practice. Human language review pending; practice is not proficiency certification.",
+    },
+  },
+  {
+    base: "spanish-conjugation-patterns",
+    language: "Spanish",
+    tradeLabel: "Spanish Conjugation Patterns",
+    foundation: {
+      blurb: "Ten guided lessons introducing the course focus. Spanish with English explanations.",
+    },
+    master: {
+      blurb:
+        "Twenty applications with longer readings and independent practice. Human language review pending; practice is not proficiency certification.",
+    },
+  },
+  {
     base: "spanish-basics",
     language: "Spanish",
     tradeLabel: "Spanish 101",

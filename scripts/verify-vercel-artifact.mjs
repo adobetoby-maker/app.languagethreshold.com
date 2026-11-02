@@ -59,6 +59,10 @@ function verifyArtifact() {
   }
 
   const output = JSON.parse(readFileSync(outputConfig, "utf8"));
+  const audioRoute = output.routes?.findIndex(route => route.src === "/audio/(.*)" && route.dest === "/audio/$1");
+  const fallbackRoute = output.routes?.findIndex(route => route.src === "/(.*)");
+  if (audioRoute < 0 || (fallbackRoute >= 0 && audioRoute > fallbackRoute))
+    throw new Error("Recorded audio must route to static files before the app fallback.");
   const runtime = JSON.parse(readFileSync(functionConfig, "utf8"));
   const bundleText = readFileSync(serverBundle, "utf8");
   const bundleBytes = statSync(serverBundle).size;

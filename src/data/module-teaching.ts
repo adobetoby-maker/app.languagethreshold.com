@@ -31,7 +31,10 @@ export function modulePracticeVersion(moduleId: string, target: string, native: 
   if (target === "English" && native === "Spanish" && militaryTeachingSettings(moduleId, 1))
     return MILITARY_PRACTICE_VERSION;
   if (target === "Spanish" && native === "English") {
-    if (spanishBasicsTeaching(moduleId, 1)) return SPANISH_BASICS_VERSION;
+    if (spanishBasicsTeaching(moduleId, 1))
+      return moduleId.includes("spanish-basics")
+        ? SPANISH_BASICS_VERSION
+        : "spanish-next-es-en-2026-11-01-draft";
     if (moduleId === "roofing") return ROOFING_PRACTICE_VERSION;
     if (moduleId === "landscaper") return "landscaper-es-en-2026-10-16-draft";
     if (moduleId === "construction-foreman") return "construction-foreman-es-en-2026-10-16-draft";

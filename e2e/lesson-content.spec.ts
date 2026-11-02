@@ -113,7 +113,6 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await goSection(page, "recall");
     if ((page.viewportSize()?.width ?? 1440) < 768) {
       await expect(page.getByTestId("practice-recall-switch")).toBeHidden();
-      await page.getByTestId("lesson-nav-recall").click();
       await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-verbs").click();
     } else {
       await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });

@@ -141,18 +141,15 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   expect(menuBox!.x + menuBox!.width).toBeLessThanOrEqual(seeBox!.x);
   expect(menuBox!.y).toBeGreaterThanOrEqual(modesBox!.y);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.getByTestId("lesson-nav-recall").click();
   const recallMenu = page.getByTestId("lesson-recall-menu");
   await expect(recallMenu).toBeVisible();
   await page.screenshot({ path: "test-results/core60-recall-menu-iphone.png" });
   await recallMenu.getByTestId("lesson-recall-flashcards").click();
   await expect(page.getByTestId("flashcard")).toBeVisible();
-  await expect(recallMenu).toHaveCount(0);
-  await page.getByTestId("lesson-nav-recall").click();
-  await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-match").click();
+  await expect(recallMenu.getByTestId("lesson-recall-flashcards")).toHaveAttribute("aria-current", "true");
+  await recallMenu.getByTestId("lesson-recall-match").click();
   await expect(page.getByTestId("match-tile").first()).toBeVisible();
-  await page.getByTestId("lesson-nav-recall").click();
-  await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-study").click();
+  await recallMenu.getByTestId("lesson-recall-study").click();
   await expect(page.getByRole("region", { name: "Terms" })).toBeVisible();
   await page.screenshot({ path: "test-results/core60-focused-iphone.png" });
   await expect(
@@ -160,6 +157,7 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   ).toBeVisible();
   await page.getByTestId("lesson-nav-see").click();
   await expect(page.getByTestId("lesson-section-see")).toBeInViewport();
+  await expect(recallMenu).toHaveCount(0);
   const before = await readAppState(page);
   await menu.click();
   await expect(primary).toBeVisible();

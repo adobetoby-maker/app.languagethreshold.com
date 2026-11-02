@@ -169,7 +169,6 @@ async function goSection(page: Page, section: Section) {
 
 async function chooseRecallPractice(page: Page, mode: "study" | "flashcards" | "match" | "verbs") {
   if ((page.viewportSize()?.width ?? 1440) < 768) {
-    await page.getByTestId("lesson-nav-recall").click();
     await page.getByTestId("lesson-recall-menu").getByTestId(`lesson-recall-${mode}`).click();
   } else {
     await page.getByTestId(`practice-mode-${mode}`).click();

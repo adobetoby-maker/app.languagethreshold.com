@@ -1,12 +1,17 @@
 "use client";
 
+import { useOverlayState } from "@/hooks/use-overlay-history";
+
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const Dialog = DialogPrimitive.Root;
+const Dialog = (props: React.ComponentProps<typeof DialogPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return <DialogPrimitive.Root {...props} {...state} />;
+};
 
 const DialogTrigger = DialogPrimitive.Trigger;
 
@@ -46,11 +51,19 @@ const DialogContent = React.forwardRef<
       )}
       {...props}
     >
+      <div
+        data-overlay-close
+        className="sticky top-0 z-30 -mt-2 flex justify-end bg-background py-1"
+      >
+        <DialogPrimitive.Close
+          type="button"
+          aria-label="Close"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </DialogPrimitive.Close>
+      </div>
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>
 ));

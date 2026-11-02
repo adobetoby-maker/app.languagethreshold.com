@@ -13,6 +13,7 @@ export interface AppModule {
   name: string;
   emoji: string;
   category:
+    | "Core Basics"
     | "Faith"
     | "Medical"
     | "Trades"
@@ -40,6 +41,7 @@ export interface AppModule {
    * Indicates which native-language scaffolds/glosses are available.
    */
   nativeLanguages?: NativeLanguage[];
+  authoredPair?: { target: Language; native: NativeLanguage };
   /**
    * "en-target" — the learner's native language is non-English; they are
    * learning English for a professional context (OR EVS, FMG, etc.).
@@ -59,6 +61,10 @@ export function moduleSupportsLearningPair(
   targetLanguage: Language,
   nativeLanguage: NativeLanguage,
 ): boolean {
+  if (module.authoredPair)
+    return (
+      module.authoredPair.target === targetLanguage && module.authoredPair.native === nativeLanguage
+    );
   if (targetLanguage === "English") {
     if (nativeLanguage === "English") return false;
     if (module.learnDirection === "en-target") {
@@ -77,6 +83,197 @@ export function moduleSupportsLearningPair(
 
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
+  {
+    id: "spanish-cognates",
+    name: "Spanish Cognates · Core 60",
+    emoji: "🔗",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Recognize familiar word families, pronounce and spell them in Spanish, and avoid false friends. Sixty contextual lessons with English support; human teaching review pending.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher helping an English-speaking learner use cognates in context. Treat spelling patterns as clues, never guaranteed translations. Explain pronunciation, gender, regional usage and false friends accurately, then ask for original examples.",
+    userRole:
+      "A Spanish learner building vocabulary through cognates and checking misleading lookalikes",
+    challengePrompts: [
+      "Use a familiar word in a new situation and explain its meaning.",
+      "Correct a false-friend misunderstanding politely.",
+    ],
+    vocabFocus: ["cognates", "word families", "false friends", "pronunciation", "context"],
+  },
+  {
+    id: "spanish-usage-verbs",
+    name: "Spanish Usage-First Verbs · Core 60",
+    emoji: "📊",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "A new sixty-verb course in descending Spanish Web 2011 corpus frequency. Each lemma combines its inflected forms. New usage scenes and English explanations; rankings vary by genre.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher. Follow the exact lesson construction or frequency-ranked verb. Explain meanings and grammar in plain English; practice original responses, clear corrections and regional distinctions.",
+    userRole: "A Spanish learner practicing high-use verbs and constructions",
+    challengePrompts: [
+      "Use the lesson focus to solve the reading situation.",
+      "Ask a follow-up question and confirm the next step.",
+    ],
+    vocabFocus: ["tener que", "hay que", "ir a", "poder", "hacer"],
+  },
+  {
+    id: "spanish-common-patterns",
+    name: "Spanish Common Grammar Patterns · Core 60",
+    emoji: "🧩",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Sixty everyday structures: tener que, hay que, ir a, acabar de, object and clause patterns. Learn the whole construction, then use it in conversation.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher. Follow the exact lesson construction or frequency-ranked verb. Explain meanings and grammar in plain English; practice original responses, clear corrections and regional distinctions.",
+    userRole: "A Spanish learner practicing high-use verbs and constructions",
+    challengePrompts: [
+      "Use the lesson focus to solve the reading situation.",
+      "Ask a follow-up question and confirm the next step.",
+    ],
+    vocabFocus: ["tener que", "hay que", "ir a", "poder", "hacer"],
+  },
+  {
+    id: "spanish-102",
+    name: "Spanish 102 · Core 60",
+    emoji: "📘",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Continue after Spanish 101: past narration, objects, plans, polite requests, commands and introductory subjunctive practice.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher. Teach the exact lesson focus and explain grammar in plain English when asked. Preserve regional distinctions and give precise corrections. Do not treat completed practice as certified proficiency.",
+    userRole: "A learner continuing after Spanish 101",
+    challengePrompts: [
+      "Apply the lesson grammar to the reading situation.",
+      "Ask a follow-up question, clarify a misunderstanding, and agree on a next step.",
+    ],
+    vocabFocus: ["hablar", "comer", "vivir", "tener", "hacer"],
+  },
+  {
+    id: "spanish-frequent-verbs",
+    name: "Spanish Frequent Verbs · Core 60",
+    emoji: "💬",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Sixty frequent spoken verbs, one main verb per lesson. Learn meanings, useful constructions and regional differences.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher. Teach the exact lesson focus and explain grammar in plain English when asked. Preserve regional distinctions and give precise corrections. Do not treat completed practice as certified proficiency.",
+    userRole: "A learner expanding everyday verb fluency",
+    challengePrompts: [
+      "Apply the lesson grammar to the reading situation.",
+      "Ask a follow-up question, clarify a misunderstanding, and agree on a next step.",
+    ],
+    vocabFocus: ["hablar", "comer", "vivir", "tener", "hacer"],
+  },
+  {
+    id: "spanish-conjugation-patterns",
+    name: "Spanish Conjugation Patterns · Core 60",
+    emoji: "🔁",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "28 named teaching patterns across 60 lessons. Every lesson focuses on one pattern and checks ten distinct verbs.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish teacher. Teach the exact lesson focus and explain grammar in plain English when asked. Preserve regional distinctions and give precise corrections. Do not treat completed practice as certified proficiency.",
+    userRole: "A learner practicing one Spanish conjugation pattern at a time",
+    challengePrompts: [
+      "Apply the lesson grammar to the reading situation.",
+      "Ask a follow-up question, clarify a misunderstanding, and agree on a next step.",
+    ],
+    vocabFocus: ["hablar", "comer", "vivir", "tener", "hacer"],
+  },
+  {
+    id: "spanish-basics",
+    name: "Spanish 101 · General Core 60",
+    emoji: "🌱",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Start here for everyday Spanish: 10 starter lessons, 30 grammar lessons, and 20 lessons applying those basics. No profession required.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish 101 teacher. Practice beginner everyday Spanish using short sentences, clear grammar explanations in English, and gentle corrections. Keep all stages at beginner to early-intermediate level. Master means applying familiar basics, not advanced grammar or certified proficiency.",
+    userRole: "A beginner studying Spanish in a first-year class",
+    challengePrompts: [
+      "Introduce yourself and ask a classmate a question.",
+      "Describe your classroom and say where things are.",
+      "Explain your daily routine and tomorrow's plan.",
+      "Tell a friend what you did yesterday.",
+    ],
+    vocabFocus: [
+      "ser",
+      "estar",
+      "hay",
+      "tener",
+      "hablar",
+      "comer",
+      "vivir",
+      "ir",
+      "querer",
+      "poder",
+    ],
+  },
+  {
+    id: "military",
+    name: "Military English",
+    emoji: "🎖️",
+    category: "English for Work",
+    blurb:
+      "Small-team tactics terminology, radio communication, weapons and equipment vocabulary, briefings, and military classroom English. Spanish support and plain-English explanations across Foundation, Core, and Master.",
+    priceCents: 999,
+    languages: ["English"],
+    nativeLanguages: ["Spanish"],
+    learnDirection: "en-target",
+    aiPersona:
+      "You are a military English language instructor helping a Spanish-speaking student. Teach in clear English, explain unfamiliar terms in plain English, and offer Spanish clarification when needed. Use fictional classroom scenarios and distinguish country-specific ranks and unit names. Practice terminology, listening comprehension, administrative radio exchanges, briefings, equipment identification, and safety reporting. Explain roger as receipt and wilco as receipt, understanding, and intended compliance; do not combine over and out. Discuss tactics and weapons as language and document-comprehension topics; do not provide combat execution drills, targeting, weapon operation, or live operational advice. Qualified instructors and current authorized publications govern technical procedures. Never imply DLI affiliation or official proficiency certification.",
+    userRole: "Spanish-speaking military student learning English",
+    challengePrompts: [
+      "Introduce yourself, your rank, and your training role in English.",
+      "Explain team, squad, and platoon in plain English, noting that national organizations differ.",
+      "Clarify a fictional administrative radio message and confirm a corrected classroom time.",
+      "Identify weapon and equipment terms in a labeled classroom illustration.",
+      "Give an equipment availability briefing and distinguish confirmed facts from assumptions.",
+      "Summarize a training paragraph and explain an unfamiliar term to a classmate.",
+    ],
+    vocabFocus: [
+      "team",
+      "squad",
+      "platoon",
+      "radio",
+      "call sign",
+      "roger",
+      "wilco",
+      "rifle",
+      "magazine",
+      "ammunition",
+      "briefing",
+      "clarification",
+    ],
+  },
   {
     id: "medical-mission-logistics",
     name: "Medical Mission Logistics",
@@ -182,8 +379,18 @@ const CATALOG: AppModule[] = [
       "Walk the completed roof with the crew lead and assign closeout checks.",
     ],
     vocabFocus: [
-      "shingle", "underlayment", "flashing", "drip edge", "valley", "roof deck",
-      "ridge cap", "harness", "roof anchor", "tear-off", "nailing strip", "gutter",
+      "shingle",
+      "underlayment",
+      "flashing",
+      "drip edge",
+      "valley",
+      "roof deck",
+      "ridge cap",
+      "harness",
+      "roof anchor",
+      "tear-off",
+      "nailing strip",
+      "gutter",
     ],
   },
   // Free Foundation in front of the Roofing Core 30. Another trade gets one by adding a
@@ -209,7 +416,18 @@ const CATALOG: AppModule[] = [
       "Report a small accident on the roof and ask for help.",
     ],
     // English headwords of terms taught in the ten lessons (tests/foundation-curriculum.test.mjs).
-    vocabFocus: ["roof", "tile", "nail", "hammer", "ladder", "harness", "bundle", "wet", "tarp", "crew"],
+    vocabFocus: [
+      "roof",
+      "tile",
+      "nail",
+      "hammer",
+      "ladder",
+      "harness",
+      "bundle",
+      "wet",
+      "tarp",
+      "crew",
+    ],
   },
   // Roofing Master 20: the third stage of the roofing Core 60, after the Foundation and the
   // Core 30. Sold and gated exactly like the Core 30 (paid tabs; the pilot runs free).
@@ -234,8 +452,18 @@ const CATALOG: AppModule[] = [
       "Dictate the day's report: work done, materials used, problems, and tomorrow's plan.",
     ],
     vocabFocus: [
-      "change order", "rotten decking", "inspector", "adjuster", "near-miss", "teach back",
-      "warranty", "estimate", "permit", "daily report", "ventilation", "punch list",
+      "change order",
+      "rotten decking",
+      "inspector",
+      "adjuster",
+      "near-miss",
+      "teach back",
+      "warranty",
+      "estimate",
+      "permit",
+      "daily report",
+      "ventilation",
+      "punch list",
     ],
   },
   // Gutters and siding: sister trades to roofing for supervisors who direct Spanish-speaking
@@ -262,8 +490,18 @@ const CATALOG: AppModule[] = [
       "Walk the finished job with the crew lead: hangers, seams, outlets, cleanup and the punch list.",
     ],
     vocabFocus: [
-      "gutter", "downspout", "hanger", "fascia", "elbow", "outlet",
-      "end cap", "miter", "coil stock", "slope", "splash block", "box gutter",
+      "gutter",
+      "downspout",
+      "hanger",
+      "fascia",
+      "elbow",
+      "outlet",
+      "end cap",
+      "miter",
+      "coil stock",
+      "slope",
+      "splash block",
+      "box gutter",
     ],
   },
   {
@@ -287,8 +525,18 @@ const CATALOG: AppModule[] = [
       "Walk the finished wall with the crew lead: trim, caulk, corners, cleanup and the punch list.",
     ],
     vocabFocus: [
-      "siding", "house wrap", "flashing", "starter strip", "J-channel", "trim board",
-      "soffit", "fascia", "fiber cement", "vinyl", "caulk", "corner post",
+      "siding",
+      "house wrap",
+      "flashing",
+      "starter strip",
+      "J-channel",
+      "trim board",
+      "soffit",
+      "fascia",
+      "fiber cement",
+      "vinyl",
+      "caulk",
+      "corner post",
     ],
   },
   {

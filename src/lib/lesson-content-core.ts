@@ -125,7 +125,10 @@ export const MASTER_CONTENT_LIMITS: ContentLimits = {
 
 /** The limits profile for a module id: Master for "master-*", the Core 30 limits for the rest. */
 export function contentLimitsFor(moduleId: string | null | undefined): ContentLimits {
-  return moduleId?.startsWith("master-") ? MASTER_CONTENT_LIMITS : CONTENT_LIMITS;
+  const base = moduleId?.startsWith("master-") ? MASTER_CONTENT_LIMITS : CONTENT_LIMITS;
+  return moduleId && /^(foundation-|master-)?spanish-conjugation-patterns$/.test(moduleId)
+    ? { ...base, minVerbs: 10, maxVerbs: 10 }
+    : base;
 }
 
 // ─── Verb forms ──────────────────────────────────────────────────────────────

@@ -69,6 +69,24 @@ const bodySchema = z.discriminatedUnion("action", [
     dueAt: z.string().datetime().nullable().optional(),
   }),
   z.object({ action: z.literal("onboarding"), orgId: id, step: z.number().int().min(1).max(6) }),
+  z.object({
+    action: z.literal("set_document_access"),
+    orgId: id,
+    memberId: id,
+    enabled: z.boolean(),
+  }),
+  z.object({
+    action: z.literal("assign_document"),
+    orgId: id,
+    memberId: id,
+    documentId: id,
+  }),
+  z.object({
+    action: z.literal("unassign_document"),
+    orgId: id,
+    memberId: id,
+    documentId: id,
+  }),
   z.object({ action: z.literal("email_summary"), orgId: id }),
 ]);
 
@@ -106,6 +124,9 @@ export const Route = createFileRoute("/api/team")({
             lessons,
             attempts,
             certificates,
+            documentAccessGrants,
+            documentAssignments,
+            teamDocuments,
           ] = await Promise.all([
             db
               .from("team_organizations")
@@ -188,6 +209,26 @@ export const Route = createFileRoute("/api/team")({
                   .select("id,user_id,learner_name,module_id,score,lesson_count,status,issued_at")
                   .eq("organization_id", orgId)
                   .eq("user_id", user.id),
+            isAdmin
+              ? db
+                  .from("team_document_access_grants")
+                  .select("user_id,granted_at")
+                  .eq("organization_id", orgId)
+              : Promise.resolve({ data: [], error: null }),
+            isAdmin
+              ? db
+                  .from("team_document_assignments")
+                  .select("id,user_id,document_id,assigned_at")
+                  .eq("organization_id", orgId)
+              : Promise.resolve({ data: [], error: null }),
+            isAdmin
+              ? db
+                  .from("study_documents")
+                  .select("id,title,source_language,target_language,created_at")
+                  .eq("user_id", user.id)
+                  .eq("state", "ready")
+                  .order("created_at", { ascending: false })
+              : Promise.resolve({ data: [], error: null }),
           ]);
           // Core 30 log: only profiles.data.core30Log leaves the server, never other profile data.
           // Admins see active members only (removed/pending members' logs stay private).
@@ -283,6 +324,9 @@ export const Route = createFileRoute("/api/team")({
             lessons,
             attempts,
             certificates,
+            documentAccessGrants,
+            documentAssignments,
+            teamDocuments,
           ])
             if (result.error) throw result.error;
           return json({
@@ -306,6 +350,9 @@ export const Route = createFileRoute("/api/team")({
             lessons: lessons.data ?? [],
             attempts: attempts.data ?? [],
             certificates: certificates.data ?? [],
+            documentAccessGrants: documentAccessGrants.data ?? [],
+            documentAssignments: documentAssignments.data ?? [],
+            teamDocuments: teamDocuments.data ?? [],
             core30,
             core30Tracks,
           });
@@ -449,6 +496,90 @@ export const Route = createFileRoute("/api/team")({
               moduleId: body.moduleId,
             });
             return json({ ok: true, warning });
+          }
+          if (
+            body.action === "set_document_access" ||
+            body.action === "assign_document" ||
+            body.action === "unassign_document"
+          ) {
+            const target = await db
+              .from("team_members")
+              .select("user_id,role,status")
+              .eq("id", body.memberId)
+              .eq("organization_id", body.orgId)
+              .maybeSingle();
+            if (target.error)
+              throw new TeamOperationError("Learner access could not be confirmed.", 503);
+            if (!target.data || target.data.role !== "learner" || target.data.status !== "active")
+              throw new TeamOperationError("Choose an active learner.");
+
+            if (body.action === "set_document_access") {
+              const mutation = body.enabled
+                ? await db.from("team_document_access_grants").upsert(
+                    {
+                      organization_id: body.orgId,
+                      user_id: target.data.user_id,
+                      granted_by: user.id,
+                      granted_at: new Date().toISOString(),
+                    },
+                    { onConflict: "organization_id,user_id" },
+                  )
+                : await db
+                    .from("team_document_access_grants")
+                    .delete()
+                    .eq("organization_id", body.orgId)
+                    .eq("user_id", target.data.user_id);
+              if (mutation.error)
+                throw new TeamOperationError("Document access could not be updated.", 503);
+              await audit(db, user.id, "team.documents.access", body.orgId, {
+                memberId: body.memberId,
+                enabled: body.enabled,
+              });
+              return json({ ok: true });
+            }
+
+            const document = await db
+              .from("study_documents")
+              .select("id")
+              .eq("id", body.documentId)
+              .eq("user_id", user.id)
+              .eq("state", "ready")
+              .maybeSingle();
+            if (document.error)
+              throw new TeamOperationError("Document ownership could not be confirmed.", 503);
+            if (!document.data)
+              throw new TeamOperationError("Choose one of your ready documents.", 403);
+
+            const mutation =
+              body.action === "assign_document"
+                ? await db.from("team_document_assignments").upsert(
+                    {
+                      organization_id: body.orgId,
+                      document_id: body.documentId,
+                      user_id: target.data.user_id,
+                      assigned_by: user.id,
+                      assigned_at: new Date().toISOString(),
+                    },
+                    { onConflict: "organization_id,document_id,user_id" },
+                  )
+                : await db
+                    .from("team_document_assignments")
+                    .delete()
+                    .eq("organization_id", body.orgId)
+                    .eq("document_id", body.documentId)
+                    .eq("user_id", target.data.user_id);
+            if (mutation.error)
+              throw new TeamOperationError("Document assignment could not be updated.", 503);
+            await audit(
+              db,
+              user.id,
+              body.action === "assign_document"
+                ? "team.documents.assign"
+                : "team.documents.unassign",
+              body.orgId,
+              { memberId: body.memberId, documentId: body.documentId },
+            );
+            return json({ ok: true });
           }
           if (body.action === "onboarding") {
             const { error } = await db

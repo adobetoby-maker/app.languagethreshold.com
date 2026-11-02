@@ -1,3 +1,4 @@
+import { spanishBasicsLesson } from "@/data/spanish-basics";
 // Built by TAC — 2026-10-15
 import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Languages, Pause, Play, Volume2 } from "lucide-react";
@@ -97,7 +98,11 @@ export function LessonReader({
   );
   const contentPassage = useMemo(() => {
     if (lessonPassage || !lessonNumber) return null;
-    const generated = pickContentPassage(authoredContent.content, lessonNumber, state.nativeLanguage);
+    const generated = pickContentPassage(
+      authoredContent.content,
+      lessonNumber,
+      state.nativeLanguage,
+    );
     if (!generated) return null;
     return {
       id: `lesson-content-${moduleId}-${lessonNumber}`,
@@ -107,16 +112,31 @@ export function LessonReader({
   }, [lessonPassage, lessonNumber, authoredContent.content, state.nativeLanguage, moduleId]);
   const shown = lessonPassage ?? contentPassage ?? entry;
   // Hold the generic library reading back until we know whether this lesson has its own.
-  const contentPending =
-    !lessonPassage && !contentPassage && authoredContent.status === "loading";
+  const contentPending = !lessonPassage && !contentPassage && authoredContent.status === "loading";
   const sentences = useMemo(() => shown?.sentences ?? [], [shown]);
   // Chinese has no spaces to tap on; the full Reader adds pinyin and word lookup there.
   const tappable = language !== "Chinese";
   const lang = languageTag(language);
   // Only offer the exact passage shown; authored inline content has no library counterpart.
-  const fullReaderId = lessonPassage ? null : (entry?.id ?? null);
+  const militaryReaderId =
+    language === "English" &&
+    state.nativeLanguage === "Spanish" &&
+    ["military", "foundation-military", "master-military"].includes(moduleId) &&
+    lessonNumber
+      ? `seed-en-${moduleId}-lesson-${lessonNumber}`
+      : null;
+  const basicsReaderId =
+    language === "Spanish" &&
+    state.nativeLanguage === "English" &&
+    lessonNumber &&
+    spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) &&
+    lessonNumber
+      ? `seed-es-${moduleId}-lesson-${lessonNumber}`
+      : null;
+  const fullReaderId =
+    basicsReaderId ?? militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
   const translationLanguage = lessonPassage
-    ? "English"
+    ? state.nativeLanguage
     : contentPassage
       ? state.nativeLanguage
       : libraryTranslationLanguage(passageId);

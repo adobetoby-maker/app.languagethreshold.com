@@ -259,11 +259,12 @@ export function VoicePicker({
         )}
       </DropdownMenuTrigger>
       <DropdownMenuContent
+        closeLabel="Close voice selection"
         align="end"
         side={compact ? "top" : "bottom"}
         className="max-h-[70vh] w-[min(360px,calc(100vw-1.5rem))] overflow-y-auto border-border/70 bg-popover/95 backdrop-blur-xl"
       >
-        <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <DropdownMenuLabel className="text-sm font-semibold text-foreground">
           Accent and voice
         </DropdownMenuLabel>
         <div className="px-2 pb-2">

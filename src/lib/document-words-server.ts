@@ -10,6 +10,7 @@ import {
   isDocumentWord,
   initialDocumentDefinition,
 } from "./document-words";
+import { requireDocumentReadAccess, type DocumentAccess } from "./document-access-server";
 
 const cardSchema = z.object({
   headword: z.string().min(1).max(200),
@@ -22,12 +23,17 @@ export async function lookupDocumentWord(
   userId: string,
   request: Request,
   data: { id: string; passage: number; side: "en" | "target"; word: string },
+  access: DocumentAccess = {
+    canManageDocuments: true,
+    teamManaged: false,
+    assignedDocumentIds: new Set(),
+  },
 ) {
+  await requireDocumentReadAccess(db, userId, data.id, access);
   const doc = await db
     .from("study_documents")
     .select("sentences,source_language,target_language")
     .eq("id", data.id)
-    .eq("user_id", userId)
     .eq("state", "ready")
     .maybeSingle();
   if (doc.error) throw new TeamOperationError("Could not open your document.", 503);

@@ -1,3 +1,5 @@
+import { useOverlayState } from "@/hooks/use-overlay-history";
+import { X } from "lucide-react";
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 
@@ -6,9 +8,12 @@ import { cn } from "@/lib/utils";
 const Drawer = ({
   shouldScaleBackground = true,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
-);
+}: React.ComponentProps<typeof DrawerPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return (
+    <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} {...state} />
+  );
+};
 Drawer.displayName = "Drawer";
 
 const DrawerTrigger = DrawerPrimitive.Trigger;
@@ -44,6 +49,18 @@ const DrawerContent = React.forwardRef<
       {...props}
     >
       <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+      <div
+        data-overlay-close
+        className="sticky top-0 z-30 -mt-2 flex justify-end bg-background py-1 px-4"
+      >
+        <DrawerPrimitive.Close
+          type="button"
+          aria-label="Close"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </DrawerPrimitive.Close>
+      </div>
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>

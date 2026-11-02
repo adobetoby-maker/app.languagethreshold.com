@@ -310,3 +310,27 @@ test("installed device reply missing end events settles and a second turn can pl
     assert.equal(starts, 1);
     assert.equal(c.timers.size, 0);
   }));
+
+test("cloud-only conversation playback never downgrades to a device voice", () =>
+  fixture(async ({ m, c, owner, preference }) => {
+    let failures = 0;
+    const work = m.speakRemote("Synthetic HD reply", "es-CR", {
+      owner,
+      voiceURI: preference,
+      cloudOnly: true,
+      onerror: () => failures++,
+    });
+    c.sessions.shift()(auth());
+    await tick();
+    c.requests[0].resolve(Response.json({ error: "Synthetic provider failure" }, { status: 502 }));
+    await work;
+    assert.equal(failures, 1);
+    assert.equal(c.utterances.length, 0);
+    await m.speakRemote("No HD voice available", "es-CR", {
+      owner,
+      cloudOnly: true,
+      onerror: () => failures++,
+    });
+    assert.equal(failures, 2);
+    assert.equal(c.utterances.length, 0);
+  }));

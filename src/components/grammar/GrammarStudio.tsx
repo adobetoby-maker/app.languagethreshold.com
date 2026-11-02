@@ -46,7 +46,9 @@ export function GrammarStudio() {
   // Browser/gesture back closes the lesson rather than leaving the app.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const onPop = () => closeLesson();
+    const onPop = () => {
+      if (!window.history.state?.[LESSON_HISTORY_STATE]) closeLesson();
+    };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, [closeLesson]);

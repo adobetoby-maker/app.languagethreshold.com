@@ -185,11 +185,12 @@ export function missionSystemPrompt(
     "Mark any previously uncredited objective when the newest learner message and conversation context provide clear evidence; IDs must come from the objective list.",
     "Treat objective evidence as provisional UX feedback, never as durable mastery or certification.",
     "Do not interrupt the roleplay for a minor grammar error.",
+    "Help the learner accomplish the current lesson goal through the conversation: ask one short, natural question that invites the missing communication. If they are stuck or ask for help, model one simple example or sentence starter, then invite them to try in their own words. Credit only what the learner actually communicates; do not award an objective for your own example. Once a goal is met, guide toward the next unmet goal without repeating completed tasks.",
     "After every learner turn, put one brief coaching note in deferredFeedback. If the current goal was not achieved, say plainly what is still missing and give a short sentence starter. If correction is useful, give only the single highest-value correction. Otherwise name what the learner communicated successfully.",
     "If the learner communicates successfully by describing or repairing around a missing word, continue naturally and recognize the recovery in coaching.",
     feedbackRule,
     "Set safetyStop to true if the learner presents a real emergency or asks for real medical, legal, financial, or safety advice. When safetyStop is true, briefly redirect them to an appropriate real-world professional or local emergency service and end the roleplay.",
-    "Do not close the situation while a critical learner-facing goal remains unaddressed. Set shouldEnd only when the practical situation has reached a natural close or safety requires ending practice.",
+    "Aim for at least four learner-and-partner exchanges. Keep asking a short follow-up before that goal; end sooner only when safety requires it. Do not close the situation while a critical learner-facing goal remains unaddressed. Set shouldEnd only when the practical situation has reached a natural close or safety requires ending practice.",
     "Always respond through the speaking_mission_turn tool and nowhere else.",
   ].join("\n");
 }
@@ -525,6 +526,7 @@ export const Route = createFileRoute("/api/speak")({
                 shouldEnd:
                   parsed.data.safetyStop ||
                   (parsed.data.shouldEnd &&
+                    missionMessages.filter((message) => message.role === "user").length >= 4 &&
                     criticalSpeakingObjectivesAddressed(mission.objectives, addressedObjectiveIds)),
               };
               const aiMs = Date.now() - providerStartedAt;

@@ -1,3 +1,4 @@
+import { RefundGuaranteeTerms } from "../components/legal/RefundGuarantee";
 import { createFileRoute } from "@tanstack/react-router";
 import { LEGAL_CONTACT, LegalPage, LegalSection } from "@/components/legal/LegalPage";
 
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/terms")({
 
 function TermsOfService() {
   return (
-    <LegalPage title="Terms of Service">
+    <LegalPage title="Terms of Service" updated="October 31, 2026">
       <p>
         These terms apply when you use app.languagethreshold.com (“Language Threshold”, “the app”).
         By creating an account or using the app, you agree to them.
@@ -25,10 +26,10 @@ function TermsOfService() {
 
       <LegalSection heading="Your account">
         <p>
-          Give accurate information and keep your password private; you are responsible for
-          activity on your account. You must be at least 13 to use Language Threshold on your own. A
-          parent or guardian who creates a child profile on a Family plan agrees to these terms for
-          that child.
+          Give accurate information and keep your password private; you are responsible for activity
+          on your account. You must be at least 13 to use Language Threshold on your own. A parent
+          or guardian who creates a child profile on a Family plan agrees to these terms for that
+          child.
         </p>
       </LegalSection>
 
@@ -37,10 +38,15 @@ function TermsOfService() {
           Some lessons, including each module’s Foundation, are free with an account. We may offer
           free access to groups (such as a pilot crew) for a period we tell them about. Paid plans
           start with a 7-day free trial, renew automatically and are billed by Stripe. You can
-          cancel at any time from your account page; you keep access until the end of the period
-          you paid for, and we do not give partial refunds. If we change prices, we will tell you
-          before your next renewal.
+          cancel at any time from your account page; you keep access until the end of the period you
+          paid for unless you receive a refund under the first-payment guarantee below. Outside that
+          guarantee and any rights required by law, we do not give partial refunds. If we change
+          prices, we will tell you before your next renewal.
         </p>
+      </LegalSection>
+
+      <LegalSection heading="First-payment money-back guarantee">
+        <RefundGuaranteeTerms />
       </LegalSection>
 
       <LegalSection heading="Teams">
@@ -96,11 +102,12 @@ function TermsOfService() {
 
       <LegalSection heading="No warranty and limits on liability">
         <p>
-          The app is provided “as is”, without warranties of any kind, to the fullest extent the law
-          allows. Language Threshold is not liable for indirect or consequential losses, or for
-          losses caused by relying on lesson content in place of professional or safety guidance.
-          Our total liability for any claim is limited to the amount you paid us in the 12 months
-          before it.
+          Except for the first-payment money-back guarantee above and rights required by applicable
+          law, the app is provided “as is”, without warranties of any kind, to the fullest extent
+          the law allows. Language Threshold is not liable for indirect or consequential losses, or
+          for losses caused by relying on lesson content in place of professional or safety
+          guidance. Our total liability for any claim is limited to the amount you paid us in the 12
+          months before it.
         </p>
       </LegalSection>
 

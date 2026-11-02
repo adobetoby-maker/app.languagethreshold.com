@@ -13,6 +13,7 @@ const { defaultBrowserType: _ignored, ...iPhone } = devices["iPhone 15"];
 
 export default defineConfig({
   testDir: "e2e",
+  outputDir: process.env.E2E_OUTPUT_DIR ?? "test-results",
   timeout: 120_000,
   expect: { timeout: 60_000 },
   fullyParallel: true,
@@ -23,7 +24,7 @@ export default defineConfig({
     baseURL,
     channel,
     screenshot: "only-on-failure",
-    trace: "retain-on-failure",
+    trace: process.env.E2E_TRACE === "off" ? "off" : "retain-on-failure",
   },
   projects: [
     {
@@ -34,14 +35,14 @@ export default defineConfig({
     {
       name: "desktop",
       testMatch:
-        /(iphone-page-audit|iphone-activity-layout|touch-navigation-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar|tts-cache|exams2)\.spec\.ts/,
+        /(spanish-next|spanish-basics|military-course|speaking-continuity|tutor-site-guide|lesson-review-cards|iphone-page-audit|iphone-activity-layout|touch-navigation-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|ai-features|auth-modal|core30|core30-plan|core60-path|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|voice-switch|word-match-pack|sentence-conjugation-pack|ga-events|practice-bar|tts-cache|exams2)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },
     {
       name: "iphone-pwa",
       testMatch:
-        /(iphone-page-audit|iphone-activity-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|voice-switch|pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|word-match-pack|sentence-conjugation-pack|practice-bar|exams2)\.spec\.ts/,
+        /(spanish-next|spanish-basics|military-course|speaking-continuity|tutor-site-guide|lesson-review-cards|iphone-page-audit|iphone-activity-layout|progress-readability|speaking-consent|focused-speaking|documents-reader|owner-admin|owner-crm|exam-bank|desktop-navigation|core-speaking-relationships|flashcards-layout|learning-cleanup|voice-switch|pwa-iphone|auth-modal|core30|core30-plan|core60-path|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz|microphone-test|watch-talk|app-demo|verb-games|word-match-pack|sentence-conjugation-pack|practice-bar|exams2)\.spec\.ts/,
       dependencies: ["setup"],
       use: { ...iPhone, browserName: "chromium", storageState: STATE },
     },

@@ -1,3 +1,10 @@
+import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
+import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
+import { spanishPatternWords } from "@/data/spanish-basics";
+import { spanishBasicsLesson } from "@/data/spanish-basics";
+import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
+import { useLessonReview } from "@/hooks/use-lesson-review";
+import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
 import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
@@ -150,19 +157,37 @@ function Core60PathCard({ moduleId }: { moduleId: string }) {
         {path.steps.map((step) => {
           const isCurrent = step.stage === path.current;
           const label = labels[step.stage];
-          const base = "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
+          const base =
+            "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
           return (
             <li key={step.stage} className="min-w-0">
               {!step.available ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-disabled="true" className={cn(base, "border-dashed border-border text-muted-foreground")}>
-                  {label}<span className="sr-only"> — Coming soon</span>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-disabled="true"
+                  className={cn(base, "border-dashed border-border text-muted-foreground")}
+                >
+                  {label}
+                  <span className="sr-only"> — Coming soon</span>
                 </div>
               ) : isCurrent ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-current="step" className={cn(base, "border-gold/60 bg-gold/10 text-gold")}>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-current="step"
+                  className={cn(base, "border-gold/60 bg-gold/10 text-gold")}
+                >
                   {label}
                 </div>
               ) : (
-                <button type="button" data-testid={`core60-step-${step.stage}`} onClick={() => openCore30Of(step.moduleId)} className={cn(base, "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10")}>
+                <button
+                  type="button"
+                  data-testid={`core60-step-${step.stage}`}
+                  onClick={() => openCore30Of(step.moduleId)}
+                  className={cn(
+                    base,
+                    "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10",
+                  )}
+                >
                   {label}
                 </button>
               )}
@@ -685,9 +710,22 @@ function stickyTopOffset(): number {
   return Math.max(0, Math.ceil(bar.getBoundingClientRect().bottom));
 }
 
-/** Scrolls the lesson's step bar to the top of the page, just below any sticky top bar. */
+/** Keeps the newly opened step visible; the phone step bar is fixed at the bottom. */
 function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior) {
   if (!el) return;
+  if (
+    window.matchMedia("(max-width: 767px)").matches &&
+    el.classList.contains("lt-core60-section-nav")
+  ) {
+    const visibleStep = document.querySelector<HTMLElement>(
+      '.lt-core60-lesson-active section[data-testid^="lesson-section-"]:not([hidden])',
+    );
+    if (visibleStep) {
+      visibleStep.style.scrollMarginTop = `${stickyTopOffset() + 8}px`;
+      visibleStep.scrollIntoView({ behavior, block: "start" });
+    }
+    return;
+  }
   const offset = stickyTopOffset();
   if (offset > 0) el.style.scrollMarginTop = `${offset + 8}px`;
   else el.style.removeProperty("scroll-margin-top");
@@ -760,6 +798,14 @@ function OwnedLessonRunner({
   const [hasTeamRecovery, setHasTeamRecovery] = useState(false);
   const { dispatch: libDispatch } = useLibrary();
 
+  const basics = spanishBasicsLesson(
+    moduleId,
+    lesson.n,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const grammar = basics?.grammar ?? lesson.grammar;
+  const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
   const completionLock = useRef(false);
@@ -776,7 +822,17 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const words = lessonWords.words;
+  const patternWords = useMemo(
+    () => spanishPatternWords(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage),
+    [moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage],
+  );
+  const words = useMemo(
+    () =>
+      patternWords
+        ? [...patternWords, ...lessonWords.words.filter((word) => word.kind === "phrase")]
+        : lessonWords.words,
+    [patternWords, lessonWords.words],
+  );
   const hasWords = words.length > 0;
   // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
   const lessonContent = useLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
@@ -970,7 +1026,7 @@ function OwnedLessonRunner({
     if (KIT_SECTIONS.includes(next)) setKitMode(modeForSection(next));
     // Opening a way of learning is the record; the passage (See it) is recorded on first use.
     if (next !== "see") recordStepOpened(stepForSection[next]);
-    if (scroll) {
+    if (scroll || window.matchMedia("(max-width: 767px)").matches) {
       requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
     }
   }
@@ -978,6 +1034,11 @@ function OwnedLessonRunner({
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);
     setSection(sectionForMode(mode));
+  }
+
+  function selectRecallMode(mode: PracticeMode) {
+    onKitModeChange(mode);
+    requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
   }
 
   /** Record the opened practice without leaving the lesson. */
@@ -1199,6 +1260,7 @@ function OwnedLessonRunner({
     return finishLesson(false);
   }
   function markMastered() {
+    if (basics && !grammarPassed) return;
     return finishLesson(true);
   }
 
@@ -1328,6 +1390,12 @@ function OwnedLessonRunner({
   );
 
   const panelClass = "rounded-2xl border border-white/[0.08] bg-card/40 p-4";
+  const recallOptions: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
+    { id: "study", label: "Study", Icon: BookOpen },
+    { id: "flashcards", label: "Cards", Icon: Layers },
+    { id: "match", label: "Match", Icon: Puzzle },
+    ...(verbs.length > 0 ? [{ id: "verbs" as const, label: "Verbs", Icon: Repeat2 }] : []),
+  ];
   const panelHeader = (def: SectionDef, n: number) => (
     <header>
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
@@ -1342,7 +1410,7 @@ function OwnedLessonRunner({
   return (
     <div className="space-y-4">
       {/* Lesson header */}
-      <div className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
+      <div className="lt-core60-lesson-header rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
@@ -1358,7 +1426,7 @@ function OwnedLessonRunner({
             ✕ Exit
           </button>
         </div>
-        <p className="text-sm text-white/60 mt-1">
+        <p className="lt-core60-lesson-goal text-sm text-white/60 mt-1">
           <span className="text-gold/80 mr-1">Goal:</span>
           {lesson.objective}
         </p>
@@ -1370,7 +1438,7 @@ function OwnedLessonRunner({
         ref={navRef}
         aria-label="Ways of learning this lesson"
         data-testid="lesson-section-nav"
-        className="sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
+        className="lt-core60-section-nav sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
       >
         {SECTIONS.map(({ id, label, Icon }) => {
           const active = section === id;
@@ -1382,7 +1450,10 @@ function OwnedLessonRunner({
               data-testid={`lesson-nav-${id}`}
               aria-current={active ? "step" : undefined}
               aria-label={label}
-              onClick={() => selectSection(id)}
+              onClick={() => {
+                if (id !== "recall" || section !== "recall") selectSection(id);
+              }}
+              aria-controls={id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined}
               className={cn(
                 "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
                 active
@@ -1404,30 +1475,57 @@ function OwnedLessonRunner({
             </button>
           );
         })}
+        {section === "recall" && (
+          <div id="lesson-recall-menu" data-testid="lesson-recall-menu" className="lt-core60-recall-menu" role="group" aria-label="Recall activities">
+            {recallOptions.map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                type="button"
+                data-testid={`lesson-recall-${id}`}
+                aria-current={kitMode === id ? "true" : undefined}
+                onClick={() => selectRecallMode(id)}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* 1 · See it */}
-      <section data-testid="lesson-section-see" hidden={section !== "see"} className={panelClass}>
+      <section
+        data-testid="lesson-section-see"
+        hidden={section !== "see"}
+        className={`${panelClass} max-sm:border-0 max-sm:bg-transparent max-sm:p-0`}
+      >
         {panelHeader(SECTIONS[0], 1)}
         <div className="mt-3">
-          {lesson.grammar && (
+          {grammar && (
             <div
               data-testid="lesson-grammar-focus"
               className="mb-3 rounded-xl border border-gold/25 bg-gold/[0.05] p-3"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-                Grammar focus
-              </p>
-              <p className="mt-1 text-sm text-white/80">{lesson.grammar.focus}</p>
+              <p className="text-sm font-semibold text-gold-ink">Grammar focus</p>
+              <p className="mt-1 text-sm text-foreground">{grammar.focus}</p>
               <ul className="mt-2 space-y-1.5">
-                {lesson.grammar.examples.map((example) => (
+                {grammar.examples.map((example) => (
                   <li key={example.es} className="text-sm">
-                    <span className="font-semibold text-white">{example.es}</span>
-                    <span className="block text-xs text-white/50">{example.en}</span>
+                    <span className="font-semibold text-foreground">{example.es}</span>
+                    <span className="block text-xs text-muted-foreground">{example.en}</span>
                   </li>
                 ))}
               </ul>
             </div>
+          )}
+          {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
+          {basics && verbs.length > 0 && (
+            <LessonVerbGames
+              key={`${moduleId}:${lesson.n}`}
+              verbs={verbs}
+              language={state.selectedLanguage}
+              pattern={basics?.pattern}
+            />
           )}
           <LessonReader
             moduleId={moduleId}
@@ -1471,7 +1569,11 @@ function OwnedLessonRunner({
                 // for Spanish, Spanish native for the English-for-work stages), so this matches.
                 nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
-                writingResponse={definition?.teaching ? <LessonResponsePractice definition={definition} mode="write" /> : undefined}
+                writingResponse={
+                  definition?.teaching ? (
+                    <LessonResponsePractice definition={definition} mode="write" />
+                  ) : undefined
+                }
                 mode={kitMode}
                 onModeChange={onKitModeChange}
                 onActivity={() => recordStepOpened(wordDrillStep)}
@@ -1607,6 +1709,9 @@ function OwnedLessonRunner({
 
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
+        {basics && (!masteredAt || needsPractice) && (
+          <SpanishBasicsCheck topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"} checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
+        )}
         {masteredAt && !needsPractice ? (
           <>
             <p
@@ -1644,7 +1749,7 @@ function OwnedLessonRunner({
               type="button"
               data-testid="core30-mastered-button"
               onClick={() => void markMastered()}
-              disabled={marking}
+              disabled={marking || (!!basics && !grammarPassed)}
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-50"
               style={{
                 background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
@@ -1655,7 +1760,9 @@ function OwnedLessonRunner({
               {needsPractice ? "I've mastered it again" : "I've mastered this lesson"}
             </button>
             <p className="mt-2 text-center text-[11px] text-white/40">
-              Only you decide this. Opened steps are recorded automatically.
+              {basics
+                ? "Complete the grammar check, then confirm you can use the lesson. Opened steps alone do not establish mastery."
+                : "Only you decide this. Opened steps are recorded automatically."}
             </p>
           </>
         )}
@@ -2203,6 +2310,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
     }
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
+  const cardReview = useLessonReview(moduleId, progressContext);
+  const [cardReviewOpen, setCardReviewOpen] = useState(false);
   if (!curriculum) return null;
   const core30Log = state.core30Log[progressKey];
   const practiceLesson = curriculum.lessons.find(
@@ -2227,6 +2336,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
   function openLessonFromPlan(n: number, way: SectionId = "see") {
+    if (
+      cardReview.ready &&
+      cardReview.shouldReviewBefore(n) &&
+      cardReview.start(cardReview.pending)
+    ) {
+      setCardReviewOpen(true);
+      scrollLessonPageToTop();
+      return;
+    }
     if (!restoreView) {
       // All entry points use the standalone runner, which owns refreshable
       // lesson/way links. Set the location before mounting that runner so it
@@ -2255,8 +2373,67 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     setTimeout(() => setJustCompleted(false), 4000);
   }
 
+  if (cardReviewOpen && cardReview.round)
+    return (
+      <LessonReviewCards
+        review={cardReview}
+        onClose={() => setCardReviewOpen(false)}
+        onContinue={() => {
+          setCardReviewOpen(false);
+          setOpenLessonN(null);
+          scrollLessonPageToTop();
+        }}
+      />
+    );
+
+  function openCardReview(boundary: number | null) {
+    if (cardReview.start(boundary)) {
+      setCardReviewOpen(true);
+      scrollLessonPageToTop();
+    } else
+      toast.info(
+        "No encountered cards are available for this review yet. Open the lesson words first.",
+      );
+  }
+
   return (
-    <section>
+    <section
+      className={cn(
+        runnerActive && "lt-core60-lesson-active",
+        runnerActive && planStarted && "lt-core60-plan-started",
+      )}
+    >
+      {!runnerActive && cardReview.ready && (
+        <div
+          data-testid="lesson-review-checkpoint"
+          className="mb-4 space-y-3 rounded-2xl border border-gold/40 bg-card p-4"
+        >
+          <h2 className="font-display text-lg font-semibold">Short review rounds</h2>
+          <p className="text-sm text-muted-foreground">
+            Take a short review after every three lessons and at the end of your path. Practice up
+            to 12 words and phrases you have already learned.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {(cardReview.round || cardReview.pending !== null) && (
+              <button
+                type="button"
+                onClick={() => openCardReview(cardReview.pending)}
+                className="min-h-11 rounded-xl bg-gold px-4 text-sm font-semibold text-midnight"
+              >
+                {cardReview.round ? "Resume review" : `Review after lesson ${cardReview.pending}`}
+              </button>
+            )}
+            <button
+              type="button"
+              disabled={!cardReview.round && !cardReview.dueCount}
+              onClick={() => openCardReview(null)}
+              className="min-h-11 rounded-xl border border-border px-4 text-sm disabled:opacity-50"
+            >
+              Due review · {cardReview.dueCount}
+            </button>
+          </div>
+        </div>
+      )}
       {/* Current lesson card or all-done state */}
       {!howOpen &&
         !reviewOpen &&
@@ -2265,38 +2442,46 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
         continueLesson && (
           <div
             data-testid="continue-learning"
-            className="mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5"
+            className={cn(
+              "mb-5 rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60",
+              planStarted ? "p-3 sm:p-5" : "p-5",
+            )}
           >
-            <div className="flex items-start justify-between gap-3 mb-3">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                  {resumePosition
-                    ? "Continue learning"
-                    : practiceLesson
-                      ? "Practice again"
-                      : "Your next lesson"}{" "}
-                  · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
-                  {continueLesson.n}
-                </p>
-                <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+            {!planStarted && (
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                    {resumePosition
+                      ? "Continue learning"
+                      : practiceLesson
+                        ? "Practice again"
+                        : "Your next lesson"}{" "}
+                    · {core60StageName(moduleId) ? `${core60StageName(moduleId)} ` : ""}Lesson{" "}
+                    {continueLesson.n}
+                  </p>
+                  <h2 className="text-xl font-semibold text-foreground">{continueLesson.title}</h2>
+                </div>
+                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                  <span className="text-[11px] font-mono text-gold">
+                    ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                <span className="text-[11px] font-mono text-gold">
-                  ~{continueLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                </span>
-              </div>
-            </div>
+            )}
 
-            <p className="text-sm text-muted-foreground mb-4">
-              <span className="text-gold/80">Goal: </span>
-              {continueLesson.objective}
-            </p>
+            {!planStarted && (
+              <p className="text-sm text-muted-foreground mb-4">
+                <span className="text-gold/80">Goal: </span>
+                {continueLesson.objective}
+              </p>
+            )}
 
             {/* Start stays reachable before the detailed six-mode preview. */}
             <button
               onClick={() => openLessonFromPlan(continueLesson.n, resumePosition?.way ?? "see")}
               className={cn(
-                "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                !planStarted && "mb-4",
                 planStarted && "border border-gold/40 bg-transparent text-gold",
               )}
               style={
@@ -2310,32 +2495,39 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             >
               {resumePosition ? "Continue" : practiceLesson ? "Practice" : "Start"}{" "}
               {stageLessonLabel(moduleId, continueLesson.n)}
+              {planStarted && (
+                <span className="min-w-0 truncate font-normal text-foreground/80">
+                  · {continueLesson.title}
+                </span>
+              )}
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </button>
 
-            {resumePosition && (
+            {!planStarted && resumePosition && (
               <p className="mb-3 text-sm text-muted-foreground">
                 Pick up at {SECTIONS.find((step) => step.id === resumePosition.way)?.label}
               </p>
             )}
-            <details>
-              <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
-                Six ways to practice this lesson
-              </summary>
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-            </details>
+            {!planStarted && (
+              <details>
+                <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+                  Six ways to practice this lesson
+                </summary>
+                <div className="space-y-1.5 mb-5">
+                  {SECTIONS.map((step, i) => (
+                    <div
+                      key={step.id}
+                      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                        {i + 1}
+                      </span>
+                      <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
           </div>
         )}
 
@@ -2347,6 +2539,62 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(
+              moduleId,
+            ) && (
+              <button
+                className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
+                onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
+              >
+                Practice Spanish 101 vocabulary · My card lists
+              </button>
+            )}
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            spanishBasicsLesson(moduleId, 1) && (
+              <nav
+                aria-label="General Spanish course sequence"
+                className="mt-4 rounded-xl border border-border p-3"
+              >
+                <p className="text-sm font-semibold">Continue your Spanish</p>
+                <ol className="mt-2 space-y-1">
+                  {[
+                    ["spanish-basics", "Spanish 101"],
+                    ["spanish-102", "Spanish 102"],
+                    ["spanish-frequent-verbs", "Frequent Verbs"],
+                    ["spanish-conjugation-patterns", "Conjugation Patterns"],
+                    ["spanish-usage-verbs", "Usage-First Verbs"],
+                    ["spanish-common-patterns", "Common Grammar Patterns"],
+                    ["spanish-cognates", "Cognates"],
+                  ].map(([id, label], index) => (
+                    <li key={id}>
+                      <a
+                        className="inline-flex min-h-11 items-center text-sm underline"
+                        href={`/?tab=core30&module=foundation-${id}&target=Spanish&native=English`}
+                      >
+                        {index + 1}. {label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+          {moduleId.includes("spanish-usage-verbs") && (
+            <p className="mt-3 text-sm text-muted-foreground">
+              Rank counts group a verb’s inflected forms together. This course follows the Spanish
+              Web 2011 sample; rankings vary by genre.{" "}
+              <a
+                className="underline"
+                href="https://www.sketchengine.eu/spanish-word-list/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Frequency source
+              </a>
+            </p>
+          )}
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (
@@ -2389,17 +2637,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {!howOpen && (
         <>
           {/* The Core 60 path (Foundation, Core 30, Master 20), above the lesson and the plan */}
-          {!reviewOpen && !runnerActive && (
-            <Core60PathCard moduleId={moduleId} />
-          )}
+          {!reviewOpen && !runnerActive && <Core60PathCard moduleId={moduleId} />}
 
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">
-                Continue when you’re ready.
-              </p>
+              <p className="text-xs text-white/60 mt-1">Continue when you’re ready.</p>
             </div>
           )}
 
@@ -2507,6 +2751,28 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                                   : ""}
                           </span>
                         </button>
+                        {cardReview.checkpoints
+                          .filter(
+                            (checkpoint) =>
+                              checkpoint.moduleId === moduleId && checkpoint.afterLesson === l.n,
+                          )
+                          .map((checkpoint) => (
+                            <button
+                              type="button"
+                              key={`review-${checkpoint.n}`}
+                              data-testid={`review-checkpoint-${checkpoint.n}`}
+                              disabled={!cardReview.ready || !checkpoint.unlocked}
+                              onClick={() => openCardReview(checkpoint.n)}
+                              className="my-2 min-h-11 w-full rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-left text-sm font-semibold text-foreground disabled:opacity-60"
+                            >
+                              Review after lesson {checkpoint.n} ·{" "}
+                              {checkpoint.complete
+                                ? "Completed · practice again"
+                                : checkpoint.unlocked
+                                  ? "Ready"
+                                  : "Complete these lessons first"}
+                            </button>
+                          ))}
                       </li>
                     );
                   })}
@@ -2538,31 +2804,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
-            <details data-testid="study-options" open={activeAssessmentPlan ? true : undefined} className="my-4 rounded-xl border border-border/50 p-3">
-              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Study options</summary>
-            <Core30PlanCard
-              enrollmentId={activeAssessmentPlan}
-              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
-              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
-              managedPlanUrl={
-                activeAssessmentPlan
-                  ? examsLocation({
-                      moduleId,
-                      target: state.selectedLanguage,
-                      native: state.nativeLanguage,
-                      orgId: approvedPlanTiming.organizationId,
-                      returnPlanId: activeAssessmentPlan,
-                    })
-                  : undefined
-              }
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
+            <details
+              data-testid="study-options"
+              open={activeAssessmentPlan ? true : undefined}
+              className="my-4 rounded-xl border border-border/50 p-3"
+            >
+              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">
+                Study options
+              </summary>
+              <Core30PlanCard
+                enrollmentId={activeAssessmentPlan}
+                reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+                assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+                managedPlanUrl={
+                  activeAssessmentPlan
+                    ? examsLocation({
+                        moduleId,
+                        target: state.selectedLanguage,
+                        native: state.nativeLanguage,
+                        orgId: approvedPlanTiming.organizationId,
+                        returnPlanId: activeAssessmentPlan,
+                      })
+                    : undefined
+                }
+                moduleId={moduleId}
+                totalLessons={totalLessons}
+                onOpenLesson={openLessonFromPlan}
+                onStartReview={() => {
+                  setOpenLessonN(null);
+                  setReviewOpen(true);
+                }}
+              />
             </details>
           )}
 
@@ -2635,6 +2907,28 @@ export function Core30Tab() {
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
+      {state.activeModuleId &&
+        !spanishBasicsLesson(state.activeModuleId, 1) &&
+        state.selectedLanguage === "Spanish" &&
+        state.nativeLanguage === "English" && (
+          <aside
+            aria-label="Beginner Spanish course"
+            className="rounded-2xl border border-gold/30 bg-card p-4 text-foreground"
+          >
+            <h2 className="text-lg font-semibold">Looking for Spanish 101?</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Start with everyday grammar before a specialty: 10 Foundation + 30 Core + 20
+              application lessons.
+            </p>
+            <a
+              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-gold px-4 font-semibold text-midnight"
+            >
+              Start Spanish 101
+            </a>
+          </aside>
+        )}
+
       {stageStatus === "loading" ? (
         <section
           data-testid="core60-stage-loading"
@@ -2675,8 +2969,18 @@ export function Core30Tab() {
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 60</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Each module has a 30-lesson path built for your field. Choose a module to start yours.
+            {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English"
+              ? "New to Spanish? Start here with Spanish 101: 10 Foundation lessons, 30 grammar lessons, and 20 lessons applying the basics. No specialty module is needed."
+              : "Choose a module with a course in your learning language."}
           </p>
+          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+            <a
+              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              className="mt-4 inline-flex min-h-12 items-center rounded-xl bg-gold px-5 font-semibold text-midnight"
+            >
+              Start Spanish 101 · Foundation
+            </a>
+          )}
           <div className="mt-3">
             <ExamShortcut />
           </div>

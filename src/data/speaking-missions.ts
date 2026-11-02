@@ -1,3 +1,4 @@
+import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
 import { getCurriculum, type Lesson } from "./curriculum.ts";
@@ -19,6 +20,7 @@ import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
+import { militaryLessonPractice } from "./military-practice.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
@@ -626,6 +628,7 @@ function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): s
 const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpecialty, string>> = {
   Spanish: {
     Core: "Hola. ¿En qué puedo ayudarle hoy?",
+    "Core Basics": "Hola. ¿En qué puedo ayudarle hoy?",
     Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
     Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
     Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
@@ -638,6 +641,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Italian: {
     Core: "Buongiorno. Come posso aiutarla oggi?",
+    "Core Basics": "Buongiorno. Come posso aiutarla oggi?",
     Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
     Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
     Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
@@ -650,6 +654,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Japanese: {
     Core: "こんにちは。今日はどうされましたか。",
+    "Core Basics": "こんにちは。今日はどうされましたか。",
     Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
     Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
     Trades: "おはようございます。この状況では、まず何をすればよいですか。",
@@ -662,6 +667,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   Chinese: {
     Core: "你好。今天有什么可以帮您的？",
+    "Core Basics": "你好。今天有什么可以帮您的？",
     Faith: "你好。谢谢你来。今天想聊些什么？",
     Medical: "你好。谢谢您接待我。您需要先了解什么情况？",
     Trades: "早上好。这种情况下我们应该先做什么？",
@@ -674,6 +680,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   },
   English: {
     Core: "Hello. How can I help you today?",
+    "Core Basics": "Hello. How can I help you today?",
     Faith: "Hello. Thank you for coming. What would you like to talk about?",
     Medical: "Hello. Thank you for seeing me. What do you need to know first?",
     Trades: "Good morning. What should we do first in this situation?",
@@ -893,6 +900,7 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
     "This is language practice only; do not present the roleplay as professional advice.";
   switch (category) {
     case "Core":
+    case "Core Basics":
       return [
         practiceOnly,
         "Use fictional personal, account, payment, medical, and location details during roleplay.",
@@ -979,11 +987,11 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
   Spanish: {
     "meeting-family": "Qué gusto conocerte. Nos han hablado mucho de ti. ¿Cómo estuvo el viaje?",
     "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
-    "defining-relationship": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
+    "defining-relationship":
+      "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
     "affection-appreciation":
       "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
-    "living-together":
-      "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
+    "living-together": "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
     "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
     "sexual-health-conversation":
       "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
@@ -991,12 +999,12 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
     "ending-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
   },
   Italian: {
-    "meeting-family": "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
+    "meeting-family":
+      "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
     "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
     "defining-relationship": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
     "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
-    "living-together":
-      "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
+    "living-together": "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
     "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
     "sexual-health-conversation":
       "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
@@ -1006,14 +1014,16 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
       "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione.",
   },
   Japanese: {
-    "meeting-family": "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
+    "meeting-family":
+      "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
     "dating-interest": "もっとあなたのことを知りたいです。今度、一緒にお茶しませんか。",
     "defining-relationship":
       "私たちの関係について話したいです。あなたは今の関係をどう考えていますか。",
     "affection-appreciation": "あなたのことをとても大切に思っています。いつもありがとう。",
     "living-together": "この関係に何を望んでいるか、お互いに話しませんか。",
     "consent-boundaries": "抱きしめてもいいですか。嫌なら、遠慮なく言ってください。",
-    "sexual-health-conversation": "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
+    "sexual-health-conversation":
+      "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
     "disagreement-repair":
       "さっきのことで傷つきました。でも、あなたの話を聞いて一緒に解決したいです。",
     "ending-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
@@ -1186,7 +1196,8 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const form = (language === "Spanish" ? word.es : word.en).trim();
+    const authoredTarget = module.learnDirection === "en-target" ? "English" : "Spanish";
+    const form = (language === authoredTarget ? word.es : word.en).trim();
     const key = form.toLocaleLowerCase();
     if (!form || seen.has(key)) continue;
     seen.add(key);
@@ -1205,7 +1216,14 @@ function missionFromLesson(
   lesson: Lesson,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
-  const teaching = moduleTeachingSettings(module.id, lesson.n, language, "English");
+  const teaching = moduleTeachingSettings(
+    module.id,
+    lesson.n,
+    language,
+    module.learnDirection === "en-target" ? "Spanish" : "English",
+  );
+  const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
+  const basics = spanishBasicsLesson(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>
@@ -1226,14 +1244,32 @@ function missionFromLesson(
     moduleName: module.name,
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
-    partnerRole: partnerRoleFor(module, language),
-    level: isMasterModule(module.id) ? "B1" : "A2",
+    partnerRole: basics?.partnerRole ?? military?.partnerRole ?? partnerRoleFor(module, language),
+    level:
+      basics &&
+      (module.id.includes("spanish-102") ||
+        (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
+        ? "B1"
+        : basics
+          ? basics.stage === "foundation"
+            ? "A1"
+            : "A2"
+          : military?.stage === "foundation"
+            ? "A1"
+            : isMasterModule(module.id)
+              ? "B1"
+              : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
     locale,
     vocabulary: lessonMissionVocabulary(module, lesson, language),
-    sourcePrompts: projectedSteps,
+    sourcePrompts: military
+      ? [
+          ...projectedSteps,
+          ...(lesson.words ?? []).filter((w) => w.note).map((w) => `${w.es}: ${w.note}`),
+        ]
+      : projectedSteps,
     sourceObjectiveId: lessonObjectiveId(module.id, lesson.n),
     ...(teaching ? { lessonTeaching: { stage: teaching.stage, speaking: teaching.speaking } } : {}),
     objectives: [
@@ -1253,7 +1289,10 @@ function missionFromLesson(
         critical: true,
       },
     ],
-    openingLine: openingLineForModule(module, language, specialty),
+    openingLine:
+      basics?.openingLine ??
+      military?.openingLine ??
+      openingLineForModule(module, language, specialty),
     safetyRules: safetyRulesForModule(module, specialty, riskClass),
     riskClass,
     ...(isMasterModule(module.id) ? { surpriseComplication: true } : {}),

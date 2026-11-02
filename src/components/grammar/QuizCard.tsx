@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
@@ -66,6 +67,7 @@ export function QuizCard({
   onComplete: () => void;
 }) {
   const { state, dispatch } = useApp();
+  useOverlayHistory(true, onClose);
   const { markComplete, addBadge, getLevel, state: gState } = useGrammar();
   const genQuiz = useServerFn(generateLessonQuiz);
 
@@ -193,9 +195,6 @@ export function QuizCard({
       className="fixed inset-0 z-50 flex items-center justify-center bg-midnight/70 px-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
-      onKeyDown={(e) => {
-        if (e.key === "Escape") onClose();
-      }}
     >
       <div
         className="relative w-full max-w-xl rounded-3xl border border-gold/40 bg-card/95 p-7 shadow-luxe"
@@ -204,7 +203,7 @@ export function QuizCard({
         <button
           onClick={onClose}
           aria-label="Close quiz"
-          className="absolute right-4 top-4 rounded-full p-1.5 text-muted-foreground hover:bg-gold/10 hover:text-gold"
+          className="absolute right-2 top-2 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-foreground hover:bg-accent"
         >
           <X className="h-4 w-4" />
         </button>

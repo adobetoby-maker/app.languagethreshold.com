@@ -1,3 +1,4 @@
+import { SPANISH_BASICS_READERS, SPANISH_NEXT_READERS } from "./spanish-basics-readers";
 // All pre-built library seed data — loaded lazily via dynamic import() in LibraryProvider.
 // Keeping this module separate from library-state.tsx lets Vite split it into its own chunk,
 // reducing the main bundle by ~600–800 kB.
@@ -12,6 +13,7 @@ import { MEDICAL_A_SEEDS } from "@/data/library-seeds/medical-a-seeds";
 import { MEDICAL_B_SEEDS } from "@/data/library-seeds/medical-b-seeds";
 import { TRADES_SEEDS } from "@/data/library-seeds/trades-seeds";
 import { ROOFING_READER_SEEDS } from "@/data/roofing-content";
+import { MILITARY_READER_SEEDS } from "@/data/military-readers";
 import { TRANSPORT_AGRI_SEEDS } from "@/data/library-seeds/transport-agri-seeds";
 import { SERVICE_EDU_SEEDS } from "@/data/library-seeds/service-edu-seeds";
 import { SPORTS_A_SEEDS } from "@/data/library-seeds/sports-a-seeds";
@@ -1337,54 +1339,7 @@ const RESTAURANT_SEEDS: LibraryEntry[] = [
 
 const tag = (cat: string) => (e: LibraryEntry) => ({ ...e, category: cat });
 
-/**
- * Per-language LDS scripture packs — loaded on-demand when the user's selected
- * language changes. Each loader returns a Promise so Vite can split each
- * language group into its own chunk (~50–65 kB each).
- */
-export const LDS_PACK_LOADERS: Record<string, () => Promise<LibraryEntry[]>> = {
-  Spanish: () =>
-    import("@/data/lds-scriptures").then(({ LDS_SCRIPTURES }) =>
-      LDS_SCRIPTURES.map((book) => ({
-        id: book.id,
-        title: book.title,
-        subtitle: book.subtitle,
-        language: "Spanish" as const,
-        targetLabel: "Español",
-        level: "C1" as const,
-        section: "missionary" as const,
-        flag: book.flag,
-        available: true,
-        sentences: book.chapters[0]?.sentences ?? [],
-        chapters: book.chapters,
-        category: "Faith",
-      })),
-    ),
-  French: () =>
-    import("@/data/library-seeds/lds-scriptures-fr-pt").then(({ LDS_SCRIPTURES_FR }) =>
-      LDS_SCRIPTURES_FR.map((e) => ({ ...e, category: "Faith" })),
-    ),
-  Portuguese: () =>
-    import("@/data/library-seeds/lds-scriptures-fr-pt").then(({ LDS_SCRIPTURES_PT }) =>
-      LDS_SCRIPTURES_PT.map((e) => ({ ...e, category: "Faith" })),
-    ),
-  German: () =>
-    import("@/data/library-seeds/lds-scriptures-de-it").then(({ LDS_SCRIPTURES_DE }) =>
-      LDS_SCRIPTURES_DE.map((e) => ({ ...e, category: "Faith" })),
-    ),
-  Italian: () =>
-    import("@/data/library-seeds/lds-scriptures-de-it").then(({ LDS_SCRIPTURES_IT }) =>
-      LDS_SCRIPTURES_IT.map((e) => ({ ...e, category: "Faith" })),
-    ),
-  Japanese: () =>
-    import("@/data/library-seeds/lds-scriptures-ja-ko").then(({ LDS_SCRIPTURES_JA }) =>
-      LDS_SCRIPTURES_JA.map((e) => ({ ...e, category: "Faith" })),
-    ),
-  Korean: () =>
-    import("@/data/library-seeds/lds-scriptures-ja-ko").then(({ LDS_SCRIPTURES_KO }) =>
-      LDS_SCRIPTURES_KO.map((e) => ({ ...e, category: "Faith" })),
-    ),
-};
+export { LDS_PACK_LOADERS } from "./lds-pack-loaders";
 
 const BASE_SEEDS: LibraryEntry[] = [
   { ...PREACH_MY_GOSPEL_SEED, category: "Faith" },
@@ -1401,6 +1356,9 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(MEDICAL_B_SEEDS as LibraryEntry[]).map(tag("Medical")),
   ...(TRADES_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(ROOFING_READER_SEEDS as LibraryEntry[]).map(tag("Trades")),
+  ...(MILITARY_READER_SEEDS as LibraryEntry[]),
+  ...(SPANISH_BASICS_READERS as LibraryEntry[]),
+  ...(SPANISH_NEXT_READERS as LibraryEntry[]),
   ...(TRANSPORT_AGRI_SEEDS as LibraryEntry[]).map(tag("Transport & Agriculture")),
   ...(SERVICE_EDU_SEEDS as LibraryEntry[]).map(tag("Service & Education")),
   ...(SPORTS_A_SEEDS as LibraryEntry[]).map(tag("Sports")),
@@ -1415,7 +1373,10 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(KOREAN_MODULE_SEEDS as LibraryEntry[]).map(tag("Korean")),
   ...(NEW_MODULES_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Other" })),
   ...(PASHTO_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
-  ...(ITALIAN_EXPANSION_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
+  ...(ITALIAN_EXPANSION_SEEDS as LibraryEntry[]).map((e) => ({
+    ...e,
+    category: e.category ?? "Culture",
+  })),
 ];
 
 export const ALL_SEEDS: LibraryEntry[] = [

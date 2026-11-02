@@ -20,7 +20,13 @@ export type Core60StageKind = "foundation" | "master";
 /** Lessons per stage file: a Foundation has 10, a Master 20. */
 export const CORE60_STAGE_LESSONS: Record<Core60StageKind, number> = { foundation: 10, master: 20 };
 
-export const CORE60_LESSON_TYPES = ["Teach-back", "Case", "People", "Document", "Capstone"] as const;
+export const CORE60_LESSON_TYPES = [
+  "Teach-back",
+  "Case",
+  "People",
+  "Document",
+  "Capstone",
+] as const;
 export const CORE60_BLOCKS = ["A", "B", "C", "D", "E"] as const;
 
 // ─── File format ─────────────────────────────────────────────────────────────
@@ -181,7 +187,8 @@ export function parseStageFile(
   for (const lesson of lessons) {
     if (!lesson || typeof lesson !== "object") return null;
     const l = lesson as Record<string, unknown>;
-    if (!Number.isInteger(l.n) || !str(l.title) || !str(l.objective) || !str(l.speaking)) return null;
+    if (!Number.isInteger(l.n) || !str(l.title) || !str(l.objective) || !str(l.speaking))
+      return null;
     if (!Array.isArray(l.words)) return null;
   }
   return raw as Core60StageFile;
@@ -232,10 +239,17 @@ export function deriveStageModule(
       : `${base.aiPersona} Speak natural B1-B2 ${language}. ${masterComplicationRule(language)}`,
     userRole:
       own.userRole ??
-      (foundation ? `Beginner learning ${language} for ${base.name}` : `${base.userRole} leading in ${language}`),
+      (foundation
+        ? `Beginner learning ${language} for ${base.name}`
+        : `${base.userRole} leading in ${language}`),
     challengePrompts: own.challengePrompts ?? [...base.challengePrompts],
     vocabFocus: own.vocabFocus ?? [...base.vocabFocus],
   };
+  if (base.authoredPair) {
+    derived.authoredPair = { ...base.authoredPair };
+    if (base.id === "spanish-basics" || base.id === "spanish-cognates")
+      derived.aiPersona = base.aiPersona;
+  }
   if (base.learnDirection) derived.learnDirection = base.learnDirection;
   if (base.nativeLanguages) derived.nativeLanguages = [...base.nativeLanguages];
   return derived;

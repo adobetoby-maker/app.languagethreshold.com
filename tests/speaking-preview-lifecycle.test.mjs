@@ -7,6 +7,8 @@ const tick = () => new Promise((r) => setImmediate(r));
 function nodes(n, out = []) {
   if (Array.isArray(n)) n.forEach((v) => nodes(v, out));
   else if (n && typeof n === "object") {
+    if (typeof n.type === "function" && n.type.name === "SpeakingConversationControls")
+      return nodes(n.type(n.props), out);
     out.push(n);
     nodes(n.props?.children, out);
   }
@@ -44,7 +46,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
+                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(RecordedReplyControl|LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -58,12 +60,13 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||!deps||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const dispatch=a=>c.actions.push(a),isCurrentUser=id=>c.actor===id;
  export const useApp=()=>({state:c.state,dispatch}),useAuth=()=>{if(c.session?.user.id!==c.actor)c.session=c.actor?{user:{id:c.actor}}:null;return{session:c.session,user:c.session?.user??null,isCurrentUser};},useAiGate=()=>({gated:fn=>fn()});
- const setAccent=()=>{},setRate=()=>{},setVoiceURI=()=>{};export const useSpeech=()=>({accent:'es-CR',rate:1,voiceURI:null,setAccent,setRate,setVoiceURI});
+ const setAccent=()=>{},setRate=()=>{},setVoiceURI=()=>{};export const useSpeech=()=>({accent:'es-CR',rate:1,voiceURI:null,voiceSettings:{listeningGender:'woman',speakingGender:'woman',speakingAudioSource:'device'},setAccent,setRate,setVoiceURI});
  const owned=o=>{if(!o||o.userId!==c.actor||!o.isCurrent())throw new Error("Expected current speaking request owner");};
  export class SpeakingConsentSaveError extends Error {constructor(outcome){super('Synthetic unconfirmed save');this.outcome=outcome;}};export const getSpeakingAgeAttestation=async(signal,owner)=>{owned(owner);return c.waitRead?new Promise((resolve,reject)=>c.reads.push({signal,owner,resolve,reject})):c.confirmed;},saveSpeakingAgeAttestation=(value,signal,current,owner)=>{owned(owner);return new Promise((resolve,reject)=>c.saves.push({value,signal,current,owner,resolve,reject}));},speakingRequestHeaders=(owner)=>{owned(owner);return c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});};
- export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
- export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
+ export const getMissionTtsCapabilities=async()=>({ready:true,voices:[{name:"es-US-Chirp3-HD-Aoede",languageCodes:["es-US"],ssmlGender:"FEMALE",tier:"Chirp 3 HD"}]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
+ export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=opts=>new Promise(resolve=>{c.audio.push({text:opts.text,locale:opts.languageCode,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
+ export const RecordedReplyControl=()=>null;
  export const AuthModal='auth',WordCard='card',NextTripBanner='banner',LongPressWordText='text',FuriganaText='text',PinyinText='text',SpeakingConsentDialog='consent',MicrophoneTestDialog='mic-test';
  export const Check='span',ChevronLeft='span',Lightbulb='span',Mic='span',RotateCcw='span',Search='span',Send='span',Square='span',X='span';
  `,
@@ -91,12 +94,16 @@ test("actual speaking missions isolate late replies, playback, microphone and co
         constructor() {
           recognitions.push(this);
         }
-        start() {}
+        start() {
+          if (c.startError) this.onerror?.({ error: c.startError });
+          else if (!c.silentStart) this.onstart?.();
+        }
         stop() {
           this.onend?.();
         }
         abort() {
           this.aborted = true;
+          this.onend?.();
         }
       },
       setTimeout: (fn, milliseconds) => {
@@ -147,8 +154,17 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       start.props.onClick();
       await tick();
       tree = render();
+      if (!c.audio.length) {
+        const mode = nodes(tree).find((n) => n.props?.["aria-label"] === "Automatic voice replies");
+        assert.equal(mode.props["aria-pressed"], false);
+        mode.props.onClick();
+        tree = render();
+        button(tree, "Reset").props.onClick();
+        await tick();
+        tree = render();
+      }
       const audio = c.audio.at(-1);
-      assert.equal(audio.opts.deviceOnly, true);
+      assert.equal(audio.opts.voiceName, "es-US-Chirp3-HD-Aoede");
       audio.opts.onPlaybackStart?.();
       audio.resolve();
       await tick();
@@ -156,7 +172,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     };
     const send = (tree, phrase = "QA learner turn") => {
       nodes(tree)
-        .find((n) => n.type === "input" && n.props.id === "mission-typed-turn")
+        .find((n) => n.type === "textarea" && n.props.id === "mission-typed-turn")
         .props.onChange({ target: { value: phrase } });
       tree = render();
       const form = nodes(tree).find((n) => n.type === "form");
@@ -224,7 +240,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       nodes(tree).some((n) => n.props?.text === "stale partner"),
       false,
     );
-    // iOS Safari can drop onend after partner audio; Stop must still end the listening turn.
+    // iOS Safari can retain a speaking queue after partner audio.
+    window.speechSynthesis.speaking = true;
     nodes(tree)
       .find((n) => n.props?.["aria-label"] === "Start listening")
       .props.onClick();
@@ -234,6 +251,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
       1,
       "second-turn microphone tap releases the prior device speech queue",
     );
+    window.speechSynthesis.speaking = false;
     silent.stop = () => {};
     tree = render();
     const beforeStop = new Set(timers.keys());
@@ -340,6 +358,13 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     end();
     end();
     await tick();
+    assert.equal(requests.length, 2, "captured speech waits for confirmation");
+    tree = render();
+    assert.match(text(tree), /Reply captured/);
+    nodes(tree)
+      .find((n) => n.type === "form")
+      .props.onSubmit({ preventDefault() {} });
+    await tick();
     assert.equal(requests.length, 3);
     assert.equal(JSON.parse(requests[2].opts.body).messages.at(-1).content, "QA final");
     assert.equal(rec.onresult, null);
@@ -389,6 +414,88 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     );
     assert.equal(c.writes, afterHeaderCleanup);
     c.waitHeaders = false;
+    // A stalled mission request must preserve the answer and release the microphone.
+    c.slots = [];
+    c.effects = [];
+    c.actor = "a";
+    c.confirmed = true;
+    tree = await begin();
+    send(tree, "QA timeout answer");
+    await tick();
+    const timedOutRequest = requests.at(-1);
+    const deadline = [...timers.entries()].find(([id]) => timerDelays.get(id) === 45000);
+    assert.ok(deadline);
+    deadline[1]();
+    tree = render();
+    assert.equal(timedOutRequest.opts.signal.aborted, true);
+    assert.match(text(tree), /reply took too long/);
+    assert.equal(
+      nodes(tree).find((n) => n.type === "textarea" && n.props.id === "mission-typed-turn").props
+        .value,
+      "QA timeout answer",
+    );
+    button(tree, "Reset").props.onClick();
+    await tick();
+    const freshAudio = c.audio.at(-1);
+    freshAudio.resolve();
+    await tick();
+    tree = render();
+    timedOutRequest.resolve({
+      ok: true,
+      json: async () => ({
+        assistantText: "late timeout reply",
+        provisionalObjectiveIds: [],
+        shouldEnd: false,
+        deferredFeedback: [],
+      }),
+      body: { cancel: async () => {} },
+    });
+    await tick();
+    assert.doesNotMatch(text(render()), /late timeout reply/);
+    assert.notEqual(
+      nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening").props.disabled,
+      true,
+    );
+    unmount();
+    c.slots = [];
+    c.effects = [];
+    c.actor = "a";
+    c.confirmed = true;
+    tree = await begin();
+    c.startError = "audio-capture";
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(button(tree, "Resume mission"));
+    assert.doesNotMatch(text(tree), /Listening…/);
+    button(tree, "Resume mission").props.onClick();
+    tree = render();
+    c.startError = null;
+    c.silentStart = true;
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(nodes(tree).find((n) => n.props?.["aria-label"] === "Cancel microphone"));
+    const startDeadline = [...timers.entries()].find(([id]) => timerDelays.get(id) === 12000);
+    assert.ok(startDeadline);
+    startDeadline[1]();
+    tree = render();
+    assert.match(text(tree), /microphone did not start/);
+    assert.ok(button(tree, "Resume mission"));
+    button(tree, "Resume mission").props.onClick();
+    tree = render();
+    c.silentStart = false;
+    nodes(tree)
+      .find((n) => n.props?.["aria-label"] === "Start listening")
+      .props.onClick();
+    tree = render();
+    assert.ok(nodes(tree).find((n) => n.props?.["aria-label"] === "Stop listening"));
+    button(tree, "Reset").props.onClick();
+    await tick();
+    assert.equal(recognitions.at(-1).aborted, true);
+    unmount();
     // The startup/settings prompt owns consent; entering a mission never opens a blocking modal.
     c.slots = [];
     c.effects = [];

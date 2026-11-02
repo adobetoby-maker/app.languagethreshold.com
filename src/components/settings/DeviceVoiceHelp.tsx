@@ -41,12 +41,13 @@ export function DeviceVoiceHelp() {
   return (
     <details className="rounded-xl border border-border/50 bg-card/30 p-3 text-sm">
       <summary className="min-h-11 cursor-pointer py-3 font-semibold text-foreground">
-        Add voices to your device
+        Offline voice help
       </summary>
       <div className="space-y-3 pt-2 text-xs leading-relaxed text-muted-foreground">
         <p>
-          Download a voice in your device settings, then select it in Language Threshold's voice
-          picker.
+          Standard Google voices do not need a download. For offline fallback, download a voice for
+          your learning language in your device settings. The app uses the best available installed
+          voice.
         </p>
         {guides.map((guide) => (
           <details key={guide.device} className="rounded-lg border border-border/40 p-3">
@@ -69,9 +70,8 @@ export function DeviceVoiceHelp() {
           </details>
         ))}
         <p>
-          When the download finishes, return here and choose the voice. If it is missing, save your
-          work and reopen the app or browser. Your browser may expose only some installed voices;
-          online voices still need an internet connection.
+          After the download finishes, reopen the app or browser. Some browsers expose only a subset
+          of installed voices. Device fallback may sound different from the standard Google voices.
         </p>
       </div>
     </details>

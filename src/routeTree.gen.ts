@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdvancedRouteImport } from './routes/advanced'
 import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
@@ -20,11 +21,13 @@ import { Route as ExamContentRouteImport } from './routes/exam-content'
 import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferRouteImport } from './routes/refer'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -62,6 +65,7 @@ import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
+import { Route as ApiSpeakingTranscribeRouteImport } from './routes/api.speaking-transcribe'
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
 import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
 import { Route as ApiTeamRouteImport } from './routes/api.team'
@@ -72,8 +76,12 @@ import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitl
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
+import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
+import { Route as VsDuolingoRouteImport } from './routes/vs.duolingo'
 
 const Char91indexChar93Route = Char91indexChar93RouteImport.update({
   id: '/index',
@@ -88,6 +96,11 @@ const IndexRoute = IndexRouteImport.update({
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvancedRoute = AdvancedRouteImport.update({
+  id: '/advanced',
+  path: '/advanced',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CertificateRoute = CertificateRouteImport.update({
@@ -130,6 +143,11 @@ const FamilySetupRoute = FamilySetupRouteImport.update({
   path: '/family-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModuleRequestRoute = ModuleRequestRouteImport.update({
   id: '/module-request',
   path: '/module-request',
@@ -153,6 +171,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -340,6 +363,11 @@ const ApiSpeakingConsentRoute = ApiSpeakingConsentRouteImport.update({
   path: '/api/speaking-consent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSpeakingTranscribeRoute = ApiSpeakingTranscribeRouteImport.update({
+  id: '/api/speaking-transcribe',
+  path: '/api/speaking-transcribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSportsNewsRoute = ApiSportsNewsRouteImport.update({
   id: '/api/sports-news',
   path: '/api/sports-news',
@@ -390,6 +418,16 @@ const ApiVerifyCheckoutRoute = ApiVerifyCheckoutRouteImport.update({
   path: '/api/verify-checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   id: '/subscribe/success',
   path: '/subscribe/success',
@@ -400,10 +438,21 @@ const TeamAcceptRoute = TeamAcceptRouteImport.update({
   path: '/team/accept',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VsClinicalingoRoute = VsClinicalingoRouteImport.update({
+  id: '/vs/clinicalingo',
+  path: '/vs/clinicalingo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VsDuolingoRoute = VsDuolingoRouteImport.update({
+  id: '/vs/duolingo',
+  path: '/vs/duolingo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -412,12 +461,14 @@ export interface FileRoutesByFullPath {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -455,6 +506,7 @@ export interface FileRoutesByFullPath {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -465,12 +517,17 @@ export interface FileRoutesByFullPath {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -479,12 +536,14 @@ export interface FileRoutesByTo {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -522,6 +581,7 @@ export interface FileRoutesByTo {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -532,13 +592,18 @@ export interface FileRoutesByTo {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
@@ -547,12 +612,14 @@ export interface FileRoutesById {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -590,6 +657,7 @@ export interface FileRoutesById {
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
+  '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
@@ -600,14 +668,19 @@ export interface FileRoutesById {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
+  '/vs/clinicalingo': typeof VsClinicalingoRoute
+  '/vs/duolingo': typeof VsDuolingoRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -616,12 +689,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -659,6 +734,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -669,12 +745,17 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -683,12 +764,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -726,6 +809,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -736,12 +820,17 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/advanced'
     | '/certificate'
     | '/documents'
     | '/email-preferences'
@@ -750,12 +839,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
     | '/refer'
+    | '/sitemap.xml'
     | '/support'
     | '/team'
     | '/terms'
@@ -793,6 +884,7 @@ export interface FileRouteTypes {
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
+    | '/api/speaking-transcribe'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/team'
@@ -803,13 +895,18 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/api/verify-checkout'
+    | '/blog/$slug'
     | '/subscribe/success'
     | '/team_/accept'
+    | '/vs/clinicalingo'
+    | '/vs/duolingo'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  AdvancedRoute: typeof AdvancedRoute
   CertificateRoute: typeof CertificateRoute
   DocumentsRoute: typeof DocumentsRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
@@ -818,12 +915,14 @@ export interface RootRouteChildren {
   ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
   FamilySetupRoute: typeof FamilySetupRoute
+  FounderRoute: typeof FounderRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ReferRoute: typeof ReferRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
@@ -861,6 +960,7 @@ export interface RootRouteChildren {
   ApiPushCronRoute: typeof ApiPushCronRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
+  ApiSpeakingTranscribeRoute: typeof ApiSpeakingTranscribeRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
   ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
   ApiTeamRoute: typeof ApiTeamRoute
@@ -871,8 +971,12 @@ export interface RootRouteChildren {
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
   ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
+  VsClinicalingoRoute: typeof VsClinicalingoRoute
+  VsDuolingoRoute: typeof VsDuolingoRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -896,6 +1000,13 @@ declare module '@tanstack/react-router' {
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advanced': {
+      id: '/advanced'
+      path: '/advanced'
+      fullPath: '/advanced'
+      preLoaderRoute: typeof AdvancedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/certificate': {
@@ -954,6 +1065,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FamilySetupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/module-request': {
       id: '/module-request'
       path: '/module-request'
@@ -987,6 +1105,13 @@ declare module '@tanstack/react-router' {
       path: '/refer'
       fullPath: '/refer'
       preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -1248,6 +1373,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSpeakingConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/speaking-transcribe': {
+      id: '/api/speaking-transcribe'
+      path: '/api/speaking-transcribe'
+      fullPath: '/api/speaking-transcribe'
+      preLoaderRoute: typeof ApiSpeakingTranscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/sports-news': {
       id: '/api/sports-news'
       path: '/api/sports-news'
@@ -1318,6 +1450,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiVerifyCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/success': {
       id: '/subscribe/success'
       path: '/subscribe/success'
@@ -1332,12 +1478,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamAcceptRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vs/clinicalingo': {
+      id: '/vs/clinicalingo'
+      path: '/vs/clinicalingo'
+      fullPath: '/vs/clinicalingo'
+      preLoaderRoute: typeof VsClinicalingoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vs/duolingo': {
+      id: '/vs/duolingo'
+      path: '/vs/duolingo'
+      fullPath: '/vs/duolingo'
+      preLoaderRoute: typeof VsDuolingoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  AdvancedRoute: AdvancedRoute,
   CertificateRoute: CertificateRoute,
   DocumentsRoute: DocumentsRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,
@@ -1346,12 +1507,14 @@ const rootRouteChildren: RootRouteChildren = {
   ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
   FamilySetupRoute: FamilySetupRoute,
+  FounderRoute: FounderRoute,
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ReferRoute: ReferRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
@@ -1389,6 +1552,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPushCronRoute: ApiPushCronRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
+  ApiSpeakingTranscribeRoute: ApiSpeakingTranscribeRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,
   ApiStripeWebhookRoute: ApiStripeWebhookRoute,
   ApiTeamRoute: ApiTeamRoute,
@@ -1399,8 +1563,12 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
   ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
+  BlogSlugRoute: BlogSlugRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
+  VsClinicalingoRoute: VsClinicalingoRoute,
+  VsDuolingoRoute: VsDuolingoRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

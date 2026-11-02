@@ -1,5 +1,7 @@
 "use client";
 
+import { useOverlayState } from "@/hooks/use-overlay-history";
+
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -7,7 +9,10 @@ import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const Sheet = SheetPrimitive.Root;
+const Sheet = (props: React.ComponentProps<typeof SheetPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return <SheetPrimitive.Root {...props} {...state} />;
+};
 
 const SheetTrigger = SheetPrimitive.Trigger;
 
@@ -52,20 +57,50 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends
     React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
+    VariantProps<typeof sheetVariants> {
+  scrollBody?: boolean;
+}
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", className, children, scrollBody = false, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
-    <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
-      {children}
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn(
+        sheetVariants({ side }),
+        className,
+        scrollBody && "flex flex-col overflow-hidden",
+      )}
+      {...props}
+    >
+      <div
+        data-overlay-close
+        className={cn(
+          "flex justify-end bg-background py-1",
+          scrollBody ? "shrink-0 border-b border-border pb-2" : "sticky top-0 z-30 -mt-2",
+        )}
+      >
+        <SheetPrimitive.Close
+          type="button"
+          aria-label="Close"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </SheetPrimitive.Close>
+      </div>
+      {scrollBody ? (
+        <div
+          data-overlay-scroll-body
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain pt-3"
+        >
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </SheetPrimitive.Content>
   </SheetPortal>
 ));

@@ -27,7 +27,13 @@ const LANGUAGES: { id: Language; label: string; native: string }[] = [
   { id: "Pashto", label: "Pashto", native: "\u067e\u069a\u062a\u0648" },
 ];
 
-export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
+export function LanguageFirstStep({
+  onChosen,
+  onDismiss,
+}: {
+  onChosen: () => void;
+  onDismiss: () => void;
+}) {
   const { dispatch } = useApp();
   const [picked, setPicked] = useState<Language | null>(null);
 
@@ -46,6 +52,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   return (
     <LearningEntryModal
       title="Choose your learning language"
+      onDismiss={onDismiss}
       description="Choose a language to continue. You can change it later."
       className="lt-safe-top-only fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-background/98 p-4 backdrop-blur-sm"
     >

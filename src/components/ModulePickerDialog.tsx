@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, X, Check, Clock } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
@@ -15,6 +16,7 @@ import { cn } from "@/lib/utils";
 
 const FILTER_TABS = [
   { id: "ALL" as const, label: "All" },
+  { id: "Core Basics" as const, label: "Core Basics" },
   { id: "Faith" as const, label: "Faith" },
   { id: "Medical" as const, label: "Medical" },
   { id: "Trades" as const, label: "Trades" },
@@ -43,7 +45,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
     const matchesSearch =
       !q ||
       [path.module, ...path.stages.flatMap((stage) => (stage.module ? [stage.module] : []))].some(
-        (m) => [m.name, m.blurb, m.category, m.userRole].join(" ").toLowerCase().includes(q),
+        (m) => moduleMatchesSearch(m, q),
       );
     return matchesCategory && matchesSearch;
   });
@@ -61,7 +63,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-h-[82vh] w-full max-w-2xl overflow-hidden p-0 gap-0 border-border/60 bg-background [&>button]:hidden">
+      <DialogContent className="max-h-[82vh] w-full max-w-2xl overflow-hidden p-0 gap-0 border-border/60 bg-background">
         <DialogTitle className="sr-only">Select Module</DialogTitle>
 
         {/* Coming soon guard for non-Spanish languages */}
@@ -98,16 +100,13 @@ export function ModulePickerDialog({ open, onClose }: Props) {
               />
               {query ? (
                 <button
+                  aria-label="Clear module search"
                   onClick={() => setQuery("")}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </button>
-              ) : (
-                <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-                  <X className="h-4 w-4" />
-                </button>
-              )}
+              ) : null}
             </div>
 
             {/* Category filter tabs */}
@@ -161,7 +160,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
               </button>
 
               <p className="text-xs text-muted-foreground">
-                A–Z by trade · Foundation → Core → Master
+                A–Z by module · Foundation → Core → Master
               </p>
               {filtered.length ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

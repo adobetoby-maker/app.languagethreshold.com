@@ -1,3 +1,5 @@
+import { recordedSpanishPath } from "./recorded-spanish";
+import { prepareBrowserPlayback } from "./browser-audio-session";
 // Site-wide TTS routing. A learner-selected Google Cloud voice follows them
 // across Reader, cards, games, listening drills, Speak, and specialty modules.
 // Device speech remains the no-cost fallback. Pashto keeps the ElevenLabs
@@ -89,6 +91,7 @@ function speakOnDevice(
   if (typeof window === "undefined" || !window.speechSynthesis) {
     return Promise.resolve(false as boolean | null);
   }
+  prepareBrowserPlayback();
   const utterance = new SpeechSynthesisUtterance(text);
   configureUtterance(
     utterance,
@@ -136,6 +139,7 @@ function speakOnDevice(
     heldUtterance = utterance;
     arm(DEVICE_SPEECH_START_MS, false);
     try {
+      if (window.speechSynthesis.paused) window.speechSynthesis.resume();
       window.speechSynthesis.speak(utterance);
     } catch {
       done(false);
@@ -160,6 +164,7 @@ export async function speakRemote(
     owner?: SpeakingRequestOwner;
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
+    cloudOnly?: boolean;
     onPlaybackStart?: () => void;
   },
 ): Promise<void> {
@@ -190,8 +195,57 @@ export async function speakRemote(
     };
     const rate = opts?.rate ?? 1;
     const googleVoice = opts?.deviceOnly ? null : selectedGoogleVoice(locale, opts?.voiceURI);
+    if (opts?.cloudOnly && !googleVoice) {
+      notify(false);
+      return;
+    }
+    if (googleVoice && opts?.usage !== "mission") {
+      const recorded = recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
+      if (!current()) return;
+      if (recorded) {
+        const el = audioEl();
+        el.src = recorded;
+        el.playbackRate = Math.max(0.5, Math.min(2, rate));
+        prepareBrowserPlayback();
+        el.onplaying = notifyStart;
+        const heard = await new Promise<boolean | null>((resolve) => {
+          let settled = false;
+          const done = (result: boolean | null) => {
+            if (settled) return;
+            settled = true;
+            if (ownsGeneration()) {
+              cancelPlayback = null;
+              el.onplaying = null;
+              el.onended = null;
+              el.onerror = null;
+              el.removeAttribute("src");
+              el.load();
+            }
+            resolve(current() ? result : null);
+          };
+          cancelPlayback = () => done(null);
+          el.onended = () => done(true);
+          el.onerror = () => done(false);
+          try {
+            el.play().catch(() => done(false));
+          } catch {
+            done(false);
+          }
+        });
+        if (heard === null) return;
+        if (heard) {
+          notify();
+          return;
+        }
+        // A missing or unplayable clip follows the existing Google/device fallback.
+      }
+    }
     if (googleVoice) {
       if (opts?.owner && !opts.owner.userId) {
+        if (opts.cloudOnly) {
+          notify(false);
+          return;
+        }
         const heard = await speakOnDevice(
           text,
           locale,
@@ -248,6 +302,10 @@ export async function speakRemote(
             if (showToast) toast.dismiss(VOICE_WAIT_TOAST_ID);
             if (!waited || !current()) return;
             continue;
+          }
+          if (opts?.cloudOnly) {
+            notify(false);
+            return;
           }
           if (
             !warnedAboutMobileFallback &&
@@ -315,6 +373,7 @@ export async function speakRemote(
       el.pause();
       el.src = objectUrl;
       el.playbackRate = rate;
+      prepareBrowserPlayback();
       el.onplaying = notifyStart;
 
       const completed = await new Promise<boolean | null>((resolve) => {

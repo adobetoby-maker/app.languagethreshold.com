@@ -616,3 +616,35 @@ test("consent responses distinguish pre-write rejection from a dispatched write 
     assert.equal((await unknown.json()).writeOutcome, "unknown");
     assert.equal(c.writes.length, 1);
   }));
+
+test("mission keeps four exchanges available before a natural close, while safety can still end immediately", () =>
+  fixture(async (h, c) => {
+    let safetyStop = false;
+    c.provider = async () => ({
+      content: [
+        {
+          type: "tool_use",
+          input: {
+            assistantText: "synthetic-follow-up",
+            deferredFeedback: ["Good answer"],
+            provisionalObjectiveIds: c.mission.objectives.map((o) => o.id),
+            shouldEnd: true,
+            safetyStop,
+          },
+        },
+      ],
+    });
+    const value = missionBody(c);
+    for (let exchanges = 1; exchanges <= 4; exchanges++) {
+      const res = await h.speak.POST(request("speak", value));
+      assert.equal(res.status, 200);
+      assert.equal((await res.json()).shouldEnd, exchanges === 4);
+      value.messages.push(
+        { role: "assistant", content: "synthetic-follow-up" },
+        { role: "user", content: "synthetic-answer" },
+      );
+    }
+    safetyStop = true;
+    const safe = await h.speak.POST(request("speak", missionBody(c)));
+    assert.equal((await safe.json()).shouldEnd, true);
+  }));

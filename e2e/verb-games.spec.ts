@@ -181,6 +181,8 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.clock.install();
     await startBubble(page);
+    // The clock starts on its first animation frame, after the board is visible.
+    await page.clock.runFor(100);
     await page.clock.fastForward(61_000);
     await expectRecap(page, "GAME · BUBBLE POP");
     await page.getByRole("button", { name: "Play again" }).click();
@@ -331,6 +333,8 @@ test.describe("verb crush", { tag: "@dev-only" }, () => {
     test("crush: the round ends by itself when the timer runs out", async ({ page }) => {
       await page.clock.install();
       await startCrush(page);
+      // Establish the first active frame before skipping elapsed round time.
+      await page.clock.runFor(100);
       await page.clock.fastForward(91_000);
       await expectRecap(page, "GAME · VERB CRUSH");
     });

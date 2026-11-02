@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { FounderStoryLink } from "./FounderStoryLink";
+import { useEffect, useState } from "react";
+import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle, BookmarkPlus } from "lucide-react";
 import { useApp, LANGUAGES, NATIVE_LANGUAGES, type NativeLanguage } from "@/state/app-state";
 import { getModule } from "@/data/modules";
@@ -12,14 +14,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { VoiceGenderSwitch } from "./reader/VoiceGenderSwitch";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
-import { VoicePicker } from "./VoicePicker";
+import { VoiceSettings } from "./settings/VoiceSettings";
+import { ReviewIntervalSettings } from "./flashcards/ReviewIntervalSettings";
 import { ADD_WORD_EVENT } from "./vocab/GlobalVocabCapture";
 import { AuthButton } from "./auth/AuthButton";
 import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
+import { Link } from "@tanstack/react-router";
 
 // Uses the canonical list from app-state. A local copy here is how Chinese
 // went missing from this switcher while the first-run gate offered it.
@@ -27,6 +30,14 @@ import { PracticeBarSetting, PracticeTimeBar } from "./PracticeTimeBar";
 export function TopNav() {
   const { state, dispatch } = useApp();
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  useEffect(() => {
+    const open = () => {
+      if (window.matchMedia(DESKTOP_GUIDE_MEDIA).matches) setSettingsOpen(true);
+    };
+    window.addEventListener(SITE_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(SITE_SETTINGS_EVENT, open);
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] desktop:block">
@@ -88,6 +99,12 @@ export function TopNav() {
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
         <div className="flex items-center gap-2">
+          <Link
+            to="/pricing"
+            className="inline-flex min-h-11 items-center rounded-full border border-gold/40 px-4 text-sm font-semibold text-gold-ink hover:bg-gold/10"
+          >
+            Pricing
+          </Link>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT))}
@@ -97,13 +114,7 @@ export function TopNav() {
           >
             <BookmarkPlus className="h-4 w-4" aria-hidden="true" />
           </button>
-          <VoiceGenderSwitch
-            label="Site voice"
-            showUnavailable
-            className="shrink-0 [&_button]:h-11 [&_button]:min-w-11"
-          />
-          <VoicePicker compact showLabel />
-          <Popover>
+          <Popover open={settingsOpen} onOpenChange={setSettingsOpen}>
             <PopoverTrigger asChild>
               <button
                 type="button"
@@ -115,10 +126,12 @@ export function TopNav() {
               </button>
             </PopoverTrigger>
             <PopoverContent
+              scrollBody
               align="end"
-              className="max-h-[75vh] w-[min(340px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
+              className="max-h-[75vh] w-[min(440px,calc(100vw-2rem))] space-y-3 overflow-y-auto"
             >
               <p className="text-sm font-semibold">Learning settings</p>
+              <VoiceSettings />
               <DeviceVoiceHelp />
               <AudioRoutingSettings
                 learningContext={JSON.stringify([
@@ -128,6 +141,7 @@ export function TopNav() {
                 ])}
               />
               <PracticeBarSetting />
+              <ReviewIntervalSettings />
               <DropdownMenu>
                 <DropdownMenuTrigger
                   title={`Native language: ${state.nativeLanguage}`}
@@ -176,6 +190,7 @@ export function TopNav() {
                   )}
                 </button>
               </div>
+              <FounderStoryLink />
               <AppVersion />
             </PopoverContent>
           </Popover>

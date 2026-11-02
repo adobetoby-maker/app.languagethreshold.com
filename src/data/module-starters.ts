@@ -522,6 +522,48 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const nextCourse = [
+    "spanish-cognates",
+    "spanish-102",
+    "spanish-frequent-verbs",
+    "spanish-conjugation-patterns",
+    "spanish-usage-verbs",
+    "spanish-common-patterns",
+  ].find((id) => [id, `foundation-${id}`, `master-${id}`].includes(moduleId));
+  if (nextCourse) {
+    const count = moduleId.startsWith("foundation-")
+      ? 10
+      : moduleId.startsWith("master-")
+        ? 20
+        : 30;
+    return language === "Spanish"
+      ? Array.from({ length: count }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
+      : [];
+  }
+  const basicsCount =
+    moduleId === "spanish-basics"
+      ? 30
+      : moduleId === "foundation-spanish-basics"
+        ? 10
+        : moduleId === "master-spanish-basics"
+          ? 20
+          : 0;
+  if (basicsCount)
+    return language === "Spanish"
+      ? Array.from({ length: basicsCount }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
+      : [];
+  const militaryCount =
+    moduleId === "military"
+      ? 30
+      : moduleId === "foundation-military"
+        ? 10
+        : moduleId === "master-military"
+          ? 20
+          : 0;
+  if (militaryCount)
+    return language === "English"
+      ? Array.from({ length: militaryCount }, (_, i) => `seed-en-${moduleId}-lesson-${i + 1}`)
+      : [];
   const lessons = MODULE_LESSONS[moduleId];
   if (!lessons) return [];
   if (language === "English" && !lessons.English?.length) {
@@ -549,19 +591,21 @@ export function englishModuleSeedsFromSpanish(entries: LibraryEntry[]): LibraryE
   return [...ids].flatMap((id) => {
     const source = byId.get(id);
     if (!source?.available || source.language !== "Spanish" || !source.sentences.length) return [];
-    return [{
-      ...source,
-      id: englishFromSpanishSeedId(id),
-      language: "English" as const,
-      targetLabel: "English",
-      flag: "🇺🇸",
-      subtitle: source.subtitle ? `${source.subtitle} · Español → English` : "Español → English",
-      sentences: source.sentences.map(({ en, target }) => ({ en: target, target: en })),
-      chapters: source.chapters?.map((chapter) => ({
-        ...chapter,
-        sentences: chapter.sentences.map(({ en, target }) => ({ en: target, target: en })),
-      })),
-    }];
+    return [
+      {
+        ...source,
+        id: englishFromSpanishSeedId(id),
+        language: "English" as const,
+        targetLabel: "English",
+        flag: "🇺🇸",
+        subtitle: source.subtitle ? `${source.subtitle} · Español → English` : "Español → English",
+        sentences: source.sentences.map(({ en, target }) => ({ en: target, target: en })),
+        chapters: source.chapters?.map((chapter) => ({
+          ...chapter,
+          sentences: chapter.sentences.map(({ en, target }) => ({ en: target, target: en })),
+        })),
+      },
+    ];
   });
 }
 

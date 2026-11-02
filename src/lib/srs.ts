@@ -4,6 +4,29 @@
  */
 export type SrsGrade = "again" | "hard" | "good" | "easy";
 
+export interface ReviewIntervals {
+  hard: number;
+  good: number;
+  easy: number;
+}
+
+export const DEFAULT_REVIEW_INTERVALS: ReviewIntervals = Object.freeze({ hard: 1, good: 2, easy: 4 });
+
+/** Ignore malformed or stale device preferences without touching saved card schedules. */
+export function normalizeReviewIntervals(value: unknown): ReviewIntervals {
+  if (!value || typeof value !== "object") return { ...DEFAULT_REVIEW_INTERVALS };
+  const candidate = value as Partial<ReviewIntervals>;
+  const day = (input: unknown, fallback: number) =>
+    typeof input === "number" && Number.isInteger(input) && input >= 1 && input <= 365
+      ? input
+      : fallback;
+  return {
+    hard: day(candidate.hard, DEFAULT_REVIEW_INTERVALS.hard),
+    good: day(candidate.good, DEFAULT_REVIEW_INTERVALS.good),
+    easy: day(candidate.easy, DEFAULT_REVIEW_INTERVALS.easy),
+  };
+}
+
 export interface SrsFields {
   easeFactor: number; // >= 1.3, starts at 2.5
   interval: number; // days until next review
@@ -45,6 +68,35 @@ export function schedule(fields: SrsFields, grade: SrsGrade, now: number = Date.
   };
 }
 
+/** Flashcard reviews use learner-chosen fixed delays; existing due dates are never rewritten. */
+export function scheduleFlashcard(
+  fields: SrsFields,
+  grade: SrsGrade,
+  intervals: ReviewIntervals = DEFAULT_REVIEW_INTERVALS,
+  now: number = Date.now(),
+): SrsFields {
+  const days = grade === "again" ? 0 : intervals[grade];
+  return {
+    easeFactor: fields.easeFactor,
+    interval: days,
+    repetitions: grade === "again" ? 0 : fields.repetitions + 1,
+    dueDate: now + days * 86_400_000,
+    lastReviewedAt: now,
+  };
+}
+
+export function flashcardReviewLabel(grade: SrsGrade, intervals: ReviewIntervals): string {
+  if (grade === "again") return "Again";
+  const days = intervals[grade];
+  return days === 1 ? "1 day" : `${days} days`;
+}
+
 export function isDue(fields: SrsFields, now: number = Date.now()): boolean {
   return fields.dueDate <= now;
+}
+
+/** UI hints come from the exact scheduler used when saving a rating. */
+export function nextReviewLabel(fields: SrsFields, grade: SrsGrade, now = Date.now()): string {
+  const days = schedule(fields, grade, now).interval;
+  return days === 1 ? "1 day" : `${days} days`;
 }

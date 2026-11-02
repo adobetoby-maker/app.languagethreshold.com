@@ -8,8 +8,12 @@ export function useOwnedSpeaker(scope?: string) {
 }
 
 /** Explicit Stop has the same actor/scope boundaries as starting playback. */
-export function useOwnedPlayback(scope?: string) {
-  const { user, isCurrentUser } = useAuth();
+export function useOwnedPlayback(
+  scope?: string,
+  override?: { user: { id: string } | null; isCurrentUser(id: string): boolean },
+) {
+  const auth = useAuth();
+  const { user, isCurrentUser } = override ?? auth;
   const actor = user?.id ?? null;
   const mounted = useRef(false);
   const activeScope = useRef(scope);
@@ -43,7 +47,7 @@ export function useOwnedPlayback(scope?: string) {
       voiceURI?: string | null,
       rate = 0.9,
       /** Optional: told when this playback fails (no voice, a speech error, a failed fetch). */
-      events?: { onerror?: () => void },
+      events?: { onerror?: () => void; cloudOnly?: boolean },
     ) => {
       if (
         !mounted.current ||
@@ -61,6 +65,7 @@ export function useOwnedPlayback(scope?: string) {
         rate,
         signal: controller.signal,
         onerror: events?.onerror,
+        cloudOnly: events?.cloudOnly,
         owner: {
           userId: actor ?? "",
           isCurrent: () =>

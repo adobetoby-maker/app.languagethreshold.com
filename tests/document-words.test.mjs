@@ -103,6 +103,38 @@ test("foreign accounts, fabricated words and passages never reach the provider",
     rmSync(f.dir, { recursive: true, force: true });
   }
 });
+test("an assigned learner can read only the explicitly assigned document", async () => {
+  const f = await fixture();
+  try {
+    f.c.initialDefs = [
+      {
+        side: "target",
+        word: "equipo",
+        card: { headword: "equipo", meaning: "Equipment.", grammar: "", context: "" },
+      },
+    ];
+    const assigned = {
+      canManageDocuments: false,
+      teamManaged: true,
+      assignedDocumentIds: new Set(["doc"]),
+    };
+    const result = await (
+      await f.lookupDocumentWord(f.db, "learner", request, data, assigned)
+    ).json();
+    assert.equal(result.card.meaning, "Equipment.");
+    assert.equal(f.c.calls, 0);
+
+    await assert.rejects(
+      f.lookupDocumentWord(f.db, "learner", request, data, {
+        ...assigned,
+        assignedDocumentIds: new Set(),
+      }),
+      /has not been assigned/,
+    );
+  } finally {
+    rmSync(f.dir, { recursive: true, force: true });
+  }
+});
 test("provider failure and budget denial release claims; retry succeeds", async () => {
   const f = await fixture();
   try {

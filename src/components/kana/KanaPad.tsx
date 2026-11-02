@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Copy, RefreshCw, BookOpen, Sparkle, PenLine, Hand, Maximize2, X } from "lucide-react";
@@ -42,6 +43,7 @@ export function KanaPad() {
   const [aiResult, setAiResult] = useState<KanaConvertResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [writingFullScreen, setWritingFullScreen] = useState(false);
+  useOverlayHistory(writingFullScreen, () => setWritingFullScreen(false));
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Live client-side conversion for hiragana/katakana
@@ -138,9 +140,9 @@ export function KanaPad() {
             <h2 className="font-display text-lg font-semibold">Writing Practice</h2>
             <button
               onClick={() => setWritingFullScreen(false)}
-              className="flex items-center gap-1.5 rounded-full border border-border/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground"
+              className="flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 text-sm text-foreground hover:bg-accent"
             >
-              <X className="h-3.5 w-3.5" /> Close
+              <X className="h-5 w-5" aria-hidden="true" /> Close
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-4">

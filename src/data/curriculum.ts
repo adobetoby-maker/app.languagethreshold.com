@@ -1,3 +1,5 @@
+import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
+import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
 import {
@@ -26,6 +28,7 @@ import {
 } from "./foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
+import { MILITARY_CURRICULUM } from "./military-curriculum.ts";
 import { MEDICAL_MISSION_LOGISTICS_CURRICULUM } from "./medical-mission-logistics-curriculum.ts";
 import { stageCurriculum } from "./core60-stages.ts";
 export type { LessonStep };
@@ -4138,6 +4141,8 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
 // Merge extended curricula — import is at bottom to avoid circular init issues
 import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
 CURRICULA["medical-mission-logistics"] = MEDICAL_MISSION_LOGISTICS_CURRICULUM;
+CURRICULA["military"] = MILITARY_CURRICULUM;
+CURRICULA["spanish-basics"] = SPANISH_BASICS_CURRICULUM;
 Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 
@@ -4160,3 +4165,5 @@ export function getCurrentLesson(
   if (completed >= curriculum.lessons.length) return null; // all done
   return curriculum.lessons[completed] ?? null;
 }
+
+Object.assign(CURRICULA, SPANISH_NEXT_CURRICULA);

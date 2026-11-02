@@ -111,8 +111,13 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await openModuleCore30(page);
     await openLesson1(page);
     await goSection(page, "recall");
-    await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
-    await page.getByTestId("practice-mode-verbs").click();
+    if ((page.viewportSize()?.width ?? 1440) < 768) {
+      await expect(page.getByTestId("practice-recall-switch")).toBeHidden();
+      await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-verbs").click();
+    } else {
+      await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
+      await page.getByTestId("practice-mode-verbs").click();
+    }
     const study = page.getByTestId("verb-practice-study");
     await expect(study).toBeVisible();
     await expect(study.getByTestId("verb-card")).toHaveCount(LESSON_1.verbs.length);

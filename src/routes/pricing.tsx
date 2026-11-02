@@ -1,9 +1,11 @@
+import { RefundGuaranteeCallout } from "../components/legal/RefundGuarantee";
+import { FounderStoryLink } from "../components/FounderStoryLink";
 import { individualCheckoutUrl } from "@/lib/individual-checkout";
 import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "@/lib/individual-pricing";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
-import { CheckCircle, Sparkles, ChevronRight, Users } from "lucide-react";
+import { CheckCircle, ChevronRight, Users } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { trackEvent } from "@/lib/ga-events";
@@ -18,11 +20,11 @@ export const Route = createFileRoute("/pricing")({
   ),
   head: () => ({
     meta: [
-      { title: "Pricing — Language Threshold" },
+      { title: "Language Threshold Pricing — 7-Day Free Trial" },
       {
         name: "description",
         content:
-          "Start free for 7 days. Full access to 660+ professional Spanish lessons for medical and construction workers. Family plan includes Junior Linguist.",
+          "Compare Individual and Family Language Threshold plans. Start with a 7-day free trial. Family includes Junior Linguist.",
       },
     ],
   }),
@@ -31,6 +33,7 @@ export const Route = createFileRoute("/pricing")({
 const MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.monthly;
 const ANNUAL_PRICE_ID = INDIVIDUAL_PRICES.annual;
 const FAMILY_PRICE_ID = INDIVIDUAL_PRICES.family;
+const FAMILY_MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.familyMonthly;
 
 const JUNIOR_ANNUAL_LINK = INDIVIDUAL_PAYMENT_LINKS.junior;
 
@@ -60,22 +63,15 @@ async function startCheckout(
 }
 
 const FEATURES_PRO = [
-  "Every module — 660+ lessons across medical, construction, sports, missionary, climbing, and more",
-  "AI speaking partner with real-time feedback",
-  "AI grammar studio, tutor, and vocabulary tools",
-  "Field Prep: roleplay real on-the-job conversations",
-  "Listening drills, sentence builder, conjugation trainer",
-  "Daily challenges, leaderboard, and streak tracking",
-  "All future modules included — we add new professions constantly",
+  "Every published professional module",
+  "Reading, listening, and speaking practice",
+  "Your own learning progress",
 ];
 
 const FEATURES_FAMILY = [
-  "Everything in Pro",
-  "Up to 6 family member profiles",
-  "Junior Linguist included — ages 4-12",
-  "Kids vocabulary, stories, and games",
-  "Shared family leaderboard",
-  "Progress reports per child",
+  "Pro access for up to 6 family members",
+  "Junior Linguist for kids ages 4–12",
+  "Separate family profiles and progress",
 ];
 
 const FEATURES_FREE = [
@@ -83,63 +79,89 @@ const FEATURES_FREE = [
   "Onboarding + language selection",
 ];
 
+const PLAN_GROUPS = [
+  {
+    title: "Individual",
+    subtitle: "One learner · every published module",
+    options: [
+      { id: "monthly", name: "Monthly", price: "$19", period: "/month", billing: "$19 charged monthly after the 7-day trial. Renews monthly until canceled.", comparison: "", savings: "" },
+      { id: "annual", name: "Annual", price: "$149", period: "/year", billing: "$149 charged once per year after the 7-day trial. About $12.42/month, billed annually.", comparison: "$228/year in 12 monthly payments", savings: "Save $79 a year" },
+    ],
+  },
+  {
+    title: "Family",
+    subtitle: "Up to 6 profiles · includes Junior Linguist",
+    options: [
+      { id: "family-monthly", name: "Monthly", price: "$35", period: "/month", billing: "$35 charged monthly after the 7-day trial. Renews monthly until canceled.", comparison: "", savings: "" },
+      { id: "family", name: "Annual", price: "$249", period: "/year", billing: "$249 charged once per year after the 7-day trial. About $20.75/month, billed annually.", comparison: "$420/year in 12 monthly payments", savings: "Save $171 a year" },
+    ],
+  },
+] as const;
+
+type BillingPlan = "monthly" | "annual" | "family-monthly" | "family" | "junior";
+function isBillingPlan(value: string | null): value is BillingPlan {
+  return value === "monthly" || value === "annual" || value === "family-monthly" || value === "family" || value === "junior";
+}
+
 export default function PricingPage() {
   const { user, loading: authLoading } = useAuth();
   const { teamActive, status } = useSubscription();
   const hasPlan = teamActive || status === "active" || status === "trialing";
-  const [billing, setBilling] = useState<"monthly" | "annual" | "family" | "junior">("annual");
-  const [loading, setLoading] = useState(false);
+  const [billing, setBilling] = useState<BillingPlan>("monthly");
+  const [loadingPlan, setLoadingPlan] = useState<BillingPlan | null>(null);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("plan");
     try {
       const selected = requested ?? sessionStorage.getItem("lt.pricing.plan.v1");
-      if (selected === "monthly" || selected === "annual") setBilling(selected);
-      if (requested === "monthly" || requested === "annual")
-        sessionStorage.setItem("lt.pricing.plan.v1", requested);
+      if (isBillingPlan(selected)) setBilling(selected);
+      if (isBillingPlan(requested)) sessionStorage.setItem("lt.pricing.plan.v1", requested);
     } catch {
-      if (requested === "monthly" || requested === "annual") setBilling(requested);
+      if (isBillingPlan(requested)) setBilling(requested);
     }
   }, []);
 
   const [checkoutError, setCheckoutError] = useState("");
-  const handleSubscribe = async () => {
+  const handleSubscribe = async (plan: BillingPlan) => {
     if (authLoading) return;
+    setBilling(plan);
     if (!user) {
       try {
-        sessionStorage.setItem("lt.pricing.plan.v1", billing);
+        sessionStorage.setItem("lt.pricing.plan.v1", plan);
       } catch {
         /* Keep sign-in usable when storage is blocked. */
       }
       window.location.href = "/?redirect=pricing";
       return;
     }
-    setLoading(true);
+    setLoadingPlan(plan);
     setCheckoutError("");
     try {
-      if (billing === "junior") {
+      if (plan === "junior") {
         trackEvent("begin_checkout", { plan: "junior", currency: "USD" });
         window.location.href = JUNIOR_ANNUAL_LINK;
       } else {
         const priceId =
-          billing === "monthly"
+          plan === "monthly"
             ? MONTHLY_PRICE_ID
-            : billing === "annual"
+            : plan === "annual"
               ? ANNUAL_PRICE_ID
+              : plan === "family-monthly"
+                ? FAMILY_MONTHLY_PRICE_ID
               : FAMILY_PRICE_ID;
-        await startCheckout(billing, priceId, user.id, user.email ?? undefined);
+        await startCheckout(plan, priceId, user.id, user.email ?? undefined);
       }
     } catch (error) {
       setCheckoutError(
         error instanceof Error ? error.message : "We could not open checkout. Please try again.",
       );
     } finally {
-      setLoading(false);
+      setLoadingPlan(null);
     }
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
         {/* Header */}
         <div className="text-center mb-10">
           <Link
@@ -150,15 +172,15 @@ export default function PricingPage() {
           </Link>
           <div className="flex justify-center mb-4">
             <span className="rounded-full bg-gold/10 border border-gold/30 px-4 py-1.5 text-xs font-semibold text-gold uppercase tracking-wider">
-              {billing === "junior" ? "Annual kids plan" : "7-day free trial"}
+              7-day free trial
             </span>
           </div>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl mb-3">
-            One plan. Every module.
+            Individual or family. Clear pricing.
           </h1>
-          <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-            Medical, construction, sports, missionary, climbing — all included. Built for people who
-            use Spanish at work, not in a classroom.
+          <p className="text-muted-foreground text-sm max-w-xl mx-auto leading-relaxed">
+            Individual: $19/month or $149/year for one learner. Family: $35/month or $249/year
+            for up to 6 profiles, including Junior Linguist.
           </p>
         </div>
 
@@ -186,96 +208,73 @@ export default function PricingPage() {
             {checkoutError}
           </p>
         )}
-        {!hasPlan && (
-          <>
-            {/* Billing toggle */}
-            <div className="flex justify-center mb-8">
-              <div className="inline-flex rounded-lg border border-border bg-card p-1 text-sm">
-                <button
-                  onClick={() => setBilling("monthly")}
-                  className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "monthly" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  Monthly
-                </button>
-                <button
-                  onClick={() => setBilling("annual")}
-                  className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "annual" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  Annual
-                  <span className="ml-1.5 rounded bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-bold text-emerald-400">
-                    BEST VALUE
-                  </span>
-                </button>
-                <button
-                  onClick={() => setBilling("family")}
-                  className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "family" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  Family
-                  <span className="ml-1.5 rounded bg-violet-500/20 px-1.5 py-0.5 text-[10px] font-bold text-violet-400">
-                    +JUNIOR
-                  </span>
-                </button>
-                <button
-                  onClick={() => setBilling("junior")}
-                  className={`rounded-md px-3 py-2 font-medium transition-colors ${billing === "junior" ? "bg-gold text-background" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  🧒 Kids
-                </button>
-              </div>
+        <p className="mb-8 rounded-xl border border-border bg-card px-5 py-4 text-center text-sm text-muted-foreground">
+          Start with 7 days free. Your chosen price starts after the trial; payment and renewal terms are shown in checkout.
+        </p>
+        {PLAN_GROUPS.map((group) => (
+          <section key={group.title} className="mb-9" aria-label={group.title + " plans"}>
+            <div className="mb-4 sm:flex sm:items-baseline sm:gap-4">
+              <h2 className="text-2xl font-semibold text-gold">{group.title}</h2>
+              <p className="text-sm text-muted-foreground">{group.subtitle}</p>
             </div>
-
-            {/* Pro tier */}
-            {(billing === "monthly" || billing === "annual") && (
-              <div className="rounded-2xl border border-gold/40 bg-card overflow-hidden mb-6">
-                <div className="bg-gradient-to-r from-gold/10 to-transparent border-b border-gold/20 px-6 py-5">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-foreground">
-                      {billing === "annual" ? "$12.42" : "$19"}
-                    </span>
-                    <span className="text-muted-foreground text-sm">/month</span>
-                    {billing === "annual" && (
-                      <span className="text-xs text-muted-foreground">billed $149/year</span>
-                    )}
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1">
-                    <Sparkles className="h-3 w-3 text-gold" />
-                    {billing === "annual"
-                      ? "All modules included · First 7 days free · Cancel anytime"
-                      : "First 7 days completely free — cancel anytime"}
-                  </div>
-                </div>
-                <div className="px-6 py-5">
-                  <ul className="space-y-2.5 mb-6">
-                    {FEATURES_PRO.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-gold flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={handleSubscribe}
-                    disabled={loading || authLoading}
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
+            <div className="grid gap-4 sm:grid-cols-2">
+              {group.options.map((option) => {
+                const plan = option.id as BillingPlan;
+                const unavailable = plan === "family-monthly" && !FAMILY_MONTHLY_PRICE_ID;
+                const features = group.title === "Family" ? FEATURES_FAMILY : FEATURES_PRO;
+                return (
+                  <article
+                    key={plan}
+                    className={`flex min-w-0 flex-col rounded-2xl border bg-card p-5 sm:p-6 ${billing === plan ? "border-gold" : "border-border"}`}
+                    aria-label={group.title + " " + option.name}
                   >
-                    {loading ? (
-                      "Preparing checkout…"
-                    ) : authLoading ? (
-                      "Loading…"
-                    ) : (
-                      <>
-                        Start free trial
-                        <ChevronRight className="h-4 w-4" />
-                      </>
+                    <h3 className="text-lg font-semibold">{option.name}</h3>
+                    {option.comparison && (
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        <span className="line-through">{option.comparison.split(" in ")[0]}</span>
+                        {" in " + option.comparison.split(" in ")[1]}
+                        <strong className="ml-2 text-gold">{option.savings}</strong>
+                      </p>
                     )}
-                  </button>
-                  <p className="mt-3 text-center text-xs text-muted-foreground">
-                    Seven-day trial · Payment details and renewal terms are shown in checkout
-                  </p>
-                </div>
-              </div>
-            )}
-
+                    <p className="mt-2 flex items-baseline gap-2">
+                      <strong className="text-4xl">{option.price}</strong>
+                      <span className="text-sm text-muted-foreground">{option.period}</span>
+                    </p>
+                    <p className="mt-3 rounded-lg bg-background/50 p-3 text-sm text-muted-foreground">{option.billing}</p>
+                    <ul className="my-5 flex-1 space-y-2">
+                      {features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button
+                      type="button"
+                      onClick={() => handleSubscribe(plan)}
+                      disabled={hasPlan || authLoading || loadingPlan !== null || unavailable}
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-sm font-bold text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {hasPlan ? "Your access is active" : unavailable ? "Checkout being prepared" : loadingPlan === plan ? "Preparing checkout…" : `Choose ${group.title} ${option.name.toLowerCase()}`}
+                      {!hasPlan && !unavailable && loadingPlan !== plan && <ChevronRight className="h-4 w-4" />}
+                    </button>
+                    <p className="mt-3 text-center text-xs text-muted-foreground">
+                      {unavailable ? "Monthly pricing preview · Checkout is not available yet" : "7-day trial · Review renewal terms in checkout"}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+        <RefundGuaranteeCallout />
+        <div className="mb-7 text-center">
+          <button type="button" onClick={() => setBilling(billing === "junior" ? "monthly" : "junior")} className="text-sm font-semibold text-gold underline">
+            {billing === "junior" ? "Hide" : "See"} Junior Linguist kids-only plan
+          </button>
+        </div>
+        {!hasPlan && billing === "junior" && (
+          <>
             {/* Junior Linguist tier */}
             {billing === "junior" && (
               <div className="rounded-2xl border border-violet-500/40 bg-card overflow-hidden mb-6">
@@ -316,11 +315,11 @@ export default function PricingPage() {
                     ))}
                   </ul>
                   <button
-                    onClick={handleSubscribe}
-                    disabled={loading || authLoading}
+                    onClick={() => handleSubscribe("junior")}
+                    disabled={loadingPlan !== null || authLoading}
                     className="w-full flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
-                    {loading ? (
+                    {loadingPlan === "junior" ? (
                       "Preparing checkout…"
                     ) : (
                       <>
@@ -335,53 +334,8 @@ export default function PricingPage() {
               </div>
             )}
 
-            {/* Family tier */}
-            {billing === "family" && (
-              <div className="rounded-2xl border border-violet-500/40 bg-card overflow-hidden mb-6">
-                <div className="bg-gradient-to-r from-violet-500/10 to-transparent border-b border-violet-500/20 px-6 py-5">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Users className="h-4 w-4 text-violet-400" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-violet-400">
-                      Family Plan
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-foreground">$249</span>
-                    <span className="text-muted-foreground text-sm">/year</span>
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    ~$20.75/month · Includes Junior Linguist for kids
-                  </div>
-                </div>
-                <div className="px-6 py-5">
-                  <ul className="space-y-2.5 mb-6">
-                    {FEATURES_FAMILY.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={handleSubscribe}
-                    disabled={loading || authLoading}
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-                  >
-                    {loading ? (
-                      "Preparing checkout…"
-                    ) : (
-                      <>
-                        Start family plan <ChevronRight className="h-4 w-4" />
-                      </>
-                    )}
-                  </button>
-                  <p className="mt-3 text-center text-xs text-muted-foreground">
-                    7-day free trial · Cancel anytime · All 6 seats activate immediately
-                  </p>
-                </div>
-              </div>
-            )}
-
+          </>
+        )}
             {/* Free tier */}
             <div className="rounded-2xl border border-border bg-card/50 overflow-hidden">
               <div className="px-6 py-5">
@@ -405,29 +359,24 @@ export default function PricingPage() {
                 </Link>
               </div>
             </div>
-          </>
-        )}
 
-        {/* Junior Linguist callout */}
-        <div className="mt-8 rounded-xl border border-gold/30 bg-gold/5 px-5 py-5">
+        {/* Team plans */}
+        <div className="mt-8 rounded-xl border border-gold/40 bg-gold/5 px-5 py-6 sm:px-7">
           <div className="flex items-start gap-3">
             <Users className="mt-0.5 h-6 w-6 shrink-0 text-gold" />
             <div>
               <p className="mb-1 text-base font-semibold text-foreground">
-                Training a crew or company?
+                Crew lead? Get what you need for your team.
               </p>
               <p className="text-sm text-muted-foreground">
-                Teams start at five learner seats for $99/month. Seats 6–10 add $12/month each;
-                seats 11 and up add $10/month each. Ten seats cost $159/month; 15 seats cost
-                $209/month, $627 for three months, or $2,090 for one year. Every learner can use
-                every published module. Company admins can assign a focus, invite employees, and
-                review practice and certificates.
+                Train your crew with flexible seats and a plan that fits your team. Plans start at
+                $99/month for five learner seats.
               </p>
               <Link
                 to="/team"
-                className="mt-3 inline-block text-sm font-semibold text-gold underline underline-offset-2"
+                className="mt-4 inline-block rounded-lg bg-gold px-5 py-3 text-sm font-bold text-background hover:opacity-90"
               >
-                Set up a team →
+                See team pricing →
               </Link>
             </div>
           </div>
@@ -538,6 +487,9 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-8 text-center text-xs text-muted-foreground border-t border-border pt-6">
+          <div className="mb-5">
+            <FounderStoryLink />
+          </div>
           Questions?{" "}
           <a href="/support" className="text-foreground underline">
             Contact support

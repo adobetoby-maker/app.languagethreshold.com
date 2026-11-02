@@ -18,7 +18,7 @@ import { MODULE_DECKS } from "@/data/deck-modules";
 import { getModule } from "@/data/modules";
 import { buildConjugatedDeck } from "@/data/deck-conjugated";
 import type { DeckWord } from "@/data/deck-pronouns";
-import { newSrsFields, schedule, isDue, type SrsFields, type SrsGrade } from "@/lib/srs";
+import { newSrsFields, scheduleFlashcard, isDue, normalizeReviewIntervals, DEFAULT_REVIEW_INTERVALS, type ReviewIntervals, type SrsFields, type SrsGrade } from "@/lib/srs";
 
 export const FLASHCARD_CATEGORIES = [
   "vocab",
@@ -63,12 +63,14 @@ export interface FlashcardEntry {
   blockId?: string; // matches FlashBlock.id (block cards only)
   addedAt: number;
   srs: SrsFields;
+  reviewHistory?: { grade: SrsGrade; at: number }[];
 }
 
 interface State {
   cards: Record<string, FlashcardEntry>; // by id
   seededLanguages: Language[]; // languages whose starter deck has been added
   seededDecks: string[]; // `${language}:${category}` or `${language}:module:${moduleId}` pairs already synced
+  reviewIntervals: ReviewIntervals;
   hydrated: boolean;
 }
 
@@ -79,6 +81,7 @@ type Action =
         cards: Record<string, FlashcardEntry>;
         seededLanguages: Language[];
         seededDecks?: string[];
+        reviewIntervals: ReviewIntervals;
       };
     }
   | {
@@ -129,6 +132,7 @@ type Action =
       };
     }
   | { type: "REVIEW_CARD"; payload: { id: string; grade: SrsGrade; now?: number } }
+  | { type: "SET_REVIEW_INTERVALS"; payload: ReviewIntervals }
   | { type: "REMOVE_CARD"; payload: { id: string } };
 
 function starterId(language: Language, wordId: string) {
@@ -546,10 +550,13 @@ function reducer(state: State, action: Action): State {
         ...state,
         cards: {
           ...state.cards,
-          [card.id]: { ...card, srs: schedule(card.srs, action.payload.grade, now) },
+          [card.id]: { ...card, srs: scheduleFlashcard(card.srs, action.payload.grade, state.reviewIntervals, now), reviewHistory: [...(card.reviewHistory ?? []), { grade: action.payload.grade, at: now }] },
         },
       };
     }
+
+    case "SET_REVIEW_INTERVALS":
+      return { ...state, reviewIntervals: normalizeReviewIntervals(action.payload) };
 
     case "REMOVE_CARD": {
       const next = { ...state.cards };
@@ -588,6 +595,7 @@ const Ctx = createContext<{
   ) => void;
   addCard: (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) => void;
   reviewCard: (id: string, grade: SrsGrade) => void;
+  setReviewIntervals: (intervals: ReviewIntervals) => void;
   removeCard: (id: string) => void;
   hasCard: (language: Language, word: string) => boolean;
   cardsForLanguage: (language: Language) => FlashcardEntry[];
@@ -603,6 +611,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     cards: {},
     seededLanguages: [],
     seededDecks: [],
+    reviewIntervals: { ...DEFAULT_REVIEW_INTERVALS },
     hydrated: false,
   });
 
@@ -617,13 +626,14 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
             cards: parsed.cards ?? {},
             seededLanguages: parsed.seededLanguages ?? [],
             seededDecks: parsed.seededDecks ?? [],
+            reviewIntervals: normalizeReviewIntervals(parsed.reviewIntervals),
           },
         });
       } else {
-        dispatch({ type: "HYDRATE", payload: { cards: {}, seededLanguages: [], seededDecks: [] } });
+        dispatch({ type: "HYDRATE", payload: { cards: {}, seededLanguages: [], seededDecks: [], reviewIntervals: { ...DEFAULT_REVIEW_INTERVALS } } });
       }
     } catch {
-      dispatch({ type: "HYDRATE", payload: { cards: {}, seededLanguages: [], seededDecks: [] } });
+      dispatch({ type: "HYDRATE", payload: { cards: {}, seededLanguages: [], seededDecks: [], reviewIntervals: { ...DEFAULT_REVIEW_INTERVALS } } });
     }
   }, [device]);
 
@@ -634,11 +644,12 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         cards: state.cards,
         seededLanguages: state.seededLanguages,
         seededDecks: state.seededDecks,
+        reviewIntervals: state.reviewIntervals,
       });
     } catch {
       /* ignore quota */
     }
-  }, [device, state.cards, state.seededLanguages, state.seededDecks, state.hydrated]);
+  }, [device, state.cards, state.seededLanguages, state.seededDecks, state.reviewIntervals, state.hydrated]);
 
   const seedStarter = useCallback(
     (language: Language, nativeLanguage?: NativeLanguage) =>
@@ -680,6 +691,10 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   );
   const reviewCard = useCallback(
     (id: string, grade: SrsGrade) => dispatch({ type: "REVIEW_CARD", payload: { id, grade } }),
+    [],
+  );
+  const setReviewIntervals = useCallback(
+    (intervals: ReviewIntervals) => dispatch({ type: "SET_REVIEW_INTERVALS", payload: intervals }),
     [],
   );
   const removeCard = useCallback(
@@ -727,6 +742,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       addModuleCards,
       addCard,
       reviewCard,
+      setReviewIntervals,
       removeCard,
       hasCard,
       cardsForLanguage,
@@ -744,6 +760,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       addModuleCards,
       addCard,
       reviewCard,
+      setReviewIntervals,
       removeCard,
       hasCard,
       cardsForLanguage,

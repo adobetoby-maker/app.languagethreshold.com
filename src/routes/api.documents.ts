@@ -14,6 +14,7 @@ import { prepareTeamJson } from "@/lib/team-request";
 import { documentCharacterCount, documentMonth } from "@/lib/document-plans";
 import { translateDocumentContent } from "@/lib/document-translation-server";
 import { documentStripe } from "@/lib/document-billing-server";
+import { documentAccessForUser, requireDocumentManagement } from "@/lib/document-access-server";
 import {
   learningGenerationOriginError,
   checkLearningGenerationBudget,
@@ -51,7 +52,8 @@ export const Route = createFileRoute("/api/documents")({
         try {
           const db = teamAdminClient(undefined, request),
             user = await authenticatedTeamUser(request, db);
-          const [account, month, docs] = await Promise.all([
+          const access = await documentAccessForUser(db, user.id);
+          const [account, month, ownedDocs, assignedDocs] = await Promise.all([
             db.from("document_accounts").select("*").eq("user_id", user.id).maybeSingle(),
             db
               .from("document_months")
@@ -59,18 +61,38 @@ export const Route = createFileRoute("/api/documents")({
               .eq("user_id", user.id)
               .eq("month", documentMonth())
               .maybeSingle(),
-            db
-              .from("study_documents")
-              .select("id,title,source_language,target_language,sentences,created_at")
-              .eq("user_id", user.id)
-              .eq("state", "ready")
-              .order("created_at", { ascending: false }),
+            access.canManageDocuments
+              ? db
+                  .from("study_documents")
+                  .select("id,title,source_language,target_language,sentences,created_at")
+                  .eq("user_id", user.id)
+                  .eq("state", "ready")
+                  .order("created_at", { ascending: false })
+              : Promise.resolve({ data: [], error: null }),
+            access.assignedDocumentIds.size
+              ? db
+                  .from("study_documents")
+                  .select("id,title,source_language,target_language,sentences,created_at")
+                  .in("id", [...access.assignedDocumentIds])
+                  .eq("state", "ready")
+                  .order("created_at", { ascending: false })
+              : Promise.resolve({ data: [], error: null }),
           ]);
-          if (account.error || month.error || docs.error)
+          if (account.error || month.error || ownedDocs.error || assignedDocs.error)
             throw new TeamOperationError("Document allowances are temporarily unavailable.", 503);
           const a = account.data;
+          const owned = (ownedDocs.data ?? []).map((document) => ({
+            ...document,
+            access: "owned" as const,
+          }));
+          const ownedIds = new Set(owned.map((document) => document.id));
+          const assigned = (assignedDocs.data ?? [])
+            .filter((document) => !ownedIds.has(document.id))
+            .map((document) => ({ ...document, access: "assigned" as const }));
           return json({
-            documents: docs.data ?? [],
+            documents: [...assigned, ...owned],
+            canManageDocuments: access.canManageDocuments,
+            teamManaged: access.teamManaged,
             limit:
               a?.storage_paid_until && Date.parse(a.storage_paid_until) > Date.now() ? 110 : 10,
             monthlyRemaining: 50000 - (month.data?.used ?? 0),
@@ -92,7 +114,10 @@ export const Route = createFileRoute("/api/documents")({
           const db = teamAdminClient(undefined, request),
             user = await authenticatedTeamUser(request, db),
             data = prepared.data;
-          if (data.action === "lookup") return await lookupDocumentWord(db, user.id, request, data);
+          const access = await documentAccessForUser(db, user.id);
+          if (data.action === "lookup")
+            return await lookupDocumentWord(db, user.id, request, data, access);
+          requireDocumentManagement(access);
           if (data.action === "translate") {
             if (data.sourceLanguage === data.targetLanguage)
               throw new TeamOperationError("Choose two different languages.");
@@ -108,7 +133,8 @@ export const Route = createFileRoute("/api/documents")({
                 "Could not check your saved documents. Please retry.",
                 503,
               );
-            if (previous.data) return json({ document: previous.data });
+            if (previous.data)
+              return json({ document: { ...previous.data, access: "owned" as const } });
             const denial = await checkLearningGenerationBudget(request);
             if (denial) return json({ error: denial.error }, denial.status);
             const { error } = await db.rpc("document_reserve", {
@@ -136,7 +162,7 @@ export const Route = createFileRoute("/api/documents")({
                 .eq("state", "ready")
                 .single();
               if (saved.error) throw saved.error;
-              return json({ document: saved.data });
+              return json({ document: { ...saved.data, access: "owned" as const } });
             } catch (error) {
               await db.rpc("document_finish", {
                 p_user: user.id,

@@ -1,3 +1,4 @@
+import { prepareBrowserPlayback } from "./browser-audio-session";
 import type { GoogleTtsVoice, MissionTtsLanguage } from "@/data/mission-tts";
 import { speakingRequestHeaders, type SpeakingRequestOwner } from "@/lib/speaking-client";
 import {
@@ -312,6 +313,7 @@ export async function speakMissionTts({
     const audio = audioElement();
     const { blob, renderedRate } = rendered;
     activeObjectUrl = URL.createObjectURL(blob);
+    prepareBrowserPlayback();
     audio.src = activeObjectUrl;
     audio.playbackRate = renderedRate === speakingRate ? 1 : speakingRate;
 

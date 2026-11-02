@@ -1,12 +1,17 @@
 "use client";
 
+import { useOverlayState } from "@/hooks/use-overlay-history";
+
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { Check, ChevronRight, Circle } from "lucide-react";
+import { Check, ChevronRight, Circle, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const DropdownMenu = DropdownMenuPrimitive.Root;
+const DropdownMenu = (props: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) => {
+  const state = useOverlayState(props);
+  return <DropdownMenuPrimitive.Root {...props} {...state} />;
+};
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 
@@ -56,8 +61,8 @@ DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayNam
 
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & { closeLabel?: string }
+>(({ className, children, closeLabel = "Close menu", sideOffset = 4, ...props }, ref) => (
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuPrimitive.Content
       ref={ref}
@@ -68,7 +73,20 @@ const DropdownMenuContent = React.forwardRef<
         className,
       )}
       {...props}
-    />
+    >
+      <div
+        data-overlay-close
+        className="sticky -top-1 z-30 flex justify-end border-b border-border bg-popover p-1"
+      >
+        <DropdownMenuPrimitive.Item
+          aria-label={closeLabel}
+          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-border text-foreground outline-none focus:bg-accent focus:ring-2 focus:ring-ring"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </DropdownMenuPrimitive.Item>
+      </div>
+      {children}
+    </DropdownMenuPrimitive.Content>
   </DropdownMenuPrimitive.Portal>
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;

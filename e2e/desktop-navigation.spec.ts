@@ -187,7 +187,7 @@ test("device voice setup instructions are reachable in desktop and phone setting
   if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
   else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
   await page
-    .getByText("Add voices to your device", { exact: true })
+    .getByText("Offline voice help", { exact: true })
     .filter({ visible: true })
     .click();
   await page.getByText("iPhone / iPad", { exact: true }).filter({ visible: true }).click();
@@ -299,12 +299,18 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
   );
   await expect(trip).toHaveCount(0);
   await page.getByText("Choose another mission or change settings", { exact: true }).click();
-  const accent = page.getByRole("combobox", { name: "Speaking accent", exact: true });
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
+  const accent = page.getByRole("combobox", {
+    name: "Accent and microphone language",
+    exact: true,
+  });
   await accent.selectOption("es-MX");
   await expect(accent).toHaveValue("es-MX");
   await page.reload();
   await page.getByText("Choose another mission or change settings", { exact: true }).click();
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
   await expect(accent).toHaveValue("es-MX");
+  await page.goBack();
   await page
     .getByRole("button")
     .filter({
@@ -313,8 +319,10 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
     .click();
   await page.getByText("Practice settings & reference", { exact: true }).click();
   await expect(page.getByText("Goals for this mission · reference", { exact: true })).toBeVisible();
-  await expect(accent).toHaveValue("es-MX");
+  await expect(page.getByText(/Voice: Female/).first()).toBeVisible();
   await expect(trip).toHaveCount(0);
+  await page.getByRole("button", { name: "Open voice settings", exact: true }).first().click();
+  await expect(accent).toHaveValue("es-MX");
   await accent.scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: `test-results/speak-accent-${test.info().project.name}.png` });
@@ -322,4 +330,21 @@ test("Speak keeps Roofing focused on missions and uses the chosen accent despite
   expect(after.nextTrips).toEqual(before.nextTrips);
   expect(after.lessonProgress).toEqual(before.lessonProgress);
   expect(after.core30Log).toEqual(before.core30Log);
+});
+
+test("desktop wheel scrolling reaches the lower lesson content and returns to the top", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "Desktop document scrolling; touch layouts use the inner main scroller.");
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(appUrl({ tab: "core30", module: "roofing" }));
+  await expect(page.getByTestId("continue-learning")).toBeVisible();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  // Wheel over ordinary lesson content, not the page scrollbar or sidebar.
+  await page.mouse.move(1000, 400);
+  await page.mouse.wheel(0, 650);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.mouse.wheel(0, -2000);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 });

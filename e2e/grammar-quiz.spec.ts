@@ -172,3 +172,14 @@ test("a perfect score offers Continue and ends on the lesson-complete panel", as
   await expect(dialog).toBeHidden();
   await expect(page.getByText("Lesson complete", { exact: true })).toBeVisible();
 });
+
+test("Back exits the quiz first and the grammar lesson on the next press", async ({ page }) => {
+  const { dialog } = await openQuiz(page, { data: { questions: QUESTIONS }, error: null });
+  await expect(dialog.getByRole("button", { name: "Close quiz", exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(dialog).not.toBeVisible();
+  await expect(page.getByRole("button", { name: /Begin Quiz/ })).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole("button", { name: /Begin Quiz/ })).not.toBeVisible();
+  await expect(page.getByRole("button", { name: /Lesson title 1/ }).first()).toBeVisible();
+});

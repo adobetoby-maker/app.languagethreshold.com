@@ -127,6 +127,10 @@ export function DocumentWorkspace() {
   const [extracting, setExtracting] = useState(false);
   const [error, setError] = useState("");
   const documents = allowance?.documents ?? [];
+  const canManageDocuments = !user || allowance?.canManageDocuments === true;
+  const loadingDocuments = !!user && !allowance && !error;
+  const assignedDocuments = documents.filter((document) => document.access === "assigned");
+  const ownedDocuments = documents.filter((document) => document.access === "owned");
   const active = opened ? documents.find((entry) => entry.id === selectedId) : undefined;
   const annotations = active ? notes.forText(active.id) : [];
   const activeNotes = annotations.filter((note) => note.pane === "left");
@@ -240,11 +244,11 @@ export function DocumentWorkspace() {
             <em>Carry the confidence.</em>
           </h1>
           <p>
-            A safety sheet. An intake form. A care plan. Bring the words you need to understand—and
-            keep both languages within reach.
+            A safety sheet. An intake form. A care plan. Bring the words you need to understand—or
+            open a reading assigned by your team lead.
           </p>
           <div className="document-steps">
-            <span>01 Add your text</span>
+            <span>{canManageDocuments ? "01 Add your text" : "01 Open an assignment"}</span>
             <span>02 Read side by side</span>
             <span>03 Make it yours</span>
           </div>
@@ -252,23 +256,28 @@ export function DocumentWorkspace() {
         <div className="document-layout">
           <aside className="document-library">
             <h2>
-              <BookOpen size={19} /> My Documents
+              <BookOpen size={19} /> Documents
             </h2>
-            <button
-              disabled={busy}
-              onClick={() => {
-                setOpened(false);
-                setError("");
-              }}
-            >
-              <Plus size={17} /> New document
-            </button>
+            {canManageDocuments && (
+              <button
+                disabled={busy}
+                onClick={() => {
+                  setOpened(false);
+                  setError("");
+                }}
+              >
+                <Plus size={17} /> New document
+              </button>
+            )}
             <p className="document-muted">
               {documents.length
                 ? `${documents.length} saved reading${documents.length === 1 ? "" : "s"}`
-                : "Your next useful reading starts here."}
+                : canManageDocuments
+                  ? "Your next useful reading starts here."
+                  : "Your team lead has not assigned a reading yet."}
             </p>
-            {documents.map((doc) => (
+            {!!assignedDocuments.length && <p className="document-eyebrow">ASSIGNED TO YOU</p>}
+            {assignedDocuments.map((doc) => (
               <button
                 key={doc.id}
                 aria-pressed={active?.id === doc.id}
@@ -287,61 +296,92 @@ export function DocumentWorkspace() {
                 </span>
               </button>
             ))}
-            <section className="document-allowance" aria-label="Document allowance">
-              <h3>Your allowance</h3>
-              {user ? (
-                <>
-                  <p>
-                    {documents.length} / {allowance?.limit ?? "…"} documents
-                  </p>
-                  <p>
-                    {allowance?.monthlyRemaining.toLocaleString() ?? "…"} monthly characters left
-                  </p>
-                  <p>
-                    {allowance?.purchasedRemaining.toLocaleString() ?? "…"} purchased characters
-                    left
-                  </p>
-                  <button
-                    disabled={busy}
-                    onClick={() => void refresh().catch((err) => setError(err.message))}
-                  >
-                    Refresh allowance
-                  </button>
-                </>
-              ) : (
-                <>
-                  <p>10 saved documents · 50,000 translation characters per calendar month.</p>
-                  <button onClick={() => setAuthOpen(true)}>Sign in to save documents</button>
-                </>
-              )}
-              <p>
-                Monthly characters reset on the first of each month (UTC). Purchased characters
-                carry over until used.
-              </p>
-              <button disabled={buying || busy} onClick={() => void purchase("storage")}>
-                100 extra slots · $5/month
+            {!!ownedDocuments.length && <p className="document-eyebrow">YOUR DOCUMENTS</p>}
+            {ownedDocuments.map((doc) => (
+              <button
+                key={doc.id}
+                aria-pressed={active?.id === doc.id}
+                className="document-saved"
+                disabled={busy}
+                onClick={() => {
+                  setSelectedId(doc.id);
+                  setOpened(true);
+                  setError("");
+                }}
+              >
+                <FileText size={17} />
+                <span>
+                  {doc.title}
+                  <small>{`${doc.source_language} → ${doc.target_language}`}</small>
+                </span>
               </button>
-              <button disabled={buying || busy} onClick={() => void purchase("translations")}>
-                50,000 extra characters · $5 once
-              </button>
-              {allowance?.hasBilling && (
-                <button disabled={buying} onClick={() => void purchase("portal")}>
-                  Manage billing / cancel storage
+            ))}
+            {canManageDocuments ? (
+              <section className="document-allowance" aria-label="Document allowance">
+                <h3>Your allowance</h3>
+                {user ? (
+                  <>
+                    <p>
+                      {ownedDocuments.length} / {allowance?.limit ?? "…"} documents
+                    </p>
+                    <p>
+                      {allowance?.monthlyRemaining.toLocaleString() ?? "…"} monthly characters left
+                    </p>
+                    <p>
+                      {allowance?.purchasedRemaining.toLocaleString() ?? "…"} purchased characters
+                      left
+                    </p>
+                    <button
+                      disabled={busy}
+                      onClick={() => void refresh().catch((err) => setError(err.message))}
+                    >
+                      Refresh allowance
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>10 saved documents · 50,000 translation characters per calendar month.</p>
+                    <button onClick={() => setAuthOpen(true)}>Sign in to save documents</button>
+                  </>
+                )}
+                <p>
+                  Monthly characters reset on the first of each month (UTC). Purchased characters
+                  carry over until used.
+                </p>
+                <button disabled={buying || busy} onClick={() => void purchase("storage")}>
+                  100 extra slots · $5/month
                 </button>
-              )}
-              <p>
-                Reading and notes use no translation allowance. Canceling storage keeps existing
-                documents readable; adding new ones requires space within your current limit.
-              </p>
-            </section>
-            {allowance?.storageSubscription && (
+                <button disabled={buying || busy} onClick={() => void purchase("translations")}>
+                  50,000 extra characters · $5 once
+                </button>
+                {allowance?.hasBilling && (
+                  <button disabled={buying} onClick={() => void purchase("portal")}>
+                    Manage billing / cancel storage
+                  </button>
+                )}
+                <p>
+                  Reading and notes use no translation allowance. Canceling storage keeps existing
+                  documents readable; adding new ones requires space within your current limit.
+                </p>
+              </section>
+            ) : (
+              <section className="document-allowance" aria-label="Team document access">
+                <h3>Team-assigned access</h3>
+                <p>
+                  You can read assigned documents here. Ask your team lead if you need permission to
+                  upload and manage your own documents.
+                </p>
+              </section>
+            )}
+            {canManageDocuments && allowance?.storageSubscription && (
               <button disabled={buying} onClick={() => void cancelStorage()}>
                 Cancel storage renewal
               </button>
             )}
             <p className="document-storage">
-              Documents save to your account. Notes stay on this device. Up to 8,000 characters per
-              document.
+              {canManageDocuments
+                ? "Documents save to your account. Notes stay on this device. Up to 8,000 characters per document."
+                : "Assigned documents stay read-only. Your notes stay on this device."}
             </p>
           </aside>
           <section className="document-paper">
@@ -361,37 +401,39 @@ export function DocumentWorkspace() {
                   <button onClick={() => window.print()}>
                     <Printer size={17} /> Print / PDF
                   </button>
-                  <button
-                    disabled={busy}
-                    onClick={async () => {
-                      if (
-                        !window.confirm(
-                          `Delete “${active.title}”? This frees one document slot. Translation characters already used are not refunded.`,
+                  {active.access === "owned" && (
+                    <button
+                      disabled={busy}
+                      onClick={async () => {
+                        if (
+                          !window.confirm(
+                            `Delete “${active.title}”? This frees one document slot. Translation characters already used are not refunded.`,
+                          )
                         )
-                      )
-                        return;
-                      setBusy(true);
-                      try {
-                        await ownedTeamRequest(owner, "/api/documents", {
-                          action: "delete",
-                          id: active.id,
-                        });
-                        if (owner.isCurrent()) {
-                          setOpened(false);
-                          await refresh();
+                          return;
+                        setBusy(true);
+                        try {
+                          await ownedTeamRequest(owner, "/api/documents", {
+                            action: "delete",
+                            id: active.id,
+                          });
+                          if (owner.isCurrent()) {
+                            setOpened(false);
+                            await refresh();
+                          }
+                        } catch (err) {
+                          if (owner.isCurrent())
+                            setError(
+                              err instanceof Error ? err.message : "Could not delete document.",
+                            );
+                        } finally {
+                          if (owner.isCurrent()) setBusy(false);
                         }
-                      } catch (err) {
-                        if (owner.isCurrent())
-                          setError(
-                            err instanceof Error ? err.message : "Could not delete document.",
-                          );
-                      } finally {
-                        if (owner.isCurrent()) setBusy(false);
-                      }
-                    }}
-                  >
-                    Delete document
-                  </button>
+                      }}
+                    >
+                      Delete document
+                    </button>
+                  )}
                 </div>
                 <p className="document-muted">
                   New translations include a saved starter glossary. Tap a word for its meaning in
@@ -450,7 +492,17 @@ export function DocumentWorkspace() {
                   with a qualified professional.
                 </p>
               </>
-            ) : (
+            ) : loadingDocuments ? (
+              <div className="document-paper-heading" aria-live="polite">
+                <div className="document-icon">
+                  <Loader2 className="animate-spin" size={26} />
+                </div>
+                <div>
+                  <p className="document-eyebrow">DOCUMENTS</p>
+                  <h2>Loading your access…</h2>
+                </div>
+              </div>
+            ) : canManageDocuments ? (
               <form onSubmit={createDocument}>
                 <div className="document-paper-heading">
                   <div className="document-icon">
@@ -555,6 +607,19 @@ export function DocumentWorkspace() {
                   Read the document. Learn the phrasing. Then use it on shift.
                 </p>
               </form>
+            ) : (
+              <div className="document-paper-heading">
+                <div className="document-icon">
+                  <FileText size={26} />
+                </div>
+                <div>
+                  <p className="document-eyebrow">TEAM DOCUMENTS</p>
+                  <h2>No assigned reading selected.</h2>
+                  <p className="document-muted">
+                    Choose an assigned document from the library, or ask your team lead to add one.
+                  </p>
+                </div>
+              </div>
             )}
           </section>
         </div>

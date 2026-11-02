@@ -7,22 +7,37 @@ import type { ReactNode } from "react";
 export const LEGAL_UPDATED = "October 19, 2026";
 export const LEGAL_CONTACT = "adobetoby@gmail.com";
 
-export function LegalPage({ title, children }: { title: string; children: ReactNode }) {
+export function LegalPage({
+  title,
+  children,
+  updated = LEGAL_UPDATED,
+}: {
+  title: string;
+  children: ReactNode;
+  updated?: string;
+}) {
   return (
     <main className="mx-auto max-w-2xl px-5 py-12 text-sm leading-relaxed text-muted-foreground">
       <a href="/" className="text-xs text-gold underline underline-offset-4">
         ← Back to Language Threshold
       </a>
       <h1 className="mt-6 font-display text-3xl font-semibold text-foreground">{title}</h1>
-      <p className="mt-2 text-xs">Last updated {LEGAL_UPDATED}</p>
+      <p className="mt-2 text-xs">Last updated {updated}</p>
       <div className="mt-8 space-y-8">{children}</div>
       <p className="mt-12 border-t border-border/50 pt-6 text-xs">
         Questions? Email{" "}
         <a className="text-gold underline" href={`mailto:${LEGAL_CONTACT}`}>
           {LEGAL_CONTACT}
         </a>
-        . See also the <a className="text-gold underline" href="/terms">Terms of Service</a> and the{" "}
-        <a className="text-gold underline" href="/privacy">Privacy Policy</a>.
+        . See also the{" "}
+        <a className="text-gold underline" href="/terms">
+          Terms of Service
+        </a>{" "}
+        and the{" "}
+        <a className="text-gold underline" href="/privacy">
+          Privacy Policy
+        </a>
+        .
       </p>
     </main>
   );

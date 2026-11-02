@@ -10,15 +10,22 @@ const rows: {
   moduleName: string;
   lesson: number;
   title: string;
+  target?: string;
+  native?: string;
 }[] = [];
 for (const module of MODULES) {
-  if (!moduleSupportsLearningPair(module, "Spanish", "English")) continue;
+  const englishTarget = module.learnDirection === "en-target";
+  const target = englishTarget ? "English" : "Spanish";
+  const native = englishTarget ? "Spanish" : "English";
+  if (!moduleSupportsLearningPair(module, target, native)) continue;
   for (const lesson of getCurriculum(module.id)?.lessons ?? []) {
     for (const word of lesson.words ?? []) {
       if (word.kind !== "term" || !word.es.trim() || !word.en.trim()) continue;
       rows.push({
-        es: word.es.trim(),
-        en: word.en.trim(),
+        es: (englishTarget ? word.en : word.es).trim(),
+        en: (englishTarget ? word.es : word.en).trim(),
+        target,
+        native,
         moduleId: module.id,
         moduleName: module.name,
         lesson: lesson.n,
@@ -38,14 +45,26 @@ for (const word of dictWords) {
     title: "App dictionary",
   });
 }
-const modules: { id: string; name: string; lessons: Record<string, string> }[] = [];
+const modules: {
+  id: string;
+  name: string;
+  target?: string;
+  native?: string;
+  lessons: Record<string, string>;
+}[] = [];
 const moduleIndices = new Map<string, number>();
 const entries = rows.map((row) => {
   let index = moduleIndices.get(row.moduleId);
   if (index === undefined) {
     index = modules.length;
     moduleIndices.set(row.moduleId, index);
-    modules.push({ id: row.moduleId, name: row.moduleName, lessons: {} });
+    modules.push({
+      id: row.moduleId,
+      name: row.moduleName,
+      target: row.target,
+      native: row.native,
+      lessons: {},
+    });
   }
   modules[index].lessons[String(row.lesson)] = row.title;
   return [row.es, row.en, index, row.lesson];

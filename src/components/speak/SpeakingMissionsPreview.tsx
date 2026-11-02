@@ -1,3 +1,11 @@
+import { SpeakingConversationControls } from "./SpeakingConversationControls";
+import { conversationGoogleVoice } from "@/lib/conversation-voice";
+import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
+import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
+import { RecordedReplyControl } from "./RecordedReplyControl";
+import { supportsReplyRecording } from "@/lib/reply-audio-capture";
+import { watchRecognition } from "@/lib/recognition-watchdog";
+import { DEFAULT_STANDARD_VOICES, openVoiceSettings } from "@/data/standard-voices";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { SpeakingPreparation } from "./SpeakingPreparation";
@@ -22,15 +30,7 @@ import {
   Square,
   X,
 } from "lucide-react";
-import {
-  decodeGoogleVoicePreference,
-  defaultGoogleVoice,
-  encodeGoogleVoicePreference,
-  isMissionTtsSpeed,
-  MISSION_TTS_SPEEDS,
-  recommendedGoogleVoices,
-  type MissionPartnerVersion,
-} from "@/data/mission-tts";
+import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
 import {
   RELATIONSHIP_GROUPS,
   type RelationshipGroup,
@@ -59,7 +59,7 @@ import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
-import { useAuth } from "@/state/auth-state";
+
 import { AuthModal } from "@/components/auth/AuthModal";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
@@ -75,10 +75,9 @@ import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { WatchTalkControl } from "./WatchTalkControl";
 import { MicrophoneTestDialog } from "./MicrophoneTestDialog";
 
-type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
+type MissionStatus = "ready" | "starting" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
-type PartnerAudioSource = "device" | "google" | "text";
 type SpokenTurnFlow = "quick" | "review";
 
 interface ResponseTiming {
@@ -116,6 +115,7 @@ const TRANSCRIPT_WAIT_MS = 8000;
 function specialtyStyle(specialty: SpeakingMission["specialty"]) {
   const styles: Record<SpeakingMission["specialty"], { color: string }> = {
     Core: { color: "#f0c96a" },
+    "Core Basics": { color: "#7fc66a" },
     Faith: { color: "#c9a84c" },
     Medical: { color: "#4fb6d3" },
     Trades: { color: "#ff7a4a" },
@@ -175,11 +175,11 @@ function clarificationPhrase(language: SpeakingMissionLanguage) {
 }
 
 function highStakesNotice(mission: SpeakingMission) {
+  if (mission.specialty === "Medical" || mission.riskClass === "medical") {
+    return null;
+  }
   if (mission.riskClass === "emergency") {
     return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
-  }
-  if (mission.specialty === "Medical" || mission.riskClass === "medical") {
-    return "Language practice only — not medical advice, diagnosis, or dosing guidance. Contact a qualified clinician for real care.";
   }
   if (mission.riskClass === "financial") {
     return "Language practice only — not financial advice. Use fictional account and payment details.";
@@ -210,18 +210,22 @@ export function SpeakingMissionsPreview({
     setSpeakingPrivacyMode(true);
     return () => setSpeakingPrivacyMode(false);
   }, [embeddedMissionPrefix]);
-  const { gated } = useAiGate();
+  const speakingAuth = useSpeakingAuth();
+  const { gated: accountGated } = useAiGate();
+  const gated = speakingAuth.isTestGuest
+    ? (action: () => void | Promise<void>) => {
+        void action();
+      }
+    : accountGated;
   const { state: appState, dispatch: appDispatch } = useApp();
   const {
     accent,
     accentsForLanguage = [],
     rate,
-    setAccent,
-    setRate,
     voiceURI,
-    setVoiceURI,
+    voiceSettings = DEFAULT_STANDARD_VOICES,
   } = useSpeech();
-  const { session, isCurrentUser } = useAuth();
+  const { session, isCurrentUser } = speakingAuth;
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [practiceStep, setPracticeStep] = useState<SpeakingStep>(
@@ -244,9 +248,9 @@ export function SpeakingMissionsPreview({
   const ageReadRevisionRef = useRef(0);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
-  const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
-  const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
-  const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
+  const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("review");
+  const partnerVersion = voiceSettings.speakingGender;
+  const partnerAudioSource = "google" as typeof voiceSettings.speakingAudioSource;
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -257,7 +261,6 @@ export function SpeakingMissionsPreview({
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
   const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
   const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
-  const [selectedGoogleVoiceName, setSelectedGoogleVoiceName] = useState<string | null>(null);
   const [deviceVoiceAvailable, setDeviceVoiceAvailable] = useState(false);
   const [catalogModuleId, setCatalogModuleId] = useState<string | null>(null);
   const [catalogCategory, setCatalogCategory] = useState<SpeakingMission["specialty"] | "All">(
@@ -267,8 +270,20 @@ export function SpeakingMissionsPreview({
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
   const [relationshipGroup, setRelationshipGroup] = useState<RelationshipGroup | "All">("All");
   const [typedTurn, setTypedTurn] = useState("");
+  const replyField = useSpeakingReplyField(typedTurn);
+  const [hideReplyText, setHideReplyText] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(true);
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
+  const [useRecordedAudio, setUseRecordedAudio] = useState(false);
+  const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
+  const [audioCaptureKey, setAudioCaptureKey] = useState(0);
+  useEffect(() => {
+    setUseRecordedAudio(supportsReplyRecording());
+  }, []);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
+  const [automaticReplyAudio, setAutomaticReplyAudio] = useState(true);
+  const currentAutomaticReplyAudio = useRef(automaticReplyAudio);
+  currentAutomaticReplyAudio.current = automaticReplyAudio;
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
@@ -343,63 +358,37 @@ export function SpeakingMissionsPreview({
       selectedMission?.id,
       embeddedMissionPrefix,
     ]),
+    speakingAuth,
   );
   const cancelRef = useRef(cancel);
   useEffect(() => {
     cancelRef.current = cancel;
   }, [cancel]);
-  const availableGoogleVoices = useMemo(
-    () => recommendedGoogleVoices(ttsCapabilities?.voices ?? [], missionLocale, partnerVersion),
-    [missionLocale, partnerVersion, ttsCapabilities?.voices],
+  const partnerVoice = conversationGoogleVoice(
+    ttsCapabilities?.voices ?? [],
+    missionLocale,
+    partnerVersion,
   );
-  const globalGooglePreference = decodeGoogleVoicePreference(voiceURI);
-  const targetGoogleGender = partnerVersion === "woman" ? "FEMALE" : "MALE";
-  const globalGoogleVoice = availableGoogleVoices.find(
-    (voice) =>
-      voice.name === globalGooglePreference?.voiceName &&
-      (voice.ssmlGender === targetGoogleGender ||
-        voice.ssmlGender === "NEUTRAL" ||
-        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
-  );
-  const selectedGoogleVoice = availableGoogleVoices.find(
-    (voice) =>
-      voice.name === selectedGoogleVoiceName &&
-      (voice.ssmlGender === targetGoogleGender ||
-        voice.ssmlGender === "NEUTRAL" ||
-        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
-  );
-  const partnerVoice =
-    selectedGoogleVoice ??
-    globalGoogleVoice ??
-    defaultGoogleVoice(availableGoogleVoices, missionLocale, partnerVersion);
-  const partnerAudioReady =
-    partnerAudioSource === "device"
-      ? deviceVoiceAvailable
-      : partnerAudioSource === "text"
-        ? true
-        : ttsStatus === "ready" && partnerVoice !== null;
+  const partnerAudioReady = true;
   const voiceRegionLabel =
     accentsForLanguage.find((option) => option.code === missionLocale)?.label ?? missionLocale;
   const accentControl = (
-    <label className="grid gap-1 text-sm">
-      <span className="font-semibold text-foreground">Speaking accent</span>
-      <select
-        aria-label="Speaking accent"
-        value={accent}
-        onChange={(event) => setAccent(event.target.value)}
-        className="min-h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-foreground sm:max-w-sm"
+    <div className="rounded-xl border border-border bg-card p-3 text-sm">
+      <p className="font-semibold">
+        Voice: {partnerVersion === "woman" ? "Female" : "Male"} · {voiceRegionLabel}
+      </p>
+      <p className="mt-1 text-muted-foreground">
+        Conversation uses Google Chirp 3 HD voices. Choose the voice gender in Settings → Voices &
+        audio.
+      </p>
+      <button
+        type="button"
+        onClick={openVoiceSettings}
+        className="mt-2 min-h-11 rounded-lg border border-border px-3 font-semibold"
       >
-        {accentsForLanguage.map((option) => (
-          <option key={option.code} value={option.code}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <span className="text-xs leading-relaxed text-muted-foreground">
-        Uses your app voice accent for playback and microphone language. Available voices vary by
-        device.
-      </span>
-    </label>
+        Open voice settings
+      </button>
+    </div>
   );
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
@@ -531,15 +520,6 @@ export function SpeakingMissionsPreview({
   }, [missionLocale]);
 
   useEffect(() => {
-    setSelectedGoogleVoiceName(null);
-  }, [missionLocale]);
-
-  useEffect(() => {
-    if (partnerAudioSource !== "google" || !partnerVoice) return;
-    setVoiceURI(encodeGoogleVoicePreference(partnerVoice));
-  }, [partnerAudioSource, partnerVoice, setVoiceURI]);
-
-  useEffect(() => {
     transcriptRef.current?.scrollTo({
       top: transcriptRef.current.scrollHeight,
       behavior: "smooth",
@@ -554,6 +534,7 @@ export function SpeakingMissionsPreview({
 
   const stopActiveWork = useCallback(() => {
     cancelRef.current();
+    setAudioCaptureKey((value) => value + 1);
     setFinishingSpeech(false);
     stopAudio();
   }, [stopAudio]);
@@ -585,7 +566,6 @@ export function SpeakingMissionsPreview({
     setCatalogCategory("All");
     setCatalogSearch("");
     setCoreSection("Essential verbs");
-    setPartnerAudioSource("device");
   }, [
     appState.selectedLanguage,
     appState.nativeLanguage,
@@ -593,11 +573,6 @@ export function SpeakingMissionsPreview({
     activeCatalogModuleId,
     actor,
   ]);
-
-  useEffect(() => {
-    if (started) return;
-    setPartnerAudioSource(decodeGoogleVoicePreference(voiceURI) ? "google" : "device");
-  }, [appState.selectedLanguage, started, voiceURI]);
 
   useEffect(() => {
     if (embeddedMissionPrefix) return;
@@ -662,7 +637,7 @@ export function SpeakingMissionsPreview({
   const speakPartnerText = useCallback(
     async (text: string, onPlaybackStart?: () => void) => {
       const lease = capture();
-      if (!lease.isCurrent() || activeAudioScope.current !== audioScope) return;
+      if (!lease.isCurrent() || activeAudioScope.current !== audioScope || audioCaptureBusy) return;
       stopAudio();
       if (partnerAudioSource === "text") return;
       const controller = new AbortController();
@@ -731,10 +706,14 @@ export function SpeakingMissionsPreview({
       partnerSpeed,
       partnerVoice,
       stopAudio,
+      audioCaptureBusy,
       ttsStatus,
       voiceURI,
     ],
   );
+
+  const currentPartnerPlayback = useRef(speakPartnerText);
+  currentPartnerPlayback.current = speakPartnerText;
 
   const startMissionSession = () => {
     if (!capture().isCurrent() || !selectedMission || !partnerAudioReady) return;
@@ -761,7 +740,7 @@ export function SpeakingMissionsPreview({
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
-    void speakPartnerText(opening.text);
+    if (currentAutomaticReplyAudio.current) void speakPartnerText(opening.text);
   };
 
   const requestMissionStart = () => {
@@ -951,6 +930,19 @@ export function SpeakingMissionsPreview({
     });
     const current = () =>
       lease.isCurrent() && !controller.signal.aborted && requestRef.current === controller;
+    const timeout = window.setTimeout(() => {
+      if (!current()) return;
+      setTurns((turns) => turns.filter((turn) => turn.id !== learnerTurn.id));
+      setTypedTurn(learnerText);
+      setTranscriptSource(learnerTranscriptSource ?? "typed");
+      setStatus("error");
+      setErrorMessage(
+        "The reply took too long. Resume to resend your answer, or reset the conversation.",
+      );
+      requestRef.current = null;
+      controller.abort();
+    }, 45_000);
+    const releaseTimeout = lease.own(() => window.clearTimeout(timeout));
 
     try {
       const history: Array<{ role: "user" | "assistant"; content: string }> = previousTurns
@@ -1015,12 +1007,13 @@ export function SpeakingMissionsPreview({
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
-      void speakPartnerText(payload.assistantText, () => {
-        setLastResponseTiming({
-          replyReadyMs,
-          voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),
+      if (currentAutomaticReplyAudio.current)
+        void currentPartnerPlayback.current(payload.assistantText, () => {
+          setLastResponseTiming({
+            replyReadyMs,
+            voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),
+          });
         });
-      });
     } catch (error) {
       if (!current()) return;
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -1032,6 +1025,8 @@ export function SpeakingMissionsPreview({
         error instanceof Error ? error.message : "The mission partner could not respond.",
       );
     } finally {
+      window.clearTimeout(timeout);
+      releaseTimeout();
       if (current()) requestRef.current = null;
       release();
     }
@@ -1059,7 +1054,8 @@ export function SpeakingMissionsPreview({
       stopAudio();
       // iPhone can retain the device speech queue after its reply has ended.
       // Release it in this microphone tap before starting the next recognition.
-      window.speechSynthesis?.cancel();
+      if (window.speechSynthesis?.speaking || window.speechSynthesis?.pending)
+        window.speechSynthesis.cancel();
       const recognition = new Constructor();
       recognition.lang = missionLocale;
       recognition.continuous = false;
@@ -1068,6 +1064,7 @@ export function SpeakingMissionsPreview({
       recognitionHasTextRef.current = false;
       const current = () => lease.isCurrent() && recognitionRef.current === recognition && !ended;
       const dispose = () => {
+        readiness.dispose();
         recognition.onresult = null;
         recognition.onerror = null;
         recognition.onend = null;
@@ -1087,12 +1084,19 @@ export function SpeakingMissionsPreview({
           /* Already stopped. */
         }
       };
+      const readiness = watchRecognition(
+        recognition,
+        () => current() && stoppingRecognitionRef.current !== recognition,
+        () => setStatus("listening"),
+        () => setStatus("starting"),
+      );
       const release = lease.own(dispose);
       const finalResults = new Map<number, string>();
       let finalText = "";
       let latestInterimText = "";
       recognition.onresult = (event) => {
         if (!current()) return;
+        readiness.progress();
         let interimText = "";
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index];
@@ -1105,7 +1109,7 @@ export function SpeakingMissionsPreview({
           .join(" ");
         if (interimText) latestInterimText = interimText;
         recognitionHasTextRef.current = Boolean(finalText.trim() || latestInterimText.trim());
-        setInterim(interimText);
+        setInterim([finalText, interimText].filter(Boolean).join(" "));
         if (stoppingRecognitionRef.current === recognition && finalText.trim()) finish();
       };
       recognition.onerror = (event) => {
@@ -1117,6 +1121,11 @@ export function SpeakingMissionsPreview({
         dispose();
         setInterim("");
         setFinishingSpeech(false);
+        const draft = bestAvailableSpeechTranscript(finalText, latestInterimText);
+        if (draft) {
+          setTypedTurn(draft);
+          setTranscriptSource("dictation");
+        }
         const error = event?.error ?? "unknown";
         setStatus(error === "aborted" ? "ready" : "error");
         setErrorMessage(error === "aborted" ? null : speechRecognitionErrorMessage(error));
@@ -1159,15 +1168,15 @@ export function SpeakingMissionsPreview({
         setErrorMessage("Transcription cancelled. Your answer was not sent.");
       };
       try {
+        setStatus("starting");
+        setFinishingSpeech(false);
+        setErrorMessage(null);
         recognition.start();
       } catch (error) {
         release();
         dispose();
         throw error;
       }
-      setStatus("listening");
-      setFinishingSpeech(false);
-      setErrorMessage(null);
     } catch (error) {
       if (!lease.isCurrent()) return;
       setStatus("error");
@@ -1176,6 +1185,10 @@ export function SpeakingMissionsPreview({
   };
 
   const stopListening = () => {
+    if (status === "starting") {
+      cancelRecognitionRef.current?.();
+      return;
+    }
     const recognition = recognitionRef.current;
     const finish = finishRecognitionRef.current;
     if (!recognition || !finish) {
@@ -1571,7 +1584,7 @@ export function SpeakingMissionsPreview({
         }}
         style={practiceViewport.style}
         data-testid="focused-speaking-frame"
-        className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
+        className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/40 p-3 sm:p-4"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         <button
@@ -1593,6 +1606,7 @@ export function SpeakingMissionsPreview({
         <h2 className="line-clamp-2 shrink-0 font-serif text-xl leading-tight text-foreground sm:text-2xl">
           {selectedMission.title}
         </h2>
+
         {practiceNotice && (
           <div
             role="alert"
@@ -1668,10 +1682,10 @@ export function SpeakingMissionsPreview({
             {!partnerAudioReady && (
               <button
                 type="button"
-                onClick={() => setPartnerAudioSource("text")}
+                onClick={openVoiceSettings}
                 className="mt-2 min-h-11 w-full rounded-xl border border-border px-3 py-2 text-sm"
               >
-                Continue with text only
+                Open audio settings or choose text only
               </button>
             )}
           </div>
@@ -1737,89 +1751,11 @@ export function SpeakingMissionsPreview({
 
             <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
               <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
-                <span className="font-semibold text-gold">Set your choices.</span> Tappable choices
-                have strong borders; the selected choice is filled gold. The goals and words above
-                are reference information, not buttons.
+                <span className="font-semibold text-gold">Practice preferences.</span> Voices are
+                managed in Settings → Voices & audio. The goals and words above are reference
+                information.
               </div>
               <div className="mb-4">{accentControl}</div>
-              <fieldset>
-                <legend className="text-sm font-semibold text-foreground">
-                  Choose partner audio
-                </legend>
-                <div className="mt-2 grid grid-cols-3 gap-2">
-                  {(["device", "google", "text"] as const).map((source) => {
-                    const selected = partnerAudioSource === source;
-                    const available = source !== "google" || ttsStatus !== "unavailable";
-                    return (
-                      <button
-                        key={source}
-                        type="button"
-                        onClick={() => available && setPartnerAudioSource(source)}
-                        disabled={!available}
-                        aria-pressed={selected}
-                        className={
-                          "min-h-14 rounded-xl border-2 px-2 py-2.5 text-sm font-medium transition-colors " +
-                          (selected
-                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                            : available
-                              ? "border-border bg-card text-foreground hover:border-gold/60"
-                              : "cursor-not-allowed border-border bg-card text-muted-foreground opacity-40")
-                        }
-                      >
-                        <span className="flex items-center justify-center gap-1.5">
-                          {selected && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
-                          {source === "device"
-                            ? "Phone voice"
-                            : source === "text"
-                              ? "Text only"
-                              : "Google voice"}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Phone voice uses a voice installed on this device. Google preselects a short list
-                  for
-                  {` ${voiceRegionLabel}`}. Text-only keeps every mission usable without playback.
-                </p>
-              </fieldset>
-              <fieldset className="mt-4 border-t border-border/60 pt-4">
-                <legend className="text-sm font-semibold text-foreground">
-                  Choose conversation partner
-                </legend>
-                <div className="mt-2 grid grid-cols-2 gap-2">
-                  {(["woman", "man"] as const).map((version) => {
-                    const selected = partnerVersion === version;
-                    return (
-                      <button
-                        key={version}
-                        type="button"
-                        onClick={() => {
-                          setPartnerVersion(version);
-                          setSelectedGoogleVoiceName(null);
-                        }}
-                        aria-pressed={selected}
-                        className={
-                          "min-h-14 rounded-xl border-2 px-3 py-2.5 text-sm font-medium transition-colors " +
-                          (selected
-                            ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
-                            : "border-border bg-card text-foreground hover:border-gold/60")
-                        }
-                      >
-                        <span className="flex items-center justify-center gap-2">
-                          {selected && <Check className="h-4 w-4" aria-hidden="true" />}
-                          {version === "woman" ? "Woman partner" : "Man partner"}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Same objectives, with the partner&apos;s natural self-reference, phrasing, and
-                  response rhythm adapted for this version.
-                </p>
-              </fieldset>
               <div className="mt-4 border-t border-border/60 pt-4 text-sm">
                 {session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
                   <p className="text-muted-foreground">
@@ -1864,66 +1800,20 @@ export function SpeakingMissionsPreview({
                   phone heard before the partner replies.
                 </span>
               </label>
-              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
-                <div>
-                  <p className="text-sm text-muted-foreground">
-                    {partnerAudioSource === "device"
-                      ? "Current app voice"
-                      : partnerAudioSource === "text"
-                        ? "Text-only partner"
-                        : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
-                  </p>
-                  <p className="mt-0.5 text-xs text-foreground/80">
-                    {partnerAudioSource === "device"
-                      ? `Best available ${selectedMission.language} voice from this phone or browser`
-                      : partnerAudioSource === "text"
-                        ? "Read each partner line without generated playback"
-                        : partnerVoice
-                          ? `${partnerVoice.label} · ${partnerVoice.name}`
-                          : `No Google ${selectedMission.language} voice available`}
-                  </p>
-                </div>
-                <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-                  {partnerAudioSource === "device"
-                    ? "Device voice"
-                    : partnerAudioSource === "text"
-                      ? "No audio"
-                      : "Server voice"}
-                </span>
-              </div>
-              {partnerAudioSource === "text" ? (
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  Partner lines remain visible and replay is disabled in text-only mode.
+              <div className="mt-4 rounded-xl border border-border bg-card p-3 text-sm">
+                <p className="font-semibold">
+                  {partnerAudioSource === "google"
+                    ? "Standard Google voice"
+                    : partnerAudioSource === "device"
+                      ? "Device fallback"
+                      : "Text only"}{" "}
+                  · {partnerSpeed}×
                 </p>
-              ) : partnerAudioSource === "google" && partnerVoice ? (
-                <label className="mt-3 grid gap-1 text-sm">
-                  <span className="font-semibold text-foreground">
-                    Choose Google voice · {voiceRegionLabel}
-                  </span>
-                  <select
-                    value={partnerVoice.name}
-                    onChange={(event) => {
-                      const voice = availableGoogleVoices.find(
-                        (candidate) => candidate.name === event.target.value,
-                      );
-                      if (!voice) return;
-                      setSelectedGoogleVoiceName(voice.name);
-                      setVoiceURI(encodeGoogleVoicePreference(voice));
-                      if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
-                      if (voice.ssmlGender === "MALE") setPartnerVersion("man");
-                    }}
-                    className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-                  >
-                    {availableGoogleVoices.map((voice) => (
-                      <option key={voice.name} value={voice.name}>
-                        {voice.label} · {voice.languageCodes[0] ?? selectedMission.locale}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="text-xs leading-relaxed text-muted-foreground">
-                    Matching {missionLocale} voices are shown when Google provides them. The app
-                    preselects one for your partner choice; changing it is optional.
-                  </span>
+                <p className="mt-1 text-muted-foreground">
+                  Voice, accent, speed and audio fallback are managed in Settings → Voices & audio.
+                  Changing the speaking voice does not change the listening voice.
+                </p>
+                {partnerAudioSource !== "text" && partnerAudioReady && (
                   <button
                     type="button"
                     onClick={() =>
@@ -1931,71 +1821,18 @@ export function SpeakingMissionsPreview({
                         partnerVoiceSample(selectedMission.language, partnerVersion),
                       )
                     }
-                    className="mt-2 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+                    className="mt-2 min-h-11 rounded-lg border border-border px-3 font-semibold"
                   >
-                    ▶ Play voice sample · {partnerSpeed}×
+                    Play speaking voice sample
                   </button>
-                </label>
-              ) : partnerAudioReady ? (
-                <button
-                  type="button"
-                  onClick={() =>
-                    void speakPartnerText(
-                      partnerVoiceSample(selectedMission.language, partnerVersion),
-                    )
-                  }
-                  className="mt-3 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
-                >
-                  ▶ Play {partnerAudioSource === "device" ? "phone" : partnerVersion} voice sample ·{" "}
-                  {partnerSpeed}×
-                </button>
-              ) : (
-                <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
-                  {partnerAudioSource === "device"
-                    ? `A ${selectedMission.language} device voice is unavailable in this browser.`
-                    : ttsStatus === "checking"
-                      ? "Checking Google partner voice availability…"
-                      : `Google Cloud voices are unavailable for ${selectedMission.language}.`}
-                </p>
-              )}
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                {partnerAudioSource === "device"
-                  ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
-                  : partnerAudioSource === "google"
-                    ? "Google server voices are independent of voices installed on this phone. The selected voice follows this mission and the site-wide voice setting."
-                    : "Text-only mode does not generate audio."}
-              </p>
-              <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-                <span className="flex items-center justify-between gap-3 text-muted-foreground">
-                  <span className="font-semibold text-foreground">Choose partner speed</span>
-                  <span className="font-mono text-gold">{partnerSpeed}×</span>
-                </span>
-                <select
-                  value={partnerSpeed}
-                  onChange={(event) => setRate(Number(event.target.value))}
-                  disabled={partnerAudioSource === "text"}
-                  className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
-                >
-                  {MISSION_TTS_SPEEDS.map((speed) => (
-                    <option key={speed} value={speed}>
-                      {speed}×
-                      {speed === 0.5
-                        ? " · very slow"
-                        : speed === 0.75
-                          ? " · careful"
-                          : speed === 1
-                            ? " · natural"
-                            : speed === 1.5
-                              ? " · challenge"
-                              : ""}
-                    </option>
-                  ))}
-                </select>
-                <span className="text-xs leading-relaxed text-muted-foreground">
-                  Start slower for comprehension, then repeat the same mission faster to train your
-                  ear.
-                </span>
-              </label>
+                )}
+                {!partnerAudioReady && (
+                  <p role="status" className="mt-2">
+                    Google audio is unavailable. Choose device fallback or text only in Settings to
+                    continue.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </details>
@@ -2109,28 +1946,235 @@ export function SpeakingMissionsPreview({
       }}
       style={practiceViewport.style}
       data-testid="focused-speaking-frame"
-      className="scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
+      data-speaking-session="active"
+      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-y-auto"
     >
-      <div className="flex shrink-0 flex-nowrap items-start justify-between gap-2">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            Mission in progress
-          </p>
+      <div className="relative flex shrink-0 items-start justify-between gap-2">
+        <div className="min-w-0">
           <h2 className="line-clamp-2 font-serif text-lg leading-tight text-foreground">
             {selectedMission.title}
           </h2>
-          <p className="mt-1 text-xs text-muted-foreground">
-            {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
-            {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
+          <p className="mt-1 text-sm text-muted-foreground" role="status">
+            {completedObjectiveCount}/{selectedMission.objectives.length} goals practiced
           </p>
         </div>
-        <button
-          type="button"
-          onClick={finishMission}
-          className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
-        >
-          <X className="h-3.5 w-3.5" /> End
-        </button>
+        <div className="flex shrink-0 gap-1">
+          <details className="shrink-0">
+            <summary
+              aria-label="Lesson goals and tools"
+              title="Lesson goals and tools"
+              className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-border text-foreground [&::-webkit-details-marker]:hidden"
+            >
+              <Lightbulb aria-hidden="true" className="h-4 w-4" />
+            </summary>
+            <div className="absolute top-full inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
+              <label className="mb-3 flex items-center justify-between gap-2 text-sm">
+                <span>Voice input</span>
+                <select
+                  aria-label="Voice input"
+                  value={useRecordedAudio ? "audio" : "browser"}
+                  disabled={
+                    status === "thinking" ||
+                    status === "listening" ||
+                    status === "starting" ||
+                    audioCaptureBusy
+                  }
+                  onChange={(event) => {
+                    stopAudio();
+                    setUseRecordedAudio(event.target.value === "audio");
+                  }}
+                  className="min-h-11 rounded-xl border border-border bg-background px-2"
+                >
+                  <option value="audio">Audio recording</option>
+                  <option value="browser">Browser dictation</option>
+                </select>
+              </label>
+              <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
+                {selectedMission.objectives.map((objective) => {
+                  const completed = objectiveIds.includes(objective.id);
+                  const skipped = skippedObjectiveIds.includes(objective.id);
+                  return (
+                    <span
+                      key={objective.id}
+                      className={
+                        "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
+                        (completed
+                          ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
+                          : skipped
+                            ? "border-border/60 bg-background/30 text-muted-foreground line-through"
+                            : "border-border text-muted-foreground")
+                      }
+                      title={objective.description}
+                    >
+                      {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
+                      {objective.description}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
+                  {activeObjective ? "Your next goal" : "Practice goals addressed"}
+                </p>
+                <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
+                  {activeObjective
+                    ? activeObjective.description
+                    : "Continue naturally or end the mission when the practical exchange feels complete."}
+                </p>
+                {activeObjective && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setTypedTurn(clarificationPhrase(selectedMission.language));
+                        setTranscriptSource("typed");
+                      }}
+                      disabled={
+                        status === "thinking" ||
+                        status === "listening" ||
+                        status === "starting" ||
+                        partnerSpeaking
+                      }
+                      className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
+                    >
+                      Help me ask for an example
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSkippedObjectiveIds((current) =>
+                          current.includes(activeObjective.id)
+                            ? current
+                            : [...current, activeObjective.id],
+                        )
+                      }
+                      disabled={
+                        status === "thinking" ||
+                        status === "listening" ||
+                        status === "starting" ||
+                        partnerSpeaking
+                      }
+                      className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
+                    >
+                      Skip this goal
+                    </button>
+                  </div>
+                )}
+                {selectedMission.vocabulary.length > 0 && activeObjective && (
+                  <details
+                    open={
+                      !selectedMission.lessonTeaching ||
+                      selectedMission.lessonTeaching.speaking.wordBank === "visible"
+                    }
+                    className="mt-2 text-xs leading-relaxed text-muted-foreground"
+                  >
+                    <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
+                    <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
+                  </details>
+                )}
+              </div>
+              <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+                Press and hold any dialogue word for its definition.
+              </p>{" "}
+              <p className="mt-1 text-center text-xs text-muted-foreground">
+                {spokenTurnFlow === "quick"
+                  ? "Quick response sends when your phone detects that you finished speaking."
+                  : "Review mode waits for you to approve the transcript."}{" "}
+                You can also use the iPhone keyboard microphone in this answer box.
+              </p>{" "}
+              {started &&
+                session &&
+                ageConfirmed &&
+                ageStatusActor === session.user.id &&
+                sessionOwnerRef.current === lifecycleKey && (
+                  <WatchTalkControl
+                    key={`${lifecycleKey}:${missionLocale}`}
+                    locale={missionLocale ?? selectedMission.locale}
+                    title={selectedMission.title}
+                    ready={
+                      status === "ready" &&
+                      !partnerSpeaking &&
+                      !typedTurn.trim() &&
+                      !audioCaptureBusy
+                    }
+                    onTurn={(text) => {
+                      const lease = capture();
+                      if (
+                        !lease.isCurrent() ||
+                        sessionOwnerRef.current !== lifecycleKey ||
+                        status !== "ready" ||
+                        partnerSpeaking ||
+                        audioCaptureBusy ||
+                        typedTurn.trim()
+                      )
+                        return;
+                      if (spokenTurnFlow === "quick")
+                        gated(() => void sendLearnerTurn(text, "dictation"));
+                      else {
+                        setTypedTurn(text);
+                        setTranscriptSource("dictation");
+                      }
+                    }}
+                  />
+                )}
+              <MicrophoneTestDialog
+                key={lifecycleKey}
+                disabled={
+                  audioCaptureBusy ||
+                  status === "starting" ||
+                  status === "listening" ||
+                  status === "thinking" ||
+                  partnerSpeaking
+                }
+              />
+              {showFeedback && (
+                <div
+                  className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4"
+                  aria-live="polite"
+                >
+                  <div className="flex items-center gap-2 text-gold">
+                    <Lightbulb className="h-4 w-4" />
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em]">
+                      Latest coaching
+                    </p>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground">
+                    {latestFeedback ??
+                      "Your first coaching note will appear here after you answer."}
+                  </p>
+                </div>
+              )}
+              {lastResponseTiming && (
+                <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                  Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
+                  {lastResponseTiming.voiceStartedMs !== undefined
+                    ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
+                    : ""}
+                </p>
+              )}
+            </div>
+          </details>
+          <button
+            type="button"
+            onClick={requestMissionStart}
+            aria-label="Reset"
+            title="Reset lesson"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground"
+          >
+            <RotateCcw aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only">Reset</span>
+          </button>
+          <button
+            type="button"
+            onClick={finishMission}
+            aria-label="End"
+            title="End lesson"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground"
+          >
+            <X aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only">End</span>
+          </button>
+        </div>
       </div>
 
       {practiceNotice && (
@@ -2144,7 +2188,8 @@ export function SpeakingMissionsPreview({
 
       <div
         ref={transcriptRef}
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        role="region"
         aria-label="Conversation"
         aria-live="polite"
       >
@@ -2173,27 +2218,32 @@ export function SpeakingMissionsPreview({
                     </button>
                   )}
                   <span className="furigana-line leading-relaxed">
-                    <LongPressWordText
-                      text={turn.text}
-                      onWordLookup={openWordDefinition}
-                      reading={readingScript}
-                    />
+                    {turn.role === "partner" && hideReplyText ? (
+                      "Audio reply"
+                    ) : (
+                      <LongPressWordText
+                        text={turn.text}
+                        onWordLookup={openWordDefinition}
+                        reading={readingScript}
+                      />
+                    )}
                   </span>
                 </div>
-                {turn.feedback?.map((feedback, index) => (
-                  <p
-                    key={`${turn.id}-feedback-${index}`}
-                    className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
-                  >
-                    💡 {feedback}
-                  </p>
-                ))}
+                {showFeedback &&
+                  turn.feedback?.map((feedback, index) => (
+                    <p
+                      key={`${turn.id}-feedback-${index}`}
+                      className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
+                    >
+                      💡 {feedback}
+                    </p>
+                  ))}
               </div>
             </li>
           ))}
           {interim && (
             <li className="flex justify-end">
-              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm italic">
+              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm">
                 {interim}
               </div>
             </li>
@@ -2220,7 +2270,7 @@ export function SpeakingMissionsPreview({
       <div
         role="group"
         aria-label="Conversation microphone"
-        className="flex shrink-0 flex-col items-center gap-1 text-center"
+        className="flex shrink-0 flex-wrap items-center justify-center gap-2 text-center"
       >
         {partnerSpeaking && (
           <button
@@ -2231,7 +2281,22 @@ export function SpeakingMissionsPreview({
             Stop reply — my turn
           </button>
         )}
-        {recognitionSupported === false ? (
+        {useRecordedAudio ? (
+          <RecordedReplyControl
+            key={`${lifecycleKey}:${audioCaptureKey}:${ageConfirmed}`}
+            scope={`${lifecycleKey}:${audioCaptureKey}`}
+            locale={missionLocale}
+            disabled={status === "thinking" || partnerSpeaking}
+            onBegin={stopAudio}
+            onBusyChange={setAudioCaptureBusy}
+            onTranscript={(text) => {
+              setTypedTurn(text);
+              setTranscriptSource("dictation");
+              setErrorMessage(null);
+              setStatus("ready");
+            }}
+          />
+        ) : recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
             Speech recognition is unavailable in this browser. Use the typed answer field below.
           </p>
@@ -2247,17 +2312,21 @@ export function SpeakingMissionsPreview({
             Resume mission
           </button>
         ) : (
-          <>
+          <div className="flex items-center justify-center gap-3">
             <button
               type="button"
-              onClick={status === "listening" ? stopListening : startListening}
+              onClick={
+                status === "listening" || status === "starting" ? stopListening : startListening
+              }
               disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
               aria-label={
                 finishingSpeech
                   ? "Finishing transcription"
-                  : status === "listening"
-                    ? "Stop listening"
-                    : "Start listening"
+                  : status === "starting"
+                    ? "Cancel microphone"
+                    : status === "listening"
+                      ? "Stop listening"
+                      : "Start listening"
               }
               className={
                 "flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
@@ -2270,18 +2339,22 @@ export function SpeakingMissionsPreview({
                 <Mic className="h-8 w-8" />
               )}
             </button>
-            <p className="text-sm text-muted-foreground">
-              {status === "listening"
-                ? finishingSpeech
-                  ? "Finishing transcription…"
-                  : "Listening… tap Stop when you finish"
-                : partnerSpeaking
-                  ? "Partner is speaking… your microphone will unlock afterward"
-                  : status === "thinking"
-                    ? "Partner is replying…"
-                    : `Your turn — tap the microphone and answer in ${selectedMission.language}`}
+            <p role="status" className="text-sm text-muted-foreground">
+              {status === "starting"
+                ? "Starting microphone… tap to cancel"
+                : status === "listening"
+                  ? finishingSpeech
+                    ? "Finishing transcription…"
+                    : interim.trim()
+                      ? "Words received — tap Stop to review"
+                      : "Microphone started — waiting for words…"
+                  : partnerSpeaking
+                    ? "Partner is speaking… your microphone will unlock afterward"
+                    : status === "thinking"
+                      ? "Partner is replying…"
+                      : `Your turn — answer in ${selectedMission.language}`}
             </p>
-          </>
+          </div>
         )}
         {finishingSpeech && (
           <button
@@ -2294,204 +2367,109 @@ export function SpeakingMissionsPreview({
         )}
       </div>
 
-      {transcriptSource === "dictation" && typedTurn.trim() && (
-        <div
-          role="status"
-          className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
-        >
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-            Review what your phone heard
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-foreground">
-            Edit below, then tap Send to approve.
-          </p>
-          <button
-            type="button"
-            onClick={startListening}
-            disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-            className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+      {!useRecordedAudio &&
+        !audioCaptureBusy &&
+        transcriptSource === "dictation" &&
+        typedTurn.trim() && (
+          <div
+            role="status"
+            className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
           >
-            Retry microphone
-          </button>
-        </div>
-      )}
+            <p className="text-sm font-medium text-foreground">
+              Reply captured — review what your phone heard
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-foreground">
+              Edit below, then tap Send to confirm your reply.
+            </p>
+            {!useRecordedAudio && (
+              <button
+                type="button"
+                onClick={startListening}
+                disabled={
+                  status === "thinking" ||
+                  status === "listening" ||
+                  status === "starting" ||
+                  partnerSpeaking
+                }
+                className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+              >
+                Retry microphone
+              </button>
+            )}
+          </div>
+        )}
 
       <form
         className="flex shrink-0 gap-2"
         onSubmit={(event) => {
           event.preventDefault();
           const text = typedTurn.trim();
-          if (!text || status === "thinking" || partnerSpeaking) return;
+          if (!text || status === "thinking" || partnerSpeaking || audioCaptureBusy) return;
           gated(() => void sendLearnerTurn(text));
         }}
       >
         <label className="sr-only" htmlFor="mission-typed-turn">
           Type your answer in {selectedMission.language}
         </label>
-        <input
+        <textarea
+          ref={replyField}
+          rows={typedTurn.trim() ? 4 : 2}
           id="mission-typed-turn"
           value={typedTurn}
           onChange={(event) => {
             setTypedTurn(event.target.value);
             setTranscriptSource("typed");
           }}
-          disabled={status === "thinking" || status === "listening"}
+          disabled={
+            status === "thinking" ||
+            status === "listening" ||
+            status === "starting" ||
+            audioCaptureBusy
+          }
           maxLength={2000}
           placeholder={`Type an answer in ${selectedMission.language}…`}
-          className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
+          className="min-h-16 max-h-[28dvh] min-w-0 flex-1 resize-y overflow-y-auto rounded-xl border border-border bg-background px-3 py-2.5 text-base leading-relaxed text-foreground"
         />
         <button
           type="submit"
           disabled={
-            !typedTurn.trim() || status === "thinking" || status === "listening" || partnerSpeaking
+            !typedTurn.trim() ||
+            audioCaptureBusy ||
+            status === "thinking" ||
+            status === "listening" ||
+            status === "starting" ||
+            partnerSpeaking
           }
           aria-label="Send typed answer"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+          className="inline-flex h-11 self-end gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
         >
           <Send className="h-4 w-4" />
+          <span>Send</span>
         </button>
       </form>
 
-      <details className="relative shrink-0 rounded-xl border border-border px-3">
-        <summary className="min-h-11 cursor-pointer py-3 text-sm">
-          Practice tools & coaching
-        </summary>
-        <div className="absolute bottom-12 inset-x-0 z-30 max-h-[45dvh] overflow-y-auto rounded-2xl border border-border bg-background p-4 shadow-xl">
-          <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
-            {selectedMission.objectives.map((objective) => {
-              const completed = objectiveIds.includes(objective.id);
-              const skipped = skippedObjectiveIds.includes(objective.id);
-              return (
-                <span
-                  key={objective.id}
-                  className={
-                    "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
-                    (completed
-                      ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
-                      : skipped
-                        ? "border-border/60 bg-background/30 text-muted-foreground line-through"
-                        : "border-border text-muted-foreground")
-                  }
-                  title={objective.description}
-                >
-                  {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
-                  {objective.description}
-                </span>
-              );
-            })}
-          </div>
-          <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
-              {activeObjective ? "Your next goal" : "Practice goals addressed"}
-            </p>
-            <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
-              {activeObjective
-                ? activeObjective.description
-                : "Continue naturally or end the mission when the practical exchange feels complete."}
-            </p>
-            {activeObjective && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setTypedTurn(clarificationPhrase(selectedMission.language));
-                    setTranscriptSource("typed");
-                  }}
-                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-                  className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
-                >
-                  Help me ask for an example
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setSkippedObjectiveIds((current) =>
-                      current.includes(activeObjective.id)
-                        ? current
-                        : [...current, activeObjective.id],
-                    )
-                  }
-                  disabled={status === "thinking" || status === "listening" || partnerSpeaking}
-                  className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
-                >
-                  Skip this goal
-                </button>
-              </div>
-            )}
-            {selectedMission.vocabulary.length > 0 && activeObjective && (
-              <details
-                open={
-                  !selectedMission.lessonTeaching ||
-                  selectedMission.lessonTeaching.speaking.wordBank === "visible"
-                }
-                className="mt-2 text-xs leading-relaxed text-muted-foreground"
-              >
-                <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
-                <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
-              </details>
-            )}
-          </div>
-          <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
-            Press and hold any dialogue word for its definition.
-          </p>{" "}
-          <p className="mt-1 text-center text-xs text-muted-foreground">
-            {spokenTurnFlow === "quick"
-              ? "Quick response sends when your phone detects that you finished speaking."
-              : "Review mode waits for you to approve the transcript."}{" "}
-            You can also use the iPhone keyboard microphone in this answer box.
-          </p>{" "}
-          {started &&
-            session &&
-            ageConfirmed &&
-            ageStatusActor === session.user.id &&
-            sessionOwnerRef.current === lifecycleKey && (
-              <WatchTalkControl
-                key={`${lifecycleKey}:${missionLocale}`}
-                locale={missionLocale ?? selectedMission.locale}
-                title={selectedMission.title}
-                ready={status === "ready" && !partnerSpeaking && !typedTurn.trim()}
-                onTurn={(text) => {
-                  const lease = capture();
-                  if (
-                    !lease.isCurrent() ||
-                    sessionOwnerRef.current !== lifecycleKey ||
-                    status !== "ready" ||
-                    partnerSpeaking ||
-                    typedTurn.trim()
-                  )
-                    return;
-                  if (spokenTurnFlow === "quick")
-                    gated(() => void sendLearnerTurn(text, "dictation"));
-                  else {
-                    setTypedTurn(text);
-                    setTranscriptSource("dictation");
-                  }
-                }}
-              />
-            )}
-          <MicrophoneTestDialog
-            key={lifecycleKey}
-            disabled={status === "listening" || status === "thinking" || partnerSpeaking}
-          />
-          <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
-            <div className="flex items-center gap-2 text-gold">
-              <Lightbulb className="h-4 w-4" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-foreground">
-              {latestFeedback ?? "Your first coaching note will appear here after you answer."}
-            </p>
-          </div>
-          {lastResponseTiming && (
-            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-              Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
-              {lastResponseTiming.voiceStartedMs !== undefined
-                ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
-                : ""}
-            </p>
-          )}
-        </div>
-      </details>
+      <SpeakingConversationControls
+        text={!hideReplyText}
+        feedback={showFeedback}
+        voice={automaticReplyAudio}
+        onText={() => setHideReplyText((value) => !value)}
+        onFeedback={() => setShowFeedback((value) => !value)}
+        onVoice={() => {
+          stopAudio();
+          setAutomaticReplyAudio((value) => !value);
+        }}
+        repeatDisabled={
+          status === "thinking" ||
+          status === "listening" ||
+          status === "starting" ||
+          audioCaptureBusy ||
+          !turns.some((turn) => turn.role === "partner")
+        }
+        onRepeat={() => {
+          const reply = [...turns].reverse().find((turn) => turn.role === "partner");
+          if (reply) void speakPartnerText(reply.text);
+        }}
+      />
 
       {wordRequest && (
         <WordCard

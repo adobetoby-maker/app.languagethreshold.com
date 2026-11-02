@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useMemo, useState } from "react";
 import { Trophy, X } from "lucide-react";
 import {
@@ -15,6 +16,7 @@ import { RankBadge } from "./RankBadge";
 type Tab = "week" | "alltime" | "language";
 
 export function LeaderboardPanel({ onClose }: { onClose: () => void }) {
+  useOverlayHistory(true, onClose);
   const { players } = useLeaderboard();
   const m = useMatch();
   const { state } = useApp();
@@ -59,7 +61,7 @@ export function LeaderboardPanel({ onClose }: { onClose: () => void }) {
         <button
           onClick={onClose}
           aria-label="Close leaderboard"
-          className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 hover:border-gold/60 hover:text-gold"
+          className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 text-white hover:border-gold/60 hover:text-gold"
         >
           <X className="h-4 w-4" />
         </button>
@@ -153,7 +155,9 @@ function Row({
           : "border-white/10 bg-white/[0.03]"
       }`}
     >
-      <div className="w-5 shrink-0 text-center font-display italic text-lg text-white/80 sm:w-8">{rank}</div>
+      <div className="w-5 shrink-0 text-center font-display italic text-lg text-white/80 sm:w-8">
+        {rank}
+      </div>
       <RankBadge tier={tier} badge={RANK_BADGE[tier]} size="sm" className="shrink-0" />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">

@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useState } from "react";
 import confetti from "canvas-confetti";
 import {
@@ -41,6 +43,7 @@ const STAGE_ORDER: Stage[] = [
 ];
 
 export function RankUpCeremony({ oldTier, newTier, onContinue }: Props) {
+  useOverlayHistory(true, onContinue);
   const [stage, setStage] = useState<Stage>("flash");
 
   useEffect(() => {
@@ -91,6 +94,14 @@ export function RankUpCeremony({ oldTier, newTier, onContinue }: Props) {
 
   return (
     <div className="absolute inset-0 z-50 overflow-hidden">
+      <button
+        type="button"
+        aria-label="Close rank celebration"
+        onClick={onContinue}
+        className="absolute right-4 top-4 z-[60] flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 bg-[#06101e] text-white"
+      >
+        <X className="h-5 w-5" aria-hidden="true" />
+      </button>
       {/* Color wash background */}
       <div
         className="absolute inset-0 transition-colors duration-700"
@@ -187,7 +198,7 @@ function ShatterFragments({ emoji, color }: { emoji: string; color: string }) {
             className="shatter-frag absolute left-1/2 top-1/2 select-none"
             style={
               {
-                ["--angle" as any]: `${angle}deg`,
+                "--angle": `${angle}deg`,
                 color,
                 fontSize: "2rem",
                 textShadow: `0 0 12px ${color}`,
@@ -214,7 +225,7 @@ function RushParticles({ color }: { color: string }) {
             className="rush-particle absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full"
             style={
               {
-                ["--angle" as any]: `${angle}deg`,
+                "--angle": `${angle}deg`,
                 background: color,
                 boxShadow: `0 0 8px ${color}`,
               } as React.CSSProperties

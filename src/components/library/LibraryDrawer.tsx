@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useMemo, useState } from "react";
 import { LegacyLibraryRecovery } from "./LegacyLibraryRecovery";
 import {
@@ -147,6 +148,7 @@ type QuickCat = (typeof QUICK_CATEGORIES)[number] | "All";
 type LevelFilter = (typeof CEFR_LEVELS)[number] | "All";
 
 export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useOverlayHistory(open, onClose);
   const {
     state,
     dispatch,

@@ -5,6 +5,8 @@ import {
   CheckCircle2,
   CreditCard,
   FileDown,
+  FileText,
+  FolderLock,
   Mail,
   Plus,
   RefreshCw,
@@ -85,6 +87,20 @@ type Certificate = {
   issued_at: string;
   status: string;
 };
+type TeamDocument = {
+  id: string;
+  title: string;
+  source_language: string;
+  target_language: string;
+  created_at: string;
+};
+type DocumentAccessGrant = { user_id: string; granted_at: string };
+type DocumentAssignment = {
+  id: string;
+  user_id: string;
+  document_id: string;
+  assigned_at: string;
+};
 type TeamData = {
   organization: { id: string; name: string; billing_email: string; onboarding_step: number };
   enrollmentEnabled: boolean;
@@ -104,6 +120,9 @@ type TeamData = {
   lessons: Lesson[];
   attempts: Attempt[];
   certificates: Certificate[];
+  documentAccessGrants: DocumentAccessGrant[];
+  documentAssignments: DocumentAssignment[];
+  teamDocuments: TeamDocument[];
   /** Per-user Core 30 log; absent on older servers. */
   core30?: Record<string, Core30Log>;
   core30Tracks?: Record<string, Core30TrackDisplay[]>;
@@ -1303,6 +1322,13 @@ function OwnedAdminWorkspace({
           </table>
         </div>
       </section>
+      <TeamDocumentsPanel
+        data={data}
+        learners={activeLearners}
+        busy={busy}
+        orgId={orgId}
+        act={adminAct}
+      />
       <div className="grid gap-6 lg:grid-cols-2">
         <details className={card}>
           <summary className="mb-2 cursor-pointer text-xl font-semibold">
@@ -1751,6 +1777,145 @@ function OwnedAdminWorkspace({
         )}
       </section>
     </div>
+  );
+}
+
+function TeamDocumentsPanel({
+  data,
+  learners,
+  busy,
+  orgId,
+  act,
+}: {
+  data: TeamData;
+  learners: Member[];
+  busy: boolean;
+  orgId: string;
+  act: TeamAction;
+}) {
+  return (
+    <section className={card}>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="mb-1 font-mono text-xs uppercase tracking-[0.18em] text-gold-ink">
+            Advanced
+          </p>
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
+            <FolderLock className="h-5 w-5 text-gold-ink" /> Team documents
+          </h2>
+          <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+            Keep Documents out of the beginner workspace. Give a learner the full advanced
+            workspace, or assign only the readings they need. Individual assignments are read-only.
+          </p>
+        </div>
+        <Link to="/documents" className={secondary}>
+          <FileText className="mr-1 inline h-4 w-4" /> Upload or manage documents
+        </Link>
+      </div>
+
+      {!data.teamDocuments.length && (
+        <div className="mt-5 rounded-xl border border-dashed border-border p-4 text-sm text-muted-foreground">
+          Upload a document first, then return here to assign it to a learner. Full workspace access
+          can be granted now.
+        </div>
+      )}
+
+      <div className="mt-5 grid gap-4 lg:grid-cols-2">
+        {learners.map((member) => {
+          const hasFullAccess = data.documentAccessGrants.some(
+            (grant) => grant.user_id === member.user_id,
+          );
+          const assignedIds = new Set(
+            data.documentAssignments
+              .filter((assignment) => assignment.user_id === member.user_id)
+              .map((assignment) => assignment.document_id),
+          );
+          return (
+            <article key={member.id} className="rounded-xl border border-border/70 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 className="font-semibold">{member.display_name}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    {hasFullAccess
+                      ? "Full Documents workspace enabled"
+                      : `${assignedIds.size} document${assignedIds.size === 1 ? "" : "s"} assigned`}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  disabled={busy}
+                  aria-pressed={hasFullAccess}
+                  className={hasFullAccess ? button : secondary}
+                  onClick={() =>
+                    void act(
+                      {
+                        action: "set_document_access",
+                        orgId,
+                        memberId: member.id,
+                        enabled: !hasFullAccess,
+                      },
+                      hasFullAccess
+                        ? `Advanced Documents access removed for ${member.display_name}.`
+                        : `Advanced Documents access enabled for ${member.display_name}.`,
+                    )
+                  }
+                >
+                  {hasFullAccess ? "Full access on" : "Allow full workspace"}
+                </button>
+              </div>
+
+              {!!data.teamDocuments.length && (
+                <fieldset className="mt-4 space-y-2">
+                  <legend className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Individual readings
+                  </legend>
+                  {data.teamDocuments.map((document) => {
+                    const assigned = assignedIds.has(document.id);
+                    return (
+                      <label
+                        key={document.id}
+                        className="flex cursor-pointer items-start gap-3 rounded-lg border border-border/50 px-3 py-2.5 text-sm"
+                      >
+                        <input
+                          type="checkbox"
+                          className="mt-0.5 h-4 w-4 accent-gold"
+                          checked={assigned}
+                          disabled={busy}
+                          onChange={() =>
+                            void act(
+                              {
+                                action: assigned ? "unassign_document" : "assign_document",
+                                orgId,
+                                memberId: member.id,
+                                documentId: document.id,
+                              },
+                              assigned
+                                ? `“${document.title}” unassigned from ${member.display_name}.`
+                                : `“${document.title}” assigned to ${member.display_name}.`,
+                            )
+                          }
+                        />
+                        <span>
+                          <strong className="block font-medium">{document.title}</strong>
+                          <span className="text-xs text-muted-foreground">
+                            {document.source_language} → {document.target_language}
+                          </span>
+                        </span>
+                      </label>
+                    );
+                  })}
+                </fieldset>
+              )}
+            </article>
+          );
+        })}
+      </div>
+      {!learners.length && (
+        <p className="mt-5 text-sm text-muted-foreground">
+          Invite a learner before assigning advanced documents.
+        </p>
+      )}
+    </section>
   );
 }
 

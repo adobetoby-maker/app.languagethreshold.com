@@ -2,6 +2,7 @@ import { getCurriculum } from "../data/curriculum.ts";
 import { getLessonDefinition, modulePracticeVersion } from "./lesson-definition.ts";
 import { cleanLessonWords, hasEnoughWords } from "./lesson-words-core.ts";
 import type { ModuleDeckPair } from "./module-deck-core.ts";
+import { isFoundationModule, isMasterModule } from "./core30-plan.ts";
 
 /** Reuse all authored lesson vocabulary for the exact track; structural coverage is not approval. */
 export function authoredModuleDeck(
@@ -11,7 +12,8 @@ export function authoredModuleDeck(
 ) {
   if (!moduleId) return null;
   const curriculum = getCurriculum(moduleId);
-  if (!curriculum || curriculum.lessons.length !== 30) return null;
+  const expected = isFoundationModule(moduleId) ? 10 : isMasterModule(moduleId) ? 20 : 30;
+  if (!curriculum || curriculum.lessons.length !== expected) return null;
   const contentVersion = modulePracticeVersion(moduleId, target, native);
   if (contentVersion === "unversioned-app-draft") return null;
   const pairs: ModuleDeckPair[] = [],

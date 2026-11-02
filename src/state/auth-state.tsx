@@ -27,6 +27,7 @@ import { hasUnsyncedLessonDrafts } from "@/lib/lesson-drafts";
 import { hasUnsyncedExamDrafts, browserExamStorage } from "@/lib/assessments/drafts";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/ga-events";
+import { identifyHeyCatchUser } from "@/lib/heycatch";
 import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
 import { createAuthActorAccess } from "@/lib/auth-actor-access";
@@ -125,6 +126,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setIdentityEpoch(identityVersion.current);
       }
       currentUser.current = nextUser;
+      if (previousUser !== nextUser || sessionEvents === 1) identifyHeyCatchUser(nextUser);
       // At startup and on every sign-in or switch, remove cached voice stores that belong to any
       // other account (all of them when signed out), even if an earlier clear failed.
       if (sessionEvents === 1 || previousUser !== nextUser) void pruneTtsAudioStores(nextUser);

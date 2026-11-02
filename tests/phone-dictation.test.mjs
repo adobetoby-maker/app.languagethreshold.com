@@ -9,7 +9,7 @@ test("native iPhone dictation records repeated turns and rejects late events, sc
   mkdirSync(resolve("node_modules/.cache"), { recursive: true });
   const dir = mkdtempSync(resolve("node_modules/.cache/phone-dictation-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window");
-  globalThis.window = {};
+  globalThis.window = { setTimeout, clearTimeout };
   try {
     await build({
       stdin: {
@@ -31,29 +31,151 @@ test("native iPhone dictation records repeated turns and rejects late events, sc
             }));
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
-export const c={platform:'ios',available:true,listeners:[],starts:[],stops:[],cancels:[],delayListener:false};
+export const c={platform:'ios',available:true,listeners:[],starts:[],stops:[],cancels:[],delayListener:false,delayCancel:false};
 export const Capacitor={getPlatform:()=>c.platform,isPluginAvailable:()=>c.available};
 export const registerPlugin=()=>({
  addListener:async(name,fn)=>{const entry={fn,removed:false};c.listeners.push(entry);if(c.delayListener)await new Promise(r=>entry.release=r);return {remove:async()=>{entry.removed=true}}},
  start:options=>new Promise((resolve,reject)=>c.starts.push({options,resolve,reject})),
- stop:async options=>{c.stops.push(options)},cancel:async options=>{c.cancels.push(options)}
+ stop:async options=>{c.stops.push(options)},cancel:options=>{if(c.delayCancel)return new Promise(resolve=>c.cancels.push({...options,resolve}));c.cancels.push(options);return Promise.resolve();}
 });`,
             }));
           },
         },
       ],
     });
-    const { recognitionConstructor, NativePhoneRecognition, c } = await import(
-      join(dir, "case.mjs")
-    );
+    const { recognitionConstructor, NativePhoneRecognition, BrowserPhoneRecognition, c } =
+      await import(join(dir, "case.mjs"));
     assert.equal(recognitionConstructor(), NativePhoneRecognition);
     const web = class {};
     window.webkitSpeechRecognition = web;
     c.available = false;
-    assert.equal(recognitionConstructor(), web);
+    assert.equal(recognitionConstructor(), BrowserPhoneRecognition);
     c.available = true;
     c.platform = "web";
-    assert.equal(recognitionConstructor(), web);
+    assert.equal(recognitionConstructor(), BrowserPhoneRecognition);
+    const browsers = [];
+    window.webkitSpeechRecognition = class {
+      constructor() {
+        browsers.push(this);
+      }
+      start() {
+        this.onstart?.();
+      }
+      stop() {
+        this.stops = (this.stops ?? 0) + 1;
+      }
+      abort() {
+        this.aborts = (this.aborts ?? 0) + 1;
+        if (!this.delayEnd) this.onend?.();
+      }
+    };
+    for (let turn = 0; turn < 20; turn++) {
+      const rec = new (recognitionConstructor())();
+      let ends = 0,
+        results = 0;
+      rec.onresult = () => results++;
+      rec.onend = () => {
+        ends++;
+        rec.abort();
+      };
+      rec.start();
+      const raw = browsers.at(-1),
+        lateResult = raw.onresult,
+        lateEnd = raw.onend;
+      raw.onresult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "test" } }] });
+      rec.stop();
+      raw.onend();
+      assert.equal(raw.stops, turn + 1);
+      assert.equal(raw.aborts, undefined, "normal end cleanup never aborts Safari again");
+      lateResult({});
+      lateEnd();
+      assert.equal(results, 1);
+      assert.equal(ends, 1);
+    }
+    assert.equal(browsers.length, 1, "twenty successful turns reuse one browser speech service");
+    const oldBrowser = new BrowserPhoneRecognition();
+    oldBrowser.start();
+    const retired = browsers.at(-1),
+      staleResult = retired.onresult;
+    oldBrowser.onresult = () => assert.fail("late result escaped capture owner");
+    const nextBrowser = new BrowserPhoneRecognition();
+    nextBrowser.start();
+    assert.equal(retired.aborts, 1);
+    staleResult({});
+    nextBrowser.abort();
+    nextBrowser.abort();
+    assert.equal(browsers.at(-1).aborts, 1);
+    await tick();
+    // A replacement cannot start until the old service acknowledges shutdown.
+    const browserPending = new BrowserPhoneRecognition();
+    browserPending.start();
+    const waiting = browsers.at(-1);
+    waiting.delayEnd = true;
+    const browserReplacement = new BrowserPhoneRecognition();
+    const beforeRelease = browsers.length;
+    browserReplacement.start();
+    assert.equal(browsers.length, beforeRelease);
+    waiting.onend();
+    await tick();
+    assert.equal(browsers.length, beforeRelease + 1);
+    browserReplacement.abort();
+    await tick();
+    // A recognizer which says started but returns no words gets one fresh attempt.
+    const timers = new Map();
+    let timerId = 0;
+    window.setTimeout = (fn, ms) => {
+      const id = ++timerId;
+      timers.set(id, { fn, ms });
+      return id;
+    };
+    window.clearTimeout = (id) => timers.delete(id);
+    const stalled = new BrowserPhoneRecognition();
+    let restarts = 0,
+      received = 0;
+    stalled.onrestart = () => restarts++;
+    stalled.onresult = () => received++;
+    stalled.start();
+    const stuck = browsers.at(-1),
+      lateResult = stuck.onresult;
+    const retryTimer = [...timers.values()].find((t) => t.ms === 8000);
+    assert.ok(retryTimer);
+    retryTimer.fn();
+    await tick();
+    assert.equal(restarts, 1);
+    assert.notEqual(browsers.at(-1), stuck);
+    lateResult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "late" } }] });
+    assert.equal(received, 0);
+    assert.equal([...timers.values()].filter((t) => t.ms === 8000).length, 0, "no retry loop");
+    assert.ok(
+      [...timers.values()].find((t) => t.ms === 15000),
+      "second attempt has an independent no-words deadline",
+    );
+    browsers
+      .at(-1)
+      .onresult({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "recovered" } }] });
+    assert.equal(received, 1);
+    stalled.stop();
+    browsers.at(-1).onend();
+    stalled.abort();
+    assert.equal(timers.size, 0, "successful result cancels all recovery deadlines");
+    const noWords = new BrowserPhoneRecognition();
+    const noWordsErrors = [];
+    noWords.onerror = (event) => noWordsErrors.push(event.error);
+    noWords.start();
+    [...timers.values()].find((t) => t.ms === 8000).fn();
+    await tick();
+    const secondDeadline = [...timers.values()].find((t) => t.ms === 15000);
+    browsers
+      .at(-1)
+      .onresult({ resultIndex: 0, results: [{ isFinal: false, 0: { transcript: " " } }] });
+    secondDeadline.fn();
+    assert.deepEqual(
+      noWordsErrors,
+      ["speech-timeout"],
+      "empty result events cannot keep a silent recognizer alive",
+    );
+    window.setTimeout = setTimeout;
+    window.clearTimeout = clearTimeout;
     c.platform = "ios";
     const allIds = new Set();
     for (let turn = 0; turn < 3; turn++) {
@@ -61,7 +183,9 @@ export const registerPlugin=()=>({
       rec.lang = "es-MX";
       const results = [],
         errors = [];
-      let ends = 0;
+      let ends = 0,
+        ready = 0;
+      rec.onstart = () => ready++;
       rec.onresult = (e) => results.push(e.results[0]);
       rec.onerror = (e) => errors.push(e);
       rec.onend = () => ends++;
@@ -73,8 +197,10 @@ export const registerPlugin=()=>({
       assert.equal(allIds.has(id), false);
       allIds.add(id);
       assert.equal(start.options.locale, "es-MX");
+      assert.equal(ready, 0, "native start acceptance is still pending");
       start.resolve();
       await tick();
+      assert.equal(ready, 1);
       listener.fn({ requestId: "wrong", text: "cross-context", final: true, ended: true });
       assert.equal(results.length, 0);
       listener.fn({ requestId: id, text: `partial ${turn}`, final: false });
@@ -130,10 +256,35 @@ export const registerPlugin=()=>({
     next.abort();
     fresh.resolve();
     await tick();
+    // A mode switch must wait for native cancellation before opening the next audio engine.
+    const retiring = new NativePhoneRecognition();
+    retiring.start();
+    await tick();
+    c.starts.at(-1).resolve();
+    await tick();
+    c.delayCancel = true;
+    retiring.abort();
+    const startsBefore = c.starts.length,
+      replacement = new NativePhoneRecognition();
+    let ready = 0;
+    replacement.onstart = () => ready++;
+    replacement.start();
+    await tick();
+    assert.equal(c.starts.length, startsBefore);
+    c.cancels.at(-1).resolve();
+    await tick();
+    assert.equal(c.starts.length, startsBefore + 1);
+    const heldStart = c.starts.at(-1);
+    c.delayCancel = false;
+    replacement.abort();
+    heldStart.resolve();
+    await tick();
+    assert.equal(ready, 0, "late native readiness cannot resurrect a cancelled turn");
     c.delayListener = true;
     const notStarted = new NativePhoneRecognition();
     const count = c.starts.length;
     notStarted.start();
+    await tick();
     notStarted.abort();
     c.listeners.at(-1).release();
     await tick();

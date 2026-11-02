@@ -1,3 +1,6 @@
+import { FounderStoryLink } from "./FounderStoryLink";
+import { BlogNavLink } from "./blog/BlogNavLink";
+import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
 import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { PracticeBarSetting, PracticeTimeBar, PracticeTimeTicker } from "./PracticeTimeBar";
 import {
@@ -30,6 +33,7 @@ import {
   LibraryBig,
   ArrowRightLeft,
   Menu,
+  X,
   Sun,
   Moon,
   Sparkles,
@@ -82,7 +86,7 @@ import {
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
-import { VoicePicker } from "./VoicePicker";
+import { VoiceSettings } from "./settings/VoiceSettings";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
 
@@ -336,7 +340,21 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
+  const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
+  useEffect(() => {
+    setSpeakingNavOpen(false);
+  }, [state.currentTab]);
   const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
+  useEffect(() => {
+    const open = () => {
+      if (!window.matchMedia(DESKTOP_GUIDE_MEDIA).matches) {
+        setMoreView("settings");
+        setMoreSheetOpen(true);
+      }
+    };
+    window.addEventListener(SITE_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(SITE_SETTINGS_EVENT, open);
+  }, []);
   const [updatingApp, setUpdatingApp] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
   const [resettingApp, setResettingApp] = useState(false);
@@ -469,12 +487,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           aria-label="Desktop navigation"
           className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
         >
-          <a
-            href="/documents"
-            className="mx-1 rounded-lg border border-gold/30 px-2 py-3 text-center text-xs text-gold-ink"
-          >
-            My Documents
-          </a>
           {desktopVisible.map((item) => {
             const { key, Icon } = item;
             const { label, short } =
@@ -506,7 +518,26 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </button>
             );
           })}
+          <BlogNavLink />
         </nav>
+
+        <a
+          href="/pricing"
+          title="Pricing"
+          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-gold/35 px-1 py-1 text-gold-ink transition-colors hover:bg-gold/10"
+        >
+          <Star className="h-[17px] w-[17px]" strokeWidth={1.6} />
+          <span className="font-mono text-[9px] tracking-wide">Pricing</span>
+        </a>
+
+        <a
+          href="/advanced"
+          title="Advanced tools"
+          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-border/50 px-1 py-1 text-muted-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
+        >
+          <GraduationCap className="h-[17px] w-[17px]" strokeWidth={1.6} />
+          <span className="font-mono text-[9px] tracking-wide">Advanced</span>
+        </a>
 
         {/* Language Match */}
         {onOpenMatch && (
@@ -550,16 +581,39 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
       </aside>
 
+      <button
+        type="button"
+        aria-label="Navigation, language and module"
+        aria-expanded={speakingNavOpen}
+        aria-controls="mobile-primary-navigation"
+        onClick={() => setSpeakingNavOpen((open) => !open)}
+        className="lt-speaking-navigation h-12 w-12 items-center justify-center rounded-full border border-gold/50 bg-background text-foreground shadow-lg"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
       {/* The familiar bottom navigation is reserved for phones and touch tablets. */}
       <nav
+        id="mobile-primary-navigation"
+        data-speaking-open={speakingNavOpen}
         aria-label="Primary"
         className="lt-bottom-nav relative z-40 flex flex-col desktop:hidden border-t border-border/50 bg-background [padding-bottom:env(safe-area-inset-bottom)]"
       >
+        <button
+          type="button"
+          aria-label="Hide navigation"
+          onClick={() => setSpeakingNavOpen(false)}
+          className="lt-speaking-navigation-close min-h-11 items-center justify-center gap-2 border-b border-border/30 text-sm text-foreground"
+        >
+          <X className="h-4 w-4" />
+          <span className="lt-speaking-close-copy">Back to conversation</span>
+          <span className="lt-core60-close-copy">Back to lesson</span>
+        </button>
         <PracticeTimeBar edge="nav" />
         {/* Mobile-only: Add word + language + module + voice + settings. One tight row that
            fits 375px with nothing clipped: the module chip is the only flexible one and
            truncates; every control stays reachable. Add word lives here on phones and in the compact header on desktop. */}
-        <div className="flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
+        <div className="lt-learning-selectors flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
           <button
             onClick={openAddWord}
             aria-label="Add a word to My Vocab from this page"
@@ -605,12 +659,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a
-            href="/documents"
-            className="rounded-lg border border-gold/40 px-2 py-2.5 text-xs text-gold-ink"
-          >
-            Docs
-          </a>
           {/* Module picker */}
           <button
             onClick={() => setModuleDialogOpen(true)}
@@ -624,11 +672,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </span>
             <ChevronDown className="h-3 w-3 shrink-0 opacity-50" />
           </button>
-
-          {/* Site-wide voice choice must be reachable on phones, where TopNav is hidden. */}
-          <div className="shrink-0">
-            <VoicePicker compact />
-          </div>
 
           {/* Appearance and other preferences remain in the familiar More sheet. */}
           <button
@@ -712,8 +755,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       {/* Mobile-only: full tab list, grouped the same way the desktop sidebar implies. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
+          scrollBody
           side="bottom"
-          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
+          className="h-[80vh] max-h-[80vh] overflow-hidden border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
         >
           {/* Which pair of languages you are working in, above everything else.
               The bottom strip shows the target only, and native was reachable
@@ -721,9 +765,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               no way to see or change it. Plain <select> rather than a dropdown
               menu: inside a bottom sheet iOS gives the native picker wheel,
               which is easier to hit and cannot be mis-scrolled. */}
-          {/* mt-8 clears the sheet's absolutely-positioned close button, which
-              otherwise lands on the Native select's top-right corner. */}
-          <div className="mt-8 mb-3 grid grid-cols-2 gap-2">
+          <div className="mb-3 grid grid-cols-2 gap-2">
             <label className="flex flex-col gap-1">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
                 Learning
@@ -769,6 +811,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </label>
           </div>
 
+          <button
+            type="button"
+            onClick={() => {
+              setMoreSheetOpen(false);
+              setModuleDialogOpen(true);
+            }}
+            className="mb-3 flex min-h-11 w-full items-center justify-between rounded-xl border border-border/60 bg-card/30 px-3 py-2 text-sm"
+          >
+            <span>Module: {mod ? `${mod.emoji} ${mod.name}` : "Core (Free)"}</span>
+            <ChevronDown className="h-4 w-4" />
+          </button>
+
           <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
           <SheetDescription className="sr-only">
             Every available tab, grouped by section. Tap one to switch.
@@ -776,7 +830,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
             <span className="text-sm text-foreground">Your account</span>
-            <AuthButton />
+            <div className="flex items-center gap-3">
+              <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
+                Pricing
+              </a>
+              <AuthButton />
+            </div>
           </div>
 
           <div hidden={moreView === "settings"}>
@@ -826,6 +885,17 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               Hub, and Games is a primary tab in the bottom nav — one tap, not
               two — so a second entry in this sheet was duplication. The desktop
               icon rail keeps its shortcut. */}
+
+            <a
+              href="/advanced"
+              className="mt-5 flex min-h-12 w-full items-center justify-between rounded-xl border border-border/50 bg-card/30 px-4 py-3 text-sm text-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
+            >
+              <span className="flex items-center gap-2.5">
+                <GraduationCap className="h-4 w-4 text-gold-ink" strokeWidth={1.6} />
+                Advanced tools
+              </span>
+              <span className="text-xs text-muted-foreground">Documents</span>
+            </a>
 
             {/* Recently looked-up words — collapsible history built from
               speech-state's setLastWord() calls (WordCard.tsx). Tap a word
@@ -955,6 +1025,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </p>
 
             <div className="mt-2">
+              <VoiceSettings />
               <DeviceVoiceHelp />
               <AudioRoutingSettings
                 learningContext={JSON.stringify([
@@ -1010,6 +1081,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
             </button>
 
+            <FounderStoryLink />
             <AppVersion />
 
             <button
@@ -1029,6 +1101,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
             </button>
           </details>
+          <BlogNavLink />
           <p className="mt-6 text-center text-[11px] text-muted-foreground">
             <a href="/terms" className="underline underline-offset-2 hover:text-foreground">
               Terms of Service

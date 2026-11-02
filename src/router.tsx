@@ -1,3 +1,4 @@
+import "./lib/heycatch";
 import { createRouter, useRouter, type ErrorComponentProps } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 

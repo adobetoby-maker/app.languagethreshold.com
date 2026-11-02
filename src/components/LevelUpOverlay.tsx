@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect } from "react";
 import confetti from "canvas-confetti";
 import { useApp } from "@/state/app-state";
@@ -32,6 +34,7 @@ function fireGoldConfetti() {
 export function LevelUpOverlay() {
   const { state, dispatch } = useApp();
   const open = !!state.pendingLevelUp;
+  useOverlayHistory(open, () => dispatch({ type: "DISMISS_LEVEL_UP" }));
 
   useEffect(() => {
     if (open) fireGoldConfetti();
@@ -45,6 +48,14 @@ export function LevelUpOverlay() {
         className="relative w-full max-w-md rounded-3xl border border-gold/50 bg-card/95 p-8 text-center shadow-luxe"
         style={{ animation: "cardPop 280ms cubic-bezier(.22,1,.36,1)" }}
       >
+        <button
+          type="button"
+          aria-label="Close level celebration"
+          onClick={() => dispatch({ type: "DISMISS_LEVEL_UP" })}
+          className="absolute right-2 top-2 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-card text-foreground"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
           ✦ Level Up

@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { BookmarkPlus, X } from "lucide-react";
@@ -18,6 +19,7 @@ export function GlobalVocabCapture() {
   const lookup = useServerFn(lookupWord);
   const [selection, setSelection] = useState<Selection | null>(null);
   const [open, setOpen] = useState(false);
+  useOverlayHistory(open, () => setOpen(false));
   const [word, setWord] = useState("");
   const [sourceSentence, setSourceSentence] = useState("");
   const [translation, setTranslation] = useState("");
@@ -158,7 +160,12 @@ export function GlobalVocabCapture() {
           >
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-semibold">Add to My Vocab</h2>
-              <button type="button" onClick={() => setOpen(false)} aria-label="Close">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground"
+              >
                 <X className="h-5 w-5" />
               </button>
             </div>

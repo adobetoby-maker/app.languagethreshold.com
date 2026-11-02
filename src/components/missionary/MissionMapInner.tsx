@@ -1,3 +1,4 @@
+import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useEffect, useMemo, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, CircleMarker } from "react-leaflet";
 import L from "leaflet";
@@ -60,6 +61,7 @@ export function MissionMapInner({
   const sortedAreas = useMemo(() => Object.keys(groupedMissions).sort(), [groupedMissions]);
 
   const [showPicker, setShowPicker] = useState(false);
+  useOverlayHistory(showPicker, () => setShowPicker(false));
   const [selectedMissionId, setSelectedMissionId] = useState<string | null>(null);
   const [hometownCity, setHometownCity] = useState("");
   const [hometownCountry, setHometownCountry] = useState("");
@@ -392,8 +394,8 @@ export function MissionMapInner({
               </div>
               <button
                 onClick={() => setShowPicker(false)}
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="Close"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground"
+                aria-label="Close mission picker"
               >
                 <X className="h-4 w-4" />
               </button>

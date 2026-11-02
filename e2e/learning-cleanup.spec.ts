@@ -87,7 +87,10 @@ test("new lesson entry ignores a resume from another language", async ({ page })
   await expect(page).toHaveURL(/lesson=1/);
 });
 
-test("started Core 60 overview puts next lesson in one compact button", async ({ page }) => {
+test("started Core 60 overview puts next lesson in one compact button", async ({
+  page,
+  isMobile,
+}) => {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   const log = { startDate: new Date().toISOString().slice(0, 10), lessons: {} };
@@ -108,7 +111,7 @@ test("started Core 60 overview puts next lesson in one compact button", async ({
   expect(before.core30Log).toEqual({ [core30Key("roofing")]: log });
   await card.getByRole("button", { name: /Start Lesson 1.*Name the Roof System/ }).click();
   await expect(page).toHaveURL(/lesson=1/);
-  if (await page.getByTestId("lesson-quick-next").isVisible()) {
+  if (isMobile) {
     await expect(page.getByText("Goal:", { exact: true })).toBeHidden();
   }
   const after = await readAppState(page);
@@ -125,20 +128,39 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   await expect(page.getByTestId("practice-mode-study")).toBeVisible();
   const primary = page.getByRole("navigation", { name: "Primary", exact: true });
   const menu = page.getByRole("button", { name: "Navigation, language and module" });
-  const next = page.getByTestId("lesson-quick-next");
+  const modes = page.getByTestId("lesson-section-nav");
   await expect(primary).toBeHidden();
   await expect(menu).toBeVisible();
-  await expect(next).toContainText("Next lesson");
-  await expect(next).toBeInViewport();
+  await expect(modes).toBeVisible();
+  const viewport = page.viewportSize()!;
+  const menuBox = await menu.boundingBox();
+  const modesBox = await modes.boundingBox();
+  const seeBox = await page.getByTestId("lesson-nav-see").boundingBox();
+  expect(modesBox!.y).toBeGreaterThan(viewport.height - 110);
+  expect(modesBox!.y + modesBox!.height).toBeLessThanOrEqual(viewport.height);
+  expect(menuBox!.x + menuBox!.width).toBeLessThanOrEqual(seeBox!.x);
+  expect(menuBox!.y).toBeGreaterThanOrEqual(modesBox!.y);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "test-results/core60-focused-iphone.png" });
+  await expect(
+    page.getByTestId("lesson-nav-top").getByRole("button", { name: /Next lesson/ }),
+  ).toBeVisible();
+  await page.getByTestId("lesson-nav-see").click();
+  await expect(page.getByTestId("lesson-section-see")).toBeInViewport();
   const before = await readAppState(page);
   await menu.click();
   await expect(primary).toBeVisible();
+  await expect(modes).toBeHidden();
   await expect(primary.getByRole("button", { name: "Hide navigation" })).toContainText(
     "Back to lesson",
   );
   await primary.getByRole("button", { name: "Hide navigation" }).click();
   await expect(primary).toBeHidden();
-  await next.click();
+  await expect(modes).toBeVisible();
+  await page
+    .getByTestId("lesson-nav-top")
+    .getByRole("button", { name: /Next lesson/ })
+    .click();
   await expect(page).toHaveURL(/lesson=2/);
   const after = await readAppState(page);
   expect(after.lessonProgress).toEqual(before.lessonProgress);

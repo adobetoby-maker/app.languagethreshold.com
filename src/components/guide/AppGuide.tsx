@@ -710,9 +710,22 @@ function stickyTopOffset(): number {
   return Math.max(0, Math.ceil(bar.getBoundingClientRect().bottom));
 }
 
-/** Scrolls the lesson's step bar to the top of the page, just below any sticky top bar. */
+/** Keeps the newly opened step visible; the phone step bar is fixed at the bottom. */
 function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior) {
   if (!el) return;
+  if (
+    window.matchMedia("(max-width: 767px)").matches &&
+    el.classList.contains("lt-core60-section-nav")
+  ) {
+    const visibleStep = document.querySelector<HTMLElement>(
+      '.lt-core60-lesson-active section[data-testid^="lesson-section-"]:not([hidden])',
+    );
+    if (visibleStep) {
+      visibleStep.style.scrollMarginTop = `${stickyTopOffset() + 8}px`;
+      visibleStep.scrollIntoView({ behavior, block: "start" });
+    }
+    return;
+  }
   const offset = stickyTopOffset();
   if (offset > 0) el.style.scrollMarginTop = `${offset + 8}px`;
   else el.style.removeProperty("scroll-margin-top");
@@ -1013,7 +1026,7 @@ function OwnedLessonRunner({
     if (KIT_SECTIONS.includes(next)) setKitMode(modeForSection(next));
     // Opening a way of learning is the record; the passage (See it) is recorded on first use.
     if (next !== "see") recordStepOpened(stepForSection[next]);
-    if (scroll) {
+    if (scroll || window.matchMedia("(max-width: 767px)").matches) {
       requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
     }
   }
@@ -1414,7 +1427,7 @@ function OwnedLessonRunner({
         ref={navRef}
         aria-label="Ways of learning this lesson"
         data-testid="lesson-section-nav"
-        className="sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
+        className="lt-core60-section-nav sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
       >
         {SECTIONS.map(({ id, label, Icon }) => {
           const active = section === id;
@@ -1722,17 +1735,6 @@ function OwnedLessonRunner({
       </section>
 
       {lessonButtons("bottom")}
-      {lesson.n < totalLessons && (
-        <button
-          type="button"
-          data-testid="lesson-quick-next"
-          onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
-          className="lt-core60-quick-next min-h-12 items-center gap-2 rounded-full border border-gold/50 bg-background px-4 text-sm font-semibold text-gold shadow-lg"
-        >
-          Next lesson · {stageLessonShort(moduleId, lesson.n + 1)}
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </button>
-      )}
     </div>
   );
 }

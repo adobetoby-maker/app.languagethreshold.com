@@ -1686,8 +1686,7 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
 /* iPhone free conversation: the transcript owns the space reclaimed from the nav. */
 .lt-speaking-navigation,
 .lt-speaking-navigation-close,
-.lt-core60-close-copy,
-.lt-core60-quick-next {
+.lt-core60-close-copy {
   display: none;
 }
 @media (max-width: 767px) {
@@ -1729,15 +1728,46 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
   body:has(.lt-core60-lesson-active) .lt-core60-close-copy {
     display: inline;
   }
-  .lt-core60-quick-next {
-    display: inline-flex;
+  body:has(.lt-core60-lesson-active) .lt-speaking-navigation {
+    left: 8px;
+    bottom: calc(13px + env(safe-area-inset-bottom));
+    height: 48px;
+    width: 48px;
+    border-radius: 12px;
+    border-color: transparent;
+    box-shadow: none;
+    z-index: 48;
+  }
+  .lt-core60-section-nav {
     position: fixed;
-    right: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    z-index: 45;
+    inset: auto 0 0;
+    z-index: 46;
+    width: 100%;
+    margin: 0;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom)) 60px;
+    gap: 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: var(--background);
+    box-shadow: 0 -6px 24px color-mix(in oklab, var(--background) 75%, transparent);
+  }
+  .lt-core60-section-nav button {
+    min-width: 0;
+    min-height: 52px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+  .lt-core60-section-nav button[aria-current="step"] {
+    background: transparent;
+    color: var(--gold);
+    box-shadow: inset 0 -3px var(--gold);
+  }
+  .lt-core60-section-nav button[aria-current="step"] .absolute {
+    color: var(--gold);
   }
   body:has(.lt-core60-lesson-active):has(.lt-bottom-nav[data-speaking-open="true"])
-    .lt-core60-quick-next {
+    .lt-core60-section-nav {
     display: none;
   }
   .lt-core60-plan-started .lt-core60-lesson-goal {
@@ -1747,8 +1777,8 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
     padding: 12px;
   }
   main.lt-scroll-safe:has(.lt-core60-lesson-active) {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important;
-    scroll-padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(84px + env(safe-area-inset-bottom));
   }
   .lt-free-conversation [aria-label="Conversation controls"] {
     margin-left: 56px;

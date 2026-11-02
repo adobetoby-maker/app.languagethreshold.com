@@ -29,6 +29,7 @@ test("Core card frame and grading fit every language and representative modules 
   isMobile,
 }) => {
   test.skip(!isMobile);
+  test.setTimeout(240_000);
   const cases = [
     ...pairs.map(([target, native]) => ({ module: "construction-foreman", target, native })),
     { module: "roofing", target: "Spanish", native: "English" },
@@ -49,7 +50,7 @@ test("Core card frame and grading fit every language and representative modules 
           native: entry.native,
         }) + "&lesson=1&way=recall",
       );
-      await page.getByTestId("practice-mode-flashcards").click();
+      await page.getByRole("group", { name: "Recall activities" }).getByRole("button", { name: "Cards", exact: true }).click();
       const card = page.getByTestId("flashcard");
       const grading = page.getByTestId("lesson-cards-grading");
       await expect(

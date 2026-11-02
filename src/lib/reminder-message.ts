@@ -65,8 +65,8 @@ export function buildReminderNotification(
   if (context.streak?.recoveryLessonsRemaining) {
     const remaining = context.streak.recoveryLessonsRemaining;
     return {
-      title: `${greeting} ${remaining} ${remaining === 1 ? "lesson" : "lessons"} can restore your streak`,
-      body: `Your ${context.streak.current}-day streak is still recoverable today. Finish ${remaining === 1 ? "one more lesson" : "two lessons"} in ${context.language} to bring it back.`,
+      title: `${greeting} ${remaining} ${remaining === 1 ? "practice activity" : "practice activities"} can restore your streak`,
+      body: `Your ${context.streak.current}-day streak is still recoverable today. Finish ${remaining === 1 ? "one more activity" : "two activities"} in ${context.language} to bring it back.`,
       url: `/?tab=speak&lang=${encodeURIComponent(context.language)}`,
       // Per-language tag. A shared tag makes each language's notification
       // replace the previous one, so a 3-language learner would only ever see
@@ -90,6 +90,8 @@ export function buildReminderNotification(
     ? nearest.countdown.kind === "trip"
       ? `${nearest.days} ${nearest.days === 1 ? "day" : "days"} until ${nearest.countdown.label}`
       : `${nearest.days} ${nearest.days === 1 ? "day" : "days"} until departure`
+    : context.streak?.current
+      ? `Keep your ${context.streak.current}-day streak going`
     : context.stack && context.stack.remainingLessons > 0
       ? `${context.stack.remainingLessons} lessons left in ${context.stack.name}`
       : `${context.language} practice is ready`;

@@ -2436,6 +2436,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" &&
+            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) && (
+              <button
+                className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
+                onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
+              >
+                Practice Spanish 101 vocabulary · My card lists
+              </button>
+            )}
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (

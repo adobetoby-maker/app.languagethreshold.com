@@ -174,3 +174,28 @@ test("Master applies familiar beginner grammar with English support", async ({ p
   await expect(page.getByRole("region", { name: "Grammar practice check" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test("Spanish 101 card lists retain independent word choices across reload", async ({
+  page,
+}) => {
+  await openCourse(page, "foundation-spanish-basics", true);
+  await page
+    .getByRole("button", { name: "Practice Spanish 101 vocabulary · My card lists", exact: true })
+    .click();
+  await page.getByText("My card lists ·", { exact: false }).click();
+  await page.getByLabel("New card list name").fill("Week 1");
+  await page.getByRole("button", { name: "Create list", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: "Study list" })).not.toHaveValue("default");
+  const first = page.getByRole("checkbox").first();
+  await expect(first).toBeChecked();
+  await first.uncheck();
+  await page.reload();
+  await page.getByText("My card lists ·", { exact: false }).click();
+  await expect(page.getByRole("checkbox").first()).not.toBeChecked();
+  await page.getByRole("button", { name: "Exclude all shown decks", exact: true }).click();
+  await expect(page.locator('input[type="checkbox"]:checked')).toHaveCount(0);
+  await page.getByRole("combobox", { name: "Study list" }).selectOption("default");
+  await expect(page.getByRole("checkbox").first()).toBeChecked();
+  await page.getByLabel("Find a word").fill("yo hablo");
+  await expect(page.getByText("yo hablo", { exact: true }).first()).toBeVisible();
+});

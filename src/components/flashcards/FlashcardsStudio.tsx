@@ -1,3 +1,6 @@
+import coreVocabulary from "@/data/spanish-basics-flashcards.json";
+import { CardListEditor } from "./CardListEditor";
+import { useCardLists } from "./use-card-lists";
 import { PhoneActivity } from "@/components/PhoneActivity";
 import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -69,6 +72,7 @@ export function FlashcardsStudio() {
     dueCardsForCategories,
     hasModuleDeck,
   } = useFlashcards();
+  const lists = useCardLists(appState.selectedLanguage, appState.nativeLanguage);
   const library = useLibrary();
   const { accent, voiceURI } = useSpeech();
   const language = appState.selectedLanguage;
@@ -106,6 +110,22 @@ export function FlashcardsStudio() {
     () => authoredModuleDeck(moduleId, language, appState.nativeLanguage),
     [moduleId, language, appState.nativeLanguage],
   );
+  useEffect(() => {
+    if (
+      state.hydrated &&
+      language === "Spanish" &&
+      appState.nativeLanguage === "English" &&
+      moduleId &&
+      ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId)
+    ) {
+      addModuleCards(
+        language,
+        moduleId,
+        "lesson",
+        coreVocabulary.map((pair) => ({ ...pair, kind: "term" as const })),
+      );
+    }
+  }, [state.hydrated, language, appState.nativeLanguage, moduleId, addModuleCards]);
   const generatedCount = moduleId
     ? Object.values(state.cards).filter((card) =>
         card.id.startsWith(`module-generated:${language}:${moduleId}:`),
@@ -424,12 +444,12 @@ export function FlashcardsStudio() {
     selectedCategories[0] === moduleSection;
 
   const allCards = useMemo(
-    () => cardsForCategories(language, selectedCategories),
-    [cardsForCategories, language, selectedCategories],
+    () => cardsForCategories(language, selectedCategories).filter(lists.includes),
+    [cardsForCategories, language, selectedCategories, lists.includes],
   );
   const dueCards = useMemo(
-    () => dueCardsForCategories(language, selectedCategories),
-    [dueCardsForCategories, language, selectedCategories],
+    () => dueCardsForCategories(language, selectedCategories).filter(lists.includes),
+    [dueCardsForCategories, language, selectedCategories, lists.includes],
   );
   const current = dueCards[0];
   useEffect(() => setFlipped(false), [current?.id]);
@@ -539,6 +559,7 @@ export function FlashcardsStudio() {
 
   return (
     <div className="fade-in mx-auto w-full max-w-5xl">
+      <CardListEditor lists={lists} cards={cardsForCategories(language, selectedCategories)} />
       <PhoneActivity
         context={`flashcards:${!!current}`}
         data-testid="flashcards-review"
@@ -741,10 +762,7 @@ export function FlashcardsStudio() {
               </span>
             </div>
 
-            <div
-              data-testid="flashcards-grading"
-              className="w-full max-w-xl"
-            >
+            <div data-testid="flashcards-grading" className="w-full max-w-xl">
               <SrsRatingButtons fields={current.srs} onRate={grade} />
             </div>
           </div>

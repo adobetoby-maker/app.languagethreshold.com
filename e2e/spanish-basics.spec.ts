@@ -53,7 +53,13 @@ async function openCourse(page: Page, moduleId: string, signedIn = false) {
     },
     { moduleId, signedIn, id, session },
   );
-  await page.route("**/api/team-activity", route => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ sessions: {}, recorded: 0 }) }));
+  await page.route("**/api/team-activity", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ sessions: {}, recorded: 0 }),
+    }),
+  );
   await page.goto(`/?module=${moduleId}&target=Spanish&native=English&tab=core30`);
 }
 
@@ -98,6 +104,11 @@ test("starter teaches grammar and requires correct retrieval before learner mast
   await check.getByRole("button", { name: "Check grammar" }).click();
   await expect(check).toContainText("Review:");
   await expect(mastery).toBeDisabled();
+  const accentAnswer = page.getByLabel("Grammar answer 3", { exact: true });
+  await accentAnswer.fill("Cmo");
+  await accentAnswer.evaluate((input: HTMLInputElement) => input.setSelectionRange(1, 1));
+  await check.getByRole("button", { name: "Insert ó", exact: true }).click();
+  await expect(accentAnswer).toHaveValue("Cómo");
   for (const [i, q] of practice["foundation-spanish-basics"]["1"].checks.entries())
     await page.getByLabel(`Grammar answer ${i + 1}`, { exact: true }).fill(q.answer);
   await check.getByRole("button", { name: "Check grammar" }).click();
@@ -112,7 +123,11 @@ test("starter teaches grammar and requires correct retrieval before learner mast
     await page.screenshot({ path: `/tmp/spanish-basics-${info.project.name}-${theme}.png` });
   }
   await mastery.click();
-  await expect.poll(async () => JSON.stringify((await readAppState(page, "00000000-0000-4000-8000-00000000a060")).core30Log)).toContain("masteredAt");
+  await expect
+    .poll(async () =>
+      JSON.stringify((await readAppState(page, "00000000-0000-4000-8000-00000000a060")).core30Log),
+    )
+    .toContain("masteredAt");
   await page.reload();
   await expect(page.getByTestId("core60-eyebrow")).toContainText("Step 1 of 3");
 });

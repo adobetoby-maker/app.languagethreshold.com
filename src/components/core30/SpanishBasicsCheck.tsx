@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { correctSpanishCloze } from "@/lib/spanish-basics-check";
 
 interface Check {
@@ -18,6 +18,22 @@ export function SpanishBasicsCheck({
   const [answers, setAnswers] = useState<string[]>(() => checks.map(() => ""));
   const [results, setResults] = useState<boolean[] | null>(null);
   const passed = results?.every(Boolean) ?? false;
+  const inputs = useRef<(HTMLInputElement | null)[]>([]);
+  const [focused, setFocused] = useState(0);
+  function insertAccent(letter: string) {
+    const input = inputs.current[focused];
+    if (!input || passed) return;
+    const start = input.selectionStart ?? answers[focused].length;
+    const end = input.selectionEnd ?? start;
+    const next = [...answers];
+    next[focused] = next[focused].slice(0, start) + letter + next[focused].slice(end);
+    setAnswers(next);
+    setResults(null);
+    requestAnimationFrame(() => {
+      input.focus();
+      input.setSelectionRange(start + 1, start + 1);
+    });
+  }
   return (
     <section
       aria-label="Grammar practice check"
@@ -44,6 +60,11 @@ export function SpanishBasicsCheck({
             <p className="mt-1 text-sm text-muted-foreground">{check.hint}</p>
             <input
               id={`basics-check-${i}`}
+              ref={(input) => {
+                inputs.current[i] = input;
+              }}
+              onFocus={() => setFocused(i)}
+              aria-invalid={results ? !results[i] : undefined}
               lang="es"
               autoComplete="off"
               autoCapitalize="none"
@@ -66,6 +87,26 @@ export function SpanishBasicsCheck({
             )}
           </div>
         ))}
+        {!passed && (
+          <div
+            role="group"
+            aria-label={`Accents for grammar answer ${focused + 1}`}
+            className="mt-4 flex flex-wrap gap-1"
+          >
+            {"áéíóúñ".split("").map((letter) => (
+              <button
+                key={letter}
+                type="button"
+                aria-label={`Insert ${letter}`}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => insertAccent(letter)}
+                className="min-h-11 min-w-11 rounded-lg border border-border text-lg"
+              >
+                {letter}
+              </button>
+            ))}
+          </div>
+        )}
         {passed ? (
           <p role="status" className="mt-4 font-semibold text-gold-ink">
             3 of 3 correct. Now decide whether you can use this grammar independently.

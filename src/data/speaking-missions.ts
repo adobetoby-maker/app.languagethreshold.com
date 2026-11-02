@@ -981,11 +981,11 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
   Spanish: {
     "meeting-family": "Qué gusto conocerte. Nos han hablado mucho de ti. ¿Cómo estuvo el viaje?",
     "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
-    "defining-relationship": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
+    "defining-relationship":
+      "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
     "affection-appreciation":
       "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
-    "living-together":
-      "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
+    "living-together": "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
     "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
     "sexual-health-conversation":
       "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
@@ -993,12 +993,12 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
     "ending-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
   },
   Italian: {
-    "meeting-family": "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
+    "meeting-family":
+      "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
     "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
     "defining-relationship": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
     "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
-    "living-together":
-      "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
+    "living-together": "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
     "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
     "sexual-health-conversation":
       "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
@@ -1008,14 +1008,16 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
       "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione.",
   },
   Japanese: {
-    "meeting-family": "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
+    "meeting-family":
+      "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
     "dating-interest": "もっとあなたのことを知りたいです。今度、一緒にお茶しませんか。",
     "defining-relationship":
       "私たちの関係について話したいです。あなたは今の関係をどう考えていますか。",
     "affection-appreciation": "あなたのことをとても大切に思っています。いつもありがとう。",
     "living-together": "この関係に何を望んでいるか、お互いに話しませんか。",
     "consent-boundaries": "抱きしめてもいいですか。嫌なら、遠慮なく言ってください。",
-    "sexual-health-conversation": "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
+    "sexual-health-conversation":
+      "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
     "disagreement-repair":
       "さっきのことで傷つきました。でも、あなたの話を聞いて一緒に解決したいです。",
     "ending-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
@@ -1237,15 +1239,20 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole: basics?.partnerRole ?? military?.partnerRole ?? partnerRoleFor(module, language),
-    level: basics
-      ? basics.stage === "foundation"
-        ? "A1"
-        : "A2"
-      : military?.stage === "foundation"
-        ? "A1"
-        : isMasterModule(module.id)
-          ? "B1"
-          : "A2",
+    level:
+      basics &&
+      (module.id.includes("spanish-102") ||
+        (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
+        ? "B1"
+        : basics
+          ? basics.stage === "foundation"
+            ? "A1"
+            : "A2"
+          : military?.stage === "foundation"
+            ? "A1"
+            : isMasterModule(module.id)
+              ? "B1"
+              : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,

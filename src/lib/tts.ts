@@ -1,3 +1,4 @@
+import { recordedSpanishPath } from "./recorded-spanish";
 import { prepareBrowserPlayback } from "./browser-audio-session";
 // Site-wide TTS routing. A learner-selected Google Cloud voice follows them
 // across Reader, cards, games, listening drills, Speak, and specialty modules.
@@ -197,6 +198,47 @@ export async function speakRemote(
     if (opts?.cloudOnly && !googleVoice) {
       notify(false);
       return;
+    }
+    if (googleVoice && opts?.usage !== "mission") {
+      const recorded = recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
+      if (!current()) return;
+      if (recorded) {
+        const el = audioEl();
+        el.src = recorded;
+        el.playbackRate = Math.max(0.5, Math.min(2, rate));
+        prepareBrowserPlayback();
+        el.onplaying = notifyStart;
+        const heard = await new Promise<boolean | null>((resolve) => {
+          let settled = false;
+          const done = (result: boolean | null) => {
+            if (settled) return;
+            settled = true;
+            if (ownsGeneration()) {
+              cancelPlayback = null;
+              el.onplaying = null;
+              el.onended = null;
+              el.onerror = null;
+              el.removeAttribute("src");
+              el.load();
+            }
+            resolve(current() ? result : null);
+          };
+          cancelPlayback = () => done(null);
+          el.onended = () => done(true);
+          el.onerror = () => done(false);
+          try {
+            el.play().catch(() => done(false));
+          } catch {
+            done(false);
+          }
+        });
+        if (heard === null) return;
+        if (heard) {
+          notify();
+          return;
+        }
+        // A missing or unplayable clip follows the existing Google/device fallback.
+      }
     }
     if (googleVoice) {
       if (opts?.owner && !opts.owner.userId) {

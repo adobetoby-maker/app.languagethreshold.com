@@ -1,0 +1,35 @@
+{
+  "authoredOn": "2026-11-01",
+  "targetLanguage": "Spanish",
+  "nativeLanguage": "English",
+  "humanReviewed": false,
+  "text": "Original bilingual lesson scenes and English explanations authored for these courses. Common Patterns Master lessons include a second related review case from the authored Spanish 102 scenes. Conjugation reuses selected narrative contexts while its ten-verb models, cards and checked forms carry the exact focus.",
+  "frequentVerbs": {
+    "url": "https://www.lllf.uam.es/ESP/Publicaciones/cilc09.pdf",
+    "selection": "Appendix 1, first 60 verb lemmas in the adult spoken C-ORAL-ROM column, in that column's order.",
+    "limitation": "A specific adult speech sample, not a universal or current worldwide frequency ranking. Regional meanings are explained."
+  },
+  "usageFirstVerbs": {
+    "url": "https://www.sketchengine.eu/spanish-word-list/",
+    "data": "https://sketchengine.eu/wp-content/uploads/word-list/spanish/spanish-word-list-verbs.csv",
+    "corpus": "Spanish Web 2011",
+    "selection": "First 60 verb lemmas in descending source frequency, without reordering for teaching. Only rank, lemma and count facts are retained; definitions and lesson prose are original.",
+    "inflectedForms": "Grouped under the infinitive lemma; these are not separate entries for soy, eres and es.",
+    "limitation": "Web corpus ranking differs from spoken conversation and from other periods or regions."
+  },
+  "grammar": [
+    "https://dem.colmex.mx/moduls/Default.aspx?id=30",
+    "https://descargas.intef.es/recursos_educativos/It_didac/Leng_ESO/1/04/04_El_verbo_tiempo_modo_voz/tiempo_modo_y_voz.html",
+    "https://ifdcvm-slu.infd.edu.ar/sitio/upload/RAEManualdelaNuevaGramaticadelaLenguaEspanola.pdf"
+  ],
+  "framework": "28 deliberately named teaching families, not a claim that Spanish has exactly 28 tenses. The first 28 lessons introduce each family once; 32 subsequent lessons revisit a single family. Every lesson has ten distinct verbs. Latin American reference persons use ustedes; vosotros and voseo are outside this course. Commands show only meaningful addressees; imperfect subjunctive practices the -ra alternative.",
+  "commonStructures": "60 useful everyday constructions ordered for instruction, with exactly three focused cloze checks each. No unmeasured statistical rank is asserted for the structures.",
+  "audio": {
+    "url": "https://docs.cloud.google.com/text-to-speech/docs/chirp3-hd",
+    "provider": "Google Cloud Chirp 3 HD",
+    "locale": "es-US",
+    "voices": {"female": "es-US-Chirp3-HD-Aoede", "male": "es-US-Chirp3-HD-Charon"},
+    "humanPerformed": false,
+    "coverage": "See audio-coverage.json; only published, verified successful files count."
+  }
+}

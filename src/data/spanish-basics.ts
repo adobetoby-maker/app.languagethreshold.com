@@ -1,5 +1,22 @@
 import core from "./spanish-basics-core.json" with { type: "json" };
-import practice from "./spanish-basics-practice.json" with { type: "json" };
+import basicsPractice from "./spanish-basics-practice.json" with { type: "json" };
+import nextPractice from "./spanish-next-practice.json" with { type: "json" };
+
+export interface SpanishPattern {
+  id: string;
+  title: string;
+  verbs: { infinitive: string; native: string; forms: Record<string, string> }[];
+}
+type SpanishPractice = (typeof basicsPractice)["spanish-basics"]["1"] & {
+  pattern?: SpanishPattern;
+  primaryVerb?: string;
+  frequencyRank?: number;
+  structureId?: string;
+};
+const practice: Record<string, Record<string, SpanishPractice>> = {
+  ...basicsPractice,
+  ...nextPractice,
+};
 import type { LessonWord, ModuleCurriculum } from "./curriculum.ts";
 import { r, wm, sp } from "./curriculum-helpers.ts";
 import { lessonTeachingSettings } from "../lib/teaching-settings.ts";
@@ -18,8 +35,7 @@ export function spanishBasicsLesson(
 ) {
   if (target !== "Spanish" || native !== "English" || !Object.hasOwn(practice, moduleId))
     return null;
-  const lessons = practice[moduleId as keyof typeof practice];
-  return (lessons as Record<string, (typeof practice)["spanish-basics"]["1"]>)[String(n)] ?? null;
+  return practice[moduleId]?.[String(n)] ?? null;
 }
 export function spanishBasicsTeaching(moduleId: string, n: number) {
   const lesson = spanishBasicsLesson(moduleId, n);
@@ -50,3 +66,20 @@ export const SPANISH_BASICS_CURRICULUM: ModuleCurriculum = {
     ],
   })),
 };
+
+/** One checked form per distinct verb, rotating the person in transfer lessons. */
+export function spanishPatternWords(
+  moduleId: string,
+  n: number,
+  target: string,
+  native: string,
+): LessonWord[] | null {
+  const lesson = spanishBasicsLesson(moduleId, n, target, native);
+  if (!lesson?.pattern) return null;
+  return lesson.checks.map((check, i) => ({
+    es: check.answer,
+    en: `${lesson.pattern!.verbs[i].native} · ${check.prompt.replace(" → ____", "")}`,
+    kind: "term" as const,
+    note: lesson.pattern!.title,
+  }));
+}

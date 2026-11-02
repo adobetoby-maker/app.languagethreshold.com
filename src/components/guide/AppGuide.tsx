@@ -1,3 +1,4 @@
+import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
@@ -1471,6 +1472,14 @@ function OwnedLessonRunner({
             </div>
           )}
           {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
+          {basics && verbs.length > 0 && (
+            <LessonVerbGames
+              key={`${moduleId}:${lesson.n}`}
+              verbs={verbs}
+              language={state.selectedLanguage}
+              pattern={basics?.pattern}
+            />
+          )}
           <LessonReader
             moduleId={moduleId}
             readingTemplate={lesson.readingTemplate}

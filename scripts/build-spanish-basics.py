@@ -52,7 +52,7 @@ for stage,rows in [('foundation',outline['foundation']),('core',outline['core'])
    return (v['infinitive'] not in rule.lower(),not in_reading)
   chosen=[dict(v) for v in sorted(verbs,key=verb_score)[:(5 if stage=='master' else 3)]]
   for v in chosen:
-   if v['infinitive']=='gustar':v['note']='Use gusta with one thing or an infinitive and gustan with plural things. Me, te and le name the person who likes it.' 
+   if v['infinitive']=='gustar':v['note']='Use gusta with one thing or an infinitive and gustan with plural things. Me, te and le name the person who likes it.'
   content[str(n)]=dict(passage=dict(title=scene,target=target,native=native),words=words,verbs=chosen)
   skill_index = n-1 if stage=='foundation' else n+9 if stage=='core' else read(SOURCE/'master.json')[n-1][1]
   checks=[]

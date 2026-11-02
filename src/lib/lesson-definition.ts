@@ -1,6 +1,8 @@
 import { spanishPatternWords } from "../data/spanish-basics.ts";
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
+import { getModule } from "../data/modules.ts";
 import { moduleTeachingSettings } from "../data/module-teaching.ts";
+import { authoredWordsPair, pickAuthoredWords } from "./lesson-words-core.ts";
 import type { LessonTeachingSettings } from "./teaching-settings.ts";
 export { ROOFING_PRACTICE_VERSION, modulePracticeVersion } from "../data/module-teaching.ts";
 import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";

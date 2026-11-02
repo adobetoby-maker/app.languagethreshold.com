@@ -9,8 +9,6 @@ import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
 import { authoredLessonReading } from "./lesson-reading.ts";
 
 import { lessonObjectiveId } from "./learning-identity.ts";
-import { getModule } from "../data/modules.ts";
-import { authoredWordsPair, pickAuthoredWords } from "./lesson-words-core.ts";
 export { lessonObjectiveId } from "./learning-identity.ts";
 
 export interface LessonDefinition {

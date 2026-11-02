@@ -143,6 +143,11 @@ writeFileSync(
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
       {
+        src: "/audio/(.*)",
+        headers: { "cache-control": "public, max-age=31536000, immutable" },
+        dest: "/audio/$1",
+      },
+      {
         src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman)-es-en|(?:foundation-military|military|master-military)-en-es)\\.json)",
         headers: { "cache-control": "no-store" },
         dest: "/lesson-packs/$1",

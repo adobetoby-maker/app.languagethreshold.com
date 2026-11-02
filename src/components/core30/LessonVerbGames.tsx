@@ -154,29 +154,34 @@ function GameRound({
           <p>
             Match each prompt to its Spanish answer. {matched.length} of {items.length} matched.
           </p>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="grid gap-2">
+          <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-3">
+            <div className="grid min-w-0 gap-2">
               {board.map((v) => (
                 <button
                   type="button"
                   key={v.id}
-                  className={button}
+                  className={`${button} min-w-0 w-full whitespace-normal break-words px-2 text-sm sm:px-3 sm:text-base`}
                   aria-pressed={selected === v.id}
                   disabled={matched.includes(v.id)}
                   onClick={() => setSelected(v.id)}
                 >
-                  {v.prompt}
+                  {v.prompt.split("/").map((part, index, parts) => (
+                    <span key={index}>
+                      {part}
+                      {index < parts.length - 1 && <>/<wbr /></>}
+                    </span>
+                  ))}
                 </button>
               ))}
             </div>
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               {right
                 .filter((v) => board.some((b) => b.id === v.id))
                 .map((v) => (
                   <button
                     type="button"
                     key={v.id}
-                    className={button}
+                    className={`${button} min-w-0 w-full whitespace-normal break-words px-2 text-sm sm:px-3 sm:text-base`}
                     disabled={matched.includes(v.id)}
                     onClick={() => {
                       if (!selected) {

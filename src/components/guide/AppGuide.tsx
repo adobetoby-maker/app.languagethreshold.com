@@ -1494,7 +1494,11 @@ function OwnedLessonRunner({
       </nav>
 
       {/* 1 · See it */}
-      <section data-testid="lesson-section-see" hidden={section !== "see"} className={panelClass}>
+      <section
+        data-testid="lesson-section-see"
+        hidden={section !== "see"}
+        className={`${panelClass} max-sm:border-0 max-sm:bg-transparent max-sm:p-0`}
+      >
         {panelHeader(SECTIONS[0], 1)}
         <div className="mt-3">
           {grammar && (

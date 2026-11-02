@@ -175,6 +175,37 @@ test("Master applies familiar beginner grammar with English support", async ({ p
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
+test("lesson verb matches fit side by side on a phone", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openCourse(page, "spanish-basics");
+  await page
+    .getByRole("button", { name: /^Start (?:Foundation |Master )?Lesson 1$/, exact: true })
+    .click();
+  const see = page.getByTestId("lesson-section-see");
+  await expect(see).toHaveCSS("border-left-width", "0px");
+  const games = page.getByRole("region", { name: "Lesson verb games" });
+  await games.getByRole("button", { name: "Match verb meanings" }).click();
+  const columns = games.getByTestId("lesson-verb-game-round").locator(".grid.grid-cols-2 > div");
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    const game = await games.boundingBox();
+    const left = await columns.nth(0).getByRole("button").all();
+    const right = await columns.nth(1).getByRole("button").all();
+    expect(game).not.toBeNull();
+    for (const button of left) {
+      const box = await button.boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x + box!.width).toBeLessThanOrEqual((await right[0].boundingBox())!.x - 8);
+    }
+    for (const button of right) {
+      const box = await button.boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x + box!.width).toBeLessThanOrEqual(game!.x + game!.width);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  }
+});
+
 test("Spanish 101 card lists retain independent word choices across reload", async ({
   page,
 }) => {

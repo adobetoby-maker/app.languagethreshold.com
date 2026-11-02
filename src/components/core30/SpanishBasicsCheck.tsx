@@ -43,8 +43,8 @@ export function SpanishBasicsCheck({
     >
       <h3 className="text-lg font-semibold">Try it without the model</h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Complete all three gaps correctly before marking this lesson mastered. Accents matter.
-        Review the explanation and retry any mistakes.
+        Complete all {checks.length} gaps correctly before marking this lesson mastered. Accents
+        matter. Review the explanation and retry any mistakes.
       </p>
       <form
         onSubmit={(event) => {
@@ -116,7 +116,8 @@ export function SpanishBasicsCheck({
         )}
         {passed ? (
           <p role="status" className="mt-4 font-semibold text-gold-ink">
-            3 of 3 correct. Now decide whether you can use this grammar independently.
+            {checks.length} of {checks.length} correct. Now decide whether you can use this grammar
+            independently.
           </p>
         ) : (
           <button
@@ -128,8 +129,8 @@ export function SpanishBasicsCheck({
         )}
       </form>
       <p className="mt-3 text-sm text-muted-foreground">
-        This checks three practiced forms, not overall proficiency. Keep using See, Recall, Hear,
-        Type, Say and Write; return later for spaced review.
+        This checks {checks.length} practiced forms, not overall proficiency. Keep using See,
+        Recall, Hear, Type, Say and Write; return later for spaced review.
       </p>
     </section>
   );

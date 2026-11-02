@@ -1,4 +1,5 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { realpathSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 export default defineConfig(({ command }) => {
@@ -25,6 +26,10 @@ export default defineConfig(({ command }) => {
           ? "production"
           : "build";
   return {
+    // Worktrees may share an installed dependency cache through a symlink.
+    ...(command === "serve"
+      ? { server: { fs: { allow: [process.cwd(), realpathSync("node_modules")] } } }
+      : {}),
     define: {
       __LT_APP_BUILD__: JSON.stringify({
         commit: commit && /^[a-f0-9]{40}$/i.test(commit) ? commit : null,

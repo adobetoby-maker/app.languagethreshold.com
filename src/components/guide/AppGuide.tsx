@@ -1,3 +1,5 @@
+import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
+import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
@@ -154,15 +156,25 @@ function Core60PathCard({ moduleId }: { moduleId: string }) {
         {path.steps.map((step) => {
           const isCurrent = step.stage === path.current;
           const label = labels[step.stage];
-          const base = "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
+          const base =
+            "flex min-h-12 min-w-0 items-center justify-center rounded-xl border px-2 py-3 text-center text-sm font-semibold";
           return (
             <li key={step.stage} className="min-w-0">
               {!step.available ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-disabled="true" className={cn(base, "border-dashed border-border text-muted-foreground")}>
-                  {label}<span className="sr-only"> — Coming soon</span>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-disabled="true"
+                  className={cn(base, "border-dashed border-border text-muted-foreground")}
+                >
+                  {label}
+                  <span className="sr-only"> — Coming soon</span>
                 </div>
               ) : isCurrent ? (
-                <div data-testid={`core60-step-${step.stage}`} aria-current="step" className={cn(base, "border-gold/60 bg-gold/10 text-gold")}>
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-current="step"
+                  className={cn(base, "border-gold/60 bg-gold/10 text-gold")}
+                >
                   {label}
                 </div>
               ) : (
@@ -796,7 +808,17 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const words = lessonWords.words;
+  const patternWords = useMemo(
+    () => spanishPatternWords(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage),
+    [moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage],
+  );
+  const words = useMemo(
+    () =>
+      patternWords
+        ? [...patternWords, ...lessonWords.words.filter((word) => word.kind === "phrase")]
+        : lessonWords.words,
+    [patternWords, lessonWords.words],
+  );
   const hasWords = words.length > 0;
   // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
   const lessonContent = useLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
@@ -1448,6 +1470,7 @@ function OwnedLessonRunner({
               </ul>
             </div>
           )}
+          {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
           <LessonReader
             moduleId={moduleId}
             readingTemplate={lesson.readingTemplate}
@@ -2257,7 +2280,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
   function openLessonFromPlan(n: number, way: SectionId = "see") {
-    if (cardReview.ready && cardReview.shouldReviewBefore(n) && cardReview.start(cardReview.pending)) {
+    if (
+      cardReview.ready &&
+      cardReview.shouldReviewBefore(n) &&
+      cardReview.start(cardReview.pending)
+    ) {
       setCardReviewOpen(true);
       scrollLessonPageToTop();
       return;
@@ -2436,8 +2463,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" &&
-            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) && (
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(
+              moduleId,
+            ) && (
               <button
                 className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
                 onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
@@ -2445,6 +2475,49 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Practice Spanish 101 vocabulary · My card lists
               </button>
             )}
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            spanishBasicsLesson(moduleId, 1) && (
+              <nav
+                aria-label="General Spanish course sequence"
+                className="mt-4 rounded-xl border border-border p-3"
+              >
+                <p className="text-sm font-semibold">Continue your Spanish</p>
+                <ol className="mt-2 space-y-1">
+                  {[
+                    ["spanish-basics", "Spanish 101"],
+                    ["spanish-102", "Spanish 102"],
+                    ["spanish-frequent-verbs", "Frequent Verbs"],
+                    ["spanish-conjugation-patterns", "Conjugation Patterns"],
+                    ["spanish-usage-verbs", "Usage-First Verbs"],
+                    ["spanish-common-patterns", "Common Grammar Patterns"],
+                  ].map(([id, label], index) => (
+                    <li key={id}>
+                      <a
+                        className="inline-flex min-h-11 items-center text-sm underline"
+                        href={`/?tab=core30&module=foundation-${id}&target=Spanish&native=English`}
+                      >
+                        {index + 1}. {label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+          {moduleId.includes("spanish-usage-verbs") && (
+            <p className="mt-3 text-sm text-muted-foreground">
+              Rank counts group a verb’s inflected forms together. This course follows the Spanish
+              Web 2011 sample; rankings vary by genre.{" "}
+              <a
+                className="underline"
+                href="https://www.sketchengine.eu/spanish-word-list/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Frequency source
+              </a>
+            </p>
+          )}
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (
@@ -2493,9 +2566,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">
-                Continue when you’re ready.
-              </p>
+              <p className="text-xs text-white/60 mt-1">Continue when you’re ready.</p>
             </div>
           )}
 
@@ -2656,31 +2727,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
-            <details data-testid="study-options" open={activeAssessmentPlan ? true : undefined} className="my-4 rounded-xl border border-border/50 p-3">
-              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Study options</summary>
-            <Core30PlanCard
-              enrollmentId={activeAssessmentPlan}
-              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
-              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
-              managedPlanUrl={
-                activeAssessmentPlan
-                  ? examsLocation({
-                      moduleId,
-                      target: state.selectedLanguage,
-                      native: state.nativeLanguage,
-                      orgId: approvedPlanTiming.organizationId,
-                      returnPlanId: activeAssessmentPlan,
-                    })
-                  : undefined
-              }
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
+            <details
+              data-testid="study-options"
+              open={activeAssessmentPlan ? true : undefined}
+              className="my-4 rounded-xl border border-border/50 p-3"
+            >
+              <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">
+                Study options
+              </summary>
+              <Core30PlanCard
+                enrollmentId={activeAssessmentPlan}
+                reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+                assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+                managedPlanUrl={
+                  activeAssessmentPlan
+                    ? examsLocation({
+                        moduleId,
+                        target: state.selectedLanguage,
+                        native: state.nativeLanguage,
+                        orgId: approvedPlanTiming.organizationId,
+                        returnPlanId: activeAssessmentPlan,
+                      })
+                    : undefined
+                }
+                moduleId={moduleId}
+                totalLessons={totalLessons}
+                onOpenLesson={openLessonFromPlan}
+                onStartReview={() => {
+                  setOpenLessonN(null);
+                  setReviewOpen(true);
+                }}
+              />
             </details>
           )}
 

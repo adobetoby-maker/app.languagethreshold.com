@@ -1,3 +1,4 @@
+import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
@@ -4164,3 +4165,5 @@ export function getCurrentLesson(
   if (completed >= curriculum.lessons.length) return null; // all done
   return curriculum.lessons[completed] ?? null;
 }
+
+Object.assign(CURRICULA, SPANISH_NEXT_CURRICULA);

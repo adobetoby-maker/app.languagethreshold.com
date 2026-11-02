@@ -1,3 +1,4 @@
+import { spanishPatternWords } from "../data/spanish-basics.ts";
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
 import { moduleTeachingSettings } from "../data/module-teaching.ts";
 import type { LessonTeachingSettings } from "./teaching-settings.ts";
@@ -45,13 +46,22 @@ export function getLessonDefinition(input: {
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
-  const words =
+  const sourceWords =
     pickAuthoredWords(
       source.words,
       targetLanguage,
       instructionLanguage,
       authoredWordsPair(getModule(moduleId)?.learnDirection),
     ) ?? [];
+  const patternWords = spanishPatternWords(
+    moduleId,
+    lessonNumber,
+    targetLanguage,
+    instructionLanguage,
+  );
+  const words = patternWords
+    ? [...patternWords, ...sourceWords.filter((word) => word.kind === "phrase")]
+    : sourceWords;
   const teaching = moduleTeachingSettings(
     moduleId,
     lessonNumber,
@@ -71,7 +81,8 @@ export function getLessonDefinition(input: {
       }
     : null;
   const listeningItems: LessonWord[] = [];
-  if (!teaching || teaching.stage === "supported" || !reading) listeningItems.push(...words);
+  if (patternWords || !teaching || teaching.stage === "supported" || !reading)
+    listeningItems.push(...words);
   else if (teaching && reading) {
     const size = teaching.stage === "independent" ? 2 : 1;
     for (let start = 0; start < reading.sentences.length; start += size) {

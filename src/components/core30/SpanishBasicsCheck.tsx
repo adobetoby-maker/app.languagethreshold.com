@@ -11,7 +11,9 @@ interface Check {
 export function SpanishBasicsCheck({
   checks,
   onPassed,
+  topic = "Grammar",
 }: {
+  topic?: "Grammar" | "Cognate";
   checks: Check[];
   onPassed: () => void;
 }) {
@@ -38,7 +40,7 @@ export function SpanishBasicsCheck({
   }
   return (
     <section
-      aria-label="Grammar practice check"
+      aria-label={`${topic} practice check`}
       className="mb-4 rounded-xl border border-border bg-background p-4 text-foreground"
     >
       <h3 className="text-lg font-semibold">Try it without the model</h3>
@@ -75,7 +77,7 @@ export function SpanishBasicsCheck({
               spellCheck={false}
               value={answers[i]}
               disabled={passed}
-              aria-label={`Grammar answer ${i + 1}`}
+              aria-label={`${topic} answer ${i + 1}`}
               className="mt-2 min-h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground disabled:opacity-70"
               onChange={(e) => {
                 const value = e.target.value;
@@ -124,7 +126,7 @@ export function SpanishBasicsCheck({
             type="submit"
             className="mt-4 min-h-11 rounded-lg bg-gold px-4 font-semibold text-midnight"
           >
-            Check grammar
+            Check {topic.toLowerCase()}
           </button>
         )}
       </form>

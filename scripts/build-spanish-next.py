@@ -96,10 +96,31 @@ for ordinal in range(60):
   forms=focused(v,key);person=list(forms)[(j+ordinal//28)%len(forms)]
   checks.append(dict(prompt=f'{v} · {person} → ____',hint=f'{title}: to {GLOSS[v]}. Supply the complete form, including any pronoun or auxiliary.',answer=forms[person],explanation=rule))
  conjugation.append(dict(title=label,rule=rule,scene=context['scene'],pairs=context['pairs'][:12 if ordinal>=40 else 9],pattern=dict(id=key,title=title,verbs=table),checks=checks))
-NAMES={'spanish-usage-verbs':'Spanish Usage-First Verbs','spanish-common-patterns':'Spanish Common Grammar Patterns','spanish-102':'Spanish 102','spanish-frequent-verbs':'Spanish Frequent Verbs','spanish-conjugation-patterns':'Spanish Conjugation Patterns'}
-THRESHOLDS={'spanish-usage-verbs':'Sixty verb lemmas in descending Spanish Web 2011 corpus frequency, with new usage scenes. Inflected forms count together; frequency varies by genre and region.','spanish-common-patterns':'Use sixty everyday structures, including tener que, hay que, ir a, acabar de and common clause patterns. Ordered for learning, not an asserted statistical frequency ranking.','spanish-102':'Expand Spanish 101 through past narration, objects, plans, requests, commands and introductory subjunctive choices.','spanish-frequent-verbs':'Recognize and use sixty frequent spoken verbs, their everyday meanings, complements and regional cautions.','spanish-conjugation-patterns':'Practice 28 named teaching patterns across 60 lessons, with ten distinct verbs and checked forms in every lesson.'}
+# Cognates use original contextual scenes and explicit glosses, never automatic spelling substitution.
+def cognate_words(line):
+ return [dict(es=item.split('=',1)[0],en=item.split('=',1)[1],kind='term') for item in line.split(';')]
+cognates=[]
+for row in [x.splitlines() for x in (ROOT/'content/spanish-cognates/foundation-core.txt').read_text().strip().split('\n\n')]:
+ title,rule=row[0].split('|',1);cognates.append(dict(title=title,rule=rule,scene=title,pairs=pairs(row[2:]),words=cognate_words(row[1])))
+assert len(cognates)==40
+for row in [x.splitlines() for x in (ROOT/'content/spanish-cognates/master.txt').read_text().strip().split('\n\n')]:
+ title,idx=row[0].split('|');source=cognates[int(idx)]
+ cognates.append(dict(title=title,rule=source['rule'],scene=title,pairs=source['pairs']+pairs(row[2:]),words=source['words']+cognate_words(row[1])))
+assert len(cognates)==60
+for row in cognates:
+ checks=[]
+ for es,en in row['pairs']:
+  for w in row['words']:
+   match=re.search(r'(?<!\w)'+re.escape(w['es'])+r'(?!\w)',es,re.IGNORECASE)
+   if match and match.group().lower() not in {c['answer'].lower() for c in checks}:
+    checks.append(dict(prompt=es[:match.start()]+'____'+es[match.end():],hint=en,answer=match.group(),explanation=row['rule']));break
+  if len(checks)==3:break
+ assert len(checks)==3,(row['title'],'cognate checks')
+ row['checks']=checks
+NAMES={'spanish-cognates':'Spanish Cognates','spanish-usage-verbs':'Spanish Usage-First Verbs','spanish-common-patterns':'Spanish Common Grammar Patterns','spanish-102':'Spanish 102','spanish-frequent-verbs':'Spanish Frequent Verbs','spanish-conjugation-patterns':'Spanish Conjugation Patterns'}
+THRESHOLDS={'spanish-cognates':'Use familiar Spanish-English word families without trusting spelling alone. Practice pronunciation, stress, agreement and false friends through contextual reading and original responses.','spanish-usage-verbs':'Sixty verb lemmas in descending Spanish Web 2011 corpus frequency, with new usage scenes. Inflected forms count together; frequency varies by genre and region.','spanish-common-patterns':'Use sixty everyday structures, including tener que, hay que, ir a, acabar de and common clause patterns. Ordered for learning, not an asserted statistical frequency ranking.','spanish-102':'Expand Spanish 101 through past narration, objects, plans, requests, commands and introductory subjunctive choices.','spanish-frequent-verbs':'Recognize and use sixty frequent spoken verbs, their everyday meanings, complements and regional cautions.','spanish-conjugation-patterns':'Practice 28 named teaching patterns across 60 lessons, with ten distinct verbs and checked forms in every lesson.'}
 practice={};cores={};gaps=[]
-for course,rows in [('spanish-102',base+masters),('spanish-frequent-verbs',frequency),('spanish-conjugation-patterns',conjugation),('spanish-usage-verbs',usage),('spanish-common-patterns',common)]:
+for course,rows in [('spanish-102',base+masters),('spanish-frequent-verbs',frequency),('spanish-conjugation-patterns',conjugation),('spanish-usage-verbs',usage),('spanish-common-patterns',common),('spanish-cognates',cognates)]:
  for stage,start,count in [('foundation',0,10),('core',10,30),('master',40,20)]:
   module=course if stage=='core' else stage+'-'+course;lessons=[];content={};practice[module]={}
   for n,row in enumerate(rows[start:start+count],1):
@@ -111,6 +132,7 @@ for course,rows in [('spanish-102',base+masters),('spanish-frequent-verbs',frequ
     if appears(w['es']) and folded not in seen and w['en'].lower() not in {x['en'].lower() for x in selected}:
      selected.append(dict(es=w['es'],en=('reflexive / reciprocal / impersonal marker (context determines meaning)' if w['es']=='se' else w['en']),kind='term'));seen.add(folded)
     if len(selected)==need:break
+   if row.get('words'):selected=row['words']
    if len(selected)<need:gaps.append((module,n,row['title'],need-len(selected),text))
    words=selected+[dict(es=es,en=en,kind='phrase') for es,en in ps[:8 if stage=='master' else 6]]
    title=row['title'];rule=row['rule'];scene=row['scene']

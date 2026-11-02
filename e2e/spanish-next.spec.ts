@@ -60,6 +60,9 @@ async function openCourse(page: Page, moduleId: string, signedIn = false) {
 }
 
 for (const [moduleId, opening] of [
+  ["foundation-spanish-cognates", "Busco un hotel cerca del hospital."],
+  ["spanish-cognates", "Una periodista prepara una entrevista con un artista."],
+  ["master-spanish-cognates", "Busco un hotel cerca del hospital."],
   ["spanish-102", "Se lo voy a devolver esta tarde."],
   ["spanish-usage-verbs", "Veo una fecha distinta en el documento."],
   ["spanish-common-patterns", "Acabo de limpiar la sala."],
@@ -70,7 +73,7 @@ for (const [moduleId, opening] of [
   test(`${moduleId}: original reading and English grammar reach all six modes`, async ({
     page,
   }) => {
-    await openCourse(page, moduleId);
+    await openCourse(page, moduleId, moduleId === "foundation-spanish-cognates");
     await expect(
       page.getByRole("navigation", { name: "General Spanish course sequence" }),
     ).toBeVisible();
@@ -212,13 +215,94 @@ test("authored HD recordings play both selected voices without a synthesis reque
   expect(synthesisRequests).toBe(0);
 });
 
+test("cognates HD recordings play both selected voices without a synthesis request @dev-only", async ({
+  page,
+}) => {
+  await openCourse(page, "spanish-cognates");
+  await page.getByRole("button", { name: /^Start Lesson 1$/, exact: true }).click();
+  let synthesisRequests = 0;
+  await page.route("**/api/mission-tts", (route) => {
+    synthesisRequests++;
+    return route.abort();
+  });
+  for (const gender of ["female", "male"] as const) {
+    await page.evaluate(
+      async ({ gender }) => {
+        const ttsPath = "/src/lib/tts.ts",
+          prefsPath = "/src/data/mission-tts.ts";
+        const { speakRemote } = await import(ttsPath);
+        const { encodeGoogleVoicePreference } = await import(prefsPath);
+        const qa = window as typeof window & {
+          recordedQa?: { started: boolean; ended: boolean; failed: boolean };
+        };
+        qa.recordedQa = { started: false, ended: false, failed: false };
+        document.getElementById("qa-recorded-play")?.remove();
+        const button = document.createElement("button");
+        button.id = "qa-recorded-play";
+        button.textContent = "QA play authored recording";
+        Object.assign(button.style, {
+          position: "fixed",
+          top: "100px",
+          left: "20px",
+          zIndex: "99999",
+        });
+        button.onclick = () =>
+          void speakRemote("Una periodista prepara una entrevista con un artista.", "es-US", {
+            voiceURI: encodeGoogleVoicePreference({
+              name: `es-US-Chirp3-HD-${gender === "female" ? "Aoede" : "Charon"}`,
+              languageCodes: ["es-US"],
+            }),
+            onPlaybackStart: () => {
+              qa.recordedQa!.started = true;
+            },
+            onend: () => {
+              qa.recordedQa!.ended = true;
+            },
+            onerror: () => {
+              qa.recordedQa!.failed = true;
+            },
+          });
+        document.body.append(button);
+      },
+      { gender },
+    );
+    const [response] = await Promise.all([
+      page.waitForResponse(
+        (response) =>
+          response.url().includes("/audio/spanish-next/") &&
+          response.url().endsWith(`-${gender}.mp3`),
+      ),
+      page.locator("#qa-recorded-play").click(),
+    ]);
+    expect([200, 206]).toContain(response.status());
+    expect((await response.body()).length).toBeGreaterThan(500);
+    await expect
+      .poll(
+        () =>
+          page.evaluate(
+            () => (window as typeof window & { recordedQa?: { ended: boolean } }).recordedQa?.ended,
+          ),
+        { timeout: 15000 },
+      )
+      .toBe(true);
+    expect(
+      await page.evaluate(
+        () =>
+          (window as typeof window & { recordedQa?: { started: boolean; failed: boolean } })
+            .recordedQa,
+      ),
+    ).toMatchObject({ started: true, failed: false });
+  }
+  expect(synthesisRequests).toBe(0);
+});
+
 for (const moduleId of [
   "spanish-usage-verbs",
   "spanish-conjugation-patterns",
   "master-spanish-common-patterns",
 ])
   test(`${moduleId}: lesson-local matching, hangman, choices and typing`, async ({ page }) => {
-    await openCourse(page, moduleId);
+    await openCourse(page, moduleId, moduleId === "foundation-spanish-cognates");
     await page
       .getByRole("button", { name: /^Start (?:Foundation |Master )?Lesson 1$/, exact: true })
       .click();
@@ -314,4 +398,44 @@ for (const moduleId of [
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
+  });
+
+for (const [moduleId, last] of [
+  ["foundation-spanish-cognates", 10],
+  ["spanish-cognates", 30],
+  ["master-spanish-cognates", 20],
+] as const)
+  test(`${moduleId}: final lesson keeps its own reading and checked cognate answers`, async ({
+    page,
+  }, info) => {
+    await openCourse(page, moduleId, moduleId.startsWith("foundation-"));
+    await page.goto(
+      `/?tab=core30&module=${moduleId}&target=Spanish&native=English&lesson=${last}&way=see`,
+    );
+    const lesson = practice[moduleId][String(last)];
+    await expect(page.getByTestId("lesson-section-see")).toContainText(lesson.reading.target[0]);
+    const check = page.getByRole("region", { name: "Cognate practice check" });
+    await expect(page.getByTestId("core30-mastered-button")).toBeDisabled();
+    await check.getByRole("button", { name: "Check cognate", exact: true }).click();
+    await expect(check).toContainText("Review:");
+    for (const [i, q] of lesson.checks.entries())
+      await check.getByLabel(`Cognate answer ${i + 1}`, { exact: true }).fill(q.answer);
+    await check.getByRole("button", { name: "Check cognate", exact: true }).click();
+    await expect(check).toContainText("3 of 3 correct");
+    await expect(page.getByTestId("core30-mastered-button")).toBeEnabled();
+    if (moduleId.startsWith("master-"))
+      for (const theme of ["light", "dark"]) {
+        await page.evaluate(
+          (mode) => document.documentElement.classList.toggle("dark", mode === "dark"),
+          theme,
+        );
+        await page.getByTestId("lesson-section-see").scrollIntoViewIfNeeded();
+        await page.screenshot({ path: `/tmp/cognates-${info.project.name}-${theme}.png` });
+      }
+    await page
+      .getByTestId("lesson-section-see")
+      .getByRole("button", { name: /full reader/i })
+      .click();
+    await expect(page.getByTestId("reader-options")).toBeVisible();
+    await expect(page.locator("body")).toContainText(lesson.reading.target.at(-1));
   });

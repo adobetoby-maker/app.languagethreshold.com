@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, X, Check, Clock } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
@@ -15,6 +16,7 @@ import { cn } from "@/lib/utils";
 
 const FILTER_TABS = [
   { id: "ALL" as const, label: "All" },
+  { id: "Core Basics" as const, label: "Core Basics" },
   { id: "Faith" as const, label: "Faith" },
   { id: "Medical" as const, label: "Medical" },
   { id: "Trades" as const, label: "Trades" },
@@ -43,7 +45,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
     const matchesSearch =
       !q ||
       [path.module, ...path.stages.flatMap((stage) => (stage.module ? [stage.module] : []))].some(
-        (m) => [m.name, m.blurb, m.category, m.userRole].join(" ").toLowerCase().includes(q),
+        (m) => moduleMatchesSearch(m, q),
       );
     return matchesCategory && matchesSearch;
   });
@@ -157,15 +159,8 @@ export function ModulePickerDialog({ open, onClose }: Props) {
                 {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
               </button>
 
-              {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
-                <button type="button" onClick={() => select("foundation-spanish-basics", true)} className="w-full rounded-xl border border-gold/40 bg-gold/5 p-4 text-left text-foreground">
-                  <span className="block text-base font-semibold">Spanish 101 · Start from zero</span>
-                  <span className="mt-1 block text-sm text-muted-foreground">General Core 60: 10 starter + 30 grammar + 20 application lessons. English explanations; no profession required.</span>
-                </button>
-              )}
-
               <p className="text-xs text-muted-foreground">
-                A–Z by trade · Foundation → Core → Master
+                A–Z by module · Foundation → Core → Master
               </p>
               {filtered.length ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

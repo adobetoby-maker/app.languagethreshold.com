@@ -2,6 +2,7 @@ import basics from "./spanish-basics-practice.json" with { type: "json" };
 import next from "./spanish-next-practice.json" with { type: "json" };
 
 function courseTitle(id: string) {
+  if (id.includes("spanish-cognates")) return "Spanish Cognates";
   if (id.includes("spanish-usage-verbs")) return "Spanish Usage-First Verbs";
   if (id.includes("spanish-common-patterns")) return "Spanish Common Grammar Patterns";
   if (id.includes("spanish-102")) return "Spanish 102";

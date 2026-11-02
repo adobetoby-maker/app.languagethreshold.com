@@ -523,6 +523,7 @@ export const MODULE_LESSONS: LessonMap = {
 
 export function getLessons(moduleId: string, language: Language): string[] {
   const nextCourse = [
+    "spanish-cognates",
     "spanish-102",
     "spanish-frequent-verbs",
     "spanish-conjugation-patterns",

@@ -1,3 +1,4 @@
+import { spanishBasicsLesson } from "../data/spanish-basics.ts";
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "../data/construction-foreman-lesson-content.ts";
@@ -25,6 +26,16 @@ export function authoredLessonReading(
   }
   if (targetLanguage !== "Spanish" || instructionLanguage !== "English" || !lessonNumber)
     return null;
+  const basics = spanishBasicsLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
+  if (basics)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: basics.reading.title,
+      sentences: basics.reading.target.map((target, i) => ({
+        target,
+        en: basics.reading.native[i],
+      })),
+    };
   const passage =
     moduleId === "roofing"
       ? ROOFING_LESSON_PASSAGES[lessonNumber]

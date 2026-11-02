@@ -157,6 +157,13 @@ export function ModulePickerDialog({ open, onClose }: Props) {
                 {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
               </button>
 
+              {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+                <button type="button" onClick={() => select("foundation-spanish-basics", true)} className="w-full rounded-xl border border-gold/40 bg-gold/5 p-4 text-left text-foreground">
+                  <span className="block text-base font-semibold">Spanish 101 · Start from zero</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">General Core 60: 10 starter + 30 grammar + 20 application lessons. English explanations; no profession required.</span>
+                </button>
+              )}
+
               <p className="text-xs text-muted-foreground">
                 A–Z by trade · Foundation → Core → Master
               </p>

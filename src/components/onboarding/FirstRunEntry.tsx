@@ -92,6 +92,19 @@ export function FirstRunEntry() {
                 Start reading
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </button>
+              {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    dispatch({ type: "SET_ACTIVE_MODULE", payload: "foundation-spanish-basics" });
+                    dispatch({ type: "COMPLETE_ONBOARDING" });
+                    dispatch({ type: "SET_TAB", payload: "core30" });
+                  }}
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-gold/45 bg-gold/10 px-6 py-3.5 text-sm font-semibold text-gold-ink sm:w-auto"
+                >
+                  Start Spanish 101
+                </button>
+              )}
               {coreSpeakingAvailable && (
                 <button
                   type="button"

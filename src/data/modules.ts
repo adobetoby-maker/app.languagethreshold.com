@@ -40,6 +40,7 @@ export interface AppModule {
    * Indicates which native-language scaffolds/glosses are available.
    */
   nativeLanguages?: NativeLanguage[];
+  authoredPair?: { target: Language; native: NativeLanguage };
   /**
    * "en-target" — the learner's native language is non-English; they are
    * learning English for a professional context (OR EVS, FMG, etc.).
@@ -59,6 +60,10 @@ export function moduleSupportsLearningPair(
   targetLanguage: Language,
   nativeLanguage: NativeLanguage,
 ): boolean {
+  if (module.authoredPair)
+    return (
+      module.authoredPair.target === targetLanguage && module.authoredPair.native === nativeLanguage
+    );
   if (targetLanguage === "English") {
     if (nativeLanguage === "English") return false;
     if (module.learnDirection === "en-target") {
@@ -77,6 +82,39 @@ export function moduleSupportsLearningPair(
 
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
+  {
+    id: "spanish-basics",
+    name: "Spanish 101 · General Core 60",
+    emoji: "🌱",
+    category: "Education",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Start here for everyday Spanish: 10 starter lessons, 30 grammar lessons, and 20 lessons applying those basics. No profession required.",
+    priceCents: 0,
+    aiPersona:
+      "You are a patient Spanish 101 teacher. Practice beginner everyday Spanish using short sentences, clear grammar explanations in English, and gentle corrections. Keep all stages at beginner to early-intermediate level. Master means applying familiar basics, not advanced grammar or certified proficiency.",
+    userRole: "A beginner studying Spanish in a first-year class",
+    challengePrompts: [
+      "Introduce yourself and ask a classmate a question.",
+      "Describe your classroom and say where things are.",
+      "Explain your daily routine and tomorrow's plan.",
+      "Tell a friend what you did yesterday.",
+    ],
+    vocabFocus: [
+      "ser",
+      "estar",
+      "hay",
+      "tener",
+      "hablar",
+      "comer",
+      "vivir",
+      "ir",
+      "querer",
+      "poder",
+    ],
+  },
   {
     id: "military",
     name: "Military English",
@@ -246,7 +284,18 @@ const CATALOG: AppModule[] = [
       "Report a small accident on the roof and ask for help.",
     ],
     // English headwords of terms taught in the ten lessons (tests/foundation-curriculum.test.mjs).
-    vocabFocus: ["roof", "tile", "nail", "hammer", "ladder", "harness", "bundle", "wet", "tarp", "crew"],
+    vocabFocus: [
+      "roof",
+      "tile",
+      "nail",
+      "hammer",
+      "ladder",
+      "harness",
+      "bundle",
+      "wet",
+      "tarp",
+      "crew",
+    ],
   },
   // Roofing Master 20: the third stage of the roofing Core 60, after the Foundation and the
   // Core 30. Sold and gated exactly like the Core 30 (paid tabs; the pilot runs free).

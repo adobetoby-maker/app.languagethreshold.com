@@ -1,3 +1,4 @@
+import { LessonVerbGames } from "./LessonVerbGames";
 // Built by TAC — 2026-10-17
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import { Check, CheckCircle2, RotateCcw, Volume2 } from "lucide-react";
@@ -129,7 +130,10 @@ function VerbCard({
                 >
                   {form}
                 </span>
-                <Volume2 className="col-start-2 row-span-2 row-start-1 h-4 w-4 text-gold sm:col-start-3 sm:row-span-1" aria-hidden="true" />
+                <Volume2
+                  className="col-start-2 row-span-2 row-start-1 h-4 w-4 text-gold sm:col-start-3 sm:row-span-1"
+                  aria-hidden="true"
+                />
               </button>
             </li>
           );
@@ -141,7 +145,10 @@ function VerbCard({
           <p lang={lang} className="break-words text-sm font-semibold text-foreground">
             {verb.example.target}
           </p>
-          <p lang={languageTag(nativeLanguage)} className="break-words text-xs text-muted-foreground">
+          <p
+            lang={languageTag(nativeLanguage)}
+            className="break-words text-xs text-muted-foreground"
+          >
             {verb.example.native}
           </p>
         </div>
@@ -378,5 +385,10 @@ function ConjugateVerbs({
 
 export function VerbPractice({ mode, ...props }: VerbPracticeProps) {
   if (props.verbs.length === 0 || !verbFormKeys(props.language)) return null;
-  return mode === "study" ? <StudyVerbs {...props} /> : <ConjugateVerbs {...props} />;
+  return (
+    <div className="space-y-4">
+      <LessonVerbGames verbs={props.verbs} language={props.language} />
+      {mode === "study" ? <StudyVerbs {...props} /> : <ConjugateVerbs {...props} />}
+    </div>
+  );
 }

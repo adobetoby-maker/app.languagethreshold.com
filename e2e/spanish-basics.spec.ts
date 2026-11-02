@@ -175,9 +175,7 @@ test("Master applies familiar beginner grammar with English support", async ({ p
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test("Spanish 101 card lists retain independent word choices across reload", async ({
-  page,
-}) => {
+test("Spanish 101 card lists retain independent word choices across reload", async ({ page }) => {
   await openCourse(page, "foundation-spanish-basics", true);
   await page
     .getByRole("button", { name: "Practice Spanish 101 vocabulary · My card lists", exact: true })
@@ -198,4 +196,26 @@ test("Spanish 101 card lists retain independent word choices across reload", asy
   await expect(page.getByRole("checkbox").first()).toBeChecked();
   await page.getByLabel("Find a word").fill("yo hablo");
   await expect(page.getByText("yo hablo", { exact: true }).first()).toBeVisible();
+});
+
+test("Core 60 verb and conjugation practice offers lesson-scoped games", async ({ page }) => {
+  await openCourse(page, "spanish-basics");
+  await page
+    .getByRole("button", { name: /^Start (?:Foundation |Master )?Lesson 1$/, exact: true })
+    .click();
+  await page.getByTestId("lesson-nav-recall").click();
+  await page.getByTestId("practice-mode-verbs").click();
+  const game = page.getByRole("region", { name: "Lesson verb games" });
+  await game.getByRole("button", { name: "Choose the conjugation", exact: true }).click();
+  await expect(game).toContainText("Question 1 of");
+  const choices = game
+    .locator("button")
+    .filter({ hasNotText: /Match the infinitive|Choose the conjugation/ });
+  await choices.first().click();
+  await expect(game.getByRole("status")).toContainText(/Correct|Try again/);
+  await game.getByRole("button", { name: "Match the infinitive", exact: true }).click();
+  await expect(game).toContainText("Question 1 of");
+  await page.getByTestId("lesson-nav-type").click();
+  await page.getByRole("button", { name: "Verbs", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Lesson verb games" })).toBeVisible();
 });

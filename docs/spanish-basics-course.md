@@ -50,3 +50,12 @@ category/module selectors still determine which decks are shown. Exclusion filte
 both due and upcoming practice without deleting cards or changing SRS history.
 Lists use the account/guest learner-device store, scoped to target/native pair,
 and are saved locally on this device. Existing flashcard storage is unchanged.
+
+### Lesson verb games
+
+The shared Core 60 verb study and typed-conjugation panels include two lesson-scoped
+present-tense games: match a form to its infinitive, and choose a subject's conjugation.
+Rounds use at most ten authored forms from the current lesson, show feedback and
+require a correct retry before advancing. Scores distinguish first-try answers and
+do not write lesson mastery. No draft course forms are added to the separately
+reviewed global Verb Games pattern pool. Existing typed practice and study remain.

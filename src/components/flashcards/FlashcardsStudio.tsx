@@ -1,7 +1,7 @@
 import { PhoneActivity } from "@/components/PhoneActivity";
 import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus } from "lucide-react";
+import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus, Settings2 } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import {
   useFlashcards,
@@ -33,6 +33,8 @@ import { JapaneseConjugationCard } from "./JapaneseConjugationCard";
 import type { SrsGrade } from "@/lib/srs";
 import { SrsRatingButtons } from "./SrsRatingButtons";
 import { SRS_RATINGS } from "@/lib/srs-ratings";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ReviewIntervalSettings } from "./ReviewIntervalSettings";
 
 const FURIGANA_FC_KEY = "lt.flashcards.furigana.v1";
 
@@ -77,6 +79,8 @@ export function FlashcardsStudio() {
   const [flipped, setFlipped] = useState(false);
   const [reviewedCount, setReviewedCount] = useState(0);
   const [showFurigana, setShowFurigana] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [replayQueue, setReplayQueue] = useState<string[] | null>(null);
 
   // Persist furigana preference (default ON for Japanese cards)
   useEffect(() => {
@@ -329,6 +333,7 @@ export function FlashcardsStudio() {
     setSelectedCategories(moduleSection ? [moduleSection] : [...availableCategories]);
     setFlipped(false);
     setReviewedCount(0);
+    setReplayQueue(null);
   }, [moduleSection, availableCategories, language, appState.nativeLanguage]);
 
   function saveCards(pairs: { english: string; translation: string }[]) {
@@ -411,6 +416,7 @@ export function FlashcardsStudio() {
 
   function toggleCategory(section: string) {
     setSelectedCategories((prev) => nextSectionSelection(prev, section, availableCategories));
+    setReplayQueue(null);
     if (section.startsWith("block:")) {
       const blockId = section.slice("block:".length);
       if (introducedCount(blockId) === 0) void introduceBatch(blockId);
@@ -431,7 +437,9 @@ export function FlashcardsStudio() {
     () => dueCardsForCategories(language, selectedCategories),
     [dueCardsForCategories, language, selectedCategories],
   );
-  const current = dueCards[0];
+  const current = replayQueue === null
+    ? dueCards[0]
+    : replayQueue.map((id) => state.cards[id]).find((card) => card && allCards.some((item) => item.id === card.id));
   useEffect(() => setFlipped(false), [current?.id]);
   const speakOwned = useOwnedSpeaker(
     JSON.stringify([language, moduleId, current?.id, accent, voiceURI]),
@@ -493,6 +501,7 @@ export function FlashcardsStudio() {
     (g: SrsGrade) => {
       if (!current) return;
       reviewCard(current.id, g);
+      setReplayQueue((queue) => queue === null ? null : queue.filter((id) => id !== current.id));
       if (g === "good") void playFlashcardSuccess("good-job");
       else if (g === "easy") void playFlashcardSuccess("cash");
       setFlipped(false);
@@ -561,13 +570,39 @@ export function FlashcardsStudio() {
           </div>
           <div className="flex gap-2 font-mono text-[10px] uppercase tracking-[0.18em]">
             <span className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-gold">
-              {dueCards.length} due
+              {replayQueue === null ? `${dueCards.length} due` : `${replayQueue.length} left`}
             </span>
-            <span className="rounded-full border border-border/60 bg-card/40 px-3 py-1 text-muted-foreground">
+            <span data-testid="flashcards-total" className="rounded-full border border-border/60 bg-card/40 px-3 py-1 text-muted-foreground">
               {allCards.length} total
             </span>
+            <button
+              type="button"
+              onClick={() => setSettingsOpen(true)}
+              aria-label="Flashcard settings"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border/60 text-foreground"
+            >
+              <Settings2 className="h-4 w-4" aria-hidden="true" />
+            </button>
           </div>
         </div>
+
+        <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
+          <DialogContent className="w-[calc(100vw-2rem)]">
+            <DialogHeader>
+              <DialogTitle>Card settings</DialogTitle>
+              <DialogDescription>Review timing and a fresh pass through the selected deck.</DialogDescription>
+            </DialogHeader>
+            <ReviewIntervalSettings
+              deckCount={allCards.length}
+              onStudyWholeDeck={() => {
+                setReplayQueue(allCards.map((card) => card.id));
+                setReviewedCount(0);
+                setFlipped(false);
+                setSettingsOpen(false);
+              }}
+            />
+          </DialogContent>
+        </Dialog>
 
         {moduleSection && (generatingFieldDeck || fieldDeckError) && (
           <div
@@ -745,20 +780,27 @@ export function FlashcardsStudio() {
               data-testid="flashcards-grading"
               className="w-full max-w-xl"
             >
-              <SrsRatingButtons fields={current.srs} onRate={grade} />
+              <SrsRatingButtons intervals={state.reviewIntervals} onRate={grade} />
             </div>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-card/30 p-14 text-center backdrop-blur">
             <Sparkle className="h-6 w-6 text-gold" />
             <p className="font-sans text-lg not-italic text-foreground">
-              {allCards.length ? "All caught up" : "No cards in this set yet"}
+              {replayQueue !== null ? "Full deck reviewed" : allCards.length ? "All caught up" : "No cards in this set yet"}
             </p>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              {nextUp
+              {replayQueue !== null
+                ? "Your saved review history and dates are still in place"
+                : nextUp
                 ? `Next review in ${daysUntil(nextUp.srs.dueDate)}`
                 : "Add words from the Reader to build your deck"}
             </p>
+            {replayQueue !== null && (
+              <button type="button" onClick={() => setReplayQueue(null)} className="mt-2 min-h-11 rounded-lg border border-gold/60 px-4 text-sm font-semibold text-gold-ink">
+                Return to due cards
+              </button>
+            )}
           </div>
         )}
       </PhoneActivity>

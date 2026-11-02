@@ -77,7 +77,7 @@ test("actual flashcard reducer preserves reviewed cards, adds missing lesson wor
       ],
     });
     const { reduce } = await import(out);
-    const initial = { cards: {}, seededLanguages: [], seededDecks: [], hydrated: true };
+    const initial = { cards: {}, seededLanguages: [], seededDecks: [], reviewIntervals: { hard: 1, good: 2, easy: 4 }, hydrated: true };
     const add = (state, origin, pairs) =>
       reduce(state, {
         type: "ADD_MODULE_CARDS",
@@ -109,7 +109,7 @@ test("actual flashcard reducer preserves reviewed cards, adds missing lesson wor
     assert.equal(Object.keys(old.cards).length, 1);
     const reviewed = reduce(next, { type: "REVIEW_CARD", payload: { id, grade: "again", now: 50000 } });
     assert.equal(reviewed.cards[id].srs.repetitions, 0);
-    assert.equal(reviewed.cards[id].srs.dueDate, 50000 + 86400000);
+    assert.equal(reviewed.cards[id].srs.dueDate, 50000);
     assert.deepEqual(reviewed.cards[id].reviewHistory, [{ grade: "again", at: 50000 }]);
     const resynced = add(reviewed, "lesson", pairs);
     assert.strictEqual(resynced.cards[id], reviewed.cards[id]);

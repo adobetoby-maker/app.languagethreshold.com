@@ -44,7 +44,15 @@ for stage,rows in [('foundation',outline['foundation']),('core',outline['core'])
   speaking=f'Role-play {scene} with a patient classmate. Practice {title.lower()}. Use this lesson\'s grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.'
   lesson=dict(n=n,title=title,objective=f'{title}: {rule.split(". ")[0].rstrip(".")}.',focus=title,words=words,speaking=speaking)
   if stage=='master':lesson.update(grammar=dict(focus=rule,examples=[dict(es=es,en=en) for es,en in pairs[:2]]),lessonType=['Teach-back','Case','People','Document','Capstone'][(n-1)//4],block='ABCDE'[(n-1)//4])
-  chosen=sorted(verbs,key=lambda v:(not any(appears(f) for f in v['forms'].values()),not appears(v['infinitive'])))[:(5 if stage=='master' else 3)]
+  def verb_score(v):
+   inf=v['infinitive'].removesuffix('se')
+   stem=inf[:-2]
+   in_reading=any(appears(f) for f in v['forms'].values()) or (len(stem)>=3 and bool(re.search(r'(?<!\w)'+re.escape(stem)+r'\w*',text)))
+   if inf in ('ir','ser') and re.search(r'(?<!\w)(fui|fuiste|fue|fuimos|fueron)(?!\w)',text):in_reading=True
+   return (v['infinitive'] not in rule.lower(),not in_reading)
+  chosen=[dict(v) for v in sorted(verbs,key=verb_score)[:(5 if stage=='master' else 3)]]
+  for v in chosen:
+   if v['infinitive']=='gustar':v['note']='Use gusta with one thing or an infinitive and gustan with plural things. Me, te and le name the person who likes it.' 
   content[str(n)]=dict(passage=dict(title=scene,target=target,native=native),words=words,verbs=chosen)
   skill_index = n-1 if stage=='foundation' else n+9 if stage=='core' else read(SOURCE/'master.json')[n-1][1]
   checks=[]

@@ -40,13 +40,16 @@ test.describe("desktop navigation", () => {
     await expect(page.getByRole("button", { name: "Core 60", exact: true })).toHaveCount(1);
   });
 
-  test("left sidebar puts Core 60 immediately after Modules", async ({ page }) => {
+  test("left sidebar groups Core 60 and Modules under Learn with Core first", async ({ page }) => {
     await openWithModule(page, "orthopedics");
-    const rail = page.locator("aside").first();
-    const labels = (await rail.getByRole("button").allInnerTexts()).map((t) => t.trim());
+    const learn = page.getByRole("navigation", { name: "Desktop navigation" }).getByRole("region", { name: "Learn", exact: true });
+    await expect(learn.getByRole("button", { name: "Core 60", exact: true })).toBeVisible();
+    await expect(learn.getByRole("button", { name: "Modules", exact: true })).toBeVisible();
+    const labels = (await learn.getByRole("button").allInnerTexts()).map((t) => t.trim());
+    const core = labels.findIndex((t) => /^core 60$/i.test(t));
     const modules = labels.findIndex((t) => /^modules$/i.test(t));
-    expect(modules).toBeGreaterThan(-1);
-    expect(labels[modules + 1]).toMatch(/core 60/i);
+    expect(core).toBeGreaterThanOrEqual(0);
+    expect(modules).toBeGreaterThan(core);
   });
 
   test("Core 60 opens from the sidebar and starts a lesson", async ({ page }) => {

@@ -37,7 +37,10 @@ interface ErrorState {
   reloading: boolean;
 }
 
-class TabErrorBoundary extends Component<{ children: ReactNode; tabKey: string }, ErrorState> {
+export class TabErrorBoundary extends Component<
+  { children: ReactNode; tabKey: string },
+  ErrorState
+> {
   state: ErrorState = { hasError: false, chunkError: false, reloading: false };
 
   static getDerivedStateFromError(error: unknown): Partial<ErrorState> {

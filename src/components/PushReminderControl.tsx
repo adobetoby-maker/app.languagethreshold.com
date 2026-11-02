@@ -291,7 +291,7 @@ function OwnedPushReminderControl() {
   }
 
   return (
-    <section className="rounded-2xl border border-cyan-400/25 bg-cyan-400/5 p-5">
+    <section id="daily-practice-reminder" className="scroll-mt-20 rounded-2xl border border-cyan-400/25 bg-cyan-400/5 p-5">
       <div className="flex items-start gap-3">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-300/35 bg-[var(--info-surface)]">
           {settings?.enabled ? (
@@ -302,18 +302,17 @@ function OwnedPushReminderControl() {
         </div>
         <div className="min-w-0 flex-1">
           <p className="font-sans text-xs uppercase tracking-wide text-[var(--info-ink)]">
-            Daily practice reminder
+            Keep your streak reminder
           </p>
           <h2 className="mt-1 font-serif text-xl text-foreground">
             {unconfirmed
               ? "Reminder status is unconfirmed"
               : settings?.enabled
-                ? "Your countdown is active"
-                : "Keep the trip in sight"}
+                ? "Your daily reminder is on"
+                : "A little practice, every day"}
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-            One useful notification combines your nearest departure, selected speaking topic, and
-            exact lessons left.
+            Choose a time for a daily nudge to practice. Travel plans and your next lesson can make it more useful.
           </p>
 
           {session && (
@@ -343,7 +342,7 @@ function OwnedPushReminderControl() {
 
           {!session ? (
             <p className="mt-4 rounded-xl border border-border/60 bg-background/35 p-3 text-xs text-muted-foreground">
-              Sign in to turn on reminders. Your dates and progress stay tied to your account.
+              Sign in to turn on optional reminders. Your settings stay tied to your account.
             </p>
           ) : unconfirmed ? (
             <div className="mt-4 space-y-3 rounded-xl border border-amber-300/30 bg-background/35 p-3 text-xs leading-relaxed">

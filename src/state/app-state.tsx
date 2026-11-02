@@ -1,3 +1,4 @@
+import { InitialAppShell } from "@/components/InitialAppShell";
 import { learningResetKey, readLearningResetId } from "@/lib/learning-reset-epoch";
 import { resetLearningDevice } from "@/lib/learning-reset";
 import { WordCardCacheProvider } from "./word-card-cache";
@@ -1114,15 +1115,7 @@ const AppContext = createContext<{
 export function AppProvider({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   const actor = user?.id ?? null;
-  if (loading)
-    return (
-      <div
-        className="flex min-h-screen items-center justify-center bg-background p-6 text-foreground"
-        role="status"
-      >
-        Loading your learning space…
-      </div>
-    );
+  if (loading) return <InitialAppShell />;
   return (
     <AccountAppProvider key={actor ?? "guest"} actor={actor}>
       {children}

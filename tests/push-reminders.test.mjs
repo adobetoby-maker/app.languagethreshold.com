@@ -65,12 +65,36 @@ test("recovery reminder says exactly how many lessons restore the streak", () =>
     },
     "2026-08-14",
   );
-  assert.equal(notification.title, "Buongiorno! 1 lesson can restore your streak");
+  assert.equal(notification.title, "Buongiorno! 1 practice activity can restore your streak");
   // Streak is overall, not per-language (a polyglot keeps ONE streak), so the
   // copy says "your 18-day streak" and names the language only as the action.
   assert.match(notification.body, /18-day streak/);
   assert.match(notification.body, /in Italian/);
   assert.equal(notification.badgeCount, 1);
+});
+
+test("a non-travel reminder leads with the real streak and stays optional", () => {
+  const notification = buildReminderNotification(
+    {
+      ...context,
+      trip: null,
+      streak: {
+        current: 4,
+        best: 4,
+        lessonsCompletedToday: 0,
+        recoveryLessonsRemaining: 0,
+        travelPasses: 1,
+        travelBreakEndsOn: null,
+      },
+    },
+    "2026-08-14",
+  );
+  assert.equal(notification.title, "¡Buenos días! Keep your 4-day streak going");
+  assert.match(notification.body, /68 of 92 lessons remain/);
+  assert.equal(
+    buildReminderNotification({ ...context, lastPracticeDate: "2026-08-14" }, "2026-08-14"),
+    null,
+  );
 });
 
 test("daily reminders pause while a travel pass protects the streak", () => {

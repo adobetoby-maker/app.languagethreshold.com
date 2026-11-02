@@ -1,3 +1,6 @@
+import { NavigationMenu } from "./navigation/NavigationMenu";
+import { navigationVersion, type NavigationVersion } from "@/lib/navigation-menu";
+import { appBuildInfo } from "@/lib/app-build-info";
 import { FounderStoryLink } from "./FounderStoryLink";
 import { BlogNavLink } from "./blog/BlogNavLink";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
@@ -249,8 +252,6 @@ const TAB_ITEMS: {
   { key: "core30", label: "Core 60", short: "Core 60", group: "Play", Icon: ListChecks },
 ];
 
-const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", "Play"];
-
 const VISITED_KEY = "lt.visitedTabs.session";
 const TAB_XP = 5;
 
@@ -260,8 +261,6 @@ const TAB_XP = 5;
 const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
   { key: "reader", Icon: BookOpen, label: "Reader" },
   { key: "flashcards", Icon: Layers, label: "Cards" },
-  { key: "grammar", Icon: GraduationCap, label: "Grammar" },
-  { key: "games", Icon: Gamepad2, label: "Games" },
   { key: "speak", Icon: Mic2, label: "Speak" },
   { key: "core30", Icon: ListChecks, label: "Core 60" },
 ];
@@ -334,6 +333,14 @@ function fieldPrepLabel(moduleId: string | null): { label: string; short: string
 }
 
 export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
+  const [navVersion, setNavVersion] = useState<NavigationVersion>("sections");
+  useEffect(() => {
+    const update = () =>
+      setNavVersion(navigationVersion(window.location.search, appBuildInfo.environment));
+    update();
+    window.addEventListener("popstate", update);
+    return () => window.removeEventListener("popstate", update);
+  }, []);
   const { state, dispatch } = useApp();
   const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
@@ -430,15 +437,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     { key: "modules" as TabKey, label: "Modules", short: "Modules", Icon: Puzzle },
     ...visible.filter((item) => item.key === "core30"),
     ...visible
-      .filter((item) => item.key !== "core30" && item.key !== "exams")
-      .map((item) =>
-        item.key === "games" ? { ...item, label: "Practice Lab", short: "Practice Lab" } : item,
-      ),
+      .filter((item) => item.key !== "core30")
+      .map((item) => (item.key === "games" ? { ...item, label: "Games", short: "Games" } : item)),
     ...(state.selectedLanguage === "Japanese"
       ? [{ key: "kana" as TabKey, label: "Kana Pad", short: "Kana Pad", Icon: PenLine }]
       : []),
     { key: "anatomy" as TabKey, label: "Anatomy", short: "Anatomy", Icon: Activity },
   ];
+
+  const navigationItems = desktopVisible.map((item) => ({
+    ...item,
+    label: item.key === "fieldPrep" ? fieldPrepLabel(state.activeModuleId).label : item.label,
+  }));
 
   function switchTab(key: TabKey) {
     if (key === "exams") {
@@ -469,7 +479,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     <>
       <PracticeTimeTicker />
       {/* ── Desktop sidebar ─────────────────────────────────── */}
-      <aside className="hidden desktop:flex flex-col w-[108px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
+      <aside className="hidden desktop:flex flex-col w-[224px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
         <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
@@ -487,37 +497,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           aria-label="Desktop navigation"
           className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
         >
-          {desktopVisible.map((item) => {
-            const { key, Icon } = item;
-            const { label, short } =
-              key === "fieldPrep"
-                ? fieldPrepLabel(state.activeModuleId)
-                : { label: item.label, short: item.short };
-            const active = state.currentTab === key;
-            return (
-              <button
-                key={key}
-                data-tour={key}
-                aria-current={active ? "page" : undefined}
-                onClick={() => switchTab(key)}
-                title={label}
-                className={cn(
-                  "relative flex min-h-10 max-h-[3.25rem] w-full flex-1 basis-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 transition-all",
-                  active
-                    ? "bg-gold/15 text-gold-ink"
-                    : "text-muted-foreground hover:bg-card/80 hover:text-foreground",
-                )}
-              >
-                {active && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-r-full bg-gold" />
-                )}
-                <Icon className="h-[17px] w-[17px] shrink-0" strokeWidth={1.6} />
-                <span className="w-full truncate text-center font-mono text-[12px] leading-tight tracking-normal">
-                  {short}
-                </span>
-              </button>
-            );
-          })}
+          <NavigationMenu
+            items={navigationItems}
+            active={state.currentTab}
+            onSelect={switchTab}
+            version={navVersion}
+          />
           <BlogNavLink />
         </nav>
 
@@ -752,133 +737,110 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
       </nav>
 
-      {/* Mobile-only: full tab list, grouped the same way the desktop sidebar implies. */}
+      {/* Mobile-only: a left drawer keeps the grouped tools available without
+          covering the whole activity or changing the familiar bottom dock. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
           scrollBody
-          side="bottom"
-          className="h-[80vh] max-h-[80vh] overflow-hidden border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
+          side="left"
+          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)] desktop:hidden"
         >
-          {/* Which pair of languages you are working in, above everything else.
+          <SheetTitle className="font-display text-xl text-foreground">
+            Language Threshold
+          </SheetTitle>
+          <SheetDescription className="sr-only">
+            More navigation, grouped by learning activity. Choose a destination or close the menu.
+          </SheetDescription>
+          <p className="mb-4 mt-1 text-sm font-semibold text-gold-ink">
+            {moreView === "settings" ? "Settings" : "Explore"}
+          </p>
+          <details
+            className="group mb-3 rounded-xl border border-border/40 bg-card/30 px-3 py-1"
+            open={moreView === "settings" ? true : undefined}
+          >
+            <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold text-foreground">
+              <SlidersHorizontal className="h-4 w-4 text-gold-ink" aria-hidden="true" />
+              Language and account
+              <ChevronDown
+                className="ml-auto h-4 w-4 transition-transform group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            {/* Which pair of languages you are working in.
               The bottom strip shows the target only, and native was reachable
               solely from TopNav — which is desktop-only, so on a phone there was
               no way to see or change it. Plain <select> rather than a dropdown
-              menu: inside a bottom sheet iOS gives the native picker wheel,
+               menu: inside the drawer iOS gives the native picker wheel,
               which is easier to hit and cannot be mis-scrolled. */}
-          <div className="mb-3 grid grid-cols-2 gap-2">
-            <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                Learning
-              </span>
-              <select
-                value={state.selectedLanguage}
-                onChange={(e) => {
-                  const lang = e.target.value as Language;
-                  dispatch({ type: "SET_LANGUAGE", payload: lang });
-                  if (lang === "English" && state.nativeLanguage === "English") {
-                    dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+            <div className="mb-3 grid grid-cols-2 gap-2">
+              <label className="flex flex-col gap-1">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                  Learning
+                </span>
+                <select
+                  value={state.selectedLanguage}
+                  onChange={(e) => {
+                    const lang = e.target.value as Language;
+                    dispatch({ type: "SET_LANGUAGE", payload: lang });
+                    if (lang === "English" && state.nativeLanguage === "English") {
+                      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+                    }
+                  }}
+                  className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+                >
+                  {LANGUAGES.map((lang) => (
+                    <option key={lang} value={lang}>
+                      {lang}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                  Native
+                </span>
+                <select
+                  value={state.nativeLanguage}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "SET_NATIVE_LANGUAGE",
+                      payload: e.target.value as NativeLanguage,
+                    })
                   }
-                }}
-                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
-              >
-                {LANGUAGES.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                Native
-              </span>
-              <select
-                value={state.nativeLanguage}
-                onChange={(e) =>
-                  dispatch({
-                    type: "SET_NATIVE_LANGUAGE",
-                    payload: e.target.value as NativeLanguage,
-                  })
-                }
-                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
-              >
-                {NATIVE_LANGUAGES.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => {
-              setMoreSheetOpen(false);
-              setModuleDialogOpen(true);
-            }}
-            className="mb-3 flex min-h-11 w-full items-center justify-between rounded-xl border border-border/60 bg-card/30 px-3 py-2 text-sm"
-          >
-            <span>Module: {mod ? `${mod.emoji} ${mod.name}` : "Core (Free)"}</span>
-            <ChevronDown className="h-4 w-4" />
-          </button>
-
-          <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
-          <SheetDescription className="sr-only">
-            Every available tab, grouped by section. Tap one to switch.
-          </SheetDescription>
-
-          <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
-            <span className="text-sm text-foreground">Your account</span>
-            <div className="flex items-center gap-3">
-              <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
-                Pricing
-              </a>
-              <AuthButton />
+                  className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+                >
+                  {NATIVE_LANGUAGES.map((lang) => (
+                    <option key={lang} value={lang}>
+                      {lang}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
-          </div>
+
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-3 py-3">
+              <span className="text-sm text-foreground">Your account</span>
+              <div className="flex items-center gap-3">
+                <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
+                  Pricing
+                </a>
+                <AuthButton />
+              </div>
+            </div>
+          </details>
 
           <div hidden={moreView === "settings"}>
             <div className="mt-2 space-y-5">
-              {TAB_GROUP_ORDER.map((group) => {
-                const items = visible.filter((item) => item.group === group);
-                if (items.length === 0) return null;
-                return (
-                  <div key={group}>
-                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                      {group}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((item) => {
-                        const { key, Icon } = item;
-                        const { label } =
-                          key === "fieldPrep"
-                            ? fieldPrepLabel(state.activeModuleId)
-                            : { label: item.label };
-                        const active = state.currentTab === key;
-                        return (
-                          <button
-                            key={key}
-                            onClick={() => {
-                              switchTab(key);
-                              setMoreSheetOpen(false);
-                            }}
-                            className={cn(
-                              "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
-                              active
-                                ? "border-gold/40 bg-gold/15 text-gold-ink"
-                                : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
-                            )}
-                          >
-                            <Icon className="h-5 w-5 shrink-0" strokeWidth={1.6} />
-                            <span className="text-[10px] leading-tight tracking-wide">{label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+              <NavigationMenu
+                items={navigationItems}
+                active={state.currentTab}
+                version={navVersion}
+                mobile
+                onSelect={(key) => {
+                  switchTab(key);
+                  setMoreSheetOpen(false);
+                }}
+              />
             </div>
 
             {/* Language Match is not listed here. It already has a card in Games

@@ -38,6 +38,7 @@ import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
 import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { lessonCardFaces, type LessonCardDirection } from "@/lib/lesson-card-direction";
 import type { LessonWord } from "@/data/curriculum";
 import type { LessonVerb } from "@/lib/lesson-content-core";
 import {
@@ -263,7 +264,7 @@ function StudyMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
 function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
   const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
-  const [direction, setDirection] = useState<"en-es" | "es-en">("en-es");
+  const [direction, setDirection] = useState<LessonCardDirection>("native-to-target");
   const [queue, setQueue] = useState<number[]>(() => shuffle(words.map((_, i) => i)));
   const [flipped, setFlipped] = useState(false);
   const total = words.length;
@@ -283,10 +284,9 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
   };
 
   const word = finished ? null : words[queue[0]];
-  const front = word ? (direction === "en-es" ? word.en : word.es) : "";
-  const back = word ? (direction === "en-es" ? word.es : word.en) : "";
-  const frontIsTarget = direction === "es-en";
-  const shownIsTarget = flipped ? !frontIsTarget : frontIsTarget;
+  const faces = word ? lessonCardFaces(word, direction) : null;
+  const shown = faces ? (flipped ? faces.back : faces.front) : null;
+  const shownIsTarget = shown?.role === "target";
   const shownLang = languageTag(shownIsTarget ? target : native);
 
   return (
@@ -299,8 +299,8 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
         >
           {(
             [
-              ["en-es", `${languageCode(native)} to ${languageCode(target)}`],
-              ["es-en", `${languageCode(target)} to ${languageCode(native)}`],
+              ["native-to-target", `${languageCode(native)} to ${languageCode(target)}`],
+              ["target-to-native", `${languageCode(target)} to ${languageCode(native)}`],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -358,7 +358,7 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
                 shownIsTarget ? "text-gold" : "text-foreground",
               )}
             >
-              {flipped ? back : front}
+              {shown?.text}
             </span>
             {flipped && word.note ? (
               <span className="break-words text-xs text-muted-foreground">{word.note}</span>

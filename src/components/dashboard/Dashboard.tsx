@@ -1,7 +1,6 @@
 import { getModule } from "@/data/modules";
 import { useMemo } from "react";
 import {
-  Flame,
   Star,
   BookOpen,
   Award,
@@ -56,12 +55,6 @@ export function Dashboard() {
   const progress = nextTierProgress(state.xp);
 
   const stats = [
-    {
-      icon: Flame,
-      label: "Lesson streak",
-      value: `${state.streak} day${state.streak === 1 ? "" : "s"}`,
-      hot: state.streak > 1,
-    },
     { icon: Star, label: "XP", value: state.xp, isXp: true },
     { icon: BookOpen, label: "Words Looked Up", value: state.wordsLookedUp },
     { icon: Award, label: "Level", value: state.tier },
@@ -119,6 +112,8 @@ export function Dashboard() {
         </a>
       </div>
 
+      <PracticeStreakCard />
+
       {/* Stat cards */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {stats.map((s, i) => (
@@ -155,8 +150,6 @@ export function Dashboard() {
             onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
           />
         )}
-
-      <PracticeStreakCard />
 
       <div className="grid gap-4 lg:grid-cols-2">
         <LessonStackCard />

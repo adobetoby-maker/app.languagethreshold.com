@@ -135,6 +135,12 @@ function ProductIntro() {
         >
           Try the free lessons
         </a>
+        <a
+          href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+          className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+        >
+          New to Spanish? Start Spanish 101
+        </a>
       </div>
       <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
         {[

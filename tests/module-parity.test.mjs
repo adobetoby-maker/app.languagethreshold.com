@@ -68,6 +68,11 @@ test("Spanish-native learners get English Reader lessons in the right direction"
   for (const module of MODULES) {
     const spanish = getAvailableModuleLessons(module.id, "Spanish", ALL_SEEDS);
     if (!spanish.length) continue;
+    if (module.authoredPair) {
+      assert.equal(moduleSupportsLearningPair(module, "English", "Spanish"), false, "Do not reverse an exact authored course into an unbuilt language pair");
+      assert.deepEqual(getAvailableModuleLessons(module.id, "English", ALL_SEEDS), []);
+      continue;
+    }
     assert.ok(moduleSupportsLearningPair(module, "English", "Spanish"), module.id);
     const english = getAvailableModuleLessons(module.id, "English", ALL_SEEDS);
     assert.equal(english.length, spanish.length, `${module.id} English lessons`);

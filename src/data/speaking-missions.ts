@@ -1,3 +1,4 @@
+import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
 import { getCurriculum, type Lesson } from "./curriculum.ts";
@@ -1214,6 +1215,7 @@ function missionFromLesson(
     module.learnDirection === "en-target" ? "Spanish" : "English",
   );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
+  const basics = spanishBasicsLesson(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>
@@ -1234,8 +1236,16 @@ function missionFromLesson(
     moduleName: module.name,
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
-    partnerRole: military?.partnerRole ?? partnerRoleFor(module, language),
-    level: military?.stage === "foundation" ? "A1" : isMasterModule(module.id) ? "B1" : "A2",
+    partnerRole: basics?.partnerRole ?? military?.partnerRole ?? partnerRoleFor(module, language),
+    level: basics
+      ? basics.stage === "foundation"
+        ? "A1"
+        : "A2"
+      : military?.stage === "foundation"
+        ? "A1"
+        : isMasterModule(module.id)
+          ? "B1"
+          : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
@@ -1266,7 +1276,10 @@ function missionFromLesson(
         critical: true,
       },
     ],
-    openingLine: military?.openingLine ?? openingLineForModule(module, language, specialty),
+    openingLine:
+      basics?.openingLine ??
+      military?.openingLine ??
+      openingLineForModule(module, language, specialty),
     safetyRules: safetyRulesForModule(module, specialty, riskClass),
     riskClass,
     ...(isMasterModule(module.id) ? { surpriseComplication: true } : {}),

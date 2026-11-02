@@ -1,3 +1,5 @@
+import { spanishBasicsLesson } from "@/data/spanish-basics";
+import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
 import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
@@ -164,7 +166,15 @@ function Core60PathCard({ moduleId }: { moduleId: string }) {
                   {label}
                 </div>
               ) : (
-                <button type="button" data-testid={`core60-step-${step.stage}`} onClick={() => openCore30Of(step.moduleId)} className={cn(base, "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10")}>
+                <button
+                  type="button"
+                  data-testid={`core60-step-${step.stage}`}
+                  onClick={() => openCore30Of(step.moduleId)}
+                  className={cn(
+                    base,
+                    "w-full border-border bg-card/40 transition-colors hover:border-gold/50 hover:bg-gold/10",
+                  )}
+                >
                   {label}
                 </button>
               )}
@@ -762,6 +772,14 @@ function OwnedLessonRunner({
   const [hasTeamRecovery, setHasTeamRecovery] = useState(false);
   const { dispatch: libDispatch } = useLibrary();
 
+  const basics = spanishBasicsLesson(
+    moduleId,
+    lesson.n,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const grammar = basics?.grammar ?? lesson.grammar;
+  const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
   const completionLock = useRef(false);
@@ -1201,6 +1219,7 @@ function OwnedLessonRunner({
     return finishLesson(false);
   }
   function markMastered() {
+    if (basics && !grammarPassed) return;
     return finishLesson(true);
   }
 
@@ -1412,20 +1431,18 @@ function OwnedLessonRunner({
       <section data-testid="lesson-section-see" hidden={section !== "see"} className={panelClass}>
         {panelHeader(SECTIONS[0], 1)}
         <div className="mt-3">
-          {lesson.grammar && (
+          {grammar && (
             <div
               data-testid="lesson-grammar-focus"
               className="mb-3 rounded-xl border border-gold/25 bg-gold/[0.05] p-3"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-                Grammar focus
-              </p>
-              <p className="mt-1 text-sm text-white/80">{lesson.grammar.focus}</p>
+              <p className="text-sm font-semibold text-gold-ink">Grammar focus</p>
+              <p className="mt-1 text-sm text-foreground">{grammar.focus}</p>
               <ul className="mt-2 space-y-1.5">
-                {lesson.grammar.examples.map((example) => (
+                {grammar.examples.map((example) => (
                   <li key={example.es} className="text-sm">
-                    <span className="font-semibold text-white">{example.es}</span>
-                    <span className="block text-xs text-white/50">{example.en}</span>
+                    <span className="font-semibold text-foreground">{example.es}</span>
+                    <span className="block text-xs text-muted-foreground">{example.en}</span>
                   </li>
                 ))}
               </ul>
@@ -1473,7 +1490,11 @@ function OwnedLessonRunner({
                 // for Spanish, Spanish native for the English-for-work stages), so this matches.
                 nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
-                writingResponse={definition?.teaching ? <LessonResponsePractice definition={definition} mode="write" /> : undefined}
+                writingResponse={
+                  definition?.teaching ? (
+                    <LessonResponsePractice definition={definition} mode="write" />
+                  ) : undefined
+                }
                 mode={kitMode}
                 onModeChange={onKitModeChange}
                 onActivity={() => recordStepOpened(wordDrillStep)}
@@ -1609,6 +1630,9 @@ function OwnedLessonRunner({
 
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
+        {basics && (!masteredAt || needsPractice) && (
+          <SpanishBasicsCheck checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
+        )}
         {masteredAt && !needsPractice ? (
           <>
             <p
@@ -1646,7 +1670,7 @@ function OwnedLessonRunner({
               type="button"
               data-testid="core30-mastered-button"
               onClick={() => void markMastered()}
-              disabled={marking}
+              disabled={marking || (!!basics && !grammarPassed)}
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-50"
               style={{
                 background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
@@ -1657,7 +1681,9 @@ function OwnedLessonRunner({
               {needsPractice ? "I've mastered it again" : "I've mastered this lesson"}
             </button>
             <p className="mt-2 text-center text-[11px] text-white/40">
-              Only you decide this. Opened steps are recorded automatically.
+              {basics
+                ? "Complete the grammar check, then confirm you can use the lesson. Opened steps alone do not establish mastery."
+                : "Only you decide this. Opened steps are recorded automatically."}
             </p>
           </>
         )}
@@ -2264,31 +2290,62 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     setTimeout(() => setJustCompleted(false), 4000);
   }
 
-  if (cardReviewOpen && cardReview.round) return <LessonReviewCards
-    review={cardReview}
-    onClose={() => setCardReviewOpen(false)}
-    onContinue={() => { setCardReviewOpen(false); setOpenLessonN(null); scrollLessonPageToTop(); }}
-  />;
+  if (cardReviewOpen && cardReview.round)
+    return (
+      <LessonReviewCards
+        review={cardReview}
+        onClose={() => setCardReviewOpen(false)}
+        onContinue={() => {
+          setCardReviewOpen(false);
+          setOpenLessonN(null);
+          scrollLessonPageToTop();
+        }}
+      />
+    );
 
   function openCardReview(boundary: number | null) {
     if (cardReview.start(boundary)) {
       setCardReviewOpen(true);
       scrollLessonPageToTop();
-    } else toast.info("No encountered cards are available for this review yet. Open the lesson words first.");
+    } else
+      toast.info(
+        "No encountered cards are available for this review yet. Open the lesson words first.",
+      );
   }
 
   return (
     <section>
-      {!runnerActive && cardReview.ready && <div data-testid="lesson-review-checkpoint" className="mb-4 space-y-3 rounded-2xl border border-gold/40 bg-card p-4">
-        <h2 className="font-display text-lg font-semibold">Short review rounds</h2>
-        <p className="text-sm text-muted-foreground">Take a short review after every three lessons and at the end of your path. Practice up to 12 words and phrases you have already learned.</p>
-        <div className="flex flex-wrap gap-2">
-          {(cardReview.round || cardReview.pending !== null) && <button type="button" onClick={() => openCardReview(cardReview.pending)} className="min-h-11 rounded-xl bg-gold px-4 text-sm font-semibold text-midnight">
-            {cardReview.round ? "Resume review" : `Review after lesson ${cardReview.pending}`}
-          </button>}
-          <button type="button" disabled={!cardReview.round && !cardReview.dueCount} onClick={() => openCardReview(null)} className="min-h-11 rounded-xl border border-border px-4 text-sm disabled:opacity-50">Due review · {cardReview.dueCount}</button>
+      {!runnerActive && cardReview.ready && (
+        <div
+          data-testid="lesson-review-checkpoint"
+          className="mb-4 space-y-3 rounded-2xl border border-gold/40 bg-card p-4"
+        >
+          <h2 className="font-display text-lg font-semibold">Short review rounds</h2>
+          <p className="text-sm text-muted-foreground">
+            Take a short review after every three lessons and at the end of your path. Practice up
+            to 12 words and phrases you have already learned.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {(cardReview.round || cardReview.pending !== null) && (
+              <button
+                type="button"
+                onClick={() => openCardReview(cardReview.pending)}
+                className="min-h-11 rounded-xl bg-gold px-4 text-sm font-semibold text-midnight"
+              >
+                {cardReview.round ? "Resume review" : `Review after lesson ${cardReview.pending}`}
+              </button>
+            )}
+            <button
+              type="button"
+              disabled={!cardReview.round && !cardReview.dueCount}
+              onClick={() => openCardReview(null)}
+              className="min-h-11 rounded-xl border border-border px-4 text-sm disabled:opacity-50"
+            >
+              Due review · {cardReview.dueCount}
+            </button>
+          </div>
         </div>
-      </div>}
+      )}
       {/* Current lesson card or all-done state */}
       {!howOpen &&
         !reviewOpen &&
@@ -2379,6 +2436,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" &&
+            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) && (
+              <button
+                className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
+                onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
+              >
+                Practice Spanish 101 vocabulary · My card lists
+              </button>
+            )}
           {!hasCore30Checkpoints(moduleId) && <ExamShortcut />}
           {/* A Foundation and a Master have no entrance or day 45/90 exams; they belong to the Core 30. */}
           {hasCore30Checkpoints(moduleId) && (
@@ -2421,9 +2487,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {!howOpen && (
         <>
           {/* The Core 60 path (Foundation, Core 30, Master 20), above the lesson and the plan */}
-          {!reviewOpen && !runnerActive && (
-            <Core60PathCard moduleId={moduleId} />
-          )}
+          {!reviewOpen && !runnerActive && <Core60PathCard moduleId={moduleId} />}
 
           {/* Celebration banner */}
           {justCompleted && (
@@ -2539,14 +2603,28 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                                   : ""}
                           </span>
                         </button>
-                        {cardReview.checkpoints.filter(checkpoint => checkpoint.moduleId === moduleId && checkpoint.afterLesson === l.n).map(checkpoint => <button
-                          type="button"
-                          key={`review-${checkpoint.n}`}
-                          data-testid={`review-checkpoint-${checkpoint.n}`}
-                          disabled={!cardReview.ready || !checkpoint.unlocked}
-                          onClick={() => openCardReview(checkpoint.n)}
-                          className="my-2 min-h-11 w-full rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-left text-sm font-semibold text-foreground disabled:opacity-60"
-                        >Review after lesson {checkpoint.n} · {checkpoint.complete ? "Completed · practice again" : checkpoint.unlocked ? "Ready" : "Complete these lessons first"}</button>)}
+                        {cardReview.checkpoints
+                          .filter(
+                            (checkpoint) =>
+                              checkpoint.moduleId === moduleId && checkpoint.afterLesson === l.n,
+                          )
+                          .map((checkpoint) => (
+                            <button
+                              type="button"
+                              key={`review-${checkpoint.n}`}
+                              data-testid={`review-checkpoint-${checkpoint.n}`}
+                              disabled={!cardReview.ready || !checkpoint.unlocked}
+                              onClick={() => openCardReview(checkpoint.n)}
+                              className="my-2 min-h-11 w-full rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-left text-sm font-semibold text-foreground disabled:opacity-60"
+                            >
+                              Review after lesson {checkpoint.n} ·{" "}
+                              {checkpoint.complete
+                                ? "Completed · practice again"
+                                : checkpoint.unlocked
+                                  ? "Ready"
+                                  : "Complete these lessons first"}
+                            </button>
+                          ))}
                       </li>
                     );
                   })}
@@ -2675,6 +2753,28 @@ export function Core30Tab() {
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
+      {state.activeModuleId &&
+        !spanishBasicsLesson(state.activeModuleId, 1) &&
+        state.selectedLanguage === "Spanish" &&
+        state.nativeLanguage === "English" && (
+          <aside
+            aria-label="Beginner Spanish course"
+            className="rounded-2xl border border-gold/30 bg-card p-4 text-foreground"
+          >
+            <h2 className="text-lg font-semibold">Looking for Spanish 101?</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Start with everyday grammar before a specialty: 10 Foundation + 30 Core + 20
+              application lessons.
+            </p>
+            <a
+              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-gold px-4 font-semibold text-midnight"
+            >
+              Start Spanish 101
+            </a>
+          </aside>
+        )}
+
       {stageStatus === "loading" ? (
         <section
           data-testid="core60-stage-loading"
@@ -2715,8 +2815,18 @@ export function Core30Tab() {
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 60</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Each module has a 30-lesson path built for your field. Choose a module to start yours.
+            {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English"
+              ? "New to Spanish? Start here with Spanish 101: 10 Foundation lessons, 30 grammar lessons, and 20 lessons applying the basics. No specialty module is needed."
+              : "Choose a module with a course in your learning language."}
           </p>
+          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+            <a
+              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              className="mt-4 inline-flex min-h-12 items-center rounded-xl bg-gold px-5 font-semibold text-midnight"
+            >
+              Start Spanish 101 · Foundation
+            </a>
+          )}
           <div className="mt-3">
             <ExamShortcut />
           </div>

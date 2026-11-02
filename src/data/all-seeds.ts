@@ -1,3 +1,4 @@
+import { SPANISH_BASICS_READERS } from "./spanish-basics-readers";
 // All pre-built library seed data — loaded lazily via dynamic import() in LibraryProvider.
 // Keeping this module separate from library-state.tsx lets Vite split it into its own chunk,
 // reducing the main bundle by ~600–800 kB.
@@ -1356,6 +1357,7 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(TRADES_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(ROOFING_READER_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(MILITARY_READER_SEEDS as LibraryEntry[]),
+  ...(SPANISH_BASICS_READERS as LibraryEntry[]),
   ...(TRANSPORT_AGRI_SEEDS as LibraryEntry[]).map(tag("Transport & Agriculture")),
   ...(SERVICE_EDU_SEEDS as LibraryEntry[]).map(tag("Service & Education")),
   ...(SPORTS_A_SEEDS as LibraryEntry[]).map(tag("Sports")),
@@ -1370,7 +1372,10 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(KOREAN_MODULE_SEEDS as LibraryEntry[]).map(tag("Korean")),
   ...(NEW_MODULES_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Other" })),
   ...(PASHTO_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
-  ...(ITALIAN_EXPANSION_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
+  ...(ITALIAN_EXPANSION_SEEDS as LibraryEntry[]).map((e) => ({
+    ...e,
+    category: e.category ?? "Culture",
+  })),
 ];
 
 export const ALL_SEEDS: LibraryEntry[] = [

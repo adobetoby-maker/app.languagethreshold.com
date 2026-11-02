@@ -124,7 +124,15 @@ export function LessonReader({
     lessonNumber
       ? `seed-en-${moduleId}-lesson-${lessonNumber}`
       : null;
-  const fullReaderId = militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
+  const basicsReaderId =
+    language === "Spanish" &&
+    state.nativeLanguage === "English" &&
+    ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId) &&
+    lessonNumber
+      ? `seed-es-${moduleId}-lesson-${lessonNumber}`
+      : null;
+  const fullReaderId =
+    basicsReaderId ?? militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
   const translationLanguage = lessonPassage
     ? state.nativeLanguage
     : contentPassage

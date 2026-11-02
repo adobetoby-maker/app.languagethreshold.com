@@ -89,6 +89,36 @@ test("selected module opens its card first, with Add cards and a compact deck be
   expect((await readCards())[original.id].srs).toEqual(reviewed);
 });
 
+test("card settings persist fixed intervals and whole-deck study preserves saved history", async ({ page }) => {
+  await page.goto(appUrl({ tab: "flashcards", module: "core" }));
+  const grading = page.getByTestId("flashcards-grading");
+  await expect(grading.getByRole("button", { name: "Hard 1 day" })).toBeVisible();
+  await expect(grading.getByRole("button", { name: "Good 2 days" })).toBeVisible();
+  await expect(grading.getByRole("button", { name: "Easy 4 days" })).toBeVisible();
+  await expect(grading.getByRole("button", { name: "Again" })).toBeVisible();
+  const readStored = () => page.evaluate(() => JSON.parse(localStorage.getItem("lt.learner-device.v1.flashcards.guest") || "null")?.data);
+  const before = await readStored();
+  const settings = page.getByRole("button", { name: "Flashcard settings" });
+  await settings.click();
+  await page.getByLabel("good review interval", { exact: true }).selectOption("7");
+  await expect(page.getByRole("button", { name: /Study whole deck again/ })).toBeVisible();
+  await page.getByRole("button", { name: /Study whole deck again/ }).click();
+  const total = Number((await page.getByTestId("flashcards-total").textContent())?.match(/\d+/)?.[0]);
+  await expect(page.getByText(`${total} left`, { exact: true })).toBeVisible();
+  await grading.getByRole("button", { name: "Good 7 days" }).click();
+  await expect(page.getByText(`${total - 1} left`, { exact: true })).toBeVisible();
+  const after = await readStored();
+  expect(after.reviewIntervals.good).toBe(7);
+  expect(Object.keys(after.cards)).toEqual(Object.keys(before.cards));
+  const changed = Object.keys(after.cards).filter((id) => after.cards[id].reviewHistory?.length !== before.cards[id].reviewHistory?.length);
+  expect(changed).toHaveLength(1);
+  expect(after.cards[changed[0]].srs.interval).toBe(7);
+  await page.reload();
+  await expect(grading.getByRole("button", { name: "Good 7 days" })).toBeVisible();
+  await settings.click();
+  await expect(page.getByLabel("good review interval", { exact: true })).toHaveValue("7");
+});
+
 test("conjugation stays expanded below the deck row and card creation still works", async ({
   page,
 }) => {

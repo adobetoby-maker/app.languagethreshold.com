@@ -522,6 +522,18 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const basicsCount =
+    moduleId === "spanish-basics"
+      ? 30
+      : moduleId === "foundation-spanish-basics"
+        ? 10
+        : moduleId === "master-spanish-basics"
+          ? 20
+          : 0;
+  if (basicsCount)
+    return language === "Spanish"
+      ? Array.from({ length: basicsCount }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
+      : [];
   const militaryCount =
     moduleId === "military"
       ? 30

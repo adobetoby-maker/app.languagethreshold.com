@@ -75,11 +75,11 @@ test.describe("desktop navigation", () => {
   });
 });
 
-test("Core 60 without a module points to Modules", async ({ page, isMobile }) => {
+test("Core 60 without a module offers Spanish 101 and specialty selection", async ({ page, isMobile }) => {
   await openWithModule(page, null);
   await seedAppState(page, { currentTab: "core30" });
   await page.goto(appUrl({ tab: "core30" }));
-  await expect(page.getByText(/Choose a module to start yours/i)).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByRole("link", { name: "Start Spanish 101 · Foundation", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Choose a module" }).click();
   await expect.poll(() => currentTab(page)).toBe("modules");
   expect(isMobile !== undefined).toBe(true);

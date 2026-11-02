@@ -35,3 +35,18 @@ Master: `/?tab=core30&module=master-spanish-basics&target=Spanish&native=English
 All 60 lessons passed the app's real content and stage validators. The skill audit reports 60 valid authored and 60 mapped lessons, with 60 aligned readings, speaking cards, and full Reader passages. Nine desktop/phone browser tests passed (including setup), covering discovery, all modes, retrieval gating, saved completion, Reader handoff, and stage navigation. The initial tests exposed a test-fixture team request and stale generated library packs; these were corrected before the successful run.
 
 Publication and final release checks are recorded separately after deployment. Physical iPhone and instructor confirmation remain pending.
+
+### Vocabulary and personal card lists
+
+The Cards activity now includes the authored Spanish 101 lexicon, infinitives and five
+subject-labelled present-tense forms per course verb. Generate the supplemental bank
+with `python3 scripts/build-spanish-basics-flashcards.py`; its sources are the same
+review-pending course lexicon and verb references. This is vocabulary for the 60-lesson
+course, not a claim that the whole course has only 60 vocabulary items.
+
+The course header links directly to Cards. “My card lists” supports named selections,
+search and individual inclusion switches. New lists copy the current selection;
+category/module selectors still determine which decks are shown. Exclusion filters
+both due and upcoming practice without deleting cards or changing SRS history.
+Lists use the account/guest learner-device store, scoped to target/native pair,
+and are saved locally on this device. Existing flashcard storage is unchanged.

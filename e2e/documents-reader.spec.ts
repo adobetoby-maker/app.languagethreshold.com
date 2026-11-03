@@ -98,9 +98,9 @@ test("private document words open, close, retry and reopen after reload", async 
   await page.goto("/documents", { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: /Practice safety sheet/ }).click();
   await page.getByRole("button", { name: "Define escalera", exact: true }).click();
-  await expect(page.getByRole("region", { name: "Practice this word" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Practice it here" })).toBeVisible();
   await expect(
-    page.getByRole("region", { name: "Practice this word" }).getByRole("link").first(),
+    page.getByRole("region", { name: "Practice it here" }).getByRole("link").first(),
   ).toHaveAttribute("href", /lesson=/);
   expect(calls).toBe(0);
   await page.getByRole("button", { name: "Close definition" }).click();

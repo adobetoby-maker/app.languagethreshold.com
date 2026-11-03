@@ -477,7 +477,6 @@ export function WordCard({
             </div>
 
             <p className="mt-3 text-sm leading-relaxed text-foreground/90">{card.baseDefinition}</p>
-            <CurriculumPracticeLinks matches={practiceMatches} />
             {showingLessonWord && (
               <p role="status" className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 From this lesson’s word list · draft content. More dictionary detail and Tutor
@@ -748,6 +747,8 @@ export function WordCard({
                 </button>
               </div>
             )}
+
+            <CurriculumPracticeLinks matches={practiceMatches} />
 
             {/* Second Flashcards CTA removed — the confirmation panel above
                 already offers "Practice in Flashcards" and both performed the

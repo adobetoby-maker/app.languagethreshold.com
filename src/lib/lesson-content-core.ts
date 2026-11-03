@@ -101,6 +101,7 @@ export interface ContentLimits {
   minVerbs: number;
   maxVerbs: number;
   maxNoteLength: number;
+  preserveAccentContrasts?: boolean;
 }
 
 /**
@@ -126,6 +127,14 @@ export const MASTER_CONTENT_LIMITS: ContentLimits = {
 /** The limits profile for a module id: Master for "master-*", the Core 30 limits for the rest. */
 export function contentLimitsFor(moduleId: string | null | undefined): ContentLimits {
   const base = moduleId?.startsWith("master-") ? MASTER_CONTENT_LIMITS : CONTENT_LIMITS;
+  // Pronunciation keeps a compact word set and spends Master time on sound/prosody
+  // transfer. Preserve accent distinctions such as público/publico/publicó.
+  if (/^(foundation-|master-)?sound-like-a-native$/.test(moduleId ?? "")) return {
+    ...base, minTerms: 6, maxTerms: 10, minPhrases: 4, maxPhrases: 6,
+    minSentences: moduleId?.startsWith("master-") ? 8 : 5,
+    minTermsUsed: 5, minPhrasesUsed: 1, minVerbs: 3, maxVerbs: 3,
+    preserveAccentContrasts: true,
+  };
   return moduleId && /^(foundation-|master-)?spanish-conjugation-patterns$/.test(moduleId)
     ? { ...base, minVerbs: 10, maxVerbs: 10 }
     : base;
@@ -435,7 +444,7 @@ function validatePassage(
   ctx: ValidateContext,
   errors: string[],
 ) {
-  const limits = ctx.limits ?? CONTENT_LIMITS;
+  const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
   if (!passage) {
     errors.push("passage is missing");
     return;
@@ -513,7 +522,7 @@ function validatePassage(
 }
 
 function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateContext, errors: string[]) {
-  const limits = ctx.limits ?? CONTENT_LIMITS;
+  const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
   if (!words) {
     errors.push("words are missing");
     return;
@@ -534,7 +543,9 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
   const seenTarget = new Set<string>();
   for (const word of words) {
     const nativeKey = foldText(word.en).trim();
-    const targetKey = foldText(word.es).trim();
+    const targetKey = limits.preserveAccentContrasts
+      ? word.es.normalize("NFC").trim().toLocaleLowerCase()
+      : foldText(word.es).trim();
     if (seenNative.has(nativeKey)) errors.push(`duplicate ${ctx.nativeLanguage} entry: ${word.en}`);
     if (seenTarget.has(targetKey)) errors.push(`duplicate ${ctx.language} entry: ${word.es}`);
     seenNative.add(nativeKey);
@@ -554,7 +565,7 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
 }
 
 function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateContext, errors: string[]) {
-  const limits = ctx.limits ?? CONTENT_LIMITS;
+  const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
   const keys = verbFormKeys(ctx.language);
   if (!keys) {
     errors.push(`verbs are not supported for ${ctx.language}`);

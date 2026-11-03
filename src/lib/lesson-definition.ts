@@ -1,3 +1,4 @@
+import { soundLesson, type SoundLesson } from "../data/sound-like-a-native.ts";
 import { spanishPatternWords } from "../data/spanish-basics.ts";
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
 import { getModule } from "../data/modules.ts";
@@ -26,6 +27,7 @@ export interface LessonDefinition {
   source: Lesson;
   words: LessonWord[];
   modes: readonly Core30Way[];
+  soundPractice?: SoundLesson;
   teaching: LessonTeachingSettings | null;
   reading: { title: string; sentences: { target: string; native: string }[] } | null;
   listeningItems: LessonWord[];
@@ -118,6 +120,9 @@ export function getLessonDefinition(input: {
     source,
     words,
     modes: CORE30_WAYS,
+    ...(soundLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
+      ? { soundPractice: soundLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)! }
+      : {}),
     teaching,
     reading,
     listeningItems,

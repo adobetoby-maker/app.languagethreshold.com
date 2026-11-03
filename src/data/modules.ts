@@ -84,6 +84,27 @@ export function moduleSupportsLearningPair(
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
   {
+    id: "sound-like-a-native",
+    name: "Sound Like a Native",
+    emoji: "🗣️",
+    category: "Core Basics",
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    priceCents: 0,
+    blurb:
+      "Learn where sounds happen, practise consonant–vowel patter, then carry clear speech into words and conversation. Foundation 10, Core 30, Master 20; Latin American Spanish with English support.",
+    aiPersona:
+      "You are a supportive Spanish pronunciation coach for an English-speaking learner. Teach Latin American Spanish with regional notes. Explain tongue/lip contact or narrowing, airflow, voicing and timing in plain language. Use consonant–vowel patter in a i u e o order before real words; do not require isolated-vowel drills. Preserve Spanish spelling separately from sound cues. Prioritize clear relaxed repetitions before speed, with specific transfer to conversation. A transcript cannot establish articulation accuracy. Never invent native-accent percentages or judge valid regional variants as wrong. Do not claim access to reviewed recordings that are not provided.",
+    userRole: "A Spanish learner practising clear, natural sound patterns",
+    challengePrompts: [
+      "Use a sound pattern in a meaningful phrase.",
+      "Clarify a word or number that was misunderstood.",
+      "Retell a new message with clear stress and useful pauses.",
+    ],
+    vocabFocus: ["sound patterns", "mouth position", "word stress", "linking", "conversation"],
+  },
+  {
     id: "spanish-cognates",
     name: "Spanish Cognates · Core 60",
     emoji: "🔗",

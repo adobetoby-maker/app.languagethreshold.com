@@ -1,3 +1,4 @@
+import { SoundPractice } from "@/components/sound-practice/SoundPractice";
 import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
@@ -1453,7 +1454,9 @@ function OwnedLessonRunner({
               onClick={() => {
                 if (id !== "recall" || section !== "recall") selectSection(id);
               }}
-              aria-controls={id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined}
+              aria-controls={
+                id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined
+              }
               className={cn(
                 "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
                 active
@@ -1476,7 +1479,13 @@ function OwnedLessonRunner({
           );
         })}
         {section === "recall" && (
-          <div id="lesson-recall-menu" data-testid="lesson-recall-menu" className="lt-core60-recall-menu" role="group" aria-label="Recall activities">
+          <div
+            id="lesson-recall-menu"
+            data-testid="lesson-recall-menu"
+            className="lt-core60-recall-menu"
+            role="group"
+            aria-label="Recall activities"
+          >
             {recallOptions.map(({ id, label, Icon }) => (
               <button
                 key={id}
@@ -1517,6 +1526,15 @@ function OwnedLessonRunner({
                 ))}
               </ul>
             </div>
+          )}
+          {definition?.soundPractice && (
+            <SoundPractice
+              key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              lesson={definition.soundPractice}
+              moduleId={moduleId}
+              lessonNumber={lesson.n}
+              active={section === "see"}
+            />
           )}
           {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
           {basics && verbs.length > 0 && (
@@ -1717,7 +1735,11 @@ function OwnedLessonRunner({
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
         {basics && (!masteredAt || needsPractice) && (
-          <SpanishBasicsCheck topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"} checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
+          <SpanishBasicsCheck
+            topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}
+            checks={basics.checks}
+            onPassed={() => setGrammarPassed(true)}
+          />
         )}
         {masteredAt && !needsPractice ? (
           <>

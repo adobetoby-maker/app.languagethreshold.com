@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "auditedAt": "2026-11-03T03:40:30.462Z",
+  "repository": "/Users/drive/lt-worktrees/sound-like-a-native",
+  "revision": "e7e2518cb014bf44c79946c1ffbb90576cf49ed8",
+  "baseModuleCount": 1,
+  "scope": "Read-only source coverage. Not human review, production verification, speech quality, or installed offline readiness.",
+  "pairSummary": [
+    {
+      "targetLanguage": "Spanish",
+      "nativeLanguage": "English",
+      "catalogModules": 1,
+      "modulesWithAuthoredMaterials": 1,
+      "modulesWithValidatedLessons": 1,
+      "authored60": 1,
+      "mapped60": 1,
+      "authored60Modules": [
+        "sound-like-a-native"
+      ],
+      "mapped60Modules": [
+        "sound-like-a-native"
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "moduleId": "sound-like-a-native",
+      "name": "Sound Like a Native",
+      "targetLanguage": "Spanish",
+      "nativeLanguage": "English",
+      "catalogSupported": true,
+      "state": "mapped-60-draft",
+      "hasAuthoredMaterials": true,
+      "validAuthoredLessons": 60,
+      "stages": [
+        {
+          "moduleId": "foundation-sound-like-a-native",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 98,
+          "offlinePackRegistration": "foundation-sound-like-a-native-es-en",
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "sound-like-a-native",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 267,
+          "offlinePackRegistration": "sound-like-a-native-es-en",
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-sound-like-a-native",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 162,
+          "offlinePackRegistration": "master-sound-like-a-native-es-en",
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
+    }
+  ],
+  "sourceState": "Audit of the working tree; release evidence is recorded separately."
+}

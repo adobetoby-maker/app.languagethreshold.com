@@ -193,7 +193,7 @@ self.addEventListener("fetch", (event) => {
               ? await offlineLessonShell(
                   url.searchParams.get("target") === "Spanish" &&
                     url.searchParams.get("native") === "English" &&
-                    ["roofing", "landscaper"].includes(url.searchParams.get("module"))
+                    ["roofing", "landscaper", "foundation-sound-like-a-native", "sound-like-a-native", "master-sound-like-a-native"].includes(url.searchParams.get("module"))
                     ? `${url.searchParams.get("module")}-es-en`
                     : url.searchParams.get("target") === "English" &&
                         url.searchParams.get("native") === "Spanish" &&

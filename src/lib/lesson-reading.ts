@@ -1,3 +1,4 @@
+import { soundLesson } from "../data/sound-like-a-native.ts";
 import { spanishBasicsLesson } from "../data/spanish-basics.ts";
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
@@ -26,6 +27,13 @@ export function authoredLessonReading(
   }
   if (targetLanguage !== "Spanish" || instructionLanguage !== "English" || !lessonNumber)
     return null;
+  const sound = soundLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
+  if (sound)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: sound.reading.title,
+      sentences: sound.reading.target.map((target, i) => ({ target, en: sound.reading.native[i] })),
+    };
   const basics = spanishBasicsLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
   if (basics)
     return {

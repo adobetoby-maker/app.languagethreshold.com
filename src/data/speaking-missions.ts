@@ -1,3 +1,4 @@
+import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
@@ -1224,6 +1225,7 @@ function missionFromLesson(
   );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics = spanishBasicsLesson(module.id, lesson.n, language, "English");
+  const sound = soundLesson(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>
@@ -1244,7 +1246,11 @@ function missionFromLesson(
     moduleName: module.name,
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
-    partnerRole: basics?.partnerRole ?? military?.partnerRole ?? partnerRoleFor(module, language),
+    partnerRole:
+      sound?.partnerRole ??
+      basics?.partnerRole ??
+      military?.partnerRole ??
+      partnerRoleFor(module, language),
     level:
       basics &&
       (module.id.includes("spanish-102") ||
@@ -1254,22 +1260,30 @@ function missionFromLesson(
           ? basics.stage === "foundation"
             ? "A1"
             : "A2"
-          : military?.stage === "foundation"
+          : sound?.stage === "foundation"
             ? "A1"
-            : isMasterModule(module.id)
-              ? "B1"
-              : "A2",
+            : military?.stage === "foundation"
+              ? "A1"
+              : isMasterModule(module.id)
+                ? "B1"
+                : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
     locale,
     vocabulary: lessonMissionVocabulary(module, lesson, language),
-    sourcePrompts: military
+    sourcePrompts: sound
       ? [
           ...projectedSteps,
-          ...(lesson.words ?? []).filter((w) => w.note).map((w) => `${w.es}: ${w.note}`),
+          sound.coachingFocus,
+          "Practise the articulation goal without inventing accuracy from a transcript.",
         ]
-      : projectedSteps,
+      : military
+        ? [
+            ...projectedSteps,
+            ...(lesson.words ?? []).filter((w) => w.note).map((w) => `${w.es}: ${w.note}`),
+          ]
+        : projectedSteps,
     sourceObjectiveId: lessonObjectiveId(module.id, lesson.n),
     ...(teaching ? { lessonTeaching: { stage: teaching.stage, speaking: teaching.speaking } } : {}),
     objectives: [
@@ -1290,6 +1304,7 @@ function missionFromLesson(
       },
     ],
     openingLine:
+      sound?.openingLine ??
       basics?.openingLine ??
       military?.openingLine ??
       openingLineForModule(module, language, specialty),

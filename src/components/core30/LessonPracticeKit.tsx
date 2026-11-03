@@ -1,3 +1,4 @@
+import { soundSpellingMatches } from "@/lib/sound-practice-core";
 import { playFlashcardSuccess } from "@/lib/sound-effects";
 // Built by TAC — 2026-10-15
 import {
@@ -91,6 +92,7 @@ export interface LessonPracticeKitProps {
 }
 
 interface KitLanguages {
+  exactSpelling?: boolean;
   /** Target language name, e.g. "Spanish". */
   target: string;
   /** Native language name, e.g. "English". */
@@ -720,7 +722,7 @@ function ListenMode({
 
 function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
   const speak = useTargetSpeaker();
-  const { target } = useKitLanguages();
+  const { target, exactSpelling } = useKitLanguages();
   const specialChars = SPECIAL_CHARS_BY_LANGUAGE[target] ?? [];
   const [order, setOrder] = useState<LessonWord[]>(() => shuffle(words));
   const [index, setIndex] = useState(0);
@@ -736,7 +738,9 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
   const submit = (event: FormEvent) => {
     event.preventDefault();
     if (result !== null || !value.trim()) return;
-    const correct = isCorrectTypedAnswer(value, current.es);
+    const correct = exactSpelling
+      ? soundSpellingMatches(value, current.es)
+      : isCorrectTypedAnswer(value, current.es);
     setResult(correct ? "right" : "wrong");
     if (correct) setScore((s) => s + 1);
     speak(current.es);
@@ -1516,8 +1520,15 @@ export function LessonPracticeKit({
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
   const languages = useMemo(
-    () => ({ target: language, native: nativeLanguage }),
-    [language, nativeLanguage],
+    () => ({
+      target: language,
+      native: nativeLanguage,
+      exactSpelling:
+        language === "Spanish" &&
+        nativeLanguage === "English" &&
+        /^(foundation-|master-)?sound-like-a-native$/.test(moduleId),
+    }),
+    [language, nativeLanguage, moduleId],
   );
   const targetLang = language as Language;
   const { addCard, hasCard } = useFlashcards();

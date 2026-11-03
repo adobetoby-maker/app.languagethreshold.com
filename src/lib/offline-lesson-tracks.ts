@@ -1,5 +1,27 @@
 /** Public practice download allowlist, not reviewed curriculum releases. */
 export const OFFLINE_LESSON_TRACKS = {
+  "foundation-sound-like-a-native-es-en": {
+    moduleId: "foundation-sound-like-a-native",
+    label: "Sound Like a Native Foundation",
+    target: "Spanish",
+    native: "English",
+    lessons: 10,
+  },
+  "sound-like-a-native-es-en": {
+    moduleId: "sound-like-a-native",
+    label: "Sound Like a Native Core",
+    target: "Spanish",
+    native: "English",
+    lessons: 30,
+  },
+  "master-sound-like-a-native-es-en": {
+    moduleId: "master-sound-like-a-native",
+    label: "Sound Like a Native Master",
+    target: "Spanish",
+    native: "English",
+    lessons: 20,
+  },
+
   "roofing-es-en": {
     moduleId: "roofing",
     label: "Roofing",

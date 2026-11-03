@@ -78,6 +78,7 @@ import { OPEN_APP_DEMO } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { ModulePlacement } from "@/components/core30/ModulePlacement";
 import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPractice";
 import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
@@ -1453,7 +1454,9 @@ function OwnedLessonRunner({
               onClick={() => {
                 if (id !== "recall" || section !== "recall") selectSection(id);
               }}
-              aria-controls={id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined}
+              aria-controls={
+                id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined
+              }
               className={cn(
                 "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
                 active
@@ -1476,7 +1479,13 @@ function OwnedLessonRunner({
           );
         })}
         {section === "recall" && (
-          <div id="lesson-recall-menu" data-testid="lesson-recall-menu" className="lt-core60-recall-menu" role="group" aria-label="Recall activities">
+          <div
+            id="lesson-recall-menu"
+            data-testid="lesson-recall-menu"
+            className="lt-core60-recall-menu"
+            role="group"
+            aria-label="Recall activities"
+          >
             {recallOptions.map(({ id, label, Icon }) => (
               <button
                 key={id}
@@ -1717,7 +1726,11 @@ function OwnedLessonRunner({
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
         {basics && (!masteredAt || needsPractice) && (
-          <SpanishBasicsCheck topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"} checks={basics.checks} onPassed={() => setGrammarPassed(true)} />
+          <SpanishBasicsCheck
+            topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}
+            checks={basics.checks}
+            onPassed={() => setGrammarPassed(true)}
+          />
         )}
         {masteredAt && !needsPractice ? (
           <>
@@ -2337,6 +2350,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     (resumePosition && curriculum.lessons.find((lesson) => lesson.n === resumePosition.lesson)) ||
     currentLesson;
   const completedCount = state.lessonProgress[progressKey] ?? 0;
+  const placementCount = Object.values(core30Log?.lessons ?? {}).filter(
+    (lesson) => lesson.placementCredit,
+  ).length;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
@@ -2803,6 +2819,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </Suspense>
           )}
 
+          {!reviewOpen && !runnerActive && (
+            <ModulePlacement moduleId={moduleId} managed={Boolean(activeAssessmentPlan)} />
+          )}
           {/* Planning and progress follow the lesson actions on every screen size. */}
           {/* Plan: start date, today's lesson, review cadence (90 days; a Foundation runs 14, a Master 70) */}
           {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
@@ -2856,6 +2875,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 </span>
                 <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
               </div>
+              {placementCount > 0 && (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {placementCount} completed by placement credit
+                </p>
+              )}
               <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-700"

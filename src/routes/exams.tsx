@@ -5,6 +5,7 @@ import { AuthButton } from "@/components/auth/AuthButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ExamsArea } from "@/components/exams/ExamsArea";
 import { Exams2Page } from "@/components/exams2/Exams2Page";
+import { moduleLessonUrl } from "@/lib/learning-link";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export const Route = createFileRoute("/exams")({
@@ -77,6 +78,46 @@ function ExamsPage() {
           </div>
         </header>
         <main>
+          {!legacyExams && !search.session && (
+            <section className="mx-auto mb-6 max-w-5xl rounded-xl border border-border bg-card p-4">
+              <h1 className="font-serif text-2xl">Find your starting lesson</h1>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Placement tests live on each course’s lesson page. Get a starting-lesson
+                recommendation and choose whether to mark earlier lessons complete.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {(search.target === "Spanish" && search.native === "English"
+                  ? [
+                      { id: "foundation-spanish-basics", name: "Spanish 101 placement" },
+                      { id: "foundation-spanish-102", name: "Spanish 102 placement" },
+                      { id: "foundation-spanish-cognates", name: "Cognates placement" },
+                    ]
+                  : [
+                      {
+                        id:
+                          search.module ??
+                          (search.target === "English"
+                            ? "foundation-or-evs"
+                            : "foundation-roofing"),
+                        name: "Open course placement",
+                      },
+                    ]
+                ).map((course) => (
+                  <a
+                    key={course.id}
+                    className="inline-flex min-h-11 items-center rounded-xl border border-border px-4 py-2 text-sm font-semibold hover:border-gold focus-visible:ring-2 focus-visible:ring-gold"
+                    href={moduleLessonUrl({
+                      moduleId: course.id,
+                      target: search.target,
+                      native: search.native,
+                    })}
+                  >
+                    {course.name}
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
           {legacyExams ? (
             exams
           ) : (

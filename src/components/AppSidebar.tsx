@@ -265,6 +265,56 @@ const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
   { key: "core30", Icon: ListChecks, label: "Core 60" },
 ];
 
+// The desktop rail follows the same learning destinations as the phone dock.
+// Secondary tools stay one click away without crowding the primary navigation.
+const DESKTOP_DESTINATIONS: {
+  id: string;
+  label: string;
+  Icon: React.ElementType;
+  primary?: TabKey;
+  children: TabKey[];
+}[] = [
+  { id: "tutor", label: "Tutor", Icon: Sparkles, children: [] },
+  {
+    id: "core",
+    label: "Core 60",
+    Icon: ListChecks,
+    primary: "core30",
+    children: ["exams", "orthopedics", "anatomy"],
+  },
+  { id: "speak", label: "Speak", Icon: Mic2, primary: "speak", children: [] },
+  {
+    id: "practice",
+    label: "Practice",
+    Icon: Gamepad2,
+    primary: "games",
+    children: ["fieldPrep", "penpal", "listeningDrill", "wordMatch"],
+  },
+  {
+    id: "grammar",
+    label: "Grammar",
+    Icon: GraduationCap,
+    primary: "grammar",
+    children: ["patterns", "conjugation", "sentenceBuild", "characters", "kana"],
+  },
+  {
+    id: "cards",
+    label: "Cards",
+    Icon: Layers,
+    primary: "flashcards",
+    children: ["dictionary", "cognates", "idiomMaster", "falseFriends"],
+  },
+  { id: "reader", label: "Reader", Icon: BookOpen, primary: "reader", children: ["story"] },
+  {
+    id: "missionary",
+    label: "Missionary",
+    Icon: Church,
+    primary: "missionary",
+    children: ["discussions"],
+  },
+  { id: "more", label: "More", Icon: Menu, children: ["modules", "dashboard", "guide"] },
+];
+
 function openAddWord() {
   window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT));
 }
@@ -344,8 +394,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const { state, dispatch } = useApp();
   const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
-  const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
+  const [desktopOpenGroup, setDesktopOpenGroup] = useState<string | null>(null);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
   useEffect(() => {
@@ -450,6 +500,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     label: item.key === "fieldPrep" ? fieldPrepLabel(state.activeModuleId).label : item.label,
   }));
 
+  const desktopItemByKey = new Map(navigationItems.map((item) => [item.key, item]));
+  const activeDesktopGroup =
+    DESKTOP_DESTINATIONS.find(
+      (group) => group.primary === state.currentTab || group.children.includes(state.currentTab),
+    )?.id ?? "more";
+
   function switchTab(key: TabKey) {
     if (key === "exams") {
       window.location.assign(
@@ -478,9 +534,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   return (
     <>
       <PracticeTimeTicker />
-      {/* ── Desktop sidebar ─────────────────────────────────── */}
+      {/* ── Desktop learning destinations ───────────────────── */}
       <aside className="hidden desktop:flex flex-col w-[224px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
-        {/* Module indicator */}
         <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
             <span className="text-2xl leading-none" title={mod.name}>
@@ -491,79 +546,149 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           )}
         </div>
 
-        {/* Keep every desktop tool in one rail; shorter windows scroll without
-            shrinking targets or dropping language- and module-specific entries. */}
         <nav
           aria-label="Desktop navigation"
-          className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5"
+          className="flex min-h-0 flex-1 flex-col items-stretch gap-1 overflow-y-auto px-2 py-3"
         >
-          <NavigationMenu
-            items={navigationItems}
-            active={state.currentTab}
-            onSelect={switchTab}
-            version={navVersion}
-          />
-          <BlogNavLink />
-        </nav>
-
-        <a
-          href="/pricing"
-          title="Pricing"
-          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-gold/35 px-1 py-1 text-gold-ink transition-colors hover:bg-gold/10"
-        >
-          <Star className="h-[17px] w-[17px]" strokeWidth={1.6} />
-          <span className="font-mono text-[9px] tracking-wide">Pricing</span>
-        </a>
-
-        <a
-          href="/advanced"
-          title="Advanced tools"
-          className="mx-1 mb-1 flex min-h-10 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-border/50 px-1 py-1 text-muted-foreground transition-colors hover:border-gold/40 hover:text-gold-ink"
-        >
-          <GraduationCap className="h-[17px] w-[17px]" strokeWidth={1.6} />
-          <span className="font-mono text-[9px] tracking-wide">Advanced</span>
-        </a>
-
-        {/* Language Match */}
-        {onOpenMatch && (
-          <div className="flex shrink-0 justify-center px-1">
-            <button
-              onClick={onOpenMatch}
-              title="Language Match"
-              className="flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 text-muted-foreground transition-all hover:bg-card/80 hover:text-gold-ink"
-            >
-              <Trophy className="h-[17px] w-[17px]" strokeWidth={1.6} />
-              <span className="font-mono text-[8.5px] tracking-wide">Match</span>
-            </button>
-          </div>
-        )}
-
-        {/* Status */}
-        <div className="shrink-0 space-y-1 border-t border-border/40 px-1 py-2">
-          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
-            <span className="flex items-center gap-1">
-              <Flame
-                className={cn("h-3 w-3", fiery ? "text-gold-ink" : "text-gold-ink")}
-                strokeWidth={1.8}
-              />
-              <span
-                className={cn(
-                  "font-mono text-[10px]",
-                  fiery ? "font-bold text-gold-ink" : "text-foreground",
+          {DESKTOP_DESTINATIONS.map(({ id, label, Icon, primary, children }) => {
+            const expanded = desktopOpenGroup === id;
+            const active = activeDesktopGroup === id;
+            const available = children
+              .map((key) => desktopItemByKey.get(key))
+              .filter((item): item is NonNullable<typeof item> => Boolean(item));
+            const hasChildren =
+              available.length > 0 || id === "practice" || id === "missionary" || id === "more";
+            return (
+              <div key={id} className="min-w-0">
+                <div
+                  className={cn(
+                    "flex min-h-11 items-center rounded-xl transition-colors",
+                    active ? "bg-gold/15 text-gold-ink" : "text-foreground hover:bg-card/80",
+                  )}
+                >
+                  <button
+                    type="button"
+                    data-desktop-primary={id}
+                    data-tour={primary}
+                    aria-current={primary === state.currentTab ? "page" : undefined}
+                    aria-label={label}
+                    onClick={() => {
+                      if (id === "tutor") {
+                        window.dispatchEvent(new CustomEvent("lt:open-tutor"));
+                      } else if (id === "missionary" && state.activeModuleId !== "lds-missionary") {
+                        setModuleDialogOpen(true);
+                        setDesktopOpenGroup(id);
+                      } else if (primary) {
+                        switchTab(primary);
+                        setDesktopOpenGroup(hasChildren ? id : null);
+                      } else {
+                        setDesktopOpenGroup(expanded ? null : id);
+                      }
+                    }}
+                    className="flex min-h-11 min-w-0 flex-1 items-center gap-3 rounded-xl px-3 text-left text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  >
+                    <Icon
+                      className="h-[19px] w-[19px] shrink-0"
+                      aria-hidden="true"
+                      strokeWidth={active ? 2 : 1.6}
+                    />
+                    <span className="truncate">{label}</span>
+                  </button>
+                  {hasChildren && (
+                    <button
+                      type="button"
+                      aria-label={`${expanded ? "Hide" : "Show"} ${label} tools`}
+                      aria-expanded={expanded}
+                      aria-controls={`desktop-${id}-tools`}
+                      onClick={() => setDesktopOpenGroup(expanded ? null : id)}
+                      className="flex min-h-11 min-w-11 items-center justify-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    >
+                      <ChevronDown
+                        className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  )}
+                </div>
+                {hasChildren && (
+                  <div
+                    id={`desktop-${id}-tools`}
+                    hidden={!expanded}
+                    className="mb-2 ml-5 space-y-0.5 border-l border-border/50 pl-2"
+                  >
+                    {available.map(({ key, label: itemLabel, Icon: ItemIcon }) => (
+                      <button
+                        key={key}
+                        type="button"
+                        aria-current={state.currentTab === key ? "page" : undefined}
+                        onClick={() => switchTab(key)}
+                        className={cn(
+                          "flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left text-sm transition-colors hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
+                          state.currentTab === key
+                            ? "font-semibold text-gold-ink"
+                            : "text-foreground/80",
+                        )}
+                      >
+                        <ItemIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span className="leading-tight">{itemLabel}</span>
+                      </button>
+                    ))}
+                    {id === "practice" && onOpenMatch && (
+                      <button
+                        type="button"
+                        onClick={onOpenMatch}
+                        className="flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left text-sm text-foreground/80 hover:bg-card/80 hover:text-gold-ink"
+                      >
+                        <Trophy className="h-4 w-4" aria-hidden="true" />
+                        Language Match
+                      </button>
+                    )}
+                    {id === "missionary" && state.activeModuleId !== "lds-missionary" && (
+                      <button
+                        type="button"
+                        onClick={() => setModuleDialogOpen(true)}
+                        className="flex min-h-10 w-full items-center gap-2 rounded-lg px-2 text-left text-sm text-foreground/80 hover:bg-card/80 hover:text-gold-ink"
+                      >
+                        <Puzzle className="h-4 w-4" aria-hidden="true" />
+                        Choose Missionary module
+                      </button>
+                    )}
+                    {id === "more" && (
+                      <>
+                        <a
+                          href="/pricing"
+                          className="flex min-h-10 items-center gap-2 rounded-lg px-2 text-sm hover:bg-card/80 hover:text-gold-ink"
+                        >
+                          <Star className="h-4 w-4" aria-hidden="true" />
+                          Pricing
+                        </a>
+                        <a
+                          href="/advanced"
+                          className="flex min-h-10 items-center gap-2 rounded-lg px-2 text-sm hover:bg-card/80 hover:text-gold-ink"
+                        >
+                          <GraduationCap className="h-4 w-4" aria-hidden="true" />
+                          Advanced tools
+                        </a>
+                        <BlogNavLink />
+                        <div className="flex items-center gap-3 border-t border-border/40 px-2 py-2 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Flame className="h-3.5 w-3.5 text-gold-ink" />
+                            {state.streak}d
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Star className="h-3.5 w-3.5 text-gold-ink" />
+                            <CountUp value={state.xp} />
+                          </span>
+                          <span className="truncate capitalize">{state.tier}</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 )}
-              >
-                {state.streak}d
-              </span>
-            </span>
-            <span className="flex items-center gap-1">
-              <Star className="h-3 w-3 text-gold-ink" strokeWidth={1.8} />
-              <CountUp value={state.xp} className="font-mono text-[10px] text-foreground" />
-            </span>
-          </div>
-          <p className="truncate px-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground/60">
-            {state.tier}
-          </p>
-        </div>
+              </div>
+            );
+          })}
+        </nav>
       </aside>
 
       <button

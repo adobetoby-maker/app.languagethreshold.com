@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { appUrl, core30Key, readAppState, seedAppState } from "./app-state";
 
-test("one desktop menu retains tools and utilities; phone navigation stays familiar", async ({
+test("desktop learning destinations retain tools and utilities; phone navigation stays familiar", async ({
   page,
   isMobile,
 }, info) => {
@@ -25,7 +25,7 @@ test("one desktop menu retains tools and utilities; phone navigation stays famil
     await expect(bottom).toBeVisible();
     expect(
       await bottom.locator("div.flex.items-center.justify-around > button").allTextContents(),
-    ).toEqual(["More", "Reader", "Cards", "Grammar", "Games", "Speak", "Core 60", "Tutor"]);
+    ).toEqual(["More", "Reader", "Cards", "Speak", "Core 60", "Tutor"]);
     expect(
       await page.evaluate(() =>
         getComputedStyle(document.documentElement).getPropertyValue("--lt-nav-height").trim(),
@@ -48,17 +48,37 @@ test("one desktop menu retains tools and utilities; phone navigation stays famil
       .evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
     expect(navFont).toBeGreaterThanOrEqual(12);
     for (const label of [
-      "Reader",
-      "Cards",
-      "Grammar",
-      "Practice Lab",
-      "Speak",
+      "Tutor",
       "Core 60",
-      "Modules",
-      "Anatomy",
+      "Speak",
+      "Practice",
+      "Grammar",
+      "Cards",
+      "Reader",
+      "Missionary",
+      "More",
     ]) {
       await expect(sidebar.getByRole("button", { name: label, exact: true })).toHaveCount(1);
     }
+    expect(await sidebar.locator("[data-desktop-primary]").allTextContents()).toEqual([
+      "Tutor",
+      "Core 60",
+      "Speak",
+      "Practice",
+      "Grammar",
+      "Cards",
+      "Reader",
+      "Missionary",
+      "More",
+    ]);
+    await sidebar.getByRole("button", { name: "Show Practice tools" }).click();
+    for (const label of ["Pen Pal Practice", "Listening Drill", "Word Match", "Language Match"]) {
+      await expect(sidebar.getByRole("button", { name: label, exact: true })).toBeVisible();
+    }
+    await sidebar.getByRole("button", { name: "Show More tools" }).click();
+    await expect(sidebar.getByRole("button", { name: "Modules", exact: true })).toBeVisible();
+    await sidebar.getByRole("button", { name: "Show Core 60 tools" }).click();
+    await expect(sidebar.getByRole("button", { name: "Anatomy", exact: true })).toBeVisible();
     for (const width of [1024, 1440, 1920]) {
       await page.setViewportSize({ width, height: 900 });
       await expect(page.locator("header")).toBeVisible();
@@ -82,7 +102,7 @@ test("one desktop menu retains tools and utilities; phone navigation stays famil
     await page.getByRole("button", { name: "Close", exact: true }).click();
     await page.getByRole("button", { name: "Open AI Tutor", exact: true }).click();
     await expect(page.getByRole("dialog", { name: "Language Threshold Tutor" })).toBeVisible();
-    await page.getByRole("button", { name: "Minimize tutor" }).click();
+    await page.getByRole("button", { name: "Close tutor" }).click();
     await sidebar.getByRole("button", { name: "Reader", exact: true }).click();
     await expect(page).toHaveURL(/tab=reader/);
     await sidebar.getByRole("button", { name: "Core 60", exact: true }).click();
@@ -101,9 +121,31 @@ test("desktop keeps the Japanese-only Kana entry in the sidebar", async ({ page,
   test.skip(isMobile, "phone menu is intentionally unchanged");
   await page.goto(appUrl({ tab: "reader", target: "Japanese" }));
   const sidebar = page.getByRole("navigation", { name: "Desktop navigation" });
+  await sidebar.getByRole("button", { name: "Show Grammar tools" }).click();
   await expect(sidebar.getByRole("button", { name: "Kana Pad", exact: true })).toBeVisible();
   await sidebar.getByRole("button", { name: "Kana Pad", exact: true }).click();
   await expect(page).toHaveURL(/tab=kana/);
+});
+
+test("desktop Missionary groups Discussions while Practice holds Field Prep and Pen Pal", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "phone menu is intentionally unchanged");
+  await page.goto(appUrl({ tab: "core30", module: "lds-missionary" }));
+  const sidebar = page.getByRole("navigation", { name: "Desktop navigation" });
+  await sidebar.getByRole("button", { name: "Show Practice tools" }).click();
+  await expect(
+    sidebar.getByRole("button", { name: "Pen Pal Practice", exact: true }),
+  ).toBeVisible();
+  await expect(sidebar.getByRole("button", { name: "Mission Prep", exact: true })).toBeVisible();
+  await sidebar.getByRole("button", { name: "Mission Prep", exact: true }).click();
+  await expect(page).toHaveURL(/tab=fieldPrep/);
+  await sidebar.getByRole("button", { name: "Pen Pal Practice", exact: true }).click();
+  await expect(page).toHaveURL(/tab=penpal/);
+  await sidebar.getByRole("button", { name: "Missionary", exact: true }).click();
+  await expect(page).toHaveURL(/tab=missionary/);
+  await expect(sidebar.getByRole("button", { name: "Discussions", exact: true })).toBeVisible();
 });
 
 test("module picker and catalogue alphabetize trades with Foundation, Core, Master together", async ({
@@ -186,10 +228,7 @@ test("device voice setup instructions are reachable in desktop and phone setting
   await page.goto(appUrl({ tab: "reader" }));
   if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
   else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
-  await page
-    .getByText("Offline voice help", { exact: true })
-    .filter({ visible: true })
-    .click();
+  await page.getByText("Offline voice help", { exact: true }).filter({ visible: true }).click();
   await page.getByText("iPhone / iPad", { exact: true }).filter({ visible: true }).click();
   await expect(
     page.getByText(/Open Settings → Accessibility → Read & Speak → Voices/),

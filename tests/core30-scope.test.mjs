@@ -32,6 +32,28 @@ const visit = (state, context, lesson = 1) =>
     payload: { moduleId: "roofing", context, lesson, way: "see", at },
   });
 
+test("placement credit updates the contiguous completion count without XP or team enrollment credit", () => {
+  const input = {
+    context: es,
+    lessons: [1, 2, 3, 4, 5].map((n) => ({ moduleId: "roofing", n })),
+    attemptId: "placement-test",
+    at,
+  };
+  const original = { ...base(), lessonProgress: { [key(it)]: 12 } };
+  const result = reducer(original, { type: "CORE30_APPLY_PLACEMENT", payload: input });
+  assert.equal(result.lessonProgress[key(es)], 5);
+  assert.equal(result.lessonProgress[key(it)], 12);
+  assert.equal(result.xp, original.xp);
+  assert.equal(result.lessonsCompleted, original.lessonsCompleted);
+  assert.equal(result.core30Log[key(es)].lessons["5"].placementCredit.attemptId, input.attemptId);
+  assert.equal(result.core30Log[key(es)].lessons["6"], undefined);
+  assert.equal(reducer(result, { type: "CORE30_APPLY_PLACEMENT", payload: input }), result);
+  assert.equal(
+    reducer(original, { type: "CORE30_APPLY_PLACEMENT", payload: { ...input, context: planA } }),
+    original,
+  );
+});
+
 test("actual reducer writes new records by pair and plan, preserving unlabeled history without inheriting it", () => {
   const legacy = { lessons: { 1: { visits: { 0: earlier }, masteredAt: earlier } } };
   let state = { ...base(), core30Log: { roofing: legacy }, lessonProgress: { roofing: 8 } };

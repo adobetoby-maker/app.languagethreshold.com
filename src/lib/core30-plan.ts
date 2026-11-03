@@ -26,6 +26,8 @@ export interface Core30LessonLog {
   /** First opening of each learning mode. Kept separate from legacy curriculum step indices. */
   wayVisits?: Partial<Record<Core30Way, string>>;
   masteredAt?: string;
+  /** Independent placement credit; does not imply that practice modes were visited. */
+  placementCredit?: { at: string; version: string; attemptId: string };
   needsPractice?: boolean;
   reviews?: Core30Review[];
 }
@@ -137,7 +139,10 @@ export function daysBetween(fromKey: string, toKey: string): number {
 }
 
 /** Days after the start date that lesson n is due: floor((n - 1) * interval), so 3.5 gives 0, 3, 7, 10... */
-export function lessonDueOffset(lessonNumber: number, pace: Core30Pace = CORE30_DEFAULT_PACE): number {
+export function lessonDueOffset(
+  lessonNumber: number,
+  pace: Core30Pace = CORE30_DEFAULT_PACE,
+): number {
   return Math.floor((lessonNumber - 1) * pace.newLessonEveryDays);
 }
 
@@ -246,7 +251,10 @@ export function planToday(
   const dayNumber = rawDay < 1 ? 0 : rawDay;
   let expectedMastered = 0;
   if (dayNumber >= 1) {
-    while (expectedMastered < totalLessons && lessonDueOffset(expectedMastered + 1, pace) <= dayNumber - 1) {
+    while (
+      expectedMastered < totalLessons &&
+      lessonDueOffset(expectedMastered + 1, pace) <= dayNumber - 1
+    ) {
       expectedMastered++;
     }
   }
@@ -394,6 +402,10 @@ function mergeLesson(
   if (Object.keys(wayVisits).length) out.wayVisits = wayVisits;
   const masteredAt = earlier(local?.masteredAt, remote?.masteredAt);
   if (masteredAt) out.masteredAt = masteredAt;
+  const placement = [local?.placementCredit, remote?.placementCredit]
+    .filter((value): value is NonNullable<Core30LessonLog["placementCredit"]> => Boolean(value))
+    .sort((a, b) => a.at.localeCompare(b.at))[0];
+  if (placement) out.placementCredit = placement;
 
   const localLatest = latestReviewAt(local?.reviews);
   const remoteLatest = latestReviewAt(remote?.reviews);

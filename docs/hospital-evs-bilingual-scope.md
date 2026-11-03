@@ -31,6 +31,8 @@ Every lesson needs original aligned dialogue/reading, vocabulary, verbs, the six
 
 This is language practice, **not** a substitute for employer training, the facility's written SOP, product label, PPE requirements, or infection-prevention direction. Do not teach a universal bag color, disinfectant dilution/contact time, room-release authority, or sharps-handling procedure. Dialogue should model asking the assigned nurse/supervisor and following the local checklist.
 
+**Owner review sequence, November 3:** the human safety review will take place in TestFlight after a complete native candidate is available. Keep the course marked unreviewed in source and in the candidate until that review is actually completed; resolve findings before public release. This website course draft alone cannot be installed through TestFlight. The owner has not yet identified which native app should carry the Hospital EVS candidate, so native integration and TestFlight distribution are not assumed or authorized by this note.
+
 Separate **environmental surface cleaning/disinfection** from **instrument reprocessing/sterilization**. CDC assigns critical and semicritical OR equipment to specialized reprocessing, not environmental cleaning staff; the hospital EVS course may teach recognition, safe handoff, and whom to ask, but instrument-sterilization steps require a separately scoped sterile-processing role and expert review. Obtain human review by an EVS lead/infection-prevention professional and bilingual reviewer before release.
 
 Sources to guide authoring, not text to copy:
@@ -52,7 +54,8 @@ Recommended first release: fully translate the shared navigation, settings, onbo
 
 - Choose product identity and whether sterile processing is a separate role/course.
 - Author and validate both exact 60-lesson language pairs; map teaching, Reader, decks, speaking, review, and downloads.
-- Human bilingual and EVS/infection-prevention review of safety-sensitive wording; retain review flags as false until completed.
+- Human bilingual and EVS/infection-prevention review of safety-sensitive wording in TestFlight; retain review flags as false until completed and resolve findings before public release.
+- Choose the native app that will carry the Hospital EVS TestFlight candidate and separately verify its course integration, identity, and build before inviting review.
 - Verify representative Foundation/Core/Master lessons and all six modes for both pairs on desktop and phone; verify supported/unsupported pairs and installed offline behavior.
 - Translate and test the site shell before enabling Site language; do not present a partial-English page as fully localized.
 - Only then use the normal PR, deployment, and production read-back workflow. No deployment or App Store action is authorized by this draft.

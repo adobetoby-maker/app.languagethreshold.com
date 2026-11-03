@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch";
 // One provider attempt; the deadline remains active through downstream consumption.
 export const REMOTE_SPEECH_TIMEOUT_MS = 45_000;
 export const MAX_REMOTE_SPEECH_BYTES = 4 * 1024 * 1024;
@@ -57,7 +58,7 @@ export async function remoteSpeechAudio(
   if (incoming.aborted) controller.abort();
   try {
     if (controller.signal.aborted) throw new Error("Cancelled");
-    const pending = fetch(
+    const pending = campaignProviderFetch(
       "https://api.elevenlabs.io/v1/text-to-speech/XrExE9yKIg1WjnnlVkGX?output_format=mp3_44100_64",
       {
         method: "POST",

@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch.ts";
 import {
   attachInitialDocumentDefinitions,
   INITIAL_DOCUMENT_DEFINITION_LIMIT,
@@ -17,6 +18,7 @@ export async function translateDocumentContent(data: {
     );
   const source = documentPassages(data.text);
   const response = await new Anthropic({
+    fetch: campaignProviderFetch,
     apiKey: key,
     timeout: 90000,
     maxRetries: 0,

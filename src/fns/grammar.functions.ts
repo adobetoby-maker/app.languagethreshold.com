@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { normalizeGrammarAnswer } from "@/lib/grammar-quiz";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -113,7 +114,12 @@ async function callTool<T>(
   const budgetError = await learningGenerationError("content");
   if (budgetError) return { data: null, error: budgetError };
   try {
-    const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+    const client = new Anthropic({
+      fetch: campaignProviderFetch,
+      apiKey: KEY,
+      maxRetries: 0,
+      timeout: 30_000,
+    });
     const response = await client.messages.create(
       {
         model: "claude-haiku-5-5",

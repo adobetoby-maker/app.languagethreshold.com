@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
@@ -45,7 +46,12 @@ export const convertKana = createServerFn({ method: "POST" })
       const userPrompt = `Convert this Japanese text to ${scriptLabel}:\n\n"${data.text}"\n\nProvide:\n1. The full converted output\n2. A word-by-word breakdown with reading and English meaning for each word.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY, timeout: 30_000, maxRetries: 0 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: KEY,
+          timeout: 30_000,
+          maxRetries: 0,
+        });
         const response = await client.messages.create(
           {
             model: "claude-haiku-5-5",

@@ -1,3 +1,4 @@
+import { RedditFeedbackCohort } from "./RedditFeedbackCohort";
 import { useRef, useState } from "react";
 import { z } from "zod";
 import { useOwnerResource } from "./use-owner-resource";
@@ -68,6 +69,7 @@ export function OwnerCrm() {
     ) ?? [];
   return (
     <section className="grid min-w-0 gap-5" aria-label="Owner email CRM">
+      <RedditFeedbackCohort />
       <div className={ownerPanel}>
         <h2 className="text-lg font-semibold">Email & contacts</h2>
         <p className="text-sm">

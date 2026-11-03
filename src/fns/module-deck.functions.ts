@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import Anthropic from "@anthropic-ai/sdk";
 import { ensureStageForModule } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
@@ -161,7 +162,12 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
         if (!key) return { pairs: null, error: "AI is not configured" };
         const budgetError = await learningGenerationError();
         if (budgetError) return { pairs: null, error: budgetError };
-        const client = new Anthropic({ apiKey: key, timeout: 45000, maxRetries: 0 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: key,
+          timeout: 45000,
+          maxRetries: 0,
+        });
         const response = await client.messages.create(request);
         setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
         const tool = response.content.find((item) => item.type === "tool_use");

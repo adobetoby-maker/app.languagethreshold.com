@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
@@ -34,7 +35,12 @@ export const translatePhrases = createServerFn({ method: "POST" })
       if (budgetError) return { phrases: null, error: budgetError };
 
       try {
-        const client = new Anthropic({ apiKey: KEY, timeout: 30_000, maxRetries: 0 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: KEY,
+          timeout: 30_000,
+          maxRetries: 0,
+        });
         const response = await client.messages.create(
           {
             model: "claude-haiku-5-5",

@@ -25,7 +25,7 @@ await build({
           namespace: "fixture",
         }));
         b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-          contents: `export const controls={retry:undefined}; export const getResponseHeader=()=>controls.retry; export const createMiddleware=()=>({server:fn=>({server:fn})}); export const createCsrfMiddleware=options=>({csrf:options}); export const createStart=fn=>fn();`,
+          contents: `export const controls={retry:undefined}; export const getResponseHeader=()=>controls.retry; export const createMiddleware=()=>({server:fn=>({server:fn}),client:fn=>({client:fn})}); export const createCsrfMiddleware=options=>({csrf:options}); export const createStart=fn=>fn();`,
         }));
       },
     },

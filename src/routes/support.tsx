@@ -9,6 +9,9 @@ function Support() {
           Back to Language Threshold
         </Link>
         <h1 className="text-3xl font-semibold">How can we help?</h1>
+        <Link to="/feedback" className="block rounded-xl border border-border p-4 underline">
+          Share product feedback or suggest an improvement →
+        </Link>
         <p>
           Email{" "}
           <a href="mailto:support@languagethreshold.com" className="underline">

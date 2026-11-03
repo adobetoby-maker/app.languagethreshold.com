@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -66,7 +67,12 @@ export const addRomaja = createServerFn({ method: "POST" })
     if (budgetError) return { data: null, error: budgetError };
 
     try {
-      const client = new Anthropic({ apiKey: KEY, timeout: 30_000, maxRetries: 0 });
+      const client = new Anthropic({
+        fetch: campaignProviderFetch,
+        apiKey: KEY,
+        timeout: 30_000,
+        maxRetries: 0,
+      });
       const response = await client.messages.create(
         {
           model: "claude-haiku-5-5",

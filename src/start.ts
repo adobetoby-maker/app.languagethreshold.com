@@ -22,7 +22,8 @@ const serverFunctionHeaders = createMiddleware().server(async ({ handlerType, re
         "X-Robots-Tag": "noindex, nofollow",
       },
     });
-  const result = await next();
+  const { withCampaignRequest } = await import("@/lib/campaign-provider-fetch");
+  const result = await withCampaignRequest(request, () => next());
   const privatePage = handlerType === "router" && isPrivateAssessmentUrl(request.url);
   const companion = new URL(request.url).hostname === EXAMS_HOST;
   if (handlerType !== "serverFn" && !privatePage && !companion) return result;
@@ -46,7 +47,17 @@ const serverFunctionHeaders = createMiddleware().server(async ({ handlerType, re
   };
 });
 
+const campaignIdentity = createMiddleware({ type: "function" }).client(async ({ next }) => {
+  const { supabase } = await import("@/integrations/supabase/client");
+  const { data } = await supabase.auth.getSession();
+  return next({
+    headers: data.session?.access_token
+      ? { Authorization: `Bearer ${data.session.access_token}` }
+      : {},
+  });
+});
 export const startInstance = createStart(() => ({
+  functionMiddleware: [campaignIdentity],
   requestMiddleware: [
     serverFunctionHeaders,
     // Preserve the exact framework default when supplying our own Start entry.

@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch";
 // One owned provider phase spans catalog lookup and synthesis, including response bodies.
 export const GOOGLE_SPEECH_TIMEOUT_MS = 45_000;
 export const MAX_GOOGLE_SPEECH_JSON_BYTES = 6 * 1024 * 1024;
@@ -56,7 +57,7 @@ export async function withGoogleSpeechProvider<T>(
       action({
         async json(url, body, maxBytes = MAX_GOOGLE_SPEECH_JSON_BYTES) {
           requireCurrent();
-          const pending = fetch(url, {
+          const pending = campaignProviderFetch(url, {
             method: body === undefined ? "GET" : "POST",
             cache: "no-store",
             signal: controller.signal,

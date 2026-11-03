@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -59,7 +60,7 @@ async function callTool<T>(
   if (!KEY) return { data: null, error: "AI is not configured" };
 
   try {
-    const client = new Anthropic({ apiKey: KEY });
+    const client = new Anthropic({ fetch: campaignProviderFetch, apiKey: KEY });
     const response = await client.messages.create({
       model,
       max_tokens: 5600,

@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch.ts";
 import { curriculumVocabulary, type CurriculumWordMatch } from "./curriculum-vocabulary";
 import Anthropic from "@anthropic-ai/sdk";
 import { randomUUID } from "node:crypto";
@@ -117,6 +118,7 @@ export async function lookupDocumentWord(
     const denial = await checkLearningGenerationBudget(request, "lookup");
     if (denial) throw new TeamOperationError(denial.error, denial.status);
     const response = await new Anthropic({
+      fetch: campaignProviderFetch,
       apiKey: key,
       timeout: 30000,
       maxRetries: 0,

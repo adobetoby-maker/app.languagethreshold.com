@@ -1,3 +1,4 @@
+import { soundLesson } from "@/data/sound-like-a-native";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 // Built by TAC — 2026-10-15
 import { useEffect, useMemo, useState } from "react";
@@ -129,7 +130,8 @@ export function LessonReader({
     language === "Spanish" &&
     state.nativeLanguage === "English" &&
     lessonNumber &&
-    spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) &&
+    (spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
+      soundLesson(moduleId, lessonNumber, language, state.nativeLanguage)) &&
     lessonNumber
       ? `seed-es-${moduleId}-lesson-${lessonNumber}`
       : null;

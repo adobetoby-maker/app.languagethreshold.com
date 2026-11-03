@@ -4,6 +4,7 @@ import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { moduleLearningPaths } from "../src/lib/module-order.ts";
 import { moduleMatchesSearch } from "../src/lib/module-search.ts";
 const ids = [
+  "sound-like-a-native",
   "spanish-cognates",
   "spanish-basics",
   "spanish-102",
@@ -12,7 +13,7 @@ const ids = [
   "spanish-usage-verbs",
   "spanish-common-patterns",
 ];
-test("Core Basics groups seven courses and retains exact authored language/stage ownership", () => {
+test("Core Basics groups eight courses and retains exact authored language/stage ownership", () => {
   const available = MODULES.filter((m) => moduleSupportsLearningPair(m, "Spanish", "English"));
   const courses = moduleLearningPaths(available, MODULES).filter(
     (p) => p.module.category === "Core Basics",

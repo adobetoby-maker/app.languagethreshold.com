@@ -1,3 +1,4 @@
+import { SoundPractice } from "@/components/sound-practice/SoundPractice";
 import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
@@ -1526,6 +1527,15 @@ function OwnedLessonRunner({
                 ))}
               </ul>
             </div>
+          )}
+          {definition?.soundPractice && (
+            <SoundPractice
+              key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              lesson={definition.soundPractice}
+              moduleId={moduleId}
+              lessonNumber={lesson.n}
+              active={section === "see"}
+            />
           )}
           {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
           {basics && verbs.length > 0 && (

@@ -1,3 +1,4 @@
+import { contentLimitsFor } from "./lesson-content-core.ts";
 import { OFFLINE_LESSON_TRACKS, type OfflineLessonPackId } from "./offline-lesson-tracks.ts";
 import {
   getLessonDefinition,
@@ -35,8 +36,10 @@ export function publicLessonOfflinePack(
         !lesson.teaching ||
         !lesson.reading?.sentences.length ||
         lesson.reading.sentences.some((sentence) => !sentence.target || !sentence.native) ||
-        lesson.words.filter((word) => word.kind === "term").length < 8 ||
-        lesson.words.filter((word) => word.kind === "phrase").length < 4,
+        lesson.words.filter((word) => word.kind === "term").length <
+          contentLimitsFor(lesson.moduleId).minTerms ||
+        lesson.words.filter((word) => word.kind === "phrase").length <
+          contentLimitsFor(lesson.moduleId).minPhrases,
     )
   )
     throw new Error(
@@ -77,6 +80,7 @@ export function publicLessonOfflinePack(
       listeningItems: lesson.listeningItems,
       teaching: lesson.teaching,
       modes: lesson.modes,
+      ...(lesson.soundPractice ? { soundPractice: lesson.soundPractice } : {}),
     })),
   };
 }

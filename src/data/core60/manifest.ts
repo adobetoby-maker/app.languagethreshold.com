@@ -14,6 +14,19 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "sound-like-a-native",
+    language: "Spanish",
+    tradeLabel: "Sound Like a Native",
+    foundation: {
+      blurb:
+        "Ten guided sound lessons: physical mouth cues, consonant-linked vowel patter, clear words, and short conversations.",
+    },
+    master: {
+      blurb:
+        "Twenty transfer lessons: phrase rhythm, shadowing, clarification, and spontaneous conversation. Regional audio review is tracked separately.",
+    },
+  },
+  {
     base: "spanish-cognates",
     language: "Spanish",
     tradeLabel: "Spanish Cognates",

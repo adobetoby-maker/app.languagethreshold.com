@@ -75,6 +75,7 @@ try {
     await expect(page.getByText(/Your access ends/)).toBeVisible();
     await expect(page.getByText(/allowance remaining: \$10.00/)).toBeVisible();
     await page.reload();
+    await expect(page.getByText(/Your access ends/)).toBeVisible();
     await expect(page.getByRole("button", { name: "Claim my two free months" })).toHaveCount(0);
     if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1))
       throw Error("Horizontal overflow");

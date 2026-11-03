@@ -59,7 +59,7 @@ export function StaffCoupon() {
       </form>
       <OwnerMessage error={error || r.error} notice={notice} />
       <ul className="grid gap-3">
-        {r.data?.recipients.map((p) => (
+        {(r.data?.recipients ?? []).map((p) => (
           <li className="break-words rounded-lg border p-3" key={p.email}>
             <strong>{p.email}</strong>
             <p>

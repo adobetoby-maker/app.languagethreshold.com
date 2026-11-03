@@ -1,6 +1,6 @@
 # Reddit free month and feedback
 
-Prepared code: **REDDITMONTH**. Entry: `/reddit`; product feedback: `/feedback`.
+Prepared code: **REDDITMONTH**. Limited to **100 unique testers**. Entry: `/reddit`; product feedback: `/feedback`.
 **Redemption deadline: December 1, 2026, 11:59 p.m. America/Denver (MST).** New grants
 close at December 2 07:00 UTC. Existing claims still receive their full month.
 
@@ -85,3 +85,34 @@ and feedback retry deduplication. No real accounts, messages or Stripe requests 
   `node scripts/qa/reddit-offer-ui.mjs` against its isolated local server port.
 - TypeScript, lint (no errors) and Vite production-bundle compilation in development mode passed.
 - No production migration, live claim, paid billing change, email send, or deployment was performed.
+
+## Campaign paid-generation controls
+
+`20261103020000_reddit_campaign_limits.sql` is a separate additive migration following the already
+applied campaign schema. Claim admission is serialized; existing claims remain idempotent at capacity.
+Each tester has **$10 total estimated paid AI/audio allowance** across the entire campaign, including
+any bonus months. Rewards extend time only; they do not reset or increase that allowance. The shared
+campaign allowance is **$1,000**, and neither allowance resets monthly. There is no cash balance,
+refund or payment obligation for a tester.
+
+Paid-provider attempts reserve an upper-bound amount before network dispatch. An atomic database
+transaction locks the campaign and wallet; concurrent requests cannot exceed either allowance.
+Unknown models, unavailable budget checks and exhausted/expired wallets fail closed. Failed or
+cancelled attempts keep their reservation because an upstream charge may be uncertain. Thus the UI
+shows **estimated usage reserved**, not an actual provider invoice or cash spent. Claude reservations
+cover input bytes, bounded output, cache rates and a safety margin; supported Google voices use their
+published character rates; fallback speech/transcription use conservative ceilings. Rates need review
+if providers change pricing. Hosting, email, tax and non-campaign activity are separate from this
+provider-usage control.
+
+Every application Anthropic client and Google/ElevenLabs speech transport uses the guard within a
+request-owned context. Server-function calls propagate the current account token; anonymous paid
+generation requires sign-in. Existing recordings, cached audio and device speech do not reserve.
+Verified users without this coupon retain existing behavior. Coupon users with a genuine active
+paid subscription, verified against Stripe ownership or protected paid team entitlements, use their
+paid plan instead. A client-editable profile status alone cannot bypass the campaign allowance.
+Owner CLI/background content production outside learner HTTP requests is not attributed to a tester.
+
+Production publication remains blocked until these controls and the claim cap are verified and the
+second migration is applied. Suggested post addition: **Limited to the first 100 testers. Includes
+$10 of AI and generated-audio usage across your trial and any bonus months. No credit card required.**

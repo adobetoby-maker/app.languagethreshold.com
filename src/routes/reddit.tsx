@@ -8,6 +8,7 @@ type Redemption = {
   expires_at: string;
   feedback_email_consent: boolean;
   rewarded_at?: string | null;
+  budget_reserved_microusd?: number;
 };
 export const Route = createFileRoute("/reddit")({
   component: () => (
@@ -48,6 +49,12 @@ function RedditOffer() {
         Share thoughtful, specific feedback about what works or needs improvement and receive two
         additional free months after owner review. Critical feedback is welcome. One feedback reward
         per coupon user.
+      </p>
+      <p>
+        Limited to 100 testers. Each account has a $10 estimated paid AI/audio usage allowance for
+        this campaign, shared across the trial and any bonus months. It does not reset monthly and
+        has no cash value. Saved lessons, recordings and device voices remain available when the
+        allowance is used.
       </p>
       <AuthButton />
       {user && (

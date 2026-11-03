@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -51,7 +52,12 @@ export const generateBattleWord = createServerFn({ method: "POST" })
     const user = `Generate ONE ${data.language} vocabulary battle word for round ${data.round} at CEFR level ${data.cefr}.${avoidLine} Return: the word in its native script (with diacritics), the correct English definition, and exactly 3 plausible-but-wrong English definitions.`;
 
     try {
-      const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+      const client = new Anthropic({
+        fetch: campaignProviderFetch,
+        apiKey: KEY,
+        maxRetries: 0,
+        timeout: 30_000,
+      });
       const response = await client.messages.create(
         {
           model: "claude-haiku-5-5",

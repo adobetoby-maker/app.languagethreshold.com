@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 // Built by TAC — 2026-10-15
 import Anthropic from "@anthropic-ai/sdk";
 import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
@@ -92,7 +93,10 @@ export const generateLessonWords = createServerFn({ method: "POST" })
       // A listed stage whose chunk failed to load: not an unknown lesson, try again shortly.
       setResponseStatus(503);
       setResponseHeader("Retry-After", "2");
-      return { words: null, error: "This lesson is temporarily unavailable. Try again in a moment." };
+      return {
+        words: null,
+        error: "This lesson is temporarily unavailable. Try again in a moment.",
+      };
     }
     const lesson = getCurriculum(module.id)?.lessons.find((item) => item.n === data.lessonNumber);
     if (!lesson) return { words: null, error: "Unknown lesson" };
@@ -133,7 +137,12 @@ export const generateLessonWords = createServerFn({ method: "POST" })
       const budgetError = await learningGenerationError();
       if (budgetError) return { words: null, error: budgetError };
       // Finish within the 120s lease even after the three bounded budget RPCs.
-      const client = new Anthropic({ apiKey: key, timeout: 45000, maxRetries: 0 });
+      const client = new Anthropic({
+        fetch: campaignProviderFetch,
+        apiKey: key,
+        timeout: 45000,
+        maxRetries: 0,
+      });
       const response = await client.messages.create(request);
       setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
       if (!response.content.some((item) => item.type === "tool_use")) {

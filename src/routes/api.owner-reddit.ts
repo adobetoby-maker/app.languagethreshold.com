@@ -91,7 +91,7 @@ export const Route = createFileRoute("/api/owner-reddit")({
             db
               .from("promo_redemptions")
               .select(
-                "user_id,code,redeemed_at,expires_at,feedback_email_consent,consent_updated_at,rewarded_at,reward_feedback_id",
+                "user_id,code,redeemed_at,expires_at,feedback_email_consent,consent_updated_at,rewarded_at,reward_feedback_id,budget_reserved_microusd",
               )
               .order("redeemed_at", { ascending: false })
               .order("user_id")
@@ -118,8 +118,15 @@ export const Route = createFileRoute("/api/owner-reddit")({
             ? await db.rpc("reddit_feedback_summary", { p_users: rows.map((row) => row.user_id) })
             : { data: [], error: null };
           if (summary.error) throw summary.error;
+          const budget = await db
+            .from("promo_campaign_budget")
+            .select("limit_microusd,reserved_microusd")
+            .eq("code", "REDDITMONTH")
+            .single();
+          if (budget.error) throw budget.error;
           requireCurrentTeamRequest(db);
           return json({
+            budget: budget.data,
             page,
             hasMore: (redemptions.data?.length ?? 0) > 50,
             redemptions: rows.map((r) => ({

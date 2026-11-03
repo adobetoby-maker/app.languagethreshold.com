@@ -6,6 +6,7 @@ type Entry = {
   rewarded_at?: string | null;
   redeemed_at: string;
   feedback_count: number;
+  budget_reserved_microusd?: number;
   last_feedback_at: string | null;
   code: string;
   expires_at: string;
@@ -14,6 +15,7 @@ type Entry = {
   contact: { email: string; name: string } | null;
 };
 type Data = {
+  budget?: { limit_microusd: number; reserved_microusd: number };
   hasMore: boolean;
   redemptions: Entry[];
   feedback: {
@@ -44,6 +46,14 @@ export function RedditFeedbackCohort() {
         Customer email to prepare and review feedback requests; existing unsubscribe rules still
         apply.
       </p>
+      {r.data?.budget && (
+        <p>
+          Campaign estimated usage reserved: $
+          {(r.data.budget.reserved_microusd / 1000000).toFixed(2)} / $
+          {(r.data.budget.limit_microusd / 1000000).toFixed(2)}. Maximum 100 testers, $10 each
+          across all campaign months.
+        </p>
+      )}
       <label className="mt-3 flex gap-2">
         <input
           type="checkbox"
@@ -76,6 +86,10 @@ export function RedditFeedbackCohort() {
                   ? `; latest ${new Date(e.last_feedback_at).toLocaleDateString()}`
                   : ""}
                 .
+              </p>
+              <p className="text-sm">
+                Estimated AI/audio allowance used: $
+                {((e.budget_reserved_microusd ?? 0) / 1000000).toFixed(2)} / $10.
               </p>
               <p className="text-sm">Account: {e.user_id}</p>
               {e.rewarded_at && (

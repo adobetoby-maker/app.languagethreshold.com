@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch";
 import { readPrivateServiceJson } from "./private-service-json";
 
 export class ReplyTranscriptionError extends Error {
@@ -33,7 +34,7 @@ export async function transcribeReplyAudio(
     body.set("tag_audio_events", "false");
     body.set("diarize", "false");
     body.set("file", new Blob([new Uint8Array(bytes).buffer], { type: "audio/wav" }), "reply.wav");
-    const response = await fetch("https://api.elevenlabs.io/v1/speech-to-text", {
+    const response = await campaignProviderFetch("https://api.elevenlabs.io/v1/speech-to-text", {
       method: "POST",
       body,
       headers: { "xi-api-key": key },

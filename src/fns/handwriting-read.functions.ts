@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 // Built by TAC — 2026-10-15
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
@@ -59,7 +60,7 @@ export const readHandwriting = createServerFn({ method: "POST" })
       : "";
 
     try {
-      const client = new Anthropic({ apiKey: key });
+      const client = new Anthropic({ fetch: campaignProviderFetch, apiKey: key });
       const response = await client.messages.create({
         model: "claude-haiku-5-5",
         max_tokens: 256,

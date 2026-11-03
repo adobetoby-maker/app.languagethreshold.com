@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../campaign-provider-fetch.ts";
 import Anthropic from "@anthropic-ai/sdk";
 import { readPrivateServiceJson } from "@/lib/private-service-json";
 
@@ -39,7 +40,7 @@ export async function requestWritingProposal(
       timeout: WRITING_PROVIDER_WAIT_MS,
       fetch: async (url, options) => {
         current();
-        const pending = fetch(url, {
+        const pending = campaignProviderFetch(url, {
           ...options,
           cache: "no-store",
           redirect: "error",

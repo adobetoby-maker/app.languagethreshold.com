@@ -20,7 +20,7 @@ export const Route = createFileRoute("/api/reddit-offer")({
           const user = await authenticatedTeamUser(request, db);
           const r = await db
             .from("promo_redemptions")
-            .select("code,expires_at,feedback_email_consent,rewarded_at")
+            .select("code,expires_at,feedback_email_consent,rewarded_at,budget_reserved_microusd")
             .eq("user_id", user.id)
             .maybeSingle();
           if (r.error) throw r.error;
@@ -62,6 +62,8 @@ export const Route = createFileRoute("/api/reddit-offer")({
             p_email: user.email!,
             p_consent: p.data.feedbackEmailConsent,
           });
+          if (r.error?.message === "Reddit tester places are full")
+            throw new TeamOperationError("All 100 Reddit tester places have been claimed.", 400);
           if (r.error?.message === "Reddit offer redemption deadline has passed")
             throw new TeamOperationError(
               "This offer had to be claimed by December 1, 2026, at 11:59 p.m. Mountain Time.",

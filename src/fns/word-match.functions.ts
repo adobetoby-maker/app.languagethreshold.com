@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -86,7 +87,12 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE Word Match board for ${data.language} learners at CEFR ${cefr}.\nProduce EXACTLY ${expectedCount} pairs, all from a single coherent topic.${topicLine}${userWordsLine}${avoidLine}\n\nReturn the board via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: KEY,
+          maxRetries: 0,
+          timeout: 30_000,
+        });
         const response = await client.messages.create(
           {
             // Output is validated before it can enter the shared public cache.

@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -72,7 +73,12 @@ export const generateVerbConjugation = createServerFn({ method: "POST" })
     if (signal.aborted) return { data: null, error: "Request cancelled." };
 
     try {
-      const client = new Anthropic({ apiKey, maxRetries: 0, timeout: 30_000 });
+      const client = new Anthropic({
+        fetch: campaignProviderFetch,
+        apiKey,
+        maxRetries: 0,
+        timeout: 30_000,
+      });
       const response = await client.messages.create(
         {
           model: "claude-sonnet-5-5",

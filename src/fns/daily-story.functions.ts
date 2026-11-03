@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
@@ -87,7 +88,12 @@ ${vocabClause}
 - Return via the story_output tool only`;
 
     try {
-      const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+      const client = new Anthropic({
+        fetch: campaignProviderFetch,
+        apiKey: KEY,
+        maxRetries: 0,
+        timeout: 30_000,
+      });
       const response = await client.messages.create(
         {
           model: "claude-haiku-5-5",

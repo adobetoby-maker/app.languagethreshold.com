@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -104,7 +105,12 @@ export const generateConjugationQuestion = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE ${data.language} conjugation question at CEFR ${cefr}.${topicLine}${userWordsLine}${avoidLine}\n\n${levelGuidance}\n\nReturn the structured question via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: KEY,
+          maxRetries: 0,
+          timeout: 30_000,
+        });
         // One logical generation uses at most two model calls. Both share this
         // total deadline; the independent check must not restart the clock.
         const signal = AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]);

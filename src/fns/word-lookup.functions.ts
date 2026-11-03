@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationError } from "@/lib/learning-generation-server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
@@ -290,7 +291,7 @@ ${japaneseSpecificInstruction}`;
           ];
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
+        const client = new Anthropic({ fetch: campaignProviderFetch, apiKey: KEY });
         const response = await client.messages.create({
           model: "claude-haiku-5-5",
           max_tokens: 2000,

@@ -297,7 +297,7 @@ async function startMiddleware() {
   const outfile = path.join(repoRoot, "node_modules", ".cache", "lle-tests", `start-${process.pid}.mjs`);
   const virtual = {
     "@tanstack/react-start": `
-      export const createMiddleware = () => ({ server: (fn) => ({ fn }) });
+      export const createMiddleware = () => ({ server: (fn) => ({ fn }), client: (fn) => ({ client: fn }) });
       export const createCsrfMiddleware = () => ({ csrf: true });
       export const createStart = (factory) => factory;`,
     "@tanstack/react-start/server": "export const getResponseHeader = () => undefined;",

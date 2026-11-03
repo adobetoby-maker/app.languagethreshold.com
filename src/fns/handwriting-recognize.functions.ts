@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -79,7 +80,8 @@ const CHINESE_TOOL = {
     properties: {
       text: {
         type: "string",
-        description: "The character(s) in Chinese hanzi exactly as drawn — do not convert to a kanji form",
+        description:
+          "The character(s) in Chinese hanzi exactly as drawn — do not convert to a kanji form",
       },
       reading: {
         type: "string",
@@ -113,7 +115,7 @@ export const recognizeHandwriting = createServerFn({ method: "POST" })
           : { system: JAPANESE_SYSTEM, userText: JAPANESE_USER_TEXT, tool: JAPANESE_TOOL };
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
+        const client = new Anthropic({ fetch: campaignProviderFetch, apiKey: KEY });
         const response = await client.messages.create({
           model: "claude-haiku-5-5",
           max_tokens: 384,

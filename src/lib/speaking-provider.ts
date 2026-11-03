@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "./campaign-provider-fetch.ts";
 import Anthropic from "@anthropic-ai/sdk";
 
 export const SPEAKING_PROVIDER_TIMEOUT_MS = 45_000;
@@ -92,7 +93,7 @@ export async function withSpeakingProvider(
       timeout: SPEAKING_PROVIDER_TIMEOUT_MS,
       fetch: async (url, options) => {
         current();
-        const pending = fetch(url, {
+        const pending = campaignProviderFetch(url, {
           ...options,
           cache: "no-store",
           signal: options?.signal

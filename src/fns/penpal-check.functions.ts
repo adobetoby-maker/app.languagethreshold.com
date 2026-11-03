@@ -1,3 +1,4 @@
+import { campaignProviderFetch } from "../lib/campaign-provider-fetch.ts";
 import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { learningGenerationOriginError } from "@/lib/learning-generation-security";
 import { learningGenerationError } from "@/lib/learning-generation-server";
@@ -52,7 +53,12 @@ export const checkPenPalWriting = createServerFn({ method: "POST" })
          Return JSON only: { "correct": true/false, "recognized": "<what you can read>", "feedback": "<1 encouraging sentence>", "xp": 5 }`;
 
       try {
-        const client = new Anthropic({ apiKey: key, timeout: 30_000, maxRetries: 0 });
+        const client = new Anthropic({
+          fetch: campaignProviderFetch,
+          apiKey: key,
+          timeout: 30_000,
+          maxRetries: 0,
+        });
         const response = await client.messages.create(
           {
             model: "claude-haiku-5-5",

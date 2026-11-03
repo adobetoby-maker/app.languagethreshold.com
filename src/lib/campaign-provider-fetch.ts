@@ -4,6 +4,7 @@ import { paidProvider, providerReservation } from "./campaign-budget-cost.ts";
 type Identity = {
   userId: string;
   campaign: boolean;
+  staff: boolean;
   paid: boolean;
   db: TeamDb;
 };
@@ -24,8 +25,15 @@ async function identity(scope: Scope): Promise<Identity> {
     .eq("user_id", user.id)
     .maybeSingle();
   if (promo.error) throw promo.error;
+  const staff = await db
+    .from("staff_coupon_recipients")
+    .select("user_id")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (staff.error) throw staff.error;
+  const campaign = !!promo.data || !!staff.data;
   let paid = false;
-  if (promo.data && process.env.STRIPE_SECRET_KEY) {
+  if (campaign && process.env.STRIPE_SECRET_KEY) {
     const profile = await db.from("profiles").select("data").eq("id", user.id).maybeSingle();
     if (profile.error) throw profile.error;
     const subId = (profile.data?.data as Record<string, unknown>)?.subscription_id;
@@ -40,7 +48,7 @@ async function identity(scope: Scope): Promise<Identity> {
       paid = sub.metadata?.userId === user.id && sub.status === "active";
     }
   }
-  if (promo.data && !paid) {
+  if (campaign && !paid) {
     const members = await db
       .from("team_members")
       .select("organization_id")
@@ -59,7 +67,7 @@ async function identity(scope: Scope): Promise<Identity> {
       paid = !!plans.data?.length;
     }
   }
-  return { userId: user.id, campaign: !!promo.data, paid, db };
+  return { userId: user.id, campaign, staff: !!staff.data, paid, db };
 }
 function denied(message: string, status = 402) {
   return Response.json(
@@ -94,10 +102,13 @@ export const campaignProviderFetch: typeof fetch = async (input, options) => {
     const amount = providerReservation(url, body);
     if (amount === null || amount <= 0)
       return denied("This generation option is unavailable within the campaign allowance.");
-    const admitted = await actor.db.rpc("reserve_reddit_generation", {
-      p_user: actor.userId,
-      p_amount: amount,
-    });
+    const admitted = await actor.db.rpc(
+      actor.staff ? "reserve_staff_generation" : "reserve_reddit_generation",
+      {
+        p_user: actor.userId,
+        p_amount: amount,
+      },
+    );
     if (admitted.error || admitted.data !== true)
       return denied(
         "Your campaign AI/audio allowance is used up or unavailable. Saved lessons, recordings and device voices remain available.",

@@ -12,6 +12,8 @@ create table public.product_feedback (
  user_id uuid not null references auth.users(id) on delete cascade,
  category text not null check(category in ('idea','problem','experience')),
  message text not null check(length(message) between 10 and 4000),
+ source text not null default 'site' check(source in ('site','email')),
+ recorded_by uuid references auth.users(id) on delete set null,
  created_at timestamptz not null default now()
 );
 alter table public.promo_redemptions enable row level security;
@@ -69,17 +71,17 @@ revoke all on function lt_campaign_private.sync_account_contact() from public,an
 create trigger sync_signup_to_owner_crm after insert or update of email on auth.users
 for each row execute function lt_campaign_private.sync_account_contact();
 
-create function public.save_product_feedback(p_id uuid,p_user uuid,p_category text,p_message text)
+create function public.save_product_feedback(p_id uuid,p_user uuid,p_category text,p_message text,p_source text default 'site',p_actor uuid default null)
 returns boolean language plpgsql security invoker set search_path='' as $$
 begin
  perform pg_advisory_xact_lock(hashtextextended('feedback:'||p_user::text,0));
  if exists(select 1 from public.product_feedback where id=p_id and user_id=p_user and category=p_category and message=p_message) then return true; end if;
  if (select count(*) from public.product_feedback where user_id=p_user and created_at>now()-interval '1 hour')>=6 then raise exception 'Feedback limit reached'; end if;
- insert into public.product_feedback(id,user_id,category,message) values(p_id,p_user,p_category,p_message);
+ insert into public.product_feedback(id,user_id,category,message,source,recorded_by) values(p_id,p_user,p_category,p_message,p_source,p_actor);
  return true;
 end $$;
-revoke all on function public.save_product_feedback(uuid,uuid,text,text) from public,anon,authenticated;
-grant execute on function public.save_product_feedback(uuid,uuid,text,text) to service_role;
+revoke all on function public.save_product_feedback(uuid,uuid,text,text,text,uuid) from public,anon,authenticated;
+grant execute on function public.save_product_feedback(uuid,uuid,text,text,text,uuid) to service_role;
 
 -- One owner-reviewed reward per coupon user, regardless of feedback sentiment.
 alter table public.promo_redemptions add column rewarded_at timestamptz,
@@ -99,9 +101,22 @@ begin
  select * into result from public.promo_redemptions where user_id=learner for update;
  if not found then raise exception 'This feedback is not from a Reddit coupon user'; end if;
  if result.rewarded_at is not null then return result; end if;
+ if p_feedback is null then
+  p_feedback:=gen_random_uuid();
+  perform public.save_product_feedback(p_feedback,learner,'experience',p_reason,'email',p_actor);
+ end if;
  update public.promo_redemptions set expires_at=greatest(expires_at,now())+interval '2 months',rewarded_at=now(),rewarded_by=p_actor,reward_feedback_id=p_feedback,reward_reason=p_reason
  where user_id=learner returning * into result;
  return result;
 end $$;
 revoke all on function public.reward_reddit_feedback(uuid,uuid,uuid,text) from public,anon,authenticated;
 grant execute on function public.reward_reddit_feedback(uuid,uuid,uuid,text) to service_role;
+
+create function public.reddit_feedback_summary(p_users uuid[])
+returns table(user_id uuid,feedback_count bigint,last_feedback_at timestamptz)
+language sql security invoker set search_path='' as $$
+ select f.user_id,count(*),max(f.created_at) from public.product_feedback f
+ where cardinality(p_users)<=50 and f.user_id=any(p_users) group by f.user_id;
+$$;
+revoke all on function public.reddit_feedback_summary(uuid[]) from public,anon,authenticated;
+grant execute on function public.reddit_feedback_summary(uuid[]) to service_role;

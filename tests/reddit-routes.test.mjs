@@ -48,6 +48,7 @@ async function fixture(run, entry = "api.reddit-offer.ts") {
         });
       if (url.pathname === "/rest/v1/platform_admin_roles")
         return Response.json(state.owner ? [{ role: "owner" }] : []);
+      if (url.pathname === "/rest/v1/rpc/save_product_feedback") return Response.json(true);
       if (url.pathname === "/rest/v1/rpc/reward_reddit_feedback")
         return Response.json({ user_id: USER, expires_at: "2027-02-02T12:00:00Z" });
       if (url.pathname === "/rest/v1/rpc/redeem_reddit_month")
@@ -166,4 +167,29 @@ test("owner can record emailed feedback for an existing coupon account", () =>
     const rpc = s.calls.find((c) => c.url.pathname.includes("reward_reddit_feedback"));
     assert.equal(JSON.parse(rpc.body).p_user, USER);
     assert.equal(JSON.parse(rpc.body).p_feedback, null);
+  }, "api.owner-reddit.ts"));
+
+test("owner can track emailed feedback without granting access", () =>
+  fixture(async (h, s, req) => {
+    s.owner = true;
+    assert.equal(
+      (
+        await h.POST({
+          request: req({
+            action: "record_email_feedback",
+            feedbackId: USER,
+            userId: USER,
+            feedbackSummary: "Specific feedback received by email",
+          }),
+        })
+      ).status,
+      200,
+    );
+    const saved = s.calls.find((c) => c.url.pathname.includes("save_product_feedback"));
+    assert.equal(JSON.parse(saved.body).p_source, "email");
+    assert.equal(JSON.parse(saved.body).p_actor, USER);
+    assert.equal(
+      s.calls.some((c) => c.url.pathname.includes("reward_reddit_feedback")),
+      false,
+    );
   }, "api.owner-reddit.ts"));

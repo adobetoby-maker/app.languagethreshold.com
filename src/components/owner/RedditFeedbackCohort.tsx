@@ -4,6 +4,9 @@ import { ownerPanel, ownerButton } from "./owner-ui";
 type Entry = {
   user_id: string;
   rewarded_at?: string | null;
+  redeemed_at: string;
+  feedback_count: number;
+  last_feedback_at: string | null;
   code: string;
   expires_at: string;
   feedback_email_consent: boolean;
@@ -19,6 +22,8 @@ type Data = {
     category: string;
     message: string;
     created_at: string;
+    source?: string;
+    contact?: { email: string; name: string } | null;
   }[];
 };
 export function RedditFeedbackCohort() {
@@ -29,6 +34,7 @@ export function RedditFeedbackCohort() {
   const [rewardNotice, setRewardNotice] = useState("");
   const [emailReview, setEmailReview] = useState<string | null>(null);
   const [summary, setSummary] = useState("");
+  const [emailFeedbackId, setEmailFeedbackId] = useState(() => crypto.randomUUID());
   return (
     <section className={ownerPanel} aria-label="Reddit offer feedback group">
       <h2 className="text-lg font-semibold">Reddit coupon users</h2>
@@ -63,24 +69,36 @@ export function RedditFeedbackCohort() {
                 Feedback email: {e.feedback_email_consent ? "Agreed" : "Not agreed"}; expires{" "}
                 {new Date(e.expires_at).toLocaleDateString()}
               </p>
+              <p className="text-sm">
+                Coupon used: {new Date(e.redeemed_at).toLocaleDateString()}. Feedback received:{" "}
+                {e.feedback_count}
+                {e.last_feedback_at
+                  ? `; latest ${new Date(e.last_feedback_at).toLocaleDateString()}`
+                  : ""}
+                .
+              </p>
               <p className="text-sm">Account: {e.user_id}</p>
-              {e.rewarded_at ? (
+              {e.rewarded_at && (
                 <p className="text-sm">Two-month feedback reward already approved.</p>
-              ) : emailReview === e.user_id ? (
+              )}
+              {emailReview === e.user_id ? (
                 <div className="mt-3 grid gap-2">
                   <label>
-                    Summary of the thoughtful feedback received by email
+                    Summary of feedback received by email
                     <textarea
                       className="block w-full rounded-lg border bg-background p-2"
                       value={summary}
-                      onChange={(event) => setSummary(event.target.value)}
+                      onChange={(event) => {
+                        setSummary(event.target.value);
+                        setEmailFeedbackId(crypto.randomUUID());
+                      }}
                       minLength={10}
                       maxLength={1000}
                     />
                   </label>
                   <button
                     className={ownerButton}
-                    disabled={r.busy || summary.trim().length < 10}
+                    disabled={r.busy || !!e.rewarded_at || summary.trim().length < 10}
                     onClick={async () => {
                       try {
                         const result = await r.run<{ notice: string }>({
@@ -104,6 +122,34 @@ export function RedditFeedbackCohort() {
                   >
                     Confirm two-month reward for emailed feedback
                   </button>
+                  <button
+                    className={ownerButton}
+                    disabled={r.busy || summary.trim().length < 10}
+                    onClick={async () => {
+                      try {
+                        const result = await r.run<{ notice: string }>({
+                          action: "record_email_feedback",
+                          userId: e.user_id,
+                          feedbackId: emailFeedbackId,
+                          feedbackSummary: summary,
+                        });
+                        if (result) {
+                          setRewardNotice(result.notice);
+                          setEmailReview(null);
+                          setSummary("");
+                          setEmailFeedbackId(crypto.randomUUID());
+                        }
+                      } catch (error) {
+                        setRewardNotice(
+                          error instanceof Error
+                            ? error.message
+                            : "Save not confirmed. Retry the same feedback to avoid a duplicate.",
+                        );
+                      }
+                    }}
+                  >
+                    Save emailed feedback without a reward
+                  </button>
                   <button className={ownerButton} onClick={() => setEmailReview(null)}>
                     Cancel
                   </button>
@@ -115,9 +161,10 @@ export function RedditFeedbackCohort() {
                   onClick={() => {
                     setEmailReview(e.user_id);
                     setSummary("");
+                    setEmailFeedbackId(crypto.randomUUID());
                   }}
                 >
-                  Review emailed feedback for reward
+                  Record emailed feedback
                 </button>
               )}
             </li>
@@ -153,7 +200,10 @@ export function RedditFeedbackCohort() {
               {f.category} · {new Date(f.created_at).toLocaleDateString()}
             </p>
             <p className="whitespace-pre-wrap">{f.message}</p>
-            <p className="text-sm">Account: {f.user_id}</p>
+            <p className="text-sm">
+              {f.contact?.email ?? f.user_id} ·{" "}
+              {f.source === "email" ? "Received by email" : "Submitted on site"}
+            </p>
             {approve === f.id ? (
               <div className="mt-3 grid gap-2">
                 <p>

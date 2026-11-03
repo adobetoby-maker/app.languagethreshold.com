@@ -24,7 +24,9 @@ records one reward per account. Repeating approval cannot add more time. The ext
 after the later of their current expiry and approval time, so it never shortens remaining access.
 Paid billing is not altered. Use **Review emailed feedback for reward** on a coupon user to record a short review summary
 and approve feedback received by email. This shares the same one-reward-per-account protection
-as site feedback, so approving both cannot give duplicate months.
+as site feedback, so approving both cannot give duplicate months. Emailed feedback can also be
+saved without granting a reward. Each coupon row shows its redemption date, feedback count, latest
+feedback date and reward status; the feedback inbox identifies site versus email submissions.
 
 Suggested feedback request draft:
 
@@ -41,7 +43,7 @@ https://app.languagethreshold.com/reddit. Existing customer email tools add the 
 ## Data and access
 
 `20261103010000_reddit_feedback_campaign.sql` adds service-only RLS tables for redemptions and
-product feedback, three tightly scoped service-only RPCs and a private auth trigger. Signup and changed
+product feedback, four tightly scoped service-only RPCs and a private auth trigger. Signup and changed
 account emails are mirrored into the existing owner CRM; existing manual contacts with the same
 email are linked without overwriting notes. A redemption also ensures an existing account is in CRM.
 No historical contact backfill is performed. Every new account is captured going forward; coupon

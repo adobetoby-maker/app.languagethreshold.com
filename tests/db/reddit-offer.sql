@@ -47,4 +47,13 @@ do $$ declare prior_expiry timestamptz; rewarded_expiry timestamptz; begin
  if (select expires_at from public.promo_redemptions where user_id='00000000-0000-4000-8000-000000000101')<>rewarded_expiry then raise exception 'duplicate reward across email/site'; end if;
  if has_function_privilege('authenticated','public.reward_reddit_feedback(uuid,uuid,uuid,text)','EXECUTE') then raise exception 'reward exposed to learner'; end if;
 end $$;
+do $$ declare received bigint; begin
+ select feedback_count into received from public.reddit_feedback_summary(array['00000000-0000-4000-8000-000000000101'::uuid]);
+ if received<>1 then raise exception 'cohort feedback tracking incorrect'; end if;
+end $$;
+select public.redeem_reddit_month('00000000-0000-4000-8000-000000000102','manual@example.invalid',false);
+select public.reward_reddit_feedback(null,'00000000-0000-4000-8000-000000000101','00000000-0000-4000-8000-000000000102','Specific emailed feedback from a coupon user');
+do $$ begin
+ if (select count(*) from public.product_feedback where user_id='00000000-0000-4000-8000-000000000102' and source='email')<>1 then raise exception 'email reward did not record received feedback'; end if;
+end $$;
 rollback;

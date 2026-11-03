@@ -4,7 +4,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { loadModule } from "./helpers/bundle.mjs";
 
-test("homepage Blog navigation renders without a query provider or article request", async () => {
+test("empty or unavailable blog does not advertise a navigation link", async () => {
   const { BlogNavLink } = await loadModule("src/components/blog/BlogNavLink.tsx");
-  assert.match(renderToStaticMarkup(createElement(BlogNavLink)), /href="\/blog"[^>]*>Blog<\/a>/);
+  assert.equal(renderToStaticMarkup(createElement(BlogNavLink)), "");
 });

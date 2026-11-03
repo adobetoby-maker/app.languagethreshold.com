@@ -4,6 +4,7 @@ import {
   prepareBlogHtml,
   listBlogArticles,
   readBlogArticle,
+  hasBlogArticles,
 } from "../src/lib/heycatch-blog.server.ts";
 test("sanitization keeps article structure and inserts TOC after takeaways", () => {
   const html = prepareBlogHtml(
@@ -52,6 +53,7 @@ test("all pages, encoded slugs, canonical and safe JSON-LD; missing and unavaila
   };
   try {
     assert.equal((await listBlogArticles()).length, 51);
+    assert.equal(await hasBlogArticles(), true);
     assert.equal(calls[1].searchParams.get("offset"), "50");
     const article = await readBlogArticle("hello world");
     assert.equal(article.canonical, "https://app.languagethreshold.com/blog/hello%20world");

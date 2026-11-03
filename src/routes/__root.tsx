@@ -139,7 +139,6 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: interCss },
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: "https://app.languagethreshold.com" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },

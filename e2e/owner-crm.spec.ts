@@ -60,9 +60,29 @@ async function openCrm(page: Page, linked = false) {
     aiReady: true,
   };
   const posts: Record<string, unknown>[] = [];
+  const staff: {
+    email: string;
+    claimed_at: null;
+    expires_at: null;
+    budget_reserved_microusd: number;
+  }[] = [];
   let release: (() => void) | undefined;
   await page.route(/\/api\//, async (route) => {
     const url = new URL(route.request().url());
+    if (url.pathname === "/api/owner-staff-coupon") {
+      if (route.request().method() === "POST") {
+        const body = route.request().postDataJSON();
+        posts.push(body);
+        staff.push({
+          email: body.email,
+          claimed_at: null,
+          expires_at: null,
+          budget_reserved_microusd: 0,
+        });
+        return route.fulfill({ json: { notice: "Staff email added. No email sent." } });
+      }
+      return route.fulfill({ json: { recipients: staff, hasMore: false, nextCursor: null } });
+    }
     if (route.request().method() === "POST") {
       const body = route.request().postDataJSON();
       posts.push(body);
@@ -109,6 +129,17 @@ async function openCrm(page: Page, linked = false) {
   await page.getByRole("button", { name: /Synthetic Reviewer/ }).click();
   return { posts, state, release: () => release?.() };
 }
+test("owner adds a cleaning staff recipient without sending email or starting the term", async ({
+  page,
+}) => {
+  const { posts } = await openCrm(page);
+  const staff = page.getByRole("region", { name: "Cleaning staff coupon" });
+  await staff.getByLabel("Staff email").fill("staff@example.test");
+  await staff.getByRole("button", { name: "Add staff email" }).click();
+  await expect(staff.getByText("staff@example.test", { exact: true })).toBeVisible();
+  await expect(staff.getByText(/Waiting for first claim/)).toBeVisible();
+  expect(posts).toEqual([{ email: "staff@example.test" }]);
+});
 test("owner prepares, previews and saves an unsent packet without private notes or sends", async ({
   page,
 }) => {

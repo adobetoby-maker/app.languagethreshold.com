@@ -30,6 +30,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RedditRouteImport } from './routes/reddit'
 import { Route as ReferRouteImport } from './routes/refer'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StaffRouteImport } from './routes/staff'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -60,6 +61,7 @@ import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
+import { Route as ApiOwnerStaffCouponRouteImport } from './routes/api.owner-staff-coupon'
 import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
 import { Route as ApiOwnerTeamsRouteImport } from './routes/api.owner-teams'
 import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
@@ -72,6 +74,7 @@ import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
 import { Route as ApiSpeakingTranscribeRouteImport } from './routes/api.speaking-transcribe'
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
+import { Route as ApiStaffOfferRouteImport } from './routes/api.staff-offer'
 import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
 import { Route as ApiTeamRouteImport } from './routes/api.team'
 import { Route as ApiTeamActivityRouteImport } from './routes/api.team-activity'
@@ -191,6 +194,11 @@ const ReferRoute = ReferRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StaffRoute = StaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -343,6 +351,11 @@ const ApiOwnerRedditRoute = ApiOwnerRedditRouteImport.update({
   path: '/api/owner-reddit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerStaffCouponRoute = ApiOwnerStaffCouponRouteImport.update({
+  id: '/api/owner-staff-coupon',
+  path: '/api/owner-staff-coupon',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerSupportRoute = ApiOwnerSupportRouteImport.update({
   id: '/api/owner-support',
   path: '/api/owner-support',
@@ -401,6 +414,11 @@ const ApiSpeakingTranscribeRoute = ApiSpeakingTranscribeRouteImport.update({
 const ApiSportsNewsRoute = ApiSportsNewsRouteImport.update({
   id: '/api/sports-news',
   path: '/api/sports-news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStaffOfferRoute = ApiStaffOfferRouteImport.update({
+  id: '/api/staff-offer',
+  path: '/api/staff-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
@@ -501,6 +519,7 @@ export interface FileRoutesByFullPath {
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -531,6 +550,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
+  '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
@@ -543,6 +563,7 @@ export interface FileRoutesByFullPath {
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
+  '/api/staff-offer': typeof ApiStaffOfferRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
   '/api/team-activity': typeof ApiTeamActivityRoute
@@ -581,6 +602,7 @@ export interface FileRoutesByTo {
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -611,6 +633,7 @@ export interface FileRoutesByTo {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
+  '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
@@ -623,6 +646,7 @@ export interface FileRoutesByTo {
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
+  '/api/staff-offer': typeof ApiStaffOfferRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
   '/api/team-activity': typeof ApiTeamActivityRoute
@@ -662,6 +686,7 @@ export interface FileRoutesById {
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
@@ -692,6 +717,7 @@ export interface FileRoutesById {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
+  '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
@@ -704,6 +730,7 @@ export interface FileRoutesById {
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
+  '/api/staff-offer': typeof ApiStaffOfferRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/team': typeof ApiTeamRoute
   '/api/team-activity': typeof ApiTeamActivityRoute
@@ -744,6 +771,7 @@ export interface FileRouteTypes {
     | '/reddit'
     | '/refer'
     | '/sitemap.xml'
+    | '/staff'
     | '/support'
     | '/team'
     | '/terms'
@@ -774,6 +802,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-reddit'
+    | '/api/owner-staff-coupon'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
@@ -786,6 +815,7 @@ export interface FileRouteTypes {
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
     | '/api/sports-news'
+    | '/api/staff-offer'
     | '/api/stripe-webhook'
     | '/api/team'
     | '/api/team-activity'
@@ -824,6 +854,7 @@ export interface FileRouteTypes {
     | '/reddit'
     | '/refer'
     | '/sitemap.xml'
+    | '/staff'
     | '/support'
     | '/team'
     | '/terms'
@@ -854,6 +885,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-reddit'
+    | '/api/owner-staff-coupon'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
@@ -866,6 +898,7 @@ export interface FileRouteTypes {
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
     | '/api/sports-news'
+    | '/api/staff-offer'
     | '/api/stripe-webhook'
     | '/api/team'
     | '/api/team-activity'
@@ -904,6 +937,7 @@ export interface FileRouteTypes {
     | '/reddit'
     | '/refer'
     | '/sitemap.xml'
+    | '/staff'
     | '/support'
     | '/team'
     | '/terms'
@@ -934,6 +968,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-reddit'
+    | '/api/owner-staff-coupon'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
@@ -946,6 +981,7 @@ export interface FileRouteTypes {
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
     | '/api/sports-news'
+    | '/api/staff-offer'
     | '/api/stripe-webhook'
     | '/api/team'
     | '/api/team-activity'
@@ -985,6 +1021,7 @@ export interface RootRouteChildren {
   RedditRoute: typeof RedditRoute
   ReferRoute: typeof ReferRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StaffRoute: typeof StaffRoute
   SupportRoute: typeof SupportRoute
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
@@ -1015,6 +1052,7 @@ export interface RootRouteChildren {
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
+  ApiOwnerStaffCouponRoute: typeof ApiOwnerStaffCouponRoute
   ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
   ApiOwnerTeamsRoute: typeof ApiOwnerTeamsRoute
   ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
@@ -1027,6 +1065,7 @@ export interface RootRouteChildren {
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSpeakingTranscribeRoute: typeof ApiSpeakingTranscribeRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
+  ApiStaffOfferRoute: typeof ApiStaffOfferRoute
   ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
   ApiTeamRoute: typeof ApiTeamRoute
   ApiTeamActivityRoute: typeof ApiTeamActivityRoute
@@ -1191,6 +1230,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/staff': {
+      id: '/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof StaffRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -1403,6 +1449,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerRedditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-staff-coupon': {
+      id: '/api/owner-staff-coupon'
+      path: '/api/owner-staff-coupon'
+      fullPath: '/api/owner-staff-coupon'
+      preLoaderRoute: typeof ApiOwnerStaffCouponRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-support': {
       id: '/api/owner-support'
       path: '/api/owner-support'
@@ -1485,6 +1538,13 @@ declare module '@tanstack/react-router' {
       path: '/api/sports-news'
       fullPath: '/api/sports-news'
       preLoaderRoute: typeof ApiSportsNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/staff-offer': {
+      id: '/api/staff-offer'
+      path: '/api/staff-offer'
+      fullPath: '/api/staff-offer'
+      preLoaderRoute: typeof ApiStaffOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/stripe-webhook': {
@@ -1617,6 +1677,7 @@ const rootRouteChildren: RootRouteChildren = {
   RedditRoute: RedditRoute,
   ReferRoute: ReferRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StaffRoute: StaffRoute,
   SupportRoute: SupportRoute,
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
@@ -1647,6 +1708,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,
+  ApiOwnerStaffCouponRoute: ApiOwnerStaffCouponRoute,
   ApiOwnerSupportRoute: ApiOwnerSupportRoute,
   ApiOwnerTeamsRoute: ApiOwnerTeamsRoute,
   ApiOwnerUsersRoute: ApiOwnerUsersRoute,
@@ -1659,6 +1721,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSpeakingTranscribeRoute: ApiSpeakingTranscribeRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,
+  ApiStaffOfferRoute: ApiStaffOfferRoute,
   ApiStripeWebhookRoute: ApiStripeWebhookRoute,
   ApiTeamRoute: ApiTeamRoute,
   ApiTeamActivityRoute: ApiTeamActivityRoute,

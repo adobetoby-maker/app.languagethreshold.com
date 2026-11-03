@@ -50,7 +50,15 @@ async function fixture(action) {
   process.env.SUPABASE_URL = "https://fixture.invalid";
   process.env.SUPABASE_SERVICE_ROLE_KEY = "fixture-key";
   delete process.env.STRIPE_SECRET_KEY;
-  const state = { campaign: true, admit: true, providerCalls: 0, reservations: [], authCalls: 0 };
+  const state = {
+    campaign: true,
+    staff: false,
+    admit: true,
+    providerCalls: 0,
+    reservations: [],
+    staffReservations: [],
+    authCalls: 0,
+  };
   globalThis.fetch = async (input, options) => {
     const u = new URL(input instanceof Request ? input.url : String(input));
     if (u.hostname === "texttospeech.googleapis.com") {
@@ -63,6 +71,12 @@ async function fixture(action) {
     }
     if (u.pathname === "/rest/v1/promo_redemptions")
       return Response.json(state.campaign ? { user_id: USER } : null);
+    if (u.pathname === "/rest/v1/staff_coupon_recipients")
+      return Response.json(state.staff ? { user_id: USER } : null);
+    if (u.pathname === "/rest/v1/rpc/reserve_staff_generation") {
+      state.staffReservations.push(JSON.parse(options.body));
+      return Response.json(state.admit);
+    }
     if (u.pathname === "/rest/v1/team_members") return Response.json([]);
     if (u.pathname === "/rest/v1/rpc/reserve_reddit_generation") {
       state.reservations.push(JSON.parse(options.body));
@@ -120,5 +134,18 @@ test("existing verified non-campaign users retain their normal provider access",
     s.campaign = false;
     assert.equal((await withCampaignRequest(scope(), call)).status, 200);
     assert.equal(s.reservations.length, 0);
+    assert.equal(s.providerCalls, 1);
+  }));
+test("staff generation uses its separate lifetime wallet and blocks exhausted requests", () =>
+  fixture(async (s) => {
+    s.campaign = false;
+    s.staff = true;
+    await withCampaignRequest(scope(), async () => {
+      assert.equal((await call()).status, 200);
+      s.admit = false;
+      assert.equal((await call()).status, 402);
+    });
+    assert.equal(s.reservations.length, 0);
+    assert.equal(s.staffReservations.length, 2);
     assert.equal(s.providerCalls, 1);
   }));

@@ -202,7 +202,7 @@ export function SoundPractice({
       className="mb-5 space-y-4 rounded-2xl border border-border bg-card p-4 sm:p-5"
     >
       <div>
-        <h3 className="font-heading text-2xl text-foreground">Sound lab · {lesson.title}</h3>
+        <h3 className="font-serif text-2xl text-foreground">Sound lab · {lesson.title}</h3>
         <p className="mt-2 text-sm text-foreground">{lesson.coachingFocus}</p>
       </div>
       <label className="block text-sm font-semibold">
@@ -271,7 +271,7 @@ export function SoundPractice({
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <h4 className="font-heading text-xl">Pattern Sprint</h4>
+        <h4 className="font-serif text-xl">Pattern Sprint</h4>
         <p className="mt-1 text-sm">
           Practise consonant-linked vowels. Drill beats are a warm-up; return to natural rhythm in
           the reading.
@@ -337,7 +337,7 @@ export function SoundPractice({
             <div
               key={`${u.text}:${i}`}
               aria-current={current === i ? "step" : undefined}
-              className={`flex min-h-16 min-w-0 items-center justify-center rounded-xl border px-1 text-center font-heading text-xl sm:text-3xl ${current === i ? "border-foreground bg-gold text-background" : "border-border bg-background text-foreground"}`}
+              className={`flex min-h-16 min-w-0 items-center justify-center rounded-xl border px-1 text-center font-serif text-xl sm:text-3xl ${current === i ? "border-foreground bg-gold text-background" : "border-border bg-background text-foreground"}`}
               lang="es"
             >
               {u.text}

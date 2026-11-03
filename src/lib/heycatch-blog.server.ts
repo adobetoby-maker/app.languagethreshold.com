@@ -65,6 +65,10 @@ export async function listBlogArticles(): Promise<Omit<BlogArticle, "jsonLd">[]>
     if (!page.articles.length) return []; // An incomplete list must not masquerade as complete.
   }
 }
+export async function hasBlogArticles(): Promise<boolean> {
+  const page = await readApi<{ total: number }>("articles?limit=1&offset=0");
+  return typeof page?.total === "number" && page.total > 0;
+}
 export function prepareBlogHtml(html: string) {
   const clean = sanitizeHtml(html, {
     allowedTags: [...sanitizeHtml.defaults.allowedTags.filter((tag) => tag !== "h1"), "img"],

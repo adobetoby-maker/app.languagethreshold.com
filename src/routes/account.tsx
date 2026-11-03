@@ -1,3 +1,4 @@
+import { promoActive } from "@/lib/reddit-offer";
 import { AppVersion } from "@/components/settings/AppVersion";
 import { DeviceVoiceHelp } from "@/components/settings/DeviceVoiceHelp";
 import { AudioRoutingSettings } from "@/components/settings/AudioRoutingSettings";
@@ -176,7 +177,8 @@ function CancelModal({
 
 function AccountPage() {
   const { user, loading: authLoading } = useAuth();
-  const { isActive, teamActive, demoMode, status, refresh } = useSubscription();
+  const { isActive, teamActive, promoExpiresAt, demoMode, status, refresh } = useSubscription();
+  const redditAccess = promoActive(promoExpiresAt);
   const navigate = useNavigate();
 
   const [showCancel, setShowCancel] = useState(false);
@@ -288,20 +290,25 @@ function AccountPage() {
                   <p className="text-sm font-medium text-foreground">
                     {teamActive && status !== "active" && status !== "trialing"
                       ? "Company team seat"
-                      : demoMode && status === "none"
-                        ? "Demo access"
-                        : isActive
-                          ? planLabel(undefined, status)
-                          : "Free"}
+                      : redditAccess && status === "none"
+                        ? "Reddit free month"
+                        : demoMode && status === "none"
+                          ? "Demo access"
+                          : isActive
+                            ? planLabel(undefined, status)
+                            : "Free"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {status === "trialing" && "7-day free trial — no charge yet"}
                     {status === "active" && "Active — billed automatically"}
                     {status === "canceled" && "Canceled — access ends at period end"}
                     {teamActive && status === "none" && "Access provided by your company"}
-                    {demoMode && !teamActive && status === "none" && "Public demo access"}
+                    {redditAccess && status === "none"
+                      ? `Free until ${new Date(promoExpiresAt!).toLocaleDateString()}. No card or automatic renewal.`
+                      : demoMode && !teamActive && status === "none" && "Public demo access"}
                     {!demoMode &&
                       !teamActive &&
+                      !redditAccess &&
                       (status === "none" || !isActive) &&
                       "No active subscription"}
                   </p>
@@ -318,11 +325,13 @@ function AccountPage() {
                 >
                   {teamActive && status === "none"
                     ? "Team"
-                    : status === "trialing"
-                      ? "Trial"
-                      : status === "active"
-                        ? "Active"
-                        : status}
+                    : redditAccess && status === "none"
+                      ? "Free month"
+                      : status === "trialing"
+                        ? "Trial"
+                        : status === "active"
+                          ? "Active"
+                          : status}
                 </span>
               </div>
             </div>

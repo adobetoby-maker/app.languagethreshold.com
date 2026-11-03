@@ -824,6 +824,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 <a href="/pricing" className="text-sm font-semibold text-gold-ink underline">
                   Pricing
                 </a>
+                <a href="/feedback" className="text-sm font-semibold underline">
+                  Feedback
+                </a>
                 <AuthButton />
               </div>
             </div>

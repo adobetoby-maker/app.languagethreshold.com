@@ -448,6 +448,14 @@ export async function assessmentContentAccess(
 ) {
   if (process.env.VITE_DEMO_MODE !== "false") return true;
   if (!organizationId) {
+    const promo = await db
+      .from("promo_redemptions")
+      .select("expires_at")
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (promo.error) throw new AssessmentAccessError("Learning access could not be checked.", 503);
+    if (promo.data?.expires_at && new Date(promo.data.expires_at).getTime() > Date.now())
+      return true;
     const { data: profile, error } = await db
       .from("profiles")
       .select("subscriptionStatus:data->>subscription_status")

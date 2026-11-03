@@ -21,11 +21,13 @@ import { Route as ExamContentRouteImport } from './routes/exam-content'
 import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RedditRouteImport } from './routes/reddit'
 import { Route as ReferRouteImport } from './routes/refer'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
@@ -57,12 +59,15 @@ import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analyt
 import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
+import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
 import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
 import { Route as ApiOwnerTeamsRouteImport } from './routes/api.owner-teams'
 import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
+import { Route as ApiProductFeedbackRouteImport } from './routes/api.product-feedback'
 import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
+import { Route as ApiRedditOfferRouteImport } from './routes/api.reddit-offer'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
 import { Route as ApiSpeakingTranscribeRouteImport } from './routes/api.speaking-transcribe'
@@ -143,6 +148,11 @@ const FamilySetupRoute = FamilySetupRouteImport.update({
   path: '/family-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
@@ -166,6 +176,11 @@ const PricingRoute = PricingRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedditRoute = RedditRouteImport.update({
+  id: '/reddit',
+  path: '/reddit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferRoute = ReferRouteImport.update({
@@ -323,6 +338,11 @@ const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
   path: '/api/owner-discounts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerRedditRoute = ApiOwnerRedditRouteImport.update({
+  id: '/api/owner-reddit',
+  path: '/api/owner-reddit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerSupportRoute = ApiOwnerSupportRouteImport.update({
   id: '/api/owner-support',
   path: '/api/owner-support',
@@ -343,6 +363,11 @@ const ApiPlatformRoute = ApiPlatformRouteImport.update({
   path: '/api/platform',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiProductFeedbackRoute = ApiProductFeedbackRouteImport.update({
+  id: '/api/product-feedback',
+  path: '/api/product-feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPushRoute = ApiPushRouteImport.update({
   id: '/api/push',
   path: '/api/push',
@@ -351,6 +376,11 @@ const ApiPushRoute = ApiPushRouteImport.update({
 const ApiPushCronRoute = ApiPushCronRouteImport.update({
   id: '/api/push-cron',
   path: '/api/push-cron',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRedditOfferRoute = ApiRedditOfferRouteImport.update({
+  id: '/api/reddit-offer',
+  path: '/api/reddit-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiSpeakRoute = ApiSpeakRouteImport.update({
@@ -461,12 +491,14 @@ export interface FileRoutesByFullPath {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/feedback': typeof FeedbackRoute
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
@@ -498,12 +530,15 @@ export interface FileRoutesByFullPath {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
+  '/api/product-feedback': typeof ApiProductFeedbackRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
+  '/api/reddit-offer': typeof ApiRedditOfferRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -536,12 +571,14 @@ export interface FileRoutesByTo {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/feedback': typeof FeedbackRoute
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
@@ -573,12 +610,15 @@ export interface FileRoutesByTo {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
+  '/api/product-feedback': typeof ApiProductFeedbackRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
+  '/api/reddit-offer': typeof ApiRedditOfferRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -612,12 +652,14 @@ export interface FileRoutesById {
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
+  '/feedback': typeof FeedbackRoute
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
@@ -649,12 +691,15 @@ export interface FileRoutesById {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
   '/api/owner-teams': typeof ApiOwnerTeamsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
+  '/api/product-feedback': typeof ApiProductFeedbackRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
+  '/api/reddit-offer': typeof ApiRedditOfferRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -689,12 +734,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/feedback'
     | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
+    | '/reddit'
     | '/refer'
     | '/sitemap.xml'
     | '/support'
@@ -726,12 +773,15 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-reddit'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
+    | '/api/product-feedback'
     | '/api/push'
     | '/api/push-cron'
+    | '/api/reddit-offer'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -764,12 +814,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/feedback'
     | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
+    | '/reddit'
     | '/refer'
     | '/sitemap.xml'
     | '/support'
@@ -801,12 +853,15 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-reddit'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
+    | '/api/product-feedback'
     | '/api/push'
     | '/api/push-cron'
+    | '/api/reddit-offer'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -839,12 +894,14 @@ export interface FileRouteTypes {
     | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
+    | '/feedback'
     | '/founder'
     | '/index'
     | '/module-request'
     | '/owner'
     | '/pricing'
     | '/privacy'
+    | '/reddit'
     | '/refer'
     | '/sitemap.xml'
     | '/support'
@@ -876,12 +933,15 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-reddit'
     | '/api/owner-support'
     | '/api/owner-teams'
     | '/api/owner-users'
     | '/api/platform'
+    | '/api/product-feedback'
     | '/api/push'
     | '/api/push-cron'
+    | '/api/reddit-offer'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -915,12 +975,14 @@ export interface RootRouteChildren {
   ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
   FamilySetupRoute: typeof FamilySetupRoute
+  FeedbackRoute: typeof FeedbackRoute
   FounderRoute: typeof FounderRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  RedditRoute: typeof RedditRoute
   ReferRoute: typeof ReferRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
@@ -952,12 +1014,15 @@ export interface RootRouteChildren {
   ApiOwnerCrmRoute: typeof ApiOwnerCrmRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
+  ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
   ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
   ApiOwnerTeamsRoute: typeof ApiOwnerTeamsRoute
   ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
+  ApiProductFeedbackRoute: typeof ApiProductFeedbackRoute
   ApiPushRoute: typeof ApiPushRoute
   ApiPushCronRoute: typeof ApiPushCronRoute
+  ApiRedditOfferRoute: typeof ApiRedditOfferRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSpeakingTranscribeRoute: typeof ApiSpeakingTranscribeRoute
@@ -1065,6 +1130,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FamilySetupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/founder': {
       id: '/founder'
       path: '/founder'
@@ -1098,6 +1170,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reddit': {
+      id: '/reddit'
+      path: '/reddit'
+      fullPath: '/reddit'
+      preLoaderRoute: typeof RedditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/refer': {
@@ -1317,6 +1396,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerDiscountsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-reddit': {
+      id: '/api/owner-reddit'
+      path: '/api/owner-reddit'
+      fullPath: '/api/owner-reddit'
+      preLoaderRoute: typeof ApiOwnerRedditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-support': {
       id: '/api/owner-support'
       path: '/api/owner-support'
@@ -1345,6 +1431,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPlatformRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/product-feedback': {
+      id: '/api/product-feedback'
+      path: '/api/product-feedback'
+      fullPath: '/api/product-feedback'
+      preLoaderRoute: typeof ApiProductFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/push': {
       id: '/api/push'
       path: '/api/push'
@@ -1357,6 +1450,13 @@ declare module '@tanstack/react-router' {
       path: '/api/push-cron'
       fullPath: '/api/push-cron'
       preLoaderRoute: typeof ApiPushCronRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/reddit-offer': {
+      id: '/api/reddit-offer'
+      path: '/api/reddit-offer'
+      fullPath: '/api/reddit-offer'
+      preLoaderRoute: typeof ApiRedditOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/speak': {
@@ -1507,12 +1607,14 @@ const rootRouteChildren: RootRouteChildren = {
   ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
   FamilySetupRoute: FamilySetupRoute,
+  FeedbackRoute: FeedbackRoute,
   FounderRoute: FounderRoute,
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  RedditRoute: RedditRoute,
   ReferRoute: ReferRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
@@ -1544,12 +1646,15 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerCrmRoute: ApiOwnerCrmRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
+  ApiOwnerRedditRoute: ApiOwnerRedditRoute,
   ApiOwnerSupportRoute: ApiOwnerSupportRoute,
   ApiOwnerTeamsRoute: ApiOwnerTeamsRoute,
   ApiOwnerUsersRoute: ApiOwnerUsersRoute,
   ApiPlatformRoute: ApiPlatformRoute,
+  ApiProductFeedbackRoute: ApiProductFeedbackRoute,
   ApiPushRoute: ApiPushRoute,
   ApiPushCronRoute: ApiPushCronRoute,
+  ApiRedditOfferRoute: ApiRedditOfferRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSpeakingTranscribeRoute: ApiSpeakingTranscribeRoute,

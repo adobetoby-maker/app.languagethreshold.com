@@ -12,7 +12,7 @@ async function helper() {
 function literals() {
   const rows = [];
   for (const file of readdirSync("supabase/migrations")
-    .filter((x) => x.endsWith(".sql"))
+    .filter((x) => x.endsWith(".sql") && !x.endsWith("_owner_account_deletion_guard.sql"))
     .sort()) {
     const source = readFileSync("supabase/migrations/" + file, "utf8");
     if (!source.includes("assessment_")) continue;

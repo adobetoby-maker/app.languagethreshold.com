@@ -16,10 +16,17 @@ import { OwnerTeamManager } from "@/components/owner/OwnerTeamManager";
 import { OwnerTabBar, OwnerTabPanel } from "@/components/owner/OwnerTabs";
 import { isOwnerTab, ownerTab, type OwnerTab } from "@/lib/owner-tabs";
 import { teamSeatMetrics } from "@/lib/team-seat-metrics";
+import { ApiUsageCard } from "@/components/ApiUsageCard";
 
 export const Route = createFileRoute("/owner")({
-  validateSearch: (search: Record<string, unknown>): { tab?: OwnerTab } =>
-    isOwnerTab(search.tab) ? { tab: search.tab } : {},
+  validateSearch: (search: Record<string, unknown>): { tab?: OwnerTab; customer?: string } => ({
+    ...(isOwnerTab(search.tab) ? { tab: search.tab } : {}),
+    ...(typeof search.customer === "string" &&
+    search.customer.length <= 254 &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(search.customer)
+      ? { customer: search.customer }
+      : {}),
+  }),
   component: () => (
     <AuthProvider>
       <OwnerDashboard />
@@ -62,6 +69,13 @@ type Entitlement = {
   stripe_subscription_id: string | null;
 };
 type Member = { organization_id: string; user_id: string; role: string; status: string };
+type PendingInvite = {
+  id: string;
+  organization_id: string;
+  email: string;
+  last_email_error: string | null;
+  created_at: string;
+};
 type Activity = {
   organization_id: string;
   module_id: string;
@@ -110,6 +124,7 @@ type PlatformData = {
   organizations: Organization[];
   entitlements: Entitlement[];
   members: Member[];
+  pendingInvites: PendingInvite[];
   activity: Activity[];
   attempts: Attempt[];
   ledger: Ledger[];
@@ -144,7 +159,7 @@ function OwnedOwnerDashboard() {
   const navigate = Route.useNavigate();
   const tab = ownerTab(search.tab);
   const selectTab = (next: OwnerTab) =>
-    void navigate({ search: (prev) => ({ ...prev, tab: next }), replace: true });
+    void navigate({ search: () => ({ tab: next }), replace: true });
 
   const { key, capture } = usePracticeLifecycle(
     JSON.stringify(["owner-dashboard", since, authLoading]),
@@ -405,35 +420,43 @@ function OwnedOwnerDashboard() {
             )}
             <OwnerTabPanel id="overview" active={tab === "overview"}>
               {platformStatus}
+              <ApiUsageCard owner />
               {data && (
                 <>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {[
-                      ["Total accounts", data.counts.total_accounts],
-                      ["Companies", data.counts.organizations],
-                      ["Enabled learner seats", seatMetrics.enabled],
-                      ["Paid learner seats", seatMetrics.paid],
-                      ["Pilot learner seats", seatMetrics.pilot],
-                      ["Assigned learner seats", data.counts.assigned_seats],
-                      ["Adults", data.counts.adult_accounts],
-                      ["Junior accounts", data.counts.junior_accounts],
-                      ["Certificates", data.counts.certificates],
-                      ["Pending invites", data.counts.pending_invites],
-                      ["Email failures", data.counts.email_failures],
-                      ["Test passes · 30d", data.counts.assessment_passes_30d],
+                      ["Total accounts", data.counts.total_accounts, "users"],
+                      ["Companies", data.counts.organizations, "companies"],
+                      ["Enabled learner seats", seatMetrics.enabled, "companies"],
+                      ["Paid learner seats", seatMetrics.paid, "companies"],
+                      ["Pilot learner seats", seatMetrics.pilot, "companies"],
+                      ["Assigned learner seats", data.counts.assigned_seats, "companies"],
+                      ["Adults", data.counts.adult_accounts, "users"],
+                      ["Junior accounts", data.counts.junior_accounts, "users"],
+                      ["Certificates", data.counts.certificates, "activity"],
+                      ["Pending invites", data.counts.pending_invites, "companies"],
+                      ["Email failures", data.counts.email_failures, "companies"],
+                      ["Test passes · 30d", data.counts.assessment_passes_30d, "activity"],
                       [
                         "Active accounts · 7d / 30d",
                         `${data.counts.active_7d} / ${data.counts.active_30d}`,
+                        "users",
                       ],
-                    ].map(([label, value]) => (
-                      <div key={String(label)} className={panel}>
+                    ].map(([label, value, destination]) => (
+                      <button
+                        key={String(label)}
+                        type="button"
+                        className={`${panel} text-left transition-colors hover:border-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold`}
+                        aria-label={`View ${label} in ${destination}`}
+                        onClick={() => selectTab(destination as OwnerTab)}
+                      >
                         <p className="text-xs uppercase tracking-widest text-muted-foreground">
                           {label}
                         </p>
                         <p className="mt-2 text-3xl font-semibold text-gold-ink dark:text-gold">
                           {value}
                         </p>
-                      </div>
+                      </button>
                     ))}
                   </div>
                   <section className={panel}>
@@ -468,7 +491,7 @@ function OwnedOwnerDashboard() {
               <OwnerAnalytics />
             </OwnerTabPanel>
             <OwnerTabPanel id="users" active={tab === "users"}>
-              <OwnerAccounts />
+              <OwnerAccounts key={search.customer ?? "all"} initialSearch={search.customer ?? ""} />
             </OwnerTabPanel>
             <OwnerTabPanel id="support" active={tab === "support"}>
               <OwnerSupport />
@@ -519,6 +542,35 @@ function OwnedOwnerDashboard() {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  </section>
+                  <section className={panel}>
+                    <h2 className="mb-2 text-xl font-semibold">Pending invitations</h2>
+                    <p className="mb-3 text-sm text-muted-foreground">
+                      Recent pending invitations and delivery errors. Open a company to manage its
+                      invitations.
+                    </p>
+                    <div className="grid max-h-80 gap-2 overflow-y-auto">
+                      {(data.pendingInvites ?? []).map((invite) => (
+                        <button
+                          key={invite.id}
+                          type="button"
+                          className="rounded-lg border border-border p-3 text-left hover:border-gold"
+                          onClick={() => setTeamOrg(invite.organization_id)}
+                        >
+                          <strong className="block break-all text-sm">{invite.email}</strong>
+                          <span className="text-xs text-muted-foreground">
+                            {data.organizations.find((org) => org.id === invite.organization_id)
+                              ?.name ?? "Company"}
+                            {invite.last_email_error
+                              ? ` · Delivery failed: ${invite.last_email_error}`
+                              : " · Pending"}
+                          </span>
+                        </button>
+                      ))}
+                      {!(data.pendingInvites ?? []).length && (
+                        <p className="text-sm text-muted-foreground">No pending invitations.</p>
+                      )}
                     </div>
                   </section>
                 </>

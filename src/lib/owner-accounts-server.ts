@@ -88,6 +88,31 @@ export async function manageOwnerAccount(
   const user = await requireManageableAccount(db, actorId, body.userId);
   const userId = user.id;
   const email = user.email ?? "";
+  if (body.action === "delete_account") {
+    if (!email || body.confirmation !== `DELETE ${email}`)
+      throw new TeamOperationError("Type DELETE followed by the exact account email.");
+    const blockers = await db.rpc("platform_account_deletion_blockers", { p_user: userId });
+    if (blockers.error || !Array.isArray(blockers.data)) throw unconfirmed();
+    if (blockers.data.length)
+      throw new TeamOperationError(
+        `Account deletion is blocked: ${blockers.data.join("; ")}. Resolve these records first. Nothing was deleted.`,
+        409,
+      );
+    requireCurrentTeamRequest(db);
+    const revoked = await db.rpc("platform_revoke_user_sessions", { p_user: userId });
+    if (revoked.error)
+      throw new TeamOperationError("Session revocation is unavailable. Nothing was deleted.", 503);
+    requireCurrentTeamRequest(db);
+    const deleted = await db.auth.admin.deleteUser(userId, false);
+    if (deleted.error)
+      throw new TeamOperationError(
+        "Account deletion could not be confirmed. Refresh the directory before retrying.",
+        503,
+      );
+    // Deliberately omit UUID and email from the post-deletion activity event.
+    await audit(db, actorId, "user.deleted", undefined, { accountDeleted: true });
+    return { notice: "Account and linked learning data were permanently deleted." };
+  }
   if (body.action === "disable") {
     if (!email || body.confirmEmail.toLowerCase() !== email.toLowerCase())
       throw new TeamOperationError("Type the account email exactly to confirm disabling it.");

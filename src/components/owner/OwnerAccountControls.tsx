@@ -13,9 +13,13 @@ import type { OwnerDirectory, OwnerUser, OwnerUserResult } from "@/lib/owner-use
 export function OwnerAccountControls({
   account,
   onChanged,
+  onDeleted,
+  deletionBlockers,
 }: {
   account: OwnerUser;
   onChanged: () => void;
+  onDeleted: () => void;
+  deletionBlockers: string[] | null;
 }) {
   const { user } = useAuth();
   const actions = useOwnerResource<OwnerDirectory>("/api/owner-users", false);
@@ -41,7 +45,8 @@ export function OwnerAccountControls({
       const result = await actions.run<OwnerUserResult>({ userId: account.id, ...body });
       if (result) {
         setNotice(result.notice);
-        onChanged();
+        if (body.action === "delete_account") onDeleted();
+        else onChanged();
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not confirm this change. Refresh first.");
@@ -173,6 +178,36 @@ export function OwnerAccountControls({
             />
           </label>
         </ConfirmAction>
+      </div>
+      <div className="mt-5 rounded-xl border border-red-600/50 p-3">
+        <h5 className="font-semibold text-red-700 dark:text-red-300">Permanently delete account</h5>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Erases this login and linked learning data. This cannot be undone. Billing, team
+          ownership, official assessment records and other protected references must be resolved
+          first.
+        </p>
+        {deletionBlockers === null && (
+          <p className="mt-2 text-sm">Checking deletion dependencies…</p>
+        )}
+        {deletionBlockers && deletionBlockers.length > 0 && (
+          <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground">
+            {deletionBlockers.map((blocker) => (
+              <li key={blocker}>{blocker}</li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-3">
+          <ConfirmAction
+            label="Delete account and data"
+            confirmLabel="Permanently delete account and data"
+            destructive
+            disabled={busy || deletionBlockers === null || deletionBlockers.length > 0}
+            phrase={`DELETE ${email}`}
+            phraseLabel="Type the full phrase"
+            description={`Permanently delete ${email} and its linked learning data. This action cannot be reversed.`}
+            onConfirm={(typed) => act({ action: "delete_account", confirmation: typed })}
+          />
+        </div>
       </div>
     </section>
   );

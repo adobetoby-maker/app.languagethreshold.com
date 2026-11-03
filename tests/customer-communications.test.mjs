@@ -6,6 +6,7 @@ const { customerAction, customerEmailText, referralLink } = await loadModule(
 );
 const { authReturnPath, authenticationRedirectUrl } = await loadModule("src/lib/auth-return.ts");
 const { manageCustomer } = await loadModule("src/lib/customer-communications-server.ts");
+const { campaignAction } = await loadModule("src/lib/customer-campaigns.ts");
 const actor = "10000000-0000-4000-8000-000000000001",
   userId = "10000000-0000-4000-8000-000000000002",
   id = "10000000-0000-4000-8000-000000000003";
@@ -25,6 +26,14 @@ test("customer message validation rejects header injection, oversized body, and 
     }).success,
     true,
   );
+});
+test("bulk campaign preparation requires explicit review and rejects injected subjects", () => {
+  const base = { action: "prepare", id, subject: "New lessons", body: "Hello", permissionConfirmed: true };
+  assert.equal(campaignAction.safeParse(base).success, true);
+  assert.equal(campaignAction.safeParse({ ...base, permissionConfirmed: false }).success, false);
+  assert.equal(campaignAction.safeParse({ ...base, subject: "Offer\nBcc: all@example.invalid" }).success, false);
+  assert.equal(campaignAction.safeParse({ action: "send_batch", id }).success, true);
+  assert.equal(campaignAction.safeParse({ action: "send_batch", id, recipients: [userId] }).success, false);
 });
 test("public referral/auth destinations retain only valid code, never arbitrary redirects", () => {
   assert.equal(referralLink(id), `https://app.languagethreshold.com/refer?code=${id}`);

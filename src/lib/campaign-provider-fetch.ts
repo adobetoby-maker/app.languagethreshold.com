@@ -75,6 +75,36 @@ function denied(message: string, status = 402) {
     { status, headers: { "Cache-Control": "private, no-store" } },
   );
 }
+function providerKind(url: string) {
+  const u = new URL(url);
+  if (u.hostname === "api.anthropic.com") return "anthropic";
+  if (u.hostname === "texttospeech.googleapis.com") return "google_tts";
+  return u.pathname.endsWith("/speech-to-text") ? "elevenlabs_stt" : "elevenlabs_tts";
+}
+
+async function recordProviderAttempt(
+  actor: Identity,
+  url: string,
+  status: "accepted" | "rejected" | "transport_error",
+  ceiling: number | null,
+) {
+  try {
+    // Use a short independent write: a caller closing a lesson must not erase an already
+    // dispatched provider attempt from the usage ledger.
+    const { teamAdminClient } = await import("./team-server.ts");
+    const { ownerServiceFetch } = await import("./owner-service-fetch.ts");
+    const db = teamAdminClient(ownerServiceFetch(AbortSignal.timeout(5000)));
+    const saved = await db.from("api_usage_events").insert({
+      user_id: actor.userId,
+      provider: providerKind(url),
+      request_status: status,
+      cost_ceiling_micro_usd: ceiling,
+    });
+    if (saved.error) throw saved.error;
+  } catch {
+    // An unavailable metering table must not turn a provider result into a failed lesson.
+  }
+}
 /** Every physical paid-provider attempt reserves before dispatch; cancellations/failures never refund uncertain charges. */
 export const campaignProviderFetch: typeof fetch = async (input, options) => {
   const url = input instanceof Request ? input.url : String(input),
@@ -90,32 +120,42 @@ export const campaignProviderFetch: typeof fetch = async (input, options) => {
     if (scope.request.signal.aborted || options?.signal?.aborted)
       return denied("Request cancelled.", 499);
     const actor = await (scope.identity ??= identity(scope));
-    if (!actor.campaign || actor.paid) return fetch(input, options);
     let body: unknown = options?.body;
     if (typeof body === "string") {
       try {
         body = JSON.parse(body);
       } catch {
-        return denied("Paid generation input could not be budgeted.", 400);
+        if (actor.campaign && !actor.paid)
+          return denied("Paid generation input could not be budgeted.", 400);
+        body = null;
       }
     }
     const amount = providerReservation(url, body);
-    if (amount === null || amount <= 0)
-      return denied("This generation option is unavailable within the campaign allowance.");
-    const admitted = await actor.db.rpc(
-      actor.staff ? "reserve_staff_generation" : "reserve_reddit_generation",
-      {
-        p_user: actor.userId,
-        p_amount: amount,
-      },
-    );
-    if (admitted.error || admitted.data !== true)
-      return denied(
-        "Your campaign AI/audio allowance is used up or unavailable. Saved lessons, recordings and device voices remain available.",
+    if (actor.campaign && !actor.paid) {
+      if (amount === null || amount <= 0)
+        return denied("This generation option is unavailable within the campaign allowance.");
+      const admitted = await actor.db.rpc(
+        actor.staff ? "reserve_staff_generation" : "reserve_reddit_generation",
+        {
+          p_user: actor.userId,
+          p_amount: amount,
+        },
       );
+      if (admitted.error || admitted.data !== true)
+        return denied(
+          "Your campaign AI/audio allowance is used up or unavailable. Saved lessons, recordings and device voices remain available.",
+        );
+    }
     if (scope.request.signal.aborted || options?.signal?.aborted)
       return denied("Request cancelled.", 499);
-    return fetch(input, options);
+    try {
+      const response = await fetch(input, options);
+      await recordProviderAttempt(actor, url, response.ok ? "accepted" : "rejected", amount);
+      return response;
+    } catch (error) {
+      await recordProviderAttempt(actor, url, "transport_error", amount);
+      throw error;
+    }
   } catch {
     return denied(
       "Sign in to check your paid generation allowance. Saved lessons and device voices remain available.",

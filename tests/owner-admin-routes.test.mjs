@@ -25,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as apiUsage} from '@/routes/api.owner-api-usage';export {Route as campaigns} from '@/routes/api.owner-campaigns';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -100,6 +100,8 @@ const reads = [
   ["analytics", "/api/owner-analytics?part=ga&range=7"],
   ["teams", `/api/owner-teams?org=${ORG}`],
   ["activity", "/api/owner-activity?page=0"],
+  ["apiUsage", "/api/owner-api-usage"],
+  ["campaigns", "/api/owner-campaigns"],
 ];
 const writes = [
   [
@@ -125,6 +127,8 @@ const writes = [
   ["activity", "/api/owner-activity", { action: "export", filters: {} }],
   ["users", "/api/owner-users", { action: "enable", userId: ORG }],
   ["users", "/api/owner-users", { action: "export_csv" }],
+  ["users", "/api/owner-users", { action: "delete_account", userId: ORG, confirmation: "DELETE user@example.invalid" }],
+  ["campaigns", "/api/owner-campaigns", { action: "send_batch", id: ORG }],
 ];
 
 test("guests, learners and support staff get 403 before any private read or write", () =>

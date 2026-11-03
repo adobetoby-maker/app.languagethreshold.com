@@ -58,6 +58,7 @@ async function fixture(action) {
     reservations: [],
     staffReservations: [],
     authCalls: 0,
+    metered: [],
   };
   globalThis.fetch = async (input, options) => {
     const u = new URL(input instanceof Request ? input.url : String(input));
@@ -78,6 +79,10 @@ async function fixture(action) {
       return Response.json(state.admit);
     }
     if (u.pathname === "/rest/v1/team_members") return Response.json([]);
+    if (u.pathname === "/rest/v1/api_usage_events") {
+      state.metered.push(JSON.parse(options.body));
+      return new Response(null, { status: 201 });
+    }
     if (u.pathname === "/rest/v1/rpc/reserve_reddit_generation") {
       state.reservations.push(JSON.parse(options.body));
       return Response.json(state.admit);
@@ -115,6 +120,13 @@ test("every provider attempt reserves first and exhausted budget prevents the ph
     });
     assert.equal(s.providerCalls, 1);
     assert.equal(s.authCalls, 1);
+    assert.equal(s.metered.length, 1);
+    assert.deepEqual(s.metered[0], {
+      user_id: USER,
+      provider: "google_tts",
+      request_status: "accepted",
+      cost_ceiling_micro_usd: 30000,
+    });
     assert.deepEqual(s.reservations, [
       { p_user: USER, p_amount: 30000 },
       { p_user: USER, p_amount: 30000 },
@@ -135,6 +147,7 @@ test("existing verified non-campaign users retain their normal provider access",
     assert.equal((await withCampaignRequest(scope(), call)).status, 200);
     assert.equal(s.reservations.length, 0);
     assert.equal(s.providerCalls, 1);
+    assert.equal(s.metered.length, 1);
   }));
 test("staff generation uses its separate lifetime wallet and blocks exhausted requests", () =>
   fixture(async (s) => {

@@ -34,8 +34,10 @@ export const Route = createFileRoute("/api/owner-users")({
             userId = params.get("userId");
           if (userId) {
             z.string().uuid().parse(userId);
-            const [usage, memberships, grant, invitation] = await Promise.all([
+            const [usage, apiUsage, blockers, memberships, grant, invitation] = await Promise.all([
               db.rpc("platform_user_usage", { p_user: userId }),
+              db.rpc("api_usage_summary", { p_user: userId }),
+              db.rpc("platform_account_deletion_blockers", { p_user: userId }),
               db
                 .from("team_members")
                 .select(
@@ -57,13 +59,29 @@ export const Route = createFileRoute("/api/owner-users")({
                 .limit(1)
                 .maybeSingle(),
             ]);
-            if (usage.error || memberships.error || grant.error || invitation.error)
-              throw usage.error || memberships.error || grant.error || invitation.error;
+            if (
+              usage.error ||
+              apiUsage.error ||
+              blockers.error ||
+              memberships.error ||
+              grant.error ||
+              invitation.error
+            )
+              throw (
+                usage.error ||
+                apiUsage.error ||
+                blockers.error ||
+                memberships.error ||
+                grant.error ||
+                invitation.error
+              );
             if ((memberships.data?.length ?? 0) > 100) throw Error("Membership overflow");
             requireCurrentTeamRequest(db);
             await audit(db, actor.id, "user.details_view", undefined, { userId });
             return json({
               usage: usage.data ?? [],
+              apiUsage: apiUsage.data ?? [],
+              deletionBlockers: blockers.data ?? [],
               memberships: memberships.data ?? [],
               grant: grant.data,
               invitation: invitation.data,

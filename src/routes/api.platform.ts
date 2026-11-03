@@ -71,6 +71,7 @@ export const Route = createFileRoute("/api/platform")({
             orgs,
             entitlements,
             members,
+            pendingInvites,
             activity,
             attempts,
             ledger,
@@ -92,6 +93,12 @@ export const Route = createFileRoute("/api/platform")({
               .from("team_entitlements")
               .select("organization_id,seat_limit,term,status,period_end,stripe_subscription_id"),
             db.from("team_members").select("organization_id,user_id,role,status"),
+            db
+              .from("team_invitations")
+              .select("id,organization_id,email,last_email_error,created_at")
+              .eq("status", "pending")
+              .order("created_at", { ascending: false })
+              .limit(100),
             db.rpc("platform_usage_summary", {
               p_since: new Date(Date.now() - 30 * 86400000).toISOString(),
             }),
@@ -131,6 +138,7 @@ export const Route = createFileRoute("/api/platform")({
             orgs,
             entitlements,
             members,
+            pendingInvites,
             activity,
             attempts,
             ledger,
@@ -147,6 +155,7 @@ export const Route = createFileRoute("/api/platform")({
             organizations: orgs.data ?? [],
             entitlements: entitlements.data ?? [],
             members: members.data ?? [],
+            pendingInvites: pendingInvites.data ?? [],
             activity: activity.data ?? [],
             attempts: attempts.data ?? [],
             ledger: ledger.data ?? [],

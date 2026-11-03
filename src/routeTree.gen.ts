@@ -35,6 +35,7 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
+import { Route as ApiApiUsageRouteImport } from './routes/api.api-usage'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
@@ -57,6 +58,8 @@ import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-fiel
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
 import { Route as ApiOwnerActivityRouteImport } from './routes/api.owner-activity'
 import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analytics'
+import { Route as ApiOwnerApiUsageRouteImport } from './routes/api.owner-api-usage'
+import { Route as ApiOwnerCampaignsRouteImport } from './routes/api.owner-campaigns'
 import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
@@ -221,6 +224,11 @@ const AccountPasswordRoute = AccountPasswordRouteImport.update({
   path: '/account/password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiApiUsageRoute = ApiApiUsageRouteImport.update({
+  id: '/api/api-usage',
+  path: '/api/api-usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
   id: '/api/cancel-subscription',
   path: '/api/cancel-subscription',
@@ -329,6 +337,16 @@ const ApiOwnerActivityRoute = ApiOwnerActivityRouteImport.update({
 const ApiOwnerAnalyticsRoute = ApiOwnerAnalyticsRouteImport.update({
   id: '/api/owner-analytics',
   path: '/api/owner-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerApiUsageRoute = ApiOwnerApiUsageRouteImport.update({
+  id: '/api/owner-api-usage',
+  path: '/api/owner-api-usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerCampaignsRoute = ApiOwnerCampaignsRouteImport.update({
+  id: '/api/owner-campaigns',
+  path: '/api/owner-campaigns',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiOwnerCrmRoute = ApiOwnerCrmRouteImport.update({
@@ -524,6 +542,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/api-usage': typeof ApiApiUsageRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -546,6 +565,8 @@ export interface FileRoutesByFullPath {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-api-usage': typeof ApiOwnerApiUsageRoute
+  '/api/owner-campaigns': typeof ApiOwnerCampaignsRoute
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
@@ -607,6 +628,7 @@ export interface FileRoutesByTo {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/api-usage': typeof ApiApiUsageRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -629,6 +651,8 @@ export interface FileRoutesByTo {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-api-usage': typeof ApiOwnerApiUsageRoute
+  '/api/owner-campaigns': typeof ApiOwnerCampaignsRoute
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
@@ -691,6 +715,7 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account_/password': typeof AccountPasswordRoute
+  '/api/api-usage': typeof ApiApiUsageRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -713,6 +738,8 @@ export interface FileRoutesById {
   '/api/module-request': typeof ApiModuleRequestRoute
   '/api/owner-activity': typeof ApiOwnerActivityRoute
   '/api/owner-analytics': typeof ApiOwnerAnalyticsRoute
+  '/api/owner-api-usage': typeof ApiOwnerApiUsageRoute
+  '/api/owner-campaigns': typeof ApiOwnerCampaignsRoute
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
@@ -776,6 +803,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/api-usage'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -798,6 +826,8 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-api-usage'
+    | '/api/owner-campaigns'
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
@@ -859,6 +889,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/api-usage'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -881,6 +912,8 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-api-usage'
+    | '/api/owner-campaigns'
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
@@ -942,6 +975,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account_/password'
+    | '/api/api-usage'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -964,6 +998,8 @@ export interface FileRouteTypes {
     | '/api/module-request'
     | '/api/owner-activity'
     | '/api/owner-analytics'
+    | '/api/owner-api-usage'
+    | '/api/owner-campaigns'
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
@@ -1026,6 +1062,7 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
+  ApiApiUsageRoute: typeof ApiApiUsageRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
@@ -1048,6 +1085,8 @@ export interface RootRouteChildren {
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
   ApiOwnerActivityRoute: typeof ApiOwnerActivityRoute
   ApiOwnerAnalyticsRoute: typeof ApiOwnerAnalyticsRoute
+  ApiOwnerApiUsageRoute: typeof ApiOwnerApiUsageRoute
+  ApiOwnerCampaignsRoute: typeof ApiOwnerCampaignsRoute
   ApiOwnerCrmRoute: typeof ApiOwnerCrmRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
@@ -1267,6 +1306,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/api-usage': {
+      id: '/api/api-usage'
+      path: '/api/api-usage'
+      fullPath: '/api/api-usage'
+      preLoaderRoute: typeof ApiApiUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/cancel-subscription': {
       id: '/api/cancel-subscription'
       path: '/api/cancel-subscription'
@@ -1419,6 +1465,20 @@ declare module '@tanstack/react-router' {
       path: '/api/owner-analytics'
       fullPath: '/api/owner-analytics'
       preLoaderRoute: typeof ApiOwnerAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-api-usage': {
+      id: '/api/owner-api-usage'
+      path: '/api/owner-api-usage'
+      fullPath: '/api/owner-api-usage'
+      preLoaderRoute: typeof ApiOwnerApiUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-campaigns': {
+      id: '/api/owner-campaigns'
+      path: '/api/owner-campaigns'
+      fullPath: '/api/owner-campaigns'
+      preLoaderRoute: typeof ApiOwnerCampaignsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/owner-crm': {
@@ -1682,6 +1742,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   AccountPasswordRoute: AccountPasswordRoute,
+  ApiApiUsageRoute: ApiApiUsageRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,
@@ -1704,6 +1765,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiModuleRequestRoute: ApiModuleRequestRoute,
   ApiOwnerActivityRoute: ApiOwnerActivityRoute,
   ApiOwnerAnalyticsRoute: ApiOwnerAnalyticsRoute,
+  ApiOwnerApiUsageRoute: ApiOwnerApiUsageRoute,
+  ApiOwnerCampaignsRoute: ApiOwnerCampaignsRoute,
   ApiOwnerCrmRoute: ApiOwnerCrmRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,

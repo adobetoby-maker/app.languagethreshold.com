@@ -60,7 +60,7 @@ test("actual Account route renders after sign-in without a learning provider or 
             b.onLoad({ filter: /.*/, namespace: "fixture" }, ({ path }) => ({
               loader: "tsx",
               contents: {
-                auth: `export const auth={user:null,loading:false,isCurrentUser:id=>auth.user?.id===id};export const calls=[];export const AuthProvider=({children})=>children;export const useAuth=()=>auth;`,
+                auth: `export const auth={user:null,loading:false,isCurrentUser:id=>auth.user?.id===id,canUseReader:id=>auth.user?.id===id};export const calls=[];export const AuthProvider=({children})=>children;export const useAuth=()=>auth;`,
                 app: `export const useApp=()=>{throw Error('No learning provider on account route');};`,
                 subscription: `export const SubscriptionProvider=({children})=>children;export const useSubscription=()=>({isActive:false,teamActive:false,demoMode:false,status:'none',refresh:async()=>{}});`,
                 router: `import React from 'react';export const createFileRoute=()=>options=>options;export const Link=({to,children,...props})=>React.createElement('a',{...props,href:to},children);export const useNavigate=()=>()=>{};`,

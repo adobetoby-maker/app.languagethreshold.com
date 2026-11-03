@@ -6,7 +6,7 @@ test("desktop learning destinations retain tools and utilities; phone navigation
   isMobile,
 }, info) => {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "Core 60", exact: true }).first()).toBeVisible();
   const log = { lessons: { "1": { masteredAt: "2026-10-20T12:00:00Z", visits: {} } } };
   await seedAppState(page, {
     activeModuleId: "roofing",
@@ -36,6 +36,10 @@ test("desktop learning destinations retain tools and utilities; phone navigation
     await page.setViewportSize({ width: 1024, height: 1366 });
     await expect(bottom).toBeVisible();
     await expect(sidebar).not.toBeVisible();
+    await bottom.getByRole("button", { name: "Reader", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Start with a lesson. Practice what you learn." })).toBeVisible();
+    await page.getByRole("button", { name: "Begin first reading" }).click();
+    await expect(page.getByRole("button", { name: "Start here · How to use this app" })).toBeVisible();
   } else {
     await expect(sidebar).toBeVisible();
     await expect(bottom).not.toBeVisible();
@@ -105,12 +109,22 @@ test("desktop learning destinations retain tools and utilities; phone navigation
     await page.getByRole("button", { name: "Close tutor" }).click();
     await sidebar.getByRole("button", { name: "Reader", exact: true }).click();
     await expect(page).toHaveURL(/tab=reader/);
+    await expect(
+      page.getByRole("heading", { name: "Start with a lesson. Practice what you learn." }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Begin first reading" }).click();
+    await expect(
+      page.getByRole("button", { name: "Start here · How to use this app" }),
+    ).toBeVisible();
     await sidebar.getByRole("button", { name: "Core 60", exact: true }).click();
     await expect(page).toHaveURL(/tab=core30/);
     await expect(sidebar.getByRole("button", { name: "Core 60", exact: true })).toHaveAttribute(
       "aria-current",
       "page",
     );
+    await page.getByRole("button", { name: /of practice\. Open streak zone/ }).click();
+    await expect(page.locator("#streak-zone")).toBeVisible();
+    await expect(page).toHaveURL(/tab=dashboard/);
   }
   const after = await readAppState(page);
   expect(after.core30Log).toEqual({ [core30Key("roofing")]: log });

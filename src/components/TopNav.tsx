@@ -1,7 +1,16 @@
 import { FounderStoryLink } from "./FounderStoryLink";
 import { useEffect, useState } from "react";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
-import { Moon, Sun, Settings2, Sparkle, ChevronDown, Puzzle, BookmarkPlus } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Settings2,
+  Sparkle,
+  ChevronDown,
+  Puzzle,
+  BookmarkPlus,
+  Flame,
+} from "lucide-react";
 import { useApp, LANGUAGES, NATIVE_LANGUAGES, type NativeLanguage } from "@/state/app-state";
 import { getModule } from "@/data/modules";
 import {
@@ -29,6 +38,7 @@ import { Link } from "@tanstack/react-router";
 
 export function TopNav() {
   const { state, dispatch } = useApp();
+  const streakDays = state.practiceStreak.current;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   useEffect(() => {
@@ -99,9 +109,36 @@ export function TopNav() {
         <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label={`${streakDays} ${streakDays === 1 ? "day" : "days"} of practice. Open streak zone`}
+            title="Open streak zone"
+            onClick={() => {
+              dispatch({ type: "SET_TAB", payload: "dashboard" });
+              window.requestAnimationFrame(() =>
+                window.requestAnimationFrame(() => {
+                  const zone = document.getElementById("streak-zone");
+                  zone?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  zone?.focus({ preventScroll: true });
+                }),
+              );
+            }}
+            className={`inline-flex min-h-11 items-center gap-1 rounded-full border px-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+              streakDays > 0
+                ? "border-orange-500/60 bg-orange-500/15 text-orange-700 hover:bg-orange-500/25 dark:text-orange-300"
+                : "border-border/70 text-muted-foreground hover:border-orange-500/50 hover:text-orange-700 dark:hover:text-orange-300"
+            }`}
+          >
+            <Flame
+              className="h-4 w-4"
+              fill={streakDays > 0 ? "currentColor" : "none"}
+              aria-hidden="true"
+            />
+            <span className="tabular-nums">{streakDays}</span>
+          </button>
           <Link
             to="/pricing"
-            className="inline-flex min-h-11 items-center rounded-full border border-gold/40 px-4 text-sm font-semibold text-gold-ink hover:bg-gold/10"
+            className="hidden min-h-11 items-center rounded-full border border-gold/40 px-4 text-sm font-semibold text-gold-ink hover:bg-gold/10 xl:inline-flex"
           >
             Pricing
           </Link>
@@ -196,7 +233,9 @@ export function TopNav() {
           </Popover>
 
           <div className="shrink-0 whitespace-nowrap">
-            <AuthButton />
+            <AuthButton
+              onDashboardNavigate={() => dispatch({ type: "SET_TAB", payload: "dashboard" })}
+            />
           </div>
         </div>
       </div>

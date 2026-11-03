@@ -392,7 +392,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
     return () => window.removeEventListener("popstate", update);
   }, []);
   const { state, dispatch } = useApp();
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
   const mod = getModule(state.activeModuleId);
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [desktopOpenGroup, setDesktopOpenGroup] = useState<string | null>(null);
@@ -475,6 +475,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   }
 
   const visible = TAB_ITEMS.filter((t) => {
+    if (t.key === "dashboard" && user) return false;
     if (t.languages && !t.languages.includes(state.selectedLanguage)) return false;
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
     if (t.moduleOnly) return state.activeModuleId === t.moduleOnly;
@@ -952,7 +953,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 <a href="/feedback" className="text-sm font-semibold underline">
                   Feedback
                 </a>
-                <AuthButton />
+                <AuthButton
+                  onDashboardNavigate={() => {
+                    dispatch({ type: "SET_TAB", payload: "dashboard" });
+                    setMoreSheetOpen(false);
+                  }}
+                />
               </div>
             </div>
           </details>

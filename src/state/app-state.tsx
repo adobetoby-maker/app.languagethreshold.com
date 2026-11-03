@@ -35,6 +35,7 @@ import {
   THEME_PREFERENCE_KEY,
 } from "@/lib/theme-preference";
 import { mergeCore30Log, type Core30Log, type Core30Way } from "@/lib/core30-plan";
+import { applyPlacementCredit, type PlacementCreditInput } from "@/lib/module-placement-credit";
 import { core30ScopeKey, claimLegacyCore30, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
   core30RecordReview,
@@ -295,6 +296,7 @@ export type AppAction =
       type: "CORE30_CLAIM_LEGACY";
       payload: { moduleId: string; context: Core30ProgressContext; at: string };
     }
+  | { type: "CORE30_APPLY_PLACEMENT"; payload: PlacementCreditInput }
   | {
       type: "CORE30_STEP_OPENED";
       payload: {
@@ -651,6 +653,18 @@ export function reducer(state: AppState, action: AppAction): AppState {
         },
         recordPracticeCompletion(state.practiceStreak, todayKey()),
       );
+    }
+    case "CORE30_APPLY_PLACEMENT": {
+      const core30Log = applyPlacementCredit(state.core30Log, action.payload);
+      if (core30Log === state.core30Log) return state;
+      const lessonProgress = { ...state.lessonProgress };
+      for (const moduleId of new Set(action.payload.lessons.map((lesson) => lesson.moduleId))) {
+        const key = core30ScopeKey(moduleId, action.payload.context);
+        let prefix = 0;
+        while (core30Log[key]?.lessons[String(prefix + 1)]?.masteredAt) prefix++;
+        lessonProgress[key] = Math.max(lessonProgress[key] ?? 0, prefix);
+      }
+      return { ...state, core30Log, lessonProgress };
     }
     case "CORE30_CLAIM_LEGACY": {
       const { moduleId, context, at } = action.payload;

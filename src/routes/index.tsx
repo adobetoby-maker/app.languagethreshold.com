@@ -60,6 +60,7 @@ export const Route = createFileRoute("/")({
   },
   component: Index,
   head: () => ({
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com" }],
     meta: [
       { title: "Language Threshold - Job-Specific Language Training for Nurses, Foremen & Teams" },
       {

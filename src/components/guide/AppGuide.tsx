@@ -79,6 +79,7 @@ import { OPEN_APP_DEMO } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { ModulePlacement } from "@/components/core30/ModulePlacement";
 import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPractice";
 import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
@@ -2359,6 +2360,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     (resumePosition && curriculum.lessons.find((lesson) => lesson.n === resumePosition.lesson)) ||
     currentLesson;
   const completedCount = state.lessonProgress[progressKey] ?? 0;
+  const placementCount = Object.values(core30Log?.lessons ?? {}).filter(
+    (lesson) => lesson.placementCredit,
+  ).length;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
@@ -2825,6 +2829,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </Suspense>
           )}
 
+          {!reviewOpen && !runnerActive && (
+            <ModulePlacement moduleId={moduleId} managed={Boolean(activeAssessmentPlan)} />
+          )}
           {/* Planning and progress follow the lesson actions on every screen size. */}
           {/* Plan: start date, today's lesson, review cadence (90 days; a Foundation runs 14, a Master 70) */}
           {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
@@ -2878,6 +2885,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 </span>
                 <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
               </div>
+              {placementCount > 0 && (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {placementCount} completed by placement credit
+                </p>
+              )}
               <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-700"

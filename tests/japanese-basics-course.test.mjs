@@ -83,4 +83,7 @@ test("Master vocabulary and checks do not split names or Japanese words into fal
   assert.ok(!terms(9).some((word) => word.es === "います"));
   assert.ok(!terms(10).some((word) => word.es === "います"));
   assert.ok(!terms(3).some((word) => word.es === "に" && word.en === "two"));
+  assert.ok(!terms(19).some((word) => word.es === "で"));
+  assert.ok(!terms(13).some((word) => word.es === "いけません" && word.en === "must not"));
+  assert.ok(!practice[13].checks.some((check) => check.answer === "いけません"));
 });

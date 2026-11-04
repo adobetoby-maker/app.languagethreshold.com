@@ -1278,11 +1278,11 @@
           "メニューを みましょう。",
           "この りょうりに にくは はいっていますか。",
           "いいえ、やさいだけです。",
-          "では、それを ふたつ おねがいします。",
+          "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
           "おちゃも ふたつ おねがいします。",
           "ひとつは あたたかい おちゃです。",
           "もう ひとつは つめたい おちゃです。",
-          "にくが ない ことを もういちど たしかめます。"
+          "やさいの りょうりに にくは はいっていませんね。"
         ],
         "native": [
           "What would you like to eat?",
@@ -1292,14 +1292,19 @@
           "Let's look at the menu.",
           "Does this dish contain meat?",
           "No, only vegetables.",
-          "Then two of those, please.",
+          "Then one vegetable dish and one fish dish, please.",
           "Two teas too, please.",
           "One is hot tea.",
           "The other is cold tea.",
-          "We confirm once more that there is no meat."
+          "There is no meat in the vegetable dish, right?"
         ]
       },
       "words": [
+        {
+          "es": "はいっています",
+          "en": "is included",
+          "kind": "term"
+        },
         {
           "es": "たべたい",
           "en": "want to eat",
@@ -1308,6 +1313,11 @@
         {
           "es": "メニュー",
           "en": "menu",
+          "kind": "term"
+        },
+        {
+          "es": "りょうり",
+          "en": "dish",
           "kind": "term"
         },
         {
@@ -1321,8 +1331,23 @@
           "kind": "term"
         },
         {
+          "es": "やさい",
+          "en": "vegetables",
+          "kind": "term"
+        },
+        {
+          "es": "さかな",
+          "en": "fish",
+          "kind": "term"
+        },
+        {
           "es": "すき",
           "en": "like",
+          "kind": "term"
+        },
+        {
+          "es": "にく",
+          "en": "meat",
           "kind": "term"
         },
         {
@@ -1331,33 +1356,8 @@
           "kind": "term"
         },
         {
-          "es": "もういちど",
-          "en": "one more time",
-          "kind": "term"
-        },
-        {
           "es": "たべません",
           "en": "do not eat",
-          "kind": "term"
-        },
-        {
-          "es": "わたし",
-          "en": "I",
-          "kind": "term"
-        },
-        {
-          "es": "ひとつ",
-          "en": "one item",
-          "kind": "term"
-        },
-        {
-          "es": "ふたつ",
-          "en": "two items",
-          "kind": "term"
-        },
-        {
-          "es": "いいえ",
-          "en": "no",
           "kind": "term"
         },
         {
@@ -1399,28 +1399,28 @@
         "target": [
           "あしたの ごご いけますか。",
           "さんじなら いけます。",
-          "この へやに はいっても いいですか。",
+          "その へやに はいっても いいですか。",
           "はい、だいじょうぶです。",
           "しゃしんは とっても いいですか。",
-          "いいえ、ここでは とっては いけません。",
+          "いいえ、なかでは とっては いけません。",
           "では、みるだけに しましょう。",
           "さんじに えきで あいましょう。",
           "きっぷは いくらですか。",
-          "ふたりで はらえます。",
+          "ふたりで にせんえんです。",
           "その じかんは だいじょうぶですか。",
           "はい、わたしも いく つもりです。"
         ],
         "native": [
           "Can you go tomorrow afternoon?",
           "I can go if it is at three.",
-          "May we enter this room?",
+          "May we enter that room?",
           "Yes, that is fine.",
           "May we take photos?",
-          "No, photos are not allowed here.",
+          "No, photos are not allowed inside.",
           "Then let us just look.",
           "Let's meet at the station at three.",
           "How much is the ticket?",
-          "We can pay for two people.",
+          "It is two thousand yen for the two of us.",
           "Does that time work?",
           "Yes, I intend to go too."
         ]
@@ -1447,6 +1447,16 @@
           "kind": "term"
         },
         {
+          "es": "にせんえん",
+          "en": "two thousand yen",
+          "kind": "term"
+        },
+        {
+          "es": "さんじなら",
+          "en": "if it is at three",
+          "kind": "term"
+        },
+        {
           "es": "しゃしん",
           "en": "photo",
           "kind": "term"
@@ -1459,11 +1469,6 @@
         {
           "es": "さんじ",
           "en": "three o'clock",
-          "kind": "term"
-        },
-        {
-          "es": "ここ",
-          "en": "here",
           "kind": "term"
         },
         {
@@ -1482,11 +1487,6 @@
           "kind": "term"
         },
         {
-          "es": "ふたりで",
-          "en": "as a pair",
-          "kind": "term"
-        },
-        {
           "es": "あしたの ごご いけますか。",
           "en": "Can you go tomorrow afternoon?",
           "kind": "phrase"
@@ -1497,8 +1497,8 @@
           "kind": "phrase"
         },
         {
-          "es": "この へやに はいっても いいですか。",
-          "en": "May we enter this room?",
+          "es": "その へやに はいっても いいですか。",
+          "en": "May we enter that room?",
           "kind": "phrase"
         },
         {
@@ -1512,8 +1512,8 @@
           "kind": "phrase"
         },
         {
-          "es": "いいえ、ここでは とっては いけません。",
-          "en": "No, photos are not allowed here.",
+          "es": "いいえ、なかでは とっては いけません。",
+          "en": "No, photos are not allowed inside.",
           "kind": "phrase"
         }
       ],
@@ -1525,16 +1525,16 @@
         "target": [
           "まず、へやを そうじしないと いけません。",
           "つくえも ふかなければ なりません。",
-          "ノートは みっつ ひつようです。",
+          "ノートは さんさつ ひつようです。",
           "ペンは ありますか。",
           "はい、かばんの なかに あります。",
           "まどを あけても いいですか。",
           "はい、あけてください。",
           "これで じゅんびが できました。",
           "せんせいが へやに きました。",
-          "じゅんびした ものを みせます。",
-          "ノートと ペンが あります。",
-          "せんせいは だいじょうぶですと いいます。"
+          "ノートと ペンを みせます。",
+          "せんせいは それを みます。",
+          "せんせいは「だいじょうぶです」と いいます。"
         ],
         "native": [
           "First, we have to clean the room.",
@@ -1546,12 +1546,22 @@
           "Yes, please open it.",
           "Now the preparations are complete.",
           "The teacher came into the room.",
-          "I show what we prepared.",
-          "There are notebooks and pens.",
-          "The teacher says it is all right."
+          "I show the notebooks and pens.",
+          "The teacher looks at them.",
+          "The teacher says, “That is all right.”"
         ]
       },
       "words": [
+        {
+          "es": "そうじしないと いけません",
+          "en": "must clean",
+          "kind": "term"
+        },
+        {
+          "es": "ふかなければ なりません",
+          "en": "must wipe",
+          "kind": "term"
+        },
         {
           "es": "ひつようです",
           "en": "is needed",
@@ -1560,6 +1570,11 @@
         {
           "es": "あります",
           "en": "have/there is",
+          "kind": "term"
+        },
+        {
+          "es": "さんさつ",
+          "en": "three bound books or notebooks",
           "kind": "term"
         },
         {
@@ -1583,11 +1598,6 @@
           "kind": "term"
         },
         {
-          "es": "いけません",
-          "en": "must not",
-          "kind": "term"
-        },
-        {
           "es": "せんせい",
           "en": "teacher",
           "kind": "term"
@@ -1603,16 +1613,6 @@
           "kind": "term"
         },
         {
-          "es": "つくえ",
-          "en": "desk",
-          "kind": "term"
-        },
-        {
-          "es": "みっつ",
-          "en": "three items",
-          "kind": "term"
-        },
-        {
           "es": "まず、へやを そうじしないと いけません。",
           "en": "First, we have to clean the room.",
           "kind": "phrase"
@@ -1623,7 +1623,7 @@
           "kind": "phrase"
         },
         {
-          "es": "ノートは みっつ ひつようです。",
+          "es": "ノートは さんさつ ひつようです。",
           "en": "We need three notebooks.",
           "kind": "phrase"
         },
@@ -1653,11 +1653,11 @@
           "それから、かおを あらいます。",
           "あさごはんを たべます。",
           "でも、きょうは でんしゃが おくれています。",
-          "だから、あるいて えきへ いきます。",
+          "だから、あるいて がっこうへ いきます。",
           "ともだちに メッセージを かきます。",
-          "『すこし おそく なります。』",
-          "ともだちは『だいじょうぶ』と こたえます。",
-          "えきで でんしゃを まちます。",
+          "「すこし おそく なります。」",
+          "ともだちは「だいじょうぶ」と こたえます。",
+          "えきの まえで ともだちに あいます。",
           "あきさんも まっています。",
           "すこし おそく なりました。",
           "でも、クラスには まにあいました。"
@@ -1667,13 +1667,13 @@
           "Then I wash my face.",
           "I eat breakfast.",
           "But today the train is delayed.",
-          "So I will walk to the station.",
+          "So I will walk to school.",
           "I write a message to my friend.",
           "“I will be a little late.”",
-          "My friend replies, “That's okay.”",
-          "I wait for the train at the station.",
+          "My friend replies, “That is okay.”",
+          "I meet a friend in front of the station.",
           "Aki is waiting too.",
-          "It got a little late.",
+          "I was running a little late.",
           "But I made it to class on time."
         ]
       },
@@ -1701,6 +1701,11 @@
         {
           "es": "いきます",
           "en": "go",
+          "kind": "term"
+        },
+        {
+          "es": "あいます",
+          "en": "meet",
           "kind": "term"
         },
         {
@@ -1734,11 +1739,6 @@
           "kind": "term"
         },
         {
-          "es": "まっています",
-          "en": "is waiting",
-          "kind": "term"
-        },
-        {
           "es": "いつも ろくじに おきます。",
           "en": "I always get up at six.",
           "kind": "phrase"
@@ -1759,8 +1759,8 @@
           "kind": "phrase"
         },
         {
-          "es": "だから、あるいて えきへ いきます。",
-          "en": "So I will walk to the station.",
+          "es": "だから、あるいて がっこうへ いきます。",
+          "en": "So I will walk to school.",
           "kind": "phrase"
         },
         {
@@ -1776,7 +1776,7 @@
         "title": "Finding a classroom",
         "target": [
           "この みちを まっすぐ いってください。",
-          "えきの まえで みぎに まがります。",
+          "えきの まえで みぎに まがってください。",
           "がっこうは えきの となりです。",
           "クラスは にかいに あります。",
           "にかいで べんきょうします。",
@@ -1790,9 +1790,9 @@
         ],
         "native": [
           "Please go straight on this road.",
-          "Turn right in front of the station.",
+          "Please turn right in front of the station.",
           "The school is next to the station.",
-          "The classroom is on the second floor.",
+          "Our class is on the second floor.",
           "We study on the second floor.",
           "Do you understand the route?",
           "Yes, I can get to the school.",
@@ -1870,8 +1870,8 @@
           "kind": "phrase"
         },
         {
-          "es": "えきの まえで みぎに まがります。",
-          "en": "Turn right in front of the station.",
+          "es": "えきの まえで みぎに まがってください。",
+          "en": "Please turn right in front of the station.",
           "kind": "phrase"
         },
         {
@@ -1881,7 +1881,7 @@
         },
         {
           "es": "クラスは にかいに あります。",
-          "en": "The classroom is on the second floor.",
+          "en": "Our class is on the second floor.",
           "kind": "phrase"
         },
         {
@@ -1905,13 +1905,13 @@
           "あきさんは メッセージを かいています。",
           "あした、ともだちに あう つもりです。",
           "ごご えきへ いく よていです。",
-          "そこで いっしょに ひるごはんを たべます。",
+          "そこで いっしょに おちゃを のみます。",
           "きのうは でんわしました。",
           "でも、まだ じかんを きめていません。",
           "よる また でんわします。",
           "いま、じかんを しらべています。",
           "さんじなら だいじょうぶです。",
-          "あきさんも さんじが いいそうです。",
+          "あきさんも さんじが いいです。",
           "あしたの よていが きまりました。"
         ],
         "native": [
@@ -1919,13 +1919,13 @@
           "Aki is writing a message.",
           "Tomorrow I intend to meet a friend.",
           "I am scheduled to go to the station in the afternoon.",
-          "We will eat lunch there together.",
+          "We will have tea together there.",
           "Yesterday I called.",
           "But we have not set a time yet.",
           "I will call again tonight.",
           "I am checking the time now.",
           "Three o'clock works.",
-          "Aki says three is good too.",
+          "Three works for Aki too.",
           "Tomorrow's plan is settled."
         ]
       },
@@ -1986,8 +1986,8 @@
           "kind": "term"
         },
         {
-          "es": "ひるごはん",
-          "en": "lunch",
+          "es": "のみます",
+          "en": "drink",
           "kind": "term"
         },
         {
@@ -2011,8 +2011,8 @@
           "kind": "phrase"
         },
         {
-          "es": "そこで いっしょに ひるごはんを たべます。",
-          "en": "We will eat lunch there together.",
+          "es": "そこで いっしょに おちゃを のみます。",
+          "en": "We will have tea together there.",
           "kind": "phrase"
         },
         {
@@ -2032,13 +2032,13 @@
           "さっき かいました。",
           "あきさんに みせても いいですか。",
           "はい、いいですよ。",
-          "あきさんは よみたいと いっています。",
-          "では、あとで あきさんに あげてください。",
+          "あきさんの ほんも ここに あります。",
+          "では、あとで あきさんに わたしてください。",
           "どの ほんの ことですか。",
           "あおい ほんの ことです。",
           "たなかさんの なまえが かいてあります。",
-          "あきさんは それを みて わかりました。",
-          "あとで かえす つもりです。"
+          "わたしは それを みて わかりました。",
+          "あきさんは あとで かえす つもりです。"
         ],
         "native": [
           "Is this book Tanaka's?",
@@ -2046,19 +2046,34 @@
           "Tanaka bought it earlier.",
           "May I show it to Aki?",
           "Yes, that's fine.",
-          "Aki says she wants to read it.",
-          "Then please give it to Aki later.",
+          "Aki’s book is here too.",
+          "Then please hand it to Aki later.",
           "Which book do you mean?",
           "I mean the blue book.",
           "Tanaka's name is written in it.",
-          "Aki saw it and understood.",
-          "She intends to return it later."
+          "I saw it and understood.",
+          "Aki intends to return it later."
         ]
       },
       "words": [
         {
+          "es": "わたしてください",
+          "en": "please hand over",
+          "kind": "term"
+        },
+        {
           "es": "たなかさんの",
           "en": "Tanaka's",
+          "kind": "term"
+        },
+        {
+          "es": "あおい",
+          "en": "blue",
+          "kind": "term"
+        },
+        {
+          "es": "かえす",
+          "en": "return",
           "kind": "term"
         },
         {
@@ -2087,33 +2102,18 @@
           "kind": "term"
         },
         {
+          "es": "あります",
+          "en": "there is (thing)",
+          "kind": "term"
+        },
+        {
+          "es": "わたし",
+          "en": "I",
+          "kind": "term"
+        },
+        {
           "es": "なまえ",
           "en": "name",
-          "kind": "term"
-        },
-        {
-          "es": "あとで",
-          "en": "later",
-          "kind": "term"
-        },
-        {
-          "es": "あおい",
-          "en": "blue",
-          "kind": "term"
-        },
-        {
-          "es": "それ",
-          "en": "that near you",
-          "kind": "term"
-        },
-        {
-          "es": "この",
-          "en": "this (before a noun)",
-          "kind": "term"
-        },
-        {
-          "es": "はい",
-          "en": "yes",
           "kind": "term"
         },
         {
@@ -2142,8 +2142,8 @@
           "kind": "phrase"
         },
         {
-          "es": "あきさんは よみたいと いっています。",
-          "en": "Aki says she wants to read it.",
+          "es": "あきさんの ほんも ここに あります。",
+          "en": "Aki’s book is here too.",
           "kind": "phrase"
         }
       ],
@@ -2156,14 +2156,14 @@
           "きのう ともだちと きょうとへ いきました。",
           "あさ はやく えきに いきました。",
           "でんしゃで まちへ いきました。",
-          "ひる りょうりを たべました。",
+          "ひるごはんを たべました。",
           "そのあと ほんやに いきました。",
           "あたらしい ほんを かいました。",
           "りょこうは とても たのしかったです。",
-          "なんじに うちへ かえりましたか。",
           "ともだちは しゃしんを とりました。",
           "わたしは みせで おちゃを のみました。",
-          "ごご ろくじに えきへ もどりました。",
+          "なんじに うちへ かえりましたか。",
+          "ごご しちじに うちへ かえりました。",
           "また いきたいです。"
         ],
         "native": [
@@ -2174,10 +2174,10 @@
           "After that we went to a bookshop.",
           "I bought a new book.",
           "The trip was very fun.",
-          "What time did you return home?",
           "My friend took photos.",
           "I drank tea at a shop.",
-          "We returned to the station at six in the afternoon.",
+          "What time did you return home?",
+          "We returned home at seven in the evening.",
           "I would like to go again."
         ]
       },
@@ -2223,6 +2223,11 @@
           "kind": "term"
         },
         {
+          "es": "ひるごはん",
+          "en": "lunch",
+          "kind": "term"
+        },
+        {
           "es": "たべました",
           "en": "ate",
           "kind": "term"
@@ -2235,11 +2240,6 @@
         {
           "es": "ともだち",
           "en": "friend",
-          "kind": "term"
-        },
-        {
-          "es": "そのあと",
-          "en": "after that",
           "kind": "term"
         },
         {
@@ -2258,7 +2258,7 @@
           "kind": "phrase"
         },
         {
-          "es": "ひる りょうりを たべました。",
+          "es": "ひるごはんを たべました。",
           "en": "We ate lunch.",
           "kind": "phrase"
         },
@@ -2282,14 +2282,14 @@
           "むかし、よく がっこうまで あるきました。",
           "いつも ともだちと あいました。",
           "でも、きのうは でんしゃで いきました。",
-          "あめが ふっていたからです。",
+          "あめが ふっていましたから。",
           "えきで ともだちを まちました。",
           "それから いっしょに いきました。",
           "いまは ときどき でんしゃを つかいます。",
           "あるく ひも あります。",
           "でんしゃは べんりでした。",
           "でも、あるくのも すきです。",
-          "あしたは てんきが いい そうです。",
+          "あしたは はれです。",
           "だから、また あるく つもりです。"
         ],
         "native": [
@@ -2303,7 +2303,7 @@
           "There are days when I walk too.",
           "The train was convenient.",
           "But I also like walking.",
-          "I hear the weather will be good tomorrow.",
+          "Tomorrow will be sunny.",
           "So I intend to walk again."
         ]
       },
@@ -2354,11 +2354,6 @@
           "kind": "term"
         },
         {
-          "es": "で",
-          "en": "by (means of transport)",
-          "kind": "term"
-        },
-        {
           "es": "いっしょに",
           "en": "together",
           "kind": "term"
@@ -2366,6 +2361,11 @@
         {
           "es": "つもりです",
           "en": "intend to",
+          "kind": "term"
+        },
+        {
+          "es": "ともだち",
+          "en": "friend",
           "kind": "term"
         },
         {
@@ -2384,7 +2384,7 @@
           "kind": "phrase"
         },
         {
-          "es": "あめが ふっていたからです。",
+          "es": "あめが ふっていましたから。",
           "en": "Because it was raining.",
           "kind": "phrase"
         },
@@ -2405,33 +2405,31 @@
       "passage": {
         "title": "A plan after class",
         "target": [
-          "こんにちは。きょうは どうですか。",
+          "こんにちは。げんきですか。",
           "げんきです。でも、しつもんが あります。",
           "この ことばが わかりません。",
           "もういちど ゆっくり おねがいします。",
           "はい。これで わかりますか。",
           "はい、ありがとうございます。あした どこで あいますか。",
-          "ごご さんじに えきで あいましょう。",
+          "ごご いちじに えきで あいましょう。",
           "わかりました。きのうも そこで あいましたね。",
-          "はい。では、また あした。",
           "ひるごはんも いっしょに たべますか。",
           "はい、でも にくは たべません。",
-          "では、やさいの みせを えらびましょう。",
+          "では、やさいの りょうりを たべましょう。",
           "いいですね。では、また あした。"
         ],
         "native": [
-          "Hello. How are things today?",
+          "Hello. How are you?",
           "I'm well. But I have a question.",
           "I do not understand this word.",
           "Once more slowly, please.",
           "Yes. Do you understand now?",
           "Yes, thank you. Where shall we meet tomorrow?",
-          "Let's meet at the station at three p.m.",
+          "Let us meet at the station at one p.m.",
           "Okay. We met there yesterday too, didn't we?",
-          "Yes. See you tomorrow.",
           "Shall we have lunch together too?",
           "Yes, but I do not eat meat.",
-          "Then let's choose a vegetable restaurant.",
+          "Then let us eat a vegetable dish.",
           "Sounds good. See you tomorrow."
         ]
       },
@@ -2444,11 +2442,6 @@
         {
           "es": "あした",
           "en": "tomorrow",
-          "kind": "term"
-        },
-        {
-          "es": "きょう",
-          "en": "today",
           "kind": "term"
         },
         {
@@ -2497,8 +2490,13 @@
           "kind": "term"
         },
         {
-          "es": "こんにちは。きょうは どうですか。",
-          "en": "Hello. How are things today?",
+          "es": "こんにちは",
+          "en": "hello",
+          "kind": "term"
+        },
+        {
+          "es": "こんにちは。げんきですか。",
+          "en": "Hello. How are you?",
           "kind": "phrase"
         },
         {

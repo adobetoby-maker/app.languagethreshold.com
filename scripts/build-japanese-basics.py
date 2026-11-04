@@ -36,7 +36,7 @@ _EDGE = r"[\s、。！？「」『』]"
 _PARTICLE_SUFFIX = "|".join(("から", "まで", "より", "だけ", "など", "でした", "です", "なので", "なら", "には", "では", "にも", "は", "が", "を", "に", "へ", "と", "も", "で", "の", "か", "だ"))
 
 
-def term_match(term, line):
+def term_matches(term, line):
     """Find a written term, never a substring of a name or another word.
 
     The authored beginner text separates word starts with spaces. Attached particles
@@ -45,7 +45,26 @@ def term_match(term, line):
     pattern = (rf"(?:^|{_EDGE})(?P<term>"
                + re.escape(term).replace(r"\ ", r"\s*")
                + rf")(?=$|{_EDGE}|(?:{_PARTICLE_SUFFIX})(?=$|{_EDGE}))")
-    return re.search(pattern, line)
+    return list(re.finditer(pattern, line))
+
+
+def term_match(term, line):
+    return next(iter(term_matches(term, line)), None)
+
+
+def unshadowed_term_match(term, line, authored_terms):
+    """Prefer an authored phrase over a shorter term found inside that phrase."""
+    for match in term_matches(term, line):
+        start, end = match.span("term")
+        shadowed = any(
+            longer != term and len(longer) > len(term)
+            and any(outer.start("term") <= start and end <= outer.end("term")
+                    for outer in term_matches(longer, line))
+            for longer, _ in authored_terms
+        )
+        if not shadowed:
+            return match
+    return None
 
 
 def build():
@@ -82,8 +101,10 @@ def build():
                 local_meanings = dict(lexicon)
                 local_meanings.update(inherited)
                 local_meanings.update(authored_terms)
+                authored_words = {word for word, _ in authored_terms}
                 matched = [(word, meaning) for word, meaning in local_meanings.items()
-                           if any(term_match(word, line) for line in target_lines)]
+                           if (len(compact(word)) > 1 or word in authored_words)
+                           and any(unshadowed_term_match(word, line, authored_terms) for line in target_lines)]
                 priority = list(dict.fromkeys(word for word, _ in authored_terms + inherited))
                 matched.sort(key=lambda entry: (entry[0] not in priority, -len(entry[0])))
                 terms = []
@@ -98,6 +119,8 @@ def build():
                 for word, meaning in authored_terms + inherited:
                     if len(terms) >= 12:
                         break
+                    if len(compact(word)) < 2 and word not in authored_words:
+                        continue
                     if word not in {item[0] for item in terms} and meaning.lower() not in used_meanings:
                         terms.append((word, meaning))
                         used_meanings.add(meaning.lower())

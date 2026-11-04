@@ -11,7 +11,13 @@ import {
   type PocketTutorCard,
 } from "@/lib/speak-pocket-tutor";
 
-export type SpeakTutorSelection = { word: string; sentence: string; id: number; scope: string };
+export type SpeakTutorSelection = {
+  word: string;
+  sentence: string;
+  id: number;
+  scope: string;
+  owner?: string;
+};
 
 /** Owns just the reply area. Hidden controls stay mounted, preserving the conversation draft. */
 export function SpeakTutorDock(props: {
@@ -35,6 +41,7 @@ export function SpeakTutorDock(props: {
     <Pocket
       key={scope}
       {...props}
+      selection={props.selection?.owner === user?.id ? props.selection : null}
       owner={user?.id}
       isCurrentUser={isCurrentUser}
       state={state}

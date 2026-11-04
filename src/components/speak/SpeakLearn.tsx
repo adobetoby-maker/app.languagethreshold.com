@@ -759,6 +759,7 @@ export function SpeakLearn() {
                                 word,
                                 sentence,
                                 id: Date.now(),
+                                owner: speakingAuth.isTestGuest ? undefined : speakingAuth.user?.id,
                                 scope: `free:${language}:${state.nativeLanguage}:${state.activeModuleId}`,
                               });
                           }}
@@ -809,6 +810,8 @@ export function SpeakLearn() {
       audioCaptureBusy,
       state.nativeLanguage,
       state.activeModuleId,
+      speakingAuth.isTestGuest,
+      speakingAuth.user?.id,
     ],
   );
 

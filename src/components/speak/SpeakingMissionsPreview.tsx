@@ -1341,10 +1341,11 @@ export function SpeakingMissionsPreview({
         word,
         sentence,
         id: Date.now(),
+        owner: speakingAuth.isTestGuest ? undefined : speakingAuth.user?.id,
         scope: selectedMission.id,
       });
     },
-    [selectedMission, status, audioCaptureBusy],
+    [selectedMission, status, audioCaptureBusy, speakingAuth.isTestGuest, speakingAuth.user?.id],
   );
 
   const closeMission = () => {

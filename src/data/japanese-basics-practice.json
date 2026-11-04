@@ -1717,18 +1717,18 @@
           "いいえ、しりません。",
           "ちずは わかりますか。",
           "はい、わかります。",
-          "えきまで あんないできます。"
+          "ちずで えきまで いけます。"
         ],
         "native": [
           "Do you know this route?",
           "No, I do not know it.",
           "Do you understand the map?",
           "Yes, I do.",
-          "I can guide you to the station."
+          "With the map, I can get to the station."
         ]
       },
       "grammar": {
-        "focus": "知っています is knowing a fact or person, わかります is understanding, and できます is ability. 知りません is the usual negative of knowing.",
+        "focus": "しっています (知っています) is a resulting ～ています state: someone knows after learning. しりません is its usual negative. わかります means understand; できます means can do. いけます is the potential of いきます (can go).",
         "examples": [
           {
             "es": "この みちを しっていますか。",
@@ -1748,38 +1748,38 @@
           "prompt": "この みちを ____か。",
           "hint": "Do you know this route?",
           "answer": "しっています",
-          "explanation": "知っています is knowing a fact or person, わかります is understanding, and できます is ability. 知りません is the usual negative of knowing."
+          "explanation": "しっています (知っています) is a resulting ～ています state: someone knows after learning. しりません is its usual negative. わかります means understand; できます means can do. いけます is the potential of いきます (can go)."
         },
         {
           "prompt": "この ____を しっていますか。",
           "hint": "Do you know this route?",
           "answer": "みち",
-          "explanation": "知っています is knowing a fact or person, わかります is understanding, and できます is ability. 知りません is the usual negative of knowing."
+          "explanation": "しっています (知っています) is a resulting ～ています state: someone knows after learning. しりません is its usual negative. わかります means understand; できます means can do. いけます is the potential of いきます (can go)."
         },
         {
           "prompt": "いいえ、____。",
           "hint": "No, I do not know it.",
           "answer": "しりません",
-          "explanation": "知っています is knowing a fact or person, わかります is understanding, and できます is ability. 知りません is the usual negative of knowing."
+          "explanation": "しっています (知っています) is a resulting ～ています state: someone knows after learning. しりません is its usual negative. わかります means understand; できます means can do. いけます is the potential of いきます (can go)."
         }
       ]
     },
     "22": {
       "stage": "core",
       "reading": {
-        "title": "Two places to work",
+        "title": "Choosing a shop",
         "target": [
           "この みせは あの みせより ちかいです。",
           "でも、あの みせの ほうが しずかです。",
-          "どちらが べんりですか。",
-          "えきの まえの みせです。",
+          "この みせと あの みせと、どちらが べんりですか。",
+          "この みせの ほうが べんりです。えきの まえですから。",
           "この まちで いちばん べんりです。"
         ],
         "native": [
           "This shop is closer than that one.",
           "But that shop is quieter.",
-          "Which is more convenient?",
-          "The shop in front of the station.",
+          "Which is more convenient, this shop or that one?",
+          "This shop is more convenient. It is in front of the station.",
           "It is the most convenient in this town."
         ]
       },
@@ -1796,7 +1796,7 @@
           }
         ]
       },
-      "speaking": "Role-play two places to work with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play choosing a shop with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "この みせは あの みせより ちかいです。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -1840,7 +1840,7 @@
         ]
       },
       "grammar": {
-        "focus": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally; there is no matching Spanish-style object-pronoun list.",
+        "focus": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally where English uses it or them. も can replace を when adding another object, as in ペンも いれます.",
         "examples": [
           {
             "es": "ほんを かばんに いれます。",
@@ -1860,26 +1860,26 @@
           "prompt": "ほんを かばんに ____。",
           "hint": "I put the book in the bag.",
           "answer": "いれます",
-          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally; there is no matching Spanish-style object-pronoun list."
+          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally where English uses it or them. も can replace を when adding another object, as in ペンも いれます."
         },
         {
           "prompt": "ほんを ____に いれます。",
           "hint": "I put the book in the bag.",
           "answer": "かばん",
-          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally; there is no matching Spanish-style object-pronoun list."
+          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally where English uses it or them. も can replace を when adding another object, as in ペンも いれます."
         },
         {
           "prompt": "____を かばんに いれます。",
           "hint": "I put the book in the bag.",
           "answer": "ほん",
-          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally; there is no matching Spanish-style object-pronoun list."
+          "explanation": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally where English uses it or them. も can replace を when adding another object, as in ペンも いれます."
         }
       ]
     },
     "24": {
       "stage": "core",
       "reading": {
-        "title": "Sharing notes",
+        "title": "Sharing notebooks and handouts",
         "target": [
           "わたしは ともだちに ノートを あげます。",
           "ともだちは わたしに コピーを くれます。",
@@ -1896,7 +1896,7 @@
         ]
       },
       "grammar": {
-        "focus": "に marks a recipient. あげます, くれます, and もらいます differ by whose perspective the sentence takes.",
+        "focus": "に marks the recipient with あげます and くれます. With もらいます, the giver takes に or から. The three verbs differ by whose perspective the sentence takes.",
         "examples": [
           {
             "es": "わたしは ともだちに ノートを あげます。",
@@ -1908,7 +1908,7 @@
           }
         ]
       },
-      "speaking": "Role-play sharing notes with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play sharing notebooks and handouts with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "わたしは ともだちに ノートを あげます。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -1916,19 +1916,19 @@
           "prompt": "わたしは ともだちに ノートを ____。",
           "hint": "I give my friend a notebook.",
           "answer": "あげます",
-          "explanation": "に marks a recipient. あげます, くれます, and もらいます differ by whose perspective the sentence takes."
+          "explanation": "に marks the recipient with あげます and くれます. With もらいます, the giver takes に or から. The three verbs differ by whose perspective the sentence takes."
         },
         {
           "prompt": "わたしは ____に ノートを あげます。",
           "hint": "I give my friend a notebook.",
           "answer": "ともだち",
-          "explanation": "に marks a recipient. あげます, くれます, and もらいます differ by whose perspective the sentence takes."
+          "explanation": "に marks the recipient with あげます and くれます. With もらいます, the giver takes に or から. The three verbs differ by whose perspective the sentence takes."
         },
         {
           "prompt": "わたしは ともだちに ____を あげます。",
           "hint": "I give my friend a notebook.",
           "answer": "ノート",
-          "explanation": "に marks a recipient. あげます, くれます, and もらいます differ by whose perspective the sentence takes."
+          "explanation": "に marks the recipient with あげます and くれます. With もらいます, the giver takes に or から. The three verbs differ by whose perspective the sentence takes."
         }
       ]
     },
@@ -1939,20 +1939,20 @@
         "target": [
           "えきで ともだちに あいます。",
           "ともだちを よびます。",
-          "こまっている ひとを てつだいます。",
+          "ひとが こまっています。",
           "その ひとの ところに いきます。",
-          "かばんを もって あげます。"
+          "てつだいましょうか。かばんを もちましょうか。"
         ],
         "native": [
           "I will meet my friend at the station.",
-          "I call my friend.",
-          "I help a person who is having trouble.",
-          "I go to that person.",
-          "I carry the bag for them."
+          "I call my friend over.",
+          "A person is having trouble.",
+          "I go over to that person.",
+          "May I help? Shall I carry the bag?"
         ]
       },
       "grammar": {
-        "focus": "Use に with 会います for the person you meet and with a person you approach. Use を with 呼びます or 手伝います for the person you call or help. The particle depends on the Japanese verb; there is no Spanish-style personal a.",
+        "focus": "Use に with あいます for the person you meet. To go to a person, say [person] の ところに いきます. Use を with よびます (call over) or てつだいます (help). The particle depends on the Japanese verb.",
         "examples": [
           {
             "es": "えきで ともだちに あいます。",
@@ -1960,7 +1960,7 @@
           },
           {
             "es": "ともだちを よびます。",
-            "en": "I call my friend."
+            "en": "I call my friend over."
           }
         ]
       },
@@ -1972,19 +1972,19 @@
           "prompt": "えきで ____に あいます。",
           "hint": "I will meet my friend at the station.",
           "answer": "ともだち",
-          "explanation": "Use に with 会います for the person you meet and with a person you approach. Use を with 呼びます or 手伝います for the person you call or help. The particle depends on the Japanese verb; there is no Spanish-style personal a."
+          "explanation": "Use に with あいます for the person you meet. To go to a person, say [person] の ところに いきます. Use を with よびます (call over) or てつだいます (help). The particle depends on the Japanese verb."
         },
         {
           "prompt": "えきで ともだちに ____。",
           "hint": "I will meet my friend at the station.",
           "answer": "あいます",
-          "explanation": "Use に with 会います for the person you meet and with a person you approach. Use を with 呼びます or 手伝います for the person you call or help. The particle depends on the Japanese verb; there is no Spanish-style personal a."
+          "explanation": "Use に with あいます for the person you meet. To go to a person, say [person] の ところに いきます. Use を with よびます (call over) or てつだいます (help). The particle depends on the Japanese verb."
         },
         {
           "prompt": "ともだちを ____。",
-          "hint": "I call my friend.",
+          "hint": "I call my friend over.",
           "answer": "よびます",
-          "explanation": "Use に with 会います for the person you meet and with a person you approach. Use を with 呼びます or 手伝います for the person you call or help. The particle depends on the Japanese verb; there is no Spanish-style personal a."
+          "explanation": "Use に with あいます for the person you meet. To go to a person, say [person] の ところに いきます. Use を with よびます (call over) or てつだいます (help). The particle depends on the Japanese verb."
         }
       ]
     },
@@ -2008,7 +2008,7 @@
         ]
       },
       "grammar": {
-        "focus": "Use polite ～ました to report a completed action. A plain past form appears in familiar speech and before some other constructions; compare without mixing registers casually.",
+        "focus": "Review polite ～ました for completed actions. You already met it in Core lesson 3; here use it to tell a short sequence about yesterday. Plain past forms such as いった are casual and will be taught separately.",
         "examples": [
           {
             "es": "きのう がっこうへ いきました。",
@@ -2028,19 +2028,19 @@
           "prompt": "きのう がっこうへ ____。",
           "hint": "Yesterday I went to school.",
           "answer": "いきました",
-          "explanation": "Use polite ～ました to report a completed action. A plain past form appears in familiar speech and before some other constructions; compare without mixing registers casually."
+          "explanation": "Review polite ～ました for completed actions. You already met it in Core lesson 3; here use it to tell a short sequence about yesterday. Plain past forms such as いった are casual and will be taught separately."
         },
         {
           "prompt": "____ がっこうへ いきました。",
           "hint": "Yesterday I went to school.",
           "answer": "きのう",
-          "explanation": "Use polite ～ました to report a completed action. A plain past form appears in familiar speech and before some other constructions; compare without mixing registers casually."
+          "explanation": "Review polite ～ました for completed actions. You already met it in Core lesson 3; here use it to tell a short sequence about yesterday. Plain past forms such as いった are casual and will be taught separately."
         },
         {
           "prompt": "あたらしい ほんを ____。",
           "hint": "I bought a new book.",
           "answer": "かいました",
-          "explanation": "Use polite ～ました to report a completed action. A plain past form appears in familiar speech and before some other constructions; compare without mixing registers casually."
+          "explanation": "Review polite ～ました for completed actions. You already met it in Core lesson 3; here use it to tell a short sequence about yesterday. Plain past forms such as いった are casual and will be taught separately."
         }
       ]
     },
@@ -2050,29 +2050,29 @@
         "title": "A trip and a report",
         "target": [
           "せんしゅう きょうとに いきました。",
-          "ともだちも きました。",
+          "ともだちも いっしょに いきました。",
           "ふたりで りょこうを しました。",
           "まちは とても きれいでした。",
           "たのしい りょこうでした。"
         ],
         "native": [
           "Last week I went to Kyoto.",
-          "A friend came too.",
+          "A friend went with me.",
           "We traveled together.",
           "The city was very beautiful.",
           "It was a fun trip."
         ]
       },
       "grammar": {
-        "focus": "行きました, 来ました, and しました are polite past forms; the copula becomes でした. Keep the action and identity sentences distinct.",
+        "focus": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later.",
         "examples": [
           {
             "es": "せんしゅう きょうとに いきました。",
             "en": "Last week I went to Kyoto."
           },
           {
-            "es": "ともだちも きました。",
-            "en": "A friend came too."
+            "es": "ともだちも いっしょに いきました。",
+            "en": "A friend went with me."
           }
         ]
       },
@@ -2084,19 +2084,19 @@
           "prompt": "せんしゅう きょうとに ____。",
           "hint": "Last week I went to Kyoto.",
           "answer": "いきました",
-          "explanation": "行きました, 来ました, and しました are polite past forms; the copula becomes でした. Keep the action and identity sentences distinct."
+          "explanation": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later."
+        },
+        {
+          "prompt": "____ きょうとに いきました。",
+          "hint": "Last week I went to Kyoto.",
+          "answer": "せんしゅう",
+          "explanation": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later."
         },
         {
           "prompt": "せんしゅう きょうとに い____。",
           "hint": "Last week I went to Kyoto.",
           "answer": "きました",
-          "explanation": "行きました, 来ました, and しました are polite past forms; the copula becomes でした. Keep the action and identity sentences distinct."
-        },
-        {
-          "prompt": "せんしゅう ____に いきました。",
-          "hint": "Last week I went to Kyoto.",
-          "answer": "きょうと",
-          "explanation": "行きました, 来ました, and しました are polite past forms; the copula becomes でした. Keep the action and identity sentences distinct."
+          "explanation": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later."
         }
       ]
     },
@@ -2109,18 +2109,18 @@
           "いつも ともだちと いきました。",
           "きのうは ひとりで あるきました。",
           "いまは でんしゃで いきます。",
-          "ときどき また あるきます。"
+          "でも、ときどき あるきます。"
         ],
         "native": [
           "I often walked to school long ago.",
           "I always went with a friend.",
           "Yesterday I walked alone.",
           "Now I go by train.",
-          "Sometimes I walk again."
+          "But sometimes I still walk."
         ]
       },
       "grammar": {
-        "focus": "Japanese has no separate imperfect tense. Use よく or いつも with past forms for habits, and a specific time for a single event.",
+        "focus": "Japanese does not need a separate form for “used to.” Use よく or いつも with past forms for habits, and a specific time for a single event.",
         "examples": [
           {
             "es": "むかし、よく がっこうまで あるきました。",
@@ -2140,19 +2140,19 @@
           "prompt": "むかし、よく がっこうまで ____。",
           "hint": "I often walked to school long ago.",
           "answer": "あるきました",
-          "explanation": "Japanese has no separate imperfect tense. Use よく or いつも with past forms for habits, and a specific time for a single event."
+          "explanation": "Japanese does not need a separate form for “used to.” Use よく or いつも with past forms for habits, and a specific time for a single event."
         },
         {
           "prompt": "____、よく がっこうまで あるきました。",
           "hint": "I often walked to school long ago.",
           "answer": "むかし",
-          "explanation": "Japanese has no separate imperfect tense. Use よく or いつも with past forms for habits, and a specific time for a single event."
+          "explanation": "Japanese does not need a separate form for “used to.” Use よく or いつも with past forms for habits, and a specific time for a single event."
         },
         {
           "prompt": "むかし、____ がっこうまで あるきました。",
           "hint": "I often walked to school long ago.",
           "answer": "よく",
-          "explanation": "Japanese has no separate imperfect tense. Use よく or いつも with past forms for habits, and a specific time for a single event."
+          "explanation": "Japanese does not need a separate form for “used to.” Use よく or いつも with past forms for habits, and a specific time for a single event."
         }
       ]
     },
@@ -2163,20 +2163,20 @@
         "target": [
           "べんきょうしに としょかんへ いきます。",
           "しけんの ために ほんを よみます。",
-          "どうして あるいて いきませんか。",
-          "あめが ふっているからです。",
+          "どうして きょうは でんしゃですか。",
+          "あめが ふっていますから。",
           "あめなので、でんしゃで いきます。"
         ],
         "native": [
           "I am going to the library to study.",
           "I read a book for the exam.",
-          "Why are you not walking?",
+          "Why the train today?",
           "Because it is raining.",
           "Since it is raining, I will go by train."
         ]
       },
       "grammar": {
-        "focus": "Purpose can use ～に行きます or ～ために; reason can use ～から or ～ので. Choose a short, natural construction for the situation.",
+        "focus": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので.",
         "examples": [
           {
             "es": "べんきょうしに としょかんへ いきます。",
@@ -2196,19 +2196,19 @@
           "prompt": "____しに としょかんへ いきます。",
           "hint": "I am going to the library to study.",
           "answer": "べんきょう",
-          "explanation": "Purpose can use ～に行きます or ～ために; reason can use ～から or ～ので. Choose a short, natural construction for the situation."
+          "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
         },
         {
           "prompt": "べんきょうしに ____へ いきます。",
           "hint": "I am going to the library to study.",
           "answer": "としょかん",
-          "explanation": "Purpose can use ～に行きます or ～ために; reason can use ～から or ～ので. Choose a short, natural construction for the situation."
+          "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
         },
         {
           "prompt": "べんきょうしに としょかんへ ____。",
           "hint": "I am going to the library to study.",
           "answer": "いきます",
-          "explanation": "Purpose can use ～に行きます or ～ために; reason can use ～から or ～ので. Choose a short, natural construction for the situation."
+          "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
         }
       ]
     },
@@ -2219,20 +2219,20 @@
         "target": [
           "きょうは ともだちと でかける よていでした。",
           "でも、あめが ふっています。",
-          "だから、えきまで いきません。",
+          "だから、きょうは でかけません。",
           "それから、ともだちに でんわします。",
           "そして、うちで いっしょに べんきょうします。"
         ],
         "native": [
           "Today I had planned to go out with a friend.",
           "But it is raining.",
-          "So I will not go to the station.",
+          "So I will not go out today.",
           "Then I will call my friend.",
           "And we will study together at home."
         ]
       },
       "grammar": {
-        "focus": "そして adds, でも contrasts, それから sequences, and だから gives a result. Make a short coherent account and review particles and polite forms.",
+        "focus": "そして adds, でも contrasts, それから sequences, and だから gives a result. でかける is the plain form of でかけます before よてい. Make a short coherent account and review particles and polite forms.",
         "examples": [
           {
             "es": "きょうは ともだちと でかける よていでした。",
@@ -2252,19 +2252,19 @@
           "prompt": "きょうは ____と でかける よていでした。",
           "hint": "Today I had planned to go out with a friend.",
           "answer": "ともだち",
-          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. Make a short coherent account and review particles and polite forms."
+          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. でかける is the plain form of でかけます before よてい. Make a short coherent account and review particles and polite forms."
         },
         {
           "prompt": "きょうは ともだちと でかける ____でした。",
           "hint": "Today I had planned to go out with a friend.",
           "answer": "よてい",
-          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. Make a short coherent account and review particles and polite forms."
+          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. でかける is the plain form of でかけます before よてい. Make a short coherent account and review particles and polite forms."
         },
         {
           "prompt": "____、あめが ふっています。",
           "hint": "But it is raining.",
           "answer": "でも",
-          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. Make a short coherent account and review particles and polite forms."
+          "explanation": "そして adds, でも contrasts, それから sequences, and だから gives a result. でかける is the plain form of でかけます before よてい. Make a short coherent account and review particles and polite forms."
         }
       ]
     }
@@ -3093,6 +3093,12 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "あしたの ごご ____か。",
+          "hint": "Can you go tomorrow afternoon?",
+          "answer": "いけます",
+          "explanation": "Negotiate ability, permission, and timing before agreeing on a plan."
+        },
+        {
           "prompt": "____の ごご いけますか。",
           "hint": "Can you go tomorrow afternoon?",
           "answer": "あした",
@@ -3102,12 +3108,6 @@
           "prompt": "あしたの ____ いけますか。",
           "hint": "Can you go tomorrow afternoon?",
           "answer": "ごご",
-          "explanation": "Negotiate ability, permission, and timing before agreeing on a plan."
-        },
-        {
-          "prompt": "____なら いけます。",
-          "hint": "I can go if it is at three.",
-          "answer": "さんじ",
           "explanation": "Negotiate ability, permission, and timing before agreeing on a plan."
         }
       ]

@@ -85,7 +85,7 @@ def build():
                 assert sum(compact(word) in passage for word, _ in terms) >= 8, (stage, n, "used terms", sum(compact(word) in passage for word, _ in terms))
             else:
                 terms = [split_pair(word) for word in authored["terms"]]
-                assert len(terms) == 8, (stage, n, "terms", len(terms))
+                assert 8 <= len(terms) <= 12, (stage, n, "terms", len(terms))
             phrase_count = 6 if stage == "master" else min(6, len(pairs))
             words = ([{"es": word, "en": meaning, "kind": "term"} for word, meaning in terms]
                      + [{"es": word, "en": meaning, "kind": "phrase"} for word, meaning in pairs[:phrase_count]])

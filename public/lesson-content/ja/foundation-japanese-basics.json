@@ -11,7 +11,7 @@
         "target": [
           "こんにちは。",
           "わたしは あきです。",
-          "おなまえは？",
+          "おなまえは なんですか。",
           "わたしは けんです。",
           "けんさん、よろしくおねがいします。",
           "こちらこそ、よろしくおねがいします。"
@@ -62,8 +62,13 @@
           "kind": "term"
         },
         {
-          "es": "ありがとう",
-          "en": "thank you",
+          "es": "こちらこそ",
+          "en": "likewise",
+          "kind": "term"
+        },
+        {
+          "es": "ありがとうございます",
+          "en": "thank you (polite)",
           "kind": "term"
         },
         {
@@ -77,7 +82,7 @@
           "kind": "phrase"
         },
         {
-          "es": "おなまえは？",
+          "es": "おなまえは なんですか。",
           "en": "What is your name?",
           "kind": "phrase"
         },
@@ -108,7 +113,7 @@
           "この ほんは わたしのです。",
           "あれは なんですか。",
           "あれは かばんです。",
-          "ペンは つくえの うえです。"
+          "えんぴつは つくえの うえです。"
         ],
         "native": [
           "What is this?",
@@ -116,7 +121,7 @@
           "This book is mine.",
           "What is that over there?",
           "That is a bag.",
-          "The pen is on the desk."
+          "The pencil is on the desk."
         ]
       },
       "words": [
@@ -136,6 +141,11 @@
           "kind": "term"
         },
         {
+          "es": "この",
+          "en": "this (before a noun)",
+          "kind": "term"
+        },
+        {
           "es": "ほん",
           "en": "book",
           "kind": "term"
@@ -146,8 +156,8 @@
           "kind": "term"
         },
         {
-          "es": "ペン",
-          "en": "pen",
+          "es": "えんぴつ",
+          "en": "pencil",
           "kind": "term"
         },
         {
@@ -158,6 +168,16 @@
         {
           "es": "なん",
           "en": "what",
+          "kind": "term"
+        },
+        {
+          "es": "の",
+          "en": "of; possessive",
+          "kind": "term"
+        },
+        {
+          "es": "うえ",
+          "en": "on top",
           "kind": "term"
         },
         {
@@ -186,8 +206,8 @@
           "kind": "phrase"
         },
         {
-          "es": "ペンは つくえの うえです。",
-          "en": "The pen is on the desk.",
+          "es": "えんぴつは つくえの うえです。",
+          "en": "The pencil is on the desk.",
           "kind": "phrase"
         }
       ],
@@ -195,22 +215,22 @@
     },
     "3": {
       "passage": {
-        "title": "Packing for class",
+        "title": "At the stationery counter",
         "target": [
-          "ノートを ふたつ ください。",
-          "はい、ノートを ふたつですね。",
-          "ペンも ひとつ ください。",
-          "ペンは あおですか。",
-          "はい、あおい ペンです。",
-          "ほんは かばんの なかです。"
+          "ノートを にさつ ください。",
+          "はい、ノートを にさつですね。",
+          "けしゴムも ひとつ ください。",
+          "はい、けしゴムも ひとつですね。",
+          "ノートは かばんの なかです。",
+          "ありがとうございます。"
         ],
         "native": [
           "Two notebooks, please.",
           "Yes, two notebooks, correct?",
-          "One pen too, please.",
-          "Is the pen blue?",
-          "Yes, it is a blue pen.",
-          "The book is in the bag."
+          "One eraser too, please.",
+          "Yes, one eraser too, correct?",
+          "The notebooks are in the bag.",
+          "Thank you very much."
         ]
       },
       "words": [
@@ -230,8 +250,8 @@
           "kind": "term"
         },
         {
-          "es": "ほん",
-          "en": "book",
+          "es": "にさつ",
+          "en": "two bound volumes",
           "kind": "term"
         },
         {
@@ -240,8 +260,8 @@
           "kind": "term"
         },
         {
-          "es": "ペン",
-          "en": "pen",
+          "es": "けしゴム",
+          "en": "eraser",
           "kind": "term"
         },
         {
@@ -255,33 +275,43 @@
           "kind": "term"
         },
         {
-          "es": "ノートを ふたつ ください。",
+          "es": "も",
+          "en": "also; too",
+          "kind": "term"
+        },
+        {
+          "es": "なか",
+          "en": "inside",
+          "kind": "term"
+        },
+        {
+          "es": "ノートを にさつ ください。",
           "en": "Two notebooks, please.",
           "kind": "phrase"
         },
         {
-          "es": "はい、ノートを ふたつですね。",
+          "es": "はい、ノートを にさつですね。",
           "en": "Yes, two notebooks, correct?",
           "kind": "phrase"
         },
         {
-          "es": "ペンも ひとつ ください。",
-          "en": "One pen too, please.",
+          "es": "けしゴムも ひとつ ください。",
+          "en": "One eraser too, please.",
           "kind": "phrase"
         },
         {
-          "es": "ペンは あおですか。",
-          "en": "Is the pen blue?",
+          "es": "はい、けしゴムも ひとつですね。",
+          "en": "Yes, one eraser too, correct?",
           "kind": "phrase"
         },
         {
-          "es": "はい、あおい ペンです。",
-          "en": "Yes, it is a blue pen.",
+          "es": "ノートは かばんの なかです。",
+          "en": "The notebooks are in the bag.",
           "kind": "phrase"
         },
         {
-          "es": "ほんは かばんの なかです。",
-          "en": "The book is in the bag.",
+          "es": "ありがとうございます。",
+          "en": "Thank you very much.",
           "kind": "phrase"
         }
       ],
@@ -291,7 +321,7 @@
       "passage": {
         "title": "A new study group",
         "target": [
-          "こちらは だれですか。",
+          "こちらは どなたですか。",
           "たなかさんです。",
           "たなかさんは せんせいですか。",
           "いいえ、がくせいです。",
@@ -309,8 +339,8 @@
       },
       "words": [
         {
-          "es": "だれ",
-          "en": "who",
+          "es": "どなた",
+          "en": "who (polite)",
           "kind": "term"
         },
         {
@@ -349,7 +379,7 @@
           "kind": "term"
         },
         {
-          "es": "こちらは だれですか。",
+          "es": "こちらは どなたですか。",
           "en": "Who is this person?",
           "kind": "phrase"
         },
@@ -387,7 +417,7 @@
         "target": [
           "わたしは マリです。",
           "にほんから きました。",
-          "あなたは どちらから きましたか。",
+          "けんさんは どちらから きましたか。",
           "アメリカから きました。",
           "せんせいは どなたですか。",
           "さとうさんが せんせいです。"
@@ -395,7 +425,7 @@
         "native": [
           "I am Mari.",
           "I came from Japan.",
-          "Where did you come from?",
+          "Ken, where did you come from?",
           "I came from the United States.",
           "Who is the teacher?",
           "Sato is the teacher."
@@ -453,8 +483,8 @@
           "kind": "phrase"
         },
         {
-          "es": "あなたは どちらから きましたか。",
-          "en": "Where did you come from?",
+          "es": "けんさんは どちらから きましたか。",
+          "en": "Ken, where did you come from?",
           "kind": "phrase"
         },
         {
@@ -509,6 +539,16 @@
         {
           "es": "あそこ",
           "en": "over there",
+          "kind": "term"
+        },
+        {
+          "es": "あの",
+          "en": "that (before a noun, over there)",
+          "kind": "term"
+        },
+        {
+          "es": "どこ",
+          "en": "where",
           "kind": "term"
         },
         {
@@ -582,7 +622,7 @@
         ],
         "native": [
           "What is in the room?",
-          "There are a desk and chairs.",
+          "There is a desk and a chair.",
           "There is a door next to the window.",
           "Who is in the room?",
           "Sato is there.",
@@ -611,18 +651,23 @@
           "kind": "term"
         },
         {
-          "es": "でんき",
-          "en": "light",
+          "es": "つくえ",
+          "en": "desk",
+          "kind": "term"
+        },
+        {
+          "es": "いす",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "es": "と",
+          "en": "and (between nouns)",
           "kind": "term"
         },
         {
           "es": "となり",
           "en": "next to",
-          "kind": "term"
-        },
-        {
-          "es": "なか",
-          "en": "inside",
           "kind": "term"
         },
         {
@@ -637,7 +682,7 @@
         },
         {
           "es": "つくえと いすが あります。",
-          "en": "There are a desk and chairs.",
+          "en": "There is a desk and a chair.",
           "kind": "phrase"
         },
         {
@@ -668,7 +713,7 @@
         "title": "Counting the group",
         "target": [
           "がくせいは なんにん いますか。",
-          "さんにん います。",
+          "ふたり います。",
           "ペンは いくつ ありますか。",
           "ふたつ あります。",
           "けんさんは なんさいですか。",
@@ -676,7 +721,7 @@
         ],
         "native": [
           "How many students are there?",
-          "There are three people.",
+          "There are two people.",
           "How many pens are there?",
           "There are two.",
           "How old is Ken?",
@@ -700,13 +745,38 @@
           "kind": "term"
         },
         {
-          "es": "じゅう",
-          "en": "ten",
+          "es": "よん",
+          "en": "four",
           "kind": "term"
         },
         {
-          "es": "ひとり",
-          "en": "one person",
+          "es": "ご",
+          "en": "five",
+          "kind": "term"
+        },
+        {
+          "es": "ろく",
+          "en": "six",
+          "kind": "term"
+        },
+        {
+          "es": "なな",
+          "en": "seven",
+          "kind": "term"
+        },
+        {
+          "es": "はち",
+          "en": "eight",
+          "kind": "term"
+        },
+        {
+          "es": "きゅう",
+          "en": "nine",
+          "kind": "term"
+        },
+        {
+          "es": "じゅう",
+          "en": "ten",
           "kind": "term"
         },
         {
@@ -720,18 +790,13 @@
           "kind": "term"
         },
         {
-          "es": "いくつ",
-          "en": "how many/how old",
-          "kind": "term"
-        },
-        {
           "es": "がくせいは なんにん いますか。",
           "en": "How many students are there?",
           "kind": "phrase"
         },
         {
-          "es": "さんにん います。",
-          "en": "There are three people.",
+          "es": "ふたり います。",
+          "en": "There are two people.",
           "kind": "phrase"
         },
         {
@@ -763,16 +828,16 @@
         "target": [
           "ノートは ありますか。",
           "いいえ、ありません。",
-          "この ほんは あなたのですか。",
-          "いいえ、わたしの じゃありません。",
+          "この ほんは けんさんのですか。",
+          "いいえ、けんさんのじゃありません。",
           "せつめいは わかりますか。",
           "まだ わかりません。"
         ],
         "native": [
           "Do you have a notebook?",
           "No, I do not.",
-          "Is this book yours?",
-          "No, it is not mine.",
+          "Is this Ken's book?",
+          "No, it is not Ken's.",
           "Do you understand the explanation?",
           "I do not understand yet."
         ]
@@ -814,8 +879,13 @@
           "kind": "term"
         },
         {
-          "es": "だいじょうぶ",
-          "en": "all right",
+          "es": "せつめい",
+          "en": "explanation",
+          "kind": "term"
+        },
+        {
+          "es": "まだ",
+          "en": "not yet",
           "kind": "term"
         },
         {
@@ -829,13 +899,13 @@
           "kind": "phrase"
         },
         {
-          "es": "この ほんは あなたのですか。",
-          "en": "Is this book yours?",
+          "es": "この ほんは けんさんのですか。",
+          "en": "Is this Ken's book?",
           "kind": "phrase"
         },
         {
-          "es": "いいえ、わたしの じゃありません。",
-          "en": "No, it is not mine.",
+          "es": "いいえ、けんさんのじゃありません。",
+          "en": "No, it is not Ken's.",
           "kind": "phrase"
         },
         {
@@ -893,6 +963,21 @@
           "kind": "term"
         },
         {
+          "es": "わかりました",
+          "en": "I understand / got it",
+          "kind": "term"
+        },
+        {
+          "es": "すみません",
+          "en": "excuse me",
+          "kind": "term"
+        },
+        {
+          "es": "はなします",
+          "en": "speak",
+          "kind": "term"
+        },
+        {
           "es": "しつもん",
           "en": "question",
           "kind": "term"
@@ -903,13 +988,18 @@
           "kind": "term"
         },
         {
+          "es": "ことば",
+          "en": "word",
+          "kind": "term"
+        },
+        {
           "es": "だいじょうぶです",
           "en": "it is all right",
           "kind": "term"
         },
         {
           "es": "ありがとうございます",
-          "en": "thank you very much",
+          "en": "thank you (polite)",
           "kind": "term"
         },
         {

@@ -10,8 +10,8 @@
     {
       "n": 1,
       "title": "Hello and your name",
-      "objective": "Hello and your name: Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here.",
-      "focus": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here.",
+      "objective": "Hello and your name: Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question.",
+      "focus": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question.",
       "words": [
         {
           "es": "こんにちは",
@@ -49,8 +49,13 @@
           "kind": "term"
         },
         {
-          "es": "ありがとう",
-          "en": "thank you",
+          "es": "こちらこそ",
+          "en": "likewise",
+          "kind": "term"
+        },
+        {
+          "es": "ありがとうございます",
+          "en": "thank you (polite)",
           "kind": "term"
         },
         {
@@ -64,7 +69,7 @@
           "kind": "phrase"
         },
         {
-          "es": "おなまえは？",
+          "es": "おなまえは なんですか。",
           "en": "What is your name?",
           "kind": "phrase"
         },
@@ -89,8 +94,8 @@
     {
       "n": 2,
       "title": "This and that",
-      "objective": "This and that: Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. Japanese nouns have no articles or grammatical gender.",
-      "focus": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. Japanese nouns have no articles or grammatical gender.",
+      "objective": "This and that: Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender.",
+      "focus": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender.",
       "words": [
         {
           "es": "これ",
@@ -108,6 +113,11 @@
           "kind": "term"
         },
         {
+          "es": "この",
+          "en": "this (before a noun)",
+          "kind": "term"
+        },
+        {
           "es": "ほん",
           "en": "book",
           "kind": "term"
@@ -118,8 +128,8 @@
           "kind": "term"
         },
         {
-          "es": "ペン",
-          "en": "pen",
+          "es": "えんぴつ",
+          "en": "pencil",
           "kind": "term"
         },
         {
@@ -130,6 +140,16 @@
         {
           "es": "なん",
           "en": "what",
+          "kind": "term"
+        },
+        {
+          "es": "の",
+          "en": "of; possessive",
+          "kind": "term"
+        },
+        {
+          "es": "うえ",
+          "en": "on top",
           "kind": "term"
         },
         {
@@ -158,8 +178,8 @@
           "kind": "phrase"
         },
         {
-          "es": "ペンは つくえの うえです。",
-          "en": "The pen is on the desk.",
+          "es": "えんぴつは つくえの うえです。",
+          "en": "The pencil is on the desk.",
           "kind": "phrase"
         }
       ],
@@ -168,8 +188,8 @@
     {
       "n": 3,
       "title": "One or several",
-      "objective": "One or several: Finish reading basic hiragana and recognize common katakana words. Japanese nouns usually do not change for plural; quantity and context tell us how many. Use the counter ～つ for general objects.",
-      "focus": "Finish reading basic hiragana and recognize common katakana words. Japanese nouns usually do not change for plural; quantity and context tell us how many. Use the counter ～つ for general objects.",
+      "objective": "One or several: Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を.",
+      "focus": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を.",
       "words": [
         {
           "es": "ひとつ",
@@ -187,8 +207,8 @@
           "kind": "term"
         },
         {
-          "es": "ほん",
-          "en": "book",
+          "es": "にさつ",
+          "en": "two bound volumes",
           "kind": "term"
         },
         {
@@ -197,8 +217,8 @@
           "kind": "term"
         },
         {
-          "es": "ペン",
-          "en": "pen",
+          "es": "けしゴム",
+          "en": "eraser",
           "kind": "term"
         },
         {
@@ -212,47 +232,57 @@
           "kind": "term"
         },
         {
-          "es": "ノートを ふたつ ください。",
+          "es": "も",
+          "en": "also; too",
+          "kind": "term"
+        },
+        {
+          "es": "なか",
+          "en": "inside",
+          "kind": "term"
+        },
+        {
+          "es": "ノートを にさつ ください。",
           "en": "Two notebooks, please.",
           "kind": "phrase"
         },
         {
-          "es": "はい、ノートを ふたつですね。",
+          "es": "はい、ノートを にさつですね。",
           "en": "Yes, two notebooks, correct?",
           "kind": "phrase"
         },
         {
-          "es": "ペンも ひとつ ください。",
-          "en": "One pen too, please.",
+          "es": "けしゴムも ひとつ ください。",
+          "en": "One eraser too, please.",
           "kind": "phrase"
         },
         {
-          "es": "ペンは あおですか。",
-          "en": "Is the pen blue?",
+          "es": "はい、けしゴムも ひとつですね。",
+          "en": "Yes, one eraser too, correct?",
           "kind": "phrase"
         },
         {
-          "es": "はい、あおい ペンです。",
-          "en": "Yes, it is a blue pen.",
+          "es": "ノートは かばんの なかです。",
+          "en": "The notebooks are in the bag.",
           "kind": "phrase"
         },
         {
-          "es": "ほんは かばんの なかです。",
-          "en": "The book is in the bag.",
+          "es": "ありがとうございます。",
+          "en": "Thank you very much.",
           "kind": "phrase"
         }
       ],
-      "speaking": "Role-play packing for class with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested."
+      "speaking": "Role-play at the stationery counter with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested."
     },
     {
       "n": 4,
       "title": "Who is speaking?",
-      "objective": "Who is speaking?: Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask だれですか for who; use ～さん politely after a person's name.",
-      "focus": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask だれですか for who; use ～さん politely after a person's name.",
+      "objective": "Who is speaking?: Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name.",
+      "focus": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name.",
       "words": [
         {
-          "es": "だれ",
-          "en": "who",
+          "es": "どなた",
+          "en": "who (polite)",
           "kind": "term"
         },
         {
@@ -291,7 +321,7 @@
           "kind": "term"
         },
         {
-          "es": "こちらは だれですか。",
+          "es": "こちらは どなたですか。",
           "en": "Who is this person?",
           "kind": "phrase"
         },
@@ -326,8 +356,8 @@
     {
       "n": 5,
       "title": "Identity and origin",
-      "objective": "Identity and origin: Use ～です for identity or role and ～から来ました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
-      "focus": "Use ～です for identity or role and ～から来ました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
+      "objective": "Identity and origin: Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
+      "focus": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
       "words": [
         {
           "es": "にほん",
@@ -380,8 +410,8 @@
           "kind": "phrase"
         },
         {
-          "es": "あなたは どちらから きましたか。",
-          "en": "Where did you come from?",
+          "es": "けんさんは どちらから きましたか。",
+          "en": "Ken, where did you come from?",
           "kind": "phrase"
         },
         {
@@ -421,6 +451,16 @@
         {
           "es": "あそこ",
           "en": "over there",
+          "kind": "term"
+        },
+        {
+          "es": "あの",
+          "en": "that (before a noun, over there)",
+          "kind": "term"
+        },
+        {
+          "es": "どこ",
+          "en": "where",
           "kind": "term"
         },
         {
@@ -484,8 +524,8 @@
     {
       "n": 7,
       "title": "What is in the room?",
-      "objective": "What is in the room?: Ask ～に何がありますか about things and ～にだれがいますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
-      "focus": "Ask ～に何がありますか about things and ～にだれがいますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
+      "objective": "What is in the room?: Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
+      "focus": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
       "words": [
         {
           "es": "なに",
@@ -508,18 +548,23 @@
           "kind": "term"
         },
         {
-          "es": "でんき",
-          "en": "light",
+          "es": "つくえ",
+          "en": "desk",
+          "kind": "term"
+        },
+        {
+          "es": "いす",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "es": "と",
+          "en": "and (between nouns)",
           "kind": "term"
         },
         {
           "es": "となり",
           "en": "next to",
-          "kind": "term"
-        },
-        {
-          "es": "なか",
-          "en": "inside",
           "kind": "term"
         },
         {
@@ -534,7 +579,7 @@
         },
         {
           "es": "つくえと いすが あります。",
-          "en": "There are a desk and chairs.",
+          "en": "There is a desk and a chair.",
           "kind": "phrase"
         },
         {
@@ -563,8 +608,8 @@
     {
       "n": 8,
       "title": "Numbers, age, and counters",
-      "objective": "Numbers, age, and counters: Read numbers one to ten. Use ～歳 for age and an appropriate counter for objects; ～つ counts general items, while ～人 counts people. Some readings change, including 一人 (ひとり).",
-      "focus": "Read numbers one to ten. Use ～歳 for age and an appropriate counter for objects; ～つ counts general items, while ～人 counts people. Some readings change, including 一人 (ひとり).",
+      "objective": "Numbers, age, and counters: Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい.",
+      "focus": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい.",
       "words": [
         {
           "es": "いち",
@@ -582,13 +627,38 @@
           "kind": "term"
         },
         {
-          "es": "じゅう",
-          "en": "ten",
+          "es": "よん",
+          "en": "four",
           "kind": "term"
         },
         {
-          "es": "ひとり",
-          "en": "one person",
+          "es": "ご",
+          "en": "five",
+          "kind": "term"
+        },
+        {
+          "es": "ろく",
+          "en": "six",
+          "kind": "term"
+        },
+        {
+          "es": "なな",
+          "en": "seven",
+          "kind": "term"
+        },
+        {
+          "es": "はち",
+          "en": "eight",
+          "kind": "term"
+        },
+        {
+          "es": "きゅう",
+          "en": "nine",
+          "kind": "term"
+        },
+        {
+          "es": "じゅう",
+          "en": "ten",
           "kind": "term"
         },
         {
@@ -602,18 +672,13 @@
           "kind": "term"
         },
         {
-          "es": "いくつ",
-          "en": "how many/how old",
-          "kind": "term"
-        },
-        {
           "es": "がくせいは なんにん いますか。",
           "en": "How many students are there?",
           "kind": "phrase"
         },
         {
-          "es": "さんにん います。",
-          "en": "There are three people.",
+          "es": "ふたり います。",
+          "en": "There are two people.",
           "kind": "phrase"
         },
         {
@@ -642,8 +707,8 @@
     {
       "n": 9,
       "title": "Ask and say no",
-      "objective": "Ask and say no: Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence; polite verb negatives use ～ません.",
-      "focus": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence; polite verb negatives use ～ません.",
+      "objective": "Ask and say no: Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません.",
+      "focus": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません.",
       "words": [
         {
           "es": "はい",
@@ -681,8 +746,13 @@
           "kind": "term"
         },
         {
-          "es": "だいじょうぶ",
-          "en": "all right",
+          "es": "せつめい",
+          "en": "explanation",
+          "kind": "term"
+        },
+        {
+          "es": "まだ",
+          "en": "not yet",
           "kind": "term"
         },
         {
@@ -696,13 +766,13 @@
           "kind": "phrase"
         },
         {
-          "es": "この ほんは あなたのですか。",
-          "en": "Is this book yours?",
+          "es": "この ほんは けんさんのですか。",
+          "en": "Is this Ken's book?",
           "kind": "phrase"
         },
         {
-          "es": "いいえ、わたしの じゃありません。",
-          "en": "No, it is not mine.",
+          "es": "いいえ、けんさんのじゃありません。",
+          "en": "No, it is not Ken's.",
           "kind": "phrase"
         },
         {
@@ -721,8 +791,8 @@
     {
       "n": 10,
       "title": "Ask for help and review",
-      "objective": "Ask for help and review: Keep a conversation going with わかりません, もう一度お願いします, and ゆっくりお願いします. Review the polite questions, quantity, and existence forms from Foundation.",
-      "focus": "Keep a conversation going with わかりません, もう一度お願いします, and ゆっくりお願いします. Review the polite questions, quantity, and existence forms from Foundation.",
+      "objective": "Ask for help and review: Keep a conversation going with わかりません, もういちど おねがいします, and ゆっくり おねがいします. Review the polite questions, quantity, and existence forms from Foundation.",
+      "focus": "Keep a conversation going with わかりません, もういちど おねがいします, and ゆっくり おねがいします. Review the polite questions, quantity, and existence forms from Foundation.",
       "words": [
         {
           "es": "もういちど",
@@ -745,6 +815,21 @@
           "kind": "term"
         },
         {
+          "es": "わかりました",
+          "en": "I understand / got it",
+          "kind": "term"
+        },
+        {
+          "es": "すみません",
+          "en": "excuse me",
+          "kind": "term"
+        },
+        {
+          "es": "はなします",
+          "en": "speak",
+          "kind": "term"
+        },
+        {
           "es": "しつもん",
           "en": "question",
           "kind": "term"
@@ -755,13 +840,18 @@
           "kind": "term"
         },
         {
+          "es": "ことば",
+          "en": "word",
+          "kind": "term"
+        },
+        {
           "es": "だいじょうぶです",
           "en": "it is all right",
           "kind": "term"
         },
         {
           "es": "ありがとうございます",
-          "en": "thank you very much",
+          "en": "thank you (polite)",
           "kind": "term"
         },
         {

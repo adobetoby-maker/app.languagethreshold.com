@@ -702,3 +702,20 @@ test("mission keeps four exchanges available before a natural close, while safet
     const safe = await h.speak.POST(request("speak", missionBody(c)));
     assert.equal((await safe.json()).shouldEnd, true);
   }));
+
+test("word tutor uses existing admission gates and returns a bounded card without conversation turns", async () => fixture(async (h, c) => {
+  const value = { mode: "lookup", word: "mapa", sentence: "Mira el mapa.", language: "Spanish", nativeLanguage: "English", level: "A2" };
+  c.auth = async () => null;
+  assert.equal((await h.speak.POST(request("speak", value))).status, 401);
+  assert.equal(c.models.length, 0);
+  c.auth = async () => ({ userId: "synthetic-a" });
+  const card = { meaning: "map", usage: "A masculine noun.", example: "Mira el mapa.", exampleMeaning: "Look at the map." };
+  c.provider = async () => ({ content: [{ type: "tool_use", input: card }] });
+  const response = await h.speak.POST(request("speak", value));
+  assert.equal(response.status, 200); privateHeaders(response);
+  assert.deepEqual(await response.json(), { card });
+  assert.deepEqual(JSON.parse(c.models.at(-1).messages[0].content), { word: "mapa", sentence: "Mira el mapa." });
+  assert.equal(c.models.at(-1).messages.length, 1);
+  c.provider = async () => ({ content: [{ type: "tool_use", input: { ...card, meaning: "" } }] });
+  assert.equal((await h.speak.POST(request("speak", value))).status, 502);
+}));

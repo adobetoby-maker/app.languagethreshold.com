@@ -145,6 +145,9 @@ export function ParallelReader() {
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
     return marker?.section === "see" ? (marker.ref ?? null) : null;
   });
+  // The orientation is a Reader item, not a numbered module passage or saved learning result.
+  // A Core lesson opening its passage must go straight to that passage.
+  const [showReaderIntro, setShowReaderIntro] = useState(() => !lessonPassageId);
   const lessonPassageSeen = useRef(false);
   const pairRef = useRef(state);
   pairRef.current = state;
@@ -633,9 +636,88 @@ export function ParallelReader() {
     );
   }
 
+  if (showReaderIntro) {
+    return (
+      <div className="reader-page mx-auto w-full max-w-3xl px-4 py-5 sm:py-8">
+        <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-gold-ink">
+            Reader · Start here
+          </span>
+          <button
+            type="button"
+            onClick={() => setShowReaderIntro(false)}
+            className="rounded-full border border-gold/50 px-4 py-2 text-sm font-semibold text-gold-ink hover:bg-gold/10"
+          >
+            First reading <ChevronRight className="ml-1 inline h-4 w-4" />
+          </button>
+        </div>
+        <article className="rounded-2xl border border-border/60 bg-card/70 p-5 sm:p-8">
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-gold-ink">
+            How to use this app
+          </p>
+          <h1 className="font-display text-3xl font-semibold text-foreground">
+            Start with a lesson. Practice what you learn.
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Choose your language and module, then open Core 60 to work through Foundation, Core, and
+            Master. Return to a lesson to pick up where you left off.
+          </p>
+          <ol className="mt-6 space-y-4 text-sm leading-relaxed text-foreground sm:text-base">
+            <li>
+              <strong>1. Learn:</strong> Start or continue a Core 60 lesson. Work through See,
+              Recall, Hear, Type, Say, and Write at your own pace.
+            </li>
+            <li>
+              <strong>2. Read:</strong> Select a reading here. Listen to a passage, tap a word for
+              help, and save notes or words you want to revisit.
+            </li>
+            <li>
+              <strong>3. Practice:</strong> Review saved words in Cards, try Grammar and Practice
+              games, or use Speak for a conversation tied to your module.
+            </li>
+            <li>
+              <strong>4. Return:</strong> Open your account menu for your dashboard, progress, and
+              streak zone. The flame in the top bar also opens the streak zone.
+            </li>
+          </ol>
+          <p className="mt-6 text-sm text-muted-foreground">
+            This guide is in English. The readings that follow use your selected language.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => setShowReaderIntro(false)}
+              className="rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-background hover:opacity-90"
+            >
+              Begin first reading
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setShowReaderIntro(false);
+                setDrawerOpen(true);
+              }}
+              className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground hover:border-gold/60"
+            >
+              Choose another reading
+            </button>
+          </div>
+        </article>
+      </div>
+    );
+  }
+
   return (
     <div className="fade-in reader-page mx-auto w-full max-w-6xl">
       <LessonReturnPill kind="see" />
+
+      <button
+        type="button"
+        onClick={() => setShowReaderIntro(true)}
+        className="mb-3 rounded-full border border-border/60 bg-card/40 px-3 py-1.5 text-xs text-gold-ink hover:border-gold/60"
+      >
+        Start here · How to use this app
+      </button>
 
       {/* Library readings are separate from the module's Core 30 lessons. */}
       {lessonIds.length > 1 && (

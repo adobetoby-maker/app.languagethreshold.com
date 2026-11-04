@@ -15,7 +15,7 @@ import {
 import { AuthModal } from "./AuthModal";
 import { LegacyPracticeRecovery } from "./LegacyPracticeRecovery";
 
-export function AuthButton() {
+export function AuthButton({ onDashboardNavigate }: { onDashboardNavigate?: () => void } = {}) {
   const { user, signOut, loading } = useAuth();
   const { isActive } = useSubscription();
   const navigate = useNavigate();
@@ -67,6 +67,16 @@ export function AuthButton() {
             <span className="truncate">{user.email}</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
+          <DropdownMenuItem
+            onSelect={() => {
+              if (onDashboardNavigate) onDashboardNavigate();
+              else navigate({ to: "/", search: { tab: "dashboard" } });
+            }}
+            className="font-mono text-xs uppercase tracking-[0.16em]"
+          >
+            <UserIcon className="mr-2 h-3.5 w-3.5" />
+            My dashboard
+          </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => setRecoveryOpen(true)}>
             Recover older saves
           </DropdownMenuItem>

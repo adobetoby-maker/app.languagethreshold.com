@@ -51,9 +51,9 @@
           "explanation": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question."
         },
         {
-          "prompt": "わたしは あき____。",
-          "hint": "I am Aki.",
-          "answer": "です",
+          "prompt": "けんさん、____。",
+          "hint": "Ken, pleased to meet you.",
+          "answer": "よろしくおねがいします",
           "explanation": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question."
         }
       ]
@@ -103,15 +103,15 @@
           "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
         },
         {
-          "prompt": "これは ____ですか。",
-          "hint": "What is this?",
-          "answer": "なん",
-          "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
-        },
-        {
           "prompt": "____は ほんです。",
           "hint": "That is a book.",
           "answer": "それ",
+          "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
+        },
+        {
+          "prompt": "それは ____です。",
+          "hint": "That is a book.",
+          "answer": "ほん",
           "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
         }
       ]
@@ -213,21 +213,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "こちらは ____ですか。",
-          "hint": "Who is this person?",
-          "answer": "どなた",
-          "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
-        },
-        {
           "prompt": "____は どなたですか。",
           "hint": "Who is this person?",
           "answer": "こちら",
           "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
         },
         {
-          "prompt": "たなか____です。",
-          "hint": "This is Tanaka.",
-          "answer": "さん",
+          "prompt": "いいえ、____です。",
+          "hint": "No, a student.",
+          "answer": "がくせい",
+          "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
+        },
+        {
+          "prompt": "わたしの ____です。",
+          "hint": "This person is my friend.",
+          "answer": "ともだち",
           "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
         }
       ]
@@ -283,9 +283,9 @@
           "explanation": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual."
         },
         {
-          "prompt": "にほん____ きました。",
-          "hint": "I came from Japan.",
-          "answer": "から",
+          "prompt": "けんさんは ____から きましたか。",
+          "hint": "Ken, where did you come from?",
+          "answer": "どちら",
           "explanation": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual."
         }
       ]
@@ -415,6 +415,7 @@
           "ふたり います。",
           "ペンは いくつ ありますか。",
           "ふたつ あります。",
+          "いち、に、さん。",
           "けんさんは なんさいですか。",
           "じゅうはっさいです。"
         ],
@@ -423,6 +424,7 @@
           "There are two people.",
           "How many pens are there?",
           "There are two.",
+          "One, two, three.",
           "How old is Ken?",
           "He is eighteen years old."
         ]
@@ -451,15 +453,15 @@
           "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
         },
         {
-          "prompt": "けん____は なんさいですか。",
-          "hint": "How old is Ken?",
-          "answer": "さん",
+          "prompt": "____、に、さん。",
+          "hint": "One, two, three.",
+          "answer": "いち",
           "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
         },
         {
-          "prompt": "けんさんは なん____ですか。",
-          "hint": "How old is Ken?",
-          "answer": "さい",
+          "prompt": "いち、に、____。",
+          "hint": "One, two, three.",
+          "answer": "さん",
           "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
         }
       ]
@@ -843,12 +845,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この かさは ____ですか。",
-          "hint": "Whose umbrella is this?",
-          "answer": "だれの",
-          "explanation": "の links a person or group to a belonging. A clear name is usually more natural than repeating a pronoun."
-        },
-        {
           "prompt": "この ____は だれのですか。",
           "hint": "Whose umbrella is this?",
           "answer": "かさ",
@@ -858,6 +854,12 @@
           "prompt": "____です。",
           "hint": "It is Tanaka's.",
           "answer": "たなかさんの",
+          "explanation": "の links a person or group to a belonging. A clear name is usually more natural than repeating a pronoun."
+        },
+        {
+          "prompt": "その かばんは ____です。",
+          "hint": "That bag is mine.",
+          "answer": "わたしの",
           "explanation": "の links a person or group to a belonging. A clear name is usually more natural than repeating a pronoun."
         }
       ]
@@ -961,15 +963,15 @@
           "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
         },
         {
-          "prompt": "あした えきに い____。",
-          "hint": "Tomorrow I will go to the station.",
-          "answer": "きます",
-          "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
-        },
-        {
           "prompt": "あした ____に いきます。",
           "hint": "Tomorrow I will go to the station.",
           "answer": "えき",
+          "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
+        },
+        {
+          "prompt": "ともだちも えきに ____。",
+          "hint": "My friend will come to the station too.",
+          "answer": "きます",
           "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
         }
       ]
@@ -1069,12 +1071,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "いつ べん____しますか。",
-          "hint": "When will we study?",
-          "answer": "きょう",
-          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
-        },
-        {
           "prompt": "____ べんきょうしますか。",
           "hint": "When will we study?",
           "answer": "いつ",
@@ -1084,6 +1080,12 @@
           "prompt": "____ べんきょうします。",
           "hint": "We will study tomorrow.",
           "answer": "あした",
+          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
+        },
+        {
+          "prompt": "____ あしたですか。",
+          "hint": "Why tomorrow?",
+          "answer": "どうして",
           "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
         }
       ]
@@ -1195,9 +1197,9 @@
           "explanation": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern."
         },
         {
-          "prompt": "どんな おんがくが ____ですか。",
-          "hint": "What kind of music do you like?",
-          "answer": "すき",
+          "prompt": "____ おんがくが すきです。",
+          "hint": "I like quiet music.",
+          "answer": "しずかな",
           "explanation": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern."
         }
       ]
@@ -1251,8 +1253,8 @@
           "explanation": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order."
         },
         {
-          "prompt": "なにが ____ですか。",
-          "hint": "What do you want?",
+          "prompt": "おちゃが ____です。",
+          "hint": "I want tea.",
           "answer": "ほしい",
           "explanation": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order."
         }
@@ -1527,15 +1529,15 @@
           "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
         },
         {
-          "prompt": "この ノートは ____ですか。",
-          "hint": "How much is this notebook?",
-          "answer": "いくら",
-          "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
-        },
-        {
           "prompt": "____ ノートは いくらですか。",
           "hint": "How much is this notebook?",
           "answer": "この",
+          "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
+        },
+        {
+          "prompt": "それは ____です。",
+          "hint": "That one is two hundred yen.",
+          "answer": "にひゃくえん",
           "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
         }
       ]
@@ -1583,15 +1585,15 @@
           "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
         },
         {
-          "prompt": "た____さんは としょかんに います。",
-          "hint": "Tanaka is in the library.",
-          "answer": "なか",
-          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
-        },
-        {
           "prompt": "としょかんで ____。",
           "hint": "Tanaka studies at the library.",
           "answer": "べんきょうします",
+          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
+        },
+        {
+          "prompt": "ほんは つくえの ____に あります。",
+          "hint": "The book is on the desk.",
+          "answer": "うえ",
           "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
         }
       ]
@@ -1807,15 +1809,15 @@
           "explanation": "A は B より… compares A with B. A と B と、どちらが… asks which of two; いちばん marks the top choice in a group."
         },
         {
-          "prompt": "この みせは あの みせ____ ちかいです。",
-          "hint": "This shop is closer than that one.",
-          "answer": "より",
-          "explanation": "A は B より… compares A with B. A と B と、どちらが… asks which of two; いちばん marks the top choice in a group."
-        },
-        {
           "prompt": "この ____は あの みせより ちかいです。",
           "hint": "This shop is closer than that one.",
           "answer": "みせ",
+          "explanation": "A は B より… compares A with B. A と B と、どちらが… asks which of two; いちばん marks the top choice in a group."
+        },
+        {
+          "prompt": "でも、あの みせの ほうが ____です。",
+          "hint": "But that shop is quieter.",
+          "answer": "しずか",
           "explanation": "A は B より… compares A with B. A と B と、どちらが… asks which of two; いちばん marks the top choice in a group."
         }
       ]
@@ -2093,9 +2095,9 @@
           "explanation": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later."
         },
         {
-          "prompt": "せんしゅう きょうとに い____。",
+          "prompt": "せんしゅう ____に いきました。",
           "hint": "Last week I went to Kyoto.",
-          "answer": "きました",
+          "answer": "きょうと",
           "explanation": "Every polite verb forms the past with ～ます → ～ました: いきます → いきました, きます → きました, します → しました. Nouns and な-adjectives take でした, as in りょこうでした and きれいでした. い-adjectives change themselves: たのしい → たのしかったです. The irregular plain past forms いった, きた and した come later."
         }
       ]
@@ -2193,12 +2195,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "____しに としょかんへ いきます。",
-          "hint": "I am going to the library to study.",
-          "answer": "べんきょう",
-          "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
-        },
-        {
           "prompt": "べんきょうしに ____へ いきます。",
           "hint": "I am going to the library to study.",
           "answer": "としょかん",
@@ -2208,6 +2204,12 @@
           "prompt": "べんきょうしに としょかんへ ____。",
           "hint": "I am going to the library to study.",
           "answer": "いきます",
+          "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
+        },
+        {
+          "prompt": "しけんの ために ほんを ____。",
+          "hint": "I read a book for the exam.",
+          "answer": "よみます",
           "explanation": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので."
         }
       ]

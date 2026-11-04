@@ -148,11 +148,11 @@ def build():
             checks = []
             for line, native in pairs:
                 for word, meaning in sorted(terms, key=lambda pair: -len(pair[0])):
-                    match = term_match(word, line) if stage == "master" else None
-                    start = match.start("term") if match else line.find(word) if stage != "master" else -1
+                    match = term_match(word, line)
+                    start = match.start("term") if match else -1
                     if len(compact(word)) < 2 or start < 0 or any(item["answer"] == word for item in checks):
                         continue
-                    end = match.end("term") if match else start + len(word)
+                    end = match.end("term")
                     checks.append({"prompt": line[:start] + "____" + line[end:], "hint": native,
                                    "answer": word, "explanation": authored["focus"]})
                     if len(checks) == 3:

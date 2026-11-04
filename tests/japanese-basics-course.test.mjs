@@ -87,3 +87,10 @@ test("Master vocabulary and checks do not split names or Japanese words into fal
   assert.ok(!terms(13).some((word) => word.es === "いけません" && word.en === "must not"));
   assert.ok(!practice[13].checks.some((check) => check.answer === "いけません"));
 });
+
+test("Foundation cloze checks use standalone terms rather than name suffixes or age endings", () => {
+  const foundation = read("src/data/japanese-basics-practice.json")["foundation-japanese-basics"];
+  assert.ok(!foundation[8].checks.some((check) => check.prompt.includes("けん____") && check.answer === "さん"));
+  assert.ok(!foundation[8].checks.some((check) => check.prompt.includes("なん____") && check.answer === "さい"));
+  assert.ok(foundation[8].checks.some((check) => check.answer === "いち"));
+});

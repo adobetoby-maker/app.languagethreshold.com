@@ -2321,12 +2321,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "こちらは たな____んです。",
-          "hint": "This is Tanaka.",
-          "answer": "かさ",
-          "explanation": "Introduce another person with name, role, and origin, then ask a follow-up politely."
-        },
-        {
           "prompt": "たなかさんは ____ がくせいです。",
           "hint": "Tanaka is a new student.",
           "answer": "あたらしい",
@@ -2337,6 +2331,12 @@
           "hint": "Tanaka is a new student.",
           "answer": "がくせい",
           "explanation": "Introduce another person with name, role, and origin, then ask a follow-up politely."
+        },
+        {
+          "prompt": "____ ともだちです。",
+          "hint": "Tanaka is my friend.",
+          "answer": "わたしの",
+          "explanation": "Introduce another person with name, role, and origin, then ask a follow-up politely."
         }
       ]
     },
@@ -2345,10 +2345,10 @@
       "reading": {
         "title": "A class supply note",
         "target": [
-          "あしたの クラスに ノートを ふたつ もってきてください。",
+          "あしたの クラスに ノートを にさつ もってきてください。",
           "ペンも ひとつ ひつようです。",
           "じしょは いりますか。",
-          "いいえ、きょうは いりません。",
+          "いいえ、あしたは いりません。",
           "この かばんに ノートを いれます。",
           "ペンは どこに ありますか。",
           "つくえの うえに あります。",
@@ -2362,11 +2362,11 @@
           "Please bring two notebooks to tomorrow's class.",
           "You also need one pen.",
           "Do we need a dictionary?",
-          "No, not today.",
+          "No, not tomorrow.",
           "I will put the notebooks in this bag.",
           "Where is the pen?",
           "It is on the desk.",
-          "Now this is all right.",
+          "That's everything, then.",
           "The notebooks are blue.",
           "The pen is black.",
           "The book is in the bag.",
@@ -2374,10 +2374,10 @@
         ]
       },
       "grammar": {
-        "focus": "Read a supplies note, count items, and clarify which things are needed.",
+        "focus": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks.",
         "examples": [
           {
-            "es": "あしたの クラスに ノートを ふたつ もってきてください。",
+            "es": "あしたの クラスに ノートを にさつ もってきてください。",
             "en": "Please bring two notebooks to tomorrow's class."
           },
           {
@@ -2387,26 +2387,26 @@
         ]
       },
       "speaking": "Role-play a class supply note with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "あしたの クラスに ノートを ふたつ もってきてください。",
+      "openingLine": "あしたの クラスに ノートを にさつ もってきてください。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "あしたの クラスに ノートを ふたつ もってきて____。",
+          "prompt": "あしたの クラスに ノートを にさつ ____。",
           "hint": "Please bring two notebooks to tomorrow's class.",
-          "answer": "ください",
-          "explanation": "Read a supplies note, count items, and clarify which things are needed."
+          "answer": "もってきてください",
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks."
         },
         {
-          "prompt": "あしたの クラスに ____を ふたつ もってきてください。",
+          "prompt": "あしたの クラスに ノートを ____ もってきてください。",
+          "hint": "Please bring two notebooks to tomorrow's class.",
+          "answer": "にさつ",
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks."
+        },
+        {
+          "prompt": "あしたの クラスに ____を にさつ もってきてください。",
           "hint": "Please bring two notebooks to tomorrow's class.",
           "answer": "ノート",
-          "explanation": "Read a supplies note, count items, and clarify which things are needed."
-        },
-        {
-          "prompt": "ペンも ひとつ ____。",
-          "hint": "You also need one pen.",
-          "answer": "ひつようです",
-          "explanation": "Read a supplies note, count items, and clarify which things are needed."
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks."
         }
       ]
     },
@@ -2416,9 +2416,9 @@
         "title": "Before a group activity",
         "target": [
           "きょうは さんにんで べんきょうします。",
-          "ノートは みっつ あります。",
-          "わたしは あきさんに ひとつ あげます。",
-          "けんさんにも ひとつ あげます。",
+          "ノートは さんさつ あります。",
+          "わたしは あきさんに いっさつ あげます。",
+          "けんさんにも いっさつ あげます。",
           "せんせいから ペンを ふたつ もらいました。",
           "あきさんは わたしに コピーを くれます。",
           "みんな しりょうを もっていますか。",
@@ -2431,27 +2431,27 @@
         "native": [
           "Three people will study today.",
           "There are three notebooks.",
-          "I give one to Aki.",
-          "I give one to Ken too.",
+          "I give one notebook to Aki.",
+          "I give one notebook to Ken too.",
           "I received two pens from the teacher.",
           "Aki gives me a copy.",
           "Does everyone have the materials?",
           "Yes, all three of us do.",
           "Ken receives one pen.",
           "Aki has a notebook.",
-          "The rest are in my bag.",
+          "The remaining pen is in my bag.",
           "I tell the teacher the number."
         ]
       },
       "grammar": {
-        "focus": "Coordinate quantities, recipients, and materials; confirm what each person received.",
+        "focus": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here.",
         "examples": [
           {
             "es": "きょうは さんにんで べんきょうします。",
             "en": "Three people will study today."
           },
           {
-            "es": "ノートは みっつ あります。",
+            "es": "ノートは さんさつ あります。",
             "en": "There are three notebooks."
           }
         ]
@@ -2461,22 +2461,22 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "きょうは さんにんで ____。",
+          "prompt": "きょうは ____で べんきょうします。",
           "hint": "Three people will study today.",
-          "answer": "べんきょうします",
-          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
+          "answer": "さんにん",
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
         },
         {
           "prompt": "____は さんにんで べんきょうします。",
           "hint": "Three people will study today.",
           "answer": "きょう",
-          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
         },
         {
-          "prompt": "ノートは みっつ ____。",
+          "prompt": "ノートは ____ あります。",
           "hint": "There are three notebooks.",
-          "answer": "あります",
-          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
+          "answer": "さんさつ",
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
         }
       ]
     },
@@ -2514,7 +2514,7 @@
         ]
       },
       "grammar": {
-        "focus": "Separate who someone is, how they feel, and where they are.",
+        "focus": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress.",
         "examples": [
           {
             "es": "けんさんは がくせいです。",
@@ -2534,19 +2534,19 @@
           "prompt": "けんさんは ____です。",
           "hint": "Ken is a student.",
           "answer": "がくせい",
-          "explanation": "Separate who someone is, how they feel, and where they are."
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
         },
         {
-          "prompt": "きょうは つかれて____。",
+          "prompt": "きょうは ____。",
           "hint": "Today he is tired.",
-          "answer": "います",
-          "explanation": "Separate who someone is, how they feel, and where they are."
+          "answer": "つかれています",
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
         },
         {
-          "prompt": "____に います。",
-          "hint": "He is in the library.",
-          "answer": "としょかん",
-          "explanation": "Separate who someone is, how they feel, and where they are."
+          "prompt": "いま どこに ____か。",
+          "hint": "Where is he now?",
+          "answer": "います",
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
         }
       ]
     },
@@ -2560,11 +2560,11 @@
           "いすは まどの となりです。",
           "ドアの ちかくに せんせいが います。",
           "あきさんも へやに います。",
-          "ねこは いません。",
+          "となりの へやには だれも いません。",
           "かいぎは ここで します。",
           "でんきは ついています。",
           "この へやは しずかです。",
-          "としょかんで べんきょうする ひとが います。",
+          "あきさんは つくえの となりに います。",
           "ドアの そとに かばんが あります。",
           "かばんの もちぬしを さがします。"
         ],
@@ -2574,17 +2574,17 @@
           "The chair is next to the window.",
           "The teacher is near the door.",
           "Aki is also in the room.",
-          "There is no cat.",
+          "There is no one in the next room.",
           "The meeting will happen here.",
           "The light is on.",
           "This room is quiet.",
-          "There is someone studying in the library.",
+          "Aki is next to the desk.",
           "There is a bag outside the door.",
           "We look for the bag's owner."
         ]
       },
       "grammar": {
-        "focus": "Distinguish people and objects with います/あります and give useful locations.",
+        "focus": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on.",
         "examples": [
           {
             "es": "へやの なかに つくえが あります。",
@@ -2604,19 +2604,19 @@
           "prompt": "へやの なかに つくえが ____。",
           "hint": "There is a desk in the room.",
           "answer": "あります",
-          "explanation": "Distinguish people and objects with います/あります and give useful locations."
-        },
-        {
-          "prompt": "へやの なかに ____が あります。",
-          "hint": "There is a desk in the room.",
-          "answer": "つくえ",
-          "explanation": "Distinguish people and objects with います/あります and give useful locations."
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
         },
         {
           "prompt": "へやの ____に つくえが あります。",
           "hint": "There is a desk in the room.",
           "answer": "なか",
-          "explanation": "Distinguish people and objects with います/あります and give useful locations."
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
+        },
+        {
+          "prompt": "つくえの ____に ほんが あります。",
+          "hint": "A book is on the desk.",
+          "answer": "うえ",
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
         }
       ]
     },
@@ -2626,33 +2626,33 @@
         "title": "A quick correction",
         "target": [
           "すみません、しつもんが あります。",
-          "この ことばが わかりません。",
+          "「みち」が わかりません。",
           "もういちど おねがいします。",
           "はい、ゆっくり はなします。",
-          "この みちを しっていますか。",
-          "いいえ、しりません。",
+          "えきへ いきたいです。",
+          "では、ちずを みましょう。",
           "ちずを みても いいですか。",
-          "はい。これで わかりますか。",
-          "はい、わかりました。ありがとうございます。",
           "せんせいは ちずを みせます。",
           "えきは どこですか。",
           "この みちを まっすぐ いきます。",
-          "わたしは もういちど せつめいします。"
+          "せんせいは もういちど せつめいします。",
+          "これで わかりますか。",
+          "はい、わかりました。ありがとうございます。"
         ],
         "native": [
           "Excuse me, I have a question.",
-          "I do not understand this word.",
+          "I do not understand michi (route).",
           "One more time, please.",
           "Yes, I will speak slowly.",
-          "Do you know this route?",
-          "No, I do not know it.",
+          "I want to go to the station.",
+          "Then let us look at the map.",
           "May I look at the map?",
-          "Yes. Do you understand now?",
-          "Yes, I understand. Thank you.",
           "The teacher shows the map.",
           "Where is the station?",
-          "Go straight along this road.",
-          "I will explain once more."
+          "You go straight along this road.",
+          "The teacher explains once more.",
+          "Do you understand now?",
+          "Yes, I understand. Thank you."
         ]
       },
       "grammar": {
@@ -2663,8 +2663,8 @@
             "en": "Excuse me, I have a question."
           },
           {
-            "es": "この ことばが わかりません。",
-            "en": "I do not understand this word."
+            "es": "「みち」が わかりません。",
+            "en": "I do not understand michi (route)."
           }
         ]
       },
@@ -2673,21 +2673,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この ことばが ____。",
-          "hint": "I do not understand this word.",
+          "prompt": "____、しつもんが あります。",
+          "hint": "Excuse me, I have a question.",
+          "answer": "すみません",
+          "explanation": "Ask for repetition, name what you do not understand, and confirm the answer."
+        },
+        {
+          "prompt": "「みち」が ____。",
+          "hint": "I do not understand michi (route).",
           "answer": "わかりません",
           "explanation": "Ask for repetition, name what you do not understand, and confirm the answer."
         },
         {
-          "prompt": "もういちど ____。",
-          "hint": "One more time, please.",
-          "answer": "おねがいします",
-          "explanation": "Ask for repetition, name what you do not understand, and confirm the answer."
-        },
-        {
-          "prompt": "____ おねがいします。",
-          "hint": "One more time, please.",
-          "answer": "もういちど",
+          "prompt": "「____」が わかりません。",
+          "hint": "I do not understand michi (route).",
+          "answer": "みち",
           "explanation": "Ask for repetition, name what you do not understand, and confirm the answer."
         }
       ]
@@ -2707,7 +2707,7 @@
           "よる うちへ かえります。",
           "しゅうまつは べんきょうしません。",
           "でも、あたらしい ことばを ときどき よみます。",
-          "わからない ことばは せんせいに ききます。",
+          "むずかしい ことばは せんせいに ききます。",
           "この やりかたが すきです。"
         ],
         "native": [
@@ -2721,7 +2721,7 @@
           "I return home in the evening.",
           "I do not study on weekends.",
           "But I sometimes read new words.",
-          "I ask the teacher about words I do not understand.",
+          "I ask the teacher about difficult words.",
           "I like this way of studying."
         ]
       },
@@ -2755,9 +2755,9 @@
           "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
         },
         {
-          "prompt": "あさごはんを ____。",
-          "hint": "I eat breakfast.",
-          "answer": "たべます",
+          "prompt": "がっこうで にほんごを ____。",
+          "hint": "I study Japanese at school.",
+          "answer": "べんきょうします",
           "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
         }
       ]
@@ -2768,30 +2768,30 @@
         "title": "Messages before Saturday",
         "target": [
           "あきさんから メッセージが きました。",
-          "『どようびに あえますか。』",
-          "わたしは あう つもりです。",
-          "『ごご さんじは どうですか。』",
-          "あきさんは『だいじょうぶです』と かきました。",
+          "「どようびに あえますか。」",
+          "わたしは どようびに あきさんに あう つもりです。",
+          "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "あきさんは「だいじょうぶです」と かきました。",
           "えきの まえで あう よていです。",
           "さんじに いきます。",
-          "まえの よる でんわします。",
-          "わたしも『さんじで だいじょうぶです』と かきました。",
+          "どようびの まえの よる でんわします。",
+          "わたしは「では、どようびに」と かきました。",
           "えきの まえは わかりやすい ばしょです。",
-          "あめなら、なかで まちます。",
+          "あめが ふっていますから、えきの なかで まちます。",
           "あきさんも りょうかいしました。"
         ],
         "native": [
           "A message came from Aki.",
           "“Can we meet on Saturday?”",
-          "I intend to meet.",
-          "“How about three in the afternoon?”",
+          "I plan to meet Aki on Saturday.",
+          "I replied, “How about three in front of the station?”",
           "Aki wrote, “That works.”",
           "We plan to meet in front of the station.",
           "I will go at three.",
-          "I will call the night before.",
-          "I wrote back that three o'clock works.",
+          "I will call the night before Saturday.",
+          "I wrote, “See you Saturday, then.”",
           "In front of the station is an easy place to find.",
-          "If it rains, we will wait inside.",
+          "Because it is raining, we will wait inside the station.",
           "Aki understood the plan too."
         ]
       },
@@ -2803,7 +2803,7 @@
             "en": "A message came from Aki."
           },
           {
-            "es": "『どようびに あえますか。』",
+            "es": "「どようびに あえますか。」",
             "en": "“Can we meet on Saturday?”"
           }
         ]
@@ -2813,21 +2813,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "あきさん____ メッセージが きました。",
-          "hint": "A message came from Aki.",
-          "answer": "から",
+          "prompt": "「____に あえますか。」",
+          "hint": "“Can we meet on Saturday?”",
+          "answer": "どようび",
           "explanation": "Read a plan, reply with a time and place, and confirm the meeting."
         },
         {
-          "prompt": "わたしは あう ____。",
-          "hint": "I intend to meet.",
+          "prompt": "わたしは どようびに あきさんに あう ____。",
+          "hint": "I plan to meet Aki on Saturday.",
           "answer": "つもりです",
           "explanation": "Read a plan, reply with a time and place, and confirm the meeting."
         },
         {
-          "prompt": "『ごご ____は どうですか。』",
-          "hint": "“How about three in the afternoon?”",
-          "answer": "さんじ",
+          "prompt": "わたしは「ごご さんじに えきの まえは どうですか」と ____。",
+          "hint": "I replied, “How about three in front of the station?”",
+          "answer": "かえしました",
           "explanation": "Read a plan, reply with a time and place, and confirm the meeting."
         }
       ]
@@ -2866,7 +2866,7 @@
         ]
       },
       "grammar": {
-        "focus": "Use demonstratives and adjectives to compare two items and make a choice.",
+        "focus": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here.",
         "examples": [
           {
             "es": "この あおい かばんは いくらですか。",
@@ -2883,22 +2883,22 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この あおい かばんは ____ですか。",
-          "hint": "How much is this blue bag?",
-          "answer": "いくら",
-          "explanation": "Use demonstratives and adjectives to compare two items and make a choice."
-        },
-        {
-          "prompt": "この あおい ____は いくらですか。",
-          "hint": "How much is this blue bag?",
-          "answer": "かばん",
-          "explanation": "Use demonstratives and adjectives to compare two items and make a choice."
-        },
-        {
           "prompt": "____ あおい かばんは いくらですか。",
           "hint": "How much is this blue bag?",
           "answer": "この",
-          "explanation": "Use demonstratives and adjectives to compare two items and make a choice."
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
+        },
+        {
+          "prompt": "____です。",
+          "hint": "It is two thousand yen.",
+          "answer": "にせんえん",
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
+        },
+        {
+          "prompt": "____ あかい かばんは？",
+          "hint": "What about that red bag?",
+          "answer": "あの",
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
         }
       ]
     },
@@ -2913,10 +2913,10 @@
           "この かさも あおいです。",
           "たなかさんを よびます。",
           "たなかさんは かさを みて、うなずきます。",
-          "『わたしのです。』",
+          "「わたしのです。」",
           "では、どうぞ。",
-          "たなかさんは ありがとうございますと いいます。",
-          "ほかの かさは だれのですか。",
+          "たなかさんは「ありがとうございます」と いいます。",
+          "もう ひとつ かさが あります。",
           "あきさんのです。",
           "あきさんにも かえします。"
         ],
@@ -2929,8 +2929,8 @@
           "Tanaka looks at the umbrella and nods.",
           "“It is mine.”",
           "Here you are.",
-          "Tanaka says thank you.",
-          "Whose is the other umbrella?",
+          "Tanaka says, “Thank you.”",
+          "There is another umbrella.",
           "It is Aki's.",
           "I will return it to Aki too."
         ]
@@ -2953,12 +2953,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この かさは ____ですか。",
-          "hint": "Whose umbrella is this?",
-          "answer": "だれの",
-          "explanation": "Identify ownership, describe an item, and return it politely."
-        },
-        {
           "prompt": "____ かさは だれのですか。",
           "hint": "Whose umbrella is this?",
           "answer": "この",
@@ -2968,6 +2962,12 @@
           "prompt": "この ____は だれのですか。",
           "hint": "Whose umbrella is this?",
           "answer": "かさ",
+          "explanation": "Identify ownership, describe an item, and return it politely."
+        },
+        {
+          "prompt": "わたしの ____。",
+          "hint": "It is not mine.",
+          "answer": "じゃありません",
           "explanation": "Identify ownership, describe an item, and return it politely."
         }
       ]
@@ -3023,12 +3023,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "なにを ____ですか。",
-          "hint": "What would you like to eat?",
-          "answer": "たべたい",
-          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want."
-        },
-        {
           "prompt": "____は やさいの りょうりが すきです。",
           "hint": "I like vegetable dishes.",
           "answer": "わたし",
@@ -3038,6 +3032,12 @@
           "prompt": "わたしは やさいの りょうりが ____です。",
           "hint": "I like vegetable dishes.",
           "answer": "すき",
+          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want."
+        },
+        {
+          "prompt": "にくは あまり ____。",
+          "hint": "I do not eat much meat.",
+          "answer": "たべません",
           "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want."
         }
       ]
@@ -3443,21 +3443,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この ほんは ____ですか。",
-          "hint": "Is this book Tanaka's?",
-          "answer": "たなかさんの",
-          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
-        },
-        {
           "prompt": "この ____は たなかさんのですか。",
           "hint": "Is this book Tanaka's?",
           "answer": "ほん",
           "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
         },
         {
-          "prompt": "この ほんは たな____んのですか。",
+          "prompt": "____ ほんは たなかさんのですか。",
           "hint": "Is this book Tanaka's?",
-          "answer": "かさ",
+          "answer": "この",
+          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
+        },
+        {
+          "prompt": "はい、____です。",
+          "hint": "Yes, it is Tanaka's.",
+          "answer": "たなかさんの",
           "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
         }
       ]
@@ -3519,15 +3519,15 @@
           "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
         },
         {
-          "prompt": "きのう ともだちと きょうとへ い____。",
-          "hint": "Yesterday I went to Kyoto with a friend.",
-          "answer": "きました",
-          "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
-        },
-        {
           "prompt": "きのう ともだちと ____へ いきました。",
           "hint": "Yesterday I went to Kyoto with a friend.",
           "answer": "きょうと",
+          "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
+        },
+        {
+          "prompt": "きのう ____と きょうとへ いきました。",
+          "hint": "Yesterday I went to Kyoto with a friend.",
+          "answer": "ともだち",
           "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
         }
       ]

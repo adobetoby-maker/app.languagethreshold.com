@@ -32,6 +32,22 @@ def split_pair(value):
     return target.strip(), native.strip()
 
 
+_EDGE = r"[\s、。！？「」『』]"
+_PARTICLE_SUFFIX = "|".join(("から", "まで", "より", "だけ", "など", "でした", "です", "なので", "なら", "には", "では", "にも", "は", "が", "を", "に", "へ", "と", "も", "で", "の", "か", "だ"))
+
+
+def term_match(term, line):
+    """Find a written term, never a substring of a name or another word.
+
+    The authored beginner text separates word starts with spaces. Attached particles
+    are allowed, but a term cannot be taken from inside たなかさん or つかいます.
+    """
+    pattern = (rf"(?:^|{_EDGE})(?P<term>"
+               + re.escape(term).replace(r"\ ", r"\s*")
+               + rf")(?=$|{_EDGE}|(?:{_PARTICLE_SUFFIX})(?=$|{_EDGE}))")
+    return re.search(pattern, line)
+
+
 def build():
     sources = {stage: read(SOURCE / f"{stage}.json") for stage in STAGES}
     master_extensions = read(SOURCE / "master-extensions.json")
@@ -57,14 +73,18 @@ def build():
             assert len(pairs) >= (8 if stage == "master" else 5), (stage, n)
             target_lines = [target for target, _ in pairs]
             native_lines = [native for _, native in pairs]
-            passage = compact("".join(target_lines))
             if stage == "master":
+                authored_terms = [split_pair(raw) for raw in authored.get("terms", [])]
                 inherited = []
                 for index in authored["inherit"]:
                     assert 1 <= index <= 30, (stage, n, index)
                     inherited.extend(split_pair(word) for word in sources["core"]["lessons"][index - 1]["terms"])
-                matched = [(word, meaning) for word, meaning in lexicon.items() if compact(word) in passage]
-                priority = list(dict.fromkeys(word for word, _ in inherited))
+                local_meanings = dict(lexicon)
+                local_meanings.update(inherited)
+                local_meanings.update(authored_terms)
+                matched = [(word, meaning) for word, meaning in local_meanings.items()
+                           if any(term_match(word, line) for line in target_lines)]
+                priority = list(dict.fromkeys(word for word, _ in authored_terms + inherited))
                 matched.sort(key=lambda entry: (entry[0] not in priority, -len(entry[0])))
                 terms = []
                 used_meanings = set()
@@ -75,14 +95,15 @@ def build():
                     used_meanings.add(meaning.lower())
                     if len(terms) == 12:
                         break
-                for word, meaning in inherited:
+                for word, meaning in authored_terms + inherited:
                     if len(terms) >= 12:
                         break
                     if word not in {item[0] for item in terms} and meaning.lower() not in used_meanings:
                         terms.append((word, meaning))
                         used_meanings.add(meaning.lower())
                 assert len(terms) == 12, (stage, n, "terms", len(terms))
-                assert sum(compact(word) in passage for word, _ in terms) >= 8, (stage, n, "used terms", sum(compact(word) in passage for word, _ in terms))
+                used_count = sum(any(term_match(word, line) for line in target_lines) for word, _ in terms)
+                assert used_count >= 8, (stage, n, "used terms", used_count)
             else:
                 terms = [split_pair(word) for word in authored["terms"]]
                 assert 8 <= len(terms) <= 12, (stage, n, "terms", len(terms))
@@ -104,9 +125,12 @@ def build():
             checks = []
             for line, native in pairs:
                 for word, meaning in sorted(terms, key=lambda pair: -len(pair[0])):
-                    if len(compact(word)) < 2 or word not in line or any(item["answer"] == word for item in checks):
+                    match = term_match(word, line) if stage == "master" else None
+                    start = match.start("term") if match else line.find(word) if stage != "master" else -1
+                    if len(compact(word)) < 2 or start < 0 or any(item["answer"] == word for item in checks):
                         continue
-                    checks.append({"prompt": line.replace(word, "____", 1), "hint": native,
+                    end = match.end("term") if match else start + len(word)
+                    checks.append({"prompt": line[:start] + "____" + line[end:], "hint": native,
                                    "answer": word, "explanation": authored["focus"]})
                     if len(checks) == 3:
                         break

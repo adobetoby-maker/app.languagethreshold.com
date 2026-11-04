@@ -72,3 +72,15 @@ test("sixty Japanese readings, decks, six-mode definitions, and speaking mission
   }
   assert.equal(JAPANESE_BASICS_READERS.length, 60);
 });
+
+test("Master vocabulary and checks do not split names or Japanese words into false terms", () => {
+  const master = read("src/data/core60/ja/master-japanese-basics.json").lessons;
+  const practice = read("src/data/japanese-basics-practice.json")["master-japanese-basics"];
+  const terms = (n) => master[n - 1].words.filter((word) => word.kind === "term");
+  assert.ok(!practice[1].checks.some((check) => check.answer === "かさ"));
+  assert.ok(!terms(1).some((word) => word.es === "かさ"));
+  assert.equal(terms(9).find((word) => word.es === "どちら")?.en, "which of two");
+  assert.ok(!terms(9).some((word) => word.es === "います"));
+  assert.ok(!terms(10).some((word) => word.es === "います"));
+  assert.ok(!terms(3).some((word) => word.es === "に" && word.en === "two"));
+});

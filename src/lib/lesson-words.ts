@@ -14,7 +14,7 @@ import { loadedLessonContent, loadLessonContent } from "@/lib/lesson-content";
 import { contentNativeLanguage } from "@/lib/lesson-content-core";
 import { pickContentWords } from "@/lib/lesson-content-core";
 import {
-  authoredWordsPair,
+  authoredWordsPairForModule,
   deckNativeLanguage,
   lessonDeckPath,
   lessonWordsKey,
@@ -43,7 +43,7 @@ type Generate = (args: {
 
 /** The pair this module's authored words are written for (English target for en-target modules). */
 function writtenFor(moduleId: string) {
-  return authoredWordsPair(getModule(moduleId)?.learnDirection);
+  return authoredWordsPairForModule(getModule(moduleId));
 }
 
 // ─── Static decks ────────────────────────────────────────────────────────────

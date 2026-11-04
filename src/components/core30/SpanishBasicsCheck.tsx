@@ -12,8 +12,10 @@ export function SpanishBasicsCheck({
   checks,
   onPassed,
   topic = "Grammar",
+  language = "Spanish",
 }: {
   topic?: "Grammar" | "Cognate";
+  language?: "Spanish" | "Japanese";
   checks: Check[];
   onPassed: () => void;
 }) {
@@ -46,13 +48,16 @@ export function SpanishBasicsCheck({
       <h3 className="text-lg font-semibold">Try it without the model</h3>
       <p className="mt-2 text-sm text-muted-foreground">
         Complete all {checks.length} gaps correctly before marking this lesson mastered. Accents
-        matter. Review the explanation and retry any mistakes.
+        and characters matter. Review the explanation and retry any mistakes.
       </p>
       <form
         onSubmit={(event) => {
           event.preventDefault();
           const next = checks.map((check, i) =>
-            correctSpanishCloze(inputs.current[i]?.value ?? answers[i], check.answer),
+            language === "Japanese"
+              ? (inputs.current[i]?.value ?? answers[i]).normalize("NFC").replace(/\s+/g, "").trim() ===
+                check.answer.normalize("NFC").replace(/\s+/g, "").trim()
+              : correctSpanishCloze(inputs.current[i]?.value ?? answers[i], check.answer),
           );
           setResults(next);
           if (next.every(Boolean)) onPassed();
@@ -71,7 +76,7 @@ export function SpanishBasicsCheck({
               }}
               onFocus={() => setFocused(i)}
               aria-invalid={results ? !results[i] : undefined}
-              lang="es"
+              lang={language === "Japanese" ? "ja" : "es"}
               autoComplete="off"
               autoCapitalize="none"
               spellCheck={false}
@@ -96,7 +101,7 @@ export function SpanishBasicsCheck({
             )}
           </div>
         ))}
-        {!passed && (
+        {!passed && language === "Spanish" && (
           <div
             role="group"
             aria-label={`Accents for grammar answer ${focused + 1}`}

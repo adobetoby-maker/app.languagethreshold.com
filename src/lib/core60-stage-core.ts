@@ -247,7 +247,7 @@ export function deriveStageModule(
   };
   if (base.authoredPair) {
     derived.authoredPair = { ...base.authoredPair };
-    if (base.id === "spanish-basics" || base.id === "spanish-cognates")
+    if (base.id === "spanish-basics" || base.id === "spanish-cognates" || base.id === "japanese-basics")
       derived.aiPersona = base.aiPersona;
   }
   if (base.learnDirection) derived.learnDirection = base.learnDirection;

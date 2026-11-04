@@ -5,7 +5,7 @@ import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { core60PathOf } from "./core60-path";
 import { loadLessonContent } from "./lesson-content";
 import { loadLessonDeck } from "./lesson-words";
-import { authoredWordsPair, pickAuthoredWords, pickDeckWords } from "./lesson-words-core";
+import { authoredWordsPairForModule, pickAuthoredWords, pickDeckWords } from "./lesson-words-core";
 import { pickContentWords, pickContentPassage } from "./lesson-content-core";
 import { authoredLessonReading } from "./lesson-reading";
 import { placementBlocks, placementCloze, type PlacementLesson } from "./module-placement";
@@ -32,7 +32,7 @@ export async function loadModulePlacement(
       await ensureStageForModule(stage.id);
       const curriculum = getCurriculum(stage.id);
       if (!curriculum) throw new Error("A course stage could not load. Please try again.");
-      const authored = authoredWordsPair(stageModule.learnDirection);
+      const authored = authoredWordsPairForModule(stageModule);
       const needsFiles = curriculum.lessons.some(
         (lesson) => !pickAuthoredWords(lesson.words, target, native, authored),
       );

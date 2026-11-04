@@ -522,6 +522,13 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const japaneseBasicsCount = moduleId === "japanese-basics" ? 30 :
+    moduleId === "foundation-japanese-basics" ? 10 :
+    moduleId === "master-japanese-basics" ? 20 : 0;
+  if (japaneseBasicsCount)
+    return language === "Japanese"
+      ? Array.from({ length: japaneseBasicsCount }, (_, i) => `seed-ja-${moduleId}-lesson-${i + 1}`)
+      : [];
   const nextCourse = [
     "spanish-cognates",
     "spanish-102",

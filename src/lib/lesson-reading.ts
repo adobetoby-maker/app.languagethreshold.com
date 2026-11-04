@@ -1,5 +1,6 @@
 import { soundLesson } from "../data/sound-like-a-native.ts";
 import { spanishBasicsLesson } from "../data/spanish-basics.ts";
+import { japaneseBasicsLesson } from "../data/japanese-basics.ts";
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "../data/construction-foreman-lesson-content.ts";
@@ -23,6 +24,13 @@ export function authoredLessonReading(
             en: draft.reading.native[i],
           })),
         }
+      : null;
+  }
+  if (targetLanguage === "Japanese" && instructionLanguage === "English" && lessonNumber) {
+    const draft = japaneseBasicsLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
+    return draft
+      ? { id: `${moduleId}-lesson-${lessonNumber}`, title: draft.reading.title,
+          sentences: draft.reading.target.map((target, i) => ({ target, en: draft.reading.native[i] })) }
       : null;
   }
   if (targetLanguage !== "Spanish" || instructionLanguage !== "English" || !lessonNumber)

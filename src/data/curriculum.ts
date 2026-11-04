@@ -1,6 +1,7 @@
 import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
 import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
+import { JAPANESE_BASICS_CURRICULUM } from "./japanese-basics.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
 import {
@@ -4145,6 +4146,7 @@ CURRICULA["medical-mission-logistics"] = MEDICAL_MISSION_LOGISTICS_CURRICULUM;
 CURRICULA["military"] = MILITARY_CURRICULUM;
 CURRICULA["sound-like-a-native"] = SOUND_CURRICULUM;
 CURRICULA["spanish-basics"] = SPANISH_BASICS_CURRICULUM;
+CURRICULA["japanese-basics"] = JAPANESE_BASICS_CURRICULUM;
 Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 

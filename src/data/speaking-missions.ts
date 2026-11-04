@@ -1,5 +1,6 @@
 import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
+import { japaneseBasicsLesson } from "./japanese-basics.ts";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
 import { getCurriculum, type Lesson } from "./curriculum.ts";
@@ -1197,7 +1198,7 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const authoredTarget = module.learnDirection === "en-target" ? "English" : "Spanish";
+    const authoredTarget = module.authoredPair?.target ?? (module.learnDirection === "en-target" ? "English" : "Spanish");
     const form = (language === authoredTarget ? word.es : word.en).trim();
     const key = form.toLocaleLowerCase();
     if (!form || seen.has(key)) continue;
@@ -1224,7 +1225,8 @@ function missionFromLesson(
     module.learnDirection === "en-target" ? "Spanish" : "English",
   );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
-  const basics = spanishBasicsLesson(module.id, lesson.n, language, "English");
+  const basics = spanishBasicsLesson(module.id, lesson.n, language, "English") ??
+    japaneseBasicsLesson(module.id, lesson.n, language, "English");
   const sound = soundLesson(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);

@@ -434,7 +434,7 @@ export function selfTalkIssue(note: string): string | null {
   return null;
 }
 
-const ENDS_LIKE_SENTENCE = /[.?!…]["'”’»)\]]*$/;
+const ENDS_LIKE_SENTENCE = /[.?!…。？！]["'”’»）)\]』」]*$/;
 const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
 const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
 
@@ -477,7 +477,7 @@ function validatePassage(
     if (!ENDS_LIKE_SENTENCE.test(native.trim())) {
       errors.push(`${label} (${ctx.nativeLanguage}) must end with . ? or !: ${native}`);
     }
-    if (QUOTES_OR_DASH.test(target) || QUOTES_OR_DASH.test(native)) {
+    if (ctx.language !== "Japanese" && (QUOTES_OR_DASH.test(target) || QUOTES_OR_DASH.test(native))) {
       errors.push(
         `${label} uses quotation marks or a dialogue dash; report speech with a colon instead: ${target}`,
       );
@@ -505,8 +505,16 @@ function validatePassage(
   const passageWords = passage.target.flatMap(wordsOf);
   const terms = words.filter((w) => w.kind === "term");
   const phrases = words.filter((w) => w.kind === "phrase");
-  const usedTerms = terms.filter((term) => termMatches(term.es, passageWords));
-  const usedPhrases = phrases.filter((phrase) => phraseMatches(phrase.es, passageWords));
+  // Japanese has no mandatory word spaces. The Latin token/stem matcher returns zero for kana.
+  const japanesePassage = ctx.language === "Japanese"
+    ? passage.target.join("").normalize("NFC").replace(/\s+/g, "")
+    : "";
+  const usedTerms = terms.filter((term) => ctx.language === "Japanese"
+    ? japanesePassage.includes(term.es.normalize("NFC").replace(/\s+/g, ""))
+    : termMatches(term.es, passageWords));
+  const usedPhrases = phrases.filter((phrase) => ctx.language === "Japanese"
+    ? japanesePassage.includes(phrase.es.normalize("NFC").replace(/\s+/g, ""))
+    : phraseMatches(phrase.es, passageWords));
   if (usedTerms.length < limits.minTermsUsed) {
     errors.push(
       `passage uses only ${usedTerms.length} of the lesson's terms (needs ${limits.minTermsUsed}); used: ${
@@ -568,6 +576,9 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
   const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
   const keys = verbFormKeys(ctx.language);
   if (!keys) {
+    // Japanese verb morphology uses plain/polite and tense/aspect, not person tables.
+    // The Japanese 101 draft teaches these in grammar examples; a form trainer is separate work.
+    if (ctx.language === "Japanese" && (!verbs || verbs.length === 0)) return;
     errors.push(`verbs are not supported for ${ctx.language}`);
     return;
   }

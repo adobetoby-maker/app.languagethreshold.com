@@ -1153,18 +1153,20 @@
           "しずかな おんがくが すきです。",
           "えいがも すきですか。",
           "はい、とても すきです。",
-          "こわい えいがは あまり すきじゃありません。"
+          "でも、こわい えいがは きらいです。",
+          "ほんは あまり すきじゃありません。"
         ],
         "native": [
           "What kind of music do you like?",
           "I like quiet music.",
           "Do you like movies too?",
           "Yes, I like them very much.",
-          "I do not like scary movies very much."
+          "But I dislike scary movies.",
+          "I do not like books very much."
         ]
       },
       "grammar": {
-        "focus": "好き and 嫌い are adjectival expressions; the liked item commonly takes が. Do not copy an English or Spanish verb pattern.",
+        "focus": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern.",
         "examples": [
           {
             "es": "どんな おんがくが すきですか。",
@@ -1184,75 +1186,75 @@
           "prompt": "どんな ____が すきですか。",
           "hint": "What kind of music do you like?",
           "answer": "おんがく",
-          "explanation": "好き and 嫌い are adjectival expressions; the liked item commonly takes が. Do not copy an English or Spanish verb pattern."
+          "explanation": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern."
         },
         {
           "prompt": "____ おんがくが すきですか。",
           "hint": "What kind of music do you like?",
           "answer": "どんな",
-          "explanation": "好き and 嫌い are adjectival expressions; the liked item commonly takes が. Do not copy an English or Spanish verb pattern."
+          "explanation": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern."
         },
         {
           "prompt": "どんな おんがくが ____ですか。",
           "hint": "What kind of music do you like?",
           "answer": "すき",
-          "explanation": "好き and 嫌い are adjectival expressions; the liked item commonly takes が. Do not copy an English or Spanish verb pattern."
+          "explanation": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern."
         }
       ]
     },
     "12": {
       "stage": "core",
       "reading": {
-        "title": "At a café",
+        "title": "Friends deciding what to have at a café",
         "target": [
+          "メニューを ください。",
           "なにが ほしいですか。",
           "おちゃが ほしいです。",
           "パンも たべたいです。",
-          "わたしは みずを のみたいです。",
-          "メニューを ください。"
+          "わたしは みずを のみたいです。"
         ],
         "native": [
-          "What would you like?",
-          "I would like tea.",
+          "Please give me a menu.",
+          "What do you want?",
+          "I want tea.",
           "I want to eat bread too.",
-          "I want to drink water.",
-          "Please give me a menu."
+          "I want to drink water."
         ]
       },
       "grammar": {
-        "focus": "～がほしい is for wanting a thing; ～たい is for wanting to do an action. Keep their particles and forms distinct.",
+        "focus": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order.",
         "examples": [
           {
-            "es": "なにが ほしいですか。",
-            "en": "What would you like?"
+            "es": "メニューを ください。",
+            "en": "Please give me a menu."
           },
           {
-            "es": "おちゃが ほしいです。",
-            "en": "I would like tea."
+            "es": "なにが ほしいですか。",
+            "en": "What do you want?"
           }
         ]
       },
-      "speaking": "Role-play at a café with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "なにが ほしいですか。",
+      "speaking": "Role-play friends deciding what to have at a café with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "openingLine": "メニューを ください。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "____を ください。",
+          "hint": "Please give me a menu.",
+          "answer": "メニュー",
+          "explanation": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order."
+        },
+        {
+          "prompt": "メニューを ____。",
+          "hint": "Please give me a menu.",
+          "answer": "ください",
+          "explanation": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order."
+        },
+        {
           "prompt": "なにが ____ですか。",
-          "hint": "What would you like?",
+          "hint": "What do you want?",
           "answer": "ほしい",
-          "explanation": "～がほしい is for wanting a thing; ～たい is for wanting to do an action. Keep their particles and forms distinct."
-        },
-        {
-          "prompt": "____が ほしいです。",
-          "hint": "I would like tea.",
-          "answer": "おちゃ",
-          "explanation": "～がほしい is for wanting a thing; ～たい is for wanting to do an action. Keep their particles and forms distinct."
-        },
-        {
-          "prompt": "パンも ____です。",
-          "hint": "I want to eat bread too.",
-          "answer": "たべたい",
-          "explanation": "～がほしい is for wanting a thing; ～たい is for wanting to do an action. Keep their particles and forms distinct."
+          "explanation": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order."
         }
       ]
     },
@@ -1265,18 +1267,20 @@
           "いいえ、とっては いけません。",
           "ほんは ここで よめますか。",
           "はい、よめます。",
-          "しずかに おねがいします。"
+          "この へやに はいれますか。",
+          "はい。でも、しずかに おねがいします。"
         ],
         "native": [
           "May I take a photo here?",
           "No, you must not.",
           "Can I read a book here?",
           "Yes, you can.",
-          "Please be quiet."
+          "Can I enter this room?",
+          "Yes. But please be quiet."
         ]
       },
       "grammar": {
-        "focus": "できます states ability. ～てもいいですか asks permission; ～てはいけません states a prohibition.",
+        "focus": "できます states ability; verbs can also have potential forms such as よみます → よめます (can read). ～てもいいですか asks permission; ～てはいけません prohibits an action. Here とって is the て-form of とります; learn the two とって phrases together for now, then study the て-form in lesson 20.",
         "examples": [
           {
             "es": "ここで しゃしんを とっても いいですか。",
@@ -1296,19 +1300,19 @@
           "prompt": "ここで しゃしんを とっても ____。",
           "hint": "May I take a photo here?",
           "answer": "いいですか",
-          "explanation": "できます states ability. ～てもいいですか asks permission; ～てはいけません states a prohibition."
+          "explanation": "できます states ability; verbs can also have potential forms such as よみます → よめます (can read). ～てもいいですか asks permission; ～てはいけません prohibits an action. Here とって is the て-form of とります; learn the two とって phrases together for now, then study the て-form in lesson 20."
         },
         {
           "prompt": "ここで ____を とっても いいですか。",
           "hint": "May I take a photo here?",
           "answer": "しゃしん",
-          "explanation": "できます states ability. ～てもいいですか asks permission; ～てはいけません states a prohibition."
+          "explanation": "できます states ability; verbs can also have potential forms such as よみます → よめます (can read). ～てもいいですか asks permission; ～てはいけません prohibits an action. Here とって is the て-form of とります; learn the two とって phrases together for now, then study the て-form in lesson 20."
         },
         {
           "prompt": "____で しゃしんを とっても いいですか。",
           "hint": "May I take a photo here?",
           "answer": "ここ",
-          "explanation": "できます states ability. ～てもいいですか asks permission; ～てはいけません states a prohibition."
+          "explanation": "できます states ability; verbs can also have potential forms such as よみます → よめます (can read). ～てもいいですか asks permission; ～てはいけません prohibits an action. Here とって is the て-form of とります; learn the two とって phrases together for now, then study the て-form in lesson 20."
         }
       ]
     },
@@ -1326,13 +1330,13 @@
         "native": [
           "We must buy tickets.",
           "The train leaves at eight.",
-          "We have to go early.",
-          "But we are waiting for a friend here.",
+          "We have to go quickly.",
+          "But we will wait for a friend here.",
           "Let's go to the station together."
         ]
       },
       "grammar": {
-        "focus": "Use ～なければなりません or conversational ～ないといけません for an obligation. Distinguish necessity from permission.",
+        "focus": "Use ～なければなりません or conversational ～ないといけません for an obligation. Both say that something must be done.",
         "examples": [
           {
             "es": "きっぷを かわなければなりません。",
@@ -1352,26 +1356,26 @@
           "prompt": "きっぷを ____。",
           "hint": "We must buy tickets.",
           "answer": "かわなければなりません",
-          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Distinguish necessity from permission."
+          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Both say that something must be done."
         },
         {
           "prompt": "____を かわなければなりません。",
           "hint": "We must buy tickets.",
           "answer": "きっぷ",
-          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Distinguish necessity from permission."
+          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Both say that something must be done."
         },
         {
           "prompt": "____は はちじに でます。",
           "hint": "The train leaves at eight.",
           "answer": "でんしゃ",
-          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Distinguish necessity from permission."
+          "explanation": "Use ～なければなりません or conversational ～ないといけません for an obligation. Both say that something must be done."
         }
       ]
     },
     "15": {
       "stage": "core",
       "reading": {
-        "title": "A busy Saturday",
+        "title": "A busy weekend",
         "target": [
           "あさ そうじします。",
           "ひる りょうりします。",
@@ -1388,7 +1392,7 @@
         ]
       },
       "grammar": {
-        "focus": "Many activities use a noun plus します, such as 勉強します and 掃除します. Keep the activity noun and verb together.",
+        "focus": "Many activities use a noun plus します, such as べんきょうします (study) and そうじします (clean). You may also hear noun + を + します.",
         "examples": [
           {
             "es": "あさ そうじします。",
@@ -1400,7 +1404,7 @@
           }
         ]
       },
-      "speaking": "Role-play a busy saturday with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play a busy weekend with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "あさ そうじします。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -1408,43 +1412,43 @@
           "prompt": "あさ ____。",
           "hint": "I clean in the morning.",
           "answer": "そうじします",
-          "explanation": "Many activities use a noun plus します, such as 勉強します and 掃除します. Keep the activity noun and verb together."
+          "explanation": "Many activities use a noun plus します, such as べんきょうします (study) and そうじします (clean). You may also hear noun + を + します."
         },
         {
           "prompt": "____ そうじします。",
           "hint": "I clean in the morning.",
           "answer": "あさ",
-          "explanation": "Many activities use a noun plus します, such as 勉強します and 掃除します. Keep the activity noun and verb together."
+          "explanation": "Many activities use a noun plus します, such as べんきょうします (study) and そうじします (clean). You may also hear noun + を + します."
         },
         {
           "prompt": "ひる ____。",
           "hint": "At noon I cook.",
           "answer": "りょうりします",
-          "explanation": "Many activities use a noun plus します, such as 勉強します and 掃除します. Keep the activity noun and verb together."
+          "explanation": "Many activities use a noun plus します, such as べんきょうします (study) and そうじします (clean). You may also hear noun + を + します."
         }
       ]
     },
     "16": {
       "stage": "core",
       "reading": {
-        "title": "A weekday morning",
+        "title": "A weekday, morning to afternoon",
         "target": [
           "まず、ろくじに おきます。",
           "かおを あらいます。",
           "それから、あさごはんを たべます。",
-          "しちじに うちを でます。",
-          "ごご かえります。"
+          "しちじに でかけます。",
+          "さいごに、ごご うちに かえります。"
         ],
         "native": [
           "First I get up at six.",
           "I wash my face.",
           "Then I eat breakfast.",
-          "I leave home at seven.",
-          "I return in the afternoon."
+          "I go out at seven.",
+          "Finally, I return home in the afternoon."
         ]
       },
       "grammar": {
-        "focus": "Use time words and それから to connect ordinary actions. Japanese does not need Spanish-style reflexive pronouns for getting up or getting dressed.",
+        "focus": "Use time words, まず (first), それから (then), and さいごに (finally) to connect ordinary actions. Seven o’clock is read しちじ.",
         "examples": [
           {
             "es": "まず、ろくじに おきます。",
@@ -1456,7 +1460,7 @@
           }
         ]
       },
-      "speaking": "Role-play a weekday morning with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play a weekday, morning to afternoon with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "まず、ろくじに おきます。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -1464,19 +1468,19 @@
           "prompt": "まず、ろくじに ____。",
           "hint": "First I get up at six.",
           "answer": "おきます",
-          "explanation": "Use time words and それから to connect ordinary actions. Japanese does not need Spanish-style reflexive pronouns for getting up or getting dressed."
+          "explanation": "Use time words, まず (first), それから (then), and さいごに (finally) to connect ordinary actions. Seven o’clock is read しちじ."
         },
         {
           "prompt": "____、ろくじに おきます。",
           "hint": "First I get up at six.",
           "answer": "まず",
-          "explanation": "Use time words and それから to connect ordinary actions. Japanese does not need Spanish-style reflexive pronouns for getting up or getting dressed."
+          "explanation": "Use time words, まず (first), それから (then), and さいごに (finally) to connect ordinary actions. Seven o’clock is read しちじ."
         },
         {
           "prompt": "かおを ____。",
           "hint": "I wash my face.",
           "answer": "あらいます",
-          "explanation": "Use time words and それから to connect ordinary actions. Japanese does not need Spanish-style reflexive pronouns for getting up or getting dressed."
+          "explanation": "Use time words, まず (first), それから (then), and さいごに (finally) to connect ordinary actions. Seven o’clock is read しちじ."
         }
       ]
     },
@@ -1523,15 +1527,15 @@
           "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
         },
         {
-          "prompt": "____ ノートは いくらですか。",
+          "prompt": "この ノートは ____ですか。",
           "hint": "How much is this notebook?",
-          "answer": "この",
+          "answer": "いくら",
           "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
         },
         {
-          "prompt": "____は にひゃくえんです。",
-          "hint": "That one is two hundred yen.",
-          "answer": "それ",
+          "prompt": "____ ノートは いくらですか。",
+          "hint": "How much is this notebook?",
+          "answer": "この",
           "explanation": "これ/それ/あれ stand alone; この/その/あの must modify a noun. Choose based on distance or conversational context."
         }
       ]
@@ -1539,36 +1543,36 @@
     "18": {
       "stage": "core",
       "reading": {
-        "title": "Finding the study room",
+        "title": "Where Tanaka and the books are",
         "target": [
           "たなかさんは としょかんに います。",
-          "としょかんで べんきょうしています。",
+          "としょかんで べんきょうします。",
           "ほんは つくえの うえに あります。",
           "かばんは つくえの したに あります。",
-          "ペンは かばんの なかです。"
+          "ペンは かばんの なかに あります。"
         ],
         "native": [
           "Tanaka is in the library.",
-          "Tanaka is studying at the library.",
+          "Tanaka studies at the library.",
           "The book is on the desk.",
           "The bag is under the desk.",
           "The pen is inside the bag."
         ]
       },
       "grammar": {
-        "focus": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as 上, 下, and 中 with の.",
+        "focus": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の.",
         "examples": [
           {
             "es": "たなかさんは としょかんに います。",
             "en": "Tanaka is in the library."
           },
           {
-            "es": "としょかんで べんきょうしています。",
-            "en": "Tanaka is studying at the library."
+            "es": "としょかんで べんきょうします。",
+            "en": "Tanaka studies at the library."
           }
         ]
       },
-      "speaking": "Role-play finding the study room with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play where tanaka and the books are with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "たなかさんは としょかんに います。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -1576,19 +1580,19 @@
           "prompt": "たなかさんは ____に います。",
           "hint": "Tanaka is in the library.",
           "answer": "としょかん",
-          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as 上, 下, and 中 with の."
+          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
         },
         {
           "prompt": "た____さんは としょかんに います。",
           "hint": "Tanaka is in the library.",
           "answer": "なか",
-          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as 上, 下, and 中 with の."
+          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
         },
         {
-          "prompt": "ほんは つくえの ____に あります。",
-          "hint": "The book is on the desk.",
-          "answer": "うえ",
-          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as 上, 下, and 中 with の."
+          "prompt": "としょかんで ____。",
+          "hint": "Tanaka studies at the library.",
+          "answer": "べんきょうします",
+          "explanation": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の."
         }
       ]
     },
@@ -1600,19 +1604,19 @@
           "あした ともだちに あう つもりです。",
           "ごご えきへ いきます。",
           "らいしゅうは りょこうする よていです。",
-          "まえの よる でんわします。",
-          "あなたも いく つもりですか。"
+          "りょこうの まえの よる、でんわします。",
+          "けんさんも いく つもりですか。"
         ],
         "native": [
           "I intend to meet a friend tomorrow.",
           "I will go to the station in the afternoon.",
           "I am scheduled to travel next week.",
-          "I will call the night before.",
-          "Do you intend to go too?"
+          "I will call the night before the trip.",
+          "Ken, do you intend to go too?"
         ]
       },
       "grammar": {
-        "focus": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～予定です states a scheduled plan.",
+        "focus": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～よていです states a scheduled plan. Both follow the plain dictionary form (あいます → あう; します → する).",
         "examples": [
           {
             "es": "あした ともだちに あう つもりです。",
@@ -1632,19 +1636,19 @@
           "prompt": "あした ともだちに あう ____。",
           "hint": "I intend to meet a friend tomorrow.",
           "answer": "つもりです",
-          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～予定です states a scheduled plan."
+          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～よていです states a scheduled plan. Both follow the plain dictionary form (あいます → あう; します → する)."
         },
         {
           "prompt": "____ ともだちに あう つもりです。",
           "hint": "I intend to meet a friend tomorrow.",
           "answer": "あした",
-          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～予定です states a scheduled plan."
+          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～よていです states a scheduled plan. Both follow the plain dictionary form (あいます → あう; します → する)."
         },
         {
           "prompt": "ごご えきへ ____。",
           "hint": "I will go to the station in the afternoon.",
           "answer": "いきます",
-          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～予定です states a scheduled plan."
+          "explanation": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～よていです states a scheduled plan. Both follow the plain dictionary form (あいます → あう; します → する)."
         }
       ]
     },
@@ -1657,18 +1661,18 @@
           "ほんを よんでいます。",
           "あきさんは おちゃを のんでいます。",
           "けんさんは そとで ともだちを まっています。",
-          "ふたりは なかで はなしています。"
+          "あきさんと せんせいは なかで はなしています。"
         ],
         "native": [
           "What are you doing now?",
           "I am reading a book.",
           "Aki is drinking tea.",
           "Ken is waiting for a friend outside.",
-          "The two are talking inside."
+          "Aki and the teacher are talking inside."
         ]
       },
       "grammar": {
-        "focus": "～ています can show an action in progress. Some ～ています expressions name a resulting state; teach those separately rather than promising one universal meaning.",
+        "focus": "～ています can show an action in progress. It uses the て-form: よみます → よんで、のみます → のんで、まちます → まって. The form also includes します → して, as in なにを していますか. Some ～ています forms describe a resulting state instead; you will meet these later.",
         "examples": [
           {
             "es": "いま、なにを していますか。",
@@ -1688,19 +1692,19 @@
           "prompt": "____、なにを していますか。",
           "hint": "What are you doing now?",
           "answer": "いま",
-          "explanation": "～ています can show an action in progress. Some ～ています expressions name a resulting state; teach those separately rather than promising one universal meaning."
+          "explanation": "～ています can show an action in progress. It uses the て-form: よみます → よんで、のみます → のんで、まちます → まって. The form also includes します → して, as in なにを していますか. Some ～ています forms describe a resulting state instead; you will meet these later."
         },
         {
           "prompt": "ほんを ____。",
           "hint": "I am reading a book.",
           "answer": "よんでいます",
-          "explanation": "～ています can show an action in progress. Some ～ています expressions name a resulting state; teach those separately rather than promising one universal meaning."
+          "explanation": "～ています can show an action in progress. It uses the て-form: よみます → よんで、のみます → のんで、まちます → まって. The form also includes します → して, as in なにを していますか. Some ～ています forms describe a resulting state instead; you will meet these later."
         },
         {
           "prompt": "あきさんは おちゃを ____。",
           "hint": "Aki is drinking tea.",
           "answer": "のんでいます",
-          "explanation": "～ています can show an action in progress. Some ～ています expressions name a resulting state; teach those separately rather than promising one universal meaning."
+          "explanation": "～ています can show an action in progress. It uses the て-form: よみます → よんで、のみます → のんで、まちます → まって. The form also includes します → して, as in なにを していますか. Some ～ています forms describe a resulting state instead; you will meet these later."
         }
       ]
     },
@@ -2745,9 +2749,9 @@
           "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
         },
         {
-          "prompt": "まいにち ろくじに ____。",
-          "hint": "I get up at six every day.",
-          "answer": "おきます",
+          "prompt": "____を たべます。",
+          "hint": "I eat breakfast.",
+          "answer": "あさごはん",
           "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
         },
         {
@@ -2879,15 +2883,15 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この あおい ____は いくらですか。",
+          "prompt": "この あおい かばんは ____ですか。",
           "hint": "How much is this blue bag?",
-          "answer": "かばん",
+          "answer": "いくら",
           "explanation": "Use demonstratives and adjectives to compare two items and make a choice."
         },
         {
-          "prompt": "この ____ かばんは いくらですか。",
+          "prompt": "この あおい ____は いくらですか。",
           "hint": "How much is this blue bag?",
-          "answer": "あおい",
+          "answer": "かばん",
           "explanation": "Use demonstratives and adjectives to compare two items and make a choice."
         },
         {

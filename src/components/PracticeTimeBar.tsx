@@ -1,4 +1,6 @@
 // Built by TAC — 2026-10-22
+import { useStudyCloudSync } from "@/hooks/use-study-cloud";
+import { readLocalPracticeDays,readLocalPracticeGoal,applyCloudPracticeGoal } from "@/hooks/use-practice-time";
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Switch } from "@/components/ui/switch";
@@ -46,6 +48,7 @@ function useDesktopLayout(): boolean {
  * while the bar is switched off or a paywall is up (see PracticeBlocker).
  */
 export function PracticeTimeTicker(): null {
+  useStudyCloudSync(readLocalPracticeDays,readLocalPracticeGoal,applyCloudPracticeGoal);
   const { enabled } = usePracticeSettings();
   const blocked = usePracticeBlocked();
   usePracticeTimeTicker(enabled && !blocked);
@@ -128,7 +131,7 @@ export function PracticeBarSetting() {
           <p id="practice-bar-heading" className="text-sm text-foreground">
             Practice bar
           </p>
-          <p className="text-xs text-muted-foreground">Gold line for today&apos;s practice. This device only.</p>
+          <p className="text-xs text-muted-foreground">Gold line for today&apos;s practice. Signed-in minutes and lessons sync across devices.</p>
         </div>
         <Switch
           checked={enabled}

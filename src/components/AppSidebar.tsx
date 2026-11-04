@@ -1,3 +1,4 @@
+import { useSyncedStudyStreak } from "@/hooks/use-study-cloud";
 import { NavigationMenu } from "./navigation/NavigationMenu";
 import { navigationVersion, type NavigationVersion } from "@/lib/navigation-menu";
 import { appBuildInfo } from "@/lib/app-build-info";
@@ -344,7 +345,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const { state, dispatch } = useApp();
   const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
-  const fiery = state.streak > 1;
+  const syncedStreak=useSyncedStudyStreak();
+  const fiery = syncedStreak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
@@ -552,7 +554,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   fiery ? "font-bold text-gold-ink" : "text-foreground",
                 )}
               >
-                {state.streak}d
+                {syncedStreak}d
               </span>
             </span>
             <span className="flex items-center gap-1">

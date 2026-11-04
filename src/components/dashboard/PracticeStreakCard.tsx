@@ -1,3 +1,4 @@
+import { useStudyCloud, summarizeStudyActivity, useSyncedStudyStreak, useSyncedStudyDates } from "@/hooks/use-study-cloud";
 import { useMemo, useState } from "react";
 import { Bell, Flame, Plane, RotateCcw, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
@@ -33,7 +34,8 @@ export function PracticeStreakCard() {
   const { state, dispatch } = useApp();
   const [planningBreak, setPlanningBreak] = useState(false);
   const [breakDays, setBreakDays] = useState(3);
-  const streak = state.practiceStreak;
+  const cloud=summarizeStudyActivity(useStudyCloud());
+  const streak = { ...state.practiceStreak, current: useSyncedStudyStreak(), practiceDates:useSyncedStudyDates() };
   const recoveryRemaining = recoveryLessonsRemaining(streak);
   const today = localDateKey();
   const days = useMemo(recentDays, [today, streak.practiceDates]);
@@ -77,6 +79,7 @@ export function PracticeStreakCard() {
         </div>
         <h2 id="streak-heading" className="mt-4 font-serif text-2xl text-foreground sm:text-3xl">{headline}</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{guidance}</p>
+        <p className="mt-2 text-sm text-foreground" data-testid="synced-study-today">Synced today: {Math.floor((cloud.seconds[today] ?? 0)/60)} minutes · {Object.values(cloud.lessons).filter(day=>day===today).length} completed lessons</p>
 
         <div
           role="group"

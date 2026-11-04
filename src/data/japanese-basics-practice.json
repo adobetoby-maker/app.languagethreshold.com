@@ -597,12 +597,12 @@
           "I study Japanese every day.",
           "Aki works at the library.",
           "Tomorrow I will talk with a friend.",
-          "I listen to the teacher.",
+          "I listen to the teacher's talk.",
           "I also read a book."
         ]
       },
       "grammar": {
-        "focus": "Compare dictionary forms with ～ます; present polite forms can also describe a future action.",
+        "focus": "Practice polite ～ます forms for familiar actions; a time word such as あした can also make them describe a future action.",
         "examples": [
           {
             "es": "まいにち にほんごを べんきょうします。",
@@ -622,19 +622,19 @@
           "prompt": "まいにち にほんごを ____。",
           "hint": "I study Japanese every day.",
           "answer": "べんきょうします",
-          "explanation": "Compare dictionary forms with ～ます; present polite forms can also describe a future action."
+          "explanation": "Practice polite ～ます forms for familiar actions; a time word such as あした can also make them describe a future action."
         },
         {
           "prompt": "____ にほんごを べんきょうします。",
           "hint": "I study Japanese every day.",
           "answer": "まいにち",
-          "explanation": "Compare dictionary forms with ～ます; present polite forms can also describe a future action."
+          "explanation": "Practice polite ～ます forms for familiar actions; a time word such as あした can also make them describe a future action."
         },
         {
-          "prompt": "あきさんは としょかんで ____。",
-          "hint": "Aki works at the library.",
-          "answer": "はたらきます",
-          "explanation": "Compare dictionary forms with ～ます; present polite forms can also describe a future action."
+          "prompt": "まいにち ____を べんきょうします。",
+          "hint": "I study Japanese every day.",
+          "answer": "にほんご",
+          "explanation": "Practice polite ～ます forms for familiar actions; a time word such as あした can also make them describe a future action."
         }
       ]
     },
@@ -643,14 +643,14 @@
       "reading": {
         "title": "A shared afternoon",
         "target": [
-          "ひる ごはんを たべます。",
+          "ひるごはんを たべます。",
           "みずを のみます。",
           "そのあと えいがを みます。",
           "ともだちが きます。",
           "いっしょに べんきょうします。"
         ],
         "native": [
-          "At noon I eat a meal.",
+          "I eat lunch.",
           "I drink water.",
           "After that I watch a movie.",
           "A friend is coming.",
@@ -658,11 +658,11 @@
         ]
       },
       "grammar": {
-        "focus": "Notice る-verbs, う-verbs, します, and 来ます. Learn each polite form in context rather than applying one ending to every verb.",
+        "focus": "Notice たべる→たべます (る-verb), のむ→のみます (う-verb), and irregular する→します and くる→きます. Learn each polite form in context.",
         "examples": [
           {
-            "es": "ひる ごはんを たべます。",
-            "en": "At noon I eat a meal."
+            "es": "ひるごはんを たべます。",
+            "en": "I eat lunch."
           },
           {
             "es": "みずを のみます。",
@@ -671,26 +671,26 @@
         ]
       },
       "speaking": "Role-play a shared afternoon with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "ひる ごはんを たべます。",
+      "openingLine": "ひるごはんを たべます。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "ひる ごはんを ____。",
-          "hint": "At noon I eat a meal.",
+          "prompt": "____を たべます。",
+          "hint": "I eat lunch.",
+          "answer": "ひるごはん",
+          "explanation": "Notice たべる→たべます (る-verb), のむ→のみます (う-verb), and irregular する→します and くる→きます. Learn each polite form in context."
+        },
+        {
+          "prompt": "ひるごはんを ____。",
+          "hint": "I eat lunch.",
           "answer": "たべます",
-          "explanation": "Notice る-verbs, う-verbs, します, and 来ます. Learn each polite form in context rather than applying one ending to every verb."
+          "explanation": "Notice たべる→たべます (る-verb), のむ→のみます (う-verb), and irregular する→します and くる→きます. Learn each polite form in context."
         },
         {
           "prompt": "みずを ____。",
           "hint": "I drink water.",
           "answer": "のみます",
-          "explanation": "Notice る-verbs, う-verbs, します, and 来ます. Learn each polite form in context rather than applying one ending to every verb."
-        },
-        {
-          "prompt": "みずを の____。",
-          "hint": "I drink water.",
-          "answer": "みます",
-          "explanation": "Notice る-verbs, う-verbs, します, and 来ます. Learn each polite form in context rather than applying one ending to every verb."
+          "explanation": "Notice たべる→たべます (る-verb), のむ→のみます (う-verb), and irregular する→します and くる→きます. Learn each polite form in context."
         }
       ]
     },
@@ -743,9 +743,9 @@
           "explanation": "Use ～ました for a completed action and ～ません for a polite negative. ～ませんでした says it did not happen."
         },
         {
-          "prompt": "ほんを よ____。",
+          "prompt": "ほんを ____。",
           "hint": "I read a book.",
-          "answer": "みました",
+          "answer": "よみました",
           "explanation": "Use ～ました for a completed action and ～ません for a polite negative. ～ませんでした says it did not happen."
         }
       ]
@@ -770,7 +770,7 @@
         ]
       },
       "grammar": {
-        "focus": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural.",
+        "focus": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural. きれい ends in い but is a な-adjective (きれいな へや).",
         "examples": [
           {
             "es": "この へやは おおきいです。",
@@ -790,19 +790,19 @@
           "prompt": "この へやは ____です。",
           "hint": "This room is big.",
           "answer": "おおきい",
-          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural."
+          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural. きれい ends in い but is a な-adjective (きれいな へや)."
         },
         {
           "prompt": "この ____は おおきいです。",
           "hint": "This room is big.",
           "answer": "へや",
-          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural."
+          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural. きれい ends in い but is a な-adjective (きれいな へや)."
         },
         {
           "prompt": "あの へやは ____です。",
           "hint": "That room is small.",
           "answer": "ちいさい",
-          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural."
+          "explanation": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural. きれい ends in い but is a な-adjective (きれいな へや)."
         }
       ]
     },
@@ -855,9 +855,9 @@
           "explanation": "の links a person or group to a belonging. A clear name is usually more natural than repeating a pronoun."
         },
         {
-          "prompt": "その かばんは ____です。",
-          "hint": "That bag is mine.",
-          "answer": "わたしの",
+          "prompt": "____です。",
+          "hint": "It is Tanaka's.",
+          "answer": "たなかさんの",
           "explanation": "の links a person or group to a belonging. A clear name is usually more natural than repeating a pronoun."
         }
       ]
@@ -871,18 +871,18 @@
           "はい、あります。",
           "じしょも ひつようですか。",
           "いいえ、きょうは いりません。",
-          "えんぴつと じかんが いります。"
+          "えんぴつが いります。"
         ],
         "native": [
           "Do you have a notebook?",
           "Yes, I do.",
           "Do we need a dictionary too?",
           "No, we do not need one today.",
-          "We need a pencil and time."
+          "We need a pencil."
         ]
       },
       "grammar": {
-        "focus": "Use あります for possessing a thing in simple contexts. ～が必要です states that something is needed; ～がいります is conversational.",
+        "focus": "Use あります for possessing a thing in simple contexts. ～が ひつようです states that something is needed; ～が いります is conversational.",
         "examples": [
           {
             "es": "ノートは ありますか。",
@@ -902,19 +902,19 @@
           "prompt": "ノートは ____か。",
           "hint": "Do you have a notebook?",
           "answer": "あります",
-          "explanation": "Use あります for possessing a thing in simple contexts. ～が必要です states that something is needed; ～がいります is conversational."
+          "explanation": "Use あります for possessing a thing in simple contexts. ～が ひつようです states that something is needed; ～が いります is conversational."
         },
         {
           "prompt": "____は ありますか。",
           "hint": "Do you have a notebook?",
           "answer": "ノート",
-          "explanation": "Use あります for possessing a thing in simple contexts. ～が必要です states that something is needed; ～がいります is conversational."
+          "explanation": "Use あります for possessing a thing in simple contexts. ～が ひつようです states that something is needed; ～が いります is conversational."
         },
         {
           "prompt": "じしょも ____か。",
           "hint": "Do we need a dictionary too?",
           "answer": "ひつようです",
-          "explanation": "Use あります for possessing a thing in simple contexts. ～が必要です states that something is needed; ～がいります is conversational."
+          "explanation": "Use あります for possessing a thing in simple contexts. ～が ひつようです states that something is needed; ～が いります is conversational."
         }
       ]
     },
@@ -927,7 +927,7 @@
           "ともだちも えきに きます。",
           "そこから がっこうへ いきます。",
           "ごご うちに かえります。",
-          "あなたは どこへ いきますか。"
+          "どこへ いきますか。"
         ],
         "native": [
           "Tomorrow I will go to the station.",
@@ -938,7 +938,7 @@
         ]
       },
       "grammar": {
-        "focus": "行きます moves away, 来ます toward the speaker or reference point, and 帰ります returns home. に or へ marks a destination.",
+        "focus": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination.",
         "examples": [
           {
             "es": "あした えきに いきます。",
@@ -958,19 +958,19 @@
           "prompt": "あした えきに ____。",
           "hint": "Tomorrow I will go to the station.",
           "answer": "いきます",
-          "explanation": "行きます moves away, 来ます toward the speaker or reference point, and 帰ります returns home. に or へ marks a destination."
+          "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
         },
         {
           "prompt": "あした えきに い____。",
           "hint": "Tomorrow I will go to the station.",
           "answer": "きます",
-          "explanation": "行きます moves away, 来ます toward the speaker or reference point, and 帰ります returns home. に or へ marks a destination."
+          "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
         },
         {
           "prompt": "あした ____に いきます。",
           "hint": "Tomorrow I will go to the station.",
           "answer": "えき",
-          "explanation": "行きます moves away, 来ます toward the speaker or reference point, and 帰ります returns home. に or へ marks a destination."
+          "explanation": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination."
         }
       ]
     },
@@ -983,18 +983,18 @@
           "この ほんを よみます。",
           "どの ほんですか。",
           "あおい ほんです。",
-          "あかい ほんと あおい ほん、どれを えらびますか。"
+          "つぎは あかい ほんと しろい ほんと くろい ほん、どれを えらびますか。"
         ],
         "native": [
           "What will you read?",
           "I will read this book.",
           "Which book?",
           "The blue book.",
-          "The red book or the blue book—which will you choose?"
+          "Next, which will you choose: the red, white, or black book?"
         ]
       },
       "grammar": {
-        "focus": "何 asks what; どれ stands alone for which one, and どの modifies a noun. The reading of 何 changes with context.",
+        "focus": "なに asks what before particles such as を; なん is common before です. どれ stands alone for which one among several, and どの modifies a noun.",
         "examples": [
           {
             "es": "なにを よみますか。",
@@ -1014,19 +1014,19 @@
           "prompt": "____を よみますか。",
           "hint": "What will you read?",
           "answer": "なに",
-          "explanation": "何 asks what; どれ stands alone for which one, and どの modifies a noun. The reading of 何 changes with context."
+          "explanation": "なに asks what before particles such as を; なん is common before です. どれ stands alone for which one among several, and どの modifies a noun."
         },
         {
           "prompt": "この ____を よみます。",
           "hint": "I will read this book.",
           "answer": "ほん",
-          "explanation": "何 asks what; どれ stands alone for which one, and どの modifies a noun. The reading of 何 changes with context."
+          "explanation": "なに asks what before particles such as を; なん is common before です. どれ stands alone for which one among several, and どの modifies a noun."
         },
         {
           "prompt": "____ ほんですか。",
           "hint": "Which book?",
           "answer": "どの",
-          "explanation": "何 asks what; どれ stands alone for which one, and どの modifies a noun. The reading of 何 changes with context."
+          "explanation": "なに asks what before particles such as を; なん is common before です. どれ stands alone for which one among several, and どの modifies a noun."
         }
       ]
     },
@@ -1037,20 +1037,22 @@
         "target": [
           "いつ べんきょうしますか。",
           "あした べんきょうします。",
+          "どうして あしたですか。",
+          "きょうは いそがしいですから。",
           "どこで べんきょうしますか。",
-          "としょかんで べんきょうします。",
-          "きょうは いそがしいですから。"
+          "としょかんで べんきょうします。"
         ],
         "native": [
           "When will we study?",
           "We will study tomorrow.",
+          "Why tomorrow?",
+          "Because I am busy today.",
           "Where will we study?",
-          "We will study at the library.",
-          "Because I am busy today."
+          "We will study at the library."
         ]
       },
       "grammar": {
-        "focus": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate.",
+        "focus": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7).",
         "examples": [
           {
             "es": "いつ べんきょうしますか。",
@@ -1070,19 +1072,19 @@
           "prompt": "いつ べん____しますか。",
           "hint": "When will we study?",
           "answer": "きょう",
-          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate."
+          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
         },
         {
           "prompt": "____ べんきょうしますか。",
           "hint": "When will we study?",
           "answer": "いつ",
-          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate."
+          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
         },
         {
           "prompt": "____ べんきょうします。",
           "hint": "We will study tomorrow.",
           "answer": "あした",
-          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate."
+          "explanation": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7)."
         }
       ]
     },
@@ -1091,54 +1093,54 @@
       "reading": {
         "title": "Setting a meeting time",
         "target": [
-          "あした なんじに あいますか。",
-          "ごご さんじに あいましょう。",
-          "さんじは だいじょうぶです。",
+          "あした なんじに あいましょうか。",
+          "ごご さんじ じゅっぷんに あいましょう。",
+          "さんじ じゅっぷんは だいじょうぶです。",
           "えきの まえで あいます。",
           "よじはんに かえります。"
         ],
         "native": [
           "What time shall we meet tomorrow?",
-          "Let's meet at three p.m.",
-          "Three o'clock works.",
+          "Let's meet at ten past three in the afternoon.",
+          "Ten past three works.",
           "We will meet in front of the station.",
           "I will return at four thirty."
         ]
       },
       "grammar": {
-        "focus": "Say a clock time with ～時 and minutes with ～分. に marks a scheduled time; some number readings change before counters.",
+        "focus": "Say a clock time with ～じ（時） and minutes with ～ふん/ぷん（分）. に marks a scheduled time; some number readings change before counters. ～ましょう suggests doing something together, while ～ましょうか asks the other person to decide.",
         "examples": [
           {
-            "es": "あした なんじに あいますか。",
+            "es": "あした なんじに あいましょうか。",
             "en": "What time shall we meet tomorrow?"
           },
           {
-            "es": "ごご さんじに あいましょう。",
-            "en": "Let's meet at three p.m."
+            "es": "ごご さんじ じゅっぷんに あいましょう。",
+            "en": "Let's meet at ten past three in the afternoon."
           }
         ]
       },
       "speaking": "Role-play setting a meeting time with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "あした なんじに あいますか。",
+      "openingLine": "あした なんじに あいましょうか。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
           "prompt": "あした なんじに ____か。",
           "hint": "What time shall we meet tomorrow?",
-          "answer": "あいます",
-          "explanation": "Say a clock time with ～時 and minutes with ～分. に marks a scheduled time; some number readings change before counters."
+          "answer": "あいましょう",
+          "explanation": "Say a clock time with ～じ（時） and minutes with ～ふん/ぷん（分）. に marks a scheduled time; some number readings change before counters. ～ましょう suggests doing something together, while ～ましょうか asks the other person to decide."
         },
         {
-          "prompt": "ごご ____に あいましょう。",
-          "hint": "Let's meet at three p.m.",
-          "answer": "さんじ",
-          "explanation": "Say a clock time with ～時 and minutes with ～分. に marks a scheduled time; some number readings change before counters."
+          "prompt": "あした ____に あいましょうか。",
+          "hint": "What time shall we meet tomorrow?",
+          "answer": "なんじ",
+          "explanation": "Say a clock time with ～じ（時） and minutes with ～ふん/ぷん（分）. に marks a scheduled time; some number readings change before counters. ～ましょう suggests doing something together, while ～ましょうか asks the other person to decide."
         },
         {
-          "prompt": "____ さんじに あいましょう。",
-          "hint": "Let's meet at three p.m.",
-          "answer": "ごご",
-          "explanation": "Say a clock time with ～時 and minutes with ～分. に marks a scheduled time; some number readings change before counters."
+          "prompt": "ごご さんじ ____に あいましょう。",
+          "hint": "Let's meet at ten past three in the afternoon.",
+          "answer": "じゅっぷん",
+          "explanation": "Say a clock time with ～じ（時） and minutes with ～ふん/ぷん（分）. に marks a scheduled time; some number readings change before counters. ～ましょう suggests doing something together, while ～ましょうか asks the other person to decide."
         }
       ]
     },
@@ -2461,15 +2463,15 @@
           "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
         },
         {
-          "prompt": "ノートは みっつ ____。",
-          "hint": "There are three notebooks.",
-          "answer": "あります",
+          "prompt": "____は さんにんで べんきょうします。",
+          "hint": "Three people will study today.",
+          "answer": "きょう",
           "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
         },
         {
-          "prompt": "____は みっつ あります。",
+          "prompt": "ノートは みっつ ____。",
           "hint": "There are three notebooks.",
-          "answer": "ノート",
+          "answer": "あります",
           "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received."
         }
       ]
@@ -2537,9 +2539,9 @@
           "explanation": "Separate who someone is, how they feel, and where they are."
         },
         {
-          "prompt": "____は つかれています。",
-          "hint": "Today he is tired.",
-          "answer": "きょう",
+          "prompt": "____に います。",
+          "hint": "He is in the library.",
+          "answer": "としょかん",
           "explanation": "Separate who someone is, how they feel, and where they are."
         }
       ]
@@ -3437,6 +3439,12 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "この ほんは ____ですか。",
+          "hint": "Is this book Tanaka's?",
+          "answer": "たなかさんの",
+          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
+        },
+        {
           "prompt": "この ____は たなかさんのですか。",
           "hint": "Is this book Tanaka's?",
           "answer": "ほん",
@@ -3446,12 +3454,6 @@
           "prompt": "この ほんは たな____んのですか。",
           "hint": "Is this book Tanaka's?",
           "answer": "かさ",
-          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
-        },
-        {
-          "prompt": "さっき ____。",
-          "hint": "Tanaka bought it earlier.",
-          "answer": "かいました",
           "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
         }
       ]
@@ -3649,12 +3651,6 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "____。きょうは どうですか。",
-          "hint": "Hello. How are things today?",
-          "answer": "こんにちは",
-          "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
-        },
-        {
           "prompt": "こんにちは。____は どうですか。",
           "hint": "Hello. How are things today?",
           "answer": "きょう",
@@ -3664,6 +3660,12 @@
           "prompt": "げんきです。____、しつもんが あります。",
           "hint": "I'm well. But I have a question.",
           "answer": "でも",
+          "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
+        },
+        {
+          "prompt": "この ことばが ____。",
+          "hint": "I do not understand this word.",
+          "answer": "わかりません",
           "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
         }
       ]

@@ -8,27 +8,90 @@
     {
       "n": 1,
       "title": "Meet the crew",
-      "focus": "Use a polite morning greeting, give your name with ～です, and ask a worker's name before confirming a role. The topic particle は is pronounced wa. Read the short lines in hiragana before introducing site kanji.",
+      "focus": "Use a polite morning greeting, give your name and role with ～です, and ask a worker's name before confirming a role. The topic particle は is pronounced wa. At the end of ～です, か makes a question; お makes なまえ polite when asking someone else's name. Read the short lines in hiragana before introducing site kanji.",
       "scene": "A supervisor and carpenter meet at the morning check-in",
       "terms": [
         "おはようございます|good morning (polite)",
         "わたし|I",
-        "なまえ|name",
+        "おなまえ|name (polite when asking someone)",
         "げんばかんとく|site supervisor",
         "だいく|carpenter",
-        "きょう|today",
+        "はい|yes",
+        "なん|what",
+        "か|question ending",
         "さん|polite name suffix",
-        "よろしくおねがいします|pleased to work with you"
+        "よろしくおねがいします|I look forward to working with you",
+        "こちらこそ|likewise"
       ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Sato", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka"],
       "dialogue": [
         "おはようございます。|Good morning.",
         "おはようございます。|Good morning.",
         "わたしは さとうです。|I am Sato.",
-        "きょうの げんばかんとくです。|I am today's site supervisor.",
+        "げんばかんとくです。|I am the site supervisor.",
         "おなまえは なんですか。|What is your name?",
         "わたしは たなかです。|I am Tanaka.",
-        "だいくです。|I am a carpenter.",
-        "たなかさん、よろしくおねがいします。|Tanaka, I look forward to working with you."
+        "だいくですか。|Are you a carpenter?",
+        "はい、だいくです。|Yes, I am a carpenter.",
+        "たなかさん、よろしくおねがいします。|Tanaka, I look forward to working with you.",
+        "こちらこそ、よろしくおねがいします。|Likewise, I look forward to working with you."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Who is on site?",
+      "focus": "Use こちら for a person near the speaker and ask どなたですか politely. A role can be given with ～です. Japanese often omits a subject that is clear from context. Treat きました as a fixed 'arrived' phrase for now; past forms are taught later.",
+      "scene": "At the morning check-in, Yamada stands next to Sato; Sato asks Tanaka to introduce Yamada",
+      "terms": [
+        "こちら|this person (polite)",
+        "どなた|who (polite)",
+        "だいく|carpenter",
+        "でんきこうじ|electrical work",
+        "たんとう|person in charge",
+        "の|links nouns; also marks possession",
+        "あたらしい かた|new person (polite)",
+        "きょう|today",
+        "いいえ|no",
+        "きました|came; arrived (polite past)"
+      ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato"],
+      "dialogue": [
+        "こちらは どなたですか。|Who is this person?",
+        "やまださんです。|This is Yamada.",
+        "やまださんは だいくですか。|Is Yamada a carpenter?",
+        "いいえ、でんきこうじの たんとうです。|No, Yamada is in charge of electrical work.",
+        "あたらしい かたですか。|Is this person new?",
+        "はい、きょう きました。|Yes, this person arrived today.",
+        "やまださん、よろしくおねがいします。|Yamada, I look forward to working with you."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Name the tool",
+      "focus": "Point out a tool with これ (this near me) or それ (that near you). この and その go before a noun; they change with the speaker's position. Ask なんですか to identify it. の marks ownership or connects nouns, as in どうぐの はこ (tool box); ～のです can mean 'X's one' without repeating the object. Japanese often uses someone's name while speaking to them, where English says 'your'. も means 'also'.",
+      "scene": "New helper Kobayashi checks tools with Sato at the morning storage area; the hammer is near Kobayashi and the box and saw are near Sato",
+      "terms": [
+        "これ|this near me",
+        "それ|that near you",
+        "この|this near me (before a noun)",
+        "その|that near you (before a noun)",
+        "どうぐ|tool",
+        "かなづち|hammer",
+        "のこぎり|saw",
+        "はこ|box",
+        "なん|what",
+        "も|also"
+      ],
+      "speakers": ["Kobayashi", "Sato", "Kobayashi", "Sato", "Kobayashi", "Sato", "Kobayashi", "Sato"],
+      "dialogue": [
+        "これは なんですか。|What is this?",
+        "それは かなづちです。|That is a hammer.",
+        "この かなづちは さとうさんの どうぐですか。|Is this hammer your tool?",
+        "はい、わたしの どうぐです。|Yes, it is my tool.",
+        "その はこは なんですか。|What is that box?",
+        "どうぐの はこです。|It is a tool box.",
+        "その のこぎりも さとうさんのですか。|Is that saw also yours?",
+        "はい、わたしのです。|Yes, it is mine."
       ]
     }
   ]

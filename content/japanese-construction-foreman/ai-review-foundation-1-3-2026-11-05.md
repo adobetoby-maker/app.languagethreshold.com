@@ -1,0 +1,9 @@
+# Construction Foreman Japanese Foundation 1–3 — AI review
+
+On November 5, 2026, Claude CLI with the `opus` model alias independently read only `foundation-draft.json` lessons 1–3. The first pass found six material issues: inconsistent `こ/そ` references in Lesson 3, first-use grammar omitted from Lessons 1 and 3, an odd “today’s site supervisor” role, an impolite reference to a new person in Lesson 2, and the unnatural category “site tool” in Lesson 3. Speaker labels, physical positions, terms, focus notes and dialogue were corrected.
+
+The second Opus pass found those six resolved but flagged two new material gaps: first-use `はい`, `いいえ`, `こちらこそ` and `の` needed explicit teaching (including standalone `～のです`), and Lesson 3’s carpenter should not ask what a hammer is or be told that an unknown saw is his. These were corrected by adding the terms and focus explanation and by making a new helper ask Sato about Sato’s tools. The third scoped Opus pass found no remaining material Japanese, English-gloss, register, sequence or scene issue in lessons 1–3. It verified the dialogue/speaker row counts of 10, 7 and 8.
+
+Residual minor notes from the final pass: `は` and `です` appear in the focus but not the terms list while `か` does; Lesson 2’s “this person arrived today” gloss is stiff; Yamada does not reply; `どうぐの はこ` is grammatical but more textbook-like than `どうぐばこ`. These may be improved while authoring the rest of Foundation.
+
+This is **AI review only**. It is not native-speaker, curriculum, or construction-specialist approval. The source remains `reviewed: false`, three of ten Foundation lessons drafted, no mapped app course, no recorded audio and no V4 import. The exact Japanese→English pair and 10/30/20 course map were structurally checked locally. Neither a structural check nor the scoped AI pass is release evidence.

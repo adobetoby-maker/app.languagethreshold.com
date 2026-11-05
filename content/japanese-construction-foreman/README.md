@@ -1,0 +1,7 @@
+# Japanese→English Construction Foreman course
+
+This is the next specialty track after Japanese 101. Its stable base module ID is `construction-foreman`; stage IDs remain `foundation-construction-foreman`, `construction-foreman`, and `master-construction-foreman`. The 10/30/20 [course map](course-map.json) is a draft progression, and [Foundation 1](foundation-draft.json) is an authored but unreviewed opening dialogue. Neither is wired into the learner app or counted as a complete module.
+
+The next content batch should finish Foundation 2–10 using the Japanese 101 grammar progression in a construction context, then author Core 1–30 and Master 1–20 with distinct workplace scenes. The existing Japanese construction word lists and speaking cards are source material to inspect; their presence does not establish aligned lessons. Keep exact Japanese target and English support, stable lesson/mission IDs, and all existing account progress. Add stage-specific Reader passages, six modes, decks, Japanese form practice and offline packs only with validated content.
+
+Use Claude Opus or Fable for independent **AI** language review of authored batches. Record exact findings and corrections; retain `reviewed: false` until qualified human and domain review. No Japanese recorded clips or V4 import exists for this track. Do not release or merge as a complete course until those gates, browser/phone/offline checks, and native audio acceptance pass.

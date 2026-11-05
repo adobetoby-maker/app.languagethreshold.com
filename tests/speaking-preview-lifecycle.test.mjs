@@ -46,12 +46,13 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(RecordedReplyControl|LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
+                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(SpeakTutorDock|LongPressWordText|RecordedReplyControl|LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
+ export const SpeakTutorDock='section';
  export const c={actor:'a',session:{user:{id:'a'}},slots:[],cursor:0,effects:[],writes:0,actions:[],audio:[],headers:[],waitHeaders:false,confirmed:true,saves:[],reads:[],waitRead:false,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'construction-foreman',nextTrips:{}}};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};

@@ -1,4 +1,5 @@
 import { SpeakingConversationControls } from "./SpeakingConversationControls";
+import { SpeakTutorDock, type SpeakTutorSelection } from "./SpeakTutorDock";
 import { conversationGoogleVoice } from "@/lib/conversation-voice";
 import { useSpeakingReplyField } from "@/hooks/use-speaking-reply-field";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
@@ -62,7 +63,6 @@ import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 
 import { AuthModal } from "@/components/auth/AuthModal";
-import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry, consumeSpeakingMissionRequest } from "@/lib/speaking-navigation";
@@ -291,7 +291,7 @@ export function SpeakingMissionsPreview({
   currentAutomaticReplyAudio.current = automaticReplyAudio;
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
-  const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
+  const [wordRequest, setWordRequest] = useState<SpeakTutorSelection | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const finishRecognitionRef = useRef<(() => void) | null>(null);
   const cancelRecognitionRef = useRef<(() => void) | null>(null);
@@ -916,9 +916,9 @@ export function SpeakingMissionsPreview({
     if (!selectedMission || turn.role !== "partner" || !capture().isCurrent()) return;
     setTranslationError(null);
     if (translations[turn.id]) {
-      setRevealedTranslations((current) => current.includes(turn.id)
-        ? current.filter((id) => id !== turn.id)
-        : [...current, turn.id]);
+      setRevealedTranslations((current) =>
+        current.includes(turn.id) ? current.filter((id) => id !== turn.id) : [...current, turn.id],
+      );
       return;
     }
     if (translationRef.current || sessionOwnerRef.current !== lifecycleKey) return;
@@ -926,8 +926,10 @@ export function SpeakingMissionsPreview({
     const controller = new AbortController();
     translationRef.current = controller;
     const release = lease.own(() => controller.abort());
-    const current = () => lease.isCurrent() &&
-      !controller.signal.aborted && translationRef.current === controller &&
+    const current = () =>
+      lease.isCurrent() &&
+      !controller.signal.aborted &&
+      translationRef.current === controller &&
       sessionOwnerRef.current === lifecycleKey;
     setTranslatingTurnId(turn.id);
     setTranslationError(null);
@@ -963,9 +965,10 @@ export function SpeakingMissionsPreview({
       setTranslations((value) => ({ ...value, [turn.id]: translated }));
       setRevealedTranslations((value) => [...value, turn.id]);
     } catch (error) {
-      if (current()) setTranslationError(
-        error instanceof Error ? error.message : "Translation is unavailable. Try again.",
-      );
+      if (current())
+        setTranslationError(
+          error instanceof Error ? error.message : "Translation is unavailable. Try again.",
+        );
     } finally {
       if (translationRef.current === controller) translationRef.current = null;
       if (lease.isCurrent()) setTranslatingTurnId(null);
@@ -1331,19 +1334,18 @@ export function SpeakingMissionsPreview({
   };
 
   const openWordDefinition = useCallback(
-    (word: string, sentence: string, x: number, y: number) => {
-      if (!selectedMission) return;
+    (word: string, sentence: string) => {
+      if (!selectedMission || status === "listening" || status === "starting" || audioCaptureBusy)
+        return;
       setWordRequest({
         word,
         sentence,
-        language: selectedMission.language,
-        textId: selectedMission.id,
-        textTitle: selectedMission.title,
-        x,
-        y,
+        id: Date.now(),
+        owner: speakingAuth.isTestGuest ? undefined : speakingAuth.user?.id,
+        scope: selectedMission.id,
       });
     },
-    [selectedMission],
+    [selectedMission, status, audioCaptureBusy, speakingAuth.isTestGuest, speakingAuth.user?.id],
   );
 
   const closeMission = () => {
@@ -2261,19 +2263,29 @@ export function SpeakingMissionsPreview({
       </div>
 
       <div className="shrink-0" role="group" aria-label="Coaching feedback language">
-        <p className="mb-1 text-xs font-medium text-muted-foreground">Feedback language · next reply</p>
+        <p className="mb-1 text-xs font-medium text-muted-foreground">
+          Feedback language · next reply
+        </p>
         <div className="grid grid-cols-3 gap-1 rounded-xl border border-border bg-card/50 p-1">
-          {([
-            ["Native language", "Native"],
-            ["Target language", "Target"],
-            ["Mixed", "Mixed"],
-          ] as const).map(([value, label]) => (
+          {(
+            [
+              ["Native language", "Native"],
+              ["Target language", "Target"],
+              ["Mixed", "Mixed"],
+            ] as const
+          ).map(([value, label]) => (
             <button
               key={value}
               type="button"
               aria-pressed={feedbackLanguage === value}
               aria-label={`${label} feedback`}
-              title={value === "Native language" ? appState.nativeLanguage : value === "Target language" ? selectedMission.language : "Native explanation with a target-language example"}
+              title={
+                value === "Native language"
+                  ? appState.nativeLanguage
+                  : value === "Target language"
+                    ? selectedMission.language
+                    : "Native explanation with a target-language example"
+              }
               onClick={() => setFeedbackLanguage(value)}
               className={`min-h-10 rounded-lg px-2 text-sm font-medium ${feedbackLanguage === value ? "bg-primary/15 text-foreground" : "text-muted-foreground"}`}
             >
@@ -2352,7 +2364,10 @@ export function SpeakingMissionsPreview({
                           : "Translate"}
                     </button>
                     {revealedTranslations.includes(turn.id) && translations[turn.id] && (
-                      <p id={`translation-${turn.id}`} className="rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm leading-relaxed text-foreground">
+                      <p
+                        id={`translation-${turn.id}`}
+                        className="rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm leading-relaxed text-foreground"
+                      >
                         {translations[turn.id]}
                       </p>
                     )}
@@ -2385,231 +2400,233 @@ export function SpeakingMissionsPreview({
             </li>
           )}
           {translationError && (
-            <li role="alert" className="text-sm text-[var(--streak-ink)]">{translationError}</li>
+            <li role="alert" className="text-sm text-[var(--streak-ink)]">
+              {translationError}
+            </li>
           )}
         </ul>
       </div>
 
-      {errorMessage && (
-        <div
-          role="alert"
-          className="mt-3 rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive"
-        >
-          {errorMessage}
-        </div>
-      )}
-
-      <div
-        role="group"
-        aria-label="Conversation microphone"
-        className="flex shrink-0 flex-wrap items-center justify-center gap-2 text-center"
+      <SpeakTutorDock
+        scope={selectedMission.id}
+        sentence={turns.at(-1)?.text ?? ""}
+        selection={wordRequest}
+        disabled={status === "listening" || status === "starting" || audioCaptureBusy}
+        canAsk={ageConfirmed}
       >
-        {partnerSpeaking && (
-          <button
-            type="button"
-            onClick={stopAudio}
-            className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
+        {errorMessage && (
+          <div
+            role="alert"
+            className="mt-3 rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive"
           >
-            Stop reply — my turn
-          </button>
+            {errorMessage}
+          </div>
         )}
-        {useRecordedAudio ? (
-          <RecordedReplyControl
-            key={`${lifecycleKey}:${audioCaptureKey}:${ageConfirmed}`}
-            scope={`${lifecycleKey}:${audioCaptureKey}`}
-            locale={missionLocale}
-            disabled={status === "thinking" || partnerSpeaking}
-            onBegin={stopAudio}
-            onBusyChange={setAudioCaptureBusy}
-            onTranscript={(text) => {
-              setTypedTurn(text);
-              setTranscriptSource("dictation");
-              setErrorMessage(null);
-              setStatus("ready");
-            }}
-          />
-        ) : recognitionSupported === false ? (
-          <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
-            Speech recognition is unavailable in this browser. Use the typed answer field below.
-          </p>
-        ) : status === "error" ? (
-          <button
-            type="button"
-            onClick={() => {
-              setStatus("ready");
-              setErrorMessage(null);
-            }}
-            className="rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
-          >
-            Resume mission
-          </button>
-        ) : (
-          <div className="flex items-center justify-center gap-3">
+
+        <div
+          role="group"
+          aria-label="Conversation microphone"
+          className="flex shrink-0 flex-wrap items-center justify-center gap-2 text-center"
+        >
+          {partnerSpeaking && (
             <button
               type="button"
-              onClick={
-                status === "listening" || status === "starting" ? stopListening : startListening
-              }
-              disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
-              aria-label={
-                finishingSpeech
-                  ? "Finishing transcription"
-                  : status === "starting"
-                    ? "Cancel microphone"
-                    : status === "listening"
-                      ? "Stop listening"
-                      : "Start listening"
-              }
-              className={
-                "flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
-                (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
-              }
+              onClick={stopAudio}
+              className="min-h-11 rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
             >
-              {status === "listening" ? (
-                <Square className="h-7 w-7" fill="currentColor" />
-              ) : (
-                <Mic className="h-8 w-8" />
-              )}
+              Stop reply — my turn
             </button>
-            <p role="status" className="text-sm text-muted-foreground">
-              {status === "starting"
-                ? "Starting microphone… tap to cancel"
-                : status === "listening"
-                  ? finishingSpeech
-                    ? "Finishing transcription…"
-                    : interim.trim()
-                      ? "Words received — tap Stop to review"
-                      : "Microphone started — waiting for words…"
-                  : partnerSpeaking
-                    ? "Partner is speaking… your microphone will unlock afterward"
-                    : status === "thinking"
-                      ? "Partner is replying…"
-                      : `Your turn — answer in ${selectedMission.language}`}
+          )}
+          {useRecordedAudio ? (
+            <RecordedReplyControl
+              key={`${lifecycleKey}:${audioCaptureKey}:${ageConfirmed}`}
+              scope={`${lifecycleKey}:${audioCaptureKey}`}
+              locale={missionLocale}
+              disabled={status === "thinking" || partnerSpeaking}
+              onBegin={stopAudio}
+              onBusyChange={setAudioCaptureBusy}
+              onTranscript={(text) => {
+                setTypedTurn(text);
+                setTranscriptSource("dictation");
+                setErrorMessage(null);
+                setStatus("ready");
+              }}
+            />
+          ) : recognitionSupported === false ? (
+            <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
+              Speech recognition is unavailable in this browser. Use the typed answer field below.
             </p>
-          </div>
-        )}
-        {finishingSpeech && (
-          <button
-            type="button"
-            onClick={() => cancelRecognitionRef.current?.()}
-            className="min-h-11 rounded-full border px-4 py-2 text-sm"
-          >
-            Cancel transcription
-          </button>
-        )}
-      </div>
-
-      {!useRecordedAudio &&
-        !audioCaptureBusy &&
-        transcriptSource === "dictation" &&
-        typedTurn.trim() && (
-          <div
-            role="status"
-            className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
-          >
-            <p className="text-sm font-medium text-foreground">
-              Reply captured — review what your phone heard
-            </p>
-            <p className="mt-1 text-sm leading-relaxed text-foreground">
-              Edit below, then tap Send to confirm your reply.
-            </p>
-            {!useRecordedAudio && (
+          ) : status === "error" ? (
+            <button
+              type="button"
+              onClick={() => {
+                setStatus("ready");
+                setErrorMessage(null);
+              }}
+              className="rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
+            >
+              Resume mission
+            </button>
+          ) : (
+            <div className="flex items-center justify-center gap-3">
               <button
                 type="button"
-                onClick={startListening}
-                disabled={
-                  status === "thinking" ||
-                  status === "listening" ||
-                  status === "starting" ||
-                  partnerSpeaking
+                onClick={
+                  status === "listening" || status === "starting" ? stopListening : startListening
                 }
-                className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+                disabled={status === "thinking" || partnerSpeaking || finishingSpeech}
+                aria-label={
+                  finishingSpeech
+                    ? "Finishing transcription"
+                    : status === "starting"
+                      ? "Cancel microphone"
+                      : status === "listening"
+                        ? "Stop listening"
+                        : "Start listening"
+                }
+                className={
+                  "flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
+                  (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
+                }
               >
-                Retry microphone
+                {status === "listening" ? (
+                  <Square className="h-7 w-7" fill="currentColor" />
+                ) : (
+                  <Mic className="h-8 w-8" />
+                )}
               </button>
-            )}
-          </div>
-        )}
+              <p role="status" className="text-sm text-muted-foreground">
+                {status === "starting"
+                  ? "Starting microphone… tap to cancel"
+                  : status === "listening"
+                    ? finishingSpeech
+                      ? "Finishing transcription…"
+                      : interim.trim()
+                        ? "Words received — tap Stop to review"
+                        : "Microphone started — waiting for words…"
+                    : partnerSpeaking
+                      ? "Partner is speaking… your microphone will unlock afterward"
+                      : status === "thinking"
+                        ? "Partner is replying…"
+                        : `Your turn — answer in ${selectedMission.language}`}
+              </p>
+            </div>
+          )}
+          {finishingSpeech && (
+            <button
+              type="button"
+              onClick={() => cancelRecognitionRef.current?.()}
+              className="min-h-11 rounded-full border px-4 py-2 text-sm"
+            >
+              Cancel transcription
+            </button>
+          )}
+        </div>
 
-      <form
-        className="flex shrink-0 gap-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          const text = typedTurn.trim();
-          if (!text || status === "thinking" || partnerSpeaking || audioCaptureBusy) return;
-          gated(() => void sendLearnerTurn(text));
-        }}
-      >
-        <label className="sr-only" htmlFor="mission-typed-turn">
-          Type your answer in {selectedMission.language}
-        </label>
-        <textarea
-          ref={replyField}
-          rows={typedTurn.trim() ? 4 : 2}
-          id="mission-typed-turn"
-          value={typedTurn}
-          onChange={(event) => {
-            setTypedTurn(event.target.value);
-            setTranscriptSource("typed");
+        {!useRecordedAudio &&
+          !audioCaptureBusy &&
+          transcriptSource === "dictation" &&
+          typedTurn.trim() && (
+            <div
+              role="status"
+              className="shrink-0 rounded-xl border border-emerald-400/35 bg-emerald-400/10 px-3 py-2"
+            >
+              <p className="text-sm font-medium text-foreground">
+                Reply captured — review what your phone heard
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-foreground">
+                Edit below, then tap Send to confirm your reply.
+              </p>
+              {!useRecordedAudio && (
+                <button
+                  type="button"
+                  onClick={startListening}
+                  disabled={
+                    status === "thinking" ||
+                    status === "listening" ||
+                    status === "starting" ||
+                    partnerSpeaking
+                  }
+                  className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+                >
+                  Retry microphone
+                </button>
+              )}
+            </div>
+          )}
+
+        <form
+          className="flex shrink-0 gap-2"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const text = typedTurn.trim();
+            if (!text || status === "thinking" || partnerSpeaking || audioCaptureBusy) return;
+            gated(() => void sendLearnerTurn(text));
           }}
-          disabled={
-            status === "thinking" ||
-            status === "listening" ||
-            status === "starting" ||
-            audioCaptureBusy
-          }
-          maxLength={2000}
-          placeholder={`Type an answer in ${selectedMission.language}…`}
-          className="min-h-16 max-h-[28dvh] min-w-0 flex-1 resize-y overflow-y-auto rounded-xl border border-border bg-background px-3 py-2.5 text-base leading-relaxed text-foreground"
-        />
-        <button
-          type="submit"
-          disabled={
-            !typedTurn.trim() ||
-            audioCaptureBusy ||
-            status === "thinking" ||
-            status === "listening" ||
-            status === "starting" ||
-            partnerSpeaking
-          }
-          aria-label="Send typed answer"
-          className="inline-flex h-11 self-end gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
         >
-          <Send className="h-4 w-4" />
-          <span>Send</span>
-        </button>
-      </form>
+          <label className="sr-only" htmlFor="mission-typed-turn">
+            Type your answer in {selectedMission.language}
+          </label>
+          <textarea
+            ref={replyField}
+            rows={typedTurn.trim() ? 4 : 2}
+            id="mission-typed-turn"
+            value={typedTurn}
+            onChange={(event) => {
+              setTypedTurn(event.target.value);
+              setTranscriptSource("typed");
+            }}
+            disabled={
+              status === "thinking" ||
+              status === "listening" ||
+              status === "starting" ||
+              audioCaptureBusy
+            }
+            maxLength={2000}
+            placeholder={`Type an answer in ${selectedMission.language}…`}
+            className="min-h-16 max-h-[28dvh] min-w-0 flex-1 resize-y overflow-y-auto rounded-xl border border-border bg-background px-3 py-2.5 text-base leading-relaxed text-foreground"
+          />
+          <button
+            type="submit"
+            disabled={
+              !typedTurn.trim() ||
+              audioCaptureBusy ||
+              status === "thinking" ||
+              status === "listening" ||
+              status === "starting" ||
+              partnerSpeaking
+            }
+            aria-label="Send typed answer"
+            className="inline-flex h-11 self-end gap-2 px-3 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+          >
+            <Send className="h-4 w-4" />
+            <span>Send</span>
+          </button>
+        </form>
 
-      <SpeakingConversationControls
-        text={!hideReplyText}
-        feedback={showFeedback}
-        voice={automaticReplyAudio}
-        onText={() => setHideReplyText((value) => !value)}
-        onFeedback={() => setShowFeedback((value) => !value)}
-        onVoice={() => {
-          stopAudio();
-          setAutomaticReplyAudio((value) => !value);
-        }}
-        repeatDisabled={
-          status === "thinking" ||
-          status === "listening" ||
-          status === "starting" ||
-          audioCaptureBusy ||
-          !turns.some((turn) => turn.role === "partner")
-        }
-        onRepeat={() => {
-          const reply = [...turns].reverse().find((turn) => turn.role === "partner");
-          if (reply) void speakPartnerText(reply.text);
-        }}
-      />
-
-      {wordRequest && (
-        <WordCard
-          request={wordRequest}
-          onClose={() => setWordRequest(null)}
-          onXp={(amount) => appDispatch({ type: "ADD_XP", payload: amount })}
+        <SpeakingConversationControls
+          text={!hideReplyText}
+          feedback={showFeedback}
+          voice={automaticReplyAudio}
+          onText={() => setHideReplyText((value) => !value)}
+          onFeedback={() => setShowFeedback((value) => !value)}
+          onVoice={() => {
+            stopAudio();
+            setAutomaticReplyAudio((value) => !value);
+          }}
+          repeatDisabled={
+            status === "thinking" ||
+            status === "listening" ||
+            status === "starting" ||
+            audioCaptureBusy ||
+            !turns.some((turn) => turn.role === "partner")
+          }
+          onRepeat={() => {
+            const reply = [...turns].reverse().find((turn) => turn.role === "partner");
+            if (reply) void speakPartnerText(reply.text);
+          }}
         />
-      )}
+      </SpeakTutorDock>
     </section>
   );
 }

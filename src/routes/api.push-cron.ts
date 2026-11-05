@@ -1,3 +1,4 @@
+import { summarizeStudyActivity, type StudyDevice } from "@/lib/study-activity";
 import { timingSafeEqual } from "node:crypto";
 import { createFileRoute } from "@tanstack/react-router";
 import webpush from "web-push";
@@ -58,6 +59,15 @@ export const Route = createFileRoute("/api/push-cron")({
           // The SQL claim has already selected the user's local delivery hour;
           // dates in the learning context are calendar dates and compare safely.
           const today = localDateKey(now, row.timezone || "UTC");
+          // Read fresh activity at each due window; a phone can complete its goal while
+          // the browser is closed, so cached push context alone is insufficient.
+          const activityResponse=await pushSupabase(`study_activity_devices?select=user_id,device_id,seconds,lessons,practice_days&user_id=eq.${encodeURIComponent(row.user_id)}`).catch(()=>null);
+          if (!activityResponse?.ok) { skipped++;continue; }
+          const activity=summarizeStudyActivity(await activityResponse.json() as StudyDevice[]);
+          const goalResponse=await pushSupabase(`study_activity_preferences?select=goal_minutes&user_id=eq.${encodeURIComponent(row.user_id)}`).catch(()=>null);
+          if (!goalResponse?.ok) { skipped++;continue; }
+          const goals=await goalResponse.json() as {goal_minutes:number}[];
+          if ((activity.seconds[today] ?? 0) >= (goals[0]?.goal_minutes ?? 10)*60 || Object.values(activity.lessons).includes(today) || activity.practiceDays.includes(today)) { skipped++;continue; }
           const notification = buildReminderNotification(context, today);
           if (!notification) {
             skipped += 1;

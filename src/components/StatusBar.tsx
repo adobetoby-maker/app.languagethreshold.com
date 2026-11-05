@@ -1,10 +1,12 @@
+import { useSyncedStudyStreak } from "@/hooks/use-study-cloud";
 import { Flame, Star, Medal } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { CountUp } from "./CountUp";
 
 export function StatusBar() {
   const { state } = useApp();
-  const fiery = state.streak > 1;
+  const syncedStreak=useSyncedStudyStreak();
+  const fiery = syncedStreak > 1;
 
   return (
     <div className="border-b border-border/50 bg-card/40">
@@ -23,7 +25,7 @@ export function StatusBar() {
               fiery ? "font-bold text-gold" : "font-medium text-foreground"
             }`}
           >
-            {state.streak}d
+            {syncedStreak}d
           </span>
         </div>
         <span className="h-3 w-px shrink-0 bg-border/70" />

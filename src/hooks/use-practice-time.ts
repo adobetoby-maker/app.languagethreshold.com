@@ -1,5 +1,6 @@
 // Built by TAC — 2026-10-22
 import { useEffect, useMemo, useSyncExternalStore } from "react";
+import { useStudyCloud, summarizeStudyActivity, lessonDates } from "@/hooks/use-study-cloud";
 import { useApp } from "@/state/app-state";
 import {
   DEFAULT_GOAL_LESSONS,
@@ -12,7 +13,6 @@ import {
   clampGoalMinutes,
   clampGoalType,
   goalProgress,
-  lessonsCompletedOn,
   localDateKey,
   mergeDays,
   pruneDays,
@@ -174,7 +174,7 @@ export function usePracticeSettings(): PracticeSettings {
 }
 
 /** Active practice seconds on today's local date. */
-export function useTodayPracticeSeconds(): number {
+export function useLocalTodayPracticeSeconds(): number {
   return useSyncExternalStore(
     subscribe,
     () => {
@@ -203,11 +203,12 @@ export function useTodayKey(): string {
  */
 export function useLessonsToday(): number | null {
   const { state } = useApp();
+  const rows=useStudyCloud();
   const key = useTodayKey();
   const { hydrated, core30Log } = state;
   return useMemo(
-    () => (hydrated && key ? lessonsCompletedOn(core30Log, key) : null),
-    [hydrated, core30Log, key],
+    () => (hydrated && key ? Object.values(summarizeStudyActivity([...rows,{user_id:"",device_id:"local-lessons",seconds:{},lessons:lessonDates(core30Log)}]).lessons).filter(day=>day === key).length : null),
+    [hydrated, core30Log, key, rows],
   );
 }
 
@@ -263,6 +264,7 @@ export function setPracticeEnabled(enabled: boolean) {
 
 export function setPracticeGoalMinutes(minutes: number) {
   update({ goalMinutes: minutes });
+  if (typeof window !== "undefined") window.dispatchEvent(new CustomEvent("lt:study-goal",{detail:clampGoalMinutes(minutes)}));
 }
 
 export function setPracticeGoalType(goalType: GoalType) {
@@ -340,3 +342,26 @@ export function usePracticeTimeTicker(enabled: boolean) {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 }
+
+export function readLocalPracticeDays(): Record<string,number> { ensureLoaded();return {...data.days}; }
+
+export function useTodayPracticeSeconds(): number {
+  const local=useLocalTodayPracticeSeconds();
+  const rows=useStudyCloud();
+  const key=useTodayKey();
+  const remote=summarizeStudyActivity(rows).seconds[key] ?? 0;
+  // The browser contribution is already included in the server total; only add seconds
+  // since that contribution was acknowledged. Native totals remain separate per device.
+  let own=0;
+  if (typeof window !== "undefined") {
+    for (const row of rows) {
+      try { const raw=localStorage.getItem(`lt.study-contribution.v1.${row.user_id}`);
+        if (!raw) continue;
+        const contribution=JSON.parse(raw);if (contribution.device === row.device_id) own=(row.seconds[key] ?? 0)+(contribution.baseline[key] ?? 0); } catch { /* no local contribution */ }
+    }
+  }
+  return rows.length ? remote+Math.max(0,local-own) : local;
+}
+
+export function readLocalPracticeGoal(): number { ensureLoaded();return data.goalMinutes; }
+export function applyCloudPracticeGoal(minutes:number) { update({goalMinutes:minutes}); }

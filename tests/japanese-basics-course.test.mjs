@@ -116,3 +116,25 @@ test("late Core exchanges grow and Master scenarios do not recycle earlier dialo
     }
   }
 });
+
+test("Japanese checks exercise the newly taught forms", () => {
+  const practice = read("src/data/japanese-basics-practice.json");
+  const answers = (stage, n) => practice[stage][n].checks.map((check) => check.answer);
+  assert.deepEqual(answers("japanese-basics", 27), [
+    "いきませんでした", "りょこうでは ありませんでした", "むずかしくなかったです",
+  ]);
+  assert.ok(answers("japanese-basics", 5).includes("よくないです"));
+  assert.ok(answers("japanese-basics", 26).includes("べんきょうしませんか"));
+  assert.ok(answers("master-japanese-basics", 11).includes("はいっていません"));
+  assert.ok(answers("master-japanese-basics", 14).includes("まっていました"));
+  assert.ok(answers("master-japanese-basics", 20).includes("いってください"));
+  for (const [stage, n] of [
+    ["japanese-basics", 26], ["japanese-basics", 27],
+    ["master-japanese-basics", 11], ["master-japanese-basics", 14],
+    ["master-japanese-basics", 20],
+  ]) {
+    const checks = practice[stage][n].checks;
+    assert.equal(new Set(checks.map((check) => check.hint)).size, 3,
+      `${stage}/${n} checks come from distinct dialogue lines`);
+  }
+});

@@ -146,7 +146,19 @@ def build():
                     lessonType=["Teach-back", "Case", "People", "Document", "Capstone"][(n - 1) // 4],
                     block="ABCDE"[(n - 1) // 4])
             checks = []
+            for answer in authored.get("checkAnswers", []):
+                assert answer in {word for word, _ in terms}, (stage, n, "unknown check answer", answer)
+                assert answer not in {item["answer"] for item in checks}, (stage, n, "duplicate check answer", answer)
+                match = next(((line, native, found) for line, native in pairs
+                              if (found := term_match(answer, line))), None)
+                assert match, (stage, n, "unused check answer", answer)
+                line, native, found = match
+                checks.append({"prompt": line[:found.start("term")] + "____" + line[found.end("term"):],
+                               "hint": native, "answer": answer, "explanation": authored["focus"]})
+            assert len(checks) <= 3, (stage, n, "too many check answers")
             for line, native in pairs:
+                if len(checks) == 3:
+                    break
                 for word, meaning in sorted(terms, key=lambda pair: -len(pair[0])):
                     match = term_match(word, line)
                     start = match.start("term") if match else -1

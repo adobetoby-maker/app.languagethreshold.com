@@ -851,21 +851,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "この ____は だれのですか。",
-          "hint": "Whose bag is this?",
-          "answer": "かばん",
-          "explanation": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it."
-        },
-        {
-          "prompt": "____です。",
-          "hint": "It is Tanaka's.",
-          "answer": "たなかさんの",
-          "explanation": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it."
-        },
-        {
           "prompt": "この かばんは ____。",
           "hint": "This bag is not big.",
           "answer": "おおきくないです",
+          "explanation": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it."
+        },
+        {
+          "prompt": "いいえ、____。",
+          "hint": "No, it is not good.",
+          "answer": "よくないです",
+          "explanation": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it."
+        },
+        {
+          "prompt": "この ____は だれのですか。",
+          "hint": "Whose bag is this?",
+          "answer": "かばん",
           "explanation": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it."
         }
       ]
@@ -2065,9 +2065,9 @@
           "explanation": "Use a polite negative question ～ませんか to invite someone: べんきょうしませんか asks “Would you like to study?” rather than stating that you do not study. Answer with a time or activity; use ～ました to report a completed action from yesterday."
         },
         {
-          "prompt": "あした、____で べんきょうしませんか。",
-          "hint": "Would you like to study at the library tomorrow?",
-          "answer": "としょかん",
+          "prompt": "ともだちと はなしました。あした、いっしょに ほんを ____。",
+          "hint": "I spoke with a friend. Would you like to read a book together tomorrow?",
+          "answer": "よみませんか",
           "explanation": "Use a polite negative question ～ませんか to invite someone: べんきょうしませんか asks “Would you like to study?” rather than stating that you do not study. Answer with a time or activity; use ～ました to report a completed action from yesterday."
         },
         {
@@ -2121,21 +2121,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "せんしゅう きょうとに ____か。",
-          "hint": "Did you go to Kyoto last week?",
-          "answer": "いきました",
+          "prompt": "いいえ、きょうとには ____。",
+          "hint": "No, I did not go to Kyoto.",
+          "answer": "いきませんでした",
           "explanation": "Contrast past statements with past negatives. For verbs, ～ます → ～ました, while ～ません → ～ませんでした. Nouns and な-adjectives use ～でした / ～ではありませんでした (りょこうでした → りょこうではありませんでした; きれいでした → きれいではありませんでした); for an い-adjective remove final い and add ～かったです / ～くなかったです. Here たのしい → たのしかったです and むずかしい → むずかしくなかったです."
         },
         {
-          "prompt": "____ きょうとに いきましたか。",
-          "hint": "Did you go to Kyoto last week?",
-          "answer": "せんしゅう",
+          "prompt": "いいえ、____。ともだちの うちで べんきょうしました。",
+          "hint": "No, it was not a trip. I studied at my friend’s home.",
+          "answer": "りょこうでは ありませんでした",
           "explanation": "Contrast past statements with past negatives. For verbs, ～ます → ～ました, while ～ません → ～ませんでした. Nouns and な-adjectives use ～でした / ～ではありませんでした (りょこうでした → りょこうではありませんでした; きれいでした → きれいではありませんでした); for an い-adjective remove final い and add ～かったです / ～くなかったです. Here たのしい → たのしかったです and むずかしい → むずかしくなかったです."
         },
         {
-          "prompt": "せんしゅう ____に いきましたか。",
-          "hint": "Did you go to Kyoto last week?",
-          "answer": "きょうと",
+          "prompt": "はい、たのしかったです。____。",
+          "hint": "Yes, it was fun. It was not difficult.",
+          "answer": "むずかしくなかったです",
           "explanation": "Contrast past statements with past negatives. For verbs, ～ます → ～ました, while ～ません → ～ませんでした. Nouns and な-adjectives use ～でした / ～ではありませんでした (りょこうでした → りょこうではありませんでした; きれいでした → きれいではありませんでした); for an い-adjective remove final い and add ～かったです / ～くなかったです. Here たのしい → たのしかったです and むずかしい → むずかしくなかったです."
         }
       ]
@@ -3079,21 +3079,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "いいえ、にくは ____。やさいだけです。",
+          "hint": "No, there is no meat in it. Only vegetables.",
+          "answer": "はいっていません",
+          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
+        },
+        {
           "prompt": "わたしは やさいの ____が すきです。",
           "hint": "I like vegetable dishes.",
           "answer": "りょうり",
           "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
         },
         {
-          "prompt": "わたしは ____の りょうりが すきです。",
-          "hint": "I like vegetable dishes.",
-          "answer": "やさい",
-          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
-        },
-        {
-          "prompt": "わたしは やさいの りょうりが ____です。",
-          "hint": "I like vegetable dishes.",
-          "answer": "すき",
+          "prompt": "____を みましょう。",
+          "hint": "Let's look at the menu.",
+          "answer": "メニュー",
           "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
         }
       ]
@@ -3289,21 +3289,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "ともだちは えきの まえで ____。",
+          "hint": "My friend was waiting in front of the station.",
+          "answer": "まっていました",
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
+        },
+        {
           "prompt": "きょうは えきで ともだちに あう ____。",
           "hint": "I plan to meet a friend at the station today.",
           "answer": "よていです",
           "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
         },
         {
-          "prompt": "きょうは えきで ____に あう よていです。",
-          "hint": "I plan to meet a friend at the station today.",
-          "answer": "ともだち",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
-        },
-        {
-          "prompt": "きょうは えきで ともだちに あう ____です。",
-          "hint": "I plan to meet a friend at the station today.",
-          "answer": "よてい",
+          "prompt": "でも、____が おくれています。",
+          "hint": "But the train is delayed.",
+          "answer": "でんしゃ",
           "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
         }
       ]
@@ -3681,7 +3681,7 @@
           "I'm well. But I have a question.",
           "Yes, which word?",
           "Please say this word slowly.",
-          "Yes, it is “shiryō.” Do you understand?",
+          "Yes, it is “shiryō” (materials or a handout). Do you understand?",
           "Yes, thank you. Where shall we meet tomorrow?",
           "Let us meet at the station at one p.m.",
           "Okay. We met there yesterday too, didn't we?",
@@ -3709,21 +3709,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "____。げんきですか。",
-          "hint": "Hello. How are you?",
-          "answer": "こんにちは",
+          "prompt": "この ことばを ゆっくり ____。",
+          "hint": "Please say this word slowly.",
+          "answer": "いってください",
           "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
         },
         {
-          "prompt": "げんきです。____、しつもんが あります。",
-          "hint": "I'm well. But I have a question.",
-          "answer": "でも",
+          "prompt": "はい、「____」です。わかりますか。",
+          "hint": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+          "answer": "しりょう",
           "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
         },
         {
-          "prompt": "はい、____ ことばですか。",
-          "hint": "Yes, which word?",
-          "answer": "どの",
+          "prompt": "ごご いちじに えきで ____。",
+          "hint": "Let us meet at the station at one p.m.",
+          "answer": "あいましょう",
           "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
         }
       ]

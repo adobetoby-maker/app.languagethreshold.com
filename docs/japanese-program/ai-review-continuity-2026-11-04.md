@@ -2,7 +2,7 @@
 
 Claude Opus 5.5 (`claude.ai` subscription, read-only; session `c72c6bad-8b63-476f-bb79-ecb0afdb6d72`) reviewed the authored 10 Foundation, 30 Core, and 20 Master lessons as one sequence on 2026-11-04. This supplements the earlier scoped lesson reviews. No human or domain-specialist approval is implied; all course `reviewed` flags remain false. The review was performed before the later Foundation 8 counting-line correction.
 
-Material findings, all **open** until corrected and re-reviewed:
+Original material findings (resolution status below):
 
 1. Master first uses `～てください` (M2/M13/M15/M17), quotation `「…」と` (M8/M10/M13/M14), `～ていません` (M11/M16), and て-form action chains (M10/M14/M15/M17) without a prior explanation. Teach in Core or at first use.
 2. Core uses action-location `で` from C1, long before C18 explains it, and companion `と` without explaining the distinction from Foundation's noun-linking `と`. Add C1 scaffolding and make C18 compare `に` and `で`.
@@ -15,6 +15,14 @@ Material findings, all **open** until corrected and re-reviewed:
 9. F10 claims to review quantity and existence but its dialogue omits them. Add an appropriate exchange or narrow the claim.
 
 Additional review notes: the full course uses spaced kana throughout, so its reading ceiling should be stated accurately; C26/C27 promise plain past forms that are not later taught; some Master `inherit` indices may confuse Foundation/Core prerequisites. The original reviewer supplied a private plan in the local Claude cache; this ledger preserves the actionable findings in the repository. Each material correction needs a subsequent AI recheck before a release decision. Qualified human Japanese review and any required specialist review remain separate gates.
+
+## Bounded continuity corrections
+
+F10 now promises only the questions/existence forms its dialogue actually reviews; C1 explains action-place `で` and companion `と`; C14 introduces `かいます` in a new question/answer and explains plain-negative formation before obligation patterns; C17 is now "Prices and choices" and introduces ひゃく/せん, えん and the relevant sound changes before later thousand-yen prices. C26/C27 no longer promise a separate plain-past lesson that this course lacks. The authored stage sources and derived assets were rebuilt without changing lesson numbers or IDs.
+
+Claude Fable 5.1 (`claude.ai` subscription, read-only; sessions `784745fd-ad38-4a82-b7bb-09976657ef55` and `4fea8714-2321-4fd0-a72d-ed318edf017d`) checked the first revision, identified C14/C17/F10 scaffolding gaps, then checked the corrected source. Its second pass found those material gaps resolved and no new material Japanese, English, or sequencing errors. The small remaining wording omission in C14's る-verb rule was fixed afterward by adding "and add ない"; this is an English clarification of the already-reviewed correct example, not a new form. Fable's non-material notes remain: C14's dialogue exercises an う-verb but not every stated pattern; C17 previews thousands without a dialogue example; C27's dialogue does not exemplify every form in its title/focus; F10 has two unused terms. AI review does not establish human approval.
+
+Original findings **2, 6, 7 and 9 are resolved** at the focus/dialogue level. Findings **1, 3, 4, 5 and 8 remain open**: Master prerequisites and repetition, M1 progression, duplicated/missing Core forms, and Core speaking growth. The course stays a draft.
 
 ## Foundation 8 cloze correction
 

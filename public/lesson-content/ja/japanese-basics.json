@@ -410,20 +410,26 @@
     },
     "5": {
       "passage": {
-        "title": "Found on the table",
+        "title": "Sorting belongings after class",
         "target": [
-          "この かさは だれのですか。",
+          "この かばんは だれのですか。",
           "たなかさんのです。",
-          "その かばんは わたしのです。",
-          "ほんは せんせいの つくえに あります。",
-          "ともだちの ペンも あります。"
+          "この かばんは おおきくないです。",
+          "この かさも たなかさんのですか。",
+          "いいえ、せんせいのです。",
+          "この ペンは いい ペンですか。",
+          "いいえ、よくないです。",
+          "わたしの ほんは かばんに あります。"
         ],
         "native": [
-          "Whose umbrella is this?",
+          "Whose bag is this?",
           "It is Tanaka's.",
-          "That bag is mine.",
-          "The book is on the teacher's desk.",
-          "A friend's pen is there too."
+          "This bag is not big.",
+          "Is this umbrella Tanaka's too?",
+          "No, it is the teacher's.",
+          "Is this a good pen?",
+          "No, it is not good.",
+          "My book is in the bag."
         ]
       },
       "words": [
@@ -473,8 +479,23 @@
           "kind": "term"
         },
         {
-          "es": "この かさは だれのですか。",
-          "en": "Whose umbrella is this?",
+          "es": "おおきくないです",
+          "en": "is not big",
+          "kind": "term"
+        },
+        {
+          "es": "いい",
+          "en": "good",
+          "kind": "term"
+        },
+        {
+          "es": "よくないです",
+          "en": "is not good",
+          "kind": "term"
+        },
+        {
+          "es": "この かばんは だれのですか。",
+          "en": "Whose bag is this?",
           "kind": "phrase"
         },
         {
@@ -483,18 +504,23 @@
           "kind": "phrase"
         },
         {
-          "es": "その かばんは わたしのです。",
-          "en": "That bag is mine.",
+          "es": "この かばんは おおきくないです。",
+          "en": "This bag is not big.",
           "kind": "phrase"
         },
         {
-          "es": "ほんは せんせいの つくえに あります。",
-          "en": "The book is on the teacher's desk.",
+          "es": "この かさも たなかさんのですか。",
+          "en": "Is this umbrella Tanaka's too?",
           "kind": "phrase"
         },
         {
-          "es": "ともだちの ペンも あります。",
-          "en": "A friend's pen is there too.",
+          "es": "いいえ、せんせいのです。",
+          "en": "No, it is the teacher's.",
+          "kind": "phrase"
+        },
+        {
+          "es": "この ペンは いい ペンですか。",
+          "en": "Is this a good pen?",
           "kind": "phrase"
         }
       ],
@@ -1946,14 +1972,18 @@
           "いいえ、しりません。",
           "ちずは わかりますか。",
           "はい、わかります。",
-          "ちずで えきまで いけます。"
+          "ちずで えきまで いけます。",
+          "えきまで ひとりで いけますか。",
+          "はい、いけます。"
         ],
         "native": [
           "Do you know this route?",
           "No, I do not know it.",
           "Do you understand the map?",
           "Yes, I do.",
-          "With the map, I can get to the station."
+          "With the map, I can get to the station.",
+          "Can you get to the station on your own?",
+          "Yes, I can."
         ]
       },
       "words": [
@@ -2003,6 +2033,11 @@
           "kind": "term"
         },
         {
+          "es": "ひとりで",
+          "en": "alone; on one’s own",
+          "kind": "term"
+        },
+        {
           "es": "この みちを しっていますか。",
           "en": "Do you know this route?",
           "kind": "phrase"
@@ -2026,6 +2061,11 @@
           "es": "ちずで えきまで いけます。",
           "en": "With the map, I can get to the station.",
           "kind": "phrase"
+        },
+        {
+          "es": "えきまで ひとりで いけますか。",
+          "en": "Can you get to the station on your own?",
+          "kind": "phrase"
         }
       ],
       "verbs": []
@@ -2038,14 +2078,18 @@
           "でも、あの みせの ほうが しずかです。",
           "この みせと あの みせと、どちらが べんりですか。",
           "この みせの ほうが べんりです。えきの まえですから。",
-          "この まちで いちばん べんりです。"
+          "この まちで いちばん べんりです。",
+          "では、どちらの みせに いきますか。",
+          "えきの まえの みせに いきます。"
         ],
         "native": [
           "This shop is closer than that one.",
           "But that shop is quieter.",
           "Which is more convenient, this shop or that one?",
           "This shop is more convenient. It is in front of the station.",
-          "It is the most convenient in this town."
+          "It is the most convenient in this town.",
+          "So which shop will you go to?",
+          "I will go to the shop in front of the station."
         ]
       },
       "words": [
@@ -2113,6 +2157,11 @@
           "es": "この まちで いちばん べんりです。",
           "en": "It is the most convenient in this town.",
           "kind": "phrase"
+        },
+        {
+          "es": "では、どちらの みせに いきますか。",
+          "en": "So which shop will you go to?",
+          "kind": "phrase"
         }
       ],
       "verbs": []
@@ -2125,14 +2174,18 @@
           "ペンも いれます。",
           "かぎを さがしています。",
           "あ、みつけました。",
-          "もう わすれません。"
+          "もう わすれません。",
+          "かぎも かばんに いれましたか。",
+          "はい、いれました。"
         ],
         "native": [
           "I put the book in the bag.",
           "I put a pen in too.",
           "I am looking for my keys.",
           "Oh, I found them.",
-          "I will not forget them again."
+          "I will not forget them again.",
+          "Did you put the keys in the bag too?",
+          "Yes, I did."
         ]
       },
       "words": [
@@ -2205,6 +2258,11 @@
           "es": "もう わすれません。",
           "en": "I will not forget them again.",
           "kind": "phrase"
+        },
+        {
+          "es": "かぎも かばんに いれましたか。",
+          "en": "Did you put the keys in the bag too?",
+          "kind": "phrase"
         }
       ],
       "verbs": []
@@ -2217,14 +2275,18 @@
           "ともだちは わたしに コピーを くれます。",
           "せんせいから しりょうを もらいました。",
           "その しりょうを あきさんに あげます。",
-          "あきさんは おれいを いいます。"
+          "あきさんは おれいを いいます。",
+          "あきさんは その しりょうを よみますか。",
+          "はい、あとで よみます。"
         ],
         "native": [
           "I give my friend a notebook.",
           "My friend gives me a copy.",
           "I received materials from the teacher.",
           "I will give those materials to Aki.",
-          "Aki says thank you."
+          "Aki says thank you.",
+          "Will Aki read those materials?",
+          "Yes, later."
         ]
       },
       "words": [
@@ -2302,6 +2364,11 @@
           "es": "あきさんは おれいを いいます。",
           "en": "Aki says thank you.",
           "kind": "phrase"
+        },
+        {
+          "es": "あきさんは その しりょうを よみますか。",
+          "en": "Will Aki read those materials?",
+          "kind": "phrase"
         }
       ],
       "verbs": []
@@ -2314,14 +2381,18 @@
           "ともだちを よびます。",
           "ひとが こまっています。",
           "その ひとの ところに いきます。",
-          "てつだいましょうか。かばんを もちましょうか。"
+          "てつだいましょうか。かばんを もちましょうか。",
+          "はい、おねがいします。",
+          "ともだちも てつだいます。"
         ],
         "native": [
           "I will meet my friend at the station.",
           "I call my friend over.",
           "A person is having trouble.",
           "I go over to that person.",
-          "May I help? Shall I carry the bag?"
+          "May I help? Shall I carry the bag?",
+          "Yes, please.",
+          "My friend will help too."
         ]
       },
       "words": [
@@ -2399,26 +2470,35 @@
           "es": "てつだいましょうか。かばんを もちましょうか。",
           "en": "May I help? Shall I carry the bag?",
           "kind": "phrase"
+        },
+        {
+          "es": "はい、おねがいします。",
+          "en": "Yes, please.",
+          "kind": "phrase"
         }
       ],
       "verbs": []
     },
     "26": {
       "passage": {
-        "title": "Yesterday at school",
+        "title": "Planning a library meeting",
         "target": [
-          "きのう がっこうへ いきました。",
-          "あたらしい ほんを かいました。",
-          "ひる ともだちと はなしました。",
-          "あとで しゅくだいを しました。",
-          "よる てがみを かきました。"
+          "あした、としょかんで べんきょうしませんか。",
+          "はい、いいですね。ごご にじは どうですか。",
+          "にじで いいです。きのうは なにを しましたか。",
+          "がっこうへ いきました。",
+          "あとで なにを しましたか。",
+          "ともだちと はなしました。あした、いっしょに ほんを よみませんか。",
+          "はい、としょかんで よみましょう。"
         ],
         "native": [
-          "Yesterday I went to school.",
-          "I bought a new book.",
-          "At noon I spoke with a friend.",
-          "Afterward I did my homework.",
-          "At night I wrote a letter."
+          "Would you like to study at the library tomorrow?",
+          "Yes, that sounds good. How about two in the afternoon?",
+          "Two is fine. What did you do yesterday?",
+          "I went to school.",
+          "What did you do afterward?",
+          "I spoke with a friend. Would you like to read a book together tomorrow?",
+          "Yes, let us read at the library."
         ]
       },
       "words": [
@@ -2443,11 +2523,6 @@
           "kind": "term"
         },
         {
-          "es": "かきました",
-          "en": "wrote",
-          "kind": "term"
-        },
-        {
           "es": "あとで",
           "en": "afterward",
           "kind": "term"
@@ -2463,28 +2538,58 @@
           "kind": "term"
         },
         {
-          "es": "きのう がっこうへ いきました。",
-          "en": "Yesterday I went to school.",
+          "es": "べんきょうしませんか",
+          "en": "would you like to study?",
+          "kind": "term"
+        },
+        {
+          "es": "よみませんか",
+          "en": "would you like to read?",
+          "kind": "term"
+        },
+        {
+          "es": "いいですね",
+          "en": "sounds good",
+          "kind": "term"
+        },
+        {
+          "es": "いっしょに",
+          "en": "together",
+          "kind": "term"
+        },
+        {
+          "es": "としょかん",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "es": "あした、としょかんで べんきょうしませんか。",
+          "en": "Would you like to study at the library tomorrow?",
           "kind": "phrase"
         },
         {
-          "es": "あたらしい ほんを かいました。",
-          "en": "I bought a new book.",
+          "es": "はい、いいですね。ごご にじは どうですか。",
+          "en": "Yes, that sounds good. How about two in the afternoon?",
           "kind": "phrase"
         },
         {
-          "es": "ひる ともだちと はなしました。",
-          "en": "At noon I spoke with a friend.",
+          "es": "にじで いいです。きのうは なにを しましたか。",
+          "en": "Two is fine. What did you do yesterday?",
           "kind": "phrase"
         },
         {
-          "es": "あとで しゅくだいを しました。",
-          "en": "Afterward I did my homework.",
+          "es": "がっこうへ いきました。",
+          "en": "I went to school.",
           "kind": "phrase"
         },
         {
-          "es": "よる てがみを かきました。",
-          "en": "At night I wrote a letter.",
+          "es": "あとで なにを しましたか。",
+          "en": "What did you do afterward?",
+          "kind": "phrase"
+        },
+        {
+          "es": "ともだちと はなしました。あした、いっしょに ほんを よみませんか。",
+          "en": "I spoke with a friend. Would you like to read a book together tomorrow?",
           "kind": "phrase"
         }
       ],
@@ -2492,20 +2597,26 @@
     },
     "27": {
       "passage": {
-        "title": "A trip and a report",
+        "title": "Talking about last week",
         "target": [
-          "せんしゅう きょうとに いきました。",
-          "ともだちも いっしょに いきました。",
-          "ふたりで りょこうを しました。",
-          "まちは とても きれいでした。",
-          "たのしい りょこうでした。"
+          "せんしゅう きょうとに いきましたか。",
+          "いいえ、きょうとには いきませんでした。",
+          "どこに いきましたか。",
+          "ともだちの まちに いきました。",
+          "りょこうでしたか。",
+          "いいえ、りょこうでは ありませんでした。ともだちの うちで べんきょうしました。",
+          "べんきょうは たのしかったですか。",
+          "はい、たのしかったです。むずかしくなかったです。"
         ],
         "native": [
-          "Last week I went to Kyoto.",
-          "A friend went with me.",
-          "We traveled together.",
-          "The city was very beautiful.",
-          "It was a fun trip."
+          "Did you go to Kyoto last week?",
+          "No, I did not go to Kyoto.",
+          "Where did you go?",
+          "I went to a friend’s town.",
+          "Was it a trip?",
+          "No, it was not a trip. I studied at my friend’s home.",
+          "Was studying fun?",
+          "Yes, it was fun. It was not difficult."
         ]
       },
       "words": [
@@ -2540,11 +2651,6 @@
           "kind": "term"
         },
         {
-          "es": "えき",
-          "en": "station",
-          "kind": "term"
-        },
-        {
           "es": "きょうと",
           "en": "Kyoto",
           "kind": "term"
@@ -2555,33 +2661,53 @@
           "kind": "term"
         },
         {
-          "es": "ふたりで",
-          "en": "as a pair",
+          "es": "いきませんでした",
+          "en": "did not go",
           "kind": "term"
         },
         {
-          "es": "せんしゅう きょうとに いきました。",
-          "en": "Last week I went to Kyoto.",
+          "es": "りょこうでは ありませんでした",
+          "en": "was not a trip",
+          "kind": "term"
+        },
+        {
+          "es": "むずかしい",
+          "en": "difficult",
+          "kind": "term"
+        },
+        {
+          "es": "むずかしくなかったです",
+          "en": "was not difficult",
+          "kind": "term"
+        },
+        {
+          "es": "せんしゅう きょうとに いきましたか。",
+          "en": "Did you go to Kyoto last week?",
           "kind": "phrase"
         },
         {
-          "es": "ともだちも いっしょに いきました。",
-          "en": "A friend went with me.",
+          "es": "いいえ、きょうとには いきませんでした。",
+          "en": "No, I did not go to Kyoto.",
           "kind": "phrase"
         },
         {
-          "es": "ふたりで りょこうを しました。",
-          "en": "We traveled together.",
+          "es": "どこに いきましたか。",
+          "en": "Where did you go?",
           "kind": "phrase"
         },
         {
-          "es": "まちは とても きれいでした。",
-          "en": "The city was very beautiful.",
+          "es": "ともだちの まちに いきました。",
+          "en": "I went to a friend’s town.",
           "kind": "phrase"
         },
         {
-          "es": "たのしい りょこうでした。",
-          "en": "It was a fun trip.",
+          "es": "りょこうでしたか。",
+          "en": "Was it a trip?",
+          "kind": "phrase"
+        },
+        {
+          "es": "いいえ、りょこうでは ありませんでした。ともだちの うちで べんきょうしました。",
+          "en": "No, it was not a trip. I studied at my friend’s home.",
           "kind": "phrase"
         }
       ],
@@ -2591,18 +2717,24 @@
       "passage": {
         "title": "Then and now",
         "target": [
-          "むかし、よく がっこうまで あるきました。",
-          "いつも ともだちと いきました。",
+          "むかし、どうやって がっこうに いきましたか。",
+          "よく がっこうまで あるきました。",
+          "ひとりで いきましたか。",
+          "いいえ、いつも ともだちと いきました。",
+          "きのうは どうやって いきましたか。",
           "きのうは ひとりで あるきました。",
-          "いまは でんしゃで いきます。",
-          "でも、ときどき あるきます。"
+          "いまは でんしゃで いきますか。",
+          "はい。でも、ときどき あるきます。"
         ],
         "native": [
-          "I often walked to school long ago.",
-          "I always went with a friend.",
+          "How did you get to school in the past?",
+          "I often walked to school.",
+          "Did you go alone?",
+          "No, I always went with a friend.",
+          "How did you go yesterday?",
           "Yesterday I walked alone.",
-          "Now I go by train.",
-          "But sometimes I still walk."
+          "Do you go by train now?",
+          "Yes. But I sometimes walk."
         ]
       },
       "words": [
@@ -2657,28 +2789,38 @@
           "kind": "term"
         },
         {
-          "es": "むかし、よく がっこうまで あるきました。",
-          "en": "I often walked to school long ago.",
+          "es": "どうやって",
+          "en": "how (by what means)",
+          "kind": "term"
+        },
+        {
+          "es": "むかし、どうやって がっこうに いきましたか。",
+          "en": "How did you get to school in the past?",
           "kind": "phrase"
         },
         {
-          "es": "いつも ともだちと いきました。",
-          "en": "I always went with a friend.",
+          "es": "よく がっこうまで あるきました。",
+          "en": "I often walked to school.",
+          "kind": "phrase"
+        },
+        {
+          "es": "ひとりで いきましたか。",
+          "en": "Did you go alone?",
+          "kind": "phrase"
+        },
+        {
+          "es": "いいえ、いつも ともだちと いきました。",
+          "en": "No, I always went with a friend.",
+          "kind": "phrase"
+        },
+        {
+          "es": "きのうは どうやって いきましたか。",
+          "en": "How did you go yesterday?",
           "kind": "phrase"
         },
         {
           "es": "きのうは ひとりで あるきました。",
           "en": "Yesterday I walked alone.",
-          "kind": "phrase"
-        },
-        {
-          "es": "いまは でんしゃで いきます。",
-          "en": "Now I go by train.",
-          "kind": "phrase"
-        },
-        {
-          "es": "でも、ときどき あるきます。",
-          "en": "But sometimes I still walk.",
           "kind": "phrase"
         }
       ],
@@ -2692,14 +2834,18 @@
           "しけんの ために ほんを よみます。",
           "どうして きょうは でんしゃですか。",
           "あめが ふっていますから。",
-          "あめなので、でんしゃで いきます。"
+          "あめなので、でんしゃで いきます。",
+          "なんじに としょかんに いきますか。",
+          "ごご さんじに いきます。"
         ],
         "native": [
           "I am going to the library to study.",
           "I read a book for the exam.",
           "Why the train today?",
           "Because it is raining.",
-          "Since it is raining, I will go by train."
+          "Since it is raining, I will go by train.",
+          "What time will you go to the library?",
+          "I will go at three in the afternoon."
         ]
       },
       "words": [
@@ -2782,6 +2928,11 @@
           "es": "あめなので、でんしゃで いきます。",
           "en": "Since it is raining, I will go by train.",
           "kind": "phrase"
+        },
+        {
+          "es": "なんじに としょかんに いきますか。",
+          "en": "What time will you go to the library?",
+          "kind": "phrase"
         }
       ],
       "verbs": []
@@ -2794,14 +2945,18 @@
           "でも、あめが ふっています。",
           "だから、きょうは でかけません。",
           "それから、ともだちに でんわします。",
-          "そして、うちで いっしょに べんきょうします。"
+          "そして、うちで いっしょに べんきょうします。",
+          "あしたは どうしますか。",
+          "あしたは でかける よていです。"
         ],
         "native": [
           "Today I had planned to go out with a friend.",
           "But it is raining.",
           "So I will not go out today.",
           "Then I will call my friend.",
-          "And we will study together at home."
+          "And we will study together at home.",
+          "What will you do tomorrow?",
+          "I plan to go out tomorrow."
         ]
       },
       "words": [
@@ -2868,6 +3023,11 @@
         {
           "es": "そして、うちで いっしょに べんきょうします。",
           "en": "And we will study together at home.",
+          "kind": "phrase"
+        },
+        {
+          "es": "あしたは どうしますか。",
+          "en": "What will you do tomorrow?",
           "kind": "phrase"
         }
       ],

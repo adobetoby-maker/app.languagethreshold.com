@@ -94,3 +94,25 @@ test("Foundation cloze checks use standalone terms rather than name suffixes or 
   assert.ok(!foundation[8].checks.some((check) => check.prompt.includes("なん____") && check.answer === "さい"));
   assert.ok(foundation[8].checks.some((check) => check.answer === "いち"));
 });
+
+test("late Core exchanges grow and Master scenarios do not recycle earlier dialogue", () => {
+  const foundation = read("content/japanese-basics/foundation.json").lessons;
+  const core = read("content/japanese-basics/core.json").lessons;
+  const master = read("content/japanese-basics/master.json").lessons;
+  for (let n = 21; n <= 30; n++) {
+    const dialogue = core[n - 1].dialogue;
+    assert.ok(dialogue.length >= 7 && dialogue.length <= 9, `Core ${n} dialogue length`);
+    assert.ok(dialogue.filter((line) => line.split("|")[0].includes("か。")).length >= 1,
+      `Core ${n} has follow-up questions`);
+  }
+  const seen = new Set([...foundation, ...core].flatMap((lesson) =>
+    lesson.dialogue.map((line) => line.split("|")[0])));
+  for (let n = 1; n <= master.length; n++) {
+    for (const line of master[n - 1].dialogue) {
+      const target = line.split("|")[0];
+      if ([6, 7, 10, 14, 19, 20].includes(n))
+        assert.ok(!seen.has(target), `Master ${n} repeats earlier dialogue: ${target}`);
+      seen.add(target);
+    }
+  }
+});

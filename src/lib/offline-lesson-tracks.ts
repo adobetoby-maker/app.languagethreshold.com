@@ -1,5 +1,26 @@
 /** Public practice download allowlist, not reviewed curriculum releases. */
 export const OFFLINE_LESSON_TRACKS = {
+  "foundation-japanese-basics-ja-en": {
+    moduleId: "foundation-japanese-basics",
+    label: "Japanese 101 Foundation",
+    target: "Japanese",
+    native: "English",
+    lessons: 10,
+  },
+  "japanese-basics-ja-en": {
+    moduleId: "japanese-basics",
+    label: "Japanese 101 Core",
+    target: "Japanese",
+    native: "English",
+    lessons: 30,
+  },
+  "master-japanese-basics-ja-en": {
+    moduleId: "master-japanese-basics",
+    label: "Japanese 101 Master",
+    target: "Japanese",
+    native: "English",
+    lessons: 20,
+  },
   "foundation-sound-like-a-native-es-en": {
     moduleId: "foundation-sound-like-a-native",
     label: "Sound Like a Native Foundation",

@@ -173,7 +173,7 @@ test("the worker acknowledges protocol support without reading or downloading an
   const r = runtime();
   const response = await r.command("LESSON_PACK_PING");
   assert.equal(response.protocol, 2);
-  assert.deepEqual(Array.from(response.packIds), ["sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es"]);
+  assert.deepEqual(Array.from(response.packIds), ["sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es", "foundation-japanese-basics-ja-en", "japanese-basics-ja-en", "master-japanese-basics-ja-en"]);
   assert.equal(response.ok, true);
   assert.equal(r.calls.length, 0);
   assert.equal(r.stores.size, 0);
@@ -195,6 +195,28 @@ test("Foreman pack installation and removal cannot change the other two modules'
   assert.equal((await r.command("LESSON_PACK_STATUS", "construction-foreman-es-en")).ready,false);
   assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).ready,true);
   assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).ready,true);
+});
+
+test("Japanese stage downloads do not replace each other or an existing Spanish pack", async () => {
+  const r = runtime();
+  const roofing = await r.command("LESSON_PACK_INSTALL", "roofing-es-en");
+  assert.equal(roofing.ready, true);
+  for (const [stage, version] of [
+    ["foundation-japanese-basics-ja-en", "ja-foundation"],
+    ["japanese-basics-ja-en", "ja-core"],
+    ["master-japanese-basics-ja-en", "ja-master"],
+  ]) {
+    r.setCurrent(fixture(version, stage));
+    const installed = await r.command("LESSON_PACK_INSTALL", stage);
+    assert.equal(installed.ready, true);
+    assert.equal(installed.packId, stage);
+  }
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).version, roofing.version);
+  await r.command("LESSON_PACK_REMOVE", "japanese-basics-ja-en");
+  assert.equal((await r.command("LESSON_PACK_STATUS", "japanese-basics-ja-en")).ready, false);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "foundation-japanese-basics-ja-en")).ready, true);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "master-japanese-basics-ja-en")).ready, true);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).ready, true);
 });
 
 test("two module downloads coexist; status, replacement and removal stay in their exact pack", async () => {

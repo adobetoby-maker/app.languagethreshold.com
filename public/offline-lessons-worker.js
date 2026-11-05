@@ -1,6 +1,6 @@
 /* Public lesson downloads only. Never accepts arbitrary URLs or learner/exam responses. */
 const LESSON_PACK_PREFIX = "lt-lesson-pack-";
-const LESSON_PACK_IDS = ["sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es"];
+const LESSON_PACK_IDS = ["sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es", "foundation-japanese-basics-ja-en", "japanese-basics-ja-en", "master-japanese-basics-ja-en"];
 const LESSON_PACK_READY = "/.lt-lesson-pack-ready";
 const lessonPackInstallations = new Map();
 

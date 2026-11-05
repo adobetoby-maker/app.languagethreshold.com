@@ -23,7 +23,7 @@ const tracks = source.tracks.filter((item) => item.targetLanguage === "Japanese"
       readingPassages: stage.counts.alignedReadings,
       speakingCards: stage.counts.speakingCards,
       readerPassages: stage.counts.fullReaderPassages,
-      offlinePackRegistration: stage.offlinePackRegistration ?? null,
+      ...(stage.offlinePackRegistration ? {offlinePackRegistration: stage.offlinePackRegistration} : {}),
       reviewed: stage.publicFileReviewFlag === true,
     })),
   }));

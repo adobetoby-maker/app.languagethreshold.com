@@ -99,7 +99,7 @@ async function openCore30(
 async function gotoCore30Tab(page: Page, isMobile: boolean) {
   if (isMobile) {
     await page.getByText("More", { exact: true }).filter({ visible: true }).last().tap();
-    const sheet = page.getByRole("dialog").filter({ hasText: "All Tabs" });
+    const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
     const item = sheet.getByRole("button", { name: /core 30/i }).first();
     await item.scrollIntoViewIfNeeded();
     await item.tap();
@@ -113,7 +113,7 @@ async function gotoCore30Tab(page: Page, isMobile: boolean) {
 async function gotoTab(page: Page, isMobile: boolean, label: RegExp) {
   if (isMobile) {
     await page.getByText("More", { exact: true }).filter({ visible: true }).last().tap();
-    const sheet = page.getByRole("dialog").filter({ hasText: "All Tabs" });
+    const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
     const item = sheet.getByRole("button", { name: label }).first();
     await item.scrollIntoViewIfNeeded();
     await item.tap();

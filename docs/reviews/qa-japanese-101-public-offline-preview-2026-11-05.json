@@ -1,0 +1,36 @@
+{
+  "sourceRevision": "b46acd458409c19a51aff8dd95771c0ac1a1cae9",
+  "preview": "https://language-threshold-ha8p69tk5-adobetoby-5572s-projects.vercel.app",
+  "browser": "headless Google Chrome, 390x844, fresh guest context, service workers enabled",
+  "method": "Public app navigation; normal service-worker message protocol for install/status; Chrome network offline before same-origin stage navigation. No auth or storage injection.",
+  "results": [
+    {
+      "packId": "foundation-japanese-basics-ja-en",
+      "lessons": 10,
+      "installed": true,
+      "offlineStatusReady": true,
+      "totalBytes": 26016798
+    },
+    {
+      "packId": "japanese-basics-ja-en",
+      "lessons": 30,
+      "installed": true,
+      "offlineStatusReady": true,
+      "totalBytes": 26083201
+    },
+    {
+      "packId": "master-japanese-basics-ja-en",
+      "lessons": 20,
+      "installed": true,
+      "offlineStatusReady": true,
+      "totalBytes": 26099299
+    }
+  ],
+  "observed": "All three packs installed in one fresh browser context, retained readiness during offline navigation, and the guest app shell loaded offline. Public HTTP checks on this same preview verified each manifest/content hash and its no-store/immutable cache headers.",
+  "limits": [
+    "Guest state does not unlock Japanese lesson practice; actual offline lesson text, cards, six modes and Reader remain unverified.",
+    "This was desktop Chrome at phone viewport, not physical iPhone Safari or V4 native app.",
+    "Device Japanese voice and recorded audio were not tested."
+  ],
+  "recordedAt": "2026-11-05T12:40:09Z"
+}

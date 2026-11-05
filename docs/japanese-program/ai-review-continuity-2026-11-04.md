@@ -22,7 +22,13 @@ F10 now promises only the questions/existence forms its dialogue actually review
 
 Claude Fable 5.1 (`claude.ai` subscription, read-only; sessions `784745fd-ad38-4a82-b7bb-09976657ef55` and `4fea8714-2321-4fd0-a72d-ed318edf017d`) checked the first revision, identified C14/C17/F10 scaffolding gaps, then checked the corrected source. Its second pass found those material gaps resolved and no new material Japanese, English, or sequencing errors. The small remaining wording omission in C14's る-verb rule was fixed afterward by adding "and add ない"; this is an English clarification of the already-reviewed correct example, not a new form. Fable's non-material notes remain: C14's dialogue exercises an う-verb but not every stated pattern; C17 previews thousands without a dialogue example; C27's dialogue does not exemplify every form in its title/focus; F10 has two unused terms. AI review does not establish human approval.
 
-Original findings **2, 6, 7 and 9 are resolved** at the focus/dialogue level. Findings **1, 3, 4, 5 and 8 remain open**: Master prerequisites and repetition, M1 progression, duplicated/missing Core forms, and Core speaking growth. The course stays a draft.
+Original findings **2, 6, 7 and 9 are resolved** at the focus/dialogue level. Findings **1, 4, 5 and 8 remain open**: Master prerequisites and repetition outside M1, duplicated/missing Core forms, and Core speaking growth. Finding **3 is resolved** for the rewritten M1 below. The course stays a draft.
+
+## Master 1 progression correction
+
+Master 1's original dialogue repeated four Foundation lines and `inherit: [4,5,9]` pointed to unrelated Core lessons. The replacement uses a study-group introduction with preferences, yesterday's meeting, tomorrow's intention, and a past い-adjective; it now inherits Core `[11,19,27]`. Its eight main and four extension lines have no verbatim Foundation/Core dialogue reuse. Lesson number, module ID, speaking mission ID and review flags remain stable. The source and derived Reader/practice assets were rebuilt.
+
+Claude Fable 5.1 (`claude.ai` subscription, read-only; sessions `87735175-7688-40f0-8ddc-f32896bfcdcf` and `aee6b1c2-749f-4535-a745-7992664d978c`) reviewed the rewrite, found four material problems in adjective attachment, referent clarity, scene continuity, and past-adjective scaffolding, then rechecked the corrections. Its final pass found all four resolved and no remaining material Japanese, English or sequence error in M1. Non-material limits: sentence-final `ね` after a verb is new but glossed, asking about intentions is somewhat direct, and all three generated cloze checks use the first dialogue line rather than testing the later Core forms. This is AI review only; qualified fluent approval remains pending.
 
 ## Foundation 8 cloze correction
 

@@ -93,6 +93,90 @@
         "その のこぎりも さとうさんのですか。|Is that saw also yours?",
         "はい、わたしのです。|Yes, it is mine."
       ]
+    },
+    {
+      "n": 4,
+      "title": "Count the crew and boxes",
+      "focus": "Ask なんにん for a number of people and いくつ for a number of general items. ふたり counts two people; ふたつ counts two items. Keep the people counter separate from the item counter. The noun before は is the topic of the question. と joins Tanaka and one other person.",
+      "scene": "Sato checks the morning roster with Tanaka and Ito, the two carpenters on this shift; two boxes are in storage and one is at the work site",
+      "terms": [
+        "なんにん|how many people",
+        "ふたり|two people",
+        "ひとり|one person",
+        "いくつ|how many general items",
+        "ふたつ|two general items",
+        "ひとつ|one general item",
+        "もうひとり|one more person",
+        "と|and; with (joins people)",
+        "はこ|box",
+        "そうこ|storage room",
+        "げんば|work site",
+        "きょう|today"
+      ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka"],
+      "dialogue": [
+        "きょう、だいくは なんにんですか。|How many carpenters are here today?",
+        "ふたりです。|Two people.",
+        "たなかさんと もうひとりですか。|You and one more person, Tanaka?",
+        "はい、いとうさんです。|Yes, the other person is Ito.",
+        "そうこの はこは いくつですか。|How many boxes are in storage?",
+        "ふたつです。|Two boxes.",
+        "げんばの はこは いくつですか。|How many boxes are at the work site?",
+        "ひとつです。|One box."
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Find a person or a tool",
+      "focus": "Ask どこに for the location of someone or something. Use います for a person or animal and あります for an inanimate item. に marks the place where the person or item exists; Xの なかに means inside X.",
+      "scene": "Sato and Kobayashi locate Tanaka, Yamada, and Sato's hammer before the shift starts",
+      "terms": [
+        "どこ|where",
+        "に|at; in (location of existence)",
+        "います|is; exists (person or animal)",
+        "あります|is; exists (thing)",
+        "そうこ|storage room",
+        "げんば|work site",
+        "なか|inside",
+        "かなづち|hammer",
+        "わたしの|my"
+      ],
+      "speakers": ["Sato", "Kobayashi", "Sato", "Kobayashi", "Sato", "Kobayashi"],
+      "dialogue": [
+        "たなかさんは どこに いますか。|Where is Tanaka?",
+        "そうこに います。|Tanaka is in the storage room.",
+        "わたしの かなづちは どこに ありますか。|Where is my hammer?",
+        "そうこの なかに あります。|It is inside the storage room.",
+        "やまださんも そうこに いますか。|Is Yamada also in the storage room?",
+        "いいえ、げんばに います。|No, Yamada is at the work site."
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Where work happens",
+      "focus": "Use に for where a person or object is: げんばに います. Use で for where a task happens: げんばで さぎょうします. さぎょうします means carry out work or a task. Ask どこに for existence and どこで for an action. Do not swap the particles.",
+      "scene": "Later that morning, Sato asks Tanaka where Kobayashi is, where each worker will carry out tasks, and where Sato's saw is kept",
+      "terms": [
+        "で|at; in (place of an action)",
+        "に|at; in (place where someone or something is)",
+        "さぎょうします|carry out work; work on a task (polite)",
+        "どこで|where (an action happens)",
+        "どこに|where (someone or something is)",
+        "げんば|work site",
+        "そうこ|storage room",
+        "のこぎり|saw"
+      ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka"],
+      "dialogue": [
+        "こばやしさんは どこに いますか。|Where is Kobayashi?",
+        "げんばに います。|Kobayashi is at the work site.",
+        "たなかさんは きょう どこで さぎょうしますか。|Where will you carry out your work today, Tanaka?",
+        "そうこで さぎょうします。|I will work in the storage room.",
+        "こばやしさんは どこで さぎょうしますか。|Where will Kobayashi work on the task?",
+        "げんばで さぎょうします。|Kobayashi will work at the site.",
+        "わたしの のこぎりは どこに ありますか。|Where is my saw?",
+        "そうこに あります。|It is in the storage room."
+      ]
     }
   ]
 }

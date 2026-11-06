@@ -27,6 +27,9 @@ const batches = [
   ['core-translation-10-12-draft.json', 10, 12],
   ['core-translation-13-15-draft.json', 13, 15],
   ['core-translation-16-18-draft.json', 16, 18],
+  ['core-translation-19-21-draft.json', 19, 21],
+  ['core-translation-22-24-draft.json', 22, 24],
+  ['core-translation-25-27-draft.json', 25, 27],
 ];
 
 let count = 0;

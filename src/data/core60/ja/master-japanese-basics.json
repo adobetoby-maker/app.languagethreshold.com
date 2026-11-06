@@ -99,8 +99,8 @@
           "kind": "phrase"
         },
         {
-          "es": "あしたも としょかんに いく つもりですか。",
-          "en": "Do you intend to go to the library tomorrow too?",
+          "es": "べんきょうは たのしかったですか。",
+          "en": "Was studying fun?",
           "kind": "phrase"
         }
       ],
@@ -693,33 +693,13 @@
     },
     {
       "n": 7,
-      "title": "Explain your study routine",
-      "objective": "Explain your study routine: Give a routine with polite verbs, time markers, and a reason for one choice.",
-      "focus": "Give a routine with polite verbs, time markers, and a reason for one choice.",
+      "title": "Explain how you study a difficult word",
+      "objective": "Explain how you study a difficult word: Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
+      "focus": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
       "words": [
         {
           "es": "べんきょうします",
           "en": "study",
-          "kind": "term"
-        },
-        {
-          "es": "はなします",
-          "en": "speak",
-          "kind": "term"
-        },
-        {
-          "es": "としょかん",
-          "en": "library",
-          "kind": "term"
-        },
-        {
-          "es": "かえります",
-          "en": "return",
-          "kind": "term"
-        },
-        {
-          "es": "あさごはん",
-          "en": "breakfast",
           "kind": "term"
         },
         {
@@ -728,13 +708,18 @@
           "kind": "term"
         },
         {
-          "es": "せんせい",
-          "en": "teacher",
+          "es": "どうやって",
+          "en": "how; by what method",
           "kind": "term"
         },
         {
-          "es": "ともだち",
-          "en": "friend",
+          "es": "すこしずつ",
+          "en": "little by little",
+          "kind": "term"
+        },
+        {
+          "es": "せんせい",
+          "en": "teacher",
           "kind": "term"
         },
         {
@@ -758,47 +743,62 @@
           "kind": "term"
         },
         {
-          "es": "まいにち ろくじに おきます。",
-          "en": "I get up at six every day.",
+          "es": "やりかた",
+          "en": "way of doing something",
+          "kind": "term"
+        },
+        {
+          "es": "みじかい",
+          "en": "short",
+          "kind": "term"
+        },
+        {
+          "es": "ぶん",
+          "en": "sentence",
+          "kind": "term"
+        },
+        {
+          "es": "まいにち どうやって にほんごを べんきょうしますか。",
+          "en": "How do you study Japanese every day?",
           "kind": "phrase"
         },
         {
-          "es": "あさごはんを たべます。",
-          "en": "I eat breakfast.",
+          "es": "まいあさ みじかい ぶんを かきます。",
+          "en": "I write short sentences every morning.",
           "kind": "phrase"
         },
         {
-          "es": "しちじに うちを でます。",
-          "en": "I leave home at seven.",
+          "es": "むずかしい ことばは どうしますか。",
+          "en": "What do you do with difficult words?",
           "kind": "phrase"
         },
         {
-          "es": "がっこうで にほんごを べんきょうします。",
-          "en": "I study Japanese at school.",
+          "es": "せんせいに ことばの いみを ききます。",
+          "en": "I ask the teacher the meanings of words.",
           "kind": "phrase"
         },
         {
-          "es": "ひる ともだちと はなします。",
-          "en": "At noon I talk with a friend.",
+          "es": "べんきょうの やりかたも ききますか。",
+          "en": "Do you ask about the way to study them too?",
           "kind": "phrase"
         },
         {
-          "es": "ごごは としょかんで ほんを よみます。",
-          "en": "In the afternoon I read at the library.",
+          "es": "はい、べんきょうの やりかたも ききます。",
+          "en": "Yes, I ask about the way to study them too.",
           "kind": "phrase"
         }
       ],
-      "speaking": "Role-play a weekday schedule with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play one classmate explains a method for learning difficult japanese words with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "grammar": {
-        "focus": "Give a routine with polite verbs, time markers, and a reason for one choice.",
+        "focus": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
         "examples": [
           {
-            "es": "まいにち ろくじに おきます。",
-            "en": "I get up at six every day."
+            "es": "まいにち どうやって にほんごを べんきょうしますか。",
+            "en": "How do you study Japanese every day?"
           },
           {
-            "es": "あさごはんを たべます。",
-            "en": "I eat breakfast."
+            "es": "まいあさ みじかい ぶんを かきます。",
+            "en": "I write short sentences every morning."
           }
         ]
       },
@@ -1492,17 +1492,32 @@
     {
       "n": 14,
       "title": "Handle a delayed meeting",
-      "objective": "Handle a delayed meeting: Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”",
-      "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”",
+      "objective": "Handle a delayed meeting: Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
+      "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
       "words": [
+        {
+          "es": "おそく なります",
+          "en": "will be late",
+          "kind": "term"
+        },
         {
           "es": "まっていました",
           "en": "was waiting",
           "kind": "term"
         },
         {
+          "es": "おくれています",
+          "en": "is delayed",
+          "kind": "term"
+        },
+        {
           "es": "よていです",
-          "en": "scheduled to",
+          "en": "planned; scheduled",
+          "kind": "term"
+        },
+        {
+          "es": "つきました",
+          "en": "arrived",
           "kind": "term"
         },
         {
@@ -1516,8 +1531,8 @@
           "kind": "term"
         },
         {
-          "es": "よてい",
-          "en": "plan",
+          "es": "でんしゃ",
+          "en": "train",
           "kind": "term"
         },
         {
@@ -1538,21 +1553,6 @@
         {
           "es": "いいですね",
           "en": "sounds good",
-          "kind": "term"
-        },
-        {
-          "es": "でんしゃ",
-          "en": "train",
-          "kind": "term"
-        },
-        {
-          "es": "きょう",
-          "en": "today",
-          "kind": "term"
-        },
-        {
-          "es": "さんじ",
-          "en": "three o'clock",
           "kind": "term"
         },
         {
@@ -1588,7 +1588,7 @@
       ],
       "speaking": "Role-play a delayed train before meeting a friend with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "grammar": {
-        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”",
+        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
         "examples": [
           {
             "es": "きょうは えきで ともだちに あう よていです。",
@@ -1615,6 +1615,16 @@
           "kind": "term"
         },
         {
+          "es": "まがってください",
+          "en": "please turn",
+          "kind": "term"
+        },
+        {
+          "es": "いってください",
+          "en": "please go",
+          "kind": "term"
+        },
+        {
           "es": "わかります",
           "en": "understand",
           "kind": "term"
@@ -1630,8 +1640,18 @@
           "kind": "term"
         },
         {
+          "es": "まっすぐ",
+          "en": "straight",
+          "kind": "term"
+        },
+        {
           "es": "となり",
           "en": "next to",
+          "kind": "term"
+        },
+        {
+          "es": "にかい",
+          "en": "second floor",
           "kind": "term"
         },
         {
@@ -1641,32 +1661,12 @@
         },
         {
           "es": "みち",
-          "en": "route",
+          "en": "road; route",
           "kind": "term"
         },
         {
-          "es": "ありがとうございます",
-          "en": "thank you (polite)",
-          "kind": "term"
-        },
-        {
-          "es": "わかりますか",
-          "en": "do you understand",
-          "kind": "term"
-        },
-        {
-          "es": "もういちど",
-          "en": "one more time",
-          "kind": "term"
-        },
-        {
-          "es": "せんせい",
-          "en": "teacher",
-          "kind": "term"
-        },
-        {
-          "es": "あります",
-          "en": "there is (thing)",
+          "es": "みぎ",
+          "en": "right",
           "kind": "term"
         },
         {
@@ -1724,13 +1724,28 @@
       "focus": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11.",
       "words": [
         {
+          "es": "でんわしました",
+          "en": "called",
+          "kind": "term"
+        },
+        {
+          "es": "きめていません",
+          "en": "have not decided",
+          "kind": "term"
+        },
+        {
           "es": "でんわします",
           "en": "call",
           "kind": "term"
         },
         {
           "es": "よんでいます",
-          "en": "is reading",
+          "en": "am reading",
+          "kind": "term"
+        },
+        {
+          "es": "かいています",
+          "en": "is writing",
           "kind": "term"
         },
         {
@@ -1745,7 +1760,7 @@
         },
         {
           "es": "よていです",
-          "en": "scheduled to",
+          "en": "scheduled; planned",
           "kind": "term"
         },
         {
@@ -1764,23 +1779,8 @@
           "kind": "term"
         },
         {
-          "es": "よる",
-          "en": "evening; night",
-          "kind": "term"
-        },
-        {
-          "es": "いま",
-          "en": "now",
-          "kind": "term"
-        },
-        {
-          "es": "だいじょうぶです",
-          "en": "it is all right",
-          "kind": "term"
-        },
-        {
-          "es": "のみます",
-          "en": "drink",
+          "es": "まだ",
+          "en": "not yet",
           "kind": "term"
         },
         {
@@ -1952,6 +1952,16 @@
       "focus": "Narrate several completed actions in polite past, then check one detail with a partner.",
       "words": [
         {
+          "es": "たのしかったです",
+          "en": "was fun",
+          "kind": "term"
+        },
+        {
+          "es": "ひるごはん",
+          "en": "lunch",
+          "kind": "term"
+        },
+        {
           "es": "いきました",
           "en": "went",
           "kind": "term"
@@ -1959,6 +1969,11 @@
         {
           "es": "かいました",
           "en": "bought",
+          "kind": "term"
+        },
+        {
+          "es": "でんしゃ",
+          "en": "train",
           "kind": "term"
         },
         {
@@ -1977,6 +1992,16 @@
           "kind": "term"
         },
         {
+          "es": "はやく",
+          "en": "early",
+          "kind": "term"
+        },
+        {
+          "es": "ほんや",
+          "en": "bookshop",
+          "kind": "term"
+        },
+        {
           "es": "えき",
           "en": "station",
           "kind": "term"
@@ -1984,31 +2009,6 @@
         {
           "es": "うち",
           "en": "home",
-          "kind": "term"
-        },
-        {
-          "es": "ごご",
-          "en": "afternoon; p.m.",
-          "kind": "term"
-        },
-        {
-          "es": "ひるごはん",
-          "en": "lunch",
-          "kind": "term"
-        },
-        {
-          "es": "たべました",
-          "en": "ate",
-          "kind": "term"
-        },
-        {
-          "es": "あたらしい",
-          "en": "new",
-          "kind": "term"
-        },
-        {
-          "es": "ともだち",
-          "en": "friend",
           "kind": "term"
         },
         {
@@ -2042,7 +2042,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Role-play an afternoon away with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play a day in kyoto with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "grammar": {
         "focus": "Narrate several completed actions in polite past, then check one detail with a partner.",
         "examples": [
@@ -2066,6 +2066,11 @@
       "focus": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense.",
       "words": [
         {
+          "es": "ふっていました",
+          "en": "was falling; was raining",
+          "kind": "term"
+        },
+        {
           "es": "あるきました",
           "en": "walked",
           "kind": "term"
@@ -2076,8 +2081,18 @@
           "kind": "term"
         },
         {
-          "es": "ときどき",
-          "en": "sometimes",
+          "es": "つかいます",
+          "en": "use",
+          "kind": "term"
+        },
+        {
+          "es": "あめの ひ",
+          "en": "a rainy day",
+          "kind": "term"
+        },
+        {
+          "es": "まいにち",
+          "en": "every day",
           "kind": "term"
         },
         {
@@ -2087,7 +2102,7 @@
         },
         {
           "es": "むかし",
-          "en": "long ago",
+          "en": "in the past",
           "kind": "term"
         },
         {
@@ -2096,8 +2111,13 @@
           "kind": "term"
         },
         {
-          "es": "いま",
-          "en": "now",
+          "es": "いまも",
+          "en": "even now; still",
+          "kind": "term"
+        },
+        {
+          "es": "よく",
+          "en": "often",
           "kind": "term"
         },
         {
@@ -2106,33 +2126,13 @@
           "kind": "term"
         },
         {
-          "es": "いっしょに",
-          "en": "together",
-          "kind": "term"
-        },
-        {
-          "es": "つもりです",
-          "en": "intend to",
-          "kind": "term"
-        },
-        {
-          "es": "ともだち",
-          "en": "friend",
-          "kind": "term"
-        },
-        {
-          "es": "あります",
-          "en": "there is (thing)",
-          "kind": "term"
-        },
-        {
           "es": "むかし、まいにち がっこうまで あるきました。",
           "en": "In the past, I walked to school every day.",
           "kind": "phrase"
         },
         {
-          "es": "いつも ともだちと あいました。",
-          "en": "I always met a friend.",
+          "es": "いつも ともだちと いっしょに あるきました。",
+          "en": "I always walked with a friend.",
           "kind": "phrase"
         },
         {
@@ -2165,8 +2165,8 @@
             "en": "In the past, I walked to school every day."
           },
           {
-            "es": "いつも ともだちと あいました。",
-            "en": "I always met a friend."
+            "es": "いつも ともだちと いっしょに あるきました。",
+            "en": "I always walked with a friend."
           }
         ]
       },
@@ -2176,12 +2176,17 @@
     {
       "n": 20,
       "title": "A full everyday conversation",
-      "objective": "A full everyday conversation: Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely.",
-      "focus": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely.",
+      "objective": "A full everyday conversation: Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
+      "focus": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
       "words": [
         {
           "es": "いってください",
           "en": "please say",
+          "kind": "term"
+        },
+        {
+          "es": "あいましょう",
+          "en": "let us meet",
           "kind": "term"
         },
         {
@@ -2215,11 +2220,6 @@
           "kind": "term"
         },
         {
-          "es": "どの",
-          "en": "which + noun",
-          "kind": "term"
-        },
-        {
           "es": "ありがとうございます",
           "en": "thank you (polite)",
           "kind": "term"
@@ -2235,23 +2235,23 @@
           "kind": "term"
         },
         {
-          "es": "あいましょう",
-          "en": "let's meet",
+          "es": "こんにちは",
+          "en": "hello",
           "kind": "term"
         },
         {
-          "es": "こんにちは。げんきですか。",
-          "en": "Hello. How are you?",
+          "es": "あきさん、こんにちは。",
+          "en": "Hello, Aki.",
           "kind": "phrase"
         },
         {
-          "es": "げんきです。でも、しつもんが あります。",
-          "en": "I'm well. But I have a question.",
+          "es": "こんにちは。しつもんが あります。",
+          "en": "Hello. I have a question.",
           "kind": "phrase"
         },
         {
-          "es": "はい、どの ことばですか。",
-          "en": "Yes, which word?",
+          "es": "はい、どんな しつもんですか。",
+          "en": "Yes, what is your question?",
           "kind": "phrase"
         },
         {
@@ -2272,15 +2272,15 @@
       ],
       "speaking": "Role-play a plan after class with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "grammar": {
-        "focus": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely.",
+        "focus": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
         "examples": [
           {
-            "es": "こんにちは。げんきですか。",
-            "en": "Hello. How are you?"
+            "es": "あきさん、こんにちは。",
+            "en": "Hello, Aki."
           },
           {
-            "es": "げんきです。でも、しつもんが あります。",
-            "en": "I'm well. But I have a question."
+            "es": "こんにちは。しつもんが あります。",
+            "en": "Hello. I have a question."
           }
         ]
       },

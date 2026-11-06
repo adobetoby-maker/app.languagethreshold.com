@@ -2334,6 +2334,8 @@
           "りょこうの ほんが すきです。",
           "きのう としょかんで あいましたね。",
           "はい。あの しずかな へやで べんきょうしました。",
+          "べんきょうは たのしかったですか。",
+          "はい、とても たのしかったです。",
           "あしたも としょかんに いく つもりですか。",
           "はい、あしたも いく つもりです。",
           "では、いっしょに べんきょうしましょう。",
@@ -2348,6 +2350,8 @@
           "I like travel books.",
           "We met at the library yesterday, didn't we?",
           "Yes. I studied in that quiet room.",
+          "Was studying fun?",
+          "Yes, it was very fun.",
           "Do you intend to go to the library tomorrow too?",
           "Yes, I intend to go tomorrow too.",
           "Then let us study together.",
@@ -2751,30 +2755,30 @@
     "7": {
       "stage": "master",
       "reading": {
-        "title": "A weekday schedule",
+        "title": "One classmate explains a method for learning difficult Japanese words",
         "target": [
-          "まいにち ろくじに おきます。",
-          "あさごはんを たべます。",
-          "しちじに うちを でます。",
-          "がっこうで にほんごを べんきょうします。",
-          "ひる ともだちと はなします。",
-          "ごごは としょかんで ほんを よみます。",
-          "しずかですから、そこで べんきょうします。",
-          "よる うちへ かえります。",
+          "まいにち どうやって にほんごを べんきょうしますか。",
+          "まいあさ みじかい ぶんを かきます。",
+          "むずかしい ことばは どうしますか。",
+          "せんせいに ことばの いみを ききます。",
+          "べんきょうの やりかたも ききますか。",
+          "はい、べんきょうの やりかたも ききます。",
+          "その あと どうしますか。",
+          "もういちど ぶんを かきます。すこしずつ わかります。",
           "しゅうまつは べんきょうしません。",
           "でも、あたらしい ことばを ときどき よみます。",
           "むずかしい ことばは せんせいに ききます。",
           "この やりかたが すきです。"
         ],
         "native": [
-          "I get up at six every day.",
-          "I eat breakfast.",
-          "I leave home at seven.",
-          "I study Japanese at school.",
-          "At noon I talk with a friend.",
-          "In the afternoon I read at the library.",
-          "Because it is quiet, I study there.",
-          "I return home in the evening.",
+          "How do you study Japanese every day?",
+          "I write short sentences every morning.",
+          "What do you do with difficult words?",
+          "I ask the teacher the meanings of words.",
+          "Do you ask about the way to study them too?",
+          "Yes, I ask about the way to study them too.",
+          "What do you do after that?",
+          "I write the sentences again. Little by little I understand.",
           "I do not study on weekends.",
           "But I sometimes read new words.",
           "I ask the teacher about difficult words.",
@@ -2782,39 +2786,39 @@
         ]
       },
       "grammar": {
-        "focus": "Give a routine with polite verbs, time markers, and a reason for one choice.",
+        "focus": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
         "examples": [
           {
-            "es": "まいにち ろくじに おきます。",
-            "en": "I get up at six every day."
+            "es": "まいにち どうやって にほんごを べんきょうしますか。",
+            "en": "How do you study Japanese every day?"
           },
           {
-            "es": "あさごはんを たべます。",
-            "en": "I eat breakfast."
+            "es": "まいあさ みじかい ぶんを かきます。",
+            "en": "I write short sentences every morning."
           }
         ]
       },
-      "speaking": "Role-play a weekday schedule with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "まいにち ろくじに おきます。",
+      "speaking": "Role-play one classmate explains a method for learning difficult japanese words with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "openingLine": "まいにち どうやって にほんごを べんきょうしますか。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "____ ろくじに おきます。",
-          "hint": "I get up at six every day.",
-          "answer": "まいにち",
-          "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
-        },
-        {
-          "prompt": "____を たべます。",
-          "hint": "I eat breakfast.",
-          "answer": "あさごはん",
-          "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
-        },
-        {
-          "prompt": "がっこうで にほんごを ____。",
-          "hint": "I study Japanese at school.",
+          "prompt": "まいにち どうやって にほんごを ____か。",
+          "hint": "How do you study Japanese every day?",
           "answer": "べんきょうします",
-          "explanation": "Give a routine with polite verbs, time markers, and a reason for one choice."
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
+        },
+        {
+          "prompt": "まいにち ____ にほんごを べんきょうしますか。",
+          "hint": "How do you study Japanese every day?",
+          "answer": "どうやって",
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
+        },
+        {
+          "prompt": "____ どうやって にほんごを べんきょうしますか。",
+          "hint": "How do you study Japanese every day?",
+          "answer": "まいにち",
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
         }
       ]
     },
@@ -3251,6 +3255,7 @@
           "ともだちに メッセージを かきますか。",
           "はい、「すこし おそく なります」と かきます。",
           "それは いいですね。",
+          "そのあと えきに つきました。ともだちは まっていました。",
           "あるいて えきへ いきました。",
           "すこし おそく なりました。",
           "ともだちは えきの まえで まっていました。",
@@ -3265,6 +3270,7 @@
           "Will you write a message to your friend?",
           "Yes, I will write, “I will be a little late.”",
           "That is good.",
+          "After that, I arrived at the station. My friend was waiting.",
           "I walked to the station.",
           "I was a little late.",
           "My friend was waiting in front of the station.",
@@ -3272,7 +3278,7 @@
         ]
       },
       "grammar": {
-        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”",
+        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
         "examples": [
           {
             "es": "きょうは えきで ともだちに あう よていです。",
@@ -3289,22 +3295,22 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
-          "prompt": "ともだちは えきの まえで ____。",
-          "hint": "My friend was waiting in front of the station.",
+          "prompt": "そのあと えきに つきました。ともだちは ____。",
+          "hint": "After that, I arrived at the station. My friend was waiting.",
           "answer": "まっていました",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
         },
         {
           "prompt": "きょうは えきで ともだちに あう ____。",
           "hint": "I plan to meet a friend at the station today.",
           "answer": "よていです",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
         },
         {
-          "prompt": "でも、____が おくれています。",
+          "prompt": "でも、でんしゃが ____。",
           "hint": "But the train is delayed.",
-          "answer": "でんしゃ",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing state, and 「…」と to quote a short message. ～ていました is the past of ～ています: まっていました means “was waiting.”"
+          "answer": "おくれています",
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
         }
       ]
     },
@@ -3359,21 +3365,21 @@
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
+          "prompt": "この みちを まっすぐ ____。",
+          "hint": "Please go straight on this road.",
+          "answer": "いってください",
+          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
+        },
+        {
+          "prompt": "この みちを ____ いってください。",
+          "hint": "Please go straight on this road.",
+          "answer": "まっすぐ",
+          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
+        },
+        {
           "prompt": "この ____を まっすぐ いってください。",
           "hint": "Please go straight on this road.",
           "answer": "みち",
-          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
-        },
-        {
-          "prompt": "____の まえで みぎに まがってください。",
-          "hint": "Please turn right in front of the station.",
-          "answer": "えき",
-          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
-        },
-        {
-          "prompt": "____は えきの となりです。",
-          "hint": "The school is next to the station.",
-          "answer": "がっこう",
           "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
         }
       ]
@@ -3435,9 +3441,9 @@
           "explanation": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11."
         },
         {
-          "prompt": "____、ほんを よんでいます。",
-          "hint": "I am reading a book now.",
-          "answer": "いま",
+          "prompt": "あきさんは メッセージを ____。",
+          "hint": "Aki is writing a message.",
+          "answer": "かいています",
           "explanation": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11."
         },
         {
@@ -3521,7 +3527,7 @@
     "18": {
       "stage": "master",
       "reading": {
-        "title": "An afternoon away",
+        "title": "A day in Kyoto",
         "target": [
           "きのう ともだちと きょうとへ いきました。",
           "あさ はやく えきに いきました。",
@@ -3530,6 +3536,8 @@
           "そのあと ほんやに いきました。",
           "あたらしい ほんを かいました。",
           "りょこうは とても たのしかったです。",
+          "ほんは どこで かいましたか。",
+          "ほんやで かいました。",
           "ともだちは しゃしんを とりました。",
           "わたしは みせで おちゃを のみました。",
           "なんじに うちへ かえりましたか。",
@@ -3544,6 +3552,8 @@
           "After that we went to a bookshop.",
           "I bought a new book.",
           "The trip was very fun.",
+          "Where did you buy the book?",
+          "I bought it at the bookshop.",
           "My friend took photos.",
           "I drank tea at a shop.",
           "What time did you return home?",
@@ -3564,7 +3574,7 @@
           }
         ]
       },
-      "speaking": "Role-play an afternoon away with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
+      "speaking": "Role-play a day in kyoto with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
       "openingLine": "きのう ともだちと きょうとへ いきました。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
@@ -3581,9 +3591,9 @@
           "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
         },
         {
-          "prompt": "きのう ____と きょうとへ いきました。",
+          "prompt": "____ ともだちと きょうとへ いきました。",
           "hint": "Yesterday I went to Kyoto with a friend.",
-          "answer": "ともだち",
+          "answer": "きのう",
           "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
         }
       ]
@@ -3594,13 +3604,13 @@
         "title": "Old and new travel habits",
         "target": [
           "むかし、まいにち がっこうまで あるきました。",
-          "いつも ともだちと あいました。",
+          "いつも ともだちと いっしょに あるきました。",
           "でも、きのうは でんしゃで いきました。",
           "あめが ふっていましたから。",
           "えきで ともだちを まちました。",
           "それから いっしょに いきました。",
-          "いまは ときどき でんしゃを つかいます。",
-          "あるく ひも あります。",
+          "いまも よく あるきます。",
+          "あめの ひは でんしゃを つかいます。",
           "でんしゃは べんりでした。",
           "でも、あるくのも すきです。",
           "あしたは はれです。",
@@ -3608,13 +3618,13 @@
         ],
         "native": [
           "In the past, I walked to school every day.",
-          "I always met a friend.",
+          "I always walked with a friend.",
           "But yesterday I went by train.",
           "Because it was raining.",
           "I waited for my friend at the station.",
           "Then we went together.",
-          "Now I sometimes use the train.",
-          "There are days when I walk too.",
+          "I still often walk now.",
+          "On rainy days I use the train.",
           "The train was convenient.",
           "But I also like walking.",
           "Tomorrow will be sunny.",
@@ -3629,8 +3639,8 @@
             "en": "In the past, I walked to school every day."
           },
           {
-            "es": "いつも ともだちと あいました。",
-            "en": "I always met a friend."
+            "es": "いつも ともだちと いっしょに あるきました。",
+            "en": "I always walked with a friend."
           }
         ]
       },
@@ -3645,15 +3655,15 @@
           "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
         },
         {
-          "prompt": "____、まいにち がっこうまで あるきました。",
+          "prompt": "むかし、____ がっこうまで あるきました。",
           "hint": "In the past, I walked to school every day.",
-          "answer": "むかし",
+          "answer": "まいにち",
           "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
         },
         {
-          "prompt": "いつも ____と あいました。",
-          "hint": "I always met a friend.",
-          "answer": "ともだち",
+          "prompt": "____、まいにち がっこうまで あるきました。",
+          "hint": "In the past, I walked to school every day.",
+          "answer": "むかし",
           "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
         }
       ]
@@ -3663,28 +3673,30 @@
       "reading": {
         "title": "A plan after class",
         "target": [
-          "こんにちは。げんきですか。",
-          "げんきです。でも、しつもんが あります。",
-          "はい、どの ことばですか。",
+          "あきさん、こんにちは。",
+          "こんにちは。しつもんが あります。",
+          "はい、どんな しつもんですか。",
           "この ことばを ゆっくり いってください。",
           "はい、「しりょう」です。わかりますか。",
           "はい、ありがとうございます。あした どこで あいますか。",
           "ごご いちじに えきで あいましょう。",
           "わかりました。きのうも そこで あいましたね。",
+          "では、また あした。",
           "ひるごはんも いっしょに たべますか。",
           "はい、でも にくは たべません。",
           "では、やさいの りょうりを たべましょう。",
           "いいですね。では、また あした。"
         ],
         "native": [
-          "Hello. How are you?",
-          "I'm well. But I have a question.",
-          "Yes, which word?",
+          "Hello, Aki.",
+          "Hello. I have a question.",
+          "Yes, what is your question?",
           "Please say this word slowly.",
           "Yes, it is “shiryō” (materials or a handout). Do you understand?",
           "Yes, thank you. Where shall we meet tomorrow?",
           "Let us meet at the station at one p.m.",
           "Okay. We met there yesterday too, didn't we?",
+          "See you tomorrow, then.",
           "Shall we have lunch together too?",
           "Yes, but I do not eat meat.",
           "Then let us eat a vegetable dish.",
@@ -3692,39 +3704,39 @@
         ]
       },
       "grammar": {
-        "focus": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely.",
+        "focus": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
         "examples": [
           {
-            "es": "こんにちは。げんきですか。",
-            "en": "Hello. How are you?"
+            "es": "あきさん、こんにちは。",
+            "en": "Hello, Aki."
           },
           {
-            "es": "げんきです。でも、しつもんが あります。",
-            "en": "I'm well. But I have a question."
+            "es": "こんにちは。しつもんが あります。",
+            "en": "Hello. I have a question."
           }
         ]
       },
       "speaking": "Role-play a plan after class with a patient Japanese-speaking partner. Use the lesson's polite forms, ask and answer a related question, clarify one misunderstanding, and close naturally. Give brief English help when requested.",
-      "openingLine": "こんにちは。げんきですか。",
+      "openingLine": "あきさん、こんにちは。",
       "partnerRole": "A patient Japanese-speaking classmate",
       "checks": [
         {
           "prompt": "この ことばを ゆっくり ____。",
           "hint": "Please say this word slowly.",
           "answer": "いってください",
-          "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
         },
         {
           "prompt": "はい、「____」です。わかりますか。",
           "hint": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
           "answer": "しりょう",
-          "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
         },
         {
           "prompt": "ごご いちじに えきで ____。",
           "hint": "Let us meet at the station at one p.m.",
           "answer": "あいましょう",
-          "explanation": "Greet, clarify, choose, plan, report, and close a short multi-turn conversation politely."
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
         }
       ]
     }

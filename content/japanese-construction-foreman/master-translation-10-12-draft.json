@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "5ca87c653263e9ad66d8852c5ffcdccb5a019ceb5857e708770d65e71788b7bc",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 10,
+      "titleEnglish": "Two Subs, One Ceiling: Settling the Space Fight",
+      "objectiveEnglish": "Relay each sub lead's version, check the coordination drawing with both and agree on the install sequence.",
+      "terms": [
+        {
+          "en": "the coordination drawing",
+          "kind": "term",
+          "ja": "総合図"
+        },
+        {
+          "en": "the drop ceiling",
+          "kind": "term",
+          "ja": "吊り天井"
+        },
+        {
+          "en": "the duct",
+          "kind": "term",
+          "ja": "ダクト"
+        },
+        {
+          "en": "the cable tray",
+          "kind": "term",
+          "ja": "ケーブルラック"
+        },
+        {
+          "en": "the drain line",
+          "kind": "term",
+          "ja": "排水管"
+        },
+        {
+          "en": "the slope (of a drain line)",
+          "kind": "term",
+          "ja": "勾配"
+        },
+        {
+          "en": "the corridor",
+          "kind": "term",
+          "ja": "廊下"
+        },
+        {
+          "en": "the elevation (installed height)",
+          "kind": "term",
+          "ja": "設置高さ"
+        },
+        {
+          "en": "the clash (two trades in one space)",
+          "kind": "term",
+          "ja": "干渉"
+        },
+        {
+          "en": "the install sequence",
+          "kind": "term",
+          "ja": "施工順序"
+        },
+        {
+          "en": "the threaded rods",
+          "kind": "term",
+          "ja": "吊りボルト"
+        },
+        {
+          "en": "the sprinkler line",
+          "kind": "term",
+          "ja": "スプリンクラー配管"
+        },
+        {
+          "en": "the access panel",
+          "kind": "term",
+          "ja": "点検口"
+        },
+        {
+          "en": "the general contractor",
+          "kind": "term",
+          "ja": "元請業者"
+        },
+        {
+          "en": "the vent pipe",
+          "kind": "term",
+          "ja": "通気管"
+        },
+        {
+          "en": "Marisol said her tray was already marked on the drawing.",
+          "kind": "phrase",
+          "ja": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。"
+        },
+        {
+          "en": "Tomás explained to me that the drain line needed that elevation.",
+          "kind": "phrase",
+          "ja": "トマスさんは、排水管にはその設置高さが必要だと説明してくれました。"
+        },
+        {
+          "en": "Each of you told me something different; let's check the drawing together.",
+          "kind": "phrase",
+          "ja": "お二人から聞いた話がそれぞれ違うので、一緒に図面を確認しましょう。"
+        },
+        {
+          "en": "Marisol, what date was on the drawing you used?",
+          "kind": "phrase",
+          "ja": "マリソルさん、使った図面の日付はいつでしたか。"
+        },
+        {
+          "en": "Tomás, you said you already had the threaded rods in, right?",
+          "kind": "phrase",
+          "ja": "トマスさん、吊りボルトはもう取り付けてあると言っていましたよね。"
+        },
+        {
+          "en": "Nobody was lying; each of you was working from a different drawing.",
+          "kind": "phrase",
+          "ja": "お二人とも嘘はついていませんでした。それぞれ別の図面をもとに作業していたのです。"
+        },
+        {
+          "en": "If the drawing confirms it, the drain goes in before the tray.",
+          "kind": "phrase",
+          "ja": "図面でそれが確認できれば、ケーブルラックより先に排水管を設置します。"
+        },
+        {
+          "en": "I'm going to email the agreement to the general contractor.",
+          "kind": "phrase",
+          "ja": "この合意内容を、元請業者にメールでお送りします。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI plays electrical lead Marisol Vega and plumbing lead Tomás Aguirre: relay each lead's version with reported speech (dijo que, me contó que + imperfect), check the coordination drawing with both, and agree on the install sequence.",
+      "grammarFocusSpanish": "Reported speech; imperfect for background (Marisol dijo que el ducto ya estaba marcado; Tomás me contó que el plano no mostraba la bandeja)",
+      "grammarExamplesEnglish": [
+        "Marisol said the duct was already marked on the coordination drawing.",
+        "Tomás told me his drawing didn't show the cable tray."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは電気工事の班長マリソル・ベガと配管工事の班長トマス・アギーレを演じます。二人の言い分を「〜と言っていました」「〜と説明しました」で伝え、それぞれが使った図面の日付を聞いてください。二人と総合図を確認し、確認できた内容をもとに施工順序について合意してください。「図面で確認できれば、排水管をケーブルラックより先に設置します」のように、条件を明示してください。図面で確認する前に順序を決めつけないでください。",
+      "grammarTeachingJapanese": "間接引用では「〜と言いました」「〜と説明しました」を使います。直接引用なら元の言葉を「」に入れますが、間接引用では普通形を使い、視点を伝える人に合わせて変えます（「私のラック」→「自分のラック」）。スペイン語と違い、日本語では報告するときに引用内の時制をずらしません。「図面に記入されていると言いました」のように元の発言時点の状態を表せます。背景の継続には「〜ていました」、設置済みの状態には「〜てあります」を使えます。相手の発言は「〜と言っていましたよね」で確認します。順序を断定する前に「図面で確認できれば」と条件を付けます。",
+      "grammarExamplesJapanese": [
+        "マリソルさんは、ダクトはすでに総合図に記入されていると言いました。",
+        "トマスさんは、自分の図面にはケーブルラックが記入されていないと教えてくれました。"
+      ],
+      "teachingNotesEnglish": [
+        "総合図 is the common term for a coordination drawing, but Japanese sites also use 施工図 for shop drawings. Confirm which drawing title this project uses before the term goes into client materials.",
+        "吊りボルト is the standard term for hanger rods in ceiling work. The source uses threaded rods in a ceiling context, so the term fits here; check before using it for other rod applications.",
+        "勾配 is the standard term for slope. The lesson states no minimum or maximum slope value, so do not add a figure to the exercise or drills.",
+        "設置高さ is used for installed height. Some Japanese sites use level references such as GL or FL instead; follow the project's convention.",
+        "干渉 is the standard word for a clash between trades. The lesson uses only this term; no other coordination term is introduced.",
+        "通気管 is the term for vent pipe. Plumbing vent requirements are regulatory and vary by jurisdiction; the course does not state any code requirement.",
+        "The lesson ends with a sequence agreement, not an approval. Do not describe the outcome as approved or signed off.",
+        "元請業者 is the standard Japanese term for general contractor. ゼネコン is colloquial and acceptable in speech.",
+        "吊り天井 is a generic suspended/drop ceiling term; a specialist should confirm the specific system and the coordination drawing title on the job.",
+        "The example drain-before-tray sequence is conditional on the actual drawing; it is not a design instruction or approval. An MEP coordinator must confirm any real installation sequence."
+      ]
+    },
+    {
+      "n": 11,
+      "titleEnglish": "Keeping a Tired Crew Going Before Hotel Opening",
+      "objectiveEnglish": "Encourage a tired crew, make concrete commitments on breaks and help, and talk with a young laborer about staying.",
+      "terms": [
+        {
+          "en": "the opening date",
+          "kind": "term",
+          "ja": "開業日"
+        },
+        {
+          "en": "the overtime",
+          "kind": "term",
+          "ja": "残業"
+        },
+        {
+          "en": "the tiredness",
+          "kind": "term",
+          "ja": "疲れ"
+        },
+        {
+          "en": "the burnout",
+          "kind": "term",
+          "ja": "燃え尽き"
+        },
+        {
+          "en": "the morale",
+          "kind": "term",
+          "ja": "士気"
+        },
+        {
+          "en": "the day off",
+          "kind": "term",
+          "ja": "休日"
+        },
+        {
+          "en": "the extra workers",
+          "kind": "term",
+          "ja": "応援の人員"
+        },
+        {
+          "en": "the home stretch",
+          "kind": "term",
+          "ja": "ラストスパート"
+        },
+        {
+          "en": "the resignation",
+          "kind": "term",
+          "ja": "退職"
+        },
+        {
+          "en": "the raise",
+          "kind": "term",
+          "ja": "昇給"
+        },
+        {
+          "en": "the training",
+          "kind": "term",
+          "ja": "研修"
+        },
+        {
+          "en": "the effort",
+          "kind": "term",
+          "ja": "努力"
+        },
+        {
+          "en": "the quitting time",
+          "kind": "term",
+          "ja": "終業時刻"
+        },
+        {
+          "en": "the project manager",
+          "kind": "term",
+          "ja": "プロジェクトマネージャー"
+        },
+        {
+          "en": "the crew",
+          "kind": "term",
+          "ja": "作業班"
+        },
+        {
+          "en": "I know you're tired, and you're right.",
+          "kind": "phrase",
+          "ja": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。"
+        },
+        {
+          "en": "Nobody will work on Sunday; you'll get your day off.",
+          "kind": "phrase",
+          "ja": "日曜日は誰も作業しません。皆さんには休日をきちんと取ってもらいます。"
+        },
+        {
+          "en": "Tomorrow I'll bring 2 more people to help in the lobby.",
+          "kind": "phrase",
+          "ja": "明日、ロビーの応援にあと2人連れてきます。"
+        },
+        {
+          "en": "We're going to make it, and we're going to do it right.",
+          "kind": "phrase",
+          "ja": "間に合わせます。そして、きちんと仕上げます。"
+        },
+        {
+          "en": "I trust you all; you've done excellent work.",
+          "kind": "phrase",
+          "ja": "皆さんを信頼しています。素晴らしい仕事をしてくれています。"
+        },
+        {
+          "en": "Fernanda, thanks for telling me; I'll talk to the manager today.",
+          "kind": "phrase",
+          "ja": "フェルナンダさん、教えてくれてありがとう。今日、マネージャーに話しておくね。"
+        },
+        {
+          "en": "Iván, why are you thinking about leaving?",
+          "kind": "phrase",
+          "ja": "イバンさん、どうして辞めようと思っているの？"
+        },
+        {
+          "en": "If you stay, I'll talk to the office about your training.",
+          "kind": "phrase",
+          "ja": "残ってくれるなら、研修のことを事務所に話すよ。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is carpenter lead Fernanda Ruiz, then young laborer Iván Paredes: encourage the tired crew with concrete commitments in the future (tendrán, traeré), use vamos a lograrlo and confío en ustedes, and talk with Iván about staying.",
+      "grammarFocusSpanish": "Future for commitments; encouragement register (mañana tendrán su descanso, traeré dos personas más, vamos a lograrlo, confío en ustedes)",
+      "grammarExamplesEnglish": [
+        "This week nobody will work more than 10 hours a day.",
+        "Iván, on Monday you'll start working with Fernanda in carpentry."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは大工の班長フェルナンダ・ルイスと若手作業員イバン・パレデスを演じます。疲れている作業班に、疲労を認め、日曜日は誰も作業しないこと、明日ロビーに応援を2人連れてくること、間に合わせてきちんと仕上げること、皆さんを信頼していることを具体的に伝えてください。次にフェルナンダには、今日マネージャーに話すと伝えてください。最後にイバンとは二人だけで話し、辞めようと考える理由を聞いてください。残るなら研修について事務所に話すと約束してください。研修の承認や昇給そのものは約束しないでください。",
+      "grammarTeachingJapanese": "日本語では「明日、2人連れてきます」のように、時を示す言葉と「〜ます」で未来の約束を伝えます。「日曜日は誰も作業しません」のように否定形でも具体的な約束を述べられます。「皆さんを信頼しています」で信頼を伝え、「素晴らしい仕事をしてくれています」で現在まで続く貢献を認めます。「今日、マネージャーに話しておくね」は、相手のために今日話すという約束です。「研修のことを事務所に話す」と「研修を認める」は別です。自分に権限のない承認を約束しないでください。",
+      "grammarExamplesJapanese": [
+        "今週は、誰にも1日10時間を超える作業はさせません。",
+        "イバンさん、月曜日からフェルナンダさんと一緒に大工の作業に入ってもらうよ。"
+      ],
+      "teachingNotesEnglish": [
+        "残業 is the everyday word for overtime. Japanese overtime limits come from labor law; the course states no limit. The 10-hour statement is source content for this lesson only.",
+        "燃え尽き is a plain everyday word for burnout. The source uses it as a noun for the state, so keep it non-medical.",
+        "昇給 is the standard term for a raise. The source contains no pay commitment; do not turn this into a promise in practice.",
+        "退職 is neutral. 辞めようと思っている is the casual rendering of thinking about leaving, and it fits the private conversation the lesson requires.",
+        "ラストスパート is colloquial for home stretch. A more formal option is 最終段階.",
+        "作業班 is the usual term for crew. ロビー is standard in Japanese.",
+        "The source gives a Sunday no-work statement and a day off. The Japanese keeps both as stated. The course does not establish a binding schedule; verify with the project before treating either as a real commitment.",
+        "The source is informal (tú) for Fernanda and Iván. The Japanese uses plain-casual forms for those lines, which is a register choice a native speaker should review.",
+        "Project manager is プロジェクトマネージャー here, distinct from the superintendent in Lesson 12; the actual contractual role name requires project review.",
+        "Real commitments on hours, days off, staffing and training require project-manager/HR authority and local labor-law review. The 10-hour source example is not labor-law advice."
+      ]
+    },
+    {
+      "n": 12,
+      "titleEnglish": "One Elevator Delay, Four Different Listeners",
+      "objectiveEnglish": "Explain the same delay to a laborer, the owner, your superintendent and the inspector, choosing tú or usted.",
+      "terms": [
+        {
+          "en": "the elevator",
+          "kind": "term",
+          "ja": "エレベーター"
+        },
+        {
+          "en": "the elevator company",
+          "kind": "term",
+          "ja": "エレベーター会社"
+        },
+        {
+          "en": "the inspector (woman)",
+          "kind": "term",
+          "ja": "検査担当者"
+        },
+        {
+          "en": "the certificate of operation",
+          "kind": "term",
+          "ja": "certificate of operation（米国のエレベーター運転に関する認可書類）"
+        },
+        {
+          "en": "the certificate of occupancy",
+          "kind": "term",
+          "ja": "certificate of occupancy（米国の建物使用に関する認可書類）"
+        },
+        {
+          "en": "the new date",
+          "kind": "term",
+          "ja": "新しい日程"
+        },
+        {
+          "en": "the delay",
+          "kind": "term",
+          "ja": "遅延"
+        },
+        {
+          "en": "the superintendent (woman)",
+          "kind": "term",
+          "ja": "現場所長"
+        },
+        {
+          "en": "the owner",
+          "kind": "term",
+          "ja": "施主"
+        },
+        {
+          "en": "the tenants",
+          "kind": "term",
+          "ja": "入居者"
+        },
+        {
+          "en": "the move-in",
+          "kind": "term",
+          "ja": "入居"
+        },
+        {
+          "en": "the machine room",
+          "kind": "term",
+          "ja": "機械室"
+        },
+        {
+          "en": "the elevator pit",
+          "kind": "term",
+          "ja": "エレベーターピット"
+        },
+        {
+          "en": "the elevator cab",
+          "kind": "term",
+          "ja": "かご"
+        },
+        {
+          "en": "the emergency phone",
+          "kind": "term",
+          "ja": "非常通話装置"
+        },
+        {
+          "en": "the apology",
+          "kind": "term",
+          "ja": "お詫び"
+        },
+        {
+          "en": "Beto, could you tell the others the elevator is still closed?",
+          "kind": "phrase",
+          "ja": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？"
+        },
+        {
+          "en": "Mr. Lozano, I'd like to explain why the inspection was moved.",
+          "kind": "phrase",
+          "ja": "ロサノさん、検査日が変更になった理由をご説明したいのですが。"
+        },
+        {
+          "en": "Would it be all right if I email you the new date today?",
+          "kind": "phrase",
+          "ja": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。"
+        },
+        {
+          "en": "Diana, I'm letting you know the elevator inspection didn't happen today.",
+          "kind": "phrase",
+          "ja": "ディアナさん、今日のエレベーター検査は行われませんでした。"
+        },
+        {
+          "en": "Inspector Méndez, would it work for you to reschedule for Thursday?",
+          "kind": "phrase",
+          "ja": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。"
+        },
+        {
+          "en": "Sorry for the trouble; what do you need us to have ready for the visit?",
+          "kind": "phrase",
+          "ja": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。"
+        },
+        {
+          "en": "Until we have the certificate, nobody uses the elevator.",
+          "kind": "phrase",
+          "ja": "必要な証明書が発行されるまでは、誰もエレベーターを使ってはいけません。"
+        },
+        {
+          "en": "I understand the tenants' move-in depends on this, Mr. Lozano.",
+          "kind": "phrase",
+          "ja": "ロサノさん、入居者の皆さんの引っ越しがこの件にかかっていることは承知しております。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI plays laborer Beto Salas, owner Arturo Lozano, superintendent Diana Quiroga and inspector Raquel Méndez: explain the missed elevator inspection to each, switching between tú and usted and using softeners like quisiera explicarle and ¿le parece si...?",
+      "grammarFocusSpanish": "Usted / tú switching; softeners (quisiera explicarle, ¿le parece si...?, ¿podrías avisar a los demás?)",
+      "grammarExamplesEnglish": [
+        "Beto, could you close the machine room door?",
+        "Inspector Méndez, would it be all right if we confirm the new date now?"
+      ],
+      "speakingJapanese": "あなたは職長です。AIは作業員ベト・サラス、施主アルトゥーロ・ロサノ、現場所長ディアナ・キロガ、検査担当者ラケル・メンデスを演じます。同じエレベーター検査の遅れを四人に伝えてください。ベトには「まだ使えないって伝えてもらえる？」のように親しい口調で頼みます。ディアナには「今日の検査は行われませんでした」と丁寧に報告します。ロサノには検査日が変更になった理由を丁寧に説明し、入居者の皆さんの引っ越しがこの件にかかっていると承知していることを伝えます。メンデスには木曜日への日程変更が都合に合うか尋ね、検査までにこちらで準備しておくことを確認します。相手に合わせ、くだけた形、丁寧語、敬語を使い分けてください。検査結果や許可の発行を推測しないでください。",
+      "grammarTeachingJapanese": "日本語では二人称（あなた等）をふつう避け、名前や役職で呼び、文末の丁寧さと敬語で関係を示します。ベトには親しい形（「伝えてもらえる？」）、ディアナには丁寧な報告（「行われませんでした」）、施主や外部の検査担当者には敬語（「ご説明します」「ご都合はいかがでしょうか」）を使います。「〜てもよろしいでしょうか」で自分の行動の許可を求め、「〜ていただけますか」で相手に丁寧に頼みます。「検査日が変更になった」は変更した人を決めつけません。実際の職場では相手との関係に合う言い方を確認してください。",
+      "grammarExamplesJapanese": [
+        "ベトさん、機械室のドア、閉めてもらえる？",
+        "検査担当のメンデスさん、今、新しい日程を確定してもよろしいでしょうか。"
+      ],
+      "teachingNotesEnglish": [
+        "エレベーター is the everyday Japanese term; ascensor and elevador both map to it.",
+        "現場所長 is used for superintendent. 現場代理人 is the term used in some public works contracts; choose by the project contract.",
+        "施主 is the formal term for a building owner in construction. オーナー may be used in conversation; match the term to the client relationship.",
+        "The source gender markers for the inspector and superintendent do not carry into Japanese; 検査担当者 and 現場所長 are gender-neutral.",
+        "The lesson gives no inspection outcome, and the Japanese adds none. The statement that the inspection did not happen today is kept as written.",
+        "This source is a US jobsite. certificate of operation and certificate of occupancy are preserved as US document names with Japanese descriptions, not asserted Japanese equivalents. The source does not specify which certificate the no-use line refers to. A qualified elevator/building-code specialist must select the exact document and jurisdictional wording before release.",
+        "The no-use line states that nobody may use the elevator before the required certificate is issued. It does not itself determine an applicable legal rule or replace site lockout/signage procedures.",
+        "The inspector title, elevator emergency communication device, occupancy/move-in consequence, and term for superintendent need US project and Japanese-language specialist review. The four-listener register ladder is an approximate Japanese analogue of the English-source tú/usted contrast."
+      ]
+    }
+  ]
+}

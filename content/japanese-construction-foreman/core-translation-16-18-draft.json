@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "855da18f746adb6a7ed04ce4fd73bf97371f635ec9d78c70c527dafbadc50a00",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 16,
+      "objectiveEnglish": "Explain a dependency between two crews and confirm the responsible contact and revised handoff.",
+      "terms": [
+        {
+          "en": "Subcontractor",
+          "kind": "term",
+          "ja": "きょうりょく ぎょうしゃ"
+        },
+        {
+          "en": "Team",
+          "kind": "term",
+          "ja": "チーム"
+        },
+        {
+          "en": "Dependency",
+          "kind": "term",
+          "ja": "いぞん かんけい"
+        },
+        {
+          "en": "Work handoff",
+          "kind": "term",
+          "ja": "さぎょう ひきつぎ"
+        },
+        {
+          "en": "Contact",
+          "kind": "term",
+          "ja": "れんらく たんとうしゃ"
+        },
+        {
+          "en": "Access",
+          "kind": "term",
+          "ja": "つうろ"
+        },
+        {
+          "en": "Calendar",
+          "kind": "term",
+          "ja": "カレンダー"
+        },
+        {
+          "en": "Confirmation",
+          "kind": "term",
+          "ja": "かくにん"
+        },
+        {
+          "en": "Availability",
+          "kind": "term",
+          "ja": "つごう"
+        },
+        {
+          "en": "Update",
+          "kind": "term",
+          "ja": "こうしん"
+        },
+        {
+          "en": "We need to coordinate the work handoff.",
+          "kind": "phrase",
+          "ja": "さぎょう ひきつぎを ちょうせい する ひつようが あります。"
+        },
+        {
+          "en": "Who is the subcontractor's contact?",
+          "kind": "phrase",
+          "ja": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。"
+        },
+        {
+          "en": "This task depends on the other team.",
+          "kind": "phrase",
+          "ja": "この さぎょうは ほかの チームに いぞん して います。"
+        },
+        {
+          "en": "Confirm access and availability.",
+          "kind": "phrase",
+          "ja": "つうろと つごうを かくにんしてください。"
+        },
+        {
+          "en": "Send the calendar update.",
+          "kind": "phrase",
+          "ja": "カレンダーの こうしんを おくって ください。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The subcontractor reports that their team's availability changed and requests a calendar update.",
+          "ja": "きょうりょく ぎょうしゃは、じしゃの チームの つごうが かわったと ほうこくし、カレンダーの こうしんを いらいして います。"
+        },
+        {
+          "en": "The dependency affects the work handoff and the next crew's access.",
+          "ja": "いぞん かんけいは、さぎょう ひきつぎと つぎの さぎょうはんの つうろに えいきょうします。"
+        },
+        {
+          "en": "The contact requests written confirmation so both crews know what is agreed and what remains pending.",
+          "ja": "れんらく たんとうしゃは、りょうほうの さぎょうはんに、きまったことと まだ きまって いないことが わかるように、しょめんでの かくにんを もとめて います。"
+        },
+        {
+          "en": "We need to coordinate the work handoff.",
+          "ja": "さぎょう ひきつぎを ちょうせい する ひつようが あります。"
+        },
+        {
+          "en": "Who is the subcontractor's contact?",
+          "ja": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。"
+        },
+        {
+          "en": "This task depends on the other team.",
+          "ja": "この さぎょうは ほかの チームに いぞん して います。"
+        },
+        {
+          "en": "Confirm access and availability.",
+          "ja": "つうろと つごうを かくにんしてください。"
+        },
+        {
+          "en": "Send the calendar update.",
+          "ja": "カレンダーの こうしんを おくって ください。"
+        }
+      ],
+      "teachingNotesEnglish": [
+        "さぎょう ひきつぎ is a noun–noun compound meaning work handoff. さぎょうの ひきつぎ is also possible.",
+        "「ちょうせい する ひつようが あります」 means 'there is a need to coordinate'. 「ひつようが あります」 expresses necessity.",
+        "どなた is the polite form of who, used for the subcontractor contact person, れんらく たんとうしゃ. れんらく さき would mean contact details.",
+        "「いぞん して います」 means 'depends on'. The 「て います」 form describes an ongoing state, so it fits 'depends on' here.",
+        "「かくにんしてください」 and 「おくって ください」 are polite requests: 'please confirm' and 'please send'.",
+        "「きょうりょく ぎょうしゃ」 (subcontractor) is a company doing part of the work for the main contractor. 「チーム」 is a loanword for the English 'team'.",
+        "つうろ means a route or passage to the work area. Lesson 7 のぼりぐち means a climb-up point onto a roof; it is not a general crew-access term.",
+        "まだ きまって いないこと means what remains undecided, distinct from みかんりょう こうもく, an unfinished task or open item.",
+        "じしゃの チーム is the subcontractor company’s own team. と ほうこく expresses what they reported; わかるように means so that both crews can understand."
+      ]
+    },
+    {
+      "n": 17,
+      "objectiveEnglish": "Report a delivery shortage, read back the order details and agree on a follow-up contact.",
+      "teachingNotesEnglish": [
+        "Receipt (じゅりょうしょ) here means the delivery receipt slip that lists what arrived, not a shop till receipt.",
+        "におろし means unloading goods from a truck. きょかされた means permitted and mirrors the source wording; the phrase itself does not grant permission.",
+        "げんば means the job site. げんばの れんらく たんとうしゃ means the site contact person.",
+        "ちがって います is the polite ている state form of ちがう (to differ), meaning does not match. ちがいます is the simple polite form.",
+        "を marks the thing being confirmed. わたしが marks the speaker as the one who will act. します is the polite form of 'do'.",
+        "A dictionary-form verb takes まえに directly: どういする まえに means before agreeing. A noun takes の まえに.",
+        "〜か at the end of a question makes it a question. だれが asks who does the action.",
+        "Xが ひつようです means X is needed. にっていの さいちょうせい means rescheduling. のうひんび means delivery date. きょかされた is a past passive modifying a noun; かいて あります marks a state left by writing."
+      ],
+      "terms": [
+        {
+          "en": "Order",
+          "kind": "term",
+          "ja": "ちゅうもん"
+        },
+        {
+          "en": "Supplier",
+          "kind": "term",
+          "ja": "のうにゅうぎょうしゃ"
+        },
+        {
+          "en": "Delivery",
+          "kind": "term",
+          "ja": "のうひん"
+        },
+        {
+          "en": "Address",
+          "kind": "term",
+          "ja": "じゅうしょ"
+        },
+        {
+          "en": "Quantity",
+          "kind": "term",
+          "ja": "すうりょう"
+        },
+        {
+          "en": "Shortage",
+          "kind": "term",
+          "ja": "ふそく"
+        },
+        {
+          "en": "Receipt",
+          "kind": "term",
+          "ja": "じゅりょうしょ"
+        },
+        {
+          "en": "Unloading",
+          "kind": "term",
+          "ja": "におろし"
+        },
+        {
+          "en": "Contact",
+          "kind": "term",
+          "ja": "れんらく たんとうしゃ"
+        },
+        {
+          "en": "Rescheduling",
+          "kind": "term",
+          "ja": "にっていの さいちょうせい"
+        },
+        {
+          "en": "The delivery does not match the order.",
+          "kind": "phrase",
+          "ja": "のうひんは ちゅうもんと ちがって います。"
+        },
+        {
+          "en": "I will confirm the address and quantity.",
+          "kind": "phrase",
+          "ja": "じゅうしょと すうりょうを わたしが かくにん します。"
+        },
+        {
+          "en": "The shortage is on the receipt.",
+          "kind": "phrase",
+          "ja": "じゅりょうしょに ふそくが かいて あります。"
+        },
+        {
+          "en": "Who confirms the authorized unloading?",
+          "kind": "phrase",
+          "ja": "きょかされた におろしは だれが かくにんしますか。"
+        },
+        {
+          "en": "We need a rescheduled date.",
+          "kind": "phrase",
+          "ja": "あたらしい のうひんびが ひつようです。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The supplier calls the site's contact after an incomplete delivery.",
+          "ja": "のうにゅうぎょうしゃは、のうひんに ふそくが あった あと、げんばの れんらく たんとうしゃに でんわします。"
+        },
+        {
+          "en": "The order and receipt show the address, quantity received and a shortage.",
+          "ja": "ちゅうもんしょと じゅりょうしょには、じゅうしょ、うけとった すうりょう、そして ふそくが しめされて います。"
+        },
+        {
+          "en": "Before agreeing on rescheduling, both people confirm who coordinates unloading and when the new date will be communicated.",
+          "ja": "にっていの さいちょうせいに どういする まえに、におろしを だれが ちょうせいするのか、また あたらしい ひにちを いつ つたえるのかを、ふたりとも かくにんします。"
+        },
+        {
+          "en": "The delivery does not match the order.",
+          "ja": "のうひんは ちゅうもんと ちがって います。"
+        },
+        {
+          "en": "I will confirm the address and quantity.",
+          "ja": "じゅうしょと すうりょうを わたしが かくにん します。"
+        },
+        {
+          "en": "The shortage is on the receipt.",
+          "ja": "じゅりょうしょに ふそくが かいて あります。"
+        },
+        {
+          "en": "Who confirms the authorized unloading?",
+          "ja": "きょかされた におろしは だれが かくにんしますか。"
+        },
+        {
+          "en": "We need a rescheduled date.",
+          "ja": "あたらしい のうひんびが ひつようです。"
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "objectiveEnglish": "Summarize inspection preparation, distinguish pending checks from approval and confirm who will respond.",
+      "teachingNotesEnglish": [
+        "けんさ (inspection) and けんさかん (inspector) follow the earlier lesson terms. The inspector is the person who performs the inspection.",
+        "きょかしょ (permit) is a written permission document. しょるい (document) is the general word for any paper or file.",
+        "みかんりょう こうもく is an open item; it says nothing about approval. しょうにん means approval; じっさいに うけた しょうにん is approval actually received.",
+        "しょけん means an observation or written finding, without automatically implying a defect or approval.",
+        "もとめられた is a passive form meaning requested. In the sentence it modifies the documents; the permit is listed separately.",
+        "すでに しょうにんされた かのように means as if it had already been approved. The foreman does not present a pending checklist item that way. かえずに means without changing.",
+        "です and ます are polite statement endings; adding か makes a polite question, such as ですか or ますか."
+      ],
+      "terms": [
+        {
+          "en": "Inspection",
+          "kind": "term",
+          "ja": "けんさ"
+        },
+        {
+          "en": "Inspector",
+          "kind": "term",
+          "ja": "けんさかん"
+        },
+        {
+          "en": "Permit",
+          "kind": "term",
+          "ja": "きょかしょ"
+        },
+        {
+          "en": "Document",
+          "kind": "term",
+          "ja": "しょるい"
+        },
+        {
+          "en": "Checklist",
+          "kind": "term",
+          "ja": "チェックリスト"
+        },
+        {
+          "en": "Observation",
+          "kind": "term",
+          "ja": "しょけん"
+        },
+        {
+          "en": "Pending item",
+          "kind": "term",
+          "ja": "みかんりょう こうもく"
+        },
+        {
+          "en": "Approval",
+          "kind": "term",
+          "ja": "しょうにん"
+        },
+        {
+          "en": "Responsible person",
+          "kind": "term",
+          "ja": "せきにんしゃ"
+        },
+        {
+          "en": "Response",
+          "kind": "term",
+          "ja": "かいとう"
+        },
+        {
+          "en": "Which document does the inspector need?",
+          "kind": "phrase",
+          "ja": "けんさかんは、どの しょるいが ひつよう ですか。"
+        },
+        {
+          "en": "The checklist has a pending item.",
+          "kind": "phrase",
+          "ja": "チェックリストに みかんりょう こうもくが あります。"
+        },
+        {
+          "en": "We do not have confirmation of approval.",
+          "kind": "phrase",
+          "ja": "しょうにんの かくにんは とれて いません。"
+        },
+        {
+          "en": "Record the observation without changing its meaning.",
+          "kind": "phrase",
+          "ja": "しょけんは、いみを かえずに きろくしてください。"
+        },
+        {
+          "en": "Who will provide the response?",
+          "kind": "phrase",
+          "ja": "かいとうは だれが しますか。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The responsible person prepares the permit and each document requested for the inspection.",
+          "ja": "せきにんしゃは、きょかしょと、けんさの ために もとめられた それぞれの しょるいを じゅんびします。"
+        },
+        {
+          "en": "The checklist distinguishes an observation, a pending item and an approval actually received.",
+          "ja": "チェックリストでは、しょけん、みかんりょう こうもく、じっさいに うけた しょうにんを くべつします。"
+        },
+        {
+          "en": "The inspector receives a response from the designated contact; the foreman does not present a pending check as if it had already been approved.",
+          "ja": "けんさかんは、していされた れんらく たんとうしゃから かいとうを うけます。しょくちょうは、みかんりょうの チェック こうもくを、すでに しょうにんされた かのようには しめしません。"
+        },
+        {
+          "en": "Which document does the inspector need?",
+          "ja": "けんさかんは、どの しょるいが ひつよう ですか。"
+        },
+        {
+          "en": "The checklist has a pending item.",
+          "ja": "チェックリストに みかんりょう こうもくが あります。"
+        },
+        {
+          "en": "We do not have confirmation of approval.",
+          "ja": "しょうにんの かくにんは とれて いません。"
+        },
+        {
+          "en": "Record the observation without changing its meaning.",
+          "ja": "しょけんは、いみを かえずに きろくしてください。"
+        },
+        {
+          "en": "Who will provide the response?",
+          "ja": "かいとうは だれが しますか。"
+        }
+      ]
+    }
+  ]
+}

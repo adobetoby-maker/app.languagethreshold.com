@@ -1,0 +1,391 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "1e464123fb5d57cf1722b7b28d01ee3eda0e7e8d70adf2dfeeda953d65056535",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 13,
+      "objectiveEnglish": "Describe the specified drywall finish and ask which detail needs confirmation.",
+      "teachingNotesEnglish": [
+        "サンディング is san-din-gu, with ン before ディ; テクスチャー has a long final vowel. テープ and パテ are also katakana.",
+        "パテ is used here as a plain everyday word for joint compound. The source names no product or brand. Site vocabulary varies by region and supplier, so check the manual or supplier label for the exact name. Do not treat パテ as a universal term for this material.",
+        "しようしょ (specification) means the written specification document. Keep it separate from ずめん (plan), which is a drawing. The two are different documents.",
+        "'What finish does the specification call for?' is rendered with なって いますか (what is set to be), which reads naturally. A more literal option is しめして いますか (what does it indicate).",
+        "Dictionary-form verb + ひつようが あります means there is a need to do it. Core 12 introduced this pattern; this lesson reuses it for confirming a detail.",
+        "Review is a noun both in the reading and in the phrase about a joint that needs review; ちょうさ is used as in Core 9.",
+        "Ambiguity retained: reading line 2 says 'identified sample'. The English does not say who identified it or how. とくていされた keeps this open rather than adding a detail.",
+        "Crew and foreman use さぎょうはん and しょくちょう from earlier lessons. The source says the foreman records the question. It does not describe a technical fix, and the Japanese does not add one.",
+        "ちがって みえるため means because they appear different. ぎじゅつてきな is technical; かってに つくらずに means without making up a solution on one’s own."
+      ],
+      "terms": [
+        {
+          "en": "Drywall panel",
+          "kind": "term",
+          "ja": "せっこう ボード"
+        },
+        {
+          "en": "Joint",
+          "kind": "term",
+          "ja": "つぎめ"
+        },
+        {
+          "en": "Tape",
+          "kind": "term",
+          "ja": "テープ"
+        },
+        {
+          "en": "Compound",
+          "kind": "term",
+          "ja": "パテ"
+        },
+        {
+          "en": "Sanding",
+          "kind": "term",
+          "ja": "サンディング"
+        },
+        {
+          "en": "Texture",
+          "kind": "term",
+          "ja": "テクスチャー"
+        },
+        {
+          "en": "Finish",
+          "kind": "term",
+          "ja": "しあげ"
+        },
+        {
+          "en": "Sample",
+          "kind": "term",
+          "ja": "サンプル"
+        },
+        {
+          "en": "Specification",
+          "kind": "term",
+          "ja": "しようしょ"
+        },
+        {
+          "en": "Review",
+          "kind": "term",
+          "ja": "ちょうさ"
+        },
+        {
+          "en": "What finish does the specification call for?",
+          "kind": "phrase",
+          "ja": "しようしょでは どの しあげに なって いますか。"
+        },
+        {
+          "en": "Compare the texture with the sample.",
+          "kind": "phrase",
+          "ja": "テクスチャーを サンプルと くらべて ください。"
+        },
+        {
+          "en": "We need to confirm this detail.",
+          "kind": "phrase",
+          "ja": "この しょうさいを かくにんする ひつようが あります。",
+          "teachingNotesEnglish": "しょうさい is a detail of the finish; Core 5 しょうさいず is a detail drawing, which the source does not specify here."
+        },
+        {
+          "en": "Record the joint that needs review.",
+          "kind": "phrase",
+          "ja": "ちょうさが ひつような つぎめを きろくして ください。"
+        },
+        {
+          "en": "What is the current version of the plan?",
+          "kind": "phrase",
+          "ja": "ずめんの さいしんばんは どれですか。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The drywall panel specification describes the joint, tape and compound.",
+          "ja": "せっこう ボードの しようしょには、つぎめ、テープ、パテについて かいて あります。"
+        },
+        {
+          "en": "Sanding, texture and finish are compared with an identified sample.",
+          "ja": "サンディング、テクスチャー、しあげを、とくていされた サンプルと くらべます。"
+        },
+        {
+          "en": "The crew requests a review because the sample and plan appear different; the foreman records the question without inventing a technical solution.",
+          "ja": "サンプルと ずめんが ちがって みえるため、さぎょうはんが ちょうさを たのみます。しょくちょうは、ぎじゅつてきな かいけつさくを かってに つくらずに、しつもんを きろくします。"
+        },
+        {
+          "en": "What finish does the specification call for?",
+          "ja": "しようしょでは どの しあげに なって いますか。"
+        },
+        {
+          "en": "Compare the texture with the sample.",
+          "ja": "テクスチャーを サンプルと くらべて ください。"
+        },
+        {
+          "en": "We need to confirm this detail.",
+          "ja": "この しょうさいを かくにんする ひつようが あります。"
+        },
+        {
+          "en": "Record the joint that needs review.",
+          "ja": "ちょうさが ひつような つぎめを きろくして ください。"
+        },
+        {
+          "en": "What is the current version of the plan?",
+          "ja": "ずめんの さいしんばんは どれですか。"
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "objectiveEnglish": "Describe an observed mismatch, refer to the specification and agree on who will review it.",
+      "teachingNotesEnglish": [
+        "フィードバック (feedback) is katakana. いけん (opinion) is a plainer alternative, but the reading keeps the English term.",
+        "そんちょう (respect) is used with して to form a verb in the reading: そんちょうして きき (listens respectfully).",
+        "しゅうせい (correction, fixing the work) is kept separate from かいてい (revision, changing a plan or document) from the earlier glossary.",
+        "せきにんしゃ (responsible person) matches the earlier glossary. The English does not say whether this person did the work or owns the check. The Japanese keeps that open.",
+        "～ましょう means let us do something: れいを いっしょに かくにんしましょう. Here かくにん means looking over an example together; ちょうさ is the noun for investigating a mismatch.",
+        "フォローアップ is fo-roo-a-ppu: フォ is fo, ー lengthens ロ, and small ッ marks a short pause.",
+        "みえます means can be seen, as in Core 3. きじゅん is a reference or benchmark, without assuming a document.",
+        "けっかを みせて くれて、ありがとう ございます is friendly and polite thanks for showing a result."
+      ],
+      "terms": [
+        {
+          "en": "Feedback",
+          "kind": "term",
+          "ja": "フィードバック"
+        },
+        {
+          "en": "Respect",
+          "kind": "term",
+          "ja": "そんちょう"
+        },
+        {
+          "en": "Difference",
+          "kind": "term",
+          "ja": "ちがい"
+        },
+        {
+          "en": "Reference",
+          "kind": "term",
+          "ja": "きじゅん"
+        },
+        {
+          "en": "Result",
+          "kind": "term",
+          "ja": "けっか"
+        },
+        {
+          "en": "Correction",
+          "kind": "term",
+          "ja": "しゅうせい"
+        },
+        {
+          "en": "Example",
+          "kind": "term",
+          "ja": "れい"
+        },
+        {
+          "en": "Agreement",
+          "kind": "term",
+          "ja": "ごうい"
+        },
+        {
+          "en": "Responsible person",
+          "kind": "term",
+          "ja": "せきにんしゃ"
+        },
+        {
+          "en": "Follow-up",
+          "kind": "term",
+          "ja": "フォローアップ"
+        },
+        {
+          "en": "Thank you for showing me the result.",
+          "kind": "phrase",
+          "ja": "けっかを みせて くれて、ありがとう ございます。"
+        },
+        {
+          "en": "I see a difference from the reference.",
+          "kind": "phrase",
+          "ja": "きじゅんと ちがう ところが みえます。"
+        },
+        {
+          "en": "Let's review the example together.",
+          "kind": "phrase",
+          "ja": "れいを いっしょに かくにんしましょう。"
+        },
+        {
+          "en": "Who confirms the correction?",
+          "kind": "phrase",
+          "ja": "しゅうせいは だれが かくにんしますか。"
+        },
+        {
+          "en": "Let's record the agreement for follow-up.",
+          "kind": "phrase",
+          "ja": "フォローアップの ために ごういを きろくしましょう。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The responsible person listens to the feedback respectfully and shows the result.",
+          "ja": "せきにんしゃは フィードバックを そんちょうして きき、けっかを みせます。"
+        },
+        {
+          "en": "The difference is compared with a reference and an example before requesting a correction.",
+          "ja": "しゅうせいを たのむ まえに、ちがいを きじゅんと れいと くらべます。"
+        },
+        {
+          "en": "The agreement identifies who will carry out the review and when follow-up will occur, so both people understand the same thing.",
+          "ja": "ごういでは、だれが ちょうさを おこなうか、いつ フォローアップを するかを はっきりさせ、ふたりが おなじことを りかいできるように します。"
+        },
+        {
+          "en": "Thank you for showing me the result.",
+          "ja": "けっかを みせて くれて、ありがとう ございます。"
+        },
+        {
+          "en": "I see a difference from the reference.",
+          "ja": "きじゅんと ちがう ところが みえます。"
+        },
+        {
+          "en": "Let's review the example together.",
+          "ja": "れいを いっしょに かくにんしましょう。"
+        },
+        {
+          "en": "Who confirms the correction?",
+          "ja": "しゅうせいは だれが かくにんしますか。"
+        },
+        {
+          "en": "Let's record the agreement for follow-up.",
+          "ja": "フォローアップの ために ごういを きろくしましょう。"
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "objectiveEnglish": "Ask a new worker about experience and availability, then confirm where first-day orientation happens.",
+      "teachingNotesEnglish": [
+        "しょくしゅ (trade) means the type of trade or job category someone has worked in, such as だいく (carpenter) or でんきこう (electrician) from the earlier glossary. It is not the same as さぎょうはん (crew).",
+        "げんばかんとく means site supervisor, distinct from しょくちょう (crew foreman). The scene does not establish that the same person is the foreman.",
+        "つごう asks when someone is available. いつ つごうが いいですか asks for an open time, without presuming a proposed date.",
+        "オリエンテーション (orientation) is katakana, pronounced o-ri-en-te-e-shon. It is a common workplace loanword for a first-day introduction. It is not a universal Japanese construction-site term, so the reading also explains what it is for.",
+        "スケジュール is the schedule term used in Core 11. れんらくさき means contact details here; later lessons use れんらく たんとうしゃ for a contact person.",
+        "Let us confirm the start date uses ～ましょう, as in Core 14.",
+        "オリエンテーションは げんばかんとくと いっしょです keeps open whether the supervisor is present or leads the session.",
+        "The conversation does not replace formal hiring: せいしきな さいよう てつづき. もうけます means sets aside time, and かわるものでは ありません means does not take the place of."
+      ],
+      "terms": [
+        {
+          "en": "Experience",
+          "kind": "term",
+          "ja": "けいけん"
+        },
+        {
+          "en": "Trade",
+          "kind": "term",
+          "ja": "しょくしゅ"
+        },
+        {
+          "en": "Availability",
+          "kind": "term",
+          "ja": "つごう"
+        },
+        {
+          "en": "Start date",
+          "kind": "term",
+          "ja": "かいしび"
+        },
+        {
+          "en": "Orientation",
+          "kind": "term",
+          "ja": "オリエンテーション"
+        },
+        {
+          "en": "Supervisor",
+          "kind": "term",
+          "ja": "げんばかんとく"
+        },
+        {
+          "en": "Contact",
+          "kind": "term",
+          "ja": "れんらくさき"
+        },
+        {
+          "en": "Schedule",
+          "kind": "term",
+          "ja": "スケジュール"
+        },
+        {
+          "en": "Question",
+          "kind": "term",
+          "ja": "しつもん"
+        },
+        {
+          "en": "Welcome",
+          "kind": "term",
+          "ja": "かんげい"
+        },
+        {
+          "en": "In which trade do you have experience?",
+          "kind": "phrase",
+          "ja": "どの しょくしゅで けいけんが ありますか。"
+        },
+        {
+          "en": "What is your availability?",
+          "kind": "phrase",
+          "ja": "いつ つごうが いいですか。"
+        },
+        {
+          "en": "Let's confirm the start date.",
+          "kind": "phrase",
+          "ja": "かいしびを かくにんしましょう。"
+        },
+        {
+          "en": "Orientation is with the supervisor.",
+          "kind": "phrase",
+          "ja": "オリエンテーションは げんばかんとくと いっしょです。"
+        },
+        {
+          "en": "Do you have any questions about the schedule?",
+          "kind": "phrase",
+          "ja": "スケジュールについて なにか しつもんは ありますか。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The supervisor welcomes the new person and asks about their experience and trade.",
+          "ja": "げんばかんとくは あたらしい かたを かんげいし、けいけんと しょくしゅについて たずねます。"
+        },
+        {
+          "en": "Availability and the start date are recorded beside the contact and proposed schedule.",
+          "ja": "つごうと かいしびは、れんらくさきや ていあんされた スケジュールと いっしょに きろくされます。"
+        },
+        {
+          "en": "Orientation provides time for a question and to confirm where to meet; this conversation does not replace formal hiring processes.",
+          "ja": "オリエンテーションでは、しつもんする じかんと、しゅうごう ばしょを かくにんする じかんを もうけます。この かいわは、せいしきな さいよう てつづきに かわるものでは ありません。"
+        },
+        {
+          "en": "In which trade do you have experience?",
+          "ja": "どの しょくしゅで けいけんが ありますか。"
+        },
+        {
+          "en": "What is your availability?",
+          "ja": "いつ つごうが いいですか。"
+        },
+        {
+          "en": "Let's confirm the start date.",
+          "ja": "かいしびを かくにんしましょう。"
+        },
+        {
+          "en": "Orientation is with the supervisor.",
+          "ja": "オリエンテーションは げんばかんとくと いっしょです。"
+        },
+        {
+          "en": "Do you have any questions about the schedule?",
+          "ja": "スケジュールについて なにか しつもんは ありますか。"
+        }
+      ]
+    }
+  ]
+}

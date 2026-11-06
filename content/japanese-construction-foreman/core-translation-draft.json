@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "c0239e5cbb488a808ea99155cf44ff7691cd5d4bb21bdd4d18c38f91cc7a74c5",
+  "draftModel": "Claude CLI haiku alias via claude.ai OAuth; revised from Fable and Opus AI findings",
+  "lessons": [
+    {
+      "n": 1,
+      "objectiveEnglish": "Greet the crew and ask one worker to confirm their role.",
+      "teachingNotesEnglish": [
+        "Role terms: しょくちょう (職長) is the foreman in this course, the lead of a crew. げんばかんとく (現場監督), taught in the Foundation stage, is the site supervisor. It is a different role. Do not treat the two words as synonyms.",
+        "さぎょうはん (作業班) is the crew, meaning the work team. てもと (手元) is the helper, a person who works at hand to support a tradesperson.",
+        "Katakana: シフト (shift) is a loanword written in katakana. Katakana is used for words borrowed from other languages.",
+        "が marks the subject of an action: さぎょうはんが (the crew) つきます.",
+        "を marks the object of a verb: シフトを かくにんしてください (confirm the shift) and しゅっきんひょうを もっています (has the attendance list).",
+        "～ています shows an ongoing state. Here もっています means 'has (and is holding)'.",
+        "ひとりずつ means 'one by one' or 'each person'.",
+        "～てください is a polite request: 'please do ...'.",
+        "でんきこうですか asks 'Are you the electrician?' It uses the same pattern as だいくですか from the Foundation stage.",
+        "Source mismatch, documented and not changed: the objective says 'confirm their role', but the content has each worker confirm their shift."
+      ],
+      "terms": [
+        {
+          "ja": "さぎょうはん",
+          "en": "Crew",
+          "kind": "term"
+        },
+        {
+          "ja": "しょくちょう",
+          "en": "Foreman",
+          "kind": "term"
+        },
+        {
+          "ja": "だいく",
+          "en": "Carpenter",
+          "kind": "term"
+        },
+        {
+          "ja": "でんきこう",
+          "en": "Electrician",
+          "kind": "term"
+        },
+        {
+          "ja": "はいかんこう",
+          "en": "Plumber",
+          "kind": "term"
+        },
+        {
+          "ja": "てもと",
+          "en": "Helper",
+          "kind": "term"
+        },
+        {
+          "ja": "なまえ",
+          "en": "Name",
+          "kind": "term"
+        },
+        {
+          "ja": "しゅっきんひょう",
+          "en": "Attendance list",
+          "kind": "term"
+        },
+        {
+          "ja": "シフト",
+          "en": "Shift",
+          "kind": "term"
+        },
+        {
+          "ja": "しゅうごう ばしょ",
+          "en": "Meeting point",
+          "kind": "term"
+        },
+        {
+          "ja": "さぎょうはんの みなさん、おはようございます。",
+          "en": "Good morning, crew.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おなまえは なんですか。",
+          "en": "What is your name?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "わたしは しょくちょうです。",
+          "en": "I am the foreman.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "でんきこうですか。",
+          "en": "Are you the electrician?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "シフトを かくにんしてください。",
+          "en": "Please confirm your shift.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": [
+        {
+          "ja": "さぎょうはんが しゅうごう ばしょに つきます。",
+          "en": "The crew arrives at the meeting point."
+        },
+        {
+          "ja": "しょくちょうは しゅっきんひょうを もっています。ひとりずつ なまえを ききます。",
+          "en": "The foreman has the attendance list and asks each person's name."
+        },
+        {
+          "ja": "だいく、でんきこう、はいかんこう、てもとは、じぶんの シフトを かくにんします。",
+          "en": "The carpenter, electrician, plumber and helper confirm their shift."
+        },
+        {
+          "ja": "さぎょうはんの みなさん、おはようございます。",
+          "en": "Good morning, crew."
+        },
+        {
+          "ja": "おなまえは なんですか。",
+          "en": "What is your name?"
+        },
+        {
+          "ja": "わたしは しょくちょうです。",
+          "en": "I am the foreman."
+        },
+        {
+          "ja": "でんきこうですか。",
+          "en": "Are you the electrician?"
+        },
+        {
+          "ja": "シフトを かくにんしてください。",
+          "en": "Please confirm your shift."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "objectiveEnglish": "Name a concern from the safety briefing and ask where to find the site plan.",
+      "teachingNotesEnglish": [
+        "Katakana loanwords in this lesson: ミーティング (meeting), エリア (area) and ヘルメット (helmet).",
+        "あんぜん ミーティング (safety briefing) does not say when it happens. This avoids the time-of-day meaning of ちょうれい.",
+        "で marks where an action happens in さぎょう エリアで (in the work area). おこないます means hold or carry out: literally, as for the safety briefing, we hold it in the work area. は marks the briefing as the topic, so を is not used. In けいかくしょで, で marks the document used to point out the exit, not the physical location of the exit.",
+        "について means 'about': ヘルメットと、きけんに たいする していの ほごぐについて means about the hard hat and the specified protective equipment for a hazard.",
+        "に たいする means 'against' or 'for' a hazard. していの means 'specified'. ほごぐ means protective equipment.",
+        "せきにんしゃ (責任者) is the responsible or accountable person in this briefing. たんとうしゃ is a person assigned to a matter; it is a different role.",
+        "ひなん しゅうごう ばしょ is an evacuation assembly point; Lesson 1 しゅうごう ばしょ is a general meeting point. Confirm the actual site-designated point separately.",
+        "ゆびさします means 'point at' something physically.",
+        "～てください is a polite request: 'please do ...'.",
+        "These sentences are language practice only. They are not site safety instructions and do not approve any procedure.",
+        "Source mismatch, documented and not changed: the objective says 'site plan', but every item says 'safety plan'.",
+        "きけんな ところ means a dangerous spot: きけん takes な before a noun; ところ means spot or place.",
+        "だれかが means someone. This reading describes a question; it does not certify equipment or a plan."
+      ],
+      "terms": [
+        {
+          "ja": "あんぜん ミーティング",
+          "en": "Safety briefing",
+          "kind": "term"
+        },
+        {
+          "ja": "きけん",
+          "en": "Hazard",
+          "kind": "term"
+        },
+        {
+          "ja": "あんぜん けいかくしょ",
+          "en": "Safety plan",
+          "kind": "term"
+        },
+        {
+          "ja": "さぎょう エリア",
+          "en": "Work area",
+          "kind": "term"
+        },
+        {
+          "ja": "でぐち",
+          "en": "Exit",
+          "kind": "term"
+        },
+        {
+          "ja": "ひなん しゅうごう ばしょ",
+          "en": "Assembly point",
+          "kind": "term"
+        },
+        {
+          "ja": "ヘルメット",
+          "en": "Hard hat",
+          "kind": "term"
+        },
+        {
+          "ja": "ほご",
+          "en": "Protection",
+          "kind": "term"
+        },
+        {
+          "ja": "せきにんしゃ",
+          "en": "Responsible person",
+          "kind": "term"
+        },
+        {
+          "ja": "しつもん",
+          "en": "Question",
+          "kind": "term"
+        },
+        {
+          "ja": "しつもんが あります。",
+          "en": "I have a question.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "あんぜん けいかくしょは どこですか。",
+          "en": "Where is the safety plan?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この エリアに きけんな ところが あります。",
+          "en": "There is a hazard in this area.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "せきにんしゃは どなたですか。",
+          "en": "Who is the responsible person?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ひなん しゅうごう ばしょを かくにんしてください。",
+          "en": "Confirm the assembly point.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": [
+        {
+          "ja": "あんぜん ミーティングは さぎょう エリアで おこないます。",
+          "en": "The safety briefing is in the work area."
+        },
+        {
+          "ja": "せきにんしゃは あんぜん けいかくしょで、でぐちと ひなん しゅうごう ばしょを ゆびさします。",
+          "en": "The responsible person points out the exit and assembly point in the safety plan."
+        },
+        {
+          "ja": "だれかが、ヘルメットと、きけんに たいする していの ほごぐについて しつもんします。",
+          "en": "Someone asks a question about the hard hat and the protection specified for a hazard."
+        },
+        {
+          "ja": "しつもんが あります。",
+          "en": "I have a question."
+        },
+        {
+          "ja": "あんぜん けいかくしょは どこですか。",
+          "en": "Where is the safety plan?"
+        },
+        {
+          "ja": "この エリアに きけんな ところが あります。",
+          "en": "There is a hazard in this area."
+        },
+        {
+          "ja": "せきにんしゃは どなたですか。",
+          "en": "Who is the responsible person?"
+        },
+        {
+          "ja": "ひなん しゅうごう ばしょを かくにんしてください。",
+          "en": "Confirm the assembly point."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "objectiveEnglish": "Name a tool and ask a crew member to bring it.",
+      "teachingNotesEnglish": [
+        "Katakana loanwords in this lesson: ドリル (drill), メジャー (tape measure), レンチ (wrench).",
+        "メジャー and ねじ are general words for tape measure and screw. Site jargon is sometimes different, for example コンベックス or スケール for a tape measure, and ビス for a wood screw.",
+        "てもと (手元) is the helper, as in Lesson 1.",
+        "から means 'from': はこの なかから どうぐを さがします (looks for a tool from inside the box).",
+        "みえます means 'can be seen'. みます means 'look at', so it is not used here.",
+        "たのみます means 'ask someone for something'. ゆびさします means 'point at'.",
+        "はこを もって きてください combines もって (carrying), きて (coming) and ～てください. It means 'please bring it (carry it and come back).'",
+        "この どうぐで いいですか is the natural way to ask 'Is this the correct tool?'",
+        "ねじが ひとつ たりません: たりません is a set phrase meaning 'is short' or 'is missing'. Treat it as a fixed phrase for now. The negative ～ません pattern is taught later.",
+        "Source mismatch: none in the English. The objective and items match.",
+        "Xが ひつようです means X is needed; が marks the needed item, as in すいへいきが ひつようです."
+      ],
+      "terms": [
+        {
+          "ja": "どうぐ",
+          "en": "Tool",
+          "kind": "term"
+        },
+        {
+          "ja": "かなづち",
+          "en": "Hammer",
+          "kind": "term"
+        },
+        {
+          "ja": "のこぎり",
+          "en": "Saw",
+          "kind": "term"
+        },
+        {
+          "ja": "ドリル",
+          "en": "Drill",
+          "kind": "term"
+        },
+        {
+          "ja": "すいへいき",
+          "en": "Level",
+          "kind": "term"
+        },
+        {
+          "ja": "メジャー",
+          "en": "Tape measure",
+          "kind": "term"
+        },
+        {
+          "ja": "レンチ",
+          "en": "Wrench",
+          "kind": "term"
+        },
+        {
+          "ja": "ねじ",
+          "en": "Screw",
+          "kind": "term"
+        },
+        {
+          "ja": "くぎ",
+          "en": "Nail",
+          "kind": "term"
+        },
+        {
+          "ja": "はこ",
+          "en": "Box",
+          "kind": "term"
+        },
+        {
+          "ja": "すいへいきが ひつようです。",
+          "en": "I need the level.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "メジャーは どこですか。",
+          "en": "Where is the tape measure?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "はこを もって きてください。",
+          "en": "Please bring the box.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この どうぐで いいですか。",
+          "en": "Is this the correct tool?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねじが ひとつ たりません。",
+          "en": "A screw is missing.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": [
+        {
+          "ja": "てもとが はこの なかから どうぐを さがします。",
+          "en": "The helper looks for a tool in the box."
+        },
+        {
+          "ja": "かなづち、のこぎり、ドリル、レンチが みえます。",
+          "en": "They see a hammer, a saw, a drill and a wrench."
+        },
+        {
+          "ja": "しょくちょうは すいへいきと メジャーを たのみます。ねじと くぎも ゆびさします。",
+          "en": "The foreman asks for the level and tape measure; they also point out a screw and a nail."
+        },
+        {
+          "ja": "すいへいきが ひつようです。",
+          "en": "I need the level."
+        },
+        {
+          "ja": "メジャーは どこですか。",
+          "en": "Where is the tape measure?"
+        },
+        {
+          "ja": "はこを もって きてください。",
+          "en": "Please bring the box."
+        },
+        {
+          "ja": "この どうぐで いいですか。",
+          "en": "Is this the correct tool?"
+        },
+        {
+          "ja": "ねじが ひとつ たりません。",
+          "en": "A screw is missing."
+        }
+      ]
+    }
+  ]
+}

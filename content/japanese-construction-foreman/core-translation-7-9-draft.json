@@ -1,0 +1,390 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "a0ea9657b77f3557cfd997c9081a6a94f59b1720303475e949fe1e80eb2df52f",
+  "draftModel": "Claude CLI haiku alias via claude.ai OAuth; revised from Fable and Opus AI findings",
+  "lessons": [
+    {
+      "n": 7,
+      "objectiveEnglish": "Identify one roof material and ask where its approved installation instructions are.",
+      "terms": [
+        {
+          "ja": "やね",
+          "en": "Roof",
+          "kind": "term"
+        },
+        {
+          "ja": "のじいた",
+          "en": "Sheathing",
+          "kind": "term",
+          "teachingNotesEnglish": "のじいた is the Japanese word for roof sheathing. In North American usage, sheathing is often plywood or OSB."
+        },
+        {
+          "ja": "OSBパネル",
+          "en": "OSB panel",
+          "kind": "term",
+          "teachingNotesEnglish": "OSB means oriented strand board. Japanese sites also say OSBボード."
+        },
+        {
+          "ja": "メンブレン",
+          "en": "Membrane",
+          "kind": "term",
+          "teachingNotesEnglish": "メンブレン is a katakana loanword for a waterproof membrane. Under shingles, Japanese roofing often says ルーフィング (underlayment)."
+        },
+        {
+          "ja": "アスファルトシングル",
+          "en": "Asphalt shingle",
+          "kind": "term",
+          "teachingNotesEnglish": "Shingle is a North American roofing term. アスファルトシングル is the common Japanese term for this product."
+        },
+        {
+          "ja": "むね",
+          "en": "Ridge",
+          "kind": "term"
+        },
+        {
+          "ja": "のき",
+          "en": "Eave",
+          "kind": "term"
+        },
+        {
+          "ja": "メーカー",
+          "en": "Manufacturer",
+          "kind": "term"
+        },
+        {
+          "ja": "マニュアル",
+          "en": "Manual",
+          "kind": "term"
+        },
+        {
+          "ja": "のぼりぐち",
+          "en": "Access",
+          "kind": "term",
+          "teachingNotesEnglish": "のぼりぐち means an access point used to climb up. The source says access, without identifying a specific roof entry or approving a route; verify the site terminology before release."
+        },
+        {
+          "ja": "どの ざいりょうが していされて いますか。",
+          "en": "Which material is specified?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "どの means which. してい means specified. されて いる is a passive state (is specified); いますか makes it a polite question."
+        },
+        {
+          "ja": "メーカーの マニュアルが ひつようです。",
+          "en": "I need the manufacturer's manual.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "きょかされた のぼりぐちは どこですか。",
+          "en": "Where is the authorized access?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "きょかされた before a noun means that was authorized. This asks where the authorized access point is; it does not claim any point is approved."
+        },
+        {
+          "ja": "ずめんで いちを かくにんして ください。",
+          "en": "Confirm the location on the plan.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "〜して ください is a polite request. いち (position) is more natural than ばしょ for a point on a drawing."
+        },
+        {
+          "ja": "この アスファルトシングルは ちゅうもんした ものです。",
+          "en": "This asphalt shingle is from the order.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "ちゅうもんした ものです means \"it is the item that was ordered.\""
+        }
+      ],
+      "reading": [
+        {
+          "ja": "やねの ずめんに、むね、のき、のぼりぐちが しめされて います。",
+          "en": "The roof plan marks the ridge, eave and access.",
+          "teachingNotesEnglish": "しめされて います is the passive of しめす (to show or mark)."
+        },
+        {
+          "ja": "ちゅうもんには、のじいたようの OSBパネル、メンブレン、それに アスファルトシングルの サンプルが ふくまれて います。",
+          "en": "The order includes an OSB panel for the sheathing, a membrane and a sample asphalt shingle.",
+          "teachingNotesEnglish": "ようの means \"for use as.\" それに adds a final item to a list."
+        },
+        {
+          "ja": "さぎょうはんは、しごとを かくにんする まえに、メーカーの マニュアルを さがします。",
+          "en": "The crew looks for the manufacturer's manual before confirming the task.",
+          "teachingNotesEnglish": "〜する まえに means \"before doing ...\". さぎょうはん is the crew."
+        },
+        {
+          "ja": "どの ざいりょうが していされて いますか。",
+          "en": "Which material is specified?"
+        },
+        {
+          "ja": "メーカーの マニュアルが ひつようです。",
+          "en": "I need the manufacturer's manual."
+        },
+        {
+          "ja": "きょかされた のぼりぐちは どこですか。",
+          "en": "Where is the authorized access?"
+        },
+        {
+          "ja": "ずめんで いちを かくにんして ください。",
+          "en": "Confirm the location on the plan."
+        },
+        {
+          "ja": "この アスファルトシングルは ちゅうもんした ものです。",
+          "en": "This asphalt shingle is from the order."
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "objectiveEnglish": "Ask which concrete delivery and foundation check are confirmed, and which are pending.",
+      "terms": [
+        {
+          "ja": "きそ",
+          "en": "Foundation",
+          "kind": "term"
+        },
+        {
+          "ja": "コンクリート",
+          "en": "Concrete",
+          "kind": "term"
+        },
+        {
+          "ja": "かたわく",
+          "en": "Formwork",
+          "kind": "term"
+        },
+        {
+          "ja": "てっきん",
+          "en": "Reinforcement",
+          "kind": "term",
+          "teachingNotesEnglish": "てっきん means steel reinforcing bar (rebar), the usual meaning in foundation work."
+        },
+        {
+          "ja": "はいごう",
+          "en": "Mix",
+          "kind": "term",
+          "teachingNotesEnglish": "はいごう means the concrete mix design or proportions, not a batch."
+        },
+        {
+          "ja": "トラック",
+          "en": "Truck",
+          "kind": "term"
+        },
+        {
+          "ja": "サンプル",
+          "en": "Sample",
+          "kind": "term"
+        },
+        {
+          "ja": "けんさ",
+          "en": "Inspection",
+          "kind": "term"
+        },
+        {
+          "ja": "みかんりょう こうもく",
+          "en": "Pending item",
+          "kind": "term",
+          "teachingNotesEnglish": "みかんりょう means \"not yet completed.\" Do not use ほりゅう (on hold) for pending."
+        },
+        {
+          "ja": "きょか",
+          "en": "Authorization",
+          "kind": "term",
+          "teachingNotesEnglish": "きょか means permission or approval. It is used in lesson 7 as きょかされた."
+        },
+        {
+          "ja": "コンクリートの のうにゅうは かくにんされて いますか。",
+          "en": "Is the concrete delivery confirmed?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "のうにゅう means delivery of materials, often used for ready-mix concrete. のうひん in Lesson 4 also means delivery of goods; はいたつ is common for parcels and mail."
+        },
+        {
+          "ja": "けんさは まだ おわって いません。",
+          "en": "The inspection is still pending.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "まだ おわって いません means \"not finished yet.\""
+        },
+        {
+          "ja": "だれが はいごうを かくにんしますか。",
+          "en": "Who confirms the mix?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "だれ is the plain form of \"who.\" どなた is the polite form."
+        },
+        {
+          "ja": "そのための きょかが ひつようです。",
+          "en": "I need the corresponding authorization.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "そのための means for that purpose. Here その points back to confirming the concrete mix in the previous line; the phrase asks for the corresponding authorization, without claiming it has been granted."
+        },
+        {
+          "ja": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+          "en": "Record the pending item in the report.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "ほうこくしょ means the written report document. きろくして ください asks someone to record something."
+        }
+      ],
+      "reading": [
+        {
+          "ja": "きそ ほうこくしょには、かたわくと てっきんが かかれて います。",
+          "en": "The foundation report mentions the formwork and reinforcement."
+        },
+        {
+          "ja": "ミキサーしゃには、しょるいに しめされた はいごうの コンクリートと サンプルが あります。",
+          "en": "The concrete truck has a mix and a sample identified in the documentation.",
+          "teachingNotesEnglish": "ミキサーしゃ is a concrete mixer truck; トラック alone means any truck. しょるい means documents. はいごう is the mix design or proportions, so はいごうの コンクリート means concrete made to that mix design."
+        },
+        {
+          "ja": "けんさ、みかんりょう こうもく、きょかは、せきにんしゃと いっしょに みなおします。",
+          "en": "The inspection, a pending item and the authorization are reviewed with the responsible person.",
+          "teachingNotesEnglish": "みなおします means review again. せきにんしゃ means the accountable person, as in Lesson 2; the identity and authority must be confirmed on site."
+        },
+        {
+          "ja": "コンクリートの のうにゅうは かくにんされて いますか。",
+          "en": "Is the concrete delivery confirmed?"
+        },
+        {
+          "ja": "けんさは まだ おわって いません。",
+          "en": "The inspection is still pending."
+        },
+        {
+          "ja": "だれが はいごうを かくにんしますか。",
+          "en": "Who confirms the mix?"
+        },
+        {
+          "ja": "そのための きょかが ひつようです。",
+          "en": "I need the corresponding authorization."
+        },
+        {
+          "ja": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+          "en": "Record the pending item in the report."
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "objectiveEnglish": "Acknowledge a reported problem and ask where it occurred.",
+      "terms": [
+        {
+          "ja": "もんだい",
+          "en": "Problem",
+          "kind": "term"
+        },
+        {
+          "ja": "ほうこく",
+          "en": "Report",
+          "kind": "term"
+        },
+        {
+          "ja": "ばしょ",
+          "en": "Location",
+          "kind": "term"
+        },
+        {
+          "ja": "まちがい",
+          "en": "Error",
+          "kind": "term"
+        },
+        {
+          "ja": "ふそく",
+          "en": "Shortage",
+          "kind": "term"
+        },
+        {
+          "ja": "そんしょう",
+          "en": "Damage",
+          "kind": "term"
+        },
+        {
+          "ja": "しょけん",
+          "en": "Observation",
+          "kind": "term",
+          "teachingNotesEnglish": "しょけん (所見) means a noted finding, used in written reports. It is not the act of watching."
+        },
+        {
+          "ja": "しらせ",
+          "en": "Notice",
+          "kind": "term"
+        },
+        {
+          "ja": "じこく",
+          "en": "Time",
+          "kind": "term",
+          "teachingNotesEnglish": "じこく means clock time. じかん means a length of time."
+        },
+        {
+          "ja": "ちょうさ",
+          "en": "Review",
+          "kind": "term",
+          "teachingNotesEnglish": "ちょうさ means investigation. けんとう means deliberation, so it is not used here."
+        },
+        {
+          "ja": "しらせて くれて ありがとうございます。",
+          "en": "Thank you for letting me know.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "〜て くれて means \"for doing ... (for me).\" Its tone suits a foreman speaking to a worker."
+        },
+        {
+          "ja": "どこで おきましたか。",
+          "en": "At which location did it happen?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "おきましたか is the polite past question (\"did it happen\")."
+        },
+        {
+          "ja": "なんじに きづきましたか。",
+          "en": "At what time did you notice it?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "なんじに means \"at what hour,\" from Foundation lesson 8. きづきました is the polite past of きづく (to notice)."
+        },
+        {
+          "ja": "ほうこくを きろくします。",
+          "en": "I will record the report.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もんだいの ちょうさが ひつようです。",
+          "en": "We need a review of the problem.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": [
+        {
+          "ja": "だれかが もんだいと、そんしょうの かのうせいを しらせます。",
+          "en": "Someone gives notice of a problem and possible damage.",
+          "teachingNotesEnglish": "かのうせい means possibility. Here it means possible damage that may already exist."
+        },
+        {
+          "ja": "ほうこくしょには、ばしょ、じこく、まちがい、ふそくが きろくされます。",
+          "en": "The report records the location, time, an error and a shortage."
+        },
+        {
+          "ja": "しょくちょうは、じっさいに みた ことと、まだ ちょうさが ひつような ことを わけます。",
+          "en": "The foreman separates the observation from what still needs review.",
+          "teachingNotesEnglish": "しょくちょう is the foreman (crew lead); げんばかんとく is a different site-supervisor role. わけます means separates. みた こと means what was actually seen. ひつよう is a な-adjective: before a noun it becomes ひつような. ちょうさが ひつような こと means things that need investigation."
+        },
+        {
+          "ja": "しらせて くれて ありがとうございます。",
+          "en": "Thank you for letting me know."
+        },
+        {
+          "ja": "どこで おきましたか。",
+          "en": "At which location did it happen?"
+        },
+        {
+          "ja": "なんじに きづきましたか。",
+          "en": "At what time did you notice it?"
+        },
+        {
+          "ja": "ほうこくを きろくします。",
+          "en": "I will record the report."
+        },
+        {
+          "ja": "もんだいの ちょうさが ひつようです。",
+          "en": "We need a review of the problem."
+        }
+      ]
+    }
+  ]
+}

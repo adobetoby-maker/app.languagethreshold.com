@@ -1,0 +1,420 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "654cd065538a1525fe34be47c4b63cb8285bad36987c563f93896029cf4599a3",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Insurance Adjuster After the Weekend Leak",
+      "objectiveEnglish": "Tell an insurance adjuster what happened over the weekend and give clear quantities, times and locations.",
+      "terms": [
+        {
+          "en": "the adjuster",
+          "kind": "term",
+          "ja": "保険鑑定人"
+        },
+        {
+          "en": "the claim",
+          "kind": "term",
+          "ja": "保険金請求"
+        },
+        {
+          "en": "the policy number",
+          "kind": "term",
+          "ja": "証券番号"
+        },
+        {
+          "en": "the temporary water line",
+          "kind": "term",
+          "ja": "仮設の給水管"
+        },
+        {
+          "en": "the coupling",
+          "kind": "term",
+          "ja": "継手"
+        },
+        {
+          "en": "the shutoff valve",
+          "kind": "term",
+          "ja": "止水弁"
+        },
+        {
+          "en": "the security guard",
+          "kind": "term",
+          "ja": "警備員"
+        },
+        {
+          "en": "the guard's report",
+          "kind": "term",
+          "ja": "警備員の報告書"
+        },
+        {
+          "en": "the affected area",
+          "kind": "term",
+          "ja": "被害範囲"
+        },
+        {
+          "en": "the standing water",
+          "kind": "term",
+          "ja": "滞留水"
+        },
+        {
+          "en": "the drywall sheets",
+          "kind": "term",
+          "ja": "石膏ボード"
+        },
+        {
+          "en": "the boxes of tile",
+          "kind": "term",
+          "ja": "タイルの箱"
+        },
+        {
+          "en": "the moisture meter",
+          "kind": "term",
+          "ja": "含水率計"
+        },
+        {
+          "en": "the dehumidifier",
+          "kind": "term",
+          "ja": "除湿機"
+        },
+        {
+          "en": "the mold",
+          "kind": "term",
+          "ja": "カビ"
+        },
+        {
+          "en": "On Saturday a coupling on the temporary line broke.",
+          "kind": "phrase",
+          "ja": "土曜日に、仮設の給水管の継手が破損しました。"
+        },
+        {
+          "en": "The guard shut the valve on Sunday at 6:10.",
+          "kind": "phrase",
+          "ja": "日曜日の6時10分に、警備員が止水弁を閉めました。"
+        },
+        {
+          "en": "24 sheets of drywall were damaged in the kitchen and dining room.",
+          "kind": "phrase",
+          "ja": "キッチンとダイニングの石膏ボード24枚が損傷しました。"
+        },
+        {
+          "en": "9 boxes of tile that were on the floor also got wet.",
+          "kind": "phrase",
+          "ja": "床に置いてあったタイル9箱も濡れました。"
+        },
+        {
+          "en": "I arrived at 7:30 and took photos of everything.",
+          "kind": "phrase",
+          "ja": "7時30分に到着し、すべてを写真に撮りました。"
+        },
+        {
+          "en": "Here is the guard's report with the exact times.",
+          "kind": "phrase",
+          "ja": "こちらが、正確な時刻を記載した警備員の報告書です。"
+        },
+        {
+          "en": "Do you want me to send you the invoices for the damaged material?",
+          "kind": "phrase",
+          "ja": "損傷した材料の購入時の請求書をお送りしましょうか。"
+        },
+        {
+          "en": "We set up 2 dehumidifiers so mold doesn't grow.",
+          "kind": "phrase",
+          "ja": "カビが生えないように、除湿機を2台設置しました。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is insurance adjuster Silvia Navarro: tell her what happened over the weekend in the preterite (se rompió, cerró, se dañaron) and give exact times, quantities and locations using numbers.",
+      "grammarFocusSpanish": "Preterite narration; numbers under pressure (el sábado se rompió la línea, el guardia la cerró a las seis, se dañaron veinticuatro hojas)",
+      "grammarExamplesEnglish": [
+        "On Sunday the guard saw the water and called me at 6:15.",
+        "On Monday at 8:00 we measured the moisture in 3 walls."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは保険鑑定人のシルビア・ナバロとして話します。週末に何が起きたかを「〜ました」の形で説明してください。時刻、数量、場所は数字を使って正確に伝えてください。確認していない事実を述べず、自分の権限を超える約束はしないでください。",
+      "grammarTeachingJapanese": "過去の出来事は「〜ました」で述べます。「破損しました」「設置しました」のように、動詞の丁寧な過去形を使います。数量は助数詞を使い、「石膏ボード24枚」「除湿機を2台」のように言います。時刻は「6時10分」のように言います。目的は「〜ように」で表します。「カビが生えないように」がその例です。",
+      "grammarExamplesJapanese": [
+        "日曜日に警備員が水に気づき、6時15分に私に電話をかけてきました。",
+        "月曜日の8時に、壁3面の含水率を測定しました。"
+      ]
+    },
+    {
+      "n": 8,
+      "titleEnglish": "Saying No to Pulling the Guardrail for Speed",
+      "objectiveEnglish": "Refuse an owner's rep's request to remove the guardrail, explain the risk and offer a safe way to keep the schedule.",
+      "terms": [
+        {
+          "en": "the temporary guardrail",
+          "kind": "term",
+          "ja": "仮設の手すり"
+        },
+        {
+          "en": "the owner's rep",
+          "kind": "term",
+          "ja": "発注者側の担当者"
+        },
+        {
+          "en": "the HVAC units",
+          "kind": "term",
+          "ja": "空調機器"
+        },
+        {
+          "en": "the planned lift",
+          "kind": "term",
+          "ja": "予定している揚重作業"
+        },
+        {
+          "en": "the lift plan",
+          "kind": "term",
+          "ja": "揚重計画"
+        },
+        {
+          "en": "the crane",
+          "kind": "term",
+          "ja": "クレーン"
+        },
+        {
+          "en": "the rigger",
+          "kind": "term",
+          "ja": "玉掛け作業者"
+        },
+        {
+          "en": "the signal person",
+          "kind": "term",
+          "ja": "合図者"
+        },
+        {
+          "en": "the sling",
+          "kind": "term",
+          "ja": "スリング"
+        },
+        {
+          "en": "the fall protection",
+          "kind": "term",
+          "ja": "墜落防止措置"
+        },
+        {
+          "en": "the fall risk",
+          "kind": "term",
+          "ja": "墜落の危険"
+        },
+        {
+          "en": "the warning line",
+          "kind": "term",
+          "ja": "警告ライン"
+        },
+        {
+          "en": "the exclusion zone",
+          "kind": "term",
+          "ja": "立入禁止区域"
+        },
+        {
+          "en": "the OSHA fine",
+          "kind": "term",
+          "ja": "OSHAの罰金"
+        },
+        {
+          "en": "the open edge",
+          "kind": "term",
+          "ja": "開放された端部"
+        },
+        {
+          "en": "I'm sorry, Mr. Peña, but the guardrail doesn't come down.",
+          "kind": "phrase",
+          "ja": "ペーニャさん、申し訳ありませんが、仮設の手すりは外せません。"
+        },
+        {
+          "en": "I don't recommend that they go up without fall protection.",
+          "kind": "phrase",
+          "ja": "墜落防止措置なしで上がらせることはお勧めしません。"
+        },
+        {
+          "en": "Guys, don't remove the guardrail; it stays where it is.",
+          "kind": "phrase",
+          "ja": "みなさん、仮設の手すりは外さないでください。そのままの位置に残します。"
+        },
+        {
+          "en": "I understand the rush, but I'm not going to put my people at risk.",
+          "kind": "phrase",
+          "ja": "急ぎたいお気持ちはわかりますが、作業員を危険にさらすわけにはいきません。"
+        },
+        {
+          "en": "I suggest we wait for the planned lift with the protection in place.",
+          "kind": "phrase",
+          "ja": "手すりをそのままにして、予定している揚重作業まで待つことを提案します。"
+        },
+        {
+          "en": "If someone falls, the whole job shuts down.",
+          "kind": "phrase",
+          "ja": "誰かが墜落したら、現場全体が止まってしまいます。"
+        },
+        {
+          "en": "While the crane gets here, we'll prepare the bases and connections.",
+          "kind": "phrase",
+          "ja": "クレーンが到着するまでの間に、架台と接続部の準備を進めておきます。"
+        },
+        {
+          "en": "Don't go near the edge without being tied off.",
+          "kind": "phrase",
+          "ja": "ランヤードのフックを掛けずに、端部に近づかないでください。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is owner's rep Ricardo Peña: refuse his request to remove the guardrail, explain the fall risk with no recomiendo que + subjunctive and negative commands (no la quiten), and propose waiting for the planned lift.",
+      "grammarFocusSpanish": "Negative commands; subjunctive after no recomiendo que (no la quiten; no recomiendo que suban sin protección)",
+      "grammarExamplesEnglish": [
+        "Don't take it down; the guardrail stays until the lift.",
+        "I don't recommend that they work near the edge without the guardrail."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは発注者側の担当者リカルド・ペーニャを演じます。仮設の手すりを外してほしいという依頼に対し、「〜ないでください」「〜ことはお勧めしません」を使い、丁寧にはっきり断ってください。墜落の危険を説明し、手すりを外さずに予定している揚重作業まで待つことを提案してください。急ぎたい気持ちに理解を示しつつ、作業員を危険にさらさないと伝えてください。",
+      "grammarTeachingJapanese": "「〜ないでください」は、禁止や指示を丁寧に伝えます（例：外さないでください）。「〜ことはお勧めしません」は、その行動を勧めないと伝えます（例：上がらせることはお勧めしません）。「上がらせる」「作業させる」は使役形で、人に何かをさせる形です。「〜ことを提案します」は、別の行動を提案します（例：待つことを提案します）。「〜わけにはいきません」は、責任や原則があるためできないと伝えます（例：危険にさらすわけにはいきません）。",
+      "grammarExamplesJapanese": [
+        "取り外さないでください。仮設の手すりは揚重作業まで、そのまま残します。",
+        "仮設の手すりがない状態で、作業員に端の近くで作業させることはお勧めしません。"
+      ],
+      "teachingNotesEnglish": [
+        "Tied off means the lanyard hook is connected to an appropriate anchor point, not merely that a worker is wearing equipment. A qualified fall-protection reviewer must confirm the exact Japanese instruction and US OSHA terminology before release.",
+        "The foreman does not approve removal of the guardrail in this roleplay. Warning-line, OSHA penalty, open-edge, HVAC-base and owner-representative terms need US/Japan site review. 架台 for HVAC bases is provisional and needs qualified site review."
+      ]
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Feedback to a Veteran Mason on Out-of-Plumb Block",
+      "objectiveEnglish": "Give a veteran mason specific feedback on out-of-plumb block and agree on what you want to see tomorrow.",
+      "terms": [
+        {
+          "en": "the master mason",
+          "kind": "term",
+          "ja": "熟練のブロック工"
+        },
+        {
+          "en": "the block wall",
+          "kind": "term",
+          "ja": "ブロック壁"
+        },
+        {
+          "en": "the course (row of block)",
+          "kind": "term",
+          "ja": "段（ブロックの一段）"
+        },
+        {
+          "en": "out of plumb",
+          "kind": "term",
+          "ja": "垂直が出ていない"
+        },
+        {
+          "en": "the lean (out-of-plumb amount)",
+          "kind": "term",
+          "ja": "傾き（垂直からのずれ）"
+        },
+        {
+          "en": "the plumb bob",
+          "kind": "term",
+          "ja": "下げ振り"
+        },
+        {
+          "en": "the mason's line",
+          "kind": "term",
+          "ja": "水糸"
+        },
+        {
+          "en": "the straightedge",
+          "kind": "term",
+          "ja": "定規"
+        },
+        {
+          "en": "the trowel",
+          "kind": "term",
+          "ja": "こて"
+        },
+        {
+          "en": "the mortar",
+          "kind": "term",
+          "ja": "モルタル"
+        },
+        {
+          "en": "the section (of wall)",
+          "kind": "term",
+          "ja": "壁の区間"
+        },
+        {
+          "en": "the workmanship",
+          "kind": "term",
+          "ja": "施工の品質"
+        },
+        {
+          "en": "the blame",
+          "kind": "term",
+          "ja": "非難（誰かのせいにすること）"
+        },
+        {
+          "en": "the habit",
+          "kind": "term",
+          "ja": "癖"
+        },
+        {
+          "en": "the corner",
+          "kind": "term",
+          "ja": "角"
+        },
+        {
+          "en": "Rogelio, the corner is almost 1 inch out of plumb.",
+          "kind": "phrase",
+          "ja": "ロヘリオさん、この角は垂直から1インチ近くずれています。"
+        },
+        {
+          "en": "I recommend you check plumb on every course.",
+          "kind": "phrase",
+          "ja": "段ごとに垂直を確認することをお勧めします。"
+        },
+        {
+          "en": "This isn't about blaming Kevin; you're the one running the wall.",
+          "kind": "phrase",
+          "ja": "これはケビンを責める話ではありません。この壁を任されているのはロヘリオさんです。"
+        },
+        {
+          "en": "I'd rather have Kevin work next to you and learn from you.",
+          "kind": "phrase",
+          "ja": "ケビンには、ロヘリオさんの隣で作業して、ロヘリオさんから学んでもらいたいと思っています。"
+        },
+        {
+          "en": "We'd better take this section down before the mortar hardens.",
+          "kind": "phrase",
+          "ja": "モルタルが固まる前に、この区間を解体したほうがいいでしょう。"
+        },
+        {
+          "en": "Your work has always been good; that's why I'm telling you straight.",
+          "kind": "phrase",
+          "ja": "ロヘリオさんはこれまでずっと良い仕事をしてくれています。だからこそ、率直にお伝えしています。"
+        },
+        {
+          "en": "Kevin, I want you to tell me if you see anything out of plumb.",
+          "kind": "phrase",
+          "ja": "ケビン、垂直から外れているものを見つけたら、私に教えてほしいです。"
+        },
+        {
+          "en": "Tomorrow I want you to show me the corner before lunch.",
+          "kind": "phrase",
+          "ja": "明日は、昼食前にこの角を私に見せてほしいです。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Rogelio Durán, a veteran mason: give specific, respectful feedback on his out-of-plumb corner and agree on what you want to see tomorrow, using quiero que and te recomiendo que with the present subjunctive.",
+      "grammarFocusSpanish": "Present subjunctive after wishes and recommendations (quiero que revises la esquina, te recomiendo que uses el nivel cada hilada)",
+      "grammarExamplesEnglish": [
+        "I want you to check the corner with the plumb bob before you keep going.",
+        "I recommend you teach Kevin to check every course."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは熟練のブロック工ロヘリオ・デュランを演じます。角の垂直のずれについて、ロヘリオさんに具体的で敬意のあるフィードバックをしてください。「〜てほしいです」と「〜ことをお勧めします」を使い、明日の昼食前に角を見せてもらうことを確認してください。",
+      "grammarTeachingJapanese": "願望や勧めは、文末の表現で伝えます。「〜てほしいです」は、相手に何かをしてほしい気持ちを伝えます。動詞のて形に「ほしいです」を付けます。例：確認してほしいです。「〜ことをお勧めします」は、丁寧に勧めるときに使います。動詞の辞書形に「ことをお勧めします」を付けます。例：確認することをお勧めします。「動詞の辞書形＋前に」は、何かをする前という時の順番を表します。例：続ける前に、確認してほしいです。",
+      "grammarExamplesJapanese": [
+        "作業を続ける前に、下げ振りで角を確認してほしいです。",
+        "ケビンに、段ごとに確認するよう教えることをお勧めします。"
+      ]
+    }
+  ]
+}

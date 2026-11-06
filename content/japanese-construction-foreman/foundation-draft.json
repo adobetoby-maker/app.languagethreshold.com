@@ -177,6 +177,134 @@
         "わたしの のこぎりは どこに ありますか。|Where is my saw?",
         "そうこに あります。|It is in the storage room."
       ]
+    },
+    {
+      "n": 7,
+      "title": "Correct the tool name",
+      "focus": "Ask a yes/no question with ～ですか and correct a mistaken noun with いいえ、Xです. When Sato holds an item, Sato calls it これ and Kobayashi calls it それ; when Kobayashi holds an item, those words reverse. ちがいます can politely flag that a proposed identification is wrong before naming the right item.",
+      "scene": "In storage, Sato holds his saw and new helper Kobayashi holds Sato's hammer; after Kobayashi checks the saw's name, Sato quizzes him about the hammer before they put the tools away",
+      "terms": [
+        "これ|this near me",
+        "それ|that near you",
+        "かなづち|hammer",
+        "のこぎり|saw",
+        "ですか|is it? (polite question ending)",
+        "はい|yes",
+        "いいえ|no",
+        "ちがいます|that is incorrect; differs (polite)",
+        "わたしの|my",
+        "そうです|that's right; yes, it is"
+      ],
+      "speakers": ["Kobayashi", "Sato", "Kobayashi", "Sato", "Sato", "Kobayashi", "Kobayashi", "Sato"],
+      "dialogue": [
+        "それは かなづちですか。|Is that a hammer?",
+        "いいえ、これは のこぎりです。|No, this is a saw.",
+        "のこぎりですか。|A saw?",
+        "はい、のこぎりです。|Yes, a saw.",
+        "それは のこぎりですか。|Is that a saw?",
+        "いいえ、ちがいます。これは かなづちです。|No, it isn't. This is a hammer.",
+        "さとうさんの かなづちですか。|Is it your hammer, Sato?",
+        "はい、そうです。|Yes, it is."
+      ]
+    },
+    {
+      "n": 8,
+      "title": "Confirm tomorrow's meeting",
+      "focus": "Ask なんじに for a meeting time and どこで for the place where the meeting action occurs. Time takes に, as in あさ はちじに; で marks where the meeting happens, as in げんばで あつまります. You may also hear げんばに あつまります, with に marking the destination where people gather. Use あした for tomorrow and confirm a misheard time explicitly.",
+      "scene": "Tanaka asks site supervisor Sato about tomorrow morning's crew meeting; Tanaka mishears the correct time and Sato corrects it",
+      "terms": [
+        "あした|tomorrow",
+        "あさ|morning",
+        "なんじに|at what time",
+        "はちじ|eight o'clock",
+        "くじ|nine o'clock",
+        "あつまります|gather; meet (polite)",
+        "どこで|where (an action happens)",
+        "げんば|work site",
+        "そうこ|storage room",
+        "いいえ|no"
+      ],
+      "speakers": ["Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato"],
+      "dialogue": [
+        "あしたは なんじに あつまりますか。|At what time will we meet tomorrow?",
+        "あさ はちじに あつまります。|We will meet at eight in the morning.",
+        "くじですか。|At nine?",
+        "いいえ、はちじです。|No, at eight.",
+        "どこで あつまりますか。|Where will we meet?",
+        "げんばで あつまります。|We will meet at the work site.",
+        "そうこですか。|At the storage room?",
+        "いいえ、げんばです。|No, at the work site."
+      ]
+    },
+    {
+      "n": 9,
+      "title": "Ask to hear it again",
+      "focus": "Use もういちど おねがいします to request one repetition, and ゆっくり おねがいします to ask for slower speech. Treat きこえません ('I cannot hear') as a fixed phrase for now; the ～ません negative pattern comes later. Repeat the time and place back as a question so the other person can confirm or correct them.",
+      "scene": "Tanaka does not catch Sato's meeting instruction in a noisy storage room and asks for a slower repetition",
+      "terms": [
+        "もういちど|once more",
+        "おねがいします|please (polite request)",
+        "ゆっくり|slowly",
+        "きこえません|I cannot hear (polite)",
+        "すみません|excuse me; sorry",
+        "はちじ|eight o'clock",
+        "くじ|nine o'clock",
+        "げんば|work site",
+        "そうこ|storage room",
+        "あつまります|gather; meet (polite)"
+      ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka"],
+      "dialogue": [
+        "あしたの あさ はちじに げんばで あつまります。|Tomorrow morning we will meet at eight at the work site.",
+        "すみません、きこえません。もういちど おねがいします。|Sorry, I cannot hear. Once more, please.",
+        "あしたの あさ はちじに げんばで あつまります。|Tomorrow morning we will meet at eight at the work site.",
+        "ゆっくり おねがいします。|Slowly, please.",
+        "あしたの あさ、はちじに、げんばで あつまります。|Tomorrow morning, at eight, we will meet at the work site.",
+        "はちじに そうこで あつまりますか。|Will we meet at eight in the storage room?",
+        "いいえ、はちじに げんばで あつまります。|No, we will meet at eight at the work site.",
+        "はい、はちじに げんばで あつまります。|Yes, we will meet at eight at the work site."
+      ]
+    },
+    {
+      "n": 10,
+      "title": "Morning check-in review",
+      "focus": "Combine the Foundation skills in a morning check-in: greet a crew member, count carpenters and boxes, distinguish where a person is (に) from where a task occurs (で), verify a tool name, ask for repetition, and confirm tomorrow's meeting time and place. This reviews first-stage language and leads into the Core morning check-in; it does not certify workplace competence.",
+      "scene": "Sato checks the carpenters and materials with Tanaka, asks about the saw Tanaka is holding, and confirms tomorrow's gathering at the work site",
+      "terms": [
+        "おはようございます|good morning (polite)",
+        "だいく|carpenter",
+        "なんにん|how many people",
+        "ふたり|two people",
+        "はこ|box",
+        "ふたつ|two general items",
+        "そうこ|storage room",
+        "げんば|work site",
+        "のこぎり|saw",
+        "かなづち|hammer",
+        "はちじ|eight o'clock",
+        "あつまります|gather; meet (polite)"
+      ],
+      "speakers": ["Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Tanaka", "Sato", "Tanaka", "Sato", "Tanaka", "Sato"],
+      "dialogue": [
+        "おはようございます、たなかさん。|Good morning, Tanaka.",
+        "おはようございます、さとうさん。|Good morning, Sato.",
+        "きょう、だいくは なんにんですか。|How many carpenters are here today?",
+        "ふたりです。|Two people.",
+        "そうこの はこは いくつですか。|How many boxes are in storage?",
+        "ふたつです。|Two boxes.",
+        "こばやしさんは どこに いますか。|Where is Kobayashi?",
+        "げんばに います。|Kobayashi is at the work site.",
+        "こばやしさんは どこで さぎょうしますか。|Where will Kobayashi work on the task?",
+        "げんばで さぎょうします。|Kobayashi will work at the work site.",
+        "それは かなづちですか。|Is that a hammer?",
+        "いいえ、これは のこぎりです。|No, this is a saw.",
+        "あしたは なんじに あつまりますか。|At what time will we meet tomorrow?",
+        "あしたの あさ はちじに げんばで あつまります。|Tomorrow morning we will meet at eight at the work site.",
+        "もういちど おねがいします。|Once more, please.",
+        "あしたの あさ はちじに げんばで あつまります。|Tomorrow morning we will meet at eight at the work site.",
+        "はちじに げんばで あつまりますか。|At eight at the work site?",
+        "はい、そうです。|Yes, that's right."
+      ]
     }
   ]
 }

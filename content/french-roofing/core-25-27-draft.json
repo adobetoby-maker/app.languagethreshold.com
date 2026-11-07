@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "eefb153a1c20dcd0083521db0ed4de3d158c565430e4036eba4b88536f2df666",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 25,
+      "titleEnglish": "Falling Debris",
+      "objectiveEnglishSource": "Keep workers below clear of debris",
+      "speakingEnglishSource": "Tell the ground crew to move clear before tear-off resumes.",
+      "titleFrench": "Écarter l’équipe des débris qui tombent",
+      "objectiveFrench": "Avertir l’équipe au sol et faire dégager la zone d’exclusion avant la reprise de la dépose.",
+      "speakingFrenchInstruction": "Avant de reprendre la dépose, demandez l’arrêt et la confirmation que la zone d’exclusion approuvée est dégagée. Prévenez l’équipe au sol, puis demandez une réponse explicite.",
+      "speakingFrenchOpening": "On suspend la dépose : l’équipe au sol a-t-elle quitté la zone d’exclusion ?",
+      "grammarFocusFrench": "Impératif négatif pour interdire l’accès; avant de + infinitif; jusqu’à ce que pour attendre la confirmation.",
+      "words": [
+        {
+          "en": "ground crew",
+          "kind": "term",
+          "fr": "l’équipe au sol"
+        },
+        {
+          "en": "debris",
+          "kind": "term",
+          "fr": "les débris"
+        },
+        {
+          "en": "exclusion area",
+          "kind": "term",
+          "fr": "la zone d’exclusion"
+        },
+        {
+          "en": "hard hat",
+          "kind": "term",
+          "fr": "le casque de chantier"
+        },
+        {
+          "en": "warning tape",
+          "kind": "term",
+          "fr": "le ruban de signalisation"
+        },
+        {
+          "en": "danger",
+          "kind": "term",
+          "fr": "le danger"
+        },
+        {
+          "en": "chute",
+          "kind": "term",
+          "fr": "la goulotte à débris"
+        },
+        {
+          "en": "cone",
+          "kind": "term",
+          "fr": "le cône de signalisation"
+        },
+        {
+          "en": "tear-off",
+          "kind": "term",
+          "fr": "la dépose"
+        },
+        {
+          "en": "Keep the ground crew clear of falling debris.",
+          "kind": "phrase",
+          "fr": "Tenez l’équipe au sol à l’écart des débris qui tombent."
+        },
+        {
+          "en": "Move away from the house.",
+          "kind": "phrase",
+          "fr": "Éloignez-vous de la maison."
+        },
+        {
+          "en": "Don't stand under the work.",
+          "kind": "phrase",
+          "fr": "Ne restez pas sous la zone de travail."
+        },
+        {
+          "en": "Wait until I say it's clear.",
+          "kind": "phrase",
+          "fr": "Attendez que je confirme que la zone est dégagée."
+        },
+        {
+          "en": "Put up the warning tape.",
+          "kind": "phrase",
+          "fr": "Installez le ruban de signalisation."
+        },
+        {
+          "en": "Heads up! Debris coming down!",
+          "kind": "phrase",
+          "fr": "Attention en bas ! Des débris vont tomber !"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Écarter l’équipe des débris qui tombent",
+        "target": [
+          "Avant de poursuivre la dépose, le contremaître parle à l’équipe au sol.",
+          "Des débris peuvent tomber du toit et blesser une personne en bas.",
+          "Installez le ruban de signalisation autour de la zone d’exclusion.",
+          "Éloignez-vous de la maison.",
+          "Ne restez pas sous la zone de travail, même avec un casque de chantier.",
+          "Tenez l’équipe au sol à l’écart des débris qui tombent.",
+          "Si vous utilisez la goulotte à débris, prévenez d’abord les personnes en bas : « Attention ! Des débris vont tomber ! »",
+          "Attendez que je confirme que la zone est dégagée."
+        ],
+        "native": [
+          "Before continuing with the tear-off, the foreman talks to the ground crew.",
+          "Debris can fall from the roof and hurt someone below.",
+          "Put up the warning tape around the exclusion area.",
+          "Move away from the house.",
+          "Don't stand under the work, even if you are wearing a hard hat.",
+          "Keep the ground crew clear of falling debris.",
+          "If you use the debris chute, warn people first: Heads up! Debris coming down!",
+          "Wait until I say it's clear."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to put (up), to place",
+          "exampleEnglish": "We put up the warning tape around the exclusion area.",
+          "sourceInfinitiveSpanish": "poner",
+          "infinitiveFrench": "installer",
+          "exampleFrench": "Nous installons le ruban de signalisation autour de la zone d’exclusion."
+        },
+        {
+          "meaningEnglish": "to move away",
+          "exampleEnglish": "Everyone moves away from the house before the tear-off.",
+          "sourceInfinitiveSpanish": "alejarse",
+          "infinitiveFrench": "s’éloigner",
+          "exampleFrench": "Tout le monde s’éloigne de la maison avant la dépose."
+        },
+        {
+          "meaningEnglish": "to wait",
+          "exampleEnglish": "We wait until the foreman says it's clear.",
+          "sourceInfinitiveSpanish": "esperar",
+          "infinitiveFrench": "attendre",
+          "exampleFrench": "Nous attendons que le contremaître confirme que la zone est dégagée."
+        },
+        {
+          "meaningEnglish": "to warn, to let know",
+          "exampleEnglish": "If we use the debris chute, we warn people first.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "Si nous utilisons la goulotte à débris, nous prévenons d’abord les personnes en bas."
+        },
+        {
+          "meaningEnglish": "to fall",
+          "exampleEnglish": "Heads up! Debris coming down!",
+          "sourceInfinitiveSpanish": "caer",
+          "infinitiveFrench": "tomber",
+          "exampleFrench": "Attention en bas ! Des débris vont tomber !"
+        }
+      ],
+      "teachingNotesFrench": "Une zone d’exclusion ne se définit pas par le seul ruban; ses limites, son contrôle et le mode d’évacuation des débris relèvent du plan du chantier. Le casque ne permet pas de rester sous les travaux.",
+      "practiceModesFrench": {
+        "see": "Repérez dans la scène qui doit quitter la zone d’exclusion.",
+        "recall": "Retrouvez l’interdiction de rester sous la zone de travail.",
+        "hear": "Écoutez l’alerte sur les débris, puis indiquez qui doit répondre.",
+        "type": "Écrivez en français : Do not stand under the work.",
+        "say": "Annoncez à voix haute l’arrêt de la dépose et demandez confirmation à l’équipe au sol.",
+        "write": "Rédigez deux phrases pour faire dégager la zone et attendre une réponse."
+      },
+      "regionalNotesEnglish": [
+        "Qualified falling-object and exclusion-zone safety review is required before release; warning tape, a hard hat and a shouted warning are not sufficient controls by themselves.",
+        "France/Québec terminology for tear-off, debris chute and exclusion area requires regional roofing review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 26,
+      "titleEnglish": "Document Deck Repairs",
+      "objectiveEnglishSource": "Describe and record a repaired deck section",
+      "speakingEnglishSource": "Ask for a photo of a deck repair before the crew covers it.",
+      "titleFrench": "Documenter une réparation du platelage",
+      "objectiveFrench": "Décrire la partie réparée du platelage et demander des photos et mesures avant de la recouvrir.",
+      "speakingFrenchInstruction": "Demandez de montrer la zone abîmée, de mesurer la réparation et de prendre les photos requises avant de la recouvrir. Faites confirmer la procédure d’inspection du chantier.",
+      "speakingFrenchOpening": "Pouvez-vous me montrer la zone réparée et la photo prise avant de la recouvrir ?",
+      "grammarFocusFrench": "Avant de + infinitif; question avec quelle taille; passé composé pour les étapes déjà réalisées.",
+      "words": [
+        {
+          "en": "repair photo",
+          "kind": "term",
+          "fr": "la photo de la réparation"
+        },
+        {
+          "en": "deck",
+          "kind": "term",
+          "fr": "le platelage du toit"
+        },
+        {
+          "en": "covered area",
+          "kind": "term",
+          "fr": "la zone recouverte"
+        },
+        {
+          "en": "repair",
+          "kind": "term",
+          "fr": "la réparation"
+        },
+        {
+          "en": "plywood",
+          "kind": "term",
+          "fr": "le contreplaqué"
+        },
+        {
+          "en": "photo",
+          "kind": "term",
+          "fr": "la photo"
+        },
+        {
+          "en": "damaged area",
+          "kind": "term",
+          "fr": "la zone endommagée"
+        },
+        {
+          "en": "sheathing",
+          "kind": "term",
+          "fr": "le panneau de support"
+        },
+        {
+          "en": "measurement",
+          "kind": "term",
+          "fr": "la mesure"
+        },
+        {
+          "en": "Take a photo of the repaired area before covering it.",
+          "kind": "phrase",
+          "fr": "Prenez une photo de la zone réparée avant de la recouvrir."
+        },
+        {
+          "en": "Show me the damaged area.",
+          "kind": "phrase",
+          "fr": "Montrez-moi la zone endommagée."
+        },
+        {
+          "en": "Take a photo before and after the repair.",
+          "kind": "phrase",
+          "fr": "Prenez une photo avant et après la réparation."
+        },
+        {
+          "en": "Do not cover it until I check it.",
+          "kind": "phrase",
+          "fr": "Ne la recouvrez pas avant ma vérification."
+        },
+        {
+          "en": "How big is the repaired section?",
+          "kind": "phrase",
+          "fr": "Quelle est la taille de la partie réparée ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Documenter une réparation du platelage",
+        "target": [
+          "Pendant la dépose, l’équipe a trouvé une zone endommagée sur le platelage du toit.",
+          "Le contremaître dit : « Montrez-moi la zone endommagée. »",
+          "Prenez une photo avant et après la réparation.",
+          "Les ouvriers remplacent le contreplaqué endommagé.",
+          "Le contremaître demande : « Quelle est la taille de la partie réparée ? »",
+          "Un ouvrier mesure la partie réparée et communique la mesure.",
+          "Prenez une photo de la zone réparée avant de la recouvrir.",
+          "Ne la recouvrez pas avant ma vérification.",
+          "La photo de la réparation documente ce qui restera sous la couverture."
+        ],
+        "native": [
+          "During the tear-off, the crew found a damaged area on the deck.",
+          "The foreman says: Show me the damaged area.",
+          "Take a photo before and after the repair.",
+          "The workers replace the damaged plywood.",
+          "The foreman asks: How big is the repaired section?",
+          "A worker measures the section and gives the measurement.",
+          "Take a photo of the repaired area before covering it.",
+          "Do not cover it until I check it.",
+          "The repair photo is the record of what stays in the covered area."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to take",
+          "exampleEnglish": "The workers take a photo before and after the repair.",
+          "sourceInfinitiveSpanish": "tomar",
+          "infinitiveFrench": "prendre",
+          "exampleFrench": "Les ouvriers prennent une photo avant et après la réparation."
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "A worker shows the damaged area to the foreman.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Un ouvrier montre la zone endommagée au contremaître."
+        },
+        {
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "The workers replace the damaged plywood.",
+          "sourceInfinitiveSpanish": "reemplazar",
+          "infinitiveFrench": "remplacer",
+          "exampleFrench": "Les ouvriers remplacent le contreplaqué endommagé."
+        },
+        {
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "A worker measures the section and gives the measurement.",
+          "sourceInfinitiveSpanish": "medir",
+          "infinitiveFrench": "mesurer",
+          "exampleFrench": "Un ouvrier mesure la partie réparée et communique la mesure."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the repaired section before covering it.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le contremaître vérifie la partie réparée avant de la recouvrir."
+        }
+      ],
+      "teachingNotesFrench": "Le platelage est le support de toiture; une photo documente l’état visible, mais ne prouve pas à elle seule la conformité de la réparation. La méthode, les mesures et l’autorisation de recouvrir suivent le plan approuvé.",
+      "practiceModesFrench": {
+        "see": "Repérez l’ordre des photos, de la mesure et de la vérification.",
+        "recall": "Retrouvez la demande de montrer la zone endommagée.",
+        "hear": "Écoutez la question sur la taille, puis relevez la mesure demandée.",
+        "type": "Écrivez en français : Take a photo before and after the repair.",
+        "say": "Demandez oralement une photo de la réparation avant de la recouvrir.",
+        "write": "Rédigez une demande de mesure et une consigne de vérification avant recouvrement."
+      },
+      "regionalNotesEnglish": [
+        "Qualified roofing/structural review is required for deck-repair method, inspection and authorization to cover; photographs alone are documentation, not acceptance.",
+        "France/Québec terminology for roof deck, sheathing and plywood needs regional technical review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 27,
+      "titleEnglish": "Inspect Vents & Flashing",
+      "objectiveEnglishSource": "Check roof penetrations with the lead",
+      "speakingEnglishSource": "Walk each penetration and ask the lead what has been checked.",
+      "titleFrench": "Vérifier les évents et les solins",
+      "objectiveFrench": "Passer en revue les traversées de toiture avec le chef d’équipe et demander ce qui a été vérifié.",
+      "speakingFrenchInstruction": "Parcourez chaque traversée avec le chef d’équipe. Demandez ce qui a été inspecté et photographié, puis faites confirmer le détail approuvé pour les solins et les fixations exposées.",
+      "speakingFrenchOpening": "Pour chaque traversée de toiture, qu’avez-vous déjà vérifié et photographié ?",
+      "grammarFocusFrench": "Question au passé composé avec qu’avez-vous; si + présent pour décrire une fissure possible.",
+      "words": [
+        {
+          "en": "vent",
+          "kind": "term",
+          "fr": "l’évent"
+        },
+        {
+          "en": "pipe boot",
+          "kind": "term",
+          "fr": "le manchon d’étanchéité du tuyau"
+        },
+        {
+          "en": "flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "penetration",
+          "kind": "term",
+          "fr": "la traversée de toiture"
+        },
+        {
+          "en": "sealant",
+          "kind": "term",
+          "fr": "le produit d’étanchéité"
+        },
+        {
+          "en": "crack",
+          "kind": "term",
+          "fr": "la fissure"
+        },
+        {
+          "en": "leak",
+          "kind": "term",
+          "fr": "la fuite"
+        },
+        {
+          "en": "skylight",
+          "kind": "term",
+          "fr": "le puits de lumière"
+        },
+        {
+          "en": "chimney",
+          "kind": "term",
+          "fr": "la cheminée"
+        },
+        {
+          "en": "Check the flashing around this vent.",
+          "kind": "phrase",
+          "fr": "Vérifiez le solin autour de cet évent."
+        },
+        {
+          "en": "Take a photo of the flashing around each penetration.",
+          "kind": "phrase",
+          "fr": "Prenez une photo du solin autour de chaque traversée."
+        },
+        {
+          "en": "Walk each penetration with me.",
+          "kind": "phrase",
+          "fr": "Parcourez chaque traversée avec moi."
+        },
+        {
+          "en": "Is the pipe boot cracked?",
+          "kind": "phrase",
+          "fr": "Le manchon du tuyau est-il fissuré ?"
+        },
+        {
+          "en": "What have you already checked?",
+          "kind": "phrase",
+          "fr": "Qu’avez-vous déjà vérifié ?"
+        },
+        {
+          "en": "Seal the exposed nails.",
+          "kind": "phrase",
+          "fr": "Réalisez l’étanchéité des clous exposés."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Vérifier les évents et les solins",
+        "target": [
+          "Avant de terminer, le contremaître veut vérifier tous les éléments qui traversent le toit.",
+          "Parcourons chaque traversée de toiture ensemble.",
+          "Il demande au chef d’équipe : « Qu’avez-vous déjà vérifié ? »",
+          "Vérifiez le solin autour de cet évent.",
+          "Le manchon d’étanchéité du tuyau est-il fissuré ?",
+          "S’il y a une fissure, l’eau peut provoquer une fuite.",
+          "Prenez une photo du solin autour de chaque traversée.",
+          "Réalisez l’étanchéité des clous exposés."
+        ],
+        "native": [
+          "Before finishing, the foreman wants to check everything that goes through the roof.",
+          "Let's walk each penetration together.",
+          "He asks the crew lead: What have you already checked?",
+          "Check the flashing around this vent.",
+          "Is the pipe boot cracked?",
+          "If there is a crack, water can cause a leak.",
+          "Take a photo of the flashing around each penetration.",
+          "Seal the exposed nails."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the flashing around this vent.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Vérifiez le solin autour de cet évent."
+        },
+        {
+          "meaningEnglish": "to seal",
+          "exampleEnglish": "Seal the exposed nails.",
+          "sourceInfinitiveSpanish": "sellar",
+          "infinitiveFrench": "réaliser l’étanchéité",
+          "exampleFrench": "Réalisez l’étanchéité des clous exposés."
+        },
+        {
+          "meaningEnglish": "to take",
+          "exampleEnglish": "Take a photo of the flashing around each penetration.",
+          "sourceInfinitiveSpanish": "tomar",
+          "infinitiveFrench": "prendre",
+          "exampleFrench": "Prenez une photo du solin autour de chaque traversée."
+        },
+        {
+          "meaningEnglish": "to walk through / to go over",
+          "exampleEnglish": "We walk through each penetration together.",
+          "sourceInfinitiveSpanish": "recorrer",
+          "infinitiveFrench": "parcourir",
+          "exampleFrench": "Nous parcourons chaque traversée ensemble."
+        },
+        {
+          "meaningEnglish": "to ask (a question)",
+          "exampleEnglish": "The foreman asks the crew lead what they have checked.",
+          "sourceInfinitiveSpanish": "preguntar",
+          "infinitiveFrench": "demander",
+          "exampleFrench": "Le contremaître demande au chef d’équipe ce qu’il a vérifié."
+        }
+      ],
+      "teachingNotesFrench": "Une traversée de toiture est un élément qui passe à travers la couverture. Le solin, le manchon et le traitement des fixations dépendent du système choisi; la phrase source sur les clous exposés n’est pas une méthode universelle.",
+      "practiceModesFrench": {
+        "see": "Repérez dans la scène les éléments à inspecter autour de chaque traversée.",
+        "recall": "Retrouvez la question sur le manchon fissuré.",
+        "hear": "Écoutez la demande de photo, puis indiquez la zone visée.",
+        "type": "Écrivez en français : What have you already checked?",
+        "say": "Demandez à voix haute au chef d’équipe ce qu’il a inspecté.",
+        "write": "Rédigez deux questions pour vérifier le solin et demander une photo."
+      },
+      "regionalNotesEnglish": [
+        "Qualified roofing/product review is required for penetration details, pipe boots, exposed fasteners and the source's 'Seal the exposed nails' instruction before release.",
+        "France/Québec terms for vent, pipe boot, flashing and skylight require regional technical review."
+      ],
+      "reviewed": false
+    }
+  ]
+}

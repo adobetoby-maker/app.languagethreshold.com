@@ -9,6 +9,7 @@ import { validateStageFile } from '../src/lib/core60-validate.ts';
 const pilot=JSON.parse(readFileSync(new URL('../content/french-basics/private-runtime-foundation-1-6.json',import.meta.url),'utf8'));
 const source={lessons:['foundation-1-3-draft.json','foundation-4-6-draft.json'].flatMap(name=>JSON.parse(readFileSync(new URL(`../content/french-basics/${name}`,import.meta.url),'utf8')).lessons)};
 const sha=path=>createHash('sha256').update(readFileSync(new URL(`../${path}`,import.meta.url))).digest('hex');
+const plan=JSON.parse(readFileSync(new URL('../content/french-basics/foundation-1-6-curation-plan.json',import.meta.url),'utf8'));
 
 test('private French 1–6 pilot is pair-safe and absent from live stage registry',()=>{
  assert.equal(pilot.privatePilot,true);
@@ -22,6 +23,7 @@ test('private French 1–6 pilot is pair-safe and absent from live stage registr
    assert.equal(src.spanishSourceSha256,sha(src.spanishSourcePath));
    assert.ok(src.spanishSourceSubsetSha256);
  }
+ assert.equal(pilot.curationPlanSha256,sha(pilot.curationPlanPath));
  assert.equal(stageFileRelativePath('French',pilot.stageFile.module),'fr/foundation-french-basics.json');
  assert.equal(stageModuleId('foundation','spanish-basics'),'foundation-spanish-basics');
  assert.equal(stageModuleId('foundation','japanese-basics'),'foundation-japanese-basics');
@@ -43,18 +45,9 @@ test('private French stage converts to lessons without changing the live curricu
  }
 });
 
-test('release validator retains explicit partial-stage and word-count gates',()=>{
+test('curated stage words satisfy caps while the release gate still needs lessons 7–10',()=>{
  const errors=validateStageFile(pilot.stageFile,{moduleId:'foundation-french-basics',stage:'foundation',language:'French'});
- assert.deepEqual(errors,[
-  'a foundation has 10 lessons, found 6',
-  'lesson 2: 14 terms, needs 8-12',
-  'lesson 3: 15 terms, needs 8-12',
-  'lesson 4: 26 terms, needs 8-12',
-  'lesson 5: 15 terms, needs 8-12',
-  'lesson 5: 8 phrases, needs 4-6',
-  'lesson 6: 20 terms, needs 8-12',
-  'lesson 6: 7 phrases, needs 4-6',
- ]);
+ assert.deepEqual(errors,['a foundation has 10 lessons, found 6']);
 });
 
 test('all six mode inputs, Reader, cards, dictionary, speaking and checks retain exact pairs',()=>{
@@ -63,6 +56,10 @@ test('all six mode inputs, Reader, cards, dictionary, speaking and checks retain
    const draft=source.lessons[i];
    assert.deepEqual(Object.keys(s.modes).sort(),['see','recall','hear','type','say','write'].sort());
    assert.deepEqual(s.cards,draft.words.map(w=>({target:w.fr,native:w.en,kind:w.kind})));
+   assert.deepEqual(s.stageCardIndexes,plan.lessons[i].selectedWordIndexes);
+   assert.deepEqual(pilot.stageFile.lessons[i].words,s.stageCardIndexes.map(index=>({es:s.cards[index].target,en:s.cards[index].native,kind:s.cards[index].kind})));
+   assert.deepEqual(s.backlogCards,s.cards.filter((_,index)=>!s.stageCardIndexes.includes(index)));
+   assert.equal(s.stageCardIndexes.length+s.backlogCards.length,s.cards.length);
    assert.deepEqual(s.dictionaryEntries,draft.words.filter(w=>w.kind==='term').map(w=>({target:w.fr,native:w.en})));
    assert.deepEqual(s.reader.sentences,draft.dialogue.map(line=>{
      const [target,native]=line.split('|');return {target:target.trim(),native:native.trim()};
@@ -73,8 +70,8 @@ test('all six mode inputs, Reader, cards, dictionary, speaking and checks retain
    assert.equal(s.modes.hear.recordedAudio,false);
    assert.equal(s.modes.say.recordedAudio,false);
    assert.equal(s.modes.see.readerLineCount,s.reader.sentences.length);
-   assert.equal(s.modes.recall.cardCount,s.cards.length);
-   assert.equal(s.modes.type.cardCount,s.cards.length);
-   assert.equal(s.modes.write.cardCount,s.cards.length);
+   assert.equal(s.modes.recall.cardCount,s.stageCardIndexes.length);
+   assert.equal(s.modes.type.cardCount,s.stageCardIndexes.length);
+   assert.equal(s.modes.write.cardCount,s.stageCardIndexes.length);
  }
 });

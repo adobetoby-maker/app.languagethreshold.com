@@ -1,0 +1,538 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-10-12.json",
+    "sourceSha256": "bd1b311dd81b9da2bbe5349166d1e61bfbe7b293b99db1bf67389a517ff4afa8",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "French clock time, aimer and vouloir require different grammar from the Spanish source.",
+    "Broad source glosses have contextual notes; exact English meanings are retained for traceability."
+  ],
+  "lessons": [
+    {
+      "n": 10,
+      "title": "Dire l’heure et organiser sa journée",
+      "sourceTitleEnglish": "Time and schedules",
+      "sourceObjectiveEnglish": "Time and schedules: Use es la una but son las dos, tres and so on.",
+      "objective": "Dites l’heure avec il est, puis indiquez à quelle heure commencent et finissent les activités de la journée.",
+      "foundationTie": "Builds on Core 7–9 destinations, questions and clock-time vocabulary.",
+      "focus": "Il est + heure; à + heure for schedules; du matin / de l’après-midi",
+      "grammar": {
+        "explanation": "To tell time in French use il est, including il est une heure and il est huit heures. The hour noun changes number, but the verb stays singular: never say ils sont huit heures. For a scheduled event use à: Le cours commence à neuf heures. Ask À quelle heure ? for a precise time. Du matin and de l’après-midi disambiguate the part of the day.",
+        "model": {
+          "one": "Il est une heure.",
+          "eight": "Il est huit heures du matin.",
+          "schedule": "Le cours commence à neuf heures.",
+          "question": "À quelle heure arrives-tu à la maison ?"
+        },
+        "caution": "Unlike Spanish es la una / son las dos, French keeps il est for every clock hour."
+      },
+      "scene": "Deux camarades comparent leur emploi du temps avant la journée de cours.",
+      "dialogue": [
+        "Il est huit heures du matin.|It is eight in the morning.",
+        "Le cours commence à neuf heures.|Class starts at nine.",
+        "Le déjeuner est à une heure.|Lunch is at one.",
+        "J’étudie à trois heures de l’après-midi.|I study at three in the afternoon.",
+        "La bibliothèque ferme à six heures.|The library closes at six.",
+        "À quelle heure arrives-tu à la maison ?|What time do you arrive home?"
+      ],
+      "speaking": "Plan a class day with a classmate. Ask what time they arrive home, tell them it is eight in the morning, then say when class, lunch, study and the library closing happen. Confirm one time by repeating it. Use il est to tell time and à for scheduled events.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class session; salle de classe is the classroom."
+        },
+        {
+          "order": 2,
+          "fr": "est",
+          "en": "is (identity)",
+          "kind": "term",
+          "note": "Est is the third-person singular of être; the impersonal time expression is il est."
+        },
+        {
+          "order": 3,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "la / l’",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La is a feminine article or object pronoun; l’ is used before a vowel."
+        },
+        {
+          "order": 5,
+          "fr": "une",
+          "en": "a (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "sont",
+          "en": "are (identity)",
+          "kind": "term",
+          "note": "Sont means 'are' for plural subjects, but French clock time uses il est."
+        },
+        {
+          "order": 7,
+          "fr": "les",
+          "en": "the / them (feminine plural)",
+          "kind": "term",
+          "note": "Les is a plural article or object pronoun, regardless of noun gender."
+        },
+        {
+          "order": 8,
+          "fr": "trois",
+          "en": "three",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Il est huit heures du matin.",
+          "en": "It is eight in the morning.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Le cours commence à neuf heures.",
+          "en": "Class starts at nine.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Le déjeuner est à une heure.",
+          "en": "Lunch is at one.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "J’étudie à trois heures de l’après-midi.",
+          "en": "I study at three in the afternoon.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "La bibliothèque ferme à six heures.",
+          "en": "The library closes at six.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "À quelle heure arrives-tu à la maison ?",
+          "en": "What time do you arrive home?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Une journée de cours",
+        "sourceTitleEnglish": "Un día de clases",
+        "target": [
+          "Il est huit heures du matin.",
+          "Le cours commence à neuf heures.",
+          "Le déjeuner est à une heure.",
+          "J’étudie à trois heures de l’après-midi.",
+          "La bibliothèque ferme à six heures.",
+          "À quelle heure arrives-tu à la maison ?"
+        ],
+        "native": [
+          "It is eight in the morning.",
+          "Class starts at nine.",
+          "Lunch is at one.",
+          "I study at three in the afternoon.",
+          "The library closes at six.",
+          "What time do you arrive home?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the clock time: Il ___ huit heures.",
+          "answer": "est"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Class starts at nine.",
+          "answer": "Le cours commence à neuf heures."
+        },
+        {
+          "type": "listening",
+          "audioText": "La bibliothèque ferme à six heures.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what time does the library close?",
+          "answer": "At six."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Une journée de cours, when is lunch?",
+          "answer": "At one."
+        },
+        {
+          "type": "recall",
+          "prompt": "Say 1:00 in French.",
+          "answer": "Il est une heure."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 11,
+      "title": "Dire ce qu’on aime",
+      "sourceTitleEnglish": "Gustar: one thing or many",
+      "sourceObjectiveEnglish": "Gustar: one thing or many: With gustar, the liked thing controls the verb: me gusta el libro; me gustan los libros.",
+      "objective": "Exprimez vos goûts avec aimer au présent et distinguez j’aime, nous aimons, ils aiment et la négation.",
+      "foundationTie": "Reuses familiar books, music and classmates while expanding present-tense verb forms from Core 1–6.",
+      "focus": "Aimer + noun or infinitive; French subject agreement and ne…pas",
+      "grammar": {
+        "explanation": "French aimer uses the person who likes as its subject: j’aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Unlike Spanish gustar, the number of liked things does not control the verb. Use aimer + definite article for a general interest (j’aime la musique) and aimer + infinitive for an activity (nous aimons étudier). Negation surrounds the conjugated verb: Luis n’aime pas le café.",
+        "model": {
+          "one": "J’aime la musique.",
+          "many": "Ana aime les livres.",
+          "we": "Nous aimons étudier ensemble.",
+          "negative": "Luis n’aime pas le café."
+        },
+        "caution": "J’aime les livres remains j’aime even though livres is plural. Avoid copying Spanish me gusta / me gustan agreement into French."
+      },
+      "scene": "Des amis comparent leurs livres et leur musique préférée après les cours.",
+      "dialogue": [
+        "J’aime la musique.|I like music.",
+        "Ana aime les livres.|Ana likes books.",
+        "Nous aimons étudier ensemble.|We like studying together.",
+        "Luis n’aime pas le café.|Luis does not like coffee.",
+        "Tu aimes ces chansons ?|Do you like these songs?",
+        "Oui, j’aime écouter de la musique à la maison.|Yes, I like listening to music at home."
+      ],
+      "speaking": "Talk with a classmate about books, music and coffee. Ask whether they like these songs, state what you like, mention Ana and Luis, and say what you like doing together. Change roles and use at least one negative sentence. Keep the subject agreement with the person who likes.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "me / moi-même",
+          "en": "me / myself",
+          "kind": "term",
+          "note": "Me is an object/reflexive pronoun; a French 'I like' sentence begins j’aime, not me aime."
+        },
+        {
+          "order": 2,
+          "fr": "te / toi-même",
+          "en": "you / yourself",
+          "kind": "term",
+          "note": "Te is an object/reflexive pronoun; 'you like' is tu aimes."
+        },
+        {
+          "order": 3,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "la / l’",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "à / dans / sur",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose a preposition by location and meaning; these are not interchangeable translations."
+        },
+        {
+          "order": 6,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "livres",
+          "en": "books",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "non / ne…pas",
+          "en": "no / not",
+          "kind": "term",
+          "note": "Non answers no; ne…pas negates a verb and contracts to n’ before a vowel."
+        },
+        {
+          "order": 9,
+          "fr": "J’aime la musique.",
+          "en": "I like music.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana aime les livres.",
+          "en": "Ana likes books.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous aimons étudier ensemble.",
+          "en": "We like studying together.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis n’aime pas le café.",
+          "en": "Luis does not like coffee.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Tu aimes ces chansons ?",
+          "en": "Do you like these songs?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Oui, j’aime écouter de la musique à la maison.",
+          "en": "Yes, I like listening to music at home.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Ce que nous aimons",
+        "sourceTitleEnglish": "Nuestros gustos",
+        "target": [
+          "J’aime la musique.",
+          "Ana aime les livres.",
+          "Nous aimons étudier ensemble.",
+          "Luis n’aime pas le café.",
+          "Tu aimes ces chansons ?",
+          "Oui, j’aime écouter de la musique à la maison."
+        ],
+        "native": [
+          "I like music.",
+          "Ana likes books.",
+          "We like studying together.",
+          "Luis does not like coffee.",
+          "Do you like these songs?",
+          "Yes, I like listening to music at home."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ étudier ensemble.",
+          "answer": "aimons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Luis does not like coffee.",
+          "answer": "Luis n’aime pas le café."
+        },
+        {
+          "type": "listening",
+          "audioText": "Ana aime les livres.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what does Ana like?",
+          "answer": "Books."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Ce que nous aimons, what do the friends like doing together?",
+          "answer": "Studying together."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: J’___ les livres.",
+          "answer": "aime"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 12,
+      "title": "Vouloir et les projets du samedi",
+      "sourceTitleEnglish": "Querer: wants",
+      "sourceObjectiveEnglish": "Querer: wants: Querer changes e to ie in quiero, quieres, quiere and quieren; nosotros queremos keeps e.",
+      "objective": "Dites ce que vous voulez faire avec vouloir au présent, suivi d’un infinitif, et comparez je veux, nous voulons et ils veulent.",
+      "foundationTie": "Builds on Core 7 plans with aller and Core 11 infinitive activities; keeps familiar family and study contexts.",
+      "focus": "Vouloir present tense + infinitive; polite choice with je voudrais",
+      "grammar": {
+        "explanation": "French vouloir is irregular: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. Place an infinitive after it to express an intended action: Je veux visiter ma famille. Nous voulons manger ensemble. French does not follow the Spanish e-to-ie stem-change rule; learn the French forms as a separate pattern. Je voudrais is a softer, more polite request, but this lesson practices the present tense.",
+        "model": {
+          "I": "Je veux visiter ma famille.",
+          "Ana": "Ana veut se reposer à la maison.",
+          "we": "Nous voulons manger ensemble.",
+          "they": "Mes amis veulent aller au parc."
+        },
+        "caution": "The subject controls the verb: nous voulons, not nous veulent. Before an action use vouloir + infinitive without de."
+      },
+      "scene": "Le vendredi soir, des amis décident comment passer leur samedi.",
+      "dialogue": [
+        "Je veux rendre visite à ma famille.|I want to visit my family.",
+        "Ana veut se reposer à la maison.|Ana wants to rest at home.",
+        "Nous voulons manger ensemble.|We want to eat together.",
+        "Luis veut acheter un livre.|Luis wants to buy a book.",
+        "Mes amis veulent aller au parc.|My friends want to go to the park.",
+        "Tu veux étudier avant de sortir ?|Do you want to study before going out?"
+      ],
+      "speaking": "Plan Saturday with a friend. Say you want to visit family, report Ana’s and Luis’s plans, propose eating together, and ask if the friend wants to study before going out. Repeat the agreed plan. Use veux, veut, voulons and veulent with infinitives.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "à / dans / sur",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "The English source gloss is broad; choose à, dans or sur by context."
+        },
+        {
+          "order": 4,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "mon / ma",
+          "en": "my (singular possession)",
+          "kind": "term",
+          "note": "Mon/ma agrees with the possessed noun, with mon also before some feminine vowel-initial nouns."
+        },
+        {
+          "order": 6,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term",
+          "note": "De can mean of/from, but vouloir + infinitive does not take de."
+        },
+        {
+          "order": 7,
+          "fr": "un livre",
+          "en": "a book",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "maison",
+          "en": "house",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Je veux rendre visite à ma famille.",
+          "en": "I want to visit my family.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana veut se reposer à la maison.",
+          "en": "Ana wants to rest at home.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous voulons manger ensemble.",
+          "en": "We want to eat together.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis veut acheter un livre.",
+          "en": "Luis wants to buy a book.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Mes amis veulent aller au parc.",
+          "en": "My friends want to go to the park.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu veux étudier avant de sortir ?",
+          "en": "Do you want to study before going out?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Des projets pour samedi",
+        "sourceTitleEnglish": "Planes para el sábado",
+        "target": [
+          "Je veux rendre visite à ma famille.",
+          "Ana veut se reposer à la maison.",
+          "Nous voulons manger ensemble.",
+          "Luis veut acheter un livre.",
+          "Mes amis veulent aller au parc.",
+          "Tu veux étudier avant de sortir ?"
+        ],
+        "native": [
+          "I want to visit my family.",
+          "Ana wants to rest at home.",
+          "We want to eat together.",
+          "Luis wants to buy a book.",
+          "My friends want to go to the park.",
+          "Do you want to study before going out?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ manger ensemble.",
+          "answer": "voulons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana wants to rest at home.",
+          "answer": "Ana veut se reposer à la maison."
+        },
+        {
+          "type": "listening",
+          "audioText": "Mes amis veulent aller au parc.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: where do the friends want to go?",
+          "answer": "To the park."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Des projets pour samedi, what does Luis want to buy?",
+          "answer": "A book."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: Mes amis ___ aller au parc.",
+          "answer": "veulent"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

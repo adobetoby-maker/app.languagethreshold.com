@@ -372,7 +372,7 @@ test("word definitions scroll within the card below the X", async ({ page }) => 
   await openReader(page);
   await page.getByRole("button", { name: "tren", exact: true }).first().click();
   const card = page.locator(".word-card-pop");
-  await expect(card.getByRole("region", { name: "Practice this word" })).toBeVisible();
+  await expect(card.getByRole("region", { name: "Practice it here" })).toBeVisible();
   const close = card.getByRole("button", { name: "Close", exact: true });
   const body = card.locator("[data-word-card-scroll-body]");
   // Force a long definition so this checks scrolling even on a tall desktop.

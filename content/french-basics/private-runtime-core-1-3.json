@@ -1,0 +1,1107 @@
+{
+  "privatePilot": true,
+  "registered": false,
+  "reviewed": false,
+  "audioStatus": "script-only; no recorded audio",
+  "target": "French",
+  "native": "English",
+  "source": {
+    "draftPath": "content/french-basics/core-1-3-draft.json",
+    "draftSha256": "59ab2196d68220e329b5572c0433aa51abe0842921215afef326b533a7fd0157",
+    "englishSourcePath": "content/french-basics/source-english-core-1-3.json",
+    "englishSourceSha256": "d635545c6ff0cf7be717f97a62d3f16023199645c72d7d1664c78ea0cceceddc",
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    }
+  },
+  "coreCurriculum": {
+    "moduleId": "french-basics",
+    "headline": "French 101 Core 30 private pilot",
+    "threshold": "Practice everyday French sentences and explain how regular and irregular verbs work.",
+    "lessons": [
+      {
+        "n": 1,
+        "title": "Regular -er verbs",
+        "objective": "Verbes réguliers en -er : retirer -er et ajouter -e, -es, -e, -ons, -ent : parle, parles, parle, parlons, parlent.",
+        "words": [
+          {
+            "es": "la",
+            "en": "the / it / her (feminine)",
+            "kind": "term"
+          },
+          {
+            "es": "en",
+            "en": "in / on / at",
+            "kind": "term"
+          },
+          {
+            "es": "les",
+            "en": "the / them (masculine plural)",
+            "kind": "term"
+          },
+          {
+            "es": "nous",
+            "en": "we",
+            "kind": "term"
+          },
+          {
+            "es": "étudiants",
+            "en": "students",
+            "kind": "term"
+          },
+          {
+            "es": "professeure",
+            "en": "female teacher",
+            "kind": "term"
+          },
+          {
+            "es": "bibliothèque",
+            "en": "library",
+            "kind": "term"
+          },
+          {
+            "es": "aujourd'hui",
+            "en": "today",
+            "kind": "term"
+          },
+          {
+            "es": "J'étudie l'espagnol le matin.",
+            "en": "I study Spanish in the morning.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Luis travaille l'après-midi.",
+            "en": "Luis works in the afternoon.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Nous parlons à la bibliothèque.",
+            "en": "We talk in the library.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ana écoute la professeure.",
+            "en": "Ana listens to the teacher.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Les étudiants pratiquent à la maison.",
+            "en": "The students practice at home.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Est-ce que tu étudies avec nous aujourd'hui ?",
+            "en": "Are you studying with us today?",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "Regular -er verbs (parler, étudier, travailler, écouter, pratiquer)",
+          "examples": [
+            {
+              "es": "J'étudie l'espagnol le matin.",
+              "en": "I study Spanish in the morning."
+            },
+            {
+              "es": "Luis travaille l'après-midi.",
+              "en": "Luis works in the afternoon."
+            }
+          ]
+        },
+        "steps": [
+          {
+            "tab": "reader",
+            "tabLabel": "Reader",
+            "instruction": "Read Regular -er verbs; explain the French grammar in your own words.",
+            "durationMin": 5
+          },
+          {
+            "tab": "wordMatch",
+            "tabLabel": "Word Match",
+            "instruction": "Recall the words and build the lesson sentences, then check and retry.",
+            "durationMin": 5
+          },
+          {
+            "tab": "speak",
+            "tabLabel": "Speak & Learn",
+            "instruction": "Role-play Étudier ensemble with a patient classmate. Use regular -er verbs: say J'étudie, tu étudies, nous étudions. Ask Tu étudies avec moi aujourd'hui ? Answer with J'étudie le matin or J'étudie l'après-midi, then ask the partner Tu comprends ? and confirm what they understood. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+            "durationMin": 6
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "title": "Regular -er verbs, with irregular exceptions",
+        "objective": "Verbes réguliers en -er : retirer -er et ajouter -e, -es, -e, -ons, -ent (manger : mange, manges, mange, mangeons, mangent). Boire, lire et comprendre sont irréguliers et se mémorisent à part.",
+        "words": [
+          {
+            "es": "le",
+            "en": "the (masculine singular)",
+            "kind": "term"
+          },
+          {
+            "es": "la",
+            "en": "the / it / her (feminine)",
+            "kind": "term"
+          },
+          {
+            "es": "en",
+            "en": "in / on / at",
+            "kind": "term"
+          },
+          {
+            "es": "et",
+            "en": "and",
+            "kind": "term"
+          },
+          {
+            "es": "les",
+            "en": "the / them (masculine plural)",
+            "kind": "term"
+          },
+          {
+            "es": "amis",
+            "en": "friends",
+            "kind": "term"
+          },
+          {
+            "es": "question",
+            "en": "question",
+            "kind": "term"
+          },
+          {
+            "es": "eau",
+            "en": "water",
+            "kind": "term"
+          },
+          {
+            "es": "Je mange du pain et je bois de l'eau.",
+            "en": "I eat bread and drink water.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ana mange des fruits.",
+            "en": "Ana eats fruit.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Nous lisons le menu ensemble.",
+            "en": "We read the menu together.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Luis comprend la question.",
+            "en": "Luis understands the question.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Les amis mangent à la cafétéria.",
+            "en": "The friends eat in the cafeteria.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Tu bois du café ou de l'eau ?",
+            "en": "Do you drink coffee or water?",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "Regular -er verbs (manger), plus irregular boire, lire and comprendre",
+          "examples": [
+            {
+              "es": "Je mange du pain et je bois de l'eau.",
+              "en": "I eat bread and drink water."
+            },
+            {
+              "es": "Ana mange des fruits.",
+              "en": "Ana eats fruit."
+            }
+          ]
+        },
+        "steps": [
+          {
+            "tab": "reader",
+            "tabLabel": "Reader",
+            "instruction": "Read Regular -er verbs, with irregular exceptions; explain the French grammar in your own words.",
+            "durationMin": 5
+          },
+          {
+            "tab": "wordMatch",
+            "tabLabel": "Word Match",
+            "instruction": "Recall the words and build the lesson sentences, then check and retry.",
+            "durationMin": 5
+          },
+          {
+            "tab": "speak",
+            "tabLabel": "Speak & Learn",
+            "instruction": "Role-play Le déjeuner with a patient classmate. Use manger and boire: say Je mange, tu manges, nous mangeons, and Je bois, tu bois. Ask Tu bois du café ou de l'eau ? and answer with Je bois de l'eau. Then ask Tu comprends la question ? and confirm the answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+            "durationMin": 6
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "title": "Regular -ir verbs, with irregular exceptions",
+        "objective": "Verbes réguliers en -ir : retirer -ir et ajouter -is, -is, -it, -issons, -issent (finir : finis, finis, finit, finissons, finissent). Vivre, écrire, ouvrir et recevoir sont irréguliers dans cette leçon.",
+        "words": [
+          {
+            "es": "la",
+            "en": "the / it / her (feminine)",
+            "kind": "term"
+          },
+          {
+            "es": "une",
+            "en": "a (feminine)",
+            "kind": "term"
+          },
+          {
+            "es": "dans",
+            "en": "in / on / at",
+            "kind": "term"
+          },
+          {
+            "es": "amis",
+            "en": "friends",
+            "kind": "term"
+          },
+          {
+            "es": "de",
+            "en": "of / from",
+            "kind": "term"
+          },
+          {
+            "es": "petite",
+            "en": "small (feminine)",
+            "kind": "term"
+          },
+          {
+            "es": "porte",
+            "en": "door",
+            "kind": "term"
+          },
+          {
+            "es": "près",
+            "en": "near / nearby",
+            "kind": "term"
+          },
+          {
+            "es": "Je vis dans une petite ville.",
+            "en": "I live in a small city.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ana vit près de l'école.",
+            "en": "Ana lives near the school.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Nous écrivons des messages en espagnol.",
+            "en": "We write messages in Spanish.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Luis ouvre la porte.",
+            "en": "Luis opens the door.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Mes amis reçoivent une lettre.",
+            "en": "My friends receive a letter.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Tu écris à ta famille aujourd'hui ?",
+            "en": "Are you writing to your family today?",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "Regular -ir verbs (finir), plus irregular vivre, écrire, ouvrir and recevoir",
+          "examples": [
+            {
+              "es": "Je vis dans une petite ville.",
+              "en": "I live in a small city."
+            },
+            {
+              "es": "Ana vit près de l'école.",
+              "en": "Ana lives near the school."
+            }
+          ]
+        },
+        "steps": [
+          {
+            "tab": "reader",
+            "tabLabel": "Reader",
+            "instruction": "Read Regular -ir verbs, with irregular exceptions; explain the French grammar in your own words.",
+            "durationMin": 5
+          },
+          {
+            "tab": "wordMatch",
+            "tabLabel": "Word Match",
+            "instruction": "Recall the words and build the lesson sentences, then check and retry.",
+            "durationMin": 5
+          },
+          {
+            "tab": "speak",
+            "tabLabel": "Speak & Learn",
+            "instruction": "Role-play Amis dans la ville with a patient classmate. Use regular -ir verbs: say Je finis, nous finissons. Use the irregular verbs from the grammar notes: Je vis dans une petite ville, Tu écris à ta famille ? Ask Tu reçois une lettre aujourd'hui ? and confirm the partner's answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+            "durationMin": 6
+          }
+        ]
+      }
+    ]
+  },
+  "support": [
+    {
+      "n": 1,
+      "stableLessonKey": "french-basics:1",
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "cards": [
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "target": "en",
+          "native": "in / on / at",
+          "kind": "term"
+        },
+        {
+          "target": "les",
+          "native": "the / them (masculine plural)",
+          "kind": "term"
+        },
+        {
+          "target": "nous",
+          "native": "we",
+          "kind": "term"
+        },
+        {
+          "target": "étudiants",
+          "native": "students",
+          "kind": "term"
+        },
+        {
+          "target": "professeure",
+          "native": "female teacher",
+          "kind": "term"
+        },
+        {
+          "target": "bibliothèque",
+          "native": "library",
+          "kind": "term"
+        },
+        {
+          "target": "aujourd'hui",
+          "native": "today",
+          "kind": "term"
+        },
+        {
+          "target": "J'étudie l'espagnol le matin.",
+          "native": "I study Spanish in the morning.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Luis travaille l'après-midi.",
+          "native": "Luis works in the afternoon.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Nous parlons à la bibliothèque.",
+          "native": "We talk in the library.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana écoute la professeure.",
+          "native": "Ana listens to the teacher.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Les étudiants pratiquent à la maison.",
+          "native": "The students practice at home.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Est-ce que tu étudies avec nous aujourd'hui ?",
+          "native": "Are you studying with us today?",
+          "kind": "phrase"
+        }
+      ],
+      "backlogCards": [],
+      "dictionaryEntries": [
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)"
+        },
+        {
+          "target": "en",
+          "native": "in / on / at"
+        },
+        {
+          "target": "les",
+          "native": "the / them (masculine plural)"
+        },
+        {
+          "target": "nous",
+          "native": "we"
+        },
+        {
+          "target": "étudiants",
+          "native": "students"
+        },
+        {
+          "target": "professeure",
+          "native": "female teacher"
+        },
+        {
+          "target": "bibliothèque",
+          "native": "library"
+        },
+        {
+          "target": "aujourd'hui",
+          "native": "today"
+        }
+      ],
+      "reader": {
+        "title": "Étudier ensemble",
+        "language": "French",
+        "nativeLanguage": "English",
+        "target": [
+          "J'étudie l'espagnol le matin.",
+          "Luis travaille l'après-midi.",
+          "Nous parlons à la bibliothèque.",
+          "Ana écoute la professeure.",
+          "Les étudiants pratiquent à la maison.",
+          "Est-ce que tu étudies avec nous aujourd'hui ?"
+        ],
+        "native": [
+          "I study Spanish in the morning.",
+          "Luis works in the afternoon.",
+          "We talk in the library.",
+          "Ana listens to the teacher.",
+          "The students practice at home.",
+          "Are you studying with us today?"
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Salut ! Tu étudies avec nous aujourd'hui ?",
+          "native": "Hi! Are you studying with us today?"
+        },
+        {
+          "target": "Oui, j'étudie à la bibliothèque le matin.",
+          "native": "Yes, I study at the library in the morning."
+        },
+        {
+          "target": "Parfait. Nous parlons français ici.",
+          "native": "Perfect. We speak French here."
+        },
+        {
+          "target": "Ana écoute la professeure dans la salle.",
+          "native": "Ana listens to the teacher in the room."
+        },
+        {
+          "target": "Les étudiants pratiquent à la maison.",
+          "native": "The students practice at home."
+        },
+        {
+          "target": "D'accord, nous travaillons ensemble.",
+          "native": "Okay, we work together."
+        },
+        {
+          "target": "Très bien, je pratique avec toi.",
+          "native": "Very good, I practice with you."
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "French -er verbs are regular in most forms. Remove -er to get the stem, then add: je -e, tu -es, il/elle -e, nous -ons, ils/elles -ent. The -ent ending is silent in speech, so ils parlent and il parle sound the same. Étudier follows the same pattern: j'étudie, tu étudies, nous étudions, ils étudient. Note the elision before a vowel: j'étudie, not je étudie.",
+        "model": {
+          "verb": "parler",
+          "je": "je parle",
+          "tu": "tu parles",
+          "il_elle": "il/elle parle",
+          "nous": "nous parlons",
+          "ils_elles": "ils/elles parlent"
+        },
+        "caution": "Not every -er verb is regular. Aller (je vais) is irregular, and manger changes spelling to mangeons. Lesson 1 uses only regular verbs."
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the French: Nous ___ (parler) à la bibliothèque.",
+          "answer": "parlons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana listens to the teacher.",
+          "answer": "Ana écoute la professeure."
+        },
+        {
+          "type": "listening",
+          "audioText": "Luis travaille l'après-midi.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: when does Luis work?",
+          "answer": "In the afternoon."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In the reading Étudier ensemble, where do the students practice?",
+          "answer": "At home (à la maison)."
+        },
+        {
+          "type": "recall",
+          "prompt": "What is the French word for 'library'?",
+          "answer": "bibliothèque"
+        }
+      ],
+      "speaking": {
+        "locale": "fr-FR",
+        "brief": "Role-play Étudier ensemble with a patient classmate. Use regular -er verbs: say J'étudie, tu étudies, nous étudions. Ask Tu étudies avec moi aujourd'hui ? Answer with J'étudie le matin or J'étudie l'après-midi, then ask the partner Tu comprends ? and confirm what they understood. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+        "recordedAudio": false
+      },
+      "modes": {
+        "see": {
+          "readerLineCount": 6
+        },
+        "recall": {
+          "cardCount": 14
+        },
+        "hear": {
+          "scriptCount": 6,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 14
+        },
+        "say": {
+          "speakingBrief": "Role-play Étudier ensemble with a patient classmate. Use regular -er verbs: say J'étudie, tu étudies, nous étudions. Ask Tu étudies avec moi aujourd'hui ? Answer with J'étudie le matin or J'étudie l'après-midi, then ask the partner Tu comprends ? and confirm what they understood. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 14
+        }
+      }
+    },
+    {
+      "n": 2,
+      "stableLessonKey": "french-basics:2",
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "cards": [
+        {
+          "target": "le",
+          "native": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "target": "en",
+          "native": "in / on / at",
+          "kind": "term"
+        },
+        {
+          "target": "et",
+          "native": "and",
+          "kind": "term"
+        },
+        {
+          "target": "les",
+          "native": "the / them (masculine plural)",
+          "kind": "term"
+        },
+        {
+          "target": "amis",
+          "native": "friends",
+          "kind": "term"
+        },
+        {
+          "target": "question",
+          "native": "question",
+          "kind": "term"
+        },
+        {
+          "target": "eau",
+          "native": "water",
+          "kind": "term"
+        },
+        {
+          "target": "Je mange du pain et je bois de l'eau.",
+          "native": "I eat bread and drink water.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana mange des fruits.",
+          "native": "Ana eats fruit.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Nous lisons le menu ensemble.",
+          "native": "We read the menu together.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Luis comprend la question.",
+          "native": "Luis understands the question.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Les amis mangent à la cafétéria.",
+          "native": "The friends eat in the cafeteria.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Tu bois du café ou de l'eau ?",
+          "native": "Do you drink coffee or water?",
+          "kind": "phrase"
+        }
+      ],
+      "backlogCards": [],
+      "dictionaryEntries": [
+        {
+          "target": "le",
+          "native": "the (masculine singular)"
+        },
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)"
+        },
+        {
+          "target": "en",
+          "native": "in / on / at"
+        },
+        {
+          "target": "et",
+          "native": "and"
+        },
+        {
+          "target": "les",
+          "native": "the / them (masculine plural)"
+        },
+        {
+          "target": "amis",
+          "native": "friends"
+        },
+        {
+          "target": "question",
+          "native": "question"
+        },
+        {
+          "target": "eau",
+          "native": "water"
+        }
+      ],
+      "reader": {
+        "title": "Le déjeuner",
+        "language": "French",
+        "nativeLanguage": "English",
+        "target": [
+          "Je mange du pain et je bois de l'eau.",
+          "Ana mange des fruits.",
+          "Nous lisons le menu ensemble.",
+          "Luis comprend la question.",
+          "Les amis mangent à la cafétéria.",
+          "Tu bois du café ou de l'eau ?"
+        ],
+        "native": [
+          "I eat bread and drink water.",
+          "Ana eats fruit.",
+          "We read the menu together.",
+          "Luis understands the question.",
+          "The friends eat in the cafeteria.",
+          "Do you drink coffee or water?"
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Tu manges quelque chose ?",
+          "native": "Are you eating something?"
+        },
+        {
+          "target": "Oui, je mange du pain et je bois de l'eau.",
+          "native": "Yes, I eat bread and drink water."
+        },
+        {
+          "target": "Moi, je bois du café.",
+          "native": "Me, I drink coffee."
+        },
+        {
+          "target": "Luis comprend la question ?",
+          "native": "Does Luis understand the question?"
+        },
+        {
+          "target": "Oui, nous lisons le menu ensemble.",
+          "native": "Yes, we read the menu together."
+        },
+        {
+          "target": "Les amis mangent à la cafétéria.",
+          "native": "The friends eat in the cafeteria."
+        },
+        {
+          "target": "Tu bois du café ou de l'eau ?",
+          "native": "Do you drink coffee or water?"
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "Manger is regular but needs an extra e before -ons to keep the soft g sound: nous mangeons. The other forms follow the -er pattern: je mange, tu manges, il mange, ils mangent. Boire, lire and comprendre are NOT regular: boire is je bois, nous buvons; lire is je lis, nous lisons; comprendre is je comprends, nous comprenons, ils comprennent. Learn these as separate patterns.",
+        "model": {
+          "verb": "manger",
+          "je": "je mange",
+          "tu": "tu manges",
+          "il_elle": "il/elle mange",
+          "nous": "nous mangeons",
+          "ils_elles": "ils/elles mangent"
+        },
+        "irregularNotes": [
+          "boire: je bois, tu bois, il boit, nous buvons, ils boivent",
+          "lire: je lis, tu lis, il lit, nous lisons, ils lisent",
+          "comprendre (like prendre): je comprends, tu comprends, il comprend, nous comprenons, ils comprennent"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the French: Tu ___ (manger) du pain.",
+          "answer": "manges"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Do you drink coffee or water?",
+          "answer": "Tu bois du café ou de l'eau ?"
+        },
+        {
+          "type": "listening",
+          "audioText": "Nous lisons le menu ensemble.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: what do we read together?",
+          "answer": "The menu."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In the reading Le déjeuner, who understands the question?",
+          "answer": "Luis"
+        },
+        {
+          "type": "recall",
+          "prompt": "What French word means 'friends' (masculine plural)?",
+          "answer": "amis"
+        }
+      ],
+      "speaking": {
+        "locale": "fr-FR",
+        "brief": "Role-play Le déjeuner with a patient classmate. Use manger and boire: say Je mange, tu manges, nous mangeons, and Je bois, tu bois. Ask Tu bois du café ou de l'eau ? and answer with Je bois de l'eau. Then ask Tu comprends la question ? and confirm the answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+        "recordedAudio": false
+      },
+      "modes": {
+        "see": {
+          "readerLineCount": 6
+        },
+        "recall": {
+          "cardCount": 14
+        },
+        "hear": {
+          "scriptCount": 6,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 14
+        },
+        "say": {
+          "speakingBrief": "Role-play Le déjeuner with a patient classmate. Use manger and boire: say Je mange, tu manges, nous mangeons, and Je bois, tu bois. Ask Tu bois du café ou de l'eau ? and answer with Je bois de l'eau. Then ask Tu comprends la question ? and confirm the answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 14
+        }
+      }
+    },
+    {
+      "n": 3,
+      "stableLessonKey": "french-basics:3",
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "cards": [
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "target": "une",
+          "native": "a (feminine)",
+          "kind": "term"
+        },
+        {
+          "target": "dans",
+          "native": "in / on / at",
+          "kind": "term"
+        },
+        {
+          "target": "amis",
+          "native": "friends",
+          "kind": "term"
+        },
+        {
+          "target": "de",
+          "native": "of / from",
+          "kind": "term"
+        },
+        {
+          "target": "petite",
+          "native": "small (feminine)",
+          "kind": "term"
+        },
+        {
+          "target": "porte",
+          "native": "door",
+          "kind": "term"
+        },
+        {
+          "target": "près",
+          "native": "near / nearby",
+          "kind": "term"
+        },
+        {
+          "target": "Je vis dans une petite ville.",
+          "native": "I live in a small city.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana vit près de l'école.",
+          "native": "Ana lives near the school.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Nous écrivons des messages en espagnol.",
+          "native": "We write messages in Spanish.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Luis ouvre la porte.",
+          "native": "Luis opens the door.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Mes amis reçoivent une lettre.",
+          "native": "My friends receive a letter.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Tu écris à ta famille aujourd'hui ?",
+          "native": "Are you writing to your family today?",
+          "kind": "phrase"
+        }
+      ],
+      "backlogCards": [],
+      "dictionaryEntries": [
+        {
+          "target": "la",
+          "native": "the / it / her (feminine)"
+        },
+        {
+          "target": "une",
+          "native": "a (feminine)"
+        },
+        {
+          "target": "dans",
+          "native": "in / on / at"
+        },
+        {
+          "target": "amis",
+          "native": "friends"
+        },
+        {
+          "target": "de",
+          "native": "of / from"
+        },
+        {
+          "target": "petite",
+          "native": "small (feminine)"
+        },
+        {
+          "target": "porte",
+          "native": "door"
+        },
+        {
+          "target": "près",
+          "native": "near / nearby"
+        }
+      ],
+      "reader": {
+        "title": "Amis dans la ville",
+        "language": "French",
+        "nativeLanguage": "English",
+        "target": [
+          "Je vis dans une petite ville.",
+          "Ana vit près de l'école.",
+          "Nous écrivons des messages en espagnol.",
+          "Luis ouvre la porte.",
+          "Mes amis reçoivent une lettre.",
+          "Tu écris à ta famille aujourd'hui ?"
+        ],
+        "native": [
+          "I live in a small city.",
+          "Ana lives near the school.",
+          "We write messages in Spanish.",
+          "Luis opens the door.",
+          "My friends receive a letter.",
+          "Are you writing to your family today?"
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Tu vis où ?",
+          "native": "Where do you live?"
+        },
+        {
+          "target": "Je vis dans une petite ville.",
+          "native": "I live in a small city."
+        },
+        {
+          "target": "Ana vit près de l'école.",
+          "native": "Ana lives near the school."
+        },
+        {
+          "target": "Nous écrivons des messages en français.",
+          "native": "We write messages in French."
+        },
+        {
+          "target": "Luis ouvre la porte.",
+          "native": "Luis opens the door."
+        },
+        {
+          "target": "Mes amis reçoivent une lettre.",
+          "native": "My friends receive a letter."
+        },
+        {
+          "target": "Tu écris à ta famille aujourd'hui ?",
+          "native": "Are you writing to your family today?"
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "Regular -ir verbs of the finir type insert -iss- in the plural: nous finissons, ils finissent. Singular forms are je finis, tu finis, il finit. Do NOT apply this pattern to the verbs in this lesson's sentences: vivre (je vis, nous vivons) and écrire (j'écris, nous écrivons) are -re verbs; ouvrir (j'ouvre, nous ouvrons) takes -er-type endings but is irregular; recevoir (je reçois, nous recevons) is irregular. Mark these as exceptions when you learn them.",
+        "model": {
+          "verb": "finir",
+          "je": "je finis",
+          "tu": "tu finis",
+          "il_elle": "il/elle finit",
+          "nous": "nous finissons",
+          "ils_elles": "ils/elles finissent"
+        },
+        "irregularNotes": [
+          "vivre: je vis, tu vis, il vit, nous vivons, ils vivent",
+          "écrire: j'écris, tu écris, il écrit, nous écrivons, ils écrivent",
+          "ouvrir: j'ouvre, tu ouvres, il ouvre, nous ouvrons, ils ouvrent",
+          "recevoir: je reçois, tu reçois, il reçoit, nous recevons, ils reçoivent"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the French: Je ___ (finir) mon travail.",
+          "answer": "finis"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Luis opens the door.",
+          "answer": "Luis ouvre la porte."
+        },
+        {
+          "type": "listening",
+          "audioText": "Mes amis reçoivent une lettre.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: what do my friends receive?",
+          "answer": "A letter."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In the reading Amis dans la ville, where does Ana live compared with the school?",
+          "answer": "Near the school (près de l'école)."
+        },
+        {
+          "type": "recall",
+          "prompt": "What is the French word for 'door'?",
+          "answer": "porte"
+        }
+      ],
+      "speaking": {
+        "locale": "fr-FR",
+        "brief": "Role-play Amis dans la ville with a patient classmate. Use regular -ir verbs: say Je finis, nous finissons. Use the irregular verbs from the grammar notes: Je vis dans une petite ville, Tu écris à ta famille ? Ask Tu reçois une lettre aujourd'hui ? and confirm the partner's answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+        "recordedAudio": false
+      },
+      "modes": {
+        "see": {
+          "readerLineCount": 6
+        },
+        "recall": {
+          "cardCount": 14
+        },
+        "hear": {
+          "scriptCount": 6,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 14
+        },
+        "say": {
+          "speakingBrief": "Role-play Amis dans la ville with a patient classmate. Use regular -ir verbs: say Je finis, nous finissons. Use the irregular verbs from the grammar notes: Je vis dans une petite ville, Tu écris à ta famille ? Ask Tu reçois une lettre aujourd'hui ? and confirm the partner's answer. Keep language at beginner level. If the partner asks what a word means, explain it in English.",
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 14
+        }
+      }
+    }
+  ]
+}

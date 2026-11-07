@@ -23,6 +23,11 @@ SOURCE_ALIGNED = {
     "s’il vous plaît": "Both authored rows say please; one adds the politeness annotation.",
     "sur": "Both authored rows say on; one adds a location annotation.",
     "trois": "The authored rows use the English numeral 3 and its written form three.",
+    "le": "All three authored rows say the and identify the masculine article; two explicitly add singular.",
+    "un cahier": "Both authored rows identify a notebook; the later row annotates masculine singular while the earlier gloss includes a.",
+    "un livre": "All three authored rows identify a book; two annotate masculine singular and one includes a.",
+    "un étudiant": "Both authored rows identify a student in the masculine form; one says man and the other annotates masculine singular.",
+    "une étudiante": "Both authored rows identify a student in the feminine form; one says woman and the other annotates feminine singular.",
 }
 
 
@@ -96,7 +101,7 @@ def build(inventory=None):
         "senseIdsMerged": False,
         "sourceInventorySha256": inventory_module.sha(
             (json.dumps(inventory, ensure_ascii=False, indent=2) + "\n").encode("utf-8")),
-        "counts": {"ambiguousHeadwords": 25, "sourceAlignedAnnotations": 8, "unresolved": 17},
+        "counts": {"ambiguousHeadwords": 25, "sourceAlignedAnnotations": 13, "unresolved": 12},
         "cases": cases,
     }
 
@@ -118,7 +123,7 @@ def main():
         validate(json.loads(OUTPUT.read_bytes()))
     else:
         OUTPUT.write_bytes(encoded)
-    print("French 101: 8 source-aligned annotation overlaps, 17 unresolved; all 25 require qualified review")
+    print("French 101: 13 source-aligned annotation overlaps, 12 unresolved; all 25 require qualified review")
 
 
 if __name__ == "__main__":

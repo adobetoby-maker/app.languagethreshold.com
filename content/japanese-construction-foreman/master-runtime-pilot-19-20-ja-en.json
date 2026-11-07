@@ -1,0 +1,1260 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "master-construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "f39e304d88c0995a287afc4fec47d238d9804c4ecdda7459a633881866692cb3",
+  "lessons": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19",
+      "n": 19,
+      "title": "Review turnover documents carefully",
+      "objective": "施設の施主に引き渡しの立会いで説明を行い、契約上の保証の対象と適用条件を伝え、依頼に対応する。",
+      "sourceObjective": "Walk an owner through turnover, explain what the warranty covers and under which conditions, and handle requests.",
+      "sourceTitle": "Turnover Walk: Warranty Limits at the Daycare",
+      "sourceTitleJapanese": "保育施設の引き渡し立会い：保証の範囲と条件",
+      "words": [
+        {
+          "es": "建物の引き渡し",
+          "en": "the building turnover",
+          "kind": "term",
+          "cardId": "card-ja-en-2c028e9840858b3c"
+        },
+        {
+          "es": "保証の対象範囲",
+          "en": "the warranty coverage",
+          "kind": "term",
+          "cardId": "card-ja-en-67c0ec4f20cee53f"
+        },
+        {
+          "es": "保証期間",
+          "en": "the warranty period",
+          "kind": "term",
+          "cardId": "card-ja-en-6b4a53ba80696caf"
+        },
+        {
+          "es": "保証の適用除外事項",
+          "en": "the exclusions",
+          "kind": "term",
+          "cardId": "card-ja-en-0416427cd7723608"
+        },
+        {
+          "es": "通常の使用",
+          "en": "normal use",
+          "kind": "term",
+          "cardId": "card-ja-en-3c8026b0b6e2592c"
+        },
+        {
+          "es": "不適切な使用",
+          "en": "misuse",
+          "kind": "term",
+          "cardId": "card-ja-en-032cc681d5b3eb48"
+        },
+        {
+          "es": "改造・変更",
+          "en": "the alteration",
+          "kind": "term",
+          "cardId": "card-ja-en-e456694ecd08cb9a"
+        },
+        {
+          "es": "細いひび割れ（ヘアクラック）",
+          "en": "the hairline cracks",
+          "kind": "term",
+          "cardId": "card-ja-en-c43248f7449cee60"
+        },
+        {
+          "es": "コンクリートの収縮",
+          "en": "the concrete shrinkage",
+          "kind": "term",
+          "cardId": "card-ja-en-c955a9e21aa669bb"
+        },
+        {
+          "es": "間仕切り壁",
+          "en": "the partition wall",
+          "kind": "term",
+          "cardId": "card-ja-en-e7cedf9c4cd5fb5d"
+        },
+        {
+          "es": "耐荷重",
+          "en": "the load capacity",
+          "kind": "term",
+          "cardId": "card-ja-en-a52736fdce86e79f"
+        },
+        {
+          "es": "壁内の補強下地材",
+          "en": "the in-wall blocking",
+          "kind": "term",
+          "cardId": "card-ja-en-f6ca015a1da416d6"
+        },
+        {
+          "es": "壁用アンカー",
+          "en": "the wall anchors",
+          "kind": "term",
+          "cardId": "card-ja-en-0216c30f3c873b4e"
+        },
+        {
+          "es": "棚ユニット",
+          "en": "the shelving units",
+          "kind": "term",
+          "cardId": "card-ja-en-1d300ceee76af68f"
+        },
+        {
+          "es": "担当技術者（プロジェクトエンジニア）",
+          "en": "the project engineer",
+          "kind": "term",
+          "cardId": "card-ja-en-3b5ce987e946ce14"
+        },
+        {
+          "es": "維持管理マニュアル",
+          "en": "the maintenance manual",
+          "kind": "term",
+          "cardId": "card-ja-en-a8cbdf85e579397d"
+        },
+        {
+          "es": "コンクリートが収縮するときに細いひび割れが生じるのは、通常のことです。",
+          "en": "Hairline cracks are normal when the concrete shrinks.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-bcff5c51960b17a0"
+        },
+        {
+          "es": "契約書によると、施工の保証期間は1年です。",
+          "en": "According to the contract, the workmanship warranty is 1 year.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-da6190d810b72164"
+        },
+        {
+          "es": "そのひび割れが施工不良によるものであれば、補修いたします。",
+          "en": "We'll repair it as long as the crack comes from a workmanship defect.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-11ab57b3d4609d49"
+        },
+        {
+          "es": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+          "en": "If the crack gets wider, let me know and we'll measure it.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c9d9b4ee814c3720"
+        },
+        {
+          "es": "担当技術者が耐荷重を確認するまで、棚を取り付けないでください。",
+          "en": "Don't hang the shelving until the engineer confirms the load.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-406843e148f4e073"
+        },
+        {
+          "es": "担当技術者に書面で確認するよう依頼したいと思います。",
+          "en": "I would ask the project engineer to confirm it in writing.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f5550c7337738f50"
+        },
+        {
+          "es": "承認を得ずに壁に穴を開けた場合、保証の対象外となる可能性があります。",
+          "en": "If the wall is drilled without approval, the warranty might not cover it.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-1f382dfc269110db"
+        },
+        {
+          "es": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
+          "en": "Here is the manual with the warranty exclusions.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8f9ed363f029e4df"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:19",
+        "title": "Review turnover documents carefully",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+            "native": "If the crack gets wider, let me know and we'll measure it."
+          },
+          {
+            "target": "担当技術者に書面で確認するよう依頼したいと思います。",
+            "native": "I would ask the project engineer to confirm it in writing."
+          },
+          {
+            "target": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
+            "native": "Here is the manual with the warranty exclusions."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use conditional language for contract-dependent claims; do not promise coverage, repair or no-cost service without the actual agreement.",
+        "teachingJapanese": "この課では、条件と控えめな提案を表す言い方を学びます。「〜であれば」は、その条件が成り立つ場合を示します。「〜ない限り」は「〜という場合を除いて」という意味で、例外を示します。契約上の保証範囲を説明するときは、条件を明示し、契約で確認できない約束を加えないようにします。「〜することになると思います」や「〜お願いしたいと思います」で、英語の would に近い控えめな提案を伝えます。",
+        "teachingNotesEnglish": [
+          "Status: AI draft only. Native Japanese, US construction, warranty/legal, and specialist review are all still open. Not for learner release until reviewed.",
+          "Hairline cracks: source distinguishes fisura (fine crack) from grieta (wider crack). Japanese uses 細いひび割れ with ヘアクラック as a trade term. A Japanese-speaking reviewer with US field experience should confirm which term crews actually use.",
+          "In-wall blocking: 壁内の補強下地材 is a descriptive rendering. Source note says crews often just say blocking. Confirm the Japanese term used on US job sites.",
+          "Wall anchors: 壁用アンカー is a generic rendering that covers plastic and metal anchors. Reviewer should confirm against the specific anchor products used.",
+          "Project engineer: the source role is ambiguous (contractor-side engineer vs. design or structural engineer). 担当技術者（プロジェクトエンジニア） was chosen without assuming authority. Source does not say who confirms loads in contract terms; confirm the intended role with the source author before release.",
+          "Warranty scope: 契約書によると in the 1-year sentence attributes the period to the contract, as the source note requires. The draft adds no statutory warranty, legal rights, or extra coverage. 施工の保証 is not expanded into any legal term. Warranty/legal reviewer must confirm no legal rights or coverage are implied.",
+          "Repair promise: 補修いたします follows the source 'we'll repair it' and is limited to the stated condition (workmanship defect). Reviewer should confirm that 'repair' is the correct commitment level for the contract.",
+          "Exclusion sentences keep the source's hedge (might not cover). Do not strengthen to 対象外です.",
+          "Terms normal use, misuse, and the alteration: 通常の使用, 不適切な使用, 改造・変更 are general equivalents. Confirm against the contract's exact exclusion wording.",
+          "Speaking prompt: AI role 'daycare director' rendered 保育施設の責任者; the name is rendered in katakana. Learner text uses 〜であれば and 〜ない限り for the source's conditional phrases and does not refer to any other language's grammar.",
+          "Grammar examples correspond in order: example 1 (warranty covers cracks as long as the floor is not altered) and example 2 (check at no cost unless the contract says otherwise). 無償 is used for 'at no cost'; confirm with the reviewer whether 無償 or 費用負担なし is preferred on the contract.",
+          "The no-cost inspection example is tentative (〜ことになると思います), preserving would and avoiding a firm free-service promise. Qualified warranty/legal review must verify the contract scope before release.",
+          "The English objective says owner while the roleplay uses daycare director Claudia. The Japanese objective says 施主 and the speaking prompt says facility director; confirm their relationship with the source owner before runtime."
+        ],
+        "examples": [
+          {
+            "es": "床に手を加えていない限り、そのひび割れは保証の対象となります。",
+            "en": "The warranty covers those cracks as long as the floor isn't altered."
+          },
+          {
+            "es": "契約書に別段の定めがない限り、無償で点検することになると思います。",
+            "en": "We would check it at no cost, unless the contract says otherwise."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:19",
+        "summary": "Walk through the available manual and route warranty and load questions to the authorized contract and engineering contacts.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIは保育施設の責任者、クラウディア・ベニテスさんです。建物の引き渡しを順番に案内してください。保証の対象範囲と条件は、「〜であれば」と「〜ない限り」を使って説明してください。壁の耐荷重は誰が確認すべきかも説明してください。壁の荷重確認を誰にお願いするかを述べるときも、依頼に対応するときも、「〜することになると思います」「〜お願いしたいと思います」など控えめな表現を使ってください。",
+        "openingLine": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+        "partnerRole": "A daycare owner or director asking what the turnover documents say.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "ひび割れの幅が広がった場合は、____ください。幅を測定いたします。",
+          "hint": "If the crack gets wider, let me know and we'll measure it.",
+          "answer": "ご連絡",
+          "explanation": "ご連絡 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "担当技術者に____で確認するよう依頼したいと思います。",
+          "hint": "I would ask the project engineer to confirm it in writing.",
+          "answer": "書面",
+          "explanation": "書面 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "こちらが、保証の適用除外事項を記載した____です。",
+          "hint": "Here is the manual with the warranty exclusions.",
+          "answer": "維持管理マニュアル",
+          "explanation": "維持管理マニュアル appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Qualified warranty/contract and construction specialists must verify actual coverage, one-year term, exclusions, repair/no-cost commitments, engineering authority and owner/director roles. Source grammar examples contain unapproved warranty assertions."
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20",
+      "n": 20,
+      "title": "Report a difficult site day",
+      "objective": "現場の一日を指揮し、新人を指導し、資材不足を解決し、墜落防止設備を外す近道を断り、ヒヤリハットに対応し、建築検査官に対応して報告する。",
+      "sourceObjective": "Lead a full day: train, solve a shortage, refuse a shortcut, handle a near miss, meet the inspector and report.",
+      "sourceTitle": "Capstone: A Hard Day on the Community Gym Job",
+      "sourceTitleJapanese": "総復習：地域体育館の現場での大変な一日",
+      "words": [
+        {
+          "es": "地域体育館",
+          "en": "the community gym",
+          "kind": "term",
+          "cardId": "card-ja-en-b6a1647ab6e1371a"
+        },
+        {
+          "es": "工程の遅れ",
+          "en": "the schedule slip",
+          "kind": "term",
+          "cardId": "card-ja-en-a29d1aeb7b79eed6"
+        },
+        {
+          "es": "新人作業員",
+          "en": "the new hire",
+          "kind": "term",
+          "cardId": "card-ja-en-4c5e2ad2ad6d3785"
+        },
+        {
+          "es": "鉄骨ジョイスト",
+          "en": "the steel joists",
+          "kind": "term",
+          "cardId": "card-ja-en-f95e1d7bce0384ef"
+        },
+        {
+          "es": "納品数量の不足",
+          "en": "the short delivery",
+          "kind": "term",
+          "cardId": "card-ja-en-afbdfe99a2dc9354"
+        },
+        {
+          "es": "納品書",
+          "en": "the delivery ticket",
+          "kind": "term",
+          "cardId": "card-ja-en-384d808122febacc"
+        },
+        {
+          "es": "発注書",
+          "en": "the purchase order",
+          "kind": "term",
+          "cardId": "card-ja-en-7bf9c275ad1a3272"
+        },
+        {
+          "es": "至急の出荷",
+          "en": "the rush shipment",
+          "kind": "term",
+          "cardId": "card-ja-en-1429cb28f4f89d1f"
+        },
+        {
+          "es": "外周の墜落防止設備",
+          "en": "the perimeter fall protection",
+          "kind": "term",
+          "cardId": "card-ja-en-8f60ade63ca9cf59"
+        },
+        {
+          "es": "落下物",
+          "en": "falling objects",
+          "kind": "term",
+          "cardId": "card-ja-en-ad56e5bedb5ec15e"
+        },
+        {
+          "es": "ヒヤリハット（負傷者なし）",
+          "en": "the no-injury incident",
+          "kind": "term",
+          "cardId": "card-ja-en-e251416c440928b8"
+        },
+        {
+          "es": "建築検査官",
+          "en": "the building inspector",
+          "kind": "term",
+          "cardId": "card-ja-en-a7b1a8d447dec895"
+        },
+        {
+          "es": "溶接部",
+          "en": "the weld",
+          "kind": "term",
+          "cardId": "card-ja-en-17d75263a24e2310"
+        },
+        {
+          "es": "是正事項リスト",
+          "en": "the correction list",
+          "kind": "term",
+          "cardId": "card-ja-en-b470ed4840c15453"
+        },
+        {
+          "es": "日報",
+          "en": "the daily report",
+          "kind": "term",
+          "cardId": "card-ja-en-ea0e95e1eed88405"
+        },
+        {
+          "es": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+          "en": "Lupita, watch how I do it and then you do it.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-d2b7e82b0340f2e7"
+        },
+        {
+          "es": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
+          "en": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e6e18d907df3e6b1"
+        },
+        {
+          "es": "不足分を本日中にお送りいただけますか。",
+          "en": "Could you send me the missing ones today?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e53b1fa0fd32a88b"
+        },
+        {
+          "es": "フェリペ、外周の墜落防止設備を取り外すことは認めません。",
+          "en": "Felipe, I'm not going to allow the perimeter protection to be removed.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-69176473be3d2852"
+        },
+        {
+          "es": "レンチが2階から落下しましたが、誰にも当たりませんでした。",
+          "en": "The wrench fell from the second level, but it didn't hit anyone.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-d6d878c1280210e1"
+        },
+        {
+          "es": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
+          "en": "Inspector Arce, would you like to start with the joist connections?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3aa0bf398d942e98"
+        },
+        {
+          "es": "納品数量の不足のため、屋根工事は金曜日に完了する予定です。",
+          "en": "Due to the short delivery, the roof will be finished on Friday.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f41ba1415e6f2547"
+        },
+        {
+          "es": "なお、外周の墜落防止設備は終日設置されたままでした。",
+          "en": "It should be noted that the perimeter protection stayed in place all day.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-4a0f642b30b09f6b"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:20",
+        "title": "Report a difficult site day",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+            "native": "Lupita, watch how I do it and then you do it."
+          },
+          {
+            "target": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
+            "native": "Gerardo, according to the delivery ticket, we're missing 12 joists."
+          },
+          {
+            "target": "不足分を本日中にお送りいただけますか。",
+            "native": "Could you send me the missing ones today?"
+          },
+          {
+            "target": "レンチが2階から落下しましたが、誰にも当たりませんでした。",
+            "native": "The wrench fell from the second level, but it didn't hit anyone."
+          },
+          {
+            "target": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
+            "native": "Inspector Arce, would you like to start with the joist connections?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Separate observed shortages, requests and near-miss facts from unapproved safety procedures or schedule promises.",
+        "teachingJapanese": "この課では、これまでの文法をまとめて使います。「〜ため」「しかしながら」「なお」などのつなぎ言葉で、理由と結果や前後の関係を結びます。部下への指示は「〜して」「〜ておいて」、禁止は「〜ないで」、許可しないことは「〜ことは認めません」の形で言います。過去の出来事は「〜ました」「〜ていました」で話します。報告書では、「〜のため」や「なお」などの書き言葉を使います。検査官や納品元には「お送りいただけますか」「ご確認になりますか」などの敬語を使います。",
+        "teachingNotesEnglish": [
+          "Status: AI draft only. Native Japanese, US construction, safety, inspection, and procurement review are all still open. Not for learner release until reviewed.",
+          "Gendered source terms: la trabajadora nueva and la inspectora are rendered as 新人作業員 and 建築検査官, which are gender-neutral in Japanese. Names Lupita and Arce are kept. Confirm whether the reviewer wants honorific forms for the inspector.",
+          "Perimeter fall protection (protección perimetral) is the term used in the phrases. The speaking prompt says guardrail (barandal). Both map to 外周の墜落防止設備 with 手すり as the everyday word. Reviewer should confirm which system the job actually uses.",
+          "Clip in (enganches) is rendered as 安全帯のフックを掛ける. Reviewer with Japanese safety background should confirm the current harness terminology. No code, standard, or approval number was added.",
+          "Steel joists: 鉄骨ジョイスト is a US-style term. Japanese speech may use a validated trade-specific rendering instead; 梁 is too broad. Specialist to confirm. No structural claim was added.",
+          "Delivery ticket (remisión) is rendered as 納品書. Purchase order is 発注書. Short delivery is 納品数量の不足. Confirm that the packing-slip and receiving-signature practice matches the US job description.",
+          "Roles not defined in the source: Gerardo is labeled 納品元の担当者 (supplier contact) because the phrase asks for formal delivery follow-up. Felipe is labeled 作業員 because he asks to remove the guardrail. These labels are inferred. Confirm with the source author before release.",
+          "Near miss: the source objective says 'handle a near miss'. The term used is the no-injury incident, rendered as ヒヤリハット（負傷者なし）. No separate near-miss term is in the source list.",
+          "Building inspector (inspectora de construcción) is rendered as 建築検査官. The inspection process is not described in the source, and no approval step is invented. Confirm jurisdictional role wording with a construction reviewer.",
+          "Written-register phrases: 'Due to the short delivery' is rendered as 納品数量の不足のため. 'It should be noted' is rendered as なお. Native reviewer should confirm that this register matches a daily report.",
+          "Grammar example 1 links the schedule slip, Felipe's request, and the foreman's refusal in the same order as the source. Grammar example 2 keeps the informal command. The clip-in step must stay in the learner text as a safety instruction, so safety specialist review is required.",
+          "Speaking prompt uses 親しい話し方 for the tú commands. This keeps the source instruction to coach Lupita informally without mentioning any other language.",
+          "The English grammar example says guardrail; the Japanese example uses 手すり, while the full fall-protection system in the phrases remains 外周の墜落防止設備. The exact system must be checked by a qualified safety specialist.",
+          "L19 uses 職長 and L20 source role is foreman, rendered 現場監督（フォアマン） in the speaking prompt. Confirm consistent US foreman title with native/trade reviewer before runtime."
+        ],
+        "examples": [
+          {
+            "es": "工程の遅れのため、フェリペは手すりを外すよう求めました。しかしながら、私は認めませんでした。",
+            "en": "Because of the schedule slip, Felipe asked to remove the guardrail; however, I didn't allow it."
+          },
+          {
+            "es": "ルピタ、安全帯のフックを掛けるまで、端に近づかないで。",
+            "en": "Lupita, don't go near the edge until you clip in."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:20",
+        "summary": "Coach a worker, document a short delivery, report a near miss and ask the inspector for the next confirmed step.",
+        "sourceSpeakingJapanese": "あなたは現場監督（フォアマン）です。AIは、新人作業員のルピタ（Lupita）、ゲラルド（Gerardo、納品元の担当者）、作業員のフェリペ（Felipe）、アルセ検査官（Inspector Arce）です。ルピタには親しい話し方で指示し、まず見本を見せてから本人にやってもらってください。ゲラルドには、納品書によると鉄骨ジョイストが足りていないことを伝え、不足分の本日中の発送を丁寧に依頼してください。フェリペが外周の墜落防止設備（手すり）を外したいと言ったら、安全手順を省く近道は認めないと「〜ことは認めません」を使って伝えてください。ヒヤリハット（負傷者なし）を振り返り、「〜のため」と「しかしながら」を使って、アルセ検査官に丁寧に現場を案内した後、出来事を報告してください。",
+        "openingLine": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+        "partnerRole": "A crew member, supplier contact or inspector asking for factual status.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "ルピタ、私の____を見てて。そのあと、自分でやってみて。",
+          "hint": "Lupita, watch how I do it and then you do it.",
+          "answer": "やり方",
+          "explanation": "やり方 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "ゲラルドさん、納品書によると、鉄骨ジョイストが____不足しています。",
+          "hint": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
+          "answer": "12本",
+          "explanation": "12本 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "____を本日中にお送りいただけますか。",
+          "hint": "Could you send me the missing ones today?",
+          "answer": "不足分",
+          "explanation": "不足分 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Qualified fall-protection, harness, joist/connection, procurement and inspector review required. Supplier/worker roles are inferred; Friday completion is not an approved schedule. Source grammar contains safety instruction."
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-2c028e9840858b3c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建物の引き渡し",
+      "native": "the building turnover",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-67c0ec4f20cee53f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証の対象範囲",
+      "native": "the warranty coverage",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-6b4a53ba80696caf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証期間",
+      "native": "the warranty period",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-0416427cd7723608",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証の適用除外事項",
+      "native": "the exclusions",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-3c8026b0b6e2592c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "通常の使用",
+      "native": "normal use",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-032cc681d5b3eb48",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "不適切な使用",
+      "native": "misuse",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-e456694ecd08cb9a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "改造・変更",
+      "native": "the alteration",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-c43248f7449cee60",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "細いひび割れ（ヘアクラック）",
+      "native": "the hairline cracks",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-c955a9e21aa669bb",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "コンクリートの収縮",
+      "native": "the concrete shrinkage",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-e7cedf9c4cd5fb5d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "間仕切り壁",
+      "native": "the partition wall",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-a52736fdce86e79f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "耐荷重",
+      "native": "the load capacity",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-f6ca015a1da416d6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "壁内の補強下地材",
+      "native": "the in-wall blocking",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-0216c30f3c873b4e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "壁用アンカー",
+      "native": "the wall anchors",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-1d300ceee76af68f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "棚ユニット",
+      "native": "the shelving units",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-3b5ce987e946ce14",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者（プロジェクトエンジニア）",
+      "native": "the project engineer",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-a8cbdf85e579397d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "維持管理マニュアル",
+      "native": "the maintenance manual",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-bcff5c51960b17a0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "コンクリートが収縮するときに細いひび割れが生じるのは、通常のことです。",
+      "native": "Hairline cracks are normal when the concrete shrinks.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-da6190d810b72164",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "契約書によると、施工の保証期間は1年です。",
+      "native": "According to the contract, the workmanship warranty is 1 year.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-11ab57b3d4609d49",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "そのひび割れが施工不良によるものであれば、補修いたします。",
+      "native": "We'll repair it as long as the crack comes from a workmanship defect.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-c9d9b4ee814c3720",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+      "native": "If the crack gets wider, let me know and we'll measure it.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-406843e148f4e073",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者が耐荷重を確認するまで、棚を取り付けないでください。",
+      "native": "Don't hang the shelving until the engineer confirms the load.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-f5550c7337738f50",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者に書面で確認するよう依頼したいと思います。",
+      "native": "I would ask the project engineer to confirm it in writing.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-1f382dfc269110db",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "承認を得ずに壁に穴を開けた場合、保証の対象外となる可能性があります。",
+      "native": "If the wall is drilled without approval, the warranty might not cover it.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-8f9ed363f029e4df",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
+      "native": "Here is the manual with the warranty exclusions.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "card-ja-en-b6a1647ab6e1371a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "地域体育館",
+      "native": "the community gym",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-a29d1aeb7b79eed6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "工程の遅れ",
+      "native": "the schedule slip",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-4c5e2ad2ad6d3785",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "新人作業員",
+      "native": "the new hire",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-f95e1d7bce0384ef",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "鉄骨ジョイスト",
+      "native": "the steel joists",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-afbdfe99a2dc9354",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品数量の不足",
+      "native": "the short delivery",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-384d808122febacc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品書",
+      "native": "the delivery ticket",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-7bf9c275ad1a3272",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "発注書",
+      "native": "the purchase order",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-1429cb28f4f89d1f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "至急の出荷",
+      "native": "the rush shipment",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-8f60ade63ca9cf59",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "外周の墜落防止設備",
+      "native": "the perimeter fall protection",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-ad56e5bedb5ec15e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "落下物",
+      "native": "falling objects",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-e251416c440928b8",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ヒヤリハット（負傷者なし）",
+      "native": "the no-injury incident",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-a7b1a8d447dec895",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建築検査官",
+      "native": "the building inspector",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-17d75263a24e2310",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "溶接部",
+      "native": "the weld",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-b470ed4840c15453",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "是正事項リスト",
+      "native": "the correction list",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-ea0e95e1eed88405",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "日報",
+      "native": "the daily report",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-d2b7e82b0340f2e7",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+      "native": "Lupita, watch how I do it and then you do it.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-e6e18d907df3e6b1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
+      "native": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-e53b1fa0fd32a88b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "不足分を本日中にお送りいただけますか。",
+      "native": "Could you send me the missing ones today?",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-69176473be3d2852",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フェリペ、外周の墜落防止設備を取り外すことは認めません。",
+      "native": "Felipe, I'm not going to allow the perimeter protection to be removed.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-d6d878c1280210e1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "レンチが2階から落下しましたが、誰にも当たりませんでした。",
+      "native": "The wrench fell from the second level, but it didn't hit anyone.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-3aa0bf398d942e98",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
+      "native": "Inspector Arce, would you like to start with the joist connections?",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-f41ba1415e6f2547",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品数量の不足のため、屋根工事は金曜日に完了する予定です。",
+      "native": "Due to the short delivery, the roof will be finished on Friday.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "card-ja-en-4a0f642b30b09f6b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "なお、外周の墜落防止設備は終日設置されたままでした。",
+      "native": "It should be noted that the perimeter protection stayed in place all day.",
+      "kind": "phrase",
+      "firstLesson": 20
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-2c028e9840858b3c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建物の引き渡し",
+      "native": "the building turnover",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-67c0ec4f20cee53f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証の対象範囲",
+      "native": "the warranty coverage",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-6b4a53ba80696caf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証期間",
+      "native": "the warranty period",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-0416427cd7723608",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保証の適用除外事項",
+      "native": "the exclusions",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-3c8026b0b6e2592c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "通常の使用",
+      "native": "normal use",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-032cc681d5b3eb48",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "不適切な使用",
+      "native": "misuse",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-e456694ecd08cb9a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "改造・変更",
+      "native": "the alteration",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-c43248f7449cee60",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "細いひび割れ（ヘアクラック）",
+      "native": "the hairline cracks",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-c955a9e21aa669bb",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "コンクリートの収縮",
+      "native": "the concrete shrinkage",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-e7cedf9c4cd5fb5d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "間仕切り壁",
+      "native": "the partition wall",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-a52736fdce86e79f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "耐荷重",
+      "native": "the load capacity",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-f6ca015a1da416d6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "壁内の補強下地材",
+      "native": "the in-wall blocking",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-0216c30f3c873b4e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "壁用アンカー",
+      "native": "the wall anchors",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-1d300ceee76af68f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "棚ユニット",
+      "native": "the shelving units",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-3b5ce987e946ce14",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者（プロジェクトエンジニア）",
+      "native": "the project engineer",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-a8cbdf85e579397d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "維持管理マニュアル",
+      "native": "the maintenance manual",
+      "kind": "term",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-bcff5c51960b17a0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "コンクリートが収縮するときに細いひび割れが生じるのは、通常のことです。",
+      "native": "Hairline cracks are normal when the concrete shrinks.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-da6190d810b72164",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "契約書によると、施工の保証期間は1年です。",
+      "native": "According to the contract, the workmanship warranty is 1 year.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-11ab57b3d4609d49",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "そのひび割れが施工不良によるものであれば、補修いたします。",
+      "native": "We'll repair it as long as the crack comes from a workmanship defect.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-c9d9b4ee814c3720",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+      "native": "If the crack gets wider, let me know and we'll measure it.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-406843e148f4e073",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者が耐荷重を確認するまで、棚を取り付けないでください。",
+      "native": "Don't hang the shelving until the engineer confirms the load.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-f5550c7337738f50",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "担当技術者に書面で確認するよう依頼したいと思います。",
+      "native": "I would ask the project engineer to confirm it in writing.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-1f382dfc269110db",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "承認を得ずに壁に穴を開けた場合、保証の対象外となる可能性があります。",
+      "native": "If the wall is drilled without approval, the warranty might not cover it.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-8f9ed363f029e4df",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
+      "native": "Here is the manual with the warranty exclusions.",
+      "kind": "phrase",
+      "firstLesson": 19
+    },
+    {
+      "id": "dict-ja-en-b6a1647ab6e1371a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "地域体育館",
+      "native": "the community gym",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-a29d1aeb7b79eed6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "工程の遅れ",
+      "native": "the schedule slip",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-4c5e2ad2ad6d3785",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "新人作業員",
+      "native": "the new hire",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-f95e1d7bce0384ef",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "鉄骨ジョイスト",
+      "native": "the steel joists",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-afbdfe99a2dc9354",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品数量の不足",
+      "native": "the short delivery",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-384d808122febacc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品書",
+      "native": "the delivery ticket",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-7bf9c275ad1a3272",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "発注書",
+      "native": "the purchase order",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-1429cb28f4f89d1f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "至急の出荷",
+      "native": "the rush shipment",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-8f60ade63ca9cf59",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "外周の墜落防止設備",
+      "native": "the perimeter fall protection",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-ad56e5bedb5ec15e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "落下物",
+      "native": "falling objects",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-e251416c440928b8",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ヒヤリハット（負傷者なし）",
+      "native": "the no-injury incident",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-a7b1a8d447dec895",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建築検査官",
+      "native": "the building inspector",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-17d75263a24e2310",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "溶接部",
+      "native": "the weld",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-b470ed4840c15453",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "是正事項リスト",
+      "native": "the correction list",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-ea0e95e1eed88405",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "日報",
+      "native": "the daily report",
+      "kind": "term",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-d2b7e82b0340f2e7",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+      "native": "Lupita, watch how I do it and then you do it.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-e6e18d907df3e6b1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
+      "native": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-e53b1fa0fd32a88b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "不足分を本日中にお送りいただけますか。",
+      "native": "Could you send me the missing ones today?",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-69176473be3d2852",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フェリペ、外周の墜落防止設備を取り外すことは認めません。",
+      "native": "Felipe, I'm not going to allow the perimeter protection to be removed.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-d6d878c1280210e1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "レンチが2階から落下しましたが、誰にも当たりませんでした。",
+      "native": "The wrench fell from the second level, but it didn't hit anyone.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-3aa0bf398d942e98",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
+      "native": "Inspector Arce, would you like to start with the joist connections?",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-f41ba1415e6f2547",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納品数量の不足のため、屋根工事は金曜日に完了する予定です。",
+      "native": "Due to the short delivery, the roof will be finished on Friday.",
+      "kind": "phrase",
+      "firstLesson": 20
+    },
+    {
+      "id": "dict-ja-en-4a0f642b30b09f6b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "なお、外周の墜落防止設備は終日設置されたままでした。",
+      "native": "It should be noted that the perimeter protection stayed in place all day.",
+      "kind": "phrase",
+      "firstLesson": 20
+    }
+  ]
+}

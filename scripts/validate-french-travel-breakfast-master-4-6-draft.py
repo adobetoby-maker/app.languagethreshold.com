@@ -52,6 +52,20 @@ def main() -> None:
             "titleFrenchCourseEnglish", "objectiveFrenchCourseEnglish", "focusEnglish",
             "focusFrench", "teachingNotesEnglish", "speakingInstructionEnglish", "speakingFrench"
         ))
+    # A source-pair regression gate for the allergy and dietary claims corrected here.
+    fourth, _, sixth = draft["lessons"]
+    assert "what you can eat" not in json.dumps(fourth).lower()
+    assert "what you can eat" not in json.dumps(stage[3]).lower()
+    assert "what you can eat" not in json.dumps(reader["4"]).lower()
+    assert "ingredients and preparation" in fourth["words"][next(
+        i for i, word in enumerate(fourth["words"]) if word["en"].startswith("After reading the label")
+    )]["en"]
+    assert "cross-contact" in reader["4"]["passage"]["native"][15]
+    assert "another meal or skip the buffet" in reader["4"]["passage"]["native"][15]
+    assert "before she chooses" in json.dumps(sixth)
+    assert "before she chooses" in json.dumps(stage[5])
+    assert "cannot confirm" in reader["6"]["passage"]["native"][13]
+    assert "another option" in reader["6"]["passage"]["native"][17]
     print("French Travel Breakfast Master 4–6: source hashes and exact English pairs pass; review remains open")
 
 

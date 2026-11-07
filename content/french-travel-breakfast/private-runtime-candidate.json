@@ -32,11 +32,11 @@
     },
     {
       "path": "content/french-travel-breakfast/core-25-27-draft.json",
-      "sha256": "80e806e259ea87c7585716d0ba85460d6c2fe8ee55be869314ad98243b5b81a1"
+      "sha256": "cf6368a15758710a98fa4826a07aacfa9ad84437938779a0dc76216ae8a0c63b"
     },
     {
       "path": "content/french-travel-breakfast/core-28-30-draft.json",
-      "sha256": "091d6baace483ecf1840297c9544f06e13a177e9a3488deba0cca73358598a9e"
+      "sha256": "c988475b0c755efad9473dd199920dda31b034c8633ffd33eb46199de11109c4"
     },
     {
       "path": "content/french-travel-breakfast/core-4-6-draft.json",
@@ -96,9 +96,6 @@
   "wordPlacements": 1117,
   "readerLines": 708,
   "sourceLocaleCarryoverLessonKeys": [
-    "core:25",
-    "core:28",
-    "core:29",
     "master:7"
   ],
   "releaseGate": {
@@ -10144,48 +10141,48 @@
       "reader": [
         {
           "id": "core:25:line:1",
-          "targetFrench": "Dans un café à Oaxaca, le serveur trébuche et renverse du café chaud sur le bras d’Ana.",
-          "supportEnglish": "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm."
+          "targetFrench": "Dans un café à Lyon, le serveur trébuche et renverse du café chaud sur le bras d’Ana.",
+          "supportEnglish": "In a café in Lyon, the server trips and spills hot coffee on Ana’s arm."
         },
         {
           "id": "core:25:line:2",
-          "targetFrench": "Ana reprend son souffle et dit : « Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ? »",
-          "supportEnglish": "Ana takes a breath and says: Could you bring me cold water, please?"
+          "targetFrench": "Ana appelle le personnel et dit : « Du café chaud a été renversé sur mon bras. Pourriez-vous m’aider, s’il vous plaît ? »",
+          "supportEnglish": "Ana calls to the staff and says: Hot coffee was spilled on my arm. Could you help me, please?"
         },
         {
           "id": "core:25:line:3",
-          "targetFrench": "Le serveur apporte un verre d’eau froide et des serviettes en papier ; Ana essuie prudemment son bras.",
-          "supportEnglish": "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm."
+          "targetFrench": "Le serveur apporte des serviettes en papier et demande : « De quoi avez-vous besoin ? »",
+          "supportEnglish": "The server brings paper napkins and asks: What do you need?"
         },
         {
           "id": "core:25:line:4",
-          "targetFrench": "Puis Ana demande s’ils ont une trousse de premiers secours, car sa peau est un peu rouge.",
-          "supportEnglish": "Then Ana asks if they have a first-aid kit, because the skin is a little red."
+          "targetFrench": "Ana répond : « Pourriez-vous m’apporter de l’eau froide ? Vous avez une trousse de premiers secours ? »",
+          "supportEnglish": "Ana answers: Could you bring me cold water? Do you have a first-aid kit?"
         },
         {
           "id": "core:25:line:5",
-          "targetFrench": "Le responsable apporte la trousse et dit : « Si la brûlure vous fait très mal, nous pouvons appeler un médecin. »",
-          "supportEnglish": "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor."
+          "targetFrench": "Le responsable apporte la trousse et demande si elle souhaite qu’il contacte une aide médicale.",
+          "supportEnglish": "The manager brings the kit and asks whether she would like him to contact medical help."
         },
         {
           "id": "core:25:line:6",
-          "targetFrench": "Ana répond : « Merci, mais ce n’est pas nécessaire, car c’est une petite brûlure. »",
-          "supportEnglish": "Ana answers: Thank you, but it's not necessary, because it's a small burn."
+          "targetFrench": "Ana dit que son bras lui fait mal et demande quelles possibilités d’aide sont disponibles.",
+          "supportEnglish": "Ana says that her arm hurts and asks what help is available."
         },
         {
           "id": "core:25:line:7",
-          "targetFrench": "Le serveur est très inquiet et dit : « Je suis vraiment désolé ; nous ne vous facturerons pas le petit-déjeuner. »",
-          "supportEnglish": "The server is very worried and says: I'm very sorry, we won't charge you for breakfast."
+          "targetFrench": "Le serveur s’excuse : « Je suis vraiment désolé ; nous ne vous facturerons pas le petit-déjeuner. »",
+          "supportEnglish": "The server apologizes: I am very sorry; we will not charge you for breakfast."
         },
         {
           "id": "core:25:line:8",
-          "targetFrench": "Ana sourit et dit : « Ne vous inquiétez pas, c’était un accident, et j’accepte volontiers votre offre. »",
-          "supportEnglish": "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer."
+          "targetFrench": "Ana répond : « Merci de votre aide. Nous parlerons de l’addition après. »",
+          "supportEnglish": "Ana replies: Thank you for your help. We can discuss the bill afterward."
         }
       ],
       "speaking": {
-        "openingFrench": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. Pourriez-vous m’aider et apporter la trousse de premiers secours ?",
-        "instructionEnglish": "Tell staff what happened, ask for help and supplies, and respond to the apology without assessing the injury yourself."
+        "openingFrench": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. Pourriez-vous m’aider ? Mon bras me fait mal.",
+        "instructionEnglish": "Tell staff that hot coffee spilled on your arm, ask for help, and report pain without assessing the injury yourself."
       },
       "candidateModeInputs": {
         "see": [
@@ -10964,8 +10961,8 @@
         },
         {
           "id": "core:28:word:10",
-          "targetFrench": "une pâtisserie mexicaine, du pan dulce",
-          "supportEnglish": "Mexican sweet bread",
+          "targetFrench": "une brioche",
+          "supportEnglish": "brioche",
           "sourceEnglish": "Mexican sweet bread",
           "kind": "term"
         },
@@ -11000,7 +10997,7 @@
         {
           "id": "core:28:word:15",
           "targetFrench": "Et quel métier exerciez-vous ?",
-          "supportEnglish": "And what do you do for a living?",
+          "supportEnglish": "And what did you do for a living?",
           "sourceEnglish": "And what do you do for a living?",
           "kind": "phrase"
         },
@@ -11030,43 +11027,43 @@
       "reader": [
         {
           "id": "core:28:line:1",
-          "targetFrench": "Tous les matins, Don Ramón, un voisin retraité du quartier, prend son café à la même table.",
-          "supportEnglish": "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table."
+          "targetFrench": "Tous les matins, Madame Martin, une voisine retraitée du quartier, prend son café à la même table.",
+          "supportEnglish": "Every morning, Madame Martin, a retired neighbor, has her coffee at the same table."
         },
         {
           "id": "core:28:line:2",
-          "targetFrench": "Aujourd’hui, il me demande d’où je viens, et je lui réponds : « Je viens du Canada et je voyage ici pendant deux semaines. »",
-          "supportEnglish": "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks."
+          "targetFrench": "Aujourd’hui, elle me demande d’où je viens, et je lui réponds : « Je viens du Canada et je voyage ici pendant deux semaines. »",
+          "supportEnglish": "Today she asks me where I am from, and I tell her: I am from Canada and I am traveling here for two weeks."
         },
         {
           "id": "core:28:line:3",
           "targetFrench": "Puis je lui demande : « Depuis combien de temps habitez-vous dans ce quartier ? »",
-          "supportEnglish": "Then I ask him: How long have you lived in this neighborhood?"
+          "supportEnglish": "Then I ask her: How long have you lived in this neighborhood?"
         },
         {
           "id": "core:28:line:4",
-          "targetFrench": "Il me dit qu’il vit ici depuis quarante ans et qu’il enseignait à l’école près de la place.",
-          "supportEnglish": "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza."
+          "targetFrench": "Elle me dit qu’elle vit ici depuis quarante ans et qu’elle enseignait à l’école près de la place.",
+          "supportEnglish": "She tells me that she has lived here for forty years and used to teach at the school near the square."
         },
         {
           "id": "core:28:line:5",
           "targetFrench": "Son ancien travail m’intéresse, alors je dis : « Vraiment ? Racontez-moi. »",
-          "supportEnglish": "Since his work interests me, I say: Really? Tell me more."
+          "supportEnglish": "Her former work interests me, so I say: Really? Tell me more."
         },
         {
           "id": "core:28:line:6",
-          "targetFrench": "Il me parle ensuite du marché, car le samedi on y vend du très bon pan dulce.",
-          "supportEnglish": "Then he talks to me about the market, because on Saturdays they sell very good pan dulce."
+          "targetFrench": "Elle me parle ensuite du marché, car le samedi on y vend de très bonnes brioches.",
+          "supportEnglish": "Then she tells me about the market, because on Saturdays they sell very good brioches there."
         },
         {
           "id": "core:28:line:7",
-          "targetFrench": "Quand je lui demande ce qu’il conseille, il me dit de visiter le musée du centre-ville si j’ai le temps.",
-          "supportEnglish": "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum."
+          "targetFrench": "Quand je lui demande ce qu’elle conseille, elle me dit de visiter le musée du centre-ville si j’ai le temps.",
+          "supportEnglish": "When I ask her what she recommends, she tells me to visit the downtown museum if I have time."
         },
         {
           "id": "core:28:line:8",
           "targetFrench": "Avant de partir, je règle l’addition et je lui dis : « Ça m’a fait plaisir de discuter avec vous. »",
-          "supportEnglish": "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you."
+          "supportEnglish": "Before leaving, I pay the bill and tell her: It was a pleasure chatting with you."
         }
       ],
       "speaking": {
@@ -11325,23 +11322,23 @@
       "reader": [
         {
           "id": "core:29:line:1",
-          "targetFrench": "Après un petit-déjeuner de café et de brioche à Oaxaca, le serveur apporte l’addition à notre table.",
-          "supportEnglish": "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table."
+          "targetFrench": "Après un petit-déjeuner de café et de brioche dans un café à Lyon, le serveur apporte l’addition à notre table.",
+          "supportEnglish": "After a breakfast of coffee and brioche in a café in Lyon, the server brings the bill to our table."
         },
         {
           "id": "core:29:line:2",
           "targetFrench": "Je sors ma carte et je dis : « Aujourd’hui, le petit-déjeuner, c’est pour moi, puisque vous m’avez fait visiter la ville. »",
-          "supportEnglish": "I take out my card and say: Breakfast is on me today, because you showed me the city."
+          "supportEnglish": "I take out my card and say: Breakfast is on me today, since you showed me around the city."
         },
         {
           "id": "core:29:line:3",
-          "targetFrench": "Mes nouveaux amis, Lucía et Andrés, insistent : « Non, ici tu es notre invité. »",
-          "supportEnglish": "My new friends, Lucía and Andrés, insist: No, here you are our guest."
+          "targetFrench": "Mes nouveaux amis, Camille et Théo, insistent : « Non, vous êtes notre invité aujourd’hui. »",
+          "supportEnglish": "My new friends, Camille and Théo, insist: No, you are our guest today."
         },
         {
           "id": "core:29:line:4",
-          "targetFrench": "Je leur dis : « Non, vraiment, laissez-moi payer », mais Andrés donne déjà des espèces au serveur.",
-          "supportEnglish": "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter."
+          "targetFrench": "Je leur dis : « Non, vraiment, laissez-moi payer », mais Théo donne déjà sa carte au serveur.",
+          "supportEnglish": "I tell them: No, really, let me pay, but Théo is already handing his card to the server."
         },
         {
           "id": "core:29:line:5",
@@ -11350,18 +11347,18 @@
         },
         {
           "id": "core:29:line:6",
-          "targetFrench": "Lucía dit que, d’habitude, ils laissent dix pour cent si le service est bon.",
-          "supportEnglish": "Lucía says that they usually leave 10 percent if the service is good."
+          "targetFrench": "Camille répond : « Les habitudes varient ; si vous voulez, vous pouvez demander au serveur. »",
+          "supportEnglish": "Camille answers: Habits vary; if you like, you can ask the server."
         },
         {
           "id": "core:29:line:7",
-          "targetFrench": "Je leur dis : « Si vous payez l’addition, alors je laisserai le pourboire », et ils acceptent.",
-          "supportEnglish": "I tell them: If you pay the bill, then I'll leave the tip, and they agree."
+          "targetFrench": "Je leur dis : « Si vous payez l’addition, je peux proposer de laisser un pourboire », et ils acceptent.",
+          "supportEnglish": "I tell them: If you pay the bill, I can offer to leave a tip, and they agree."
         },
         {
           "id": "core:29:line:8",
           "targetFrench": "À la fin, je dis : « D’accord, merci, mais la prochaine fois c’est pour moi », et tout le monde rit.",
-          "supportEnglish": "At the end I say: OK, thanks, but next time it's on me, and everyone laughs."
+          "supportEnglish": "At the end I say: OK, thanks, but next time it is on me, and everyone laughs."
         }
       ],
       "speaking": {

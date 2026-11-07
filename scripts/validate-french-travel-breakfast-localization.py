@@ -13,16 +13,16 @@ DRAFTS = [
     ROOT / "content/french-travel-breakfast/foundation-7-10-draft.json",
     ROOT / "content/french-travel-breakfast/core-1-3-draft.json",
     ROOT / "content/french-travel-breakfast/core-7-9-draft.json",
+    ROOT / "content/french-travel-breakfast/core-22-24-draft.json",
 ]
 FIXTURE = ROOT / "content/french-travel-breakfast/private-runtime-candidate.json"
 SOURCE_LOCALE = re.compile(
     r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
     r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
 )
-LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:7"}
+LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:7", "core:22", "core:23", "core:24"}
 REMAINING = [
-    "core:22", "core:23", "core:24", "core:25",
-    "core:28", "core:29", "master:7",
+    "core:25", "core:28", "core:29", "master:7",
 ]
 
 
@@ -64,7 +64,11 @@ def main():
     assert "vingt euros" in bill["reader"][7]["targetFrench"]
     assert "dix-huit euros" in bill["reader"][7]["targetFrench"]
     assert "deux euros" in bill["reader"][8]["targetFrench"]
-    print("French Travel Breakfast ten Foundation and two Core localized pairs passed")
+    emergency = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:24")
+    assert "rue des Tilleuls" in emergency["speaking"]["openingFrench"]
+    assert "Rue des Tilleuls" in emergency["reader"][4]["supportEnglish"]
+    assert "Juárez" not in json.dumps(emergency["reader"], ensure_ascii=False)
+    print("French Travel Breakfast ten Foundation and five Core localized pairs passed")
 
 
 if __name__ == "__main__":

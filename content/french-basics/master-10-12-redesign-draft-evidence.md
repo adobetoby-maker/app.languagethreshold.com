@@ -1,0 +1,9 @@
+# French 101 Master 10–12 redesigned draft checkpoint
+
+This candidate batch follows the proposed 20-slot French Master map and stacks on redesigned Master 7–9. It preserves `master-french-basics:10`, `:11`, and `:12`. The Spanish course and practice are immutable SHA-256-linked provenance; repeated beginner lines are not used as candidate learner text. The new draft is `reviewed:false`, `registered:false`, and has no recorded audio.
+
+Each lesson has eight vocabulary cards, twelve new aligned French/English Reader and phrase-card pairs, a speaking scenario, French grammar notes, and five draft checks. Master 10 distinguishes two similar lost scarves through clues and explicit owner confirmation. Master 11 orders for two people, asks about a no-cow-milk preference, obtains consent for an available soy substitution, and repeats each drink. Master 12 negotiates a group meeting around a member’s schedule and room availability, leaving the room selection pending confirmation.
+
+`python3 scripts/validate-french-basics-master-redesign-10-12-draft.py` verifies stable keys, map objectives/prerequisites, source hashes, 60 cards, 36 one-to-one Reader pairs, speaking/check structure, script-only listening status, and zero exact English Reader-line reuse from Spanish Foundation/Core/Master or redesigned French Master 1–9. New English pairs deliberately differ from legacy Spanish Master where the latter repeats earlier-stage lines. No learner progress or published runtime content changes.
+
+Independent French fidelity/curriculum review, possessive and tense review, diet wording review, qualified human review, full runtime modes, dictionary, offline behavior, recorded audio, and device acceptance remain. Claude review was not attempted because the earlier bounded CLI budget was exhausted. These are authored candidates, not released lessons.

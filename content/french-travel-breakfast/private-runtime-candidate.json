@@ -32,7 +32,7 @@
     },
     {
       "path": "content/french-travel-breakfast/core-25-27-draft.json",
-      "sha256": "cf6368a15758710a98fa4826a07aacfa9ad84437938779a0dc76216ae8a0c63b"
+      "sha256": "43725637c9f1bc2427efd8247a95b17bc2af3876cf2ccb4e7bf6b1b10b2acab5"
     },
     {
       "path": "content/french-travel-breakfast/core-28-30-draft.json",
@@ -68,7 +68,7 @@
     },
     {
       "path": "content/french-travel-breakfast/master-13-15-draft.json",
-      "sha256": "2938745442bb6b2b7bb415eab1726d2325423498830b817b071c597a81061009"
+      "sha256": "750f5119e8bf6f93b73cf06815537a0e71bf28b893f35528d5e4a376e62772a4"
     },
     {
       "path": "content/french-travel-breakfast/master-16-18-draft.json",
@@ -10020,7 +10020,7 @@
       "titleEnglish": "Réagir à une boisson chaude renversée",
       "objectiveEnglish": "Ask staff for help and supplies after a hot-coffee spill, then respond to an apology.",
       "focusFrench": "Demander de l’aide et du matériel après un incident ; répondre à des excuses.",
-      "focusEnglish": "Use a direct polite request for help; describe what happened without making a medical judgment.",
+      "focusEnglish": "Use direct polite requests for help; name a burn and respond to an offer.",
       "words": [
         {
           "id": "core:25:word:1",
@@ -10159,13 +10159,13 @@
         },
         {
           "id": "core:25:line:5",
-          "targetFrench": "Le responsable apporte la trousse et demande si elle souhaite qu’il contacte une aide médicale.",
-          "supportEnglish": "The manager brings the kit and asks whether she would like him to contact medical help."
+          "targetFrench": "Le responsable apporte la trousse et dit : « Si la brûlure fait très mal, nous pouvons appeler un médecin. »",
+          "supportEnglish": "The manager brings the kit and says: If the burn hurts a lot, we can call a doctor."
         },
         {
           "id": "core:25:line:6",
-          "targetFrench": "Ana dit que son bras lui fait mal et demande quelles possibilités d’aide sont disponibles.",
-          "supportEnglish": "Ana says that her arm hurts and asks what help is available."
+          "targetFrench": "Ana répond : « Merci, mais ce n’est pas nécessaire, car c’est une petite brûlure. »",
+          "supportEnglish": "Ana answers: Thank you, but it's not necessary, because it's a small burn."
         },
         {
           "id": "core:25:line:7",
@@ -10179,8 +10179,8 @@
         }
       ],
       "speaking": {
-        "openingFrench": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. Pourriez-vous m’aider ? Mon bras me fait mal.",
-        "instructionEnglish": "Tell staff that hot coffee spilled on your arm, ask for help, and report pain without assessing the injury yourself."
+        "openingFrench": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. C’est une petite brûlure. Pourriez-vous m’aider ? Mon bras me fait mal.",
+        "instructionEnglish": "Tell staff that hot coffee spilled on your arm, describe the burn, ask for what you need, and respond to their offer."
       },
       "candidateModeInputs": {
         "see": [
@@ -16855,7 +16855,7 @@
       "titleEnglish": "Raconter un incident dans l’ordre",
       "objectiveEnglish": "Distinguer les faits observés des informations rapportées et présenter une chronologie claire au responsable.",
       "focusFrench": "Récit au passé avec repères temporels et incertitude : à huit heures dix ; quelques minutes plus tard ; je ne connais pas l’heure exacte.",
-      "focusEnglish": "Past narration with time markers and uncertainty: At 8:10; a few minutes later; I do not know the exact time.",
+      "focusEnglish": "Past narration with time markers and precise symptom vocabulary: itchy throat, hives, swollen lips, difficulty breathing and dizziness.",
       "words": [
         {
           "id": "master:13:word:1",
@@ -16880,9 +16880,9 @@
         },
         {
           "id": "master:13:word:4",
-          "targetFrench": "l’observation",
-          "supportEnglish": "the observation",
-          "sourceEnglish": "the observation",
+          "targetFrench": "la gorge qui gratte",
+          "supportEnglish": "the itchy throat",
+          "sourceEnglish": "the itchy throat",
           "kind": "term"
         },
         {
@@ -16894,9 +16894,9 @@
         },
         {
           "id": "master:13:word:6",
-          "targetFrench": "la liste des ingrédients",
-          "supportEnglish": "the ingredient list",
-          "sourceEnglish": "the ingredient list",
+          "targetFrench": "l’urticaire",
+          "supportEnglish": "the hives",
+          "sourceEnglish": "the hives",
           "kind": "term"
         },
         {
@@ -16908,9 +16908,9 @@
         },
         {
           "id": "master:13:word:8",
-          "targetFrench": "la salle du petit-déjeuner",
-          "supportEnglish": "the breakfast room",
-          "sourceEnglish": "the breakfast room",
+          "targetFrench": "le gonflement des lèvres",
+          "supportEnglish": "the lip swelling",
+          "sourceEnglish": "the lip swelling",
           "kind": "term"
         },
         {
@@ -16929,23 +16929,23 @@
         },
         {
           "id": "master:13:word:11",
-          "targetFrench": "l’ambulance",
-          "supportEnglish": "the ambulance",
-          "sourceEnglish": "the ambulance",
+          "targetFrench": "des difficultés à respirer",
+          "supportEnglish": "difficulty breathing",
+          "sourceEnglish": "difficulty breathing",
           "kind": "term"
         },
         {
           "id": "master:13:word:12",
-          "targetFrench": "l’hôpital",
-          "supportEnglish": "the hospital",
-          "sourceEnglish": "the hospital",
+          "targetFrench": "le service des urgences",
+          "supportEnglish": "the emergency department",
+          "sourceEnglish": "the emergency department",
           "kind": "term"
         },
         {
           "id": "master:13:word:13",
-          "targetFrench": "l’incertitude",
-          "supportEnglish": "the uncertainty",
-          "sourceEnglish": "the uncertainty",
+          "targetFrench": "étourdie",
+          "supportEnglish": "dizzy",
+          "sourceEnglish": "dizzy",
           "kind": "term"
         },
         {
@@ -17043,13 +17043,13 @@
         },
         {
           "id": "master:13:line:5",
-          "targetFrench": "Quelques minutes plus tard, Léa a dit qu’elle se sentait mal.",
-          "supportEnglish": "A few minutes later, Léa said she felt unwell."
+          "targetFrench": "Quelques minutes plus tard, Léa a dit que sa gorge la grattait.",
+          "supportEnglish": "A few minutes later, Léa said her throat felt itchy."
         },
         {
           "id": "master:13:line:6",
-          "targetFrench": "Emma a remarqué que Léa avait cessé de manger et demandé de l’aide.",
-          "supportEnglish": "Emma noticed that Léa stopped eating and asked for help."
+          "targetFrench": "Emma a remarqué de l’urticaire sur les bras de Léa et a demandé de l’aide.",
+          "supportEnglish": "Emma noticed hives on Léa’s arms and asked for help."
         },
         {
           "id": "master:13:line:7",
@@ -17058,8 +17058,8 @@
         },
         {
           "id": "master:13:line:8",
-          "targetFrench": "Emma dit qu’elle a appelé les secours quand l’état de Léa a changé.",
-          "supportEnglish": "Emma says that she called for help when Léa’s condition changed."
+          "targetFrench": "Emma dit qu’elle a appelé les secours quand elle a vu les lèvres de Léa gonfler.",
+          "supportEnglish": "Emma says that she called for help when she saw Léa’s lips swelling."
         },
         {
           "id": "master:13:line:9",
@@ -17078,18 +17078,18 @@
         },
         {
           "id": "master:13:line:12",
-          "targetFrench": "Les secours médicaux sont arrivés et ont parlé avec Léa.",
-          "supportEnglish": "The medical responders arrived and spoke with Léa."
+          "targetFrench": "Les secours médicaux sont arrivés alors que Léa était étourdie et avait des difficultés à respirer.",
+          "supportEnglish": "The medical responders arrived when Léa was dizzy and had difficulty breathing."
         },
         {
           "id": "master:13:line:13",
-          "targetFrench": "Emma ne décrit aucun soin, car elle n’a pas tout vu.",
-          "supportEnglish": "Emma does not describe any treatment because she did not see all of it."
+          "targetFrench": "Les secouristes ont soigné Léa dans la salle du petit-déjeuner et lui ont administré de l’oxygène.",
+          "supportEnglish": "The responders treated Léa in the dining room and gave her oxygen."
         },
         {
           "id": "master:13:line:14",
-          "targetFrench": "Elle sait seulement que Léa est partie avec les secours.",
-          "supportEnglish": "She knows only that Léa left with the responders."
+          "targetFrench": "Ils ont emmené Léa au service des urgences en ambulance.",
+          "supportEnglish": "They took Léa to the emergency department by ambulance."
         },
         {
           "id": "master:13:line:15",
@@ -17113,8 +17113,8 @@
         }
       ],
       "speaking": {
-        "openingFrench": "À huit heures dix, Léa a mangé du gâteau. Quelques minutes plus tard, elle a dit qu’elle se sentait mal. Je n’ai pas vu la préparation et je ne connais pas l’heure exacte de l’appel.",
-        "instructionEnglish": "Tell the duty manager the sequence of events. Separate what you observed from what you do not know; do not infer a cause or describe treatment you did not witness."
+        "openingFrench": "À huit heures dix, Léa a mangé du gâteau. Quelques minutes plus tard, sa gorge la grattait ; j’ai vu de l’urticaire sur ses bras et ses lèvres gonfler. Elle avait des difficultés à respirer et était étourdie quand les secours sont arrivés.",
+        "instructionEnglish": "Tell the duty manager when Léa ate, which symptoms Emma observed, when she called for help, and what the responders did."
       },
       "candidateModeInputs": {
         "see": [

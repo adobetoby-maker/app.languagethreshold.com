@@ -30,13 +30,26 @@ for english, lesson in zip(source["lessons"], draft["lessons"]):
     assert len(lesson["words"]) == len(english["words"]) == 14
     assert [w["order"] for w in lesson["words"]] == list(range(1, 15))
     for word, original in zip(lesson["words"], english["words"]):
-        assert word["fr"].strip() and word["en"] == original["en"] and word["kind"] == original["kind"]
+        assert word["fr"].strip() and word["kind"] == original["kind"]
+        if n == 15 and word["order"] == 13:
+            assert word["sourceMeaningEnglish"] == original["en"] == "My friends ask questions in Spanish."
+            assert word["fr"] == "Mes amis posent des questions en français."
+            assert word["en"] == "My friends ask questions in French."
+        else:
+            assert word["en"] == original["en"]
     assert len({word["fr"] for word in lesson["words"]}) >= 13
     if n == 14:
         assert lesson["words"][6]["fr"] == lesson["words"][7]["fr"] == "les"
+        assert lesson["words"][7]["cardStatus"] == "merge-with-order-7"
     reading = lesson["reading"]
     assert reading["sourceTitleEnglish"] == english["reading"]["title"]
-    assert reading["native"] == english["reading"]["native"]
+    if n == 15:
+        assert reading["sourceNativeEnglish"] == english["reading"]["native"]
+        assert reading["native"][4] == "My friends ask questions in French."
+        assert reading["target"][4] == "Mes amis posent des questions en français."
+        assert all(reading["native"][i] == value for i, value in enumerate(english["reading"]["native"]) if i != 4)
+    else:
+        assert reading["native"] == english["reading"]["native"]
     assert len(reading["target"]) == len(reading["native"]) == 6
     assert all(line.strip() for line in reading["target"])
     assert [w["fr"] for w in lesson["words"] if w["kind"] == "phrase"] == reading["target"]
@@ -47,4 +60,4 @@ for english, lesson in zip(source["lessons"], draft["lessons"]):
         if check["type"] == "listening":
             assert check["audioText"].strip() and check["locale"] == "fr-FR"
             assert check["voiceStatus"] == "script-only; no recorded audio"
-print("French 101 Core 13–15: 42 English pairs, 18 reading meanings, exact source hashes and draft structure valid; review/runtime/audio pending")
+print("French 101 Core 13–15: 42 source pairs/18 source reading meanings pinned; one contextual learner-facing localization; draft structure valid; review/runtime/audio pending")

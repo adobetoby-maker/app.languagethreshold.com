@@ -21,8 +21,8 @@
   "draftModel": "Codex authored; independent Fable/Opus and human review pending",
   "sourceNotes": [
     "French pouvoir, avoir besoin de/devoir, and faire have different grammar from Spanish poder/necesitar/tener que/hacer.",
-    "Core 15 source English says friends ask questions in Spanish. French draft preserves the English sentence; the target line must say en espagnol even in a French lesson.",
-    "Two source terms in Core 14 map to French les. Duplicate French headwords are retained for exact English pair traceability, with notes; card deduplication requires runtime design."
+    "Core 15 original English says the friends ask questions in Spanish. The learner-facing French course says in French; the original source meaning is retained in sourceMeaningEnglish and sourceNativeEnglish.",
+    "Core 14 source distinguishes masculine/feminine plural the/them, but French les covers both. The second source pair is marked merge-with-order-7 for one learner card."
   ],
   "lessons": [
     {
@@ -279,7 +279,8 @@
           "fr": "les",
           "en": "the / them (feminine plural)",
           "kind": "term",
-          "note": "Same French form for masculine and feminine plural; retained as a separate source-card pair."
+          "note": "French les covers both masculine and feminine plural source glosses. Merge this source pair with order 7 into one learner card.",
+          "cardStatus": "merge-with-order-7"
         },
         {
           "order": 9,
@@ -394,10 +395,10 @@
         "Ana fait une liste de courses.|Ana makes a shopping list.",
         "Nous faisons du sport après le cours.|We exercise after class.",
         "Luis prépare le dîner à la maison.|Luis makes dinner at home.",
-        "Mes amis posent des questions en espagnol.|My friends ask questions in Spanish.",
+        "Mes amis posent des questions en français.|My friends ask questions in French.",
         "Qu’est-ce que tu fais le dimanche ?|What do you do on Sundays?"
       ],
-      "speaking": "After class, tell a friend where you do homework and what Ana puts on a shopping list. Say how you exercise, what Luis prepares at home, and ask what your friend does on Sundays. For the original Spanish-class scenario, say the friends ask questions en espagnol; use poser des questions rather than faire des questions.",
+      "speaking": "After class, tell a friend where you do homework and what Ana puts on a shopping list. Say how you exercise, what Luis prepares at home, and ask what your friend does on Sundays. Say the friends ask questions en français; use poser des questions rather than faire des questions.",
       "words": [
         {
           "order": 1,
@@ -481,9 +482,10 @@
         },
         {
           "order": 13,
-          "fr": "Mes amis posent des questions en espagnol.",
-          "en": "My friends ask questions in Spanish.",
-          "kind": "phrase"
+          "fr": "Mes amis posent des questions en français.",
+          "en": "My friends ask questions in French.",
+          "kind": "phrase",
+          "sourceMeaningEnglish": "My friends ask questions in Spanish."
         },
         {
           "order": 14,
@@ -500,10 +502,18 @@
           "Ana fait une liste de courses.",
           "Nous faisons du sport après le cours.",
           "Luis prépare le dîner à la maison.",
-          "Mes amis posent des questions en espagnol.",
+          "Mes amis posent des questions en français.",
           "Qu’est-ce que tu fais le dimanche ?"
         ],
         "native": [
+          "I do homework in the library.",
+          "Ana makes a shopping list.",
+          "We exercise after class.",
+          "Luis makes dinner at home.",
+          "My friends ask questions in French.",
+          "What do you do on Sundays?"
+        ],
+        "sourceNativeEnglish": [
           "I do homework in the library.",
           "Ana makes a shopping list.",
           "We exercise after class.",
@@ -534,7 +544,7 @@
         {
           "type": "comprehension",
           "prompt": "In Un après-midi bien rempli, what do the friends ask?",
-          "answer": "Questions in Spanish."
+          "answer": "Questions in French."
         },
         {
           "type": "recall",

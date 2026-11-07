@@ -1,0 +1,1311 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "855da18f746adb6a7ed04ce4fd73bf97371f635ec9d78c70c527dafbadc50a00",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:16",
+      "n": 16,
+      "title": "Coordinate the work handoff",
+      "objective": "Explain a dependency between two crews and confirm the responsible contact and revised handoff.",
+      "sourceObjective": "Explain a dependency between two crews and confirm the responsible contact and revised handoff.",
+      "words": [
+        {
+          "es": "きょうりょく ぎょうしゃ",
+          "en": "Subcontractor",
+          "kind": "term",
+          "cardId": "card-ja-en-a49ce3226002e59a"
+        },
+        {
+          "es": "チーム",
+          "en": "Team",
+          "kind": "term",
+          "cardId": "card-ja-en-d6b049b114ae5725"
+        },
+        {
+          "es": "いぞん かんけい",
+          "en": "Dependency",
+          "kind": "term",
+          "cardId": "card-ja-en-a15877b54d6a50cb"
+        },
+        {
+          "es": "さぎょう ひきつぎ",
+          "en": "Work handoff",
+          "kind": "term",
+          "cardId": "card-ja-en-80bca86c1fed4901"
+        },
+        {
+          "es": "れんらく たんとうしゃ",
+          "en": "Contact",
+          "kind": "term",
+          "cardId": "card-ja-en-a1d0169d2b498a81"
+        },
+        {
+          "es": "つうろ",
+          "en": "Access",
+          "kind": "term",
+          "cardId": "card-ja-en-2d91fbb25e1c72d4"
+        },
+        {
+          "es": "カレンダー",
+          "en": "Calendar",
+          "kind": "term",
+          "cardId": "card-ja-en-84f59c2f0530cb42"
+        },
+        {
+          "es": "かくにん",
+          "en": "Confirmation",
+          "kind": "term",
+          "cardId": "card-ja-en-fc176af78fc308d2"
+        },
+        {
+          "es": "つごう",
+          "en": "Availability",
+          "kind": "term",
+          "cardId": "card-ja-en-e2c6fe3b16d0cc1e"
+        },
+        {
+          "es": "こうしん",
+          "en": "Update",
+          "kind": "term",
+          "cardId": "card-ja-en-2aef21dcb70445c6"
+        },
+        {
+          "es": "さぎょう ひきつぎを ちょうせい する ひつようが あります。",
+          "en": "We need to coordinate the work handoff.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ecdbe1eae176532a"
+        },
+        {
+          "es": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。",
+          "en": "Who is the subcontractor's contact?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-9f06cf39a454b301"
+        },
+        {
+          "es": "この さぎょうは ほかの チームに いぞん して います。",
+          "en": "This task depends on the other team.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-041a6e6f7fb3c4a8"
+        },
+        {
+          "es": "つうろと つごうを かくにんしてください。",
+          "en": "Confirm access and availability.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ab16fec55d9a4897"
+        },
+        {
+          "es": "カレンダーの こうしんを おくって ください。",
+          "en": "Send the calendar update.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c6058f4122471ae4"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:16",
+        "title": "Coordinate the work handoff",
+        "sentences": [
+          {
+            "target": "きょうりょく ぎょうしゃは、じしゃの チームの つごうが かわったと ほうこくし、カレンダーの こうしんを いらいして います。",
+            "native": "The subcontractor reports that their team's availability changed and requests a calendar update."
+          },
+          {
+            "target": "いぞん かんけいは、さぎょう ひきつぎと つぎの さぎょうはんの つうろに えいきょうします。",
+            "native": "The dependency affects the work handoff and the next crew's access."
+          },
+          {
+            "target": "れんらく たんとうしゃは、りょうほうの さぎょうはんに、きまったことと まだ きまって いないことが わかるように、しょめんでの かくにんを もとめて います。",
+            "native": "The contact requests written confirmation so both crews know what is agreed and what remains pending."
+          },
+          {
+            "target": "さぎょう ひきつぎを ちょうせい する ひつようが あります。",
+            "native": "We need to coordinate the work handoff."
+          },
+          {
+            "target": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。",
+            "native": "Who is the subcontractor's contact?"
+          },
+          {
+            "target": "この さぎょうは ほかの チームに いぞん して います。",
+            "native": "This task depends on the other team."
+          },
+          {
+            "target": "つうろと つごうを かくにんしてください。",
+            "native": "Confirm access and availability."
+          },
+          {
+            "target": "カレンダーの こうしんを おくって ください。",
+            "native": "Send the calendar update."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use いぞん かんけい for a task dependency and さぎょう ひきつぎ for a work handoff. Ask どなたですか for the designated contact and distinguish decided details from open questions.",
+        "teachingNotesEnglish": [
+          "さぎょう ひきつぎ is a noun–noun compound meaning work handoff. さぎょうの ひきつぎ is also possible.",
+          "「ちょうせい する ひつようが あります」 means 'there is a need to coordinate'. 「ひつようが あります」 expresses necessity.",
+          "どなた is the polite form of who, used for the subcontractor contact person, れんらく たんとうしゃ. れんらく さき would mean contact details.",
+          "「いぞん して います」 means 'depends on'. The 「て います」 form describes an ongoing state, so it fits 'depends on' here.",
+          "「かくにんしてください」 and 「おくって ください」 are polite requests: 'please confirm' and 'please send'.",
+          "「きょうりょく ぎょうしゃ」 (subcontractor) is a company doing part of the work for the main contractor. 「チーム」 is a loanword for the English 'team'.",
+          "つうろ means a route or passage to the work area. Lesson 7 のぼりぐち means a climb-up point onto a roof; it is not a general crew-access term.",
+          "まだ きまって いないこと means what remains undecided, distinct from みかんりょう こうもく, an unfinished task or open item.",
+          "じしゃの チーム is the subcontractor company’s own team. と ほうこく expresses what they reported; わかるように means so that both crews can understand."
+        ],
+        "examples": [
+          {
+            "es": "きょうりょく ぎょうしゃは、じしゃの チームの つごうが かわったと ほうこくし、カレンダーの こうしんを いらいして います。",
+            "en": "The subcontractor reports that their team's availability changed and requests a calendar update."
+          },
+          {
+            "es": "いぞん かんけいは、さぎょう ひきつぎと つぎの さぎょうはんの つうろに えいきょうします。",
+            "en": "The dependency affects the work handoff and the next crew's access."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:16",
+        "summary": "Explain how one crew depends on another, ask who the subcontractor contact is, and confirm the revised handoff and access in a written update.",
+        "openingLine": "さぎょう ひきつぎを ちょうせい する ひつようが あります。きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。",
+        "partnerRole": "A subcontractor contact who checks availability and access and records confirmed versus pending handoff details.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____は、じしゃの チームの つごうが かわったと ほうこくし、カレンダーの こうしんを いらいして います。",
+          "hint": "The subcontractor reports that their team's availability changed and requests a calendar update.",
+          "answer": "きょうりょく ぎょうしゃ",
+          "explanation": "きょうりょく ぎょうしゃ appears in this lesson's reading."
+        },
+        {
+          "prompt": "いぞん かんけいは、____と つぎの さぎょうはんの つうろに えいきょうします。",
+          "hint": "The dependency affects the work handoff and the next crew's access.",
+          "answer": "さぎょう ひきつぎ",
+          "explanation": "さぎょう ひきつぎ appears in this lesson's reading."
+        },
+        {
+          "prompt": "れんらく たんとうしゃは、りょうほうの さぎょうはんに、きまったことと まだ きまって いないことが わかるように、しょめんでの ____を もとめて います。",
+          "hint": "The contact requests written confirmation so both crews know what is agreed and what remains pending.",
+          "answer": "かくにん",
+          "explanation": "かくにん appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:17",
+      "n": 17,
+      "title": "Follow up on a delivery shortage",
+      "objective": "Report a delivery shortage, read back the order details and agree on a follow-up contact.",
+      "sourceObjective": "Report a delivery shortage, read back the order details and agree on a follow-up contact.",
+      "words": [
+        {
+          "es": "ちゅうもん",
+          "en": "Order",
+          "kind": "term",
+          "cardId": "card-ja-en-596b3510f77e8df3"
+        },
+        {
+          "es": "のうにゅうぎょうしゃ",
+          "en": "Supplier",
+          "kind": "term",
+          "cardId": "card-ja-en-ce097bce7e34224f"
+        },
+        {
+          "es": "のうひん",
+          "en": "Delivery",
+          "kind": "term",
+          "cardId": "card-ja-en-69eefd4531b98b8a"
+        },
+        {
+          "es": "じゅうしょ",
+          "en": "Address",
+          "kind": "term",
+          "cardId": "card-ja-en-af6979a96e95864e"
+        },
+        {
+          "es": "すうりょう",
+          "en": "Quantity",
+          "kind": "term",
+          "cardId": "card-ja-en-1c2b43899e73858b"
+        },
+        {
+          "es": "ふそく",
+          "en": "Shortage",
+          "kind": "term",
+          "cardId": "card-ja-en-2c0ef9c3696b4393"
+        },
+        {
+          "es": "じゅりょうしょ",
+          "en": "Receipt",
+          "kind": "term",
+          "cardId": "card-ja-en-62f8230632640b09"
+        },
+        {
+          "es": "におろし",
+          "en": "Unloading",
+          "kind": "term",
+          "cardId": "card-ja-en-0ddd25268b95c29e"
+        },
+        {
+          "es": "れんらく たんとうしゃ",
+          "en": "Contact",
+          "kind": "term",
+          "cardId": "card-ja-en-a1d0169d2b498a81"
+        },
+        {
+          "es": "にっていの さいちょうせい",
+          "en": "Rescheduling",
+          "kind": "term",
+          "cardId": "card-ja-en-a6262f1985fe10f5"
+        },
+        {
+          "es": "のうひんは ちゅうもんと ちがって います。",
+          "en": "The delivery does not match the order.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-23762420bfd548e0"
+        },
+        {
+          "es": "じゅうしょと すうりょうを わたしが かくにん します。",
+          "en": "I will confirm the address and quantity.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-26311f8e03f27d64"
+        },
+        {
+          "es": "じゅりょうしょに ふそくが かいて あります。",
+          "en": "The shortage is on the receipt.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6f2abfa7faf23379"
+        },
+        {
+          "es": "きょかされた におろしは だれが かくにんしますか。",
+          "en": "Who confirms the authorized unloading?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-2fcaa65774a046b8"
+        },
+        {
+          "es": "あたらしい のうひんびが ひつようです。",
+          "en": "We need a rescheduled date.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3df3fe00eb0aabeb"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:17",
+        "title": "Follow up on a delivery shortage",
+        "sentences": [
+          {
+            "target": "のうにゅうぎょうしゃは、のうひんに ふそくが あった あと、げんばの れんらく たんとうしゃに でんわします。",
+            "native": "The supplier calls the site's contact after an incomplete delivery."
+          },
+          {
+            "target": "ちゅうもんしょと じゅりょうしょには、じゅうしょ、うけとった すうりょう、そして ふそくが しめされて います。",
+            "native": "The order and receipt show the address, quantity received and a shortage."
+          },
+          {
+            "target": "にっていの さいちょうせいに どういする まえに、におろしを だれが ちょうせいするのか、また あたらしい ひにちを いつ つたえるのかを、ふたりとも かくにんします。",
+            "native": "Before agreeing on rescheduling, both people confirm who coordinates unloading and when the new date will be communicated."
+          },
+          {
+            "target": "のうひんは ちゅうもんと ちがって います。",
+            "native": "The delivery does not match the order."
+          },
+          {
+            "target": "じゅうしょと すうりょうを わたしが かくにん します。",
+            "native": "I will confirm the address and quantity."
+          },
+          {
+            "target": "じゅりょうしょに ふそくが かいて あります。",
+            "native": "The shortage is on the receipt."
+          },
+          {
+            "target": "きょかされた におろしは だれが かくにんしますか。",
+            "native": "Who confirms the authorized unloading?"
+          },
+          {
+            "target": "あたらしい のうひんびが ひつようです。",
+            "native": "We need a rescheduled date."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Distinguish ちゅうもん (order), じゅりょうしょ (receipt) and のうひん (delivery). Read back the address and quantity before agreeing on a revised date.",
+        "teachingNotesEnglish": [
+          "Receipt (じゅりょうしょ) here means the delivery receipt slip that lists what arrived, not a shop till receipt.",
+          "におろし means unloading goods from a truck. きょかされた means permitted and mirrors the source wording; the phrase itself does not grant permission.",
+          "げんば means the job site. げんばの れんらく たんとうしゃ means the site contact person.",
+          "ちがって います is the polite ている state form of ちがう (to differ), meaning does not match. ちがいます is the simple polite form.",
+          "を marks the thing being confirmed. わたしが marks the speaker as the one who will act. します is the polite form of 'do'.",
+          "A dictionary-form verb takes まえに directly: どういする まえに means before agreeing. A noun takes の まえに.",
+          "〜か at the end of a question makes it a question. だれが asks who does the action.",
+          "Xが ひつようです means X is needed. にっていの さいちょうせい means rescheduling. のうひんび means delivery date. きょかされた is a past passive modifying a noun; かいて あります marks a state left by writing."
+        ],
+        "examples": [
+          {
+            "es": "のうにゅうぎょうしゃは、のうひんに ふそくが あった あと、げんばの れんらく たんとうしゃに でんわします。",
+            "en": "The supplier calls the site's contact after an incomplete delivery."
+          },
+          {
+            "es": "ちゅうもんしょと じゅりょうしょには、じゅうしょ、うけとった すうりょう、そして ふそくが しめされて います。",
+            "en": "The order and receipt show the address, quantity received and a shortage."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:17",
+        "summary": "Report the shortage, read back the order address and quantity with the supplier, and identify who will confirm unloading and the follow-up delivery date.",
+        "openingLine": "のうひんは ちゅうもんと ちがって います。じゅりょうしょに ふそくが かいて あります。",
+        "partnerRole": "A supplier representative who verifies the order and receipt, acknowledges the shortage, and confirms the designated follow-up contact.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "のうにゅうぎょうしゃは、のうひんに ____が あった あと、げんばの れんらく たんとうしゃに でんわします。",
+          "hint": "The supplier calls the site's contact after an incomplete delivery.",
+          "answer": "ふそく",
+          "explanation": "ふそく appears in this lesson's reading."
+        },
+        {
+          "prompt": "ちゅうもんしょと じゅりょうしょには、じゅうしょ、うけとった ____、そして ふそくが しめされて います。",
+          "hint": "The order and receipt show the address, quantity received and a shortage.",
+          "answer": "すうりょう",
+          "explanation": "すうりょう appears in this lesson's reading."
+        },
+        {
+          "prompt": "にっていの さいちょうせいに どういする まえに、____を だれが ちょうせいするのか、また あたらしい ひにちを いつ つたえるのかを、ふたりとも かくにんします。",
+          "hint": "Before agreeing on rescheduling, both people confirm who coordinates unloading and when the new date will be communicated.",
+          "answer": "におろし",
+          "explanation": "におろし appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:18",
+      "n": 18,
+      "title": "Prepare for an inspection",
+      "objective": "Summarize inspection preparation, distinguish pending checks from approval and confirm who will respond.",
+      "sourceObjective": "Summarize inspection preparation, distinguish pending checks from approval and confirm who will respond.",
+      "words": [
+        {
+          "es": "けんさ",
+          "en": "Inspection",
+          "kind": "term",
+          "cardId": "card-ja-en-4ec360fdba16dfb7"
+        },
+        {
+          "es": "けんさかん",
+          "en": "Inspector",
+          "kind": "term",
+          "cardId": "card-ja-en-283917bd2a9dcd19"
+        },
+        {
+          "es": "きょかしょ",
+          "en": "Permit",
+          "kind": "term",
+          "cardId": "card-ja-en-768901f7e2186cbf"
+        },
+        {
+          "es": "しょるい",
+          "en": "Document",
+          "kind": "term",
+          "cardId": "card-ja-en-1ce951fc0b296ba4"
+        },
+        {
+          "es": "チェックリスト",
+          "en": "Checklist",
+          "kind": "term",
+          "cardId": "card-ja-en-5d6b626165c8ac3c"
+        },
+        {
+          "es": "しょけん",
+          "en": "Observation",
+          "kind": "term",
+          "cardId": "card-ja-en-d839201425c23c0a"
+        },
+        {
+          "es": "みかんりょう こうもく",
+          "en": "Pending item",
+          "kind": "term",
+          "cardId": "card-ja-en-fcbc011af3e10d13"
+        },
+        {
+          "es": "しょうにん",
+          "en": "Approval",
+          "kind": "term",
+          "cardId": "card-ja-en-c364a5d6e950b80f"
+        },
+        {
+          "es": "せきにんしゃ",
+          "en": "Responsible person",
+          "kind": "term",
+          "cardId": "card-ja-en-e69bf8f42d984a5a"
+        },
+        {
+          "es": "かいとう",
+          "en": "Response",
+          "kind": "term",
+          "cardId": "card-ja-en-294f0c4e497aedba"
+        },
+        {
+          "es": "けんさかんは、どの しょるいが ひつよう ですか。",
+          "en": "Which document does the inspector need?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-97c6708e821fc083"
+        },
+        {
+          "es": "チェックリストに みかんりょう こうもくが あります。",
+          "en": "The checklist has a pending item.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c644652b4801b5ae"
+        },
+        {
+          "es": "しょうにんの かくにんは とれて いません。",
+          "en": "We do not have confirmation of approval.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6ec677515af11df0"
+        },
+        {
+          "es": "しょけんは、いみを かえずに きろくしてください。",
+          "en": "Record the observation without changing its meaning.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ee8b8b1e1818d727"
+        },
+        {
+          "es": "かいとうは だれが しますか。",
+          "en": "Who will provide the response?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-23841ef139429e2e"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:18",
+        "title": "Prepare for an inspection",
+        "sentences": [
+          {
+            "target": "せきにんしゃは、きょかしょと、けんさの ために もとめられた それぞれの しょるいを じゅんびします。",
+            "native": "The responsible person prepares the permit and each document requested for the inspection."
+          },
+          {
+            "target": "チェックリストでは、しょけん、みかんりょう こうもく、じっさいに うけた しょうにんを くべつします。",
+            "native": "The checklist distinguishes an observation, a pending item and an approval actually received."
+          },
+          {
+            "target": "けんさかんは、していされた れんらく たんとうしゃから かいとうを うけます。しょくちょうは、みかんりょうの チェック こうもくを、すでに しょうにんされた かのようには しめしません。",
+            "native": "The inspector receives a response from the designated contact; the foreman does not present a pending check as if it had already been approved."
+          },
+          {
+            "target": "けんさかんは、どの しょるいが ひつよう ですか。",
+            "native": "Which document does the inspector need?"
+          },
+          {
+            "target": "チェックリストに みかんりょう こうもくが あります。",
+            "native": "The checklist has a pending item."
+          },
+          {
+            "target": "しょうにんの かくにんは とれて いません。",
+            "native": "We do not have confirmation of approval."
+          },
+          {
+            "target": "しょけんは、いみを かえずに きろくしてください。",
+            "native": "Record the observation without changing its meaning."
+          },
+          {
+            "target": "かいとうは だれが しますか。",
+            "native": "Who will provide the response?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use みかんりょう こうもく for a pending checklist item and しょうにん for actual approval. Do not describe an unconfirmed approval as granted.",
+        "teachingNotesEnglish": [
+          "けんさ (inspection) and けんさかん (inspector) follow the earlier lesson terms. The inspector is the person who performs the inspection.",
+          "きょかしょ (permit) is a written permission document. しょるい (document) is the general word for any paper or file.",
+          "みかんりょう こうもく is an open item; it says nothing about approval. しょうにん means approval; じっさいに うけた しょうにん is approval actually received.",
+          "しょけん means an observation or written finding, without automatically implying a defect or approval.",
+          "もとめられた is a passive form meaning requested. In the sentence it modifies the documents; the permit is listed separately.",
+          "すでに しょうにんされた かのように means as if it had already been approved. The foreman does not present a pending checklist item that way. かえずに means without changing.",
+          "です and ます are polite statement endings; adding か makes a polite question, such as ですか or ますか."
+        ],
+        "examples": [
+          {
+            "es": "せきにんしゃは、きょかしょと、けんさの ために もとめられた それぞれの しょるいを じゅんびします。",
+            "en": "The responsible person prepares the permit and each document requested for the inspection."
+          },
+          {
+            "es": "チェックリストでは、しょけん、みかんりょう こうもく、じっさいに うけた しょうにんを くべつします。",
+            "en": "The checklist distinguishes an observation, a pending item and an approval actually received."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:18",
+        "summary": "Summarize the required documents and observations, identify pending checks separately from approvals, and confirm who will respond to the inspector.",
+        "openingLine": "チェックリストに みかんりょう こうもくが あります。しょうにんの かくにんは とれて いません。",
+        "partnerRole": "The designated inspection contact who checks the permit and documents, records pending items and coordinates a response without claiming approval prematurely.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "せきにんしゃは、____と、けんさの ために もとめられた それぞれの しょるいを じゅんびします。",
+          "hint": "The responsible person prepares the permit and each document requested for the inspection.",
+          "answer": "きょかしょ",
+          "explanation": "きょかしょ appears in this lesson's reading."
+        },
+        {
+          "prompt": "チェックリストでは、しょけん、みかんりょう こうもく、じっさいに うけた ____を くべつします。",
+          "hint": "The checklist distinguishes an observation, a pending item and an approval actually received.",
+          "answer": "しょうにん",
+          "explanation": "しょうにん appears in this lesson's reading."
+        },
+        {
+          "prompt": "____は、していされた れんらく たんとうしゃから かいとうを うけます。しょくちょうは、みかんりょうの チェック こうもくを、すでに しょうにんされた かのようには しめしません。",
+          "hint": "The inspector receives a response from the designated contact; the foreman does not present a pending check as if it had already been approved.",
+          "answer": "けんさかん",
+          "explanation": "けんさかん appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-a49ce3226002e59a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょうりょく ぎょうしゃ",
+      "native": "Subcontractor",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-d6b049b114ae5725",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チーム",
+      "native": "Team",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-a15877b54d6a50cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "いぞん かんけい",
+      "native": "Dependency",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-80bca86c1fed4901",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう ひきつぎ",
+      "native": "Work handoff",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-a1d0169d2b498a81",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらく たんとうしゃ",
+      "native": "Contact",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-2d91fbb25e1c72d4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つうろ",
+      "native": "Access",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-84f59c2f0530cb42",
+      "courseId": "construction-foreman-ja-en",
+      "target": "カレンダー",
+      "native": "Calendar",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-e2c6fe3b16d0cc1e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つごう",
+      "native": "Availability",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-2aef21dcb70445c6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "こうしん",
+      "native": "Update",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-ecdbe1eae176532a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう ひきつぎを ちょうせい する ひつようが あります。",
+      "native": "We need to coordinate the work handoff.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-9f06cf39a454b301",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。",
+      "native": "Who is the subcontractor's contact?",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-041a6e6f7fb3c4a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この さぎょうは ほかの チームに いぞん して います。",
+      "native": "This task depends on the other team.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-ab16fec55d9a4897",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つうろと つごうを かくにんしてください。",
+      "native": "Confirm access and availability.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-c6058f4122471ae4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "カレンダーの こうしんを おくって ください。",
+      "native": "Send the calendar update.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "card-ja-en-596b3510f77e8df3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもん",
+      "native": "Order",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-ce097bce7e34224f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうにゅうぎょうしゃ",
+      "native": "Supplier",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-69eefd4531b98b8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひん",
+      "native": "Delivery",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-af6979a96e95864e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅうしょ",
+      "native": "Address",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-1c2b43899e73858b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すうりょう",
+      "native": "Quantity",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-2c0ef9c3696b4393",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふそく",
+      "native": "Shortage",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-62f8230632640b09",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅりょうしょ",
+      "native": "Receipt",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-0ddd25268b95c29e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "におろし",
+      "native": "Unloading",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-a6262f1985fe10f5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "にっていの さいちょうせい",
+      "native": "Rescheduling",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-23762420bfd548e0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひんは ちゅうもんと ちがって います。",
+      "native": "The delivery does not match the order.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-26311f8e03f27d64",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅうしょと すうりょうを わたしが かくにん します。",
+      "native": "I will confirm the address and quantity.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-6f2abfa7faf23379",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅりょうしょに ふそくが かいて あります。",
+      "native": "The shortage is on the receipt.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-2fcaa65774a046b8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかされた におろしは だれが かくにんしますか。",
+      "native": "Who confirms the authorized unloading?",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-3df3fe00eb0aabeb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あたらしい のうひんびが ひつようです。",
+      "native": "We need a rescheduled date.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "card-ja-en-4ec360fdba16dfb7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさ",
+      "native": "Inspection",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-283917bd2a9dcd19",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさかん",
+      "native": "Inspector",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-768901f7e2186cbf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかしょ",
+      "native": "Permit",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-1ce951fc0b296ba4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょるい",
+      "native": "Document",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-5d6b626165c8ac3c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チェックリスト",
+      "native": "Checklist",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-fcbc011af3e10d13",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもく",
+      "native": "Pending item",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-c364a5d6e950b80f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうにん",
+      "native": "Approval",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-294f0c4e497aedba",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいとう",
+      "native": "Response",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-97c6708e821fc083",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさかんは、どの しょるいが ひつよう ですか。",
+      "native": "Which document does the inspector need?",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-c644652b4801b5ae",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チェックリストに みかんりょう こうもくが あります。",
+      "native": "The checklist has a pending item.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-6ec677515af11df0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうにんの かくにんは とれて いません。",
+      "native": "We do not have confirmation of approval.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-ee8b8b1e1818d727",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけんは、いみを かえずに きろくしてください。",
+      "native": "Record the observation without changing its meaning.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "card-ja-en-23841ef139429e2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいとうは だれが しますか。",
+      "native": "Who will provide the response?",
+      "kind": "phrase",
+      "firstLesson": 18
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-a49ce3226002e59a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょうりょく ぎょうしゃ",
+      "native": "Subcontractor",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-d6b049b114ae5725",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チーム",
+      "native": "Team",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-a15877b54d6a50cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "いぞん かんけい",
+      "native": "Dependency",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-80bca86c1fed4901",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう ひきつぎ",
+      "native": "Work handoff",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-a1d0169d2b498a81",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらく たんとうしゃ",
+      "native": "Contact",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-2d91fbb25e1c72d4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つうろ",
+      "native": "Access",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-84f59c2f0530cb42",
+      "courseId": "construction-foreman-ja-en",
+      "target": "カレンダー",
+      "native": "Calendar",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-e2c6fe3b16d0cc1e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つごう",
+      "native": "Availability",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-2aef21dcb70445c6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "こうしん",
+      "native": "Update",
+      "kind": "term",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-ecdbe1eae176532a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう ひきつぎを ちょうせい する ひつようが あります。",
+      "native": "We need to coordinate the work handoff.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-9f06cf39a454b301",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょうりょく ぎょうしゃの れんらく たんとうしゃは どなたですか。",
+      "native": "Who is the subcontractor's contact?",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-041a6e6f7fb3c4a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この さぎょうは ほかの チームに いぞん して います。",
+      "native": "This task depends on the other team.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-ab16fec55d9a4897",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つうろと つごうを かくにんしてください。",
+      "native": "Confirm access and availability.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-c6058f4122471ae4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "カレンダーの こうしんを おくって ください。",
+      "native": "Send the calendar update.",
+      "kind": "phrase",
+      "firstLesson": 16
+    },
+    {
+      "id": "dict-ja-en-596b3510f77e8df3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもん",
+      "native": "Order",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-ce097bce7e34224f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうにゅうぎょうしゃ",
+      "native": "Supplier",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-69eefd4531b98b8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひん",
+      "native": "Delivery",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-af6979a96e95864e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅうしょ",
+      "native": "Address",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-1c2b43899e73858b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すうりょう",
+      "native": "Quantity",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-2c0ef9c3696b4393",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふそく",
+      "native": "Shortage",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-62f8230632640b09",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅりょうしょ",
+      "native": "Receipt",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-0ddd25268b95c29e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "におろし",
+      "native": "Unloading",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-a6262f1985fe10f5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "にっていの さいちょうせい",
+      "native": "Rescheduling",
+      "kind": "term",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-23762420bfd548e0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひんは ちゅうもんと ちがって います。",
+      "native": "The delivery does not match the order.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-26311f8e03f27d64",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅうしょと すうりょうを わたしが かくにん します。",
+      "native": "I will confirm the address and quantity.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-6f2abfa7faf23379",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じゅりょうしょに ふそくが かいて あります。",
+      "native": "The shortage is on the receipt.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-2fcaa65774a046b8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかされた におろしは だれが かくにんしますか。",
+      "native": "Who confirms the authorized unloading?",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-3df3fe00eb0aabeb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あたらしい のうひんびが ひつようです。",
+      "native": "We need a rescheduled date.",
+      "kind": "phrase",
+      "firstLesson": 17
+    },
+    {
+      "id": "dict-ja-en-4ec360fdba16dfb7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさ",
+      "native": "Inspection",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-283917bd2a9dcd19",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさかん",
+      "native": "Inspector",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-768901f7e2186cbf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかしょ",
+      "native": "Permit",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-1ce951fc0b296ba4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょるい",
+      "native": "Document",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-5d6b626165c8ac3c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チェックリスト",
+      "native": "Checklist",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-fcbc011af3e10d13",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもく",
+      "native": "Pending item",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-c364a5d6e950b80f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうにん",
+      "native": "Approval",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-294f0c4e497aedba",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいとう",
+      "native": "Response",
+      "kind": "term",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-97c6708e821fc083",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさかんは、どの しょるいが ひつよう ですか。",
+      "native": "Which document does the inspector need?",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-c644652b4801b5ae",
+      "courseId": "construction-foreman-ja-en",
+      "target": "チェックリストに みかんりょう こうもくが あります。",
+      "native": "The checklist has a pending item.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-6ec677515af11df0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうにんの かくにんは とれて いません。",
+      "native": "We do not have confirmation of approval.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-ee8b8b1e1818d727",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけんは、いみを かえずに きろくしてください。",
+      "native": "Record the observation without changing its meaning.",
+      "kind": "phrase",
+      "firstLesson": 18
+    },
+    {
+      "id": "dict-ja-en-23841ef139429e2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいとうは だれが しますか。",
+      "native": "Who will provide the response?",
+      "kind": "phrase",
+      "firstLesson": 18
+    }
+  ]
+}

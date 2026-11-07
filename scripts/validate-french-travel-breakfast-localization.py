@@ -74,7 +74,18 @@ def main():
     burn = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:25")
     assert burn["requiresQualifiedReview"] is True
     assert "Oaxaca" not in json.dumps(burn["reader"], ensure_ascii=False)
-    assert "small burn" not in json.dumps(burn["reader"], ensure_ascii=False)
+    assert "small burn" in burn["reader"][5]["supportEnglish"]
+    assert "petite brûlure" in burn["reader"][5]["targetFrench"]
+    reaction = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "master:13")
+    assert reaction["reviewed"] is False and reaction["registered"] is False
+    clinical_terms = {word["supportEnglish"]: word["targetFrench"] for word in reaction["words"]}
+    assert clinical_terms["the itchy throat"] == "la gorge qui gratte"
+    assert clinical_terms["the hives"] == "l’urticaire"
+    assert clinical_terms["the lip swelling"] == "le gonflement des lèvres"
+    assert clinical_terms["difficulty breathing"] == "des difficultés à respirer"
+    assert clinical_terms["dizzy"] == "étourdie"
+    assert any("urticaire" in line["targetFrench"] for line in reaction["reader"])
+    assert any("difficultés à respirer" in line["targetFrench"] for line in reaction["reader"])
     tip = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:29")
     assert "10 percent" not in json.dumps(tip["reader"], ensure_ascii=False)
     assert "dix pour cent" not in json.dumps(tip["reader"], ensure_ascii=False)

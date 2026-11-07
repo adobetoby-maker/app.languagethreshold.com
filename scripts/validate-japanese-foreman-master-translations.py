@@ -13,6 +13,7 @@ batches = [
     ("master-translation-4-6-draft.json", 4, 6),
     ("master-translation-7-9-draft.json", 7, 9),
     ("master-translation-10-12-draft.json", 10, 12),
+    ("master-translation-13-15-draft.json", 13, 15),
 ]
 
 for filename, first, last in batches:
@@ -43,6 +44,11 @@ for filename, first, last in batches:
         ], n
         assert all(word.get("ja", "").strip() for word in translated["terms"]), n
         assert translated.get("speakingJapanese", "").strip(), n
+        if "911" in original["speaking"]:
+            assert "911" in translated["speakingJapanese"], (
+                n,
+                "US emergency number changed in Japanese speaking prompt",
+            )
         assert translated.get("grammarTeachingJapanese", "").strip(), n
         assert len(translated.get("grammarExamplesJapanese", [])) == len(
             original["grammar"]["examples"]

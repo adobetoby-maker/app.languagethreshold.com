@@ -1,0 +1,497 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "e71d2da5abeb58cd7933cd814417c5969a7625c04da017076ce33d32809a59b0",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 16,
+      "titleEnglish": "Nailing Zone",
+      "objectiveEnglishSource": "Correct nails placed outside the specified zone",
+      "titleFrench": "Repérer la zone de clouage",
+      "objectiveFrench": "Signaler un clou hors de la zone prévue et demander une correction conforme au produit.",
+      "speakingEnglishSource": "Tell a worker 'Nail in the strip — not too high' and explain the correction.",
+      "speakingFrenchInstruction": "Signalez un clou hors de la zone prévue. Demandez au responsable de montrer la zone de clouage du produit et la correction approuvée.",
+      "speakingFrenchOpening": "Arrêtons ce rang : ce clou semble trop haut. Où le fabricant indique-t-il la zone de clouage ?",
+      "grammarFocusFrench": "Impératif pluriel pour arrêter et demander une correction; trop + adjectif/adverbe; où se trouve pour localiser.",
+      "words": [
+        {
+          "en": "nailing strip",
+          "kind": "term",
+          "fr": "la bande de clouage"
+        },
+        {
+          "en": "high nail",
+          "kind": "term",
+          "fr": "le clou placé trop haut"
+        },
+        {
+          "en": "fastener",
+          "kind": "term",
+          "fr": "la fixation"
+        },
+        {
+          "en": "nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "shingle",
+          "kind": "term",
+          "fr": "le bardeau"
+        },
+        {
+          "en": "nail gun",
+          "kind": "term",
+          "fr": "la cloueuse"
+        },
+        {
+          "en": "nailing zone",
+          "kind": "term",
+          "fr": "la zone de clouage"
+        },
+        {
+          "en": "sealant strip",
+          "kind": "term",
+          "fr": "la bande adhésive"
+        },
+        {
+          "en": "tab",
+          "kind": "term",
+          "fr": "la patte du bardeau"
+        },
+        {
+          "en": "Nail in the strip — not too high.",
+          "kind": "phrase",
+          "fr": "Clouez dans la bande, pas trop haut.",
+          "noteEnglish": "Source language example; verify product nailing zone, correction and tool safety with a qualified roofer."
+        },
+        {
+          "en": "That nail is too high.",
+          "kind": "phrase",
+          "fr": "Ce clou est trop haut."
+        },
+        {
+          "en": "Keep the nails inside the nailing zone.",
+          "kind": "phrase",
+          "fr": "Gardez les clous dans la zone de clouage."
+        },
+        {
+          "en": "Fix this row.",
+          "kind": "phrase",
+          "fr": "Corrigez ce rang.",
+          "noteEnglish": "Source language example; verify product nailing zone, correction and tool safety with a qualified roofer."
+        },
+        {
+          "en": "Do it like this.",
+          "kind": "phrase",
+          "fr": "Faites comme ceci.",
+          "noteEnglish": "Source language example; verify product nailing zone, correction and tool safety with a qualified roofer."
+        },
+        {
+          "en": "Show me where the strip is.",
+          "kind": "phrase",
+          "fr": "Montrez-moi où se trouve la bande."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Repérer la zone de clouage",
+        "target": [
+          "Le contremaître vérifie les bardeaux d’asphalte du nouveau rang.",
+          "Il voit un clou placé trop haut, hors de la bande de clouage.",
+          "Ce clou est trop haut.",
+          "Montrez-moi où se trouve la bande.",
+          "Gardez les clous dans la zone de clouage.",
+          "Corrigez ce rang.",
+          "Le contremaître prend la cloueuse et dit : « Faites comme ceci. »",
+          "Ensuite, Pedro vérifie chaque clou avec plus d’attention."
+        ],
+        "native": [
+          "The foreman checks the asphalt shingles in the new course.",
+          "He sees a nail that is too high, outside the nailing strip.",
+          "That nail is too high.",
+          "Show me where the strip is.",
+          "Keep the nails inside the nailing zone.",
+          "Fix this row.",
+          "The foreman takes the nail gun and says: Do it like this.",
+          "Afterward, Pedro checks each nail more carefully."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to nail",
+          "exampleEnglish": "Pedro nails inside the nailing strip.",
+          "sourceInfinitiveSpanish": "clavar",
+          "infinitiveFrench": "clouer",
+          "exampleFrench": "Pedro cloue dans la bande de clouage."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the asphalt shingles in the new course.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le contremaître vérifie les bardeaux d’asphalte du nouveau rang."
+        },
+        {
+          "meaningEnglish": "to fix, to correct",
+          "exampleEnglish": "Pedro fixes the high nail in this row.",
+          "sourceInfinitiveSpanish": "corregir",
+          "infinitiveFrench": "corriger",
+          "exampleFrench": "Pedro corrige le clou placé trop haut dans ce rang."
+        },
+        {
+          "meaningEnglish": "to keep, to hold",
+          "exampleEnglish": "The workers keep the nails inside the nailing zone.",
+          "sourceInfinitiveSpanish": "mantener",
+          "infinitiveFrench": "garder",
+          "exampleFrench": "Les ouvriers gardent les clous dans la zone de clouage."
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "The foreman shows where the strip is.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Le contremaître montre où se trouve la bande."
+        }
+      ],
+      "teachingNotesFrench": "La zone de clouage varie selon le bardeau. Le chef d’équipe doit vérifier les instructions du fabricant; une démonstration de cloueuse dans le récit n’est pas une procédure de formation ou de sécurité.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+        "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 17,
+      "titleEnglish": "Fastener Pattern",
+      "objectiveEnglishSource": "Confirm the manufacturer's fastener count and pattern",
+      "titleFrench": "Confirmer le schéma de fixation",
+      "objectiveFrench": "Demander le nombre et le schéma de fixations indiqués par le fabricant.",
+      "speakingEnglishSource": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern.",
+      "speakingFrenchInstruction": "Mentionnez les « quatre clous » du guide comme exemple de langue, puis demandez le nombre et le schéma exigés par ce produit.",
+      "speakingFrenchOpening": "Le guide donne quatre clous comme exemple. Que demande la notice de ce bardeau ?",
+      "grammarFocusFrench": "Combien de + nom; il faut + infinitif; distinguer exemple du guide et exigences du fabricant.",
+      "words": [
+        {
+          "en": "nail pattern",
+          "kind": "term",
+          "fr": "le schéma de clouage"
+        },
+        {
+          "en": "shingle",
+          "kind": "term",
+          "fr": "le bardeau"
+        },
+        {
+          "en": "manufacturer instructions",
+          "kind": "term",
+          "fr": "les instructions du fabricant"
+        },
+        {
+          "en": "nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "fastener",
+          "kind": "term",
+          "fr": "la fixation"
+        },
+        {
+          "en": "nail gun",
+          "kind": "term",
+          "fr": "la cloueuse"
+        },
+        {
+          "en": "wrapper",
+          "kind": "term",
+          "fr": "l’emballage"
+        },
+        {
+          "en": "product",
+          "kind": "term",
+          "fr": "le produit"
+        },
+        {
+          "en": "number of nails",
+          "kind": "term",
+          "fr": "le nombre de clous"
+        },
+        {
+          "en": "Four nails per shingle.",
+          "kind": "phrase",
+          "fr": "Quatre clous par bardeau.",
+          "noteEnglish": "Guide example only; actual fastener quantity and pattern come from the product instructions."
+        },
+        {
+          "en": "Check the product instructions before setting the nail pattern.",
+          "kind": "phrase",
+          "fr": "Vérifiez les instructions du produit avant de définir le schéma de clouage."
+        },
+        {
+          "en": "How many nails does this shingle need?",
+          "kind": "phrase",
+          "fr": "Combien de clous faut-il pour ce bardeau ?"
+        },
+        {
+          "en": "Read the wrapper.",
+          "kind": "phrase",
+          "fr": "Lisez l’emballage."
+        },
+        {
+          "en": "Use the same pattern on every shingle.",
+          "kind": "phrase",
+          "fr": "Utilisez le même schéma sur chaque bardeau."
+        },
+        {
+          "en": "I need the exact pattern for this product.",
+          "kind": "phrase",
+          "fr": "Il me faut le schéma exact pour ce produit."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Confirmer le schéma de fixation",
+        "target": [
+          "Aujourd’hui, l’équipe ouvre un nouveau paquet de bardeaux d’asphalte.",
+          "Un ouvrier demande : « Combien de clous faut-il pour ce bardeau ? »",
+          "Dans l’exemple du guide, il y en a quatre par bardeau.",
+          "Mais chaque fabricant donne ses propres instructions.",
+          "Lisez l’emballage du paquet.",
+          "Vérifiez les instructions du produit avant de définir le schéma de clouage.",
+          "Il me faut le schéma exact pour ce produit.",
+          "Ensuite, utilisez le même schéma sur chaque bardeau."
+        ],
+        "native": [
+          "Today the crew opens a new package of asphalt shingles.",
+          "A worker asks: How many nails does this shingle need?",
+          "In the guide's example it is four nails per shingle.",
+          "But every manufacturer gives its own instructions.",
+          "Read the wrapper on the package.",
+          "Check the product instructions before setting the nail pattern.",
+          "I need the exact pattern for this product.",
+          "After that, use the same pattern on every shingle."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the product instructions before setting the nail pattern.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Vérifiez les instructions du produit avant de définir le schéma de clouage."
+        },
+        {
+          "meaningEnglish": "to read",
+          "exampleEnglish": "Read the wrapper on the package.",
+          "sourceInfinitiveSpanish": "leer",
+          "infinitiveFrench": "lire",
+          "exampleFrench": "Lisez l’emballage du paquet."
+        },
+        {
+          "meaningEnglish": "to need",
+          "exampleEnglish": "I need the exact pattern for this product.",
+          "sourceInfinitiveSpanish": "necesitar",
+          "infinitiveFrench": "avoir besoin de",
+          "exampleFrench": "Il me faut le schéma exact pour ce produit."
+        },
+        {
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Use the same pattern on every shingle.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "utiliser",
+          "exampleFrench": "Utilisez le même schéma sur chaque bardeau."
+        },
+        {
+          "meaningEnglish": "to open",
+          "exampleEnglish": "Today the crew opens a new package of asphalt shingles.",
+          "sourceInfinitiveSpanish": "abrir",
+          "infinitiveFrench": "ouvrir",
+          "exampleFrench": "Aujourd’hui, l’équipe ouvre un nouveau paquet de bardeaux d’asphalte."
+        }
+      ],
+      "teachingNotesFrench": "Quatre clous est uniquement l’exemple du guide. Quantité, schéma et disposition exigent la notice du produit et les conditions du chantier.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+        "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 18,
+      "titleEnglish": "Avoid Overdriven Nails",
+      "objectiveEnglishSource": "Identify and correct overdriven fasteners",
+      "titleFrench": "Arrêter en cas de clous trop enfoncés",
+      "objectiveFrench": "Arrêter la pose lorsque les clous semblent trop enfoncés et demander la vérification de l’outil et de la réparation.",
+      "speakingEnglishSource": "Stop installation when the nail gun is burying nails and ask for an adjustment.",
+      "speakingFrenchInstruction": "Arrêtez la pose si les clous semblent trop enfoncés. Demandez à une personne qualifiée de vérifier l’outil et la méthode de correction prévue par le fabricant.",
+      "speakingFrenchOpening": "Arrêtons la pose : ces clous semblent trop enfoncés. Qui peut vérifier la cloueuse et la correction approuvée ?",
+      "grammarFocusFrench": "Négation à l’impératif; sembler + adjectif; demander une vérification sans prescrire un réglage ou une réparation non approuvés.",
+      "words": [
+        {
+          "en": "overdriven nail",
+          "kind": "term",
+          "fr": "le clou trop enfoncé"
+        },
+        {
+          "en": "shingle",
+          "kind": "term",
+          "fr": "le bardeau"
+        },
+        {
+          "en": "nail gun",
+          "kind": "term",
+          "fr": "la cloueuse"
+        },
+        {
+          "en": "air pressure",
+          "kind": "term",
+          "fr": "la pression d’air"
+        },
+        {
+          "en": "compressor",
+          "kind": "term",
+          "fr": "le compresseur"
+        },
+        {
+          "en": "depth",
+          "kind": "term",
+          "fr": "la profondeur"
+        },
+        {
+          "en": "nail head",
+          "kind": "term",
+          "fr": "la tête du clou"
+        },
+        {
+          "en": "hose",
+          "kind": "term",
+          "fr": "le tuyau"
+        },
+        {
+          "en": "adjust",
+          "kind": "term",
+          "fr": "régler"
+        },
+        {
+          "en": "Don't over-drive the nails.",
+          "kind": "phrase",
+          "fr": "N’enfoncez pas trop les clous."
+        },
+        {
+          "en": "Stop. The nails are too deep.",
+          "kind": "phrase",
+          "fr": "Arrêtez. Les clous sont trop enfoncés."
+        },
+        {
+          "en": "Lower the air pressure.",
+          "kind": "phrase",
+          "fr": "Réduisez la pression d’air.",
+          "noteEnglish": "Source dialogue, not a universal tool setting or repair; qualified person and manufacturer method required."
+        },
+        {
+          "en": "The nail head must sit flush.",
+          "kind": "phrase",
+          "fr": "La tête du clou doit affleurer."
+        },
+        {
+          "en": "Put a new nail next to it.",
+          "kind": "phrase",
+          "fr": "Placez un nouveau clou à côté.",
+          "noteEnglish": "Source dialogue, not a universal tool setting or repair; qualified person and manufacturer method required."
+        },
+        {
+          "en": "Adjust the nail gun.",
+          "kind": "phrase",
+          "fr": "Réglez la cloueuse.",
+          "noteEnglish": "Source dialogue, not a universal tool setting or repair; qualified person and manufacturer method required."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Arrêter en cas de clous trop enfoncés",
+        "target": [
+          "Le contremaître parcourt le toit et écoute la cloueuse.",
+          "Certains clous semblent trop enfoncés.",
+          "Le contremaître lève la main et dit : « Arrêtez. Les clous sont trop enfoncés. »",
+          "La tête du clou doit affleurer.",
+          "Un ouvrier vérifie le compresseur et le tuyau.",
+          "Réduisez la pression d’air.",
+          "Réglez la cloueuse.",
+          "Placez un nouveau clou à côté.",
+          "Vérifiez la profondeur sur quelques bardeaux avant de continuer."
+        ],
+        "native": [
+          "The foreman walks the roof and listens to the nail gun.",
+          "Some nails look overdriven.",
+          "The foreman raises his hand and says: Stop. The nails are too deep.",
+          "The nail head has to sit flush.",
+          "A worker checks the compressor and the hose.",
+          "Lower the air pressure.",
+          "Adjust the nail gun.",
+          "Put a new nail next to it.",
+          "Check the depth on a few shingles before continuing."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to adjust",
+          "exampleEnglish": "Adjust the nail gun.",
+          "sourceInfinitiveSpanish": "ajustar",
+          "infinitiveFrench": "régler",
+          "exampleFrench": "Réglez la cloueuse."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "A worker checks the compressor and the hose.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Un ouvrier vérifie le compresseur et le tuyau."
+        },
+        {
+          "meaningEnglish": "to lower",
+          "exampleEnglish": "Lower the air pressure.",
+          "sourceInfinitiveSpanish": "bajar",
+          "infinitiveFrench": "réduire",
+          "exampleFrench": "Réduisez la pression d’air."
+        },
+        {
+          "meaningEnglish": "to put",
+          "exampleEnglish": "Put a new nail next to it.",
+          "sourceInfinitiveSpanish": "poner",
+          "infinitiveFrench": "placer",
+          "exampleFrench": "Placez un nouveau clou à côté."
+        },
+        {
+          "meaningEnglish": "to nail, to drive a nail",
+          "exampleEnglish": "Don't over-drive the nails.",
+          "sourceInfinitiveSpanish": "clavar",
+          "infinitiveFrench": "enfoncer",
+          "exampleFrench": "N’enfoncez pas trop les clous."
+        }
+      ],
+      "teachingNotesFrench": "La source demande de réduire la pression et de poser un clou à côté; ces gestes ne sont pas une réparation universelle. Arrêter la pose, faire vérifier l’outil et suivre la méthode du fabricant par une personne qualifiée.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+        "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    }
+  ]
+}

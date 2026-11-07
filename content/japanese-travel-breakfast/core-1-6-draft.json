@@ -560,6 +560,537 @@
         "say": "Ask about three pastries and request a recommendation.",
         "write": "Write a question about baking time and a recommendation request."
       }
+    },
+    {
+      "n": 4,
+      "stableId": "travel-breakfast:4:ja-en",
+      "sourceEnglish": {
+        "objective": "request eggs, sides, toast, fruit, and cooking preferences",
+        "roleplay": "Build a complete hot breakfast order and confirm what is included.",
+        "englishWordAnchors": [
+          "scrambled eggs",
+          "fried eggs",
+          "bacon",
+          "toast",
+          "fruit",
+          "orange juice",
+          "sausage",
+          "potatoes",
+          "butter",
+          "table",
+          "menu",
+          "without salt",
+          "I want two scrambled eggs, please.",
+          "Can you bring me toast?",
+          "I want them well done.",
+          "Does it come with fruit?",
+          "Is the coffee included?",
+          "What comes with the breakfast?"
+        ],
+        "englishReading": [
+          "A traveler walks into a café in the morning.",
+          "He sits at a table and looks at the menu.",
+          "The waitress asks: What would you like?",
+          "He says: I want two scrambled eggs, please.",
+          "He also orders bacon, toast, and fruit.",
+          "The waitress asks: How do you want the eggs?",
+          "He answers: I want them well done, without salt.",
+          "Then he asks: Is the coffee included?",
+          "The waitress says: Yes, the coffee is included."
+        ],
+        "englishSourceSha256": "6c14b80b2f409fd0a957fc832213a0a08eb039072e3c54762e20630fb990e26b"
+      },
+      "title": "Ordering a full breakfast",
+      "objective": "Order eggs and sides, state a cooking preference, and ask which items are included.",
+      "focus": "～をお願いします makes a polite order. 焼き加減 means cooking level; よく焼いてください requests well cooked. セットに含まれますか checks whether something is included. Menu contents and cooking choices vary; do not imply a fixed breakfast set.",
+      "scene": "Sam sees an egg breakfast set on a café menu and asks what comes with it.",
+      "cards": [
+        {
+          "ja": "朝食セット",
+          "en": "breakfast set",
+          "kind": "term"
+        },
+        {
+          "ja": "卵料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "目玉焼き",
+          "en": "fried egg",
+          "kind": "term"
+        },
+        {
+          "ja": "スクランブルエッグ",
+          "en": "scrambled eggs",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "果物",
+          "en": "fruit",
+          "kind": "term"
+        },
+        {
+          "ja": "オレンジジュース",
+          "en": "orange juice",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き加減",
+          "en": "cooking level",
+          "kind": "term"
+        },
+        {
+          "ja": "よく焼いてください",
+          "en": "Please cook it well",
+          "kind": "term"
+        },
+        {
+          "ja": "セットに含まれますか",
+          "en": "Is it included in the set?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何が付きますか",
+          "en": "What comes with it?",
+          "kind": "term"
+        },
+        {
+          "ja": "塩なしでお願いします",
+          "en": "Without salt, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "この朝食セットには何が付きますか。",
+          "en": "What comes with this breakfast set?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "卵料理とトーストと果物が付きます。",
+          "en": "It comes with an egg dish, toast, and fruit."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "卵料理は選べますか。",
+          "en": "Can I choose the egg dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、目玉焼きかスクランブルエッグです。",
+          "en": "Yes, fried or scrambled eggs."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スクランブルエッグをお願いします。",
+          "en": "Scrambled eggs, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "よく焼いてください。",
+          "en": "Please cook them well."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーもセットに含まれますか。",
+          "en": "Is coffee included in the set too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ、コーヒーは別料金です。",
+          "en": "No, coffee costs extra."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering breakfast",
+        "partnerRole": "Café server",
+        "opening": "朝食セットはいかがですか。",
+        "goal": "Ask what is included, choose an egg dish, state a cooking preference, and check whether coffee costs extra.",
+        "closure": "Repeat the staff’s answer without assuming all breakfast sets are the same.",
+        "wordBank": [
+          "朝食セット",
+          "何が付きますか",
+          "スクランブルエッグ",
+          "よく焼いてください",
+          "含まれますか"
+        ]
+      },
+      "modes": {
+        "see": "Read a breakfast-set exchange with aligned English.",
+        "recall": "Recall egg dishes, sides and included-price questions.",
+        "hear": "Hear the distinction between 目玉焼き and スクランブルエッグ.",
+        "type": "Type a cooking preference with kana help.",
+        "say": "Order an egg set and ask what comes with it.",
+        "write": "Write a short order plus an inclusion question."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "travel-breakfast:5:ja-en",
+      "sourceEnglish": {
+        "objective": "ask whether breakfast is included, the hours, room number, and buffet rules",
+        "roleplay": "Arrive at a hotel breakfast and resolve uncertainty about access and seating.",
+        "englishWordAnchors": [
+          "breakfast",
+          "dining room",
+          "hours, schedule",
+          "room number",
+          "buffet",
+          "receptionist",
+          "table",
+          "plate",
+          "coffee",
+          "rules",
+          "Is breakfast included?",
+          "What are the breakfast hours?",
+          "My room is 214.",
+          "Can I sit at any table?",
+          "Excuse me, what are the buffet rules?",
+          "Can you repeat that, please?"
+        ],
+        "englishReading": [
+          "A traveler arrives at the hotel dining room in the morning.",
+          "He talks to the receptionist: Is breakfast included?",
+          "She says: Yes, it is included with your room.",
+          "He asks: What are the breakfast hours?",
+          "She answers that the hours are from 6:30 to 10:00, according to the hotel.",
+          "The traveler gives his room number: 214.",
+          "Then he asks: Is it a buffet or a menu?",
+          "She explains the buffet rules: take a clean plate and do not take food with you.",
+          "He looks for a free table and gets coffee."
+        ],
+        "englishSourceSha256": "9483a580b4b5b971308a7f50648ac705c8b9dd9733bc2b8d897c245d1e9dfe23"
+      },
+      "title": "Checking hotel breakfast",
+      "objective": "Ask whether your room plan includes breakfast, confirm the hours, and ask how the buffet works.",
+      "focus": "朝食付き means breakfast included in a particular booking; it is not assumed. 何時から何時まで asks the hours. 部屋番号 is room number. Follow the hotel’s stated buffet rules rather than treating one hotel’s practice as universal.",
+      "scene": "At the hotel dining-room entrance, Sam gives a room number and checks the booking.",
+      "cards": [
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食付き",
+          "en": "breakfast included",
+          "kind": "term"
+        },
+        {
+          "ja": "宿泊プラン",
+          "en": "room plan",
+          "kind": "term"
+        },
+        {
+          "ja": "食事会場",
+          "en": "dining room",
+          "kind": "term"
+        },
+        {
+          "ja": "営業時間",
+          "en": "opening hours",
+          "kind": "term"
+        },
+        {
+          "ja": "何時から何時まで",
+          "en": "from what time to what time",
+          "kind": "term"
+        },
+        {
+          "ja": "部屋番号",
+          "en": "room number",
+          "kind": "term"
+        },
+        {
+          "ja": "ビュッフェ",
+          "en": "buffet",
+          "kind": "term"
+        },
+        {
+          "ja": "皿",
+          "en": "plate",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "確認します",
+          "en": "I will check",
+          "kind": "term"
+        },
+        {
+          "ja": "ルールを教えてください",
+          "en": "Please explain the rules",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。朝食はこちらですか。",
+          "en": "Good morning. Is breakfast here?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい。お部屋番号をお願いします。",
+          "en": "Yes. Your room number, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "二一四号室です。",
+          "en": "Room 214."
+        },
+        {
+          "speaker": "Host",
+          "ja": "宿泊プランを確認します。",
+          "en": "I will check your room plan."
+        },
+        {
+          "speaker": "Host",
+          "ja": "朝食付きのプランです。",
+          "en": "Your plan includes breakfast."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "朝食は何時から何時までですか。",
+          "en": "What are the breakfast hours?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "六時半から十時までです。",
+          "en": "From six thirty to ten."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ビュッフェのルールを教えてください。",
+          "en": "Please explain the buffet rules."
+        },
+        {
+          "speaker": "Host",
+          "ja": "こちらで新しいお皿をお取りください。",
+          "en": "Please take a clean plate here."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel breakfast guest",
+        "partnerRole": "Hotel dining-room host",
+        "opening": "おはようございます。お部屋番号をお願いします。",
+        "goal": "Provide a room number, ask whether the booked plan includes breakfast, confirm hours and ask about buffet rules.",
+        "closure": "Follow only the host’s stated rules for this hotel.",
+        "wordBank": [
+          "部屋番号",
+          "朝食付き",
+          "宿泊プラン",
+          "何時から何時まで",
+          "ビュッフェ",
+          "ルール"
+        ]
+      },
+      "modes": {
+        "see": "Read the hotel check-in and reveal English support.",
+        "recall": "Recall room, inclusion, hours and buffet questions.",
+        "hear": "Hear the room number and hours.",
+        "type": "Type a question about hours with guided input.",
+        "say": "Check breakfast access and ask about rules.",
+        "write": "Write room number, inclusion and hours questions."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "travel-breakfast:6:ja-en",
+      "sourceEnglish": {
+        "objective": "state an allergy or dietary need and confirm ingredients without seeking medical advice",
+        "roleplay": "Ask whether a breakfast item contains nuts, dairy, gluten, meat, or another ingredient.",
+        "englishWordAnchors": [
+          "allergy",
+          "nuts",
+          "peanuts",
+          "dairy",
+          "gluten",
+          "meat",
+          "ingredients",
+          "bread",
+          "butter",
+          "server",
+          "I have an allergy to nuts.",
+          "What ingredients does it have?",
+          "I don't eat meat.",
+          "Can you check with the kitchen, please?",
+          "I prefer to avoid dairy.",
+          "Does this bread have gluten?"
+        ],
+        "englishReading": [
+          "I am in a café and I talk to the server before ordering.",
+          "First I say: I have an allergy to nuts.",
+          "Then I ask: What ingredients does it have?",
+          "The server is not sure, so he is going to check with the kitchen.",
+          "Afterward he tells me that, according to the kitchen, the bread has no nuts.",
+          "I also say: I don't eat meat, and I ask if the filling has meat in it.",
+          "If the kitchen is not sure, I order something else.",
+          "I only confirm the ingredients and I do not ask for medical advice."
+        ],
+        "englishSourceSha256": "245627931d1f11044d3f1cf856847c9324abc42d169a0674135f8a8b45b2e5d8"
+      },
+      "title": "State a food restriction",
+      "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
+      "focus": "アレルギーがあります states an allergy; 肉を食べません states a preference and must not be conflated. 原材料 asks about ingredients; 調理器具 asks about utensils and possible shared handling. A statement that an ingredient is absent does not prove a dish is safe. If staff cannot confirm, do not order that dish. This language is a communication draft pending qualified food-allergy review, not medical advice.",
+      "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+      "cards": [
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツ",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "ja": "乳製品",
+          "en": "dairy products",
+          "kind": "term"
+        },
+        {
+          "ja": "小麦",
+          "en": "wheat",
+          "kind": "term"
+        },
+        {
+          "ja": "グルテン",
+          "en": "gluten",
+          "kind": "term"
+        },
+        {
+          "ja": "肉",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理器具",
+          "en": "cooking utensils",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "Please check",
+          "kind": "term"
+        },
+        {
+          "ja": "わかりません",
+          "en": "I do not know",
+          "kind": "term"
+        },
+        {
+          "ja": "注文しません",
+          "en": "I will not order it",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツアレルギーがあります",
+          "en": "I have a nut allergy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "肉は食べません",
+          "en": "I do not eat meat",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。同行者にナッツアレルギーがあります。",
+          "en": "Excuse me. My companion has a nut allergy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このパンの原材料を確認していただけますか。",
+          "en": "Could you check the ingredients of this bread?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。少々お待ちください。",
+          "en": "I will check with the kitchen. Please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "原材料は確認できましたが、調理器具は共用です。",
+          "en": "We checked the ingredients, but the cooking utensils are shared."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "詳しい取り扱いは確認できますか。",
+          "en": "Can you confirm how it is handled in detail?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "申し訳ありません。そこまでは確認できません。",
+          "en": "I am sorry. I cannot confirm that."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。このパンは注文しません。",
+          "en": "I understand. I will not order this bread."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler communicating a companion’s restriction",
+        "partnerRole": "Café staff",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "State the companion’s allergy, request an ingredient and handling check, and decline the item if staff cannot verify it.",
+        "closure": "Do not interpret an ingredient list alone as proof of safety; this practice scenario is not medical advice.",
+        "wordBank": [
+          "ナッツアレルギー",
+          "原材料",
+          "調理器具",
+          "確認していただけますか",
+          "注文しません"
+        ]
+      },
+      "modes": {
+        "see": "Read the restriction scene with aligned English.",
+        "recall": "Distinguish an allergy from a food preference.",
+        "hear": "Hear 確認できます and 確認できません.",
+        "type": "Type an ingredient-check request with kana support.",
+        "say": "State a restriction and ask for verification without assuming safety.",
+        "write": "Write a brief restriction statement and a decline when facts are uncertain."
+      }
     }
   ],
   "reviewGates": [

@@ -3,7 +3,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/vs/duolingo")({
   component: DuolingoComparison,
   head: () => ({
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com/vs/duolingo" }],
     meta: [
+      { property: "og:title", content: "Language Threshold vs Duolingo" },
+      {
+        property: "og:description",
+        content: "Compare work conversations, practice tools and learning plans.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/vs/duolingo" },
+      { name: "twitter:title", content: "Language Threshold vs Duolingo" },
+      {
+        name: "twitter:description",
+        content: "Compare work conversations, practice tools and learning plans.",
+      },
       { title: "Language Threshold vs Duolingo for Professionals" },
       {
         name: "description",

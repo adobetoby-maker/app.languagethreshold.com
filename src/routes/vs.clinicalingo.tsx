@@ -3,7 +3,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/vs/clinicalingo")({
   component: ClinicaLingoComparison,
   head: () => ({
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com/vs/clinicalingo" }],
     meta: [
+      { property: "og:title", content: "Language Threshold vs ClinicaLingo" },
+      {
+        property: "og:description",
+        content: "Compare role-specific language practice with clinical Spanish training.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/vs/clinicalingo" },
+      { name: "twitter:title", content: "Language Threshold vs ClinicaLingo" },
+      {
+        name: "twitter:description",
+        content: "Compare role-specific language practice with clinical Spanish training.",
+      },
       { title: "Language Threshold vs ClinicaLingo — Professional Language Training" },
       {
         name: "description",

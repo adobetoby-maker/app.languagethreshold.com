@@ -58,11 +58,25 @@ const softwareAppSchema = {
   url: "https://app.languagethreshold.com",
   applicationCategory: "EducationalApplication",
   operatingSystem: "Web, iOS, Android",
-  offers: {
+  offers: [
+    ["Individual monthly", "19", "MON"],
+    ["Individual annual", "149", "ANN"],
+    ["Family monthly", "35", "MON"],
+    ["Family annual", "249", "ANN"],
+    ["Team — five learner seats", "99", "MON"],
+  ].map(([name, price, unitCode]) => ({
     "@type": "Offer",
-    price: "0",
+    name,
+    price,
     priceCurrency: "USD",
-  },
+    url: "https://app.languagethreshold.com/pricing",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price,
+      priceCurrency: "USD",
+      unitCode,
+    },
+  })),
   image: "https://app.languagethreshold.com/icons/og-image.png",
 };
 

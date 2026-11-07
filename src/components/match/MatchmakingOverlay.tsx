@@ -296,7 +296,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
             <div className="font-mono text-[10px] uppercase tracking-[0.4em] text-gold/70">
               ⚔ Language Match ⚔
             </div>
-            <h1 className="mt-2 font-display text-4xl italic text-white">The Arena</h1>
+            <h2 className="mt-2 font-display text-4xl text-white">The Arena</h2>
             <p className="mt-2 text-sm text-white/70">Practice against a simulated opponent.</p>
           </div>
         )}

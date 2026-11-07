@@ -13,7 +13,7 @@ export function InitialAppShell() {
       </header>
       <main className="mx-auto max-w-5xl px-6 py-12" aria-busy="true">
         <p className="mb-4 text-sm font-semibold text-gold-ink">
-          Job-specific language training for nurses, foremen, teams, coaches, and missionaries
+          Job-specific language training for nurses and foremen
         </p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
           Practice the conversations your work actually needs.

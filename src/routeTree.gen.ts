@@ -89,6 +89,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
+import { Route as VsCanopylearnRouteImport } from './routes/vs.canopylearn'
 import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
 import { Route as VsDuolingoRouteImport } from './routes/vs.duolingo'
 
@@ -492,6 +493,11 @@ const TeamAcceptRoute = TeamAcceptRouteImport.update({
   path: '/team/accept',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VsCanopylearnRoute = VsCanopylearnRouteImport.update({
+  id: '/vs/canopylearn',
+  path: '/vs/canopylearn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VsClinicalingoRoute = VsClinicalingoRouteImport.update({
   id: '/vs/clinicalingo',
   path: '/vs/clinicalingo',
@@ -583,6 +589,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog/': typeof BlogIndexRoute
@@ -667,6 +674,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog': typeof BlogIndexRoute
@@ -752,6 +760,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog/': typeof BlogIndexRoute
@@ -838,6 +847,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog/'
@@ -922,6 +932,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog'
@@ -1006,6 +1017,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team_/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog/'
@@ -1091,6 +1103,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
+  VsCanopylearnRoute: typeof VsCanopylearnRoute
   VsClinicalingoRoute: typeof VsClinicalingoRoute
   VsDuolingoRoute: typeof VsDuolingoRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1658,6 +1671,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamAcceptRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vs/canopylearn': {
+      id: '/vs/canopylearn'
+      path: '/vs/canopylearn'
+      fullPath: '/vs/canopylearn'
+      preLoaderRoute: typeof VsCanopylearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vs/clinicalingo': {
       id: '/vs/clinicalingo'
       path: '/vs/clinicalingo'
@@ -1755,6 +1775,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
+  VsCanopylearnRoute: VsCanopylearnRoute,
   VsClinicalingoRoute: VsClinicalingoRoute,
   VsDuolingoRoute: VsDuolingoRoute,
   BlogIndexRoute: BlogIndexRoute,

@@ -4312,6 +4312,583 @@
         "say": "Report a collapse to staff without diagnosing.",
         "write": "Write a factual location and observation report."
       }
+    },
+    {
+      "n": 25,
+      "stableId": "travel-breakfast:25:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for cold water, a first-aid kit, and napkins, and accept or decline an apology and offer",
+        "roleplay": "A server spills hot coffee on your arm; ask for cold water and a first-aid kit, and respond graciously to the apology.",
+        "englishWordAnchors": [
+          "cold water",
+          "first-aid kit",
+          "napkins",
+          "burn",
+          "arm",
+          "skin",
+          "server",
+          "manager",
+          "hot coffee",
+          "stain",
+          "breakfast",
+          "Could you bring me cold water, please?",
+          "Do you have a first-aid kit?",
+          "Could you pass me more napkins, please?",
+          "Don't worry, it was an accident.",
+          "Thank you, but it's not necessary."
+        ],
+        "englishReading": [
+          "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+          "Ana takes a breath and says: Could you bring me cold water, please?",
+          "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+          "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+          "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+          "Ana answers: Thank you, but it's not necessary, because it's a small burn.",
+          "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+          "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer."
+        ],
+        "englishSourceSha256": "e380007056035955b7ce2fda25090524e8f3396cc82caa1cd1bcc06a192f0bf9"
+      },
+      "title": "Ask for help after a hot-drink spill",
+      "objective": "Tell staff a hot drink spilled, ask for cool running water and the first-aid kit, and respond to an apology without judging the injury.",
+      "focus": "熱い飲み物がかかりました reports a scald. 流水で冷やしたいです requests running water. This learner dialogue does not assess severity; seek appropriate medical help if unsure. The source’s wipe-with-napkins and self-diagnosis are not carried into the Japanese scene.",
+      "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
+      "cards": [
+        {
+          "ja": "熱い",
+          "en": "hot",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "こぼれる",
+          "en": "spill",
+          "kind": "term"
+        },
+        {
+          "ja": "腕",
+          "en": "arm",
+          "kind": "term"
+        },
+        {
+          "ja": "水道",
+          "en": "tap",
+          "kind": "term"
+        },
+        {
+          "ja": "流水",
+          "en": "running water",
+          "kind": "term"
+        },
+        {
+          "ja": "冷やす",
+          "en": "cool",
+          "kind": "term"
+        },
+        {
+          "ja": "救急箱",
+          "en": "first-aid kit",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "staff member",
+          "kind": "term"
+        },
+        {
+          "ja": "責任者",
+          "en": "person in charge",
+          "kind": "term"
+        },
+        {
+          "ja": "医療機関",
+          "en": "medical service",
+          "kind": "term"
+        },
+        {
+          "ja": "お詫び",
+          "en": "apology",
+          "kind": "term"
+        },
+        {
+          "ja": "熱いコーヒーが腕にかかりました",
+          "en": "Hot coffee spilled on my arm",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水道の流水で冷やしたいです",
+          "en": "I would like to cool it under running tap water",
+          "kind": "phrase"
+        },
+        {
+          "ja": "救急箱はありますか",
+          "en": "Do you have a first-aid kit?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "熱いコーヒーが腕にかかりました。",
+          "en": "Hot coffee spilled on my arm."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "申し訳ありません。すぐにお手伝いします。",
+          "en": "I am sorry. I will help right away."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "水道の流水で冷やしたいです。案内していただけますか。",
+          "en": "I would like to cool it under running tap water. Could you show me where?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらです。水道へご案内します。",
+          "en": "This way. I will show you the tap."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "救急箱はありますか。",
+          "en": "Do you have a first-aid kit?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。責任者にも知らせます。",
+          "en": "Yes. I will also tell the person in charge."
+        },
+        {
+          "speaker": "Manager",
+          "ja": "おけがの具合が心配です。医療機関への連絡もお手伝いできます。",
+          "en": "I am concerned about your injury. We can also help contact medical services."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。まず冷やして、必要な助けを確認します。",
+          "en": "Thank you. I will cool it first and check what help I need."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "改めてお詫びします。",
+          "en": "I apologize again."
+        }
+      ],
+      "speaking": {
+        "role": "Guest requesting assistance after a spill",
+        "partnerRole": "Café staff",
+        "opening": "申し訳ありません。大丈夫ですか。",
+        "goal": "Report the spill, request cool running water and a first-aid kit, and acknowledge the apology without diagnosing the injury.",
+        "closure": "Do not let an offer about the bill replace appropriate first aid or medical evaluation.",
+        "wordBank": [
+          "熱いコーヒー",
+          "腕",
+          "流水",
+          "水道",
+          "救急箱",
+          "医療機関"
+        ]
+      },
+      "modes": {
+        "see": "Read a scald assistance exchange with aligned English.",
+        "recall": "Recall spill, running water and help requests.",
+        "hear": "Hear 冷やす and 救急箱 in context.",
+        "type": "Type a request for cool running water with kana support.",
+        "say": "Ask staff for immediate help and avoid self-diagnosis.",
+        "write": "Write a factual spill report and help request."
+      }
+    },
+    {
+      "n": 26,
+      "stableId": "travel-breakfast:26:ja-en",
+      "sourceEnglish": {
+        "objective": "ask whether staying is welcome, about Wi-Fi and outlets, and when to order again",
+        "roleplay": "You need to work for two hours; ask whether that's acceptable, where to sit, and when to order a second round.",
+        "englishWordAnchors": [
+          "laptop",
+          "counter",
+          "Wi-Fi",
+          "password",
+          "outlet",
+          "charger",
+          "table",
+          "corner",
+          "latte",
+          "sweet pastry",
+          "bill",
+          "tip",
+          "Do you mind if I stay and work for 2 hours?",
+          "What is the Wi-Fi password?",
+          "Can I sit near an outlet?",
+          "When would you prefer that I order again?",
+          "If it fills up, I'll give up the table."
+        ],
+        "englishReading": [
+          "It is Tuesday morning and Lena walks into a small café with her laptop.",
+          "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+          "The server smiles and says: No problem, but at lunchtime it gets very full.",
+          "Lena answers: If it fills up, I'll give up the table, and then she asks: What is the Wi-Fi password?",
+          "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+          "Lena plugs in her charger, orders a latte and a sweet pastry, and starts working.",
+          "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+          "The server says: Whenever you like, because I come by your table every half hour.",
+          "At the end, Lena asks for the bill and leaves a good tip for the time and the space."
+        ],
+        "englishSourceSha256": "14a9a5f6a95d6302ee1796d0ef76bb9e1f783e3c767764162c3420dde8608766"
+      },
+      "title": "Ask before working at a café table",
+      "objective": "Ask whether a two-hour work visit is welcome, check Wi-Fi and outlets, and ask when to order again.",
+      "focus": "二時間ほど仕事をしてもいいですか asks permission for about two hours. コンセントは使えますか asks whether an outlet may be used. ～たら moves a condition into a polite offer. Shop rules vary; ask before settling in.",
+      "scene": "A traveler with a laptop checks a café’s work and seating policy.",
+      "cards": [
+        {
+          "ja": "ノートパソコン",
+          "en": "laptop",
+          "kind": "term"
+        },
+        {
+          "ja": "仕事",
+          "en": "work",
+          "kind": "term"
+        },
+        {
+          "ja": "二時間ほど",
+          "en": "for about two hours",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "コンセント",
+          "en": "power outlet",
+          "kind": "term"
+        },
+        {
+          "ja": "充電器",
+          "en": "charger",
+          "kind": "term"
+        },
+        {
+          "ja": "Wi-Fi",
+          "en": "Wi-Fi",
+          "kind": "term"
+        },
+        {
+          "ja": "パスワード",
+          "en": "password",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "追加注文",
+          "en": "additional order",
+          "kind": "term"
+        },
+        {
+          "ja": "混む",
+          "en": "become busy",
+          "kind": "term"
+        },
+        {
+          "ja": "席を空ける",
+          "en": "free up a seat",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで仕事をしてもいいですか",
+          "en": "May I work here?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "コンセントは使えますか",
+          "en": "May I use the outlet?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "次はいつ注文すればいいですか",
+          "en": "When should I order again?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "すみません。ここで二時間ほど仕事をしてもいいですか。",
+          "en": "Excuse me. May I work here for about two hours?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今は空いていますが、昼には混むことがあります。",
+          "en": "We have space now, but it sometimes gets busy at lunch."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "混んできたら席を空けます。",
+          "en": "If it gets busy, I will free up the seat."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "Wi-Fiは使えますか。",
+          "en": "May I use the Wi-Fi?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。パスワードはこちらに書いてあります。",
+          "en": "Yes. The password is written here."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "コンセントを使える席はありますか。",
+          "en": "Is there a seat where I may use an outlet?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あちらの席は使えます。",
+          "en": "You may use it at that seat."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "では、コーヒーを一杯お願いします。",
+          "en": "Then one coffee, please."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "次はいつ注文すればいいですか。",
+          "en": "When should I order again?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "決まりはありません。必要なときにお声がけください。",
+          "en": "There is no set rule. Please ask when you need something."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler planning a work visit",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席をお探しですか。",
+        "goal": "Ask permission for a work visit, check Wi-Fi/outlet policy and ask about another order.",
+        "closure": "Adjust to this café’s stated policy and free the seat if needed.",
+        "wordBank": [
+          "二時間ほど",
+          "仕事",
+          "Wi-Fi",
+          "パスワード",
+          "コンセント",
+          "追加注文"
+        ]
+      },
+      "modes": {
+        "see": "Read a work-visit request with aligned English.",
+        "recall": "Recall time, Wi-Fi and outlet questions.",
+        "hear": "Hear 二時間ほど and 混んできたら.",
+        "type": "Type a polite outlet question with kana support.",
+        "say": "Ask staff about working and ordering again.",
+        "write": "Write a short work-visit request and conditional offer."
+      }
+    },
+    {
+      "n": 27,
+      "stableId": "travel-breakfast:27:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a packed breakfast or early service before official hours and confirm pickup",
+        "roleplay": "Your 5:30 a.m. airport transfer leaves before breakfast opens; ask the hotel for a packed breakfast or an early option.",
+        "englishWordAnchors": [
+          "packed breakfast",
+          "front desk",
+          "airport transfer",
+          "breakfast hours",
+          "dining room",
+          "paper bag",
+          "fruit",
+          "juice",
+          "allergy",
+          "room number",
+          "rate",
+          "Can you prepare a packed breakfast for me?",
+          "My airport transfer leaves at 5:30 a.m.",
+          "What time can I pick it up?",
+          "Where do I pick it up, at the front desk or in the dining room?",
+          "Is it included in my rate?"
+        ],
+        "englishReading": [
+          "Ana arrives at the hotel front desk at 9 p.m.",
+          "She says: My airport transfer leaves at 5:30 a.m., but breakfast hours start at 7.",
+          "Then she asks: If the dining room is closed, can you prepare a packed breakfast for me?",
+          "The receptionist explains that the kitchen can prepare a paper bag with fruit, bread and juice.",
+          "Ana mentions her nut allergy, and he writes it down with her room number.",
+          "Then she asks: What time can I pick it up?",
+          "He answers: The bag will be ready at the front desk at 5 a.m.",
+          "Ana wants to confirm the price and asks: Is it included in my rate?",
+          "The receptionist says yes, because her reservation includes breakfast."
+        ],
+        "englishSourceSha256": "d562ef49a0d034e397ee2c5f90df362746d953b6596a59f05c7c992faa34e0ac"
+      },
+      "title": "Arrange an early packed breakfast",
+      "objective": "Ask the hotel about breakfast before an early transfer, confirm pickup time and place, and disclose an allergy without assuming safe handling.",
+      "focus": "朝食の時間より早く出ます explains early departure. 持ち帰りの朝食 asks for a packed breakfast. アレルギーがあります must be followed by a specific ingredient and preparation question; availability or an ingredient list alone does not establish safety.",
+      "scene": "A hotel guest leaves before breakfast service and checks whether a suitable option exists.",
+      "cards": [
+        {
+          "ja": "早朝",
+          "en": "early morning",
+          "kind": "term"
+        },
+        {
+          "ja": "出発",
+          "en": "departure",
+          "kind": "term"
+        },
+        {
+          "ja": "空港行きの車",
+          "en": "airport transfer",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食の時間",
+          "en": "breakfast hours",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りの朝食",
+          "en": "packed breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "受け取り",
+          "en": "pickup",
+          "kind": "term"
+        },
+        {
+          "ja": "フロント",
+          "en": "front desk",
+          "kind": "term"
+        },
+        {
+          "ja": "食堂",
+          "en": "dining room",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "booking",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理方法",
+          "en": "preparation method",
+          "kind": "term"
+        },
+        {
+          "ja": "何時に受け取れますか",
+          "en": "What time can I pick it up?",
+          "kind": "term"
+        },
+        {
+          "ja": "この材料を避ける必要があります",
+          "en": "I need to avoid this ingredient",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "明日は朝食の時間より早く出発します。",
+          "en": "Tomorrow I leave before breakfast service."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "何時にお出かけですか。",
+          "en": "What time are you leaving?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "空港行きの車が五時半に出ます。",
+          "en": "My airport transfer leaves at five thirty."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "持ち帰りの朝食は用意できますか。",
+          "en": "Can you prepare a packed breakfast?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "厨房に確認します。すぐにはお約束できません。",
+          "en": "I will check with the kitchen. I cannot promise it yet."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "私はナッツのアレルギーがあります。材料と調理方法を確認できますか。",
+          "en": "I have a nut allergy. Can you check ingredients and how it is prepared?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "厨房と確認してからお答えします。",
+          "en": "I will answer after checking with the kitchen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "確認できなければ、食べません。",
+          "en": "If it cannot be verified, I will not eat it."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "用意できる場合、何時にどこで受け取れますか。",
+          "en": "If it can be prepared, when and where can I pick it up?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "確認後に、受け取り時間と場所、料金をお知らせします。",
+          "en": "After checking, I will tell you the pickup time, place and charge."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest arranging early breakfast",
+        "partnerRole": "Hotel front desk staff",
+        "opening": "こんばんは。明日のご予定はいかがですか。",
+        "goal": "Ask for an early option, disclose the specific allergy, request kitchen verification, and confirm pickup/price only if an option is available.",
+        "closure": "Do not accept an unverified meal as safe; arrange a different option if handling cannot be confirmed.",
+        "wordBank": [
+          "早朝",
+          "持ち帰りの朝食",
+          "アレルギー",
+          "材料",
+          "調理方法",
+          "受け取り"
+        ]
+      },
+      "modes": {
+        "see": "Read an early-breakfast enquiry with aligned English.",
+        "recall": "Recall departure, pickup and allergy-verification phrases.",
+        "hear": "Hear 五時半 and 受け取り in context.",
+        "type": "Type a pickup-time question with kana support.",
+        "say": "Ask about an early meal and verify allergy handling.",
+        "write": "Write a conditional pickup and preparation question."
+      }
     }
   ],
   "reviewGates": [

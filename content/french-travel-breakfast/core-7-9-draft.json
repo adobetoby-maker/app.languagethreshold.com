@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Ask what locals eat",
+      "objectiveEnglish": "ask for a typical regional breakfast and understand a cultural explanation",
+      "scenarioEnglishSource": "Tell the server you want the breakfast locals actually choose, not a tourist substitute.",
+      "titleFrenchCourseEnglish": "Demander ce que mangent les habitants",
+      "objectiveFrenchCourseEnglish": "Ask about a regional breakfast, hear an explanation and order it in French.",
+      "focusEnglish": "Use qu'est-ce que for an open question, recommander for a recommendation, and ce que for what something contains.",
+      "focusFrench": "Demander ce que mangent les habitants ; solliciter une recommandation ; clarifier le contenu d'un plat.",
+      "teachingNotesEnglish": "Qu'est-ce que les gens d'ici mangent ? asks what local people eat. Je voudrais is a polite way to state a preference. Pouvez-vous me recommander... ? asks for a recommendation; ce qu'il contient asks what a dish contains. This source scene stays in Puebla, so its Mexican foods remain named rather than replaced with unreviewed Francophone equivalents.",
+      "words": [
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "server (male)",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "typical dish",
+          "kind": "term",
+          "fr": "un plat typique"
+        },
+        {
+          "en": "chilaquiles (fried tortilla pieces in salsa)",
+          "kind": "term",
+          "fr": "les chilaquiles",
+          "noteEnglish": "Mexican source item retained for exact English alignment; not a Francophone regional dish."
+        },
+        {
+          "en": "salsa, sauce",
+          "kind": "term",
+          "fr": "la sauce"
+        },
+        {
+          "en": "beans",
+          "kind": "term",
+          "fr": "les haricots"
+        },
+        {
+          "en": "spiced clay-pot coffee",
+          "kind": "term",
+          "fr": "le café de olla",
+          "noteEnglish": "Mexican source item retained for exact English alignment; not a Francophone regional dish."
+        },
+        {
+          "en": "sweet bread, pastry",
+          "kind": "term",
+          "fr": "une viennoiserie"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "What do people here eat for breakfast?",
+          "kind": "phrase",
+          "fr": "Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?"
+        },
+        {
+          "en": "I want the breakfast that locals order.",
+          "kind": "phrase",
+          "fr": "Je voudrais le petit-déjeuner que commandent les habitants."
+        },
+        {
+          "en": "I don't want something just for tourists.",
+          "kind": "phrase",
+          "fr": "Je ne veux pas d'un plat fait seulement pour les touristes."
+        },
+        {
+          "en": "Can you recommend a typical dish to me?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me recommander un plat typique ?"
+        },
+        {
+          "en": "Can you explain to me what it has in it?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous m'expliquer ce qu'il contient ?"
+        },
+        {
+          "en": "Can you repeat that more slowly, please?",
+          "kind": "phrase",
+          "fr": "Vous pouvez répéter plus lentement, s'il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Un petit-déjeuner à Puebla",
+        "english": [
+          "Ana sits at a table in a small café in Puebla.",
+          "First she asks the server: What do people here eat for breakfast?",
+          "Then she says: I want the breakfast that locals order.",
+          "The server smiles and says that chilaquiles are a typical morning dish.",
+          "According to him, they are going to serve the chilaquiles with green salsa and beans.",
+          "Ana asks: Can you explain to me what it has in it?",
+          "The server explains that café de olla comes with cinnamon and that the sweet bread is for afterward.",
+          "Ana orders the chilaquiles, a café de olla, and a sweet bread.",
+          "At the end, she is going to pay at the counter."
+        ],
+        "french": [
+          "Ana s'assied à une table dans un petit café de Puebla.",
+          "Elle demande d'abord au serveur : « Qu'est-ce que les gens d'ici mangent au petit-déjeuner ? »",
+          "Puis elle dit : « Je voudrais le petit-déjeuner que commandent les habitants. »",
+          "Le serveur sourit et dit que les chilaquiles sont un plat typique du matin.",
+          "Selon lui, les chilaquiles seront servis avec une sauce verte et des haricots.",
+          "Ana demande : « Pouvez-vous m'expliquer ce qu'il contient ? »",
+          "Le serveur explique que le café de olla contient de la cannelle et que la viennoiserie vient ensuite.",
+          "Ana commande les chilaquiles, un café de olla et une viennoiserie.",
+          "À la fin, elle va payer au comptoir."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Les habitants commandent des chilaquiles le matin.",
+          "exampleEnglish": "The locals order chilaquiles in the morning.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "recommander",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "Qu'est-ce que vous me recommandez pour le petit-déjeuner ?",
+          "exampleEnglish": "What do you recommend to me for breakfast?",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "expliquer",
+          "meaningEnglish": "to explain",
+          "exampleFrench": "Le serveur explique ce que contient le plat.",
+          "exampleEnglish": "The server explains what the dish has in it.",
+          "sourceInfinitiveSpanish": "explicar"
+        },
+        {
+          "infinitiveFrench": "prendre le petit-déjeuner",
+          "meaningEnglish": "to eat breakfast",
+          "exampleFrench": "Qu'est-ce que les gens d'ici prennent au petit-déjeuner ?",
+          "exampleEnglish": "What do people here eat for breakfast?",
+          "sourceInfinitiveSpanish": "desayunar"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask a server what local people eat for breakfast, request a recommendation, and clarify what the dish contains.",
+      "speakingFrench": "Bonjour ! Qu'est-ce que les gens d'ici mangent au petit-déjeuner ? Pouvez-vous me recommander un plat typique ?",
+      "regionalNotesEnglish": [
+        "Puebla, chilaquiles and café de olla come from the pinned Mexican source. They are not presented as French regional breakfast foods; a Francophone-locale scene requires separate authoring and review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "titleEnglish": "Order for another person",
+      "objectiveEnglish": "order several drinks and foods accurately and confirm who gets each item",
+      "scenarioEnglishSource": "Order breakfast for a family or group with different preferences.",
+      "titleFrenchCourseEnglish": "Commander pour un groupe",
+      "objectiveFrenchCourseEnglish": "Place and confirm a multi-person breakfast order in French.",
+      "focusEnglish": "Use pour moi/pour elle to assign items, sans for exclusions, and repeat the order for confirmation.",
+      "focusFrench": "Attribuer les plats avec pour moi et pour elle ; demander sans fromage ; récapituler une commande.",
+      "teachingNotesEnglish": "Pour moi and pour elle tell the server who receives each item. Sans fromage removes an ingredient from the sandwich. Répétez la commande or Je récapitule la commande helps confirm a group order. C'est bien ça ? asks for confirmation without assuming the server heard every item.",
+      "words": [
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "order",
+          "kind": "term",
+          "fr": "la commande"
+        },
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "le café au lait"
+        },
+        {
+          "en": "scrambled eggs",
+          "kind": "term",
+          "fr": "les œufs brouillés"
+        },
+        {
+          "en": "orange juice",
+          "kind": "term",
+          "fr": "le jus d'orange"
+        },
+        {
+          "en": "sweet roll",
+          "kind": "term",
+          "fr": "un petit pain sucré"
+        },
+        {
+          "en": "toast",
+          "kind": "term",
+          "fr": "le pain grillé"
+        },
+        {
+          "en": "butter",
+          "kind": "term",
+          "fr": "le beurre"
+        },
+        {
+          "en": "decaf",
+          "kind": "term",
+          "fr": "un café décaféiné"
+        },
+        {
+          "en": "check",
+          "kind": "term",
+          "fr": "l'addition"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "ham sandwich",
+          "kind": "term",
+          "fr": "un sandwich au jambon"
+        },
+        {
+          "en": "I want to order for everyone, please.",
+          "kind": "phrase",
+          "fr": "Je voudrais commander pour tout le monde, s'il vous plaît."
+        },
+        {
+          "en": "Is the order correct?",
+          "kind": "phrase",
+          "fr": "La commande est-elle correcte ?"
+        },
+        {
+          "en": "This is for her, right?",
+          "kind": "phrase",
+          "fr": "C'est pour elle, c'est bien ça ?"
+        },
+        {
+          "en": "Without cheese, please.",
+          "kind": "phrase",
+          "fr": "Sans fromage, s'il vous plaît.",
+          "noteEnglish": "Sans fromage asks to omit cheese from this sandwich; confirm the order with the server."
+        },
+        {
+          "en": "Can you repeat the order, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous répéter la commande, s'il vous plaît ?"
+        },
+        {
+          "en": "The check, please.",
+          "kind": "phrase",
+          "fr": "L'addition, s'il vous plaît."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Commander pour toute la famille",
+        "english": [
+          "I am in a café with my wife, my son, and my mother-in-law.",
+          "First, I say to the waiter: I want to order for everyone, please.",
+          "For me, a coffee with milk and some scrambled eggs.",
+          "For my wife, a tea and a ham sandwich, without cheese.",
+          "My son is going to have orange juice and a sweet roll.",
+          "My mother-in-law wants a decaf coffee and toast with butter.",
+          "Then, I repeat the order: Is that correct? The tea is for her, right?",
+          "The waiter smiles and says: Everything is right, I'll bring it right away.",
+          "At the end, I ask for the check at the table."
+        ],
+        "french": [
+          "Je suis dans un café avec ma femme, mon fils et ma belle-mère.",
+          "Je dis d'abord au serveur : « Je voudrais commander pour tout le monde, s'il vous plaît. »",
+          "Pour moi, un café au lait et des œufs brouillés.",
+          "Pour ma femme, un thé et un sandwich au jambon, sans fromage.",
+          "Mon fils va prendre un jus d'orange et un petit pain sucré.",
+          "Ma belle-mère voudrait un café décaféiné et du pain grillé avec du beurre.",
+          "Puis je répète la commande : « C'est correct ? Le thé est pour elle, c'est bien ça ? »",
+          "Le serveur sourit et dit : « Tout est correct, je vous apporte ça tout de suite. »",
+          "À la fin, je demande l'addition à la table."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order",
+          "exampleFrench": "À la fin, je demande l'addition.",
+          "exampleEnglish": "At the end, I ask for the check.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Ma belle-mère voudrait un café décaféiné.",
+          "exampleEnglish": "My mother-in-law wants a decaf coffee.",
+          "sourceInfinitiveSpanish": "querer"
+        },
+        {
+          "infinitiveFrench": "prendre",
+          "meaningEnglish": "to have (a drink); to take",
+          "exampleFrench": "Mon fils va prendre un jus d'orange.",
+          "exampleEnglish": "My son is going to have orange juice.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "infinitiveFrench": "répéter",
+          "meaningEnglish": "to repeat",
+          "exampleFrench": "Je répète la commande pour confirmer.",
+          "exampleEnglish": "I repeat the order to confirm.",
+          "sourceInfinitiveSpanish": "repetir"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Je vous apporte ça tout de suite.",
+          "exampleEnglish": "I'll bring it right away.",
+          "sourceInfinitiveSpanish": "traer"
+        }
+      ],
+      "speakingInstructionEnglish": "Order separate breakfast items for several people and repeat who gets what before the server leaves.",
+      "speakingFrench": "Bonjour ! Je voudrais commander pour tout le monde. Pour ma femme, un thé et un sandwich sans fromage. C'est bien ça ?",
+      "regionalNotesEnglish": [
+        "Family labels and breakfast choices follow the English source; local menu availability and family address terms should be checked for the target region."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Request takeaway",
+      "objectiveEnglish": "ask for food or coffee to go, packaging, napkins, and utensils",
+      "scenarioEnglishSource": "Convert part of a seated order into takeaway because your train leaves soon.",
+      "titleFrenchCourseEnglish": "Demander une commande à emporter",
+      "objectiveFrenchCourseEnglish": "Change an order to takeaway and ask for suitable packaging in French.",
+      "focusEnglish": "Use à emporter for takeaway, pouvez-vous for a polite request, and le to refer back to an item.",
+      "focusFrench": "Demander à emporter ; préciser les emballages ; reprendre un article avec le.",
+      "teachingNotesEnglish": "À emporter means to take away; sur place means to consume here. Pouvez-vous me le mettre dans un sac ? refers back to the ordered item with le. Il me faut expresses I need. Confirm which part of a mixed order is being packed before paying.",
+      "words": [
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "le café au lait"
+        },
+        {
+          "en": "croissant",
+          "kind": "term",
+          "fr": "le croissant"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "lid",
+          "kind": "term",
+          "fr": "le couvercle"
+        },
+        {
+          "en": "paper bag",
+          "kind": "term",
+          "fr": "le sac en papier"
+        },
+        {
+          "en": "napkins",
+          "kind": "term",
+          "fr": "les serviettes en papier"
+        },
+        {
+          "en": "spoon",
+          "kind": "term",
+          "fr": "la cuillère"
+        },
+        {
+          "en": "fork",
+          "kind": "term",
+          "fr": "la fourchette"
+        },
+        {
+          "en": "to-go cup",
+          "kind": "term",
+          "fr": "un gobelet à emporter",
+          "noteEnglish": "Ask the café whether it has a lidded takeaway cup; packaging differs by venue."
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l'addition"
+        },
+        {
+          "en": "order",
+          "kind": "term",
+          "fr": "la commande"
+        },
+        {
+          "en": "Can I order the coffee to go?",
+          "kind": "phrase",
+          "fr": "Est-ce que je peux prendre le café à emporter ?"
+        },
+        {
+          "en": "I want this to go, please.",
+          "kind": "phrase",
+          "fr": "Je voudrais ceci à emporter, s'il vous plaît."
+        },
+        {
+          "en": "Can you give me napkins and a spoon?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me donner des serviettes et une cuillère ?"
+        },
+        {
+          "en": "Can you put it in a bag for me?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me le mettre dans un sac ?"
+        },
+        {
+          "en": "Does it come with a lid?",
+          "kind": "phrase",
+          "fr": "Est-ce qu'il y a un couvercle ?"
+        },
+        {
+          "en": "My train leaves soon.",
+          "kind": "phrase",
+          "fr": "Mon train part bientôt."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Un café à emporter",
+        "english": [
+          "A traveler is in a café and looks at the clock.",
+          "First he orders a coffee with milk and a croissant at the counter.",
+          "Then he says: Excuse me, can I order the coffee to go?",
+          "The waitress asks: Do you want a lid and a bag?",
+          "The traveler answers: Yes, please, and I also need napkins and a spoon.",
+          "After that he changes the croissant order, because he is going to eat on the train.",
+          "He says: Can you put it in a paper bag for me?",
+          "In the end he pays the bill and says thank you.",
+          "With his order in hand, he quickly heads out to the station."
+        ],
+        "french": [
+          "Un voyageur est dans un café et regarde l'heure.",
+          "Il commande d'abord un café au lait et un croissant au comptoir.",
+          "Puis il dit : « Excusez-moi, est-ce que je peux prendre le café à emporter ? »",
+          "La serveuse demande : « Voulez-vous un couvercle et un sac ? »",
+          "Le voyageur répond : « Oui, s'il vous plaît. Il me faut aussi des serviettes et une cuillère. »",
+          "Ensuite, il modifie sa commande de croissant, car il va le manger dans le train.",
+          "Il demande : « Pouvez-vous me le mettre dans un sac en papier ? »",
+          "Finalement, il règle l'addition et remercie la serveuse.",
+          "Sa commande à la main, il part vite vers la gare."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Il commande d'abord un café au lait au comptoir.",
+          "exampleEnglish": "First he orders a coffee with milk at the counter.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "emporter",
+          "meaningEnglish": "to take, to carry",
+          "exampleFrench": "J'emporte la commande dans le train.",
+          "exampleEnglish": "I take the order to the train.",
+          "sourceInfinitiveSpanish": "llevar"
+        },
+        {
+          "infinitiveFrench": "avoir besoin de",
+          "meaningEnglish": "to need",
+          "exampleFrench": "Il me faut des serviettes et une cuillère.",
+          "exampleEnglish": "I need napkins and a spoon.",
+          "sourceInfinitiveSpanish": "necesitar"
+        },
+        {
+          "infinitiveFrench": "mettre",
+          "meaningEnglish": "to put",
+          "exampleFrench": "Pouvez-vous me le mettre dans un sac en papier ?",
+          "exampleEnglish": "Can you put it in a paper bag for me?",
+          "sourceInfinitiveSpanish": "poner"
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "À la fin, il règle l'addition.",
+          "exampleEnglish": "In the end he pays the bill.",
+          "sourceInfinitiveSpanish": "pagar"
+        }
+      ],
+      "speakingInstructionEnglish": "Change a coffee and croissant order to takeaway; request a lid, bag and napkins.",
+      "speakingFrench": "Excusez-moi, je voudrais le café à emporter. Pouvez-vous me donner un couvercle et des serviettes ?",
+      "regionalNotesEnglish": [
+        "Packaging and whether food may be eaten on a train vary by venue and railway. The reading follows one traveler's plan and is not a general rule."
+      ],
+      "reviewed": false
+    }
+  ]
+}

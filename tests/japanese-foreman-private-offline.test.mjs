@@ -11,6 +11,7 @@ import {
   PRIVATE_JAPANESE_FOREMAN_OFFLINE_TRACKS,
   releasedJapaneseForemanOfflinePackIds,
 } from "../src/lib/private-japanese-foreman-offline.ts";
+import { verifyPrivateOfflineCandidate } from "../scripts/build-private-japanese-foreman-offline.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const content = join(root, "content/japanese-construction-foreman");
@@ -30,6 +31,7 @@ test("private offline candidates preserve exact pairs, IDs, Reader and card owne
     const manifest = JSON.parse(readFileSync(join(output, `${id}.manifest.json`), "utf8"));
     const bytes = readFileSync(join(output, manifest.content.file));
     const pack = JSON.parse(bytes);
+    assert.deepEqual(verifyPrivateOfflineCandidate(manifest, bytes, id), pack);
     assert.equal(manifest.packId, id);
     assert.equal(manifest.pairKey, "Japanese:English");
     assert.equal(manifest.releaseEnabled, false);
@@ -78,6 +80,31 @@ test("private offline candidates preserve exact pairs, IDs, Reader and card owne
     assert.equal(offlineLessonPackId(moduleId, "Spanish", "English"),
       moduleId === "construction-foreman" ? "construction-foreman-es-en" : null);
   }
+});
+
+test("a changed payload, wrong language pair or misrouted cache candidate fails closed", () => {
+  const id = "master-construction-foreman-ja-en";
+  const manifest = JSON.parse(readFileSync(join(output, `${id}.manifest.json`), "utf8"));
+  const bytes = readFileSync(join(output, manifest.content.file));
+  assert.throws(() => verifyPrivateOfflineCandidate(manifest, Buffer.concat([bytes, Buffer.from(" ")]), id),
+    /identity or hash mismatch/);
+  assert.throws(() => verifyPrivateOfflineCandidate({ ...manifest, pairKey: "Japanese:Spanish" }, bytes, id),
+    /identity or hash mismatch/);
+  assert.throws(() => verifyPrivateOfflineCandidate({ ...manifest,
+    content: { ...manifest.content, routeCandidate: "/api/private/lesson" } }, bytes, id),
+    /identity or hash mismatch/);
+  assert.throws(() => verifyPrivateOfflineCandidate({ ...manifest,
+    cacheNamespaceCandidate: "lt-lesson-pack-construction-foreman-es-en-stale" }, bytes, id),
+    /identity or hash mismatch/);
+  const altered = JSON.parse(bytes);
+  altered.pairKey = "Spanish:English";
+  const changedBytes = Buffer.from(JSON.stringify(altered));
+  const changedHash = sha(changedBytes);
+  assert.throws(() => verifyPrivateOfflineCandidate({ ...manifest,
+    content: { file: `${id}-${changedHash}.json`, sha256: changedHash,
+      bytes: changedBytes.length, routeCandidate: `/lesson-packs/${id}-${changedHash}.json` },
+    cacheNamespaceCandidate: `lt-lesson-pack-${id}-${changedHash}` }, changedBytes, id),
+    /identity or hash mismatch/);
 });
 
 test("the published worker allowlist still rejects all three private candidates", async () => {

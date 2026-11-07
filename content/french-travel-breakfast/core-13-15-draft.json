@@ -1,0 +1,521 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 13,
+      "titleEnglish": "Compliment breakfast",
+      "objectiveEnglish": "give a specific, natural compliment and thank the staff warmly",
+      "scenarioEnglishSource": "Tell the cook why the pastry or coffee was memorable rather than only saying it was good.",
+      "titleFrenchCourseEnglish": "Faire un compliment sur le petit-déjeuner",
+      "objectiveFrenchCourseEnglish": "Praise the coffee, pastry and service with specific details.",
+      "focusEnglish": "Use c’était plus an adjective for a finished meal; remercier de names what you thank someone for.",
+      "focusFrench": "Décrire précisément le café et la pâtisserie ; remercier le personnel avec naturel.",
+      "teachingNotesEnglish": "C’était délicieux describes the finished meal. J’ai beaucoup aimé le café adds a specific detail. Merci pour votre accueil thanks the team without assuming a tipping custom.",
+      "words": [
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "coffee",
+          "kind": "term",
+          "fr": "le café"
+        },
+        {
+          "en": "sweet bread, pastry",
+          "kind": "term",
+          "fr": "une brioche, une pâtisserie"
+        },
+        {
+          "en": "eggs",
+          "kind": "term",
+          "fr": "les œufs"
+        },
+        {
+          "en": "aroma, smell",
+          "kind": "term",
+          "fr": "l’arôme, l’odeur"
+        },
+        {
+          "en": "recipe",
+          "kind": "term",
+          "fr": "la recette"
+        },
+        {
+          "en": "cook",
+          "kind": "term",
+          "fr": "le cuisinier, la cuisinière"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "staff",
+          "kind": "term",
+          "fr": "le personnel"
+        },
+        {
+          "en": "crunchy",
+          "kind": "term",
+          "fr": "croustillant, croustillante"
+        },
+        {
+          "en": "service, attention",
+          "kind": "term",
+          "fr": "le service, l’accueil"
+        },
+        {
+          "en": "I want to compliment you on the breakfast.",
+          "kind": "phrase",
+          "fr": "Je voulais vous dire que le petit-déjeuner était excellent."
+        },
+        {
+          "en": "The coffee was delicious, just the way I like it.",
+          "kind": "phrase",
+          "fr": "Le café était délicieux, exactement comme je l’aime."
+        },
+        {
+          "en": "I loved it because it was very soft.",
+          "kind": "phrase",
+          "fr": "J’ai adoré : c’était très moelleux."
+        },
+        {
+          "en": "Is it a house recipe?",
+          "kind": "phrase",
+          "fr": "C’est une recette maison ?"
+        },
+        {
+          "en": "Thank you very much for the service.",
+          "kind": "phrase",
+          "fr": "Merci beaucoup pour votre accueil."
+        },
+        {
+          "en": "If I come back tomorrow, I'm going to order another one.",
+          "kind": "phrase",
+          "fr": "Si je reviens demain, j’en prendrai un autre."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Faire un compliment sur le petit-déjeuner",
+        "english": [
+          "A traveler finishes her breakfast in a small café and wants to talk to the cook.",
+          "She greets him and says: I want to compliment you on the breakfast.",
+          "The coffee was very strong and had a delicious aroma, just the way I like it.",
+          "The sweet bread was soft inside and crunchy outside, and it wasn't too sweet.",
+          "I also loved the eggs, because they were creamy and very well seasoned.",
+          "The cook smiles and explains that the sweet bread is his grandmother's recipe.",
+          "The traveler tells him: If I come back tomorrow, I'm going to order another one of those.",
+          "Before leaving, she leaves a tip on the counter and thanks the staff for the service.",
+          "The cook answers: Thank you very much, we're so glad you liked it."
+        ],
+        "french": [
+          "Une voyageuse termine son petit-déjeuner dans un petit café et souhaite parler au cuisinier.",
+          "Elle le salue et dit : « Je voulais vous dire que le petit-déjeuner était excellent. »",
+          "Le café était corsé et avait un arôme délicieux, exactement comme elle l’aime.",
+          "La brioche était moelleuse à l’intérieur et croustillante à l’extérieur, sans être trop sucrée.",
+          "Elle a aussi adoré les œufs, crémeux et bien assaisonnés.",
+          "Le cuisinier sourit et explique que la recette de la brioche vient de sa grand-mère.",
+          "La voyageuse lui dit : « Si je reviens demain, j’en prendrai une autre. »",
+          "Avant de partir, elle laisse un pourboire au comptoir et remercie le personnel pour son accueil.",
+          "Le cuisinier répond : « Merci beaucoup, nous sommes ravis que cela vous ait plu. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "féliciter",
+          "meaningEnglish": "to compliment, to congratulate",
+          "exampleFrench": "Je félicite le cuisinier pour le petit-déjeuner.",
+          "exampleEnglish": "I compliment the cook on the breakfast.",
+          "sourceInfinitiveSpanish": "felicitar"
+        },
+        {
+          "infinitiveFrench": "adorer",
+          "meaningEnglish": "to love, to delight",
+          "exampleFrench": "J’adore les œufs crémeux.",
+          "exampleEnglish": "I love creamy eggs.",
+          "sourceInfinitiveSpanish": "encantar"
+        },
+        {
+          "infinitiveFrench": "remercier",
+          "meaningEnglish": "to thank, to be grateful for",
+          "exampleFrench": "Je vous remercie pour votre accueil.",
+          "exampleEnglish": "I am very grateful to you for the service.",
+          "sourceInfinitiveSpanish": "agradecer"
+        },
+        {
+          "infinitiveFrench": "recommander",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "Je recommande ce café à mes amis.",
+          "exampleEnglish": "I recommend this coffee to my friends.",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "revenir",
+          "meaningEnglish": "to come back, to return",
+          "exampleFrench": "Si je reviens demain, j’en prendrai une autre.",
+          "exampleEnglish": "If I come back tomorrow, I'll order another one.",
+          "sourceInfinitiveSpanish": "regresar"
+        }
+      ],
+      "speakingInstructionEnglish": "Tell the cook what you liked about the coffee or pastry, then thank the staff.",
+      "speakingFrench": "J’ai beaucoup aimé le café, et la brioche était moelleuse et croustillante. Merci pour votre accueil !",
+      "regionalNotesEnglish": [
+        "The source scene leaves a tip. Tipping norms vary by location; do not teach it as a universal requirement."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 14,
+      "titleEnglish": "Handle a rushed morning",
+      "objectiveEnglish": "explain time pressure, ask what is fastest, and confirm preparation time",
+      "scenarioEnglishSource": "You have twelve minutes before a tour; ask for a realistic fast option.",
+      "titleFrenchCourseEnglish": "Commander quand on est pressé",
+      "objectiveFrenchCourseEnglish": "Explain a tight schedule, ask for a fast option and confirm timing.",
+      "focusEnglish": "Use je suis pressé(e) for time pressure; dans douze minutes for a future departure; combien de temps for preparation time.",
+      "focusFrench": "Dire que l’on est pressé ; demander le délai de préparation ; commander à emporter.",
+      "teachingNotesEnglish": "Je suis pressé(e) means I am in a hurry. Mon excursion part dans douze minutes gives the deadline. Combien de temps faut-il ? asks how long it takes; à emporter means to go.",
+      "words": [
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "americano coffee",
+          "kind": "term",
+          "fr": "un americano"
+        },
+        {
+          "en": "egg sandwich",
+          "kind": "term",
+          "fr": "un sandwich aux œufs"
+        },
+        {
+          "en": "to go",
+          "kind": "term",
+          "fr": "à emporter"
+        },
+        {
+          "en": "hurry",
+          "kind": "term",
+          "fr": "la hâte"
+        },
+        {
+          "en": "tour",
+          "kind": "term",
+          "fr": "l’excursion"
+        },
+        {
+          "en": "waitress",
+          "kind": "term",
+          "fr": "la serveuse"
+        },
+        {
+          "en": "preparation",
+          "kind": "term",
+          "fr": "la préparation"
+        },
+        {
+          "en": "minutes",
+          "kind": "term",
+          "fr": "les minutes"
+        },
+        {
+          "en": "kitchen",
+          "kind": "term",
+          "fr": "la cuisine"
+        },
+        {
+          "en": "I'm in a hurry because my tour leaves soon.",
+          "kind": "phrase",
+          "fr": "Je suis pressé parce que mon excursion part bientôt."
+        },
+        {
+          "en": "What is the fastest thing you have?",
+          "kind": "phrase",
+          "fr": "Qu’avez-vous de plus rapide ?"
+        },
+        {
+          "en": "How long does the preparation take?",
+          "kind": "phrase",
+          "fr": "Combien de temps prend la préparation ?"
+        },
+        {
+          "en": "Could it be to go, please?",
+          "kind": "phrase",
+          "fr": "Est-ce possible à emporter, s’il vous plaît ?"
+        },
+        {
+          "en": "I only have 12 minutes.",
+          "kind": "phrase",
+          "fr": "Je n’ai que douze minutes."
+        },
+        {
+          "en": "Could you bring me the bill now, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m’apporter l’addition tout de suite, s’il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Commander quand on est pressé",
+        "english": [
+          "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+          "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+          "He asks: What is the fastest thing you have for breakfast?",
+          "The waitress answers that an egg sandwich and an americano come out quickly.",
+          "The traveler asks: How long does the sandwich take to prepare?",
+          "She says it takes about 5 minutes, according to the kitchen.",
+          "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+          "He also asks for the bill now so he can pay at the counter.",
+          "The waitress smiles and says: My pleasure, I'll get it ready for you right away."
+        ],
+        "french": [
+          "Un voyageur entre dans un café à huit heures et parle à la serveuse au comptoir.",
+          "Il dit : « Je suis pressé, car mon excursion part dans douze minutes. »",
+          "Il demande : « Qu’avez-vous de plus rapide pour le petit-déjeuner ? »",
+          "La serveuse répond qu’un sandwich aux œufs et un americano peuvent être prêts rapidement.",
+          "Le voyageur demande : « Combien de temps faut-il pour préparer le sandwich ? »",
+          "Elle répond que cela prend environ cinq minutes, d’après la cuisine.",
+          "Si c’est possible, il voudrait son petit-déjeuner à emporter, car il n’a pas le temps de s’asseoir.",
+          "Il demande aussi l’addition tout de suite pour pouvoir payer au comptoir.",
+          "La serveuse sourit et dit : « Avec plaisir, je vous prépare cela immédiatement. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleFrench": "Je suis pressé, car mon excursion part dans douze minutes.",
+          "exampleEnglish": "I'm in a hurry because my tour leaves in 12 minutes.",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "infinitiveFrench": "prendre",
+          "meaningEnglish": "to take (time)",
+          "exampleFrench": "Le sandwich prend environ cinq minutes.",
+          "exampleEnglish": "The sandwich takes about 5 minutes.",
+          "sourceInfinitiveSpanish": "tardar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask for, to order",
+          "exampleFrench": "Il demande l’addition tout de suite.",
+          "exampleEnglish": "He asks for the bill now.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "partir",
+          "meaningEnglish": "to leave, to come out",
+          "exampleFrench": "Mon excursion part dans douze minutes.",
+          "exampleEnglish": "My tour leaves in 12 minutes.",
+          "sourceInfinitiveSpanish": "salir"
+        },
+        {
+          "infinitiveFrench": "préparer",
+          "meaningEnglish": "to prepare",
+          "exampleFrench": "La cuisine prépare rapidement l’americano.",
+          "exampleEnglish": "The kitchen prepares the americano coffee quickly.",
+          "sourceInfinitiveSpanish": "preparar"
+        }
+      ],
+      "speakingInstructionEnglish": "Tell the server your tour leaves in twelve minutes; ask what is actually ready soon and request takeaway.",
+      "speakingFrench": "Je suis pressé : mon excursion part dans douze minutes. Qu’avez-vous de plus rapide, à emporter ?",
+      "regionalNotesEnglish": [
+        "Americano and egg-sandwich availability vary by café. The time estimate belongs to this fictional kitchen, not a general promise."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 15,
+      "titleEnglish": "Breakfast midpoint review",
+      "objectiveEnglish": "combine entering, ordering, a restriction, a correction, small talk, and payment from lessons 1–14 in one ordinary morning",
+      "scenarioEnglishSource": "Handle a routine café breakfast from greeting to payment, including one small mix-up, without English.",
+      "titleFrenchCourseEnglish": "Révision : un petit-déjeuner complet",
+      "objectiveFrenchCourseEnglish": "Handle seating, ordering, a dairy restriction, a wrong drink, small talk and payment in French.",
+      "focusEnglish": "Combine polite questions with a clear dairy restriction, a gentle correction, and a complete payment request.",
+      "focusFrench": "Enchaîner l’accueil, la commande, une restriction alimentaire, une correction et le règlement.",
+      "teachingNotesEnglish": "Review the full sequence rather than a new tense: Vous avez une table pour une personne ?; Je ne peux pas consommer de produits laitiers; J’avais demandé du lait d’avoine; Je peux régler par carte ?",
+      "words": [
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "waitress",
+          "kind": "term",
+          "fr": "la serveuse"
+        },
+        {
+          "en": "americano",
+          "kind": "term",
+          "fr": "un americano"
+        },
+        {
+          "en": "oat milk",
+          "kind": "term",
+          "fr": "le lait d’avoine"
+        },
+        {
+          "en": "dairy",
+          "kind": "term",
+          "fr": "les produits laitiers"
+        },
+        {
+          "en": "scrambled eggs",
+          "kind": "term",
+          "fr": "les œufs brouillés"
+        },
+        {
+          "en": "toast",
+          "kind": "term",
+          "fr": "le pain grillé"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "Do you have a table for one?",
+          "kind": "phrase",
+          "fr": "Vous avez une table pour une personne ?"
+        },
+        {
+          "en": "I'd like an americano, please.",
+          "kind": "phrase",
+          "fr": "Je voudrais un americano, s’il vous plaît."
+        },
+        {
+          "en": "I can't have dairy.",
+          "kind": "phrase",
+          "fr": "Je ne peux pas consommer de produits laitiers."
+        },
+        {
+          "en": "Excuse me, I ordered oat milk.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, j’avais demandé du lait d’avoine."
+        },
+        {
+          "en": "Could you bring me the bill, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m’apporter l’addition, s’il vous plaît ?"
+        },
+        {
+          "en": "Can I pay by card?",
+          "kind": "phrase",
+          "fr": "Je peux payer par carte ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Révision : un petit-déjeuner complet",
+        "english": [
+          "First, I walked into the café and asked the waitress: Good morning, do you have a table for one?",
+          "She gave me a table near the counter.",
+          "Then I ordered an americano, scrambled eggs and toast.",
+          "I also told her: I can't have dairy, do you have oat milk?",
+          "When the coffee arrived, it had regular milk, and I told her: Excuse me, I ordered oat milk.",
+          "The waitress changed my coffee and asked me: Is this your first time in the city?",
+          "I answered: Yes, and afterward I'm going to visit the museum.",
+          "At the end I asked for the bill and paid by card.",
+          "Before leaving, I left a tip for the waitress."
+        ],
+        "french": [
+          "D’abord, je suis entré dans le café et j’ai demandé à la serveuse : « Bonjour, vous avez une table pour une personne ? »",
+          "Elle m’a donné une table près du comptoir.",
+          "Ensuite, j’ai commandé un americano, des œufs brouillés et du pain grillé.",
+          "Je lui ai aussi dit : « Je ne peux pas consommer de produits laitiers ; vous avez du lait d’avoine ? »",
+          "Quand le café est arrivé, il contenait du lait ordinaire ; je lui ai dit : « Excusez-moi, j’avais demandé du lait d’avoine. »",
+          "La serveuse a remplacé mon café et m’a demandé : « C’est votre première visite dans cette ville ? »",
+          "J’ai répondu : « Oui, et ensuite je vais visiter le musée. »",
+          "À la fin, j’ai demandé l’addition et j’ai payé par carte.",
+          "Avant de partir, j’ai laissé un pourboire à la serveuse."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Je commande des œufs brouillés et du pain grillé.",
+          "exampleEnglish": "I'm ordering scrambled eggs and toast.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Pourriez-vous m’apporter l’addition, s’il vous plaît ?",
+          "exampleEnglish": "Could you bring me the bill, please?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleFrench": "Vous avez du lait d’avoine ?",
+          "exampleEnglish": "Do you have oat milk?",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "infinitiveFrench": "pouvoir",
+          "meaningEnglish": "to be able to, can",
+          "exampleFrench": "Je ne peux pas consommer de produits laitiers.",
+          "exampleEnglish": "I can't have dairy.",
+          "sourceInfinitiveSpanish": "poder"
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Je paie par carte.",
+          "exampleEnglish": "I'm paying by card.",
+          "sourceInfinitiveSpanish": "pagar"
+        }
+      ],
+      "speakingInstructionEnglish": "Role-play the full café visit in French, including the dairy restriction and correcting a wrong drink.",
+      "speakingFrench": "Bonjour, vous avez une table pour une personne ? Je ne peux pas consommer de produits laitiers ; pourriez-vous vérifier ma commande ?",
+      "regionalNotesEnglish": [
+        "Dairy restriction wording needs qualified allergy review before release. The scripted correction does not establish that a drink is safe.",
+        "The source includes a tip; local tipping practice varies."
+      ],
+      "reviewed": false
+    }
+  ]
+}

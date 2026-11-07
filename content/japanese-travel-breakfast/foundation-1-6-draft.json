@@ -1,0 +1,874 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "foundation-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-breakfast.json",
+    "sha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "role": "English objective and progression anchors only; Japanese scenes are original and Spanish currency, foods, and grammar are not copied"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "foundation-travel-breakfast:1:ja-en",
+      "sourceObjectiveSha256": "0d931395ecea4c911393b10319109d4b2d562699f8d1eb5e464b3c445cbd378a",
+      "sourceEnglishObjective": "Say breakfast words clearly and greet a server or barista politely in the morning.",
+      "title": "Morning at the café",
+      "objective": "Greet café staff politely, say your name, and recognize common breakfast words in hiragana and katakana.",
+      "focus": "おはようございます is a polite morning greeting. は in わたしは is pronounced wa; です makes a polite statement. Long vowels matter in コーヒー. Katakana often marks loanwords such as コーヒー and メニュー.",
+      "scene": "Sam enters a small café in the morning and asks about breakfast.",
+      "cards": [
+        {
+          "ja": "おはようございます",
+          "en": "Good morning (polite)",
+          "kind": "phrase"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "おちゃ",
+          "en": "tea",
+          "kind": "term",
+          "note": "Often written お茶; introduced in kana first."
+        },
+        {
+          "ja": "ジュース",
+          "en": "juice",
+          "kind": "term"
+        },
+        {
+          "ja": "ぎゅうにゅう",
+          "en": "milk",
+          "kind": "term",
+          "note": "Often written 牛乳."
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "たまご",
+          "en": "egg",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "ありますか",
+          "en": "Do you have it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありがとうございます",
+          "en": "Thank you very much",
+          "kind": "phrase"
+        },
+        {
+          "ja": "わたしはサムです",
+          "en": "I am Sam",
+          "kind": "phrase"
+        },
+        {
+          "ja": "よろしくおねがいします",
+          "en": "Pleased to meet you",
+          "kind": "phrase",
+          "note": "Contextual greeting, not a word-for-word equivalent."
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。",
+          "en": "Good morning."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "おはようございます。",
+          "en": "Good morning."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わたしはサムです。",
+          "en": "I am Sam."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "サムさん、よろしくおねがいします。",
+          "en": "Sam, pleased to meet you."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "メニューはありますか。",
+          "en": "Do you have a menu?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらです。",
+          "en": "Yes, here it is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーとパンはありますか。",
+          "en": "Do you have coffee and bread?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, we do."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering breakfast",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。ご注文は何になさいますか。",
+        "goal": "Greet the staff, say your name, and ask whether coffee and bread are available.",
+        "closure": "Thank the staff politely; do not claim an order was placed unless it was confirmed.",
+        "wordBank": [
+          "おはようございます",
+          "コーヒー",
+          "パン",
+          "ありますか",
+          "ありがとうございます"
+        ]
+      },
+      "modes": {
+        "see": "Read the greeting and menu dialogue with aligned English.",
+        "recall": "Recall おはようございます, コーヒー, パン and メニュー from English prompts.",
+        "hear": "Identify the long vowel in コーヒー and hear the greeting before revealing English.",
+        "type": "Type コーヒー and メニュー from English cues with kana help.",
+        "say": "Greet the café worker and ask about coffee and bread.",
+        "write": "Write a polite two-line greeting and menu question."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "foundation-travel-breakfast:2:ja-en",
+      "sourceObjectiveSha256": "59ce845bc2f71c3c07a3f000902e9d92e7e0f7c86cdf260217fa2dcd84a07b3e",
+      "sourceEnglishObjective": "Use numbers, prices in pesos, clock times and café quantities to order and check a total.",
+      "title": "Two coffees and the total",
+      "objective": "Order two coffees and three pieces of bread using Japanese counters, then confirm a price in yen.",
+      "focus": "Use コーヒーを二はい for two cups and パンを三つ for three general pieces. ですか asks for confirmation. 円 means yen; café prices vary, so the example total is fictional. The Spanish source's pesos are intentionally adapted to yen.",
+      "scene": "Sam and a friend order at a café counter and check the stated total.",
+      "cards": [
+        {
+          "ja": "二はい",
+          "en": "two cups",
+          "kind": "term"
+        },
+        {
+          "ja": "三つ",
+          "en": "three items",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒーを二はいください",
+          "en": "Two coffees, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "パンを三つください",
+          "en": "Three pieces of bread, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "円",
+          "en": "yen",
+          "kind": "term"
+        },
+        {
+          "ja": "おいくらですか",
+          "en": "How much is it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "千円",
+          "en": "one thousand yen",
+          "kind": "term"
+        },
+        {
+          "ja": "千円ですか",
+          "en": "Is it one thousand yen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "はい、そうです",
+          "en": "Yes, that is right",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ちがいます",
+          "en": "That is not right",
+          "kind": "phrase"
+        },
+        {
+          "ja": "八時半",
+          "en": "half past eight",
+          "kind": "term"
+        },
+        {
+          "ja": "何時からですか",
+          "en": "From what time?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "おはようございます。ご注文は何になさいますか。",
+          "en": "Good morning. What would you like to order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを二はいください。",
+          "en": "Two coffees, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "パンを三つください。",
+          "en": "Three pieces of bread, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おいくらですか。",
+          "en": "How much is it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "千円です。",
+          "en": "It is one thousand yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "千円ですか。",
+          "en": "One thousand yen?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、そうです。",
+          "en": "Yes, that is right."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering for two",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。ご注文は何になさいますか。",
+        "goal": "Order two coffees and three pieces of bread; ask for and repeat the total in yen.",
+        "closure": "Only confirm the price the partner actually states.",
+        "wordBank": [
+          "二はい",
+          "三つ",
+          "ください",
+          "おいくらですか",
+          "円",
+          "ですか"
+        ]
+      },
+      "modes": {
+        "see": "Read the counter scene, keeping quantities and yen visible.",
+        "recall": "Choose the people-neutral item counter and cup counter in context.",
+        "hear": "Distinguish 二はい and 三つ when the order is spoken.",
+        "type": "Type the quantities in kana or Japanese numerals with guided input.",
+        "say": "Order two coffees and three pieces of bread, then check the amount.",
+        "write": "Write a short order and a separate confirmation question."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "foundation-travel-breakfast:3:ja-en",
+      "sourceObjectiveSha256": "9a424a49342345b0538fb5a27f3d5e1359aba3b1eaadb6700ed7f522c98c8a7b",
+      "sourceEnglishObjective": "Describe food, drinks and tables at a café with ser and estar.",
+      "title": "A table and a hot coffee",
+      "objective": "Ask whether a table is available and describe the temperature or taste of a drink or food without importing Spanish ser/estar grammar.",
+      "focus": "Use この席は空いていますか to ask about seat availability. あつい describes a hot drink; つめたい describes a cold one. Japanese adjectives do not map onto the Spanish ser/estar distinction, so this lesson teaches predicate adjectives and current-state expressions instead.",
+      "scene": "Sam asks for a table, then checks a coffee and a sweet pastry with the server.",
+      "cards": [
+        {
+          "ja": "席",
+          "en": "seat; place at a table",
+          "kind": "term"
+        },
+        {
+          "ja": "空いていますか",
+          "en": "Is it available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この席は空いていますか",
+          "en": "Is this seat available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "あつい",
+          "en": "hot (to the touch)",
+          "kind": "term"
+        },
+        {
+          "ja": "つめたい",
+          "en": "cold (to the touch)",
+          "kind": "term"
+        },
+        {
+          "ja": "あまい",
+          "en": "sweet",
+          "kind": "term"
+        },
+        {
+          "ja": "おいしい",
+          "en": "delicious",
+          "kind": "term"
+        },
+        {
+          "ja": "からい",
+          "en": "spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒーはあついです",
+          "en": "The coffee is hot",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これはあまいです",
+          "en": "This is sweet",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今",
+          "en": "now",
+          "kind": "term"
+        },
+        {
+          "ja": "どうぞ",
+          "en": "Please; go ahead",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。この席は空いていますか。",
+          "en": "Excuse me. Is this seat available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、空いています。どうぞ。",
+          "en": "Yes, it is available. Please go ahead."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "コーヒーをどうぞ。",
+          "en": "Here is your coffee."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このコーヒーはあついですね。",
+          "en": "This coffee is hot, isn't it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あついです。",
+          "en": "Yes, it is hot."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このパンはあまいですか。",
+          "en": "Is this bread sweet?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あまいです。",
+          "en": "Yes, it is sweet."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking for a seat",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席をお探しですか。",
+        "goal": "Ask whether a seat is free and describe whether your coffee is hot and bread is sweet.",
+        "closure": "Thank the staff; avoid claiming any allergy accommodation.",
+        "wordBank": [
+          "すみません",
+          "この席",
+          "空いていますか",
+          "あつい",
+          "あまい",
+          "ありがとうございます"
+        ]
+      },
+      "modes": {
+        "see": "Read the seat and food scene with aligned English.",
+        "recall": "Recall seat availability and hot, cold, and sweet in context.",
+        "hear": "Listen for あつい and あまい before seeing the translation.",
+        "type": "Type the short seat question with kana support.",
+        "say": "Ask whether the seat is open and describe the coffee.",
+        "write": "Write a two-sentence seat question and food observation."
+      }
+    },
+    {
+      "n": 4,
+      "stableId": "foundation-travel-breakfast:4:ja-en",
+      "sourceObjectiveSha256": "bcfc90c054137e273fcb54fe0e498c8dc61d846e4fb00e59e844a4d92e8d961d",
+      "sourceEnglishObjective": "Say what you have, need and want at breakfast, and ask what the café has.",
+      "title": "Ask what is available",
+      "objective": "Say you are hungry, ask whether orange juice is available, and request a fork and napkin politely.",
+      "focus": "ありますか asks whether an item is available. ほしいです expresses what you want; ～をください requests an item politely. Japanese does not copy Spanish tener/hay/querer conjugations. 「新鮮」 is not used to claim juice quality; ask whether it is freshly squeezed if that distinction matters.",
+      "scene": "At the café counter, Sam asks about juice before requesting utensils.",
+      "cards": [
+        {
+          "ja": "おなかがすきました",
+          "en": "I am hungry",
+          "kind": "term"
+        },
+        {
+          "ja": "オレンジジュース",
+          "en": "orange juice",
+          "kind": "term"
+        },
+        {
+          "ja": "しぼりたて",
+          "en": "freshly squeezed",
+          "kind": "term"
+        },
+        {
+          "ja": "ありますか",
+          "en": "Do you have it?",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "おちゃ",
+          "en": "tea",
+          "kind": "term"
+        },
+        {
+          "ja": "さとうなしで",
+          "en": "without sugar",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkin",
+          "kind": "term"
+        },
+        {
+          "ja": "フォーク",
+          "en": "fork",
+          "kind": "term"
+        },
+        {
+          "ja": "スプーン",
+          "en": "spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "フォークをください",
+          "en": "A fork, please",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキンもください",
+          "en": "A napkin too, please",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。おなかがすきました。",
+          "en": "Excuse me. I am hungry."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ご注文は何になさいますか。",
+          "en": "What would you like to order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "オレンジジュースはありますか。",
+          "en": "Do you have orange juice?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, we do."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "しぼりたてですか。",
+          "en": "Is it freshly squeezed?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ、しぼりたてではありません。",
+          "en": "No, it is not freshly squeezed."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、おちゃをください。",
+          "en": "Then tea, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "フォークとナプキンもください。",
+          "en": "A fork and napkin too, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about breakfast",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。ご注文は何になさいますか。",
+        "goal": "Say you are hungry, ask whether orange juice is available, then request a fork and napkin. Confirm any quality claim before repeating it.",
+        "closure": "Thank staff after the request is acknowledged.",
+        "wordBank": [
+          "おなかがすきました",
+          "オレンジジュース",
+          "ありますか",
+          "フォーク",
+          "ナプキン",
+          "ください"
+        ]
+      },
+      "modes": {
+        "see": "Read the café exchange with English available after reveal.",
+        "recall": "Recall availability and polite request forms.",
+        "hear": "Hear the difference between あります and ありません.",
+        "type": "Type a short availability question using kana help.",
+        "say": "Ask for juice, a fork and a napkin.",
+        "write": "Write two polite requests and an availability question."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "foundation-travel-breakfast:5:ja-en",
+      "sourceObjectiveSha256": "788b70ca24fe92507dac78828f7dd7bae4c565ad7ac0b63c22aa1fc9b2169ead",
+      "sourceEnglishObjective": "Say where you are going for breakfast, what you will order, and what you can do at a café.",
+      "title": "Eat here or take away",
+      "objective": "Say you plan to eat here and ask whether you may sit outside and pay by card.",
+      "focus": "ここで食べます states where an action takes place. ～てもいいですか asks permission. カードで払えますか asks whether card payment is possible. A terrace or payment method is never assumed available.",
+      "scene": "Sam arrives at a café with outside seating and checks the choices before ordering.",
+      "cards": [
+        {
+          "ja": "ここ",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで食べます",
+          "en": "I will eat here",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "外の席",
+          "en": "outside seating",
+          "kind": "term"
+        },
+        {
+          "ja": "座ってもいいですか",
+          "en": "May I sit?",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "払えますか",
+          "en": "Can I pay?",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェ",
+          "en": "café",
+          "kind": "term"
+        },
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "en": "restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "注文します",
+          "en": "I will order",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "店内でお召し上がりですか。",
+          "en": "Will you eat here?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、ここで食べます。",
+          "en": "Yes, I will eat here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "外の席に座ってもいいですか。",
+          "en": "May I sit outside?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、今は空いています。",
+          "en": "Yes, it is available now."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを注文します。",
+          "en": "I will order coffee."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払えますか。",
+          "en": "Can I pay by card?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、レジで払えます。",
+          "en": "Yes, you can pay at the register."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler checking café options",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。店内でお召し上がりですか。",
+        "goal": "Say you will eat here, ask permission to sit outside, and check whether card payment is available.",
+        "closure": "Confirm the staff response before moving outside or paying.",
+        "wordBank": [
+          "ここで食べます",
+          "外の席",
+          "座ってもいいですか",
+          "カードで払えますか"
+        ]
+      },
+      "modes": {
+        "see": "Read the seating and payment exchange.",
+        "recall": "Recall permission and ability questions.",
+        "hear": "Identify ここで and 外の席 in spoken lines.",
+        "type": "Type カードで払えますか with input support.",
+        "say": "Ask to sit outside and pay by card.",
+        "write": "Write a brief eat-here statement and two questions."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "foundation-travel-breakfast:6:ja-en",
+      "sourceObjectiveSha256": "8cbd07e0412c140f4404d93a7c72c0dc2b348528f16899b862fc49713defd224",
+      "sourceEnglishObjective": "Talk about what you eat and drink for breakfast using present-tense verbs.",
+      "title": "What do you have for breakfast?",
+      "objective": "Tell another guest what you usually eat and drink, and ask about their breakfast.",
+      "focus": "Japanese polite nonpast ～ます covers habits and future context; it does not inflect by person like Spanish present-tense verbs. いつも means usually; 毎朝 means every morning. を marks what is eaten or drunk. Avoid assuming another guest lives locally.",
+      "scene": "Two guests talk over breakfast in a hotel dining room.",
+      "cards": [
+        {
+          "ja": "朝ごはん",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "毎朝",
+          "en": "every morning",
+          "kind": "term"
+        },
+        {
+          "ja": "いつも",
+          "en": "usually",
+          "kind": "term"
+        },
+        {
+          "ja": "食べます",
+          "en": "eat",
+          "kind": "term"
+        },
+        {
+          "ja": "飲みます",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "たまご",
+          "en": "egg",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "おちゃ",
+          "en": "tea",
+          "kind": "term"
+        },
+        {
+          "ja": "何を食べますか",
+          "en": "What do you eat?",
+          "kind": "term"
+        },
+        {
+          "ja": "どちらを飲みますか",
+          "en": "Which do you drink?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "おはようございます。",
+          "en": "Good morning."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。",
+          "en": "Good morning."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "朝ごはんは何を食べますか。",
+          "en": "What do you eat for breakfast?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いつもパンとたまごを食べます。",
+          "en": "I usually eat bread and eggs."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "コーヒーとおちゃ、どちらを飲みますか。",
+          "en": "Which do you drink, coffee or tea?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "毎朝コーヒーを飲みます。",
+          "en": "I drink coffee every morning."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "朝ごはんは何を食べますか。",
+          "en": "What do you eat?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ごはんとたまごを食べます。",
+          "en": "I eat rice and eggs."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel breakfast guest",
+        "partnerRole": "Another guest",
+        "opening": "おはようございます。朝ごはんは何を食べますか。",
+        "goal": "Describe your usual breakfast and ask whether the other guest drinks coffee or tea.",
+        "closure": "End the conversation politely without asking where the guest lives.",
+        "wordBank": [
+          "毎朝",
+          "いつも",
+          "パン",
+          "たまご",
+          "食べます",
+          "コーヒー",
+          "おちゃ",
+          "飲みます"
+        ]
+      },
+      "modes": {
+        "see": "Read two guests’ breakfast exchange.",
+        "recall": "Recall 食べます and 飲みます with the matching food or drink.",
+        "hear": "Hear breakfast items before showing English.",
+        "type": "Type a short habit sentence with kana support.",
+        "say": "Describe your breakfast and ask a guest about theirs.",
+        "write": "Write two habit sentences and one question."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language review of naturalness and register",
+    "Qualified regional café review of menu/price assumptions",
+    "Qualified food-allergy review before any allergy claims are added",
+    "Independent curriculum and exact-pair review",
+    "Recorded ja-JP audio and phone/offline verification"
+  ]
+}

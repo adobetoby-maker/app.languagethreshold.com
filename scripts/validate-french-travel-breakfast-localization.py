@@ -14,16 +14,16 @@ DRAFTS = [
     ROOT / "content/french-travel-breakfast/core-1-3-draft.json",
     ROOT / "content/french-travel-breakfast/core-7-9-draft.json",
     ROOT / "content/french-travel-breakfast/core-22-24-draft.json",
+    ROOT / "content/french-travel-breakfast/core-25-27-draft.json",
+    ROOT / "content/french-travel-breakfast/core-28-30-draft.json",
 ]
 FIXTURE = ROOT / "content/french-travel-breakfast/private-runtime-candidate.json"
 SOURCE_LOCALE = re.compile(
     r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
     r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
 )
-LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:7", "core:22", "core:23", "core:24"}
-REMAINING = [
-    "core:25", "core:28", "core:29", "master:7",
-]
+LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:7", "core:22", "core:23", "core:24", "core:25", "core:28", "core:29"}
+REMAINING = ["master:7"]
 
 
 def main():
@@ -68,7 +68,14 @@ def main():
     assert "rue des Tilleuls" in emergency["speaking"]["openingFrench"]
     assert "Rue des Tilleuls" in emergency["reader"][4]["supportEnglish"]
     assert "Juárez" not in json.dumps(emergency["reader"], ensure_ascii=False)
-    print("French Travel Breakfast ten Foundation and five Core localized pairs passed")
+    burn = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:25")
+    assert burn["requiresQualifiedReview"] is True
+    assert "Oaxaca" not in json.dumps(burn["reader"], ensure_ascii=False)
+    assert "small burn" not in json.dumps(burn["reader"], ensure_ascii=False)
+    tip = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:29")
+    assert "10 percent" not in json.dumps(tip["reader"], ensure_ascii=False)
+    assert "dix pour cent" not in json.dumps(tip["reader"], ensure_ascii=False)
+    print("French Travel Breakfast ten Foundation and eight Core localized pairs passed")
 
 
 if __name__ == "__main__":

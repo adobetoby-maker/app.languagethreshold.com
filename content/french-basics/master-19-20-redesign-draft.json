@@ -1,0 +1,492 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "master",
+  "reviewed": false,
+  "state": "redesigned-authored-draft",
+  "registered": false,
+  "source": {
+    "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
+    "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
+    "legacySpanishCourse": "src/data/core60/es/master-spanish-basics.json",
+    "legacySpanishCourseSha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "legacySpanishPractice": "src/data/spanish-basics-practice.json",
+    "legacySpanishPracticeSha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "priorRedesign": "content/french-basics/master-16-18-redesign-draft.json",
+    "priorRedesignSha256": "cc3bd37ab8f321a6d888f94e3b8499bedc6912e57f6879e057069a2720bf9cd9",
+    "policy": "Legacy English pairs remain provenance only; candidate learner pairs are newly authored and unreviewed"
+  },
+  "draftModel": "Codex-authored; independent French and qualified human review pending",
+  "lessons": [
+    {
+      "n": 19,
+      "stableLessonKey": "master-french-basics:19",
+      "title": "Expliquer comment une habitude a changé",
+      "objective": "Explain what usually happened before, what happened once, and how the one event affected the routine.",
+      "prerequisites": [
+        "core:26",
+        "core:28",
+        "core:30"
+      ],
+      "focus": "imparfait habituel; passé composé ponctuel; depuis; cause et conséquence",
+      "grammar": {
+        "explanation": "Use the imparfait for a repeated past habit (je venais à vélo chaque mardi), the passé composé for the single event (un orage a éclaté), and depuis to state the resulting routine that continues now (depuis cet incident, je prends le bus). Keep the time line explicit: old habit, one interruption, new routine. Do not let a single event sound like a recurring event.",
+        "model": {
+          "habit": "Avant, je venais à vélo chaque mardi.",
+          "event": "Un jour, un orage a éclaté pendant le trajet.",
+          "result": "Depuis cet incident, je prends le bus quand la météo annonce de la pluie.",
+          "nuance": "Par beau temps, je viens encore à vélo."
+        },
+        "caution": "The event does not mean the learner permanently stopped cycling. Review aspect and depuis with present-tense continuing routine."
+      },
+      "scene": "Une élève allait d’habitude au cours à vélo; un orage a interrompu un trajet et l’a conduite à changer son organisation.",
+      "speaking": {
+        "role": "Explain a past habit, a one-time interruption, and today’s routine.",
+        "opening": "Avant, je venais au cours à vélo presque tous les mardis.",
+        "objectives": [
+          "Describe the old repeated routine",
+          "Identify the single storm event",
+          "Explain what has changed since then",
+          "Correct the mistaken inference that cycling stopped entirely"
+        ],
+        "complication": "The listener assumes one event ended the habit altogether.",
+        "closure": "Restate that the learner checks the forecast and still cycles in good weather."
+      },
+      "reading": {
+        "title": "Le mardi après l’orage",
+        "target": [
+          "Camille : Avant, je venais au cours à vélo presque tous les mardis.",
+          "Hugo : C’était ton trajet habituel depuis longtemps ?",
+          "Camille : Oui, je partais à huit heures et j’arrivais avant les autres.",
+          "Hugo : Quel événement a changé cette habitude ?",
+          "Camille : Un mardi, un orage a éclaté alors que je traversais le parc.",
+          "Hugo : Tu as continué ton trajet à vélo ce jour-là ?",
+          "Camille : Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.",
+          "Hugo : Et comment viens-tu au cours depuis cet incident ?",
+          "Camille : Quand la météo annonce de la pluie, je prends le bus.",
+          "Hugo : Donc tu ne viens plus jamais à vélo ?",
+          "Camille : Si, par beau temps je viens encore à vélo ; je vérifie simplement la météo avant de partir.",
+          "Hugo : Je comprends : l’orage a changé ta préparation, pas supprimé le vélo."
+        ],
+        "native": [
+          "Camille: Before, I came to class by bicycle almost every Tuesday.",
+          "Hugo: Had that been your usual journey for a long time?",
+          "Camille: Yes, I used to leave at eight and arrive before the others.",
+          "Hugo: What event changed that habit?",
+          "Camille: One Tuesday, a thunderstorm broke out while I was crossing the park.",
+          "Hugo: Did you continue your bicycle journey that day?",
+          "Camille: No, I stopped under shelter and informed the teacher.",
+          "Hugo: And how do you come to class since that incident?",
+          "Camille: When the forecast calls for rain, I take the bus.",
+          "Hugo: So you never come by bicycle anymore?",
+          "Camille: I do still come by bicycle in good weather; I simply check the forecast before leaving.",
+          "Hugo: I understand: the storm changed your preparation; it did not eliminate cycling."
+        ]
+      },
+      "dialogue": [
+        "Camille : Avant, je venais au cours à vélo presque tous les mardis.|Camille: Before, I came to class by bicycle almost every Tuesday.",
+        "Hugo : C’était ton trajet habituel depuis longtemps ?|Hugo: Had that been your usual journey for a long time?",
+        "Camille : Oui, je partais à huit heures et j’arrivais avant les autres.|Camille: Yes, I used to leave at eight and arrive before the others.",
+        "Hugo : Quel événement a changé cette habitude ?|Hugo: What event changed that habit?",
+        "Camille : Un mardi, un orage a éclaté alors que je traversais le parc.|Camille: One Tuesday, a thunderstorm broke out while I was crossing the park.",
+        "Hugo : Tu as continué ton trajet à vélo ce jour-là ?|Hugo: Did you continue your bicycle journey that day?",
+        "Camille : Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.|Camille: No, I stopped under shelter and informed the teacher.",
+        "Hugo : Et comment viens-tu au cours depuis cet incident ?|Hugo: And how do you come to class since that incident?",
+        "Camille : Quand la météo annonce de la pluie, je prends le bus.|Camille: When the forecast calls for rain, I take the bus.",
+        "Hugo : Donc tu ne viens plus jamais à vélo ?|Hugo: So you never come by bicycle anymore?",
+        "Camille : Si, par beau temps je viens encore à vélo ; je vérifie simplement la météo avant de partir.|Camille: I do still come by bicycle in good weather; I simply check the forecast before leaving.",
+        "Hugo : Je comprends : l’orage a changé ta préparation, pas supprimé le vélo.|Hugo: I understand: the storm changed your preparation; it did not eliminate cycling."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "une habitude",
+          "en": "a habit",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "un trajet",
+          "en": "a journey",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "un orage",
+          "en": "a thunderstorm",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "éclater",
+          "en": "to break out",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "depuis cet incident",
+          "en": "since that incident",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "par beau temps",
+          "en": "in good weather",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "prévoir de la pluie",
+          "en": "to forecast rain",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "changer d’organisation",
+          "en": "to change one’s routine",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Camille : Avant, je venais au cours à vélo presque tous les mardis.",
+          "en": "Camille: Before, I came to class by bicycle almost every Tuesday.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Hugo : C’était ton trajet habituel depuis longtemps ?",
+          "en": "Hugo: Had that been your usual journey for a long time?",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Camille : Oui, je partais à huit heures et j’arrivais avant les autres.",
+          "en": "Camille: Yes, I used to leave at eight and arrive before the others.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Hugo : Quel événement a changé cette habitude ?",
+          "en": "Hugo: What event changed that habit?",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Camille : Un mardi, un orage a éclaté alors que je traversais le parc.",
+          "en": "Camille: One Tuesday, a thunderstorm broke out while I was crossing the park.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Hugo : Tu as continué ton trajet à vélo ce jour-là ?",
+          "en": "Hugo: Did you continue your bicycle journey that day?",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Camille : Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.",
+          "en": "Camille: No, I stopped under shelter and informed the teacher.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Hugo : Et comment viens-tu au cours depuis cet incident ?",
+          "en": "Hugo: And how do you come to class since that incident?",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Camille : Quand la météo annonce de la pluie, je prends le bus.",
+          "en": "Camille: When the forecast calls for rain, I take the bus.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Hugo : Donc tu ne viens plus jamais à vélo ?",
+          "en": "Hugo: So you never come by bicycle anymore?",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Camille : Si, par beau temps je viens encore à vélo ; je vérifie simplement la météo avant de partir.",
+          "en": "Camille: I do still come by bicycle in good weather; I simply check the forecast before leaving.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Hugo : Je comprends : l’orage a changé ta préparation, pas supprimé le vélo.",
+          "en": "Hugo: I understand: the storm changed your preparation; it did not eliminate cycling.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How did Camille usually travel before?",
+          "answer": "By bicycle."
+        },
+        {
+          "type": "write",
+          "prompt": "Describe the one-time event in French.",
+          "answer": "Un mardi, un orage a éclaté alors que je traversais le parc."
+        },
+        {
+          "type": "listening",
+          "prompt": "How does Camille travel when rain is forecast now?",
+          "answer": "By bus.",
+          "audioText": "Quand la météo annonce de la pluie, je prends le bus.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Did Camille stop cycling entirely?",
+          "answer": "No; she still cycles in good weather."
+        },
+        {
+          "type": "application",
+          "prompt": "State the old habit, one event, and current routine in French.",
+          "answer": "Avant, je venais à vélo ; un orage a éclaté ; depuis, je prends le bus quand il risque de pleuvoir."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 20,
+      "stableLessonKey": "master-french-basics:20",
+      "title": "Mener une conversation complète en français",
+      "objective": "Open, clarify, compare, decide, report a past event and close a conversation with minimal prompting and suitable register.",
+      "prerequisites": [
+        "core:22",
+        "core:24",
+        "core:26",
+        "core:28",
+        "master:1-19"
+      ],
+      "focus": "ouvrir; clarifier; comparer; négocier; événement passé; récapituler; tu/vous",
+      "grammar": {
+        "explanation": "Integrate earlier forms rather than introducing a new paradigm. Open with the purpose, ask for clarification, compare options using explicit criteria, negotiate when a plan changes, report a relevant past event in the passé composé, and close by restating who will do what and when. Use informal tu between familiar colleagues and formal vous when addressing staff. Ask a follow-up before treating a proposed room as booked.",
+        "model": {
+          "open": "Nous devons préparer l’atelier de jeudi.",
+          "clarify": "De combien de places avons-nous besoin ?",
+          "compare": "La petite salle est plus calme, mais elle a moins de places.",
+          "close": "Je confirme l’horaire ; tu vérifieras la salle auprès de l’accueil."
+        },
+        "caution": "This is a capstone performance draft, not evidence of spontaneous speech proficiency. Review whether earlier lessons actually scaffold every required move and whether the change-of-plan decision is genuinely negotiated."
+      },
+      "scene": "Deux collègues organisent un atelier. Une salle devient indisponible pendant l’échange; ils clarifient les besoins, comparent les options et confirment un nouveau plan.",
+      "speaking": {
+        "role": "Lead a full multi-turn workshop planning conversation with minimal prompting.",
+        "opening": "Pouvons-nous finaliser l’atelier de jeudi ?",
+        "objectives": [
+          "Open and clarify capacity",
+          "Compare two room and time options",
+          "Respond to a mid-conversation availability change",
+          "Report a relevant past event",
+          "Negotiate and recap pending confirmation"
+        ],
+        "complication": "The preferred room becomes unavailable Thursday morning after the first comparison.",
+        "closure": "Recap who checks the new room and who notifies participants, without claiming a booking before confirmation."
+      },
+      "reading": {
+        "title": "Le nouvel atelier du jeudi",
+        "target": [
+          "Camille : Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?",
+          "Hugo : Oui. De combien de places avons-nous besoin exactement ?",
+          "Camille : Douze personnes sont inscrites, et deux autres attendent une réponse.",
+          "Hugo : La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.",
+          "Camille : La grande salle peut en accueillir seize ; je la préfère pour éviter de refuser quelqu’un.",
+          "Hugo : Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.",
+          "Camille : Alors, comparons jeudi après-midi dans la grande salle et vendredi matin dans la petite.",
+          "Hugo : Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "Camille : Cela plaide pour jeudi après-midi, mais il faut vérifier que la grande salle est libre.",
+          "Hugo : Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.",
+          "Camille : Attends la confirmation avant que j’envoie le nouvel horaire.",
+          "Hugo : D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire."
+        ],
+        "native": [
+          "Camille: Hi Hugo, can we finalize Thursday’s workshop?",
+          "Hugo: Yes. How many seats do we need exactly?",
+          "Camille: Twelve people are registered, and two others are waiting for a reply.",
+          "Hugo: The small room is quieter, but it can hold only twelve people.",
+          "Camille: The large room can hold sixteen; I prefer it so we do not have to turn anyone away.",
+          "Hugo: I just received a message: the large room is no longer available Thursday morning.",
+          "Camille: Then let us compare Thursday afternoon in the large room and Friday morning in the small one.",
+          "Hugo: Last Friday, two participants missed the morning session.",
+          "Camille: That favors Thursday afternoon, but we need to check that the large room is free.",
+          "Hugo: I will check its availability with reception, and you will notify the participants.",
+          "Camille: Wait for confirmation before I send the new time.",
+          "Hugo: Agreed: we are aiming for Thursday afternoon; I will confirm the room, then you will announce the time."
+        ]
+      },
+      "dialogue": [
+        "Camille : Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?|Camille: Hi Hugo, can we finalize Thursday’s workshop?",
+        "Hugo : Oui. De combien de places avons-nous besoin exactement ?|Hugo: Yes. How many seats do we need exactly?",
+        "Camille : Douze personnes sont inscrites, et deux autres attendent une réponse.|Camille: Twelve people are registered, and two others are waiting for a reply.",
+        "Hugo : La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.|Hugo: The small room is quieter, but it can hold only twelve people.",
+        "Camille : La grande salle peut en accueillir seize ; je la préfère pour éviter de refuser quelqu’un.|Camille: The large room can hold sixteen; I prefer it so we do not have to turn anyone away.",
+        "Hugo : Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.|Hugo: I just received a message: the large room is no longer available Thursday morning.",
+        "Camille : Alors, comparons jeudi après-midi dans la grande salle et vendredi matin dans la petite.|Camille: Then let us compare Thursday afternoon in the large room and Friday morning in the small one.",
+        "Hugo : Vendredi dernier, deux participants ont manqué la séance du matin.|Hugo: Last Friday, two participants missed the morning session.",
+        "Camille : Cela plaide pour jeudi après-midi, mais il faut vérifier que la grande salle est libre.|Camille: That favors Thursday afternoon, but we need to check that the large room is free.",
+        "Hugo : Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.|Hugo: I will check its availability with reception, and you will notify the participants.",
+        "Camille : Attends la confirmation avant que j’envoie le nouvel horaire.|Camille: Wait for confirmation before I send the new time.",
+        "Hugo : D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire.|Hugo: Agreed: we are aiming for Thursday afternoon; I will confirm the room, then you will announce the time."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "un atelier",
+          "en": "a workshop",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "clarifier",
+          "en": "to clarify",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "une capacité",
+          "en": "a capacity",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "comparer",
+          "en": "to compare",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "être indisponible",
+          "en": "to be unavailable",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "une solution de rechange",
+          "en": "a fallback option",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "récapituler",
+          "en": "to recap",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "confirmer auprès de",
+          "en": "to confirm with",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Camille : Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?",
+          "en": "Camille: Hi Hugo, can we finalize Thursday’s workshop?",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Hugo : Oui. De combien de places avons-nous besoin exactement ?",
+          "en": "Hugo: Yes. How many seats do we need exactly?",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Camille : Douze personnes sont inscrites, et deux autres attendent une réponse.",
+          "en": "Camille: Twelve people are registered, and two others are waiting for a reply.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Hugo : La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.",
+          "en": "Hugo: The small room is quieter, but it can hold only twelve people.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Camille : La grande salle peut en accueillir seize ; je la préfère pour éviter de refuser quelqu’un.",
+          "en": "Camille: The large room can hold sixteen; I prefer it so we do not have to turn anyone away.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Hugo : Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.",
+          "en": "Hugo: I just received a message: the large room is no longer available Thursday morning.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Camille : Alors, comparons jeudi après-midi dans la grande salle et vendredi matin dans la petite.",
+          "en": "Camille: Then let us compare Thursday afternoon in the large room and Friday morning in the small one.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Hugo : Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "en": "Hugo: Last Friday, two participants missed the morning session.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Camille : Cela plaide pour jeudi après-midi, mais il faut vérifier que la grande salle est libre.",
+          "en": "Camille: That favors Thursday afternoon, but we need to check that the large room is free.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Hugo : Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.",
+          "en": "Hugo: I will check its availability with reception, and you will notify the participants.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Camille : Attends la confirmation avant que j’envoie le nouvel horaire.",
+          "en": "Camille: Wait for confirmation before I send the new time.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Hugo : D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire.",
+          "en": "Hugo: Agreed: we are aiming for Thursday afternoon; I will confirm the room, then you will announce the time.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How many people are registered initially?",
+          "answer": "Twelve."
+        },
+        {
+          "type": "write",
+          "prompt": "State the provisional decision and order of actions in French.",
+          "answer": "Nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire."
+        },
+        {
+          "type": "listening",
+          "prompt": "What relevant past event does Hugo mention?",
+          "answer": "Two participants missed last Friday morning’s session.",
+          "audioText": "Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Is Thursday afternoon already booked?",
+          "answer": "No; room availability still needs confirmation."
+        },
+        {
+          "type": "application",
+          "prompt": "Recap the negotiated plan in French without claiming confirmation.",
+          "answer": "Nous visons jeudi après-midi ; Hugo vérifiera la grande salle auprès de l’accueil et Camille préviendra les participants après confirmation."
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "f39e304d88c0995a287afc4fec47d238d9804c4ecdda7459a633881866692cb3",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "sourceOnlyEnglishFields": [
+    "objectiveEnglish",
+    "speakingEnglish",
+    "grammarFocusSpanish",
+    "grammarExamplesEnglish"
+  ],
+  "lessons": [
+    {
+      "n": 19,
+      "titleEnglish": "Turnover Walk: Warranty Limits at the Daycare",
+      "objectiveEnglish": "Walk an owner through turnover, explain what the warranty covers and under which conditions, and handle requests.",
+      "titleJapanese": "保育施設の引き渡し立会い：保証の範囲と条件",
+      "objectiveJapanese": "施設の施主に引き渡しの立会いで説明を行い、契約上の保証の対象と適用条件を伝え、依頼に対応する。",
+      "terms": [
+        {
+          "en": "the building turnover",
+          "kind": "term",
+          "ja": "建物の引き渡し"
+        },
+        {
+          "en": "the warranty coverage",
+          "kind": "term",
+          "ja": "保証の対象範囲"
+        },
+        {
+          "en": "the warranty period",
+          "kind": "term",
+          "ja": "保証期間"
+        },
+        {
+          "en": "the exclusions",
+          "kind": "term",
+          "ja": "保証の適用除外事項"
+        },
+        {
+          "en": "normal use",
+          "kind": "term",
+          "ja": "通常の使用"
+        },
+        {
+          "en": "misuse",
+          "kind": "term",
+          "ja": "不適切な使用"
+        },
+        {
+          "en": "the alteration",
+          "kind": "term",
+          "ja": "改造・変更"
+        },
+        {
+          "en": "the hairline cracks",
+          "kind": "term",
+          "ja": "細いひび割れ（ヘアクラック）"
+        },
+        {
+          "en": "the concrete shrinkage",
+          "kind": "term",
+          "ja": "コンクリートの収縮"
+        },
+        {
+          "en": "the partition wall",
+          "kind": "term",
+          "ja": "間仕切り壁"
+        },
+        {
+          "en": "the load capacity",
+          "kind": "term",
+          "ja": "耐荷重"
+        },
+        {
+          "en": "the in-wall blocking",
+          "kind": "term",
+          "ja": "壁内の補強下地材"
+        },
+        {
+          "en": "the wall anchors",
+          "kind": "term",
+          "ja": "壁用アンカー"
+        },
+        {
+          "en": "the shelving units",
+          "kind": "term",
+          "ja": "棚ユニット"
+        },
+        {
+          "en": "the project engineer",
+          "kind": "term",
+          "ja": "担当技術者（プロジェクトエンジニア）"
+        },
+        {
+          "en": "the maintenance manual",
+          "kind": "term",
+          "ja": "維持管理マニュアル"
+        },
+        {
+          "en": "Hairline cracks are normal when the concrete shrinks.",
+          "kind": "phrase",
+          "ja": "コンクリートが収縮するときに細いひび割れが生じるのは、通常のことです。"
+        },
+        {
+          "en": "According to the contract, the workmanship warranty is 1 year.",
+          "kind": "phrase",
+          "ja": "契約書によると、施工の保証期間は1年です。"
+        },
+        {
+          "en": "We'll repair it as long as the crack comes from a workmanship defect.",
+          "kind": "phrase",
+          "ja": "そのひび割れが施工不良によるものであれば、補修いたします。"
+        },
+        {
+          "en": "If the crack gets wider, let me know and we'll measure it.",
+          "kind": "phrase",
+          "ja": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。"
+        },
+        {
+          "en": "Don't hang the shelving until the engineer confirms the load.",
+          "kind": "phrase",
+          "ja": "担当技術者が耐荷重を確認するまで、棚を取り付けないでください。"
+        },
+        {
+          "en": "I would ask the project engineer to confirm it in writing.",
+          "kind": "phrase",
+          "ja": "担当技術者に書面で確認するよう依頼したいと思います。"
+        },
+        {
+          "en": "If the wall is drilled without approval, the warranty might not cover it.",
+          "kind": "phrase",
+          "ja": "承認を得ずに壁に穴を開けた場合、保証の対象外となる可能性があります。"
+        },
+        {
+          "en": "Here is the manual with the warranty exclusions.",
+          "kind": "phrase",
+          "ja": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is daycare director Claudia Benítez: walk her through turnover, explain what the warranty covers with siempre que and a menos que, and explain who must confirm wall loads, using the conditional (revisaríamos, le pediría).",
+      "grammarFocusSpanish": "Conditional; subjunctive in conditions (la garantía cubre eso siempre que no se modifique; lo revisaríamos a menos que el contrato diga otra cosa)",
+      "grammarExamplesEnglish": [
+        "The warranty covers those cracks as long as the floor isn't altered.",
+        "We would check it at no cost, unless the contract says otherwise."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは保育施設の責任者、クラウディア・ベニテスさんです。建物の引き渡しを順番に案内してください。保証の対象範囲と条件は、「〜であれば」と「〜ない限り」を使って説明してください。壁の耐荷重は誰が確認すべきかも説明してください。壁の荷重確認を誰にお願いするかを述べるときも、依頼に対応するときも、「〜することになると思います」「〜お願いしたいと思います」など控えめな表現を使ってください。",
+      "grammarTeachingJapanese": "この課では、条件と控えめな提案を表す言い方を学びます。「〜であれば」は、その条件が成り立つ場合を示します。「〜ない限り」は「〜という場合を除いて」という意味で、例外を示します。契約上の保証範囲を説明するときは、条件を明示し、契約で確認できない約束を加えないようにします。「〜することになると思います」や「〜お願いしたいと思います」で、英語の would に近い控えめな提案を伝えます。",
+      "grammarExamplesJapanese": [
+        "床に手を加えていない限り、そのひび割れは保証の対象となります。",
+        "契約書に別段の定めがない限り、無償で点検することになると思います。"
+      ],
+      "teachingNotesEnglish": [
+        "Status: AI draft only. Native Japanese, US construction, warranty/legal, and specialist review are all still open. Not for learner release until reviewed.",
+        "Hairline cracks: source distinguishes fisura (fine crack) from grieta (wider crack). Japanese uses 細いひび割れ with ヘアクラック as a trade term. A Japanese-speaking reviewer with US field experience should confirm which term crews actually use.",
+        "In-wall blocking: 壁内の補強下地材 is a descriptive rendering. Source note says crews often just say blocking. Confirm the Japanese term used on US job sites.",
+        "Wall anchors: 壁用アンカー is a generic rendering that covers plastic and metal anchors. Reviewer should confirm against the specific anchor products used.",
+        "Project engineer: the source role is ambiguous (contractor-side engineer vs. design or structural engineer). 担当技術者（プロジェクトエンジニア） was chosen without assuming authority. Source does not say who confirms loads in contract terms; confirm the intended role with the source author before release.",
+        "Warranty scope: 契約書によると in the 1-year sentence attributes the period to the contract, as the source note requires. The draft adds no statutory warranty, legal rights, or extra coverage. 施工の保証 is not expanded into any legal term. Warranty/legal reviewer must confirm no legal rights or coverage are implied.",
+        "Repair promise: 補修いたします follows the source 'we'll repair it' and is limited to the stated condition (workmanship defect). Reviewer should confirm that 'repair' is the correct commitment level for the contract.",
+        "Exclusion sentences keep the source's hedge (might not cover). Do not strengthen to 対象外です.",
+        "Terms normal use, misuse, and the alteration: 通常の使用, 不適切な使用, 改造・変更 are general equivalents. Confirm against the contract's exact exclusion wording.",
+        "Speaking prompt: AI role 'daycare director' rendered 保育施設の責任者; the name is rendered in katakana. Learner text uses 〜であれば and 〜ない限り for the source's conditional phrases and does not refer to any other language's grammar.",
+        "Grammar examples correspond in order: example 1 (warranty covers cracks as long as the floor is not altered) and example 2 (check at no cost unless the contract says otherwise). 無償 is used for 'at no cost'; confirm with the reviewer whether 無償 or 費用負担なし is preferred on the contract.",
+        "The no-cost inspection example is tentative (〜ことになると思います), preserving would and avoiding a firm free-service promise. Qualified warranty/legal review must verify the contract scope before release.",
+        "The English objective says owner while the roleplay uses daycare director Claudia. The Japanese objective says 施主 and the speaking prompt says facility director; confirm their relationship with the source owner before runtime."
+      ]
+    },
+    {
+      "n": 20,
+      "titleEnglish": "Capstone: A Hard Day on the Community Gym Job",
+      "objectiveEnglish": "Lead a full day: train, solve a shortage, refuse a shortcut, handle a near miss, meet the inspector and report.",
+      "titleJapanese": "総復習：地域体育館の現場での大変な一日",
+      "objectiveJapanese": "現場の一日を指揮し、新人を指導し、資材不足を解決し、墜落防止設備を外す近道を断り、ヒヤリハットに対応し、建築検査官に対応して報告する。",
+      "terms": [
+        {
+          "en": "the community gym",
+          "kind": "term",
+          "ja": "地域体育館"
+        },
+        {
+          "en": "the schedule slip",
+          "kind": "term",
+          "ja": "工程の遅れ"
+        },
+        {
+          "en": "the new hire",
+          "kind": "term",
+          "ja": "新人作業員"
+        },
+        {
+          "en": "the steel joists",
+          "kind": "term",
+          "ja": "鉄骨ジョイスト"
+        },
+        {
+          "en": "the short delivery",
+          "kind": "term",
+          "ja": "納品数量の不足"
+        },
+        {
+          "en": "the delivery ticket",
+          "kind": "term",
+          "ja": "納品書"
+        },
+        {
+          "en": "the purchase order",
+          "kind": "term",
+          "ja": "発注書"
+        },
+        {
+          "en": "the rush shipment",
+          "kind": "term",
+          "ja": "至急の出荷"
+        },
+        {
+          "en": "the perimeter fall protection",
+          "kind": "term",
+          "ja": "外周の墜落防止設備"
+        },
+        {
+          "en": "falling objects",
+          "kind": "term",
+          "ja": "落下物"
+        },
+        {
+          "en": "the no-injury incident",
+          "kind": "term",
+          "ja": "ヒヤリハット（負傷者なし）"
+        },
+        {
+          "en": "the building inspector",
+          "kind": "term",
+          "ja": "建築検査官"
+        },
+        {
+          "en": "the weld",
+          "kind": "term",
+          "ja": "溶接部"
+        },
+        {
+          "en": "the correction list",
+          "kind": "term",
+          "ja": "是正事項リスト"
+        },
+        {
+          "en": "the daily report",
+          "kind": "term",
+          "ja": "日報"
+        },
+        {
+          "en": "Lupita, watch how I do it and then you do it.",
+          "kind": "phrase",
+          "ja": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。"
+        },
+        {
+          "en": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
+          "kind": "phrase",
+          "ja": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。"
+        },
+        {
+          "en": "Could you send me the missing ones today?",
+          "kind": "phrase",
+          "ja": "不足分を本日中にお送りいただけますか。"
+        },
+        {
+          "en": "Felipe, I'm not going to allow the perimeter protection to be removed.",
+          "kind": "phrase",
+          "ja": "フェリペ、外周の墜落防止設備を取り外すことは認めません。"
+        },
+        {
+          "en": "The wrench fell from the second level, but it didn't hit anyone.",
+          "kind": "phrase",
+          "ja": "レンチが2階から落下しましたが、誰にも当たりませんでした。"
+        },
+        {
+          "en": "Inspector Arce, would you like to start with the joist connections?",
+          "kind": "phrase",
+          "ja": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。"
+        },
+        {
+          "en": "Due to the short delivery, the roof will be finished on Friday.",
+          "kind": "phrase",
+          "ja": "納品数量の不足のため、屋根工事は金曜日に完了する予定です。"
+        },
+        {
+          "en": "It should be noted that the perimeter protection stayed in place all day.",
+          "kind": "phrase",
+          "ja": "なお、外周の墜落防止設備は終日設置されたままでした。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Lupita, Gerardo, Felipe and inspector Arce: coach Lupita with tú commands, request the missing joists, refuse the guardrail shortcut (no voy a permitir que...), review the near miss and report using debido a and sin embargo.",
+      "grammarFocusSpanish": "Capstone: integrating the Master 20 grammar (connectors, commands, subjunctive, conditional, past narration, formal and written register)",
+      "grammarExamplesEnglish": [
+        "Because of the schedule slip, Felipe asked to remove the guardrail; however, I didn't allow it.",
+        "Lupita, don't go near the edge until you clip in."
+      ],
+      "speakingJapanese": "あなたは現場監督（フォアマン）です。AIは、新人作業員のルピタ（Lupita）、ゲラルド（Gerardo、納品元の担当者）、作業員のフェリペ（Felipe）、アルセ検査官（Inspector Arce）です。ルピタには親しい話し方で指示し、まず見本を見せてから本人にやってもらってください。ゲラルドには、納品書によると鉄骨ジョイストが足りていないことを伝え、不足分の本日中の発送を丁寧に依頼してください。フェリペが外周の墜落防止設備（手すり）を外したいと言ったら、安全手順を省く近道は認めないと「〜ことは認めません」を使って伝えてください。ヒヤリハット（負傷者なし）を振り返り、「〜のため」と「しかしながら」を使って、アルセ検査官に丁寧に現場を案内した後、出来事を報告してください。",
+      "grammarTeachingJapanese": "この課では、これまでの文法をまとめて使います。「〜ため」「しかしながら」「なお」などのつなぎ言葉で、理由と結果や前後の関係を結びます。部下への指示は「〜して」「〜ておいて」、禁止は「〜ないで」、許可しないことは「〜ことは認めません」の形で言います。過去の出来事は「〜ました」「〜ていました」で話します。報告書では、「〜のため」や「なお」などの書き言葉を使います。検査官や納品元には「お送りいただけますか」「ご確認になりますか」などの敬語を使います。",
+      "grammarExamplesJapanese": [
+        "工程の遅れのため、フェリペは手すりを外すよう求めました。しかしながら、私は認めませんでした。",
+        "ルピタ、安全帯のフックを掛けるまで、端に近づかないで。"
+      ],
+      "teachingNotesEnglish": [
+        "Status: AI draft only. Native Japanese, US construction, safety, inspection, and procurement review are all still open. Not for learner release until reviewed.",
+        "Gendered source terms: la trabajadora nueva and la inspectora are rendered as 新人作業員 and 建築検査官, which are gender-neutral in Japanese. Names Lupita and Arce are kept. Confirm whether the reviewer wants honorific forms for the inspector.",
+        "Perimeter fall protection (protección perimetral) is the term used in the phrases. The speaking prompt says guardrail (barandal). Both map to 外周の墜落防止設備 with 手すり as the everyday word. Reviewer should confirm which system the job actually uses.",
+        "Clip in (enganches) is rendered as 安全帯のフックを掛ける. Reviewer with Japanese safety background should confirm the current harness terminology. No code, standard, or approval number was added.",
+        "Steel joists: 鉄骨ジョイスト is a US-style term. Japanese speech may use a validated trade-specific rendering instead; 梁 is too broad. Specialist to confirm. No structural claim was added.",
+        "Delivery ticket (remisión) is rendered as 納品書. Purchase order is 発注書. Short delivery is 納品数量の不足. Confirm that the packing-slip and receiving-signature practice matches the US job description.",
+        "Roles not defined in the source: Gerardo is labeled 納品元の担当者 (supplier contact) because the phrase asks for formal delivery follow-up. Felipe is labeled 作業員 because he asks to remove the guardrail. These labels are inferred. Confirm with the source author before release.",
+        "Near miss: the source objective says 'handle a near miss'. The term used is the no-injury incident, rendered as ヒヤリハット（負傷者なし）. No separate near-miss term is in the source list.",
+        "Building inspector (inspectora de construcción) is rendered as 建築検査官. The inspection process is not described in the source, and no approval step is invented. Confirm jurisdictional role wording with a construction reviewer.",
+        "Written-register phrases: 'Due to the short delivery' is rendered as 納品数量の不足のため. 'It should be noted' is rendered as なお. Native reviewer should confirm that this register matches a daily report.",
+        "Grammar example 1 links the schedule slip, Felipe's request, and the foreman's refusal in the same order as the source. Grammar example 2 keeps the informal command. The clip-in step must stay in the learner text as a safety instruction, so safety specialist review is required.",
+        "Speaking prompt uses 親しい話し方 for the tú commands. This keeps the source instruction to coach Lupita informally without mentioning any other language.",
+        "The English grammar example says guardrail; the Japanese example uses 手すり, while the full fall-protection system in the phrases remains 外周の墜落防止設備. The exact system must be checked by a qualified safety specialist.",
+        "L19 uses 職長 and L20 source role is foreman, rendered 現場監督（フォアマン） in the speaking prompt. Confirm consistent US foreman title with native/trade reviewer before runtime."
+      ]
+    }
+  ]
+}

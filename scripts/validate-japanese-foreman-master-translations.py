@@ -15,6 +15,7 @@ batches = [
     ("master-translation-10-12-draft.json", 10, 12),
     ("master-translation-13-15-draft.json", 13, 15),
     ("master-translation-16-18-draft.json", 16, 18),
+    ("master-translation-19-20-draft.json", 19, 20),
 ]
 
 for filename, first, last in batches:

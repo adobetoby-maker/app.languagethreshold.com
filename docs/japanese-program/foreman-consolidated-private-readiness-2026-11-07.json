@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "module": "construction-foreman",
+  "sourceMain": "cb0a1b6f5c95108f81b98407850ed9e79e6b5195",
+  "sourceDrafts": {
+    "runtime": 290,
+    "masterReader": 319,
+    "masterReaderAdapter": 357,
+    "dictionaryInventory": 316,
+    "dictionaryAdapter": 355,
+    "formPractice": 358,
+    "speakingMissions": 360,
+    "offlineCandidate": 359
+  },
+  "state": "consolidated-private-draft",
+  "reviewed": false,
+  "registered": false,
+  "validatedPublicLessons": 0,
+  "stageDrafts": {
+    "foundation": 10,
+    "core": 30,
+    "master": 20
+  },
+  "privateAssets": {
+    "dictionaryExactPairs": 1016,
+    "dictionaryWordPlacements": 1075,
+    "ambiguousJapaneseHeadwords": 11,
+    "dictionaryMissingPartOfSpeech": 1016,
+    "dictionaryMissingInflection": 1016,
+    "contextualFormExamples": 120,
+    "speakingMissions": 60,
+    "masterReaderScenes": 20,
+    "masterReaderAlignedLines": 160,
+    "masterReaderChecks": 60,
+    "privateOfflineCandidates": 3,
+    "reviewedRecordedAudioClips": 0
+  },
+  "sourcePaths": [
+    "content/japanese-construction-foreman/private-dictionary-draft-ja-en.json",
+    "content/japanese-construction-foreman/private-form-practice-ja-en.json",
+    "content/japanese-construction-foreman/private-speaking-missions-ja-en.json",
+    "content/japanese-construction-foreman/master-original-reader-19-20-draft.json",
+    "content/japanese-construction-foreman/private-offline/construction-foreman-ja-en.manifest.json"
+  ],
+  "releaseGates": {
+    "qualifiedJapaneseReview": "open",
+    "qualifiedConstructionAndSafetyReview": "open",
+    "master2GarageDeckDeicingSourceCorrection": "open",
+    "dictionarySensePosInflectionReview": "open",
+    "publicPairSafeRuntimeRegistration": "closed",
+    "publicReaderDictionaryFormsSpeakingIntegration": "closed",
+    "offlineWorkerAndClientRegistration": "closed",
+    "authenticatedBrowserAndIPhoneAcceptance": "open",
+    "IPhoneMicrophoneSecondTurnAndConsent": "open",
+    "JapaneseHdAudioTextVoiceHashListening": "open",
+    "IndependentV4AndWatchIntegration": "open",
+    "TestFlightPhysicalDeviceAcceptance": "open"
+  },
+  "validation": {
+    "privateSourceTests": "passed",
+    "focusedAdapterTests": "18 passed",
+    "deterministicDictionaryFormsSpeakingOfflineBuilders": "passed",
+    "typecheck": "passed",
+    "fullAppBuild": "not run in sparse checkout; non-Foreman public assets are absent",
+    "mainMerge": false,
+    "productionVerified": false
+  }
+}

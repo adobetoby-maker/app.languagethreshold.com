@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "asOf": "2026-11-07",
+  "sourceRevision": "9b4a6514c363ebae1aeed471f6020762db09f6ef",
+  "scope": "Private Japanese→English Foreman input inventory only; not runtime, human approval or release",
+  "pairKey": "Japanese:English",
+  "state": "private-input-draft",
+  "reviewed": false,
+  "stages": {
+    "foundation": {
+      "privateLessons": 10,
+      "lessonNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceBundles": [
+        {
+          "path": "content/japanese-construction-foreman/foundation-runtime-draft-ja-en.json",
+          "sha256": "3b052654f908c92b5a81dd4b1ff35a2c86e1d3b4dd11a10be311596bcf141334"
+        }
+      ],
+      "wordPlacements": 163,
+      "readerLines": 73,
+      "originalContextualReaderPassages": 10,
+      "provisionalPhraseSequenceReaders": 0,
+      "grammarExamplePairs": 20,
+      "clozeChecks": 30,
+      "distinctCardIdsWithinStage": 163,
+      "distinctDictionaryIdsWithinStage": 163,
+      "audioUniqueStringsWithinStage": 194,
+      "audioSpokenCharactersPerVoiceWithinStage": 1753,
+      "explicitTechnicalSourceBlockers": 0
+    },
+    "core": {
+      "privateLessons": 30,
+      "lessonNumbers": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceBundles": [
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-1-3-ja-en.json",
+          "sha256": "f8ebe55ad539b3030fc67cfbb09f235f64799393e4d255e79bd14b9c12f72084"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-10-12-ja-en.json",
+          "sha256": "2955fa89276b79b23328f4029988d47e8ec0d744e6be090336cf92a8629c1d4b"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-13-15-ja-en.json",
+          "sha256": "974c7fedc98edfb65c382656c2576d28c1c3531dd856295afc34cf5f47628d13"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-16-18-ja-en.json",
+          "sha256": "f708e41648b79cb70a62880210d59f04fd6e93afea1bbc58f8b1e88693b18514"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-19-21-ja-en.json",
+          "sha256": "19586b347088c861251564ffd172991f5f97be761fdbbff880c6a323990c95cf"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-22-24-ja-en.json",
+          "sha256": "e664837731bef368921b6329cada8794aa7de8a95ce3845c11dc10b54e2643f2"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-25-27-ja-en.json",
+          "sha256": "1407e6b78f85512cd31a35ddf5e5a3a3b234d806e758940602ed295ec691e9a4"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-28-30-ja-en.json",
+          "sha256": "ca536a2d9336e4b806095cfbdea21013fd43c55b77ca320c3fa598de0e0931e7"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-4-6-ja-en.json",
+          "sha256": "af3b973ec31ee904753da448b4fd95c743c05ff91930361448242f9435515e2d"
+        },
+        {
+          "path": "content/japanese-construction-foreman/core-runtime-pilot-7-9-ja-en.json",
+          "sha256": "43e65e64e31379bc09972e24d3cbe8f1c60a4427875ff08b9bdf7d3cf4e5db9a"
+        }
+      ],
+      "wordPlacements": 450,
+      "readerLines": 240,
+      "originalContextualReaderPassages": 30,
+      "provisionalPhraseSequenceReaders": 0,
+      "grammarExamplePairs": 60,
+      "clozeChecks": 90,
+      "distinctCardIdsWithinStage": 391,
+      "distinctDictionaryIdsWithinStage": 391,
+      "audioUniqueStringsWithinStage": 480,
+      "audioSpokenCharactersPerVoiceWithinStage": 8924,
+      "explicitTechnicalSourceBlockers": 0
+    },
+    "master": {
+      "privateLessons": 20,
+      "lessonNumbers": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceBundles": [
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-1-3-ja-en.json",
+          "sha256": "031de2a0f2f11bca530e4b282e438f831bcbfc8d019cb9b975e951f712b2ee76"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-10-12-ja-en.json",
+          "sha256": "5365086c07b1326fcb8df92ca9f66cc1d4532b5b0c36aea5edc3a5f6e3caa7cd"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-13-15-ja-en.json",
+          "sha256": "4679d37155fbbde6aa7eebea094cbc707ed0ef51a4cc3804fd369783f4fe7809"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-16-18-ja-en.json",
+          "sha256": "a1e6eb3b4eb5a8d4d0fe46917729ef0698280d8512575a08991dccbd202992d5"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-19-20-ja-en.json",
+          "sha256": "436c5f4259389c94bc0263cb4b611e4394e15de51c2e7313ec5796088c45d851"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-4-6-ja-en.json",
+          "sha256": "cfa8fbb8da2f723298279640b1957e4e01f92ad10aafc56233374802f2b92ab7"
+        },
+        {
+          "path": "content/japanese-construction-foreman/master-runtime-pilot-7-9-ja-en.json",
+          "sha256": "a14b5456a7c7175deba2d52b438017e95fd256b497a7053070cc1248f2cd5d96"
+        }
+      ],
+      "wordPlacements": 462,
+      "readerLines": 113,
+      "originalContextualReaderPassages": 0,
+      "provisionalPhraseSequenceReaders": 20,
+      "grammarExamplePairs": 40,
+      "clozeChecks": 60,
+      "distinctCardIdsWithinStage": 462,
+      "distinctDictionaryIdsWithinStage": 462,
+      "audioUniqueStringsWithinStage": 462,
+      "audioSpokenCharactersPerVoiceWithinStage": 6665,
+      "explicitTechnicalSourceBlockers": 18
+    }
+  },
+  "totalPrivateLessons": 60,
+  "totalDistinctCardIdsAcrossStages": 1016,
+  "totalDistinctDictionaryIdsAcrossStages": 1016,
+  "registeredValidatedLessons": 0,
+  "originalContextualReadersPresent": 40,
+  "originalContextualReadersMissing": 20,
+  "audio": {
+    "scope": "Current Japanese words plus provisional Reader target lines only, after NFC/whitespace normalization and global deduplication; excludes grammar, speaking, revised readings and app feedback",
+    "locale": "ja-JP",
+    "provider": "Google Cloud Chirp 3 HD",
+    "voices": {
+      "female": "ja-JP-Chirp3-HD-Aoede",
+      "male": "ja-JP-Chirp3-HD-Charon"
+    },
+    "uniqueTextKeys": 1126,
+    "plannedClipsTwoVoices": 2252,
+    "spokenCharactersPerVoice": 17300,
+    "spokenCharactersTwoVoices": 34600,
+    "normalizedTextSha256": "6f2e70a643ca74113e60ac7ea865f86c3576a34eaca32333cf8b54650bda5d20",
+    "grossCostUsdAtCurrentRate": 1.038,
+    "rateUsdPerMillionCharacters": 30,
+    "rateSource": "https://cloud.google.com/text-to-speech/pricing",
+    "rateVerifiedOn": "2026-11-07",
+    "freeTierCreditsApplied": false,
+    "generatedClipsForForeman": 0,
+    "synthesisEligibleStrings": 0,
+    "listeningReviewed": false
+  }
+}

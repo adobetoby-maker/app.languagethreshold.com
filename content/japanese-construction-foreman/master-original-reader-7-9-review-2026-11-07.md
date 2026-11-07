@@ -1,0 +1,7 @@
+# Master 7–9 original Reader draft — review status
+
+Three eight-line Japanese/English contextual scenes replace provisional source-phrase Reader sequences in the private Foreman Master 7–9 bundle. Exact source pairs, English subset hash, lesson/card/dictionary IDs and source speaking text remain unchanged; the new Reader and clozes are separate private inputs. `reviewed:false`, unregistered, no audio.
+
+Master 7 distinguishes recorded leak facts from unverified quantities and makes no mold-prevention claim. Master 8 records a request about a guardrail but directs unanswered questions to the safety contact rather than giving a removal or fall-protection procedure. Master 9 discusses a measurement record without prescribing dismantling. The 24 new bilingual lines and nine clozes pass alignment and answer-reconstruction checks; these are structural checks, not linguistic or technical approval.
+
+Claude CLI review remains budget exhausted after the Master 1–3 attempt; no further call was made. The new scenes have **no independent AI review or pass**. Earlier Fable/Opus checks covered source translations, not this Reader. A fluent Japanese reviewer must verify meaning, naturalness, register and terminology. Qualified US insurance/plumbing, fall-protection/site-safety and masonry specialists must verify the respective scenarios before release. Offline, audio, phone and V4/Watch gates remain open. Recompute the audio inventory after Reader text is finalized.

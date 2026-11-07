@@ -19,13 +19,13 @@
     "core-runtime-pilot-4-6-ja-en.json": "af3b973ec31ee904753da448b4fd95c743c05ff91930361448242f9435515e2d",
     "core-runtime-pilot-7-9-ja-en.json": "43e65e64e31379bc09972e24d3cbe8f1c60a4427875ff08b9bdf7d3cf4e5db9a",
     "foundation-runtime-draft-ja-en.json": "3b052654f908c92b5a81dd4b1ff35a2c86e1d3b4dd11a10be311596bcf141334",
-    "master-runtime-pilot-1-3-ja-en.json": "031de2a0f2f11bca530e4b282e438f831bcbfc8d019cb9b975e951f712b2ee76",
-    "master-runtime-pilot-10-12-ja-en.json": "5365086c07b1326fcb8df92ca9f66cc1d4532b5b0c36aea5edc3a5f6e3caa7cd",
-    "master-runtime-pilot-13-15-ja-en.json": "4679d37155fbbde6aa7eebea094cbc707ed0ef51a4cc3804fd369783f4fe7809",
-    "master-runtime-pilot-16-18-ja-en.json": "a1e6eb3b4eb5a8d4d0fe46917729ef0698280d8512575a08991dccbd202992d5",
-    "master-runtime-pilot-19-20-ja-en.json": "436c5f4259389c94bc0263cb4b611e4394e15de51c2e7313ec5796088c45d851",
-    "master-runtime-pilot-4-6-ja-en.json": "cfa8fbb8da2f723298279640b1957e4e01f92ad10aafc56233374802f2b92ab7",
-    "master-runtime-pilot-7-9-ja-en.json": "a14b5456a7c7175deba2d52b438017e95fd256b497a7053070cc1248f2cd5d96"
+    "master-runtime-pilot-1-3-ja-en.json": "7be6cf60a45761073bf343ed14de138f03e3cc0de434abb56c036a94537d3d0d",
+    "master-runtime-pilot-10-12-ja-en.json": "eb33ea879d318fd7d242996f75385e0ae66fcdb689582ecc630c1361c9296b6c",
+    "master-runtime-pilot-13-15-ja-en.json": "45c2927b02506a2fdf7464b12e7b57d7ea5f7f34af3693a67a3fd443b4b12296",
+    "master-runtime-pilot-16-18-ja-en.json": "0c8b33e175e4139edc61441c06bbf98075ba52045bfcce343ad30ee9c6025d79",
+    "master-runtime-pilot-19-20-ja-en.json": "5728a0ca532fd3aa89a28b77d368b07875836a02d1f3e54885fad99f930fe6be",
+    "master-runtime-pilot-4-6-ja-en.json": "ef22c14ff52e1b2895427df18ee3bf803a105bd1c993c893bd8fcc404737ed03",
+    "master-runtime-pilot-7-9-ja-en.json": "98d054e82ffd1830cdfe64abe98eeed1e1aca03a69ed62dca47e7b91d3182823"
   },
   "counts": {
     "missions": 60,
@@ -4971,9 +4971,9 @@
       "sourceLessonId": "master-construction-foreman-ja-en:lesson:1",
       "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
       "locale": "ja-JP",
-      "briefEnglish": "Explain why shores remain, answer a new carpenter’s question, then request a teach-back.",
-      "partnerRoleEnglish": "A new carpenter who asks why the shores cannot yet be removed.",
-      "openingLineJapanese": "まず、スラブを打設します。その後、養生が必要です。",
+      "briefEnglish": "Discuss what is known, what remains uncertain, and whom to ask before a decision.",
+      "partnerRoleEnglish": "A new carpenter who asks what must be confirmed about the shores.",
+      "openingLineJapanese": "支柱について、どの点を確認したいですか。",
       "sourceSpeakingJapanese": "あなたは職長（しょくちょう）で、AIは新人の大工、マテオ・リオスです。構造技術者の許可（きょか）が出るまで支柱を残す理由を、順番に説明してください。「まず」「その後」で手順を示し、「ので」「ため」で理由を述べ、「ですから」で結論を伝えてください。マテオさんの質問には丁寧に答えてください。最後に、マテオさんに自分の言葉で説明し直してもらってください。",
       "wordBank": [
         {
@@ -5148,9 +5148,9 @@
       "sourceLessonId": "master-construction-foreman-ja-en:lesson:2",
       "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
       "locale": "ja-JP",
-      "briefEnglish": "Use the structural sheet to explain cover and chairs, check measurements, and ask the trainee to teach back the approved procedure.",
-      "partnerRoleEnglish": "A trainee who asks about rebar chairs and the cover shown on the structural sheet.",
-      "openingLineJapanese": "ここでは、図面に示されたかぶり厚さに従います。",
+      "briefEnglish": "Find the relevant drawing note and identify questions for the structural engineer.",
+      "partnerRoleEnglish": "A trainee who asks where the drawing specifies concrete cover.",
+      "openingLineJapanese": "この構造図のどの注記を確認しましょうか。",
       "sourceSpeakingJapanese": "あなたは職長です。相手のAIは見習いのルシア・フェレールです。駐車場のスラブで、鉄筋用チェア、スラブ筋、かぶり厚さがどう組み合わさって機能するか説明してください。一般的な条件は「〜と」、現場の手順は主語を省いた「測ります」「交換します」などを使って述べてください。構造図を一緒に確認し、ルシアに今の説明を自分の言葉で説明し直してもらってください。",
       "wordBank": [
         {
@@ -5325,9 +5325,9 @@
       "sourceLessonId": "master-construction-foreman-ja-en:lesson:3",
       "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
       "locale": "ja-JP",
-      "briefEnglish": "Guide a new worker through pre-use inspection, correct missed checks, then request a teach-back.",
-      "partnerRoleEnglish": "A new worker practicing a site-approved harness and lanyard inspection.",
-      "openingLineJapanese": "着用する前に、全体を点検してください。",
+      "briefEnglish": "Practice explaining a checklist and record unknown items for the qualified safety contact.",
+      "partnerRoleEnglish": "A new worker who asks about an inspection checklist.",
+      "openingLineJapanese": "点検表で分からないところはありますか。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは新人作業員のホアキン・ベルナルを演じます。ハーネスとランヤードの点検を、一つずつ順番に指導してください。「着用する前に、全体を点検してください」「切れ目や縫い目のほつれがある場合は、使用しないでください。」のように指示し、ホアキンが確認を飛ばしたら指摘してください。最後に、ホアキンに最初から説明してもらい、その説明（ティーチバック）を聞いて、間違いを丁寧に訂正してください。",
       "wordBank": [
         {
@@ -5511,7 +5511,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Read the actual product documents with a mason, locate mixing and safety directions, and confirm unresolved specifications before work.",
       "partnerRoleEnglish": "A mason who asks where the data sheet specifies mixing water, time and safety precautions.",
-      "openingLineJapanese": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+      "openingLineJapanese": "この製品のデータシートを一緒に確認しましょう。",
       "sourceSpeakingJapanese": "あなたは職長で、AIは左官のエルネスト・サルガドです。グラウトのデータシートを一緒に読み、作業開始前に必要な練り混ぜと安全の手順を説明してください。「〜前に」「〜たあとで」「〜なければなりません」「〜必要があります」を使ってください。エルネストが水を足したいと言ったら、データシートの指示を優先し、練り上がりが硬すぎるときは水を加えずにあなたを呼ぶよう伝えてください。",
       "wordBank": [
         {
@@ -5688,7 +5688,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Tell the homeowner what was found, explain the work is paused in that location, and describe options only as pending specialist review.",
       "partnerRoleEnglish": "A homeowner who asks what the discovery means for the footing and cost.",
-      "openingLineJapanese": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+      "openingLineJapanese": "見つかったものと、まだ確認が必要な点を分けてお伝えします。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは住宅の所有者ガブリエラ・モンテス様を演じます。今朝、掘削していたときにパブロが古い浄化槽を見つけたことを、「〜ていたとき、〜ました」を使って説明してください。変更注文書の選択肢として、技術者の指定どおりに撤去・埋め戻す案と、技術者の承認が得られればフーチングの位置を変える案を「〜こともできます」などを使って示してください。各案について見積書を出すと伝え、費用への懸念に答えてください。確認が終わるまで、その場所での掘削を止めていることを伝えてください。技術者の判断が出るまで、どの案も決定事項として伝えないでください。",
       "wordBank": [
         {
@@ -5865,7 +5865,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Compare supplier estimates with a project manager, request a compliance check and architect written approval before any substitution.",
       "partnerRoleEnglish": "A project manager who asks for sourced lead times, compliance information and an approval path.",
-      "openingLineJapanese": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+      "openingLineJapanese": "窓の納期について、確認済みの情報からお伝えします。",
       "sourceSpeakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。指定の窓を待つ場合と代替品を使う場合を「〜より」「〜ほど〜ない」「〜見込みです」「〜予定です」などで比べ、それぞれの案が工程と内装仕上げの開始にどう影響するか説明してください。納入業者によると指定の窓はあと6週間かかり、代替品は早く届く見込みですが、適合性の確認が必要です。代替品承認申請を設計者に送る予定です。代替品は設計者の書面による承認がなければ取り付けられないことを明確に伝えてください。",
       "wordBank": [
         {
@@ -6042,7 +6042,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Tell an adjuster what was recorded, where materials were damaged, and which report and invoices are available.",
       "partnerRoleEnglish": "An insurance adjuster who asks for exact times, locations and records.",
-      "openingLineJapanese": "土曜日に、仮設の給水管の継手が破損しました。",
+      "openingLineJapanese": "確認済みの記録から順にご説明します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは保険鑑定人のシルビア・ナバロとして話します。週末に何が起きたかを「〜ました」の形で説明してください。時刻、数量、場所は数字を使って正確に伝えてください。確認していない事実を述べず、自分の権限を超える約束はしないでください。",
       "wordBank": [
         {
@@ -6219,7 +6219,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Explain that the guardrail stays and route lifting and fall-protection plans through qualified site safety personnel.",
       "partnerRoleEnglish": "An owner representative who asks for an HVAC lift while a guardrail is in place.",
-      "openingLineJapanese": "ペーニャさん、申し訳ありませんが、仮設の手すりは外せません。",
+      "openingLineJapanese": "その変更はここで決めず、安全担当者に確認します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは発注者側の担当者リカルド・ペーニャを演じます。仮設の手すりを外してほしいという依頼に対し、「〜ないでください」「〜ことはお勧めしません」を使い、丁寧にはっきり断ってください。墜落の危険を説明し、手すりを外さずに予定している揚重作業まで待つことを提案してください。急ぎたい気持ちに理解を示しつつ、作業員を危険にさらさないと伝えてください。",
       "wordBank": [
         {
@@ -6396,7 +6396,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Tell the mason what was measured, request course-by-course checking, and arrange a follow-up inspection.",
       "partnerRoleEnglish": "A mason who receives direct feedback and confirms the next measurement.",
-      "openingLineJapanese": "ロヘリオさん、この角は垂直から1インチ近くずれています。",
+      "openingLineJapanese": "測定記録を一緒に確認しましょう。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは熟練のブロック工ロヘリオ・デュランを演じます。角の垂直のずれについて、ロヘリオさんに具体的で敬意のあるフィードバックをしてください。「〜てほしいです」と「〜ことをお勧めします」を使い、明日の昼食前に角を見せてもらうことを確認してください。",
       "wordBank": [
         {
@@ -6573,7 +6573,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Ask two sub leads for their drawing dates, compare conflicts and route the proposed sequence to an MEP coordinator.",
       "partnerRoleEnglish": "Two sub leads who used different coordination drawings.",
-      "openingLineJapanese": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+      "openingLineJapanese": "お二人の図面の日付から確認しましょう。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは電気工事の班長マリソル・ベガと配管工事の班長トマス・アギーレを演じます。二人の言い分を「〜と言っていました」「〜と説明しました」で伝え、それぞれが使った図面の日付を聞いてください。二人と総合図を確認し、確認できた内容をもとに施工順序について合意してください。「図面で確認できれば、排水管をケーブルラックより先に設置します」のように、条件を明示してください。図面で確認する前に順序を決めつけないでください。",
       "wordBank": [
         {
@@ -6750,7 +6750,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Listen to a tired crew and a worker considering departure, then take commitments to the authorized manager and HR.",
       "partnerRoleEnglish": "A tired crew member who raises workload and training concerns.",
-      "openingLineJapanese": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+      "openingLineJapanese": "今日は皆さんの話を聞かせてください。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは大工の班長フェルナンダ・ルイスと若手作業員イバン・パレデスを演じます。疲れている作業班に、疲労を認め、日曜日は誰も作業しないこと、明日ロビーに応援を2人連れてくること、間に合わせてきちんと仕上げること、皆さんを信頼していることを具体的に伝えてください。次にフェルナンダには、今日マネージャーに話すと伝えてください。最後にイバンとは二人だけで話し、辞めようと考える理由を聞いてください。残るなら研修について事務所に話すと約束してください。研修の承認や昇給そのものは約束しないでください。",
       "wordBank": [
         {
@@ -6927,7 +6927,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Explain a changed inspection date clearly to a worker, owner, superintendent and inspector without inventing certificate requirements.",
       "partnerRoleEnglish": "An owner or inspector who asks for a confirmed update and next contact.",
-      "openingLineJapanese": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+      "openingLineJapanese": "検査日について、確認済みの内容をご報告します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは作業員ベト・サラス、施主アルトゥーロ・ロサノ、現場所長ディアナ・キロガ、検査担当者ラケル・メンデスを演じます。同じエレベーター検査の遅れを四人に伝えてください。ベトには「まだ使えないって伝えてもらえる？」のように親しい口調で頼みます。ディアナには「今日の検査は行われませんでした」と丁寧に報告します。ロサノには検査日が変更になった理由を丁寧に説明し、入居者の皆さんの引っ越しがこの件にかかっていると承知していることを伝えます。メンデスには木曜日への日程変更が都合に合うか尋ね、検査までにこちらで準備しておくことを確認します。相手に合わせ、くだけた形、丁寧語、敬語を使い分けてください。検査結果や許可の発行を推測しないでください。",
       "wordBank": [
         {
@@ -7111,7 +7111,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Give a factual incident timeline, distinguish witnessed from unwitnessed events, and route procedural questions to qualified safety personnel.",
       "partnerRoleEnglish": "A safety contact who asks what the foreman directly observed and when.",
-      "openingLineJapanese": "10時40分、サミュエルさんはテーブルソーで板を切っていました。",
+      "openingLineJapanese": "確認した時刻と、見ていないことを分けてお伝えします。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは安全管理者のパトリシア・レオンです。テーブルソーでのサミュエルさんのけがについて、出来事の時系列を話してください。「10時40分」「すぐに」「数分後」「待っている間に」などの時間の言葉を使い、過去の形で、事実だけを話してください。原因は推測しないでください。",
       "wordBank": [
         {
@@ -7295,7 +7295,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Hear both workers without blame, report the near miss and refer lift-plan decisions to qualified riggers.",
       "partnerRoleEnglish": "A rigger and laborer who each describe what they observed.",
-      "openingLineJapanese": "ニコラス、鉄筋の束がそちらに落ちるところだった。",
+      "openingLineJapanese": "お二人が見たことを、一人ずつ聞かせてください。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは玉掛け担当のアルマ・グスマンと作業員のニコラス・エレラを演じます。鉄筋の束が滑った件について、誰かを責めずに事実を確認してください。「落ちるところだった」「重大な事故になっていたかもしれない」のように、起きなかった危険を表してください。次の吊り上げで何を変えるか、二人と話し合ってください。条件には「〜ば」「〜たら」「〜ていなければ」などを使ってください。",
       "wordBank": [
         {
@@ -7465,7 +7465,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Practice a source-based US 911/gas-utility report and short status updates; real emergency instructions require site approval.",
       "partnerRoleEnglish": "A US emergency dispatcher or utility contact asking for location and observed facts.",
-      "openingLineJapanese": "工事現場でガスのにおいがしています。通報します。",
+      "openingLineJapanese": "場所と確認できた事実をお伝えします。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは無線で話す重機オペレーターのラウル・メディナを演じます。「全作業中止！」「掘削溝から離れて！」のように短く明確に作業停止と退避を伝えてください。安全にできるなら機械のエンジンを切って歩いて離れるように伝え、911とガス会社に連絡してください。「〜たら、〜します」を使って次の行動を説明してください。ガス漏れの原因や規模を推測しないでください。",
       "wordBank": [
         {
@@ -7642,7 +7642,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Show a safety officer where records are kept and note a missing signature without interpreting regulatory compliance.",
       "partnerRoleEnglish": "A safety compliance officer who asks to see the inspection record.",
-      "openingLineJapanese": "カリージョさん、こちらが今月の点検記録簿です。",
+      "openingLineJapanese": "手元の記録をご覧ください。確認が必要な点は記録します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは安全コンプライアンス担当者のイネス・カリージョです。北面の足場を一緒に歩きながら、誰が点検するのか、点検頻度は安全計画でどう定められているか、記録はどこに残るのかを説明してください。丁寧語（です・ます）で話し、「〜されています」「〜に記入されます」のような受身形を使いましょう。",
       "wordBank": [
         {
@@ -7819,7 +7819,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Report the pump no-show, calls, work completed and notified contact in a Japanese daily-log style.",
       "partnerRoleEnglish": "A project manager who asks which facts and notifications are documented.",
-      "openingLineJapanese": "ポンプ車の予定時刻は7:00でしたが、到着しませんでした。",
+      "openingLineJapanese": "到着時刻と確認できた作業内容を分けてご報告します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。ポンプ車が来なかった件について、作業内容、ロス時間と原因、通知した相手、今後の対応を作業日誌の形で読み上げてください。「ため」「したがって」「しかし」「なお」を使い、丁寧語で話しましょう。",
       "wordBank": [
         {
@@ -7996,7 +7996,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Ask the scheduler about an arrival window, leave a named voicemail and send a concise crew update after confirmation.",
       "partnerRoleEnglish": "A city scheduling contact who can confirm a new inspection window.",
-      "openingLineJapanese": "検査員の到着予定時間帯を確認していただけますでしょうか。",
+      "openingLineJapanese": "新しい到着予定時間帯を確認していただけますか。",
       "sourceSpeakingJapanese": "あなたは職長です。最初にAIは市の日程担当者のロレナ・イバラです。検査の新しい到着予定時間帯を確認してください。次に、石膏ボード工事の協力業者オスカル・フエンテスに電話します。留守番電話にメッセージを残す場合は名前を先に言い、チャットでは短く数字を使って作業班に伝えてください。電話では「〜の者ですが」「〜していただけますでしょうか」「〜は可能でしょうか」の形を使ってください。",
       "wordBank": [
         {
@@ -8166,7 +8166,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Walk through the available manual and route warranty and load questions to the authorized contract and engineering contacts.",
       "partnerRoleEnglish": "A daycare owner or director asking what the turnover documents say.",
-      "openingLineJapanese": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+      "openingLineJapanese": "保証については、まず契約書とマニュアルの記載を確認します。",
       "sourceSpeakingJapanese": "あなたは職長です。AIは保育施設の責任者、クラウディア・ベニテスさんです。建物の引き渡しを順番に案内してください。保証の対象範囲と条件は、「〜であれば」と「〜ない限り」を使って説明してください。壁の耐荷重は誰が確認すべきかも説明してください。壁の荷重確認を誰にお願いするかを述べるときも、依頼に対応するときも、「〜することになると思います」「〜お願いしたいと思います」など控えめな表現を使ってください。",
       "wordBank": [
         {
@@ -8350,7 +8350,7 @@
       "locale": "ja-JP",
       "briefEnglish": "Coach a worker, document a short delivery, report a near miss and ask the inspector for the next confirmed step.",
       "partnerRoleEnglish": "A crew member, supplier contact or inspector asking for factual status.",
-      "openingLineJapanese": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+      "openingLineJapanese": "今日の出来事を、確認できた順にご報告します。",
       "sourceSpeakingJapanese": "あなたは現場監督（フォアマン）です。AIは、新人作業員のルピタ（Lupita）、ゲラルド（Gerardo、納品元の担当者）、作業員のフェリペ（Felipe）、アルセ検査官（Inspector Arce）です。ルピタには親しい話し方で指示し、まず見本を見せてから本人にやってもらってください。ゲラルドには、納品書によると鉄骨ジョイストが足りていないことを伝え、不足分の本日中の発送を丁寧に依頼してください。フェリペが外周の墜落防止設備（手すり）を外したいと言ったら、安全手順を省く近道は認めないと「〜ことは認めません」を使って伝えてください。ヒヤリハット（負傷者なし）を振り返り、「〜のため」と「しかしながら」を使って、アルセ検査官に丁寧に現場を案内した後、出来事を報告してください。",
       "wordBank": [
         {

@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AdvancedRouteImport } from './routes/advanced'
 import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
 import { Route as ExamBankRouteImport } from './routes/exam-bank'
@@ -116,6 +117,11 @@ const AdvancedRoute = AdvancedRouteImport.update({
 const CertificateRoute = CertificateRouteImport.update({
   id: '/certificate',
   path: '/certificate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentsRoute = DocumentsRouteImport.update({
@@ -514,6 +520,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -599,6 +606,7 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -685,6 +693,7 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -772,6 +781,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -857,6 +867,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -942,6 +953,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -1028,6 +1040,7 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   AdvancedRoute: typeof AdvancedRoute
   CertificateRoute: typeof CertificateRoute
+  CompareRoute: typeof CompareRoute
   DocumentsRoute: typeof DocumentsRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
   ExamBankRoute: typeof ExamBankRoute
@@ -1144,6 +1157,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate'
       fullPath: '/certificate'
       preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documents': {
@@ -1700,6 +1720,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   AdvancedRoute: AdvancedRoute,
   CertificateRoute: CertificateRoute,
+  CompareRoute: CompareRoute,
   DocumentsRoute: DocumentsRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,
   ExamBankRoute: ExamBankRoute,

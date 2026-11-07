@@ -39,6 +39,12 @@ function ClinicaLingoComparison() {
           teams who need medical Spanish plus construction, sports, mission, and other job-specific
           conversations across multiple languages.
         </p>
+        <a
+          href="/compare"
+          className="mt-5 inline-flex min-h-11 items-center font-semibold text-gold-ink underline"
+        >
+          Compare all four by role, course level and lesson count →
+        </a>
         <div className="mt-10 overflow-x-auto rounded-2xl border border-border">
           <table className="w-full min-w-[620px] text-left text-sm">
             <thead className="bg-card">

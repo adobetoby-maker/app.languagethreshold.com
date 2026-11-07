@@ -1,3 +1,4 @@
+import { CourseExamples } from "@/components/marketing/CourseExamples";
 import { BuyerFaq, PublicProof, ProductFooter } from "@/components/marketing/BuyerInformation";
 import { faqSchema, productCapture } from "@/data/buyer-information";
 import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
@@ -180,6 +181,7 @@ function ProductIntro() {
           </div>
         ))}
       </div>
+      <CourseExamples />
       <PublicProof />
       <section className="mt-10" aria-labelledby="practice-steps">
         <h2 id="practice-steps" className="text-2xl font-semibold">

@@ -4,7 +4,17 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 
 // Preserve the existing public sitemap scope. Blog URLs come from the live CMS.
-const routes = ["/", "/pricing", "/team", "/support", "/vs/clinicalingo", "/vs/duolingo", "/vs/canopylearn", "/blog"];
+const routes = [
+  "/",
+  "/pricing",
+  "/compare",
+  "/team",
+  "/support",
+  "/vs/clinicalingo",
+  "/vs/duolingo",
+  "/vs/canopylearn",
+  "/blog",
+];
 const routeDir = "src/routes";
 function dependencies(file, seen = new Set()) {
   if (seen.has(file)) return seen;

@@ -44,6 +44,9 @@ console.log(JSON.stringify(ROOFING_LESSONS.slice(21,24).map(l => ({
     ))
     assert source == current, "English source subset differs from current course"
     assert [x["n"] for x in draft["lessons"]] == [22, 23, 24]
+    heat = draft["lessons"][2]
+    assert "l’épuisement dû à la chaleur correspond à heat exhaustion" in heat["teachingNotesFrench"]
+    assert "ne posez pas de diagnostic" not in heat["speakingFrenchInstruction"]
     for lesson, original in zip(draft["lessons"], source):
         assert lesson["reviewed"] is False
         for field in ("n", "titleEnglish", "objectiveEnglishSource", "speakingEnglishSource"):

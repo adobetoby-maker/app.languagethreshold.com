@@ -18,6 +18,11 @@ export const feedbackInput = z
     id: z.string().uuid(),
     category: z.enum(["idea", "problem", "experience"]),
     message: z.string().trim().min(10).max(4000),
+    rating: z.number().int().min(1).max(5).optional(),
+    easeRating: z.number().int().min(1).max(5).optional(),
+    usefulnessRating: z.number().int().min(1).max(5).optional(),
+    improvement: z.string().trim().max(1000).optional(),
+    testimonialConsent: z.boolean().optional(),
   })
   .strict();
 export function promoActive(expiresAt: unknown, now = Date.now()): boolean {

@@ -1,0 +1,71 @@
+Language Threshold CRM follow-up setup — 2026-11-06
+
+CRM: https://toby.leaderhq.io
+Owner: adobetoby@gmail.com
+
+The learner sequence is saved in CRM Onboarding as:
+Language Threshold — learner welcome and feedback
+Sequence ID: 27f6ebdd-33e1-4135-8653-3b6153b0b245
+It is PAUSED pending a valid mailing address and Leader email-service activation.
+Auto-enrollment is selected for Learner contacts. No existing customers were imported.
+
+Timing is relative to the preceding email: 0, 72, 96, 168 hours.
+Nominal schedule: immediately after confirmation, then days 3, 7 and 14.
+This is a time-based welcome sequence. It does not yet react to lesson completion,
+customer replies, actual trial expiry or purchase. Do not label day 14 a trial deadline.
+
+App connection
+The feedback page (/feedback) collects optional overall/ease/usefulness ratings,
+comments, a requested improvement and separate permission to consider a public quote.
+Ratings and permission are stored as labeled text with the original PRIVATE feedback
+record, using the existing idempotent save_product_feedback RPC. There is no new table,
+public access grant or automatic testimonial publication. The original plain-text API
+payload remains compatible. Ratings are readable in the owner feedback inbox; they
+are not separate database columns or automatically aggregated metrics.
+
+A separate optional follow-up request invokes /api/crm-signup. This requires explicit
+consent, a confirmed authenticated account and same-origin input. The recipient comes
+from server-verified identity, not a client email/user ID. Persistent per-user and global
+limits prevent repeated email requests. The app sends only name/email/type/source and
+an empty honeypot to Leader's server-side signup API. It never sends lesson content,
+assessment responses, documents or feedback comments. Leader handles subscription
+confirmation and unsubscribe. The API does not claim email delivery from HTTP success.
+Feedback can be saved without subscribing or allowing public use.
+
+LEADERCRM_FORM_KEY is a signup-only production secret in the existing Vercel app project.
+Its backup is in macOS Keychain, service language-threshold-leadercrm-form.
+Codex's separate MCP credential is in Keychain, service codex-leadercrm.
+Neither credential belongs in client code, this document, source control or screenshots.
+
+Activation checklist
+1. Complete CRM Email Drafts > Set Up Sending with the business mailing address.
+   The sender must be verified with Leader's email provider. Do not assume an arbitrary
+   Language Threshold address can be used as From. The UI defaults to info@leaderhq.io.
+   Set a monitored Reply-To. Keep publicBaseUrl on the CRM origin for CRM confirmation
+   and unsubscribe destinations unless Jay confirms a supported custom-domain setup.
+2. Jay must enable the Leader sending service, as described in his handoff.
+3. With the sequence paused, test signup/confirmation/unsubscribe using the owner's
+   own address. Verify scheduled timings and stop behavior before turning it on.
+4. Activate the saved sequence for future explicitly opted-in, confirmed learners.
+   Do not bulk-enroll historical customers or promise delivery without provider evidence.
+5. Public App Store/Google Play URLs are blank because no verified public listing was
+   established. TestFlight is not a public App Store review destination.
+6. Ask Jay to make optional public review links available to all ratings. The current
+   Leader UI says it directs only 4–5-star respondents to review sites; no setting to
+   change that behavior was exposed. The app feedback form accepts every rating equally.
+7. Leader MCP currently lacks tools for reading feedback/testimonials, creating follow-up
+   tasks, creating deals, enrolling sequences or reading customer replies. Those need
+   supported APIs before a Codex recurring feedback triage can be complete.
+
+Review workflow
+Read new feedback in the app owner inbox. Handle broken features and account/billing
+issues first, then group recurring requests. Reply privately. Consider quotes only when
+permission was explicitly given, and approve them deliberately before publication.
+Any extra testing access rewards useful feedback, regardless of positivity or stars.
+
+Validation
+2,887 Node tests passed, including authentication/consent/recipient/rate-limit/provider
+failure tests for the CRM bridge. Typecheck passed. Lint has no errors (one routine
+ignored-generated-file warning). Production build and Vercel artifact/target checks
+passed. Phone UI fixtures verified private low ratings, separate email consent and no
+horizontal overflow. UI tests use synthetic data and send no customer emails.

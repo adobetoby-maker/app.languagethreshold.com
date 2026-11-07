@@ -1,18 +1,18 @@
 export const buyerFaq = [
   {
-    question: "Has the medical content been clinically reviewed?",
+    question: "What is Language Threshold designed for?",
     answer:
-      "The medical lessons are language practice material. A completed independent clinical review of the full library has not been established. Use your organization’s clinical guidance and qualified language support for patient care.",
+      "The daily conversations that make work easier: understanding a patient’s question, explaining the next step, giving directions, or checking that a teammate understood. Practice the language you need for the work you already do.",
   },
   {
-    question: "Can I use this instead of a qualified interpreter?",
+    question: "Will this prepare me for an interpreter certification test?",
     answer:
-      "Use it to rehearse everyday work conversations and build understanding alongside qualified interpreters. It does not qualify you to interpret or replace the language support required by your organization.",
+      "It can help you build vocabulary, listening and speaking skills. It is not currently designed to prepare you to pass an interpreter certification test. It is designed around the conversations team members handle in daily work.",
   },
   {
     question: "How long until I can hold a basic work conversation?",
     answer:
-      "Start with one situation you need, such as an intake or a morning brief, and practice it in short sessions. Your starting level, listening comprehension and practice time affect progress. We do not promise a fixed time to fluency or readiness for unsupervised clinical communication.",
+      "Start with one situation you need, such as an intake or a morning brief, and practice it in short sessions. Listen, repeat and rehearse your responses. How quickly you progress depends on your starting level and how often you practice.",
   },
   {
     question: "What can I practice?",
@@ -37,7 +37,7 @@ export const buyerFaq = [
   {
     question: "Who is this for?",
     answer:
-      "Nurses, foremen and other learners who want to practice conversations for their work. It is language practice, not interpreter certification, clinical training or a guarantee of fluency.",
+      "Nurses, foremen and other team members who face language barriers during their workday. Choose the conversations that fit your role and practice them before your next shift.",
   },
 ];
 

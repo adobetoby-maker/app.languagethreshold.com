@@ -12,3 +12,9 @@ Base: current main `33428b531` (PR #242 merge). Work is isolated on `fix/heycatc
 - Founder profile: local photo copied from the source used by the newer profile site. Requested custom domain returns HTTP 404 “Build incomplete”; flagged for republishing.
 
 The audit's missing customer evidence remains gated off the public page. No signup counter is connected to live user data. No authenticated AI session capture was fabricated. Production Safari, page-weight and performance measurements still need a deployed build/device check. This change has not been merged or deployed.
+
+## Owner-directed FAQ and ClinicaLingo revision
+
+The owner asked to emphasize daily work and explain the interpreter-test limitation once, rather than repeat discouraging caveats. Revised the shared homepage/pricing FAQ and its automatically derived structured data, plus the homepage scope line. ClinicaLingo's public practice page listed 29 scenarios when checked November 7, 2026; its homepage advertised 30 for upcoming Pro. Added concise topic summaries and direct source links, and removed the unspecified catalog/organization placeholders. Scenario counts are explicitly distinguished from course lesson counts.
+
+TypeScript, lint and diff checks pass. Chrome checks at 390px touch/mobile and 1440px desktop pass: revised FAQ expands, old clinical-review question is absent, FAQ schema matches the new copy, all 29 topic summaries render, catalog source link is present, and the comparison has no horizontal page overflow.

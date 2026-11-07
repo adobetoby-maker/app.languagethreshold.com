@@ -166,8 +166,7 @@ function ProductIntro() {
         </a>
       </div>
       <p className="mt-5 text-sm text-muted-foreground">
-        For work conversation practice. Does not replace qualified interpreters or certify clinical
-        proficiency.
+        Built around the daily conversations you and your team need at work.
       </p>
       <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
         {[

@@ -67,7 +67,8 @@ def build():
                 passage = raw["passage"]
                 french = passage["french"]
                 english = passage["english"]
-                if not french or len(french) != len(english):
+                learner_english = passage.get("englishFrenchCourse") or english
+                if not french or len(french) != len(english) or len(french) != len(learner_english):
                     raise ValueError(f"Unaligned Reader: {stage} {n}")
                 reader = [
                     {
@@ -75,7 +76,7 @@ def build():
                         "targetFrench": need(fr, f"{stage} {n} Reader French {index}"),
                         "supportEnglish": need(en, f"{stage} {n} Reader English {index}"),
                     }
-                    for index, (fr, en) in enumerate(zip(french, english), 1)
+                    for index, (fr, en) in enumerate(zip(french, learner_english), 1)
                 ]
                 stage_lessons.append({
                     "draftLessonKey": f"{stage}:{n}",

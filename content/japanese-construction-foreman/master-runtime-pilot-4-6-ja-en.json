@@ -1,0 +1,1830 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "master-construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "a7322c2817d1a430ebc5365d9c554a47ec342865e0c2a14e80ef7c8fef1336dc",
+  "lessons": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4",
+      "n": 4,
+      "title": "Read the grout data sheet",
+      "objective": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts.",
+      "sourceObjective": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts.",
+      "words": [
+        {
+          "es": "無収縮グラウト（むしゅうしゅくグラウト）",
+          "en": "the non-shrink grout",
+          "kind": "term",
+          "cardId": "card-ja-en-8c0f66e112ae8a28"
+        },
+        {
+          "es": "データシート",
+          "en": "the data sheet",
+          "kind": "term",
+          "cardId": "card-ja-en-3501c441b2c058ab"
+        },
+        {
+          "es": "安全データシート（SDS）",
+          "en": "the safety data sheet (SDS)",
+          "kind": "term",
+          "cardId": "card-ja-en-f13a533893f5f530"
+        },
+        {
+          "es": "練り混ぜ水（ねりまぜみず）",
+          "en": "the mixing water",
+          "kind": "term",
+          "cardId": "card-ja-en-1e63d18ceed47a61"
+        },
+        {
+          "es": "ポンプ基礎（ポンプきそ）",
+          "en": "the pump base",
+          "kind": "term",
+          "cardId": "card-ja-en-926ed1877a3a3a27"
+        },
+        {
+          "es": "ベースプレート",
+          "en": "the base plate",
+          "kind": "term",
+          "cardId": "card-ja-en-775966f6f61ea589"
+        },
+        {
+          "es": "ミキサー",
+          "en": "the mixer",
+          "kind": "term",
+          "cardId": "card-ja-en-479a752567484445"
+        },
+        {
+          "es": "練り混ぜ時間（ねりまぜじかん）",
+          "en": "the mixing time",
+          "kind": "term",
+          "cardId": "card-ja-en-13c7989243912ab0"
+        },
+        {
+          "es": "流動性（りゅうどうせい）",
+          "en": "the consistency",
+          "kind": "term",
+          "cardId": "card-ja-en-6eccab69cecb9689"
+        },
+        {
+          "es": "可使時間（かしじかん）",
+          "en": "the working time",
+          "kind": "term",
+          "cardId": "card-ja-en-f67e16a645baa577"
+        },
+        {
+          "es": "周囲温度（しゅういおんど）",
+          "en": "the ambient temperature",
+          "kind": "term",
+          "cardId": "card-ja-en-fadcdd18adeaf931"
+        },
+        {
+          "es": "湿潤養生（しつじゅんようじょう）",
+          "en": "the wet curing",
+          "kind": "term",
+          "cardId": "card-ja-en-b761bdae50f0e311"
+        },
+        {
+          "es": "シリカ粉じん（ふんじん）",
+          "en": "the silica dust",
+          "kind": "term",
+          "cardId": "card-ja-en-6cfd76da3b7f26d0"
+        },
+        {
+          "es": "呼吸用保護具（こきゅうようほごぐ）",
+          "en": "the respirator",
+          "kind": "term",
+          "cardId": "card-ja-en-ce014ab0ed3e3dc3"
+        },
+        {
+          "es": "ロット番号（ロットばんごう）",
+          "en": "the lot number",
+          "kind": "term",
+          "cardId": "card-ja-en-446fc9938d68dbb1"
+        },
+        {
+          "es": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+          "en": "Before mixing, we have to read the whole data sheet.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-1d38cfff26e71abf"
+        },
+        {
+          "es": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。",
+          "en": "We use the water per bag that the data sheet gives.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-d80ee261b72c878f"
+        },
+        {
+          "es": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
+          "en": "I know you add more water, but here the sheet rules.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-4eb6566dd9c3954c"
+        },
+        {
+          "es": "袋を開ける前に、呼吸用保護具を着用しなければなりません。",
+          "en": "You have to put on the respirator before opening the bags.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-df1f37165eb57d0f"
+        },
+        {
+          "es": "充填したあとは、データシートどおりに湿潤養生を行う必要があります。",
+          "en": "After placing it, it has to be kept moist per the data sheet.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8dbcce3efb6f9554"
+        },
+        {
+          "es": "データシートには、周囲温度について何と書かれていますか。",
+          "en": "What does the sheet say about the ambient temperature?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-49dee4873f677fb4"
+        },
+        {
+          "es": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
+          "en": "If it comes out too thick, don't add water; call me.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ad563da236a4db4b"
+        },
+        {
+          "es": "始める前に、可使時間を一緒に確認しましょう。",
+          "en": "Before starting, let's go over the working time together.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b55a5a46ecaa3a90"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:4",
+        "title": "Read the grout data sheet",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+            "native": "Before mixing, we have to read the whole data sheet."
+          },
+          {
+            "target": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。",
+            "native": "We use the water per bag that the data sheet gives."
+          },
+          {
+            "target": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
+            "native": "I know you add more water, but here the sheet rules."
+          },
+          {
+            "target": "データシートには、周囲温度について何と書かれていますか。",
+            "native": "What does the sheet say about the ambient temperature?"
+          },
+          {
+            "target": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
+            "native": "If it comes out too thick, don't add water; call me."
+          },
+          {
+            "target": "始める前に、可使時間を一緒に確認しましょう。",
+            "native": "Before starting, let's go over the working time together."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use 〜前に and 〜必要があります to identify actions from the actual product data sheet and SDS; do not invent water, time or PPE specifications.",
+        "teachingJapanese": "動詞の辞書形＋前に（例：練り混ぜる前に、袋を開ける前に）で「〜する前に」を表します。動詞の「た形」＋あとで（例：充填したあとで）、または「〜てから」で「〜した後に」を表します。義務は「〜なければなりません」や「〜必要があります」で表し、指示には「〜てください」を使います。「データシートどおりに」のように、「〜どおりに」で指示や基準に従うことを表します。「〜あとで」の前は「た形」にします（例：充填したあとで）。「〜前に」の前は辞書形のままです。",
+        "teachingNotesEnglish": [
+          "Use only the actual product data sheet and SDS for water quantity, mixing and working time, curing, and respiratory protection. The lesson supplies no values or respirator type. A qualified trade/safety reviewer must confirm grout placement and terminology before release."
+        ],
+        "examples": [
+          {
+            "es": "袋を開ける前に、呼吸用保護具と保護めがねを着用しなければなりません。",
+            "en": "Before opening the bag, you have to put on the respirator and safety glasses."
+          },
+          {
+            "es": "データシートに示された時間だけ練り混ぜたあとは、すぐに充填しなければなりません。",
+            "en": "After mixing for the time the sheet gives, it has to be placed right away."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:4",
+        "summary": "Read the actual product documents with a mason, locate mixing and safety directions, and confirm unresolved specifications before work.",
+        "sourceSpeakingJapanese": "あなたは職長で、AIは左官のエルネスト・サルガドです。グラウトのデータシートを一緒に読み、作業開始前に必要な練り混ぜと安全の手順を説明してください。「〜前に」「〜たあとで」「〜なければなりません」「〜必要があります」を使ってください。エルネストが水を足したいと言ったら、データシートの指示を優先し、練り上がりが硬すぎるときは水を加えずにあなたを呼ぶよう伝えてください。",
+        "openingLine": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+        "partnerRole": "A mason who asks where the data sheet specifies mixing water, time and safety precautions.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "練り混ぜる前に、____を最後まで読む必要があります。",
+          "hint": "Before mixing, we have to read the whole data sheet.",
+          "answer": "データシート",
+          "explanation": "データシート appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "____は、データシートに書かれている1袋あたりの量を使います。",
+          "hint": "We use the water per bag that the data sheet gives.",
+          "answer": "練り混ぜ水",
+          "explanation": "練り混ぜ水 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "普段、水を多めに入れているのは知っていますが、ここではデータシートの____が優先です。",
+          "hint": "I know you add more water, but here the sheet rules.",
+          "answer": "指示",
+          "explanation": "指示 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Actual product data sheet and SDS must determine water, working/curing time and respiratory protection; no values or respirator type are approved here. Grout/masonry specialist review required."
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5",
+      "n": 5,
+      "title": "Report an unexpected tank",
+      "objective": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order.",
+      "sourceObjective": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order.",
+      "words": [
+        {
+          "es": "浄化槽（じょうかそう）",
+          "en": "the septic tank",
+          "kind": "term",
+          "cardId": "card-ja-en-8eb9f30516e66a6f"
+        },
+        {
+          "es": "フーチング（基礎の底部）",
+          "en": "the footing",
+          "kind": "term",
+          "cardId": "card-ja-en-5ca47b250c6ffb00"
+        },
+        {
+          "es": "掘削（くっさく）",
+          "en": "the excavation",
+          "kind": "term",
+          "cardId": "card-ja-en-4bbd334775035ad8"
+        },
+        {
+          "es": "油圧ショベル（ゆあつショベル）",
+          "en": "the excavator",
+          "kind": "term",
+          "cardId": "card-ja-en-f7765b2a263f886c"
+        },
+        {
+          "es": "発見物（はっけんぶつ）",
+          "en": "the find",
+          "kind": "term",
+          "cardId": "card-ja-en-b686beece4f9ec29"
+        },
+        {
+          "es": "排水地下浸透施設（はいすいちかしんとうしせつ）",
+          "en": "the drain field",
+          "kind": "term",
+          "cardId": "card-ja-en-686b80f37e9373a9"
+        },
+        {
+          "es": "物件の記録（ぶっけんのきろく）",
+          "en": "the property records",
+          "kind": "term",
+          "cardId": "card-ja-en-2b1702c25f0bca79"
+        },
+        {
+          "es": "保健所（ほけんじょ）",
+          "en": "the health department",
+          "kind": "term",
+          "cardId": "card-ja-en-139159cc2e0f279e"
+        },
+        {
+          "es": "汲み出し作業（くみだしさぎょう）",
+          "en": "the pumping",
+          "kind": "term",
+          "cardId": "card-ja-en-708dd0c7efeea36d"
+        },
+        {
+          "es": "締め固めた埋め戻し材（しめかためた うめもどしざい）",
+          "en": "the compacted fill",
+          "kind": "term",
+          "cardId": "card-ja-en-5f59a2017bde9f64"
+        },
+        {
+          "es": "支持力（しじりょく）",
+          "en": "the bearing capacity",
+          "kind": "term",
+          "cardId": "card-ja-en-e789fe1dac986417"
+        },
+        {
+          "es": "変更注文書（へんこうちゅうもんしょ）",
+          "en": "the change order",
+          "kind": "term",
+          "cardId": "card-ja-en-26f6054a1cc6e612"
+        },
+        {
+          "es": "追加費用（ついかひよう）",
+          "en": "the additional cost",
+          "kind": "term",
+          "cardId": "card-ja-en-027f70c2ddff36bc"
+        },
+        {
+          "es": "フーチングの位置変更",
+          "en": "the footing relocation",
+          "kind": "term",
+          "cardId": "card-ja-en-c325f12b14962994"
+        },
+        {
+          "es": "見積書（みつもりしょ）",
+          "en": "the estimate",
+          "kind": "term",
+          "cardId": "card-ja-en-906f554d4bfb7421"
+        },
+        {
+          "es": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+          "en": "When we were digging this morning, Pablo found an old septic tank.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-5432cd190c639ffe"
+        },
+        {
+          "es": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
+          "en": "The tank was right where the new footing goes.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-00a3a9f6d9afce1e"
+        },
+        {
+          "es": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
+          "en": "Nobody saw it before because it wasn't in the records.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b6eeb43905a37c0c"
+        },
+        {
+          "es": "撤去したうえで、技術者の指定どおりに締め固めた材料で埋め戻す方法が考えられます。",
+          "en": "We could remove it and backfill with compacted material, as the engineer specifies.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-868ad0ecd697c6c2"
+        },
+        {
+          "es": "もう一つの案としては、技術者の承認が得られれば、フーチングの位置を移すこともできます。",
+          "en": "Another option would be to move the footing, if the engineer approves it.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-bcabb65d8c7a4d4e"
+        },
+        {
+          "es": "それぞれの案について、見積書をお出しします。",
+          "en": "I'll give you a written estimate for each option.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ec19b24815cadfef"
+        },
+        {
+          "es": "モンテス様、費用についてのご心配はよく分かります。",
+          "en": "I understand your concern about the cost, Mrs. Montes.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8e17462fc9be4d6e"
+        },
+        {
+          "es": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
+          "en": "Pablo, stop digging there until we check it.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3bc10af62f83a781"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:5",
+        "title": "Report an unexpected tank",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+            "native": "When we were digging this morning, Pablo found an old septic tank."
+          },
+          {
+            "target": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
+            "native": "The tank was right where the new footing goes."
+          },
+          {
+            "target": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
+            "native": "Nobody saw it before because it wasn't in the records."
+          },
+          {
+            "target": "それぞれの案について、見積書をお出しします。",
+            "native": "I'll give you a written estimate for each option."
+          },
+          {
+            "target": "モンテス様、費用についてのご心配はよく分かります。",
+            "native": "I understand your concern about the cost, Mrs. Montes."
+          },
+          {
+            "target": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
+            "native": "Pablo, stop digging there until we check it."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use 〜ていたとき to report a discovery and conditionals for options awaiting engineer and jurisdiction approval.",
+        "teachingJapanese": "続いていた作業の最中に起きた出来事は「〜ていたとき、〜た」で示します（例：掘削していたとき、見つけました）。提案は断定せず「〜方法が考えられます」「〜こともできます」「〜という案もあります」などで示します。技術者の判断が必要な案は「〜の承認が得られれば」のように条件を明示します。",
+        "teachingNotesEnglish": [
+          "This is a US septic tank and county-jurisdiction scenario. 浄化槽 and 保健所 are provisional functional equivalents, not a claim that Japanese and US systems or agencies are identical. A qualified site/jurisdiction reviewer must confirm the terms and procedures. The drain-field term 排水地下浸透施設 is also provisional and needs jurisdiction-specific review.",
+          "フーチング is provisional for a spread footing. The engineer must specify or approve the alternatives; the lesson does not approve excavation, removal, backfill or relocation."
+        ],
+        "examples": [
+          {
+            "es": "フーチングのために掘削していたとき、パブロが古い浄化槽を見つけました。",
+            "en": "When we were digging for the footing, Pablo found an old tank."
+          },
+          {
+            "es": "技術者にフーチングの別の位置を検討してもらうこともできます。",
+            "en": "We could ask the engineer for another location for the footing."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:5",
+        "summary": "Tell the homeowner what was found, explain the work is paused in that location, and describe options only as pending specialist review.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIは住宅の所有者ガブリエラ・モンテス様を演じます。今朝、掘削していたときにパブロが古い浄化槽を見つけたことを、「〜ていたとき、〜ました」を使って説明してください。変更注文書の選択肢として、技術者の指定どおりに撤去・埋め戻す案と、技術者の承認が得られればフーチングの位置を変える案を「〜こともできます」などを使って示してください。各案について見積書を出すと伝え、費用への懸念に答えてください。確認が終わるまで、その場所での掘削を止めていることを伝えてください。技術者の判断が出るまで、どの案も決定事項として伝えないでください。",
+        "openingLine": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+        "partnerRole": "A homeowner who asks what the discovery means for the footing and cost.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "今朝、掘削作業をしていたときに、パブロが古い____を見つけました。",
+          "hint": "When we were digging this morning, Pablo found an old septic tank.",
+          "answer": "浄化槽",
+          "explanation": "浄化槽 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "その浄化槽は、ちょうど新しい____を造る位置にありました。",
+          "hint": "The tank was right where the new footing goes.",
+          "answer": "フーチング",
+          "explanation": "フーチング appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "物件の____に載っていなかったので、これまで誰も気づきませんでした。",
+          "hint": "Nobody saw it before because it wasn't in the records.",
+          "answer": "記録",
+          "explanation": "記録 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "US septic/drain-field, spread-footing, agency and change-order wording uses provisional Japanese equivalents; engineer and jurisdiction specialists must verify procedures before release."
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6",
+      "n": 6,
+      "title": "Compare window delivery options",
+      "objective": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule.",
+      "sourceObjective": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule.",
+      "words": [
+        {
+          "es": "代替モデル",
+          "en": "the substitute model",
+          "kind": "term",
+          "cardId": "card-ja-en-2e428b0fdaa906d1"
+        },
+        {
+          "es": "代替品への切り替え",
+          "en": "the substitution",
+          "kind": "term",
+          "cardId": "card-ja-en-8255bbaafe798757"
+        },
+        {
+          "es": "納期",
+          "en": "the lead time",
+          "kind": "term",
+          "cardId": "card-ja-en-e2c92ea5cf929dfd"
+        },
+        {
+          "es": "代替品承認申請",
+          "en": "the substitution request",
+          "kind": "term",
+          "cardId": "card-ja-en-b5a35bcf9e108d04"
+        },
+        {
+          "es": "書面による承認",
+          "en": "the written approval",
+          "kind": "term",
+          "cardId": "card-ja-en-ef6892739ec3f28c"
+        },
+        {
+          "es": "設計者",
+          "en": "the architect",
+          "kind": "term",
+          "cardId": "card-ja-en-7249f4c81938dda3"
+        },
+        {
+          "es": "熱貫流率（ねつかんりゅうりつ）／U値",
+          "en": "the U-factor",
+          "kind": "term",
+          "cardId": "card-ja-en-f8609194929ce1e3"
+        },
+        {
+          "es": "耐風圧性能（たいふうあつせいのう）",
+          "en": "the wind rating",
+          "kind": "term",
+          "cardId": "card-ja-en-e65a64806bb0d93f"
+        },
+        {
+          "es": "強化ガラス",
+          "en": "the tempered glass",
+          "kind": "term",
+          "cardId": "card-ja-en-809d193c0f6edb2c"
+        },
+        {
+          "es": "開口部（下地開口）",
+          "en": "the rough opening",
+          "kind": "term",
+          "cardId": "card-ja-en-64c5eee7dad46db6"
+        },
+        {
+          "es": "水切り板金",
+          "en": "the flashing",
+          "kind": "term",
+          "cardId": "card-ja-en-acb3a4b000fbb663"
+        },
+        {
+          "es": "建物外皮（たてものがいひ）",
+          "en": "the building envelope",
+          "kind": "term",
+          "cardId": "card-ja-en-d0055a56228f29b1"
+        },
+        {
+          "es": "クリティカルパス",
+          "en": "the critical path",
+          "kind": "term",
+          "cardId": "card-ja-en-6019035bfe7c7c51"
+        },
+        {
+          "es": "見積り",
+          "en": "the quote",
+          "kind": "term",
+          "cardId": "card-ja-en-03fd2d41c85d5648"
+        },
+        {
+          "es": "内装仕上げ",
+          "en": "the interior finishes",
+          "kind": "term",
+          "cardId": "card-ja-en-eb7457a9c88fd248"
+        },
+        {
+          "es": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+          "en": "According to the supplier, the specified windows will take 6 more weeks.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-69e0fa03166046e4"
+        },
+        {
+          "es": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+          "en": "The substitute will arrive sooner, but we have to check if it complies.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-5cef73bff2e38f42"
+        },
+        {
+          "es": "設計者の書面による承認がなければ、何も取り付けません。",
+          "en": "Without the architect's written approval, nothing gets installed.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-bc9e14d9ff8c1d3f"
+        },
+        {
+          "es": "アンドレスさん、見積りと納期を送っていただけますか。",
+          "en": "Andrés, can you send me the quote and the lead time?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-10391fee7835b2c1"
+        },
+        {
+          "es": "エレナさん、待つ場合は内装仕上げの開始が遅れます。",
+          "en": "Elena, if we wait, the interior finishes will start later.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ba8fb3ffed8014dd"
+        },
+        {
+          "es": "本日、代替品承認申請を設計者に送る予定です。",
+          "en": "We're going to send the substitution request to the architect today.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b7079be755b201ac"
+        },
+        {
+          "es": "その間、開口部をビニールシートで覆っておきます。",
+          "en": "Meanwhile, we're going to cover the openings with plastic.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e33bf0a9e25a5422"
+        },
+        {
+          "es": "代替品の熱貫流率（U値）は、指定品と同じですか。",
+          "en": "Does the substitute have the same U-factor as the specified one?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-dc985a4748c002b9"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:6",
+        "title": "Compare window delivery options",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+            "native": "According to the supplier, the specified windows will take 6 more weeks."
+          },
+          {
+            "target": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+            "native": "The substitute will arrive sooner, but we have to check if it complies."
+          },
+          {
+            "target": "設計者の書面による承認がなければ、何も取り付けません。",
+            "native": "Without the architect's written approval, nothing gets installed."
+          },
+          {
+            "target": "アンドレスさん、見積りと納期を送っていただけますか。",
+            "native": "Andrés, can you send me the quote and the lead time?"
+          },
+          {
+            "target": "本日、代替品承認申請を設計者に送る予定です。",
+            "native": "We're going to send the substitution request to the architect today."
+          },
+          {
+            "target": "代替品の熱貫流率（U値）は、指定品と同じですか。",
+            "native": "Does the substitute have the same U-factor as the specified one?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use 〜より and 〜見込みです for sourced estimates; separate an unapproved substitute from confirmed schedule changes.",
+        "teachingJapanese": "【比較】「AのほうがBより〜／AはBより〜」：2つのものを比べます。例：「代替品のほうが指定品より早く届く」「指定品より納入に時間がかかる」。「AはBほど〜ない」：AがBと同じ程度ではないことを言います。例：「指定品ほど良くはない」。否定の形で使います。【見込み・予定】「〜見込みです」：まだ確定していないが、そうなると見ている見通しを言います。例：「6週間かかる見込みです」。「〜予定です」：これから行うと決まっている計画を言います。例：「申請を送る予定です」。【条件】「〜ば」：「待てば、〜」のように、条件と結果を言います。「〜なければ、〜ません」：「承認がなければ、取り付けません」のように、必要な条件を言います。【依頼】「〜ていただけますか」：丁寧に頼む表現です。【逆接】「〜が、〜」：「早く届く見込みですが、確認が必要です」のように、利点と注意点を続けて言います。",
+        "teachingNotesEnglish": [
+          "The substitution is only a proposal. Delivery timing alone does not establish a revised interior-finish start date; confirm schedule effects with the project manager. No substitute may be installed without the architect’s written approval.",
+          "耐風圧性能, クリティカルパス, 開口部（下地開口）, 水切り板金, 納期 as lead time, and the document title 代替品承認申請 need qualified construction review."
+        ],
+        "examples": [
+          {
+            "es": "指定モデルは、代替品より納入に時間がかかる見込みです。",
+            "en": "The specified model is going to take longer than the substitute."
+          },
+          {
+            "es": "代替品のほうが早く届く見込みですが、指定品ほど良くはありません。",
+            "en": "The substitute will arrive sooner, but it isn't as good as the specified one."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:6",
+        "summary": "Compare supplier estimates with a project manager, request a compliance check and architect written approval before any substitution.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。指定の窓を待つ場合と代替品を使う場合を「〜より」「〜ほど〜ない」「〜見込みです」「〜予定です」などで比べ、それぞれの案が工程と内装仕上げの開始にどう影響するか説明してください。納入業者によると指定の窓はあと6週間かかり、代替品は早く届く見込みですが、適合性の確認が必要です。代替品承認申請を設計者に送る予定です。代替品は設計者の書面による承認がなければ取り付けられないことを明確に伝えてください。",
+        "openingLine": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+        "partnerRole": "A project manager who asks for sourced lead times, compliance information and an approval path.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____によると、指定の窓はあと6週間かかるそうです。",
+          "hint": "According to the supplier, the specified windows will take 6 more weeks.",
+          "answer": "納入業者",
+          "explanation": "納入業者 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "____のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+          "hint": "The substitute will arrive sooner, but we have to check if it complies.",
+          "answer": "代替品",
+          "explanation": "代替品 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "設計者の____による承認がなければ、何も取り付けません。",
+          "hint": "Without the architect's written approval, nothing gets installed.",
+          "answer": "書面",
+          "explanation": "書面 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Supplier delivery estimate alone does not establish schedule effects; project manager must confirm. Window substitution requires architect written approval; protection and performance details need trade review."
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-8c0f66e112ae8a28",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "無収縮グラウト（むしゅうしゅくグラウト）",
+      "native": "the non-shrink grout",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-3501c441b2c058ab",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "データシート",
+      "native": "the data sheet",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-f13a533893f5f530",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "安全データシート（SDS）",
+      "native": "the safety data sheet (SDS)",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-1e63d18ceed47a61",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ水（ねりまぜみず）",
+      "native": "the mixing water",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-926ed1877a3a3a27",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ポンプ基礎（ポンプきそ）",
+      "native": "the pump base",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-775966f6f61ea589",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ベースプレート",
+      "native": "the base plate",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-479a752567484445",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ミキサー",
+      "native": "the mixer",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-13c7989243912ab0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ時間（ねりまぜじかん）",
+      "native": "the mixing time",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-6eccab69cecb9689",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "流動性（りゅうどうせい）",
+      "native": "the consistency",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-f67e16a645baa577",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "可使時間（かしじかん）",
+      "native": "the working time",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-fadcdd18adeaf931",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "周囲温度（しゅういおんど）",
+      "native": "the ambient temperature",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-b761bdae50f0e311",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "湿潤養生（しつじゅんようじょう）",
+      "native": "the wet curing",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-6cfd76da3b7f26d0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "シリカ粉じん（ふんじん）",
+      "native": "the silica dust",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-ce014ab0ed3e3dc3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "呼吸用保護具（こきゅうようほごぐ）",
+      "native": "the respirator",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-446fc9938d68dbb1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロット番号（ロットばんごう）",
+      "native": "the lot number",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-1d38cfff26e71abf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+      "native": "Before mixing, we have to read the whole data sheet.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-d80ee261b72c878f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。",
+      "native": "We use the water per bag that the data sheet gives.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-4eb6566dd9c3954c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
+      "native": "I know you add more water, but here the sheet rules.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-df1f37165eb57d0f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "袋を開ける前に、呼吸用保護具を着用しなければなりません。",
+      "native": "You have to put on the respirator before opening the bags.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-8dbcce3efb6f9554",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "充填したあとは、データシートどおりに湿潤養生を行う必要があります。",
+      "native": "After placing it, it has to be kept moist per the data sheet.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-49dee4873f677fb4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "データシートには、周囲温度について何と書かれていますか。",
+      "native": "What does the sheet say about the ambient temperature?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-ad563da236a4db4b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
+      "native": "If it comes out too thick, don't add water; call me.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-b55a5a46ecaa3a90",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "始める前に、可使時間を一緒に確認しましょう。",
+      "native": "Before starting, let's go over the working time together.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-8eb9f30516e66a6f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "浄化槽（じょうかそう）",
+      "native": "the septic tank",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-5ca47b250c6ffb00",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フーチング（基礎の底部）",
+      "native": "the footing",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-4bbd334775035ad8",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "掘削（くっさく）",
+      "native": "the excavation",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-f7765b2a263f886c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "油圧ショベル（ゆあつショベル）",
+      "native": "the excavator",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-b686beece4f9ec29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "発見物（はっけんぶつ）",
+      "native": "the find",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-686b80f37e9373a9",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "排水地下浸透施設（はいすいちかしんとうしせつ）",
+      "native": "the drain field",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-2b1702c25f0bca79",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "物件の記録（ぶっけんのきろく）",
+      "native": "the property records",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-139159cc2e0f279e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保健所（ほけんじょ）",
+      "native": "the health department",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-708dd0c7efeea36d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "汲み出し作業（くみだしさぎょう）",
+      "native": "the pumping",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-5f59a2017bde9f64",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "締め固めた埋め戻し材（しめかためた うめもどしざい）",
+      "native": "the compacted fill",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-e789fe1dac986417",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "支持力（しじりょく）",
+      "native": "the bearing capacity",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-26f6054a1cc6e612",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "変更注文書（へんこうちゅうもんしょ）",
+      "native": "the change order",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-027f70c2ddff36bc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "追加費用（ついかひよう）",
+      "native": "the additional cost",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-c325f12b14962994",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フーチングの位置変更",
+      "native": "the footing relocation",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-906f554d4bfb7421",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "見積書（みつもりしょ）",
+      "native": "the estimate",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-5432cd190c639ffe",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+      "native": "When we were digging this morning, Pablo found an old septic tank.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-00a3a9f6d9afce1e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
+      "native": "The tank was right where the new footing goes.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-b6eeb43905a37c0c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
+      "native": "Nobody saw it before because it wasn't in the records.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-868ad0ecd697c6c2",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "撤去したうえで、技術者の指定どおりに締め固めた材料で埋め戻す方法が考えられます。",
+      "native": "We could remove it and backfill with compacted material, as the engineer specifies.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-bcabb65d8c7a4d4e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "もう一つの案としては、技術者の承認が得られれば、フーチングの位置を移すこともできます。",
+      "native": "Another option would be to move the footing, if the engineer approves it.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-ec19b24815cadfef",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "それぞれの案について、見積書をお出しします。",
+      "native": "I'll give you a written estimate for each option.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-8e17462fc9be4d6e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "モンテス様、費用についてのご心配はよく分かります。",
+      "native": "I understand your concern about the cost, Mrs. Montes.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-3bc10af62f83a781",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
+      "native": "Pablo, stop digging there until we check it.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-2e428b0fdaa906d1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替モデル",
+      "native": "the substitute model",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-8255bbaafe798757",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品への切り替え",
+      "native": "the substitution",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-e2c92ea5cf929dfd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納期",
+      "native": "the lead time",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-b5a35bcf9e108d04",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品承認申請",
+      "native": "the substitution request",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-ef6892739ec3f28c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "書面による承認",
+      "native": "the written approval",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-7249f4c81938dda3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設計者",
+      "native": "the architect",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-f8609194929ce1e3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "熱貫流率（ねつかんりゅうりつ）／U値",
+      "native": "the U-factor",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-e65a64806bb0d93f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "耐風圧性能（たいふうあつせいのう）",
+      "native": "the wind rating",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-809d193c0f6edb2c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "強化ガラス",
+      "native": "the tempered glass",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-64c5eee7dad46db6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "開口部（下地開口）",
+      "native": "the rough opening",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-acb3a4b000fbb663",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "水切り板金",
+      "native": "the flashing",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-d0055a56228f29b1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建物外皮（たてものがいひ）",
+      "native": "the building envelope",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-6019035bfe7c7c51",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "クリティカルパス",
+      "native": "the critical path",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-03fd2d41c85d5648",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "見積り",
+      "native": "the quote",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-eb7457a9c88fd248",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "内装仕上げ",
+      "native": "the interior finishes",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-69e0fa03166046e4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+      "native": "According to the supplier, the specified windows will take 6 more weeks.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-5cef73bff2e38f42",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+      "native": "The substitute will arrive sooner, but we have to check if it complies.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-bc9e14d9ff8c1d3f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設計者の書面による承認がなければ、何も取り付けません。",
+      "native": "Without the architect's written approval, nothing gets installed.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-10391fee7835b2c1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "アンドレスさん、見積りと納期を送っていただけますか。",
+      "native": "Andrés, can you send me the quote and the lead time?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-ba8fb3ffed8014dd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレナさん、待つ場合は内装仕上げの開始が遅れます。",
+      "native": "Elena, if we wait, the interior finishes will start later.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-b7079be755b201ac",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "本日、代替品承認申請を設計者に送る予定です。",
+      "native": "We're going to send the substitution request to the architect today.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-e33bf0a9e25a5422",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "その間、開口部をビニールシートで覆っておきます。",
+      "native": "Meanwhile, we're going to cover the openings with plastic.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-dc985a4748c002b9",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品の熱貫流率（U値）は、指定品と同じですか。",
+      "native": "Does the substitute have the same U-factor as the specified one?",
+      "kind": "phrase",
+      "firstLesson": 6
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-8c0f66e112ae8a28",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "無収縮グラウト（むしゅうしゅくグラウト）",
+      "native": "the non-shrink grout",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-3501c441b2c058ab",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "データシート",
+      "native": "the data sheet",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-f13a533893f5f530",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "安全データシート（SDS）",
+      "native": "the safety data sheet (SDS)",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-1e63d18ceed47a61",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ水（ねりまぜみず）",
+      "native": "the mixing water",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-926ed1877a3a3a27",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ポンプ基礎（ポンプきそ）",
+      "native": "the pump base",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-775966f6f61ea589",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ベースプレート",
+      "native": "the base plate",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-479a752567484445",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ミキサー",
+      "native": "the mixer",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-13c7989243912ab0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ時間（ねりまぜじかん）",
+      "native": "the mixing time",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-6eccab69cecb9689",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "流動性（りゅうどうせい）",
+      "native": "the consistency",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-f67e16a645baa577",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "可使時間（かしじかん）",
+      "native": "the working time",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-fadcdd18adeaf931",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "周囲温度（しゅういおんど）",
+      "native": "the ambient temperature",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-b761bdae50f0e311",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "湿潤養生（しつじゅんようじょう）",
+      "native": "the wet curing",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-6cfd76da3b7f26d0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "シリカ粉じん（ふんじん）",
+      "native": "the silica dust",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-ce014ab0ed3e3dc3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "呼吸用保護具（こきゅうようほごぐ）",
+      "native": "the respirator",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-446fc9938d68dbb1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロット番号（ロットばんごう）",
+      "native": "the lot number",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-1d38cfff26e71abf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+      "native": "Before mixing, we have to read the whole data sheet.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-d80ee261b72c878f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。",
+      "native": "We use the water per bag that the data sheet gives.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-4eb6566dd9c3954c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
+      "native": "I know you add more water, but here the sheet rules.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-df1f37165eb57d0f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "袋を開ける前に、呼吸用保護具を着用しなければなりません。",
+      "native": "You have to put on the respirator before opening the bags.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-8dbcce3efb6f9554",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "充填したあとは、データシートどおりに湿潤養生を行う必要があります。",
+      "native": "After placing it, it has to be kept moist per the data sheet.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-49dee4873f677fb4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "データシートには、周囲温度について何と書かれていますか。",
+      "native": "What does the sheet say about the ambient temperature?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-ad563da236a4db4b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
+      "native": "If it comes out too thick, don't add water; call me.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-b55a5a46ecaa3a90",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "始める前に、可使時間を一緒に確認しましょう。",
+      "native": "Before starting, let's go over the working time together.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-8eb9f30516e66a6f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "浄化槽（じょうかそう）",
+      "native": "the septic tank",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-5ca47b250c6ffb00",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フーチング（基礎の底部）",
+      "native": "the footing",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-4bbd334775035ad8",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "掘削（くっさく）",
+      "native": "the excavation",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-f7765b2a263f886c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "油圧ショベル（ゆあつショベル）",
+      "native": "the excavator",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-b686beece4f9ec29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "発見物（はっけんぶつ）",
+      "native": "the find",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-686b80f37e9373a9",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "排水地下浸透施設（はいすいちかしんとうしせつ）",
+      "native": "the drain field",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-2b1702c25f0bca79",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "物件の記録（ぶっけんのきろく）",
+      "native": "the property records",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-139159cc2e0f279e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "保健所（ほけんじょ）",
+      "native": "the health department",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-708dd0c7efeea36d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "汲み出し作業（くみだしさぎょう）",
+      "native": "the pumping",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-5f59a2017bde9f64",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "締め固めた埋め戻し材（しめかためた うめもどしざい）",
+      "native": "the compacted fill",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-e789fe1dac986417",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "支持力（しじりょく）",
+      "native": "the bearing capacity",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-26f6054a1cc6e612",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "変更注文書（へんこうちゅうもんしょ）",
+      "native": "the change order",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-027f70c2ddff36bc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "追加費用（ついかひよう）",
+      "native": "the additional cost",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-c325f12b14962994",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フーチングの位置変更",
+      "native": "the footing relocation",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-906f554d4bfb7421",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "見積書（みつもりしょ）",
+      "native": "the estimate",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-5432cd190c639ffe",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+      "native": "When we were digging this morning, Pablo found an old septic tank.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-00a3a9f6d9afce1e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
+      "native": "The tank was right where the new footing goes.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-b6eeb43905a37c0c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
+      "native": "Nobody saw it before because it wasn't in the records.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-868ad0ecd697c6c2",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "撤去したうえで、技術者の指定どおりに締め固めた材料で埋め戻す方法が考えられます。",
+      "native": "We could remove it and backfill with compacted material, as the engineer specifies.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-bcabb65d8c7a4d4e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "もう一つの案としては、技術者の承認が得られれば、フーチングの位置を移すこともできます。",
+      "native": "Another option would be to move the footing, if the engineer approves it.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-ec19b24815cadfef",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "それぞれの案について、見積書をお出しします。",
+      "native": "I'll give you a written estimate for each option.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-8e17462fc9be4d6e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "モンテス様、費用についてのご心配はよく分かります。",
+      "native": "I understand your concern about the cost, Mrs. Montes.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-3bc10af62f83a781",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
+      "native": "Pablo, stop digging there until we check it.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-2e428b0fdaa906d1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替モデル",
+      "native": "the substitute model",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-8255bbaafe798757",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品への切り替え",
+      "native": "the substitution",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-e2c92ea5cf929dfd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納期",
+      "native": "the lead time",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-b5a35bcf9e108d04",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品承認申請",
+      "native": "the substitution request",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-ef6892739ec3f28c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "書面による承認",
+      "native": "the written approval",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-7249f4c81938dda3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設計者",
+      "native": "the architect",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-f8609194929ce1e3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "熱貫流率（ねつかんりゅうりつ）／U値",
+      "native": "the U-factor",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-e65a64806bb0d93f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "耐風圧性能（たいふうあつせいのう）",
+      "native": "the wind rating",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-809d193c0f6edb2c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "強化ガラス",
+      "native": "the tempered glass",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-64c5eee7dad46db6",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "開口部（下地開口）",
+      "native": "the rough opening",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-acb3a4b000fbb663",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "水切り板金",
+      "native": "the flashing",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-d0055a56228f29b1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "建物外皮（たてものがいひ）",
+      "native": "the building envelope",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-6019035bfe7c7c51",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "クリティカルパス",
+      "native": "the critical path",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-03fd2d41c85d5648",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "見積り",
+      "native": "the quote",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-eb7457a9c88fd248",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "内装仕上げ",
+      "native": "the interior finishes",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-69e0fa03166046e4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+      "native": "According to the supplier, the specified windows will take 6 more weeks.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-5cef73bff2e38f42",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+      "native": "The substitute will arrive sooner, but we have to check if it complies.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-bc9e14d9ff8c1d3f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設計者の書面による承認がなければ、何も取り付けません。",
+      "native": "Without the architect's written approval, nothing gets installed.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-10391fee7835b2c1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "アンドレスさん、見積りと納期を送っていただけますか。",
+      "native": "Andrés, can you send me the quote and the lead time?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-ba8fb3ffed8014dd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレナさん、待つ場合は内装仕上げの開始が遅れます。",
+      "native": "Elena, if we wait, the interior finishes will start later.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-b7079be755b201ac",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "本日、代替品承認申請を設計者に送る予定です。",
+      "native": "We're going to send the substitution request to the architect today.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-e33bf0a9e25a5422",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "その間、開口部をビニールシートで覆っておきます。",
+      "native": "Meanwhile, we're going to cover the openings with plastic.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-dc985a4748c002b9",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "代替品の熱貫流率（U値）は、指定品と同じですか。",
+      "native": "Does the substitute have the same U-factor as the specified one?",
+      "kind": "phrase",
+      "firstLesson": 6
+    }
+  ]
+}

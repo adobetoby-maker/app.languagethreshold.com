@@ -1,0 +1,717 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "eca089d91ffa92596b5666886f6cb833e38bfd13e6797837bab8b9a24b62bf00",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 1,
+      "titleEnglish": "Explain the Roof System to a New Hire",
+      "objectiveEnglishSource": "Walk a new hire through every layer of the roof, in order, and say why each one is there",
+      "focusEnglishSource": "Connectors for sequence and cause",
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speakingEnglishSource": "You are the crew lead and the AI is a new hire on day one: walk them from the deck to the ridge, name each layer in order, and explain why each one goes where it does using primero, luego, porque and por eso.",
+      "grammarExamplesEnglish": [
+        "We start at the bottom because water runs downhill.",
+        "Water runs downhill; that's why we start at the bottom."
+      ],
+      "titleFrench": "Expliquer le système de toiture à un nouvel ouvrier",
+      "objectiveFrench": "Présenter les couches de la toiture dans l’ordre prévu et expliquer leur fonction à un nouvel ouvrier.",
+      "grammarFocusFrench": "D’abord, ensuite et enfin pour la séquence; parce que et c’est pourquoi pour la cause.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire est un nouvel ouvrier. Expliquez du platelage au faîtage la fonction des couches du système choisi; demandez-lui de reformuler et consultez le détail approuvé pour l’ordre réel.",
+      "speakingFrenchOpening": "Commençons par le plan : peux-tu m’expliquer le rôle de chaque couche ?",
+      "teachingNotesFrench": "Les connecteurs expliquent l’ordre et la cause. La séquence et le choix des composants dépendent du système, du climat, des plans et des instructions du fabricant; ce dialogue ne sert pas de méthode universelle de pose.",
+      "words": [
+        {
+          "en": "the roof system",
+          "kind": "term",
+          "fr": "le système de toiture"
+        },
+        {
+          "en": "the roof deck",
+          "kind": "term",
+          "fr": "le platelage du toit"
+        },
+        {
+          "en": "the underlayment",
+          "kind": "term",
+          "fr": "la sous-couche"
+        },
+        {
+          "en": "the drip edge",
+          "kind": "term",
+          "fr": "le larmier"
+        },
+        {
+          "en": "the starter strip",
+          "kind": "term",
+          "fr": "la bande de départ"
+        },
+        {
+          "en": "the asphalt shingle",
+          "kind": "term",
+          "fr": "le bardeau d’asphalte"
+        },
+        {
+          "en": "the ice and water shield",
+          "kind": "term",
+          "fr": "la membrane d’étanchéité contre la glace et l’eau"
+        },
+        {
+          "en": "the flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "the valley",
+          "kind": "term",
+          "fr": "la noue"
+        },
+        {
+          "en": "the ridge",
+          "kind": "term",
+          "fr": "le faîtage"
+        },
+        {
+          "en": "the ridge cap",
+          "kind": "term",
+          "fr": "le bardeau de faîtage"
+        },
+        {
+          "en": "the ridge vent",
+          "kind": "term",
+          "fr": "l’évent de faîtage"
+        },
+        {
+          "en": "the eave",
+          "kind": "term",
+          "fr": "l’avant-toit"
+        },
+        {
+          "en": "the layer",
+          "kind": "term",
+          "fr": "la couche"
+        },
+        {
+          "en": "First comes the deck, then the underlayment.",
+          "kind": "phrase",
+          "fr": "D’abord vient le platelage, puis la sous-couche."
+        },
+        {
+          "en": "Each layer has its job.",
+          "kind": "phrase",
+          "fr": "Chaque couche a son rôle."
+        },
+        {
+          "en": "Water always runs downhill.",
+          "kind": "phrase",
+          "fr": "L’eau s’écoule vers le bas."
+        },
+        {
+          "en": "That's why we start from the bottom.",
+          "kind": "phrase",
+          "fr": "C’est pourquoi nous commençons par le bas."
+        },
+        {
+          "en": "Am I making sense?",
+          "kind": "phrase",
+          "fr": "Est-ce que je suis clair ?"
+        },
+        {
+          "en": "Ask me anything you want.",
+          "kind": "phrase",
+          "fr": "Pose-moi toutes les questions que tu veux."
+        },
+        {
+          "en": "If you have questions, ask me.",
+          "kind": "phrase",
+          "fr": "Si vous avez des questions, adressez-vous à moi."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Expliquer le système de toiture à un nouvel ouvrier",
+        "target": [
+          "Aujourd’hui, Kevin arrive dans l’équipe et Rogelio lui explique le système de toiture avant de monter.",
+          "Rogelio : « Chaque couche a son rôle, et elles fonctionnent ensemble. »",
+          "Rogelio : « D’abord vient le platelage, puis la sous-couche. »",
+          "Rogelio : « Le platelage forme la base; il doit être solide et sec. »",
+          "Rogelio : « À l’avant-toit, nous posons le larmier pour diriger l’eau vers la gouttière plutôt que vers le bois. »",
+          "Rogelio : « À l’avant-toit et dans la noue, nous posons aussi la membrane d’étanchéité, car l’eau y circule davantage. »",
+          "Kevin : « Pourquoi ne commençons-nous pas en haut, au faîtage ? »",
+          "Rogelio : « Parce que l’eau s’écoule vers le bas. »",
+          "Rogelio : « C’est pourquoi nous commençons par le bas : la bande de départ, puis les bardeaux d’asphalte, rang après rang. »",
+          "Rogelio : « Chaque rang recouvre celui du dessous, de sorte que l’eau passe par-dessus, et non par-dessous. »",
+          "Rogelio : « Autour de la cheminée et contre les murs, nous posons des solins, car ces raccords demandent une attention particulière. »",
+          "Rogelio : « Enfin, tout en haut, viennent l’évent de faîtage et les bardeaux de faîtage. »",
+          "Rogelio : « Le grenier doit être ventilé; c’est pourquoi l’évent reste au faîtage. »",
+          "Rogelio : « Est-ce que je suis clair ? »",
+          "Kevin : « Oui : d’abord la base, puis la protection contre l’eau et enfin la ventilation. »",
+          "Rogelio : « Exactement; si tu as des questions, pose-moi toutes celles que tu veux. »",
+          "Rogelio : « Avec un client, dites plutôt : Si vous avez des questions, adressez-vous à moi. »"
+        ],
+        "native": [
+          "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+          "Rogelio: Each layer has its job, and they all work together.",
+          "Rogelio: First comes the deck, then the underlayment.",
+          "Rogelio: The deck is the base, so it has to be solid and dry.",
+          "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+          "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+          "Kevin: And why don't we start at the top, where the ridge is?",
+          "Rogelio: Because water always runs downhill.",
+          "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+          "Rogelio: Each course covers the one below, so the water runs over it and never under it.",
+          "Rogelio: Around the chimney and the walls we put flashing, because those joints are the weak points.",
+          "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap.",
+          "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge.",
+          "Rogelio: Am I making sense?",
+          "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation.",
+          "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+          "Rogelio: With a client you say it this way: If you have questions, ask me."
+        ],
+        "nativeDisplay": [
+          "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+          "Rogelio: Each layer has its job, and they all work together.",
+          "Rogelio: First comes the deck, then the underlayment.",
+          "Rogelio: The deck is the base, so it has to be solid and dry.",
+          "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+          "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+          "Kevin: And why don't we start at the top, where the ridge is?",
+          "Rogelio: Because water always runs downhill.",
+          "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+          "Rogelio: Each course covers the one below, so the water runs over it and never under it.",
+          "Rogelio: Around the chimney and against the walls we put flashing, because those joints need special attention.",
+          "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap.",
+          "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge.",
+          "Rogelio: Am I making sense?",
+          "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation.",
+          "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+          "Rogelio: With a client you say it this way: If you have questions, ask me."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "Rogelio explains the roof system to him before they go up.",
+          "sourceInfinitiveSpanish": "explicar",
+          "infinitiveFrench": "expliquer",
+          "exampleFrench": "Rogelio lui explique le système de toiture avant de monter."
+        },
+        {
+          "meaningEnglish": "to start",
+          "exampleEnglish": "That's why we start from the bottom.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "C’est pourquoi nous commençons par le bas."
+        },
+        {
+          "meaningEnglish": "to run (water)",
+          "exampleEnglish": "Water always runs downhill.",
+          "sourceInfinitiveSpanish": "correr",
+          "infinitiveFrench": "s’écouler",
+          "exampleFrench": "L’eau s’écoule vers le bas."
+        },
+        {
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "Each course covers the one below.",
+          "sourceInfinitiveSpanish": "cubrir",
+          "infinitiveFrench": "recouvrir",
+          "exampleFrench": "Chaque rang recouvre celui du dessous."
+        },
+        {
+          "meaningEnglish": "to put",
+          "exampleEnglish": "At the eave we put the drip edge.",
+          "sourceInfinitiveSpanish": "poner",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "À l’avant-toit, nous posons le larmier."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Reliez chaque couche à sa fonction dans le système décrit.",
+        "recall": "Retrouvez les marqueurs d’ordre utilisés par Rogelio.",
+        "hear": "Écoutez l’explication du faîtage et nommez la couche citée.",
+        "type": "Écrivez en français : Each layer has its job.",
+        "say": "Expliquez oralement à un nouvel ouvrier la fonction de trois couches.",
+        "write": "Rédigez une explication courte avec d’abord, ensuite et parce que."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roof-system/product review is required for drip-edge, membrane, ridge-vent and ridge-cap sequence and purpose; the English passage makes broad installation claims.",
+        "France/Québec regional review of roof-system terms, customer/crew register and climate-specific membrane vocabulary is open."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "titleEnglish": "Why We Stagger Joints",
+      "objectiveEnglishSource": "Explain why joints are staggered, using impersonal se and general rules with si",
+      "focusEnglishSource": "Impersonal se; si + present for general truths",
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speakingEnglishSource": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+      "grammarExamplesEnglish": [
+        "The joints are staggered on every course.",
+        "If the joints line up, water gets in."
+      ],
+      "titleFrench": "Expliquer le décalage des joints",
+      "objectiveFrench": "Expliquer un motif de joints décalés selon le produit choisi avec la voix passive et des conditions en si.",
+      "grammarFocusFrench": "Voix passive avec être et participe passé; si + présent pour une condition générale.",
+      "speakingFrenchInstruction": "Vous formez un nouvel ouvrier. Montrez le motif de joints du produit choisi, expliquez le trajet possible de l’eau et demandez-lui de décrire le contrôle indiqué par le fabricant; évitez d’affirmer qu’un seul motif convient à tous les bardeaux.",
+      "speakingFrenchOpening": "Regardons le motif du fabricant : pourquoi ces joints sont-ils décalés ?",
+      "teachingNotesFrench": "Le français emploie ici la voix passive : les joints sont décalés. Le cours source simplifie le trajet de l’eau et la durée de vie d’une toiture; le motif, le recouvrement et les risques dépendent du produit et du détail approuvé.",
+      "words": [
+        {
+          "en": "the joint",
+          "kind": "term",
+          "fr": "le joint"
+        },
+        {
+          "en": "to stagger",
+          "kind": "term",
+          "fr": "décaler"
+        },
+        {
+          "en": "the overlap",
+          "kind": "term",
+          "fr": "le recouvrement"
+        },
+        {
+          "en": "the course (row of shingles)",
+          "kind": "term",
+          "fr": "le rang de bardeaux"
+        },
+        {
+          "en": "the tab",
+          "kind": "term",
+          "fr": "la languette"
+        },
+        {
+          "en": "the slot (between tabs)",
+          "kind": "term",
+          "fr": "la fente entre les languettes"
+        },
+        {
+          "en": "the leak",
+          "kind": "term",
+          "fr": "la fuite"
+        },
+        {
+          "en": "the water path",
+          "kind": "term",
+          "fr": "le trajet de l’eau"
+        },
+        {
+          "en": "the moisture",
+          "kind": "term",
+          "fr": "l’humidité"
+        },
+        {
+          "en": "the chalk line",
+          "kind": "term",
+          "fr": "la ligne tracée au cordeau"
+        },
+        {
+          "en": "the pattern",
+          "kind": "term",
+          "fr": "le motif"
+        },
+        {
+          "en": "the sealant strip",
+          "kind": "term",
+          "fr": "la bande adhésive"
+        },
+        {
+          "en": "over time",
+          "kind": "term",
+          "fr": "avec le temps"
+        },
+        {
+          "en": "the wind",
+          "kind": "term",
+          "fr": "le vent"
+        },
+        {
+          "en": "If the joints line up, water gets in.",
+          "kind": "phrase",
+          "fr": "Si les joints s’alignent, l’eau peut s’infiltrer.",
+          "enDisplay": "If the joints line up, water can get in."
+        },
+        {
+          "en": "The joints are staggered according to the manufacturer.",
+          "kind": "phrase",
+          "fr": "Les joints sont décalés selon les instructions du fabricant."
+        },
+        {
+          "en": "Water looks for the easiest path.",
+          "kind": "phrase",
+          "fr": "L’eau suit le chemin le plus facile."
+        },
+        {
+          "en": "That way you don't see the leak until it's too late.",
+          "kind": "phrase",
+          "fr": "Ainsi, on peut ne voir la fuite que trop tard."
+        },
+        {
+          "en": "Look, I'll show you.",
+          "kind": "phrase",
+          "fr": "Regarde, je vais te montrer."
+        },
+        {
+          "en": "May I explain why?",
+          "kind": "phrase",
+          "fr": "Puis-je vous expliquer pourquoi ?"
+        },
+        {
+          "en": "That's not done here.",
+          "kind": "phrase",
+          "fr": "On ne fait pas cela ici."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Expliquer le décalage des joints",
+        "target": [
+          "Kevin regarde le toit et demande pourquoi les joints ne forment pas une ligne droite.",
+          "Rogelio : « Regarde, je vais te montrer avec deux bardeaux. »",
+          "Rogelio : « Si les joints s’alignent, l’eau peut s’infiltrer. »",
+          "Rogelio : « L’eau suit le chemin le plus facile, et un joint ouvert peut devenir ce chemin. »",
+          "Rogelio : « C’est pourquoi les joints sont décalés selon le fabricant; on ne choisit pas le motif à l’œil. »",
+          "Rogelio : « Si un rang recouvre le joint du dessous, l’eau s’écoule sur le bardeau et poursuit son chemin. »",
+          "Rogelio : « Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau peut descendre jusqu’à la sous-couche. »",
+          "Rogelio : « Avec le temps, l’humidité peut atteindre le bois et une fuite peut apparaître dans la maison. »",
+          "Rogelio : « Ainsi, on peut ne voir la fuite que trop tard. »",
+          "Rogelio : « Le vent peut aussi soulever les languettes si la bande adhésive n’adhère pas bien. »",
+          "Rogelio : « Voilà pourquoi on vérifie le motif à chaque rang et on trace une ligne au cordeau au besoin. »",
+          "La propriétaire écoute depuis la cour et pose elle aussi une question.",
+          "Rogelio : « Madame, puis-je vous expliquer pourquoi ? »",
+          "Rogelio : « Si le recouvrement et les joints respectent le système choisi, la toiture peut durer; sinon, de l’eau peut s’infiltrer. »",
+          "Rogelio : « Kevin, aligner les joints serait une erreur pour ce produit; on ne fait pas cela ici. »"
+        ],
+        "native": [
+          "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+          "Rogelio: Look, I'll show you with two shingles.",
+          "Rogelio: If the joints line up, water gets in.",
+          "Rogelio: Water looks for the easiest path, and an open joint is the easiest path.",
+          "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+          "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+          "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house.",
+          "Rogelio: That way you don't see the leak until it's too late.",
+          "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well.",
+          "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+          "The homeowner is listening from the yard and also has a question.",
+          "Rogelio: Ma'am, may I explain why?",
+          "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in.",
+          "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here."
+        ],
+        "nativeDisplay": [
+          "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+          "Rogelio: Look, I'll show you with two shingles.",
+          "Rogelio: If the joints line up, water can get in.",
+          "Rogelio: Water looks for the easiest path, and an open joint can become that path.",
+          "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+          "Rogelio: But if the slots end up one on top of another, water may travel down to the underlayment.",
+          "Rogelio: Over time, moisture may reach the wood and a leak may appear inside the house.",
+          "Rogelio: That way you don't see the leak until it's too late.",
+          "Rogelio: The wind may also lift the tabs if the sealant strip doesn't stick well.",
+          "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+          "The homeowner is listening from the yard and also has a question.",
+          "Rogelio: Ma'am, may I explain why?",
+          "Rogelio: If the overlap and joints suit the chosen system, the roof may last; otherwise, water may get in.",
+          "Rogelio: Kevin, lining up the joints would be a mistake for this product; that isn't how we do it here."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stagger",
+          "exampleEnglish": "That's why the joints are staggered according to the manufacturer.",
+          "sourceInfinitiveSpanish": "escalonar",
+          "infinitiveFrench": "décaler",
+          "exampleFrench": "C’est pourquoi les joints sont décalés selon le fabricant."
+        },
+        {
+          "meaningEnglish": "to line up",
+          "exampleEnglish": "If the joints line up, water gets in.",
+          "sourceInfinitiveSpanish": "alinear",
+          "infinitiveFrench": "s’aligner",
+          "exampleFrench": "Si les joints s’alignent, l’eau peut s’infiltrer."
+        },
+        {
+          "meaningEnglish": "to look for",
+          "exampleEnglish": "Water looks for the easiest path.",
+          "sourceInfinitiveSpanish": "buscar",
+          "infinitiveFrench": "suivre",
+          "exampleFrench": "L’eau suit le chemin le plus facile."
+        },
+        {
+          "meaningEnglish": "to lift",
+          "exampleEnglish": "The wind lifts the tabs if the sealant strip doesn't stick well.",
+          "sourceInfinitiveSpanish": "levantar",
+          "infinitiveFrench": "soulever",
+          "exampleFrench": "Le vent peut soulever les languettes si la bande adhésive n’adhère pas bien."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The pattern is checked on every course.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "On vérifie le motif à chaque rang."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez les conditions exprimées avec si dans la démonstration.",
+        "recall": "Retrouvez la phrase qui demande le motif du fabricant.",
+        "hear": "Écoutez l’explication du trajet de l’eau et nommez la zone évoquée.",
+        "type": "Écrivez en français : The joints are staggered according to the manufacturer.",
+        "say": "Expliquez oralement à Kevin pourquoi il faut vérifier le motif du produit.",
+        "write": "Rédigez deux phrases avec si pour décrire un contrôle et une conséquence possible."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product review is required for claims that aligned joints necessarily cause a leak, that one pattern prevents it, and that correct overlap yields many years of service.",
+        "France/Québec terms for tabs, slots, sealant strip and chalk line require regional review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "titleEnglish": "Training a New Crew Member on Nailing",
+      "objectiveEnglishSource": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+      "focusEnglishSource": "Commands with object pronouns (clávalo aquí, no lo hundas)",
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speakingEnglishSource": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+      "grammarExamplesEnglish": [
+        "Nail it here, in the nailing zone.",
+        "Don't sink it; leave it flush."
+      ],
+      "titleFrench": "Former un nouvel ouvrier au clouage",
+      "objectiveFrench": "Corriger avec tact le clouage d’un nouvel ouvrier en utilisant des consignes claires et les détails du fabricant.",
+      "grammarFocusFrench": "Impératif affirmatif et négatif avec pronom objet : cloue-le ici; ne l’enfonce pas trop.",
+      "speakingFrenchInstruction": "Vous formez un nouvel ouvrier à la cloueuse. Demandez un arrêt et la vérification du modèle, du réglage et du motif approuvé avant une démonstration; corrigez sans humilier et ne proposez pas un réglage universel de pression ou une réparation improvisée.",
+      "speakingFrenchOpening": "Avant d’utiliser la cloueuse, montrons la zone de clouage indiquée par ce fabricant.",
+      "teachingNotesFrench": "Dans cloue-le, le pronom suit l’impératif affirmatif; dans ne l’enfonce pas, il précède le verbe. Le réglage de pression, la correction d’un clou mal placé et l’étanchéité du trou dépendent de l’outil, du produit et des règles du chantier; le dialogue source n’est pas une procédure.",
+      "words": [
+        {
+          "en": "the nail gun",
+          "kind": "term",
+          "fr": "la cloueuse"
+        },
+        {
+          "en": "the nailing zone",
+          "kind": "term",
+          "fr": "la zone de clouage"
+        },
+        {
+          "en": "the nail pattern",
+          "kind": "term",
+          "fr": "le motif de clouage"
+        },
+        {
+          "en": "the overdriven nail",
+          "kind": "term",
+          "fr": "le clou trop enfoncé"
+        },
+        {
+          "en": "the high nail",
+          "kind": "term",
+          "fr": "le clou placé trop haut"
+        },
+        {
+          "en": "the nail head",
+          "kind": "term",
+          "fr": "la tête du clou"
+        },
+        {
+          "en": "the air pressure",
+          "kind": "term",
+          "fr": "la pression d’air"
+        },
+        {
+          "en": "the compressor",
+          "kind": "term",
+          "fr": "le compresseur"
+        },
+        {
+          "en": "the depth",
+          "kind": "term",
+          "fr": "la profondeur"
+        },
+        {
+          "en": "the hose",
+          "kind": "term",
+          "fr": "le tuyau d’air"
+        },
+        {
+          "en": "the trigger",
+          "kind": "term",
+          "fr": "la gâchette"
+        },
+        {
+          "en": "flush",
+          "kind": "term",
+          "fr": "à fleur"
+        },
+        {
+          "en": "the hole",
+          "kind": "term",
+          "fr": "le trou"
+        },
+        {
+          "en": "Nail it here, in the nailing zone.",
+          "kind": "phrase",
+          "fr": "Cloue-le ici, dans la zone de clouage."
+        },
+        {
+          "en": "Don't sink it.",
+          "kind": "phrase",
+          "fr": "Ne l’enfonce pas trop."
+        },
+        {
+          "en": "Turn down the pressure.",
+          "kind": "phrase",
+          "fr": "Baisse la pression."
+        },
+        {
+          "en": "Pull it out and put in another one.",
+          "kind": "phrase",
+          "fr": "Retire-le et mets-en un autre."
+        },
+        {
+          "en": "Look closely at the nail head.",
+          "kind": "phrase",
+          "fr": "Regarde bien la tête du clou."
+        },
+        {
+          "en": "Don't worry, it happened to all of us.",
+          "kind": "phrase",
+          "fr": "Ne t’inquiète pas, cela nous est tous arrivé."
+        },
+        {
+          "en": "Please check it yourself too.",
+          "kind": "phrase",
+          "fr": "Vérifiez-le vous-même également, s’il vous plaît."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Former un nouvel ouvrier au clouage",
+        "target": [
+          "Aujourd’hui, Kevin utilise la cloueuse pour la première fois et Rogelio reste près de lui.",
+          "Rogelio : « Avant de commencer, vérifie le tuyau et le compresseur; ne garde pas le doigt sur la gâchette. »",
+          "Rogelio : « Regarde cette ligne sur le bardeau : c’est la zone de clouage. »",
+          "Rogelio : « Cloue-le ici, dans la zone de clouage, et suis le motif du fabricant. »",
+          "Kevin fixe le premier bardeau, mais un clou se retrouve trop haut.",
+          "Rogelio : « Ce clou trop haut retient mal le bardeau du dessous; retire-le et mets-en un autre. »",
+          "Rogelio : « Et pour le trou, suis les instructions du produit afin d’assurer l’étanchéité; ne le laisse pas ouvert. »",
+          "Ensuite Kevin pose un autre clou, mais la tête s’enfonce dans le bardeau.",
+          "Rogelio : « Regarde bien la tête du clou; elle doit être à fleur, pas plus bas. »",
+          "Rogelio : « Un clou trop enfoncé peut endommager le bardeau, que le vent risque alors de soulever. »",
+          "Rogelio : « Baisse un peu la pression d’air et réessaie; ne l’enfonce pas trop. »",
+          "Rogelio : « Si la profondeur change, préviens-moi et nous ajusterons ensemble. »",
+          "Kevin rougit, mais Rogelio lui dit : « Ne t’inquiète pas, cela nous est tous arrivé. »",
+          "Rogelio : « Et ne pointe la cloueuse vers personne, même pour plaisanter. »",
+          "Plus tard, M. Ernesto arrive; il est nouveau dans l’équipe mais a beaucoup d’expérience ailleurs.",
+          "Rogelio : « Monsieur Ernesto, ici nous clouons ainsi; vérifiez-le vous-même également, s’il vous plaît. »"
+        ],
+        "native": [
+          "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+          "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+          "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+          "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+          "Kevin nails the first shingle, but one nail ends up too high.",
+          "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+          "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+          "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+          "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+          "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it.",
+          "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+          "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+          "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+          "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+          "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+          "Rogelio: Don Ernesto, here we nail like this; please check it yourself too."
+        ],
+        "nativeDisplay": [
+          "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+          "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+          "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+          "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+          "Kevin nails the first shingle, but one nail ends up too high.",
+          "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+          "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+          "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+          "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+          "Rogelio: An overdriven nail can damage the shingle, and the wind may lift it.",
+          "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+          "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+          "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+          "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+          "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+          "Rogelio: Don Ernesto, here we nail like this; please check it yourself too."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to nail",
+          "exampleEnglish": "Nail it here, in the nailing zone.",
+          "sourceInfinitiveSpanish": "clavar",
+          "infinitiveFrench": "clouer",
+          "exampleFrench": "Cloue-le ici, dans la zone de clouage."
+        },
+        {
+          "meaningEnglish": "to pull out",
+          "exampleEnglish": "Pull it out and put in another one.",
+          "sourceInfinitiveSpanish": "sacar",
+          "infinitiveFrench": "retirer",
+          "exampleFrench": "Retire-le et mets-en un autre."
+        },
+        {
+          "meaningEnglish": "to sink",
+          "exampleEnglish": "Don't sink it.",
+          "sourceInfinitiveSpanish": "hundir",
+          "infinitiveFrench": "enfoncer",
+          "exampleFrench": "Ne l’enfonce pas trop."
+        },
+        {
+          "meaningEnglish": "to adjust",
+          "exampleEnglish": "Let me know and we'll adjust it together.",
+          "sourceInfinitiveSpanish": "ajustar",
+          "infinitiveFrench": "ajuster",
+          "exampleFrench": "Préviens-moi et nous ajusterons ensemble."
+        },
+        {
+          "meaningEnglish": "to point (aim)",
+          "exampleEnglish": "Don't point it at anyone.",
+          "sourceInfinitiveSpanish": "apuntar",
+          "infinitiveFrench": "pointer",
+          "exampleFrench": "Ne la pointe vers personne."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez la différence entre un clou trop haut et un clou trop enfoncé.",
+        "recall": "Retrouvez la consigne négative avec le pronom objet.",
+        "hear": "Écoutez la correction du clou et nommez la zone visée.",
+        "type": "Écrivez en français : Don't sink it.",
+        "say": "Corrigez oralement un nouvel ouvrier sans l’humilier, en demandant le détail du fabricant.",
+        "write": "Rédigez une consigne positive et une consigne négative avec un pronom objet."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product and power-tool safety review is required for pressure adjustment, high-nail removal, hole sealing and the nail-gun demonstration before release.",
+        "The English source assumes a particular fastener repair and nail-depth method; do not publish as a universal instruction. France/Québec nail-gun and shingle terms need regional review."
+      ],
+      "reviewed": false
+    }
+  ]
+}

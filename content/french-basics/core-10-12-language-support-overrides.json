@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 10–12 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 10,
+      "cardIndex": 6,
+      "from": {
+        "target": "les",
+        "native": "the / them (feminine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 11,
+      "cardIndex": 4,
+      "from": {
+        "target": "à / dans / sur",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "à / dans / sur",
+        "native": "at / in / on (choose by context)"
+      },
+      "reason": "The three French prepositions are alternatives, not one interchangeable translation"
+    },
+    {
+      "lesson": 11,
+      "cardIndex": 5,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 12,
+      "cardIndex": 2,
+      "from": {
+        "target": "à / dans / sur",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "à / dans / sur",
+        "native": "at / in / on (choose by context)"
+      },
+      "reason": "The three French prepositions are alternatives, not one interchangeable translation"
+    }
+  ],
+  "dialogueOverrides": [],
+  "grammarOverrides": [
+    {
+      "lesson": 11,
+      "from": "French aimer uses the person who likes as its subject: j’aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Unlike Spanish gustar, the number of liked things does not control the verb. Use aimer + definite article for a general interest (j’aime la musique) and aimer + infinitive for an activity (nous aimons étudier). Negation surrounds the conjugated verb: Luis n’aime pas le café.",
+      "to": "French aimer uses the person who likes as its subject: j’aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. The subject determines the form of aimer. Use aimer + definite article for a general interest (j’aime la musique) and aimer + infinitive for an activity (nous aimons étudier). Negation surrounds the conjugated verb: Luis n’aime pas le café.",
+      "reason": "Keep lesson French-specific"
+    },
+    {
+      "lesson": 12,
+      "from": "French vouloir is irregular: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. Place an infinitive after it to express an intended action: Je veux visiter ma famille. Nous voulons manger ensemble. French does not follow the Spanish e-to-ie stem-change rule; learn the French forms as a separate pattern. Je voudrais is a softer, more polite request, but this lesson practices the present tense.",
+      "to": "French vouloir is irregular: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. Place an infinitive after it to express an intended action: Je veux visiter ma famille. Nous voulons manger ensemble. Learn these French forms as their own irregular pattern. Je voudrais is a softer, more polite request, but this lesson practices the present tense.",
+      "reason": "Keep lesson French-specific"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 10,
+      "from": "Unlike Spanish es la una / son las dos, French keeps il est for every clock hour.",
+      "to": "French keeps il est for every clock hour, including il est une heure and il est deux heures.",
+      "reason": "Remove Spanish-specific comparison from French course"
+    },
+    {
+      "lesson": 11,
+      "from": "J’aime les livres remains j’aime even though livres is plural. Avoid copying Spanish me gusta / me gustan agreement into French.",
+      "to": "J’aime les livres remains j’aime even though livres is plural. The subject determines verb agreement.",
+      "reason": "Remove Spanish-specific comparison from French course"
+    },
+    {
+      "lesson": 12,
+      "from": "The subject controls the verb: nous voulons, not nous veulent. Before an action use vouloir + infinitive without de.",
+      "to": "Keep the irregular vouloir forms together as a pattern; use je voudrais for a softer request.",
+      "reason": "Remove Spanish-specific comparison from French course"
+    }
+  ]
+}

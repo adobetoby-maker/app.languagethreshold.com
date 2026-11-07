@@ -1,0 +1,7 @@
+# Japanese Foreman Core 4–6 private runtime draft
+
+`core-runtime-pilot-4-6-ja-en.json` is deterministically generated from `core-translation-4-6-draft.json` with `python3 scripts/build-japanese-foreman-core-runtime-4-6.py`. `scripts/validate-japanese-foreman-translations.mjs` checks the exact English source hash and all English objectives, 45 terms/phrases and 24 Reader lines. The historical `es` field contains Japanese target text. The separate `construction-foreman-ja-en` course ID and stage-local lesson numbers preserve existing Spanish and Japanese 101 progress.
+
+This private slice adds six-mode lesson inputs, aligned Reader passages, grammar focus, speaking missions, three reading-based cloze checks per lesson, 45 cards and 45 dictionary entry drafts. The Core 4–6 source translations passed scoped Fable and Opus **AI** rechecks after correction, recorded in `ai-review-core-1-9-2026-11-05.md`. The new English teaching focus and speaking scenarios have not had an independent review. No qualified fluent Japanese or construction/safety specialist has approved the content; every `reviewed` flag remains false.
+
+The slice is not registered in the public module catalog, Core 60 stage manifest, speaking registry or offline packs. It has no recorded Japanese audio or native V4 integration. Before a release, complete the other Core and Master lessons and review gates, combine and test the stage bundle, verify exact-pair runtime behavior and phone/offline use, validate ja-JP recorded audio and listening, and obtain qualified language/domain review.

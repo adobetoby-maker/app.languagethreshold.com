@@ -1,0 +1,493 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "fcb3bbf85932687e8b45d5fcfd0e2611f0024aef2fe6c1732e97888d6ce596d3",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Ridge, Vents & Drainage",
+      "objectiveEnglishSource": "Name ridge and drainage components",
+      "titleFrench": "Faîtage, ventilation et drainage",
+      "objectiveFrench": "Nommer les éléments du faîtage et du drainage, puis vérifier leur emplacement sur le plan.",
+      "speakingEnglishSource": "Describe where the ridge vent and downspouts belong.",
+      "speakingFrenchInstruction": "Décrivez le faîtage, les évents et les descentes pluviales sur un plan; demandez à la personne responsable de confirmer les emplacements.",
+      "speakingFrenchOpening": "Sur le plan, voici le faîtage. Où se place l’évent de faîtage et où sont les descentes pluviales ?",
+      "grammarFocusFrench": "Prépositions de lieu (au sommet, au bord, au coin); demander où se place un élément; avoir besoin de + nom.",
+      "words": [
+        {
+          "en": "ridge cap",
+          "kind": "term",
+          "fr": "le bardeau de faîtage"
+        },
+        {
+          "en": "vent",
+          "kind": "term",
+          "fr": "l’évent"
+        },
+        {
+          "en": "gutter",
+          "kind": "term",
+          "fr": "la gouttière"
+        },
+        {
+          "en": "downspout",
+          "kind": "term",
+          "fr": "la descente pluviale"
+        },
+        {
+          "en": "fascia",
+          "kind": "term",
+          "fr": "la planche de rive"
+        },
+        {
+          "en": "ridge",
+          "kind": "term",
+          "fr": "le faîtage"
+        },
+        {
+          "en": "ridge vent",
+          "kind": "term",
+          "fr": "l’évent de faîtage"
+        },
+        {
+          "en": "box vent",
+          "kind": "term",
+          "fr": "l’évent de toit"
+        },
+        {
+          "en": "soffit",
+          "kind": "term",
+          "fr": "la sous-face de débord de toit"
+        },
+        {
+          "en": "attic",
+          "kind": "term",
+          "fr": "les combles"
+        },
+        {
+          "en": "The ridge vent goes along the ridge.",
+          "kind": "phrase",
+          "fr": "L’évent de faîtage longe le faîtage.",
+          "noteEnglish": "Source language example; verify the approved ventilation design and manufacturer instructions."
+        },
+        {
+          "en": "Where does the downspout go?",
+          "kind": "phrase",
+          "fr": "Où se place la descente pluviale ?"
+        },
+        {
+          "en": "The gutter is clogged.",
+          "kind": "phrase",
+          "fr": "La gouttière est bouchée."
+        },
+        {
+          "en": "The water must drain away from the house.",
+          "kind": "phrase",
+          "fr": "L’eau doit s’écouler loin de la maison."
+        },
+        {
+          "en": "The attic needs ventilation.",
+          "kind": "phrase",
+          "fr": "Les combles ont besoin d’une ventilation.",
+          "noteEnglish": "Source language example; verify the approved ventilation design and manufacturer instructions."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Faîtage, ventilation et drainage",
+        "target": [
+          "Au point le plus haut du toit se trouve le faîtage.",
+          "L’évent de faîtage longe le faîtage.",
+          "Les combles ont besoin d’une ventilation.",
+          "Plus bas, au bord du toit, se trouvent la planche de rive et la sous-face du débord de toit.",
+          "La gouttière est bouchée.",
+          "L’eau doit s’écouler loin de la maison.",
+          "Le contremaître demande : « Où se place la descente pluviale ? »",
+          "Un ouvrier montre l’emplacement au coin de la maison."
+        ],
+        "native": [
+          "At the highest part of the roof is the ridge.",
+          "The ridge vent goes along the ridge.",
+          "The attic needs ventilation.",
+          "Below, at the edge of the roof, are the fascia and the soffit.",
+          "The gutter is clogged.",
+          "The water has to run away from the house.",
+          "The foreman asks: Where does the downspout go?",
+          "A worker points to it at the corner of the house."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to need",
+          "exampleEnglish": "The attic needs ventilation.",
+          "sourceInfinitiveSpanish": "necesitar",
+          "infinitiveFrench": "avoir besoin de",
+          "exampleFrench": "Les combles ont besoin d’une ventilation."
+        },
+        {
+          "meaningEnglish": "to go",
+          "exampleEnglish": "The ridge vent goes along the ridge.",
+          "sourceInfinitiveSpanish": "ir",
+          "infinitiveFrench": "longer",
+          "exampleFrench": "L’évent de faîtage longe le faîtage."
+        },
+        {
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "The foreman asks: Where does the downspout go?",
+          "sourceInfinitiveSpanish": "preguntar",
+          "infinitiveFrench": "demander",
+          "exampleFrench": "Le contremaître demande : « Où se place la descente pluviale ? »"
+        },
+        {
+          "meaningEnglish": "to point to",
+          "exampleEnglish": "A worker points to it at the corner of the house.",
+          "sourceInfinitiveSpanish": "señalar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Un ouvrier montre l’emplacement au coin de la maison."
+        },
+        {
+          "meaningEnglish": "to run, to flow",
+          "exampleEnglish": "The water runs away from the house.",
+          "sourceInfinitiveSpanish": "correr",
+          "infinitiveFrench": "s’écouler",
+          "exampleFrench": "L’eau s’écoule loin de la maison."
+        }
+      ],
+      "teachingNotesFrench": "Faîtage, évent et descente pluviale décrivent des fonctions; les produits et détails de ventilation/drainage varient selon le chantier. Demander à la personne responsable de confirmer les emplacements prévus.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+        "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Fasteners & Consumables",
+      "objectiveEnglishSource": "Request roofing fasteners and sealants clearly",
+      "titleFrench": "Fixations et consommables",
+      "objectiveFrench": "Demander au fournisseur les fixations et produits prévus pour ce chantier.",
+      "speakingEnglishSource": "Call a supplier and confirm the fasteners specified for this job.",
+      "speakingFrenchInstruction": "Appelez le fournisseur, demandez les fixations indiquées dans les spécifications et faites confirmer les produits, quantités et la livraison.",
+      "speakingFrenchOpening": "Bonjour. Pourriez-vous confirmer les clous prévus dans les spécifications de ce chantier et leur date de livraison ?",
+      "grammarFocusFrench": "Il me faut + quantité; demande polie avec avez-vous / pouvez-vous / veuillez; vérifier les spécifications avant de commander.",
+      "words": [
+        {
+          "en": "roofing nails",
+          "kind": "term",
+          "fr": "les clous de toiture"
+        },
+        {
+          "en": "plastic cap nails",
+          "kind": "term",
+          "fr": "les clous à rondelles de plastique"
+        },
+        {
+          "en": "roofing cement",
+          "kind": "term",
+          "fr": "le mastic bitumineux pour toiture"
+        },
+        {
+          "en": "nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "staple",
+          "kind": "term",
+          "fr": "l’agrafe"
+        },
+        {
+          "en": "screw",
+          "kind": "term",
+          "fr": "la vis"
+        },
+        {
+          "en": "galvanized nails",
+          "kind": "term",
+          "fr": "les clous galvanisés"
+        },
+        {
+          "en": "box",
+          "kind": "term",
+          "fr": "la boîte"
+        },
+        {
+          "en": "sealant",
+          "kind": "term",
+          "fr": "le produit d’étanchéité"
+        },
+        {
+          "en": "I need two boxes of roofing nails.",
+          "kind": "phrase",
+          "fr": "Il me faut deux boîtes de clous de toiture.",
+          "noteEnglish": "Source quantity is a language example; confirm actual type and quantity from job specifications."
+        },
+        {
+          "en": "Do you have plastic cap nails?",
+          "kind": "phrase",
+          "fr": "Avez-vous des clous à rondelles de plastique ?"
+        },
+        {
+          "en": "Which nails does the job require?",
+          "kind": "phrase",
+          "fr": "Quels clous sont prévus pour ce chantier ?"
+        },
+        {
+          "en": "When can you deliver them?",
+          "kind": "phrase",
+          "fr": "Quand pouvez-vous les livrer ?"
+        },
+        {
+          "en": "Please confirm the order.",
+          "kind": "phrase",
+          "fr": "Veuillez confirmer la commande."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Fixations et consommables",
+        "target": [
+          "Le contremaître appelle le fournisseur.",
+          "Il dit : « Il me faut deux boîtes de clous de toiture. »",
+          "Avez-vous des clous à rondelles de plastique ?",
+          "Le contremaître lit les spécifications du chantier pour vérifier quels clous sont prévus.",
+          "Il lui faut aussi du mastic bitumineux pour toiture et un produit d’étanchéité.",
+          "Quand pouvez-vous les livrer ?",
+          "Le fournisseur consulte sa liste et annonce une date de livraison.",
+          "Veuillez confirmer la commande."
+        ],
+        "native": [
+          "The foreman calls the supplier.",
+          "He says: I need two boxes of roofing nails.",
+          "Do you have plastic cap nails?",
+          "The foreman reads the job specifications to see which nails the job requires.",
+          "He also needs roofing cement and sealant.",
+          "When can you deliver them?",
+          "The supplier checks his list and gives a delivery date.",
+          "Please confirm the order."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to need",
+          "exampleEnglish": "I need two boxes of roofing nails.",
+          "sourceInfinitiveSpanish": "necesitar",
+          "infinitiveFrench": "avoir besoin de",
+          "exampleFrench": "Il me faut deux boîtes de clous de toiture."
+        },
+        {
+          "meaningEnglish": "to ask for, to order",
+          "exampleEnglish": "Which nails does the job require?",
+          "sourceInfinitiveSpanish": "pedir",
+          "infinitiveFrench": "demander",
+          "exampleFrench": "Quels clous sont prévus pour ce chantier ?"
+        },
+        {
+          "meaningEnglish": "to be able to, can",
+          "exampleEnglish": "When can you deliver them?",
+          "sourceInfinitiveSpanish": "poder",
+          "infinitiveFrench": "pouvoir",
+          "exampleFrench": "Quand pouvez-vous les livrer ?"
+        },
+        {
+          "meaningEnglish": "to deliver",
+          "exampleEnglish": "The supplier delivers the nails tomorrow.",
+          "sourceInfinitiveSpanish": "entregar",
+          "infinitiveFrench": "livrer",
+          "exampleFrench": "Le fournisseur livre les clous demain."
+        },
+        {
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "Please confirm the order.",
+          "sourceInfinitiveSpanish": "confirmar",
+          "infinitiveFrench": "confirmer",
+          "exampleFrench": "Veuillez confirmer la commande."
+        }
+      ],
+      "teachingNotesFrench": "Clous à rondelles de plastique et mastic bitumineux demandent confirmation auprès du fournisseur. Ni le type de fixation ni la quantité ne sont une spécification universelle.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+        "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Morning Crew Brief",
+      "objectiveEnglishSource": "Open the day with assignments and a clear plan",
+      "titleFrench": "Réunion d’équipe du matin",
+      "objectiveFrench": "Présenter les tâches, les zones de travail et l’entreposage des matériaux.",
+      "speakingEnglishSource": "Run a two-minute morning brief covering work zones and material staging.",
+      "speakingFrenchInstruction": "Animez une courte réunion : demandez qui dirige la dépose, où les matériaux seront entreposés et si quelqu’un a repéré un danger.",
+      "speakingFrenchOpening": "Bonjour à tous. Passons en revue le plan du jour. Qui dirige la dépose et où entreposons-nous les matériaux ?",
+      "grammarFocusFrench": "Nous + impératif inclusif; questions qui / où / tout le monde; signaler un danger et faire reformuler le plan.",
+      "words": [
+        {
+          "en": "crew lead",
+          "kind": "term",
+          "fr": "le chef d’équipe"
+        },
+        {
+          "en": "staging area",
+          "kind": "term",
+          "fr": "la zone de stockage des matériaux"
+        },
+        {
+          "en": "tear-off",
+          "kind": "term",
+          "fr": "la dépose de l’ancienne couverture"
+        },
+        {
+          "en": "crew",
+          "kind": "term",
+          "fr": "l’équipe"
+        },
+        {
+          "en": "foreman",
+          "kind": "term",
+          "fr": "le contremaître"
+        },
+        {
+          "en": "work zone",
+          "kind": "term",
+          "fr": "la zone de travail"
+        },
+        {
+          "en": "assignment",
+          "kind": "term",
+          "fr": "la tâche attribuée"
+        },
+        {
+          "en": "roof plan",
+          "kind": "term",
+          "fr": "le plan de toiture"
+        },
+        {
+          "en": "hazard",
+          "kind": "term",
+          "fr": "le danger"
+        },
+        {
+          "en": "delivery",
+          "kind": "term",
+          "fr": "la livraison"
+        },
+        {
+          "en": "Let's review today's roof plan before we start.",
+          "kind": "phrase",
+          "fr": "Passons en revue le plan de toiture du jour avant de commencer."
+        },
+        {
+          "en": "Who is leading the tear-off crew?",
+          "kind": "phrase",
+          "fr": "Qui dirige l’équipe chargée de la dépose ?"
+        },
+        {
+          "en": "Show me where you will stage the materials.",
+          "kind": "phrase",
+          "fr": "Montrez-moi où vous entreposerez les matériaux."
+        },
+        {
+          "en": "Tell me if you see any hazard.",
+          "kind": "phrase",
+          "fr": "Signalez-moi tout danger que vous remarquez."
+        },
+        {
+          "en": "Does everyone understand the plan?",
+          "kind": "phrase",
+          "fr": "Tout le monde a-t-il compris le plan ?"
+        },
+        {
+          "en": "Any questions before we start?",
+          "kind": "phrase",
+          "fr": "Des questions avant de commencer ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Réunion d’équipe du matin",
+        "target": [
+          "Il est sept heures du matin et l’équipe se rassemble.",
+          "Le contremaître dit : « Passons en revue le plan de toiture du jour avant de commencer. »",
+          "Le contremaître demande : « Qui dirige l’équipe chargée de la dépose ? »",
+          "Luis, le chef d’équipe, lève la main.",
+          "Chaque personne a une tâche dans une zone de travail.",
+          "Montrez-moi où vous entreposerez les matériaux.",
+          "Signalez-moi tout danger que vous remarquez.",
+          "Tout le monde a-t-il compris le plan ?",
+          "Des questions avant de commencer ?"
+        ],
+        "native": [
+          "It is 7:00 in the morning and the crew gathers.",
+          "The foreman says: Let's review today's roof plan before we start.",
+          "The foreman asks: Who is leading the tear-off crew?",
+          "Luis, the crew lead, raises his hand.",
+          "Each person has a task in a work zone.",
+          "Show me where you will stage the materials.",
+          "Tell me if you see any hazard.",
+          "Does everyone understand the plan?",
+          "Any questions before we start?"
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to lead, to direct",
+          "exampleEnglish": "Luis leads the tear-off crew.",
+          "sourceInfinitiveSpanish": "dirigir",
+          "infinitiveFrench": "diriger",
+          "exampleFrench": "Luis dirige l’équipe chargée de la dépose."
+        },
+        {
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "Does everyone understand the plan?",
+          "sourceInfinitiveSpanish": "entender",
+          "infinitiveFrench": "comprendre",
+          "exampleFrench": "Tout le monde a-t-il compris le plan ?"
+        },
+        {
+          "meaningEnglish": "to have",
+          "exampleEnglish": "Each person has an assignment.",
+          "sourceInfinitiveSpanish": "tener",
+          "infinitiveFrench": "avoir",
+          "exampleFrench": "Chaque personne a une tâche attribuée."
+        },
+        {
+          "meaningEnglish": "to start, to begin",
+          "exampleEnglish": "We start the tear-off at 7:30.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "Nous commençons la dépose à sept heures et demie."
+        },
+        {
+          "meaningEnglish": "to see",
+          "exampleEnglish": "Tell me if you see any hazard.",
+          "sourceInfinitiveSpanish": "ver",
+          "infinitiveFrench": "voir",
+          "exampleFrench": "Signalez-moi tout danger que vous remarquez."
+        }
+      ],
+      "teachingNotesFrench": "Le rôle de contremaître et les procédures de briefing varient selon la région et l’employeur. Ne pas substituer ce dialogue au plan de prévention ou aux consignes du chantier.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+        "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+      ],
+      "reviewed": false
+    }
+  ]
+}

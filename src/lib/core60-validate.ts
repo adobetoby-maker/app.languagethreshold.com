@@ -14,6 +14,7 @@ import {
   CORE60_LESSON_TYPES,
   CORE60_STAGE_FILE_VERSION,
   CORE60_STAGE_LESSONS,
+  manifestStageModuleId,
   stageModuleId,
   type Core60ManifestEntry,
   type Core60StageKind,
@@ -128,6 +129,7 @@ export interface StageFileExpectation {
   moduleId?: string;
   stage?: Core60StageKind;
   language?: string;
+  nativeLanguage?: string;
 }
 
 /** Every rule a stage file must pass before it ships. */
@@ -143,7 +145,7 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
     return errors;
   }
   if (!text(file.baseModule)) errors.push("baseModule is missing");
-  else if (file.module !== stageModuleId(stage, file.baseModule))
+  else if (!expected.moduleId && file.module !== stageModuleId(stage, file.baseModule))
     errors.push(`module must be "${stageModuleId(stage, file.baseModule)}"`);
   if (expected.moduleId && file.module !== expected.moduleId)
     errors.push(`module must be "${expected.moduleId}" (from the file name / manifest)`);
@@ -154,6 +156,8 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
   if (!text(file.nativeLanguage)) errors.push("nativeLanguage is missing");
   else if (file.nativeLanguage === file.language)
     errors.push("nativeLanguage must differ from language");
+  else if (expected.nativeLanguage && file.nativeLanguage !== expected.nativeLanguage)
+    errors.push(`nativeLanguage must be "${expected.nativeLanguage}" (from the manifest)`);
   if (!text(file.headline)) errors.push("headline is missing");
   if (!text(file.threshold)) errors.push("threshold is missing");
   if (typeof file.reviewed !== "boolean") errors.push("reviewed must be true or false");
@@ -239,11 +243,14 @@ export function validateManifest(
 ): string[] {
   const errors: string[] = [];
   const ids = new Map(catalog.map((m) => [m.id, m]));
-  const bases = new Set<string>();
+  const pairs = new Set<string>();
+  const stageIds = new Set<string>();
   for (const entry of manifest) {
     const where = `manifest entry "${entry.base}"`;
-    if (bases.has(entry.base)) errors.push(`${where}: listed twice`);
-    bases.add(entry.base);
+    const native = entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English");
+    const pair = `${entry.base}\u0000${entry.language}\u0000${native}`;
+    if (pairs.has(pair)) errors.push(`${where}: listed twice`);
+    pairs.add(pair);
     const base = ids.get(entry.base);
     if (!base) {
       errors.push(`${where}: no module with that id`);
@@ -259,10 +266,18 @@ export function validateManifest(
       );
     else if (base.languages && !base.languages.includes(entry.language as never))
       errors.push(`${where}: ${base.name} is not offered in ${entry.language}`);
+    if (entry.nativeLanguage && !(LANGUAGES as readonly string[]).includes(entry.nativeLanguage))
+      errors.push(`${where}: "${entry.nativeLanguage}" is not a language the app supports`);
+    if (entry.language === native) errors.push(`${where}: target and native languages must differ`);
     for (const stage of ["foundation", "master"] as const) {
       if (entry[stage]) errors.push(...invisibleCharErrors(`${where} ${stage}`, entry[stage]));
-      if (entry[stage] && ids.has(stageModuleId(stage, entry.base)))
-        errors.push(`${where}: ${stageModuleId(stage, entry.base)} is already a hand-written module`);
+      if (!entry[stage]) continue;
+      const moduleId = manifestStageModuleId(entry, stage);
+      if (!new RegExp(`^${stage}-[a-z0-9]+(?:-[a-z0-9]+)*$`).test(moduleId))
+        errors.push(`${where}: ${moduleId} is not a stable ${stage} module id`);
+      if (ids.has(moduleId)) errors.push(`${where}: ${moduleId} is already a hand-written module`);
+      if (stageIds.has(moduleId)) errors.push(`${where}: ${moduleId} is listed for more than one pair`);
+      stageIds.add(moduleId);
     }
   }
   return errors;

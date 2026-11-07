@@ -94,7 +94,7 @@ export class TabErrorBoundary extends Component<
 export function TabShell() {
   const { state } = useApp();
   // Starts loading a data-driven Core 60 stage's curriculum from any tab (Core 60, Say it, Reader).
-  useStageCurriculum(state.activeModuleId);
+  useStageCurriculum(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
   const Component = TAB_COMPONENTS[state.currentTab];
   const tool = TOOL_CATALOG[state.currentTab];
   // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.

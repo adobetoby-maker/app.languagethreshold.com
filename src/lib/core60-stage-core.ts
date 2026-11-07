@@ -71,6 +71,8 @@ export interface Core60StageFile {
 
 /** Optional catalog text for one stage; anything left out is derived from the base module. */
 export interface Core60ManifestStage {
+  /** Stable stage id when another target language shares the same base module. */
+  moduleId?: string;
   blurb?: string;
   userRole?: string;
   challengePrompts?: string[];
@@ -83,6 +85,8 @@ export interface Core60ManifestEntry {
   base: string;
   /** Target language of both stage files ("Spanish"); also the only language the stages are offered in. */
   language: string;
+  /** Native/support language; defaults to Spanish for English targets and English otherwise. */
+  nativeLanguage?: string;
   /** Short trade name on the path card and eyebrow; defaults to the base module's name. */
   tradeLabel?: string;
   foundation?: Core60ManifestStage;
@@ -91,6 +95,10 @@ export interface Core60ManifestEntry {
 
 export function stageModuleId(stage: Core60StageKind, base: string): string {
   return `${stage}-${base}`;
+}
+
+export function manifestStageModuleId(entry: Core60ManifestEntry, stage: Core60StageKind): string {
+  return entry[stage]?.moduleId ?? stageModuleId(stage, entry.base);
 }
 
 /** Path of a stage file relative to the stage data root: "es/foundation-electrician.json". */
@@ -102,15 +110,21 @@ export function stageFileRelativePath(language: string, moduleId: string): strin
 export function findStageEntry(
   manifest: readonly Core60ManifestEntry[],
   moduleId: string | null | undefined,
+  targetLanguage?: string,
+  nativeLanguage?: string,
 ): { entry: Core60ManifestEntry; stage: Core60StageKind } | null {
   if (!moduleId) return null;
+  const matches: { entry: Core60ManifestEntry; stage: Core60StageKind }[] = [];
   for (const entry of manifest) {
-    if (entry.foundation && moduleId === stageModuleId("foundation", entry.base))
-      return { entry, stage: "foundation" };
-    if (entry.master && moduleId === stageModuleId("master", entry.base))
-      return { entry, stage: "master" };
+    if (targetLanguage && entry.language !== targetLanguage) continue;
+    if (nativeLanguage && (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !== nativeLanguage) continue;
+    if (entry.foundation && moduleId === manifestStageModuleId(entry, "foundation"))
+      matches.push({ entry, stage: "foundation" });
+    if (entry.master && moduleId === manifestStageModuleId(entry, "master"))
+      matches.push({ entry, stage: "master" });
   }
-  return null;
+  // Never select a first-match language when a module id is ambiguous.
+  return matches.length === 1 ? matches[0] : null;
 }
 
 // ─── File → curriculum ───────────────────────────────────────────────────────
@@ -174,13 +188,14 @@ const str = (value: unknown): value is string => typeof value === "string" && va
  */
 export function parseStageFile(
   raw: unknown,
-  expected: { moduleId: string; stage: Core60StageKind; language: string },
+  expected: { moduleId: string; stage: Core60StageKind; language: string; nativeLanguage?: string },
 ): Core60StageFile | null {
   if (!raw || typeof raw !== "object") return null;
   const file = raw as Record<string, unknown>;
   if (file.version !== CORE60_STAGE_FILE_VERSION) return null;
   if (file.module !== expected.moduleId || file.stage !== expected.stage) return null;
   if (file.language !== expected.language) return null;
+  if (expected.nativeLanguage && file.nativeLanguage !== expected.nativeLanguage) return null;
   if (!str(file.headline) || !str(file.threshold) || !Array.isArray(file.lessons)) return null;
   const lessons = file.lessons as unknown[];
   if (lessons.length === 0) return null;
@@ -223,7 +238,7 @@ export function deriveStageModule(
   const language = entry.language;
   const foundation = stage === "foundation";
   const derived: AppModule = {
-    id: stageModuleId(stage, base.id),
+    id: manifestStageModuleId(entry, stage),
     name: `${base.name} ${foundation ? "Foundation" : "Master"}`,
     emoji: base.emoji,
     category: base.category,
@@ -252,6 +267,7 @@ export function deriveStageModule(
   }
   if (base.learnDirection) derived.learnDirection = base.learnDirection;
   if (base.nativeLanguages) derived.nativeLanguages = [...base.nativeLanguages];
+  if (entry.nativeLanguage) derived.nativeLanguages = [entry.nativeLanguage as NonNullable<AppModule["nativeLanguages"]>[number]];
   return derived;
 }
 
@@ -272,7 +288,7 @@ export function withDerivedStageModules(
       if (entry.base !== module.id) continue;
       for (const stage of ["foundation", "master"] as const) {
         if (!entry[stage]) continue;
-        const id = stageModuleId(stage, module.id);
+        const id = manifestStageModuleId(entry, stage);
         if (ids.has(id)) continue;
         ids.add(id);
         out.push(deriveStageModule(module, entry, stage));

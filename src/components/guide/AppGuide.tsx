@@ -1830,8 +1830,8 @@ export function AppGuide() {
 
   const moduleId = state.activeModuleId ?? "";
   // A data-driven Core 60 stage's curriculum is its own chunk; re-render once it has loaded.
-  useStageCurriculum(moduleId);
-  const curriculum = getCurriculum(moduleId);
+  useStageCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
+  const curriculum = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
 
   const flow = getFlow(state.activeModuleId);
   const tip = getModuleTip(state.activeModuleId);
@@ -2948,8 +2948,8 @@ export function Core30Tab() {
   const { user } = useAuth();
   // A data-driven Core 60 stage (Foundation / Master) loads its curriculum on open: the lesson
   // page and runner mount once it is here, so their first render already has every lesson.
-  const stageStatus = useStageCurriculum(state.activeModuleId);
-  const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
+  const stageStatus = useStageCurriculum(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
+  const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? "", state.selectedLanguage, state.nativeLanguage));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {state.activeModuleId &&

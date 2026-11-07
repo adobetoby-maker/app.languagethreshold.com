@@ -78,6 +78,22 @@ test("the server loads only the stage a request needs, once, and caches it", asy
   assert.deepEqual(Object.keys(calls), ["foundation-electrician"]);
 });
 
+test("a loaded Spanish stage never satisfies a Japanese or unsupported learning pair", async () => {
+  const { registry, calls } = await freshRegistry();
+  const id = "foundation-construction-foreman";
+  assert.equal(registry.dataStageOf(id, "Japanese", "English"), null);
+  assert.equal(registry.stageCurriculumStatus(id, "Japanese", "English"), "none");
+  assert.equal(await registry.ensureStageForModule(id, { targetLanguage: "Japanese", nativeLanguage: "English" }), null);
+  assert.equal(await registry.loadStageCurriculum(id, { targetLanguage: "Japanese", nativeLanguage: "English" }), null);
+  assert.deepEqual(calls, {});
+  const spanish = await registry.loadStageCurriculum("foundation-electrician", { targetLanguage: "Spanish", nativeLanguage: "English" });
+  assert.ok(spanish);
+  assert.equal(registry.stageCurriculum("foundation-electrician", "Spanish", "English"), spanish);
+  assert.equal(registry.stageCurriculum("foundation-electrician", "Japanese", "English"), null);
+  assert.equal(registry.stageCurriculum("foundation-electrician", "Spanish", "Japanese"), null);
+  assert.equal(await registry.ensureStageForModule("foundation-electrician", { targetLanguage: "Japanese", nativeLanguage: "English" }), null);
+});
+
 test("a stage that fails once is retried by a later request after the backoff, not left failed", async () => {
   const { registry, calls } = await freshRegistry({ "foundation-electrician": 1 });
   let clock = 1_000;

@@ -44,6 +44,9 @@ export function getLessonDefinition(input: {
   contentVersion: string;
 }): LessonDefinition | null {
   const { moduleId, lessonNumber, targetLanguage, instructionLanguage, contentVersion } = input;
+  // Keep the stable objective/lesson shell even for an unsupported pair; authored words, reading,
+  // teaching and sound below are each gated by the requested pair. This preserves existing lesson
+  // identity without borrowing a Spanish lesson's actual practice content.
   const source = getCurriculum(moduleId)?.lessons.find((l) => l.n === lessonNumber);
   if (!source) return null;
   const roofingTrack =

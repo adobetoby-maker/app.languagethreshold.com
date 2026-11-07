@@ -291,7 +291,7 @@ export async function parseTutorRequest(input: unknown) {
   if (reference) {
     // A Core 60 Foundation/Master lesson resolves from a lazily loaded stage chunk: load that one
     // stage before anything reads it (a cold instance has none), here and not in a middleware.
-    await ensureStageForModule(reference.moduleId);
+    await ensureStageForModule(reference.moduleId, { targetLanguage: reference.targetLanguage, nativeLanguage: reference.instructionLanguage });
     if (stageLoadFailed(reference.moduleId)) throw new StageUnavailableError();
     if (
       reference.contentVersion !==

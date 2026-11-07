@@ -19,6 +19,7 @@ import {
   CORE60_STAGE_LESSONS,
   stageCurriculumFromFile,
   stageFileRelativePath,
+  manifestStageModuleId,
   type Core60ManifestEntry,
 } from "../lib/core60-stage-core.ts";
 
@@ -131,8 +132,8 @@ export function core60FixtureModules(): AppModule[] {
 }
 
 /** The manifest entry and stage of a data-driven stage module, or null for every other module. */
-export function dataStageOf(moduleId: string | null | undefined) {
-  return findStageEntry(MANIFEST, moduleId);
+export function dataStageOf(moduleId: string | null | undefined, targetLanguage?: string, nativeLanguage?: string) {
+  return findStageEntry(MANIFEST, moduleId, targetLanguage, nativeLanguage);
 }
 
 // ─── Registry ────────────────────────────────────────────────────────────────
@@ -161,6 +162,7 @@ function curriculumFrom(moduleId: string, raw: unknown): ModuleCurriculum | null
     moduleId,
     stage: found.stage,
     language: found.entry.language,
+    nativeLanguage: found.entry.nativeLanguage ?? (found.entry.language === "English" ? "Spanish" : "English"),
   });
   return file ? stageCurriculumFromFile(file) : null;
 }
@@ -187,7 +189,8 @@ function readFromDisk(moduleId: string): ModuleCurriculum | null {
  * The stage's curriculum if it has loaded, else null. Under plain Node the file is read from disk
  * on the first call. Not a data-driven stage → null (getCurriculum answers those from CURRICULA).
  */
-export function stageCurriculum(moduleId: string): ModuleCurriculum | null {
+export function stageCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): ModuleCurriculum | null {
+  if ((targetLanguage || nativeLanguage) && !dataStageOf(moduleId, targetLanguage, nativeLanguage)) return null;
   if (curricula.has(moduleId)) return curricula.get(moduleId) ?? null;
   if (FS && dataStageOf(moduleId)) {
     const curriculum = readFromDisk(moduleId);
@@ -204,8 +207,8 @@ export type StageCurriculumStatus = "none" | "loading" | "ready" | "unavailable"
  * "loading" until its file has been asked for and arrived, "ready", or "unavailable" (no file,
  * an unusable file, or a failed chunk load, which a later load retries).
  */
-export function stageCurriculumStatus(moduleId: string | null | undefined): StageCurriculumStatus {
-  if (!moduleId || !dataStageOf(moduleId)) return "none";
+export function stageCurriculumStatus(moduleId: string | null | undefined, targetLanguage?: string, nativeLanguage?: string): StageCurriculumStatus {
+  if (!moduleId || !dataStageOf(moduleId, targetLanguage, nativeLanguage)) return "none";
   if (FS) stageCurriculum(moduleId);
   if (curricula.has(moduleId)) return curricula.get(moduleId) ? "ready" : "unavailable";
   return failed.has(moduleId) ? "unavailable" : "loading";
@@ -215,6 +218,9 @@ export function stageCurriculumStatus(moduleId: string | null | undefined): Stag
 export const STAGE_RETRY_BACKOFF_MS = 2000;
 
 interface LoadOptions {
+  /** Explicit learning pair; a mismatch cannot borrow an already cached stage. */
+  targetLanguage?: string;
+  nativeLanguage?: string;
   /** Do not retry a stage that failed less than this many ms ago (resolves null instead). */
   backoffMs?: number;
   /** Clock, for tests. */
@@ -229,6 +235,7 @@ export function loadStageCurriculum(
   moduleId: string,
   options: LoadOptions = {},
 ): Promise<ModuleCurriculum | null> {
+  if (!dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage)) return Promise.resolve(null);
   if (curricula.has(moduleId)) return Promise.resolve(curricula.get(moduleId) ?? null);
   if (FS || !dataStageOf(moduleId)) return Promise.resolve(stageCurriculum(moduleId));
   const existing = pending.get(moduleId);
@@ -271,8 +278,8 @@ export function loadStageCurriculum(
  * The Retry button: forgets a stage that failed (or settled without a curriculum) and loads it
  * again right away. A stage that has loaded is left alone.
  */
-export function retryStageCurriculum(moduleId: string): Promise<ModuleCurriculum | null> {
-  if (!dataStageOf(moduleId)) return Promise.resolve(null);
+export function retryStageCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): Promise<ModuleCurriculum | null> {
+  if (!dataStageOf(moduleId, targetLanguage, nativeLanguage)) return Promise.resolve(null);
   if (curricula.get(moduleId)) return Promise.resolve(curricula.get(moduleId) ?? null);
   if (!FS && !pending.has(moduleId)) {
     curricula.delete(moduleId);
@@ -281,7 +288,7 @@ export function retryStageCurriculum(moduleId: string): Promise<ModuleCurriculum
     version += 1;
     for (const listener of listeners) listener();
   }
-  return loadStageCurriculum(moduleId);
+  return loadStageCurriculum(moduleId, { targetLanguage, nativeLanguage });
 }
 
 /**
@@ -325,7 +332,7 @@ function listedStageIds(): string[] {
   return MANIFEST.flatMap((entry) =>
     (["foundation", "master"] as const)
       .filter((stage) => entry[stage])
-      .map((stage) => `${stage}-${entry.base}`),
+      .map((stage) => manifestStageModuleId(entry, stage)),
   );
 }
 
@@ -346,7 +353,7 @@ export function ensureStageForModule(
   moduleId: string | null | undefined,
   options: LoadOptions = {},
 ): Promise<ModuleCurriculum | null> {
-  if (!moduleId || !dataStageOf(moduleId)) return Promise.resolve(null);
+  if (!moduleId || !dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage)) return Promise.resolve(null);
   return ensureStageCurriculum(moduleId, options);
 }
 

@@ -1,0 +1,537 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-7-9.json",
+    "sourceSha256": "15aee39b0ef523d56b544326eec160dc134642dca625238cfeb7688f3aa622e9",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "English objectives, word meanings, aligned reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "French aller and question-word grammar follow the English source concepts but use French syntax and destinations.",
+    "Some isolated source glosses are not one-to-one French equivalents; context notes mark the limits."
+  ],
+  "lessons": [
+    {
+      "n": 7,
+      "title": "Aller et la contraction au",
+      "sourceTitleEnglish": "Ir and the contraction al",
+      "sourceObjectiveEnglish": "Ir and the contraction al: Ir is voy, vas, va, vamos, van.",
+      "objective": "Dites où vous allez avec aller au présent et choisissez au, à la, à l’ ou aux selon le lieu.",
+      "foundationTie": "Reuses places, clock time, people and present-tense sentences from Foundation and Core 1–6.",
+      "focus": "Aller in the present; à + le = au, à + les = aux",
+      "grammar": {
+        "explanation": "Aller is irregular: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. Before a masculine singular place use au (à + le): au parc. Before a feminine singular place use à la: à la bibliothèque. Use à l’ before a vowel and aux (à + les) before a plural noun. Je vais au parc describes a current plan or movement; it is not the future proche unless another infinitive follows.",
+        "model": {
+          "je": "je vais au parc",
+          "tu": "tu vas au parc",
+          "il_elle": "elle va à la bibliothèque",
+          "nous": "nous allons au café",
+          "vous": "vous allez à l’école",
+          "ils_elles": "ils vont aux magasins"
+        },
+        "caution": "Au is a contraction of à + le, not a general word for every destination. À la bibliothèque stays two words."
+      },
+      "scene": "Après les cours, des amis comparent leurs trajets et proposent de se retrouver au parc.",
+      "dialogue": [
+        "Je vais au parc après les cours.|I am going to the park after class.",
+        "Ana va à la bibliothèque.|Ana is going to the library.",
+        "Nous allons au café à quatre heures.|We are going to the café at four.",
+        "Luis va au magasin.|Luis is going to the store.",
+        "Les amis vont au cinéma.|The friends are going to the cinema.",
+        "Tu vas au parc avec nous ?|Are you going to the park with us?"
+      ],
+      "speaking": "Role-play making plans after class. Ask a friend where they are going, say you are going to the park, and report where Ana, Luis and the group are going. Invite the friend to come with you and agree on four o’clock. Use at least four forms of aller and both au and à la.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class session; salle de classe is the room."
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term",
+          "note": "Les is the plural definite article; French object pronouns require a separate lesson."
+        },
+        {
+          "order": 4,
+          "fr": "les",
+          "en": "the / them (feminine plural)",
+          "kind": "term",
+          "note": "French les does not mark masculine versus feminine plural."
+        },
+        {
+          "order": 5,
+          "fr": "nous",
+          "en": "we",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term",
+          "note": "De can mean of or from; destination in these sentences uses à."
+        },
+        {
+          "order": 8,
+          "fr": "bibliothèque",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Je vais au parc après les cours.",
+          "en": "I am going to the park after class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana va à la bibliothèque.",
+          "en": "Ana is going to the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous allons au café à quatre heures.",
+          "en": "We are going to the café at four.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis va au magasin.",
+          "en": "Luis is going to the store.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Les amis vont au cinéma.",
+          "en": "The friends are going to the cinema.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu vas au parc avec nous ?",
+          "en": "Are you going to the park with us?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Après les cours",
+        "sourceTitleEnglish": "Un paseo",
+        "target": [
+          "Je vais au parc après les cours.",
+          "Ana va à la bibliothèque.",
+          "Nous allons au café à quatre heures.",
+          "Luis va au magasin.",
+          "Les amis vont au cinéma.",
+          "Tu vas au parc avec nous ?"
+        ],
+        "native": [
+          "I am going to the park after class.",
+          "Ana is going to the library.",
+          "We are going to the café at four.",
+          "Luis is going to the store.",
+          "The friends are going to the cinema.",
+          "Are you going to the park with us?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ au café à quatre heures.",
+          "answer": "allons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana is going to the library.",
+          "answer": "Ana va à la bibliothèque."
+        },
+        {
+          "type": "listening",
+          "audioText": "Les amis vont au cinéma.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: where are the friends going?",
+          "answer": "To the cinema."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Après les cours, when does the group go to the café?",
+          "answer": "At four."
+        },
+        {
+          "type": "recall",
+          "prompt": "Choose au or à la: ___ bibliothèque",
+          "answer": "à la"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 8,
+      "title": "Poser des questions : que et quel",
+      "sourceTitleEnglish": "Questions with qué and cuál",
+      "sourceObjectiveEnglish": "Questions with qué and cuál: Qué asks what something is or what someone does.",
+      "objective": "Demandez ce que quelqu’un étudie et choisissez entre des cours ou des livres avec que, quel et lequel en contexte.",
+      "foundationTie": "Builds on familiar courses, books and present-tense study verbs; Core 7 provides the place and time context.",
+      "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+      "grammar": {
+        "explanation": "French does not map Spanish qué and cuál to one fixed pair. Use qu’est-ce que before a full clause: Qu’est-ce que tu étudies ? Use quel/quelle before a noun: Quel cours préfères-tu ? Quelle est ta matière préférée ? For ‘which one of these books,’ use lequel before de ces livres. Que signifie ce mot ? is a concise way to ask what a word means. In speech, est-ce que questions are common and do not require inversion.",
+        "model": {
+          "what_study": "Qu’est-ce que tu étudies ce semestre ?",
+          "which_class": "Quel est ton cours préféré ?",
+          "what_word": "Que signifie ce mot ?",
+          "which_one": "Lequel de ces livres préfères-tu ?"
+        },
+        "caution": "Quel agrees with the noun: quel cours, quelle matière, quels livres, quelles classes. Lequel can stand for a selected item; it is not interchangeable with quel before a noun."
+      },
+      "scene": "Deux étudiants choisissent des cours et cherchent le sens d’un mot dans un livre.",
+      "dialogue": [
+        "Qu’est-ce que tu étudies ce semestre ?|What are you studying this semester?",
+        "J’étudie le français et la musique.|I study French and music.",
+        "Quel est ton cours préféré ?|Which is your favorite class?",
+        "Mon cours préféré est le français.|My favorite class is French.",
+        "Que signifie ce mot ?|What does this word mean?",
+        "Lequel de ces livres préfères-tu ?|Which of these books do you prefer?"
+      ],
+      "speaking": "Role-play choosing classes with a fellow student. Ask what they study, which class is their favorite, and which of two books they prefer. Answer with French and music, then ask what a word means. Use qu’est-ce que, quel and lequel with their different sentence patterns.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is the course or class session; salle de classe is the classroom."
+        },
+        {
+          "order": 2,
+          "fr": "est",
+          "en": "is (identity)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "et",
+          "en": "and",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "livres",
+          "en": "books",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "mon / ma",
+          "en": "my (singular possession)",
+          "kind": "term",
+          "note": "French possessive form follows the possessed noun's gender."
+        },
+        {
+          "order": 6,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "mot",
+          "en": "word",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "cette",
+          "en": "this (feminine)",
+          "kind": "term",
+          "note": "Cette is feminine; ce is masculine before a consonant."
+        },
+        {
+          "order": 9,
+          "fr": "Qu’est-ce que tu étudies ce semestre ?",
+          "en": "What are you studying this semester?",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "J’étudie le français et la musique.",
+          "en": "I study Spanish and music.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Quel est ton cours préféré ?",
+          "en": "Which is your favorite class?",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Mon cours préféré est le français.",
+          "en": "My favorite class is Spanish.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Que signifie ce mot ?",
+          "en": "What does this word mean?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Lequel de ces livres préfères-tu ?",
+          "en": "Which of these books do you prefer?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Choisir un cours",
+        "sourceTitleEnglish": "Elegir una clase",
+        "target": [
+          "Qu’est-ce que tu étudies ce semestre ?",
+          "J’étudie le français et la musique.",
+          "Quel est ton cours préféré ?",
+          "Mon cours préféré est le français.",
+          "Que signifie ce mot ?",
+          "Lequel de ces livres préfères-tu ?"
+        ],
+        "native": [
+          "What are you studying this semester?",
+          "I study Spanish and music.",
+          "Which is your favorite class?",
+          "My favorite class is Spanish.",
+          "What does this word mean?",
+          "Which of these books do you prefer?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: ___ est ton cours préféré ?",
+          "answer": "Quel"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: What are you studying this semester?",
+          "answer": "Qu’est-ce que tu étudies ce semestre ?"
+        },
+        {
+          "type": "listening",
+          "audioText": "J’étudie le français et la musique.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: what two subjects does the student study?",
+          "answer": "French and music."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Choisir un cours, what does the student ask about the books?",
+          "answer": "Which of these books the other student prefers."
+        },
+        {
+          "type": "recall",
+          "prompt": "For 'which one of these books,' start with quel or lequel?",
+          "answer": "Lequel"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 9,
+      "title": "Où, quand et pourquoi",
+      "sourceTitleEnglish": "Where, when and why",
+      "sourceObjectiveEnglish": "Where, when and why: Dónde asks where, cuándo asks when, and por qué asks why.",
+      "objective": "Posez trois questions distinctes sur le lieu, le moment et la raison, puis répondez avec à, à neuf heures et parce que.",
+      "foundationTie": "Reuses locations and time from Core 7, the question forms from Core 8, and study/friend vocabulary from Foundation.",
+      "focus": "Où, quand, pourquoi; répondre avec parce que",
+      "grammar": {
+        "explanation": "Où asks about location, quand about time, and pourquoi about reason. In everyday speech, place the question word at the beginning and use est-ce que when useful: Où est-ce que tu étudies ? Quand est-ce que le cours commence ? Pourquoi est-ce que tu étudies le français ? Answer a why-question with parce que, not with pourquoi. Hours use à: à neuf heures.",
+        "model": {
+          "where": "Où étudies-tu ? — J’étudie à la bibliothèque.",
+          "when": "Quand commence le cours ? — À neuf heures.",
+          "why": "Pourquoi étudies-tu le français ? — Parce que je veux parler avec mes amis."
+        },
+        "caution": "À la bibliothèque identifies a place, while en can mean in in other contexts; do not use en for every English in/on/at. French parce que is two words."
+      },
+      "scene": "Deux amis organisent une séance de révision avant un cours du matin.",
+      "dialogue": [
+        "Où étudies-tu d’habitude ?|Where do you usually study?",
+        "J’étudie à la bibliothèque.|I study in the library.",
+        "Quand commence le cours ?|When does the class start?",
+        "Le cours commence à neuf heures.|Class starts at nine.",
+        "Pourquoi étudies-tu le français ?|Why do you study French?",
+        "J’étudie le français parce que je veux parler avec mes amis.|I study French because I want to talk with my friends."
+      ],
+      "speaking": "Role-play planning a study session. Ask your friend where they usually study, when class begins and why they study French. Answer with the library, nine o’clock and a reason involving friends. Swap roles and use où, quand, pourquoi and parce que naturally.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class session; salle de classe is the room."
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "à / en / sur",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose the French preposition by context; these are not interchangeable."
+        },
+        {
+          "order": 4,
+          "fr": "les",
+          "en": "the / them (feminine plural)",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "bibliothèque",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "par",
+          "en": "through / because of",
+          "kind": "term",
+          "note": "Par can mean through or by. Because of is à cause de in many contexts; because is parce que."
+        },
+        {
+          "order": 8,
+          "fr": "avec",
+          "en": "with",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Où étudies-tu d’habitude ?",
+          "en": "Where do you usually study?",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "J’étudie à la bibliothèque.",
+          "en": "I study in the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Quand commence le cours ?",
+          "en": "When does the class start?",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Le cours commence à neuf heures.",
+          "en": "Class starts at nine.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Pourquoi étudies-tu le français ?",
+          "en": "Why do you study Spanish?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "J’étudie le français parce que je veux parler avec mes amis.",
+          "en": "I study Spanish because I want to talk with my friends.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Organiser les révisions",
+        "sourceTitleEnglish": "Organizar el estudio",
+        "target": [
+          "Où étudies-tu d’habitude ?",
+          "J’étudie à la bibliothèque.",
+          "Quand commence le cours ?",
+          "Le cours commence à neuf heures.",
+          "Pourquoi étudies-tu le français ?",
+          "J’étudie le français parce que je veux parler avec mes amis."
+        ],
+        "native": [
+          "Where do you usually study?",
+          "I study in the library.",
+          "When does the class start?",
+          "Class starts at nine.",
+          "Why do you study Spanish?",
+          "I study Spanish because I want to talk with my friends."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: ___ commence le cours ?",
+          "answer": "Quand"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I study in the library.",
+          "answer": "J’étudie à la bibliothèque."
+        },
+        {
+          "type": "listening",
+          "audioText": "Le cours commence à neuf heures.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen and answer in English: when does class start?",
+          "answer": "At nine."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Organiser les révisions, why does the student study French?",
+          "answer": "To talk with friends."
+        },
+        {
+          "type": "recall",
+          "prompt": "Answer 'Pourquoi ?' with a French because-clause beginning with ...",
+          "answer": "parce que"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

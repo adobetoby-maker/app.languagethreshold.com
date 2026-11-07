@@ -65,27 +65,64 @@ function CanopyLearnComparison() {
                 <th className="p-4">Lesson library</th>
                 <td className="p-4">660+ role-specific lessons</td>
                 <td className="p-4">
-                  36 lessons across three proficiency levels, according to its course page
+                  36 lessons across three levels; approximately 45 hours in its 2026 syllabus
                 </td>
               </tr>
               <tr>
-                <th className="p-4">Organizations</th>
-                <td className="p-4">Team seats, focus assignments, activity, and certificates</td>
+                <th className="p-4">Practice format</th>
                 <td className="p-4">
-                  Training for healthcare staff; check Canopy for current organization terms
+                  Role-specific lessons, bilingual reading, listening, speaking and Field Prep
+                </td>
+                <td className="p-4">
+                  Flashcards, interactive exercises, patient roleplay and a telenovela series
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground">
-          Source:{" "}
-          <a className="underline" href="https://info.withcanopy.com/canopylearn-medical-spanish">
-            CanopyLearn’s course page
-          </a>
-          , checked November 7, 2026. Product details can change; verify its current catalog,
-          credits and terms before choosing.
-        </p>
+        <section className="mt-8" aria-labelledby="canopy-catalog">
+          <h2 id="canopy-catalog" className="text-2xl font-semibold">
+            What does CanopyLearn cover?
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Its 2026 Medical Spanish syllabus lists three levels of 12 lessons, including reviews.
+            Lessons combine clinical vocabulary with grammar, pronunciation and cultural context.
+          </p>
+          <div className="mt-4 space-y-3">
+            {CANOPY_LEVELS.map(({ level, topics }) => (
+              <details key={level} className="rounded-xl border border-border p-4">
+                <summary className="min-h-11 cursor-pointer py-2 font-semibold">
+                  {level} — 12 lessons
+                </summary>
+                <ol className="mt-4 list-decimal space-y-2 pl-6 sm:columns-2">
+                  {topics.map((topic) => (
+                    <li key={topic} className="break-inside-avoid">
+                      {topic}
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Topic summaries from{" "}
+            <a
+              className="underline"
+              href="https://cdn2.hubspot.net/hubfs/5953582/Canopy_Learn_Medical_Spanish_Syllabus.pdf"
+            >
+              CanopyLearn’s 2026 Medical Spanish syllabus
+            </a>
+            , linked by its{" "}
+            <a
+              className="underline"
+              href="https://www.withcanopy.com/faq/where-can-i-download-the-syllabus"
+            >
+              syllabus download page
+            </a>
+            . Checked November 7, 2026. Course lessons and individual practice scenarios are
+            different units of learning.
+          </p>
+        </section>
         <Link
           to="/pricing"
           className="mt-8 inline-flex rounded-xl bg-gold px-5 py-3 font-semibold text-background"
@@ -96,3 +133,57 @@ function CanopyLearnComparison() {
     </main>
   );
 }
+
+const CANOPY_LEVELS = [
+  {
+    level: "Level 1",
+    topics: [
+      "Patient greetings",
+      "Describing pain",
+      "Digestive symptoms",
+      "Basic examinations",
+      "Diabetes",
+      "Anatomy and minor injuries",
+      "Vaccinations and allergies",
+      "Heart and family history",
+      "Cancer and organs",
+      "Anxiety and depression",
+      "Headaches and migraines",
+      "Review",
+    ],
+  },
+  {
+    level: "Level 2",
+    topics: [
+      "Previous-level review",
+      "Contraception and STIs",
+      "Cardiac conditions",
+      "Lung conditions and allergies",
+      "Medicines and dosing",
+      "Urology",
+      "Obstetrics",
+      "Surgical conversations",
+      "Older-adult care",
+      "Substance use",
+      "Stroke",
+      "Review",
+    ],
+  },
+  {
+    level: "Level 3",
+    topics: [
+      "Previous-level review",
+      "Tuberculosis",
+      "Metabolism",
+      "Major trauma",
+      "Discharge planning",
+      "Women’s cancers",
+      "Infant visits and child safety",
+      "Palliative care",
+      "HIV/AIDS",
+      "Depression and suicide",
+      "Seizures",
+      "Review",
+    ],
+  },
+];

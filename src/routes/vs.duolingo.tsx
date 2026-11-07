@@ -69,16 +69,69 @@ function DuolingoComparison() {
                 <td className="p-4">Not organized around a learner's job role</td>
               </tr>
               <tr>
-                <th className="p-4">Teams</th>
-                <td className="p-4">Seats, assigned focus, activity, and certificates</td>
-                <td className="p-4">Check Duolingo for current organization offerings</td>
+                <th className="p-4">Practice format</th>
+                <td className="p-4">
+                  Bilingual reading, listening, speaking and Field Prep roleplay
+                </td>
+                <td className="p-4">
+                  Short reading, writing, listening and speaking exercises; Stories and DuoRadio in
+                  larger courses
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground">
-          Product details can change. Verify Duolingo's current catalog and terms before choosing.
-        </p>
+        <section className="mt-8" aria-labelledby="duolingo-catalog">
+          <h2 id="duolingo-catalog" className="text-2xl font-semibold">
+            What does Duolingo cover?
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Duolingo organizes its language courses around communication goals, with vocabulary,
+            grammar and practice in each unit. Its Spanish course for English speakers covers
+            everyday communication through upper-intermediate B2 content.
+          </p>
+          <details className="mt-4 rounded-xl border border-border p-4">
+            <summary className="min-h-11 cursor-pointer py-2 font-semibold">
+              See examples of Duolingo’s course topics
+            </summary>
+            <ul className="mt-4 list-disc space-y-2 pl-6 sm:columns-2">
+              {DUOLINGO_TOPICS.map((topic) => (
+                <li key={topic} className="break-inside-avoid">
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </details>
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            These are examples from Duolingo’s published course guides, not a complete lesson list.
+            Duolingo builds broad language skills; Language Threshold organizes practice around the
+            daily conversations in your job.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Sources:{" "}
+            <a
+              className="underline"
+              href="https://blog.duolingo.com/why-doesnt-duolingo-start-with-abcs/"
+            >
+              early communication topics
+            </a>
+            ,{" "}
+            <a
+              className="underline"
+              href="https://blog.duolingo.com/how-long-does-it-take-to-learn-spanish-french/"
+            >
+              Spanish course milestones
+            </a>{" "}
+            and{" "}
+            <a
+              className="underline"
+              href="https://blog.duolingo.com/duolingo-101-how-to-learn-a-language-on-duolingo/"
+            >
+              lesson formats
+            </a>
+            . Checked November 7, 2026.
+          </p>
+        </section>
         <Link
           to="/pricing"
           className="mt-8 inline-flex rounded-xl bg-gold px-5 py-3 font-semibold text-background"
@@ -89,3 +142,20 @@ function DuolingoComparison() {
     </main>
   );
 }
+
+const DUOLINGO_TOPICS = [
+  "Ordering food and drinks",
+  "Getting help when lost",
+  "Passport control and customs",
+  "Shopping for everyday supplies",
+  "Paying bills and telling time",
+  "Clothing and colors",
+  "Finding places and making plans",
+  "Sharing opinions and preferences",
+  "Talking about past events",
+  "Describing experiences and interests",
+  "Writing emails to request information",
+  "Following presentations on familiar topics",
+  "Building arguments",
+  "Writing reports and proposing solutions",
+];

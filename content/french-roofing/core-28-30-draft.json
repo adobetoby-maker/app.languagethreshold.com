@@ -1,0 +1,541 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "ccd759d7fdaca60076072578dd6b00c4c37196196b4ac963fb5214a83464e78d",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 28,
+      "titleEnglish": "Ground Cleanup",
+      "objectiveEnglishSource": "Assign gutters and site cleanup",
+      "speakingEnglishSource": "Assign a final gutter check and ground cleanup before leaving.",
+      "titleFrench": "Nettoyer le chantier au sol",
+      "objectiveFrench": "Répartir la vérification des gouttières et le nettoyage du sol avant le départ.",
+      "speakingFrenchInstruction": "Attribuez la vérification finale des gouttières et le nettoyage au sol. Demandez que les clous, les débris et les zones accessibles soient contrôlés selon le plan de chantier avant le départ.",
+      "speakingFrenchOpening": "Qui vérifie les gouttières et qui confirme le ramassage des clous au sol ?",
+      "grammarFocusFrench": "Avant de + infinitif; quand pour demander une confirmation; comparatif plus… que dans le bilan de fin de journée.",
+      "words": [
+        {
+          "en": "gutter",
+          "kind": "term",
+          "fr": "la gouttière"
+        },
+        {
+          "en": "dumpster",
+          "kind": "term",
+          "fr": "la benne à déchets"
+        },
+        {
+          "en": "nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "cleanup",
+          "kind": "term",
+          "fr": "le nettoyage"
+        },
+        {
+          "en": "magnet",
+          "kind": "term",
+          "fr": "l’aimant de ramassage"
+        },
+        {
+          "en": "broom",
+          "kind": "term",
+          "fr": "le balai"
+        },
+        {
+          "en": "debris",
+          "kind": "term",
+          "fr": "les débris"
+        },
+        {
+          "en": "yard",
+          "kind": "term",
+          "fr": "la cour"
+        },
+        {
+          "en": "trash",
+          "kind": "term",
+          "fr": "les déchets"
+        },
+        {
+          "en": "downspout",
+          "kind": "term",
+          "fr": "la descente pluviale"
+        },
+        {
+          "en": "Let's check the gutters and clean the site before leaving.",
+          "kind": "phrase",
+          "fr": "Vérifions les gouttières et nettoyons le chantier avant de partir."
+        },
+        {
+          "en": "Tell me when the magnetic nail sweep is finished.",
+          "kind": "phrase",
+          "fr": "Prévenez-moi quand le ramassage magnétique des clous est terminé."
+        },
+        {
+          "en": "Check the gutters for nails and debris.",
+          "kind": "phrase",
+          "fr": "Vérifiez qu’il n’y a ni clous ni débris dans les gouttières."
+        },
+        {
+          "en": "Pick up every nail around the house.",
+          "kind": "phrase",
+          "fr": "Ramassez tous les clous autour de la maison."
+        },
+        {
+          "en": "Is the dumpster full?",
+          "kind": "phrase",
+          "fr": "La benne à déchets est-elle pleine ?"
+        },
+        {
+          "en": "Leave the yard cleaner than you found it.",
+          "kind": "phrase",
+          "fr": "Laissez la cour plus propre que vous ne l’avez trouvée."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Nettoyer le chantier au sol",
+        "target": [
+          "La toiture est terminée, mais il reste le nettoyage.",
+          "Le contremaître dit : « Vérifions les gouttières et nettoyons le chantier avant de partir. »",
+          "Vérifiez qu’il n’y a ni clous ni débris dans les gouttières.",
+          "Une gouttière pleine peut obstruer la descente pluviale.",
+          "Ramassez tous les clous autour de la maison.",
+          "Prévenez-moi quand vous aurez terminé de ramasser les clous avec l’aimant.",
+          "La benne à déchets est-elle pleine ?",
+          "Utilisez le balai dans la cour et mettez les déchets dans la benne.",
+          "Laissez la cour plus propre que vous ne l’avez trouvée."
+        ],
+        "native": [
+          "The roof is already finished, but the cleanup is still missing.",
+          "The foreman says: Let's check the gutters and clean the site before leaving.",
+          "Check the gutters for nails and debris.",
+          "A full gutter can block the downspout.",
+          "Pick up every nail around the house.",
+          "Tell me when you finish picking up the nails with the magnet.",
+          "Is the dumpster full?",
+          "Use the broom on the yard and put the trash in the dumpster.",
+          "Leave the yard cleaner than you found it."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "We check the gutters before leaving.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Nous vérifions les gouttières avant de partir."
+        },
+        {
+          "meaningEnglish": "to pick up",
+          "exampleEnglish": "We pick up every nail around the house.",
+          "sourceInfinitiveSpanish": "recoger",
+          "infinitiveFrench": "ramasser",
+          "exampleFrench": "Nous ramassons tous les clous autour de la maison."
+        },
+        {
+          "meaningEnglish": "to clean",
+          "exampleEnglish": "We clean the site before leaving.",
+          "sourceInfinitiveSpanish": "limpiar",
+          "infinitiveFrench": "nettoyer",
+          "exampleFrench": "Nous nettoyons le chantier avant de partir."
+        },
+        {
+          "meaningEnglish": "to let (someone) know",
+          "exampleEnglish": "If the dumpster is full, I let the foreman know.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "Si la benne est pleine, je préviens le contremaître."
+        },
+        {
+          "meaningEnglish": "to leave (something in a state)",
+          "exampleEnglish": "We leave the yard cleaner than we found it.",
+          "sourceInfinitiveSpanish": "dejar",
+          "infinitiveFrench": "laisser",
+          "exampleFrench": "Nous laissons la cour plus propre que nous ne l’avons trouvée."
+        }
+      ],
+      "teachingNotesFrench": "La gouttière recueille l’eau du toit et la descente pluviale l’évacue. L’aimant aide à rechercher les clous ferreux; il ne prouve pas à lui seul que toutes les zones sont propres ou sûres.",
+      "practiceModesFrench": {
+        "see": "Repérez les tâches de nettoyage attribuées avant le départ.",
+        "recall": "Retrouvez la demande de confirmation du ramassage des clous.",
+        "hear": "Écoutez la question sur la benne, puis indiquez ce qui doit être vérifié.",
+        "type": "Écrivez en français : Check the gutters for nails and debris.",
+        "say": "Attribuez oralement la vérification des gouttières et le nettoyage au sol.",
+        "write": "Rédigez un message de fin de journée demandant la confirmation du nettoyage."
+      },
+      "regionalNotesEnglish": [
+        "Qualified site and waste-handling review is needed for nail sweep, gutter access, disposal and final-site acceptance.",
+        "France/Québec terms for dumpster, downspout and magnetic sweep require regional trade review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 29,
+      "titleEnglish": "Report Open Items",
+      "objectiveEnglishSource": "Hand off remaining work clearly",
+      "speakingEnglishSource": "Tell the crew lead what remains open and confirm tomorrow's first task.",
+      "titleFrench": "Signaler les points à terminer",
+      "objectiveFrench": "Transmettre clairement les travaux restants et confirmer la première tâche du lendemain.",
+      "speakingFrenchInstruction": "Dressez avec le chef d’équipe la liste des points ouverts, vérifiez la zone non terminée et demandez quelle tâche commencera demain; faites confirmer le rangement prévu.",
+      "speakingFrenchOpening": "Quelles zones restent à terminer demain, et quelle sera la première tâche ?",
+      "grammarFocusFrench": "Rester à + infinitif; futur simple pour annoncer demain; question avec quelles zones.",
+      "words": [
+        {
+          "en": "punch list",
+          "kind": "term",
+          "fr": "la liste des points à terminer"
+        },
+        {
+          "en": "unfinished",
+          "kind": "term",
+          "fr": "inachevé"
+        },
+        {
+          "en": "tomorrow",
+          "kind": "term",
+          "fr": "demain"
+        },
+        {
+          "en": "open item",
+          "kind": "term",
+          "fr": "le point en suspens"
+        },
+        {
+          "en": "finished",
+          "kind": "term",
+          "fr": "terminé"
+        },
+        {
+          "en": "remaining materials",
+          "kind": "term",
+          "fr": "les matériaux restants"
+        },
+        {
+          "en": "task",
+          "kind": "term",
+          "fr": "la tâche"
+        },
+        {
+          "en": "today",
+          "kind": "term",
+          "fr": "aujourd’hui"
+        },
+        {
+          "en": "job",
+          "kind": "term",
+          "fr": "le chantier"
+        },
+        {
+          "en": "Which areas are still open for tomorrow?",
+          "kind": "phrase",
+          "fr": "Quelles zones restent à terminer demain ?"
+        },
+        {
+          "en": "Store the remaining materials in a safe place.",
+          "kind": "phrase",
+          "fr": "Rangez les matériaux restants dans un endroit sûr."
+        },
+        {
+          "en": "Walk the roof with me before we call the job complete.",
+          "kind": "phrase",
+          "fr": "Parcourons le toit ensemble avant de déclarer le chantier terminé."
+        },
+        {
+          "en": "This is still open.",
+          "kind": "phrase",
+          "fr": "Ce point reste en suspens."
+        },
+        {
+          "en": "Tomorrow the first task is to finish this section.",
+          "kind": "phrase",
+          "fr": "Demain, la première tâche sera de terminer cette section."
+        },
+        {
+          "en": "Add it to the punch list.",
+          "kind": "phrase",
+          "fr": "Ajoutez-le à la liste des points à terminer."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Signaler les points à terminer",
+        "target": [
+          "C’est la fin de la journée et l’équipe range ses outils.",
+          "Parcourons le toit ensemble avant de déclarer le chantier terminé.",
+          "Le contremaître demande : « Quelles zones restent à terminer demain ? »",
+          "Une section près de la cheminée n’est pas terminée.",
+          "Ce point reste en suspens.",
+          "Ajoutez-le à la liste des points à terminer.",
+          "Demain, la première tâche sera de terminer cette section.",
+          "Rangez les matériaux restants dans un endroit sûr.",
+          "Grâce à cette liste, chacun sait ce qu’il devra faire demain."
+        ],
+        "native": [
+          "It is the end of the day and the crew packs up its tools.",
+          "Walk the roof with me before we call the job complete.",
+          "The foreman asks: Which areas are still open for tomorrow?",
+          "One section next to the chimney is unfinished.",
+          "This is still open.",
+          "Add it to the punch list.",
+          "Tomorrow the first task is to finish this section.",
+          "Store the remaining materials in a safe place.",
+          "With the punch list, everyone knows what to do tomorrow."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to finish",
+          "exampleEnglish": "Tomorrow we finish the section next to the chimney.",
+          "sourceInfinitiveSpanish": "terminar",
+          "infinitiveFrench": "terminer",
+          "exampleFrench": "Demain, nous terminerons la section près de la cheminée."
+        },
+        {
+          "meaningEnglish": "to add",
+          "exampleEnglish": "We add this open item to the list.",
+          "sourceInfinitiveSpanish": "agregar",
+          "infinitiveFrench": "ajouter",
+          "exampleFrench": "Nous ajoutons ce point en suspens à la liste."
+        },
+        {
+          "meaningEnglish": "to store / to put away",
+          "exampleEnglish": "We store the remaining materials in a safe place.",
+          "sourceInfinitiveSpanish": "guardar",
+          "infinitiveFrench": "ranger",
+          "exampleFrench": "Nous rangeons les matériaux restants dans un endroit sûr."
+        },
+        {
+          "meaningEnglish": "to walk through / to inspect",
+          "exampleEnglish": "We walk the roof before we call the job complete.",
+          "sourceInfinitiveSpanish": "recorrer",
+          "infinitiveFrench": "parcourir",
+          "exampleFrench": "Nous parcourons le toit avant de déclarer le chantier terminé."
+        },
+        {
+          "meaningEnglish": "to remain / to be left",
+          "exampleEnglish": "Which areas are still open for tomorrow?",
+          "sourceInfinitiveSpanish": "quedar",
+          "infinitiveFrench": "rester",
+          "exampleFrench": "Quelles zones restent à terminer demain ?"
+        }
+      ],
+      "teachingNotesFrench": "Une liste de points à terminer sert à transmettre des travaux ouverts; elle ne vaut pas réception du chantier. Précisez la zone, le responsable et la prochaine étape avant de déclarer le travail terminé.",
+      "practiceModesFrench": {
+        "see": "Repérez la section qui reste à terminer dans la scène.",
+        "recall": "Retrouvez la question sur la première tâche de demain.",
+        "hear": "Écoutez « point en suspens », puis indiquez ce qui reste ouvert.",
+        "type": "Écrivez en français : Add it to the punch list.",
+        "say": "Expliquez oralement au chef d’équipe ce qui reste à faire demain.",
+        "write": "Rédigez deux points de la liste avec une tâche prévue pour demain."
+      },
+      "regionalNotesEnglish": [
+        "Qualified roofing/site review is required before calling any work complete or deciding material storage, access and overnight protection.",
+        "France/Québec terminology for punch list and closeout needs regional trade review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 30,
+      "titleEnglish": "Full Roofing Day",
+      "objectiveEnglishSource": "Lead a complete roofing day in Spanish",
+      "speakingEnglishSource": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+      "titleFrench": "Diriger une journée de toiture complète",
+      "objectiveFrench": "Diriger en français un échange de chantier, de la réunion du matin à la clôture de la journée.",
+      "speakingFrenchInstruction": "Jouez la réunion du matin, la dépose, les contrôles de pose, une décision météo et le bilan final. Demandez confirmation au chef d’équipe et appliquez les plans de sécurité et de couverture temporaire approuvés; ne supposez pas qu’une bâche peut être posée pendant un orage.",
+      "speakingFrenchOpening": "Avant de commencer, passons en revue le plan de toiture, les rôles et les conditions météo.",
+      "grammarFocusFrench": "D’abord, puis, quand et avant de pour ordonner les étapes; impératif de sécurité; futur proche pour le bilan.",
+      "objectiveEnglishDisplay": "Lead a complete roofing day in French",
+      "words": [
+        {
+          "en": "briefing",
+          "kind": "term",
+          "fr": "la réunion d’équipe"
+        },
+        {
+          "en": "tear-off",
+          "kind": "term",
+          "fr": "la dépose"
+        },
+        {
+          "en": "install",
+          "kind": "term",
+          "fr": "poser"
+        },
+        {
+          "en": "safety",
+          "kind": "term",
+          "fr": "la sécurité"
+        },
+        {
+          "en": "closeout",
+          "kind": "term",
+          "fr": "la clôture du chantier"
+        },
+        {
+          "en": "crew lead",
+          "kind": "term",
+          "fr": "le chef d’équipe"
+        },
+        {
+          "en": "underlayment",
+          "kind": "term",
+          "fr": "la sous-couche"
+        },
+        {
+          "en": "flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "tarp",
+          "kind": "term",
+          "fr": "la bâche"
+        },
+        {
+          "en": "punch list",
+          "kind": "term",
+          "fr": "la liste des points à terminer"
+        },
+        {
+          "en": "Let's review today's roof plan before we start.",
+          "kind": "phrase",
+          "fr": "Passons en revue le plan de toiture d’aujourd’hui avant de commencer."
+        },
+        {
+          "en": "Tie off before you go on the roof.",
+          "kind": "phrase",
+          "fr": "Attachez-vous avant de monter sur le toit."
+        },
+        {
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase",
+          "fr": "Arrêtez le travail et descendez si la météo change."
+        },
+        {
+          "en": "Walk the roof with me before we call the job complete.",
+          "kind": "phrase",
+          "fr": "Parcourons le toit ensemble avant de déclarer le chantier terminé."
+        },
+        {
+          "en": "Tear-off first, then installation.",
+          "kind": "phrase",
+          "fr": "D’abord la dépose, puis la pose."
+        },
+        {
+          "en": "Safety comes first today.",
+          "kind": "phrase",
+          "fr": "Aujourd’hui, la sécurité passe avant tout."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Diriger une journée de toiture complète",
+        "target": [
+          "Le matin, le contremaître ouvre la réunion : « Passons en revue le plan de toiture d’aujourd’hui avant de commencer. »",
+          "Aujourd’hui, la sécurité passe avant tout.",
+          "Attachez-vous avant de monter sur le toit.",
+          "D’abord la dépose, puis la pose.",
+          "Quand le platelage est prêt, l’équipe pose la sous-couche et les solins; le chef d’équipe vérifie chaque étape.",
+          "L’après-midi, une alerte d’orage arrive et le contremaître ordonne : « Arrêtez le travail et descendez si la météo change. »",
+          "L’équipe recouvre la section non terminée d’une bâche, selon le plan approuvé et seulement quand les conditions permettent une intervention sûre.",
+          "À la fin de la journée, le contremaître demande : « Parcourons le toit ensemble avant de déclarer le chantier terminé. »",
+          "Tout ce qui reste à faire demeure sur la liste des points à terminer pour la clôture."
+        ],
+        "native": [
+          "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+          "Safety comes first today.",
+          "Tie off before you go on the roof.",
+          "Tear-off first, then installation.",
+          "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+          "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+          "Once conditions allow safe work under the approved plan, the crew covers the unfinished section with a tarp.",
+          "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+          "Whatever is left stays on the punch list for the closeout."
+        ],
+        "sourceNative": [
+          "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+          "Safety comes first today.",
+          "Tie off before you go on the roof.",
+          "Tear-off first, then installation.",
+          "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+          "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+          "The crew covers the unfinished section with a tarp.",
+          "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+          "Whatever is left stays on the punch list for the closeout."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to tie off / to anchor",
+          "exampleEnglish": "We always tie off the harness before going up on the roof.",
+          "sourceInfinitiveSpanish": "anclar",
+          "infinitiveFrench": "s’attacher",
+          "exampleFrench": "Nous attachons toujours le harnais avant de monter sur le toit."
+        },
+        {
+          "meaningEnglish": "to check / to inspect",
+          "exampleEnglish": "The crew lead checks each step of the installation.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le chef d’équipe vérifie chaque étape de la pose."
+        },
+        {
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work and come down if the weather changes.",
+          "sourceInfinitiveSpanish": "detener",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "Arrêtez le travail et descendez si la météo change."
+        },
+        {
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "The crew covers the unfinished section with a tarp.",
+          "sourceInfinitiveSpanish": "cubrir",
+          "infinitiveFrench": "recouvrir",
+          "exampleFrench": "L’équipe recouvre la section non terminée d’une bâche, seulement quand le plan et les conditions le permettent.",
+          "exampleEnglishDisplay": "The crew covers the unfinished section with a tarp only when the plan and conditions permit it."
+        },
+        {
+          "meaningEnglish": "to walk through / to go over (a roof, a site)",
+          "exampleEnglish": "Walk the roof with me before we call the job complete.",
+          "sourceInfinitiveSpanish": "recorrer",
+          "infinitiveFrench": "parcourir",
+          "exampleFrench": "Parcourons le toit ensemble avant de déclarer le chantier terminé."
+        }
+      ],
+      "teachingNotesFrench": "L’objectif source dit « in Spanish »; le cours cible le français, d’où l’adaptation affichée. Le récit source place une bâche après une alerte d’orage sans préciser quand les conditions permettent de revenir : la correction des deux langues et la validation du plan météo sont obligatoires avant publication. Le harnais seul ne démontre pas une protection complète contre les chutes.",
+      "practiceModesFrench": {
+        "see": "Repérez l’ordre réunion, dépose, pose, décision météo et bilan final.",
+        "recall": "Retrouvez la phrase qui arrête le travail quand la météo change.",
+        "hear": "Écoutez la consigne du matin et nommez la première vérification.",
+        "type": "Écrivez en français : Let's review today's roof plan before we start.",
+        "say": "Jouez le début d’une réunion puis annoncez l’arrêt lié à la météo.",
+        "write": "Rédigez un court bilan des travaux terminés et des points encore ouverts."
+      },
+      "regionalNotesEnglish": [
+        "The English source's Spanish-only objective and storm-to-tarp sequence require curriculum and qualified site-safety correction before release; the French display adapts both while preserving exact source fields.",
+        "Qualified fall-protection, temporary-cover and product review plus France/Québec language review remain open."
+      ],
+      "reviewed": false
+    }
+  ]
+}

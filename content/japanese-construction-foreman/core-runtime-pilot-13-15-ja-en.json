@@ -1,0 +1,1328 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "1e464123fb5d57cf1722b7b28d01ee3eda0e7e8d70adf2dfeeda953d65056535",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:13",
+      "n": 13,
+      "title": "Confirm the specified drywall finish",
+      "objective": "Describe the specified drywall finish and ask which detail needs confirmation.",
+      "sourceObjective": "Describe the specified drywall finish and ask which detail needs confirmation.",
+      "words": [
+        {
+          "es": "せっこう ボード",
+          "en": "Drywall panel",
+          "kind": "term",
+          "cardId": "card-ja-en-a442a56148eb6520"
+        },
+        {
+          "es": "つぎめ",
+          "en": "Joint",
+          "kind": "term",
+          "cardId": "card-ja-en-c440789145c5faef"
+        },
+        {
+          "es": "テープ",
+          "en": "Tape",
+          "kind": "term",
+          "cardId": "card-ja-en-0323f97d9957aaed"
+        },
+        {
+          "es": "パテ",
+          "en": "Compound",
+          "kind": "term",
+          "cardId": "card-ja-en-3b7b889018fecbff"
+        },
+        {
+          "es": "サンディング",
+          "en": "Sanding",
+          "kind": "term",
+          "cardId": "card-ja-en-1dd1a880f68e709e"
+        },
+        {
+          "es": "テクスチャー",
+          "en": "Texture",
+          "kind": "term",
+          "cardId": "card-ja-en-ca84938a9479d6cf"
+        },
+        {
+          "es": "しあげ",
+          "en": "Finish",
+          "kind": "term",
+          "cardId": "card-ja-en-1985c3f403e38dea"
+        },
+        {
+          "es": "サンプル",
+          "en": "Sample",
+          "kind": "term",
+          "cardId": "card-ja-en-7858f96b458b61c1"
+        },
+        {
+          "es": "しようしょ",
+          "en": "Specification",
+          "kind": "term",
+          "cardId": "card-ja-en-aa4d466879123956"
+        },
+        {
+          "es": "ちょうさ",
+          "en": "Review",
+          "kind": "term",
+          "cardId": "card-ja-en-312070b40a63f91f"
+        },
+        {
+          "es": "しようしょでは どの しあげに なって いますか。",
+          "en": "What finish does the specification call for?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-2a09a72d4038bf8c"
+        },
+        {
+          "es": "テクスチャーを サンプルと くらべて ください。",
+          "en": "Compare the texture with the sample.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-a66f2bf49ee05f99"
+        },
+        {
+          "es": "この しょうさいを かくにんする ひつようが あります。",
+          "en": "We need to confirm this detail.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-2fbe7b066b9b6f2e"
+        },
+        {
+          "es": "ちょうさが ひつような つぎめを きろくして ください。",
+          "en": "Record the joint that needs review.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c8cec95af5e4b1d8"
+        },
+        {
+          "es": "ずめんの さいしんばんは どれですか。",
+          "en": "What is the current version of the plan?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e6960e3795420222"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:13",
+        "title": "Confirm the specified drywall finish",
+        "sentences": [
+          {
+            "target": "せっこう ボードの しようしょには、つぎめ、テープ、パテについて かいて あります。",
+            "native": "The drywall panel specification describes the joint, tape and compound."
+          },
+          {
+            "target": "サンディング、テクスチャー、しあげを、とくていされた サンプルと くらべます。",
+            "native": "Sanding, texture and finish are compared with an identified sample."
+          },
+          {
+            "target": "サンプルと ずめんが ちがって みえるため、さぎょうはんが ちょうさを たのみます。しょくちょうは、ぎじゅつてきな かいけつさくを かってに つくらずに、しつもんを きろくします。",
+            "native": "The crew requests a review because the sample and plan appear different; the foreman records the question without inventing a technical solution."
+          },
+          {
+            "target": "しようしょでは どの しあげに なって いますか。",
+            "native": "What finish does the specification call for?"
+          },
+          {
+            "target": "テクスチャーを サンプルと くらべて ください。",
+            "native": "Compare the texture with the sample."
+          },
+          {
+            "target": "この しょうさいを かくにんする ひつようが あります。",
+            "native": "We need to confirm this detail."
+          },
+          {
+            "target": "ちょうさが ひつような つぎめを きろくして ください。",
+            "native": "Record the joint that needs review."
+          },
+          {
+            "target": "ずめんの さいしんばんは どれですか。",
+            "native": "What is the current version of the plan?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use しようしょ for the specification and しあげ for finish. Compare the サンプル with the drawing and ask for ちょうさ when they appear inconsistent; do not invent a technical solution.",
+        "teachingNotesEnglish": [
+          "サンディング is san-din-gu, with ン before ディ; テクスチャー has a long final vowel. テープ and パテ are also katakana.",
+          "パテ is used here as a plain everyday word for joint compound. The source names no product or brand. Site vocabulary varies by region and supplier, so check the manual or supplier label for the exact name. Do not treat パテ as a universal term for this material.",
+          "しようしょ (specification) means the written specification document. Keep it separate from ずめん (plan), which is a drawing. The two are different documents.",
+          "'What finish does the specification call for?' is rendered with なって いますか (what is set to be), which reads naturally. A more literal option is しめして いますか (what does it indicate).",
+          "Dictionary-form verb + ひつようが あります means there is a need to do it. Core 12 introduced this pattern; this lesson reuses it for confirming a detail.",
+          "Review is a noun both in the reading and in the phrase about a joint that needs review; ちょうさ is used as in Core 9.",
+          "Ambiguity retained: reading line 2 says 'identified sample'. The English does not say who identified it or how. とくていされた keeps this open rather than adding a detail.",
+          "Crew and foreman use さぎょうはん and しょくちょう from earlier lessons. The source says the foreman records the question. It does not describe a technical fix, and the Japanese does not add one.",
+          "ちがって みえるため means because they appear different. ぎじゅつてきな is technical; かってに つくらずに means without making up a solution on one’s own."
+        ],
+        "examples": [
+          {
+            "es": "せっこう ボードの しようしょには、つぎめ、テープ、パテについて かいて あります。",
+            "en": "The drywall panel specification describes the joint, tape and compound."
+          },
+          {
+            "es": "サンディング、テクスチャー、しあげを、とくていされた サンプルと くらべます。",
+            "en": "Sanding, texture and finish are compared with an identified sample."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:13",
+        "summary": "Describe the finish called for by the specification, compare a texture sample, and identify which joint or drawing detail needs confirmation before work continues.",
+        "openingLine": "しようしょでは どの しあげに なって いますか。テクスチャーを サンプルと くらべて ください。",
+        "partnerRole": "A coworker comparing the finish specification and sample who records an unresolved difference for the responsible reviewer.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____の しようしょには、つぎめ、テープ、パテについて かいて あります。",
+          "hint": "The drywall panel specification describes the joint, tape and compound.",
+          "answer": "せっこう ボード",
+          "explanation": "せっこう ボード appears in this lesson's reading."
+        },
+        {
+          "prompt": "サンディング、テクスチャー、しあげを、とくていされた ____と くらべます。",
+          "hint": "Sanding, texture and finish are compared with an identified sample.",
+          "answer": "サンプル",
+          "explanation": "サンプル appears in this lesson's reading."
+        },
+        {
+          "prompt": "サンプルと ずめんが ちがって みえるため、さぎょうはんが ____を たのみます。しょくちょうは、ぎじゅつてきな かいけつさくを かってに つくらずに、しつもんを きろくします。",
+          "hint": "The crew requests a review because the sample and plan appear different; the foreman records the question without inventing a technical solution.",
+          "answer": "ちょうさ",
+          "explanation": "ちょうさ appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:14",
+      "n": 14,
+      "title": "Discuss an observed mismatch",
+      "objective": "Describe an observed mismatch, refer to the specification and agree on who will review it.",
+      "sourceObjective": "Describe an observed mismatch, refer to the specification and agree on who will review it.",
+      "words": [
+        {
+          "es": "フィードバック",
+          "en": "Feedback",
+          "kind": "term",
+          "cardId": "card-ja-en-5bb4253cc8780054"
+        },
+        {
+          "es": "そんちょう",
+          "en": "Respect",
+          "kind": "term",
+          "cardId": "card-ja-en-6470a4665810befd"
+        },
+        {
+          "es": "ちがい",
+          "en": "Difference",
+          "kind": "term",
+          "cardId": "card-ja-en-b927efe5bf6bae4b"
+        },
+        {
+          "es": "きじゅん",
+          "en": "Reference",
+          "kind": "term",
+          "cardId": "card-ja-en-0bfaeb812699bedf"
+        },
+        {
+          "es": "けっか",
+          "en": "Result",
+          "kind": "term",
+          "cardId": "card-ja-en-08112bcd54f6bc75"
+        },
+        {
+          "es": "しゅうせい",
+          "en": "Correction",
+          "kind": "term",
+          "cardId": "card-ja-en-b365405227f0786f"
+        },
+        {
+          "es": "れい",
+          "en": "Example",
+          "kind": "term",
+          "cardId": "card-ja-en-bb4cfef35a57f216"
+        },
+        {
+          "es": "ごうい",
+          "en": "Agreement",
+          "kind": "term",
+          "cardId": "card-ja-en-c1b87781c3ecae9b"
+        },
+        {
+          "es": "せきにんしゃ",
+          "en": "Responsible person",
+          "kind": "term",
+          "cardId": "card-ja-en-e69bf8f42d984a5a"
+        },
+        {
+          "es": "フォローアップ",
+          "en": "Follow-up",
+          "kind": "term",
+          "cardId": "card-ja-en-6cf94b41b075a1ac"
+        },
+        {
+          "es": "けっかを みせて くれて、ありがとう ございます。",
+          "en": "Thank you for showing me the result.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-979cf54c067439cd"
+        },
+        {
+          "es": "きじゅんと ちがう ところが みえます。",
+          "en": "I see a difference from the reference.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b809aad3b82a7a95"
+        },
+        {
+          "es": "れいを いっしょに かくにんしましょう。",
+          "en": "Let's review the example together.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-a73762ab0f3cb784"
+        },
+        {
+          "es": "しゅうせいは だれが かくにんしますか。",
+          "en": "Who confirms the correction?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-9221fa9907aaa0db"
+        },
+        {
+          "es": "フォローアップの ために ごういを きろくしましょう。",
+          "en": "Let's record the agreement for follow-up.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-982bd406a138643a"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:14",
+        "title": "Discuss an observed mismatch",
+        "sentences": [
+          {
+            "target": "せきにんしゃは フィードバックを そんちょうして きき、けっかを みせます。",
+            "native": "The responsible person listens to the feedback respectfully and shows the result."
+          },
+          {
+            "target": "しゅうせいを たのむ まえに、ちがいを きじゅんと れいと くらべます。",
+            "native": "The difference is compared with a reference and an example before requesting a correction."
+          },
+          {
+            "target": "ごういでは、だれが ちょうさを おこなうか、いつ フォローアップを するかを はっきりさせ、ふたりが おなじことを りかいできるように します。",
+            "native": "The agreement identifies who will carry out the review and when follow-up will occur, so both people understand the same thing."
+          },
+          {
+            "target": "けっかを みせて くれて、ありがとう ございます。",
+            "native": "Thank you for showing me the result."
+          },
+          {
+            "target": "きじゅんと ちがう ところが みえます。",
+            "native": "I see a difference from the reference."
+          },
+          {
+            "target": "れいを いっしょに かくにんしましょう。",
+            "native": "Let's review the example together."
+          },
+          {
+            "target": "しゅうせいは だれが かくにんしますか。",
+            "native": "Who confirms the correction?"
+          },
+          {
+            "target": "フォローアップの ために ごういを きろくしましょう。",
+            "native": "Let's record the agreement for follow-up."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use ちがい for a visible difference, きじゅん for a reference, and だれが to ask who will confirm a correction. Keep observation distinct from an agreed fix.",
+        "teachingNotesEnglish": [
+          "フィードバック (feedback) is katakana. いけん (opinion) is a plainer alternative, but the reading keeps the English term.",
+          "そんちょう (respect) is used with して to form a verb in the reading: そんちょうして きき (listens respectfully).",
+          "しゅうせい (correction, fixing the work) is kept separate from かいてい (revision, changing a plan or document) from the earlier glossary.",
+          "せきにんしゃ (responsible person) matches the earlier glossary. The English does not say whether this person did the work or owns the check. The Japanese keeps that open.",
+          "～ましょう means let us do something: れいを いっしょに かくにんしましょう. Here かくにん means looking over an example together; ちょうさ is the noun for investigating a mismatch.",
+          "フォローアップ is fo-roo-a-ppu: フォ is fo, ー lengthens ロ, and small ッ marks a short pause.",
+          "みえます means can be seen, as in Core 3. きじゅん is a reference or benchmark, without assuming a document.",
+          "けっかを みせて くれて、ありがとう ございます is friendly and polite thanks for showing a result."
+        ],
+        "examples": [
+          {
+            "es": "せきにんしゃは フィードバックを そんちょうして きき、けっかを みせます。",
+            "en": "The responsible person listens to the feedback respectfully and shows the result."
+          },
+          {
+            "es": "しゅうせいを たのむ まえに、ちがいを きじゅんと れいと くらべます。",
+            "en": "The difference is compared with a reference and an example before requesting a correction."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:14",
+        "summary": "Describe a difference from the reference respectfully, show the result and example, then agree who will review the correction and record follow-up.",
+        "openingLine": "けっかを みせて くれて、ありがとう ございます。きじゅんと ちがう ところが みえます。",
+        "partnerRole": "A coworker who listens to the observation, checks the reference with the learner, and identifies who will review the discrepancy.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "せきにんしゃは フィードバックを そんちょうして きき、____を みせます。",
+          "hint": "The responsible person listens to the feedback respectfully and shows the result.",
+          "answer": "けっか",
+          "explanation": "けっか appears in this lesson's reading."
+        },
+        {
+          "prompt": "しゅうせいを たのむ まえに、ちがいを ____と れいと くらべます。",
+          "hint": "The difference is compared with a reference and an example before requesting a correction.",
+          "answer": "きじゅん",
+          "explanation": "きじゅん appears in this lesson's reading."
+        },
+        {
+          "prompt": "____では、だれが ちょうさを おこなうか、いつ フォローアップを するかを はっきりさせ、ふたりが おなじことを りかいできるように します。",
+          "hint": "The agreement identifies who will carry out the review and when follow-up will occur, so both people understand the same thing.",
+          "answer": "ごうい",
+          "explanation": "ごうい appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:15",
+      "n": 15,
+      "title": "First-day orientation details",
+      "objective": "Ask a new worker about experience and availability, then confirm where first-day orientation happens.",
+      "sourceObjective": "Ask a new worker about experience and availability, then confirm where first-day orientation happens.",
+      "words": [
+        {
+          "es": "けいけん",
+          "en": "Experience",
+          "kind": "term",
+          "cardId": "card-ja-en-ffc46932027e2879"
+        },
+        {
+          "es": "しょくしゅ",
+          "en": "Trade",
+          "kind": "term",
+          "cardId": "card-ja-en-adce3a98d7b35f46"
+        },
+        {
+          "es": "つごう",
+          "en": "Availability",
+          "kind": "term",
+          "cardId": "card-ja-en-e2c6fe3b16d0cc1e"
+        },
+        {
+          "es": "かいしび",
+          "en": "Start date",
+          "kind": "term",
+          "cardId": "card-ja-en-7b3ec0f1a396ae47"
+        },
+        {
+          "es": "オリエンテーション",
+          "en": "Orientation",
+          "kind": "term",
+          "cardId": "card-ja-en-089341c2d6ac2364"
+        },
+        {
+          "es": "げんばかんとく",
+          "en": "Supervisor",
+          "kind": "term",
+          "cardId": "card-ja-en-e236e0220fc5d5af"
+        },
+        {
+          "es": "れんらくさき",
+          "en": "Contact",
+          "kind": "term",
+          "cardId": "card-ja-en-05982dbe41812661"
+        },
+        {
+          "es": "スケジュール",
+          "en": "Schedule",
+          "kind": "term",
+          "cardId": "card-ja-en-2749bc4dcbb6d399"
+        },
+        {
+          "es": "しつもん",
+          "en": "Question",
+          "kind": "term",
+          "cardId": "card-ja-en-9333fef2d2af1ffc"
+        },
+        {
+          "es": "かんげい",
+          "en": "Welcome",
+          "kind": "term",
+          "cardId": "card-ja-en-bcc6738e97c2d9f0"
+        },
+        {
+          "es": "どの しょくしゅで けいけんが ありますか。",
+          "en": "In which trade do you have experience?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-87f738a489fb7443"
+        },
+        {
+          "es": "いつ つごうが いいですか。",
+          "en": "What is your availability?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3b0999c7e4b8c940"
+        },
+        {
+          "es": "かいしびを かくにんしましょう。",
+          "en": "Let's confirm the start date.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-5fbc4813caec87e1"
+        },
+        {
+          "es": "オリエンテーションは げんばかんとくと いっしょです。",
+          "en": "Orientation is with the supervisor.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8abc74d165cd2406"
+        },
+        {
+          "es": "スケジュールについて なにか しつもんは ありますか。",
+          "en": "Do you have any questions about the schedule?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-45ab3f5ae7a077ce"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:15",
+        "title": "First-day orientation details",
+        "sentences": [
+          {
+            "target": "げんばかんとくは あたらしい かたを かんげいし、けいけんと しょくしゅについて たずねます。",
+            "native": "The supervisor welcomes the new person and asks about their experience and trade."
+          },
+          {
+            "target": "つごうと かいしびは、れんらくさきや ていあんされた スケジュールと いっしょに きろくされます。",
+            "native": "Availability and the start date are recorded beside the contact and proposed schedule."
+          },
+          {
+            "target": "オリエンテーションでは、しつもんする じかんと、しゅうごう ばしょを かくにんする じかんを もうけます。この かいわは、せいしきな さいよう てつづきに かわるものでは ありません。",
+            "native": "Orientation provides time for a question and to confirm where to meet; this conversation does not replace formal hiring processes."
+          },
+          {
+            "target": "どの しょくしゅで けいけんが ありますか。",
+            "native": "In which trade do you have experience?"
+          },
+          {
+            "target": "いつ つごうが いいですか。",
+            "native": "What is your availability?"
+          },
+          {
+            "target": "かいしびを かくにんしましょう。",
+            "native": "Let's confirm the start date."
+          },
+          {
+            "target": "オリエンテーションは げんばかんとくと いっしょです。",
+            "native": "Orientation is with the supervisor."
+          },
+          {
+            "target": "スケジュールについて なにか しつもんは ありますか。",
+            "native": "Do you have any questions about the schedule?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use どの しょくしゅで for trade experience, いつ for availability, and ～ましょう for a shared confirmation. Distinguish an orientation conversation from a formal hiring decision.",
+        "teachingNotesEnglish": [
+          "しょくしゅ (trade) means the type of trade or job category someone has worked in, such as だいく (carpenter) or でんきこう (electrician) from the earlier glossary. It is not the same as さぎょうはん (crew).",
+          "げんばかんとく means site supervisor, distinct from しょくちょう (crew foreman). The scene does not establish that the same person is the foreman.",
+          "つごう asks when someone is available. いつ つごうが いいですか asks for an open time, without presuming a proposed date.",
+          "オリエンテーション (orientation) is katakana, pronounced o-ri-en-te-e-shon. It is a common workplace loanword for a first-day introduction. It is not a universal Japanese construction-site term, so the reading also explains what it is for.",
+          "スケジュール is the schedule term used in Core 11. れんらくさき means contact details here; later lessons use れんらく たんとうしゃ for a contact person.",
+          "Let us confirm the start date uses ～ましょう, as in Core 14.",
+          "オリエンテーションは げんばかんとくと いっしょです keeps open whether the supervisor is present or leads the session.",
+          "The conversation does not replace formal hiring: せいしきな さいよう てつづき. もうけます means sets aside time, and かわるものでは ありません means does not take the place of."
+        ],
+        "examples": [
+          {
+            "es": "げんばかんとくは あたらしい かたを かんげいし、けいけんと しょくしゅについて たずねます。",
+            "en": "The supervisor welcomes the new person and asks about their experience and trade."
+          },
+          {
+            "es": "つごうと かいしびは、れんらくさきや ていあんされた スケジュールと いっしょに きろくされます。",
+            "en": "Availability and the start date are recorded beside the contact and proposed schedule."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:15",
+        "summary": "Ask a new worker about trade experience and availability, confirm a proposed start date and where orientation will happen, and leave formal hiring steps to the authorized process.",
+        "openingLine": "どの しょくしゅで けいけんが ありますか。オリエンテーションは げんばかんとくと いっしょです。",
+        "partnerRole": "A new worker who shares relevant experience and availability, asks about orientation, and confirms where to meet the supervisor.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____は あたらしい かたを かんげいし、けいけんと しょくしゅについて たずねます。",
+          "hint": "The supervisor welcomes the new person and asks about their experience and trade.",
+          "answer": "げんばかんとく",
+          "explanation": "げんばかんとく appears in this lesson's reading."
+        },
+        {
+          "prompt": "つごうと ____は、れんらくさきや ていあんされた スケジュールと いっしょに きろくされます。",
+          "hint": "Availability and the start date are recorded beside the contact and proposed schedule.",
+          "answer": "かいしび",
+          "explanation": "かいしび appears in this lesson's reading."
+        },
+        {
+          "prompt": "____では、しつもんする じかんと、しゅうごう ばしょを かくにんする じかんを もうけます。この かいわは、せいしきな さいよう てつづきに かわるものでは ありません。",
+          "hint": "Orientation provides time for a question and to confirm where to meet; this conversation does not replace formal hiring processes.",
+          "answer": "オリエンテーション",
+          "explanation": "オリエンテーション appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-a442a56148eb6520",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せっこう ボード",
+      "native": "Drywall panel",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-c440789145c5faef",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つぎめ",
+      "native": "Joint",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-0323f97d9957aaed",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テープ",
+      "native": "Tape",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-3b7b889018fecbff",
+      "courseId": "construction-foreman-ja-en",
+      "target": "パテ",
+      "native": "Compound",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-1dd1a880f68e709e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンディング",
+      "native": "Sanding",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-ca84938a9479d6cf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テクスチャー",
+      "native": "Texture",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-1985c3f403e38dea",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しあげ",
+      "native": "Finish",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-7858f96b458b61c1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンプル",
+      "native": "Sample",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-aa4d466879123956",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しようしょ",
+      "native": "Specification",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-312070b40a63f91f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさ",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-2a09a72d4038bf8c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しようしょでは どの しあげに なって いますか。",
+      "native": "What finish does the specification call for?",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-a66f2bf49ee05f99",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テクスチャーを サンプルと くらべて ください。",
+      "native": "Compare the texture with the sample.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-2fbe7b066b9b6f2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この しょうさいを かくにんする ひつようが あります。",
+      "native": "We need to confirm this detail.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-c8cec95af5e4b1d8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさが ひつような つぎめを きろくして ください。",
+      "native": "Record the joint that needs review.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-e6960e3795420222",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの さいしんばんは どれですか。",
+      "native": "What is the current version of the plan?",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "card-ja-en-5bb4253cc8780054",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フィードバック",
+      "native": "Feedback",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-6470a4665810befd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そんちょう",
+      "native": "Respect",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-b927efe5bf6bae4b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちがい",
+      "native": "Difference",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-0bfaeb812699bedf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅん",
+      "native": "Reference",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-08112bcd54f6bc75",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けっか",
+      "native": "Result",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-b365405227f0786f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせい",
+      "native": "Correction",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-bb4cfef35a57f216",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れい",
+      "native": "Example",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-c1b87781c3ecae9b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ごうい",
+      "native": "Agreement",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-6cf94b41b075a1ac",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フォローアップ",
+      "native": "Follow-up",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-979cf54c067439cd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けっかを みせて くれて、ありがとう ございます。",
+      "native": "Thank you for showing me the result.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-b809aad3b82a7a95",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんと ちがう ところが みえます。",
+      "native": "I see a difference from the reference.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-a73762ab0f3cb784",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れいを いっしょに かくにんしましょう。",
+      "native": "Let's review the example together.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-9221fa9907aaa0db",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせいは だれが かくにんしますか。",
+      "native": "Who confirms the correction?",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-982bd406a138643a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フォローアップの ために ごういを きろくしましょう。",
+      "native": "Let's record the agreement for follow-up.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "card-ja-en-ffc46932027e2879",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けいけん",
+      "native": "Experience",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-adce3a98d7b35f46",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょくしゅ",
+      "native": "Trade",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-e2c6fe3b16d0cc1e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つごう",
+      "native": "Availability",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-7b3ec0f1a396ae47",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいしび",
+      "native": "Start date",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-089341c2d6ac2364",
+      "courseId": "construction-foreman-ja-en",
+      "target": "オリエンテーション",
+      "native": "Orientation",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-e236e0220fc5d5af",
+      "courseId": "construction-foreman-ja-en",
+      "target": "げんばかんとく",
+      "native": "Supervisor",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-05982dbe41812661",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらくさき",
+      "native": "Contact",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-2749bc4dcbb6d399",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュール",
+      "native": "Schedule",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-9333fef2d2af1ffc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもん",
+      "native": "Question",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-bcc6738e97c2d9f0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かんげい",
+      "native": "Welcome",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-87f738a489fb7443",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの しょくしゅで けいけんが ありますか。",
+      "native": "In which trade do you have experience?",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-3b0999c7e4b8c940",
+      "courseId": "construction-foreman-ja-en",
+      "target": "いつ つごうが いいですか。",
+      "native": "What is your availability?",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-5fbc4813caec87e1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいしびを かくにんしましょう。",
+      "native": "Let's confirm the start date.",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-8abc74d165cd2406",
+      "courseId": "construction-foreman-ja-en",
+      "target": "オリエンテーションは げんばかんとくと いっしょです。",
+      "native": "Orientation is with the supervisor.",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "card-ja-en-45ab3f5ae7a077ce",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュールについて なにか しつもんは ありますか。",
+      "native": "Do you have any questions about the schedule?",
+      "kind": "phrase",
+      "firstLesson": 15
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-a442a56148eb6520",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せっこう ボード",
+      "native": "Drywall panel",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-c440789145c5faef",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つぎめ",
+      "native": "Joint",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-0323f97d9957aaed",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テープ",
+      "native": "Tape",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-3b7b889018fecbff",
+      "courseId": "construction-foreman-ja-en",
+      "target": "パテ",
+      "native": "Compound",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-1dd1a880f68e709e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンディング",
+      "native": "Sanding",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-ca84938a9479d6cf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テクスチャー",
+      "native": "Texture",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-1985c3f403e38dea",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しあげ",
+      "native": "Finish",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-7858f96b458b61c1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンプル",
+      "native": "Sample",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-aa4d466879123956",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しようしょ",
+      "native": "Specification",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-312070b40a63f91f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさ",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-2a09a72d4038bf8c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しようしょでは どの しあげに なって いますか。",
+      "native": "What finish does the specification call for?",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-a66f2bf49ee05f99",
+      "courseId": "construction-foreman-ja-en",
+      "target": "テクスチャーを サンプルと くらべて ください。",
+      "native": "Compare the texture with the sample.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-2fbe7b066b9b6f2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この しょうさいを かくにんする ひつようが あります。",
+      "native": "We need to confirm this detail.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-c8cec95af5e4b1d8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさが ひつような つぎめを きろくして ください。",
+      "native": "Record the joint that needs review.",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-e6960e3795420222",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの さいしんばんは どれですか。",
+      "native": "What is the current version of the plan?",
+      "kind": "phrase",
+      "firstLesson": 13
+    },
+    {
+      "id": "dict-ja-en-5bb4253cc8780054",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フィードバック",
+      "native": "Feedback",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-6470a4665810befd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そんちょう",
+      "native": "Respect",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-b927efe5bf6bae4b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちがい",
+      "native": "Difference",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-0bfaeb812699bedf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅん",
+      "native": "Reference",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-08112bcd54f6bc75",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けっか",
+      "native": "Result",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-b365405227f0786f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせい",
+      "native": "Correction",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-bb4cfef35a57f216",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れい",
+      "native": "Example",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-c1b87781c3ecae9b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ごうい",
+      "native": "Agreement",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-6cf94b41b075a1ac",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フォローアップ",
+      "native": "Follow-up",
+      "kind": "term",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-979cf54c067439cd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けっかを みせて くれて、ありがとう ございます。",
+      "native": "Thank you for showing me the result.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-b809aad3b82a7a95",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんと ちがう ところが みえます。",
+      "native": "I see a difference from the reference.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-a73762ab0f3cb784",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れいを いっしょに かくにんしましょう。",
+      "native": "Let's review the example together.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-9221fa9907aaa0db",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせいは だれが かくにんしますか。",
+      "native": "Who confirms the correction?",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-982bd406a138643a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "フォローアップの ために ごういを きろくしましょう。",
+      "native": "Let's record the agreement for follow-up.",
+      "kind": "phrase",
+      "firstLesson": 14
+    },
+    {
+      "id": "dict-ja-en-ffc46932027e2879",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けいけん",
+      "native": "Experience",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-adce3a98d7b35f46",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょくしゅ",
+      "native": "Trade",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-e2c6fe3b16d0cc1e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つごう",
+      "native": "Availability",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-7b3ec0f1a396ae47",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいしび",
+      "native": "Start date",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-089341c2d6ac2364",
+      "courseId": "construction-foreman-ja-en",
+      "target": "オリエンテーション",
+      "native": "Orientation",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-e236e0220fc5d5af",
+      "courseId": "construction-foreman-ja-en",
+      "target": "げんばかんとく",
+      "native": "Supervisor",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-05982dbe41812661",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらくさき",
+      "native": "Contact",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-2749bc4dcbb6d399",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュール",
+      "native": "Schedule",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-9333fef2d2af1ffc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもん",
+      "native": "Question",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-bcc6738e97c2d9f0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かんげい",
+      "native": "Welcome",
+      "kind": "term",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-87f738a489fb7443",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの しょくしゅで けいけんが ありますか。",
+      "native": "In which trade do you have experience?",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-3b0999c7e4b8c940",
+      "courseId": "construction-foreman-ja-en",
+      "target": "いつ つごうが いいですか。",
+      "native": "What is your availability?",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-5fbc4813caec87e1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいしびを かくにんしましょう。",
+      "native": "Let's confirm the start date.",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-8abc74d165cd2406",
+      "courseId": "construction-foreman-ja-en",
+      "target": "オリエンテーションは げんばかんとくと いっしょです。",
+      "native": "Orientation is with the supervisor.",
+      "kind": "phrase",
+      "firstLesson": 15
+    },
+    {
+      "id": "dict-ja-en-45ab3f5ae7a077ce",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュールについて なにか しつもんは ありますか。",
+      "native": "Do you have any questions about the schedule?",
+      "kind": "phrase",
+      "firstLesson": 15
+    }
+  ]
+}

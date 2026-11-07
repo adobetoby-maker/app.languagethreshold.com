@@ -1,0 +1,666 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "master-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "role": "Exact English objectives, speaking roles, grammar examples, word anchors and Reader lines retained as provenance; Japanese learner scenes are original contextual teach-back dialogues"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "master-travel-breakfast:4:ja-en",
+      "sourceEnglish": {
+        "n": 4,
+        "title": "Read the Hotel's Allergen Chart Before the Buffet",
+        "objective": "Read a printed allergen chart with staff, flag what is out of date, and explain what to verify before eating.",
+        "speaking": "You are reading the hotel's allergen chart with the AI, host Renzo, for your partner Elif, who is allergic to sesame: go through each bread and spread, ask clear questions, and say what to check using antes de / después de + infinitive and hay que.",
+        "lessonType": "Document",
+        "block": "A",
+        "englishWordAnchors": [
+          "the allergen chart",
+          "the sesame",
+          "the seeds",
+          "the traces",
+          "the label",
+          "the supplier",
+          "the date last updated",
+          "the product spec sheet",
+          "the sliced bread",
+          "the French roll",
+          "the head chef",
+          "the separate utensils",
+          "the allergic reaction",
+          "the epinephrine auto-injector",
+          "up to date",
+          "Before you serve yourself anything, we need to confirm the chart with Renzo.",
+          "Excuse me, what date is this allergen chart from?",
+          "The chart says the French roll doesn't contain sesame.",
+          "Could you ask the head chef for the supplier's label?",
+          "If the chart isn't up to date, we need to check each label.",
+          "After reading the label, I'll tell you what you can eat.",
+          "My partner is allergic to sesame, even to traces.",
+          "Better not eat anything without confirming it first."
+        ],
+        "englishGrammarExamples": [
+          "Before trying the bread, you have to read the label.",
+          "After talking to the kitchen, Renzo will confirm the ingredients for us."
+        ],
+        "englishReading": [
+          "In the dining room of a hotel in Miraflores, in Lima, Elif and I arrive early for the breakfast buffet.",
+          "I tell Elif: Before you serve yourself anything, we need to confirm the chart with Renzo.",
+          "Renzo, the host, brings us the printed allergen chart and puts it on the table.",
+          "I explain to Renzo: My partner is allergic to sesame, even to traces.",
+          "After reading the first column, I ask him: Excuse me, what date is this allergen chart from?",
+          "Renzo points to the date last updated, March 3, but the hotel has had a new bread supplier since September.",
+          "I read aloud: The chart says the French roll doesn't contain sesame.",
+          "But the sliced bread from the new supplier has seeds on top, and the chart says nothing about that.",
+          "I tell Renzo: If the chart isn't up to date, we need to check each label.",
+          "Then I ask him: Could you ask the head chef for the supplier's label?",
+          "While Renzo goes to the kitchen, I tell Elif: After reading the label, I'll tell you what you can eat.",
+          "After talking to the head chef, Renzo comes back with the spec sheet for the sliced bread and the label for the French roll.",
+          "The spec sheet confirms that the seeds on the sliced bread are sesame.",
+          "The French roll's label says: May contain traces of sesame.",
+          "So I tell Elif: Better not eat anything without confirming it first.",
+          "Renzo explains that the head chef can make scrambled eggs with separate utensils, with only egg, salt and butter.",
+          "Before eating, Elif checks that she has her epinephrine auto-injector in her bag.",
+          "I explain to Renzo that if Elif has an allergic reaction, we have to use the auto-injector as her doctor instructed and call an ambulance."
+        ],
+        "englishSourceSha256": "07e42157a84f4c4dff7083a73842c22b36cb63404967a0ba39b3f77cfbef2bfb"
+      },
+      "title": "Check an outdated breakfast allergen chart",
+      "objective": "Read the hotel's allergen chart with staff, notice a supplier change, and request current ingredient and preparation details before anyone with a sesame allergy chooses food.",
+      "focus": "食べる前に and 確認した後で sequence checks; ～かどうか asks whether information is current. A chart or verbal reassurance alone cannot establish allergy safety. Avoid claiming any item is safe until the guest and qualified staff verify current ingredients and cross-contact handling.",
+      "scene": "At a hotel breakfast buffet, one guest helps a companion with a sesame allergy ask the host about an old chart and a new bread supplier.",
+      "cards": [
+        {
+          "ja": "アレルゲン表示表",
+          "en": "allergen chart",
+          "kind": "term"
+        },
+        {
+          "ja": "ごま",
+          "en": "sesame",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "仕入れ先",
+          "en": "supplier",
+          "kind": "term"
+        },
+        {
+          "ja": "更新日",
+          "en": "last updated date",
+          "kind": "term"
+        },
+        {
+          "ja": "表示ラベル",
+          "en": "product label",
+          "kind": "term"
+        },
+        {
+          "ja": "仕様書",
+          "en": "product specification sheet",
+          "kind": "term"
+        },
+        {
+          "ja": "調理器具",
+          "en": "cooking utensils",
+          "kind": "term"
+        },
+        {
+          "ja": "混入",
+          "en": "cross-contact",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to verify",
+          "kind": "term"
+        },
+        {
+          "ja": "食べる前に",
+          "en": "before eating",
+          "kind": "term"
+        },
+        {
+          "ja": "確認した後で",
+          "en": "after checking",
+          "kind": "term"
+        },
+        {
+          "ja": "最新かどうか",
+          "en": "whether it is current",
+          "kind": "term"
+        },
+        {
+          "ja": "注文を見送る",
+          "en": "to hold off on ordering",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "同行者はごまにアレルギーがあります。食べる前に、表示を一緒に確認できますか。",
+          "en": "My companion has a sesame allergy. Can we check the information together before eating?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "こちらが朝食のアレルゲン表示表です。",
+          "en": "Here is the breakfast allergen chart."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "この表の更新日はいつですか。",
+          "en": "When was this chart last updated?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "三月の更新です。パンの仕入れ先は先月変わりました。",
+          "en": "It was updated in March. Our bread supplier changed last month."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "では、パンの情報が最新かどうか確認したいです。",
+          "en": "Then I would like to check whether the bread information is current."
+        },
+        {
+          "speaker": "Host",
+          "ja": "今の表示ラベルと仕様書を厨房に確認します。調理器具についても聞きます。",
+          "en": "I will check the current label and specification with the kitchen. I will also ask about utensils."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "確認が済むまで、私は食べずに待ちます。",
+          "en": "I will wait without eating until the checks are complete."
+        },
+        {
+          "speaker": "Host",
+          "ja": "厨房から回答をもらいましたが、混入の可能性を確認できません。",
+          "en": "The kitchen responded, but we cannot verify the cross-contact risk."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "分かりました。確認できない食品は選びません。",
+          "en": "Understood. We will not choose food that cannot be verified."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "ほかの選択肢について、担当者に相談しましょう。",
+          "en": "Let's ask the appropriate staff member about other options."
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking an allergen chart",
+        "partnerRole": "Hotel breakfast host",
+        "opening": "この表示表はいつ更新されましたか。",
+        "goal": "Ask the date and supplier, request current labels and preparation details, and say that unverified food will not be chosen.",
+        "closure": "Do not provide a safety guarantee, diagnose a reaction, or improvise treatment; follow the guest's existing emergency plan and local emergency procedures if needed.",
+        "wordBank": [
+          "アレルゲン表示表",
+          "ごま",
+          "更新日",
+          "仕入れ先",
+          "原材料",
+          "確認する"
+        ]
+      },
+      "modes": {
+        "see": "Read the chart-checking scene with aligned English support.",
+        "recall": "Recall update date, supplier and preparation questions.",
+        "hear": "Hear 食べる前に and ～かどうか in the dialogue.",
+        "type": "Type a request to verify the latest label with kana support.",
+        "say": "Ask the host to verify information without promising safety.",
+        "write": "Write a short checklist of what to ask before ordering."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "master-travel-breakfast:5:ja-en",
+      "sourceEnglish": {
+        "n": 5,
+        "title": "Breakfast Room Closed: Propose a Fair Alternative",
+        "objective": "Explain what the booking promised and what you found, then propose a reasonable breakfast alternative.",
+        "speaking": "You are a hotel guest, and the AI is Yesenia, the receptionist in Cartagena: explain what your booking included and what you found this morning with the preterite and imperfect (bajé, estaba cerrada), then propose a fair alternative with ¿sería posible…?",
+        "lessonType": "Case",
+        "block": "B",
+        "englishWordAnchors": [
+          "the voucher",
+          "the repairs",
+          "the notice",
+          "the temporary closure",
+          "the refund",
+          "the discount",
+          "the compensation",
+          "the café next door",
+          "the alternative",
+          "the inconvenience",
+          "the booking platform",
+          "the terms",
+          "the price",
+          "the management",
+          "reasonable",
+          "My booking included breakfast, and the confirmation said so.",
+          "I went down at 8 and the terrace was closed.",
+          "There was no notice in the elevator or in the room.",
+          "I understand it wasn't your fault, don't worry.",
+          "Would a voucher for the café next door be possible?",
+          "Could you check it with the management, please?",
+          "If that's not possible, would you take the breakfast off my bill?",
+          "That seems like a fair solution, thank you very much."
+        ],
+        "englishGrammarExamples": [
+          "I went down at 8 and the terrace was still closed.",
+          "The booking included breakfast, so would a voucher be possible?"
+        ],
+        "englishReading": [
+          "Daniel, a Canadian traveler, is spending three nights at a boutique hotel in the walled city of Cartagena.",
+          "He made the booking on a booking platform and paid the full price in advance.",
+          "According to the terms of the booking, breakfast on the terrace was included every day.",
+          "This morning Daniel goes to the front desk and talks with Yesenia, the receptionist.",
+          "Daniel: My booking included breakfast, and the confirmation said so.",
+          "Daniel: I went down at 8 and the terrace was closed.",
+          "Daniel: There was no notice in the elevator or in the room.",
+          "Yesenia: I'm very sorry, last night there was a leak and some urgent repairs started on the terrace.",
+          "Yesenia: It's a temporary closure, and nobody managed to put up the notice before 7.",
+          "Daniel: I understand it wasn't your fault, don't worry.",
+          "Daniel: I'm not looking for a refund, I just need an alternative for breakfast today.",
+          "Daniel: Would a voucher for the café next door be possible?",
+          "Daniel: If that's not possible, would you take the breakfast off my bill?",
+          "Yesenia: That seems reasonable to me, but any compensation has to be approved by the management.",
+          "Daniel: Could you check it with the management, please?",
+          "Yesenia calls her boss and, after 5 minutes, hands Daniel a voucher for a full breakfast.",
+          "Yesenia: In addition, we're offering you a 10% discount on the bill for the inconvenience.",
+          "Daniel: That seems like a fair solution, thank you very much."
+        ],
+        "englishSourceSha256": "10f369f3ba31d792973e27b2fa9d8d8df19809a80aacea077133c15a87e616e0"
+      },
+      "title": "Negotiate breakfast after a hotel closure",
+      "objective": "Explain that breakfast was included in a booking, describe the closed dining room, and ask staff for an approved alternative or billing adjustment.",
+      "focus": "予約には～が含まれていました states the booking term; 今朝行ったら～でした reports what was found; ～していただけますか makes a polite proposal. Present a voucher or adjustment as a request requiring hotel approval, never a guaranteed entitlement.",
+      "scene": "A guest calmly discusses an unexpectedly closed hotel breakfast room with the front-desk clerk.",
+      "cards": [
+        {
+          "ja": "予約確認書",
+          "en": "booking confirmation",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食付き",
+          "en": "breakfast included",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食会場",
+          "en": "breakfast room",
+          "kind": "term"
+        },
+        {
+          "ja": "休業",
+          "en": "closure",
+          "kind": "term"
+        },
+        {
+          "ja": "工事",
+          "en": "repairs",
+          "kind": "term"
+        },
+        {
+          "ja": "お知らせ",
+          "en": "notice",
+          "kind": "term"
+        },
+        {
+          "ja": "代案",
+          "en": "alternative",
+          "kind": "term"
+        },
+        {
+          "ja": "食事券",
+          "en": "meal voucher",
+          "kind": "term"
+        },
+        {
+          "ja": "料金の調整",
+          "en": "billing adjustment",
+          "kind": "term"
+        },
+        {
+          "ja": "責任者",
+          "en": "manager",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to check",
+          "kind": "term"
+        },
+        {
+          "ja": "予約には朝食が含まれていました",
+          "en": "breakfast was included in the booking",
+          "kind": "term"
+        },
+        {
+          "ja": "ご相談できますか",
+          "en": "may we discuss it?",
+          "kind": "term"
+        },
+        {
+          "ja": "対応をお願いできますか",
+          "en": "could you help resolve this?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "予約確認書には朝食付きと書いてあります。",
+          "en": "My booking confirmation says breakfast is included."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "はい。今朝は朝食会場が急な工事で休業しています。",
+          "en": "Yes. The breakfast room is closed this morning for urgent repairs."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "八時に行ったら閉まっていて、お知らせも見つかりませんでした。",
+          "en": "I went there at eight and found it closed, with no notice that I could find."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "ご案内が遅れてしまい、申し訳ありません。",
+          "en": "I am sorry we were late to inform you."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "今日の朝食について、代案をご相談できますか。",
+          "en": "Could we discuss an alternative for today's breakfast?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "近くの店の食事券を出せるか、責任者に確認します。",
+          "en": "I will ask the manager whether we can offer a voucher for a nearby café."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "それが難しければ、朝食分の料金調整は可能ですか。",
+          "en": "If that is difficult, could the breakfast charge be adjusted?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "どちらの対応が可能か確認して、すぐにお伝えします。",
+          "en": "I will check which option is possible and let you know shortly."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。確認できるまでこちらで待ちます。",
+          "en": "Thank you. I will wait here until you can confirm."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "責任者の承認が取れました。食事券をお渡しします。",
+          "en": "The manager approved a voucher. Here it is."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest proposing a remedy",
+        "partnerRole": "Front-desk clerk",
+        "opening": "予約確認書には朝食付きと書いてありますが、会場が閉まっています。",
+        "goal": "State the confirmed booking term and the observed closure, then ask about an approved voucher or billing adjustment.",
+        "closure": "Confirm the actual remedy and its terms with staff; do not promise compensation or a specific discount.",
+        "wordBank": [
+          "予約確認書",
+          "朝食付き",
+          "休業",
+          "代案",
+          "食事券",
+          "料金の調整"
+        ]
+      },
+      "modes": {
+        "see": "Read the hotel service-recovery dialogue with English support.",
+        "recall": "Recall the booking, closure and two possible remedies.",
+        "hear": "Hear polite request forms and the reported past event.",
+        "type": "Type a polite alternative request with kana support.",
+        "say": "Negotiate an option with the clerk without assuming approval.",
+        "write": "Write a concise note stating the booking term and requested remedy."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "master-travel-breakfast:6:ja-en",
+      "sourceEnglish": {
+        "n": 6,
+        "title": "No Oat Milk Today: Choose Substitutes for the Group",
+        "objective": "Compare the available milk options for each person and agree on a plan until the delivery arrives.",
+        "speaking": "You are ordering for your friends, and the AI is Matías, a server at a San Telmo confitería: compare the milk options with más/menos … que, pick one for vegan Hannah and one for lactose-avoiding Dev, and plan the rest with ir a and the future (va a llegar, volveremos).",
+        "lessonType": "Case",
+        "block": "B",
+        "englishWordAnchors": [
+          "the soy milk",
+          "the lactose-free milk",
+          "the coconut milk",
+          "the plant-based drink",
+          "the delivery",
+          "the croissants",
+          "the beef-fat croissant",
+          "the milk with a drop of coffee",
+          "the foam",
+          "the taste",
+          "the lactose",
+          "the café-bakery",
+          "vegan",
+          "thick",
+          "meanwhile",
+          "What time is the delivery going to arrive?",
+          "Is the soy one thicker than the almond one?",
+          "Hannah is vegan, so she's going to have the soy one.",
+          "The butter croissants contain dairy, right?",
+          "Could you bring us one with soy and one lactose-free?",
+          "What do you think, Hannah? The coconut one is less thick.",
+          "Dev, does the lactose-free one work for you for now?",
+          "For now we'll order this, and we'll come back in the afternoon."
+        ],
+        "englishGrammarExamples": [
+          "The soy one is thicker than the almond one.",
+          "The delivery will arrive in the afternoon; meanwhile, Hannah is going to try the coconut one."
+        ],
+        "englishReading": [
+          "One Saturday at 10, Nora walks into a café-bakery in San Telmo with her friends Hannah and Dev to have breakfast.",
+          "The server, Matías, tells them that there is no oat milk today because the delivery hasn't arrived yet.",
+          "Nora: What time is the delivery going to arrive?",
+          "Matías: It will arrive in the afternoon, and meanwhile I can offer you another plant-based drink.",
+          "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+          "Nora: Is the soy one thicker than the almond one?",
+          "Matías: Yes, the soy one is thicker, and the coconut milk has a sweeter taste than both.",
+          "Hannah: I prefer the soy one, because it makes more foam than the coconut one.",
+          "Nora: Hannah is vegan, so she's going to have the soy one.",
+          "Dev avoids lactose, so Matías recommends the lactose-free milk to him.",
+          "Nora: Dev, does the lactose-free one work for you for now?",
+          "Dev: Yes, I'm going to order a lágrima, because it has less coffee than a cortado.",
+          "Nora: The butter croissants contain dairy, right?",
+          "Matías: Yes, but according to the baker, the beef-fat croissant has no butter or milk, although it does contain beef fat.",
+          "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+          "Nora: Could you bring us one with soy and one lactose-free?",
+          "Matías: Of course, and when the delivery arrives, I'm going to save some oat milk for you.",
+          "Nora: For now we'll order this, and we'll come back in the afternoon."
+        ],
+        "englishSourceSha256": "9648676971a50da98970983d6466a9fd12e26d072d60dc8a26393a9a0a15bd5a"
+      },
+      "title": "Plan substitutes when oat milk is unavailable",
+      "objective": "Compare available drink options for two friends with different preferences, verify ingredients and preparation with staff, and agree on a temporary plan.",
+      "focus": "～より and ～のほうが compare options; ～が届くまで sets a temporary period; ～か確認してください asks for verification. Vegan and lactose-avoiding needs are distinct; a plant-based label or lactose-free claim does not establish allergy safety or cross-contact controls.",
+      "scene": "A group at a café learns that oat milk is out of stock and asks staff what can actually be prepared for each person.",
+      "cards": [
+        {
+          "ja": "オーツミルク",
+          "en": "oat milk",
+          "kind": "term"
+        },
+        {
+          "ja": "豆乳",
+          "en": "soy milk",
+          "kind": "term"
+        },
+        {
+          "ja": "アーモンドミルク",
+          "en": "almond milk",
+          "kind": "term"
+        },
+        {
+          "ja": "乳糖を含まない牛乳",
+          "en": "lactose-free dairy milk",
+          "kind": "term"
+        },
+        {
+          "ja": "植物性の飲み物",
+          "en": "plant-based drink",
+          "kind": "term"
+        },
+        {
+          "ja": "在庫切れ",
+          "en": "out of stock",
+          "kind": "term"
+        },
+        {
+          "ja": "入荷",
+          "en": "delivery",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理方法",
+          "en": "preparation method",
+          "kind": "term"
+        },
+        {
+          "ja": "代わり",
+          "en": "substitute",
+          "kind": "term"
+        },
+        {
+          "ja": "～より",
+          "en": "than (comparison)",
+          "kind": "term"
+        },
+        {
+          "ja": "～が届くまで",
+          "en": "until ... arrives",
+          "kind": "term"
+        },
+        {
+          "ja": "選べますか",
+          "en": "can I choose?",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please verify",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Server",
+          "ja": "今日はオーツミルクが在庫切れです。入荷は午後の予定です。",
+          "en": "We are out of oat milk today. A delivery is expected this afternoon."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "豆乳とアーモンドミルクはありますか。",
+          "en": "Do you have soy milk and almond milk?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "両方ありますが、飲み物によって使える種類が違います。",
+          "en": "We have both, but the options vary by drink."
+        },
+        {
+          "speaker": "Hana",
+          "ja": "私はヴィーガンです。豆乳の飲み物の原材料と調理方法を確認できますか。",
+          "en": "I am vegan. Could you check the ingredients and preparation of the soy drink?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "厨房に確認します。今は適していると断言できません。",
+          "en": "I will check with the kitchen. I cannot confirm suitability yet."
+        },
+        {
+          "speaker": "Dev",
+          "ja": "私は乳糖を避けています。乳糖を含まない牛乳は選べますか。",
+          "en": "I avoid lactose. Is lactose-free dairy milk an option?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "あります。ただし、牛乳由来です。原材料も確認します。",
+          "en": "We have it, but it is dairy milk. I will check the ingredients too."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "確認が終わるまで、飲み物は決めずに待ちましょう。",
+          "en": "Let's wait to choose drinks until the checks are done."
+        },
+        {
+          "speaker": "Hana",
+          "ja": "確認できたら、豆乳とアーモンドミルクを比べたいです。",
+          "en": "Once you have checked, I would like to compare soy and almond milk."
+        },
+        {
+          "speaker": "Dev",
+          "ja": "入荷までの代わりが決まったら、今日はそれを注文します。",
+          "en": "If we find a substitute until the delivery, I will order that today."
+        }
+      ],
+      "speaking": {
+        "role": "Friend coordinating a group order",
+        "partnerRole": "Café server",
+        "opening": "オーツミルクがない場合、ほかにどんな選択肢がありますか。",
+        "goal": "Ask about two substitutes, compare them, distinguish vegan preference from lactose avoidance, and request ingredient/preparation checks before ordering.",
+        "closure": "Choose only after staff confirms the relevant details; never claim an item is safe for an allergy.",
+        "wordBank": [
+          "在庫切れ",
+          "豆乳",
+          "アーモンドミルク",
+          "乳糖を含まない牛乳",
+          "原材料",
+          "確認"
+        ]
+      },
+      "modes": {
+        "see": "Read a substitute-planning scene with aligned English support.",
+        "recall": "Recall the options and each person's stated need.",
+        "hear": "Hear comparisons and arrival-time language.",
+        "type": "Type an ingredient question with kana support.",
+        "say": "Coordinate the order while keeping unverified choices open.",
+        "write": "Write a provisional plan for each person pending verification."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language, register and pedagogy review",
+    "Qualified food-allergy, cross-contact and emergency-plan review for Master 4",
+    "Qualified consumer/hotel-terms review for Master 5",
+    "Qualified vegan, lactose and café-preparation review for Master 6",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

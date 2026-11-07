@@ -52,14 +52,7 @@ jobs:
       - name: Verify Vercel artifact
         run: npm run verify:vercel-artifact
 
-      - name: Deploy production Vercel project
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx vercel@53.1.0 deploy --prebuilt --prod --yes
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-      - name: Notify IndexNow after production publish
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npm run indexnow:publish
+      # Vercel's Git integration deploys main to the verified project. A second
+      # prebuilt CLI upload fails at Vercel's 10 MB request limit and is not
+      # needed for production. IndexNow runs on Vercel's successful Production
+      # deployment status in indexnow.yml, after the site is published.

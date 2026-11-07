@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "cautionOverrides": [
+    {
+      "lesson": 13,
+      "from": "The French task extends a beginner to-do list into priority, dependency and acceptance criteria. The optional pour que construction from the map is omitted here to limit new grammar load.",
+      "to": "Separate required work from optional work, name who approves each result, and check the captions before printing the posters."
+    },
+    {
+      "lesson": 14,
+      "from": "Check that the imparfait/passé composé contrast and future next-step forms are scaffolded in prior lessons; no plus-que-parfait production is required.",
+      "to": "Use the imparfait for the earlier routine and passé composé for the interruption. Explain the immediate workaround before proposing a later replacement."
+    },
+    {
+      "lesson": 15,
+      "from": "This is a fictional route. Location and accessibility of a real entrance would require local verification; do not deploy these directions as real-world guidance.",
+      "to": "This route is fictional. Check whether the visitor understood that the turn comes after the café. Actual entrances and accessibility require local verification."
+    }
+  ],
+  "stageSelection": [
+    {
+      "lesson": 13,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [2, 3, 4, 5, 6, 7, 8, 10],
+      "supplementalTerms": [
+        {"target": "affiche", "native": "poster"},
+        {"target": "exposition", "native": "exhibition"},
+        {"target": "photo", "native": "photograph"},
+        {"target": "document d’origine", "native": "original document"}
+      ]
+    },
+    {
+      "lesson": 14,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [0, 1, 2, 3, 4, 5, 8, 10],
+      "supplementalTerms": [
+        {"target": "projecteur", "native": "projector"},
+        {"target": "diapositive", "native": "slide"},
+        {"target": "prise", "native": "outlet"},
+        {"target": "coordinatrice", "native": "coordinator"}
+      ]
+    },
+    {
+      "lesson": 15,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [0, 1, 2, 3, 4, 6, 7, 8],
+      "supplementalTerms": [
+        {"target": "bibliothèque", "native": "library"},
+        {"target": "café", "native": "café"},
+        {"target": "porte", "native": "door"},
+        {"target": "accueil", "native": "reception"}
+      ]
+    }
+  ]
+}

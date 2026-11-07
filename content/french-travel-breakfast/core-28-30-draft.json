@@ -1,0 +1,514 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 28,
+      "titleEnglish": "Talk with a regular over coffee",
+      "objectiveEnglish": "sustain a longer conversation about the neighborhood, work, and travel with follow-up questions",
+      "scenarioEnglishSource": "A retired regular asks where you're from; keep the conversation going for several turns, ask follow-ups, and close politely.",
+      "titleFrenchCourseEnglish": "Parler avec un habitué du quartier",
+      "objectiveFrenchCourseEnglish": "Keep a friendly multi-turn conversation going about place, work and local recommendations.",
+      "focusEnglish": "Use depuis combien de temps for duration, qu’est-ce que vous faisiez for former work, and racontez-moi for a follow-up.",
+      "focusFrench": "Relancer poliment une conversation sur le quartier, le travail et les visites.",
+      "teachingNotesEnglish": "Depuis combien de temps habitez-vous ici ? asks about duration. Qu’est-ce que vous faisiez comme métier ? asks about earlier work without presuming the person still works. Ça m’a fait plaisir de discuter avec vous closes warmly.",
+      "words": [
+        {
+          "en": "retiree",
+          "kind": "term",
+          "fr": "une personne retraitée"
+        },
+        {
+          "en": "neighbor",
+          "kind": "term",
+          "fr": "un voisin, une voisine"
+        },
+        {
+          "en": "neighborhood",
+          "kind": "term",
+          "fr": "le quartier"
+        },
+        {
+          "en": "coffee",
+          "kind": "term",
+          "fr": "le café"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "trip",
+          "kind": "term",
+          "fr": "le voyage"
+        },
+        {
+          "en": "town square",
+          "kind": "term",
+          "fr": "la place du village"
+        },
+        {
+          "en": "work",
+          "kind": "term",
+          "fr": "le travail"
+        },
+        {
+          "en": "market",
+          "kind": "term",
+          "fr": "le marché"
+        },
+        {
+          "en": "Mexican sweet bread",
+          "kind": "term",
+          "fr": "une pâtisserie mexicaine, du pan dulce"
+        },
+        {
+          "en": "museum",
+          "kind": "term",
+          "fr": "le musée"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "I'm here traveling for two weeks.",
+          "kind": "phrase",
+          "fr": "Je voyage ici pendant deux semaines."
+        },
+        {
+          "en": "How long have you lived in this neighborhood?",
+          "kind": "phrase",
+          "fr": "Depuis combien de temps habitez-vous dans ce quartier ?"
+        },
+        {
+          "en": "And what do you do for a living?",
+          "kind": "phrase",
+          "fr": "Et quel métier exerciez-vous ?"
+        },
+        {
+          "en": "Really? Tell me more.",
+          "kind": "phrase",
+          "fr": "Vraiment ? Racontez-moi."
+        },
+        {
+          "en": "What do you recommend I visit around here?",
+          "kind": "phrase",
+          "fr": "Qu’est-ce que vous me conseillez de visiter dans le coin ?"
+        },
+        {
+          "en": "It was a pleasure chatting with you.",
+          "kind": "phrase",
+          "fr": "Ça m’a fait plaisir de discuter avec vous."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Parler avec un habitué du quartier",
+        "english": [
+          "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table.",
+          "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks.",
+          "Then I ask him: How long have you lived in this neighborhood?",
+          "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza.",
+          "Since his work interests me, I say: Really? Tell me more.",
+          "Then he talks to me about the market, because on Saturdays they sell very good pan dulce.",
+          "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum.",
+          "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you."
+        ],
+        "french": [
+          "Tous les matins, Don Ramón, un voisin retraité du quartier, prend son café à la même table.",
+          "Aujourd’hui, il me demande d’où je viens, et je lui réponds : « Je viens du Canada et je voyage ici pendant deux semaines. »",
+          "Puis je lui demande : « Depuis combien de temps habitez-vous dans ce quartier ? »",
+          "Il me dit qu’il vit ici depuis quarante ans et qu’il enseignait à l’école près de la place.",
+          "Son ancien travail m’intéresse, alors je dis : « Vraiment ? Racontez-moi. »",
+          "Il me parle ensuite du marché, car le samedi on y vend du très bon pan dulce.",
+          "Quand je lui demande ce qu’il conseille, il me dit de visiter le musée du centre-ville si j’ai le temps.",
+          "Avant de partir, je règle l’addition et je lui dis : « Ça m’a fait plaisir de discuter avec vous. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "discuter",
+          "meaningEnglish": "to chat",
+          "exampleFrench": "Don Ramón discute avec tout le monde au café.",
+          "exampleEnglish": "Don Ramón chats with everyone at the café.",
+          "sourceInfinitiveSpanish": "platicar"
+        },
+        {
+          "infinitiveFrench": "habiter",
+          "meaningEnglish": "to live",
+          "exampleFrench": "Depuis combien de temps habitez-vous dans ce quartier ?",
+          "exampleEnglish": "How long have you lived in this neighborhood?",
+          "sourceInfinitiveSpanish": "vivir"
+        },
+        {
+          "infinitiveFrench": "raconter",
+          "meaningEnglish": "to tell",
+          "exampleFrench": "Il me raconte qu’il enseignait à l’école près de la place.",
+          "exampleEnglish": "He tells me that he was a teacher at the school on the plaza.",
+          "sourceInfinitiveSpanish": "contar"
+        },
+        {
+          "infinitiveFrench": "conseiller",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "Qu’est-ce que vous me conseillez de visiter dans le coin ?",
+          "exampleEnglish": "What do you recommend I visit around here?",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "exercer",
+          "meaningEnglish": "to do for a living",
+          "exampleFrench": "Et quel métier exerciez-vous ?",
+          "exampleEnglish": "And what do you do for a living?",
+          "sourceInfinitiveSpanish": "dedicarse"
+        }
+      ],
+      "speakingInstructionEnglish": "Keep a friendly conversation going with two follow-up questions, request a local recommendation and close politely.",
+      "speakingFrench": "Je viens du Canada et je voyage ici pendant deux semaines. Depuis combien de temps habitez-vous dans le quartier ? Vraiment ? Racontez-moi.",
+      "regionalNotesEnglish": [
+        "Don Ramón and pan dulce remain details of the Mexican source scenario, not a Francophone breakfast claim.",
+        "Questions about work may be personal; the learner should adjust to the other person’s cues."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 29,
+      "titleEnglish": "Settle who pays for the group",
+      "objectiveEnglish": "offer to pay, respond when others insist, and follow local custom on treating",
+      "scenarioEnglishSource": "Your new friends insist on paying for breakfast; negotiate politely, accept or decline, and agree how to settle.",
+      "titleFrenchCourseEnglish": "Décider qui règle le petit-déjeuner",
+      "objectiveFrenchCourseEnglish": "Offer to treat friends, accept their offer gracefully or suggest sharing the bill.",
+      "focusEnglish": "Use c’est pour moi to offer, laissez-moi payer to insist politely, and la prochaine fois for reciprocity.",
+      "focusFrench": "Proposer de payer, accepter une invitation et clarifier le partage de l’addition.",
+      "teachingNotesEnglish": "Aujourd’hui, c’est pour moi offers to pay. Laissez-moi payer, s’il vous plaît is a polite insistence; if friends still want to treat, merci, la prochaine fois c’est pour moi accepts without prolonging the argument. Ask about tipping locally instead of assuming a rate.",
+      "words": [
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "cash",
+          "kind": "term",
+          "fr": "des espèces"
+        },
+        {
+          "en": "card",
+          "kind": "term",
+          "fr": "la carte bancaire"
+        },
+        {
+          "en": "sweet bread",
+          "kind": "term",
+          "fr": "une brioche"
+        },
+        {
+          "en": "change",
+          "kind": "term",
+          "fr": "la monnaie"
+        },
+        {
+          "en": "cash register",
+          "kind": "term",
+          "fr": "la caisse"
+        },
+        {
+          "en": "guest",
+          "kind": "term",
+          "fr": "un invité, une invitée"
+        },
+        {
+          "en": "Breakfast is on me today.",
+          "kind": "phrase",
+          "fr": "Aujourd’hui, le petit-déjeuner, c’est pour moi."
+        },
+        {
+          "en": "No, really, let me pay.",
+          "kind": "phrase",
+          "fr": "Non, vraiment, laissez-moi payer."
+        },
+        {
+          "en": "OK, thanks, but next time it's on me.",
+          "kind": "phrase",
+          "fr": "D’accord, merci, mais la prochaine fois c’est pour moi."
+        },
+        {
+          "en": "Then I'll leave the tip.",
+          "kind": "phrase",
+          "fr": "Alors, je laisserai le pourboire."
+        },
+        {
+          "en": "Is it customary to leave a tip here?",
+          "kind": "phrase",
+          "fr": "Ici, on laisse habituellement un pourboire ?"
+        },
+        {
+          "en": "Shall we split the bill among all of us?",
+          "kind": "phrase",
+          "fr": "On partage l’addition entre nous tous ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Décider qui règle le petit-déjeuner",
+        "english": [
+          "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+          "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+          "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+          "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+          "So I ask: Is it customary to leave a tip here?",
+          "Lucía says that they usually leave 10 percent if the service is good.",
+          "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+          "At the end I say: OK, thanks, but next time it's on me, and everyone laughs."
+        ],
+        "french": [
+          "Après un petit-déjeuner de café et de brioche à Oaxaca, le serveur apporte l’addition à notre table.",
+          "Je sors ma carte et je dis : « Aujourd’hui, le petit-déjeuner, c’est pour moi, puisque vous m’avez fait visiter la ville. »",
+          "Mes nouveaux amis, Lucía et Andrés, insistent : « Non, ici tu es notre invité. »",
+          "Je leur dis : « Non, vraiment, laissez-moi payer », mais Andrés donne déjà des espèces au serveur.",
+          "Alors je demande : « Ici, on laisse habituellement un pourboire ? »",
+          "Lucía dit que, d’habitude, ils laissent dix pour cent si le service est bon.",
+          "Je leur dis : « Si vous payez l’addition, alors je laisserai le pourboire », et ils acceptent.",
+          "À la fin, je dis : « D’accord, merci, mais la prochaine fois c’est pour moi », et tout le monde rit."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Si vous payez l’addition, je laisserai le pourboire.",
+          "exampleEnglish": "If you pay the bill, I'll leave the tip.",
+          "sourceInfinitiveSpanish": "pagar"
+        },
+        {
+          "infinitiveFrench": "inviter",
+          "meaningEnglish": "to treat (to pay for someone)",
+          "exampleFrench": "La prochaine fois, je vous invite.",
+          "exampleEnglish": "Next time it's on me.",
+          "sourceInfinitiveSpanish": "invitar"
+        },
+        {
+          "infinitiveFrench": "laisser",
+          "meaningEnglish": "to leave, to let",
+          "exampleFrench": "D’habitude, ils laissent dix pour cent.",
+          "exampleEnglish": "They usually leave 10 percent.",
+          "sourceInfinitiveSpanish": "dejar"
+        },
+        {
+          "infinitiveFrench": "insister",
+          "meaningEnglish": "to insist",
+          "exampleFrench": "Mes amis insistent pour payer le petit-déjeuner.",
+          "exampleEnglish": "My friends insist on paying for breakfast.",
+          "sourceInfinitiveSpanish": "insistir"
+        },
+        {
+          "infinitiveFrench": "partager",
+          "meaningEnglish": "to split, to divide",
+          "exampleFrench": "On partage l’addition entre nous tous ?",
+          "exampleEnglish": "Shall we split the bill among all of us?",
+          "sourceInfinitiveSpanish": "dividir"
+        }
+      ],
+      "speakingInstructionEnglish": "Offer to pay, respond naturally when friends insist, and settle the bill or tip without assuming a local rule.",
+      "speakingFrench": "Aujourd’hui, le petit-déjeuner, c’est pour moi. Non ? D’accord, merci, mais la prochaine fois, je vous invite. Ici, on laisse habituellement un pourboire ?",
+      "regionalNotesEnglish": [
+        "The source scene’s ten-percent tip is one character’s claim in Oaxaca, not guidance for French-speaking regions or a universal rule.",
+        "The source uses a Mexican setting; revise social register for a chosen Francophone locale before release."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 30,
+      "titleEnglish": "Breakfast threshold",
+      "objectiveEnglish": "handle a complete breakfast with children or special needs, a complication, a seating or charge disagreement, local customs, and a warm farewell without English",
+      "scenarioEnglishSource": "Navigate a busy breakfast with a mixed group—an allergy, a wrong charge, a seating dispute, and a long chat with a local—from the doorway to a warm goodbye.",
+      "titleFrenchCourseEnglish": "Révision générale : un petit-déjeuner chargé",
+      "objectiveFrenchCourseEnglish": "Handle seating, a child’s meal and allergy, an incorrect charge, local conversation and a warm farewell.",
+      "focusEnglish": "Combine polite requests, clarification and correction across a full visit; never treat an ingredient claim alone as proof that a meal is allergy-safe.",
+      "focusFrench": "Gérer une visite complète, poser des questions précises et corriger calmement une erreur.",
+      "teachingNotesEnglish": "This review links earlier café situations: a high chair, seating, food restrictions, a bill correction and farewell. The English source has a cook recommend eggs because they contain no nuts; that does not address cross-contact and must be corrected by a qualified allergy specialist before release.",
+      "words": [
+        {
+          "en": "allergy",
+          "kind": "term",
+          "fr": "une allergie"
+        },
+        {
+          "en": "nuts",
+          "kind": "term",
+          "fr": "les fruits à coque"
+        },
+        {
+          "en": "high chair",
+          "kind": "term",
+          "fr": "une chaise haute"
+        },
+        {
+          "en": "kids' menu",
+          "kind": "term",
+          "fr": "le menu enfant"
+        },
+        {
+          "en": "scrambled eggs",
+          "kind": "term",
+          "fr": "des œufs brouillés"
+        },
+        {
+          "en": "sweet bread",
+          "kind": "term",
+          "fr": "une brioche"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "charge",
+          "kind": "term",
+          "fr": "des frais"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "Can you bring us a high chair, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous nous apporter une chaise haute, s’il vous plaît ?"
+        },
+        {
+          "en": "Excuse me, the waiter gave us this table.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, le serveur nous a installés à cette table."
+        },
+        {
+          "en": "My daughter is allergic to nuts.",
+          "kind": "phrase",
+          "fr": "Ma fille est allergique aux fruits à coque."
+        },
+        {
+          "en": "Excuse me, I think there is a mistake on the bill.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, je crois qu’il y a une erreur sur l’addition."
+        },
+        {
+          "en": "Is the tip included?",
+          "kind": "phrase",
+          "fr": "Le pourboire est compris ?"
+        },
+        {
+          "en": "Thank you so much for everything, see you soon.",
+          "kind": "phrase",
+          "fr": "Merci beaucoup pour tout, à bientôt."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Révision générale : un petit-déjeuner chargé",
+        "english": [
+          "I arrive at the café with my 2 children and ask the waiter: Can you bring us a high chair, please?",
+          "Another customer says the table is his, and I calmly explain that the waiter gave us this table; the waiter confirms it and takes the man to another free table.",
+          "Before ordering, I explain to the waiter: My daughter is allergic to nuts, does the sweet bread have nuts in it?",
+          "The waiter checks in the kitchen and recommends the kids' menu with scrambled eggs, because the cook says it has no nuts.",
+          "While we eat, I chat with a woman at the next table: she asks me where we are from, recommends the downtown market and tells me that here people have a relaxed breakfast and chat for a long time.",
+          "When paying at the counter, I see a charge for 3 coffees, but we only ordered 2.",
+          "I tell the cashier: Excuse me, I think there is a mistake on the bill, and she fixes it right away.",
+          "Then I ask: Is the tip included? and she answers no, so I leave a tip on the table.",
+          "On the way out, I tell the woman: Thank you so much for everything, see you soon."
+        ],
+        "french": [
+          "J’arrive au café avec mes deux enfants et je demande au serveur : « Pourriez-vous nous apporter une chaise haute, s’il vous plaît ? »",
+          "Un autre client dit que la table lui appartient ; j’explique calmement que le serveur nous y a installés. Le serveur le confirme et conduit l’homme à une autre table libre.",
+          "Avant de commander, je dis au serveur : « Ma fille est allergique aux fruits à coque ; la brioche en contient-elle ? »",
+          "Le serveur se renseigne en cuisine et recommande le menu enfant avec des œufs brouillés, car le cuisinier dit qu’ils ne contiennent pas de fruits à coque.",
+          "Pendant le repas, je discute avec une femme à la table voisine ; elle me demande d’où nous venons, recommande le marché du centre-ville et dit qu’ici les gens prennent leur temps au petit-déjeuner.",
+          "Au moment de payer au comptoir, je vois trois cafés sur l’addition, alors que nous n’en avons commandé que deux.",
+          "Je dis à la caissière : « Excusez-moi, je crois qu’il y a une erreur sur l’addition », et elle la corrige tout de suite.",
+          "Puis je demande : « Le pourboire est compris ? » Elle répond que non, alors je laisse un pourboire sur la table.",
+          "En sortant, je dis à la femme : « Merci beaucoup pour tout, à bientôt. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Je commande le menu enfant pour mon fils.",
+          "exampleEnglish": "I order the kids' menu for my son.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Pourriez-vous nous apporter une chaise haute, s’il vous plaît ?",
+          "exampleEnglish": "Will you bring us a high chair, please?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "contenir",
+          "meaningEnglish": "to contain, to have in it",
+          "exampleFrench": "La brioche contient-elle des fruits à coque ?",
+          "exampleEnglish": "Does the sweet bread have nuts in it?",
+          "sourceInfinitiveSpanish": "llevar"
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Nous payons au comptoir.",
+          "exampleEnglish": "We pay at the counter.",
+          "sourceInfinitiveSpanish": "pagar"
+        },
+        {
+          "infinitiveFrench": "s’asseoir",
+          "meaningEnglish": "to sit down",
+          "exampleFrench": "Nous nous asseyons à cette table avec les enfants.",
+          "exampleEnglish": "We sit at this table with the kids.",
+          "sourceInfinitiveSpanish": "sentarse"
+        }
+      ],
+      "speakingInstructionEnglish": "Role-play the full visit in French: seating, a child’s meal, allergy questions, a bill correction, and farewell. Do not order for the allergic child based only on an ingredient assertion.",
+      "speakingFrench": "Bonjour, nous sommes avec deux enfants. Pourriez-vous nous apporter une chaise haute ? Ma fille a une allergie aux fruits à coque ; pouvez-vous vérifier les ingrédients et le risque de contact croisé avant que nous commandions ?",
+      "regionalNotesEnglish": [
+        "The source scene treats a cook’s “no nuts” answer as sufficient for an allergic child. That is an unresolved safety flaw; qualified allergy review and source correction are required before release.",
+        "Tipping and service inclusion vary by locale. The source’s long local conversation and seating resolution are fictional."
+      ],
+      "reviewed": false
+    }
+  ]
+}

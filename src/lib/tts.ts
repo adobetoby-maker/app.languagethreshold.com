@@ -1,4 +1,5 @@
 import { recordedSpanishPath } from "./recorded-spanish";
+import { recordedJapanesePath } from "./recorded-japanese";
 import { prepareBrowserPlayback } from "./browser-audio-session";
 // Site-wide TTS routing. A learner-selected Google Cloud voice follows them
 // across Reader, cards, games, listening drills, Speak, and specialty modules.
@@ -200,7 +201,8 @@ export async function speakRemote(
       return;
     }
     if (googleVoice && opts?.usage !== "mission") {
-      const recorded = recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
+      const recorded = recordedJapanesePath(text, googleVoice.voiceName, googleVoice.languageCode)
+        ?? recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
       if (!current()) return;
       if (recorded) {
         const el = audioEl();

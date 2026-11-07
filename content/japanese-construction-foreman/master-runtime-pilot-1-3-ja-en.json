@@ -167,45 +167,45 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:1",
-        "title": "Explain why shores stay",
-        "state": "phrase-sequence-draft",
+        "title": "A question at the morning briefing",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "まず、スラブを打設します。その後、養生が必要です。",
-            "native": "First the slab is poured, then it has to cure."
+            "target": "朝の打ち合わせで、マテオは支柱について質問しました。",
+            "native": "At the morning briefing, Mateo asked about the shores."
           },
           {
-            "target": "コンクリートはまだ荷重に耐えられないので、支柱は残したままにします。",
-            "native": "The shores stay because the concrete can't hold yet."
+            "target": "職長は現場の図面を机に広げ、確認する項目を示しました。",
+            "native": "The foreman spread the site drawings on the table and pointed out what needed checking."
           },
           {
-            "target": "ですから、構造技術者の許可が出るまで待ちます。",
-            "native": "That's why we wait for the structural engineer's go-ahead."
+            "target": "「まず、分かっていることを整理しましょう」と職長は言いました。",
+            "native": "“First, let’s sort out what we know,” the foreman said."
           },
           {
-            "target": "言いたいことは分かります。でも、設計は現場ごとに違います。",
-            "native": "I get it, but every job has its own design."
+            "target": "スラブの養生については、現場の記録に情報があります。",
+            "native": "The site records contain information about the slab’s curing."
           },
           {
-            "target": "構造技術者の承認なしに、誰も支柱を外しません。",
-            "native": "Nobody removes a shore without the engineer's approval."
+            "target": "しかし、構造技術者からの返答はまだ届いていません。",
+            "native": "However, the structural engineer’s response has not arrived yet."
           },
           {
-            "target": "いつ外すかは、私たちではなく円柱供試体の試験結果で決まります。",
-            "native": "The cylinder tests decide the timing, not us."
+            "target": "マテオは、決めつけずに図面と記録を確認する理由を理解しました。",
+            "native": "Mateo understood why they should check the drawings and records rather than assume."
           },
           {
-            "target": "では今度は、なぜ待つのか、自分の言葉で説明してください。",
-            "native": "Now you tell me why we wait, in your own words."
+            "target": "職長は「次に誰へ確認しますか」と尋ねました。",
+            "native": "The foreman asked, “Who should we check with next?”"
           },
           {
-            "target": "疑問があれば、まず私に聞いてください。",
-            "native": "If you have doubts, ask me first."
+            "target": "マテオは「構造技術者です」と答え、自分の言葉で状況を説明しました。",
+            "native": "Mateo answered, “The structural engineer,” and explained the situation in his own words."
           }
         ]
       },
       "grammar": {
-        "focus": "Sequence まず → その後 → ですから and explain that site-specific engineer approval controls shore removal.",
+        "focus": "Sequence まず → その後 → ですから while separating known records from engineer confirmation.",
         "teachingJapanese": "この場面では、手順と理由を順番に話します。「まず〜します。その後〜します。」で手順の流れを示します。「〜てから〜」は、先に終わる動作を表します（例：打設してから、養生します）。理由は「〜ので」や「〜ため」で文の前半に置き、結論は「ですから」「そのため」で後ろに続けます。「まだ〜られません」は『今はまだ〜できない』、「〜たままにします」は、その状態を変えずにおくことを表します（例：支柱は残したままにします）。待つ条件は「〜まで〜ます」で表します（例：許可が出るまで待ちます）。",
         "teachingNotesEnglish": [
           "Japanese 支柱 is provisional for each individual shore, and is used consistently in the taught phrase, grammar and speaking prompt. Qualified trade review must choose the actual site term and release authority before approval."
@@ -223,30 +223,30 @@
       },
       "speaking": {
         "id": "speak-master-construction-foreman-ja-en:lesson:1",
-        "summary": "Explain why shores remain, answer a new carpenter’s question, then request a teach-back.",
+        "summary": "Discuss what is known, what remains uncertain, and whom to ask before a decision.",
         "sourceSpeakingJapanese": "あなたは職長（しょくちょう）で、AIは新人の大工、マテオ・リオスです。構造技術者の許可（きょか）が出るまで支柱を残す理由を、順番に説明してください。「まず」「その後」で手順を示し、「ので」「ため」で理由を述べ、「ですから」で結論を伝えてください。マテオさんの質問には丁寧に答えてください。最後に、マテオさんに自分の言葉で説明し直してもらってください。",
-        "openingLine": "まず、スラブを打設します。その後、養生が必要です。",
-        "partnerRole": "A new carpenter who asks why the shores cannot yet be removed.",
+        "openingLine": "支柱について、どの点を確認したいですか。",
+        "partnerRole": "A new carpenter who asks what must be confirmed about the shores.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "まず、____を打設します。その後、養生が必要です。",
-          "hint": "First the slab is poured, then it has to cure.",
-          "answer": "スラブ",
-          "explanation": "スラブ appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "コンクリートはまだ荷重に耐えられないので、____は残したままにします。",
-          "hint": "The shores stay because the concrete can't hold yet.",
+          "prompt": "朝の打ち合わせで、マテオは____について質問しました。",
+          "hint": "At the morning briefing, Mateo asked about the shores.",
           "answer": "支柱",
-          "explanation": "支柱 appears in this lesson’s source phrase."
+          "explanation": "支柱 appears in this lesson’s reading."
         },
         {
-          "prompt": "ですから、____の許可が出るまで待ちます。",
-          "hint": "That's why we wait for the structural engineer's go-ahead.",
+          "prompt": "____の養生については、現場の記録に情報があります。",
+          "hint": "The site records contain information about the slab’s curing.",
+          "answer": "スラブ",
+          "explanation": "スラブ appears in this lesson’s reading."
+        },
+        {
+          "prompt": "しかし、____からの返答はまだ届いていません。",
+          "hint": "However, the structural engineer’s response has not arrived yet.",
           "answer": "構造技術者",
-          "explanation": "構造技術者 appears in this lesson’s source phrase."
+          "explanation": "構造技術者 appears in this lesson’s reading."
         }
       ],
       "technicalSourceBlockers": [],
@@ -408,41 +408,45 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:2",
-        "title": "Check the specified concrete cover",
-        "state": "phrase-sequence-draft",
+        "title": "Questions on the garage slab drawing",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ここでは、図面に示されたかぶり厚さに従います。",
-            "native": "Here we use the cover the plan shows."
+            "target": "午前の打ち合わせで、ルシアは駐車場のスラブの図面を見ていました。",
+            "native": "At the morning meeting, Lucia was looking at the garage slab drawing."
           },
           {
-            "target": "鉄筋用チェアは、鉄筋を正しい高さに保ちます。",
-            "native": "The chairs keep the rebar at the right height."
+            "target": "ルシアは「かぶり厚さはどこに書いてありますか」と尋ねました。",
+            "native": "Lucia asked, “Where is the concrete cover specified?”"
           },
           {
-            "target": "構造図を一緒に確認しましょう。",
-            "native": "Let's check the structural sheet together."
+            "target": "職長は、構造図の注記を一緒に探しました。",
+            "native": "The foreman looked for the note on the structural drawing with her."
           },
           {
-            "target": "前の現場は設計が違いましたが、ここではこの図面に従います。",
-            "native": "Your last job had a different design; here this plan rules."
+            "target": "ルシアは、鉄筋用チェアについても質問をメモしました。",
+            "native": "Lucia also wrote down a question about the rebar chairs."
           },
           {
-            "target": "打設（だせつ）の前に、かぶり厚さを数か所で測ります。",
-            "native": "Before the pour, the cover is measured at several points."
+            "target": "ルシアは、前の現場と同じ寸法を使ってよいか質問しました。",
+            "native": "Lucia asked whether they could use the same dimension as on her last job."
           },
           {
-            "target": "鉄筋用チェアが壊れていたら、打設の前に交換します。",
-            "native": "If a chair is broken, it gets replaced before the pour."
+            "target": "職長は「この現場の指定を確認してから答えましょう」と言いました。",
+            "native": "The foreman said, “Let’s check this job’s specification before answering.”"
           },
           {
-            "target": "なぜ鉄筋用チェアを使うのか、説明してもらえますか。",
-            "native": "Can you explain to me why we use chairs?"
+            "target": "二人は疑問点をメモし、担当の構造技術者に確認することにしました。",
+            "native": "They noted their questions and decided to check with the responsible structural engineer."
+          },
+          {
+            "target": "ルシアは、確認が必要な項目を自分の言葉でまとめました。",
+            "native": "Lucia summarized the items that still needed confirmation in her own words."
           }
         ]
       },
       "grammar": {
-        "focus": "Explain plan-specific cover, chairs and measurement. Do not teach the disputed water/rebar-height claim as fact.",
+        "focus": "Locate plan-specific cover notes; route technical interpretation to the structural engineer.",
         "teachingJapanese": "一般的な条件や結果は「〜と」で表します。「スラブ筋の位置が低すぎると、水が鉄筋まで届いてしまいます」のように使います。「〜ために」は目的を表し、「鉄筋用チェアは、鉄筋を正しい高さに保つために使います」のように言います。名詞を詳しく説明するときは「構造図に示されたかぶり厚さ」と言えます。現場の決まりや一般的な手順では、主語を言わずに「測ります」「確認します」「交換します」のように表すのが自然です。「〜たら」は特定の場合に行う対応を示します。",
         "teachingNotesEnglish": [
           "Safety/source blocker: English terms[16] says a mat sitting too low lets water reach the steel. On a deck exposed to deicing salts from above, lowering the mat may increase top cover instead; a qualified structural/concrete specialist must verify or correct the English source before this lesson can be approved. Japanese currently preserves the source claim for alignment, not endorsement.",
@@ -461,30 +465,30 @@
       },
       "speaking": {
         "id": "speak-master-construction-foreman-ja-en:lesson:2",
-        "summary": "Use the structural sheet to explain cover and chairs, check measurements, and ask the trainee to teach back the approved procedure.",
+        "summary": "Find the relevant drawing note and identify questions for the structural engineer.",
         "sourceSpeakingJapanese": "あなたは職長です。相手のAIは見習いのルシア・フェレールです。駐車場のスラブで、鉄筋用チェア、スラブ筋、かぶり厚さがどう組み合わさって機能するか説明してください。一般的な条件は「〜と」、現場の手順は主語を省いた「測ります」「交換します」などを使って述べてください。構造図を一緒に確認し、ルシアに今の説明を自分の言葉で説明し直してもらってください。",
-        "openingLine": "ここでは、図面に示されたかぶり厚さに従います。",
-        "partnerRole": "A trainee who asks about rebar chairs and the cover shown on the structural sheet.",
+        "openingLine": "この構造図のどの注記を確認しましょうか。",
+        "partnerRole": "A trainee who asks where the drawing specifies concrete cover.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ここでは、図面に示された____に従います。",
-          "hint": "Here we use the cover the plan shows.",
+          "prompt": "ルシアは「____はどこに書いてありますか」と尋ねました。",
+          "hint": "Lucia asked, “Where is the concrete cover specified?”",
           "answer": "かぶり厚さ",
-          "explanation": "かぶり厚さ appears in this lesson’s source phrase."
+          "explanation": "かぶり厚さ appears in this lesson’s reading."
         },
         {
-          "prompt": "____は、鉄筋を正しい高さに保ちます。",
-          "hint": "The chairs keep the rebar at the right height.",
-          "answer": "鉄筋用チェア",
-          "explanation": "鉄筋用チェア appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "____を一緒に確認しましょう。",
-          "hint": "Let's check the structural sheet together.",
+          "prompt": "職長は、____の注記を一緒に探しました。",
+          "hint": "The foreman looked for the note on the structural drawing with her.",
           "answer": "構造図",
-          "explanation": "構造図 appears in this lesson’s source phrase."
+          "explanation": "構造図 appears in this lesson’s reading."
+        },
+        {
+          "prompt": "ルシアは、____についても質問をメモしました。",
+          "hint": "Lucia also wrote down a question about the rebar chairs.",
+          "answer": "鉄筋用チェア",
+          "explanation": "鉄筋用チェア appears in this lesson’s reading."
         }
       ],
       "technicalSourceBlockers": [
@@ -654,45 +658,45 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:3",
-        "title": "Teach a harness inspection sequence",
-        "state": "phrase-sequence-draft",
+        "title": "A practice inspection conversation",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "着用する前に、全体を点検してください。",
-            "native": "Check all of it before you put it on."
+            "target": "新人のホアキンは、訓練用のハーネスとランヤードを持ってきました。",
+            "native": "Joaquín, a new worker, brought a training harness and lanyard."
           },
           {
-            "target": "切れ目や縫い目のほつれがある場合は、使用しないでください。",
-            "native": "Don't use it if it has cuts or loose stitching."
+            "target": "職長は、点検表を机に置きました。",
+            "native": "The foreman placed an inspection checklist on the table."
           },
           {
-            "target": "破損していたら、私に渡してください。別のものを渡します。",
-            "native": "If it's damaged, hand it to me and I'll give you another one."
+            "target": "「今日は点検の順番を言葉で説明してみましょう」と職長は言いました。",
+            "native": "“Today, let’s try explaining the inspection sequence in words,” the foreman said."
           },
           {
-            "target": "腿のストラップを、体にぴったり合うように締めてください。",
-            "native": "Tighten your leg straps so they're snug."
+            "target": "ホアキンは、ラベルについて書かれた欄を読み上げました。",
+            "native": "Joaquín read aloud the section about the label."
           },
           {
-            "target": "ラベルと点検タグの確認が抜けていました。",
-            "native": "You missed checking the label and the inspection tag."
+            "target": "次に、縫い目について確認が必要だと気づきました。",
+            "native": "Next, he noticed that the stitching needed clarification."
           },
           {
-            "target": "ラベルを見せて、日付を読み上げてください。",
-            "native": "Show me the label and read me the date."
+            "target": "点検タグの文字が読みにくかったので、二人は安全担当者への質問として記録しました。",
+            "native": "Because the inspection tag was hard to read, they recorded a question for the safety contact."
           },
           {
-            "target": "承認済みの取付設備にだけ掛けてください。",
-            "native": "Clip it only to an approved anchor point."
+            "target": "職長は、分からない点を推測しないようホアキンに伝えました。",
+            "native": "The foreman told Joaquín not to guess about what they did not know."
           },
           {
-            "target": "よくできました。では最初から、今度はあなたが説明してください。",
-            "native": "Very good, now you explain it to me from the start."
+            "target": "ホアキンは、自分の言葉で確認事項を説明し直しました。",
+            "native": "Joaquín restated the items to confirm in his own words."
           }
         ]
       },
       "grammar": {
-        "focus": "Use 〜前に for timing and 〜たら/〜場合 for conditional damage and escalation; follow the qualified site procedure.",
+        "focus": "Use 〜前に and 〜たら to ask about a checklist without prescribing an unapproved safety procedure.",
         "teachingJapanese": "日本語では、ハーネスなど話題になっている物は文脈で分かる場合、繰り返さずに言えます。順番に指示するときは「着用する前に、点検してください」、禁止を伝えるときは「使用しないでください」を使います。条件は「破損していたら」や「破損がある場合は」、目的は「体に合うように」で表します。「ラベルを見せて、日付を読み上げてください」のように、て形で二つの動作をつなぎます。点検漏れを指摘するときは「確認が抜けていました」と言います。最後に、相手に最初から説明してもらい、誤りを訂正します。",
         "teachingNotesEnglish": [
           "Competent person is a US regulatory role. The Japanese loanword is provisional and does not itself define qualifications or authorize an inspection; a qualified safety specialist must review before release.",
@@ -711,30 +715,30 @@
       },
       "speaking": {
         "id": "speak-master-construction-foreman-ja-en:lesson:3",
-        "summary": "Guide a new worker through pre-use inspection, correct missed checks, then request a teach-back.",
+        "summary": "Practice explaining a checklist and record unknown items for the qualified safety contact.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは新人作業員のホアキン・ベルナルを演じます。ハーネスとランヤードの点検を、一つずつ順番に指導してください。「着用する前に、全体を点検してください」「切れ目や縫い目のほつれがある場合は、使用しないでください。」のように指示し、ホアキンが確認を飛ばしたら指摘してください。最後に、ホアキンに最初から説明してもらい、その説明（ティーチバック）を聞いて、間違いを丁寧に訂正してください。",
-        "openingLine": "着用する前に、全体を点検してください。",
-        "partnerRole": "A new worker practicing a site-approved harness and lanyard inspection.",
+        "openingLine": "点検表で分からないところはありますか。",
+        "partnerRole": "A new worker who asks about an inspection checklist.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "着用する前に、全体を____してください。",
-          "hint": "Check all of it before you put it on.",
-          "answer": "点検",
-          "explanation": "点検 appears in this lesson’s source phrase."
+          "prompt": "新人のホアキンは、訓練用の____とランヤードを持ってきました。",
+          "hint": "Joaquín, a new worker, brought a training harness and lanyard.",
+          "answer": "ハーネス",
+          "explanation": "ハーネス appears in this lesson’s reading."
         },
         {
-          "prompt": "切れ目や____のほつれがある場合は、使用しないでください。",
-          "hint": "Don't use it if it has cuts or loose stitching.",
+          "prompt": "ホアキンは、____について書かれた欄を読み上げました。",
+          "hint": "Joaquín read aloud the section about the label.",
+          "answer": "ラベル",
+          "explanation": "ラベル appears in this lesson’s reading."
+        },
+        {
+          "prompt": "次に、____について確認が必要だと気づきました。",
+          "hint": "Next, he noticed that the stitching needed clarification.",
           "answer": "縫い目",
-          "explanation": "縫い目 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "____していたら、私に渡してください。別のものを渡します。",
-          "hint": "If it's damaged, hand it to me and I'll give you another one.",
-          "answer": "破損",
-          "explanation": "破損 appears in this lesson’s source phrase."
+          "explanation": "縫い目 appears in this lesson’s reading."
         }
       ],
       "technicalSourceBlockers": [],

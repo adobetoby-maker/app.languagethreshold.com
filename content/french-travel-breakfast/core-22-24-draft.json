@@ -1,0 +1,501 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 22,
+      "titleEnglish": "Follow café etiquette",
+      "objectiveEnglish": "learn local habits about milky coffee, sugar, lingering, and paying first",
+      "scenarioEnglishSource": "Ask a barista which café habits mark someone as a tourist and how long it is fine to stay at a table.",
+      "titleFrenchCourseEnglish": "Demander les habitudes du café",
+      "objectiveFrenchCourseEnglish": "Ask the barista how ordering, paying, sugar and lingering work in this particular café.",
+      "focusEnglish": "Use ici and dans ce café to keep local customs specific; ask questions rather than assume a universal café rule.",
+      "focusFrench": "Demander comment on commande, paie et occupe une table dans ce café précis.",
+      "teachingNotesEnglish": "Ici, on paie d’abord à la caisse ? asks about this café. C’est possible de rester un moment ? checks whether lingering is welcome. Cortado and café con leche come from the Mexican source scene; local French menu names may differ.",
+      "words": [
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "un café au lait"
+        },
+        {
+          "en": "espresso with a little milk",
+          "kind": "term",
+          "fr": "un expresso avec un peu de lait"
+        },
+        {
+          "en": "sugar",
+          "kind": "term",
+          "fr": "le sucre"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "register",
+          "kind": "term",
+          "fr": "la caisse"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "habit",
+          "kind": "term",
+          "fr": "une habitude"
+        },
+        {
+          "en": "tourist",
+          "kind": "term",
+          "fr": "un touriste, une touriste"
+        },
+        {
+          "en": "Do you pay first at the register here?",
+          "kind": "phrase",
+          "fr": "Ici, on paie d’abord à la caisse ?"
+        },
+        {
+          "en": "Does the coffee already come with sugar?",
+          "kind": "phrase",
+          "fr": "Le café est déjà sucré ?"
+        },
+        {
+          "en": "Is it okay to stay at the table for a while?",
+          "kind": "phrase",
+          "fr": "C’est possible de rester un moment à table ?"
+        },
+        {
+          "en": "What habits are typical of tourists here?",
+          "kind": "phrase",
+          "fr": "Quelles habitudes sont typiques des touristes ici ?"
+        },
+        {
+          "en": "Can I order another cortado later?",
+          "kind": "phrase",
+          "fr": "Je peux commander un autre cortado plus tard ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Demander les habitudes du café",
+        "english": [
+          "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+          "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+          "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+          "Then she asks: Does the coffee already come with sugar?",
+          "He answers: No, the sugar is on the counter, so you add as much as you want.",
+          "The traveler also wants to know: What habits are typical of tourists here?",
+          "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+          "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+          "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional."
+        ],
+        "french": [
+          "Une voyageuse entre dans un petit café et demande au barista : « Ici, on paie d’abord à la caisse ? »",
+          "Le barista sourit et explique : « Dans ce café, oui : on paie d’abord à la caisse, puis on commande au comptoir. »",
+          "Elle commande un cortado parce que, le matin, elle préfère moins de lait que dans un café con leche.",
+          "Puis elle demande : « Le café est déjà sucré ? »",
+          "Il répond : « Non, le sucre est au comptoir ; vous en ajoutez autant que vous voulez. »",
+          "La voyageuse veut aussi savoir : « Quelles habitudes sont typiques des touristes ici ? »",
+          "Le barista dit : « Beaucoup de touristes attendent l’addition à table, mais ici il n’y a pas d’addition à la fin et, s’il reste des tables libres, personne ne leur demande de partir. »",
+          "Avant de s’asseoir, elle demande : « C’est possible de rester un moment à table ? Je peux commander un autre cortado plus tard ? »",
+          "Le barista répond : « Bien sûr, prenez votre temps ; pour un autre cortado, vous payez à la caisse, et le pourboire est facultatif. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Dans ce café, on paie d’abord à la caisse.",
+          "exampleEnglish": "In this café, you pay first at the register.",
+          "sourceInfinitiveSpanish": "pagar"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Je paie d’abord, puis je commande au comptoir.",
+          "exampleEnglish": "First I pay and then I order at the counter.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "préférer",
+          "meaningEnglish": "to prefer",
+          "exampleFrench": "Le matin, je préfère un cortado.",
+          "exampleEnglish": "In the morning I prefer a cortado.",
+          "sourceInfinitiveSpanish": "preferir"
+        },
+        {
+          "infinitiveFrench": "rester",
+          "meaningEnglish": "to stay",
+          "exampleFrench": "S’il reste des tables libres, je peux rester un moment.",
+          "exampleEnglish": "If there are free tables, I stay for a while.",
+          "sourceInfinitiveSpanish": "quedarse"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask the barista how this café handles payment, sugar, table time and another order.",
+      "speakingFrench": "Bonjour, ici, on paie d’abord à la caisse ? Le café est déjà sucré ? Est-ce que je peux rester un moment à table ?",
+      "regionalNotesEnglish": [
+        "Cortado and café con leche are retained from the Mexican English-source scene and do not establish Francophone menu naming.",
+        "Payment order, table time and tipping are explicitly this café’s scenario, not regional etiquette rules."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 23,
+      "titleEnglish": "Find an early-opening bakery",
+      "objectiveEnglish": "ask a local for a specific recommendation, opening hours, and walking directions",
+      "scenarioEnglishSource": "Ask the hotel host where to find the best bakery open before 7 a.m. and how to walk there.",
+      "titleFrenchCourseEnglish": "Trouver une boulangerie ouverte tôt",
+      "objectiveFrenchCourseEnglish": "Ask for a nearby bakery open before seven and confirm walking directions.",
+      "focusEnglish": "Ask à quelle heure ça ouvre for opening time and comment y aller à pied for walking directions; repeat landmarks back.",
+      "focusFrench": "Demander une recommandation, les horaires et un itinéraire à pied avec des repères.",
+      "teachingNotesEnglish": "Vous connaissez une boulangerie ouverte avant sept heures ? makes the time constraint clear. Comment y aller à pied ? asks for the route. Repeat the turn and landmark so the receptionist can correct a misunderstanding.",
+      "words": [
+        {
+          "en": "bakery",
+          "kind": "term",
+          "fr": "la boulangerie"
+        },
+        {
+          "en": "receptionist",
+          "kind": "term",
+          "fr": "le réceptionniste"
+        },
+        {
+          "en": "sweet bread",
+          "kind": "term",
+          "fr": "une brioche"
+        },
+        {
+          "en": "opening hours",
+          "kind": "term",
+          "fr": "les horaires d’ouverture"
+        },
+        {
+          "en": "map",
+          "kind": "term",
+          "fr": "la carte"
+        },
+        {
+          "en": "block",
+          "kind": "term",
+          "fr": "un pâté de maisons"
+        },
+        {
+          "en": "street",
+          "kind": "term",
+          "fr": "la rue"
+        },
+        {
+          "en": "traffic light",
+          "kind": "term",
+          "fr": "le feu de circulation"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "le coin"
+        },
+        {
+          "en": "square",
+          "kind": "term",
+          "fr": "la place"
+        },
+        {
+          "en": "Can you recommend a bakery nearby?",
+          "kind": "phrase",
+          "fr": "Vous pouvez me recommander une boulangerie près d’ici ?"
+        },
+        {
+          "en": "What time does it open?",
+          "kind": "phrase",
+          "fr": "À quelle heure ouvre-t-elle ?"
+        },
+        {
+          "en": "Is it open before 7?",
+          "kind": "phrase",
+          "fr": "Elle est ouverte avant sept heures ?"
+        },
+        {
+          "en": "How do I get there on foot from here?",
+          "kind": "phrase",
+          "fr": "Comment y aller à pied depuis ici ?"
+        },
+        {
+          "en": "How many blocks is it?",
+          "kind": "phrase",
+          "fr": "C’est à combien de pâtés de maisons ?"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "kind": "phrase",
+          "fr": "Vous pouvez répéter, s’il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Trouver une boulangerie ouverte tôt",
+        "english": [
+          "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+          "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+          "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+          "Ana asks: What time does it open?",
+          "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+          "Then Ana asks: How do I get there on foot from here?",
+          "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+          "Ana does not understand everything and asks: Can you repeat that, please?",
+          "He calmly repeats: The bakery is on the corner, across from the square."
+        ],
+        "french": [
+          "Il est six heures trente du matin et Ana cherche un petit-déjeuner près de l’hôtel.",
+          "Ana demande au réceptionniste : « Vous pouvez me recommander une boulangerie près d’ici qui ouvre avant sept heures ? »",
+          "Le réceptionniste dit : « Je vous recommande Panadería Lupita, car les brioches sortent du four très tôt. »",
+          "Ana demande : « À quelle heure ouvre-t-elle ? »",
+          "Il répond : « D’après ses horaires, elle ouvre à six heures, mais le dimanche elle ouvre plus tard. »",
+          "Puis Ana demande : « Comment y aller à pied depuis ici ? »",
+          "Le réceptionniste lui montre la carte et dit : « Continuez tout droit sur trois pâtés de maisons dans cette rue, puis tournez à droite au feu. »",
+          "Ana n’a pas tout compris et demande : « Vous pouvez répéter, s’il vous plaît ? »",
+          "Il répète calmement : « La boulangerie est au coin, en face de la place. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "recommander",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "Je vous recommande Panadería Lupita.",
+          "exampleEnglish": "I recommend Panadería Lupita.",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "ouvrir",
+          "meaningEnglish": "to open",
+          "exampleFrench": "À quelle heure ouvre la boulangerie ?",
+          "exampleEnglish": "What time does the bakery open?",
+          "sourceInfinitiveSpanish": "abrir"
+        },
+        {
+          "infinitiveFrench": "arriver",
+          "meaningEnglish": "to arrive, to get to",
+          "exampleFrench": "Comment y arriver à pied depuis ici ?",
+          "exampleEnglish": "How do I get there on foot from here?",
+          "sourceInfinitiveSpanish": "llegar"
+        },
+        {
+          "infinitiveFrench": "marcher",
+          "meaningEnglish": "to walk",
+          "exampleFrench": "Marchez trois pâtés de maisons dans cette rue.",
+          "exampleEnglish": "Walk 3 blocks along this street.",
+          "sourceInfinitiveSpanish": "caminar"
+        },
+        {
+          "infinitiveFrench": "tourner",
+          "meaningEnglish": "to turn",
+          "exampleFrench": "Tournez à droite au feu.",
+          "exampleEnglish": "Turn right at the traffic light.",
+          "sourceInfinitiveSpanish": "doblar"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask the hotel host for a bakery, check its opening time and repeat the walking route.",
+      "speakingFrench": "Bonjour, vous connaissez une boulangerie ouverte avant sept heures ? Comment y aller à pied depuis ici ? Pouvez-vous répéter le dernier tournant ?",
+      "regionalNotesEnglish": [
+        "Panadería Lupita and its hours are from the Mexican source scenario; opening hours are fictional and must be verified locally.",
+        "Pâté de maisons is understandable but route descriptions vary by city; confirm landmarks and accessibility if needed."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 24,
+      "titleEnglish": "Get help in a café emergency",
+      "objectiveEnglish": "alert staff, ask someone to call emergency services, give the location, and describe what you saw",
+      "scenarioEnglishSource": "A guest at the next table collapses; alert the staff, ask for emergency help, and describe what happened.",
+      "titleFrenchCourseEnglish": "Demander de l’aide dans une urgence au café",
+      "objectiveFrenchCourseEnglish": "Alert staff, ask for emergency help, provide the location and report observed facts.",
+      "focusEnglish": "Use an urgent clear request, give the exact location, and describe only what you observed; follow the emergency operator’s instructions.",
+      "focusFrench": "Alerter le personnel, communiquer le lieu précis et décrire uniquement les faits observés.",
+      "teachingNotesEnglish": "C’est une urgence ! alerts staff. Pouvez-vous appeler les secours ? requests help without inventing a country-specific emergency number. Give the operator the address and what you actually saw, then follow their instructions. This scenario does not teach first aid.",
+      "words": [
+        {
+          "en": "emergency",
+          "kind": "term",
+          "fr": "une urgence"
+        },
+        {
+          "en": "ambulance",
+          "kind": "term",
+          "fr": "une ambulance"
+        },
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "manager",
+          "kind": "term",
+          "fr": "le responsable"
+        },
+        {
+          "en": "customer",
+          "kind": "term",
+          "fr": "un client, une cliente"
+        },
+        {
+          "en": "next table",
+          "kind": "term",
+          "fr": "la table voisine"
+        },
+        {
+          "en": "floor",
+          "kind": "term",
+          "fr": "le sol"
+        },
+        {
+          "en": "emergency number",
+          "kind": "term",
+          "fr": "le numéro d’urgence"
+        },
+        {
+          "en": "address",
+          "kind": "term",
+          "fr": "l’adresse"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "le coin"
+        },
+        {
+          "en": "operator",
+          "kind": "term",
+          "fr": "l’opérateur, l’opératrice"
+        },
+        {
+          "en": "paramedics",
+          "kind": "term",
+          "fr": "les secouristes"
+        },
+        {
+          "en": "Help, please, it's an emergency!",
+          "kind": "phrase",
+          "fr": "À l’aide, s’il vous plaît, c’est une urgence !"
+        },
+        {
+          "en": "Can you call an ambulance, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous appeler une ambulance, s’il vous plaît ?"
+        },
+        {
+          "en": "A man fell at the next table.",
+          "kind": "phrase",
+          "fr": "Un homme est tombé à la table voisine."
+        },
+        {
+          "en": "What is the exact address of the café?",
+          "kind": "phrase",
+          "fr": "Quelle est l’adresse exacte du café ?"
+        },
+        {
+          "en": "I don't know if he is breathing well.",
+          "kind": "phrase",
+          "fr": "Je ne sais pas s’il respire normalement."
+        },
+        {
+          "en": "We are on the corner of Juárez and Madero.",
+          "kind": "phrase",
+          "fr": "Nous sommes à l’angle des rues Juárez et Madero."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Demander de l’aide dans une urgence au café",
+        "english": [
+          "I am having breakfast in a café when the customer at the next table falls to the floor.",
+          "I stand up and say to the waiter: Help, please, it's an emergency!",
+          "The manager comes quickly and I ask him: Can you call an ambulance, please?",
+          "He dials the emergency number and the operator asks him for the address.",
+          "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+          "Then the operator wants to know what happened, because that information helps the paramedics.",
+          "I explain to her: A man fell at the next table and he isn't answering.",
+          "I also tell her: I don't know if he is breathing well.",
+          "Then I wait at the door to show the table to the paramedics when they arrive."
+        ],
+        "french": [
+          "Je prends mon petit-déjeuner dans un café quand un client de la table voisine tombe au sol.",
+          "Je me lève et je dis au serveur : « À l’aide, s’il vous plaît, c’est une urgence ! »",
+          "Le responsable arrive rapidement et je lui demande : « Pouvez-vous appeler une ambulance, s’il vous plaît ? »",
+          "Il compose le numéro d’urgence local et l’opératrice lui demande l’adresse.",
+          "Le responsable répond : « Nous sommes à l’angle des rues Juárez et Madero, à côté de la banque. »",
+          "Puis l’opératrice veut savoir ce qui s’est passé pour transmettre les faits aux secouristes.",
+          "Je lui explique : « Un homme est tombé à la table voisine et ne répond pas. »",
+          "Je lui dis aussi : « Je ne sais pas s’il respire normalement. »",
+          "J’attends ensuite près de la porte pour indiquer la table aux secouristes quand ils arrivent."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "appeler",
+          "meaningEnglish": "to call",
+          "exampleFrench": "Appelez une ambulance, s’il vous plaît.",
+          "exampleEnglish": "Call an ambulance, please.",
+          "sourceInfinitiveSpanish": "llamar"
+        },
+        {
+          "infinitiveFrench": "tomber",
+          "meaningEnglish": "to fall (down)",
+          "exampleFrench": "Le client de la table voisine tombe au sol.",
+          "exampleEnglish": "The customer at the next table falls to the floor.",
+          "sourceInfinitiveSpanish": "caerse"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask for",
+          "exampleFrench": "L’opératrice demande l’adresse.",
+          "exampleEnglish": "The operator asks for the address.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "respirer",
+          "meaningEnglish": "to breathe",
+          "exampleFrench": "Je ne sais pas s’il respire normalement.",
+          "exampleEnglish": "I don't know if he is breathing well.",
+          "sourceInfinitiveSpanish": "respirar"
+        },
+        {
+          "infinitiveFrench": "expliquer",
+          "meaningEnglish": "to explain",
+          "exampleFrench": "J’explique à l’opératrice ce qui s’est passé.",
+          "exampleEnglish": "I explain to the operator what happened.",
+          "sourceInfinitiveSpanish": "explicar"
+        }
+      ],
+      "speakingInstructionEnglish": "Alert staff, have someone contact local emergency services, give the precise location, and report only what you observed.",
+      "speakingFrench": "À l’aide, s’il vous plaît, c’est une urgence ! Pouvez-vous appeler les secours ? Nous sommes à l’angle des rues Juárez et Madero. Un homme est tombé et ne répond pas.",
+      "regionalNotesEnglish": [
+        "This is a fictional Mexican-street scenario. Emergency numbers and response systems vary by location; no number is supplied.",
+        "Medical, emergency-response and translation specialists must review the wording before learner release. Follow real emergency dispatch instructions rather than this scripted passage."
+      ],
+      "reviewed": false
+    }
+  ]
+}

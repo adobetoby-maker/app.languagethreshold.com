@@ -7,22 +7,31 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DRAFT = ROOT / "content/french-travel-breakfast/foundation-1-3-draft.json"
+DRAFTS = [
+    ROOT / "content/french-travel-breakfast/foundation-1-3-draft.json",
+    ROOT / "content/french-travel-breakfast/foundation-4-6-draft.json",
+    ROOT / "content/french-travel-breakfast/foundation-7-10-draft.json",
+]
 FIXTURE = ROOT / "content/french-travel-breakfast/private-runtime-candidate.json"
-SOURCE_LOCALE = re.compile(r"\b(?:Oaxaca|Mexico|pesos?|Spanish|espagnol)\b", re.I)
+SOURCE_LOCALE = re.compile(
+    r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
+    r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
+)
+LOCALIZED = {1, 2, 3, 4, 6, 8}
 REMAINING = [
-    "foundation:4", "foundation:6", "foundation:8", "foundation:9",
-    "foundation:10", "core:25", "core:29",
+    "foundation:5", "foundation:7", "foundation:9", "foundation:10",
+    "core:3", "core:7", "core:22", "core:23", "core:24", "core:25",
+    "core:28", "core:29", "master:7",
 ]
 
 
 def main():
-    draft = json.loads(DRAFT.read_text())
     fixture = json.loads(FIXTURE.read_text())
     assert fixture["sourceLocaleCarryoverLessonKeys"] == REMAINING
     assert all(value is False for value in fixture["releaseGate"].values())
     assert (fixture["targetLanguage"], fixture["nativeLanguage"]) == ("French", "English")
-    for source_lesson in draft["lessons"]:
+    drafts = [json.loads(path.read_text()) for path in DRAFTS]
+    for source_lesson in (lesson for draft in drafts for lesson in draft["lessons"] if lesson["n"] in LOCALIZED):
         n = source_lesson["n"]
         candidate = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == f"foundation:{n}")
         assert candidate["reviewed"] is False and candidate["registered"] is False
@@ -47,7 +56,7 @@ def main():
     prices = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "foundation:2")
     assert "douze euros" in prices["speaking"]["openingFrench"]
     assert "twelve euros" in prices["reader"][7]["supportEnglish"]
-    print("French Travel Breakfast Foundation 1–3 localized pairs and remaining carryover passed")
+    print("French Travel Breakfast six localized Foundation pairs and remaining carryover passed")
 
 
 if __name__ == "__main__":

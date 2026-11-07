@@ -10,6 +10,13 @@ lessons = [lesson for path in paths for lesson in json.loads(path.read_text())["
 assert [lesson["n"] for lesson in lessons] == list(range(1, 31))
 assert all(lesson["reviewed"] is False for lesson in lessons)
 assert all(lesson["passage"]["english"] and lesson["passage"]["french"] for lesson in lessons)
+source = json.loads((ROOT / "public/lesson-content/es/travel-breakfast.json").read_text())["lessons"]["30"]["passage"]
+review = lessons[-1]["passage"]
+assert review["english"] == source["native"]
+assert "cannot rule out cross-contact" in source["native"][3]
+assert "no puede descartar el contacto cruzado" in source["target"][3]
+assert "ne peut pas exclure le contact croisé" in review["french"][3]
+assert "because the cook says it has no nuts" not in source["native"][3]
 print(f"French Travel Breakfast private Core draft: {len(lessons)}/30 contiguous lessons; "
       f"{sum(len(x['words']) for x in lessons)} exact English anchors; "
       f"{sum(len(x['passage']['french']) for x in lessons)} aligned Reader lines; "

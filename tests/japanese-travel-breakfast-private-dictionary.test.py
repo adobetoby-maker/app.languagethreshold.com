@@ -47,6 +47,18 @@ class BreakfastDictionaryTests(unittest.TestCase):
         by_target = {}
         for entry in inventory["entries"]:
             by_target.setdefault(entry["target"], []).append(entry)
+            self.assertFalse(entry["reviewed"])
+        self.assertEqual(
+            {target for target, entries in by_target.items() if len(entries) > 1},
+            {
+                "ありがとうございます", "お会計", "わかりません", "カフェオレ", "予約",
+                "少なめ", "席", "料金", "明細", "確認してください", "調理器具",
+            },
+        )
+        self.assertEqual(
+            {entry["target"] for entry in inventory["entries"] if entry["needsKindReview"]},
+            {"ありますか", "カードで払えますか"},
+        )
         self.assertEqual({entry["native"] for entry in by_target["わかりません"]},
                          {"I do not know", "I do not understand"})
         self.assertTrue(all(entry["needsSenseReview"] for entry in by_target["わかりません"]))

@@ -1,0 +1,9 @@
+# French 101 private dictionary sense review — source pass
+
+This bounded pass checks the 25 multiple-gloss headwords in private dictionary inventory PR #322 against the SHA-pinned authored lesson rows and, where present, their exact lesson-scoped support overlays. It does not change a French or English lesson word, merge a sense ID, set `reviewed:true`, or register the dictionary.
+
+Eight cases have a **provisional annotation overlap** supported by the exact source rows: `gentil`, `gentille`, `la porte`, `la professeure`, `la table`, `s’il vous plaît`, `sur`, and `trois`. Examples: the two `sur` rows say “on” and “on (location)”; the two `trois` rows say “3” and “three.” The review file records a source path, SHA-256, stage, lesson, word index, and exact gloss for every provisional sense, including overlay provenance where applicable. These pairs stay separate so existing IDs and lesson meanings remain stable.
+
+The other 17 remain `unresolved`: `dans`, `dans / sur / à`, `elle`, `est`, `il`, `la`, `le`, `les`, `là`, `pour`, `un`, `un cahier`, `un livre`, `un étudiant`, `une`, `une solution de rechange`, and `une étudiante`. They may involve different grammar roles, articles, context-specific meanings, or wording that requires a French educator's decision. All 25 retain `qualifiedFrenchReviewRequired:true`, `reviewed:false`, and `registered:false`; none is a published dictionary sense.
+
+Rebuild and negative-check with `python3 scripts/build-french-101-private-sense-review.py --check` and `python3 scripts/test-french-101-private-sense-review.py`. The validator rejects changed source evidence, glosses, IDs, statuses, or review flags. Qualified French review must decide final POS, inflection, register and France/Québec variants before any learner-facing dictionary release. Audio, offline installation, browser/phone and V4 acceptance are separate gates.

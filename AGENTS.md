@@ -95,6 +95,10 @@ supabase/
 
 Describe translation choices by the level of work requested, such as Standard for everyday documents and Detailed for technical or complex wording. Do not expose model names in customer-facing controls or marketing copy. Keep model identifiers in the implementation.
 
+# Clinical language lessons
+
+Teach medical and clinical vocabulary, translations, and grammar directly and precisely. Preserve the source term and its clinical meaning; do not erase, euphemize, substitute, or hedge a learner-facing term because it is medical. Do not insert generic AI-authored cautions into vocabulary or grammar lessons. Check linguistic and technical accuracy, and record a genuinely uncertain term for source correction or expert terminology review. The learner or clinician decides when to use the language in practice.
+
 # Readable product typography
 
 Use upright lettering throughout the app, with clear serif headings and clean sans-serif body text. Avoid italics, tiny tracked labels, faded text containers, and pale text on pale backgrounds. Verify Progress status panels and locked states in both Light and Dark themes when changing their colors.

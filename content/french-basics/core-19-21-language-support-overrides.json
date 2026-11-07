@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 19–21 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 19,
+      "cardIndex": 4,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 19,
+      "cardIndex": 8,
+      "from": {
+        "target": "Demain, je vais étudier l’espagnol.",
+        "native": "Tomorrow I am going to study Spanish."
+      },
+      "to": {
+        "target": "Demain, je vais étudier le français.",
+        "native": "Tomorrow I am going to study French."
+      },
+      "reason": "Localize French learner practice; preserve exact English source separately"
+    },
+    {
+      "lesson": 20,
+      "cardIndex": 1,
+      "from": {
+        "target": "est / se trouve",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est / se trouve",
+        "native": "is / is located"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 20,
+      "cardIndex": 4,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 20,
+      "cardIndex": 5,
+      "from": {
+        "target": "sont / se trouvent",
+        "native": "are (condition/location)"
+      },
+      "to": {
+        "target": "sont / se trouvent",
+        "native": "are / are located"
+      },
+      "reason": "Clarify plural location uses"
+    },
+    {
+      "lesson": 20,
+      "cardIndex": 6,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 21,
+      "cardIndex": 0,
+      "from": {
+        "target": "est / se trouve",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est / se trouve",
+        "native": "is / is located"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 21,
+      "cardIndex": 9,
+      "from": {
+        "target": "Ana sait parler espagnol.",
+        "native": "Ana knows how to speak Spanish."
+      },
+      "to": {
+        "target": "Ana sait parler français.",
+        "native": "Ana knows how to speak French."
+      },
+      "reason": "Localize French learner practice; preserve exact English source separately"
+    }
+  ],
+  "dialogueOverrides": [
+    {
+      "lesson": 19,
+      "lineIndex": 0,
+      "from": {
+        "target": "Demain, je vais étudier l’espagnol.",
+        "native": "Tomorrow I am going to study Spanish."
+      },
+      "to": {
+        "target": "Demain, je vais étudier le français.",
+        "native": "Tomorrow I am going to study French."
+      },
+      "reason": "Keep dialogue and Reader aligned"
+    },
+    {
+      "lesson": 21,
+      "lineIndex": 1,
+      "from": {
+        "target": "Ana sait parler espagnol.",
+        "native": "Ana knows how to speak Spanish."
+      },
+      "to": {
+        "target": "Ana sait parler français.",
+        "native": "Ana knows how to speak French."
+      },
+      "reason": "Keep dialogue and Reader aligned"
+    }
+  ],
+  "grammarOverrides": [
+    {
+      "lesson": 21,
+      "from": "Use savoir for knowledge of a fact, an answer, or how to do something: je sais où est la bibliothèque; Ana sait parler espagnol; Luis sait la réponse. Use connaître for familiarity with a person or place: je connais la professeure; nous ne connaissons pas cette ville. The present forms change: je sais, tu sais, il sait, nous savons; je connais, tu connais, il connaît, nous connaissons.",
+      "to": "Use savoir for knowledge of a fact, an answer, or how to do something: je sais où est la bibliothèque; Ana sait parler français; Luis sait la réponse. Use connaître for familiarity with a person or place: je connais la professeure; nous ne connaissons pas cette ville. The present forms change: je sais, tu sais, il sait, nous savons; je connais, tu connais, il connaît, nous connaissons.",
+      "reason": "Align grammar explanation with localized French practice"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 19,
+      "from": "Spanish ir a + infinitive has a linking a; French aller + infinitive does not. The source sentence explicitly says Spanish, so this draft retains l’espagnol as the subject of study rather than silently changing the English meaning.",
+      "to": "French aller + infinitive has no linking à. Use je vais étudier le français for this French-course example.",
+      "reason": "Remove Spanish-specific lesson comparison and align localized example"
+    },
+    {
+      "lesson": 20,
+      "from": "Unlike Spanish estar + gerund, French does not require a progressive form for every action happening now. “J’étudie à la bibliothèque” can also mean “I am studying in the library.” Use en train de here to teach the explicit contrast; avoid using it mechanically in every ordinary present-tense sentence.",
+      "to": "French does not require a progressive form for every action happening now. “J’étudie à la bibliothèque” can also mean “I am studying in the library.” Use en train de here for an explicit contrast; avoid using it mechanically in every ordinary present-tense sentence.",
+      "reason": "Remove Spanish-specific lesson comparison"
+    },
+    {
+      "lesson": 21,
+      "from": "French connaître does not take the Spanish personal a before a person: je connais la professeure. The source line says Ana speaks Spanish, so espagnol remains the language in that example.",
+      "to": "Use je connais la professeure for knowing a teacher. Use Ana sait parler français for knowing how to speak French.",
+      "reason": "Remove Spanish-specific lesson comparison and align localized example"
+    }
+  ],
+  "modelOverrides": [
+    {
+      "lesson": 19,
+      "key": "I",
+      "from": "Demain, je vais étudier l’espagnol.",
+      "to": "Demain, je vais étudier le français.",
+      "reason": "Align grammar model with localized Reader/card"
+    },
+    {
+      "lesson": 21,
+      "key": "ability",
+      "from": "Ana sait parler espagnol.",
+      "to": "Ana sait parler français.",
+      "reason": "Align grammar model with localized Reader/card"
+    }
+  ]
+}

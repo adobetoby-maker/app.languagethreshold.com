@@ -862,6 +862,572 @@
         "say": "Describe your breakfast and ask a guest about theirs.",
         "write": "Write two habit sentences and one question."
       }
+    },
+    {
+      "n": 7,
+      "stableId": "foundation-travel-breakfast:7:ja-en",
+      "sourceObjectiveSha256": "b7bdf3f70249b01ab585e35b6d30896f500d9457bafb621864513658f97d207c",
+      "sourceEnglishObjective": "Ask a server or hotel host the basic questions you need at breakfast.",
+      "title": "Ask the host",
+      "objective": "Ask what breakfast costs, where a restroom is, and what a bread item is called.",
+      "focus": "Use 何 (what), どこ (where), いつ (when), いくら (how much), and どれ (which). The question marker か closes a polite question. Ask the host for the actual price rather than assuming breakfast is included.",
+      "scene": "Sam checks breakfast details with a hotel café host.",
+      "cards": [
+        {
+          "ja": "何",
+          "en": "what",
+          "kind": "term"
+        },
+        {
+          "ja": "どこ",
+          "en": "where",
+          "kind": "term"
+        },
+        {
+          "ja": "いつ",
+          "en": "when",
+          "kind": "term"
+        },
+        {
+          "ja": "いくら",
+          "en": "how much",
+          "kind": "term"
+        },
+        {
+          "ja": "どれ",
+          "en": "which",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "en": "restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "このパン",
+          "en": "this bread",
+          "kind": "term"
+        },
+        {
+          "ja": "何というパンですか",
+          "en": "What is this bread called?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "朝食はいくらですか",
+          "en": "How much is breakfast?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "トイレはどこですか",
+          "en": "Where is the restroom?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。朝食はいくらですか。",
+          "en": "Good morning. How much is breakfast?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "お部屋のプランを確認します。",
+          "en": "I will check your room plan."
+        },
+        {
+          "speaker": "Host",
+          "ja": "このプランでは、朝食は千円です。",
+          "en": "For this plan, breakfast is one thousand yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。トイレはどこですか。",
+          "en": "Thank you. Where is the restroom?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "あちらです。",
+          "en": "It is over there."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このパンは何というパンですか。",
+          "en": "What is this bread called?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "あんパンです。",
+          "en": "It is anpan, a sweet bean bun."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おすすめはどれですか。",
+          "en": "Which do you recommend?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "こちらです。",
+          "en": "This one."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel breakfast guest",
+        "partnerRole": "Hotel café host",
+        "opening": "おはようございます。何かお探しですか。",
+        "goal": "Ask the actual breakfast price for your plan, where the restroom is, and the name of a bread item.",
+        "closure": "Thank the host; do not assume breakfast is included.",
+        "wordBank": [
+          "朝食",
+          "いくらですか",
+          "トイレ",
+          "どこですか",
+          "このパン",
+          "何というパンですか"
+        ]
+      },
+      "modes": {
+        "see": "Read the host dialogue with aligned English.",
+        "recall": "Recall three question forms in context.",
+        "hear": "Hear いくら and どこ before translation reveal.",
+        "type": "Type a short location question with kana help.",
+        "say": "Ask the host three distinct breakfast questions.",
+        "write": "Write a price, location and naming question."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "foundation-travel-breakfast:8:ja-en",
+      "sourceObjectiveSha256": "d2922f51df62137b1d7f3425f096b4ee23f3dba683151ab6d2ff42e4dd446f85",
+      "sourceEnglishObjective": "Say what you don't eat, say you are not ready yet, and ask for more, less or another.",
+      "title": "Not ready yet",
+      "objective": "Say you are not ready, explain that you do not eat meat, and ask for another drink with less sugar.",
+      "focus": "まだ means not yet when paired with a negative. 肉を食べません states that you do not eat meat; it does not establish an allergy. 砂糖は少なめで asks for less sugar. Do not treat an ingredient question or staff answer as proof that food is allergen-safe.",
+      "scene": "Sam asks for a moment and adjusts a drink order at a café.",
+      "cards": [
+        {
+          "ja": "まだ",
+          "en": "not yet",
+          "kind": "term"
+        },
+        {
+          "ja": "決めていません",
+          "en": "have not decided",
+          "kind": "term"
+        },
+        {
+          "ja": "肉",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "ja": "食べません",
+          "en": "do not eat",
+          "kind": "term"
+        },
+        {
+          "ja": "もう一杯",
+          "en": "another cup",
+          "kind": "term"
+        },
+        {
+          "ja": "砂糖",
+          "en": "sugar",
+          "kind": "term"
+        },
+        {
+          "ja": "少なめ",
+          "en": "less; a small amount",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "成分",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "ご注文はお決まりですか。",
+          "en": "Have you decided what to order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "まだ決めていません。少し待ってください。",
+          "en": "I have not decided yet. Please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "肉は食べません。肉を使わない料理はありますか。",
+          "en": "I do not eat meat. Do you have a dish without meat?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。少々お待ちください。",
+          "en": "I will check. Please wait a moment."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。コーヒーをもう一杯ください。",
+          "en": "Thank you. Another coffee, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "砂糖は少なめでお願いします。",
+          "en": "Less sugar, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、砂糖は少なめですね。",
+          "en": "Yes, less sugar."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、そうです。",
+          "en": "Yes, that is right."
+        }
+      ],
+      "speaking": {
+        "role": "Café guest changing an order",
+        "partnerRole": "Café staff",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "Say you are not ready, state that you do not eat meat, and request another coffee with less sugar.",
+        "closure": "Wait for staff to confirm ingredients if you ask about a dish; do not claim allergy safety.",
+        "wordBank": [
+          "まだ決めていません",
+          "肉は食べません",
+          "確認してください",
+          "もう一杯",
+          "砂糖は少なめで"
+        ]
+      },
+      "modes": {
+        "see": "Read the order adjustment and see English after reveal.",
+        "recall": "Recall まだ, 食べません and 少なめ.",
+        "hear": "Hear a negative request and distinguish it from a positive one.",
+        "type": "Type 肉は食べません with guided input.",
+        "say": "Tell staff you are not ready and adjust the drink.",
+        "write": "Write a preference and a separate ingredient-check request."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "foundation-travel-breakfast:9:ja-en",
+      "sourceObjectiveSha256": "e1cc3b5cd3f7d1ba4f5e84f3cbe2b625374c928efc8d15c518c52a298a4d456a",
+      "sourceEnglishObjective": "Ask a server politely for the bill, water or the check, and give simple usted commands.",
+      "title": "Ask for the bill",
+      "objective": "Request water and the bill politely, then confirm the accepted way to pay.",
+      "focus": "～をください is a direct polite request; ～をいただけますか softens it. お会計 is the bill/payment. Do not translate Spanish usted commands mechanically. Tipping and change practices vary by place, so verify before offering to leave change.",
+      "scene": "Sam finishes breakfast and asks staff how to pay.",
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "the bill; payment",
+          "kind": "term"
+        },
+        {
+          "ja": "お水",
+          "en": "water",
+          "kind": "term"
+        },
+        {
+          "ja": "一杯",
+          "en": "one cup or glass",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "おつり",
+          "en": "change",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "お願いします",
+          "en": "please",
+          "kind": "term"
+        },
+        {
+          "ja": "お水をいただけますか",
+          "en": "Could I have water?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで払えますか",
+          "en": "Can I pay by card?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "現金で払います",
+          "en": "I will pay in cash",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。お水を一杯いただけますか。",
+          "en": "Excuse me. Could I have a glass of water?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、少々お待ちください。",
+          "en": "Yes, please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お水をどうぞ。",
+          "en": "Here is your water."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。お会計をお願いします。",
+          "en": "Thank you. The bill, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お会計はレジでお願いします。",
+          "en": "Please pay at the register."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払えますか。",
+          "en": "Can I pay by card?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、カードで払えます。",
+          "en": "Yes, you can pay by card."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、カードで払います。",
+          "en": "Then I will pay by card."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler finishing breakfast",
+        "partnerRole": "Café staff",
+        "opening": "お食事はいかがでしたか。",
+        "goal": "Ask for a glass of water and the bill, then check whether card payment is accepted.",
+        "closure": "Pay only after the method and amount are confirmed.",
+        "wordBank": [
+          "お水",
+          "いただけますか",
+          "お会計",
+          "お願いします",
+          "カードで払えますか"
+        ]
+      },
+      "modes": {
+        "see": "Read a bill and payment exchange.",
+        "recall": "Recall polite water and bill requests.",
+        "hear": "Hear お会計 and お水 in the staff exchange.",
+        "type": "Type お会計をお願いします with kana assistance.",
+        "say": "Ask for water, bill and payment method.",
+        "write": "Write a concise water request and bill request."
+      }
+    },
+    {
+      "n": 10,
+      "stableId": "foundation-travel-breakfast:10:ja-en",
+      "sourceObjectiveSha256": "dc033a0dafa64c79b6a716d2146314026d98966e7e0ddaf743f4680575847979",
+      "sourceEnglishObjective": "Spot Spanish words you already know and use survival phrases when you don't understand.",
+      "title": "Ask for help understanding",
+      "objective": "Recognize common katakana loanwords and ask a café worker to repeat or explain an unfamiliar dish.",
+      "focus": "Japanese does not have Spanish -ción/-dad cognate patterns. Familiar-looking katakana words such as メニュー and レストラン can help, but meaning and pronunciation still need checking. ゆっくり話してください asks someone to speak slowly; もう一度お願いします asks for repetition. Ingredient questions do not verify allergy safety on their own.",
+      "scene": "At a café, Sam cannot understand a seasonal specialty and asks for a slower explanation.",
+      "cards": [
+        {
+          "ja": "すみません",
+          "en": "excuse me",
+          "kind": "term"
+        },
+        {
+          "ja": "わかりません",
+          "en": "I do not understand",
+          "kind": "term"
+        },
+        {
+          "ja": "ゆっくり",
+          "en": "slowly",
+          "kind": "term"
+        },
+        {
+          "ja": "もう一度",
+          "en": "one more time",
+          "kind": "term"
+        },
+        {
+          "ja": "話してください",
+          "en": "please speak",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "レストラン",
+          "en": "restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "季節限定",
+          "en": "seasonal special",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアン",
+          "en": "vegetarian",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "こちらは季節限定のおすすめです。",
+          "en": "This is our seasonal recommendation."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません、よくわかりません。",
+          "en": "Excuse me, I do not quite understand."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "もう一度、ゆっくり話してください。",
+          "en": "Please say it again slowly."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。季節限定のパンです。",
+          "en": "Yes. It is a seasonal bread."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "材料は何ですか。",
+          "en": "What are the ingredients?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "調理場に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。確認をお願いします。",
+          "en": "Thank you. Please check."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、少々お待ちください。",
+          "en": "Certainly. Please wait a moment."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking for clarification",
+        "partnerRole": "Café staff",
+        "opening": "こちらは季節限定のおすすめです。",
+        "goal": "Say you do not understand, ask staff to speak slowly, and ask what the special contains.",
+        "closure": "Wait for the kitchen check; do not infer allergy or vegetarian suitability.",
+        "wordBank": [
+          "すみません",
+          "わかりません",
+          "もう一度",
+          "ゆっくり",
+          "材料",
+          "確認をお願いします"
+        ]
+      },
+      "modes": {
+        "see": "Read the clarification exchange; reveal English after the Japanese line.",
+        "recall": "Recall repeat, slow-speech and ingredient questions.",
+        "hear": "Hear ゆっくり versus もう一度 in context.",
+        "type": "Type a short clarification request with kana support.",
+        "say": "Ask for a slower explanation and ingredient check.",
+        "write": "Write a respectful request for repetition and ingredients."
+      }
     }
   ],
   "reviewGates": [
@@ -869,6 +1435,8 @@
     "Qualified regional café review of menu/price assumptions",
     "Qualified food-allergy review before any allergy claims are added",
     "Independent curriculum and exact-pair review",
-    "Recorded ja-JP audio and phone/offline verification"
+    "Recorded ja-JP audio and phone/offline verification",
+    "Never treat a staff ingredient answer as allergy certification; qualified food-safety review required for any allergy guidance",
+    "Regional tipping, prices, payment methods and hotel breakfast inclusion must be checked before learner-facing release"
   ]
 }

@@ -12,12 +12,15 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 review = json.loads(module.OUTPUT.read_bytes())
 module.validate(review)
-assert review["counts"] == {"ambiguousHeadwords": 25, "sourceAlignedAnnotations": 8, "unresolved": 17}
+assert review["counts"] == {"ambiguousHeadwords": 25, "sourceAlignedAnnotations": 13, "unresolved": 12}
 assert review["target"] == "French" and review["native"] == "English"
 assert review["registered"] is False and review["reviewed"] is False and review["senseIdsMerged"] is False
 assert len({case["headwordId"] for case in review["cases"]}) == 25
-assert sum(case["sourceLevelStatus"] == "annotation-overlap-provisional" for case in review["cases"]) == 8
-assert sum(case["sourceLevelStatus"] == "unresolved" for case in review["cases"]) == 17
+assert sum(case["sourceLevelStatus"] == "annotation-overlap-provisional" for case in review["cases"]) == 13
+assert sum(case["sourceLevelStatus"] == "unresolved" for case in review["cases"]) == 12
+assert {case["target"] for case in review["cases"] if case["sourceLevelStatus"] == "annotation-overlap-provisional"} >= {
+    "le", "un cahier", "un livre", "un étudiant", "une étudiante"
+}
 assert all(len(case["evidence"]) == len(case["senseIds"]) and
            {item["senseId"] for item in case["evidence"]} == set(case["senseIds"])
            for case in review["cases"])

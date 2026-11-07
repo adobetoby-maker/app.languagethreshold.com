@@ -1,0 +1,511 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 1,
+      "titleEnglish": "Enter a busy café",
+      "objectiveEnglish": "greet staff, learn whether to order at the counter, and find a place",
+      "scenarioEnglishSource": "Walk into a crowded Roman café and work out how ordering and seating operate.",
+      "titleFrenchCourseEnglish": "Entrer dans un café fréquenté",
+      "objectiveFrenchCourseEnglish": "Ask where to order, greet staff politely, and find a seat in French.",
+      "focusEnglish": "Questions with est-ce que and y a-t-il; polite vous; café seating and ordering.",
+      "focusFrench": "Poser des questions avec est-ce que et y a-t-il ; vouvoyer le personnel ; distinguer sur place et à emporter.",
+      "teachingNotesEnglish": "Use est-ce que to ask a full question without changing statement order. Y a-t-il une table libre ? is a compact alternative for asking whether a table is available. Use vous with staff. Au comptoir means at the counter; sur place means to eat or drink here, and à emporter means to go.",
+      "words": [
+        {
+          "en": "café; coffee shop",
+          "kind": "term",
+          "fr": "le café"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "free table",
+          "kind": "term",
+          "fr": "une table libre"
+        },
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur",
+          "noteEnglish": "Serveuse is the feminine form. For a café employee, server or waiter is context-dependent."
+        },
+        {
+          "en": "menu",
+          "kind": "term",
+          "fr": "la carte"
+        },
+        {
+          "en": "line; queue",
+          "kind": "term",
+          "fr": "la file d'attente"
+        },
+        {
+          "en": "patio; outdoor seating",
+          "kind": "term",
+          "fr": "la terrasse"
+        },
+        {
+          "en": "sweet pastry",
+          "kind": "term",
+          "fr": "une viennoiserie"
+        },
+        {
+          "en": "chair",
+          "kind": "term",
+          "fr": "la chaise"
+        },
+        {
+          "en": "Good morning, do I order here at the counter?",
+          "kind": "phrase",
+          "fr": "Bonjour, est-ce que je commande ici, au comptoir ?"
+        },
+        {
+          "en": "Is there a free table?",
+          "kind": "phrase",
+          "fr": "Y a-t-il une table libre ?"
+        },
+        {
+          "en": "Do I sit wherever I want?",
+          "kind": "phrase",
+          "fr": "Est-ce que je peux m'asseoir où je veux ?"
+        },
+        {
+          "en": "Sorry, I don't understand. Can you repeat, please?",
+          "kind": "phrase",
+          "fr": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?"
+        },
+        {
+          "en": "Is it to go or to eat here?",
+          "kind": "phrase",
+          "fr": "C'est à emporter ou sur place ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Un café très fréquenté",
+        "english": [
+          "A traveler enters a very busy café.",
+          "There is a long line in front of the counter.",
+          "The traveler says: Good morning.",
+          "He asks the waitress: Do I order here at the counter?",
+          "The waitress answers: Yes, order here, please.",
+          "He asks: Is there a free table?",
+          "The waitress says: There is a table on the patio.",
+          "He waits in line and looks at the menu.",
+          "Then he orders a coffee and a sweet pastry."
+        ],
+        "french": [
+          "Un voyageur entre dans un café très fréquenté.",
+          "Il y a une longue file devant le comptoir.",
+          "Le voyageur dit : « Bonjour. »",
+          "Il demande à la serveuse : « Est-ce que je commande ici, au comptoir ? »",
+          "La serveuse répond : « Oui, commandez ici, s'il vous plaît. »",
+          "Il demande : « Y a-t-il une table libre ? »",
+          "La serveuse dit : « Il y a une table sur la terrasse. »",
+          "Il attend dans la file et regarde la carte.",
+          "Ensuite, il commande un café et une viennoiserie."
+        ]
+      },
+      "speakingInstructionEnglish": "Ask a busy café server where to order, whether a table is free, and whether seating is assigned.",
+      "speakingFrench": "Bonjour ! Est-ce que je commande ici, au comptoir ? Y a-t-il une table libre ?",
+      "regionalNotesEnglish": [
+        "In France, une terrasse is outdoor café seating. Service and seating practices differ by café; ask rather than assume."
+      ],
+      "reviewed": false,
+      "verbs": [
+        {
+          "infinitiveFrench": "entrer",
+          "meaningEnglish": "to enter",
+          "exampleFrench": "Un voyageur entre dans un café très fréquenté.",
+          "exampleEnglish": "A traveler enters a very busy café.",
+          "sourceInfinitiveSpanish": "entrar"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order; to ask for",
+          "exampleFrench": "Ensuite, il commande un café et une viennoiserie.",
+          "exampleEnglish": "Then he orders a coffee and a sweet pastry.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "attendre",
+          "meaningEnglish": "to wait",
+          "exampleFrench": "Il attend dans la file.",
+          "exampleEnglish": "He waits in line.",
+          "sourceInfinitiveSpanish": "esperar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask (a question)",
+          "exampleFrench": "Il demande : « Y a-t-il une table libre ? »",
+          "exampleEnglish": "He asks: Is there a free table?",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "s'asseoir",
+          "meaningEnglish": "to sit down",
+          "exampleFrench": "Je m'assieds sur la terrasse.",
+          "exampleEnglish": "I sit on the patio.",
+          "sourceInfinitiveSpanish": "sentarse"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "titleEnglish": "Order local coffee",
+      "objectiveEnglish": "ask about coffee styles, size, milk, temperature, and where to drink it",
+      "scenarioEnglishSource": "Order a local coffee without assuming the names or customs are the same as at home.",
+      "titleFrenchCourseEnglish": "Commander un café local",
+      "objectiveFrenchCourseEnglish": "Ask about coffee styles, milk, temperature, and service options in French.",
+      "focusEnglish": "Partitive du/de la, polite je voudrais, and café-order vocabulary.",
+      "focusFrench": "Employer je voudrais et avez-vous ; demander les tailles, le lait et la température d'un café.",
+      "teachingNotesEnglish": "Use je voudrais for a polite order and avez-vous for availability. Du lait d'avoine uses du because the amount is unspecified. Chaud and froid describe the drink. Sur place and à emporter describe where it will be consumed. Ask which sizes the café actually offers; a standard medium size is not universal.",
+      "words": [
+        {
+          "en": "black coffee",
+          "kind": "term",
+          "fr": "un café noir"
+        },
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "un café au lait"
+        },
+        {
+          "en": "medium",
+          "kind": "term",
+          "fr": "moyen",
+          "noteEnglish": "Ask about available sizes; a medium is not a universal French café size."
+        },
+        {
+          "en": "oat milk",
+          "kind": "term",
+          "fr": "le lait d'avoine"
+        },
+        {
+          "en": "hot",
+          "kind": "term",
+          "fr": "chaud"
+        },
+        {
+          "en": "cold",
+          "kind": "term",
+          "fr": "froid"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "barista",
+          "kind": "term",
+          "fr": "le barista"
+        },
+        {
+          "en": "size",
+          "kind": "term",
+          "fr": "la taille"
+        },
+        {
+          "en": "milk",
+          "kind": "term",
+          "fr": "le lait"
+        },
+        {
+          "en": "to go",
+          "kind": "term",
+          "fr": "à emporter"
+        },
+        {
+          "en": "What types of coffee are there?",
+          "kind": "phrase",
+          "fr": "Quelles sortes de café avez-vous ?"
+        },
+        {
+          "en": "What sizes do you have?",
+          "kind": "phrase",
+          "fr": "Quelles tailles proposez-vous ?"
+        },
+        {
+          "en": "I want a coffee with milk, please.",
+          "kind": "phrase",
+          "fr": "Je voudrais un café au lait, s'il vous plaît."
+        },
+        {
+          "en": "Do you have oat milk?",
+          "kind": "phrase",
+          "fr": "Avez-vous du lait d'avoine ?"
+        },
+        {
+          "en": "Is it to drink here or to go?",
+          "kind": "phrase",
+          "fr": "C'est sur place ou à emporter ?"
+        },
+        {
+          "en": "Can it be hot, please?",
+          "kind": "phrase",
+          "fr": "Vous pouvez me le servir chaud, s'il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Un café au comptoir",
+        "english": [
+          "A traveler arrives at the counter of a café.",
+          "She asks: What types of coffee are there?",
+          "The barista says there is black coffee and coffee with milk.",
+          "She wants a medium coffee with milk.",
+          "She asks: Do you have oat milk?",
+          "The barista answers yes, and asks if she wants it hot or cold.",
+          "She asks for the coffee hot and asks: Is it to drink here or to go?",
+          "She takes a table and drinks her coffee."
+        ],
+        "french": [
+          "Une voyageuse arrive au comptoir d'un café.",
+          "Elle demande : « Quelles sortes de café avez-vous ? »",
+          "Le barista dit qu'il y a du café noir et du café au lait.",
+          "Elle voudrait un café au lait de taille moyenne.",
+          "Elle demande : « Avez-vous du lait d'avoine ? »",
+          "Le barista répond oui et lui demande si elle le veut chaud ou froid.",
+          "Elle demande un café chaud, puis demande : « C'est pour boire ici ou à emporter ? »",
+          "Elle prend une table et boit son café."
+        ]
+      },
+      "speakingInstructionEnglish": "Order a coffee, ask whether oat milk and size options are available, then confirm hot and on-site or takeaway service.",
+      "speakingFrench": "Bonjour ! Quelles sortes de café avez-vous ? Avez-vous du lait d'avoine ? Je voudrais un café chaud, s'il vous plaît.",
+      "regionalNotesEnglish": [
+        "In France, un café often means espresso; café au lait is commonly a breakfast drink. Sizes and milk choices vary; ask the café."
+      ],
+      "reviewed": false,
+      "verbs": [
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Elle voudrait un café au lait de taille moyenne.",
+          "exampleEnglish": "She wants a medium coffee with milk.",
+          "sourceInfinitiveSpanish": "querer"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Elle demande : « Quelles sortes de café avez-vous ? »",
+          "exampleEnglish": "She asks: What types of coffee are there?",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "boire",
+          "meaningEnglish": "to drink / to take",
+          "exampleFrench": "Elle prend une table et boit son café.",
+          "exampleEnglish": "She takes a table and drinks her coffee.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order / to ask for",
+          "exampleFrench": "Elle demande un café chaud.",
+          "exampleEnglish": "She asks for the coffee hot.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleFrench": "Avez-vous du lait d'avoine ?",
+          "exampleEnglish": "Do you have oat milk?",
+          "sourceInfinitiveSpanish": "tener"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "titleEnglish": "Choose pastries and bread",
+      "objectiveEnglish": "ask what is fresh, filled, sweet, savory, or typical",
+      "scenarioEnglishSource": "Ask the server to explain three pastries and recommend one made that morning.",
+      "titleFrenchCourseEnglish": "Choisir du pain et des pâtisseries",
+      "objectiveFrenchCourseEnglish": "Ask what is fresh, filled, sweet or savory, and request a recommendation in French.",
+      "focusEnglish": "Question words quel/lequel and food adjectives; asking for a recommendation.",
+      "focusFrench": "Choisir entre quel et lequel ; décrire une pâtisserie comme fraîche, fourrée, sucrée ou salée.",
+      "teachingNotesEnglish": "Qu'est-ce qui est frais ? asks what is fresh. Lequel is masculine singular for which one; use laquelle for a feminine item. Sucré and salé describe sweet and savory food. Fourré means filled. Je voudrais goûter means I would like to try. This reading preserves the source's Mexican bakery foods as cultural context; French names for local pastries differ by region.",
+      "words": [
+        {
+          "en": "bakery",
+          "kind": "term",
+          "fr": "la boulangerie"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "sweet bread",
+          "kind": "term",
+          "fr": "un pain sucré"
+        },
+        {
+          "en": "pastry",
+          "kind": "term",
+          "fr": "une pâtisserie"
+        },
+        {
+          "en": "bolillo (crusty white roll)",
+          "kind": "term",
+          "fr": "un bolillo",
+          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+        },
+        {
+          "en": "concha (sweet shell-shaped bread)",
+          "kind": "term",
+          "fr": "une concha",
+          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+        },
+        {
+          "en": "empanada (filled pastry)",
+          "kind": "term",
+          "fr": "une empanada",
+          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+        },
+        {
+          "en": "cheese",
+          "kind": "term",
+          "fr": "le fromage"
+        },
+        {
+          "en": "filling",
+          "kind": "term",
+          "fr": "la garniture"
+        },
+        {
+          "en": "oven",
+          "kind": "term",
+          "fr": "le four"
+        },
+        {
+          "en": "croissant",
+          "kind": "term",
+          "fr": "un croissant"
+        },
+        {
+          "en": "jam",
+          "kind": "term",
+          "fr": "la confiture"
+        },
+        {
+          "en": "What is fresh today?",
+          "kind": "phrase",
+          "fr": "Qu'est-ce qui est frais aujourd'hui ?"
+        },
+        {
+          "en": "Which one is the most typical?",
+          "kind": "phrase",
+          "fr": "Lequel est le plus typique ?"
+        },
+        {
+          "en": "Is it filled?",
+          "kind": "phrase",
+          "fr": "Est-ce que celui-ci est fourré ?"
+        },
+        {
+          "en": "Is it sweet or savory?",
+          "kind": "phrase",
+          "fr": "C'est sucré ou salé ?"
+        },
+        {
+          "en": "What do you recommend?",
+          "kind": "phrase",
+          "fr": "Qu'est-ce que vous recommandez ?"
+        },
+        {
+          "en": "Which one came out of the oven today?",
+          "kind": "phrase",
+          "fr": "Lequel vient de sortir du four aujourd'hui ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Dans une boulangerie mexicaine",
+        "english": [
+          "A traveler walks into a bakery in the morning.",
+          "There are many breads and pastries on the counter.",
+          "He asks: What is fresh today?",
+          "The employee says the sweet bread is from this morning.",
+          "The traveler asks: Which one is filled?",
+          "She explains that the concha is sweet and the empanada is savory.",
+          "He says: I want to try something typical from here.",
+          "The employee recommends a bolillo with cheese.",
+          "The traveler orders a concha and a coffee, please."
+        ],
+        "french": [
+          "Un voyageur entre dans une boulangerie le matin.",
+          "Il y a de nombreux pains et pâtisseries sur le comptoir.",
+          "Il demande : « Qu'est-ce qui est frais aujourd'hui ? »",
+          "L'employée dit que le pain sucré date de ce matin.",
+          "Le voyageur demande : « Lequel est fourré ? »",
+          "Elle explique que la concha est sucrée et que l'empanada est salée.",
+          "Il dit : « Je voudrais goûter quelque chose de typique d'ici. »",
+          "L'employée recommande un bolillo au fromage.",
+          "Le voyageur commande une concha et un café, s'il vous plaît."
+        ]
+      },
+      "speakingInstructionEnglish": "At a bakery, ask about freshness, fillings and a typical pastry, then choose one.",
+      "speakingFrench": "Bonjour ! Qu'est-ce qui est frais aujourd'hui ? Lequel est fourré ? Qu'est-ce que vous recommandez ?",
+      "regionalNotesEnglish": [
+        "Bolillo, concha and empanada are Mexican bakery foods retained from the English source. A Francophone bakery would need a separate culturally adapted version and review."
+      ],
+      "reviewed": false,
+      "verbs": [
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Il demande ce qui est frais aujourd'hui.",
+          "exampleEnglish": "He asks what is fresh today.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "recommander",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "L'employée recommande un bolillo au fromage.",
+          "exampleEnglish": "The employee recommends a bolillo with cheese.",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Je voudrais goûter quelque chose de typique d'ici.",
+          "exampleEnglish": "I want to try something typical from here.",
+          "sourceInfinitiveSpanish": "querer"
+        },
+        {
+          "infinitiveFrench": "goûter",
+          "meaningEnglish": "to try",
+          "exampleFrench": "Aujourd'hui, nous goûtons une concha.",
+          "exampleEnglish": "Today we try a concha.",
+          "sourceInfinitiveSpanish": "probar"
+        }
+      ]
+    }
+  ]
+}

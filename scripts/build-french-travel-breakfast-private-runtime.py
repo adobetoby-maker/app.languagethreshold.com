@@ -23,7 +23,8 @@ REVIEW_REQUIRED = {
 }
 SOURCE_LOCALE = re.compile(
     r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
-    r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
+    r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde|Colombi\w*|Salento|"
+    r"Nequi|arepas?|aguapanela\w*|calentado\w*|pan dulce|Doña|Don Ramón)\b", re.I
 )
 
 

@@ -1,0 +1,9 @@
+# French 101 Master 7–9 redesigned draft checkpoint
+
+This candidate batch follows the proposed 20-slot French Master map and stacks on redesigned Master 4–6. It preserves `master-french-basics:7`, `:8`, `:9`; the original Spanish course and practice remain unchanged and are linked by SHA-256 provenance. The new pairs are learner-facing candidates, not translations of repetitive beginner lines. `reviewed:false`, `registered:false`, and no recorded audio remain explicit.
+
+Each lesson includes eight vocabulary cards, twelve aligned French/English Reader and phrase-card pairs, speaking setup, French grammar notes, and five checks. Master 7 contrasts a habitual study routine with a class-time exception and confirms a revised Friday plan. Master 8 extracts a written request and deadline, proposes a new meeting time and confirms it in writing. Master 9 compares lamps on weight and battery life, then chooses an available fallback when the preferred lamp is sold out.
+
+`python3 scripts/validate-french-basics-master-redesign-7-9-draft.py` checks stable keys, map objectives/prerequisites, source hashes, 60 cards, 36 one-to-one Reader pairs, check structure and script-only listening status. It verifies zero exact English Reader-line reuse from Spanish Foundation/Core/Master and redesigned French Master 1–6. New English pairs deliberately differ from legacy Spanish Master pairs where the latter repeat earlier-stage lines. No learner progress or published runtime content changes.
+
+Independent French fidelity and curriculum review, tense/register review, qualified human review, full runtime modes, dictionary, offline behavior, recorded audio, and device acceptance are still required. Claude review was not attempted because the earlier bounded CLI budget was exhausted. This is not released content.

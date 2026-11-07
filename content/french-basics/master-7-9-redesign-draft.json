@@ -1,0 +1,722 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "master",
+  "reviewed": false,
+  "state": "redesigned-authored-draft",
+  "registered": false,
+  "source": {
+    "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
+    "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
+    "legacySpanishCourse": "src/data/core60/es/master-spanish-basics.json",
+    "legacySpanishCourseSha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "legacySpanishPractice": "src/data/spanish-basics-practice.json",
+    "legacySpanishPracticeSha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "priorRedesign": "content/french-basics/master-4-6-redesign-draft.json",
+    "priorRedesignSha256": "91a0db73dd3b9b09dcd1f42eca94c5635d2784f97ae1a353fc154499371a0542",
+    "policy": "Legacy English pairs remain provenance only; candidate learner pairs are newly authored and unreviewed"
+  },
+  "draftModel": "Codex-authored; independent French and qualified human review pending",
+  "lessons": [
+    {
+      "n": 7,
+      "stableLessonKey": "master-french-basics:7",
+      "title": "Adapter son programme d’étude",
+      "objective": "Describe a weekly study routine, contrast it with today’s exception and agree on a revised schedule.",
+      "prerequisites": [
+        "core:1",
+        "core:10",
+        "core:28"
+      ],
+      "focus": "imparfait habituel; présent exceptionnel; sauf; au lieu de; proposer un autre créneau",
+      "grammar": {
+        "explanation": "Use the imparfait for a repeated past routine (je révisais chaque mardi) and present or near future for the current exception (aujourd’hui, je travaille; cette semaine, je vais réviser jeudi). Add normalement, d’habitude, cette semaine, sauf and au lieu de so a listener can separate habit from a one-off change. Confirm a revised time, not just an intention.",
+        "model": {
+          "habit": "D’habitude, je révisais le mardi après le cours.",
+          "exception": "Cette semaine, le cours a lieu jeudi.",
+          "proposal": "Au lieu de mardi, révisons ensemble vendredi.",
+          "confirmation": "Vendredi à dix-sept heures me convient."
+        },
+        "caution": "The Spanish source drills present -ar endings. French Master 7 should evaluate a change to a real routine; review the imparfait and time sequence for learner readiness."
+      },
+      "scene": "Un cours change d’horaire; deux camarades distinguent leurs habitudes d’une exception et réorganisent la semaine.",
+      "speaking": {
+        "role": "Agree on a revised study routine with a classmate.",
+        "opening": "Notre cours a été déplacé au jeudi cette semaine.",
+        "objectives": [
+          "Describe the usual Tuesday routine",
+          "Identify this week’s exception",
+          "Offer an alternate study slot",
+          "Confirm place, time, and preparation"
+        ],
+        "complication": "The class time changes and Tuesday is occupied by another commitment.",
+        "closure": "Confirm the new Friday plan and what each person prepares."
+      },
+      "reading": {
+        "title": "Un autre jour pour réviser",
+        "target": [
+          "Camille : D’habitude, je révisais le mardi après notre cours de langue.",
+          "Hugo : Moi aussi, mais le cours de cette semaine a été déplacé au jeudi.",
+          "Camille : Donc notre séance habituelle de mardi ne convient plus.",
+          "Hugo : Exactement. Mardi, je dois préparer une présentation au lieu de réviser.",
+          "Camille : Je peux étudier seule mercredi, sauf entre quatorze et seize heures.",
+          "Hugo : Et si nous révisions ensemble vendredi après le cours ?",
+          "Camille : Vendredi me convient, mais je termine mon travail à seize heures trente.",
+          "Hugo : Nous pourrions commencer à dix-sept heures à la bibliothèque.",
+          "Camille : Avant, nous étudiions pendant une heure ; cette fois, prévoyons quatre-vingt-dix minutes.",
+          "Hugo : D’accord. Je préparerai les questions de lecture jeudi soir.",
+          "Camille : Je ferai les cartes de vocabulaire, puis nous comparerons nos réponses vendredi.",
+          "Hugo : C’est confirmé : vendredi à dix-sept heures, à la bibliothèque."
+        ],
+        "native": [
+          "Camille: I usually reviewed on Tuesdays after our language class.",
+          "Hugo: I did too, but this week’s class has been moved to Thursday.",
+          "Camille: So our usual Tuesday study session no longer works.",
+          "Hugo: Exactly. On Tuesday I have to prepare a presentation instead of reviewing.",
+          "Camille: I can study alone on Wednesday, except between two and four.",
+          "Hugo: What if we reviewed together on Friday after class?",
+          "Camille: Friday works for me, but I finish work at four thirty.",
+          "Hugo: We could start at five o’clock at the library.",
+          "Camille: Before, we studied for an hour; this time, let us plan ninety minutes.",
+          "Hugo: Agreed. I will prepare the reading questions on Thursday evening.",
+          "Camille: I will make the vocabulary cards, then we will compare our answers on Friday.",
+          "Hugo: It is confirmed: Friday at five o’clock, at the library."
+        ]
+      },
+      "dialogue": [
+        "Camille : D’habitude, je révisais le mardi après notre cours de langue.|Camille: I usually reviewed on Tuesdays after our language class.",
+        "Hugo : Moi aussi, mais le cours de cette semaine a été déplacé au jeudi.|Hugo: I did too, but this week’s class has been moved to Thursday.",
+        "Camille : Donc notre séance habituelle de mardi ne convient plus.|Camille: So our usual Tuesday study session no longer works.",
+        "Hugo : Exactement. Mardi, je dois préparer une présentation au lieu de réviser.|Hugo: Exactly. On Tuesday I have to prepare a presentation instead of reviewing.",
+        "Camille : Je peux étudier seule mercredi, sauf entre quatorze et seize heures.|Camille: I can study alone on Wednesday, except between two and four.",
+        "Hugo : Et si nous révisions ensemble vendredi après le cours ?|Hugo: What if we reviewed together on Friday after class?",
+        "Camille : Vendredi me convient, mais je termine mon travail à seize heures trente.|Camille: Friday works for me, but I finish work at four thirty.",
+        "Hugo : Nous pourrions commencer à dix-sept heures à la bibliothèque.|Hugo: We could start at five o’clock at the library.",
+        "Camille : Avant, nous étudiions pendant une heure ; cette fois, prévoyons quatre-vingt-dix minutes.|Camille: Before, we studied for an hour; this time, let us plan ninety minutes.",
+        "Hugo : D’accord. Je préparerai les questions de lecture jeudi soir.|Hugo: Agreed. I will prepare the reading questions on Thursday evening.",
+        "Camille : Je ferai les cartes de vocabulaire, puis nous comparerons nos réponses vendredi.|Camille: I will make the vocabulary cards, then we will compare our answers on Friday.",
+        "Hugo : C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.|Hugo: It is confirmed: Friday at five o’clock, at the library."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "d’habitude",
+          "en": "usually",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "cette semaine",
+          "en": "this week",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "au lieu de",
+          "en": "instead of",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "sauf",
+          "en": "except",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "un créneau",
+          "en": "a time slot",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "réviser",
+          "en": "to review",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "déplacer le cours",
+          "en": "to move the class",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "cela me convient",
+          "en": "that works for me",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Camille : D’habitude, je révisais le mardi après notre cours de langue.",
+          "en": "Camille: I usually reviewed on Tuesdays after our language class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Hugo : Moi aussi, mais le cours de cette semaine a été déplacé au jeudi.",
+          "en": "Hugo: I did too, but this week’s class has been moved to Thursday.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Camille : Donc notre séance habituelle de mardi ne convient plus.",
+          "en": "Camille: So our usual Tuesday study session no longer works.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Hugo : Exactement. Mardi, je dois préparer une présentation au lieu de réviser.",
+          "en": "Hugo: Exactly. On Tuesday I have to prepare a presentation instead of reviewing.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Camille : Je peux étudier seule mercredi, sauf entre quatorze et seize heures.",
+          "en": "Camille: I can study alone on Wednesday, except between two and four.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Hugo : Et si nous révisions ensemble vendredi après le cours ?",
+          "en": "Hugo: What if we reviewed together on Friday after class?",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Camille : Vendredi me convient, mais je termine mon travail à seize heures trente.",
+          "en": "Camille: Friday works for me, but I finish work at four thirty.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Hugo : Nous pourrions commencer à dix-sept heures à la bibliothèque.",
+          "en": "Hugo: We could start at five o’clock at the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Camille : Avant, nous étudiions pendant une heure ; cette fois, prévoyons quatre-vingt-dix minutes.",
+          "en": "Camille: Before, we studied for an hour; this time, let us plan ninety minutes.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Hugo : D’accord. Je préparerai les questions de lecture jeudi soir.",
+          "en": "Hugo: Agreed. I will prepare the reading questions on Thursday evening.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Camille : Je ferai les cartes de vocabulaire, puis nous comparerons nos réponses vendredi.",
+          "en": "Camille: I will make the vocabulary cards, then we will compare our answers on Friday.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Hugo : C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.",
+          "en": "Hugo: It is confirmed: Friday at five o’clock, at the library.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the contrast: D’habitude, je ___ le mardi.",
+          "answer": "révisais"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Friday works for me, but I finish work at four thirty.",
+          "answer": "Vendredi me convient, mais je termine mon travail à seize heures trente."
+        },
+        {
+          "type": "listening",
+          "prompt": "Where and when is the revised session?",
+          "answer": "Friday at five o’clock at the library.",
+          "audioText": "C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why can Hugo not review on Tuesday?",
+          "answer": "He must prepare a presentation."
+        },
+        {
+          "type": "application",
+          "prompt": "State the usual routine and the one-off Friday plan.",
+          "answer": "D’habitude, nous révisions le mardi ; cette semaine, nous réviserons vendredi à dix-sept heures."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 8,
+      "stableLessonKey": "master-french-basics:8",
+      "title": "Lire un message et négocier un rendez-vous",
+      "objective": "Extract a request and deadline from a message, write a concise reply, and confirm a new meeting time.",
+      "prerequisites": [
+        "core:3",
+        "core:10",
+        "core:19"
+      ],
+      "focus": "repérer demande et échéance; demander de; répondre que; conditionnel poli; convenir de",
+      "grammar": {
+        "explanation": "Extract the requested action and deadline from a written message before replying. Use demander de + infinitive to report a request (elle demande de répondre avant midi) and répondre que + clause for your reply. State the conflict precisely, propose a realistic alternate time with the conditional (pourrions-nous), then restate the agreed time in writing.",
+        "model": {
+          "request": "Elle demande de confirmer le rendez-vous avant midi.",
+          "conflict": "Je ne suis pas disponible mardi à quinze heures.",
+          "proposal": "Pourrions-nous nous voir mercredi à neuf heures ?",
+          "confirmation": "Je confirme notre rendez-vous mercredi à neuf heures."
+        },
+        "caution": "The Spanish source repeats -ir morphology. This task evaluates reading a deadline and composing a concise reply; confirm that the conditional is scaffolded for this stage."
+      },
+      "scene": "Une coordinatrice demande une réponse avant midi; son horaire proposé entre en conflit avec un autre engagement.",
+      "speaking": {
+        "role": "Read a coordinator’s message and negotiate an appointment.",
+        "opening": "Je propose mardi à quinze heures; merci de répondre avant midi.",
+        "objectives": [
+          "Identify request and reply deadline",
+          "Explain the conflict without overexplaining",
+          "Propose a precise alternate slot politely",
+          "Confirm the accepted time and place"
+        ],
+        "complication": "The original time conflicts with a class.",
+        "closure": "Restate the agreed Wednesday meeting in writing."
+      },
+      "reading": {
+        "title": "Répondre avant midi",
+        "target": [
+          "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi.",
+          "Coordinatrice : Je propose mardi à quinze heures dans mon bureau.",
+          "Camille : Je dois d’abord repérer la demande et son échéance.",
+          "Camille : Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.",
+          "Hugo : Tu as déjà un autre engagement à cette heure-là ?",
+          "Camille : Oui, mon cours se termine seulement à quinze heures trente.",
+          "Hugo : Réponds brièvement et propose un créneau précis.",
+          "Camille : Bonjour, merci pour votre message et votre proposition.",
+          "Camille : Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?",
+          "Coordinatrice : Mercredi à neuf heures me convient, dans le même bureau.",
+          "Camille : Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.",
+          "Hugo : Tu as répondu avant midi et vérifié le nouvel horaire par écrit."
+        ],
+        "native": [
+          "Coordinator: Hello Camille, please confirm the appointment before noon.",
+          "Coordinator: I suggest Tuesday at three o’clock in my office.",
+          "Camille: I first need to identify the request and its deadline.",
+          "Camille: She asks for confirmation before noon, but Tuesday at three does not work for me.",
+          "Hugo: Do you already have another commitment at that time?",
+          "Camille: Yes, my class does not finish until three thirty.",
+          "Hugo: Reply briefly and suggest a specific time slot.",
+          "Camille: Hello, thank you for your message and your suggestion.",
+          "Camille: I am unavailable Tuesday at three; could we meet Wednesday at nine?",
+          "Coordinator: Wednesday at nine works for me, in the same office.",
+          "Camille: Thank you, and I confirm our appointment for Wednesday at nine.",
+          "Hugo: You replied before noon and checked the new time in writing."
+        ]
+      },
+      "dialogue": [
+        "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi.|Coordinator: Hello Camille, please confirm the appointment before noon.",
+        "Coordinatrice : Je propose mardi à quinze heures dans mon bureau.|Coordinator: I suggest Tuesday at three o’clock in my office.",
+        "Camille : Je dois d’abord repérer la demande et son échéance.|Camille: I first need to identify the request and its deadline.",
+        "Camille : Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.|Camille: She asks for confirmation before noon, but Tuesday at three does not work for me.",
+        "Hugo : Tu as déjà un autre engagement à cette heure-là ?|Hugo: Do you already have another commitment at that time?",
+        "Camille : Oui, mon cours se termine seulement à quinze heures trente.|Camille: Yes, my class does not finish until three thirty.",
+        "Hugo : Réponds brièvement et propose un créneau précis.|Hugo: Reply briefly and suggest a specific time slot.",
+        "Camille : Bonjour, merci pour votre message et votre proposition.|Camille: Hello, thank you for your message and your suggestion.",
+        "Camille : Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?|Camille: I am unavailable Tuesday at three; could we meet Wednesday at nine?",
+        "Coordinatrice : Mercredi à neuf heures me convient, dans le même bureau.|Coordinator: Wednesday at nine works for me, in the same office.",
+        "Camille : Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.|Camille: Thank you, and I confirm our appointment for Wednesday at nine.",
+        "Hugo : Tu as répondu avant midi et vérifié le nouvel horaire par écrit.|Hugo: You replied before noon and checked the new time in writing."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "une échéance",
+          "en": "a deadline",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "avant midi",
+          "en": "before noon",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "un rendez-vous",
+          "en": "an appointment",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "être indisponible",
+          "en": "to be unavailable",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "pourrions-nous",
+          "en": "could we",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "convenir de",
+          "en": "to agree on",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "confirmer par écrit",
+          "en": "to confirm in writing",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "un autre créneau",
+          "en": "another time slot",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi.",
+          "en": "Coordinator: Hello Camille, please confirm the appointment before noon.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Coordinatrice : Je propose mardi à quinze heures dans mon bureau.",
+          "en": "Coordinator: I suggest Tuesday at three o’clock in my office.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Camille : Je dois d’abord repérer la demande et son échéance.",
+          "en": "Camille: I first need to identify the request and its deadline.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Camille : Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.",
+          "en": "Camille: She asks for confirmation before noon, but Tuesday at three does not work for me.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Hugo : Tu as déjà un autre engagement à cette heure-là ?",
+          "en": "Hugo: Do you already have another commitment at that time?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Camille : Oui, mon cours se termine seulement à quinze heures trente.",
+          "en": "Camille: Yes, my class does not finish until three thirty.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Hugo : Réponds brièvement et propose un créneau précis.",
+          "en": "Hugo: Reply briefly and suggest a specific time slot.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Camille : Bonjour, merci pour votre message et votre proposition.",
+          "en": "Camille: Hello, thank you for your message and your suggestion.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Camille : Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?",
+          "en": "Camille: I am unavailable Tuesday at three; could we meet Wednesday at nine?",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Coordinatrice : Mercredi à neuf heures me convient, dans le même bureau.",
+          "en": "Coordinator: Wednesday at nine works for me, in the same office.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Camille : Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.",
+          "en": "Camille: Thank you, and I confirm our appointment for Wednesday at nine.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Hugo : Tu as répondu avant midi et vérifié le nouvel horaire par écrit.",
+          "en": "Hugo: You replied before noon and checked the new time in writing.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "When must Camille answer?",
+          "answer": "Before noon."
+        },
+        {
+          "type": "write",
+          "prompt": "Write a polite alternate-time request in French.",
+          "answer": "Pourrions-nous nous voir mercredi à neuf heures ?"
+        },
+        {
+          "type": "listening",
+          "prompt": "Which time does the coordinator accept?",
+          "answer": "Wednesday at nine.",
+          "audioText": "Mercredi à neuf heures me convient, dans le même bureau.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why is Tuesday at three impossible?",
+          "answer": "Camille’s class ends at three thirty."
+        },
+        {
+          "type": "application",
+          "prompt": "Confirm the accepted appointment in French.",
+          "answer": "Je confirme notre rendez-vous mercredi à neuf heures."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 9,
+      "stableLessonKey": "master-french-basics:9",
+      "title": "Comparer des options et justifier son choix",
+      "objective": "Compare two candidate items using relevant properties, give a reason for the choice and check the other person’s preference.",
+      "prerequisites": [
+        "core:4",
+        "core:17",
+        "core:22"
+      ],
+      "focus": "plus/moins/aussi...que; meilleur; cependant; vérifier la préférence",
+      "grammar": {
+        "explanation": "Compare the properties that matter for the task, not just color. Use plus/moins/aussi + adjective + que and meilleur for better quality; adjective agreement still applies (une lampe légère, des lampes légères). Give a reason, acknowledge a limitation with cependant, and ask for the other person’s preference. If the preferred item is unavailable, compare the second option against the same criteria.",
+        "model": {
+          "comparison": "La lampe A est plus légère que la lampe B.",
+          "tradeoff": "La lampe B est moins chère, mais son autonomie est plus courte.",
+          "choice": "Je préfère la lampe A parce que sa batterie dure plus longtemps.",
+          "fallback": "Cependant, elle est épuisée ; choisissons la lampe C."
+        },
+        "caution": "The Spanish source teaches basic adjective agreement. This Master task adds reasoned comparison and a fallback; verify price, battery, and availability terminology for the setting."
+      },
+      "scene": "Deux camarades choisissent une lampe de travail; leur premier choix est épuisé, donc ils évaluent une solution de rechange.",
+      "speaking": {
+        "role": "Choose a practical lamp with a classmate.",
+        "opening": "Quelle lampe convient le mieux à notre atelier ?",
+        "objectives": [
+          "Compare two relevant properties",
+          "Explain the preferred choice",
+          "Handle the sold-out option",
+          "Check the other person’s preference and confirm the fallback"
+        ],
+        "complication": "Lamp A is sold out; compare C against B with the same criteria.",
+        "closure": "Confirm the price before buying the selected lamp."
+      },
+      "reading": {
+        "title": "La lampe qui convient",
+        "target": [
+          "Ana : Pour notre atelier, il nous faut une lampe facile à transporter.",
+          "Hugo : La lampe A est plus légère que la lampe B.",
+          "Ana : Elle a aussi une meilleure autonomie pour les longues séances.",
+          "Hugo : La lampe B est moins chère, mais sa batterie dure moins longtemps.",
+          "Ana : Je choisirais la lampe A, car nous travaillons parfois loin d’une prise.",
+          "Hugo : Quelle option préfères-tu si nous ne pouvons pas acheter la lampe A ?",
+          "Ana : Vérifions d’abord le stock avant de décider.",
+          "Vendeur : La lampe A est épuisée, mais la lampe C est disponible.",
+          "Hugo : La lampe C est aussi solide que la lampe A, mais un peu plus lourde.",
+          "Ana : Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "Hugo : Alors je préfère la lampe C ; elle répond à nos deux critères principaux.",
+          "Ana : D’accord. Confirmons le prix et choisissons la lampe C."
+        ],
+        "native": [
+          "Ana: For our workshop, we need a lamp that is easy to carry.",
+          "Hugo: Lamp A is lighter than lamp B.",
+          "Ana: It also has better battery life for long sessions.",
+          "Hugo: Lamp B is less expensive, but its battery lasts less time.",
+          "Ana: I would choose lamp A because we sometimes work far from an outlet.",
+          "Hugo: Which option do you prefer if we cannot buy lamp A?",
+          "Ana: Let us check the stock before deciding.",
+          "Salesperson: Lamp A is sold out, but lamp C is available.",
+          "Hugo: Lamp C is as sturdy as lamp A, but a little heavier.",
+          "Ana: However, its battery life is still better than lamp B’s.",
+          "Hugo: Then I prefer lamp C; it meets our two main criteria.",
+          "Ana: Agreed. Let us confirm the price and choose lamp C."
+        ]
+      },
+      "dialogue": [
+        "Ana : Pour notre atelier, il nous faut une lampe facile à transporter.|Ana: For our workshop, we need a lamp that is easy to carry.",
+        "Hugo : La lampe A est plus légère que la lampe B.|Hugo: Lamp A is lighter than lamp B.",
+        "Ana : Elle a aussi une meilleure autonomie pour les longues séances.|Ana: It also has better battery life for long sessions.",
+        "Hugo : La lampe B est moins chère, mais sa batterie dure moins longtemps.|Hugo: Lamp B is less expensive, but its battery lasts less time.",
+        "Ana : Je choisirais la lampe A, car nous travaillons parfois loin d’une prise.|Ana: I would choose lamp A because we sometimes work far from an outlet.",
+        "Hugo : Quelle option préfères-tu si nous ne pouvons pas acheter la lampe A ?|Hugo: Which option do you prefer if we cannot buy lamp A?",
+        "Ana : Vérifions d’abord le stock avant de décider.|Ana: Let us check the stock before deciding.",
+        "Vendeur : La lampe A est épuisée, mais la lampe C est disponible.|Salesperson: Lamp A is sold out, but lamp C is available.",
+        "Hugo : La lampe C est aussi solide que la lampe A, mais un peu plus lourde.|Hugo: Lamp C is as sturdy as lamp A, but a little heavier.",
+        "Ana : Cependant, son autonomie reste meilleure que celle de la lampe B.|Ana: However, its battery life is still better than lamp B’s.",
+        "Hugo : Alors je préfère la lampe C ; elle répond à nos deux critères principaux.|Hugo: Then I prefer lamp C; it meets our two main criteria.",
+        "Ana : D’accord. Confirmons le prix et choisissons la lampe C.|Ana: Agreed. Let us confirm the price and choose lamp C."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "une lampe de travail",
+          "en": "a work lamp",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "autonomie",
+          "en": "battery life",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "plus légère que",
+          "en": "lighter than",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "moins chère que",
+          "en": "less expensive than",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "aussi solide que",
+          "en": "as sturdy as",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "épuisée",
+          "en": "sold out",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "une solution de rechange",
+          "en": "an alternative",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "cependant",
+          "en": "however",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Ana : Pour notre atelier, il nous faut une lampe facile à transporter.",
+          "en": "Ana: For our workshop, we need a lamp that is easy to carry.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Hugo : La lampe A est plus légère que la lampe B.",
+          "en": "Hugo: Lamp A is lighter than lamp B.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Ana : Elle a aussi une meilleure autonomie pour les longues séances.",
+          "en": "Ana: It also has better battery life for long sessions.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Hugo : La lampe B est moins chère, mais sa batterie dure moins longtemps.",
+          "en": "Hugo: Lamp B is less expensive, but its battery lasts less time.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Ana : Je choisirais la lampe A, car nous travaillons parfois loin d’une prise.",
+          "en": "Ana: I would choose lamp A because we sometimes work far from an outlet.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Hugo : Quelle option préfères-tu si nous ne pouvons pas acheter la lampe A ?",
+          "en": "Hugo: Which option do you prefer if we cannot buy lamp A?",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Ana : Vérifions d’abord le stock avant de décider.",
+          "en": "Ana: Let us check the stock before deciding.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Vendeur : La lampe A est épuisée, mais la lampe C est disponible.",
+          "en": "Salesperson: Lamp A is sold out, but lamp C is available.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Hugo : La lampe C est aussi solide que la lampe A, mais un peu plus lourde.",
+          "en": "Hugo: Lamp C is as sturdy as lamp A, but a little heavier.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Ana : Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "en": "Ana: However, its battery life is still better than lamp B’s.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Hugo : Alors je préfère la lampe C ; elle répond à nos deux critères principaux.",
+          "en": "Hugo: Then I prefer lamp C; it meets our two main criteria.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Ana : D’accord. Confirmons le prix et choisissons la lampe C.",
+          "en": "Ana: Agreed. Let us confirm the price and choose lamp C.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Which lamp is lighter than B?",
+          "answer": "Lamp A."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Lamp C is as sturdy as lamp A, but a little heavier.",
+          "answer": "La lampe C est aussi solide que la lampe A, mais un peu plus lourde."
+        },
+        {
+          "type": "listening",
+          "prompt": "Why is lamp C preferred over B?",
+          "answer": "Its battery life is better.",
+          "audioText": "Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why can they not choose lamp A?",
+          "answer": "It is sold out."
+        },
+        {
+          "type": "application",
+          "prompt": "Give a reasoned fallback choice in French.",
+          "answer": "Je préfère la lampe C parce que son autonomie est meilleure que celle de la lampe B."
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

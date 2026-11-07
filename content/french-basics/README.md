@@ -15,3 +15,5 @@ Core 1–3 keeps the English source's 42 word/phrase meanings and 18 Reader sent
 Core 13–15 keeps all English source meanings in pinned provenance. Core 15 localizes one learner-facing “in Spanish” source line to “in French”; its original meaning remains in source metadata. Core 14 marks two source glosses that both become French *les* for one learner card. See `core-13-15-draft-evidence.md`.
 
 Core 22–24 adds a source-pinned authored draft for comparisons and French direct/indirect-object pronouns. It remains unregistered and unreviewed. See `core-22-24-draft-evidence.md`; run `python3 scripts/validate-french-basics-core-22-24-draft.py`.
+
+Core 25–27 adds a source-pinned authored draft for French direct objects and completed past forms. It remains unregistered and unreviewed. See `core-25-27-draft-evidence.md`; run `python3 scripts/validate-french-basics-core-25-27-draft.py`.

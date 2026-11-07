@@ -1,0 +1,9 @@
+# French 101 Core 25–27 draft checkpoint
+
+This French-target / English-support batch is stacked on draft PR #260. It preserves learner identities and progress: no runtime registration, generated app assets, or audio are included. Every `reviewed` flag remains `false`.
+
+`source-english-core-25-27.json` pins English objectives, 42 card meanings, 18 Reader meanings, source progression and SHA-256 hashes of both Spanish 101 source files. `python3 scripts/validate-french-basics-core-25-27-draft.py` checks every English pair and source hash, reading alignment and draft structure. `scripts/build-french-basics-core-25-27-draft.py` reproducibly generates the two content JSON files from the pinned source and authored French material.
+
+Core 25 contrasts Spanish's personal *a* with French direct objects, which do not get a preposition merely because they name a person. The reading's `rendre visite à` line uses *à* as part of that French verb construction, and the lesson notes this distinction. Core 26 uses conversational passé composé for completed actions and explicitly teaches irregular `écrit`, so it does not mislabel every example regular. Core 27 distinguishes `être allé` for movement from `a été` for past states; unlike Spanish `fui`, French does not reuse one form for both meanings. The masculine/feminine spelling of `allé/allée` needs review and learner choice.
+
+Each lesson has French-specific grammar, fourteen cards, a six-line aligned reading, contextual speaking task, and five checks including a script-only listening check. The previous Claude CLI review budget was exhausted, so no Fable/Opus review call was retried. Independent French fidelity/curriculum and qualified human review remain open, as do six-mode runtime, Reader/cards/dictionary/speaking/offline integration, recorded audio and phone acceptance. This is **not a released course**.

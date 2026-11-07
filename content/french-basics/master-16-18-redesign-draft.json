@@ -1,0 +1,722 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "master",
+  "reviewed": false,
+  "state": "redesigned-authored-draft",
+  "registered": false,
+  "source": {
+    "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
+    "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
+    "legacySpanishCourse": "src/data/core60/es/master-spanish-basics.json",
+    "legacySpanishCourseSha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "legacySpanishPractice": "src/data/spanish-basics-practice.json",
+    "legacySpanishPracticeSha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "priorRedesign": "content/french-basics/master-13-15-redesign-draft.json",
+    "priorRedesignSha256": "e1727ef0a8634f486533fa74f416b4fd13dba7a420e0323e77f857a03870e81d",
+    "policy": "Legacy English pairs remain provenance only; candidate learner pairs are newly authored and unreviewed"
+  },
+  "draftModel": "Codex-authored; independent French and qualified human review pending",
+  "lessons": [
+    {
+      "n": 16,
+      "stableLessonKey": "master-french-basics:16",
+      "title": "Distinguer le travail en cours du plan de demain",
+      "objective": "Report what is happening now, state a near-future intention and explain what must finish first.",
+      "prerequisites": [
+        "core:19",
+        "core:20",
+        "core:30"
+      ],
+      "focus": "être en train de; aller + infinitif; avant de; conséquence sur un plan proche",
+      "grammar": {
+        "explanation": "Use être en train de + infinitive to stress an action underway now, and aller + infinitive for a near-future intention. Name the dependency with avant de + infinitive: vérifier la légende avant d’imprimer. If a current delay changes the plan, state both the cause and the revised time; do not present an intention as a completed action.",
+        "model": {
+          "now": "Je suis en train de vérifier la dernière légende.",
+          "dependency": "Nous devons la corriger avant d’imprimer.",
+          "plan": "Nous allons imprimer demain matin.",
+          "change": "Comme la correction prend plus de temps, nous n’imprimerons pas ce soir."
+        },
+        "caution": "The source Spanish Master 16 contrasts present and future. This French scenario adds an explicit dependency; the simple future in one line may be reviewed as an extension rather than assessed production."
+      },
+      "scene": "Une affiche doit être remise demain. La vérification d’une légende retarde l’impression prévue aujourd’hui.",
+      "speaking": {
+        "role": "Explain how work in progress changes a near-future plan.",
+        "opening": "Je suis en train de vérifier la dernière légende.",
+        "objectives": [
+          "Say what is happening now",
+          "Identify what must finish before printing",
+          "State the revised near-future plan",
+          "Tell the coordinator without claiming printing is complete"
+        ],
+        "complication": "The date correction is taking longer than expected.",
+        "closure": "Confirm correction tonight and printing tomorrow morning, pending the source check."
+      },
+      "reading": {
+        "title": "L’affiche sera imprimée demain",
+        "target": [
+          "Hugo : Es-tu en train d’imprimer l’affiche maintenant ?",
+          "Camille : Non, je suis en train de vérifier la dernière légende.",
+          "Hugo : Je pensais que nous allions imprimer avant la fermeture.",
+          "Camille : C’était le plan, mais une date doit encore être corrigée.",
+          "Hugo : Pouvons-nous imprimer l’affiche et corriger la date ensuite ?",
+          "Camille : Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.",
+          "Hugo : Qui peut confirmer la bonne date ce soir ?",
+          "Camille : Nadia est en train de consulter le document d’origine.",
+          "Hugo : Si elle répond tard, que va-t-il se passer ?",
+          "Camille : Nous allons corriger le fichier ce soir et imprimer demain matin.",
+          "Hugo : Alors je vais prévenir la coordinatrice du nouveau délai.",
+          "Camille : Merci ; nous confirmerons l’impression seulement après la correction."
+        ],
+        "native": [
+          "Hugo: Are you printing the poster right now?",
+          "Camille: No, I am checking the final caption right now.",
+          "Hugo: I thought we were going to print before closing.",
+          "Camille: That was the plan, but a date still needs correcting.",
+          "Hugo: Can we print the poster and correct the date afterward?",
+          "Camille: No, we must check the date before sending the file to the printer.",
+          "Hugo: Who can confirm the correct date this evening?",
+          "Camille: Nadia is checking the original document right now.",
+          "Hugo: If she replies late, what is going to happen?",
+          "Camille: We are going to correct the file tonight and print tomorrow morning.",
+          "Hugo: Then I am going to tell the coordinator about the new deadline.",
+          "Camille: Thank you; we will confirm printing only after the correction."
+        ]
+      },
+      "dialogue": [
+        "Hugo : Es-tu en train d’imprimer l’affiche maintenant ?|Hugo: Are you printing the poster right now?",
+        "Camille : Non, je suis en train de vérifier la dernière légende.|Camille: No, I am checking the final caption right now.",
+        "Hugo : Je pensais que nous allions imprimer avant la fermeture.|Hugo: I thought we were going to print before closing.",
+        "Camille : C’était le plan, mais une date doit encore être corrigée.|Camille: That was the plan, but a date still needs correcting.",
+        "Hugo : Pouvons-nous imprimer l’affiche et corriger la date ensuite ?|Hugo: Can we print the poster and correct the date afterward?",
+        "Camille : Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.|Camille: No, we must check the date before sending the file to the printer.",
+        "Hugo : Qui peut confirmer la bonne date ce soir ?|Hugo: Who can confirm the correct date this evening?",
+        "Camille : Nadia est en train de consulter le document d’origine.|Camille: Nadia is checking the original document right now.",
+        "Hugo : Si elle répond tard, que va-t-il se passer ?|Hugo: If she replies late, what is going to happen?",
+        "Camille : Nous allons corriger le fichier ce soir et imprimer demain matin.|Camille: We are going to correct the file tonight and print tomorrow morning.",
+        "Hugo : Alors je vais prévenir la coordinatrice du nouveau délai.|Hugo: Then I am going to tell the coordinator about the new deadline.",
+        "Camille : Merci ; nous confirmerons l’impression seulement après la correction.|Camille: Thank you; we will confirm printing only after the correction."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "être en train de",
+          "en": "to be in the middle of",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "aller imprimer",
+          "en": "to be going to print",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "une légende",
+          "en": "a caption",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "une correction",
+          "en": "a correction",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "avant d’envoyer",
+          "en": "before sending",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "prendre du retard",
+          "en": "to run late",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "demain matin",
+          "en": "tomorrow morning",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "un nouveau délai",
+          "en": "a new deadline",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Hugo : Es-tu en train d’imprimer l’affiche maintenant ?",
+          "en": "Hugo: Are you printing the poster right now?",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Camille : Non, je suis en train de vérifier la dernière légende.",
+          "en": "Camille: No, I am checking the final caption right now.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Hugo : Je pensais que nous allions imprimer avant la fermeture.",
+          "en": "Hugo: I thought we were going to print before closing.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Camille : C’était le plan, mais une date doit encore être corrigée.",
+          "en": "Camille: That was the plan, but a date still needs correcting.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Hugo : Pouvons-nous imprimer l’affiche et corriger la date ensuite ?",
+          "en": "Hugo: Can we print the poster and correct the date afterward?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Camille : Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.",
+          "en": "Camille: No, we must check the date before sending the file to the printer.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Hugo : Qui peut confirmer la bonne date ce soir ?",
+          "en": "Hugo: Who can confirm the correct date this evening?",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Camille : Nadia est en train de consulter le document d’origine.",
+          "en": "Camille: Nadia is checking the original document right now.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Hugo : Si elle répond tard, que va-t-il se passer ?",
+          "en": "Hugo: If she replies late, what is going to happen?",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Camille : Nous allons corriger le fichier ce soir et imprimer demain matin.",
+          "en": "Camille: We are going to correct the file tonight and print tomorrow morning.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Hugo : Alors je vais prévenir la coordinatrice du nouveau délai.",
+          "en": "Hugo: Then I am going to tell the coordinator about the new deadline.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Camille : Merci ; nous confirmerons l’impression seulement après la correction.",
+          "en": "Camille: Thank you; we will confirm printing only after the correction.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "What is Camille doing now?",
+          "answer": "Checking the final caption."
+        },
+        {
+          "type": "write",
+          "prompt": "State the revised printing plan in French.",
+          "answer": "Nous allons corriger le fichier ce soir et imprimer demain matin."
+        },
+        {
+          "type": "listening",
+          "prompt": "Who is checking the original document?",
+          "answer": "Nadia.",
+          "audioText": "Nadia est en train de consulter le document d’origine.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why cannot the poster be printed first?",
+          "answer": "The date must be verified before sending the file."
+        },
+        {
+          "type": "application",
+          "prompt": "Explain the dependency and new deadline in French.",
+          "answer": "Il faut vérifier la date avant d’envoyer le fichier ; nous allons imprimer demain matin."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 17,
+      "stableLessonKey": "master-french-basics:17",
+      "title": "Réparer une référence ambiguë",
+      "objective": "Track two people and several objects across turns, use unambiguous references and repair a pronoun misunderstanding.",
+      "prerequisites": [
+        "core:21",
+        "core:23",
+        "core:24"
+      ],
+      "focus": "le/la/les; lui/leur; celui-ci/celle-là; reformulation explicite",
+      "grammar": {
+        "explanation": "Pronouns save repetition only when their referent is clear. Use le/la/les for direct objects, lui/leur for recipients, and celui-ci/celle-là to contrast two masculine objects; for two feminine folders use celle-ci/celle-là. When a listener guesses the wrong person or item, repeat the noun and name rather than adding another ambiguous pronoun.",
+        "model": {
+          "objects": "Ce dossier bleu est pour Nadia ; le dossier vert est pour Camille.",
+          "recipient": "Je vais lui donner le dossier bleu, à Nadia.",
+          "repair": "Non, par “lui”, je voulais dire Nadia.",
+          "contrast": "Celui-ci est bleu ; celui-là est vert."
+        },
+        "caution": "The dialogue intentionally includes one ambiguous lui, followed immediately by explicit repair. A reviewer should check referent clarity and avoid teaching ambiguity as the model answer."
+      },
+      "scene": "Deux organisatrices et deux dossiers sont mentionnés. Un pronom ambigu provoque une confusion sur le destinataire et l’objet.",
+      "speaking": {
+        "role": "Track two people and two folders across a handoff.",
+        "opening": "Nadia et Camille attendent chacune un dossier.",
+        "objectives": [
+          "Identify each folder and recipient",
+          "Notice an ambiguous pronoun",
+          "Repair the reference with a name and object",
+          "Confirm who receives the digital copies"
+        ],
+        "complication": "A listener cannot tell which woman lui refers to.",
+        "closure": "Restate blue for Nadia, green for Camille, copies for both."
+      },
+      "reading": {
+        "title": "Quel dossier pour quelle personne ?",
+        "target": [
+          "Hugo : Nadia et Camille attendent chacune un dossier après la réunion.",
+          "Léa : Le dossier bleu contient les notes pour Nadia.",
+          "Hugo : Et le dossier vert contient les images pour Camille, c’est bien cela ?",
+          "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.",
+          "Hugo : Je vais lui donner le bleu dès qu’elle arrivera.",
+          "Léa : Par “lui”, veux-tu dire Nadia ou Camille ?",
+          "Hugo : Je voulais dire Nadia ; je lui donnerai le dossier bleu.",
+          "Léa : Merci de préciser, car Camille arrivera en même temps.",
+          "Hugo : Pour Camille, je garderai le dossier vert sur la table.",
+          "Léa : Et les copies numériques, peux-tu les leur envoyer ce soir ?",
+          "Hugo : Oui, je les enverrai à Nadia et à Camille après la réunion.",
+          "Léa : Alors répétons : le bleu pour Nadia, le vert pour Camille, les copies pour les deux."
+        ],
+        "native": [
+          "Hugo: Nadia and Camille are each expecting a folder after the meeting.",
+          "Léa: The blue folder contains the notes for Nadia.",
+          "Hugo: And the green folder contains the images for Camille, is that right?",
+          "Léa: Yes. This one, the blue one, goes to Nadia; that one, the green one, to Camille.",
+          "Hugo: I will give her the blue one as soon as she arrives.",
+          "Léa: By “her,” do you mean Nadia or Camille?",
+          "Hugo: I meant Nadia; I will give the blue folder to her.",
+          "Léa: Thanks for clarifying, because Camille will arrive at the same time.",
+          "Hugo: For Camille, I will keep the green folder on the table.",
+          "Léa: And the digital copies, can you send them to both of them tonight?",
+          "Hugo: Yes, I will send them to Nadia and Camille after the meeting.",
+          "Léa: Then let us repeat: blue for Nadia, green for Camille, copies for both."
+        ]
+      },
+      "dialogue": [
+        "Hugo : Nadia et Camille attendent chacune un dossier après la réunion.|Hugo: Nadia and Camille are each expecting a folder after the meeting.",
+        "Léa : Le dossier bleu contient les notes pour Nadia.|Léa: The blue folder contains the notes for Nadia.",
+        "Hugo : Et le dossier vert contient les images pour Camille, c’est bien cela ?|Hugo: And the green folder contains the images for Camille, is that right?",
+        "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.|Léa: Yes. This one, the blue one, goes to Nadia; that one, the green one, to Camille.",
+        "Hugo : Je vais lui donner le bleu dès qu’elle arrivera.|Hugo: I will give her the blue one as soon as she arrives.",
+        "Léa : Par “lui”, veux-tu dire Nadia ou Camille ?|Léa: By “her,” do you mean Nadia or Camille?",
+        "Hugo : Je voulais dire Nadia ; je lui donnerai le dossier bleu.|Hugo: I meant Nadia; I will give the blue folder to her.",
+        "Léa : Merci de préciser, car Camille arrivera en même temps.|Léa: Thanks for clarifying, because Camille will arrive at the same time.",
+        "Hugo : Pour Camille, je garderai le dossier vert sur la table.|Hugo: For Camille, I will keep the green folder on the table.",
+        "Léa : Et les copies numériques, peux-tu les leur envoyer ce soir ?|Léa: And the digital copies, can you send them to both of them tonight?",
+        "Hugo : Oui, je les enverrai à Nadia et à Camille après la réunion.|Hugo: Yes, I will send them to Nadia and Camille after the meeting.",
+        "Léa : Alors répétons : le bleu pour Nadia, le vert pour Camille, les copies pour les deux.|Léa: Then let us repeat: blue for Nadia, green for Camille, copies for both."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "un dossier bleu",
+          "en": "a blue folder",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "un dossier vert",
+          "en": "a green folder",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "celui-ci",
+          "en": "this one",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "celui-là",
+          "en": "that one",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "lui donner",
+          "en": "to give it to him or her",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "leur envoyer",
+          "en": "to send it to them",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "le destinataire",
+          "en": "the recipient",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "reformuler",
+          "en": "to rephrase",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Hugo : Nadia et Camille attendent chacune un dossier après la réunion.",
+          "en": "Hugo: Nadia and Camille are each expecting a folder after the meeting.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Léa : Le dossier bleu contient les notes pour Nadia.",
+          "en": "Léa: The blue folder contains the notes for Nadia.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Hugo : Et le dossier vert contient les images pour Camille, c’est bien cela ?",
+          "en": "Hugo: And the green folder contains the images for Camille, is that right?",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.",
+          "en": "Léa: Yes. This one, the blue one, goes to Nadia; that one, the green one, to Camille.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Hugo : Je vais lui donner le bleu dès qu’elle arrivera.",
+          "en": "Hugo: I will give her the blue one as soon as she arrives.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Léa : Par “lui”, veux-tu dire Nadia ou Camille ?",
+          "en": "Léa: By “her,” do you mean Nadia or Camille?",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Hugo : Je voulais dire Nadia ; je lui donnerai le dossier bleu.",
+          "en": "Hugo: I meant Nadia; I will give the blue folder to her.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Léa : Merci de préciser, car Camille arrivera en même temps.",
+          "en": "Léa: Thanks for clarifying, because Camille will arrive at the same time.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Hugo : Pour Camille, je garderai le dossier vert sur la table.",
+          "en": "Hugo: For Camille, I will keep the green folder on the table.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Léa : Et les copies numériques, peux-tu les leur envoyer ce soir ?",
+          "en": "Léa: And the digital copies, can you send them to both of them tonight?",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Hugo : Oui, je les enverrai à Nadia et à Camille après la réunion.",
+          "en": "Hugo: Yes, I will send them to Nadia and Camille after the meeting.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Léa : Alors répétons : le bleu pour Nadia, le vert pour Camille, les copies pour les deux.",
+          "en": "Léa: Then let us repeat: blue for Nadia, green for Camille, copies for both.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Who receives the blue folder?",
+          "answer": "Nadia."
+        },
+        {
+          "type": "write",
+          "prompt": "Repair the ambiguous pronoun in French.",
+          "answer": "Je voulais dire Nadia ; je lui donnerai le dossier bleu."
+        },
+        {
+          "type": "listening",
+          "prompt": "Who receives the digital copies?",
+          "answer": "Nadia and Camille.",
+          "audioText": "Oui, je les enverrai à Nadia et à Camille après la réunion.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why was “lui” unclear?",
+          "answer": "Both Nadia and Camille were mentioned and were arriving together."
+        },
+        {
+          "type": "application",
+          "prompt": "State each folder and recipient explicitly in French.",
+          "answer": "Le dossier bleu va à Nadia et le dossier vert va à Camille."
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 18,
+      "stableLessonKey": "master-french-basics:18",
+      "title": "Raconter une sortie passée dans l’ordre",
+      "objective": "Narrate a completed outing in time order, include who went where and what happened, then answer follow-up questions.",
+      "prerequisites": [
+        "core:26",
+        "core:27",
+        "core:30"
+      ],
+      "focus": "passé composé avec avoir/être; d’abord/puis/finalement; cause et ordre",
+      "grammar": {
+        "explanation": "Use the passé composé to report completed events in a clear sequence: nous sommes partis, nous avons traversé, nous sommes entrés. With être, the participle agrees with the subject when required (nous sommes arrivés for a mixed group). D’abord, puis, ensuite, enfin and parce que make order and cause explicit. If asked what happened first, answer from the timeline rather than summarizing the whole outing again.",
+        "model": {
+          "departure": "Nous sommes partis à neuf heures.",
+          "interruption": "Il a commencé à pleuvoir après notre arrivée.",
+          "change": "Nous sommes entrés par la porte du jardin parce que la cour était fermée.",
+          "end": "Finalement, nous avons vu l’exposition avant de rentrer."
+        },
+        "caution": "The route and museum are fictional; this is narrative practice, not visitor guidance. Review auxiliary choice and agreement in the completed-event forms."
+      },
+      "scene": "Une visite au musée a changé à cause de la pluie. Un ami demande quel événement est arrivé d’abord et pourquoi le groupe a modifié son trajet.",
+      "speaking": {
+        "role": "Give a coherent account of yesterday’s museum outing.",
+        "opening": "Hier, notre groupe est parti pour le musée à neuf heures.",
+        "objectives": [
+          "Say who went where and when",
+          "Narrate the events in order",
+          "Explain why the route changed",
+          "Answer which event happened first"
+        ],
+        "complication": "The listener thinks the rain began after the museum visit.",
+        "closure": "Clarify that rain came before the route change and exhibition."
+      },
+      "reading": {
+        "title": "La sortie au musée sous la pluie",
+        "target": [
+          "Camille : Hier, notre groupe est parti pour le musée à neuf heures.",
+          "Hugo : Nous avons pris le bus et sommes arrivés avant l’ouverture.",
+          "Camille : D’abord, nous avons attendu près de la cour du musée.",
+          "Hugo : Puis la pluie a commencé et la cour a été fermée aux visiteurs.",
+          "Camille : Nous avons donc changé de trajet pour rejoindre la porte du jardin.",
+          "Hugo : Là, une employée nous a indiqué l’entrée couverte.",
+          "Camille : Nous sommes entrés et avons laissé nos manteaux au vestiaire.",
+          "Hugo : Ensuite, nous avons visité l’exposition sur les cartes anciennes.",
+          "Camille : Nadia a posé une question sur une carte du dix-neuvième siècle.",
+          "Hugo : Après la visite, nous avons déjeuné dans le café du musée.",
+          "Camille : Finalement, nous sommes rentrés en bus vers seize heures.",
+          "Hugo : La pluie est arrivée avant le changement de trajet, pas après la visite."
+        ],
+        "native": [
+          "Camille: Yesterday our group left for the museum at nine o’clock.",
+          "Hugo: We took the bus and arrived before opening time.",
+          "Camille: First, we waited near the museum courtyard.",
+          "Hugo: Then the rain began and the courtyard was closed to visitors.",
+          "Camille: So we changed route to reach the garden door.",
+          "Hugo: There, a staff member showed us the covered entrance.",
+          "Camille: We went in and left our coats at the cloakroom.",
+          "Hugo: Next, we visited the exhibition on old maps.",
+          "Camille: Nadia asked a question about a nineteenth-century map.",
+          "Hugo: After the visit, we had lunch in the museum café.",
+          "Camille: Finally, we went home by bus around four o’clock.",
+          "Hugo: The rain came before the route change, not after the visit."
+        ]
+      },
+      "dialogue": [
+        "Camille : Hier, notre groupe est parti pour le musée à neuf heures.|Camille: Yesterday our group left for the museum at nine o’clock.",
+        "Hugo : Nous avons pris le bus et sommes arrivés avant l’ouverture.|Hugo: We took the bus and arrived before opening time.",
+        "Camille : D’abord, nous avons attendu près de la cour du musée.|Camille: First, we waited near the museum courtyard.",
+        "Hugo : Puis la pluie a commencé et la cour a été fermée aux visiteurs.|Hugo: Then the rain began and the courtyard was closed to visitors.",
+        "Camille : Nous avons donc changé de trajet pour rejoindre la porte du jardin.|Camille: So we changed route to reach the garden door.",
+        "Hugo : Là, une employée nous a indiqué l’entrée couverte.|Hugo: There, a staff member showed us the covered entrance.",
+        "Camille : Nous sommes entrés et avons laissé nos manteaux au vestiaire.|Camille: We went in and left our coats at the cloakroom.",
+        "Hugo : Ensuite, nous avons visité l’exposition sur les cartes anciennes.|Hugo: Next, we visited the exhibition on old maps.",
+        "Camille : Nadia a posé une question sur une carte du dix-neuvième siècle.|Camille: Nadia asked a question about a nineteenth-century map.",
+        "Hugo : Après la visite, nous avons déjeuné dans le café du musée.|Hugo: After the visit, we had lunch in the museum café.",
+        "Camille : Finalement, nous sommes rentrés en bus vers seize heures.|Camille: Finally, we went home by bus around four o’clock.",
+        "Hugo : La pluie est arrivée avant le changement de trajet, pas après la visite.|Hugo: The rain came before the route change, not after the visit."
+      ],
+      "words": [
+        {
+          "order": 1,
+          "fr": "une sortie",
+          "en": "an outing",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "le musée",
+          "en": "the museum",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "d’abord",
+          "en": "first",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "puis",
+          "en": "then",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "finalement",
+          "en": "finally",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "il a plu",
+          "en": "it rained",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "changer de trajet",
+          "en": "to change route",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "rentrer",
+          "en": "to return home",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Camille : Hier, notre groupe est parti pour le musée à neuf heures.",
+          "en": "Camille: Yesterday our group left for the museum at nine o’clock.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Hugo : Nous avons pris le bus et sommes arrivés avant l’ouverture.",
+          "en": "Hugo: We took the bus and arrived before opening time.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Camille : D’abord, nous avons attendu près de la cour du musée.",
+          "en": "Camille: First, we waited near the museum courtyard.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Hugo : Puis la pluie a commencé et la cour a été fermée aux visiteurs.",
+          "en": "Hugo: Then the rain began and the courtyard was closed to visitors.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Camille : Nous avons donc changé de trajet pour rejoindre la porte du jardin.",
+          "en": "Camille: So we changed route to reach the garden door.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Hugo : Là, une employée nous a indiqué l’entrée couverte.",
+          "en": "Hugo: There, a staff member showed us the covered entrance.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Camille : Nous sommes entrés et avons laissé nos manteaux au vestiaire.",
+          "en": "Camille: We went in and left our coats at the cloakroom.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Hugo : Ensuite, nous avons visité l’exposition sur les cartes anciennes.",
+          "en": "Hugo: Next, we visited the exhibition on old maps.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Camille : Nadia a posé une question sur une carte du dix-neuvième siècle.",
+          "en": "Camille: Nadia asked a question about a nineteenth-century map.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Hugo : Après la visite, nous avons déjeuné dans le café du musée.",
+          "en": "Hugo: After the visit, we had lunch in the museum café.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Camille : Finalement, nous sommes rentrés en bus vers seize heures.",
+          "en": "Camille: Finally, we went home by bus around four o’clock.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Hugo : La pluie est arrivée avant le changement de trajet, pas après la visite.",
+          "en": "Hugo: The rain came before the route change, not after the visit.",
+          "kind": "phrase"
+        }
+      ],
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How did the group travel to the museum?",
+          "answer": "By bus."
+        },
+        {
+          "type": "write",
+          "prompt": "Explain the changed route in French.",
+          "answer": "Nous avons donc changé de trajet pour rejoindre la porte du jardin."
+        },
+        {
+          "type": "listening",
+          "prompt": "What did the group visit after entering?",
+          "answer": "An exhibition on old maps.",
+          "audioText": "Ensuite, nous avons visité l’exposition sur les cartes anciennes.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Did the rain happen before or after the route change?",
+          "answer": "Before the route change."
+        },
+        {
+          "type": "application",
+          "prompt": "Give the first three events in French.",
+          "answer": "Nous sommes partis à neuf heures, avons pris le bus et avons attendu près de la cour."
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

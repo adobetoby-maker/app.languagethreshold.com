@@ -1,0 +1,643 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "src/data/core60/es/foundation-spanish-basics.json",
+    "sourceSha256": "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0",
+    "sourceSubsetSha256": "460b5acee32a9b6ef387e8fc43f88edfbc64e4abb5b9b82257ee43a0eb45381f",
+    "use": "learning architecture and English objectives only"
+  },
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 7,
+      "title": "Il y a: what exists",
+      "sourceObjectiveEnglish": "Hay: what exists: Hay means there is or there are.",
+      "objective": "Say what exists with il y a and where something is with être; negate existence with il n’y a pas de or d’ before a vowel.",
+      "focus": "Il y a means there is or there are and does not change for number. Use est, a form of être, for where a particular thing is. In il n’y a pas de + noun, de replaces un, une or des; write d’ before a vowel: il n’y a pas d’ordinateur. Review la/une/les with noun gender and number.",
+      "scene": "Léa is new to the school. Théo shows her the library and the nearby study area.",
+      "dialogue": [
+        "Léa : Il y a une bibliothèque ici ?|Is there a library here?",
+        "Théo : Oui, elle est là, près de la cantine.|Yes, it is there, near the cafeteria.",
+        "Léa : Il y a des tables ?|Are there tables?",
+        "Théo : Oui, il y a des tables et deux fenêtres.|Yes, there are tables and two windows.",
+        "Léa : Et il y a des livres sur la table ?|And are there books on the table?",
+        "Théo : Oui, il y a des livres sur la table. La table est près de la porte.|Yes, there are books on the table. The table is near the door.",
+        "Léa : Il n’y a pas d’ordinateur ici, c’est ça ?|There is no computer here, right?",
+        "Théo : Non, il n’y a pas d’ordinateur ici.|No, there is no computer here.",
+        "Léa : D’accord, merci !|Okay, thanks!"
+      ],
+      "speaking": "Role-play a new student asking a classmate about the school library; use tu. Open with Salut ! Ask Il y a une bibliothèque ici ? Name two things present with il y a, then locate one with est près de or est sur. Ask whether there is a computer; answer with il n’y a pas d’ordinateur. Confirm one detail with C’est ça ? and close with Merci ! Your partner explains an unfamiliar word in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “there is a library here” in French?",
+          "answer": "Il y a une bibliothèque ici.",
+          "acceptedAnswers": [
+            "Il y a une bibliothèque ici.",
+            "Il y a une bibliothèque ici"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; retain accents."
+        },
+        {
+          "type": "recall",
+          "prompt": "How do you say “there is no computer here” in French?",
+          "answer": "Il n’y a pas d’ordinateur ici.",
+          "acceptedAnswers": [
+            "Il n’y a pas d’ordinateur ici.",
+            "Il n'y a pas d'ordinateur ici."
+          ],
+          "normalization": "Case-insensitive; ignore final period; treat ’ and ' as equivalent; accents required."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: The table is near the door.",
+          "answer": "La table est près de la porte.",
+          "acceptedAnswers": [
+            "La table est près de la porte.",
+            "La table est près de la porte"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; retain the accent in près."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: There are two windows.",
+          "answer": "Il y a deux fenêtres.",
+          "acceptedAnswers": [
+            "Il y a deux fenêtres.",
+            "Il y a deux fenêtres"
+          ],
+          "normalization": "Case-insensitive; ignore final period; accents required on fenêtres."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen to the script line and write it in French exactly.",
+          "audioText": "Il y a des livres sur la table.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "answer": "Il y a des livres sur la table.",
+          "acceptedAnswers": [
+            "Il y a des livres sur la table.",
+            "Il y a des livres sur la table"
+          ],
+          "normalization": "Case-insensitive; ignore final period; accents required."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Where is the table?",
+          "answer": "près de la porte",
+          "acceptedAnswers": [
+            "près de la porte",
+            "near the door"
+          ],
+          "normalization": "Accept the French phrase or English meaning; ignore capitalization and final punctuation."
+        }
+      ],
+      "words": [
+        {
+          "fr": "la table",
+          "en": "table (feminine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "les tables",
+          "en": "tables (feminine, plural noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "est",
+          "en": "is (form of être)",
+          "kind": "term"
+        },
+        {
+          "fr": "il y a",
+          "en": "there is / there are",
+          "kind": "term"
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "une",
+          "en": "a (feminine)",
+          "kind": "term"
+        },
+        {
+          "fr": "elle",
+          "en": "it / she (feminine subject)",
+          "kind": "term"
+        },
+        {
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "fr": "dans",
+          "en": "in",
+          "kind": "term"
+        },
+        {
+          "fr": "sur",
+          "en": "on",
+          "kind": "term"
+        },
+        {
+          "fr": "à",
+          "en": "at",
+          "kind": "term"
+        },
+        {
+          "fr": "deux",
+          "en": "two",
+          "kind": "term"
+        },
+        {
+          "fr": "une bibliothèque",
+          "en": "library (feminine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "une fenêtre",
+          "en": "window (feminine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "la porte",
+          "en": "door (feminine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "près de",
+          "en": "near",
+          "kind": "term"
+        },
+        {
+          "fr": "un ordinateur",
+          "en": "computer (masculine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "des livres",
+          "en": "books (masculine, plural noun, indefinite)",
+          "kind": "term"
+        },
+        {
+          "fr": "Il y a une bibliothèque ici.",
+          "en": "There is a library here.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a des tables.",
+          "en": "There are tables.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a deux fenêtres.",
+          "en": "There are two windows.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La table est près de la porte.",
+          "en": "The table is near the door.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a des livres sur la table.",
+          "en": "There are books on the table.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il n’y a pas d’ordinateur ici.",
+          "en": "There is no computer here.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "il n’y a pas de / d’",
+          "en": "there is no / there are no",
+          "kind": "term"
+        },
+        {
+          "fr": "la cantine",
+          "en": "the cafeteria",
+          "kind": "term"
+        },
+        {
+          "fr": "là",
+          "en": "there",
+          "kind": "term"
+        },
+        {
+          "fr": "C’est ça ?",
+          "en": "Is that right?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "D’accord.",
+          "en": "Okay.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "des tables",
+          "en": "some tables",
+          "kind": "term"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 8,
+      "title": "Numbers and age",
+      "sourceObjectiveEnglish": "Numbers and age: Use tener for age: tengo dieciocho años, literally I have eighteen years.",
+      "objective": "Give an assigned age with avoir (j’ai dix-huit ans), count 1–20, and say how many students there are and how many books a class needs.",
+      "focus": "French uses avoir for age: j’ai dix-huit ans, literally “I have eighteen years,” never je suis. Learn j’ai, tu as, il/elle a, nous avons; Tu as quel âge ? asks “How old are you?” Use il y a for a count and avoir besoin de + number + noun for a need. Count 1–20, including dix-huit and vingt. Pronunciation: dix is /dis/ alone, /di/ before a consonant, /diz/ before a vowel; dix-huit is /dizɥit/ and vingt ans links the final t. There is no elision before onze: de onze livres.",
+      "scene": "The class group list. Inès and Sami, two classmates, fill in the group sheet with ages, books, and the class number.",
+      "dialogue": [
+        "Inès : Bonjour ! Tu as quel âge ?|Hello! How old are you?",
+        "Sami : J’ai dix-huit ans. Et toi ?|I am eighteen years old. And you?",
+        "Inès : J’ai dix-huit ans aussi ! Mon frère a vingt ans.|I am eighteen too! My brother is twenty years old.",
+        "Sami : Il y a dix élèves dans la classe, c’est ça ?|There are ten students in the class, right?",
+        "Inès : Oui. Nous avons besoin de dix livres pour les élèves et d’un livre pour la professeure.|Yes. We need ten books for the students and one book for the teacher.",
+        "Sami : Donc, onze livres. Moi, j’ai un livre et deux cahiers.|So, eleven books. I have one book and two notebooks.",
+        "Inès : C’est la salle quinze ?|Is this room fifteen?",
+        "Sami : Oui, c’est ça. Parfait !|Yes, that’s right. Perfect!",
+        "Inès : Merci, Sami !|Thanks, Sami!"
+      ],
+      "speaking": "Role-play filling a class list with another student; use tu. Open with Salut ! Tu as quel âge ? For practice, use an assigned age of dix-huit or vingt ans; ask your partner the same. State that there are dix élèves and that the group needs dix livres plus one for the teacher. Confirm the total onze livres and room quinze. Close with Merci, à demain ! Do not use être for age. Your partner explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “I am eighteen years old” in French?",
+          "answer": "J’ai dix-huit ans.",
+          "acceptedAnswers": [
+            "J’ai dix-huit ans.",
+            "J'ai dix-huit ans.",
+            "J’ai dix-huit ans"
+          ],
+          "normalization": "Case-insensitive; ignore final period; treat ’ and ' as equivalent; hyphen in dix-huit required."
+        },
+        {
+          "type": "recall",
+          "prompt": "How do you say “my brother is twenty years old” in French?",
+          "answer": "Mon frère a vingt ans.",
+          "acceptedAnswers": [
+            "Mon frère a vingt ans.",
+            "Mon frère a vingt ans"
+          ],
+          "normalization": "Case-insensitive; ignore final period; accents required on frère."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: There are ten students in the class.",
+          "answer": "Il y a dix élèves dans la classe.",
+          "acceptedAnswers": [
+            "Il y a dix élèves dans la classe.",
+            "Il y a dix élèves dans la classe"
+          ],
+          "normalization": "Case-insensitive; ignore final period; accents required on élèves."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: We need eleven books in total.",
+          "answer": "Nous avons besoin de onze livres au total.",
+          "acceptedAnswers": [
+            "Nous avons besoin de onze livres au total.",
+            "Nous avons besoin de onze livres au total"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; after besoin de, use de before the number onze; the article is retained in d’un livre."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen to the script line and write it in French exactly.",
+          "audioText": "J’ai un livre et deux cahiers.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "answer": "J’ai un livre et deux cahiers.",
+          "acceptedAnswers": [
+            "J’ai un livre et deux cahiers.",
+            "J'ai un livre et deux cahiers."
+          ],
+          "normalization": "Ignore capitalization and final punctuation; treat straight and curly apostrophes as equivalent."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In the dialogue, how old is Sami?",
+          "answer": "dix-huit",
+          "acceptedAnswers": [
+            "dix-huit",
+            "18",
+            "eighteen",
+            "Dix-huit ans",
+            "18 ans",
+            "eighteen years old"
+          ],
+          "normalization": "Accept the French number word, the numeral 18, or the English word “eighteen”; case-insensitive."
+        }
+      ],
+      "words": [
+        {
+          "fr": "un livre",
+          "en": "book (masculine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "des livres",
+          "en": "books (masculine, plural noun, indefinite)",
+          "kind": "term"
+        },
+        {
+          "fr": "un cahier",
+          "en": "notebook (masculine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "une classe",
+          "en": "class / classroom (feminine, singular noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "dans la classe",
+          "en": "in the class / in the classroom",
+          "kind": "term"
+        },
+        {
+          "fr": "c’est",
+          "en": "it is / that is",
+          "kind": "term"
+        },
+        {
+          "fr": "est",
+          "en": "is (form of être)",
+          "kind": "term"
+        },
+        {
+          "fr": "il y a",
+          "en": "there is / there are",
+          "kind": "term"
+        },
+        {
+          "fr": "le",
+          "en": "the (masculine, singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "un",
+          "en": "a / one (masculine)",
+          "kind": "term"
+        },
+        {
+          "fr": "une",
+          "en": "one / a (feminine)",
+          "kind": "term"
+        },
+        {
+          "fr": "dans",
+          "en": "in",
+          "kind": "term"
+        },
+        {
+          "fr": "à",
+          "en": "at",
+          "kind": "term"
+        },
+        {
+          "fr": "sur",
+          "en": "on",
+          "kind": "term"
+        },
+        {
+          "fr": "dix-huit",
+          "en": "eighteen",
+          "kind": "term"
+        },
+        {
+          "fr": "vingt",
+          "en": "twenty",
+          "kind": "term"
+        },
+        {
+          "fr": "dix",
+          "en": "ten",
+          "kind": "term"
+        },
+        {
+          "fr": "onze",
+          "en": "eleven",
+          "kind": "term"
+        },
+        {
+          "fr": "quinze",
+          "en": "fifteen",
+          "kind": "term"
+        },
+        {
+          "fr": "deux",
+          "en": "two",
+          "kind": "term"
+        },
+        {
+          "fr": "J’ai dix-huit ans.",
+          "en": "I am eighteen years old.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mon frère a vingt ans.",
+          "en": "My brother is twenty years old.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a dix élèves dans la classe.",
+          "en": "There are ten students in the class.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous avons besoin de onze livres au total.",
+          "en": "We need eleven books in total.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’ai un livre et deux cahiers.",
+          "en": "I have one book and two notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C’est la salle quinze ?",
+          "en": "Is this room fifteen?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "avoir",
+          "en": "to have",
+          "kind": "term"
+        },
+        {
+          "fr": "j’ai",
+          "en": "I have",
+          "kind": "term"
+        },
+        {
+          "fr": "tu as",
+          "en": "you have (informal)",
+          "kind": "term"
+        },
+        {
+          "fr": "il a",
+          "en": "he has",
+          "kind": "term"
+        },
+        {
+          "fr": "elle a",
+          "en": "she has",
+          "kind": "term"
+        },
+        {
+          "fr": "nous avons",
+          "en": "we have",
+          "kind": "term"
+        },
+        {
+          "fr": "un an",
+          "en": "one year",
+          "kind": "term"
+        },
+        {
+          "fr": "ans",
+          "en": "years (after a number, for age)",
+          "kind": "term"
+        },
+        {
+          "fr": "Tu as quel âge ?",
+          "en": "How old are you? (informal)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "avoir besoin de",
+          "en": "to need",
+          "kind": "term"
+        },
+        {
+          "fr": "mon frère",
+          "en": "my brother",
+          "kind": "term"
+        },
+        {
+          "fr": "un élève",
+          "en": "a pupil / student",
+          "kind": "term"
+        },
+        {
+          "fr": "des élèves",
+          "en": "pupils / students",
+          "kind": "term"
+        },
+        {
+          "fr": "la salle",
+          "en": "the room",
+          "kind": "term"
+        },
+        {
+          "fr": "pour",
+          "en": "for",
+          "kind": "term"
+        },
+        {
+          "fr": "la professeure",
+          "en": "the teacher (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "zéro",
+          "en": "0",
+          "kind": "term"
+        },
+        {
+          "fr": "trois",
+          "en": "3",
+          "kind": "term"
+        },
+        {
+          "fr": "quatre",
+          "en": "4",
+          "kind": "term"
+        },
+        {
+          "fr": "cinq",
+          "en": "5",
+          "kind": "term"
+        },
+        {
+          "fr": "six",
+          "en": "6",
+          "kind": "term"
+        },
+        {
+          "fr": "sept",
+          "en": "7",
+          "kind": "term"
+        },
+        {
+          "fr": "huit",
+          "en": "8",
+          "kind": "term"
+        },
+        {
+          "fr": "neuf",
+          "en": "9",
+          "kind": "term"
+        },
+        {
+          "fr": "douze",
+          "en": "12",
+          "kind": "term"
+        },
+        {
+          "fr": "treize",
+          "en": "13",
+          "kind": "term"
+        },
+        {
+          "fr": "quatorze",
+          "en": "14",
+          "kind": "term"
+        },
+        {
+          "fr": "seize",
+          "en": "16",
+          "kind": "term"
+        },
+        {
+          "fr": "dix-sept",
+          "en": "17",
+          "kind": "term"
+        },
+        {
+          "fr": "dix-neuf",
+          "en": "19",
+          "kind": "term"
+        },
+        {
+          "fr": "au total",
+          "en": "in total",
+          "kind": "term"
+        },
+        {
+          "fr": "À demain !",
+          "en": "See you tomorrow!",
+          "kind": "phrase"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

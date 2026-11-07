@@ -1,0 +1,605 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "foundation",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/foundation-travel-breakfast.json": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "public/lesson-content/es/foundation-travel-breakfast.json": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a"
+  },
+  "draftModel": "Haiku via Claude CLI OAuth; corrected after Opus AI review; Fable recheck pending",
+  "sourceEnglishPolicy": "Source English anchors are provenance only. Use French-course title/objective, focusEnglish and speakingInstructionEnglish for beginners.",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Questions",
+      "objectiveEnglish": "Ask a server or hotel host the basic questions you need at breakfast.",
+      "titleFrenchCourseEnglish": "Questions at Breakfast",
+      "objectiveFrenchCourseEnglish": "Ask a server or hotel host the basic questions you need at breakfast, such as what something costs, where the restroom is, and what a dish is called.",
+      "focusEnglish": "Question words (qu'est-ce que, qui, où, quand, combien, comment, pourquoi, quel or lequel) and est-ce que, which turns a statement into a question without changing the word order.",
+      "focusFrench": "Mots interrogatifs : qu'est-ce que, qui, où, quand, combien, comment, pourquoi, quel / lequel ; est-ce que pour transformer une phrase en question.",
+      "words": [
+        {
+          "en": "what?",
+          "kind": "term",
+          "fr": "quoi ?",
+          "noteEnglish": "Quoi alone is short and informal. In a full question, use Qu'est-ce que... ? as in Qu'est-ce que vous recommandez ?"
+        },
+        {
+          "en": "who?",
+          "kind": "term",
+          "fr": "qui ?",
+          "noteEnglish": "Qui is the same for one person or several. Qui nous sert ? means Who is serving us?"
+        },
+        {
+          "en": "where?",
+          "kind": "term",
+          "fr": "où ?",
+          "noteEnglish": "Où has an accent grave and means where."
+        },
+        {
+          "en": "when?",
+          "kind": "term",
+          "fr": "quand ?",
+          "noteEnglish": "Quand means when. Quand est-ce que... ? is also common in full questions."
+        },
+        {
+          "en": "how much?",
+          "kind": "term",
+          "fr": "combien ?",
+          "noteEnglish": "Combien means how much or how many. Combien coûte... ? asks about a price."
+        },
+        {
+          "en": "how?",
+          "kind": "term",
+          "fr": "comment ?",
+          "noteEnglish": "Comment means how. Comment s'appelle... ? asks what something is called."
+        },
+        {
+          "en": "why?",
+          "kind": "term",
+          "fr": "pourquoi ?",
+          "noteEnglish": "Pourquoi means why. Parce que means because, and it is two words."
+        },
+        {
+          "en": "which?",
+          "kind": "term",
+          "fr": "quel ? / lequel ?",
+          "noteEnglish": "Quel goes before a noun and agrees with it: quel café, quelle tasse. Lequel stands alone when you choose from options. Lequel changes form: laquelle, lesquels, lesquelles."
+        },
+        {
+          "en": "the included breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner inclus",
+          "noteEnglish": "Inclus means included. If you are not sure, ask: Le petit-déjeuner est-il inclus ?"
+        },
+        {
+          "en": "the sweet bread",
+          "kind": "term",
+          "fr": "le pain sucré",
+          "noteEnglish": "A plain description of a sweet bread. The Mexican concha is not a standard French bakery item, so a French café may use viennoiserie (pastry) as the general term. Native review needed."
+        },
+        {
+          "en": "What do you recommend?",
+          "kind": "phrase",
+          "fr": "Qu'est-ce que vous me recommandez ?",
+          "noteEnglish": "Vous is the polite form with staff. Me means to me, and recommandez means you recommend."
+        },
+        {
+          "en": "Where is the restroom?",
+          "kind": "phrase",
+          "fr": "Où sont les toilettes ?",
+          "noteEnglish": "Les toilettes is the usual café word for restroom. Sont is plural because toilettes is plural."
+        },
+        {
+          "en": "How much is the breakfast?",
+          "kind": "phrase",
+          "fr": "Combien coûte le petit-déjeuner ?",
+          "noteEnglish": "Coûter means to cost. Combien coûte... ? is the usual way to ask a price."
+        },
+        {
+          "en": "What is this bread called?",
+          "kind": "phrase",
+          "fr": "Comment s'appelle ce pain ?",
+          "noteEnglish": "S'appeler means to be called. Ce is the form of this before a masculine noun that begins with a consonant."
+        },
+        {
+          "en": "Which is the house coffee?",
+          "kind": "phrase",
+          "fr": "Quel est le café de la maison ?",
+          "noteEnglish": "La maison means the house, so café de la maison is the house coffee. Quel is used before est."
+        },
+        {
+          "en": "Who is serving us?",
+          "kind": "phrase",
+          "fr": "Qui nous sert ?",
+          "noteEnglish": "Nous means us. Servir means to serve."
+        }
+      ],
+      "speakingInstructionEnglish": "Ask a hotel host what breakfast costs, where the restroom is, and what this bread is called.",
+      "speakingFrench": "Combien coûte le petit-déjeuner ? Où sont les toilettes ? Comment s'appelle ce pain ?",
+      "passage": {
+        "titleFrench": "Questions au petit-déjeuner",
+        "english": [
+          "At the hotel, Emma and Tom ask: Who is serving us?",
+          "Rosa: I am serving you, what coffee do you want?",
+          "Tom: Which is the house coffee?",
+          "Rosa: It is the café de olla, why don't you try it?",
+          "Emma: How much is the breakfast and when does it end?",
+          "Rosa: It is the included breakfast and it ends at 11.",
+          "Tom points at the sweet bread: What is this bread called?",
+          "Emma: Where is the restroom?",
+          "Rosa: It is called a concha, and the restroom is on the right."
+        ],
+        "french": [
+          "À l'hôtel, Emma et Tom demandent : Qui nous sert ?",
+          "Rosa : Je vous sers. Quel café voulez-vous ?",
+          "Tom : Quel est le café de la maison ?",
+          "Rosa : C'est le café de olla, pourquoi ne pas le goûter ?",
+          "Emma : Combien coûte le petit-déjeuner, et quand se termine-t-il ?",
+          "Rosa : Le petit-déjeuner est inclus, et il se termine à 11 heures.",
+          "Tom montre le pain sucré : Comment s'appelle ce pain ?",
+          "Emma : Où sont les toilettes ?",
+          "Rosa : Ça s'appelle une concha, et les toilettes sont à droite."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Question words: qui (who), où (where), quand (when), combien (how much), comment (how), pourquoi (why), quel / lequel (which). Qu'est-ce que... ? is the usual way to ask what.",
+        "Est-ce que can go in front of any statement to make it a question: Est-ce que le petit-déjeuner est inclus ? The statement word order stays the same.",
+        "Pourquoi (why) is one word. Parce que (because) is two words.",
+        "Quel agrees with the noun: quel café, quelle tasse, quels fruits. Lequel stands alone: Lequel voulez-vous ?",
+        "Use vous with hotel staff and with anyone you have just met."
+      ],
+      "authoringNotesEnglish": [
+        "Title, objective, word en values and kinds, and English passage lines are preserved exactly from the source. The French-course title and objective are new English display text.",
+        "The hotel breakfast includes café de olla and concha, implying a Mexican setting. These names remain source-anchored loan terms. A future Francophone variant needs its own breakfast and currency details.",
+        "The sweet bread is rendered as pain sucré, a plain description. Native review should decide whether a French term is better for a café menu.",
+        "Source Spanish question words are replaced with French question words, and no Spanish grammar is carried over.",
+        "Native French review is open. reviewed:false."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "titleEnglish": "No, Never and How Much",
+      "objectiveEnglish": "Say what you don't eat, say you are not ready yet, and ask for more, less or another.",
+      "titleFrenchCourseEnglish": "No, Never and Not Yet",
+      "objectiveFrenchCourseEnglish": "Say what you do not eat, say you are not ready yet, and ask for more, less or another at a café.",
+      "focusEnglish": "Negation with ne ... pas, ne ... jamais, ne ... personne, ne ... rien and pas encore; amounts with plus de, moins de and un autre / une autre.",
+      "focusFrench": "Négations : ne ... pas, ne ... jamais, ne ... personne, ne ... rien, pas encore ; plus de, moins de, un autre / une autre ; de après une négation.",
+      "words": [
+        {
+          "en": "the meat",
+          "kind": "term",
+          "fr": "la viande",
+          "noteEnglish": "La viande is meat in general. Use le poulet for chicken or le bœuf for beef."
+        },
+        {
+          "en": "the nuts",
+          "kind": "term",
+          "fr": "les noix",
+          "noteEnglish": "Les noix can mean walnuts or nuts in casual speech. For an allergy, ask about les fruits à coque (tree nuts) and les cacahuètes (peanuts) separately."
+        },
+        {
+          "en": "the peanut",
+          "kind": "term",
+          "fr": "la cacahuète",
+          "noteEnglish": "Cacahuète is the everyday French word for peanut. Arachide is also used, especially for the plant."
+        },
+        {
+          "en": "the dairy products",
+          "kind": "term",
+          "fr": "les produits laitiers",
+          "noteEnglish": "Laitier means dairy. Lait means milk."
+        },
+        {
+          "en": "the gluten",
+          "kind": "term",
+          "fr": "le gluten",
+          "noteEnglish": "Le gluten is the same word in French. Do not assume a dish is gluten-free; ask the kitchen."
+        },
+        {
+          "en": "the lactose-free milk",
+          "kind": "term",
+          "fr": "le lait sans lactose",
+          "noteEnglish": "Sans lactose means without lactose. Lait délactosé is also used on labels."
+        },
+        {
+          "en": "nobody",
+          "kind": "term",
+          "fr": "personne",
+          "noteEnglish": "Ne ... personne means nobody. Ne goes before the verb and personne goes after it: Je ne vois personne."
+        },
+        {
+          "en": "not yet",
+          "kind": "term",
+          "fr": "pas encore",
+          "noteEnglish": "Pas encore means not yet. Pas encore prêt means not ready yet."
+        },
+        {
+          "en": "another",
+          "kind": "term",
+          "fr": "un autre / une autre",
+          "noteEnglish": "Un autre is masculine and une autre is feminine: un autre café, une autre tasse."
+        },
+        {
+          "en": "more",
+          "kind": "term",
+          "fr": "plus de",
+          "noteEnglish": "Plus de + noun means more: plus de lait."
+        },
+        {
+          "en": "less",
+          "kind": "term",
+          "fr": "moins de",
+          "noteEnglish": "Moins de + noun means less: moins de sucre."
+        },
+        {
+          "en": "I don't eat meat.",
+          "kind": "phrase",
+          "fr": "Je ne mange pas de viande.",
+          "noteEnglish": "Ne ... pas wraps the verb. After a negative verb, du, de la and des become de."
+        },
+        {
+          "en": "I never eat peanuts, I'm allergic.",
+          "kind": "phrase",
+          "fr": "Je ne mange jamais de cacahuètes, je suis allergique.",
+          "noteEnglish": "Ne ... jamais means never. Allergique has one form for everyone, so it does not change."
+        },
+        {
+          "en": "We're not ready yet.",
+          "kind": "phrase",
+          "fr": "Nous ne sommes pas encore prêts.",
+          "noteEnglish": "Pas encore goes after the verb. Prêts becomes prêtes if everyone in the group is a woman."
+        },
+        {
+          "en": "Another coffee, please.",
+          "kind": "phrase",
+          "fr": "Un autre café, s'il vous plaît.",
+          "noteEnglish": "Un autre is used before a masculine noun. S'il vous plaît is the polite closing."
+        },
+        {
+          "en": "More milk and less sugar, please.",
+          "kind": "phrase",
+          "fr": "Plus de lait et moins de sucre, s'il vous plaît.",
+          "noteEnglish": "Plus de and moins de are followed by a noun without an article."
+        },
+        {
+          "en": "I don't want anything else, thanks.",
+          "kind": "phrase",
+          "fr": "Je ne veux rien d'autre, merci.",
+          "noteEnglish": "French also uses a second negative word with ne: ne ... rien means nothing. Rien d'autre means nothing else."
+        }
+      ],
+      "speakingInstructionEnglish": "Tell a server you are not ready yet, then say you don't eat meat and ask for another coffee with less sugar.",
+      "speakingFrench": "Nous ne sommes pas encore prêts. Je ne mange pas de viande. Un autre café avec moins de sucre, s'il vous plaît.",
+      "passage": {
+        "titleFrench": "Petit-déjeuner sans viande à Oaxaca",
+        "english": [
+          "Emma and Tom are having breakfast at a café in Oaxaca.",
+          "The server Luis asks: Are you ready?",
+          "Emma: We're not ready yet.",
+          "Emma: I don't eat meat and Tom doesn't eat dairy products.",
+          "Tom: I never eat peanuts, I'm allergic.",
+          "Luis: I'm going to ask the kitchen if they use nuts or peanuts.",
+          "Luis: The green chilaquiles without cream or cheese have no meat or dairy.",
+          "Luis: The corn tortillas don't have gluten.",
+          "Emma: Another coffee with more lactose-free milk and less sugar, please."
+        ],
+        "french": [
+          "Emma et Tom prennent le petit-déjeuner dans un café à Oaxaca.",
+          "Le serveur Luis demande : Vous êtes prêts ?",
+          "Emma : Nous ne sommes pas encore prêts.",
+          "Emma : Je ne mange pas de viande, et Tom ne mange pas de produits laitiers.",
+          "Tom : Je ne mange jamais de cacahuètes, je suis allergique.",
+          "Luis : Je vais demander à la cuisine s'ils utilisent des fruits à coque ou des cacahuètes.",
+          "Luis : Normalement, les chilaquiles verts sans crème ni fromage n'ont ni viande ni produits laitiers, mais je vérifie avec la cuisine.",
+          "Luis : Les tortillas de maïs sont normalement sans gluten, mais je demande à la cuisine pour les allergies.",
+          "Emma : Un autre café avec plus de lait sans lactose et moins de sucre, s'il vous plaît."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Ne ... pas wraps the verb: je ne mange pas. Before a vowel, ne becomes n': je n'aime pas.",
+        "After a negative verb, du, de la, des and un / une become de: je ne mange pas de viande.",
+        "Ne ... jamais means never. Ne ... personne means nobody. Ne ... rien means nothing. Ne goes before the verb and the second word goes after it.",
+        "Pas encore means not yet: Nous ne sommes pas encore prêts.",
+        "Plus de and moins de + noun mean more and less: plus de lait, moins de sucre.",
+        "Prêts agrees with the group: prêts for a group of men or mixed people, prêtes for a group of women.",
+        "Allergy safety: a menu or a server's claim about gluten, nuts or dairy is information to check, not a guarantee. Ask Est-ce que ce plat contient des noix ? or Est-ce que c'est sans gluten ? and check with the kitchen for a serious allergy.",
+        "For a peanut allergy, say Je suis allergique aux cacahuètes. Aux is the contraction of à + les. Ask staff to check ingredients and cross-contact with the kitchen."
+      ],
+      "authoringNotesEnglish": [
+        "Title, objective, word en values and kinds, and English passage lines are preserved exactly from the source.",
+        "The source English passage contains unverified allergen claims. English anchors remain unchanged as provenance. French dialogue has the server say he will check with the kitchen; no safety claim should be treated as a guarantee.",
+        "This lesson must not be used as allergy information for learners. The gluten and dairy claims need verification by the restaurant before any real-world reliance.",
+        "Setting: Oaxaca, Mexico, is kept because the source reading names it. Peanuts are cacahuètes in French. A future France, Québec or Belgium variant needs local café details.",
+        "Native French review is open. reviewed:false."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Polite Requests and Commands",
+      "objectiveEnglish": "Ask a server politely for the bill, water or the check, and give simple usted commands.",
+      "titleFrenchCourseEnglish": "Polite Requests and the Bill",
+      "objectiveFrenchCourseEnglish": "Ask a server politely for the bill, water or cream, and say you will pay and keep the change.",
+      "focusEnglish": "Polite requests with Pourriez-vous ... ? and Pouvez-vous ... ?, plus je vous laisse for leaving a tip. Use vous with staff and do not use bare command forms.",
+      "focusFrench": "Demandes polies avec pourriez-vous ... ? et pouvez-vous ... ? ; je vous laisse la monnaie ; vocabulaire de l'addition, du paiement et du pourboire.",
+      "words": [
+        {
+          "en": "the bill",
+          "kind": "term",
+          "fr": "l'addition",
+          "noteEnglish": "L'addition is the bill in a café or restaurant. Say l'addition, s'il vous plaît."
+        },
+        {
+          "en": "the tip",
+          "kind": "term",
+          "fr": "le pourboire",
+          "noteEnglish": "Le pourboire is the tip. Tipping customs depend on location; check local practice. The reading is set in Mexico, while the French phrase remains useful across French-speaking places."
+        },
+        {
+          "en": "the card",
+          "kind": "term",
+          "fr": "la carte",
+          "noteEnglish": "La carte alone can also mean the menu. For a bank card, say la carte bancaire."
+        },
+        {
+          "en": "the cash",
+          "kind": "term",
+          "fr": "les espèces",
+          "noteEnglish": "Les espèces is the everyday word for cash. En espèces means paid in cash."
+        },
+        {
+          "en": "the change",
+          "kind": "term",
+          "fr": "la monnaie",
+          "noteEnglish": "La monnaie means coins or change. Le change means currency exchange, so it is a different word."
+        },
+        {
+          "en": "the ice",
+          "kind": "term",
+          "fr": "les glaçons",
+          "noteEnglish": "Des glaçons are ice cubes. La glace means ice in general and also ice cream."
+        },
+        {
+          "en": "the salt",
+          "kind": "term",
+          "fr": "le sel",
+          "noteEnglish": "Le sel is salt. Le poivre is pepper."
+        },
+        {
+          "en": "the straw",
+          "kind": "term",
+          "fr": "la paille",
+          "noteEnglish": "La paille is the common French word for a drinking straw."
+        },
+        {
+          "en": "the cream",
+          "kind": "term",
+          "fr": "la crème",
+          "noteEnglish": "La crème is cream. Crème fraîche is thicker and tangier."
+        },
+        {
+          "en": "Could you bring me the bill, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "noteEnglish": "Pourriez-vous is a polite request with vous, softer than a command. M' is me before a vowel."
+        },
+        {
+          "en": "Can you give me a glass of water?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me donner un verre d'eau ?",
+          "noteEnglish": "Donner means to give. Un verre d'eau means a glass of water."
+        },
+        {
+          "en": "Please bring me more cream.",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m'apporter un peu plus de crème, s'il vous plaît ?",
+          "noteEnglish": "Un peu plus de + noun means a little more. The polite question replaces a bare command."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "kind": "phrase",
+          "fr": "Pourriez-vous patienter un instant, s'il vous plaît ?",
+          "noteEnglish": "Patienter means to wait. Un instant means a moment."
+        },
+        {
+          "en": "Keep the change.",
+          "kind": "phrase",
+          "fr": "Je vous laisse la monnaie.",
+          "noteEnglish": "Laisser means to leave or keep something. Je vous laisse la monnaie is a common way to leave the change as a tip."
+        }
+      ],
+      "speakingInstructionEnglish": "Ask a server for a glass of water and the bill, pay in cash, and tell them to keep the change.",
+      "speakingFrench": "Pourriez-vous me donner un verre d'eau ? Pourriez-vous m'apporter l'addition, s'il vous plaît ? Je paie en espèces. Je vous laisse la monnaie.",
+      "passage": {
+        "titleFrench": "L'addition à Oaxaca",
+        "english": [
+          "Anna eats eggs and coffee for breakfast at a café in Oaxaca.",
+          "Anna: Can you give me a glass of water?",
+          "Luis, the server, brings water with ice and a straw.",
+          "Anna: Can you bring me the salt, please?",
+          "Anna: Please bring me more cream.",
+          "Anna: Could you bring me the bill, please?",
+          "Luis: Are you going to pay by card or in cash?",
+          "Anna: In cash, here are 200 pesos.",
+          "Anna: Keep the change as a tip."
+        ],
+        "french": [
+          "Anna prend des œufs et un café pour le petit-déjeuner dans un café à Oaxaca.",
+          "Anna : Pourriez-vous me donner un verre d'eau ?",
+          "Luis, le serveur, apporte de l'eau avec des glaçons et une paille.",
+          "Anna : Pourriez-vous m'apporter le sel, s'il vous plaît ?",
+          "Anna : Pourriez-vous m'apporter un peu plus de crème, s'il vous plaît ?",
+          "Anna : Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "Luis : Vous allez payer par carte ou en espèces ?",
+          "Anna : En espèces, voici 200 pesos.",
+          "Anna : Je vous laisse la monnaie comme pourboire."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Pourriez-vous + infinitive is a polite request: Pourriez-vous m'apporter l'addition ? (Could you bring me the bill?)",
+        "Pourriez-vous is the conditional of pouvoir with vous. Pouvez-vous is the present-tense version, a little more direct but still polite.",
+        "Me or m' comes before the verb: me donner, m'apporter.",
+        "Tipping customs differ by place. Ask whether service is included and check local practice before leaving a tip.",
+        "Je vous laisse la monnaie is a natural way to leave the change as a tip.",
+        "This lesson prefers polite question forms. Gardez la monnaie is also a natural vous imperative for 'keep the change'; an imperative with vous is not automatically rude."
+      ],
+      "authoringNotesEnglish": [
+        "The source usted commands are adapted into polite vous requests and a natural change/tip phrase. The English anchors remain exact provenance.",
+        "The English anchors are preserved exactly, including the English command wording such as Please bring me and Keep the change.",
+        "The 200 pesos figure and Oaxaca setting are source-anchored. No conversion is applied. A France or Québec variant would need euros or Canadian dollars.",
+        "Native French review is open for Je vous laisse la monnaie as a tipping phrase. reviewed:false."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 10,
+      "titleEnglish": "Words You Already Know and Getting Help",
+      "objectiveEnglish": "Spot Spanish words you already know and use survival phrases when you don't understand.",
+      "titleFrenchCourseEnglish": "Words You Already Know and Getting Help",
+      "objectiveFrenchCourseEnglish": "Spot French words that look like English and use survival phrases when you don't understand.",
+      "focusEnglish": "Cognates ending in -tion, -té and -ent, plus survival phrases for getting help: I don't understand, speak more slowly, what are the ingredients, and emergency.",
+      "focusFrench": "Mots apparentés en -tion, -té et -ent ; phrases de survie : je ne comprends pas, parler plus lentement, quels sont les ingrédients, Au secours.",
+      "words": [
+        {
+          "en": "the reservation",
+          "kind": "term",
+          "fr": "la réservation",
+          "noteEnglish": "Réservation is close to English reservation. The verb is réserver: J'ai réservé."
+        },
+        {
+          "en": "the vegetarian option",
+          "kind": "term",
+          "fr": "l'option végétarienne",
+          "noteEnglish": "Option is close to English. Végétarien agrees with the noun: végétarienne for feminine words."
+        },
+        {
+          "en": "the information",
+          "kind": "term",
+          "fr": "l'information",
+          "noteEnglish": "Information is feminine. Des informations is also common for several pieces of information."
+        },
+        {
+          "en": "the specialty",
+          "kind": "term",
+          "fr": "la spécialité",
+          "noteEnglish": "Spécialité is a close cognate. La spécialité du jour means today's specialty."
+        },
+        {
+          "en": "the variety",
+          "kind": "term",
+          "fr": "la variété",
+          "noteEnglish": "Variété is close to English variety. Une variété de means a variety of."
+        },
+        {
+          "en": "the ingredients",
+          "kind": "term",
+          "fr": "les ingrédients",
+          "noteEnglish": "Ingrédient is a close cognate, and the word is plural in both languages."
+        },
+        {
+          "en": "different",
+          "kind": "term",
+          "fr": "différent",
+          "noteEnglish": "Différent agrees with the noun: différent for masculine, différente for feminine."
+        },
+        {
+          "en": "excellent",
+          "kind": "term",
+          "fr": "excellent",
+          "noteEnglish": "Excellent has the same spelling. For feminine nouns, use excellente."
+        },
+        {
+          "en": "the emergency",
+          "kind": "term",
+          "fr": "l'urgence",
+          "noteEnglish": "Une urgence means an emergency. Learn and verify the local emergency number before travel."
+        },
+        {
+          "en": "Excuse me, I don't understand.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, je ne comprends pas.",
+          "noteEnglish": "Excusez-moi is the polite form with staff. Comprendre means to understand."
+        },
+        {
+          "en": "Can you speak more slowly, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+          "noteEnglish": "Plus lentement means more slowly. Parler means to speak."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "kind": "phrase",
+          "fr": "Comment est-ce qu'on dit ça en français ?",
+          "noteEnglish": "The source English anchor refers to Spanish; the learner-facing French-course question is 'How do you say this in French?' On dit means one says.",
+          "enFrenchCourse": "How do you say this in French?"
+        },
+        {
+          "en": "What are the ingredients?",
+          "kind": "phrase",
+          "fr": "Quels sont les ingrédients ?",
+          "noteEnglish": "Quels is the plural of quel. Sont is the plural of être (to be)."
+        },
+        {
+          "en": "Is there a vegetarian option?",
+          "kind": "phrase",
+          "fr": "Est-ce qu'il y a une option végétarienne ?",
+          "noteEnglish": "Il y a means there is or there are. Est-ce que puts it in question form."
+        },
+        {
+          "en": "Help, it's an emergency!",
+          "kind": "phrase",
+          "fr": "Au secours, c'est une urgence !",
+          "noteEnglish": "Au secours means help! Use it in a real emergency and call the local emergency number."
+        }
+      ],
+      "speakingInstructionEnglish": "Tell a server you don't understand, ask them to speak more slowly, and ask what the ingredients of the specialty are.",
+      "speakingFrench": "Excusez-moi, je ne comprends pas. Pourriez-vous parler plus lentement, s'il vous plaît ? Quels sont les ingrédients de la spécialité ?",
+      "passage": {
+        "titleFrench": "Petit-déjeuner au Café Luna",
+        "english": [
+          "Emma has a reservation at 9 at Café Luna.",
+          "On the wall there is emergency information in English and Spanish.",
+          "Rosa: Today's specialty is different: chilaquiles with chicken.",
+          "Emma: Excuse me, I don't understand.",
+          "Emma: Can you speak more slowly, please?",
+          "Emma: What are the ingredients?",
+          "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+          "Emma: Is there a vegetarian option?",
+          "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables."
+        ],
+        "french": [
+          "Emma a une réservation à 9 heures au Café Luna.",
+          "Sur le mur, il y a des informations d'urgence en anglais et en espagnol.",
+          "Rosa : La spécialité du jour est différente : chilaquiles au poulet.",
+          "Emma : Excusez-moi, je ne comprends pas.",
+          "Emma : Pourriez-vous parler plus lentement, s'il vous plaît ?",
+          "Emma : Quels sont les ingrédients ?",
+          "Rosa : Les ingrédients sont des tortillas, de la salsa verde, du poulet et du fromage.",
+          "Emma : Est-ce qu'il y a une option végétarienne ?",
+          "Rosa : Oui, l'option végétarienne est excellente et il y a une variété de légumes."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Many French words look like English: -tion (information, réservation), -té (variété), -ent (différent, excellent). Check the gender before you use them.",
+        "Survival phrases: Excusez-moi, je ne comprends pas. Pourriez-vous parler plus lentement ? Comment est-ce qu'on dit ça en français ?",
+        "Each survival phrase uses vous with staff.",
+        "Au secours is for a real emergency. Learn the local emergency number before travel."
+      ],
+      "authoringNotesEnglish": [
+        "The source focus cognate endings (-ción, -dad, -ente) are Spanish spelling patterns, so they are replaced with French patterns (-tion, -té, -ent). The source word list is preserved.",
+        "The English anchor How do you say this in Spanish? remains exact source provenance. Use enFrenchCourse as its learner-facing English display text; runtime wiring is still pending.",
+        "No emergency number is stated as fact. Verify local emergency contacts before any travel or safety guidance.",
+        "The source reading names Café Luna and says the wall has emergency information in English and Spanish. Its precise location is unspecified; the French passage preserves those facts. A Francophone variant needs different context.",
+        "Native French review is open. reviewed:false."
+      ],
+      "reviewed": false
+    }
+  ]
+}

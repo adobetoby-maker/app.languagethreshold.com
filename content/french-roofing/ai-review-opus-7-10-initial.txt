@@ -1,0 +1,56 @@
+FAIL for AI curriculum/domain scope. This is an AI review only: no human approved it, no files were edited, and `reviewed` stays `false`.
+
+The F7–F10 structural validator passes, and the progression from F1–F6 holds up. Most of the vocabulary was taught earlier (échelle, harnais, bardeau, clou, paquet, brouette, bâche, collègue, prêt, mouillé, lentement, and pouvoir from L5). The US 911 context is kept and the local-number caveat is there. Seven material issues remain.
+
+**Material findings**
+
+1. **L10 verbs[1].exampleEnglish (vouloir dire): the French and English don't match.**
+   - Original: exampleFrench "Que veut dire le mot « chute » ?" / exampleEnglish "What does the word caída mean?"
+   - Proposed: exampleEnglish "What does the word chute mean?", with the source line kept as exampleEnglishSource (the same pattern as reading.sourceNative).
+   - The validator (`scripts/validate-french-roofing-pilot.py:48-50`) pins exampleEnglish exactly and has no escape field. It needs a `*Source` fallback first, and changing it is outside this review's scope.
+
+2. **L8 verbs[2].meaningEnglish (utiliser): the meaning is wrong.**
+   - Original: "to use, to wear"
+   - Proposed: "to use". The source's "wear" comes from Spanish *usar*; *utiliser* never means "to wear". Keep the source string in a meaningEnglishSource field. The regional note already says "porter" means to wear; move that into the verb entry.
+   - Same validator limit as finding 1.
+
+3. **L8 grammarTeachingEnglish: the negation rule is too broad, and the course breaks it in L10.**
+   - Original: "After any negation, … the article du, de la, des or un/une becomes de"
+   - Proposed: "After a negative verb, un, une, du, de la and des become de (d' before a vowel): Il n'y a pas d'eau. Le, la and les do not change, and after être nothing changes: Ce n'est pas une urgence."
+   - As written, a learner would turn L10's "Ce n'est pas une urgence" into "Ce n'est pas d'urgence".
+
+4. **L9 grammarTeachingEnglish: the command rule is garbled and mislabels attendre.**
+   - Original: "For -er verbs, drop the -ez... and keep -ez for the command: vous attendez becomes Attendez"
+   - Proposed: "Take the vous present form and drop vous: vous attendez → Attendez, vous apportez → Apportez, vous venez → Venez. This works for -er, -ir and -re verbs. Faire is irregular: Faites."
+   - Attendre is an -re verb, not an -er verb.
+
+5. **L9 words "excuse me (to pass)": the answer field contains a gloss.**
+   - Original: fr "excusez-moi (pour passer)"
+   - Proposed: fr "pardon, excusez-moi". Keep the note. "(pour passer)" would be graded as part of the answer, and the reading uses "Pardon, je passe".
+
+6. **L9 speakingFrenchOpening: the ladder model is incomplete and uses untaught words.**
+   - Original: "Pardon, pouvez-vous me passer la scie et le marteau, s'il vous plaît ? Merci. Apportez l'échelle. Posez-la contre le mur. Faites attention."
+   - Proposed: "Pardon, pouvez-vous me passer le marteau et la corde, s'il vous plaît ? Merci. Apportez l'échelle. Posez-la sur un sol plat. Tenez l'échelle, s'il vous plaît." Either gloss poser, tenir and sol plat in a note or teach them first.
+   - Also add a noteEnglish: "Language model answer, not a ladder procedure. Follow your site's ladder rules: stable, level base, correct angle (about 1 out for every 4 up), extend about 3 ft / 1 m above the landing, secured."
+   - Scie and poser were never taught. "Contre le mur" models a setup with none of the key safety steps.
+
+7. **L10 reading / grammarTeachingEnglish: "If it's serious, call 911" invites under-calling.**
+   - The reading pairs it with "It's not an emergency" right after a ladder accident.
+   - Keep the reading (it's pinned to the source). Add to grammarTeachingEnglish: "If you are not sure whether it is serious, call. After a fall from a ladder or roof, a head injury, or loss of consciousness, call even if the person says they are fine. Do not move someone after a fall from height unless they are in danger where they are."
+
+**Minor notes**
+
+- **L7, "what":** make the fr answer "qu'est-ce que, que, quoi" so a typed "quoi" isn't marked wrong. "Combien de clous il nous faut" uses il nous faut, which isn't taught (L4 only taught il faut). "Responsable" and "mettre" are also untaught in the L7 speaking/reading lines.
+- **L7 grammar:** it says "Use est-ce que in speech", but most of the examples use plain rising order. Say that both are normal in speech.
+- **L8, plus:** add a note that plus [plys] means more and plus [ply] means no more, and that casual "Plus de clous" usually means "no more nails". This is a real misunderstanding risk on site.
+- **L8, harness:** "Personne ne monte sans harnais" and "Il faut porter le harnais" faithfully match the source and are conservative. Add a note that a harness only protects when it is tied off to an anchor or lifeline (attaché à un ancrage), and that guardrails or nets may be the site's fall protection instead. Otherwise the line overstates what a harness does.
+- **L9, désolé:** add the gender note (désolée when the speaker is a woman). "Bord" in "Faites attention au bord du toit" is untaught; gloss it.
+- **L10:** "-ent" appears in the focus but the teaching never explains it; "accident" is the example to cite. For France, mention 15 (ambulance) and 18 (fire service) next to 112. In Quebec, 9-1-1 is the usual written form. A more native option for the first line is "Dans le bâtiment, la sécurité passe avant tout". "Protection contre les chutes" is acceptable and matches Quebec safety-agency (CNESST) usage.
+- **L10 keeps both objectiveEnglish (adapted) and objectiveEnglishSource:** that's correct.
+
+**What this review can't settle**
+
+- **Language:** a native French speaker needs to review France and Quebec register, idiom, pronunciation and audio.
+- **Trade and safety:** a roofing safety specialist needs to confirm the trade terms (paquet versus ballot for a bundle, protections antichute) and the ladder and fall-protection wording against the US workplace safety rules (OSHA) and Quebec's safety agency (CNESST).
+- **Emergency numbers:** they should be checked again for the actual deployment regions, since 112 doesn't cover Switzerland or francophone Africa.
+- **Validator:** findings 1 and 2 can't be fixed until the owner decides whether the validator should accept `*Source` escape fields for verb English.

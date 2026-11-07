@@ -1,0 +1,537 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "foundation",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceFiles": [
+    "src/data/foundation-roofing-curriculum.ts",
+    "public/lesson-content/es/foundation-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/foundation-roofing-curriculum.ts": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "public/lesson-content/es/foundation-roofing.json": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+  },
+  "englishSourceSubsetSHA256": "35f381a838e55cd54e3ebb87d1f198301881cd68c0a7237398b01e2606c37b2d",
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Questions",
+      "objectiveEnglish": "Ask the questions you need on any job",
+      "grammarFocusEnglish": "Question words (what, who, where, when, how much, how, why, which) and three ways to ask a question: rising intonation (Vous avez des questions ?), est-ce que (Est-ce que vous avez des questions ?), and inversion (Avez-vous des questions ?, Où est l'échelle ?)",
+      "words": [
+        {
+          "en": "what",
+          "kind": "term",
+          "fr": "qu'est-ce que",
+          "noteEnglish": "Qu'est-ce que is the everyday question form for what. Quoi is used alone or after a preposition: de quoi, à quoi."
+        },
+        {
+          "en": "who",
+          "kind": "term",
+          "fr": "qui",
+          "noteEnglish": "Qui est... ? asks who someone is."
+        },
+        {
+          "en": "where",
+          "kind": "term",
+          "fr": "où"
+        },
+        {
+          "en": "when",
+          "kind": "term",
+          "fr": "quand"
+        },
+        {
+          "en": "how much, how many",
+          "kind": "term",
+          "fr": "combien de",
+          "noteEnglish": "Combien de + noun asks how much or how many; combien alone works without a noun."
+        },
+        {
+          "en": "how",
+          "kind": "term",
+          "fr": "comment"
+        },
+        {
+          "en": "why",
+          "kind": "term",
+          "fr": "pourquoi",
+          "noteEnglish": "Pourquoi asks for a reason. Parce que answers it: Parce qu'il pleut."
+        },
+        {
+          "en": "which",
+          "kind": "term",
+          "fr": "quel, quelle",
+          "noteEnglish": "Quel agrees with the noun: quel outil (masculine), quelle couleur (feminine), quels clous (masculine plural), quelles bâches (feminine plural)."
+        },
+        {
+          "en": "Where is the ladder?",
+          "kind": "phrase",
+          "fr": "Où est l'échelle ?"
+        },
+        {
+          "en": "When does the material arrive?",
+          "kind": "phrase",
+          "fr": "Quand les matériaux arrivent-ils ?",
+          "noteEnglish": "Formal inversion may repeat a noun subject with a pronoun: Quand les matériaux arrivent-ils ? In everyday speech, Quand est-ce que les matériaux arrivent ? is also common."
+        },
+        {
+          "en": "Who is the boss?",
+          "kind": "phrase",
+          "fr": "Qui est le chef ?",
+          "noteEnglish": "Chef can mean crew lead or boss in this context; confirm who is in charge on site."
+        },
+        {
+          "en": "Why are we stopping?",
+          "kind": "phrase",
+          "fr": "Pourquoi on s'arrête ?",
+          "noteEnglish": "On is common in speech and takes the same verb form as il or elle. Formal writing: Pourquoi nous arrêtons-nous ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Mes questions du premier jour",
+        "target": [
+          "C'est mon premier jour et j'ai des questions.",
+          "Qui est le chef ?",
+          "Où est l'échelle ?",
+          "Quand les matériaux arrivent-ils ?",
+          "Combien de matériaux est-ce qu'il nous faut, et quelle est la couleur des bardeaux ?",
+          "Qu'est-ce que je fais en premier, et comment est-ce que je mets le harnais ?",
+          "Pourquoi on s'arrête à onze heures ?"
+        ],
+        "native": [
+          "Today is my first day and I have questions.",
+          "Who is the boss?",
+          "Where is the ladder?",
+          "When does the material arrive?",
+          "How much material do we need and what color are the shingles?",
+          "What do I do first and how do I put on the harness?",
+          "Why are we stopping at eleven?"
+        ]
+      },
+      "speakingEnglish": "Ask a new crew lead five questions: where things are, who is in charge, and when you start.",
+      "speakingFrenchOpening": "Chef, où sont les outils ? Qui dirige l'équipe ? Quand est-ce que je commence ? Où est la bâche ? Combien de clous est-ce qu'il nous faut ?",
+      "grammarTeachingEnglish": "French has three common ways to ask a question. (1) Rising intonation keeps the statement word order: Vous avez des questions ? (2) Est-ce que can open any statement: Est-ce que vous avez des questions ? It is the safest default for learners. (3) Inversion swaps the verb and subject: Avez-vous des questions ? With a noun subject, you can invert the noun and verb: Quand arrivent les matériaux ? You may also repeat the noun with a pronoun: Quand les matériaux arrivent-ils ? Question words come first. Où est l'échelle ? uses où + être. Qui est le chef ? uses qui + être. Pourquoi on s'arrête ? keeps statement order after pourquoi. Qu'est-ce que asks what: Qu'est-ce que je fais en premier ? Quoi comes after a preposition or alone: De quoi avez-vous besoin ? (What do you need?). Quel agrees with the noun it asks about: quel outil, quelle couleur, quels clous, quelles bâches. Combien de takes a noun with de: combien de clous, combien de matériaux. Pourquoi asks for a reason and parce que answers it. Est-ce que and rising intonation are both normal in speech; inversion is common in writing and formal speech. Spoken question-word + statement order also occurs, as in Pourquoi on s'arrête ?",
+      "verbs": [
+        {
+          "infinitiveFrench": "arriver",
+          "meaningEnglish": "to arrive",
+          "exampleFrench": "Quand les matériaux arrivent-ils ?",
+          "exampleEnglish": "When does the material arrive?"
+        },
+        {
+          "infinitiveFrench": "s'arrêter",
+          "meaningEnglish": "to stop",
+          "exampleFrench": "Pourquoi on s'arrête à onze heures ?",
+          "exampleEnglish": "Why are we stopping at eleven?"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Je demande toujours quand je ne comprends pas.",
+          "exampleEnglish": "I always ask when I don't understand."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Chef means crew lead or boss in context. Patron can mean the boss or employer in everyday France French; clarify the specific role on site.",
+        "Est-ce que and rising intonation are both common in France and Quebec speech. Vous is the safe default with a new crew lead; tu is for close, informal contact.",
+        "Pourquoi on s'arrête ? uses on, which is common in speech. Formal writing uses Pourquoi nous arrêtons-nous ?"
+      ]
+    },
+    {
+      "n": 8,
+      "titleEnglish": "No, Never and How Much",
+      "objectiveEnglish": "Say no, not yet and never, and ask for more or less",
+      "grammarFocusEnglish": "Negation with ne...pas, ne...jamais, ne...personne, ne...rien, ne...plus and pas encore; non as a simple no; de after negation and quantities (pas d', plus de, moins de, un peu de); autre (another, other); encore (still, yet)",
+      "words": [
+        {
+          "en": "never",
+          "kind": "term",
+          "fr": "jamais",
+          "noteEnglish": "Ne...jamais wraps around the verb: On ne travaille jamais sur un toit mouillé."
+        },
+        {
+          "en": "nobody",
+          "kind": "term",
+          "fr": "personne",
+          "noteEnglish": "Personne as the subject goes with ne before the verb: Personne ne monte sans harnais."
+        },
+        {
+          "en": "nothing",
+          "kind": "term",
+          "fr": "rien",
+          "noteEnglish": "Ne...rien wraps around the verb: Il n'y a rien dans la brouette."
+        },
+        {
+          "en": "more",
+          "kind": "term",
+          "fr": "plus de",
+          "noteEnglish": "More of something: plus de clous. With ne...plus, it means no longer or no more; pronunciation also changes."
+        },
+        {
+          "en": "less",
+          "kind": "term",
+          "fr": "moins de",
+          "noteEnglish": "Less or fewer of something: moins de bardeaux."
+        },
+        {
+          "en": "another, other",
+          "kind": "term",
+          "fr": "un autre, une autre, d'autres",
+          "noteEnglish": "Autre agrees with its noun: un autre paquet (masculine), une autre bâche (feminine), d'autres outils (plural)."
+        },
+        {
+          "en": "still, yet",
+          "kind": "term",
+          "fr": "encore",
+          "noteEnglish": "Pas encore means not yet. Encore alone means still or again."
+        },
+        {
+          "en": "a little",
+          "kind": "term",
+          "fr": "un peu de",
+          "noteEnglish": "A little of a mass noun: un peu d'eau. For a few countable nails, say quelques clous."
+        },
+        {
+          "en": "I don't understand.",
+          "kind": "phrase",
+          "fr": "Je ne comprends pas."
+        },
+        {
+          "en": "Not yet.",
+          "kind": "phrase",
+          "fr": "Pas encore."
+        },
+        {
+          "en": "Nobody goes up without a harness.",
+          "kind": "phrase",
+          "fr": "Personne ne monte sans harnais."
+        },
+        {
+          "en": "I need another bundle.",
+          "kind": "phrase",
+          "fr": "J'ai besoin d'un autre paquet.",
+          "noteEnglish": "Paquet is the everyday word for a bundle of shingles. Confirm the trade term with your crew."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Pas encore, jamais sans harnais",
+        "target": [
+          "Le toit n'est pas encore prêt.",
+          "Personne ne monte sans harnais.",
+          "On ne travaille jamais sur un toit mouillé.",
+          "Il n'y a rien dans la brouette.",
+          "J'ai besoin d'un autre paquet et de quelques clous de plus.",
+          "Aujourd'hui, on utilise moins de bardeaux qu'hier.",
+          "Je ne comprends pas, vous pouvez parler plus lentement ?"
+        ],
+        "native": [
+          "The roof isn't ready yet.",
+          "Nobody goes up without a harness.",
+          "We never work on a wet roof.",
+          "There's nothing in the wheelbarrow.",
+          "I need another bundle and a few more nails.",
+          "Today we use fewer shingles than yesterday.",
+          "I don't understand, can you speak more slowly?"
+        ]
+      },
+      "speakingEnglish": "Tell a crew member what is not ready yet, that nobody goes up without a harness, and ask for more material.",
+      "speakingFrenchOpening": "Le toit n'est pas encore prêt. Personne ne monte sans harnais. J'ai besoin d'un autre paquet de bardeaux.",
+      "grammarTeachingEnglish": "Negation wraps around the verb: ne + verb + pas, jamais, rien, plus, or personne. Je ne comprends pas. On ne travaille jamais sur un toit mouillé. Il n'y a rien dans la brouette. Personne can be the subject and comes before the verb: Personne ne monte sans harnais. When it is the object, it comes after the verb: Je ne vois personne. Pas encore means not yet. Non is a standalone answer: Non, pas encore. After pas, jamais, plus or rien with most verbs, un, une, du, de la and des become de (d' before a vowel): Je n'ai pas de marteau; Il n'y a plus de clous. Definite le, la and les stay, and the article remains after être: Ce n'est pas une urgence. Quantity expressions take de + noun: plus de clous, moins de bardeaux, un peu d'eau. Autre agrees with its noun: un autre, une autre, d'autres. Moins de is the comparison word for less: moins de bardeaux qu'hier. Ne can be dropped in casual speech, but learners should use the full ne...pas form. In plus de clous (more nails), pronounce the final s in plus; in ne... plus (no longer), the s is usually silent.",
+      "verbs": [
+        {
+          "infinitiveFrench": "monter",
+          "meaningEnglish": "to go up, to climb",
+          "exampleFrench": "Personne ne monte sans harnais.",
+          "exampleEnglish": "Nobody goes up without a harness."
+        },
+        {
+          "infinitiveFrench": "comprendre",
+          "meaningEnglish": "to understand",
+          "exampleFrench": "Je ne comprends pas, vous pouvez parler plus lentement ?",
+          "exampleEnglish": "I don't understand, can you speak more slowly?"
+        },
+        {
+          "infinitiveFrench": "utiliser",
+          "meaningEnglish": "to use",
+          "exampleFrench": "Aujourd'hui, on utilise moins de bardeaux qu'hier.",
+          "exampleEnglish": "Today we use fewer shingles than yesterday.",
+          "meaningEnglishSource": "to use, to wear",
+          "noteEnglish": "Utiliser means to use. To wear gear, use porter: Il faut porter le harnais."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Utiliser means to use. For to wear (gloves, a harness), French says porter, as in Il faut porter le harnais.",
+        "Pas encore and ne...pas are standard in France and Quebec. Quebec speakers often drop ne in speech, but learners should use the full form.",
+        "Vous pouvez parler plus lentement ? is a polite everyday request. Pourriez-vous parler plus lentement ? is more formal.",
+        "A harness alone is not a fall-protection procedure. Follow the site-specific fall-protection plan and trained instructions."
+      ]
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Polite Requests and Commands",
+      "objectiveEnglish": "Ask politely and give short, clear instructions",
+      "grammarFocusEnglish": "Pouvez-vous...? for polite requests; vous command forms for everyday verbs (attendez, apportez, faites attention); please (s'il vous plaît), thank you (merci), excuse me (pardon, excusez-moi) and sorry (désolé)",
+      "words": [
+        {
+          "en": "please",
+          "kind": "term",
+          "fr": "s'il vous plaît",
+          "noteEnglish": "S'il vous plaît is the polite form. Use s'il te plaît only with close, informal contacts."
+        },
+        {
+          "en": "thank you",
+          "kind": "term",
+          "fr": "merci"
+        },
+        {
+          "en": "excuse me (to pass)",
+          "kind": "term",
+          "fr": "excusez-moi",
+          "noteEnglish": "Use excusez-moi or pardon when passing someone."
+        },
+        {
+          "en": "sorry, excuse me",
+          "kind": "term",
+          "fr": "désolé, pardon",
+          "noteEnglish": "Désolé becomes désolée when a female speaker says it."
+        },
+        {
+          "en": "careful, watch out",
+          "kind": "term",
+          "fr": "attention",
+          "noteEnglish": "Attention is a warning: watch out. Faites attention means be careful."
+        },
+        {
+          "en": "wait",
+          "kind": "term",
+          "fr": "attendez",
+          "noteEnglish": "Attendez is the polite vous command. The infinitive is attendre."
+        },
+        {
+          "en": "come",
+          "kind": "term",
+          "fr": "venez",
+          "noteEnglish": "Venez is the polite vous command for come."
+        },
+        {
+          "en": "here",
+          "kind": "term",
+          "fr": "ici"
+        },
+        {
+          "en": "Can you pass me the hammer?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me passer le marteau ?"
+        },
+        {
+          "en": "Be careful.",
+          "kind": "phrase",
+          "fr": "Faites attention.",
+          "noteEnglish": "At a roof edge, bord means edge; follow site safety procedures."
+        },
+        {
+          "en": "Wait here, please.",
+          "kind": "phrase",
+          "fr": "Attendez ici, s'il vous plaît."
+        },
+        {
+          "en": "Bring the ladder.",
+          "kind": "phrase",
+          "fr": "Apportez l'échelle."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Pardon, je passe avec l'échelle",
+        "target": [
+          "Pardon, je passe avec l'échelle.",
+          "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+          "Merci, et désolé pour l'attente.",
+          "Venez ici et apportez l'échelle.",
+          "Attendez ici, s'il vous plaît.",
+          "Faites attention au bord du toit."
+        ],
+        "native": [
+          "Excuse me, I'm coming through with the ladder.",
+          "Can you pass me the hammer, please?",
+          "Thank you, and sorry for the wait.",
+          "Come here and bring the ladder.",
+          "Wait here, please.",
+          "Be careful with the edge of the roof."
+        ]
+      },
+      "speakingEnglish": "Politely ask a crew member for two tools, then give three short instructions to set up the ladder.",
+      "speakingFrenchOpening": "Pardon, pouvez-vous me passer le marteau et la corde, s'il vous plaît ? Merci. Apportez l'échelle. Attendez ici, s'il vous plaît. Faites attention.",
+      "grammarTeachingEnglish": "Pouvez-vous (can you) is the polite question form, from pouvoir, which is irregular: je peux, tu peux, il/elle/on peut, nous pouvons, vous pouvez, ils/elles peuvent. Pouvez-vous inverts the verb and subject, and the verb is followed by a bare infinitive: Pouvez-vous me passer le marteau ? Object pronouns go before the infinitive: me passer. For a vous command, drop the subject pronoun and use the vous verb form: vous attendez → Attendez; vous apportez → Apportez; vous venez → Venez. Faire is irregular: vous faites becomes Faites. In a positive command, an object pronoun follows the verb with a hyphen: Passez-moi le marteau. In a negative command the object pronoun stays before the verb: Ne le touchez pas. S'il vous plaît can go at the end: Attendez ici, s'il vous plaît. Merci is thank you. Désolé and pardon both cover sorry.",
+      "verbs": [
+        {
+          "infinitiveFrench": "passer",
+          "meaningEnglish": "to pass, to come through",
+          "exampleFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+          "exampleEnglish": "Can you pass me the hammer, please?"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Venez ici et apportez l'échelle.",
+          "exampleEnglish": "Come here and bring the ladder."
+        },
+        {
+          "infinitiveFrench": "attendre",
+          "meaningEnglish": "to wait",
+          "exampleFrench": "Attendez ici, s'il vous plaît.",
+          "exampleEnglish": "Wait here, please."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Pardon and excusez-moi both work to pass someone. Pardon is the everyday short form in France and Quebec; excusez-moi is more formal.",
+        "S'il vous plaît is standard in France and Quebec. SVP is common in writing and on signs.",
+        "Vous commands are polite with any crew member you do not know well. With a close coworker, the informal tu command is used: Passe-moi le marteau.",
+        "This is language practice, not a ladder setup procedure. Follow site-specific ladder rules and training."
+      ]
+    },
+    {
+      "n": 10,
+      "titleEnglish": "Words You Already Know and Getting Help",
+      "objectiveEnglish": "Use French words that look like English and ask for help when you are stuck",
+      "grammarFocusEnglish": "French cognates with English-looking endings (-tion, -té, -ent) and survival phrases for emergencies and getting help",
+      "words": [
+        {
+          "en": "the emergency",
+          "kind": "term",
+          "fr": "l'urgence",
+          "noteEnglish": "Une urgence is a real emergency. Émergence is a false friend and means emergence. Feminine noun."
+        },
+        {
+          "en": "the accident",
+          "kind": "term",
+          "fr": "l'accident",
+          "noteEnglish": "Same spelling as English. Un accident. Masculine noun."
+        },
+        {
+          "en": "the ambulance",
+          "kind": "term",
+          "fr": "l'ambulance",
+          "noteEnglish": "Feminine noun."
+        },
+        {
+          "en": "the construction",
+          "kind": "term",
+          "fr": "la construction",
+          "noteEnglish": "The ending -tion matches English -tion. Feminine noun."
+        },
+        {
+          "en": "the inspection",
+          "kind": "term",
+          "fr": "l'inspection",
+          "noteEnglish": "The ending -tion matches English -tion. Feminine noun."
+        },
+        {
+          "en": "the protection",
+          "kind": "term",
+          "fr": "la protection",
+          "noteEnglish": "The ending -tion matches English -tion. Feminine noun."
+        },
+        {
+          "en": "the safety",
+          "kind": "term",
+          "fr": "la sécurité",
+          "noteEnglish": "Sécurité ends in -té, like English -ty. It is the everyday word for safety on site. Feminine noun."
+        },
+        {
+          "en": "the hospital",
+          "kind": "term",
+          "fr": "l'hôpital",
+          "noteEnglish": "The circumflex on hôpital marks a dropped s from the older spelling. Masculine noun."
+        },
+        {
+          "en": "What does … mean?",
+          "kind": "phrase",
+          "fr": "Que veut dire … ?",
+          "noteEnglish": "Qu'est-ce que … veut dire ? is also common."
+        },
+        {
+          "en": "I need help.",
+          "kind": "phrase",
+          "fr": "J'ai besoin d'aide."
+        },
+        {
+          "en": "Call 911.",
+          "kind": "phrase",
+          "fr": "Appelez le 911.",
+          "noteEnglish": "911 is the US emergency number and also works in Quebec. Elsewhere, use the local emergency number; in France and across the EU it is 112."
+        },
+        {
+          "en": "Do you speak English?",
+          "kind": "phrase",
+          "fr": "Vous parlez anglais ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "La sécurité d'abord",
+        "target": [
+          "Dans la construction, la sécurité passe en premier.",
+          "Aujourd'hui, il y a une inspection de la protection contre les chutes.",
+          "Un collègue a un petit accident sur l'échelle.",
+          "Ce n'est pas une urgence, mais j'ai besoin d'aide.",
+          "Si c'est grave, appelez le 911 et demandez une ambulance.",
+          "L'ambulance va à l'hôpital.",
+          "Que veut dire le mot « chute » ?"
+        ],
+        "native": [
+          "In construction, safety comes first.",
+          "Today there's a fall protection inspection.",
+          "A coworker has a small accident on the ladder.",
+          "It's not an emergency, but I need help.",
+          "If it's serious, call 911 and ask for an ambulance.",
+          "The ambulance goes to the hospital.",
+          "What does the word chute mean?"
+        ],
+        "sourceNative": [
+          "In construction, safety comes first.",
+          "Today there's a fall protection inspection.",
+          "A coworker has a small accident on the ladder.",
+          "It's not an emergency, but I need help.",
+          "If it's serious, call 911 and ask for an ambulance.",
+          "The ambulance goes to the hospital.",
+          "What does the word caída mean?"
+        ]
+      },
+      "speakingEnglish": "Report a small accident on the roof, ask for help, and ask what one word means.",
+      "speakingFrenchOpening": "Chef, il y a un petit accident sur le toit. J'ai besoin d'aide. Que veut dire le mot « chute » ?",
+      "grammarTeachingEnglish": "Many French words look like English words. Endings often match: -tion (construction, inspection, protection) matches English -tion; -té (sécurité) matches English -ty; words like accident and ambulance are spelled almost the same. Watch for false friends: urgence means emergency, not emergence; collègue means coworker, not college (collège is a school). Survival phrases: J'ai besoin d'aide (I need help), Vous parlez anglais ? (Do you speak English?), Que veut dire … ? (What does … mean?). Appelez is the verb appeler (to call). Ce n'est pas une urgence means it is not an emergency. C'est grave means it is serious. Follow your employer's emergency procedure and the posted emergency numbers on site. The -ent ending is also shared in accident. The reading is a US/Canada scenario; use the posted local emergency number where you work. If you are unsure whether an injury is an emergency, follow the site emergency procedure and seek help promptly.",
+      "verbs": [
+        {
+          "infinitiveFrench": "appeler",
+          "meaningEnglish": "to call",
+          "exampleFrench": "Si c'est grave, appelez le 911 et demandez une ambulance.",
+          "exampleEnglish": "If it's serious, call 911 and ask for an ambulance."
+        },
+        {
+          "infinitiveFrench": "vouloir dire",
+          "meaningEnglish": "to mean",
+          "exampleFrench": "Que veut dire le mot « chute » ?",
+          "exampleEnglish": "What does the word chute mean?",
+          "exampleEnglishSource": "What does the word caída mean?",
+          "noteEnglish": "The original English source named Spanish caída; chute is French for fall."
+        },
+        {
+          "infinitiveFrench": "aider",
+          "meaningEnglish": "to help",
+          "exampleFrench": "Mon collègue m'aide à descendre.",
+          "exampleEnglish": "My coworker helps me get down."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "911 is the emergency number in the United States and Canada, including Quebec. In France and across the EU, use 112. Learn the number for the place where you work.",
+        "The original Spanish source used caída for fall. This French card and its English example use chute instead; the original English example remains in exampleEnglishSource.",
+        "Vous parlez anglais ? is the standard polite question. Tu parles anglais ? is informal."
+      ],
+      "objectiveEnglishSource": "Use Spanish words that look like English and ask for help when you are stuck"
+    }
+  ]
+}

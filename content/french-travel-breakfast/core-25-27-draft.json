@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 25,
+      "titleEnglish": "Handle a hot-drink spill",
+      "objectiveEnglish": "ask for cold water, a first-aid kit, and napkins, and accept or decline an apology and offer",
+      "scenarioEnglishSource": "A server spills hot coffee on your arm; ask for cold water and a first-aid kit, and respond graciously to the apology.",
+      "titleFrenchCourseEnglish": "Réagir à une boisson chaude renversée",
+      "objectiveFrenchCourseEnglish": "Ask staff for help and supplies after a hot-coffee spill, then respond to an apology.",
+      "focusEnglish": "Use a direct polite request for help; describe what happened without making a medical judgment.",
+      "focusFrench": "Demander de l’aide et du matériel après un incident ; répondre à des excuses.",
+      "teachingNotesEnglish": "Pourriez-vous m’apporter de l’eau froide ? is a request for water, not burn-care guidance. Vous avez une trousse de premiers secours ? asks for available supplies. The English source describes the injury and offer in a fictional scene; medical treatment decisions require professional guidance.",
+      "words": [
+        {
+          "en": "cold water",
+          "kind": "term",
+          "fr": "de l’eau froide"
+        },
+        {
+          "en": "first-aid kit",
+          "kind": "term",
+          "fr": "une trousse de premiers secours"
+        },
+        {
+          "en": "napkins",
+          "kind": "term",
+          "fr": "des serviettes en papier"
+        },
+        {
+          "en": "burn",
+          "kind": "term",
+          "fr": "une brûlure"
+        },
+        {
+          "en": "arm",
+          "kind": "term",
+          "fr": "le bras"
+        },
+        {
+          "en": "skin",
+          "kind": "term",
+          "fr": "la peau"
+        },
+        {
+          "en": "server",
+          "kind": "term",
+          "fr": "le serveur, la serveuse"
+        },
+        {
+          "en": "manager",
+          "kind": "term",
+          "fr": "le responsable"
+        },
+        {
+          "en": "hot coffee",
+          "kind": "term",
+          "fr": "du café chaud"
+        },
+        {
+          "en": "stain",
+          "kind": "term",
+          "fr": "une tache"
+        },
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "Could you bring me cold water, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ?"
+        },
+        {
+          "en": "Do you have a first-aid kit?",
+          "kind": "phrase",
+          "fr": "Vous avez une trousse de premiers secours ?"
+        },
+        {
+          "en": "Could you pass me more napkins, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me passer d’autres serviettes, s’il vous plaît ?"
+        },
+        {
+          "en": "Don't worry, it was an accident.",
+          "kind": "phrase",
+          "fr": "Ne vous inquiétez pas, c’était un accident."
+        },
+        {
+          "en": "Thank you, but it's not necessary.",
+          "kind": "phrase",
+          "fr": "Merci, mais ce n’est pas nécessaire."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Réagir à une boisson chaude renversée",
+        "english": [
+          "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+          "Ana takes a breath and says: Could you bring me cold water, please?",
+          "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+          "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+          "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+          "Ana answers: Thank you, but it's not necessary, because it's a small burn.",
+          "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+          "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer."
+        ],
+        "french": [
+          "Dans un café à Oaxaca, le serveur trébuche et renverse du café chaud sur le bras d’Ana.",
+          "Ana reprend son souffle et dit : « Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ? »",
+          "Le serveur apporte un verre d’eau froide et des serviettes en papier ; Ana essuie prudemment son bras.",
+          "Puis Ana demande s’ils ont une trousse de premiers secours, car sa peau est un peu rouge.",
+          "Le responsable apporte la trousse et dit : « Si la brûlure vous fait très mal, nous pouvons appeler un médecin. »",
+          "Ana répond : « Merci, mais ce n’est pas nécessaire, car c’est une petite brûlure. »",
+          "Le serveur est très inquiet et dit : « Je suis vraiment désolé ; nous ne vous facturerons pas le petit-déjeuner. »",
+          "Ana sourit et dit : « Ne vous inquiétez pas, c’était un accident, et j’accepte volontiers votre offre. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ?",
+          "exampleEnglish": "Could you bring me cold water, please?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "renverser",
+          "meaningEnglish": "to spill",
+          "exampleFrench": "Le serveur renverse du café chaud sur le bras d’Ana.",
+          "exampleEnglish": "The server spills hot coffee on Ana's arm.",
+          "sourceInfinitiveSpanish": "derramar"
+        },
+        {
+          "infinitiveFrench": "faire mal",
+          "meaningEnglish": "to hurt",
+          "exampleFrench": "Mon bras me fait un peu mal.",
+          "exampleEnglish": "My arm hurts a little.",
+          "sourceInfinitiveSpanish": "doler"
+        },
+        {
+          "infinitiveFrench": "s’inquiéter",
+          "meaningEnglish": "to worry",
+          "exampleFrench": "Le serveur s’inquiète beaucoup de la brûlure.",
+          "exampleEnglish": "The server is very worried about the burn.",
+          "sourceInfinitiveSpanish": "preocuparse"
+        },
+        {
+          "infinitiveFrench": "accepter",
+          "meaningEnglish": "to accept",
+          "exampleFrench": "J’accepte volontiers votre offre.",
+          "exampleEnglish": "I gladly accept the offer.",
+          "sourceInfinitiveSpanish": "aceptar"
+        }
+      ],
+      "speakingInstructionEnglish": "Tell staff what happened, ask for help and supplies, and respond to the apology without assessing the injury yourself.",
+      "speakingFrench": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. Pourriez-vous m’aider et apporter la trousse de premiers secours ?",
+      "regionalNotesEnglish": [
+        "The source passage contains a self-assessed “small burn” and arm-drying step. These require qualified medical/safety correction before any learner release; do not treat them as first-aid guidance.",
+        "The café’s free-breakfast offer is fictional and venue-specific."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 26,
+      "titleEnglish": "Work through a long breakfast",
+      "objectiveEnglish": "ask whether staying is welcome, about Wi-Fi and outlets, and when to order again",
+      "scenarioEnglishSource": "You need to work for two hours; ask whether that's acceptable, where to sit, and when to order a second round.",
+      "titleFrenchCourseEnglish": "Travailler un moment dans un café",
+      "objectiveFrenchCourseEnglish": "Ask whether a two-hour stay, Wi-Fi and an outlet are available and when to order again.",
+      "focusEnglish": "Use ça vous dérange si… ? to ask permission; si le café se remplit to offer a table back; quand préférez-vous… ? for a second order.",
+      "focusFrench": "Demander la permission de travailler sur place, le Wi-Fi et une prise, puis proposer une nouvelle commande.",
+      "teachingNotesEnglish": "Ça vous dérange si je reste travailler deux heures ? asks without assuming laptop work is welcome. Si le café se remplit, je libérerai la table offers a compromise. Confirm outlet and Wi-Fi rules with staff.",
+      "words": [
+        {
+          "en": "laptop",
+          "kind": "term",
+          "fr": "un ordinateur portable"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "Wi-Fi",
+          "kind": "term",
+          "fr": "le Wi-Fi"
+        },
+        {
+          "en": "password",
+          "kind": "term",
+          "fr": "le mot de passe"
+        },
+        {
+          "en": "outlet",
+          "kind": "term",
+          "fr": "une prise électrique"
+        },
+        {
+          "en": "charger",
+          "kind": "term",
+          "fr": "un chargeur"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "le coin"
+        },
+        {
+          "en": "latte",
+          "kind": "term",
+          "fr": "un café latte"
+        },
+        {
+          "en": "sweet pastry",
+          "kind": "term",
+          "fr": "une viennoiserie"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "un pourboire"
+        },
+        {
+          "en": "Do you mind if I stay and work for 2 hours?",
+          "kind": "phrase",
+          "fr": "Ça vous dérange si je reste travailler deux heures ?"
+        },
+        {
+          "en": "What is the Wi-Fi password?",
+          "kind": "phrase",
+          "fr": "Quel est le mot de passe du Wi-Fi ?"
+        },
+        {
+          "en": "Can I sit near an outlet?",
+          "kind": "phrase",
+          "fr": "Je peux m’asseoir près d’une prise ?"
+        },
+        {
+          "en": "When would you prefer that I order again?",
+          "kind": "phrase",
+          "fr": "Quand préféreriez-vous que je commande autre chose ?"
+        },
+        {
+          "en": "If it fills up, I'll give up the table.",
+          "kind": "phrase",
+          "fr": "Si le café se remplit, je libérerai la table."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Travailler un moment dans un café",
+        "english": [
+          "It is Tuesday morning and Lena walks into a small café with her laptop.",
+          "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+          "The server smiles and says: No problem, but at lunchtime it gets very full.",
+          "Lena answers: If it fills up, I'll give up the table, and then she asks: What is the Wi-Fi password?",
+          "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+          "Lena plugs in her charger, orders a latte and a sweet pastry, and starts working.",
+          "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+          "The server says: Whenever you like, because I come by your table every half hour.",
+          "At the end, Lena asks for the bill and leaves a good tip for the time and the space."
+        ],
+        "french": [
+          "C’est mardi matin et Lena entre dans un petit café avec son ordinateur portable.",
+          "Avant de s’asseoir, elle va au comptoir et demande au serveur : « Ça vous dérange si je reste travailler deux heures ? »",
+          "Le serveur sourit et dit : « Aucun problème, mais à l’heure du déjeuner, le café se remplit. »",
+          "Lena répond : « Si le café se remplit, je libérerai la table », puis elle demande : « Quel est le mot de passe du Wi-Fi ? »",
+          "Le serveur lui donne un papier avec le mot de passe et lui indique une table dans un coin, près d’une prise.",
+          "Lena branche son chargeur, commande un café latte et une viennoiserie, puis se met au travail.",
+          "Une heure plus tard, elle lève la main et demande : « Quand préféreriez-vous que je commande autre chose ? »",
+          "Le serveur répond : « Quand vous voudrez ; je passe à votre table toutes les demi-heures. »",
+          "À la fin, Lena demande l’addition et laisse un bon pourboire pour le temps et l’espace occupés."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "rester",
+          "meaningEnglish": "to stay",
+          "exampleFrench": "Je reste travailler deux heures, si ça ne vous dérange pas.",
+          "exampleEnglish": "I'm staying to work for 2 hours, if you don't mind.",
+          "sourceInfinitiveSpanish": "quedarse"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Lena commande un café latte et une viennoiserie.",
+          "exampleEnglish": "Lena orders a latte and a sweet pastry.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "préférer",
+          "meaningEnglish": "to prefer",
+          "exampleFrench": "Quand préféreriez-vous que je commande autre chose ?",
+          "exampleEnglish": "When would you prefer that I order again?",
+          "sourceInfinitiveSpanish": "preferir"
+        },
+        {
+          "infinitiveFrench": "brancher",
+          "meaningEnglish": "to plug in, to connect",
+          "exampleFrench": "Lena branche son chargeur sur la prise dans le coin.",
+          "exampleEnglish": "Lena plugs her charger into the outlet in the corner.",
+          "sourceInfinitiveSpanish": "conectar"
+        },
+        {
+          "infinitiveFrench": "libérer",
+          "meaningEnglish": "to leave, to give up",
+          "exampleFrench": "Si le café se remplit, je libérerai la table.",
+          "exampleEnglish": "If it fills up, I'll give up the table.",
+          "sourceInfinitiveSpanish": "dejar"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask before working for two hours; confirm Wi-Fi and outlet access, then agree on a table and another order.",
+      "speakingFrench": "Bonjour, ça vous dérange si je reste travailler deux heures ? Y a-t-il du Wi-Fi et une prise ? Si le café se remplit, je libérerai la table.",
+      "regionalNotesEnglish": [
+        "Laptop stays, outlet use, Wi-Fi and reordering expectations vary by café. The source scene’s tip is not a universal expectation."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 27,
+      "titleEnglish": "Arrange an early-departure breakfast",
+      "objectiveEnglish": "ask for a packed breakfast or early service before official hours and confirm pickup",
+      "scenarioEnglishSource": "Your 5:30 a.m. airport transfer leaves before breakfast opens; ask the hotel for a packed breakfast or an early option.",
+      "titleFrenchCourseEnglish": "Prévoir un petit-déjeuner avant le départ",
+      "objectiveFrenchCourseEnglish": "Request an early packed breakfast, confirm pickup time and place, and ask whether it is included.",
+      "focusEnglish": "Use mon transfert part à… for the departure, un petit-déjeuner à emporter for the request, and où/quand le récupérer for pickup.",
+      "focusFrench": "Demander un petit-déjeuner à emporter avant l’ouverture et confirmer le retrait.",
+      "teachingNotesEnglish": "Mon transfert part à cinq heures trente gives a precise deadline. Pourriez-vous préparer un petit-déjeuner à emporter ? is a request, not a guarantee. If you have an allergy, ask for actual ingredients and handling information; a note on a bag alone does not make it safe.",
+      "words": [
+        {
+          "en": "packed breakfast",
+          "kind": "term",
+          "fr": "un petit-déjeuner à emporter"
+        },
+        {
+          "en": "front desk",
+          "kind": "term",
+          "fr": "la réception"
+        },
+        {
+          "en": "airport transfer",
+          "kind": "term",
+          "fr": "le transfert vers l’aéroport"
+        },
+        {
+          "en": "breakfast hours",
+          "kind": "term",
+          "fr": "les horaires du petit-déjeuner"
+        },
+        {
+          "en": "dining room",
+          "kind": "term",
+          "fr": "la salle à manger"
+        },
+        {
+          "en": "paper bag",
+          "kind": "term",
+          "fr": "un sac en papier"
+        },
+        {
+          "en": "fruit",
+          "kind": "term",
+          "fr": "des fruits"
+        },
+        {
+          "en": "juice",
+          "kind": "term",
+          "fr": "du jus"
+        },
+        {
+          "en": "allergy",
+          "kind": "term",
+          "fr": "une allergie"
+        },
+        {
+          "en": "room number",
+          "kind": "term",
+          "fr": "le numéro de chambre"
+        },
+        {
+          "en": "rate",
+          "kind": "term",
+          "fr": "le tarif"
+        },
+        {
+          "en": "Can you prepare a packed breakfast for me?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me préparer un petit-déjeuner à emporter ?"
+        },
+        {
+          "en": "My airport transfer leaves at 5:30 a.m.",
+          "kind": "phrase",
+          "fr": "Mon transfert vers l’aéroport part à cinq heures trente."
+        },
+        {
+          "en": "What time can I pick it up?",
+          "kind": "phrase",
+          "fr": "À quelle heure puis-je le récupérer ?"
+        },
+        {
+          "en": "Where do I pick it up, at the front desk or in the dining room?",
+          "kind": "phrase",
+          "fr": "Où dois-je le récupérer, à la réception ou dans la salle à manger ?"
+        },
+        {
+          "en": "Is it included in my rate?",
+          "kind": "phrase",
+          "fr": "C’est compris dans mon tarif ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Prévoir un petit-déjeuner avant le départ",
+        "english": [
+          "Ana arrives at the hotel front desk at 9 p.m.",
+          "She says: My airport transfer leaves at 5:30 a.m., but breakfast hours start at 7.",
+          "Then she asks: If the dining room is closed, can you prepare a packed breakfast for me?",
+          "The receptionist explains that the kitchen can prepare a paper bag with fruit, bread and juice.",
+          "Ana mentions her nut allergy, and he writes it down with her room number.",
+          "Then she asks: What time can I pick it up?",
+          "He answers: The bag will be ready at the front desk at 5 a.m.",
+          "Ana wants to confirm the price and asks: Is it included in my rate?",
+          "The receptionist says yes, because her reservation includes breakfast."
+        ],
+        "french": [
+          "Ana arrive à la réception de l’hôtel à vingt et une heures.",
+          "Elle dit : « Mon transfert vers l’aéroport part à cinq heures trente, mais le petit-déjeuner commence à sept heures. »",
+          "Puis elle demande : « Si la salle à manger est fermée, pourriez-vous me préparer un petit-déjeuner à emporter ? »",
+          "Le réceptionniste explique que la cuisine peut préparer un sac en papier contenant des fruits, du pain et du jus.",
+          "Ana mentionne son allergie aux fruits à coque ; il la note avec son numéro de chambre.",
+          "Puis elle demande : « À quelle heure puis-je le récupérer ? »",
+          "Il répond : « Le sac sera prêt à la réception à cinq heures. »",
+          "Ana veut confirmer le prix et demande : « C’est compris dans mon tarif ? »",
+          "Le réceptionniste répond que oui, car sa réservation comprend le petit-déjeuner."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "préparer",
+          "meaningEnglish": "to prepare",
+          "exampleFrench": "La cuisine prépare un sac en papier avec des fruits et du jus.",
+          "exampleEnglish": "The kitchen prepares a paper bag with fruit and juice.",
+          "sourceInfinitiveSpanish": "preparar"
+        },
+        {
+          "infinitiveFrench": "récupérer",
+          "meaningEnglish": "to pick up",
+          "exampleFrench": "Où dois-je le récupérer, à la réception ou dans la salle à manger ?",
+          "exampleEnglish": "Where do I pick it up, at the front desk or in the dining room?",
+          "sourceInfinitiveSpanish": "recoger"
+        },
+        {
+          "infinitiveFrench": "partir",
+          "meaningEnglish": "to leave",
+          "exampleFrench": "Mon transfert vers l’aéroport part à cinq heures trente.",
+          "exampleEnglish": "My airport transfer leaves at 5:30 a.m.",
+          "sourceInfinitiveSpanish": "salir"
+        },
+        {
+          "infinitiveFrench": "comprendre",
+          "meaningEnglish": "to include",
+          "exampleFrench": "Votre réservation comprend le petit-déjeuner.",
+          "exampleEnglish": "Your reservation includes breakfast.",
+          "sourceInfinitiveSpanish": "incluir"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask the hotel for an early breakfast, confirm collection time and location, and clarify ingredients and price.",
+      "speakingFrench": "Bonsoir, mon transfert vers l’aéroport part à cinq heures trente. Pourriez-vous préparer un petit-déjeuner à emporter ? J’ai une allergie aux fruits à coque : pouvez-vous vérifier les ingrédients et la préparation ?",
+      "regionalNotesEnglish": [
+        "The source says the allergy is written down; this is not sufficient assurance of safety. Qualified allergy review must check all instructions and food-handling language before release.",
+        "Early breakfast and inclusion in room rates depend on the hotel and booking terms."
+      ],
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "94417130af51f53b1aaf7cfa18b804688f27806fa13f3c23751a3513a3066df9",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Tear-Off Scope",
+      "objectiveEnglishSource": "Tell the crew exactly what to remove",
+      "titleFrench": "Délimiter la dépose",
+      "objectiveFrench": "Expliquer à l’équipe ce qui doit être déposé selon l’étendue approuvée des travaux.",
+      "speakingEnglishSource": "Give the command 'Tear off everything down to the deck' and ask for confirmation.",
+      "speakingFrenchInstruction": "À partir du devis, expliquez à l’équipe les éléments à retirer sur ce chantier précis. Demandez une reformulation et confirmez ce qui doit rester en place.",
+      "speakingFrenchOpening": "Selon le devis de ce chantier, que devons-nous déposer jusqu’au support ? Quels solins doivent rester en place ?",
+      "grammarFocusFrench": "Impératif de politesse pour décrire une tâche; devoir + infinitif; confirmation avec est-ce clair et comprenez-vous.",
+      "words": [
+        {
+          "en": "tear-off",
+          "kind": "term",
+          "fr": "la dépose de l’ancienne couverture"
+        },
+        {
+          "en": "shingles",
+          "kind": "term",
+          "fr": "les bardeaux"
+        },
+        {
+          "en": "deck",
+          "kind": "term",
+          "fr": "le support de couverture"
+        },
+        {
+          "en": "old roof",
+          "kind": "term",
+          "fr": "l’ancienne couverture"
+        },
+        {
+          "en": "layer",
+          "kind": "term",
+          "fr": "la couche"
+        },
+        {
+          "en": "scope of work",
+          "kind": "term",
+          "fr": "l’étendue des travaux"
+        },
+        {
+          "en": "underlayment",
+          "kind": "term",
+          "fr": "la sous-couche"
+        },
+        {
+          "en": "pry bar",
+          "kind": "term",
+          "fr": "le pied-de-biche"
+        },
+        {
+          "en": "flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "Tear off everything down to the deck.",
+          "kind": "phrase",
+          "fr": "Déposez toute la couverture jusqu’au support.",
+          "noteEnglish": "Source job-scene instruction only; verify the approved scope, retained elements and site safety plan."
+        },
+        {
+          "en": "Throw the shingles into the dumpster.",
+          "kind": "phrase",
+          "fr": "Jetez les bardeaux dans la benne."
+        },
+        {
+          "en": "Remove all the layers.",
+          "kind": "phrase",
+          "fr": "Retirez toutes les couches.",
+          "noteEnglish": "Source job-scene instruction only; verify the approved scope, retained elements and site safety plan."
+        },
+        {
+          "en": "Tear off the flashing too.",
+          "kind": "phrase",
+          "fr": "Déposez aussi les solins.",
+          "noteEnglish": "Source job-scene instruction only; verify the approved scope, retained elements and site safety plan."
+        },
+        {
+          "en": "Do you understand what must be removed?",
+          "kind": "phrase",
+          "fr": "Comprenez-vous ce qui doit être retiré ?"
+        },
+        {
+          "en": "Is that clear?",
+          "kind": "phrase",
+          "fr": "Est-ce clair ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Délimiter la dépose",
+        "target": [
+          "Aujourd’hui, la dépose de l’ancienne couverture commence.",
+          "Le contremaître explique l’étendue des travaux.",
+          "Déposez toute la couverture jusqu’au support.",
+          "Retirez toutes les couches, y compris la sous-couche.",
+          "Déposez aussi les solins.",
+          "Utilisez le pied-de-biche avec précaution.",
+          "Jetez les bardeaux dans la benne.",
+          "Comprenez-vous ce qui doit être retiré ?",
+          "Est-ce clair ?"
+        ],
+        "native": [
+          "Today the tear-off of the old roof begins.",
+          "The foreman explains the scope of work.",
+          "Tear off everything down to the deck.",
+          "Remove all the layers, including the underlayment.",
+          "Tear off the flashing too.",
+          "Use the pry bar carefully.",
+          "Throw the shingles into the dumpster.",
+          "Do you understand what must be removed?",
+          "Is that clear?"
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to remove, to tear off",
+          "exampleEnglish": "Tear off everything down to the deck.",
+          "sourceInfinitiveSpanish": "quitar",
+          "infinitiveFrench": "déposer",
+          "exampleFrench": "Déposez toute la couverture jusqu’au support."
+        },
+        {
+          "meaningEnglish": "to throw, to toss",
+          "exampleEnglish": "Throw the shingles into the dumpster.",
+          "sourceInfinitiveSpanish": "tirar",
+          "infinitiveFrench": "jeter",
+          "exampleFrench": "Jetez les bardeaux dans la benne."
+        },
+        {
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Use the pry bar carefully.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "utiliser",
+          "exampleFrench": "Utilisez le pied-de-biche avec précaution."
+        },
+        {
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "Do you understand what must be removed?",
+          "sourceInfinitiveSpanish": "entender",
+          "infinitiveFrench": "comprendre",
+          "exampleFrench": "Comprenez-vous ce qui doit être retiré ?"
+        },
+        {
+          "meaningEnglish": "to begin, to start",
+          "exampleEnglish": "Today the tear-off of the old roof begins.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "Aujourd’hui, la dépose de l’ancienne couverture commence."
+        }
+      ],
+      "teachingNotesFrench": "La source décrit un chantier fictif où la dépose comprend toutes les couches et les solins. Cette étendue n’est pas universelle : vérifier le devis approuvé, les matériaux à conserver et le plan de sécurité avant toute dépose.",
+      "regionalNotesEnglish": [
+        "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+        "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "titleEnglish": "Protect the Sheathing",
+      "objectiveEnglishSource": "Ask workers to prevent and report deck damage",
+      "titleFrench": "Signaler un support endommagé",
+      "objectiveFrench": "Faire arrêter le recouvrement d’un panneau affaibli et demander une vérification de la réparation.",
+      "speakingEnglishSource": "Stop a worker who is about to cover a soft panel and request a repair.",
+      "speakingFrenchInstruction": "Un panneau semble affaibli. Demandez l’arrêt du recouvrement, faites signaler et marquer la zone, puis demandez la vérification de la réparation prévue.",
+      "speakingFrenchOpening": "Arrêtez ici : ce panneau semble affaibli. Pouvez-vous marquer la zone et faire vérifier la réparation prévue ?",
+      "grammarFocusFrench": "Négation à l’impératif (ne recouvrez pas); si + présent; demander l’arrêt et la vérification avant de poursuivre.",
+      "words": [
+        {
+          "en": "sheathing",
+          "kind": "term",
+          "fr": "le platelage de toiture"
+        },
+        {
+          "en": "soft deck",
+          "kind": "term",
+          "fr": "le support de couverture affaibli"
+        },
+        {
+          "en": "damage",
+          "kind": "term",
+          "fr": "les dommages"
+        },
+        {
+          "en": "rotten wood",
+          "kind": "term",
+          "fr": "le bois pourri"
+        },
+        {
+          "en": "repair",
+          "kind": "term",
+          "fr": "la réparation"
+        },
+        {
+          "en": "replace",
+          "kind": "term",
+          "fr": "remplacer"
+        },
+        {
+          "en": "panel",
+          "kind": "term",
+          "fr": "le panneau"
+        },
+        {
+          "en": "plywood",
+          "kind": "term",
+          "fr": "le contreplaqué"
+        },
+        {
+          "en": "mark",
+          "kind": "term",
+          "fr": "marquer"
+        },
+        {
+          "en": "Don't damage the sheathing.",
+          "kind": "phrase",
+          "fr": "N’abîmez pas le platelage."
+        },
+        {
+          "en": "Tell me if the deck feels soft or damaged.",
+          "kind": "phrase",
+          "fr": "Prévenez-moi si le support semble affaibli ou endommagé."
+        },
+        {
+          "en": "Stop here; the deck needs repair before we continue.",
+          "kind": "phrase",
+          "fr": "Arrêtez ici ; le support doit être réparé avant de continuer."
+        },
+        {
+          "en": "Do not cover the soft panel.",
+          "kind": "phrase",
+          "fr": "Ne recouvrez pas le panneau affaibli."
+        },
+        {
+          "en": "Mark the damaged area.",
+          "kind": "phrase",
+          "fr": "Marquez la zone endommagée."
+        },
+        {
+          "en": "We need to replace this plywood.",
+          "kind": "phrase",
+          "fr": "Nous devons remplacer ce contreplaqué.",
+          "noteEnglish": "A qualified person must assess the panel and approve the repair; this is a communication example."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Signaler un support endommagé",
+        "target": [
+          "L’équipe retire les bardeaux du toit.",
+          "N’abîmez pas le platelage.",
+          "Prévenez-moi si le support semble affaibli ou endommagé.",
+          "Un ouvrier marche sur un panneau et constate que le bois est pourri.",
+          "Le contremaître dit : « Arrêtez ici ; le support doit être réparé avant de continuer. »",
+          "Ne recouvrez pas le panneau affaibli.",
+          "Marquez la zone endommagée.",
+          "Nous devons remplacer ce contreplaqué."
+        ],
+        "native": [
+          "The crew removes the shingles from the roof.",
+          "Don't damage the sheathing.",
+          "Tell me if the deck feels soft or damaged.",
+          "A worker steps on a panel and feels that the wood is rotten.",
+          "The foreman says: Stop here; the deck needs repair before we continue.",
+          "Do not cover the soft panel.",
+          "Mark the damaged area.",
+          "We need to replace this plywood."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to repair",
+          "exampleEnglish": "The crew repairs the deck today.",
+          "sourceInfinitiveSpanish": "reparar",
+          "infinitiveFrench": "réparer",
+          "exampleFrench": "L’équipe répare le support aujourd’hui."
+        },
+        {
+          "meaningEnglish": "to mark",
+          "exampleEnglish": "The worker marks the damaged area.",
+          "sourceInfinitiveSpanish": "marcar",
+          "infinitiveFrench": "marquer",
+          "exampleFrench": "L’ouvrier marque la zone endommagée."
+        },
+        {
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "We replace this plywood today.",
+          "sourceInfinitiveSpanish": "reemplazar",
+          "infinitiveFrench": "remplacer",
+          "exampleFrench": "Nous remplaçons ce contreplaqué aujourd’hui."
+        },
+        {
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "The worker does not cover the soft panel.",
+          "sourceInfinitiveSpanish": "cubrir",
+          "infinitiveFrench": "recouvrir",
+          "exampleFrench": "L’ouvrier ne recouvre pas le panneau affaibli."
+        },
+        {
+          "meaningEnglish": "to tell, to let know",
+          "exampleEnglish": "The worker tells the foreman.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "L’ouvrier prévient le contremaître."
+        }
+      ],
+      "teachingNotesFrench": "Un support affaibli exige l’arrêt de son recouvrement et une évaluation par la personne compétente. Ne pas déduire une méthode de réparation du seul dialogue.",
+      "regionalNotesEnglish": [
+        "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+        "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Debris & Old Nails",
+      "objectiveEnglishSource": "Coordinate debris removal and deck cleanup",
+      "titleFrench": "Évacuer les débris et les vieux clous",
+      "objectiveFrench": "Répartir les tâches de collecte des débris et de retrait des vieux clous.",
+      "speakingEnglishSource": "Assign one worker to collect shingles and another to pull old nails.",
+      "speakingFrenchInstruction": "Répartissez la collecte des bardeaux et le retrait des clous. Demandez comment l’équipe isolera la zone et confirmera la fin du nettoyage.",
+      "speakingFrenchOpening": "Qui ramasse les bardeaux et qui retire les vieux clous ? Comment protégerons-nous la zone au sol ?",
+      "grammarFocusFrench": "Impératif pluriel (retirez, balayez, ramassez); quand + futur antérieur dans une demande de suivi.",
+      "words": [
+        {
+          "en": "dumpster",
+          "kind": "term",
+          "fr": "la benne à déchets"
+        },
+        {
+          "en": "old nails",
+          "kind": "term",
+          "fr": "les vieux clous"
+        },
+        {
+          "en": "sweep",
+          "kind": "term",
+          "fr": "balayer"
+        },
+        {
+          "en": "debris",
+          "kind": "term",
+          "fr": "les débris"
+        },
+        {
+          "en": "magnet",
+          "kind": "term",
+          "fr": "l’aimant"
+        },
+        {
+          "en": "broom",
+          "kind": "term",
+          "fr": "le balai"
+        },
+        {
+          "en": "wheelbarrow",
+          "kind": "term",
+          "fr": "la brouette"
+        },
+        {
+          "en": "shovel",
+          "kind": "term",
+          "fr": "la pelle"
+        },
+        {
+          "en": "gloves",
+          "kind": "term",
+          "fr": "les gants"
+        },
+        {
+          "en": "Throw the shingles into the dumpster.",
+          "kind": "phrase",
+          "fr": "Jetez les bardeaux dans la benne."
+        },
+        {
+          "en": "Pull all the old nails.",
+          "kind": "phrase",
+          "fr": "Retirez tous les vieux clous."
+        },
+        {
+          "en": "Sweep the deck before underlayment.",
+          "kind": "phrase",
+          "fr": "Balayez le support avant de poser la sous-couche."
+        },
+        {
+          "en": "Tell me when the magnetic nail sweep is finished.",
+          "kind": "phrase",
+          "fr": "Dites-moi quand le ramassage magnétique des clous est terminé."
+        },
+        {
+          "en": "Pick up all the shingle pieces.",
+          "kind": "phrase",
+          "fr": "Ramassez tous les morceaux de bardeaux."
+        },
+        {
+          "en": "Put on your gloves.",
+          "kind": "phrase",
+          "fr": "Mettez vos gants."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Évacuer les débris et les vieux clous",
+        "target": [
+          "Après la dépose, il y a des débris partout.",
+          "Mettez vos gants.",
+          "Jetez les bardeaux dans la benne à déchets.",
+          "Un ouvrier utilise la pelle et un autre la brouette.",
+          "Retirez tous les vieux clous.",
+          "Passez ensuite l’aimant dans la cour.",
+          "Balayez le support avant de poser la sous-couche.",
+          "Dites-moi quand vous aurez fini de ramasser les clous avec l’aimant."
+        ],
+        "native": [
+          "After the tear-off there is debris everywhere.",
+          "Put on your gloves.",
+          "Throw the shingles into the debris dumpster.",
+          "One worker uses the shovel and another uses the wheelbarrow.",
+          "Pull all the old nails.",
+          "Then run the magnet over the yard.",
+          "Sweep the deck before the underlayment.",
+          "Tell me when you finish picking up the nails with the magnet."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to sweep",
+          "exampleEnglish": "We sweep the deck before the underlayment.",
+          "sourceInfinitiveSpanish": "barrer",
+          "infinitiveFrench": "balayer",
+          "exampleFrench": "Nous balayons le support avant de poser la sous-couche."
+        },
+        {
+          "meaningEnglish": "to throw",
+          "exampleEnglish": "They throw the shingles into the debris dumpster.",
+          "sourceInfinitiveSpanish": "tirar",
+          "infinitiveFrench": "jeter",
+          "exampleFrench": "Ils jettent les bardeaux dans la benne à déchets."
+        },
+        {
+          "meaningEnglish": "to pull out",
+          "exampleEnglish": "One worker pulls out all the old nails.",
+          "sourceInfinitiveSpanish": "sacar",
+          "infinitiveFrench": "retirer",
+          "exampleFrench": "Un ouvrier retire tous les vieux clous."
+        },
+        {
+          "meaningEnglish": "to pick up",
+          "exampleEnglish": "They pick up all the shingle pieces.",
+          "sourceInfinitiveSpanish": "recoger",
+          "infinitiveFrench": "ramasser",
+          "exampleFrench": "Ils ramassent tous les morceaux de bardeaux."
+        },
+        {
+          "meaningEnglish": "to use",
+          "exampleEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "utiliser",
+          "exampleFrench": "Un ouvrier utilise la pelle et un autre la brouette."
+        }
+      ],
+      "teachingNotesFrench": "Le ramassage des clous et des débris exige un plan de protection des travailleurs et des personnes au sol. Les gants et l’aimant seuls ne constituent pas des consignes de sécurité complètes.",
+      "regionalNotesEnglish": [
+        "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+        "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+      ],
+      "reviewed": false
+    }
+  ]
+}

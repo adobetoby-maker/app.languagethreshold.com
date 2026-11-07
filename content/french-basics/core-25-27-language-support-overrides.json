@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 25–27 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 25,
+      "cardIndex": 3,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 26,
+      "cardIndex": 4,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 27,
+      "cardIndex": 2,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 27,
+      "cardIndex": 7,
+      "from": {
+        "target": "son / sa / ses",
+        "native": "his / her / your formal / their"
+      },
+      "to": {
+        "target": "son / sa / ses",
+        "native": "his / her / its"
+      },
+      "reason": "French possessives agree with the possessed noun; source Spanish gloss overclaims your formal/their"
+    }
+  ],
+  "dialogueOverrides": [],
+  "modelOverrides": [],
+  "grammarOverrides": [
+    {
+      "lesson": 25,
+      "from": "Spanish often marks a specific person who is a direct object with a personal a. French normally does not: je cherche Ana, je vois Luis, je connais ma sœur. The same basic order works for a thing: je cherche mon livre. À can still appear for an indirect recipient (je donne un livre à Ana), but not merely because the direct object is a person. A person may be replaced by a direct-object pronoun: je la cherche.",
+      "to": "In French, a named person can be a direct object without a linking preposition: je cherche Ana, je vois Luis, je connais ma sœur. The same basic order works for a thing: je cherche mon livre. À can mark an indirect recipient (je donne un livre à Ana) or a location (je cherche Ana à la bibliothèque). A person may be replaced by a direct-object pronoun: je la cherche.",
+      "reason": "Remove Spanish-course contrast from learner-facing grammar"
+    },
+    {
+      "lesson": 27,
+      "from": "Unlike Spanish fui, French everyday past forms for “went” and “was” are different. Aller uses être as its auxiliary: je suis allé(e), Ana est allée, nous sommes allé(e)s. The participle agrees with the subject. Être uses avoir in the passé composé: la visite a été intéressante, le voyage a été difficile. These forms let you say whether someone went somewhere or what an experience was like.",
+      "to": "French everyday past forms for “went” and “was” use different constructions. Aller uses être as its auxiliary: je suis allé(e), Ana est allée, nous sommes allé(e)s. The participle agrees with the subject. Être uses avoir in the passé composé: la visite a été intéressante, le voyage a été difficile. These forms let you say whether someone went somewhere or what an experience was like.",
+      "reason": "Remove Spanish-course contrast from learner-facing grammar"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 25,
+      "from": "The source lesson teaches a Spanish-only personal a. This French lesson deliberately teaches the contrasting French rule rather than inventing a matching particle. In “Je cherche Ana à la bibliothèque,” à marks the location, not Ana.",
+      "to": "In “Je cherche Ana à la bibliothèque,” à marks the location, not Ana. A direct object can be a person or a thing without changing the French word order.",
+      "reason": "Remove Spanish-source caveat from learner-facing caution"
+    },
+    {
+      "lesson": 26,
+      "from": "The Spanish source calls this the preterite, but French does not use one analogous everyday form for all these lines. This lesson uses the conversational passé composé. “Comimos” and “escribió” yield French mangé and irregular écrit; the lesson title “regular” must not hide that contrast.",
+      "to": "These sentences use the conversational passé composé. Many past participles are regular, but écrire → écrit is irregular; keep that contrast visible when practicing.",
+      "reason": "Remove Spanish-source caveat from learner-facing caution"
+    },
+    {
+      "lesson": 27,
+      "from": "The Spanish source teaches that fui/fue/fuimos can belong to both ir and ser. French does not share that form; teach two distinct constructions instead. Je suis allé assumes a male speaker, je suis allée a female speaker. Nous sommes allés is mixed/masculine; an all-female group writes allées. Spoken endings may sound alike.",
+      "to": "Je suis allé assumes a male speaker, je suis allée a female speaker. Nous sommes allés is mixed/masculine; an all-female group writes allées. Spoken endings may sound alike.",
+      "reason": "Remove Spanish-source caveat while preserving agreement guidance"
+    }
+  ]
+}

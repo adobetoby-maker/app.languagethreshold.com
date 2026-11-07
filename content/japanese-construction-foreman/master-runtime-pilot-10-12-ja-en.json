@@ -1,0 +1,1867 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "master-construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "5ca87c653263e9ad66d8852c5ffcdccb5a019ceb5857e708770d65e71788b7bc",
+  "lessons": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:10",
+      "n": 10,
+      "title": "Compare two ceiling drawings",
+      "objective": "Relay each sub lead's version, check the coordination drawing with both and agree on the install sequence.",
+      "sourceObjective": "Relay each sub lead's version, check the coordination drawing with both and agree on the install sequence.",
+      "words": [
+        {
+          "es": "総合図",
+          "en": "the coordination drawing",
+          "kind": "term",
+          "cardId": "card-ja-en-2888a46c7538313a"
+        },
+        {
+          "es": "吊り天井",
+          "en": "the drop ceiling",
+          "kind": "term",
+          "cardId": "card-ja-en-fe20e5f61c2e191e"
+        },
+        {
+          "es": "ダクト",
+          "en": "the duct",
+          "kind": "term",
+          "cardId": "card-ja-en-a611f03876b1a504"
+        },
+        {
+          "es": "ケーブルラック",
+          "en": "the cable tray",
+          "kind": "term",
+          "cardId": "card-ja-en-81851168b6719e18"
+        },
+        {
+          "es": "排水管",
+          "en": "the drain line",
+          "kind": "term",
+          "cardId": "card-ja-en-856b2a3db657d747"
+        },
+        {
+          "es": "勾配",
+          "en": "the slope (of a drain line)",
+          "kind": "term",
+          "cardId": "card-ja-en-9b3654746a1977eb"
+        },
+        {
+          "es": "廊下",
+          "en": "the corridor",
+          "kind": "term",
+          "cardId": "card-ja-en-111116395f29ce94"
+        },
+        {
+          "es": "設置高さ",
+          "en": "the elevation (installed height)",
+          "kind": "term",
+          "cardId": "card-ja-en-5dbe2d8261b33c05"
+        },
+        {
+          "es": "干渉",
+          "en": "the clash (two trades in one space)",
+          "kind": "term",
+          "cardId": "card-ja-en-926ce9281076e440"
+        },
+        {
+          "es": "施工順序",
+          "en": "the install sequence",
+          "kind": "term",
+          "cardId": "card-ja-en-21f525557658300b"
+        },
+        {
+          "es": "吊りボルト",
+          "en": "the threaded rods",
+          "kind": "term",
+          "cardId": "card-ja-en-2c1d8d4f0c13e3bd"
+        },
+        {
+          "es": "スプリンクラー配管",
+          "en": "the sprinkler line",
+          "kind": "term",
+          "cardId": "card-ja-en-acf48f0290465259"
+        },
+        {
+          "es": "点検口",
+          "en": "the access panel",
+          "kind": "term",
+          "cardId": "card-ja-en-d54611bc25d8d76c"
+        },
+        {
+          "es": "元請業者",
+          "en": "the general contractor",
+          "kind": "term",
+          "cardId": "card-ja-en-05a63b4d9eb327b5"
+        },
+        {
+          "es": "通気管",
+          "en": "the vent pipe",
+          "kind": "term",
+          "cardId": "card-ja-en-2ff09430c09853e1"
+        },
+        {
+          "es": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+          "en": "Marisol said her tray was already marked on the drawing.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c92bb1df07bb0318"
+        },
+        {
+          "es": "トマスさんは、排水管にはその設置高さが必要だと説明してくれました。",
+          "en": "Tomás explained to me that the drain line needed that elevation.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-889b5d6bcc95c82d"
+        },
+        {
+          "es": "お二人から聞いた話がそれぞれ違うので、一緒に図面を確認しましょう。",
+          "en": "Each of you told me something different; let's check the drawing together.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-881f306979f99f3e"
+        },
+        {
+          "es": "マリソルさん、使った図面の日付はいつでしたか。",
+          "en": "Marisol, what date was on the drawing you used?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b32dd5563414021b"
+        },
+        {
+          "es": "トマスさん、吊りボルトはもう取り付けてあると言っていましたよね。",
+          "en": "Tomás, you said you already had the threaded rods in, right?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f8762a744129c914"
+        },
+        {
+          "es": "お二人とも嘘はついていませんでした。それぞれ別の図面をもとに作業していたのです。",
+          "en": "Nobody was lying; each of you was working from a different drawing.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-02a13ecaabecb28b"
+        },
+        {
+          "es": "図面でそれが確認できれば、ケーブルラックより先に排水管を設置します。",
+          "en": "If the drawing confirms it, the drain goes in before the tray.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-72a14610a9adf337"
+        },
+        {
+          "es": "この合意内容を、元請業者にメールでお送りします。",
+          "en": "I'm going to email the agreement to the general contractor.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-4b85cbd1f9422d3c"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:10",
+        "title": "Compare two ceiling drawings",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+            "native": "Marisol said her tray was already marked on the drawing."
+          },
+          {
+            "target": "トマスさんは、排水管にはその設置高さが必要だと説明してくれました。",
+            "native": "Tomás explained to me that the drain line needed that elevation."
+          },
+          {
+            "target": "お二人から聞いた話がそれぞれ違うので、一緒に図面を確認しましょう。",
+            "native": "Each of you told me something different; let's check the drawing together."
+          },
+          {
+            "target": "マリソルさん、使った図面の日付はいつでしたか。",
+            "native": "Marisol, what date was on the drawing you used?"
+          },
+          {
+            "target": "トマスさん、吊りボルトはもう取り付けてあると言っていましたよね。",
+            "native": "Tomás, you said you already had the threaded rods in, right?"
+          },
+          {
+            "target": "お二人とも嘘はついていませんでした。それぞれ別の図面をもとに作業していたのです。",
+            "native": "Nobody was lying; each of you was working from a different drawing."
+          },
+          {
+            "target": "この合意内容を、元請業者にメールでお送りします。",
+            "native": "I'm going to email the agreement to the general contractor."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Report each subcontractor account and compare drawing dates; a proposed installation sequence requires MEP approval.",
+        "teachingJapanese": "間接引用では「〜と言いました」「〜と説明しました」を使います。直接引用なら元の言葉を「」に入れますが、間接引用では普通形を使い、視点を伝える人に合わせて変えます（「私のラック」→「自分のラック」）。スペイン語と違い、日本語では報告するときに引用内の時制をずらしません。「図面に記入されていると言いました」のように元の発言時点の状態を表せます。背景の継続には「〜ていました」、設置済みの状態には「〜てあります」を使えます。相手の発言は「〜と言っていましたよね」で確認します。順序を断定する前に「図面で確認できれば」と条件を付けます。",
+        "teachingNotesEnglish": [
+          "総合図 is the common term for a coordination drawing, but Japanese sites also use 施工図 for shop drawings. Confirm which drawing title this project uses before the term goes into client materials.",
+          "吊りボルト is the standard term for hanger rods in ceiling work. The source uses threaded rods in a ceiling context, so the term fits here; check before using it for other rod applications.",
+          "勾配 is the standard term for slope. The lesson states no minimum or maximum slope value, so do not add a figure to the exercise or drills.",
+          "設置高さ is used for installed height. Some Japanese sites use level references such as GL or FL instead; follow the project's convention.",
+          "干渉 is the standard word for a clash between trades. The lesson uses only this term; no other coordination term is introduced.",
+          "通気管 is the term for vent pipe. Plumbing vent requirements are regulatory and vary by jurisdiction; the course does not state any code requirement.",
+          "The lesson ends with a sequence agreement, not an approval. Do not describe the outcome as approved or signed off.",
+          "元請業者 is the standard Japanese term for general contractor. ゼネコン is colloquial and acceptable in speech.",
+          "吊り天井 is a generic suspended/drop ceiling term; a specialist should confirm the specific system and the coordination drawing title on the job.",
+          "The example drain-before-tray sequence is conditional on the actual drawing; it is not a design instruction or approval. An MEP coordinator must confirm any real installation sequence."
+        ],
+        "examples": [
+          {
+            "es": "マリソルさんは、ダクトはすでに総合図に記入されていると言いました。",
+            "en": "Marisol said the duct was already marked on the coordination drawing."
+          },
+          {
+            "es": "トマスさんは、自分の図面にはケーブルラックが記入されていないと教えてくれました。",
+            "en": "Tomás told me his drawing didn't show the cable tray."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:10",
+        "summary": "Ask two sub leads for their drawing dates, compare conflicts and route the proposed sequence to an MEP coordinator.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIは電気工事の班長マリソル・ベガと配管工事の班長トマス・アギーレを演じます。二人の言い分を「〜と言っていました」「〜と説明しました」で伝え、それぞれが使った図面の日付を聞いてください。二人と総合図を確認し、確認できた内容をもとに施工順序について合意してください。「図面で確認できれば、排水管をケーブルラックより先に設置します」のように、条件を明示してください。図面で確認する前に順序を決めつけないでください。",
+        "openingLine": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+        "partnerRole": "Two sub leads who used different coordination drawings.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "マリソルさんは、自分の____はすでに図面に記入されていると言いました。",
+          "hint": "Marisol said her tray was already marked on the drawing.",
+          "answer": "ケーブルラック",
+          "explanation": "ケーブルラック appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "トマスさんは、____にはその設置高さが必要だと説明してくれました。",
+          "hint": "Tomás explained to me that the drain line needed that elevation.",
+          "answer": "排水管",
+          "explanation": "排水管 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "お二人から聞いた話がそれぞれ違うので、一緒に____を確認しましょう。",
+          "hint": "Each of you told me something different; let's check the drawing together.",
+          "answer": "図面",
+          "explanation": "図面 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "MEP coordinator must verify drawing title and installation sequence. The conditional drain-before-tray line is not approved design instruction."
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:11",
+      "n": 11,
+      "title": "Hear a tired crew fairly",
+      "objective": "Encourage a tired crew, make concrete commitments on breaks and help, and talk with a young laborer about staying.",
+      "sourceObjective": "Encourage a tired crew, make concrete commitments on breaks and help, and talk with a young laborer about staying.",
+      "words": [
+        {
+          "es": "開業日",
+          "en": "the opening date",
+          "kind": "term",
+          "cardId": "card-ja-en-e98a794bb01ababa"
+        },
+        {
+          "es": "残業",
+          "en": "the overtime",
+          "kind": "term",
+          "cardId": "card-ja-en-089c3164e92bb2be"
+        },
+        {
+          "es": "疲れ",
+          "en": "the tiredness",
+          "kind": "term",
+          "cardId": "card-ja-en-ac2589479259f42c"
+        },
+        {
+          "es": "燃え尽き",
+          "en": "the burnout",
+          "kind": "term",
+          "cardId": "card-ja-en-2972cbe1cb48180b"
+        },
+        {
+          "es": "士気",
+          "en": "the morale",
+          "kind": "term",
+          "cardId": "card-ja-en-76f729049506e018"
+        },
+        {
+          "es": "休日",
+          "en": "the day off",
+          "kind": "term",
+          "cardId": "card-ja-en-4b71c8d838551959"
+        },
+        {
+          "es": "応援の人員",
+          "en": "the extra workers",
+          "kind": "term",
+          "cardId": "card-ja-en-e9278cd05fad22fc"
+        },
+        {
+          "es": "ラストスパート",
+          "en": "the home stretch",
+          "kind": "term",
+          "cardId": "card-ja-en-722c84d88b12ad91"
+        },
+        {
+          "es": "退職",
+          "en": "the resignation",
+          "kind": "term",
+          "cardId": "card-ja-en-c3a8ac6aada7f279"
+        },
+        {
+          "es": "昇給",
+          "en": "the raise",
+          "kind": "term",
+          "cardId": "card-ja-en-1536598f893c04c5"
+        },
+        {
+          "es": "研修",
+          "en": "the training",
+          "kind": "term",
+          "cardId": "card-ja-en-883ec335595c9085"
+        },
+        {
+          "es": "努力",
+          "en": "the effort",
+          "kind": "term",
+          "cardId": "card-ja-en-d13e36462b2f40f0"
+        },
+        {
+          "es": "終業時刻",
+          "en": "the quitting time",
+          "kind": "term",
+          "cardId": "card-ja-en-37fb3f0249b542d7"
+        },
+        {
+          "es": "プロジェクトマネージャー",
+          "en": "the project manager",
+          "kind": "term",
+          "cardId": "card-ja-en-3b3791e770f67c29"
+        },
+        {
+          "es": "作業班",
+          "en": "the crew",
+          "kind": "term",
+          "cardId": "card-ja-en-d50d51217c8e477f"
+        },
+        {
+          "es": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+          "en": "I know you're tired, and you're right.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3acb3bbf232a3436"
+        },
+        {
+          "es": "日曜日は誰も作業しません。皆さんには休日をきちんと取ってもらいます。",
+          "en": "Nobody will work on Sunday; you'll get your day off.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6539d32fb77b45f3"
+        },
+        {
+          "es": "明日、ロビーの応援にあと2人連れてきます。",
+          "en": "Tomorrow I'll bring 2 more people to help in the lobby.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3ed1578c2d9dadfa"
+        },
+        {
+          "es": "間に合わせます。そして、きちんと仕上げます。",
+          "en": "We're going to make it, and we're going to do it right.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-479feabc4f4be74b"
+        },
+        {
+          "es": "皆さんを信頼しています。素晴らしい仕事をしてくれています。",
+          "en": "I trust you all; you've done excellent work.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-cdee062a961a1b8d"
+        },
+        {
+          "es": "フェルナンダさん、教えてくれてありがとう。今日、マネージャーに話しておくね。",
+          "en": "Fernanda, thanks for telling me; I'll talk to the manager today.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f1478c9dfbed1ae2"
+        },
+        {
+          "es": "イバンさん、どうして辞めようと思っているの？",
+          "en": "Iván, why are you thinking about leaving?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-bfdff68d0bac920b"
+        },
+        {
+          "es": "残ってくれるなら、研修のことを事務所に話すよ。",
+          "en": "If you stay, I'll talk to the office about your training.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-dc8c5871cc4a683b"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:11",
+        "title": "Hear a tired crew fairly",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+            "native": "I know you're tired, and you're right."
+          },
+          {
+            "target": "皆さんを信頼しています。素晴らしい仕事をしてくれています。",
+            "native": "I trust you all; you've done excellent work."
+          },
+          {
+            "target": "イバンさん、どうして辞めようと思っているの？",
+            "native": "Iván, why are you thinking about leaving?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Acknowledge fatigue and listen to concerns without promising unapproved hours, time off, staffing or training.",
+        "teachingJapanese": "日本語では「明日、2人連れてきます」のように、時を示す言葉と「〜ます」で未来の約束を伝えます。「日曜日は誰も作業しません」のように否定形でも具体的な約束を述べられます。「皆さんを信頼しています」で信頼を伝え、「素晴らしい仕事をしてくれています」で現在まで続く貢献を認めます。「今日、マネージャーに話しておくね」は、相手のために今日話すという約束です。「研修のことを事務所に話す」と「研修を認める」は別です。自分に権限のない承認を約束しないでください。",
+        "teachingNotesEnglish": [
+          "残業 is the everyday word for overtime. Japanese overtime limits come from labor law; the course states no limit. The 10-hour statement is source content for this lesson only.",
+          "燃え尽き is a plain everyday word for burnout. The source uses it as a noun for the state, so keep it non-medical.",
+          "昇給 is the standard term for a raise. The source contains no pay commitment; do not turn this into a promise in practice.",
+          "退職 is neutral. 辞めようと思っている is the casual rendering of thinking about leaving, and it fits the private conversation the lesson requires.",
+          "ラストスパート is colloquial for home stretch. A more formal option is 最終段階.",
+          "作業班 is the usual term for crew. ロビー is standard in Japanese.",
+          "The source gives a Sunday no-work statement and a day off. The Japanese keeps both as stated. The course does not establish a binding schedule; verify with the project before treating either as a real commitment.",
+          "The source is informal (tú) for Fernanda and Iván. The Japanese uses plain-casual forms for those lines, which is a register choice a native speaker should review.",
+          "Project manager is プロジェクトマネージャー here, distinct from the superintendent in Lesson 12; the actual contractual role name requires project review.",
+          "Real commitments on hours, days off, staffing and training require project-manager/HR authority and local labor-law review. The 10-hour source example is not labor-law advice."
+        ],
+        "examples": [
+          {
+            "es": "今週は、誰にも1日10時間を超える作業はさせません。",
+            "en": "This week nobody will work more than 10 hours a day."
+          },
+          {
+            "es": "イバンさん、月曜日からフェルナンダさんと一緒に大工の作業に入ってもらうよ。",
+            "en": "Iván, on Monday you'll start working with Fernanda in carpentry."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:11",
+        "summary": "Listen to a tired crew and a worker considering departure, then take commitments to the authorized manager and HR.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIは大工の班長フェルナンダ・ルイスと若手作業員イバン・パレデスを演じます。疲れている作業班に、疲労を認め、日曜日は誰も作業しないこと、明日ロビーに応援を2人連れてくること、間に合わせてきちんと仕上げること、皆さんを信頼していることを具体的に伝えてください。次にフェルナンダには、今日マネージャーに話すと伝えてください。最後にイバンとは二人だけで話し、辞めようと考える理由を聞いてください。残るなら研修について事務所に話すと約束してください。研修の承認や昇給そのものは約束しないでください。",
+        "openingLine": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+        "partnerRole": "A tired crew member who raises workload and training concerns.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "皆さんが____ているのは分かっています。皆さんの言うとおりです。",
+          "hint": "I know you're tired, and you're right.",
+          "answer": "疲れ",
+          "explanation": "疲れ appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "皆さんを____しています。素晴らしい仕事をしてくれています。",
+          "hint": "I trust you all; you've done excellent work.",
+          "answer": "信頼",
+          "explanation": "信頼 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "イバンさん、どうして____ようと思っているの？",
+          "hint": "Iván, why are you thinking about leaving?",
+          "answer": "辞め",
+          "explanation": "辞め appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Project manager/HR and local labor authority must verify hours, time off, staffing and training commitments; none is a real-world promise or labor-law advice."
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12",
+      "n": 12,
+      "title": "Explain an elevator inspection delay",
+      "objective": "Explain the same delay to a laborer, the owner, your superintendent and the inspector, choosing tú or usted.",
+      "sourceObjective": "Explain the same delay to a laborer, the owner, your superintendent and the inspector, choosing tú or usted.",
+      "words": [
+        {
+          "es": "エレベーター",
+          "en": "the elevator",
+          "kind": "term",
+          "cardId": "card-ja-en-62ede854543ebe6c"
+        },
+        {
+          "es": "エレベーター会社",
+          "en": "the elevator company",
+          "kind": "term",
+          "cardId": "card-ja-en-94d1f5697ca25d27"
+        },
+        {
+          "es": "検査担当者",
+          "en": "the inspector (woman)",
+          "kind": "term",
+          "cardId": "card-ja-en-a5538ea04bd60908"
+        },
+        {
+          "es": "certificate of operation（米国のエレベーター運転に関する認可書類）",
+          "en": "the certificate of operation",
+          "kind": "term",
+          "cardId": "card-ja-en-bd6f0faacbf21e63"
+        },
+        {
+          "es": "certificate of occupancy（米国の建物使用に関する認可書類）",
+          "en": "the certificate of occupancy",
+          "kind": "term",
+          "cardId": "card-ja-en-967fc391bf120144"
+        },
+        {
+          "es": "新しい日程",
+          "en": "the new date",
+          "kind": "term",
+          "cardId": "card-ja-en-9fefb51f69d5022e"
+        },
+        {
+          "es": "遅延",
+          "en": "the delay",
+          "kind": "term",
+          "cardId": "card-ja-en-a9522d34e97b0ddf"
+        },
+        {
+          "es": "現場所長",
+          "en": "the superintendent (woman)",
+          "kind": "term",
+          "cardId": "card-ja-en-de7308e5926d0683"
+        },
+        {
+          "es": "施主",
+          "en": "the owner",
+          "kind": "term",
+          "cardId": "card-ja-en-018c2a099c4906ec"
+        },
+        {
+          "es": "入居者",
+          "en": "the tenants",
+          "kind": "term",
+          "cardId": "card-ja-en-07c48ea8ce17baa5"
+        },
+        {
+          "es": "入居",
+          "en": "the move-in",
+          "kind": "term",
+          "cardId": "card-ja-en-675aa8bc232353d3"
+        },
+        {
+          "es": "機械室",
+          "en": "the machine room",
+          "kind": "term",
+          "cardId": "card-ja-en-84923ee60372cd17"
+        },
+        {
+          "es": "エレベーターピット",
+          "en": "the elevator pit",
+          "kind": "term",
+          "cardId": "card-ja-en-4db9242684ab17d1"
+        },
+        {
+          "es": "かご",
+          "en": "the elevator cab",
+          "kind": "term",
+          "cardId": "card-ja-en-e89ce49db8dda8c1"
+        },
+        {
+          "es": "非常通話装置",
+          "en": "the emergency phone",
+          "kind": "term",
+          "cardId": "card-ja-en-e73fcd97eec2200e"
+        },
+        {
+          "es": "お詫び",
+          "en": "the apology",
+          "kind": "term",
+          "cardId": "card-ja-en-ef33bae454566b29"
+        },
+        {
+          "es": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+          "en": "Beto, could you tell the others the elevator is still closed?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-471b4d172264a166"
+        },
+        {
+          "es": "ロサノさん、検査日が変更になった理由をご説明したいのですが。",
+          "en": "Mr. Lozano, I'd like to explain why the inspection was moved.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-2a82b8ccd68bb79e"
+        },
+        {
+          "es": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。",
+          "en": "Would it be all right if I email you the new date today?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c377f030a7e26d49"
+        },
+        {
+          "es": "ディアナさん、今日のエレベーター検査は行われませんでした。",
+          "en": "Diana, I'm letting you know the elevator inspection didn't happen today.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b5a4ce63bf441b01"
+        },
+        {
+          "es": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。",
+          "en": "Inspector Méndez, would it work for you to reschedule for Thursday?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-9045d80cc13a32d4"
+        },
+        {
+          "es": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。",
+          "en": "Sorry for the trouble; what do you need us to have ready for the visit?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-a79abf6daf865b24"
+        },
+        {
+          "es": "必要な証明書が発行されるまでは、誰もエレベーターを使ってはいけません。",
+          "en": "Until we have the certificate, nobody uses the elevator.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-75efb19087c56cbe"
+        },
+        {
+          "es": "ロサノさん、入居者の皆さんの引っ越しがこの件にかかっていることは承知しております。",
+          "en": "I understand the tenants' move-in depends on this, Mr. Lozano.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e40681ff29779793"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-master-construction-foreman-ja-en:lesson:12",
+        "title": "Explain an elevator inspection delay",
+        "state": "phrase-sequence-draft",
+        "sentences": [
+          {
+            "target": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+            "native": "Beto, could you tell the others the elevator is still closed?"
+          },
+          {
+            "target": "ロサノさん、検査日が変更になった理由をご説明したいのですが。",
+            "native": "Mr. Lozano, I'd like to explain why the inspection was moved."
+          },
+          {
+            "target": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。",
+            "native": "Would it be all right if I email you the new date today?"
+          },
+          {
+            "target": "ディアナさん、今日のエレベーター検査は行われませんでした。",
+            "native": "Diana, I'm letting you know the elevator inspection didn't happen today."
+          },
+          {
+            "target": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。",
+            "native": "Inspector Méndez, would it work for you to reschedule for Thursday?"
+          },
+          {
+            "target": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。",
+            "native": "Sorry for the trouble; what do you need us to have ready for the visit?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Adjust Japanese register for different listeners while deferring certificate and use decisions to qualified officials.",
+        "teachingJapanese": "日本語では二人称（あなた等）をふつう避け、名前や役職で呼び、文末の丁寧さと敬語で関係を示します。ベトには親しい形（「伝えてもらえる？」）、ディアナには丁寧な報告（「行われませんでした」）、施主や外部の検査担当者には敬語（「ご説明します」「ご都合はいかがでしょうか」）を使います。「〜てもよろしいでしょうか」で自分の行動の許可を求め、「〜ていただけますか」で相手に丁寧に頼みます。「検査日が変更になった」は変更した人を決めつけません。実際の職場では相手との関係に合う言い方を確認してください。",
+        "teachingNotesEnglish": [
+          "エレベーター is the everyday Japanese term; ascensor and elevador both map to it.",
+          "現場所長 is used for superintendent. 現場代理人 is the term used in some public works contracts; choose by the project contract.",
+          "施主 is the formal term for a building owner in construction. オーナー may be used in conversation; match the term to the client relationship.",
+          "The source gender markers for the inspector and superintendent do not carry into Japanese; 検査担当者 and 現場所長 are gender-neutral.",
+          "The lesson gives no inspection outcome, and the Japanese adds none. The statement that the inspection did not happen today is kept as written.",
+          "This source is a US jobsite. certificate of operation and certificate of occupancy are preserved as US document names with Japanese descriptions, not asserted Japanese equivalents. The source does not specify which certificate the no-use line refers to. A qualified elevator/building-code specialist must select the exact document and jurisdictional wording before release.",
+          "The no-use line states that nobody may use the elevator before the required certificate is issued. It does not itself determine an applicable legal rule or replace site lockout/signage procedures.",
+          "The inspector title, elevator emergency communication device, occupancy/move-in consequence, and term for superintendent need US project and Japanese-language specialist review. The four-listener register ladder is an approximate Japanese analogue of the English-source tú/usted contrast."
+        ],
+        "examples": [
+          {
+            "es": "ベトさん、機械室のドア、閉めてもらえる？",
+            "en": "Beto, could you close the machine room door?"
+          },
+          {
+            "es": "検査担当のメンデスさん、今、新しい日程を確定してもよろしいでしょうか。",
+            "en": "Inspector Méndez, would it be all right if we confirm the new date now?"
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-master-construction-foreman-ja-en:lesson:12",
+        "summary": "Explain a changed inspection date clearly to a worker, owner, superintendent and inspector without inventing certificate requirements.",
+        "sourceSpeakingJapanese": "あなたは職長です。AIは作業員ベト・サラス、施主アルトゥーロ・ロサノ、現場所長ディアナ・キロガ、検査担当者ラケル・メンデスを演じます。同じエレベーター検査の遅れを四人に伝えてください。ベトには「まだ使えないって伝えてもらえる？」のように親しい口調で頼みます。ディアナには「今日の検査は行われませんでした」と丁寧に報告します。ロサノには検査日が変更になった理由を丁寧に説明し、入居者の皆さんの引っ越しがこの件にかかっていると承知していることを伝えます。メンデスには木曜日への日程変更が都合に合うか尋ね、検査までにこちらで準備しておくことを確認します。相手に合わせ、くだけた形、丁寧語、敬語を使い分けてください。検査結果や許可の発行を推測しないでください。",
+        "openingLine": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+        "partnerRole": "An owner or inspector who asks for a confirmed update and next contact.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "ベトさん、ほかの人たちに、____はまだ使えないって伝えてもらえる？",
+          "hint": "Beto, could you tell the others the elevator is still closed?",
+          "answer": "エレベーター",
+          "explanation": "エレベーター appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "ロサノさん、____が変更になった理由をご説明したいのですが。",
+          "hint": "Mr. Lozano, I'd like to explain why the inspection was moved.",
+          "answer": "検査日",
+          "explanation": "検査日 appears in this lesson’s source phrase."
+        },
+        {
+          "prompt": "本日中に、____をメールでお送りしてもよろしいでしょうか。",
+          "hint": "Would it be all right if I email you the new date today?",
+          "answer": "新しい日程",
+          "explanation": "新しい日程 appears in this lesson’s source phrase."
+        }
+      ],
+      "technicalSourceBlockers": [
+        "Qualified elevator/building-code specialist must identify the exact certificate, inspector role and jurisdictional rule before teaching use restrictions or move-in consequences."
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-2888a46c7538313a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "総合図",
+      "native": "the coordination drawing",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-fe20e5f61c2e191e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "吊り天井",
+      "native": "the drop ceiling",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-a611f03876b1a504",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ダクト",
+      "native": "the duct",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-81851168b6719e18",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ケーブルラック",
+      "native": "the cable tray",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-856b2a3db657d747",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "排水管",
+      "native": "the drain line",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-9b3654746a1977eb",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "勾配",
+      "native": "the slope (of a drain line)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-111116395f29ce94",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "廊下",
+      "native": "the corridor",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-5dbe2d8261b33c05",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設置高さ",
+      "native": "the elevation (installed height)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-926ce9281076e440",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "干渉",
+      "native": "the clash (two trades in one space)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-21f525557658300b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "施工順序",
+      "native": "the install sequence",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-2c1d8d4f0c13e3bd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "吊りボルト",
+      "native": "the threaded rods",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-acf48f0290465259",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "スプリンクラー配管",
+      "native": "the sprinkler line",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-d54611bc25d8d76c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "点検口",
+      "native": "the access panel",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-05a63b4d9eb327b5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "元請業者",
+      "native": "the general contractor",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-2ff09430c09853e1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "通気管",
+      "native": "the vent pipe",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-c92bb1df07bb0318",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+      "native": "Marisol said her tray was already marked on the drawing.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-889b5d6bcc95c82d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "トマスさんは、排水管にはその設置高さが必要だと説明してくれました。",
+      "native": "Tomás explained to me that the drain line needed that elevation.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-881f306979f99f3e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お二人から聞いた話がそれぞれ違うので、一緒に図面を確認しましょう。",
+      "native": "Each of you told me something different; let's check the drawing together.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-b32dd5563414021b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "マリソルさん、使った図面の日付はいつでしたか。",
+      "native": "Marisol, what date was on the drawing you used?",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-f8762a744129c914",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "トマスさん、吊りボルトはもう取り付けてあると言っていましたよね。",
+      "native": "Tomás, you said you already had the threaded rods in, right?",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-02a13ecaabecb28b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お二人とも嘘はついていませんでした。それぞれ別の図面をもとに作業していたのです。",
+      "native": "Nobody was lying; each of you was working from a different drawing.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-72a14610a9adf337",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "図面でそれが確認できれば、ケーブルラックより先に排水管を設置します。",
+      "native": "If the drawing confirms it, the drain goes in before the tray.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-4b85cbd1f9422d3c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "この合意内容を、元請業者にメールでお送りします。",
+      "native": "I'm going to email the agreement to the general contractor.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "card-ja-en-e98a794bb01ababa",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "開業日",
+      "native": "the opening date",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-089c3164e92bb2be",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "残業",
+      "native": "the overtime",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-ac2589479259f42c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "疲れ",
+      "native": "the tiredness",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-2972cbe1cb48180b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "燃え尽き",
+      "native": "the burnout",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-76f729049506e018",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "士気",
+      "native": "the morale",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-4b71c8d838551959",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "休日",
+      "native": "the day off",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-e9278cd05fad22fc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "応援の人員",
+      "native": "the extra workers",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-722c84d88b12ad91",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ラストスパート",
+      "native": "the home stretch",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-c3a8ac6aada7f279",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "退職",
+      "native": "the resignation",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-1536598f893c04c5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "昇給",
+      "native": "the raise",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-883ec335595c9085",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "研修",
+      "native": "the training",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-d13e36462b2f40f0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "努力",
+      "native": "the effort",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-37fb3f0249b542d7",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "終業時刻",
+      "native": "the quitting time",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-3b3791e770f67c29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "プロジェクトマネージャー",
+      "native": "the project manager",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-d50d51217c8e477f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "作業班",
+      "native": "the crew",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-3acb3bbf232a3436",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+      "native": "I know you're tired, and you're right.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-6539d32fb77b45f3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "日曜日は誰も作業しません。皆さんには休日をきちんと取ってもらいます。",
+      "native": "Nobody will work on Sunday; you'll get your day off.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-3ed1578c2d9dadfa",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "明日、ロビーの応援にあと2人連れてきます。",
+      "native": "Tomorrow I'll bring 2 more people to help in the lobby.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-479feabc4f4be74b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "間に合わせます。そして、きちんと仕上げます。",
+      "native": "We're going to make it, and we're going to do it right.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-cdee062a961a1b8d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "皆さんを信頼しています。素晴らしい仕事をしてくれています。",
+      "native": "I trust you all; you've done excellent work.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-f1478c9dfbed1ae2",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フェルナンダさん、教えてくれてありがとう。今日、マネージャーに話しておくね。",
+      "native": "Fernanda, thanks for telling me; I'll talk to the manager today.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-bfdff68d0bac920b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "イバンさん、どうして辞めようと思っているの？",
+      "native": "Iván, why are you thinking about leaving?",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-dc8c5871cc4a683b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "残ってくれるなら、研修のことを事務所に話すよ。",
+      "native": "If you stay, I'll talk to the office about your training.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "card-ja-en-62ede854543ebe6c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーター",
+      "native": "the elevator",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-94d1f5697ca25d27",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーター会社",
+      "native": "the elevator company",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-a5538ea04bd60908",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "検査担当者",
+      "native": "the inspector (woman)",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-bd6f0faacbf21e63",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "certificate of operation（米国のエレベーター運転に関する認可書類）",
+      "native": "the certificate of operation",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-967fc391bf120144",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "certificate of occupancy（米国の建物使用に関する認可書類）",
+      "native": "the certificate of occupancy",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-9fefb51f69d5022e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "新しい日程",
+      "native": "the new date",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-a9522d34e97b0ddf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "遅延",
+      "native": "the delay",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-de7308e5926d0683",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "現場所長",
+      "native": "the superintendent (woman)",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-018c2a099c4906ec",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "施主",
+      "native": "the owner",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-07c48ea8ce17baa5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "入居者",
+      "native": "the tenants",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-675aa8bc232353d3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "入居",
+      "native": "the move-in",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-84923ee60372cd17",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "機械室",
+      "native": "the machine room",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-4db9242684ab17d1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーターピット",
+      "native": "the elevator pit",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-e89ce49db8dda8c1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "かご",
+      "native": "the elevator cab",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-e73fcd97eec2200e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "非常通話装置",
+      "native": "the emergency phone",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-ef33bae454566b29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お詫び",
+      "native": "the apology",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-471b4d172264a166",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+      "native": "Beto, could you tell the others the elevator is still closed?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-2a82b8ccd68bb79e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロサノさん、検査日が変更になった理由をご説明したいのですが。",
+      "native": "Mr. Lozano, I'd like to explain why the inspection was moved.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-c377f030a7e26d49",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。",
+      "native": "Would it be all right if I email you the new date today?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-b5a4ce63bf441b01",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ディアナさん、今日のエレベーター検査は行われませんでした。",
+      "native": "Diana, I'm letting you know the elevator inspection didn't happen today.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-9045d80cc13a32d4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。",
+      "native": "Inspector Méndez, would it work for you to reschedule for Thursday?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-a79abf6daf865b24",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。",
+      "native": "Sorry for the trouble; what do you need us to have ready for the visit?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-75efb19087c56cbe",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "必要な証明書が発行されるまでは、誰もエレベーターを使ってはいけません。",
+      "native": "Until we have the certificate, nobody uses the elevator.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "card-ja-en-e40681ff29779793",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロサノさん、入居者の皆さんの引っ越しがこの件にかかっていることは承知しております。",
+      "native": "I understand the tenants' move-in depends on this, Mr. Lozano.",
+      "kind": "phrase",
+      "firstLesson": 12
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-2888a46c7538313a",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "総合図",
+      "native": "the coordination drawing",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-fe20e5f61c2e191e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "吊り天井",
+      "native": "the drop ceiling",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-a611f03876b1a504",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ダクト",
+      "native": "the duct",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-81851168b6719e18",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ケーブルラック",
+      "native": "the cable tray",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-856b2a3db657d747",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "排水管",
+      "native": "the drain line",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-9b3654746a1977eb",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "勾配",
+      "native": "the slope (of a drain line)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-111116395f29ce94",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "廊下",
+      "native": "the corridor",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-5dbe2d8261b33c05",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "設置高さ",
+      "native": "the elevation (installed height)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-926ce9281076e440",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "干渉",
+      "native": "the clash (two trades in one space)",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-21f525557658300b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "施工順序",
+      "native": "the install sequence",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-2c1d8d4f0c13e3bd",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "吊りボルト",
+      "native": "the threaded rods",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-acf48f0290465259",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "スプリンクラー配管",
+      "native": "the sprinkler line",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-d54611bc25d8d76c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "点検口",
+      "native": "the access panel",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-05a63b4d9eb327b5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "元請業者",
+      "native": "the general contractor",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-2ff09430c09853e1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "通気管",
+      "native": "the vent pipe",
+      "kind": "term",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-c92bb1df07bb0318",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "マリソルさんは、自分のケーブルラックはすでに図面に記入されていると言いました。",
+      "native": "Marisol said her tray was already marked on the drawing.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-889b5d6bcc95c82d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "トマスさんは、排水管にはその設置高さが必要だと説明してくれました。",
+      "native": "Tomás explained to me that the drain line needed that elevation.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-881f306979f99f3e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お二人から聞いた話がそれぞれ違うので、一緒に図面を確認しましょう。",
+      "native": "Each of you told me something different; let's check the drawing together.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-b32dd5563414021b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "マリソルさん、使った図面の日付はいつでしたか。",
+      "native": "Marisol, what date was on the drawing you used?",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-f8762a744129c914",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "トマスさん、吊りボルトはもう取り付けてあると言っていましたよね。",
+      "native": "Tomás, you said you already had the threaded rods in, right?",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-02a13ecaabecb28b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お二人とも嘘はついていませんでした。それぞれ別の図面をもとに作業していたのです。",
+      "native": "Nobody was lying; each of you was working from a different drawing.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-72a14610a9adf337",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "図面でそれが確認できれば、ケーブルラックより先に排水管を設置します。",
+      "native": "If the drawing confirms it, the drain goes in before the tray.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-4b85cbd1f9422d3c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "この合意内容を、元請業者にメールでお送りします。",
+      "native": "I'm going to email the agreement to the general contractor.",
+      "kind": "phrase",
+      "firstLesson": 10
+    },
+    {
+      "id": "dict-ja-en-e98a794bb01ababa",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "開業日",
+      "native": "the opening date",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-089c3164e92bb2be",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "残業",
+      "native": "the overtime",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-ac2589479259f42c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "疲れ",
+      "native": "the tiredness",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-2972cbe1cb48180b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "燃え尽き",
+      "native": "the burnout",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-76f729049506e018",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "士気",
+      "native": "the morale",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-4b71c8d838551959",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "休日",
+      "native": "the day off",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-e9278cd05fad22fc",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "応援の人員",
+      "native": "the extra workers",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-722c84d88b12ad91",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ラストスパート",
+      "native": "the home stretch",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-c3a8ac6aada7f279",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "退職",
+      "native": "the resignation",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-1536598f893c04c5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "昇給",
+      "native": "the raise",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-883ec335595c9085",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "研修",
+      "native": "the training",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-d13e36462b2f40f0",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "努力",
+      "native": "the effort",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-37fb3f0249b542d7",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "終業時刻",
+      "native": "the quitting time",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-3b3791e770f67c29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "プロジェクトマネージャー",
+      "native": "the project manager",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-d50d51217c8e477f",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "作業班",
+      "native": "the crew",
+      "kind": "term",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-3acb3bbf232a3436",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "皆さんが疲れているのは分かっています。皆さんの言うとおりです。",
+      "native": "I know you're tired, and you're right.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-6539d32fb77b45f3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "日曜日は誰も作業しません。皆さんには休日をきちんと取ってもらいます。",
+      "native": "Nobody will work on Sunday; you'll get your day off.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-3ed1578c2d9dadfa",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "明日、ロビーの応援にあと2人連れてきます。",
+      "native": "Tomorrow I'll bring 2 more people to help in the lobby.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-479feabc4f4be74b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "間に合わせます。そして、きちんと仕上げます。",
+      "native": "We're going to make it, and we're going to do it right.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-cdee062a961a1b8d",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "皆さんを信頼しています。素晴らしい仕事をしてくれています。",
+      "native": "I trust you all; you've done excellent work.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-f1478c9dfbed1ae2",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "フェルナンダさん、教えてくれてありがとう。今日、マネージャーに話しておくね。",
+      "native": "Fernanda, thanks for telling me; I'll talk to the manager today.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-bfdff68d0bac920b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "イバンさん、どうして辞めようと思っているの？",
+      "native": "Iván, why are you thinking about leaving?",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-dc8c5871cc4a683b",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "残ってくれるなら、研修のことを事務所に話すよ。",
+      "native": "If you stay, I'll talk to the office about your training.",
+      "kind": "phrase",
+      "firstLesson": 11
+    },
+    {
+      "id": "dict-ja-en-62ede854543ebe6c",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーター",
+      "native": "the elevator",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-94d1f5697ca25d27",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーター会社",
+      "native": "the elevator company",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-a5538ea04bd60908",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "検査担当者",
+      "native": "the inspector (woman)",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-bd6f0faacbf21e63",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "certificate of operation（米国のエレベーター運転に関する認可書類）",
+      "native": "the certificate of operation",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-967fc391bf120144",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "certificate of occupancy（米国の建物使用に関する認可書類）",
+      "native": "the certificate of occupancy",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-9fefb51f69d5022e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "新しい日程",
+      "native": "the new date",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-a9522d34e97b0ddf",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "遅延",
+      "native": "the delay",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-de7308e5926d0683",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "現場所長",
+      "native": "the superintendent (woman)",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-018c2a099c4906ec",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "施主",
+      "native": "the owner",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-07c48ea8ce17baa5",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "入居者",
+      "native": "the tenants",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-675aa8bc232353d3",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "入居",
+      "native": "the move-in",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-84923ee60372cd17",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "機械室",
+      "native": "the machine room",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-4db9242684ab17d1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "エレベーターピット",
+      "native": "the elevator pit",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-e89ce49db8dda8c1",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "かご",
+      "native": "the elevator cab",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-e73fcd97eec2200e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "非常通話装置",
+      "native": "the emergency phone",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-ef33bae454566b29",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お詫び",
+      "native": "the apology",
+      "kind": "term",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-471b4d172264a166",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+      "native": "Beto, could you tell the others the elevator is still closed?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-2a82b8ccd68bb79e",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロサノさん、検査日が変更になった理由をご説明したいのですが。",
+      "native": "Mr. Lozano, I'd like to explain why the inspection was moved.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-c377f030a7e26d49",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。",
+      "native": "Would it be all right if I email you the new date today?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-b5a4ce63bf441b01",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ディアナさん、今日のエレベーター検査は行われませんでした。",
+      "native": "Diana, I'm letting you know the elevator inspection didn't happen today.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-9045d80cc13a32d4",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。",
+      "native": "Inspector Méndez, would it work for you to reschedule for Thursday?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-a79abf6daf865b24",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。",
+      "native": "Sorry for the trouble; what do you need us to have ready for the visit?",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-75efb19087c56cbe",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "必要な証明書が発行されるまでは、誰もエレベーターを使ってはいけません。",
+      "native": "Until we have the certificate, nobody uses the elevator.",
+      "kind": "phrase",
+      "firstLesson": 12
+    },
+    {
+      "id": "dict-ja-en-e40681ff29779793",
+      "courseId": "master-construction-foreman-ja-en",
+      "target": "ロサノさん、入居者の皆さんの引っ越しがこの件にかかっていることは承知しております。",
+      "native": "I understand the tenants' move-in depends on this, Mr. Lozano.",
+      "kind": "phrase",
+      "firstLesson": 12
+    }
+  ]
+}

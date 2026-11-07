@@ -1,0 +1,479 @@
+{
+  "target": "Japanese",
+  "native": "English",
+  "module": "foundation-construction-foreman",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "private-pilot-draft",
+  "sourceSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+  "lessons": [
+    {
+      "n": 4,
+      "title": "持ち物・あるもの・必要なもの",
+      "objective": "保護具と材料について、持っているもの、あるもの、必要なもの、ほしいものを言い、全員がしなければならないことを伝えられます。",
+      "focus": "持っています (have), あります (there is or are, for things), 〜が必要です (need), 〜がほしいです (want) and 〜なければなりません (everyone has to) for protective gear and materials.",
+      "words": [
+        {
+          "en": "the gloves",
+          "es": "手袋",
+          "kind": "term",
+          "reading": "てぶくろ"
+        },
+        {
+          "en": "the safety glasses",
+          "es": "安全めがね",
+          "kind": "term",
+          "reading": "あんぜんめがね"
+        },
+        {
+          "en": "the work boots",
+          "es": "作業靴",
+          "kind": "term",
+          "reading": "さぎょうぐつ",
+          "note": "Plain work boots; 安全靴 means safety boots with a toe cap."
+        },
+        {
+          "en": "the harness",
+          "es": "安全帯",
+          "kind": "term",
+          "reading": "あんぜんたい",
+          "note": "Fall-arrest harness, the usual site word."
+        },
+        {
+          "en": "the earplugs",
+          "es": "耳栓",
+          "kind": "term",
+          "reading": "みみせん"
+        },
+        {
+          "en": "the water",
+          "es": "水",
+          "kind": "term",
+          "reading": "みず",
+          "note": "Plain 水; say 飲み水 for drinking water."
+        },
+        {
+          "en": "the extension cord",
+          "es": "延長コード",
+          "kind": "term",
+          "reading": "えんちょうコード"
+        },
+        {
+          "en": "the drill",
+          "es": "電動ドリル",
+          "kind": "term",
+          "reading": "でんどうドリル"
+        },
+        {
+          "en": "the nails",
+          "es": "釘",
+          "kind": "term",
+          "reading": "くぎ"
+        },
+        {
+          "en": "the rebar",
+          "es": "鉄筋",
+          "kind": "term",
+          "reading": "てっきん",
+          "note": "The usual site word for reinforcing steel bar."
+        },
+        {
+          "en": "Do you have your hard hat?",
+          "es": "ヘルメットは持っていますか？",
+          "kind": "phrase"
+        },
+        {
+          "en": "Everyone has to wear safety glasses.",
+          "es": "全員、安全めがねをかけなければなりません。",
+          "kind": "phrase",
+          "note": "〜なければなりません: everyone must do this; no single person is named."
+        },
+        {
+          "en": "I need a box of nails.",
+          "es": "釘が一箱必要です。",
+          "kind": "phrase",
+          "note": "一箱 is read ひとはこ; 箱 is the counter for boxes."
+        },
+        {
+          "en": "There's water in the truck.",
+          "es": "トラックに水があります。",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want to work Saturday?",
+          "es": "土曜日に作業したいですか？",
+          "kind": "phrase",
+          "note": "〜たいです: want to do something."
+        },
+        {
+          "en": "We have 40 pieces of 20-foot rebar.",
+          "es": "20フィートの鉄筋が40本あります。",
+          "kind": "phrase",
+          "note": "本 counts long, thin items such as rebar."
+        }
+      ],
+      "reading": {
+        "title": "Gear and materials on site",
+        "target": [
+          "全員、安全めがねをかけなければなりません。",
+          "ヘルメットは持っていますか？",
+          "トラックに水があります。",
+          "高い所では安全帯を使ってください。",
+          "釘が一箱必要です。",
+          "20フィートの鉄筋が40本あります。",
+          "土曜日に作業したいですか？"
+        ],
+        "native": [
+          "Everyone has to wear safety glasses.",
+          "Do you have your hard hat?",
+          "There's water in the truck.",
+          "Use your harness when working at height.",
+          "I need a box of nails.",
+          "We have 40 pieces of 20-foot rebar.",
+          "Do you want to work Saturday?"
+        ]
+      },
+      "speaking": "新しい作業員の保護具を確認してください。手袋、安全めがね、作業靴を持っているかを聞き、今日チームに必要なものを言ってください。",
+      "openingLine": "新人さん、手袋と安全めがねと作業靴は持っていますか？",
+      "partnerRole": "A crew member who asks a new worker whether they have gloves, safety glasses and work boots, then asks what the crew needs today.",
+      "checks": [
+        {
+          "prompt": "全員、____をかけなければなりません。",
+          "hint": "Everyone has to wear safety glasses.",
+          "answer": "安全めがね",
+          "explanation": "安全めがね are the safety glasses; かける is the verb for wearing glasses. 〜なければなりません states a rule for everyone."
+        },
+        {
+          "prompt": "高い所では____を使ってください。",
+          "hint": "Use your harness when working at height.",
+          "answer": "安全帯",
+          "explanation": "安全帯 is the fall-arrest harness and 高い所 means high places. 使ってください politely asks the worker to use it.",
+          "acceptedAnswers": [
+            "安全帯",
+            "あんぜんたい"
+          ]
+        },
+        {
+          "prompt": "____が一箱必要です。",
+          "hint": "I need a box of nails.",
+          "answer": "釘",
+          "explanation": "釘 is nails. 一箱 (ひとはこ) means one box, and 必要です says what is needed.",
+          "acceptedAnswers": [
+            "釘",
+            "くぎ"
+          ]
+        }
+      ],
+      "sourceTitle": "Have, There Is, Need and Want",
+      "sourceObjective": "Say what PPE and materials you have, need or want, and what everyone has to do."
+    },
+    {
+      "n": 5,
+      "title": "行く・する・できる",
+      "objective": "行く場所、チームの予定、自分ができる作業を日本語で言えるようになります。",
+      "focus": "に for destinations (〜に行きます), 〜予定です for plans (going to), 〜ます and 〜できます (can) for jobsite tasks, with を marking what is done.",
+      "words": [
+        {
+          "en": "the storage area",
+          "es": "保管場所",
+          "kind": "term",
+          "reading": "ほかんばしょ",
+          "note": "Where materials are kept; 倉庫 is a warehouse."
+        },
+        {
+          "en": "the hardware store",
+          "es": "金物店",
+          "kind": "term",
+          "reading": "かなものてん",
+          "note": "A small hardware shop; ホームセンター is a large home-improvement store."
+        },
+        {
+          "en": "the porta-potty",
+          "es": "仮設トイレ",
+          "kind": "term",
+          "reading": "かせつトイレ"
+        },
+        {
+          "en": "the formwork",
+          "es": "型枠",
+          "kind": "term",
+          "reading": "かたわく",
+          "note": "Standard term for concrete formwork."
+        },
+        {
+          "en": "the trench",
+          "es": "溝",
+          "kind": "term",
+          "reading": "みぞ"
+        },
+        {
+          "en": "the roof",
+          "es": "屋根",
+          "kind": "term",
+          "reading": "やね"
+        },
+        {
+          "en": "the floor",
+          "es": "床",
+          "kind": "term",
+          "reading": "ゆか"
+        },
+        {
+          "en": "the mix (mortar)",
+          "es": "モルタル",
+          "kind": "term",
+          "note": "Mortar; 練る means to mix it by kneading or stirring."
+        },
+        {
+          "en": "the shovel",
+          "es": "シャベル",
+          "kind": "term",
+          "note": "スコップ is a scoop-style shovel."
+        },
+        {
+          "en": "the forklift",
+          "es": "フォークリフト",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the hardware store.",
+          "es": "金物店に行きます。",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to pour the concrete tomorrow.",
+          "es": "明日、コンクリートを打設する予定です。",
+          "kind": "phrase",
+          "note": "打設 is the site term for placing concrete; 予定です states a plan."
+        },
+        {
+          "en": "They're going to build the formwork.",
+          "es": "田中さんたちは型枠を組む予定です。",
+          "kind": "phrase",
+          "note": "Japanese names coworkers rather than using 彼ら; 組む means to assemble."
+        },
+        {
+          "en": "We make the mix at 8.",
+          "es": "8時にモルタルを練ります。",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can drive the forklift; I'm certified.",
+          "es": "フォークリフトを運転できます。資格を持っています。",
+          "kind": "phrase",
+          "note": "Two short sentences: できます (can), then 資格を持っています (I hold a certification)."
+        },
+        {
+          "en": "Juan is going to the roof.",
+          "es": "フアンさんは屋根に行きます。",
+          "kind": "phrase",
+          "note": "に marks the destination."
+        }
+      ],
+      "reading": {
+        "title": "Where the crew goes and what it does",
+        "target": [
+          "私は金物店に行きます。",
+          "フアンさんは屋根に行きます。",
+          "明日、コンクリートを打設する予定です。",
+          "田中さんたちは型枠を組む予定です。",
+          "8時にモルタルを練ります。",
+          "フォークリフトを運転できます。",
+          "資格を持っています。",
+          "仮設トイレは保管場所の近くにあります。"
+        ],
+        "native": [
+          "I'm going to the hardware store.",
+          "Juan is going to the roof.",
+          "We're going to pour the concrete tomorrow.",
+          "They're going to build the formwork.",
+          "We make the mix at 8.",
+          "I can drive the forklift.",
+          "I'm certified.",
+          "The porta-potty is near the storage area."
+        ]
+      },
+      "speaking": "チームの仲間に、今どこへ行くか、明日チームは何をする予定か、そして自分ができる作業を一つ言ってください。",
+      "openingLine": "これからどこに行きますか？明日、チームは何をする予定ですか？",
+      "partnerRole": "A coworker who asks where you are going now and what the crew plans to do tomorrow, then asks which task you can do.",
+      "checks": [
+        {
+          "prompt": "私は____に行きます。",
+          "hint": "I'm going to the hardware store.",
+          "answer": "金物店",
+          "explanation": "金物店 is the hardware store. に marks the place you are going to."
+        },
+        {
+          "prompt": "明日、コンクリートを____する予定です。",
+          "hint": "We're going to pour the concrete tomorrow.",
+          "answer": "打設",
+          "explanation": "打設 is the site word for placing concrete. 予定です says it is the plan for tomorrow."
+        },
+        {
+          "prompt": "フォークリフトを____できます。",
+          "hint": "I can drive the forklift.",
+          "answer": "運転",
+          "explanation": "運転 means driving. できます means can do, from できる."
+        }
+      ],
+      "sourceTitle": "Go, Do and Can",
+      "sourceObjective": "Say where you are going, what the crew is going to do, and what you can do."
+    },
+    {
+      "n": 6,
+      "title": "誰が何をするか",
+      "objective": "現場で誰がどの作業をするかを、ます形の動詞で言えるようになります。",
+      "focus": "ます形 for regular jobsite verbs (切ります, 運びます, 掃除します, 混ぜます, 拾います). は marks who does the task, を marks what is done, and 私が／田中さんたちが name the doer.",
+      "words": [
+        {
+          "en": "the block",
+          "es": "ブロック",
+          "kind": "term"
+        },
+        {
+          "en": "the wall",
+          "es": "壁",
+          "kind": "term",
+          "reading": "かべ"
+        },
+        {
+          "en": "the drywall",
+          "es": "石膏ボード",
+          "kind": "term",
+          "reading": "せっこうボード",
+          "note": "Standard Japanese term for drywall board."
+        },
+        {
+          "en": "the bucket",
+          "es": "バケツ",
+          "kind": "term"
+        },
+        {
+          "en": "the sand",
+          "es": "砂",
+          "kind": "term",
+          "reading": "すな"
+        },
+        {
+          "en": "the gravel",
+          "es": "砂利",
+          "kind": "term",
+          "reading": "じゃり"
+        },
+        {
+          "en": "the screw",
+          "es": "ビス",
+          "kind": "term",
+          "note": "Wood screw; ねじ is the general word for screw."
+        },
+        {
+          "en": "the saw",
+          "es": "のこぎり",
+          "kind": "term",
+          "note": "Hand saw; 丸のこ is a circular saw."
+        },
+        {
+          "en": "the level (tool)",
+          "es": "水平器",
+          "kind": "term",
+          "reading": "すいへいき",
+          "note": "Spirit level for checking level; 水平 is the word for level."
+        },
+        {
+          "en": "the trash",
+          "es": "ごみ",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "ホース",
+          "kind": "term"
+        },
+        {
+          "en": "I cut and you nail.",
+          "es": "私が切って、あなたが釘を打ちます。",
+          "kind": "phrase",
+          "note": "て-form joins two actions in one sentence: 切って, then 打ちます."
+        },
+        {
+          "en": "You work with Miguel today.",
+          "es": "今日はミゲルさんと一緒に作業します。",
+          "kind": "phrase",
+          "note": "Japanese often leaves out 'you'; the subject is clear from context."
+        },
+        {
+          "en": "We clean the site at 4.",
+          "es": "4時に現場を掃除します。",
+          "kind": "phrase",
+          "note": "掃除します: a noun plus します makes a ます-form verb."
+        },
+        {
+          "en": "They carry the blocks up to the second floor.",
+          "es": "田中さんたちはブロックを2階まで運びます。",
+          "kind": "phrase",
+          "note": "まで means up to; 2階 is the second floor."
+        },
+        {
+          "en": "I sweep and they pick up the trash.",
+          "es": "私が掃いて、田中さんたちはごみを拾います。",
+          "kind": "phrase",
+          "note": "掃いて joins 掃きます with the second action."
+        },
+        {
+          "en": "You mix the sand with the cement.",
+          "es": "砂をセメントと混ぜます。",
+          "kind": "phrase",
+          "note": "AをBと混ぜます: mix A with B."
+        }
+      ],
+      "reading": {
+        "title": "Who does which task",
+        "target": [
+          "私は石膏ボードを切ります。",
+          "田中さんはビスを締めます。",
+          "今日はミゲルさんと一緒に作業します。",
+          "4時に現場を掃除します。",
+          "田中さんたちはブロックを2階まで運びます。",
+          "砂をセメントと混ぜます。",
+          "私が掃いて、田中さんたちはごみを拾います。",
+          "ブロックを運ぶときは、手袋をつけてください。"
+        ],
+        "native": [
+          "I cut the drywall.",
+          "Mr. Tanaka tightens the screws.",
+          "I work with Miguel today.",
+          "We clean the site at 4 p.m.",
+          "They carry the blocks up to the second floor.",
+          "I mix the sand with the cement.",
+          "I sweep, and they pick up the trash.",
+          "Please wear gloves when carrying blocks."
+        ]
+      },
+      "speaking": "チームの仲間と今日の作業を分けてください。誰が切り、誰がブロックを2階まで運び、誰が現場を掃除するかを言ってください。",
+      "openingLine": "今日の作業を分けましょう。私はブロックを運びます。あなたは何を切りますか？",
+      "partnerRole": "A coworker who proposes splitting today's tasks, says they will carry the blocks, and asks what you will cut.",
+      "checks": [
+        {
+          "prompt": "田中さんは____を締めます。",
+          "hint": "Mr. Tanaka tightens the screws.",
+          "answer": "ビス",
+          "explanation": "ビス is a wood screw. 締めます is the ます form of 締める, to tighten."
+        },
+        {
+          "prompt": "4時に現場を____します。",
+          "hint": "We clean the site at 4 p.m.",
+          "answer": "掃除",
+          "explanation": "掃除 is a noun meaning cleaning. します turns it into the polite ます-form verb for clean."
+        },
+        {
+          "prompt": "ブロックを運ぶときは、____をつけてください。",
+          "hint": "Please wear gloves when carrying blocks.",
+          "answer": "手袋",
+          "explanation": "手袋 is the glove. つけてください politely asks the worker to put on the protective gear before the task."
+        }
+      ],
+      "sourceTitle": "Present Tense",
+      "sourceObjective": "Say who does each task on site using regular present-tense verbs."
+    }
+  ]
+}

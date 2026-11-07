@@ -1,0 +1,9 @@
+# French 101 Core 19–21 draft checkpoint
+
+This bounded batch is **French target / English support authored draft** content, stacked on Core 16–18 draft PR #257. It does not register runtime lessons, publish content, change stable lesson/progress IDs, or include recorded audio. `reviewed` remains `false`.
+
+`source-english-core-19-21.json` pins the exact English objectives, 42 word/phrase meanings, 18 Reader sentence meanings and source progression from Spanish 101. It records whole-file SHA-256 hashes for `spanish-basics-core.json` and `spanish-basics-practice.json`. `python3 scripts/validate-french-basics-core-19-21-draft.py` compares each pinned source item and hash to the current source and verifies every English pair, six aligned reading lines per lesson, check structure and script-only audio status.
+
+Core 19 teaches French `aller + infinitif` without the Spanish linking `a`. Core 20 teaches `être en train de + infinitif` for emphasis while explaining that ordinary French present tense can also describe an ongoing action. Core 21 contrasts `savoir` for facts and abilities with `connaître` for familiarity with people and places. Each lesson has an original French six-line reading, contextual speaking task, grammar explanation and five recall, writing, listening-script and comprehension checks. Broad English source glosses have contextual notes. The source's two lines about studying or speaking Spanish retain *l’espagnol* so their English meanings remain accurate.
+
+Codex authored this batch. The prior bounded batches report exhausted Claude CLI review budget, so no expensive Haiku/Fable/Opus retry was attempted. Independent French fidelity/curriculum review and qualified human review remain open. Runtime six-mode, Reader/cards/dictionary/speaking/offline integration, recorded audio and phone acceptance also remain open. This draft is **not** a released course.

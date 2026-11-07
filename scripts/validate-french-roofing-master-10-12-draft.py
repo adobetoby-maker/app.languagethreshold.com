@@ -51,6 +51,9 @@ console.log(JSON.stringify(MASTER_ROOFING_LESSONS.slice(9,12).map(l => ({
             assert len(lesson["reading"]["nativeDisplay"]) == len(original["readingEnglish"])
         if lesson["n"] == 11:
             assert "local emergency services" in lesson["reading"]["nativeDisplay"][11]
+            assert "Heatstroke" in lesson["reading"]["nativeDisplay"][11]
+            assert "Le coup de chaleur" in lesson["reading"]["target"][11]
+            assert "le coup de chaleur signifie heatstroke" in lesson["teachingNotesFrench"]
             assert "site plan" in lesson["words"][15]["enDisplay"]
         assert [(v["meaningEnglish"], v["exampleEnglish"], v["sourceInfinitiveSpanish"]) for v in lesson["verbs"]] == [
             (v["meaningEnglish"], v["exampleEnglish"], v["sourceInfinitiveSpanish"]) for v in original["verbs"]

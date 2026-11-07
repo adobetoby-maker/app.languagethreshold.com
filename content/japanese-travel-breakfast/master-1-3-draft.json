@@ -1,0 +1,694 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "master-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "role": "Exact English objectives, speaking roles, grammar examples, word anchors and Reader lines retained as provenance; Japanese learner scenes are original contextual teach-back dialogues"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "master-travel-breakfast:1:ja-en",
+      "sourceEnglish": {
+        "n": 1,
+        "title": "Teach a Friend How a Madrid Bar Breakfast Works",
+        "objective": "Explain step by step how to order, eat and pay at a Madrid bar counter, then have a friend explain it back.",
+        "speaking": "You are coaching the AI, Brazilian traveler Thiago, through a Madrid bar breakfast: explain ordering, eating and paying in order with primero, luego, después, porque and por eso, then ask him to explain the routine back to you.",
+        "lessonType": "Teach-back",
+        "block": "A",
+        "englishWordAnchors": [
+          "the receipt",
+          "the gap (free spot at the bar)",
+          "the bar stool",
+          "the chalkboard menu",
+          "the breakfast deal",
+          "the black coffee (espresso)",
+          "the churros",
+          "the porras (thick churros)",
+          "the slice of Spanish omelette",
+          "the fresh-squeezed orange juice",
+          "the card reader",
+          "the change (money back)",
+          "the tip jar",
+          "the hustle and noise",
+          "First you find a spot at the bar, and then you order.",
+          "Don't wait for a table, because almost everyone here eats breakfast standing up.",
+          "You pay at the end, so don't throw away the receipt.",
+          "One moment, please, he's still deciding.",
+          "I'll have a black coffee and some porras, please.",
+          "Afterwards, when you finish, you ask the waiter for the bill.",
+          "Okay, now you explain it to me, step by step.",
+          "Can you ring me up when you get a chance?"
+        ],
+        "englishGrammarExamples": [
+          "First you order at the bar, and then they serve you the coffee.",
+          "Since it's so busy, first you find a spot and then you call the waiter."
+        ],
+        "englishReading": [
+          "Emma and her Brazilian friend Thiago walk into a bar in Lavapiés to have breakfast before strolling around the neighborhood.",
+          "It's really hectic, because at 9 half the neighborhood has its coffee at the bar.",
+          "Emma: First you find a spot at the bar, and then you order.",
+          "Emma: Don't wait for a table, because almost everyone here eats breakfast standing up.",
+          "Thiago finds a spot at the end of the bar and leaves his backpack on a free bar stool.",
+          "Emma: Before ordering, you look at the chalkboard menu, because that's where they write the day's prices.",
+          "The breakfast deal includes a coffee and churros for 3 euros.",
+          "Suddenly Paco, the waiter, plants himself in front of them and asks: What can I get you?",
+          "Thiago freezes, so Emma answers: One moment, please, he's still deciding.",
+          "After looking at the chalkboard again, Thiago says: I'll have a black coffee and some porras, please.",
+          "Emma orders a slice of Spanish omelette and a fresh-squeezed orange juice, and Paco serves them right away.",
+          "When Paco puts down the plates, he also puts a small receipt under Thiago's cup.",
+          "Emma: You pay at the end, so don't throw away the receipt.",
+          "Emma: Afterwards, when you finish, you ask the waiter for the bill.",
+          "Emma: If you pay by card, Paco brings you the card reader, and if you pay cash, he gives you your change.",
+          "Emma: Tipping isn't required, but if you want, you leave a few coins from your change in the tip jar.",
+          "Emma: Okay, now you explain it to me, step by step.",
+          "Thiago: First I find a spot and order, then I eat breakfast standing up, and since I pay at the end, I keep the receipt."
+        ],
+        "englishSourceSha256": "a131a20f9623a70e144424728f8bebe1071400b9534b37decf28f6bd5402baba"
+      },
+      "title": "Explain this café’s breakfast routine",
+      "objective": "Teach a friend this café’s sequence for finding a seat, ordering and paying, then have the friend explain it back.",
+      "focus": "まず・次に・最後に order steps; ～ので gives a reason. ここでは limits a rule to this café. The English Madrid source’s standing-bar, receipt and tip customs are not presented as universal Japanese practice.",
+      "scene": "A traveler coaches a friend through the routine posted at a particular café.",
+      "cards": [
+        {
+          "ja": "まず",
+          "en": "first",
+          "kind": "term"
+        },
+        {
+          "ja": "次に",
+          "en": "next",
+          "kind": "term"
+        },
+        {
+          "ja": "最後に",
+          "en": "finally",
+          "kind": "term"
+        },
+        {
+          "ja": "ので",
+          "en": "because",
+          "kind": "term"
+        },
+        {
+          "ja": "店の案内",
+          "en": "shop instructions",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "会計",
+          "en": "payment",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "番号札",
+          "en": "numbered ticket",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "確認",
+          "en": "confirmation",
+          "kind": "term"
+        },
+        {
+          "ja": "まず店の案内を見ます",
+          "en": "First, we look at the shop instructions",
+          "kind": "term"
+        },
+        {
+          "ja": "次にレジで注文します",
+          "en": "Next, we order at the register",
+          "kind": "term"
+        },
+        {
+          "ja": "最後に番号を呼ばれたら受け取ります",
+          "en": "Finally, we pick it up when our number is called",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Coach",
+          "ja": "この店の朝食の流れを説明しますね。",
+          "en": "Let me explain this café’s breakfast routine."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "お願いします。どこから始めますか。",
+          "en": "Please do. Where do we start?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "まず、入口の案内を見て、席が空いているか確認します。",
+          "en": "First, check the sign at the entrance and see whether a seat is free."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "次は注文ですか。",
+          "en": "Is ordering next?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "はい。この店ではレジで先に注文して会計します。",
+          "en": "Yes. At this café, we order and pay at the register first."
+        },
+        {
+          "speaker": "Coach",
+          "ja": "番号札を受け取るので、なくさないでください。",
+          "en": "You get a numbered ticket, so please do not lose it."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "飲み物はどこで受け取りますか。",
+          "en": "Where do we pick up the drink?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "番号を呼ばれたらカウンターで受け取ります。",
+          "en": "When they call the number, we pick it up at the counter."
+        },
+        {
+          "speaker": "Coach",
+          "ja": "では、今度はあなたが順番を説明してみてください。",
+          "en": "Now please explain the steps back to me."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "まず案内を見て、次にレジで注文と会計をして、最後に番号で受け取ります。",
+          "en": "First I check the sign, next I order and pay at the register, and finally I pick it up by number."
+        }
+      ],
+      "speaking": {
+        "role": "Friend teaching a café routine",
+        "partnerRole": "Traveler learning the routine",
+        "opening": "この店では、どこで注文しますか。",
+        "goal": "Explain three steps and a reason with まず, 次に, 最後に and ～ので, then invite the learner to teach them back.",
+        "closure": "Ask staff if posted instructions differ from the scene.",
+        "wordBank": [
+          "まず",
+          "次に",
+          "最後に",
+          "ので",
+          "レジ",
+          "番号札"
+        ]
+      },
+      "modes": {
+        "see": "Read a teach-back scene with English support.",
+        "recall": "Recall three steps and one reason.",
+        "hear": "Hear sequence connectors in a complete explanation.",
+        "type": "Type the register step with kana help.",
+        "say": "Teach the café routine and check the friend’s explanation.",
+        "write": "Write a three-step routine for this shop."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "master-travel-breakfast:2:ja-en",
+      "sourceEnglish": {
+        "n": 2,
+        "title": "Explain Media or Entera at a Seville Tostada Bar",
+        "objective": "Explain how tostadas are ordered by bread type, size and topping, and why locals choose each one.",
+        "speaking": "You are explaining Seville's tostada system to the AI, hostel roommate Ingrid: walk her through bread type, size and toppings and why locals choose each, using impersonal se (se pide media o entera) and si + present (si pides mollete…).",
+        "lessonType": "Teach-back",
+        "block": "A",
+        "englishWordAnchors": [
+          "the half (half-roll toast)",
+          "the whole (whole-roll toast)",
+          "the mollete (soft flat roll)",
+          "the Vienna-style roll",
+          "the small roll",
+          "the house bread",
+          "the olive oil",
+          "the grated tomato",
+          "the cured ham",
+          "the red pork-lard spread",
+          "the pork loin in lard spread",
+          "the soft inside of the bread",
+          "the crust",
+          "the toasting (how toasted it is)",
+          "the salt shaker",
+          "Here you order a half or a whole, depending on how hungry you are.",
+          "If you order a mollete, the bread stays soft inside.",
+          "If you're really hungry, order a whole one.",
+          "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+          "Excuse me, is the house bread a mollete or a Vienna roll?",
+          "Thanks for correcting me, I didn't know that.",
+          "For me, a half with tomato and oil, please.",
+          "How do you order it here if I want it lightly toasted?"
+        ],
+        "englishGrammarExamples": [
+          "Here you order the bread first and then the topping.",
+          "If you order a pitufo, they bring you a smaller roll."
+        ],
+        "englishReading": [
+          "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+          "Me: Here you order the bread first and then the topping.",
+          "Me: Here you order a half or a whole, depending on how hungry you are.",
+          "Me: If you're really hungry, order a whole one.",
+          "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+          "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+          "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+          "Me: I think the house bread is a mollete, but I'm going to ask.",
+          "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+          "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+          "Me: Thanks for correcting me, I didn't know that.",
+          "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+          "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+          "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+          "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+          "Ingrid: How do you order it here if I want it lightly toasted?",
+          "Rocío: You order it with light toasting, and we bring it out to you softer.",
+          "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her."
+        ],
+        "englishSourceSha256": "879757e9a29cd5a3833423f395bcb4e98457253f2492d4e6059fabc1d70a7061"
+      },
+      "title": "Explain bread choices at a café",
+      "objective": "Teach a friend to ask about bread size, type and toppings, using conditional Japanese and checking actual ingredients.",
+      "focus": "小さいほう・大きいほう compare bread sizes; ～なら introduces a condition; ～によって違います marks variation. 具 and 原材料 distinguish topping from ingredients, and ～を確認できますか asks staff for details.",
+      "scene": "A traveler helps a friend understand a café’s bread menu without assuming ingredients.",
+      "cards": [
+        {
+          "ja": "パンの種類",
+          "en": "bread type",
+          "kind": "term"
+        },
+        {
+          "ja": "小さいほう",
+          "en": "the smaller one",
+          "kind": "term"
+        },
+        {
+          "ja": "大きいほう",
+          "en": "the larger one",
+          "kind": "term"
+        },
+        {
+          "ja": "半分",
+          "en": "half",
+          "kind": "term"
+        },
+        {
+          "ja": "一個",
+          "en": "one whole item",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "具",
+          "en": "topping",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "ジャム",
+          "en": "jam",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理方法",
+          "en": "preparation method",
+          "kind": "term"
+        },
+        {
+          "ja": "店によって違う",
+          "en": "vary by shop",
+          "kind": "term"
+        },
+        {
+          "ja": "小さいほうなら、こちらです",
+          "en": "If you want the smaller one, it is this one",
+          "kind": "phrase"
+        },
+        {
+          "ja": "具は何が入っていますか",
+          "en": "What is in the topping?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "材料を確認していただけますか",
+          "en": "Could you check the ingredients?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Coach",
+          "ja": "パンは大きさと具を別々に選べるようです。",
+          "en": "It looks like you can choose the bread size and topping separately."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "小さいほうはどれですか。",
+          "en": "Which one is smaller?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "メニューではこちらです。でも店員さんに確認しましょう。",
+          "en": "The menu shows this one. But let us confirm with staff."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらが小さいサイズで、あちらが大きいサイズです。",
+          "en": "This is the small size, and that is the large size."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "具は何を選べますか。",
+          "en": "Which toppings can we choose?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "バターとジャムがあります。ほかは本日のメニューをご覧ください。",
+          "en": "We have butter and jam. Please see today’s menu for others."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "乳製品を避けています。材料を確認できますか。",
+          "en": "I avoid dairy. Can you check the ingredients?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認してからお答えします。",
+          "en": "I will answer after checking with the kitchen."
+        },
+        {
+          "speaker": "Coach",
+          "ja": "確認できない場合は、そのパンを選ばないほうがいいですね。",
+          "en": "If it cannot be verified, we should not choose that bread."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "わかりました。大きさ、具、材料の順に確認します。",
+          "en": "Understood. I will check size, topping and ingredients in that order."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler explaining menu choices",
+        "partnerRole": "Friend choosing bread",
+        "opening": "パンはどうやって選びますか。",
+        "goal": "Teach the friend to ask about size and toppings, use a conditional phrase, and confirm ingredients before selecting food.",
+        "closure": "Restate the bread size, topping and ingredient question.",
+        "wordBank": [
+          "小さいほう",
+          "大きいほう",
+          "具",
+          "材料",
+          "確認",
+          "～なら"
+        ]
+      },
+      "modes": {
+        "see": "Read a conditional menu explanation with aligned English.",
+        "recall": "Recall size, topping and ingredient questions.",
+        "hear": "Hear 小さいほう and 大きいほう.",
+        "type": "Type a conditional size request with kana support.",
+        "say": "Teach a friend how to verify a bread order.",
+        "write": "Write a conditional menu explanation and ingredient question."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "master-travel-breakfast:3:ja-en",
+      "sourceEnglish": {
+        "n": 3,
+        "title": "Coach Your Niece to Order Café de Olla Alone",
+        "objective": "Coach a teenager to order café de olla and a pan dulce on her own, with clear tips about the hot clay cup.",
+        "speaking": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
+        "lessonType": "Teach-back",
+        "block": "A",
+        "englishWordAnchors": [
+          "the clay mug",
+          "the handle",
+          "the rim",
+          "the steam",
+          "the piloncillo (raw cane sugar cone)",
+          "the cinnamon",
+          "the egg-yolk bread",
+          "the hot chocolate made with water",
+          "the small eatery",
+          "the stall",
+          "the bench",
+          "the 50-peso bill",
+          "the coins",
+          "lukewarm",
+          "slowly, little by little",
+          "Order it without piloncillo if you don't want it so sweet.",
+          "Hold it by the handle, never by the rim.",
+          "Don't touch it yet; wait until it stops steaming.",
+          "Taste it slowly, because the clay holds the heat.",
+          "Greet her first and speak to her formally.",
+          "Ask her how much it is and pay her with the 50-peso bill.",
+          "Good morning, doña Eustolia, may I have a café de olla?",
+          "You've got this, I'll wait for you here on the bench."
+        ],
+        "englishGrammarExamples": [
+          "If it's very hot, leave it on the table for a little while.",
+          "Pick a pan de yema and ask doña Eustolia for it."
+        ],
+        "englishReading": [
+          "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
+          "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
+          "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
+          "Carmen: Greet her first and speak to her formally.",
+          "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
+          "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
+          "Carmen: Order it without piloncillo if you don't want it so sweet.",
+          "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
+          "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
+          "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
+          "Carmen: If she gives you coins as change, put them away in your pants pocket.",
+          "Carmen: Hold it by the handle, never by the rim.",
+          "Carmen: Don't touch it yet; wait until it stops steaming.",
+          "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
+          "Carmen: Taste it slowly, because the clay holds the heat.",
+          "Carmen: You've got this, I'll wait for you here on the bench.",
+          "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
+          "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand."
+        ],
+        "englishSourceSha256": "d048020450090c979e116b505618a064c9c68ca661a2c05015985900066eed84"
+      },
+      "title": "Coach a teen through a hot drink order",
+      "objective": "Coach a teenager to order a hot drink and bread politely, confirm the price, and handle a hot cup without touching it prematurely.",
+      "focus": "先にあいさつして and ～てください sequence polite coaching. 持ち手 means handle, 飲み口 means rim, and 湯気 means steam; 熱いので～ gives a reason for handling a hot cup carefully.",
+      "scene": "An adult coaches a teenager to order a hot cocoa and bread at a café counter.",
+      "cards": [
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "あいさつ",
+          "en": "greeting",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "staff member",
+          "kind": "term"
+        },
+        {
+          "ja": "ホットココア",
+          "en": "hot cocoa",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "カップ",
+          "en": "cup",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち手",
+          "en": "handle",
+          "kind": "term"
+        },
+        {
+          "ja": "熱い",
+          "en": "hot",
+          "kind": "term"
+        },
+        {
+          "ja": "冷める",
+          "en": "cool down",
+          "kind": "term"
+        },
+        {
+          "ja": "少し待つ",
+          "en": "wait a little",
+          "kind": "term"
+        },
+        {
+          "ja": "注意する",
+          "en": "be careful",
+          "kind": "term"
+        },
+        {
+          "ja": "先にあいさつしてください",
+          "en": "Please greet them first",
+          "kind": "phrase"
+        },
+        {
+          "ja": "値段を聞いてください",
+          "en": "Please ask the price",
+          "kind": "term"
+        },
+        {
+          "ja": "熱いカップに気をつけてください",
+          "en": "Please be careful with the hot cup",
+          "kind": "phrase"
+        },
+        {
+          "ja": "飲み口",
+          "en": "rim",
+          "kind": "term"
+        },
+        {
+          "ja": "湯気",
+          "en": "steam",
+          "kind": "term"
+        },
+        {
+          "ja": "ぬるい",
+          "en": "lukewarm",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Adult",
+          "ja": "まず、店員さんにあいさつしてみてください。",
+          "en": "First, try greeting the staff member."
+        },
+        {
+          "speaker": "Teen",
+          "ja": "おはようございます。ホットココアを一杯お願いします。",
+          "en": "Good morning. One hot cocoa, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。パンもいかがですか。",
+          "en": "Certainly. Would you like bread too?"
+        },
+        {
+          "speaker": "Teen",
+          "ja": "はい。こちらのパンを一つお願いします。",
+          "en": "Yes. One of this bread, please."
+        },
+        {
+          "speaker": "Adult",
+          "ja": "値段も聞いてみてください。",
+          "en": "Please ask the price too."
+        },
+        {
+          "speaker": "Teen",
+          "ja": "全部でいくらですか。",
+          "en": "How much is it altogether?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらの金額です。飲み物は熱いのでお気をつけください。",
+          "en": "It is this amount. Please be careful; the drink is hot."
+        },
+        {
+          "speaker": "Adult",
+          "ja": "カップは熱いです。受け取る前に安全な持ち方を確認しましょう。",
+          "en": "The cup is hot. Let us check how to carry it safely before taking it."
+        },
+        {
+          "speaker": "Teen",
+          "ja": "少し待ってから飲みます。",
+          "en": "I will wait a little before drinking it."
+        },
+        {
+          "speaker": "Adult",
+          "ja": "よくできました。私はここで待っています。",
+          "en": "Well done. I will wait here."
+        }
+      ],
+      "speaking": {
+        "role": "Adult coaching a teen",
+        "partnerRole": "Teen ordering at a café",
+        "opening": "最初に何と言えばいいですか。",
+        "goal": "Coach a greeting, an order, a price question and a hot-cup precaution; let the teen speak independently.",
+        "closure": "Let the teenager place the order and repeat the hot-cup handling words.",
+        "wordBank": [
+          "おはようございます",
+          "お願いします",
+          "値段",
+          "いくらですか",
+          "熱い",
+          "少し待つ"
+        ]
+      },
+      "modes": {
+        "see": "Read a coaching dialogue with English support.",
+        "recall": "Recall order, price and hot-cup caution.",
+        "hear": "Hear polite requests and ので in context.",
+        "type": "Type a price question with kana support.",
+        "say": "Coach the teen, then let them place the order.",
+        "write": "Write a short four-step coaching note."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language, register and pedagogy review",
+    "Qualified regional café/menu and food-safety review",
+    "Qualified hot-drink safety review for teen coaching scene",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

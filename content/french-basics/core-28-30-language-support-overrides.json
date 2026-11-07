@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 28–30 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 28,
+      "cardIndex": 4,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 28,
+      "cardIndex": 6,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 28,
+      "cardIndex": 9,
+      "from": {
+        "target": "J’étudiais l’espagnol l’après-midi.",
+        "native": "I used to study Spanish in the afternoon."
+      },
+      "to": {
+        "target": "J’étudiais le français l’après-midi.",
+        "native": "I used to study French in the afternoon."
+      },
+      "reason": "Localize French learner practice; preserve exact English source separately"
+    },
+    {
+      "lesson": 29,
+      "cardIndex": 1,
+      "from": {
+        "target": "est",
+        "native": "is (identity)"
+      },
+      "to": {
+        "target": "est",
+        "native": "is"
+      },
+      "reason": "French est is not restricted to identity"
+    },
+    {
+      "lesson": 29,
+      "cardIndex": 2,
+      "from": {
+        "target": "est / se trouve",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est / se trouve",
+        "native": "is / is located"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 29,
+      "cardIndex": 9,
+      "from": {
+        "target": "J’étudie pour apprendre l’espagnol.",
+        "native": "I study in order to learn Spanish."
+      },
+      "to": {
+        "target": "J’étudie pour apprendre le français.",
+        "native": "I study in order to learn French."
+      },
+      "reason": "Localize French learner practice; preserve exact English source separately"
+    },
+    {
+      "lesson": 30,
+      "cardIndex": 1,
+      "from": {
+        "target": "est",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est",
+        "native": "is"
+      },
+      "reason": "French est can describe state as well as location"
+    }
+  ],
+  "dialogueOverrides": [
+    {
+      "lesson": 28,
+      "lineIndex": 1,
+      "from": {
+        "target": "J’étudiais l’espagnol l’après-midi.",
+        "native": "I used to study Spanish in the afternoon."
+      },
+      "to": {
+        "target": "J’étudiais le français l’après-midi.",
+        "native": "I used to study French in the afternoon."
+      },
+      "reason": "Keep dialogue and Reader aligned"
+    },
+    {
+      "lesson": 29,
+      "lineIndex": 1,
+      "from": {
+        "target": "J’étudie pour apprendre l’espagnol.",
+        "native": "I study in order to learn Spanish."
+      },
+      "to": {
+        "target": "J’étudie pour apprendre le français.",
+        "native": "I study in order to learn French."
+      },
+      "reason": "Keep dialogue and Reader aligned"
+    }
+  ],
+  "grammarOverrides": [
+    {
+      "lesson": 29,
+      "from": "French pour can identify a beneficiary (ce livre est pour Ana) or purpose (j’étudie pour apprendre). Par can describe a route through a place (nous passons par le parc) and occurs in merci pour ton aide. A cause often needs à cause de (fermé à cause de la pluie), rather than par. For heading toward a place without promising arrival, use vers: je me dirige vers la bibliothèque.",
+      "to": "French pour can identify a beneficiary (ce livre est pour Ana) or purpose (j’étudie pour apprendre). Par can describe a route through a place (nous passons par le parc). Pour also occurs in merci pour ton aide. A cause often needs à cause de (fermé à cause de la pluie), rather than par. For heading toward a place without promising arrival, use vers: je me dirige vers la bibliothèque.",
+      "reason": "Correct par/pour explanation"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 28,
+      "from": "The English source explicitly says the learner used to study Spanish, so l’espagnol remains the subject of that line. French imparfait is not a word-for-word copy of Spanish imperfect forms; examples use natural French. For a single completed event, use the passé composé taught in Core 26.",
+      "to": "Use the imparfait for repeated past habits and the passé composé for a single completed event. The French-course example is “J’étudiais le français l’après-midi.”",
+      "reason": "Remove Spanish-course source note and align French practice"
+    },
+    {
+      "lesson": 29,
+      "from": "Spanish por/para are not a universal two-word French map. The source’s “because of the rain” becomes à cause de la pluie, while “toward the library” becomes vers la bibliothèque. English “through / because of” is pinned as a source gloss, but par by itself does not cover every because-of case; the French card includes a contextual note.",
+      "to": "Pour expresses beneficiary or purpose; par can express a route. Use à cause de for the rain in this lesson and vers for heading toward a place. The broad “through / because of” source gloss is split into contextual French expressions.",
+      "reason": "Remove Spanish-only comparison and preserve contextual distinction"
+    },
+    {
+      "lesson": 30,
+      "from": "In café context, Ana l’invite means she treats Luis; elsewhere inviter may only mean “invite,” so the scene supplies the payment meaning. The source also uses “then” in a separate line; French ensuite marks sequence, while donc/alors can signal a consequence.",
+      "to": "At the café, Ana l’invite means she treats Luis; elsewhere inviter may only mean “invite.” Puis/ensuite mark sequence, while donc/alors can signal a consequence.",
+      "reason": "Remove source-meta instruction from learner-facing caution"
+    }
+  ],
+  "modelOverrides": [
+    {
+      "lesson": 28,
+      "key": "study",
+      "from": "J’étudiais l’espagnol l’après-midi.",
+      "to": "J’étudiais le français l’après-midi.",
+      "reason": "Align model with localized Reader/card"
+    },
+    {
+      "lesson": 29,
+      "key": "purpose",
+      "from": "J’étudie pour apprendre l’espagnol.",
+      "to": "J’étudie pour apprendre le français.",
+      "reason": "Align model with localized Reader/card"
+    }
+  ]
+}

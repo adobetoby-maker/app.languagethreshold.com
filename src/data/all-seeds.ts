@@ -1,5 +1,6 @@
 import { SOUND_READER_SEEDS } from "./sound-like-a-native-readers";
 import { SPANISH_BASICS_READERS, SPANISH_NEXT_READERS } from "./spanish-basics-readers";
+import { JAPANESE_BASICS_READERS } from "./japanese-basics-readers";
 // All pre-built library seed data — loaded lazily via dynamic import() in LibraryProvider.
 // Keeping this module separate from library-state.tsx lets Vite split it into its own chunk,
 // reducing the main bundle by ~600–800 kB.
@@ -1360,6 +1361,7 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(MILITARY_READER_SEEDS as LibraryEntry[]),
   ...(SOUND_READER_SEEDS as LibraryEntry[]),
   ...(SPANISH_BASICS_READERS as LibraryEntry[]),
+  ...(JAPANESE_BASICS_READERS as LibraryEntry[]),
   ...(SPANISH_NEXT_READERS as LibraryEntry[]),
   ...(TRANSPORT_AGRI_SEEDS as LibraryEntry[]).map(tag("Transport & Agriculture")),
   ...(SERVICE_EDU_SEEDS as LibraryEntry[]).map(tag("Service & Education")),

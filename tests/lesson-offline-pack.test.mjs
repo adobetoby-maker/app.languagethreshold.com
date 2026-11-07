@@ -177,3 +177,31 @@ test("offline trade packs include only their language core and selected module r
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("Japanese 101 draft downloads stay exact-pair, ordered and separate by stage", async () => {
+  const { offlineLessonPackId } = await loadModule("src/lib/offline-lesson-tracks.ts");
+  for (const [moduleId, count, packId] of [
+    ["foundation-japanese-basics", 10, "foundation-japanese-basics-ja-en"],
+    ["japanese-basics", 30, "japanese-basics-ja-en"],
+    ["master-japanese-basics", 20, "master-japanese-basics-ja-en"],
+  ]) {
+    assert.equal(offlineLessonPackId(moduleId, "Japanese", "English"), packId);
+    assert.equal(offlineLessonPackId(moduleId, "Spanish", "English"), null);
+    assert.equal(offlineLessonPackId(moduleId, "Japanese", "Spanish"), null);
+    const pack = publicLessonOfflinePack(packId);
+    assert.equal(pack.contentStatus, "draft");
+    assert.equal(pack.moduleId, moduleId);
+    assert.equal(pack.targetLanguage, "Japanese");
+    assert.equal(pack.instructionLanguage, "English");
+    assert.equal(pack.lessons.length, count);
+    assert.equal(pack.audioFilesIncluded, false);
+    assert.equal(pack.officialAssessmentsIncluded, false);
+    assert.equal(pack.lessons[0].lessonNumber, 1);
+    assert.equal(pack.lessons.at(-1).lessonNumber, count);
+    for (const lesson of pack.lessons) {
+      assert.ok(lesson.id);
+      assert.equal(lesson.modes.length, 6);
+      assert.ok(lesson.reading.sentences.length >= 5);
+    }
+  }
+});

@@ -1,17 +1,19 @@
 # Language Core Builder
 
-This is the reusable course map for adding a **target language learned from a specified native language** to Language Threshold. It maps the existing Spanish 101 → English track to a proposed Japanese 101 → English track. The stages and learner actions mirror Spanish; the grammar and script sequence are authored for Japanese. This document is a curriculum plan, not a claim that Japanese lessons are implemented or reviewed.
+This is the reusable course map for adding a **target language learned from a specified native language** to Language Threshold. It maps the existing Spanish 101 → English track to a Japanese 101 → English draft. The stages and learner actions mirror Spanish; the grammar and script sequence are authored for Japanese. A mapped draft is not a reviewed or released course.
 
 ## Baseline and status
 
-Source audit: app `44767ef636305ab30de4579b3710d23a49d75cad` (November 3, 2026, Mountain time), using `add-language-threshold-module/scripts/audit-module.mjs`.
+Source audit: Japanese 101 draft branch `feat/japanese-101-course` (November 3, 2026, Mountain time), using `add-language-threshold-module/scripts/audit-module.mjs`. The Spanish baseline was audited at app `44767ef636305ab30de4579b3710d23a49d75cad`.
 
 | Exact pair | Catalog | Valid authored lessons | Teaching/reading/speaking/Reader mapping | Review state |
 | --- | --- | --- | --- | --- |
 | Spanish → English, `spanish-basics` | Supported | Foundation 10, Core 30, Master 20 | 60/60 mapped | Draft; public-file `reviewed: false` |
-| Japanese → English, proposed `japanese-basics` | No general Japanese 101 module yet | 0/60 | 0/60 | Plan only |
+| Japanese → English, `japanese-basics` | Draft branch | Foundation 10, Core 30, Master 20 | 60/60 mapped | Draft; `reviewed: false`, no fluent approval |
 
-Japanese support already exists for Reader furigana and word selection, Japanese speech locale, flashcard reading hints and selected conjugations, kanji study data, and scattered specialty reader/word/speaking seeds. The Japanese Construction Foreman Core has vocabulary and speaking cards for 30 numbered lessons, but no validated full lessons, no complete Foundation/Master pair, and only one registered full-Reader passage. None of that is a general Japanese 101 course. Spanish 101 itself still needs fluent review and does not have a registered offline lesson pack; source mapping does not prove release readiness.
+The Japanese 101 branch has distinct lesson text, English-aligned readings, vocabulary, three cloze checks per lesson, six practice modes, Reader entries, cards, and speaking missions. Its source of truth is `content/japanese-basics/`, built by `scripts/build-japanese-basics.py`; use `--check` to detect stale outputs. Existing Japanese Reader furigana, speech locale, flashcard reading hints, conjugation cards, and kanji study data remain separate. The Japanese Construction Foreman Core is also separate and still lacks a complete authored course. Spanish 101 itself still needs fluent review and has no registered offline lesson pack; source mapping does not prove release readiness.
+
+Japanese 101 needs qualified review of grammar, naturalness, translations, level progression, and beginner script support. Current draft readings are mainly kana and do not yet teach a complete kanji/furigana progression. Its `verbs` lesson-content arrays are empty because the shared form-table trainer models Spanish/English person paradigms; Japanese forms appear in authored grammar and dialogue but do not yet have an equivalent trainer. Narrow-phone Foundation Lesson 1 opened without horizontal overflow in a local QA session; full stage, microphone, physical-device audio, offline, and persistence acceptance remain unverified.
 
 ## The mirror rule
 
@@ -102,9 +104,9 @@ Keep the **10 + 30 + 20 stages, six See/Recall/Hear/Type/Say/Write modes, lesson
 
 For Japanese specifically, review kana/kanji progression, furigana policy, natural word segmentation, pitch/voice behavior, honorific/polite register, and translations with a qualified Japanese speaker. A text pack can work offline while AI conversation cannot; do not claim offline audio until a device test proves it.
 
-## Source entry points and current gap
+## Source entry points and remaining gaps
 
-Spanish source: `src/data/core60/es/foundation-spanish-basics.json`, `src/data/spanish-basics-core.json`, `src/data/core60/es/master-spanish-basics.json`, plus `src/data/spanish-basics-practice.json` and `src/data/spanish-basics-readers.ts`. Shared wiring: `src/data/modules.ts`, `src/data/core60/manifest.ts`, `src/data/speaking-missions.ts`, `src/lib/lesson-words-core.ts`, `src/lib/offline-lesson-tracks.ts`. Japanese-specific pieces: `src/data/cjk/japanese-core.ts`, `src/data/japanese-conjugations.ts`, `src/components/reader/FuriganaText.tsx`, and `src/components/flashcards/JapaneseConjugationCard.tsx`.
+Spanish source: `src/data/core60/es/foundation-spanish-basics.json`, `src/data/spanish-basics-core.json`, `src/data/core60/es/master-spanish-basics.json`, plus `src/data/spanish-basics-practice.json` and `src/data/spanish-basics-readers.ts`. Japanese draft source: `content/japanese-basics/{foundation,core,master,master-extensions}.json`; builder `scripts/build-japanese-basics.py`; app wiring `src/data/japanese-basics.ts`, `src/data/japanese-basics-readers.ts`, `src/data/japanese-basics-practice.json`, and stage files in `src/data/core60/ja/`. Shared wiring: `src/data/modules.ts`, `src/data/core60/manifest.ts`, `src/data/speaking-missions.ts`, `src/lib/lesson-words-core.ts`, `src/lib/offline-lesson-tracks.ts`. Other Japanese-specific pieces: `src/data/cjk/japanese-core.ts`, `src/data/japanese-conjugations.ts`, `src/components/reader/FuriganaText.tsx`, and `src/components/flashcards/JapaneseConjugationCard.tsx`.
 
 Run the existing exact-pair audit before and after each build:
 
@@ -113,4 +115,4 @@ node /Users/drive/.codex/skills/add-language-threshold-module/scripts/audit-modu
 node /Users/drive/.codex/skills/add-language-threshold-module/scripts/audit-module.mjs --repo /absolute/current/app --module japanese-basics --target Japanese --native English
 ```
 
-The second command is expected to report no Japanese 101 module until it is authored. Do not change catalog support merely to make the audit green.
+The Japanese audit now checks a mapped draft. The substantive release gates above remain even if the structural audit passes.

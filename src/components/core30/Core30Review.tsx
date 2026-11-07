@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { getModule } from "@/data/modules";
 import type { Lesson, LessonWord } from "@/data/curriculum";
 import {
-  authoredWordsPair,
+  authoredWordsPairForModule,
   pickAuthoredWords,
   readCachedLessonWords,
 } from "@/lib/lesson-words-core";
@@ -116,7 +116,7 @@ export function Core30Review({
             lesson.words,
             state.selectedLanguage,
             state.nativeLanguage,
-            authoredWordsPair(getModule(moduleId)?.learnDirection),
+            authoredWordsPairForModule(getModule(moduleId)),
           ) ??
             readCachedLessonWords(
               moduleId,

@@ -1,5 +1,6 @@
 import { soundLesson } from "@/data/sound-like-a-native";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
+import { japaneseBasicsLesson } from "@/data/japanese-basics";
 // Built by TAC — 2026-10-15
 import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Languages, Pause, Play, Volume2 } from "lucide-react";
@@ -135,8 +136,13 @@ export function LessonReader({
     lessonNumber
       ? `seed-es-${moduleId}-lesson-${lessonNumber}`
       : null;
+  const japaneseReaderId =
+    language === "Japanese" && state.nativeLanguage === "English" && lessonNumber &&
+    japaneseBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage)
+      ? `seed-ja-${moduleId}-lesson-${lessonNumber}`
+      : null;
   const fullReaderId =
-    basicsReaderId ?? militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
+    japaneseReaderId ?? basicsReaderId ?? militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
   const translationLanguage = lessonPassage
     ? state.nativeLanguage
     : contentPassage

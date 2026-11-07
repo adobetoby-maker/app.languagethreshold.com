@@ -59,11 +59,13 @@ export interface DictWord {
   word: string;
   english: string;
   pronunciation: string;
-  partOfSpeech: "noun" | "verb" | "adjective" | "phrase";
+  partOfSpeech: "noun" | "verb" | "adjective" | "phrase" | "term";
   gender?: "masculine" | "feminine";
   category: WordCategory;
   context?: string;
   verbProfileId?: string;
   verbProfile?: VerbProfile;
   examples: { target: string; english: string }[];
+  lessonHref?: string;
+  moduleId?: string;
 }

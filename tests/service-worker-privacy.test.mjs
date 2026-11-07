@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import vm from "node:vm";
 import { readFileSync } from "node:fs";
-function runtime() {
+function runtime({ offlineLessonShell } = {}) {
   const listeners = {},
     stores = new Map(),
     origin = "https://practice.example";
@@ -37,6 +37,7 @@ function runtime() {
     console,
     caches,
     importScripts() {},
+    ...(offlineLessonShell ? { offlineLessonShell } : {}),
     self: {
       location: { origin },
       addEventListener: (name, handler) => {
@@ -106,7 +107,7 @@ function runtime() {
 }
 test("private routes and legacy Exams entry never read or write the public cache, even offline", async () => {
   const r = runtime();
-  const cache = await r.caches.open("lt-v20");
+  const cache = await r.caches.open("lt-v21");
   await cache.put("/", new Response("public shell"));
   for (const path of [
     "/exam-content",
@@ -127,6 +128,30 @@ test("private routes and legacy Exams entry never read or write the public cache
   assert.equal(await r.fetch("/account"), null);
   assert.equal(r.calls(), 0);
 });
+test("Japanese offline navigation selects only the matching stage and exact language pair", async () => {
+  const selected = [];
+  const r = runtime({
+    offlineLessonShell: async (packId) => {
+      selected.push(packId);
+      return packId ? new Response(`saved ${packId}`) : null;
+    },
+  });
+  await (await r.caches.open("lt-v21")).put("/", new Response("public shell"));
+  r.offline();
+  for (const moduleId of ["foundation-japanese-basics", "japanese-basics", "master-japanese-basics"]) {
+    const path = `/?tab=core30&module=${moduleId}&target=Japanese&native=English`;
+    assert.equal(await (await r.fetch(path)).text(), `saved ${moduleId}-ja-en`);
+  }
+  assert.equal(await (await r.fetch("/?tab=core30&module=japanese-basics&target=Spanish&native=English")).text(), "public shell");
+  assert.equal(await (await r.fetch("/?tab=core30&module=japanese-basics&target=Japanese&native=Spanish")).text(), "public shell");
+  assert.deepEqual(selected, [
+    "foundation-japanese-basics-ja-en",
+    "japanese-basics-ja-en",
+    "master-japanese-basics-ja-en",
+    null,
+    null,
+  ]);
+});
 test("no-store and private navigation responses are delivered without being cached", async () => {
   for (const directive of [
     "no-store",
@@ -137,7 +162,7 @@ test("no-store and private navigation responses are delivered without being cach
     const r = runtime();
     r.network(new Response("sensitive", { headers: { "Cache-Control": directive } }));
     assert.equal(await (await r.fetch("/public-page")).text(), "sensitive");
-    assert.equal(await (await r.caches.open("lt-v20")).match("/public-page"), undefined);
+    assert.equal(await (await r.caches.open("lt-v21")).match("/public-page"), undefined);
   }
 });
 test("public root stays cacheable while plan and return-plan URLs use only the public shell offline", async () => {
@@ -147,7 +172,7 @@ test("public root stays cacheable while plan and return-plan URLs use only the p
     await r.fetch("/");
     r.network(new Response("context fixture"));
     await r.fetch(path);
-    assert.equal(await (await r.caches.open("lt-v20")).match(path), undefined);
+    assert.equal(await (await r.caches.open("lt-v21")).match(path), undefined);
     r.offline();
     assert.equal(await (await r.fetch(path)).text(), "public");
   }
@@ -173,15 +198,16 @@ test("worker activation purges the previous general cache but retains complete p
   // the cache name the worker used before /trade-packs/ was added must be purged too
   await r.caches.open("lt-v18");
   await r.caches.open("lt-v20");
+  await r.caches.open("lt-v21");
   await r.caches.open("lt-lesson-pack-fixture");
   await r.activate();
-  assert.deepEqual([...r.stores.keys()], ["lt-v20", "lt-lesson-pack-fixture"]);
+  assert.deepEqual([...r.stores.keys()], ["lt-v21", "lt-lesson-pack-fixture"]);
 });
 test("initial automatic shell caching also honors private response policy", async () => {
   const r = runtime();
   r.network(new Response("private shell", { headers: { "Cache-Control": "no-store" } }));
   await r.install();
-  assert.equal(await (await r.caches.open("lt-v20")).match("/"), undefined);
+  assert.equal(await (await r.caches.open("lt-v21")).match("/"), undefined);
 });
 test("a trade pack is cached on first load and served from the cache when the network fails", async () => {
   const r = runtime();
@@ -192,7 +218,7 @@ test("a trade pack is cached on first load and served from the cache when the ne
   assert.equal(await first.text(), body);
   assert.equal(r.calls(), 1);
   // the pack is now in the current cache
-  assert.equal(await (await (await r.caches.open("lt-v20")).match(path)).text(), body);
+  assert.equal(await (await (await r.caches.open("lt-v21")).match(path)).text(), body);
 
   r.offline();
   const offline = await r.fetch(path, { asset: true });
@@ -206,5 +232,5 @@ test("a private response is never stored as a trade pack", async () => {
   const path = "/trade-packs/es/roofing.json";
   r.network(new Response("{}", { headers: { "Cache-Control": "no-store" } }));
   await r.fetch(path, { asset: true });
-  assert.equal(await (await r.caches.open("lt-v20")).match(path), undefined);
+  assert.equal(await (await r.caches.open("lt-v21")).match(path), undefined);
 });

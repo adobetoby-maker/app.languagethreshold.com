@@ -179,7 +179,7 @@ test("speaking preview covers every authored topic in every speaking language", 
       total: 2616 + 6 + master,
     }),
     Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
-    Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 156, total: 2160 },
+    Japanese: { modules: 57, challenges: 366, lessons: 1710, curated: 0, core: 156, total: 2232 },
     Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2163 },
     English: withGenerated("English", {
       modules: 59,
@@ -254,7 +254,8 @@ test("speaking preview covers every authored topic in every speaking language", 
   // Military English adds six challenges and 30 Core lesson missions.
   // Six additional base courses contribute 30 lessons and two challenges each.
   // Sound Like a Native contributes three base challenges and thirty Core lessons.
-  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated;
+  // Japanese 101 contributes twelve stage/base challenges and sixty lesson missions.
+  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72;
 
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);

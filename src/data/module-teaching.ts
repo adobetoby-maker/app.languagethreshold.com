@@ -1,5 +1,6 @@
 import { soundTeaching, SOUND_PRACTICE_VERSION } from "./sound-like-a-native.ts";
 import { spanishBasicsTeaching, SPANISH_BASICS_VERSION } from "./spanish-basics.ts";
+import { japaneseBasicsTeaching, JAPANESE_BASICS_VERSION } from "./japanese-basics.ts";
 import { roofingTeachingSettings } from "./roofing-teaching.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "./landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
@@ -14,6 +15,7 @@ export function moduleTeachingSettings(
   native: string,
 ) {
   if (target === "English" && native === "Spanish") return militaryTeachingSettings(moduleId, n);
+  if (target === "Japanese" && native === "English") return japaneseBasicsTeaching(moduleId, n, target, native);
   if (target !== "Spanish" || native !== "English") return null;
   const sound = soundTeaching(moduleId, n);
   if (sound) return sound;
@@ -31,6 +33,8 @@ export function moduleTeachingSettings(
 
 export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
 export function modulePracticeVersion(moduleId: string, target: string, native: string) {
+  if (target === "Japanese" && native === "English" && japaneseBasicsTeaching(moduleId, 1, target, native))
+    return JAPANESE_BASICS_VERSION;
   if (target === "English" && native === "Spanish" && militaryTeachingSettings(moduleId, 1))
     return MILITARY_PRACTICE_VERSION;
   if (target === "Spanish" && native === "English") {

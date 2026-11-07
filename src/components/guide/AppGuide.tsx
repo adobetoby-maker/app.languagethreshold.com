@@ -3,6 +3,7 @@ import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
+import { japaneseBasicsLesson } from "@/data/japanese-basics";
 import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
 import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
@@ -806,7 +807,9 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const grammar = basics?.grammar ?? lesson.grammar;
+  const japanese = japaneseBasicsLesson(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage);
+  const coursePractice = basics ?? japanese;
+  const grammar = coursePractice?.grammar ?? lesson.grammar;
   const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
@@ -1262,7 +1265,7 @@ function OwnedLessonRunner({
     return finishLesson(false);
   }
   function markMastered() {
-    if (basics && !grammarPassed) return;
+    if (coursePractice && !grammarPassed) return;
     return finishLesson(true);
   }
 
@@ -1735,10 +1738,11 @@ function OwnedLessonRunner({
 
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
       <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
-        {basics && (!masteredAt || needsPractice) && (
+        {coursePractice && (!masteredAt || needsPractice) && (
           <SpanishBasicsCheck
             topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}
-            checks={basics.checks}
+            language={japanese ? "Japanese" : "Spanish"}
+            checks={coursePractice.checks}
             onPassed={() => setGrammarPassed(true)}
           />
         )}
@@ -1779,7 +1783,7 @@ function OwnedLessonRunner({
               type="button"
               data-testid="core30-mastered-button"
               onClick={() => void markMastered()}
-              disabled={marking || (!!basics && !grammarPassed)}
+              disabled={marking || (!!coursePractice && !grammarPassed)}
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-50"
               style={{
                 background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",

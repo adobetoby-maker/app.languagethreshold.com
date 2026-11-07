@@ -5,6 +5,7 @@ import { verbProfiles } from "./verbProfiles";
 import { italianDictWords } from "./italianWordData";
 import { italianVerbProfiles } from "./italianVerbProfiles";
 import { coreItalianWords } from "./coreItalian";
+import japaneseWordData from "./japaneseWordData.json";
 import type { WordCategory, DictWord, VerbProfile } from "./types";
 import { MorphDisplay } from "./MorphDisplay";
 import { useApp, type Language } from "@/state/app-state";
@@ -81,6 +82,13 @@ const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> 
     phraseNoun: "Italian",
     phraseExample: "Il medico esamina il paziente...",
     fieldLabels: ITALIAN_FIELD_LABELS,
+  },
+  Japanese: {
+    words: japaneseWordData as DictWord[],
+    profiles: {},
+    searchPlaceholder: "Search Japanese or English…",
+    phraseNoun: "Japanese",
+    phraseExample: "こんにちは。",
   },
 };
 
@@ -197,7 +205,7 @@ function WordCard({
       translation: word.english,
       example: word.examples[0]?.target ?? "",
       exampleTranslation: word.examples[0]?.english ?? "",
-      moduleId: state.activeModuleId ?? undefined,
+      moduleId: word.moduleId ?? state.activeModuleId ?? undefined,
     });
     dispatch({
       type: "ADD_VOCAB_ITEMS",
@@ -208,7 +216,7 @@ function WordCard({
           translation: word.english,
           category: "saved",
           correctCount: 0,
-          moduleId: state.activeModuleId ?? undefined,
+          moduleId: word.moduleId ?? state.activeModuleId ?? undefined,
         },
       ],
     });
@@ -254,11 +262,16 @@ function WordCard({
 
         {word.context && (
           <p
-            className="mt-1 text-xs italic"
+            className="mt-1 text-xs"
             style={{ color: "var(--muted-foreground)", opacity: 0.75 }}
           >
             {word.context}
           </p>
+        )}
+        {word.lessonHref && (
+          <a href={word.lessonHref} className="mt-2 block text-xs font-semibold text-gold underline underline-offset-2">
+            Open source lesson
+          </a>
         )}
         <button
           type="button"
@@ -444,7 +457,9 @@ export function DictionaryTab() {
     setCategory(state.activeModuleId === "roofing" && state.selectedLanguage === "Spanish" ? "roofing" : "all");
   }, [state.activeModuleId, state.selectedLanguage]);
 
-  const config = DICTIONARY_LANGUAGES[state.selectedLanguage];
+  const config = state.selectedLanguage === "Japanese" && state.nativeLanguage !== "English"
+    ? undefined
+    : DICTIONARY_LANGUAGES[state.selectedLanguage];
   // The Roofing chip is always offered, so its entries must not depend on the
   // active module (they were empty unless the Roofing module was selected).
   const words = useMemo(
@@ -496,6 +511,11 @@ export function DictionaryTab() {
 
       {config && (
         <>
+          {state.selectedLanguage === "Japanese" && (
+            <p className="rounded-lg border border-gold/30 bg-gold/10 px-3 py-2 text-sm text-foreground">
+              Japanese 101 lesson glossary · draft wording. Entries link to their source lesson; full dictionary and form guidance are still in progress.
+            </p>
+          )}
           {/* Search */}
           <div className="relative">
             <Search
@@ -569,7 +589,9 @@ export function DictionaryTab() {
           )}
 
           {/* Phrase Engine */}
-          <PhraseEngine noun={config.phraseNoun} example={config.phraseExample} />
+          {state.selectedLanguage !== "Japanese" && (
+            <PhraseEngine noun={config.phraseNoun} example={config.phraseExample} />
+          )}
         </>
       )}
 

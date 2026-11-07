@@ -113,6 +113,18 @@ export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
         "Twenty guided applications of beginner grammar. Revisit mistakes and build independence; this is practice, not proficiency certification.",
     },
   },
+  {
+    base: "japanese-basics",
+    language: "Japanese",
+    tradeLabel: "Japanese 101",
+    foundation: {
+      blurb: "Ten beginner lessons on kana, greetings, quantities, people, location, and asking for help. Draft awaiting fluent review.",
+    },
+    master: {
+      userRole: "A Japanese 101 learner applying familiar language in everyday situations",
+      blurb: "Twenty applied beginner situations with longer readings. Draft awaiting fluent review; this is practice, not certification.",
+    },
+  },
 
   {
     base: "military",

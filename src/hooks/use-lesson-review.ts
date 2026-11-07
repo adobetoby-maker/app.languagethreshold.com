@@ -6,7 +6,7 @@ import { getModule } from "@/data/modules";
 import { core60PathOf } from "@/lib/core60-path";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
-  authoredWordsPair,
+  authoredWordsPairForModule,
   pickAuthoredWords,
   readCachedLessonWords,
 } from "@/lib/lesson-words-core";
@@ -77,7 +77,7 @@ export function useLessonReview(moduleId: string, context: Core30ProgressContext
         lesson.words,
         context.targetLanguage,
         context.instructionLanguage,
-        authoredWordsPair(getModule(id)?.learnDirection),
+        authoredWordsPairForModule(getModule(id)),
       ) ??
       readCachedLessonWords(id, lesson.n, context.targetLanguage, context.instructionLanguage) ??
       [];

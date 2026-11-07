@@ -1,0 +1,7 @@
+# Japanese 101 HD audio pilot — 2026-11-04
+
+Ten MP3 clips were synthesized for the first five Foundation lesson 1 target lines: one female and one male clip per exact display sentence. The private local manifest and clips are at `/Users/drive/lt-audio/japanese-101/`; no MP3 or credential was added to Git, the web app, or V4. The source inventory fingerprint was `39662d899271296bd4d40e3f504db238c811cfed61f48b045f6ca2ba50ee9035`.
+
+The requests used Google Cloud Chirp 3 HD `ja-JP-Chirp3-HD-Aoede` and `ja-JP-Chirp3-HD-Charon`, both with `ja-JP` language identity. The ten requests contained 104 spoken characters. The resulting files total 63,552 bytes; their validated durations range from 0.816 to 2.016 seconds. The local manifest records the exact spoken text, voice, locale, byte count, duration and SHA-256 for each clip. A repeat dry run found all ten files valid and planned zero paid requests. File permissions are owner-only.
+
+This verifies file production and metadata, **not listening quality**. No model audio-input or human listening signoff was available in this run. The full course inventory still requires 767 distinct Japanese strings and 1,534 female/male clips; only ten private pilot clips exist. Before scaling, finish the 60-lesson continuity review, check pronunciation and pacing on the pilot with a qualified listener, then synthesize reviewed text in bounded batches and verify playback lookup, offline download and V4/Watch size. The pilot is not a release claim.

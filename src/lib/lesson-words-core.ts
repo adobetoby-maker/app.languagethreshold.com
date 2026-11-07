@@ -202,6 +202,16 @@ export function authoredWordsPair(learnDirection?: string | null): AuthoredWords
   return learnDirection === "en-target" ? ENGLISH_AUTHORED_PAIR : SPANISH_AUTHORED_PAIR;
 }
 
+/** Prefer an explicitly authored pair; historical modules keep their direction-based default. */
+export function authoredWordsPairForModule(module?: {
+  authoredPair?: { target: string; native: string };
+  learnDirection?: string | null;
+} | null): AuthoredWordsPair {
+  return module?.authoredPair
+    ? { language: module.authoredPair.target, nativeLanguage: module.authoredPair.native }
+    : authoredWordsPair(module?.learnDirection);
+}
+
 /**
  * Authored words are served only to the pair they were written for (Spanish target / English
  * native by default, English target / Spanish native for en-target modules). Any other pair,

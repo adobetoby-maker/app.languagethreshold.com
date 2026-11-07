@@ -718,7 +718,7 @@ if (existsSync(CONTENT_DIR)) {
   }
 }
 
-const LANGUAGE_BY_DIR = { es: "Spanish", en: "English" };
+const LANGUAGE_BY_DIR = { es: "Spanish", en: "English", ja: "Japanese" };
 
 test(
   "generated lesson-content files (if any) are listed in index.json",
@@ -786,7 +786,11 @@ for (const { dir, name } of generated) {
         limits: contentLimitsFor(moduleId),
       });
       assert.deepEqual(errors, [], `lesson ${lesson.n} (${lesson.title}) has no validator errors`);
-      assert.ok(content.verbs.length >= contentLimitsFor(moduleId).minVerbs);
+      // The generic form-table validator supports Spanish/English paradigms; Japanese
+      // morphology is authored in grammar/readings until its own trainer exists.
+      if (language !== "Japanese") {
+        assert.ok(content.verbs.length >= contentLimitsFor(moduleId).minVerbs);
+      }
     }
     },
   );

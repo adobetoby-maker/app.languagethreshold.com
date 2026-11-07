@@ -1,0 +1,686 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "074a007c1d547b7df71d040ca1cba0e6e2bb42001c4b22baa7f0d23e2a4883be",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 7,
+      "titleEnglish": "Hail Damage Inspection with an Adjuster",
+      "objectiveEnglishSource": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+      "focusEnglishSource": "Preterite narration; numbers under pressure",
+      "lessonType": "Case",
+      "block": "B",
+      "speakingEnglishSource": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+      "grammarExamplesEnglish": [
+        "The storm came through on Tuesday and the hail fell for 15 minutes.",
+        "We counted 12 hits in the test square."
+      ],
+      "titleFrench": "Constater des dommages de grêle avec un expert d’assurance",
+      "objectiveFrench": "Décrire une tempête, relever des impacts et des mesures, puis clarifier la portée proposée avec l’expert.",
+      "grammarFocusFrench": "Passé composé pour raconter les faits; nombres, unités et demande de répétition pour confirmer les mesures.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire est l’expert d’assurance. Décrivez les constats et les mesures, demandez-lui de répéter les chiffres et faites préciser par écrit la portée proposée; ne présentez pas le carré d’essai comme une règle de couverture universelle.",
+      "speakingFrenchOpening": "Reprenons les mesures ensemble : combien d’impacts comptez-vous sur ce versant ?",
+      "teachingNotesFrench": "Le passé composé situe la tempête et les constats. Les nombres et unités du récit sont fictifs; le carré d’essai, les critères de dommage et la portée d’assurance varient selon le contrat, le produit et l’expert. Distinguez un constat d’une décision de couverture.",
+      "words": [
+        {
+          "en": "the adjuster",
+          "kind": "term",
+          "fr": "l’expert d’assurance"
+        },
+        {
+          "en": "the insurance company",
+          "kind": "term",
+          "fr": "la compagnie d’assurance"
+        },
+        {
+          "en": "the hail",
+          "kind": "term",
+          "fr": "la grêle"
+        },
+        {
+          "en": "the hit (impact mark)",
+          "kind": "term",
+          "fr": "l’impact"
+        },
+        {
+          "en": "the test square",
+          "kind": "term",
+          "fr": "le carré d’essai"
+        },
+        {
+          "en": "the claim",
+          "kind": "term",
+          "fr": "la réclamation"
+        },
+        {
+          "en": "the storm",
+          "kind": "term",
+          "fr": "l’orage"
+        },
+        {
+          "en": "the granule",
+          "kind": "term",
+          "fr": "le granule"
+        },
+        {
+          "en": "the dent",
+          "kind": "term",
+          "fr": "la bosse"
+        },
+        {
+          "en": "the gutter",
+          "kind": "term",
+          "fr": "la gouttière"
+        },
+        {
+          "en": "the roof slope (one face of the roof)",
+          "kind": "term",
+          "fr": "le versant du toit"
+        },
+        {
+          "en": "the scope of work",
+          "kind": "term",
+          "fr": "la portée des travaux"
+        },
+        {
+          "en": "the chalk circle",
+          "kind": "term",
+          "fr": "le cercle à la craie"
+        },
+        {
+          "en": "the square foot",
+          "kind": "term",
+          "fr": "le pied carré"
+        },
+        {
+          "en": "The storm came through Tuesday night.",
+          "kind": "phrase",
+          "fr": "L’orage est passé mardi soir."
+        },
+        {
+          "en": "We counted 12 hits in this square.",
+          "kind": "phrase",
+          "fr": "Nous avons compté douze impacts dans ce carré."
+        },
+        {
+          "en": "Here the shingle lost granules.",
+          "kind": "phrase",
+          "fr": "Ici, le bardeau a perdu des granules."
+        },
+        {
+          "en": "Mark each hit with chalk.",
+          "kind": "phrase",
+          "fr": "Marquez chaque impact à la craie."
+        },
+        {
+          "en": "How many hits do you count?",
+          "kind": "phrase",
+          "fr": "Combien d’impacts comptez-vous ?"
+        },
+        {
+          "en": "Can you repeat that more slowly?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous répéter plus lentement ?"
+        },
+        {
+          "en": "Do you agree with the scope?",
+          "kind": "phrase",
+          "fr": "Êtes-vous d’accord avec la portée des travaux ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Constater des dommages de grêle avec un expert d’assurance",
+        "target": [
+          "L’orage est passé mardi soir et la grêle est tombée pendant environ quinze minutes.",
+          "Jeudi, l’expert de la compagnie d’assurance est arrivé à dix heures pour examiner la réclamation de la famille Ortiz.",
+          "Rogelio et Kevin sont montés avec lui, munis du mètre ruban et de la craie.",
+          "Ils ont d’abord examiné la gouttière et trouvé des bosses sur tout le côté ouest.",
+          "Sur le versant ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+          "Rogelio : « Kevin, marque chaque impact à la craie, s’il te plaît. »",
+          "Kevin a tracé un cercle de craie autour de chaque impact.",
+          "Rogelio : « Nous avons compté douze impacts dans ce carré; ici, le bardeau a perdu des granules. »",
+          "L’expert : « Combien d’impacts comptez-vous du côté nord ? »",
+          "Rogelio : « Du côté nord, nous n’en avons compté que trois, car le vent venait de l’ouest. »",
+          "L’expert a parlé vite et donné plusieurs mesures en pieds carrés.",
+          "Rogelio : « Pardon, pouvez-vous répéter plus lentement ? »",
+          "L’expert : « Bien sûr : le côté ouest mesure mille deux cents pieds carrés et le côté nord, huit cents. »",
+          "L’expert : « Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé. »",
+          "Rogelio : « Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ? »",
+          "L’expert : « Oui, je vais le noter dans le rapport; la compagnie enverra une copie au propriétaire. »"
+        ],
+        "native": [
+          "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+          "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+          "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+          "First they checked the gutter and found dents along the whole west side.",
+          "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+          "Rogelio: Kevin, mark each hit with chalk, please.",
+          "Kevin drew a chalk circle around each hit.",
+          "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+          "Adjuster: How many hits do you count on the north side?",
+          "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+          "The adjuster spoke fast and gave several measurements in square feet.",
+          "Rogelio: Sorry, can you repeat that more slowly?",
+          "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+          "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+          "Rogelio: Do you agree with the scope of work, including the gutter?",
+          "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to pass, to come through",
+          "exampleEnglish": "The storm came through Tuesday night.",
+          "sourceInfinitiveSpanish": "pasar",
+          "infinitiveFrench": "passer",
+          "exampleFrench": "L’orage est passé mardi soir."
+        },
+        {
+          "meaningEnglish": "to fall",
+          "exampleEnglish": "The hail fell for about 15 minutes.",
+          "sourceInfinitiveSpanish": "caer",
+          "infinitiveFrench": "tomber",
+          "exampleFrench": "La grêle est tombée pendant environ quinze minutes."
+        },
+        {
+          "meaningEnglish": "to count",
+          "exampleEnglish": "We counted 12 hits in this square.",
+          "sourceInfinitiveSpanish": "contar",
+          "infinitiveFrench": "compter",
+          "exampleFrench": "Nous avons compté douze impacts dans ce carré."
+        },
+        {
+          "meaningEnglish": "to mark",
+          "exampleEnglish": "They marked a test square of 10 by 10 feet.",
+          "sourceInfinitiveSpanish": "marcar",
+          "infinitiveFrench": "marquer",
+          "exampleFrench": "Ils ont marqué un carré d’essai de dix pieds sur dix."
+        },
+        {
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "The west side measures 1,200 square feet.",
+          "sourceInfinitiveSpanish": "medir",
+          "infinitiveFrench": "mesurer",
+          "exampleFrench": "Le côté ouest mesure mille deux cents pieds carrés."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez dans le rapport oral les impacts et surfaces mesurés.",
+        "recall": "Retrouvez la demande de répétition des chiffres.",
+        "hear": "Écoutez douze, trois, mille deux cents et huit cents; associez-les aux zones citées.",
+        "type": "Écrivez en français : How many hits do you count?",
+        "say": "Décrivez oralement les constats sans promettre une décision de l’assureur.",
+        "write": "Rédigez un résumé des mesures et une demande de confirmation écrite de la portée."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/insurance review is required for hail-hit counting, the 10-by-10-foot test square, damage attribution, replacement-versus-repair and promised claim scope.",
+        "Roof access with an adjuster and unit conversion require site-safety and France/Québec regional review; no insurer approval is established by this fictional dialogue."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "titleEnglish": "Saying No: Unsafe Request from the Homeowner",
+      "objectiveEnglishSource": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+      "focusEnglishSource": "Negative commands; subjunctive after no recomiendo que",
+      "lessonType": "People",
+      "block": "B",
+      "speakingEnglishSource": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+      "grammarExamplesEnglish": [
+        "Don't go up on the roof in lightning.",
+        "I don't recommend that we work on a wet surface."
+      ],
+      "titleFrench": "Refuser une demande dangereuse du propriétaire",
+      "objectiveFrench": "Refuser poliment et fermement une demande dangereuse, puis proposer une suite conforme au plan de sécurité.",
+      "grammarFocusFrench": "Négation et conditionnel pour refuser avec tact : je ne recommande pas de; ce ne serait pas possible; nous pourrions.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe et le propriétaire veut accélérer le chantier malgré l’orage et supprimer une couche prévue au système. Refusez, expliquez le risque, arrêtez l’accès et indiquez que toute protection temporaire doit attendre des conditions sûres et suivre le plan approuvé.",
+      "speakingFrenchOpening": "Je comprends l’urgence, mais nous devons arrêter le travail et suivre le plan météo du chantier.",
+      "teachingNotesFrench": "Le conditionnel permet de proposer sans garantir. La source anglaise affirme une exigence de garantie et prévoit le bâchage dès la fin de l’orage, puis promet une date; ces points exigent un contrôle du produit, du contrat, des conditions météo et du plan du chantier avant publication. La sécurité ne dépend pas de l’impatience du client.",
+      "words": [
+        {
+          "en": "the lightning",
+          "kind": "term",
+          "fr": "la foudre"
+        },
+        {
+          "en": "the thunder",
+          "kind": "term",
+          "fr": "le tonnerre"
+        },
+        {
+          "en": "the thunderstorm",
+          "kind": "term",
+          "fr": "l’orage"
+        },
+        {
+          "en": "the lightning strike (electric shock)",
+          "kind": "term",
+          "fr": "la décharge due à la foudre"
+        },
+        {
+          "en": "the wet surface",
+          "kind": "term",
+          "fr": "la surface mouillée"
+        },
+        {
+          "en": "the shortcut",
+          "kind": "term",
+          "fr": "le raccourci"
+        },
+        {
+          "en": "the risk",
+          "kind": "term",
+          "fr": "le risque"
+        },
+        {
+          "en": "the safety rule",
+          "kind": "term",
+          "fr": "la règle de sécurité"
+        },
+        {
+          "en": "the responsibility",
+          "kind": "term",
+          "fr": "la responsabilité"
+        },
+        {
+          "en": "the savings",
+          "kind": "term",
+          "fr": "l’économie"
+        },
+        {
+          "en": "the manufacturer warranty",
+          "kind": "term",
+          "fr": "la garantie du fabricant"
+        },
+        {
+          "en": "the alternative",
+          "kind": "term",
+          "fr": "la solution de rechange"
+        },
+        {
+          "en": "the hurry",
+          "kind": "term",
+          "fr": "l’urgence"
+        },
+        {
+          "en": "the decision",
+          "kind": "term",
+          "fr": "la décision"
+        },
+        {
+          "en": "I don't recommend that we work in lightning.",
+          "kind": "phrase",
+          "fr": "Je ne recommande pas de travailler quand il y a de la foudre."
+        },
+        {
+          "en": "It isn't possible for us to skip the underlayment.",
+          "kind": "phrase",
+          "fr": "Nous ne pouvons pas omettre la sous-couche prévue."
+        },
+        {
+          "en": "I understand your hurry, but I can't do it.",
+          "kind": "phrase",
+          "fr": "Je comprends votre urgence, mais je ne peux pas le faire."
+        },
+        {
+          "en": "Unfortunately, that's something we can't do.",
+          "kind": "phrase",
+          "fr": "Malheureusement, nous ne pouvons pas faire cela."
+        },
+        {
+          "en": "What we can do is cover the roof with a tarp.",
+          "kind": "phrase",
+          "fr": "Nous pourrions protéger le toit avec une bâche quand le plan et les conditions le permettent.",
+          "enDisplay": "What we could do is cover the roof with a tarp when the plan and conditions allow safe work."
+        },
+        {
+          "en": "Don't go up until I say so.",
+          "kind": "phrase",
+          "fr": "Ne montez pas avant mon autorisation."
+        },
+        {
+          "en": "Don't take risks for anyone.",
+          "kind": "phrase",
+          "fr": "Ne prenez pas de risques pour qui que ce soit."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Refuser une demande dangereuse du propriétaire",
+        "target": [
+          "Il était quatorze heures et on entendait le tonnerre au loin, vers l’ouest.",
+          "Mme Flores est sortie de la maison à la hâte pour parler à Rogelio.",
+          "Mme Flores : « Mes enfants arrivent samedi; je voudrais que vous continuiez même s’il pleut. »",
+          "Mme Flores : « Et pour économiser, posez les bardeaux sans la sous-couche. »",
+          "Rogelio : « Je comprends votre urgence, mais je ne peux pas le faire. »",
+          "Rogelio : « Avec la foudre, le toit présente un danger; je ne recommande pas de travailler pendant l’orage ni sur une surface mouillée. »",
+          "Rogelio : « La foudre peut tuer, et je n’accepterai pas ce risque. »",
+          "Rogelio : « Quant à la sous-couche, malheureusement, nous ne pouvons pas l’omettre. »",
+          "Rogelio : « Nous ne pouvons pas supprimer la sous-couche prévue; vérifions les exigences du système et de la garantie. »",
+          "Rogelio : « Ce raccourci semble économique aujourd’hui, mais pourrait entraîner une fuite et des coûts plus élevés. »",
+          "Rogelio : « Une protection temporaire par bâche pourrait être envisagée seulement quand les conditions sont sûres et selon le plan approuvé. »",
+          "Rogelio : « Nous pourrions alors terminer vendredi si la météo et les contrôles le permettent, sans le promettre. »",
+          "Mme Flores y a réfléchi un moment et a accepté la solution de rechange.",
+          "Rogelio dit à l’équipe : « Ne montez pas avant mon autorisation et ne laissez pas d’outils métalliques sur le toit. »",
+          "Rogelio : « J’assume cette décision et la responsabilité de la communiquer. »",
+          "Rogelio : « Kevin, ne prends de risques pour personne; la règle de sécurité vaut pour tous. »"
+        ],
+        "native": [
+          "It was two in the afternoon, and thunder could be heard far off, to the west.",
+          "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+          "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+          "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+          "Rogelio: I understand your hurry, but I can't do it.",
+          "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+          "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+          "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+          "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+          "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+          "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+          "Mrs. Flores thought for a moment and accepted the alternative.",
+          "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+          "Rogelio: The decision is mine, and so is the responsibility.",
+          "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone."
+        ],
+        "nativeDisplay": [
+          "It was two in the afternoon, and thunder could be heard far off, to the west.",
+          "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+          "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+          "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+          "Rogelio: I understand your hurry, but I can't do it.",
+          "Rogelio: With lightning, the roof presents a hazard, and I don't recommend working during the storm or on a wet surface.",
+          "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+          "Rogelio: We cannot skip the planned underlayment; let's check this system's and warranty's requirements.",
+          "Rogelio: That shortcut looks like savings today, but it could cause a leak and higher costs later.",
+          "Rogelio: Temporary tarping could be considered only when conditions are safe and under the approved plan.",
+          "Rogelio: We might then finish on Friday if weather and checks allow, but I can't promise that date.",
+          "Mrs. Flores thought for a moment and accepted the alternative.",
+          "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+          "Rogelio: I own the decision and the responsibility to communicate it.",
+          "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to work",
+          "exampleEnglish": "I don't recommend that we work in lightning.",
+          "sourceInfinitiveSpanish": "trabajar",
+          "infinitiveFrench": "travailler",
+          "exampleFrench": "Je ne recommande pas de travailler quand il y a de la foudre."
+        },
+        {
+          "meaningEnglish": "to go up",
+          "exampleEnglish": "Don't go up until I say so.",
+          "sourceInfinitiveSpanish": "subir",
+          "infinitiveFrench": "monter",
+          "exampleFrench": "Ne montez pas avant mon autorisation."
+        },
+        {
+          "meaningEnglish": "to leave (something)",
+          "exampleEnglish": "Don't leave metal tools on the roof.",
+          "sourceInfinitiveSpanish": "dejar",
+          "infinitiveFrench": "laisser",
+          "exampleFrench": "Ne laissez pas d’outils métalliques sur le toit."
+        },
+        {
+          "meaningEnglish": "to skip",
+          "exampleEnglish": "Here we never skip the underlayment.",
+          "sourceInfinitiveSpanish": "saltarse",
+          "infinitiveFrench": "omettre",
+          "exampleFrench": "Ici, nous n’omettons pas la sous-couche prévue."
+        },
+        {
+          "meaningEnglish": "can, to be able to",
+          "exampleEnglish": "What we can do is cover the roof with a tarp.",
+          "sourceInfinitiveSpanish": "poder",
+          "infinitiveFrench": "pouvoir",
+          "exampleFrench": "Nous pourrions protéger le toit avec une bâche quand le plan et les conditions le permettent."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez la demande dangereuse et le refus formulé avec tact.",
+        "recall": "Retrouvez la phrase qui interdit la montée sur le toit.",
+        "hear": "Écoutez le refus et indiquez la solution de rechange conditionnelle.",
+        "type": "Écrivez en français : I understand your hurry, but I can't do it.",
+        "say": "Refusez oralement une reprise pendant l’orage et proposez de consulter le plan.",
+        "write": "Rédigez une réponse courte au propriétaire qui ne promet ni bâchage immédiat ni date certaine."
+      },
+      "reviewGapsEnglish": [
+        "Qualified site-safety review is required for lightning stop-work, reentry timing, metal tools and temporary tarping; the English storm-to-tarp and Friday promises are unsafe/unsupported as universal instructions.",
+        "Qualified roofing/product and consumer-contract review is required for the underlayment-warranty claim and date promise; France/Québec regional language review remains open."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "titleEnglish": "Feedback on a Bad Course",
+      "objectiveEnglishSource": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+      "focusEnglishSource": "Present subjunctive after wishes and recommendations",
+      "lessonType": "People",
+      "block": "C",
+      "speakingEnglishSource": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+      "grammarExamplesEnglish": [
+        "I want you to look at this course with me.",
+        "It's better that we fix it now."
+      ],
+      "titleFrench": "Donner un retour privé sur un rang mal aligné",
+      "objectiveFrench": "Parler en privé d’un rang de bardeaux mal aligné, demander ce qui s’est passé et convenir d’une correction selon le produit.",
+      "grammarFocusFrench": "Je voudrais que + subjonctif pour une demande; il vaut mieux + infinitif pour une recommandation prudente.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe. Parlez en privé au collègue, demandez ce qu’il a remarqué, indiquez l’écart observé et demandez de vérifier la méthode et le motif du fabricant avant toute reprise; évitez de fixer une mesure ou une dépose universelle.",
+      "speakingFrenchOpening": "Julio, pouvons-nous regarder ce rang ensemble, en privé ? Je voudrais comprendre ce qui s’est passé.",
+      "teachingNotesFrench": "Je voudrais que appelle le subjonctif; il vaut mieux + infinitif exprime une recommandation. Le contrôle tous les trois rangs et la dépose de quatre rangs viennent de la scène source; ils ne constituent pas une règle de produit ou une méthode de reprise validée.",
+      "words": [
+        {
+          "en": "the crooked course",
+          "kind": "term",
+          "fr": "le rang de bardeaux mal aligné"
+        },
+        {
+          "en": "the exposure (visible part of the shingle)",
+          "kind": "term",
+          "fr": "le pureau visible"
+        },
+        {
+          "en": "the unevenness",
+          "kind": "term",
+          "fr": "l’irrégularité"
+        },
+        {
+          "en": "the measurement",
+          "kind": "term",
+          "fr": "la mesure"
+        },
+        {
+          "en": "the tape measure",
+          "kind": "term",
+          "fr": "le mètre ruban"
+        },
+        {
+          "en": "the mistake",
+          "kind": "term",
+          "fr": "l’erreur"
+        },
+        {
+          "en": "the correction",
+          "kind": "term",
+          "fr": "la correction"
+        },
+        {
+          "en": "the feedback",
+          "kind": "term",
+          "fr": "le retour d’information"
+        },
+        {
+          "en": "in private",
+          "kind": "term",
+          "fr": "en privé"
+        },
+        {
+          "en": "the quality",
+          "kind": "term",
+          "fr": "la qualité"
+        },
+        {
+          "en": "the alignment",
+          "kind": "term",
+          "fr": "l’alignement"
+        },
+        {
+          "en": "the trust",
+          "kind": "term",
+          "fr": "la confiance"
+        },
+        {
+          "en": "the pace",
+          "kind": "term",
+          "fr": "le rythme"
+        },
+        {
+          "en": "the worker",
+          "kind": "term",
+          "fr": "l’ouvrier"
+        },
+        {
+          "en": "I want you to look at this course with me.",
+          "kind": "phrase",
+          "fr": "Je voudrais que tu regardes ce rang avec moi."
+        },
+        {
+          "en": "It's not to scold you.",
+          "kind": "phrase",
+          "fr": "Ce n’est pas pour te gronder."
+        },
+        {
+          "en": "What happened here, in your view?",
+          "kind": "phrase",
+          "fr": "Que s’est-il passé ici, à ton avis ?"
+        },
+        {
+          "en": "It's better that we fix it now.",
+          "kind": "phrase",
+          "fr": "Il vaut mieux corriger cela maintenant."
+        },
+        {
+          "en": "I'm asking you to measure every three courses.",
+          "kind": "phrase",
+          "fr": "Je te demande de mesurer tous les trois rangs."
+        },
+        {
+          "en": "I'd rather you ask me first.",
+          "kind": "phrase",
+          "fr": "Je préférerais que tu me demandes d’abord."
+        },
+        {
+          "en": "I'm asking you to check the exposure.",
+          "kind": "phrase",
+          "fr": "Je vous demande de vérifier le pureau visible."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Donner un retour privé sur un rang mal aligné",
+        "target": [
+          "L’après-midi, Rogelio a remarqué qu’un rang mal aligné montait vers la gauche du côté où travaillait Julio.",
+          "Julio travaillait vite, mais le pureau visible changeait d’un bardeau à l’autre.",
+          "Rogelio n’a rien dit devant l’équipe et l’a appelé à l’écart.",
+          "Rogelio : « Julio, je voudrais que tu regardes ce rang avec moi, en privé. »",
+          "Rogelio : « Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. »",
+          "Rogelio : « Que s’est-il passé ici, à ton avis ? »",
+          "Julio : « Je crois que je n’ai pas mesuré depuis la dernière ligne et que j’ai travaillé à l’œil. »",
+          "Rogelio : « Cela arrive, mais cette irrégularité est visible depuis la rue. »",
+          "Rogelio : « Il vaut mieux corriger cela maintenant, avant que le rang ne monte davantage. »",
+          "Rogelio : « Je te demande de mesurer tous les trois rangs avec le mètre et de marquer la mesure sur le bardeau. »",
+          "Rogelio : « Si tu n’es pas sûr de l’alignement, je préférerais que tu me demandes d’abord. »",
+          "Julio : « D’accord, je vais déposer ces quatre rangs et les reposer. »",
+          "Rogelio : « Merci; corriger fait partie du travail, et la qualité concerne toute l’équipe. »",
+          "Plus tard, le responsable de l’entreprise, M. Soto, est arrivé et a vu les bardeaux au sol.",
+          "Rogelio : « Monsieur Soto, je vous demande de vérifier le pureau avec moi; nous corrigeons déjà un rang. »",
+          "Pour Rogelio, un retour utile est clair, donné en privé et accompagné d’une solution comprise par l’ouvrier."
+        ],
+        "native": [
+          "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+          "Julio was working fast, but the exposure changed from one shingle to the next.",
+          "Rogelio didn't say anything in front of the crew and called him aside.",
+          "Rogelio: Julio, I want you to look at this course with me, in private.",
+          "Rogelio: It's not to scold you; your pace is good and I trust you.",
+          "Rogelio: What happened here, in your view?",
+          "Julio: I think I didn't measure from the last line and I did it by eye.",
+          "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+          "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+          "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+          "Julio: All right, I'll take off these four courses and put them back on.",
+          "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+          "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground.",
+          "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course.",
+          "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to look at",
+          "exampleEnglish": "I want you to look at this course with me.",
+          "sourceInfinitiveSpanish": "mirar",
+          "infinitiveFrench": "regarder",
+          "exampleFrench": "Je voudrais que tu regardes ce rang avec moi."
+        },
+        {
+          "meaningEnglish": "to fix",
+          "exampleEnglish": "It's better that we fix it now.",
+          "sourceInfinitiveSpanish": "arreglar",
+          "infinitiveFrench": "corriger",
+          "exampleFrench": "Il vaut mieux corriger cela maintenant."
+        },
+        {
+          "meaningEnglish": "to ask for",
+          "exampleEnglish": "I'm asking you to measure every three courses.",
+          "sourceInfinitiveSpanish": "pedir",
+          "infinitiveFrench": "demander",
+          "exampleFrench": "Je te demande de mesurer tous les trois rangs."
+        },
+        {
+          "meaningEnglish": "to ask (a question)",
+          "exampleEnglish": "If you're not sure, ask me first.",
+          "sourceInfinitiveSpanish": "preguntar",
+          "infinitiveFrench": "poser une question",
+          "exampleFrench": "Si tu n’es pas sûr, pose-moi d’abord une question."
+        },
+        {
+          "meaningEnglish": "to prefer",
+          "exampleEnglish": "I'd rather you ask me first.",
+          "sourceInfinitiveSpanish": "preferir",
+          "infinitiveFrench": "préférer",
+          "exampleFrench": "Je préférerais que tu me demandes d’abord."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez l’observation, la question et la correction proposée.",
+        "recall": "Retrouvez la phrase qui précise que le retour n’est pas une réprimande.",
+        "hear": "Écoutez la demande de mesure et indiquez qu’elle doit être vérifiée avec le produit.",
+        "type": "Écrivez en français : What happened here, in your view?",
+        "say": "Donnez en privé un retour précis et respectueux sans imposer une réparation non vérifiée.",
+        "write": "Rédigez une observation, une question et une prochaine vérification."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product review is required for the every-three-course measurement, four-course removal, exposure tolerance and correction method before release.",
+        "Qualified French regional review is needed for pureau and crew-feedback register; the Spanish subjunctive source focus is adapted to French syntax, not copied as a rule."
+      ],
+      "reviewed": false
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { OwnerCustomerTools } from "./OwnerCustomerTools";
 import { ownerDateInput } from "@/lib/owner-users";
 import { useState } from "react";
 import type { OwnerDirectory, OwnerUser, OwnerUserResult, OwnerUsage } from "@/lib/owner-users";
+import { apiUsageTotals, type ApiUsageRow } from "@/lib/api-usage";
 import { useOwnerResource } from "./use-owner-resource";
 import { OwnerAccountControls } from "./OwnerAccountControls";
 import { downloadCsv } from "@/lib/owner-format";
@@ -26,9 +27,9 @@ function initialUntil() {
 }
 const untilIso = (s: string) => new Date(`${s}T23:59:59`).toISOString();
 
-export function OwnerAccounts() {
-  const [search, setSearch] = useState(""),
-    [applied, setApplied] = useState(""),
+export function OwnerAccounts({ initialSearch = "" }: { initialSearch?: string }) {
+  const [search, setSearch] = useState(initialSearch),
+    [applied, setApplied] = useState(initialSearch),
     [page, setPage] = useState(0),
     [selected, setSelected] = useState<OwnerUser | null>(null),
     [filter, setFilter] = useState<DirectoryFilter>("all"),
@@ -350,6 +351,10 @@ export function OwnerAccounts() {
           emailReady={resource.data?.emailReady ?? false}
           onClose={() => setSelected(null)}
           onChanged={() => resource.refresh()}
+          onDeleted={() => {
+            setSelected(null);
+            resource.refresh();
+          }}
         />
       )}
     </section>
@@ -358,6 +363,8 @@ export function OwnerAccounts() {
 
 type Detail = {
   usage: OwnerUsage[];
+  apiUsage: ApiUsageRow[];
+  deletionBlockers: string[];
   memberships: {
     organization_id: string;
     role: string;
@@ -375,11 +382,13 @@ function UserDetails({
   emailReady,
   onClose,
   onChanged,
+  onDeleted,
 }: {
   account: OwnerUser;
   emailReady: boolean;
   onClose: () => void;
   onChanged: () => void;
+  onDeleted: () => void;
 }) {
   const details = useOwnerResource<Detail>(`/api/owner-users?userId=${account.id}`),
     actions = useOwnerResource<OwnerDirectory>("/api/owner-users", false);
@@ -592,6 +601,18 @@ function UserDetails({
                 used the app.
               </p>
             )}
+            <h4 className="mt-4 font-semibold">API usage · last 30 days</h4>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {apiUsageTotals(details.data.apiUsage).accepted} successful provider calls recorded
+              since metering began. Offline lessons and device voices are excluded.
+            </p>
+            <ul className="mt-2 space-y-1 text-sm">
+              {details.data.apiUsage.map((row) => (
+                <li key={`${row.provider}:${row.request_status}`}>
+                  {row.provider.replaceAll("_", " ")} · {row.request_status}: {row.calls}
+                </li>
+              ))}
+            </ul>
             <h4 className="mt-4 font-semibold">Teams and access</h4>
             <ul className="mt-2 space-y-2">
               {details.data.memberships.map((m) => (
@@ -614,6 +635,8 @@ function UserDetails({
         key={`controls-${account.id}`}
         account={account}
         onChanged={onChanged}
+        onDeleted={onDeleted}
+        deletionBlockers={details.data?.deletionBlockers ?? null}
       />
       <OwnerCustomerTools key={account.id} userId={account.id} email={account.email} />
     </div>

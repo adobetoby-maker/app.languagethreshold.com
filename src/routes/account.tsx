@@ -22,6 +22,7 @@ import {
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { PwaInstallControl } from "@/components/PwaInstallControl";
+import { ApiUsageCard } from "@/components/ApiUsageCard";
 
 export const Route = createFileRoute("/account")({
   component: () => (
@@ -277,6 +278,8 @@ function AccountPage() {
           <AppVersion />
 
           <ResetLearningData />
+
+          <ApiUsageCard />
 
           {/* ── Plan card ── */}
           <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">

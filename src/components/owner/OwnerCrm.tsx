@@ -1,6 +1,8 @@
 import { RedditFeedbackCohort } from "./RedditFeedbackCohort";
 import { StaffCoupon } from "./StaffCoupon";
+import { OwnerCampaigns } from "./OwnerCampaigns";
 import { useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { z } from "zod";
 import { useOwnerResource } from "./use-owner-resource";
 import { OwnerEmailAI } from "./OwnerEmailAI";
@@ -72,6 +74,7 @@ export function OwnerCrm() {
     <section className="grid min-w-0 gap-5" aria-label="Owner email CRM">
       <RedditFeedbackCohort />
       <StaffCoupon />
+      <OwnerCampaigns />
       <div className={ownerPanel}>
         <h2 className="text-lg font-semibold">Email & contacts</h2>
         <p className="text-sm">
@@ -363,6 +366,15 @@ function ContactWorkspace({
             />
           </label>
         </details>
+        {contact.user_id && contact.email && (
+          <Link
+            to="/owner"
+            search={{ tab: "users", customer: contact.email }}
+            className="text-sm text-gold underline underline-offset-2"
+          >
+            Open this customer in Users to email one person or manage the account
+          </Link>
+        )}
         <div className="flex flex-wrap gap-3">
           <button className={ownerPrimary} disabled={r.busy}>
             Save contact

@@ -54,6 +54,11 @@ export const ownerAccountAction = z.discriminatedUnion("action", [
   }),
   z.object({ action: z.literal("enable"), userId: accountId }),
   z.object({
+    action: z.literal("delete_account"),
+    userId: accountId,
+    confirmation: z.string().trim().max(270),
+  }),
+  z.object({
     action: z.literal("resend_confirmation"),
     userId: accountId,
     requestId: z.string().uuid(),

@@ -99,6 +99,10 @@ function fakeDb({ tables = {}, rpc = {}, accounts: accts = {}, roles = {} } = {}
           if (attrs.email_confirm) next.email_confirmed_at = "2026-10-23T00:00:00Z";
           return { data: { user: next }, error: null };
         },
+        deleteUser: async (id, soft) => {
+          calls.push({ deleteUser: id, soft });
+          return { data: {}, error: null };
+        },
       },
       resend: async (value) => {
         calls.push({ resend: value });
@@ -112,13 +116,54 @@ const audits = (db) =>
   db.calls
     .filter((c) => c.table === "platform_audit_events" && c.op === "insert")
     .map((c) => c.payload);
-const authWrites = (db) => db.calls.filter((c) => c.updateUser || c.resend);
+const authWrites = (db) => db.calls.filter((c) => c.updateUser || c.deleteUser || c.resend);
 const target = (extra = {}) => ({
   id: TARGET,
   email: "learner@example.invalid",
   email_confirmed_at: "2026-01-01T00:00:00Z",
   user_metadata: { display_name: "Old Name", locale: "es" },
   ...extra,
+});
+
+test("permanent deletion fails closed on protected records and requires exact typed phrase", async () => {
+  const malformed = fakeDb({ accounts: { [TARGET]: target() } });
+  await assert.rejects(
+    accounts.manageOwnerAccount(malformed, ACTOR, {
+      action: "delete_account", userId: TARGET, confirmation: "learner@example.invalid",
+    }), /Type DELETE/);
+  assert.equal(authWrites(malformed).length, 0);
+  const blocked = fakeDb({
+    accounts: { [TARGET]: target() },
+    rpc: { platform_account_deletion_blockers: () => ({ data: ["Official assessment records"], error: null }) },
+  });
+  await assert.rejects(
+    accounts.manageOwnerAccount(blocked, ACTOR, {
+      action: "delete_account", userId: TARGET,
+      confirmation: "DELETE learner@example.invalid",
+    }), (error) => error.status === 409 && /Official assessment records/.test(error.message));
+  assert.equal(authWrites(blocked).length, 0);
+});
+
+test("permanent deletion revokes sessions, hard deletes once, and omits deleted PII from audit", async () => {
+  const db = fakeDb({
+    accounts: { [TARGET]: target() },
+    rpc: {
+      platform_account_deletion_blockers: () => ({ data: [], error: null }),
+      platform_revoke_user_sessions: () => ({ data: 1, error: null }),
+    },
+  });
+  const result = await accounts.manageOwnerAccount(db, ACTOR, {
+    action: "delete_account", userId: TARGET,
+    confirmation: "DELETE learner@example.invalid",
+  });
+  assert.match(result.notice, /permanently deleted/);
+  assert.deepEqual(authWrites(db), [{ deleteUser: TARGET, soft: false }]);
+  assert.equal(db.calls.findIndex((c) => c.rpc === "platform_revoke_user_sessions") <
+    db.calls.findIndex((c) => c.deleteUser), true);
+  const event = audits(db).at(-1);
+  assert.equal(event.action, "user.deleted");
+  assert.equal(JSON.stringify(event).includes(TARGET), false);
+  assert.equal(JSON.stringify(event).includes("learner@example.invalid"), false);
 });
 
 test("account guards: self, platform-owner role and PLATFORM_OWNER_EMAIL targets are refused before any write", async () => {

@@ -32,7 +32,7 @@ def main() -> None:
         schemas.extend([draft["schema"]] * len(draft["lessons"]))
         lessons.extend(draft["lessons"])
     assert [lesson["n"] for lesson in lessons] == list(range(1, 21))
-    assert schemas == [2] * 3 + [1] * 3 + [2] * 14
+    assert schemas == [2] * 20
     for lesson, schema in zip(lessons, schemas):
         n = lesson["n"]
         source = stage[n - 1]
@@ -64,7 +64,7 @@ def main() -> None:
         "French Travel Breakfast private Master draft: 20/20 contiguous; "
         f"{sum(len(lesson['words']) for lesson in lessons)} bilingual cards; "
         f"{sum(len(lesson['passage']['english']) for lesson in lessons)} aligned Reader lines; "
-        "3 source-aligned translation drafts, 17 original Francophone drafts; reviewed:false"
+        "20 original Francophone drafts; reviewed:false"
     )
 
 

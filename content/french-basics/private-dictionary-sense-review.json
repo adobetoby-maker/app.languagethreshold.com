@@ -1,0 +1,1061 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "registered": false,
+  "reviewed": false,
+  "senseIdsMerged": false,
+  "sourceInventorySha256": "15878c6e535098c8063e58ca6ce5653ccadecfae4f17151d191c91b28885d393",
+  "counts": {
+    "ambiguousHeadwords": 25,
+    "sourceAlignedAnnotations": 8,
+    "unresolved": 17
+  },
+  "cases": [
+    {
+      "headwordId": "fr101:head:0b135e8de8f42b4baddb",
+      "target": "dans",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:0de2fbd762f1acfcba82",
+        "fr101:sense:1f438df858dae98d21c7",
+        "fr101:sense:4dae437f82044894ebd2"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:0de2fbd762f1acfcba82",
+          "target": "dans",
+          "englishGloss": "in (location)",
+          "stage": "foundation",
+          "lesson": 6,
+          "wordIndex": 1,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:1f438df858dae98d21c7",
+          "target": "dans",
+          "englishGloss": "in",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 8,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:4dae437f82044894ebd2",
+          "target": "dans",
+          "englishGloss": "in / inside",
+          "stage": "core",
+          "lesson": 3,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/core-1-3-draft.json",
+          "sourceSha256": "59ab2196d68220e329b5572c0433aa51abe0842921215afef326b533a7fd0157",
+          "overlayPath": "content/french-basics/core-1-9-language-support-overrides.json",
+          "overlaySha256": "166622985f8259cfe2e61f381ebb06fa5b639f6975565bc7ff14084c3a1acf3b",
+          "sourceTarget": "dans",
+          "sourceEnglishGloss": "in / on / at"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:fe46b8bd29f6c8052200",
+      "target": "dans / sur / à",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:6272ae616338a9e838b7",
+        "fr101:sense:d1a9e6162f03f139b388"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:6272ae616338a9e838b7",
+          "target": "dans / sur / à",
+          "englishGloss": "in / on / at",
+          "stage": "core",
+          "lesson": 6,
+          "wordIndex": 4,
+          "sourcePath": "content/french-basics/core-4-6-draft.json",
+          "sourceSha256": "38ff5172764f4658a27aa929e213a3797a37fda87b12c09696c198bee74b45dd"
+        },
+        {
+          "senseId": "fr101:sense:d1a9e6162f03f139b388",
+          "target": "dans / sur / à",
+          "englishGloss": "in / on / at (choose by context)",
+          "stage": "core",
+          "lesson": 13,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/core-13-15-draft.json",
+          "sourceSha256": "062cb5d98e06b2df56d1f7c5fc8f4c6d180a6e2ea0ad026aff6b76c1558a1476",
+          "overlayPath": "content/french-basics/core-13-15-language-support-overrides.json",
+          "overlaySha256": "3464aba0ed2522e72cf3b6aa75708dab7a4ffca168c4040509819e0b53cf4950",
+          "sourceTarget": "dans / sur / à",
+          "sourceEnglishGloss": "in / on / at"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:18ae79fac1952555a3a6",
+      "target": "elle",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:182ce1d81ebeeec9877a",
+        "fr101:sense:7f4166dc386b6fcf0224",
+        "fr101:sense:9fb9883324559f5aa469",
+        "fr101:sense:ba40c6b9b1a76397861b"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:182ce1d81ebeeec9877a",
+          "target": "elle",
+          "englishGloss": "it / she (feminine subject)",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:7f4166dc386b6fcf0224",
+          "target": "elle",
+          "englishGloss": "she / it (for a feminine noun)",
+          "stage": "foundation",
+          "lesson": 6,
+          "wordIndex": 23,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:9fb9883324559f5aa469",
+          "target": "elle",
+          "englishGloss": "she",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 4,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:ba40c6b9b1a76397861b",
+          "target": "elle",
+          "englishGloss": "she / it (feminine subject)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:b6cf348bc9b1a71d9db0",
+      "target": "est",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:8bb2bf706ab287414ffc",
+        "fr101:sense:d24bf38046870e96c5a8",
+        "fr101:sense:da33e68ad577de630689",
+        "fr101:sense:dbe3d57512f3de149d4a"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:8bb2bf706ab287414ffc",
+          "target": "est",
+          "englishGloss": "is (form of être)",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:d24bf38046870e96c5a8",
+          "target": "est",
+          "englishGloss": "is",
+          "stage": "core",
+          "lesson": 17,
+          "wordIndex": 5,
+          "sourcePath": "content/french-basics/core-16-18-draft.json",
+          "sourceSha256": "f132b521313ebab7cb7d0de15db681a019de0ce0963672924d2d8d1946bc3bf8",
+          "overlayPath": "content/french-basics/core-16-18-language-support-overrides.json",
+          "overlaySha256": "7427ee1d76d82db3890c8313e3e844757a397831c7facc0f4101643dcc2af156",
+          "sourceTarget": "est",
+          "sourceEnglishGloss": "is (identity)"
+        },
+        {
+          "senseId": "fr101:sense:da33e68ad577de630689",
+          "target": "est",
+          "englishGloss": "is (condition/location)",
+          "stage": "core",
+          "lesson": 5,
+          "wordIndex": 4,
+          "sourcePath": "content/french-basics/core-4-6-draft.json",
+          "sourceSha256": "38ff5172764f4658a27aa929e213a3797a37fda87b12c09696c198bee74b45dd"
+        },
+        {
+          "senseId": "fr101:sense:dbe3d57512f3de149d4a",
+          "target": "est",
+          "englishGloss": "is (identity)",
+          "stage": "core",
+          "lesson": 4,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/core-4-6-draft.json",
+          "sourceSha256": "38ff5172764f4658a27aa929e213a3797a37fda87b12c09696c198bee74b45dd"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:f9ce3d2ed39c6cc9408c",
+      "target": "gentil",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "The two authored English rows say kind and vary only the masculine/man annotation.",
+      "senseIds": [
+        "fr101:sense:95f2d4c0945a545fe6d1",
+        "fr101:sense:e3de147cc90ccd5af651"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:95f2d4c0945a545fe6d1",
+          "target": "gentil",
+          "englishGloss": "kind (masculine)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 26,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:e3de147cc90ccd5af651",
+          "target": "gentil",
+          "englishGloss": "kind (man)",
+          "stage": "foundation",
+          "lesson": 5,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:d5d83ec814917cbcdf45",
+      "target": "gentille",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "The two authored English rows say kind and vary only the feminine/woman annotation.",
+      "senseIds": [
+        "fr101:sense:3418f5a30843e05f6581",
+        "fr101:sense:aa18de7a591838c46224"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:3418f5a30843e05f6581",
+          "target": "gentille",
+          "englishGloss": "kind (feminine)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 27,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:aa18de7a591838c46224",
+          "target": "gentille",
+          "englishGloss": "kind (woman)",
+          "stage": "foundation",
+          "lesson": 5,
+          "wordIndex": 7,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:a0fb903525dc10dccaa4",
+      "target": "il",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:69a11dfe9e87bee2a5c4",
+        "fr101:sense:7bcdcdd81b5f0aaf5952"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:69a11dfe9e87bee2a5c4",
+          "target": "il",
+          "englishGloss": "he",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 3,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:7bcdcdd81b5f0aaf5952",
+          "target": "il",
+          "englishGloss": "he / it (for a masculine noun)",
+          "stage": "foundation",
+          "lesson": 6,
+          "wordIndex": 26,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:b737ca7ee563ae80e457",
+      "target": "la",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:039a1263043511cb449e",
+        "fr101:sense:7b0325d6307d7115a69a",
+        "fr101:sense:a3d641c2e89955d11335"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:039a1263043511cb449e",
+          "target": "la",
+          "englishGloss": "the / it / her (feminine)",
+          "stage": "core",
+          "lesson": 1,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/core-1-3-draft.json",
+          "sourceSha256": "59ab2196d68220e329b5572c0433aa51abe0842921215afef326b533a7fd0157"
+        },
+        {
+          "senseId": "fr101:sense:7b0325d6307d7115a69a",
+          "target": "la",
+          "englishGloss": "the (feminine)",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 3,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:a3d641c2e89955d11335",
+          "target": "la",
+          "englishGloss": "the (feminine singular)",
+          "stage": "foundation",
+          "lesson": 3,
+          "wordIndex": 4,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:4393e16535c2f6e80b7a",
+      "target": "la porte",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "Both authored rows identify a door; one includes the article and the other annotates feminine singular.",
+      "senseIds": [
+        "fr101:sense:34d67827baa7ea638e5b",
+        "fr101:sense:da818c6e759f8bc1c2ca"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:34d67827baa7ea638e5b",
+          "target": "la porte",
+          "englishGloss": "the door",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 10,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:da818c6e759f8bc1c2ca",
+          "target": "la porte",
+          "englishGloss": "door (feminine, singular noun)",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 14,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:72a88dd65edf0bb95516",
+      "target": "la professeure",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "Both authored rows identify a female teacher with different grammatical annotations.",
+      "senseIds": [
+        "fr101:sense:36d4718cd50dd8a951d9",
+        "fr101:sense:abec21b559c4010a7896"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:36d4718cd50dd8a951d9",
+          "target": "la professeure",
+          "englishGloss": "the teacher (feminine singular)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 10,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        },
+        {
+          "senseId": "fr101:sense:abec21b559c4010a7896",
+          "target": "la professeure",
+          "englishGloss": "the teacher (woman)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 16,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:6a6cb70b7446e3640102",
+      "target": "la table",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "Both authored rows identify a table; one includes the article and the other annotates feminine singular.",
+      "senseIds": [
+        "fr101:sense:3cd31a67f0c71a838edd",
+        "fr101:sense:49f61bb1b71e573ee249"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:3cd31a67f0c71a838edd",
+          "target": "la table",
+          "englishGloss": "table (feminine, singular noun)",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:49f61bb1b71e573ee249",
+          "target": "la table",
+          "englishGloss": "the table",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 5,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:61098a4bf2a5e216533e",
+      "target": "le",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:1292bcd4a06a4e3134f1",
+        "fr101:sense:b352dbad304a1970201c",
+        "fr101:sense:f547a78b028e744e681f"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:1292bcd4a06a4e3134f1",
+          "target": "le",
+          "englishGloss": "the (masculine)",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:b352dbad304a1970201c",
+          "target": "le",
+          "englishGloss": "the (masculine, singular)",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 8,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:f547a78b028e744e681f",
+          "target": "le",
+          "englishGloss": "the (masculine singular)",
+          "stage": "foundation",
+          "lesson": 3,
+          "wordIndex": 3,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:7b5454f75089acf2693b",
+      "target": "les",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:10a15ed8d71181b2b3e7",
+        "fr101:sense:c8dccc69a057c5eb745a"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:10a15ed8d71181b2b3e7",
+          "target": "les",
+          "englishGloss": "the (plural)",
+          "stage": "foundation",
+          "lesson": 3,
+          "wordIndex": 5,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:c8dccc69a057c5eb745a",
+          "target": "les",
+          "englishGloss": "the / them (plural, any gender)",
+          "stage": "core",
+          "lesson": 1,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/core-1-3-draft.json",
+          "sourceSha256": "59ab2196d68220e329b5572c0433aa51abe0842921215afef326b533a7fd0157",
+          "overlayPath": "content/french-basics/core-1-9-language-support-overrides.json",
+          "overlaySha256": "166622985f8259cfe2e61f381ebb06fa5b639f6975565bc7ff14084c3a1acf3b",
+          "sourceTarget": "les",
+          "sourceEnglishGloss": "the / them (masculine plural)"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:0da86e0f6dc309524f3b",
+      "target": "là",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:877cadd6c77f7f901938",
+        "fr101:sense:cbf28e701b3712d5d2b5"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:877cadd6c77f7f901938",
+          "target": "là",
+          "englishGloss": "there / here (present)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 20,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:cbf28e701b3712d5d2b5",
+          "target": "là",
+          "englishGloss": "there",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 26,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:ed29bcecc78d7ffb6724",
+      "target": "pour",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:164e6e79d5b1f20149d6",
+        "fr101:sense:b613d6dd1ac426b3cee7"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:164e6e79d5b1f20149d6",
+          "target": "pour",
+          "englishGloss": "for",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 41,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:b613d6dd1ac426b3cee7",
+          "target": "pour",
+          "englishGloss": "for / in order to",
+          "stage": "core",
+          "lesson": 6,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/core-4-6-draft.json",
+          "sourceSha256": "38ff5172764f4658a27aa929e213a3797a37fda87b12c09696c198bee74b45dd"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:727b3034ae204835dd54",
+      "target": "s’il vous plaît",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "Both authored rows say please; one adds the politeness annotation.",
+      "senseIds": [
+        "fr101:sense:e0ad511f68aaa72ac50f",
+        "fr101:sense:eea323211fdd66e99ba4"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:e0ad511f68aaa72ac50f",
+          "target": "s’il vous plaît",
+          "englishGloss": "please",
+          "stage": "core",
+          "lesson": 13,
+          "wordIndex": 7,
+          "sourcePath": "content/french-basics/core-13-15-draft.json",
+          "sourceSha256": "062cb5d98e06b2df56d1f7c5fc8f4c6d180a6e2ea0ad026aff6b76c1558a1476"
+        },
+        {
+          "senseId": "fr101:sense:eea323211fdd66e99ba4",
+          "target": "s’il vous plaît",
+          "englishGloss": "please (polite)",
+          "stage": "foundation",
+          "lesson": 10,
+          "wordIndex": 25,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:c89b6c3d164a65091170",
+      "target": "sur",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "Both authored rows say on; one adds a location annotation.",
+      "senseIds": [
+        "fr101:sense:14491c15d24088d08418",
+        "fr101:sense:4ef9b3f7fed444ce8a37"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:14491c15d24088d08418",
+          "target": "sur",
+          "englishGloss": "on",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 9,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:4ef9b3f7fed444ce8a37",
+          "target": "sur",
+          "englishGloss": "on (location)",
+          "stage": "foundation",
+          "lesson": 6,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:a69cf3d89f86a8337ed4",
+      "target": "trois",
+      "sourceLevelStatus": "annotation-overlap-provisional",
+      "sourceLevelReason": "The authored rows use the English numeral 3 and its written form three.",
+      "senseIds": [
+        "fr101:sense:2fd42fd37ce95a387642",
+        "fr101:sense:79cf186400a85f86a72e"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:2fd42fd37ce95a387642",
+          "target": "trois",
+          "englishGloss": "3",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 44,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:79cf186400a85f86a72e",
+          "target": "trois",
+          "englishGloss": "three",
+          "stage": "core",
+          "lesson": 10,
+          "wordIndex": 7,
+          "sourcePath": "content/french-basics/core-10-12-draft.json",
+          "sourceSha256": "ce1f6aa6a1c23fe610e9ae433914b9a41f5e8af33d84a6014b57bc9394d860aa"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:68bca10eea2ba33f6f15",
+      "target": "un",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:1887948740a35ebee279",
+        "fr101:sense:20fe3d80d199d6097e3a",
+        "fr101:sense:2e1ce866b3a47191bfa0",
+        "fr101:sense:7906d0d4681c5f2105d7",
+        "fr101:sense:ce9a5e4064b8ede8a37e"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:1887948740a35ebee279",
+          "target": "un",
+          "englishGloss": "a, one (masculine singular)",
+          "stage": "foundation",
+          "lesson": 3,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:20fe3d80d199d6097e3a",
+          "target": "un",
+          "englishGloss": "a (masculine singular)",
+          "stage": "foundation",
+          "lesson": 10,
+          "wordIndex": 7,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        },
+        {
+          "senseId": "fr101:sense:2e1ce866b3a47191bfa0",
+          "target": "un",
+          "englishGloss": "a, one (masculine)",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:7906d0d4681c5f2105d7",
+          "target": "un",
+          "englishGloss": "a / one (masculine)",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 10,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:ce9a5e4064b8ede8a37e",
+          "target": "un",
+          "englishGloss": "a (masculine)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 7,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:a05a25ac2b00457be746",
+      "target": "un cahier",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:78109eaf571e60490574",
+        "fr101:sense:ddf38ad8a616b5bc40e6"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:78109eaf571e60490574",
+          "target": "un cahier",
+          "englishGloss": "a notebook",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:ddf38ad8a616b5bc40e6",
+          "target": "un cahier",
+          "englishGloss": "notebook (masculine, singular noun)",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 2,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:648042b11fcc6b22c562",
+      "target": "un livre",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:2f0088324604bdb604c8",
+        "fr101:sense:9a146614911719ff1977",
+        "fr101:sense:a07b3d50d44804683ef8"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:2f0088324604bdb604c8",
+          "target": "un livre",
+          "englishGloss": "book (masculine, singular noun)",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:9a146614911719ff1977",
+          "target": "un livre",
+          "englishGloss": "a book",
+          "stage": "core",
+          "lesson": 12,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/core-10-12-draft.json",
+          "sourceSha256": "ce1f6aa6a1c23fe610e9ae433914b9a41f5e8af33d84a6014b57bc9394d860aa"
+        },
+        {
+          "senseId": "fr101:sense:a07b3d50d44804683ef8",
+          "target": "un livre",
+          "englishGloss": "book (masculine singular)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 4,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:d209733a6aea00e9f096",
+      "target": "un étudiant",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:8fc7e10fda82e806d803",
+        "fr101:sense:9d5108be88ea0ec83014"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:8fc7e10fda82e806d803",
+          "target": "un étudiant",
+          "englishGloss": "a student (man)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 13,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:9d5108be88ea0ec83014",
+          "target": "un étudiant",
+          "englishGloss": "student (masculine singular)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 0,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:52597892af72166c5a1b",
+      "target": "une",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:01edd7a959d9e0c68282",
+        "fr101:sense:3b3783d4a79063950cf5",
+        "fr101:sense:41f023e7f133667cec72",
+        "fr101:sense:f7c2a8f300a8c7a51f58",
+        "fr101:sense:fc09873f7766b1f81796"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:01edd7a959d9e0c68282",
+          "target": "une",
+          "englishGloss": "a, one (feminine singular)",
+          "stage": "foundation",
+          "lesson": 3,
+          "wordIndex": 1,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        },
+        {
+          "senseId": "fr101:sense:3b3783d4a79063950cf5",
+          "target": "une",
+          "englishGloss": "a (feminine singular)",
+          "stage": "foundation",
+          "lesson": 10,
+          "wordIndex": 8,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        },
+        {
+          "senseId": "fr101:sense:41f023e7f133667cec72",
+          "target": "une",
+          "englishGloss": "one / a (feminine)",
+          "stage": "foundation",
+          "lesson": 8,
+          "wordIndex": 11,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:f7c2a8f300a8c7a51f58",
+          "target": "une",
+          "englishGloss": "a (feminine)",
+          "stage": "foundation",
+          "lesson": 7,
+          "wordIndex": 5,
+          "sourcePath": "content/french-basics/foundation-7-8-draft.json",
+          "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+        },
+        {
+          "senseId": "fr101:sense:fc09873f7766b1f81796",
+          "target": "une",
+          "englishGloss": "a, one (feminine)",
+          "stage": "foundation",
+          "lesson": 2,
+          "wordIndex": 1,
+          "sourcePath": "content/french-basics/foundation-1-3-draft.json",
+          "sourceSha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:cbf4da54de8900c8efbf",
+      "target": "une solution de rechange",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:02bddaf5d22c34a43077",
+        "fr101:sense:ddd9d46e53dc91da5cfc"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:02bddaf5d22c34a43077",
+          "target": "une solution de rechange",
+          "englishGloss": "a fallback option",
+          "stage": "master",
+          "lesson": 20,
+          "wordIndex": 5,
+          "sourcePath": "content/french-basics/master-19-20-redesign-draft.json",
+          "sourceSha256": "368d8e9abcf027301c857d44e956f4e65edd325d9a45a5ca9d57a3365941c563"
+        },
+        {
+          "senseId": "fr101:sense:ddd9d46e53dc91da5cfc",
+          "target": "une solution de rechange",
+          "englishGloss": "an alternative",
+          "stage": "master",
+          "lesson": 9,
+          "wordIndex": 6,
+          "sourcePath": "content/french-basics/master-7-9-redesign-draft.json",
+          "sourceSha256": "dd6ef71f2f4adfb47ab0aaa181dac501353e49998c28a708970545514a27b4c5"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "headwordId": "fr101:head:ffef39c881805804bca5",
+      "target": "une étudiante",
+      "sourceLevelStatus": "unresolved",
+      "sourceLevelReason": null,
+      "senseIds": [
+        "fr101:sense:3322e20e76ec7e340291",
+        "fr101:sense:ebfe366910bfae7ccc8f"
+      ],
+      "evidence": [
+        {
+          "senseId": "fr101:sense:3322e20e76ec7e340291",
+          "target": "une étudiante",
+          "englishGloss": "a student (woman)",
+          "stage": "foundation",
+          "lesson": 4,
+          "wordIndex": 14,
+          "sourcePath": "content/french-basics/foundation-4-6-draft.json",
+          "sourceSha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+        },
+        {
+          "senseId": "fr101:sense:ebfe366910bfae7ccc8f",
+          "target": "une étudiante",
+          "englishGloss": "student (feminine singular)",
+          "stage": "foundation",
+          "lesson": 9,
+          "wordIndex": 1,
+          "sourcePath": "content/french-basics/foundation-9-10-draft.json",
+          "sourceSha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+        }
+      ],
+      "qualifiedFrenchReviewRequired": true,
+      "reviewed": false,
+      "registered": false
+    }
+  ]
+}

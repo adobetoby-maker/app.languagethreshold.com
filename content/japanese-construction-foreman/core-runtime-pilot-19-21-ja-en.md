@@ -1,0 +1,7 @@
+# Japanese Foreman Core 19–21 private runtime draft
+
+`core-runtime-pilot-19-21-ja-en.json` is generated from `core-translation-19-21-draft.json` by `python3 scripts/build-japanese-foreman-core-runtime-19-21.py`. The source validator checks the exact English source hash and every objective, term/phrase and Reader pair. The historical `es` field contains Japanese target text. Stable `construction-foreman-ja-en` and lesson IDs 19–21 keep this draft separate from Spanish and Japanese 101 progress.
+
+The slice contains six-mode lesson inputs, 24 aligned Reader lines, grammar focus, speaking missions, three reading-based cloze checks per lesson, and 45 cards with matching dictionary entry drafts. Core 19 is explicitly a fictional dispatcher exercise, not a live call or medical-treatment guide. Core 20 distinguishes completion from verification; Core 21 does not promise unverified warranty terms. The Japanese source translations had scoped Fable and Opus **AI** rechecks after corrections, documented in `ai-review-core-19-27-2026-11-06.md`. The new teaching and speaking copy has not been independently reviewed. Qualified Japanese, emergency/safety and construction-domain review remain open; all `reviewed` flags are false.
+
+This data stays under `content/`, outside the public catalog, stage/speaking registries, and offline packs. There is no recorded Japanese audio or native V4 integration. Complete the remaining Core/Master lessons, language/domain review, ja-JP recording and listening checks, and pair-safe phone/offline/V4 acceptance before release.

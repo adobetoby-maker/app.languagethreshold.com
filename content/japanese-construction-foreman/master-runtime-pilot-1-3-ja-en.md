@@ -1,0 +1,9 @@
+# Japanese Foreman Master 1–3 private runtime draft
+
+This bundle is **unregistered** and does not change any public course, progress key, Spanish path, or native app. Its course ID is `master-construction-foreman-ja-en`; the historical word field `es` contains Japanese, paired with English in `en`. All source term pairs and the pinned English subset hash are preserved. It provides six mode inputs, source-phrase Reader sequences, cards, dictionary pairs, speaking prompts, two grammar examples per lesson, and three cloze checks per lesson. The Reader sequences are provisional source phrases, not authored contextual readings. `reviewed` remains `false`.
+
+The underlying Master 1–3 translation draft received scoped Fable and Opus AI review and corrections recorded in `ai-review-master-1-3-2026-11-06.md`. This derived runtime copy and its new teaching summaries/checks have **not** received an independent Japanese or qualified trade review. There is no audio, offline pack, browser/phone acceptance, or V4 integration.
+
+**Master 2 release blocker:** The English source says, “If the mat sits too low, water reaches the steel.” In a garage slab exposed to deicing salts from above, that causal claim may be technically wrong. A qualified structural/concrete specialist must check and correct the English and Japanese source before release. The exact source pair remains in this private cards/dictionary draft for alignment, but is excluded from the Reader sequence and must not be taught as established fact. Master 1 shore-removal and Master 3 harness procedure also need qualified site/domain approval.
+
+Run `python3 tests/japanese-foreman-master-runtime-1-3.test.py` and `python3 scripts/validate-japanese-foreman-master-translations.py` before changing this bundle. Human and specialist approval, original reading, audio, offline/native integration and device checks remain open.

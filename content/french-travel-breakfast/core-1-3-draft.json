@@ -349,7 +349,7 @@
       "objectiveFrenchCourseEnglish": "Ask what is fresh, filled, sweet or savory, and request a recommendation in French.",
       "focusEnglish": "Question words quel/lequel and food adjectives; asking for a recommendation.",
       "focusFrench": "Choisir entre quel et lequel ; décrire une pâtisserie comme fraîche, fourrée, sucrée ou salée.",
-      "teachingNotesEnglish": "Qu'est-ce qui est frais ? asks what is fresh. Lequel is masculine singular for which one; use laquelle for a feminine item. Sucré and salé describe sweet and savory food. Fourré means filled. Je voudrais goûter means I would like to try. This reading preserves the source's Mexican bakery foods as cultural context; French names for local pastries differ by region.",
+      "teachingNotesEnglish": "Qu’est-ce qui est frais ? asks what is fresh. Lequel is masculine singular for which one; use laquelle for a feminine item. Sucré and salé describe sweet and savory food. Fourré means filled. Je voudrais goûter means I would like to try. This fictional Lyon bakery offers brioche, baguette and a cheese pastry; ask about the actual items rather than assuming a universal regional menu.",
       "words": [
         {
           "en": "bakery",
@@ -364,7 +364,8 @@
         {
           "en": "sweet bread",
           "kind": "term",
-          "fr": "un pain sucré"
+          "fr": "un pain au lait",
+          "enFrenchCourse": "milk bread"
         },
         {
           "en": "pastry",
@@ -374,20 +375,23 @@
         {
           "en": "bolillo (crusty white roll)",
           "kind": "term",
-          "fr": "un bolillo",
-          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+          "fr": "une baguette",
+          "noteEnglish": "A baguette is a common French bread; bakery offerings vary by place and day.",
+          "enFrenchCourse": "baguette"
         },
         {
           "en": "concha (sweet shell-shaped bread)",
           "kind": "term",
-          "fr": "une concha",
-          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+          "fr": "une brioche",
+          "noteEnglish": "Brioche is an enriched, usually sweet bread; ask what the bakery has today.",
+          "enFrenchCourse": "brioche"
         },
         {
           "en": "empanada (filled pastry)",
           "kind": "term",
-          "fr": "une empanada",
-          "noteEnglish": "Mexican bakery food retained from the source; confirm the local item and pronunciation with a speaker."
+          "fr": "un feuilleté au fromage",
+          "noteEnglish": "Feuilleté describes a puff-pastry item; a cheese filling makes this menu example savory.",
+          "enFrenchCourse": "savory cheese pastry"
         },
         {
           "en": "cheese",
@@ -446,7 +450,7 @@
         }
       ],
       "passage": {
-        "titleFrench": "Dans une boulangerie mexicaine",
+        "titleFrench": "Dans une boulangerie à Lyon",
         "english": [
           "A traveler walks into a bakery in the morning.",
           "There are many breads and pastries on the counter.",
@@ -459,21 +463,32 @@
           "The traveler orders a concha and a coffee, please."
         ],
         "french": [
-          "Un voyageur entre dans une boulangerie le matin.",
+          "Un voyageur entre dans une boulangerie à Lyon le matin.",
           "Il y a de nombreux pains et pâtisseries sur le comptoir.",
           "Il demande : « Qu'est-ce qui est frais aujourd'hui ? »",
-          "L'employée dit que le pain sucré date de ce matin.",
+          "L'employée dit que le pain au lait date de ce matin.",
           "Le voyageur demande : « Lequel est fourré ? »",
-          "Elle explique que la concha est sucrée et que l'empanada est salée.",
+          "Elle explique que le feuilleté au fromage est fourré et salé, tandis que la brioche est sucrée.",
           "Il dit : « Je voudrais goûter quelque chose de typique d'ici. »",
-          "L'employée recommande un bolillo au fromage.",
-          "Le voyageur commande une concha et un café, s'il vous plaît."
+          "L'employée recommande une baguette avec du fromage.",
+          "Le voyageur commande une brioche et un café, s'il vous plaît."
+        ],
+        "englishFrenchCourse": [
+          "A traveler walks into a bakery in Lyon in the morning.",
+          "There are many breads and pastries on the counter.",
+          "He asks: What is fresh today?",
+          "The employee says the milk bread is from this morning.",
+          "The traveler asks: Which one is filled?",
+          "She explains that the cheese pastry is filled and savory, while the brioche is sweet.",
+          "He says: I would like to try something typical from here.",
+          "The employee recommends a baguette with cheese.",
+          "The traveler orders a brioche and a coffee, please."
         ]
       },
       "speakingInstructionEnglish": "At a bakery, ask about freshness, fillings and a typical pastry, then choose one.",
       "speakingFrench": "Bonjour ! Qu'est-ce qui est frais aujourd'hui ? Lequel est fourré ? Qu'est-ce que vous recommandez ?",
       "regionalNotesEnglish": [
-        "Bolillo, concha and empanada are Mexican bakery foods retained from the English source. A Francophone bakery would need a separate culturally adapted version and review."
+        "This fictional Lyon bakery offers baguette, brioche and a cheese pastry. Actual bakery menus and pastry names vary by place; confirm the local terms in qualified French review."
       ],
       "reviewed": false,
       "verbs": [
@@ -487,8 +502,8 @@
         {
           "infinitiveFrench": "recommander",
           "meaningEnglish": "to recommend",
-          "exampleFrench": "L'employée recommande un bolillo au fromage.",
-          "exampleEnglish": "The employee recommends a bolillo with cheese.",
+          "exampleFrench": "L'employée recommande une baguette avec du fromage.",
+          "exampleEnglish": "The employee recommends a baguette with cheese.",
           "sourceInfinitiveSpanish": "recomendar"
         },
         {
@@ -501,8 +516,8 @@
         {
           "infinitiveFrench": "goûter",
           "meaningEnglish": "to try",
-          "exampleFrench": "Aujourd'hui, nous goûtons une concha.",
-          "exampleEnglish": "Today we try a concha.",
+          "exampleFrench": "Aujourd'hui, nous goûtons une brioche.",
+          "exampleEnglish": "Today we try a brioche.",
           "sourceInfinitiveSpanish": "probar"
         }
       ]

@@ -1,0 +1,9 @@
+# French 101 Core 1–24 private fixture
+
+Exact pair: French target / English support. This cumulative fixture extends the corrected Core 1–21 candidate with source-pinned Core 22–24 drafts. It remains unregistered, `reviewed:false`, and without audio; no published lesson or learner progress changes. Stable IDs remain `french-basics:1` through `french-basics:24`.
+
+The builder verifies hashes of all eight draft batches, bounded English-source files and the two Spanish-course source files. Core 22–24 draft/source SHA-256 values are `47da7b6429135e9fdf982c1186c090d106b5fce6081f0e9bd293604f74f4e41e` and `3231ff8f3674699ca5fa1beb931b74183e13eba789302f09838bd84c9ffa1685`. The derived fixture retains 336 authored card pairs and 144 aligned Reader pairs. The original words, readings, dialogue and grammar remain in `sourceCards`, `sourceReader`, `sourceDialogue` and `sourceGrammarNotes`.
+
+`core-22-24-language-support-overrides.json` records six French-specific gloss changes and three caution changes. It narrows *me* and *te* to the recipient meanings taught in lesson 24, clarifies location and plural pronoun glosses, and keeps the incomplete Spanish source-objective caveat out of learner-facing instructions. Its SHA-256 is `381e7d7de084adcb72346547b1b3ee72200bcaa515eda69b2dc0df836402bef9`; derived fixture SHA-256 is `1de1bdff0b90186417756e9f8e9d85140268462fafff5923b5a27d9ad39cbc90`.
+
+The Core 22–24 exact-source validator, cumulative fixture tests for 1–9 through 1–24, Core 60 validator, typecheck and deterministic regeneration pass. Tests check every card and Reader pair against original source or declared override, six mode inputs, stable IDs, lesson sizes, checks and speaking briefs. These checks do not establish French fidelity, curriculum quality, audio or device readiness. Fable/Opus CLI review is still budget-exhausted; no independent or qualified human review is claimed. Audio, offline/phone acceptance and live runtime registration remain open.

@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 22–24 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 22,
+      "cardIndex": 3,
+      "from": {
+        "target": "est",
+        "native": "is (identity)"
+      },
+      "to": {
+        "target": "est",
+        "native": "is"
+      },
+      "reason": "French est is not restricted to identity"
+    },
+    {
+      "lesson": 22,
+      "cardIndex": 4,
+      "from": {
+        "target": "est / se trouve",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est / se trouve",
+        "native": "is / is located"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 23,
+      "cardIndex": 7,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 24,
+      "cardIndex": 0,
+      "from": {
+        "target": "me",
+        "native": "me / myself"
+      },
+      "to": {
+        "target": "me",
+        "native": "me (recipient)"
+      },
+      "reason": "Narrow direct/indirect-object practice gloss"
+    },
+    {
+      "lesson": 24,
+      "cardIndex": 1,
+      "from": {
+        "target": "te",
+        "native": "you / yourself"
+      },
+      "to": {
+        "target": "te",
+        "native": "you (recipient)"
+      },
+      "reason": "Narrow direct/indirect-object practice gloss"
+    },
+    {
+      "lesson": 24,
+      "cardIndex": 5,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    }
+  ],
+  "dialogueOverrides": [],
+  "grammarOverrides": [],
+  "modelOverrides": [],
+  "cautionOverrides": [
+    {
+      "lesson": 22,
+      "from": "The pinned English phrase “less far away” is retained as moins loin, although le café est plus proche is often more natural in conversation. The source objective is truncated (“Use más .”); the full French comparison sequence is inferred from the pinned examples and must be independently reviewed.",
+      "to": "Moins loin mirrors the practice pair “less far away,” though plus proche is often more natural. Use meilleur for an adjective with a noun and mieux for an adverb.",
+      "reason": "Keep source-quality caveat out of learner UI while preserving phrasing nuance"
+    },
+    {
+      "lesson": 23,
+      "from": "French les is plural for both masculine and feminine; it does not preserve the Spanish los/las contrast. In “J’ai besoin des clés,” des is required after de; les later replaces clés. The final question uses l’ for an unspecified singular item; the English source does not identify its gender.",
+      "to": "French les replaces plural direct objects of any gender. In “J’ai besoin des clés,” des follows the need expression, while les later replaces clés. The final l’ is an unspecified singular object.",
+      "reason": "Remove Spanish-specific contrast"
+    },
+    {
+      "lesson": 24,
+      "from": "The English source glosses “me / myself” and “you / yourself” are broad. Reflexive meaning belongs to separate uses; here me and te refer to recipients. Lui/leur differ from Spanish le/les; do not add the named recipient after the pronoun in formal beginner models.",
+      "to": "Here me and te mark recipients. Reflexive meaning belongs to other constructions. Use either “je donne un livre à Ana” or “je lui donne un livre” in beginner practice.",
+      "reason": "Remove Spanish-specific contrast and clarify broad source glosses"
+    }
+  ]
+}

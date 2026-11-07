@@ -16,6 +16,8 @@
   "requestedClipCount": 24,
   "selectedTextCount": 12,
   "lookupKeysWithTrailingSpace": 2,
+  "lookupContract": "V4 Python Watch pack builder and Swift RecordedAudioCatalog both preserve spaces preceding stripped terminal punctuation; their keys match for the selected texts. The trailing space is a shared quirk, not a builder/playback mismatch.",
+  "nativeFrenchRecordedPlaybackIntegrated": false,
   "selected": [
     {
       "priority": 1,
@@ -348,7 +350,7 @@
   "blockers": [
     "Qualified French text/pronunciation review and source corrections",
     "Verify provider, fr-FR voice identities and rights; do not infer from Spanish voices",
-    "Resolve V4 lookup keys retaining a space before French terminal punctuation before playback integration",
+    "Integrate French recorded playback behind an exact target-language/locale gate; V4 LocalVoice currently routes recorded audio only for Spanish",
     "Record two exact fr-FR clips per selected text and validate locale/text/hash/duration/listening",
     "Inspect actual combined WatchAudioLite size; drop lower-priority texts or rebalance pack if over 4 MiB",
     "Run native playback, Watch size guard and owner's TestFlight device acceptance"

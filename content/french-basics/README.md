@@ -21,3 +21,5 @@ Core 25–27 adds a source-pinned authored draft for French direct objects and c
 Core 28–30 completes the source-pinned authored **Core draft sequence**, but none of these Core lessons is registered or reviewed for release. See `core-28-30-draft-evidence.md`; run `python3 scripts/validate-french-basics-core-28-30-draft.py`.
 
 Master 1–3 adds an unregistered source-pinned draft. Its Spanish source repeats beginner material, so Master progression is an explicit blocker. See `master-1-3-draft-evidence.md`; run `python3 scripts/validate-french-basics-master-1-3-draft.py`.
+
+The redesigned Master 1–3 candidate is `master-1-3-redesign-draft.json`; the older `master-1-3-draft.json` remains source-aligned archival material. New learner-facing French/English pairs replace repeated beginner lines, while legacy source hashes remain provenance. Both are unregistered and unreviewed. See `master-1-3-redesign-draft-evidence.md`; run `python3 scripts/validate-french-basics-master-redesign-1-3-draft.py`.

@@ -21,6 +21,31 @@ const stages = [
       `master-runtime-pilot-${a}-${b}-ja-en.json`) },
 ];
 
+/** Verify a candidate before any future static route/cache registration. */
+export function verifyPrivateOfflineCandidate(manifest, contentBytes, expectedPackId) {
+  const bytes = Buffer.isBuffer(contentBytes) ? contentBytes : Buffer.from(contentBytes);
+  const contentHash = sha(bytes);
+  const filename = `${expectedPackId}-${contentHash}.json`;
+  const pack = JSON.parse(bytes.toString("utf8"));
+  if (manifest.schema !== 1 || manifest.state !== "private-unreleased-candidate" ||
+      manifest.releaseEnabled !== false || manifest.workerAllowlistEnabled !== false ||
+      manifest.appAssetInventory !== null || manifest.installationStatus !== "not-built-not-installed" ||
+      manifest.packId !== expectedPackId || manifest.workerAllowlistCandidate !== expectedPackId ||
+      manifest.pairKey !== "Japanese:English" || manifest.target !== "Japanese" || manifest.native !== "English" ||
+      manifest.content.file !== filename || manifest.content.sha256 !== contentHash ||
+      manifest.content.bytes !== bytes.length ||
+      manifest.content.routeCandidate !== `/lesson-packs/${filename}` ||
+      manifest.cacheNamespaceCandidate !== `lt-lesson-pack-${expectedPackId}-${contentHash}` ||
+      pack.schema !== 1 || pack.state !== "private-unreleased-candidate" ||
+      pack.releaseEnabled !== false || pack.reviewed !== false || pack.audioFilesIncluded !== false ||
+      pack.packId !== expectedPackId || pack.courseId !== expectedPackId ||
+      pack.pairKey !== "Japanese:English" || pack.target !== "Japanese" || pack.native !== "English" ||
+      pack.lessons.length !== manifest.lessonCount || pack.cards.length !== manifest.cardCount) {
+    throw Error(`Private offline candidate identity or hash mismatch: ${expectedPackId}`);
+  }
+  return pack;
+}
+
 function make(stage) {
   const parts = stage.files.map((file) => ({ file, bytes: read(file) }));
   const sourceBundles = parts.map(({ file, bytes }) => ({ file, sha256: sha(bytes) }));
@@ -83,26 +108,29 @@ function make(stage) {
     appAssetInventory: null,
     installationStatus: "not-built-not-installed",
   };
+  verifyPrivateOfflineCandidate(manifest, Buffer.from(content), stage.courseId);
   return [{ name: contentName, value: content }, { name: `${stage.courseId}.manifest.json`, value: stable(manifest) }];
 }
 
-if (!CHECK) mkdirSync(OUTPUT, { recursive: true });
-for (const stage of stages) {
-  const artifacts = make(stage);
-  const expectedNames = new Set(artifacts.map(({ name }) => name));
-  for (const { name, value } of artifacts) {
-    const destination = path.join(OUTPUT, name);
-    if (CHECK) {
-      if (!existsSync(destination) || readFileSync(destination, "utf8") !== value) {
-        throw Error(`Private offline artifact is stale: ${name}`);
-      }
-    } else writeFileSync(destination, value);
-  }
-  if (!CHECK) {
-    for (const name of readdirSync(OUTPUT)) {
-      if (new RegExp(`^${stage.courseId}-[a-f0-9]{64}\\.json$`).test(name) &&
-          !expectedNames.has(name)) unlinkSync(path.join(OUTPUT, name));
+if (process.argv[1] && path.resolve(process.argv[1]) === import.meta.filename) {
+  if (!CHECK) mkdirSync(OUTPUT, { recursive: true });
+  for (const stage of stages) {
+    const artifacts = make(stage);
+    const expectedNames = new Set(artifacts.map(({ name }) => name));
+    for (const { name, value } of artifacts) {
+      const destination = path.join(OUTPUT, name);
+      if (CHECK) {
+        if (!existsSync(destination) || readFileSync(destination, "utf8") !== value) {
+          throw Error(`Private offline artifact is stale: ${name}`);
+        }
+      } else writeFileSync(destination, value);
     }
+    if (!CHECK) {
+      for (const name of readdirSync(OUTPUT)) {
+        if (new RegExp(`^${stage.courseId}-[a-f0-9]{64}\\.json$`).test(name) &&
+            !expectedNames.has(name)) unlinkSync(path.join(OUTPUT, name));
+      }
+    }
+    console.log(`${stage.stage}: private ${stage.count} lesson candidate ${CHECK ? "verified" : "built"}; release disabled`);
   }
-  console.log(`${stage.stage}: private ${stage.count} lesson candidate ${CHECK ? "verified" : "built"}; release disabled`);
 }

@@ -1,0 +1,1780 @@
+{
+  "privatePilot": true,
+  "registered": false,
+  "reviewed": false,
+  "audioStatus": "script-only; no recorded audio",
+  "target": "French",
+  "native": "English",
+  "draftPath": "content/french-basics/master-1-3-redesign-draft.json",
+  "draftSha256": "21dc4e7af37843ba92356ebddeb13e7e8b1c23a94e54210e4795734a412f70bb",
+  "supportOverlayPath": "content/french-basics/master-1-3-language-support-overrides.json",
+  "supportOverlaySha256": "b5344f91b14207ce8cc11189febedcd56bf098db1e5b59739676ae1d3a546e47",
+  "source": {
+    "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
+    "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
+    "legacySpanishEnglishSource": "content/french-basics/source-english-master-1-3.json",
+    "legacySpanishEnglishSourceSha256": "1d2b972c3b315f8c398d8c34b43a8148d6e01057895c80cb936ab6628ffd323e",
+    "legacyFrenchDraft": "content/french-basics/master-1-3-draft.json",
+    "legacyFrenchDraftSha256": "989147d3ef1a17eb1819d8169f351575166e6bcf5f27428dc57eac62062488b6",
+    "policy": "Legacy English pairs remain provenance only; candidate learner pairs are newly authored and unreviewed"
+  },
+  "masterStageFragment": {
+    "version": 1,
+    "stage": "master",
+    "module": "master-french-basics",
+    "baseModule": "french-basics",
+    "language": "French",
+    "nativeLanguage": "English",
+    "headline": "French 101 Master 20 private pilot",
+    "threshold": "Handle longer French conversations, documents and decisions.",
+    "reviewed": false,
+    "lessons": [
+      {
+        "n": 1,
+        "title": "Présenter une nouvelle camarade au groupe",
+        "objective": "Introduce a new classmate to a group, adapt tu/vous and role information, and answer two follow-up questions without prompts.",
+        "speaking": "Introduce a new classmate to a teacher and a peer.",
+        "focus": "présenter quelqu’un; tu/vous; venir de; parce que; reformulation polie",
+        "words": [
+          {
+            "es": "nouvelle camarade",
+            "en": "new classmate",
+            "kind": "term"
+          },
+          {
+            "es": "je vous présente",
+            "en": "I introduce to you (formal/plural)",
+            "kind": "term"
+          },
+          {
+            "es": "elle vient de",
+            "en": "she comes from",
+            "kind": "term"
+          },
+          {
+            "es": "elle nous rejoint",
+            "en": "she is joining us",
+            "kind": "term"
+          },
+          {
+            "es": "parce que",
+            "en": "because",
+            "kind": "term"
+          },
+          {
+            "es": "pourriez-vous",
+            "en": "could you (formal)",
+            "kind": "term"
+          },
+          {
+            "es": "plus formellement",
+            "en": "more formally",
+            "kind": "term"
+          },
+          {
+            "es": "si j’ai bien compris",
+            "en": "if I understood correctly",
+            "kind": "term"
+          },
+          {
+            "es": "groupe",
+            "en": "group",
+            "kind": "term"
+          },
+          {
+            "es": "rôle",
+            "en": "role",
+            "kind": "term"
+          },
+          {
+            "es": "échanges",
+            "en": "exchanges",
+            "kind": "term"
+          },
+          {
+            "es": "responsable",
+            "en": "coordinator",
+            "kind": "term"
+          },
+          {
+            "es": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+            "en": "Teacher: Could you introduce our new classmate to the group?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+            "en": "Student: Of course. I would like to introduce Camille, who comes from Lyon.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Professeure : Quel rôle aura-t-elle dans notre projet ?",
+            "en": "Teacher: What role will she have in our project?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Élève : Elle coordonnera les échanges avec les autres groupes.",
+            "en": "Student: She will coordinate the exchanges with the other groups.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Camarade : Pourquoi a-t-elle choisi de nous rejoindre ?",
+            "en": "Classmate: Why did she choose to join us?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+            "en": "Student: Because she wants to practise conversation and share her experience.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Camille : Merci. Puis-je aussi vous poser une question ?",
+            "en": "Camille: Thank you. May I ask you a question as well?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Élève : Bien entendu ; nous pourrons parler après la réunion.",
+            "en": "Student: Certainly; we can talk after the meeting.",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "présenter quelqu’un; tu/vous; venir de; parce que; reformulation polie",
+          "examples": [
+            {
+              "es": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+              "en": "Teacher: Could you introduce our new classmate to the group?"
+            },
+            {
+              "es": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+              "en": "Student: Of course. I would like to introduce Camille, who comes from Lyon."
+            }
+          ]
+        },
+        "lessonType": "People",
+        "block": "A"
+      },
+      {
+        "n": 2,
+        "title": "Adapter une liste de matériel",
+        "objective": "Read a short supplies brief, reconcile what is already available with what is missing, and explain a revised packing list.",
+        "speaking": "Reconcile a supplies email with a classmate.",
+        "focus": "il faut; il manque; avoir besoin de; à la place de; confirmation explicite",
+        "words": [
+          {
+            "es": "consigne",
+            "en": "instruction",
+            "kind": "term"
+          },
+          {
+            "es": "matériel",
+            "en": "supplies",
+            "kind": "term"
+          },
+          {
+            "es": "cahier grand format",
+            "en": "large-format notebook",
+            "kind": "term"
+          },
+          {
+            "es": "il nous manque",
+            "en": "we are missing",
+            "kind": "term"
+          },
+          {
+            "es": "à la place de",
+            "en": "instead of",
+            "kind": "term"
+          },
+          {
+            "es": "cela convient-il",
+            "en": "is that suitable",
+            "kind": "term"
+          },
+          {
+            "es": "sur la table",
+            "en": "on the table",
+            "kind": "term"
+          },
+          {
+            "es": "dans le sac",
+            "en": "in the bag",
+            "kind": "term"
+          },
+          {
+            "es": "courriel",
+            "en": "email",
+            "kind": "term"
+          },
+          {
+            "es": "deux stylos",
+            "en": "two pens",
+            "kind": "term"
+          },
+          {
+            "es": "magasin",
+            "en": "shop",
+            "kind": "term"
+          },
+          {
+            "es": "pages",
+            "en": "pages",
+            "kind": "term"
+          },
+          {
+            "es": "petit cahier",
+            "en": "small notebook",
+            "kind": "term"
+          },
+          {
+            "es": "travail en groupe",
+            "en": "group work",
+            "kind": "term"
+          },
+          {
+            "es": "Léa : J’ai déjà les deux stylos dans mon sac.",
+            "en": "Léa: I already have the two pens in my bag.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Léa : Nous avons pourtant deux cahiers ordinaires.",
+            "en": "Léa: We do, however, have two ordinary notebooks.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+            "en": "Noé: Can we use them instead of the large notebook?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Noé : Alors, je mettrai un cahier dans chaque sac.",
+            "en": "Noé: Then I will put one notebook in each bag.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Léa : Je vérifierai aussi que les stylos fonctionnent.",
+            "en": "Léa: I will also check that the pens work.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Noé : Parfait, nous avons maintenant tout ce qu’il faut pour demain.",
+            "en": "Noé: Great, we now have everything we need for tomorrow.",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "il faut; il manque; avoir besoin de; à la place de; confirmation explicite",
+          "examples": [
+            {
+              "es": "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos.",
+              "en": "Email: For tomorrow’s work, bring one large-format notebook and two pens."
+            },
+            {
+              "es": "Léa : J’ai déjà les deux stylos dans mon sac.",
+              "en": "Léa: I already have the two pens in my bag."
+            }
+          ]
+        },
+        "lessonType": "Document",
+        "block": "A"
+      },
+      {
+        "n": 3,
+        "title": "Répartir le matériel entre quatre personnes",
+        "objective": "Count and allocate shared materials to named recipients, explain a shortage, and agree who will bring the missing items.",
+        "speaking": "Allocate supplies to a group of four.",
+        "focus": "il manque; il nous faut; chacun; lui/leur; proposer une répartition équitable",
+        "words": [
+          {
+            "es": "répartition",
+            "en": "allocation",
+            "kind": "term"
+          },
+          {
+            "es": "il manque",
+            "en": "there is a shortage of",
+            "kind": "term"
+          },
+          {
+            "es": "il nous faut",
+            "en": "we need",
+            "kind": "term"
+          },
+          {
+            "es": "chacun",
+            "en": "each person",
+            "kind": "term"
+          },
+          {
+            "es": "lui",
+            "en": "to him or her",
+            "kind": "term"
+          },
+          {
+            "es": "leur",
+            "en": "to them",
+            "kind": "term"
+          },
+          {
+            "es": "d’abord",
+            "en": "first",
+            "kind": "term"
+          },
+          {
+            "es": "à tour de rôle",
+            "en": "in turns",
+            "kind": "term"
+          },
+          {
+            "es": "cahier",
+            "en": "notebook",
+            "kind": "term"
+          },
+          {
+            "es": "crayon",
+            "en": "pencil",
+            "kind": "term"
+          },
+          {
+            "es": "dictionnaire",
+            "en": "dictionary",
+            "kind": "term"
+          },
+          {
+            "es": "dix minutes",
+            "en": "ten minutes",
+            "kind": "term"
+          },
+          {
+            "es": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+            "en": "Maya: There are four of us, but there are only three notebooks.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Hugo : Il nous en faut un de plus avant de commencer.",
+            "en": "Hugo: We need one more before we begin.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Maya : Merci. Je lui donnerai aussi un crayon.",
+            "en": "Maya: Thank you. I will give her a pencil as well.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Hugo : Et les autres crayons, à qui les donne-t-on ?",
+            "en": "Hugo: And the other pencils, who do we give them to?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Maya : Je les distribue au groupe ; chacun en aura un.",
+            "en": "Maya: I will distribute them to the group; each person will have one.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ana : Hugo et moi avons tous les deux besoin du dictionnaire.",
+            "en": "Ana: Hugo and I both need the dictionary.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Léa : Il n’y en a qu’un, alors comment allons-nous faire ?",
+            "en": "Léa: There is only one, so how are we going to manage?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Maya : Ana l’utilisera d’abord pendant dix minutes.",
+            "en": "Maya: Ana will use it first for ten minutes.",
+            "kind": "phrase"
+          }
+        ],
+        "grammar": {
+          "focus": "il manque; il nous faut; chacun; lui/leur; proposer une répartition équitable",
+          "examples": [
+            {
+              "es": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+              "en": "Maya: There are four of us, but there are only three notebooks."
+            },
+            {
+              "es": "Hugo : Il nous en faut un de plus avant de commencer.",
+              "en": "Hugo: We need one more before we begin."
+            }
+          ]
+        },
+        "lessonType": "Case",
+        "block": "A"
+      }
+    ]
+  },
+  "support": [
+    {
+      "n": 1,
+      "stableLessonKey": "master-french-basics:1",
+      "prerequisites": [
+        "foundation:1",
+        "core:21",
+        "core:30"
+      ],
+      "cards": [
+        {
+          "target": "nouvelle camarade",
+          "native": "new classmate",
+          "kind": "term"
+        },
+        {
+          "target": "je vous présente",
+          "native": "I introduce to you (formal/plural)",
+          "kind": "term"
+        },
+        {
+          "target": "elle vient de",
+          "native": "she comes from",
+          "kind": "term"
+        },
+        {
+          "target": "elle nous rejoint",
+          "native": "she is joining us",
+          "kind": "term"
+        },
+        {
+          "target": "parce que",
+          "native": "because",
+          "kind": "term"
+        },
+        {
+          "target": "pourriez-vous",
+          "native": "could you (formal)",
+          "kind": "term"
+        },
+        {
+          "target": "plus formellement",
+          "native": "more formally",
+          "kind": "term"
+        },
+        {
+          "target": "si j’ai bien compris",
+          "native": "if I understood correctly",
+          "kind": "term"
+        },
+        {
+          "target": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+          "native": "Teacher: Could you introduce our new classmate to the group?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "native": "Student: Of course. I would like to introduce Camille, who comes from Lyon.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Professeure : Quel rôle aura-t-elle dans notre projet ?",
+          "native": "Teacher: What role will she have in our project?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Elle coordonnera les échanges avec les autres groupes.",
+          "native": "Student: She will coordinate the exchanges with the other groups.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Camarade : Pourquoi a-t-elle choisi de nous rejoindre ?",
+          "native": "Classmate: Why did she choose to join us?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "native": "Student: Because she wants to practise conversation and share her experience.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Camille : Merci. Puis-je aussi vous poser une question ?",
+          "native": "Camille: Thank you. May I ask you a question as well?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Bien entendu ; nous pourrons parler après la réunion.",
+          "native": "Student: Certainly; we can talk after the meeting.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "native": "Classmate: Can you introduce her to our coordinator more formally?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "native": "Student: Ma’am, I would like to introduce Camille, our new project colleague.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Responsable : Si j’ai bien compris, elle coordonnera les échanges ?",
+          "native": "Coordinator: If I understood correctly, she will coordinate the exchanges?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Exactement. Camille, souhaitez-vous ajouter quelque chose ?",
+          "native": "Student: Exactly. Camille, would you like to add anything?",
+          "kind": "phrase"
+        }
+      ],
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "stageCards": [
+        {
+          "target": "nouvelle camarade",
+          "native": "new classmate",
+          "kind": "term"
+        },
+        {
+          "target": "je vous présente",
+          "native": "I introduce to you (formal/plural)",
+          "kind": "term"
+        },
+        {
+          "target": "elle vient de",
+          "native": "she comes from",
+          "kind": "term"
+        },
+        {
+          "target": "elle nous rejoint",
+          "native": "she is joining us",
+          "kind": "term"
+        },
+        {
+          "target": "parce que",
+          "native": "because",
+          "kind": "term"
+        },
+        {
+          "target": "pourriez-vous",
+          "native": "could you (formal)",
+          "kind": "term"
+        },
+        {
+          "target": "plus formellement",
+          "native": "more formally",
+          "kind": "term"
+        },
+        {
+          "target": "si j’ai bien compris",
+          "native": "if I understood correctly",
+          "kind": "term"
+        },
+        {
+          "target": "groupe",
+          "native": "group",
+          "kind": "term"
+        },
+        {
+          "target": "rôle",
+          "native": "role",
+          "kind": "term"
+        },
+        {
+          "target": "échanges",
+          "native": "exchanges",
+          "kind": "term"
+        },
+        {
+          "target": "responsable",
+          "native": "coordinator",
+          "kind": "term"
+        },
+        {
+          "target": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+          "native": "Teacher: Could you introduce our new classmate to the group?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "native": "Student: Of course. I would like to introduce Camille, who comes from Lyon.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Professeure : Quel rôle aura-t-elle dans notre projet ?",
+          "native": "Teacher: What role will she have in our project?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Elle coordonnera les échanges avec les autres groupes.",
+          "native": "Student: She will coordinate the exchanges with the other groups.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Camarade : Pourquoi a-t-elle choisi de nous rejoindre ?",
+          "native": "Classmate: Why did she choose to join us?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "native": "Student: Because she wants to practise conversation and share her experience.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Camille : Merci. Puis-je aussi vous poser une question ?",
+          "native": "Camille: Thank you. May I ask you a question as well?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Bien entendu ; nous pourrons parler après la réunion.",
+          "native": "Student: Certainly; we can talk after the meeting.",
+          "kind": "phrase"
+        }
+      ],
+      "supplementalCards": [
+        {
+          "target": "groupe",
+          "native": "group",
+          "kind": "term"
+        },
+        {
+          "target": "rôle",
+          "native": "role",
+          "kind": "term"
+        },
+        {
+          "target": "échanges",
+          "native": "exchanges",
+          "kind": "term"
+        },
+        {
+          "target": "responsable",
+          "native": "coordinator",
+          "kind": "term"
+        }
+      ],
+      "backlogCards": [
+        {
+          "target": "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "native": "Classmate: Can you introduce her to our coordinator more formally?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "native": "Student: Ma’am, I would like to introduce Camille, our new project colleague.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Responsable : Si j’ai bien compris, elle coordonnera les échanges ?",
+          "native": "Coordinator: If I understood correctly, she will coordinate the exchanges?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Élève : Exactement. Camille, souhaitez-vous ajouter quelque chose ?",
+          "native": "Student: Exactly. Camille, would you like to add anything?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": {
+        "title": "Une présentation à deux registres",
+        "target": [
+          "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+          "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "Professeure : Quel rôle aura-t-elle dans notre projet ?",
+          "Élève : Elle coordonnera les échanges avec les autres groupes.",
+          "Camarade : Pourquoi a-t-elle choisi de nous rejoindre ?",
+          "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "Camille : Merci. Puis-je aussi vous poser une question ?",
+          "Élève : Bien entendu ; nous pourrons parler après la réunion.",
+          "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "Responsable : Si j’ai bien compris, elle coordonnera les échanges ?",
+          "Élève : Exactement. Camille, souhaitez-vous ajouter quelque chose ?"
+        ],
+        "native": [
+          "Teacher: Could you introduce our new classmate to the group?",
+          "Student: Of course. I would like to introduce Camille, who comes from Lyon.",
+          "Teacher: What role will she have in our project?",
+          "Student: She will coordinate the exchanges with the other groups.",
+          "Classmate: Why did she choose to join us?",
+          "Student: Because she wants to practise conversation and share her experience.",
+          "Camille: Thank you. May I ask you a question as well?",
+          "Student: Certainly; we can talk after the meeting.",
+          "Classmate: Can you introduce her to our coordinator more formally?",
+          "Student: Ma’am, I would like to introduce Camille, our new project colleague.",
+          "Coordinator: If I understood correctly, she will coordinate the exchanges?",
+          "Student: Exactly. Camille, would you like to add anything?"
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?",
+          "native": "Teacher: Could you introduce our new classmate to the group?"
+        },
+        {
+          "target": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "native": "Student: Of course. I would like to introduce Camille, who comes from Lyon."
+        },
+        {
+          "target": "Professeure : Quel rôle aura-t-elle dans notre projet ?",
+          "native": "Teacher: What role will she have in our project?"
+        },
+        {
+          "target": "Élève : Elle coordonnera les échanges avec les autres groupes.",
+          "native": "Student: She will coordinate the exchanges with the other groups."
+        },
+        {
+          "target": "Camarade : Pourquoi a-t-elle choisi de nous rejoindre ?",
+          "native": "Classmate: Why did she choose to join us?"
+        },
+        {
+          "target": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "native": "Student: Because she wants to practise conversation and share her experience."
+        },
+        {
+          "target": "Camille : Merci. Puis-je aussi vous poser une question ?",
+          "native": "Camille: Thank you. May I ask you a question as well?"
+        },
+        {
+          "target": "Élève : Bien entendu ; nous pourrons parler après la réunion.",
+          "native": "Student: Certainly; we can talk after the meeting."
+        },
+        {
+          "target": "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "native": "Classmate: Can you introduce her to our coordinator more formally?"
+        },
+        {
+          "target": "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "native": "Student: Ma’am, I would like to introduce Camille, our new project colleague."
+        },
+        {
+          "target": "Responsable : Si j’ai bien compris, elle coordonnera les échanges ?",
+          "native": "Coordinator: If I understood correctly, she will coordinate the exchanges?"
+        },
+        {
+          "target": "Élève : Exactement. Camille, souhaitez-vous ajouter quelque chose ?",
+          "native": "Student: Exactly. Camille, would you like to add anything?"
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "Use elle s’appelle and elle vient de to introduce another person. Tu fits peers; vous fits a formal group or unfamiliar adult. Explain a reason with parce que. To repair an overly informal first introduction, restate the same facts with vous and a fuller greeting; do not change the facts.",
+        "model": {
+          "peer": "Je te présente Camille. Elle vient de Lyon.",
+          "formal": "Je vous présente Camille, notre nouvelle camarade.",
+          "reason": "Elle nous rejoint parce qu’elle veut pratiquer la conversation."
+        },
+        "caution": "A polished introduction takes more than one turn. Keep the facts consistent as you switch between familiar and formal address."
+      },
+      "sourceGrammarNotes": {
+        "explanation": "Use elle s’appelle and elle vient de to introduce another person. Tu fits peers; vous fits a formal group or unfamiliar adult. Explain a reason with parce que. To repair an overly informal first introduction, restate the same facts with vous and a fuller greeting; do not change the facts.",
+        "model": {
+          "peer": "Je te présente Camille. Elle vient de Lyon.",
+          "formal": "Je vous présente Camille, notre nouvelle camarade.",
+          "reason": "Elle nous rejoint parce qu’elle veut pratiquer la conversation."
+        },
+        "caution": "A polished introduction is a multi-turn task, not a vowel drill. The old Spanish Master 1 reading stays only in provenance; these are new French/English pairs."
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the formal introduction: Je ___ présente Camille.",
+          "answer": "vous"
+        },
+        {
+          "type": "write",
+          "prompt": "Write a formal French sentence: I would like to introduce Camille, our new project colleague.",
+          "answer": "Je vous présente Camille, notre nouvelle collègue de projet."
+        },
+        {
+          "type": "listening",
+          "prompt": "What role will Camille have?",
+          "answer": "She will coordinate exchanges with other groups.",
+          "audioText": "Elle coordonnera les échanges avec les autres groupes.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why did Camille join?",
+          "answer": "To practise conversation and share her experience."
+        },
+        {
+          "type": "application",
+          "prompt": "How do you ask Camille formally if she wants to add something?",
+          "answer": "Camille, souhaitez-vous ajouter quelque chose ?"
+        }
+      ],
+      "speaking": {
+        "role": "Introduce a new classmate to a teacher and a peer.",
+        "opening": "Je vous présente Camille, qui vient de Lyon.",
+        "objectives": [
+          "Give name, origin and project role",
+          "Answer why she joined",
+          "Switch from tu to vous when asked",
+          "Confirm the coordinator understood"
+        ],
+        "complication": "The peer asks for a more formal introduction to the coordinator.",
+        "closure": "Invite Camille to add something and confirm the handoff."
+      },
+      "recordedAudio": false,
+      "modes": {
+        "see": {
+          "readerLineCount": 12
+        },
+        "recall": {
+          "cardCount": 20
+        },
+        "hear": {
+          "scriptCount": 12,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 20
+        },
+        "say": {
+          "speakingBrief": {
+            "role": "Introduce a new classmate to a teacher and a peer.",
+            "opening": "Je vous présente Camille, qui vient de Lyon.",
+            "objectives": [
+              "Give name, origin and project role",
+              "Answer why she joined",
+              "Switch from tu to vous when asked",
+              "Confirm the coordinator understood"
+            ],
+            "complication": "The peer asks for a more formal introduction to the coordinator.",
+            "closure": "Invite Camille to add something and confirm the handoff."
+          },
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 20
+        }
+      }
+    },
+    {
+      "n": 2,
+      "stableLessonKey": "master-french-basics:2",
+      "prerequisites": [
+        "foundation:2",
+        "core:14",
+        "core:23"
+      ],
+      "cards": [
+        {
+          "target": "consigne",
+          "native": "instruction",
+          "kind": "term"
+        },
+        {
+          "target": "matériel",
+          "native": "supplies",
+          "kind": "term"
+        },
+        {
+          "target": "cahier grand format",
+          "native": "large-format notebook",
+          "kind": "term"
+        },
+        {
+          "target": "il nous manque",
+          "native": "we are missing",
+          "kind": "term"
+        },
+        {
+          "target": "à la place de",
+          "native": "instead of",
+          "kind": "term"
+        },
+        {
+          "target": "cela convient-il",
+          "native": "is that suitable",
+          "kind": "term"
+        },
+        {
+          "target": "sur la table",
+          "native": "on the table",
+          "kind": "term"
+        },
+        {
+          "target": "dans le sac",
+          "native": "in the bag",
+          "kind": "term"
+        },
+        {
+          "target": "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos.",
+          "native": "Email: For tomorrow’s work, bring one large-format notebook and two pens.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "native": "Léa: I already have the two pens in my bag.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "native": "Noé: Is the notebook on the table large enough?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "native": "Léa: No, it is a small notebook; we are missing the large format.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Le magasin est fermé ce soir, donc nous ne pouvons pas en acheter un.",
+          "native": "Noé: The shop is closed this evening, so we cannot buy one.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Nous avons pourtant deux cahiers ordinaires.",
+          "native": "Léa: We do, however, have two ordinary notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "native": "Noé: Can we use them instead of the large notebook?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Je vais demander si cela convient pour le travail en groupe.",
+          "native": "Léa: I will ask whether that is suitable for the group work.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Professeure : Oui, à condition de numéroter les pages dans le même ordre.",
+          "native": "Teacher: Yes, provided that you number the pages in the same order.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Alors, je mettrai un cahier dans chaque sac.",
+          "native": "Noé: Then I will put one notebook in each bag.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Je vérifierai aussi que les stylos fonctionnent.",
+          "native": "Léa: I will also check that the pens work.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Parfait, nous avons maintenant tout ce qu’il faut pour demain.",
+          "native": "Noé: Great, we now have everything we need for tomorrow.",
+          "kind": "phrase"
+        }
+      ],
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        13,
+        14,
+        17,
+        18,
+        19
+      ],
+      "stageCards": [
+        {
+          "target": "consigne",
+          "native": "instruction",
+          "kind": "term"
+        },
+        {
+          "target": "matériel",
+          "native": "supplies",
+          "kind": "term"
+        },
+        {
+          "target": "cahier grand format",
+          "native": "large-format notebook",
+          "kind": "term"
+        },
+        {
+          "target": "il nous manque",
+          "native": "we are missing",
+          "kind": "term"
+        },
+        {
+          "target": "à la place de",
+          "native": "instead of",
+          "kind": "term"
+        },
+        {
+          "target": "cela convient-il",
+          "native": "is that suitable",
+          "kind": "term"
+        },
+        {
+          "target": "sur la table",
+          "native": "on the table",
+          "kind": "term"
+        },
+        {
+          "target": "dans le sac",
+          "native": "in the bag",
+          "kind": "term"
+        },
+        {
+          "target": "courriel",
+          "native": "email",
+          "kind": "term"
+        },
+        {
+          "target": "deux stylos",
+          "native": "two pens",
+          "kind": "term"
+        },
+        {
+          "target": "magasin",
+          "native": "shop",
+          "kind": "term"
+        },
+        {
+          "target": "pages",
+          "native": "pages",
+          "kind": "term"
+        },
+        {
+          "target": "petit cahier",
+          "native": "small notebook",
+          "kind": "term"
+        },
+        {
+          "target": "travail en groupe",
+          "native": "group work",
+          "kind": "term"
+        },
+        {
+          "target": "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "native": "Léa: I already have the two pens in my bag.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Nous avons pourtant deux cahiers ordinaires.",
+          "native": "Léa: We do, however, have two ordinary notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "native": "Noé: Can we use them instead of the large notebook?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Alors, je mettrai un cahier dans chaque sac.",
+          "native": "Noé: Then I will put one notebook in each bag.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Je vérifierai aussi que les stylos fonctionnent.",
+          "native": "Léa: I will also check that the pens work.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Parfait, nous avons maintenant tout ce qu’il faut pour demain.",
+          "native": "Noé: Great, we now have everything we need for tomorrow.",
+          "kind": "phrase"
+        }
+      ],
+      "supplementalCards": [
+        {
+          "target": "courriel",
+          "native": "email",
+          "kind": "term"
+        },
+        {
+          "target": "deux stylos",
+          "native": "two pens",
+          "kind": "term"
+        },
+        {
+          "target": "magasin",
+          "native": "shop",
+          "kind": "term"
+        },
+        {
+          "target": "pages",
+          "native": "pages",
+          "kind": "term"
+        },
+        {
+          "target": "petit cahier",
+          "native": "small notebook",
+          "kind": "term"
+        },
+        {
+          "target": "travail en groupe",
+          "native": "group work",
+          "kind": "term"
+        }
+      ],
+      "backlogCards": [
+        {
+          "target": "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos.",
+          "native": "Email: For tomorrow’s work, bring one large-format notebook and two pens.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "native": "Noé: Is the notebook on the table large enough?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "native": "Léa: No, it is a small notebook; we are missing the large format.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Noé : Le magasin est fermé ce soir, donc nous ne pouvons pas en acheter un.",
+          "native": "Noé: The shop is closed this evening, so we cannot buy one.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Je vais demander si cela convient pour le travail en groupe.",
+          "native": "Léa: I will ask whether that is suitable for the group work.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Professeure : Oui, à condition de numéroter les pages dans le même ordre.",
+          "native": "Teacher: Yes, provided that you number the pages in the same order.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": {
+        "title": "Un courriel avant le cours",
+        "target": [
+          "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos.",
+          "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "Noé : Le magasin est fermé ce soir, donc nous ne pouvons pas en acheter un.",
+          "Léa : Nous avons pourtant deux cahiers ordinaires.",
+          "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "Léa : Je vais demander si cela convient pour le travail en groupe.",
+          "Professeure : Oui, à condition de numéroter les pages dans le même ordre.",
+          "Noé : Alors, je mettrai un cahier dans chaque sac.",
+          "Léa : Je vérifierai aussi que les stylos fonctionnent.",
+          "Noé : Parfait, nous avons maintenant tout ce qu’il faut pour demain."
+        ],
+        "native": [
+          "Email: For tomorrow’s work, bring one large-format notebook and two pens.",
+          "Léa: I already have the two pens in my bag.",
+          "Noé: Is the notebook on the table large enough?",
+          "Léa: No, it is a small notebook; we are missing the large format.",
+          "Noé: The shop is closed this evening, so we cannot buy one.",
+          "Léa: We do, however, have two ordinary notebooks.",
+          "Noé: Can we use them instead of the large notebook?",
+          "Léa: I will ask whether that is suitable for the group work.",
+          "Teacher: Yes, provided that you number the pages in the same order.",
+          "Noé: Then I will put one notebook in each bag.",
+          "Léa: I will also check that the pens work.",
+          "Noé: Great, we now have everything we need for tomorrow."
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos.",
+          "native": "Email: For tomorrow’s work, bring one large-format notebook and two pens."
+        },
+        {
+          "target": "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "native": "Léa: I already have the two pens in my bag."
+        },
+        {
+          "target": "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "native": "Noé: Is the notebook on the table large enough?"
+        },
+        {
+          "target": "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "native": "Léa: No, it is a small notebook; we are missing the large format."
+        },
+        {
+          "target": "Noé : Le magasin est fermé ce soir, donc nous ne pouvons pas en acheter un.",
+          "native": "Noé: The shop is closed this evening, so we cannot buy one."
+        },
+        {
+          "target": "Léa : Nous avons pourtant deux cahiers ordinaires.",
+          "native": "Léa: We do, however, have two ordinary notebooks."
+        },
+        {
+          "target": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "native": "Noé: Can we use them instead of the large notebook?"
+        },
+        {
+          "target": "Léa : Je vais demander si cela convient pour le travail en groupe.",
+          "native": "Léa: I will ask whether that is suitable for the group work."
+        },
+        {
+          "target": "Professeure : Oui, à condition de numéroter les pages dans le même ordre.",
+          "native": "Teacher: Yes, provided that you number the pages in the same order."
+        },
+        {
+          "target": "Noé : Alors, je mettrai un cahier dans chaque sac.",
+          "native": "Noé: Then I will put one notebook in each bag."
+        },
+        {
+          "target": "Léa : Je vérifierai aussi que les stylos fonctionnent.",
+          "native": "Léa: I will also check that the pens work."
+        },
+        {
+          "target": "Noé : Parfait, nous avons maintenant tout ce qu’il faut pour demain.",
+          "native": "Noé: Great, we now have everything we need for tomorrow."
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "Extract obligations from a written brief with il faut or nous avons besoin de. Contrast available items with a missing one using il y a and il manque. Propose a substitute with à la place de, but ask whether it meets the actual need before treating it as approved. Distinguish dans (inside a bag) from sur (on a table).",
+        "model": {
+          "required": "Il faut un cahier grand format pour le cours.",
+          "missing": "Il nous manque un cahier grand format.",
+          "substitute": "Peut-on utiliser deux cahiers ordinaires à la place ?",
+          "confirmation": "Cela convient-il pour le travail en groupe ?"
+        },
+        "caution": "Check the written requirement before proposing a substitute. Ask the teacher to confirm the change before treating it as approved."
+      },
+      "sourceGrammarNotes": {
+        "explanation": "Extract obligations from a written brief with il faut or nous avons besoin de. Contrast available items with a missing one using il y a and il manque. Propose a substitute with à la place de, but ask whether it meets the actual need before treating it as approved. Distinguish dans (inside a bag) from sur (on a table).",
+        "model": {
+          "required": "Il faut un cahier grand format pour le cours.",
+          "missing": "Il nous manque un cahier grand format.",
+          "substitute": "Peut-on utiliser deux cahiers ordinaires à la place ?",
+          "confirmation": "Cela convient-il pour le travail en groupe ?"
+        },
+        "caution": "The original Spanish Master 2 source teaches articles and isolated classroom objects. This redesigned task requires reading, reconciliation, substitution and confirmation; its English pairs are new."
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Il nous ___ un cahier grand format.",
+          "answer": "manque"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Can we use them instead of the large notebook?",
+          "answer": "Peut-on les utiliser à la place du grand cahier ?"
+        },
+        {
+          "type": "listening",
+          "prompt": "What condition does the teacher set?",
+          "answer": "Number the pages in the same order.",
+          "audioText": "Oui, à condition de numéroter les pages dans le même ordre.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Why can’t the group buy a large notebook tonight?",
+          "answer": "The shop is closed."
+        },
+        {
+          "type": "application",
+          "prompt": "How do you ask whether the substitute is suitable?",
+          "answer": "Cela convient-il pour le travail en groupe ?"
+        }
+      ],
+      "speaking": {
+        "role": "Reconcile a supplies email with a classmate.",
+        "opening": "Il faut un cahier grand format et deux stylos pour demain.",
+        "objectives": [
+          "Read the requirement",
+          "State what is present and missing",
+          "Propose two ordinary notebooks as a substitute",
+          "Ask the teacher to confirm the condition"
+        ],
+        "complication": "The large-format notebook cannot be purchased tonight.",
+        "closure": "Recap who brings which notebook and confirm the pens work."
+      },
+      "recordedAudio": false,
+      "modes": {
+        "see": {
+          "readerLineCount": 12
+        },
+        "recall": {
+          "cardCount": 20
+        },
+        "hear": {
+          "scriptCount": 12,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 20
+        },
+        "say": {
+          "speakingBrief": {
+            "role": "Reconcile a supplies email with a classmate.",
+            "opening": "Il faut un cahier grand format et deux stylos pour demain.",
+            "objectives": [
+              "Read the requirement",
+              "State what is present and missing",
+              "Propose two ordinary notebooks as a substitute",
+              "Ask the teacher to confirm the condition"
+            ],
+            "complication": "The large-format notebook cannot be purchased tonight.",
+            "closure": "Recap who brings which notebook and confirm the pens work."
+          },
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 20
+        }
+      }
+    },
+    {
+      "n": 3,
+      "stableLessonKey": "master-french-basics:3",
+      "prerequisites": [
+        "foundation:3",
+        "core:24",
+        "core:30"
+      ],
+      "cards": [
+        {
+          "target": "répartition",
+          "native": "allocation",
+          "kind": "term"
+        },
+        {
+          "target": "il manque",
+          "native": "there is a shortage of",
+          "kind": "term"
+        },
+        {
+          "target": "il nous faut",
+          "native": "we need",
+          "kind": "term"
+        },
+        {
+          "target": "chacun",
+          "native": "each person",
+          "kind": "term"
+        },
+        {
+          "target": "lui",
+          "native": "to him or her",
+          "kind": "term"
+        },
+        {
+          "target": "leur",
+          "native": "to them",
+          "kind": "term"
+        },
+        {
+          "target": "d’abord",
+          "native": "first",
+          "kind": "term"
+        },
+        {
+          "target": "à tour de rôle",
+          "native": "in turns",
+          "kind": "term"
+        },
+        {
+          "target": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "native": "Maya: There are four of us, but there are only three notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Il nous en faut un de plus avant de commencer.",
+          "native": "Hugo: We need one more before we begin.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana : Je peux apporter le mien ; je le donnerai à Léa.",
+          "native": "Ana: I can bring mine; I will give it to Léa.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "native": "Maya: Thank you. I will give her a pencil as well.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Et les autres crayons, à qui les donne-t-on ?",
+          "native": "Hugo: And the other pencils, who do we give them to?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "native": "Maya: I will distribute them to the group; each person will have one.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana : Hugo et moi avons tous les deux besoin du dictionnaire.",
+          "native": "Ana: Hugo and I both need the dictionary.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Il n’y en a qu’un, alors comment allons-nous faire ?",
+          "native": "Léa: There is only one, so how are we going to manage?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Ana l’utilisera d’abord pendant dix minutes.",
+          "native": "Maya: Ana will use it first for ten minutes.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "native": "Hugo: After that, she will pass it to me and I will check the words.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana : Cela me convient, si nous gardons le même ordre.",
+          "native": "Ana: That works for me, if we keep the same order.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : D’accord : un cahier et un crayon chacun, puis le dictionnaire à tour de rôle.",
+          "native": "Maya: Agreed: one notebook and one pencil each, then the dictionary in turns.",
+          "kind": "phrase"
+        }
+      ],
+      "stageCardIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "stageCards": [
+        {
+          "target": "répartition",
+          "native": "allocation",
+          "kind": "term"
+        },
+        {
+          "target": "il manque",
+          "native": "there is a shortage of",
+          "kind": "term"
+        },
+        {
+          "target": "il nous faut",
+          "native": "we need",
+          "kind": "term"
+        },
+        {
+          "target": "chacun",
+          "native": "each person",
+          "kind": "term"
+        },
+        {
+          "target": "lui",
+          "native": "to him or her",
+          "kind": "term"
+        },
+        {
+          "target": "leur",
+          "native": "to them",
+          "kind": "term"
+        },
+        {
+          "target": "d’abord",
+          "native": "first",
+          "kind": "term"
+        },
+        {
+          "target": "à tour de rôle",
+          "native": "in turns",
+          "kind": "term"
+        },
+        {
+          "target": "cahier",
+          "native": "notebook",
+          "kind": "term"
+        },
+        {
+          "target": "crayon",
+          "native": "pencil",
+          "kind": "term"
+        },
+        {
+          "target": "dictionnaire",
+          "native": "dictionary",
+          "kind": "term"
+        },
+        {
+          "target": "dix minutes",
+          "native": "ten minutes",
+          "kind": "term"
+        },
+        {
+          "target": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "native": "Maya: There are four of us, but there are only three notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Il nous en faut un de plus avant de commencer.",
+          "native": "Hugo: We need one more before we begin.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "native": "Maya: Thank you. I will give her a pencil as well.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Et les autres crayons, à qui les donne-t-on ?",
+          "native": "Hugo: And the other pencils, who do we give them to?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "native": "Maya: I will distribute them to the group; each person will have one.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana : Hugo et moi avons tous les deux besoin du dictionnaire.",
+          "native": "Ana: Hugo and I both need the dictionary.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Léa : Il n’y en a qu’un, alors comment allons-nous faire ?",
+          "native": "Léa: There is only one, so how are we going to manage?",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : Ana l’utilisera d’abord pendant dix minutes.",
+          "native": "Maya: Ana will use it first for ten minutes.",
+          "kind": "phrase"
+        }
+      ],
+      "supplementalCards": [
+        {
+          "target": "cahier",
+          "native": "notebook",
+          "kind": "term"
+        },
+        {
+          "target": "crayon",
+          "native": "pencil",
+          "kind": "term"
+        },
+        {
+          "target": "dictionnaire",
+          "native": "dictionary",
+          "kind": "term"
+        },
+        {
+          "target": "dix minutes",
+          "native": "ten minutes",
+          "kind": "term"
+        }
+      ],
+      "backlogCards": [
+        {
+          "target": "Ana : Je peux apporter le mien ; je le donnerai à Léa.",
+          "native": "Ana: I can bring mine; I will give it to Léa.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "native": "Hugo: After that, she will pass it to me and I will check the words.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Ana : Cela me convient, si nous gardons le même ordre.",
+          "native": "Ana: That works for me, if we keep the same order.",
+          "kind": "phrase"
+        },
+        {
+          "target": "Maya : D’accord : un cahier et un crayon chacun, puis le dictionnaire à tour de rôle.",
+          "native": "Maya: Agreed: one notebook and one pencil each, then the dictionary in turns.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": {
+        "title": "Un dictionnaire pour deux",
+        "target": [
+          "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "Hugo : Il nous en faut un de plus avant de commencer.",
+          "Ana : Je peux apporter le mien ; je le donnerai à Léa.",
+          "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "Hugo : Et les autres crayons, à qui les donne-t-on ?",
+          "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "Ana : Hugo et moi avons tous les deux besoin du dictionnaire.",
+          "Léa : Il n’y en a qu’un, alors comment allons-nous faire ?",
+          "Maya : Ana l’utilisera d’abord pendant dix minutes.",
+          "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "Ana : Cela me convient, si nous gardons le même ordre.",
+          "Maya : D’accord : un cahier et un crayon chacun, puis le dictionnaire à tour de rôle."
+        ],
+        "native": [
+          "Maya: There are four of us, but there are only three notebooks.",
+          "Hugo: We need one more before we begin.",
+          "Ana: I can bring mine; I will give it to Léa.",
+          "Maya: Thank you. I will give her a pencil as well.",
+          "Hugo: And the other pencils, who do we give them to?",
+          "Maya: I will distribute them to the group; each person will have one.",
+          "Ana: Hugo and I both need the dictionary.",
+          "Léa: There is only one, so how are we going to manage?",
+          "Maya: Ana will use it first for ten minutes.",
+          "Hugo: After that, she will pass it to me and I will check the words.",
+          "Ana: That works for me, if we keep the same order.",
+          "Maya: Agreed: one notebook and one pencil each, then the dictionary in turns."
+        ]
+      },
+      "dialogue": [
+        {
+          "target": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "native": "Maya: There are four of us, but there are only three notebooks."
+        },
+        {
+          "target": "Hugo : Il nous en faut un de plus avant de commencer.",
+          "native": "Hugo: We need one more before we begin."
+        },
+        {
+          "target": "Ana : Je peux apporter le mien ; je le donnerai à Léa.",
+          "native": "Ana: I can bring mine; I will give it to Léa."
+        },
+        {
+          "target": "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "native": "Maya: Thank you. I will give her a pencil as well."
+        },
+        {
+          "target": "Hugo : Et les autres crayons, à qui les donne-t-on ?",
+          "native": "Hugo: And the other pencils, who do we give them to?"
+        },
+        {
+          "target": "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "native": "Maya: I will distribute them to the group; each person will have one."
+        },
+        {
+          "target": "Ana : Hugo et moi avons tous les deux besoin du dictionnaire.",
+          "native": "Ana: Hugo and I both need the dictionary."
+        },
+        {
+          "target": "Léa : Il n’y en a qu’un, alors comment allons-nous faire ?",
+          "native": "Léa: There is only one, so how are we going to manage?"
+        },
+        {
+          "target": "Maya : Ana l’utilisera d’abord pendant dix minutes.",
+          "native": "Maya: Ana will use it first for ten minutes."
+        },
+        {
+          "target": "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "native": "Hugo: After that, she will pass it to me and I will check the words."
+        },
+        {
+          "target": "Ana : Cela me convient, si nous gardons le même ordre.",
+          "native": "Ana: That works for me, if we keep the same order."
+        },
+        {
+          "target": "Maya : D’accord : un cahier et un crayon chacun, puis le dictionnaire à tour de rôle.",
+          "native": "Maya: Agreed: one notebook and one pencil each, then the dictionary in turns."
+        }
+      ],
+      "grammarNotes": {
+        "explanation": "For a group allocation, state the total with il y a, the shortage with il manque and the need with il nous faut. Use lui for one recipient and leur for several: je lui donne un cahier; je leur donne les crayons. Chacun can mean each person; make the division explicit rather than assuming everyone receives the same object. Explain and confirm a compromise when two people need one resource.",
+        "model": {
+          "total": "Il y a quatre personnes, mais seulement trois cahiers.",
+          "recipient": "Je donne un cahier à Ana ; je lui donne aussi un crayon.",
+          "group": "Je leur distribue les crayons.",
+          "compromise": "Ana utilisera le dictionnaire d’abord, puis Hugo le prendra."
+        },
+        "caution": "There are only three notebooks at first. Confirm who brings the fourth before you say each person has one; share the dictionary in the agreed order."
+      },
+      "sourceGrammarNotes": {
+        "explanation": "For a group allocation, state the total with il y a, the shortage with il manque and the need with il nous faut. Use lui for one recipient and leur for several: je lui donne un cahier; je leur donne les crayons. Chacun can mean each person; make the division explicit rather than assuming everyone receives the same object. Explain and confirm a compromise when two people need one resource.",
+        "model": {
+          "total": "Il y a quatre personnes, mais seulement trois cahiers.",
+          "recipient": "Je donne un cahier à Ana ; je lui donne aussi un crayon.",
+          "group": "Je leur distribue les crayons.",
+          "compromise": "Ana utilisera le dictionnaire d’abord, puis Hugo le prendra."
+        },
+        "caution": "The original Spanish Master 3 source repeats beginner plural inventories. This redesign adds a shortage, named recipients, a shared resource conflict and negotiated order. It has new French and English learner pairs."
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Je ___ donnerai aussi un crayon.",
+          "answer": "lui"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana will use it first for ten minutes.",
+          "answer": "Ana l’utilisera d’abord pendant dix minutes."
+        },
+        {
+          "type": "listening",
+          "prompt": "Who receives the extra notebook?",
+          "answer": "Léa.",
+          "audioText": "Je peux apporter le mien ; je le donnerai à Léa.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "How many notebooks are there at first?",
+          "answer": "Three."
+        },
+        {
+          "type": "application",
+          "prompt": "State the final dictionary arrangement in French.",
+          "answer": "Ana l’utilisera d’abord, puis Hugo le prendra."
+        }
+      ],
+      "speaking": {
+        "role": "Allocate supplies to a group of four.",
+        "opening": "Nous sommes quatre, mais il n’y a que trois cahiers.",
+        "objectives": [
+          "Count the shortage",
+          "Give a named person a notebook and pencil",
+          "Distribute the other pencils to the group",
+          "Negotiate dictionary use between Ana and Hugo"
+        ],
+        "complication": "Ana and Hugo both need the only dictionary.",
+        "closure": "Recap one notebook and pencil each plus the agreed dictionary order."
+      },
+      "recordedAudio": false,
+      "modes": {
+        "see": {
+          "readerLineCount": 12
+        },
+        "recall": {
+          "cardCount": 20
+        },
+        "hear": {
+          "scriptCount": 12,
+          "recordedAudio": false
+        },
+        "type": {
+          "cardCount": 20
+        },
+        "say": {
+          "speakingBrief": {
+            "role": "Allocate supplies to a group of four.",
+            "opening": "Nous sommes quatre, mais il n’y a que trois cahiers.",
+            "objectives": [
+              "Count the shortage",
+              "Give a named person a notebook and pencil",
+              "Distribute the other pencils to the group",
+              "Negotiate dictionary use between Ana and Hugo"
+            ],
+            "complication": "Ana and Hugo both need the only dictionary.",
+            "closure": "Recap one notebook and pencil each plus the agreed dictionary order."
+          },
+          "recordedAudio": false
+        },
+        "write": {
+          "cardCount": 20
+        }
+      }
+    }
+  ]
+}

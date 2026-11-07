@@ -14,7 +14,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:4",
       "n": 4,
-      "title": "Read the grout data sheet",
+      "title": "Questions about a bag of grout",
       "objective": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts.",
       "sourceObjective": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts.",
       "words": [
@@ -167,32 +167,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:4",
-        "title": "Read the grout data sheet",
-        "state": "phrase-sequence-draft",
+        "title": "Questions about a bag of grout",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "練り混ぜる前に、データシートを最後まで読む必要があります。",
-            "native": "Before mixing, we have to read the whole data sheet."
+            "target": "朝、左官のエルネストがグラウトの袋を作業台に置きました。",
+            "native": "In the morning, Ernesto the mason placed a bag of grout on the workbench."
           },
           {
-            "target": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。",
-            "native": "We use the water per bag that the data sheet gives."
+            "target": "職長は製品のデータシートを開きました。",
+            "native": "The foreman opened the product data sheet."
           },
           {
-            "target": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
-            "native": "I know you add more water, but here the sheet rules."
+            "target": "二人は、練り混ぜ水の欄を探しました。",
+            "native": "Together they looked for the section on mixing water."
           },
           {
-            "target": "データシートには、周囲温度について何と書かれていますか。",
-            "native": "What does the sheet say about the ambient temperature?"
+            "target": "エルネストは、前の現場と同じ量でよいか質問しました。",
+            "native": "Ernesto asked whether the amount from his previous job would apply."
           },
           {
-            "target": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
-            "native": "If it comes out too thick, don't add water; call me."
+            "target": "職長は「この製品の指示を確認してから答えましょう」と言いました。",
+            "native": "The foreman said, “Let’s check this product’s instructions before answering.”"
           },
           {
-            "target": "始める前に、可使時間を一緒に確認しましょう。",
-            "native": "Before starting, let's go over the working time together."
+            "target": "安全データシートも机の上に置いてありました。",
+            "native": "The safety data sheet was also on the table."
+          },
+          {
+            "target": "二人は、不明な点をメーカーへの質問としてメモしました。",
+            "native": "They wrote down their unanswered questions for the manufacturer."
+          },
+          {
+            "target": "作業を始める前に、確認した項目を読み合わせました。",
+            "native": "Before starting work, they reviewed the items they had confirmed."
           }
         ]
       },
@@ -217,28 +225,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:4",
         "summary": "Read the actual product documents with a mason, locate mixing and safety directions, and confirm unresolved specifications before work.",
         "sourceSpeakingJapanese": "あなたは職長で、AIは左官のエルネスト・サルガドです。グラウトのデータシートを一緒に読み、作業開始前に必要な練り混ぜと安全の手順を説明してください。「〜前に」「〜たあとで」「〜なければなりません」「〜必要があります」を使ってください。エルネストが水を足したいと言ったら、データシートの指示を優先し、練り上がりが硬すぎるときは水を加えずにあなたを呼ぶよう伝えてください。",
-        "openingLine": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+        "openingLine": "この製品のデータシートを一緒に確認しましょう。",
         "partnerRole": "A mason who asks where the data sheet specifies mixing water, time and safety precautions.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "練り混ぜる前に、____を最後まで読む必要があります。",
-          "hint": "Before mixing, we have to read the whole data sheet.",
+          "prompt": "職長は製品の____を開きました。",
+          "hint": "The foreman opened the product data sheet.",
           "answer": "データシート",
-          "explanation": "データシート appears in this lesson’s source phrase."
+          "explanation": "データシート appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____は、データシートに書かれている1袋あたりの量を使います。",
-          "hint": "We use the water per bag that the data sheet gives.",
+          "prompt": "二人は、____の欄を探しました。",
+          "hint": "Together they looked for the section on mixing water.",
           "answer": "練り混ぜ水",
-          "explanation": "練り混ぜ水 appears in this lesson’s source phrase."
+          "explanation": "練り混ぜ水 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "普段、水を多めに入れているのは知っていますが、ここではデータシートの____が優先です。",
-          "hint": "I know you add more water, but here the sheet rules.",
-          "answer": "指示",
-          "explanation": "指示 appears in this lesson’s source phrase."
+          "prompt": "二人は、不明な点を____への質問としてメモしました。",
+          "hint": "They wrote down their unanswered questions for the manufacturer.",
+          "answer": "メーカー",
+          "explanation": "メーカー appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -249,7 +257,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:5",
       "n": 5,
-      "title": "Report an unexpected tank",
+      "title": "An unexpected tank on the site",
       "objective": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order.",
       "sourceObjective": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order.",
       "words": [
@@ -402,32 +410,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:5",
-        "title": "Report an unexpected tank",
-        "state": "phrase-sequence-draft",
+        "title": "An unexpected tank on the site",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
-            "native": "When we were digging this morning, Pablo found an old septic tank."
+            "target": "掘削の途中で、パブロが図面にないタンクを見つけました。",
+            "native": "During excavation, Pablo found a tank that was not on the drawing."
           },
           {
-            "target": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
-            "native": "The tank was right where the new footing goes."
+            "target": "職長は、見つかった場所と時刻を記録しました。",
+            "native": "The foreman recorded where and when it was found."
           },
           {
-            "target": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
-            "native": "Nobody saw it before because it wasn't in the records."
+            "target": "住宅所有者のモンテスさんに、発見したことを伝えました。",
+            "native": "He told Mrs. Montes, the homeowner, about the discovery."
           },
           {
-            "target": "それぞれの案について、見積書をお出しします。",
-            "native": "I'll give you a written estimate for each option."
+            "target": "「このタンクの用途は、まだ確認できていません」と説明しました。",
+            "native": "“We have not confirmed what this tank was used for,” he explained."
           },
           {
-            "target": "モンテス様、費用についてのご心配はよく分かります。",
-            "native": "I understand your concern about the cost, Mrs. Montes."
+            "target": "担当の技術者に、フーチングの図面と現場の状況を見てもらうことになりました。",
+            "native": "They arranged for the responsible engineer to review the footing drawing and site conditions."
           },
           {
-            "target": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
-            "native": "Pablo, stop digging there until we check it."
+            "target": "モンテスさんは、費用と日程への影響を尋ねました。",
+            "native": "Mrs. Montes asked about effects on cost and schedule."
+          },
+          {
+            "target": "職長は「確認が終わってから選択肢を説明します」と答えました。",
+            "native": "The foreman answered, “I’ll explain the options after the checks are complete.”"
+          },
+          {
+            "target": "パブロは、次の連絡を待つ間、確認事項をメモしました。",
+            "native": "While waiting for the next update, Pablo wrote down the questions to resolve."
           }
         ]
       },
@@ -453,28 +469,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:5",
         "summary": "Tell the homeowner what was found, explain the work is paused in that location, and describe options only as pending specialist review.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは住宅の所有者ガブリエラ・モンテス様を演じます。今朝、掘削していたときにパブロが古い浄化槽を見つけたことを、「〜ていたとき、〜ました」を使って説明してください。変更注文書の選択肢として、技術者の指定どおりに撤去・埋め戻す案と、技術者の承認が得られればフーチングの位置を変える案を「〜こともできます」などを使って示してください。各案について見積書を出すと伝え、費用への懸念に答えてください。確認が終わるまで、その場所での掘削を止めていることを伝えてください。技術者の判断が出るまで、どの案も決定事項として伝えないでください。",
-        "openingLine": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+        "openingLine": "見つかったものと、まだ確認が必要な点を分けてお伝えします。",
         "partnerRole": "A homeowner who asks what the discovery means for the footing and cost.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "今朝、掘削作業をしていたときに、パブロが古い____を見つけました。",
-          "hint": "When we were digging this morning, Pablo found an old septic tank.",
-          "answer": "浄化槽",
-          "explanation": "浄化槽 appears in this lesson’s source phrase."
+          "prompt": "掘削の途中で、パブロが図面にない____を見つけました。",
+          "hint": "During excavation, Pablo found a tank that was not on the drawing.",
+          "answer": "タンク",
+          "explanation": "タンク appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "その浄化槽は、ちょうど新しい____を造る位置にありました。",
-          "hint": "The tank was right where the new footing goes.",
+          "prompt": "住宅所有者の____さんに、発見したことを伝えました。",
+          "hint": "He told Mrs. Montes, the homeowner, about the discovery.",
+          "answer": "モンテス",
+          "explanation": "モンテス appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "担当の技術者に、____の図面と現場の状況を見てもらうことになりました。",
+          "hint": "They arranged for the responsible engineer to review the footing drawing and site conditions.",
           "answer": "フーチング",
-          "explanation": "フーチング appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "物件の____に載っていなかったので、これまで誰も気づきませんでした。",
-          "hint": "Nobody saw it before because it wasn't in the records.",
-          "answer": "記録",
-          "explanation": "記録 appears in this lesson’s source phrase."
+          "explanation": "フーチング appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -485,7 +501,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:6",
       "n": 6,
-      "title": "Compare window delivery options",
+      "title": "Questions about window delivery",
       "objective": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule.",
       "sourceObjective": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule.",
       "words": [
@@ -638,32 +654,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:6",
-        "title": "Compare window delivery options",
-        "state": "phrase-sequence-draft",
+        "title": "Questions about window delivery",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "納入業者によると、指定の窓はあと6週間かかるそうです。",
-            "native": "According to the supplier, the specified windows will take 6 more weeks."
+            "target": "午後の会議で、エレナは窓の納期について尋ねました。",
+            "native": "At the afternoon meeting, Elena asked about the window lead time."
           },
           {
-            "target": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
-            "native": "The substitute will arrive sooner, but we have to check if it complies."
+            "target": "職長は、納入業者から届いた連絡を見せました。",
+            "native": "The foreman showed her the supplier’s update."
           },
           {
-            "target": "設計者の書面による承認がなければ、何も取り付けません。",
-            "native": "Without the architect's written approval, nothing gets installed."
+            "target": "指定の窓は、予定より遅れる見込みです。",
+            "native": "The specified windows are expected later than planned."
           },
           {
-            "target": "アンドレスさん、見積りと納期を送っていただけますか。",
-            "native": "Andrés, can you send me the quote and the lead time?"
+            "target": "代替品の提案もありますが、適合性はまだ確認中です。",
+            "native": "A substitute has also been proposed, but compliance is still being checked."
           },
           {
-            "target": "本日、代替品承認申請を設計者に送る予定です。",
-            "native": "We're going to send the substitution request to the architect today."
+            "target": "エレナは、内装仕上げへの影響が確定しているか尋ねました。",
+            "native": "Elena asked whether the effect on interior finishes was confirmed."
           },
           {
-            "target": "代替品の熱貫流率（U値）は、指定品と同じですか。",
-            "native": "Does the substitute have the same U-factor as the specified one?"
+            "target": "職長は「工程表を確認してからお伝えします」と答えました。",
+            "native": "The foreman answered, “I’ll check the schedule before giving you an update.”"
+          },
+          {
+            "target": "二人は、設計者への質問をリストにまとめました。",
+            "native": "They listed their questions for the architect."
+          },
+          {
+            "target": "会議の終わりに、未承認の案と確認済みの情報を分けて記録しました。",
+            "native": "At the end of the meeting, they recorded the unapproved proposal separately from confirmed information."
           }
         ]
       },
@@ -689,28 +713,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:6",
         "summary": "Compare supplier estimates with a project manager, request a compliance check and architect written approval before any substitution.",
         "sourceSpeakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。指定の窓を待つ場合と代替品を使う場合を「〜より」「〜ほど〜ない」「〜見込みです」「〜予定です」などで比べ、それぞれの案が工程と内装仕上げの開始にどう影響するか説明してください。納入業者によると指定の窓はあと6週間かかり、代替品は早く届く見込みですが、適合性の確認が必要です。代替品承認申請を設計者に送る予定です。代替品は設計者の書面による承認がなければ取り付けられないことを明確に伝えてください。",
-        "openingLine": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+        "openingLine": "窓の納期について、確認済みの情報からお伝えします。",
         "partnerRole": "A project manager who asks for sourced lead times, compliance information and an approval path.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "____によると、指定の窓はあと6週間かかるそうです。",
-          "hint": "According to the supplier, the specified windows will take 6 more weeks.",
-          "answer": "納入業者",
-          "explanation": "納入業者 appears in this lesson’s source phrase."
+          "prompt": "午後の会議で、エレナは窓の____について尋ねました。",
+          "hint": "At the afternoon meeting, Elena asked about the window lead time.",
+          "answer": "納期",
+          "explanation": "納期 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
-          "hint": "The substitute will arrive sooner, but we have to check if it complies.",
+          "prompt": "____の提案もありますが、適合性はまだ確認中です。",
+          "hint": "A substitute has also been proposed, but compliance is still being checked.",
           "answer": "代替品",
-          "explanation": "代替品 appears in this lesson’s source phrase."
+          "explanation": "代替品 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "設計者の____による承認がなければ、何も取り付けません。",
-          "hint": "Without the architect's written approval, nothing gets installed.",
-          "answer": "書面",
-          "explanation": "書面 appears in this lesson’s source phrase."
+          "prompt": "職長は「____を確認してからお伝えします」と答えました。",
+          "hint": "The foreman answered, “I’ll check the schedule before giving you an update.”",
+          "answer": "工程表",
+          "explanation": "工程表 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [

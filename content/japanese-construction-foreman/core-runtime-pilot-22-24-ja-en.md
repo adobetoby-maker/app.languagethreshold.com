@@ -1,0 +1,7 @@
+# Japanese Foreman Core 22–24 private runtime draft
+
+`core-runtime-pilot-22-24-ja-en.json` is generated from `core-translation-22-24-draft.json` by `python3 scripts/build-japanese-foreman-core-runtime-22-24.py`. The source validator pins the English source hash and checks every objective, term/phrase and Reader pair. The app's historical `es` field contains Japanese target text. Stable `construction-foreman-ja-en` lesson IDs 22–24 keep progress separate from Spanish and Japanese 101.
+
+The slice contains six-mode lesson inputs, 24 aligned Reader lines, grammar focus, speaking missions, three reading-based cloze checks per lesson, and 45 cards with matching dictionary entry drafts. The invoice scene defers unclear terms to a billing contact; the weather scene distinguishes a proposal from a confirmed date; the quality scene requests a documented review rather than an unverified repair. Core 22–24 Japanese source translations received scoped Fable and Opus **AI** rechecks after corrections, documented in `ai-review-core-19-27-2026-11-06.md`. The new teaching and speaking copy has not been independently reviewed. Qualified Japanese and billing/construction/quality review remain open; every `reviewed` flag is false.
+
+This data remains under `content/`, outside public catalog, stage/speaking registries and offline packs. It has no recorded Japanese audio or native V4 integration. Complete the rest of Core/Master, language/domain review, ja-JP recording/listening checks and pair-safe phone/offline/V4 acceptance before release.

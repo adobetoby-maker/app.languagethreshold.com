@@ -1,0 +1,1335 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "3f661beb517e38bad12359d90adb222fa0fbbf6509bfd269c60f977986ecd273",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:22",
+      "n": 22,
+      "title": "Clarify an invoice amount",
+      "objective": "Explain the invoice details you can confirm, ask about an unclear amount and identify the billing contact.",
+      "sourceObjective": "Explain the invoice details you can confirm, ask about an unclear amount and identify the billing contact.",
+      "words": [
+        {
+          "es": "せいきゅうしょ",
+          "en": "Invoice",
+          "kind": "term",
+          "cardId": "card-ja-en-7c280dbccea27630"
+        },
+        {
+          "es": "しはらい",
+          "en": "Payment",
+          "kind": "term",
+          "cardId": "card-ja-en-e1d9f4ef7beb01d5"
+        },
+        {
+          "es": "まえばらいきん",
+          "en": "Deposit",
+          "kind": "term",
+          "cardId": "card-ja-en-3e8edcf8e75e51a3"
+        },
+        {
+          "es": "のこりきんがく",
+          "en": "Balance",
+          "kind": "term",
+          "cardId": "card-ja-en-e18291a4b4ca8077"
+        },
+        {
+          "es": "きんがく",
+          "en": "Amount",
+          "kind": "term",
+          "cardId": "card-ja-en-06f2ece4424ab6c6"
+        },
+        {
+          "es": "しはらい きげん",
+          "en": "Due date",
+          "kind": "term",
+          "cardId": "card-ja-en-44db9152f1bea45e"
+        },
+        {
+          "es": "りょうしゅうしょ",
+          "en": "Receipt",
+          "kind": "term",
+          "cardId": "card-ja-en-54d4f6ad235c5772"
+        },
+        {
+          "es": "ふりこみ",
+          "en": "Transfer",
+          "kind": "term",
+          "cardId": "card-ja-en-2896944fc1d7359f"
+        },
+        {
+          "es": "めいさい こうもく の せつめい",
+          "en": "Line-item description",
+          "kind": "term",
+          "cardId": "card-ja-en-fceab97c1b1a4df9"
+        },
+        {
+          "es": "せいきゅう たんとうしゃ",
+          "en": "Billing contact",
+          "kind": "term",
+          "cardId": "card-ja-en-1dcac4e1eff14b71"
+        },
+        {
+          "es": "この きんがく は、どの めいさい こうもく の せつめい に たいおう して いますか。",
+          "en": "Which line-item description does this amount correspond to?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-7bf6352bcb17a463"
+        },
+        {
+          "es": "しはらい きげん を かくにん しましょう。",
+          "en": "Let's confirm the due date.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-90a01fe9c564d232"
+        },
+        {
+          "es": "りょうしゅうしょ には、きろく された しはらい が しめされて います。",
+          "en": "The receipt shows the recorded payment.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6089ef759d9cdd07"
+        },
+        {
+          "es": "のこりきんがく を かくにん する ひつよう が あります。",
+          "en": "I need to check the balance.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-07b8591edb915cdc"
+        },
+        {
+          "es": "せいきゅう たんとうしゃ は どなた ですか。",
+          "en": "Who is the billing contact?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f2a7ccab6076ba38"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:22",
+        "title": "Clarify an invoice amount",
+        "sentences": [
+          {
+            "target": "せいきゅうしょ では、まえばらいきん、のこりきんがく、めいさい こうもく ごとの せつめい が わかれて います。ただし、おきゃくさま は、ある きんがく に こころあたり が ありません。",
+            "native": "The invoice separates the deposit, balance and each line-item description, but the client does not recognize an amount."
+          },
+          {
+            "target": "りょうしゅうしょ には、ふりこみ による しはらい と その ひにち が しめされて います。それだけでは、とりきめた じょうけん の へんこう が かくにん された こと には なりません。",
+            "native": "The receipt identifies a payment by transfer and its date; by itself it does not confirm a change to the agreed terms."
+          },
+          {
+            "target": "しょくちょう は、しはらい きげん を はっきり させる ため、せいきゅう たんとうしゃ に そうだん し、かくにん できた じょうほう で へんじ します。",
+            "native": "The foreman consults the billing contact to clarify the due date and respond with confirmed information."
+          },
+          {
+            "target": "この きんがく は、どの めいさい こうもく の せつめい に たいおう して いますか。",
+            "native": "Which line-item description does this amount correspond to?"
+          },
+          {
+            "target": "しはらい きげん を かくにん しましょう。",
+            "native": "Let's confirm the due date."
+          },
+          {
+            "target": "りょうしゅうしょ には、きろく された しはらい が しめされて います。",
+            "native": "The receipt shows the recorded payment."
+          },
+          {
+            "target": "のこりきんがく を かくにん する ひつよう が あります。",
+            "native": "I need to check the balance."
+          },
+          {
+            "target": "せいきゅう たんとうしゃ は どなた ですか。",
+            "native": "Who is the billing contact?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Distinguish せいきゅうしょ (invoice), りょうしゅうしょ (receipt), まえばらいきん (deposit) and のこりきんがく (balance). A recorded payment does not by itself establish a change to agreed terms.",
+        "teachingNotesEnglish": [
+          "Invoice (せいきゅうしょ) and receipt (りょうしゅうしょ) are different documents. A receipt records a payment that has happened; it does not by itself change agreed terms.",
+          "Balance is rendered as のこりきんがく (remaining amount), not ざんだか, which in Japanese banking usually means an account balance.",
+          "Deposit is rendered here as まえばらいきん (advance payment). てつけきん would specifically mean contractual earnest money and could narrow the English; confirm the actual payment type with a trade reviewer.",
+          "Transfer is rendered as ふりこみ (bank transfer). The English is read as a payment method, not a transfer of ownership or responsibility.",
+          "Grammar: ～こと には なりません means “does not amount to”; ～が ありません is a polite negative; ～ため gives purpose; ～しましょう proposes an action; ～する ひつよう が あります means “there is a need to”.",
+          "Register: polite です/ます style. The draft uses mostly kana; the wording and spacing need a course-wide copy edit.",
+          "Who knows what: the foreman consults the billing contact and gives only confirmed information. The Japanese does not say whether the due date has been confirmed yet, so it stays pending.",
+          "Source ambiguity: reading line 1 says the client 'does not recognize an amount' without naming which amount, and the Japanese keeps it unspecified rather than inventing one. 'Let's confirm' is read as a proposal, not as a completed confirmation.",
+          "Draft Japanese for this lesson. No human or trade review is claimed."
+        ],
+        "examples": [
+          {
+            "es": "せいきゅうしょ では、まえばらいきん、のこりきんがく、めいさい こうもく ごとの せつめい が わかれて います。ただし、おきゃくさま は、ある きんがく に こころあたり が ありません。",
+            "en": "The invoice separates the deposit, balance and each line-item description, but the client does not recognize an amount."
+          },
+          {
+            "es": "りょうしゅうしょ には、ふりこみ による しはらい と その ひにち が しめされて います。それだけでは、とりきめた じょうけん の へんこう が かくにん された こと には なりません。",
+            "en": "The receipt identifies a payment by transfer and its date; by itself it does not confirm a change to the agreed terms."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:22",
+        "summary": "Explain only invoice details you can verify, ask which line item an unclear amount belongs to, and identify the billing contact for a due-date question.",
+        "openingLine": "この きんがく は、どの めいさい こうもく の せつめい に たいおう して いますか。",
+        "partnerRole": "A billing contact who checks the invoice and receipt records and clarifies an amount without inventing payment terms.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "せいきゅうしょ では、____、のこりきんがく、めいさい こうもく ごとの せつめい が わかれて います。ただし、おきゃくさま は、ある きんがく に こころあたり が ありません。",
+          "hint": "The invoice separates the deposit, balance and each line-item description, but the client does not recognize an amount.",
+          "answer": "まえばらいきん",
+          "explanation": "まえばらいきん appears in this lesson's reading."
+        },
+        {
+          "prompt": "りょうしゅうしょ には、____ による しはらい と その ひにち が しめされて います。それだけでは、とりきめた じょうけん の へんこう が かくにん された こと には なりません。",
+          "hint": "The receipt identifies a payment by transfer and its date; by itself it does not confirm a change to the agreed terms.",
+          "answer": "ふりこみ",
+          "explanation": "ふりこみ appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょくちょう は、しはらい きげん を はっきり させる ため、____ に そうだん し、かくにん できた じょうほう で へんじ します。",
+          "hint": "The foreman consults the billing contact to clarify the due date and respond with confirmed information.",
+          "answer": "せいきゅう たんとうしゃ",
+          "explanation": "せいきゅう たんとうしゃ appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:23",
+      "n": 23,
+      "title": "Explain a weather-related schedule proposal",
+      "objective": "Explain a weather-related change, distinguish a proposed date from a confirmed one and request acknowledgement.",
+      "sourceObjective": "Explain a weather-related change, distinguish a proposed date from a confirmed one and request acknowledgement.",
+      "words": [
+        {
+          "es": "てんき よほう",
+          "en": "Forecast",
+          "kind": "term",
+          "cardId": "card-ja-en-e2d3f913b04dec88"
+        },
+        {
+          "es": "あめ",
+          "en": "Rain",
+          "kind": "term",
+          "cardId": "card-ja-en-35091dce77c949ed"
+        },
+        {
+          "es": "かぜ",
+          "en": "Wind",
+          "kind": "term",
+          "cardId": "card-ja-en-2e9f3ddb79709431"
+        },
+        {
+          "es": "じょうきょう",
+          "en": "Condition",
+          "kind": "term",
+          "cardId": "card-ja-en-e159cac3d41d0acb"
+        },
+        {
+          "es": "おくれ",
+          "en": "Delay",
+          "kind": "term",
+          "cardId": "card-ja-en-387a43c4be30ac31"
+        },
+        {
+          "es": "スケジュールの へんこう",
+          "en": "Rescheduling",
+          "kind": "term",
+          "cardId": "card-ja-en-fefab8a4af4047e3"
+        },
+        {
+          "es": "ていあんの ひにち",
+          "en": "Proposed date",
+          "kind": "term",
+          "cardId": "card-ja-en-f10330038667347e"
+        },
+        {
+          "es": "かくにん",
+          "en": "Confirmation",
+          "kind": "term",
+          "cardId": "card-ja-en-fc176af78fc308d2"
+        },
+        {
+          "es": "だいたい あん",
+          "en": "Alternative",
+          "kind": "term",
+          "cardId": "card-ja-en-6f85c683c8db4140"
+        },
+        {
+          "es": "れんらく",
+          "en": "Update",
+          "kind": "term",
+          "cardId": "card-ja-en-1b979ad3c35ff1c9"
+        },
+        {
+          "es": "てんき よほうが かわりました。",
+          "en": "The forecast changed.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-b72026b62f1fd60b"
+        },
+        {
+          "es": "あたらしい ひにちは ていあんです。",
+          "en": "The new date is a proposal.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-9217619568f980b9"
+        },
+        {
+          "es": "げんばの じょうきょうを かくにん する ひつようが あります。",
+          "en": "We need to confirm the site condition.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-67ad5b70e9f03b23"
+        },
+        {
+          "es": "つぎの れんらくは いつ ありますか。",
+          "en": "When will there be another update?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-0bd5fb55c52de06f"
+        },
+        {
+          "es": "スケジュール へんこうの おしらせを うけとった ことを おしらせ ください。",
+          "en": "Confirm that you received the rescheduling notice.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-37482d75662074a6"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:23",
+        "title": "Explain a weather-related schedule proposal",
+        "sentences": [
+          {
+            "target": "てんき よほうには あめと かぜの ことが かいて あり、せきにんしゃは げんばの じょうきょうを かくにん しながら、おくれが ある と ほうこく して います。",
+            "native": "The forecast mentions rain and wind, and the responsible person reports a delay while reviewing the site condition."
+          },
+          {
+            "target": "スケジュールの へんこうには ていあんの ひにちと だいたい あんが ふくまれて いますが、どちらも さいしゅう かくていとして しめされて いません。",
+            "native": "The rescheduling includes a proposed date and an alternative, but neither is presented as final confirmation."
+          },
+          {
+            "target": "れんらくでは、どの さぎょうが かわるのか、だれに えいきょうが あるのか、けいかくの じょうきょうを いつ また つたえるのかが せつめい されて います。",
+            "native": "The update explains which task changes, whom it affects and when the plan's status will be communicated again."
+          },
+          {
+            "target": "てんき よほうが かわりました。",
+            "native": "The forecast changed."
+          },
+          {
+            "target": "あたらしい ひにちは ていあんです。",
+            "native": "The new date is a proposal."
+          },
+          {
+            "target": "げんばの じょうきょうを かくにん する ひつようが あります。",
+            "native": "We need to confirm the site condition."
+          },
+          {
+            "target": "つぎの れんらくは いつ ありますか。",
+            "native": "When will there be another update?"
+          },
+          {
+            "target": "スケジュール へんこうの おしらせを うけとった ことを おしらせ ください。",
+            "native": "Confirm that you received the rescheduling notice."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use ていあんの ひにち for a proposed date and かくてい for a confirmed one. Report the forecast and site condition as separate facts before promising a schedule.",
+        "teachingNotesEnglish": [
+          "Draft produced by a machine drafting agent. It has not been reviewed by a human or a trade specialist.",
+          "Script: the Japanese is written in spaced hiragana with katakana for loans such as スケジュール. Kanji are mostly avoided, consistent with the continuity glossary.",
+          "Source ambiguity: 'Condition' in the terms list is rendered as じょうきょう (state of the site). If it meant weather conditions, てんき or てんきの じょうきょう would fit better. The phrase 'site condition' keeps じょうきょう.",
+          "Source ambiguity: 'Alternative' could mean an alternative date or an alternative plan. だいたい あん is kept general, so the reader must use context.",
+          "ていあん is a proposal; かくてい is a finalized decision. かくにん means checking or acknowledging and does not by itself finalize a date. The source names no approver.",
+          "Reading line 1 uses かいて あり (is written) and ほうこく して います (is reporting). Reading line 3 uses せつめい されて います (is explained). None establishes date approval.",
+          "Grammar: 〜て います shows an ongoing state or report. 〜が かわりました is a past change. 〜する ひつようが あります means 'there is a need to'.",
+          "The request asks the listener to acknowledge receiving a notice, not to confirm the proposed new date.",
+          "The lesson contains no safety outcome, emergency treatment or financial promise, so none is stated in the Japanese."
+        ],
+        "examples": [
+          {
+            "es": "てんき よほうには あめと かぜの ことが かいて あり、せきにんしゃは げんばの じょうきょうを かくにん しながら、おくれが ある と ほうこく して います。",
+            "en": "The forecast mentions rain and wind, and the responsible person reports a delay while reviewing the site condition."
+          },
+          {
+            "es": "スケジュールの へんこうには ていあんの ひにちと だいたい あんが ふくまれて いますが、どちらも さいしゅう かくていとして しめされて いません。",
+            "en": "The rescheduling includes a proposed date and an alternative, but neither is presented as final confirmation."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:23",
+        "summary": "Explain the weather-related delay, distinguish a proposed new date from a confirmed date, and ask the crew to acknowledge the update.",
+        "openingLine": "てんき よほうが かわりました。あたらしい ひにちは ていあんです。",
+        "partnerRole": "A crew contact who acknowledges the proposal, checks the site condition and asks when the next confirmed update will come.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____には あめと かぜの ことが かいて あり、せきにんしゃは げんばの じょうきょうを かくにん しながら、おくれが ある と ほうこく して います。",
+          "hint": "The forecast mentions rain and wind, and the responsible person reports a delay while reviewing the site condition.",
+          "answer": "てんき よほう",
+          "explanation": "てんき よほう appears in this lesson's reading."
+        },
+        {
+          "prompt": "スケジュールの へんこうには ていあんの ひにちと ____が ふくまれて いますが、どちらも さいしゅう かくていとして しめされて いません。",
+          "hint": "The rescheduling includes a proposed date and an alternative, but neither is presented as final confirmation.",
+          "answer": "だいたい あん",
+          "explanation": "だいたい あん appears in this lesson's reading."
+        },
+        {
+          "prompt": "____では、どの さぎょうが かわるのか、だれに えいきょうが あるのか、けいかくの じょうきょうを いつ また つたえるのかが せつめい されて います。",
+          "hint": "The update explains which task changes, whom it affects and when the plan's status will be communicated again.",
+          "answer": "れんらく",
+          "explanation": "れんらく appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:24",
+      "n": 24,
+      "title": "Record a quality observation",
+      "objective": "Describe a quality observation, cite the current reference and arrange a documented review instead of prescribing an unverified fix.",
+      "sourceObjective": "Describe a quality observation, cite the current reference and arrange a documented review instead of prescribing an unverified fix.",
+      "words": [
+        {
+          "es": "ひんしつ",
+          "en": "Quality",
+          "kind": "term",
+          "cardId": "card-ja-en-099a148118ffd2a2"
+        },
+        {
+          "es": "しょけん",
+          "en": "Observation",
+          "kind": "term",
+          "cardId": "card-ja-en-d839201425c23c0a"
+        },
+        {
+          "es": "さんしょう しりょう",
+          "en": "Reference",
+          "kind": "term",
+          "cardId": "card-ja-en-2fdb3fc0911e191d"
+        },
+        {
+          "es": "きょようはんい",
+          "en": "Tolerance",
+          "kind": "term",
+          "cardId": "card-ja-en-fabff98b4c1cceda"
+        },
+        {
+          "es": "つなぎめ",
+          "en": "Joint",
+          "kind": "term",
+          "cardId": "card-ja-en-cc86763bdc1b20fc"
+        },
+        {
+          "es": "ひょうめん",
+          "en": "Surface",
+          "kind": "term",
+          "cardId": "card-ja-en-dcf277cf4baee6f5"
+        },
+        {
+          "es": "しあげ",
+          "en": "Finish",
+          "kind": "term",
+          "cardId": "card-ja-en-1985c3f403e38dea"
+        },
+        {
+          "es": "しょうこ",
+          "en": "Evidence",
+          "kind": "term",
+          "cardId": "card-ja-en-f63332c5648fe8cb"
+        },
+        {
+          "es": "レビュー",
+          "en": "Review",
+          "kind": "term",
+          "cardId": "card-ja-en-cd1102c7e25400d6"
+        },
+        {
+          "es": "しゅうせい",
+          "en": "Correction",
+          "kind": "term",
+          "cardId": "card-ja-en-b365405227f0786f"
+        },
+        {
+          "es": "しょけんを せいかくに せつめい して ください。",
+          "en": "Describe the observation precisely.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-483461d5e55803be"
+        },
+        {
+          "es": "どの さんしょう しりょうを みれば いいですか。",
+          "en": "Which reference should we consult?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-e321cefea79c9444"
+        },
+        {
+          "es": "きょようはんいは まだ かくにん して いません。",
+          "en": "I have not confirmed the tolerance.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c5de73d32c1dd3a8"
+        },
+        {
+          "es": "レビューの ために しょうこを きろく して ください。",
+          "en": "Record the evidence for review.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-52fa26246a143ed1"
+        },
+        {
+          "es": "しゅうせいに ついて、せきにんしゃに かくにん しましょう。",
+          "en": "Let's confirm the correction with the responsible person.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-88354b4f9484f9fd"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:24",
+        "title": "Record a quality observation",
+        "sentences": [
+          {
+            "target": "ひんしつ じゅんかいの とき、だれかが ひょうめん、つなぎめ、しあげを せつめい して いますが、どの しゅうせいが てきせつかは まだ けつろんを だして いません。",
+            "native": "During the quality walkthrough, someone describes the surface, joint and finish without yet concluding which correction is appropriate."
+          },
+          {
+            "target": "しょけんは、げんざいの さんしょう しりょうと ならんで しょうこ として ほぞん されます。きょようはんいは、がいとう する しりょうで かくにん する ひつようが あります。",
+            "native": "The observation is saved as evidence beside the current reference; the tolerance must be checked in the applicable documentation."
+          },
+          {
+            "target": "レビューは ひとと にちじを きめて わりあてられ、さぎょうはんは なにが かくにん されて いて、どの しつもんが まだ のこって いるかが わかります。",
+            "native": "The review is assigned to a person and a date, so the crew knows what is confirmed and which question remains open."
+          },
+          {
+            "target": "しょけんを せいかくに せつめい して ください。",
+            "native": "Describe the observation precisely."
+          },
+          {
+            "target": "どの さんしょう しりょうを みれば いいですか。",
+            "native": "Which reference should we consult?"
+          },
+          {
+            "target": "きょようはんいは まだ かくにん して いません。",
+            "native": "I have not confirmed the tolerance."
+          },
+          {
+            "target": "レビューの ために しょうこを きろく して ください。",
+            "native": "Record the evidence for review."
+          },
+          {
+            "target": "しゅうせいに ついて、せきにんしゃに かくにん しましょう。",
+            "native": "Let's confirm the correction with the responsible person."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use しょけん for an observation, さんしょう しりょう for the current reference, and きょようはんい for tolerance. Ask for a documented review rather than prescribing an unverified correction.",
+        "teachingNotesEnglish": [
+          "ひんしつ is the general word for quality; the English term is not tied to any approved standard or specification.",
+          "さんしょう しりょう means the document being consulted. The lesson does not establish that it is an approved specification; confirm the applicable document before relying on a tolerance.",
+          "きょようはんい is the working term for tolerance. The phrase まだ かくにん して いません marks it as pending, not confirmed, and does not say the value is wrong.",
+          "Grammar: ほぞん されます is a passive for 'is saved'; かくにん されて いて describes a confirmed state; ～して いません describes something not yet done.",
+          "Grammar: ～しましょう is a proposal (let's do it), not an agreement or approval. Keep it distinct from confirmed or authorized actions.",
+          "Register: polite です/ます forms throughout. ～して ください is a polite request; ～しましょう is a softer, collaborative suggestion suited to a jobsite.",
+          "The draft uses mostly kana with katakana for レビュー. A course-wide copy edit is still needed for spacing and punctuation.",
+          "Ambiguity: 'Finish' can be a noun (surface finish) or a verb. The Japanese uses the noun しあげ, which may need context on learner materials.",
+          "Ambiguity: 'joint' can mean a seam or a connection point. つなぎめ is used here to mean a seam or junction; the source does not specify which.",
+          "Ambiguity: 'beside' is rendered as ならんで, which may mean physically adjacent or filed alongside. The source does not clarify which.",
+          "Source gap: 'applicable documentation' is not named in the source, so the Japanese does not name a specific document type.",
+          "Source gap: 'someone', 'a person', and the responsible person's role are not identified in the source. せきにんしゃ is used per the glossary, without defining the role.",
+          "The reading describes a documented quality walkthrough, not a completed formal inspection, approval or outcome.",
+          "This draft does not claim human or trade-specialist review."
+        ],
+        "examples": [
+          {
+            "es": "ひんしつ じゅんかいの とき、だれかが ひょうめん、つなぎめ、しあげを せつめい して いますが、どの しゅうせいが てきせつかは まだ けつろんを だして いません。",
+            "en": "During the quality walkthrough, someone describes the surface, joint and finish without yet concluding which correction is appropriate."
+          },
+          {
+            "es": "しょけんは、げんざいの さんしょう しりょうと ならんで しょうこ として ほぞん されます。きょようはんいは、がいとう する しりょうで かくにん する ひつようが あります。",
+            "en": "The observation is saved as evidence beside the current reference; the tolerance must be checked in the applicable documentation."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:24",
+        "summary": "Describe the observed surface or joint issue, cite the applicable reference, record evidence, and agree who will review an unconfirmed tolerance or correction.",
+        "openingLine": "しょけんを せいかくに せつめい して ください。どの さんしょう しりょうを みれば いいですか。",
+        "partnerRole": "A responsible quality contact who records the observation and schedules review against the current specification without assuming a fix.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "ひんしつ じゅんかいの とき、だれかが ____、つなぎめ、しあげを せつめい して いますが、どの しゅうせいが てきせつかは まだ けつろんを だして いません。",
+          "hint": "During the quality walkthrough, someone describes the surface, joint and finish without yet concluding which correction is appropriate.",
+          "answer": "ひょうめん",
+          "explanation": "ひょうめん appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょけんは、げんざいの さんしょう しりょうと ならんで しょうこ として ほぞん されます。____は、がいとう する しりょうで かくにん する ひつようが あります。",
+          "hint": "The observation is saved as evidence beside the current reference; the tolerance must be checked in the applicable documentation.",
+          "answer": "きょようはんい",
+          "explanation": "きょようはんい appears in this lesson's reading."
+        },
+        {
+          "prompt": "____は ひとと にちじを きめて わりあてられ、さぎょうはんは なにが かくにん されて いて、どの しつもんが まだ のこって いるかが わかります。",
+          "hint": "The review is assigned to a person and a date, so the crew knows what is confirmed and which question remains open.",
+          "answer": "レビュー",
+          "explanation": "レビュー appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-7c280dbccea27630",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅうしょ",
+      "native": "Invoice",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-e1d9f4ef7beb01d5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい",
+      "native": "Payment",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-3e8edcf8e75e51a3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まえばらいきん",
+      "native": "Deposit",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-e18291a4b4ca8077",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこりきんがく",
+      "native": "Balance",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-06f2ece4424ab6c6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きんがく",
+      "native": "Amount",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-44db9152f1bea45e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい きげん",
+      "native": "Due date",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-54d4f6ad235c5772",
+      "courseId": "construction-foreman-ja-en",
+      "target": "りょうしゅうしょ",
+      "native": "Receipt",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-2896944fc1d7359f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふりこみ",
+      "native": "Transfer",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-fceab97c1b1a4df9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "めいさい こうもく の せつめい",
+      "native": "Line-item description",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-1dcac4e1eff14b71",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅう たんとうしゃ",
+      "native": "Billing contact",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-7bf6352bcb17a463",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この きんがく は、どの めいさい こうもく の せつめい に たいおう して いますか。",
+      "native": "Which line-item description does this amount correspond to?",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-90a01fe9c564d232",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい きげん を かくにん しましょう。",
+      "native": "Let's confirm the due date.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-6089ef759d9cdd07",
+      "courseId": "construction-foreman-ja-en",
+      "target": "りょうしゅうしょ には、きろく された しはらい が しめされて います。",
+      "native": "The receipt shows the recorded payment.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-07b8591edb915cdc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこりきんがく を かくにん する ひつよう が あります。",
+      "native": "I need to check the balance.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-f2a7ccab6076ba38",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅう たんとうしゃ は どなた ですか。",
+      "native": "Who is the billing contact?",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "card-ja-en-e2d3f913b04dec88",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てんき よほう",
+      "native": "Forecast",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-35091dce77c949ed",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あめ",
+      "native": "Rain",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-2e9f3ddb79709431",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かぜ",
+      "native": "Wind",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-e159cac3d41d0acb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じょうきょう",
+      "native": "Condition",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-387a43c4be30ac31",
+      "courseId": "construction-foreman-ja-en",
+      "target": "おくれ",
+      "native": "Delay",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-fefab8a4af4047e3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュールの へんこう",
+      "native": "Rescheduling",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-f10330038667347e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ていあんの ひにち",
+      "native": "Proposed date",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-6f85c683c8db4140",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だいたい あん",
+      "native": "Alternative",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-1b979ad3c35ff1c9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらく",
+      "native": "Update",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-b72026b62f1fd60b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てんき よほうが かわりました。",
+      "native": "The forecast changed.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-9217619568f980b9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あたらしい ひにちは ていあんです。",
+      "native": "The new date is a proposal.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-67ad5b70e9f03b23",
+      "courseId": "construction-foreman-ja-en",
+      "target": "げんばの じょうきょうを かくにん する ひつようが あります。",
+      "native": "We need to confirm the site condition.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-0bd5fb55c52de06f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つぎの れんらくは いつ ありますか。",
+      "native": "When will there be another update?",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-37482d75662074a6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュール へんこうの おしらせを うけとった ことを おしらせ ください。",
+      "native": "Confirm that you received the rescheduling notice.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "card-ja-en-099a148118ffd2a2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひんしつ",
+      "native": "Quality",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-2fdb3fc0911e191d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さんしょう しりょう",
+      "native": "Reference",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-fabff98b4c1cceda",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょようはんい",
+      "native": "Tolerance",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-cc86763bdc1b20fc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つなぎめ",
+      "native": "Joint",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-dcf277cf4baee6f5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひょうめん",
+      "native": "Surface",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-1985c3f403e38dea",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しあげ",
+      "native": "Finish",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-f63332c5648fe8cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうこ",
+      "native": "Evidence",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-cd1102c7e25400d6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レビュー",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-b365405227f0786f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせい",
+      "native": "Correction",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-483461d5e55803be",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけんを せいかくに せつめい して ください。",
+      "native": "Describe the observation precisely.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-e321cefea79c9444",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの さんしょう しりょうを みれば いいですか。",
+      "native": "Which reference should we consult?",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-c5de73d32c1dd3a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょようはんいは まだ かくにん して いません。",
+      "native": "I have not confirmed the tolerance.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-52fa26246a143ed1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レビューの ために しょうこを きろく して ください。",
+      "native": "Record the evidence for review.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "card-ja-en-88354b4f9484f9fd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせいに ついて、せきにんしゃに かくにん しましょう。",
+      "native": "Let's confirm the correction with the responsible person.",
+      "kind": "phrase",
+      "firstLesson": 24
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-7c280dbccea27630",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅうしょ",
+      "native": "Invoice",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-e1d9f4ef7beb01d5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい",
+      "native": "Payment",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-3e8edcf8e75e51a3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まえばらいきん",
+      "native": "Deposit",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-e18291a4b4ca8077",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこりきんがく",
+      "native": "Balance",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-06f2ece4424ab6c6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きんがく",
+      "native": "Amount",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-44db9152f1bea45e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい きげん",
+      "native": "Due date",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-54d4f6ad235c5772",
+      "courseId": "construction-foreman-ja-en",
+      "target": "りょうしゅうしょ",
+      "native": "Receipt",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-2896944fc1d7359f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふりこみ",
+      "native": "Transfer",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-fceab97c1b1a4df9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "めいさい こうもく の せつめい",
+      "native": "Line-item description",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-1dcac4e1eff14b71",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅう たんとうしゃ",
+      "native": "Billing contact",
+      "kind": "term",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-7bf6352bcb17a463",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この きんがく は、どの めいさい こうもく の せつめい に たいおう して いますか。",
+      "native": "Which line-item description does this amount correspond to?",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-90a01fe9c564d232",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しはらい きげん を かくにん しましょう。",
+      "native": "Let's confirm the due date.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-6089ef759d9cdd07",
+      "courseId": "construction-foreman-ja-en",
+      "target": "りょうしゅうしょ には、きろく された しはらい が しめされて います。",
+      "native": "The receipt shows the recorded payment.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-07b8591edb915cdc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこりきんがく を かくにん する ひつよう が あります。",
+      "native": "I need to check the balance.",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-f2a7ccab6076ba38",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せいきゅう たんとうしゃ は どなた ですか。",
+      "native": "Who is the billing contact?",
+      "kind": "phrase",
+      "firstLesson": 22
+    },
+    {
+      "id": "dict-ja-en-e2d3f913b04dec88",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てんき よほう",
+      "native": "Forecast",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-35091dce77c949ed",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あめ",
+      "native": "Rain",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-2e9f3ddb79709431",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かぜ",
+      "native": "Wind",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-e159cac3d41d0acb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じょうきょう",
+      "native": "Condition",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-387a43c4be30ac31",
+      "courseId": "construction-foreman-ja-en",
+      "target": "おくれ",
+      "native": "Delay",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-fefab8a4af4047e3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュールの へんこう",
+      "native": "Rescheduling",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-f10330038667347e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ていあんの ひにち",
+      "native": "Proposed date",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-6f85c683c8db4140",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だいたい あん",
+      "native": "Alternative",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-1b979ad3c35ff1c9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "れんらく",
+      "native": "Update",
+      "kind": "term",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-b72026b62f1fd60b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てんき よほうが かわりました。",
+      "native": "The forecast changed.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-9217619568f980b9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あたらしい ひにちは ていあんです。",
+      "native": "The new date is a proposal.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-67ad5b70e9f03b23",
+      "courseId": "construction-foreman-ja-en",
+      "target": "げんばの じょうきょうを かくにん する ひつようが あります。",
+      "native": "We need to confirm the site condition.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-0bd5fb55c52de06f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つぎの れんらくは いつ ありますか。",
+      "native": "When will there be another update?",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-37482d75662074a6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "スケジュール へんこうの おしらせを うけとった ことを おしらせ ください。",
+      "native": "Confirm that you received the rescheduling notice.",
+      "kind": "phrase",
+      "firstLesson": 23
+    },
+    {
+      "id": "dict-ja-en-099a148118ffd2a2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひんしつ",
+      "native": "Quality",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-2fdb3fc0911e191d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さんしょう しりょう",
+      "native": "Reference",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-fabff98b4c1cceda",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょようはんい",
+      "native": "Tolerance",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-cc86763bdc1b20fc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "つなぎめ",
+      "native": "Joint",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-dcf277cf4baee6f5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひょうめん",
+      "native": "Surface",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-1985c3f403e38dea",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しあげ",
+      "native": "Finish",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-f63332c5648fe8cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうこ",
+      "native": "Evidence",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-cd1102c7e25400d6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レビュー",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-b365405227f0786f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせい",
+      "native": "Correction",
+      "kind": "term",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-483461d5e55803be",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけんを せいかくに せつめい して ください。",
+      "native": "Describe the observation precisely.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-e321cefea79c9444",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの さんしょう しりょうを みれば いいですか。",
+      "native": "Which reference should we consult?",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-c5de73d32c1dd3a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょようはんいは まだ かくにん して いません。",
+      "native": "I have not confirmed the tolerance.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-52fa26246a143ed1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レビューの ために しょうこを きろく して ください。",
+      "native": "Record the evidence for review.",
+      "kind": "phrase",
+      "firstLesson": 24
+    },
+    {
+      "id": "dict-ja-en-88354b4f9484f9fd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうせいに ついて、せきにんしゃに かくにん しましょう。",
+      "native": "Let's confirm the correction with the responsible person.",
+      "kind": "phrase",
+      "firstLesson": 24
+    }
+  ]
+}

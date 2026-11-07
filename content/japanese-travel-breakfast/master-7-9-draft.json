@@ -1,0 +1,666 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "master-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "role": "Exact English objectives, speaking roles, grammar examples, word anchors and Reader lines retained as provenance; Japanese learner scenes are original contextual teach-back dialogues"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "master-travel-breakfast:7:ja-en",
+      "sourceEnglish": {
+        "n": 7,
+        "title": "The Guide Moves the Bus Up: Settle the Finca Order",
+        "objective": "Recount what the group ordered and paid, count items fast, and settle the bill before the bus leaves.",
+        "speaking": "You are the group's organizer, and the AI is Marleny, the cook at a coffee-farm breakfast near Salento: recount what the group ordered and who paid using the preterite (pedimos, pagaron), count what's still owed with faltan + numbers, and settle the bill before the bus leaves.",
+        "lessonType": "Case",
+        "block": "B",
+        "englishWordAnchors": [
+          "the arepa",
+          "the small black coffee",
+          "the scrambled eggs with tomato and onion",
+          "the cane-sugar drink",
+          "the reheated rice-and-beans breakfast",
+          "the farmer's cheese",
+          "the outstanding balance",
+          "the guide",
+          "the minibus",
+          "the departure",
+          "the bank transfer",
+          "the proof of payment",
+          "the large bills",
+          "the farm",
+          "the notebook",
+          "We ordered 7 arepas with cheese and 9 small black coffees.",
+          "Doña Marleny, 4 have already paid in cash.",
+          "There are still 3 black coffees and 2 aguapanelas to pay for.",
+          "Andrés said the minibus leaves in 10 minutes.",
+          "Guys, who ordered the scrambled eggs with tomato and onion?",
+          "Could you confirm how much of the balance is left, please?",
+          "Can I pay you by bank transfer or only in cash?",
+          "I'll pay what's left and sort it out with them later."
+        ],
+        "englishGrammarExamples": [
+          "We ordered 7 arepas, and 4 people already paid.",
+          "Marleny served 2 calentados that nobody wrote down in the notebook."
+        ],
+        "englishReading": [
+          "At 7:30, Emma's group finished breakfast at a coffee farm near Salento.",
+          "Suddenly, the guide Andrés announced that they moved the departure up to 7:45 because of a landslide on the road.",
+          "Emma, the organizer, went to the kitchen and told the cook: Andrés said the minibus leaves in 10 minutes.",
+          "Doña Marleny opened the notebook where she wrote down the group's orders that morning.",
+          "Emma: We ordered 7 arepas with cheese and 9 small black coffees.",
+          "Marleny: Yes, and also 2 aguapanelas for Priya's kids.",
+          "Emma: Doña Marleny, 4 have already paid in cash.",
+          "Marleny: Okay, but I also served 2 calentados that nobody wrote down in the notebook.",
+          "Emma asked her companions: Guys, who ordered the scrambled eggs with tomato and onion?",
+          "Tom and Priya raised their hands, and Tom admitted that he also ate a calentado with farmer's cheese.",
+          "Marleny added it up quickly with her pencil and said: There are still 3 black coffees and 2 aguapanelas to pay for.",
+          "Emma: Could you confirm how much of the balance is left, please?",
+          "Marleny: The outstanding balance is 64 thousand pesos, with the scrambled eggs and the 2 calentados.",
+          "Emma only had large 100 thousand-peso bills, and Marleny didn't have change so early.",
+          "Emma: Can I pay you by bank transfer or only in cash?",
+          "Marleny answered that she does accept transfers through Nequi and showed her the number stuck on the wall.",
+          "Emma told her: I'll pay what's left and sort it out with them later.",
+          "Emma made the transfer of 64 thousand pesos, showed her the proof of payment, and ran to the minibus just in time."
+        ],
+        "englishSourceSha256": "28011c01cdada74cde4708526a9b668f3dd28feda21c9ce9c23520962182d2de"
+      },
+      "title": "Settle a group breakfast bill before departure",
+      "objective": "Recount the group's orders and recorded payments, check the remaining balance with staff, and settle it before the shuttle departs.",
+      "focus": "～を注文しました and ～が支払いました recount completed actions; まだ～が残っています tracks what remains. The English source's pesos, Nequi transfer and Colombian foods are provenance, not Japanese learner copy. Verify each charge and the shop's accepted payment method before paying.",
+      "scene": "A group organizer checks a rural café's order ledger as an earlier shuttle departure approaches.",
+      "cards": [
+        {
+          "ja": "注文票",
+          "en": "order sheet",
+          "kind": "term"
+        },
+        {
+          "ja": "未払い",
+          "en": "unpaid amount",
+          "kind": "term"
+        },
+        {
+          "ja": "会計",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "送迎車",
+          "en": "shuttle vehicle",
+          "kind": "term"
+        },
+        {
+          "ja": "出発時刻",
+          "en": "departure time",
+          "kind": "term"
+        },
+        {
+          "ja": "振り込み",
+          "en": "bank transfer",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "支払い方法",
+          "en": "payment method",
+          "kind": "term"
+        },
+        {
+          "ja": "数を確認する",
+          "en": "to check the count",
+          "kind": "term"
+        },
+        {
+          "ja": "まだ残っています",
+          "en": "still remains",
+          "kind": "term"
+        },
+        {
+          "ja": "注文しました",
+          "en": "ordered",
+          "kind": "term"
+        },
+        {
+          "ja": "支払いました",
+          "en": "paid",
+          "kind": "term"
+        },
+        {
+          "ja": "いくら残っていますか",
+          "en": "how much remains?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guide",
+          "ja": "送迎車の出発が早まりました。あと十分です。",
+          "en": "The shuttle departure has moved up. We have ten minutes."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "注文票と支払いを一緒に確認してもいいですか。",
+          "en": "May we check the order sheet and payments together?"
+        },
+        {
+          "speaker": "Cook",
+          "ja": "はい。コーヒーを九杯と朝食を七人分記録しています。",
+          "en": "Yes. I recorded nine coffees and seven breakfasts."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "四人はもう現金で支払いました。",
+          "en": "Four people have already paid in cash."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "ありがとうございます。まだ二人分の朝食代が残っています。",
+          "en": "Thank you. Payment for two breakfasts still remains."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "追加の注文があったか、皆に確認します。",
+          "en": "I will ask everyone whether there were extra orders."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "私がコーヒーを一杯追加しました。まだ払っていません。",
+          "en": "I ordered one extra coffee. I have not paid for it yet."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "合計と残額をもう一度教えていただけますか。",
+          "en": "Could you tell me the total and remaining balance again?"
+        },
+        {
+          "speaker": "Cook",
+          "ja": "こちらが内訳です。お支払いは現金かカードです。",
+          "en": "Here is the itemized bill. You can pay with cash or card."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "内訳を確認しました。カードで残りを支払い、領収書を受け取ります。",
+          "en": "I checked the itemization. I will pay the rest by card and take the receipt."
+        }
+      ],
+      "speaking": {
+        "role": "Group breakfast organizer",
+        "partnerRole": "Café staff member",
+        "opening": "出発前に、注文票と未払いの金額を確認できますか。",
+        "goal": "Recount ordered and paid items, ask for an itemized remaining balance, and confirm the accepted payment method before settling.",
+        "closure": "Check the final receipt and avoid declaring a debt paid before staff confirms the payment.",
+        "wordBank": [
+          "注文票",
+          "未払い",
+          "残額",
+          "支払いました",
+          "会計",
+          "領収書"
+        ]
+      },
+      "modes": {
+        "see": "Read the itemized-bill dialogue with English support.",
+        "recall": "Recall the ordered, paid and remaining counts.",
+        "hear": "Hear past-tense order and payment statements.",
+        "type": "Type a remaining-balance question with kana help.",
+        "say": "Reconcile the group order with staff before departure.",
+        "write": "Write an itemized payment summary and confirmation request."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "master-travel-breakfast:8:ja-en",
+      "sourceEnglish": {
+        "n": 8,
+        "title": "Decline the Offer to Scrape the Almonds Off",
+        "objective": "Refuse a well-meant but unsafe offer for an allergic friend and ask for a safe option or none at all.",
+        "speaking": "You are with your friend Kenji, who has a tree-nut allergy, and the AI is Jordi, a server at a granja in Gràcia: thank him warmly but turn down his offer with negative commands like no la raspes and no recomiendo que + subjunctive, then ask for a safe option or nothing at all.",
+        "lessonType": "People",
+        "block": "B",
+        "englishWordAnchors": [
+          "the coca",
+          "the almonds",
+          "the tree nuts",
+          "the anaphylaxis",
+          "the bits left behind",
+          "the surface",
+          "the dough",
+          "the bakery kitchen",
+          "the traditional café",
+          "the hot chocolate with whipped cream",
+          "the packaged product",
+          "the safe option",
+          "the risk",
+          "the antihistamine",
+          "the kindness",
+          "Thanks, Jordi, but please don't scrape it.",
+          "I really appreciate it, honestly, you're very kind.",
+          "He has a severe tree-nut allergy.",
+          "I don't recommend Kenji try it, even if you remove the almonds.",
+          "Kenji, don't eat it; there are bits left in the dough.",
+          "Don't push it, Kenji; it's not worth the risk.",
+          "Do you have anything packaged, with the allergen label?",
+          "If there's no safe option, he'd rather not eat anything."
+        ],
+        "englishGrammarExamples": [
+          "Please don't scrape it; the almonds leave bits behind.",
+          "I don't recommend that Kenji try anything from the bakery kitchen without a label."
+        ],
+        "englishReading": [
+          "Ana and her friend Kenji are having breakfast on a Saturday at a traditional café in the Gràcia neighborhood, in Barcelona.",
+          "Kenji orders a hot chocolate with whipped cream, and Jordi, the server, recommends the house coca to them, fresh out of the oven.",
+          "Ana looks at the coca and sees that the whole surface is covered in almonds.",
+          "Ana points to Kenji and explains to Jordi: He has a severe tree-nut allergy.",
+          "Jordi, with great kindness, offers to scrape the almonds off a slice for Kenji.",
+          "Ana: I really appreciate it, honestly, you're very kind.",
+          "Ana: Thanks, Jordi, but please don't scrape it.",
+          "Ana: I don't recommend Kenji try it, even if you remove the almonds.",
+          "Jordi admits that in the bakery kitchen they make the dough on the same table where they work with almonds all day.",
+          "Kenji hesitates and says that a small piece isn't going to hurt him.",
+          "Ana: Kenji, don't eat it; there are bits left in the dough.",
+          "Ana: Don't push it, Kenji; it's not worth the risk.",
+          "Kenji remembers that last year he had anaphylaxis from a piece of nougat.",
+          "He carries his antihistamine and his auto-injector, as his doctor told him, and Ana knows that, if there are symptoms, the auto-injector is used and 112 is called.",
+          "Ana: Do you have anything packaged, with the allergen label?",
+          "Jordi brings a packaged product, but the label says it may contain traces of tree nuts.",
+          "Ana: If there's no safe option, he'd rather not eat anything.",
+          "Jordi checks the allergen chart and confirms that the hot chocolate has no tree nuts among its ingredients; Ana asks whether it is prepared with clean utensils, and Kenji decides to order it only if the kitchen confirms."
+        ],
+        "englishSourceSha256": "e8348868e045e30a5daf37dc08a4aa02d6b6717de291984c8fbdafad3c8b3cc0"
+      },
+      "title": "Decline removal of nuts from a prepared pastry",
+      "objective": "Politely decline an offer to remove nuts from a prepared pastry for a friend with a tree-nut allergy, and ask about a verifiable alternative or choose nothing.",
+      "focus": "お気持ちはありがたいですが acknowledges kindness before declining; 取り除くだけでは～ません explains that removing visible nuts does not resolve unknown cross-contact. Never call a packaged item or drink safe merely from a label or menu; the person with the allergy and qualified staff must verify current ingredients and preparation. Follow their own emergency plan if symptoms occur.",
+      "scene": "At a bakery café, a server offers to remove almond pieces from a pastry; the guests decline and ask for current labeling and preparation information.",
+      "cards": [
+        {
+          "ja": "木の実",
+          "en": "tree nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "アーモンド",
+          "en": "almonds",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "菓子パン",
+          "en": "sweet pastry",
+          "kind": "term"
+        },
+        {
+          "ja": "取り除く",
+          "en": "to remove",
+          "kind": "term"
+        },
+        {
+          "ja": "表面",
+          "en": "surface",
+          "kind": "term"
+        },
+        {
+          "ja": "生地",
+          "en": "dough",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料表示",
+          "en": "ingredient label",
+          "kind": "term"
+        },
+        {
+          "ja": "製造場所",
+          "en": "production area",
+          "kind": "term"
+        },
+        {
+          "ja": "混入",
+          "en": "cross-contact",
+          "kind": "term"
+        },
+        {
+          "ja": "確認できない",
+          "en": "cannot verify",
+          "kind": "term"
+        },
+        {
+          "ja": "遠慮します",
+          "en": "I will decline",
+          "kind": "term"
+        },
+        {
+          "ja": "お気持ちはありがたいですが",
+          "en": "I appreciate the offer, but",
+          "kind": "term"
+        },
+        {
+          "ja": "何も食べません",
+          "en": "I will not eat anything",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Server",
+          "ja": "この菓子パンはいかがですか。アーモンドが上にのっています。",
+          "en": "How about this pastry? It has almonds on top."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "友人は木の実にアレルギーがあります。",
+          "en": "My friend has a tree-nut allergy."
+        },
+        {
+          "speaker": "Server",
+          "ja": "上のアーモンドを取り除きましょうか。",
+          "en": "Shall I remove the almonds on top?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お気持ちはありがたいですが、それは遠慮します。",
+          "en": "I appreciate the offer, but we will decline."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "見える分を取り除くだけでは、原材料や混入を確認できません。",
+          "en": "Removing the visible pieces does not verify the ingredients or possible cross-contact."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "原材料表示のある別の商品はありますか。",
+          "en": "Do you have another product with an ingredient label?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "こちらは包装されていますが、製造場所の情報も確認します。",
+          "en": "This one is packaged, but I will check the production information too."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "確認できない場合は、何も注文しません。",
+          "en": "If it cannot be verified, we will not order food."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "飲み物も調理方法を確認してから決めます。",
+          "en": "I will decide about a drink only after checking how it is prepared."
+        },
+        {
+          "speaker": "Server",
+          "ja": "分かりました。確認できた情報だけをお伝えします。",
+          "en": "Understood. I will tell you only what we can verify."
+        }
+      ],
+      "speaking": {
+        "role": "Friend declining a pastry",
+        "partnerRole": "Bakery café server",
+        "opening": "友人は木の実にアレルギーがあります。アーモンドを取り除くだけでは注文できません。",
+        "goal": "Thank the server, decline removal of visible nuts, ask for current ingredient and preparation details, and choose no food if verification is unavailable.",
+        "closure": "Do not diagnose, prescribe, or promise that another item is safe; follow the guest's existing emergency plan and local emergency services if needed.",
+        "wordBank": [
+          "木の実",
+          "アレルギー",
+          "取り除く",
+          "原材料表示",
+          "混入",
+          "遠慮します"
+        ]
+      },
+      "modes": {
+        "see": "Read a polite refusal scene with aligned English.",
+        "recall": "Recall why visible nut removal is insufficient.",
+        "hear": "Hear a warm acknowledgement followed by a clear refusal.",
+        "type": "Type a refusal with kana support.",
+        "say": "Decline the pastry and request verifiable information.",
+        "write": "Write a concise request for current ingredient and preparation details."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "master-travel-breakfast:9:ja-en",
+      "sourceEnglish": {
+        "n": 9,
+        "title": "Give Honest Feedback to a New Café Owner",
+        "objective": "Give specific, kind feedback on coffee and menu clarity and make two concrete recommendations.",
+        "speaking": "You are a customer, and the AI is Camila, the new café owner in Barrio Italia: give honest, kind feedback on the cortado and the chalkboard menu, and make two concrete recommendations using le recomiendo que and ojalá que with the present subjunctive.",
+        "lessonType": "People",
+        "block": "C",
+        "englishWordAnchors": [
+          "the temperature",
+          "the espresso machine",
+          "the grinder",
+          "the cup warmer",
+          "the steamed milk",
+          "the crema",
+          "the handwriting",
+          "the chalk",
+          "the categories",
+          "readable",
+          "confusing",
+          "the first impression",
+          "the kuchen (fruit cake)",
+          "the suggestion",
+          "the honest opinion",
+          "If you want my honest opinion, the cortado arrived a bit cold.",
+          "I recommend that you warm the cups before serving.",
+          "I hope the cortado comes out a little hotter.",
+          "I suggest you separate the coffees from the sweets by category.",
+          "It's better if you write the prices in bigger letters.",
+          "I loved the kuchen, it was truly delicious.",
+          "I hope what I'm saying doesn't bother you.",
+          "I really hope things go great with the café, Camila."
+        ],
+        "englishGrammarExamples": [
+          "I recommend that you put the prices next to each coffee.",
+          "I hope the milk comes out hotter tomorrow."
+        ],
+        "englishReading": [
+          "Daniel, a Canadian traveler, has a cortado and eats a raspberry kuchen at Camila's new café in Barrio Italia.",
+          "Camila opened the place two weeks ago and asks Daniel for his honest opinion about the coffee and the menu.",
+          "Daniel: If you want my honest opinion, the cortado arrived a bit cold.",
+          "Daniel: The crema looked very nice, but the steamed milk arrived lukewarm.",
+          "Camila explains that the espresso machine is new and that she is still learning to control the temperature.",
+          "She says that she adjusts the grinder every morning so that the espresso comes out well.",
+          "Daniel notices that the cup warmer is turned off on top of the machine.",
+          "Daniel: I recommend that you warm the cups before serving.",
+          "Daniel: I hope the cortado comes out a little hotter.",
+          "Then Daniel looks at the menu board, written in white chalk, and finds it confusing.",
+          "Daniel: The handwriting is very small and the prices are not readable from the register.",
+          "Daniel: I suggest you separate the coffees from the sweets by category.",
+          "Daniel: It's better if you write the prices in bigger letters.",
+          "Camila: You're right, the first impression is very important in a new place.",
+          "Daniel: I hope what I'm saying doesn't bother you.",
+          "Camila: Not at all, I really appreciate the suggestion.",
+          "Daniel: I loved the kuchen, it was truly delicious.",
+          "Daniel: I really hope things go great with the café, Camila."
+        ],
+        "englishSourceSha256": "683c60ca7d61974776421aef593b64311f8a05930e5c60b1e68dcbcc22d7fa8e"
+      },
+      "title": "Give kind, specific feedback to a café owner",
+      "objective": "Tell a café owner what worked, explain two observable problems with the coffee and menu, and offer two concrete suggestions without claiming technical certainty.",
+      "focus": "少し～でした gives measured feedback; ～すると見やすいと思います and ～してはいかがですか make suggestions. Describe the served drink and readable prices rather than diagnosing the espresso machine or promising that a technical adjustment will fix the result.",
+      "scene": "A regular customer gives a new café owner courteous feedback about a lukewarm drink and hard-to-read menu board.",
+      "cards": [
+        {
+          "ja": "感想",
+          "en": "feedback",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物の温度",
+          "en": "drink temperature",
+          "kind": "term"
+        },
+        {
+          "ja": "ぬるい",
+          "en": "lukewarm",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー板",
+          "en": "menu board",
+          "kind": "term"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "文字",
+          "en": "lettering",
+          "kind": "term"
+        },
+        {
+          "ja": "見やすい",
+          "en": "easy to read",
+          "kind": "term"
+        },
+        {
+          "ja": "提案",
+          "en": "suggestion",
+          "kind": "term"
+        },
+        {
+          "ja": "改善",
+          "en": "improvement",
+          "kind": "term"
+        },
+        {
+          "ja": "よかった点",
+          "en": "what worked well",
+          "kind": "term"
+        },
+        {
+          "ja": "少し～でした",
+          "en": "it was a little ...",
+          "kind": "term"
+        },
+        {
+          "ja": "～してはいかがですか",
+          "en": "how about doing ...?",
+          "kind": "term"
+        },
+        {
+          "ja": "～と思います",
+          "en": "I think that ...",
+          "kind": "term"
+        },
+        {
+          "ja": "応援しています",
+          "en": "I am rooting for you",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Owner",
+          "ja": "新しい店の感想を聞かせていただけますか。",
+          "en": "Could you tell me what you thought of the new café?"
+        },
+        {
+          "speaker": "Customer",
+          "ja": "ケーキはおいしかったです。飲み物とメニューについて二つ提案があります。",
+          "en": "The cake was delicious. I have two suggestions about the drink and menu."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "ぜひ教えてください。",
+          "en": "Please tell me."
+        },
+        {
+          "speaker": "Customer",
+          "ja": "今日のカフェオレは、私には少しぬるく感じました。",
+          "en": "Today's café au lait felt a little lukewarm to me."
+        },
+        {
+          "speaker": "Customer",
+          "ja": "提供する前に温度を確認してはいかがですか。",
+          "en": "How about checking the temperature before serving it?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "分かりました。店の手順を見直してみます。",
+          "en": "I see. I will review our shop procedure."
+        },
+        {
+          "speaker": "Customer",
+          "ja": "それから、レジからはメニュー板の値段が読みにくかったです。",
+          "en": "Also, the menu-board prices were hard to read from the register."
+        },
+        {
+          "speaker": "Customer",
+          "ja": "飲み物と甘い物を分けて、値段を大きく書くと見やすいと思います。",
+          "en": "I think separating drinks and sweets and writing prices larger would make it easier to read."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "具体的な提案をありがとうございます。",
+          "en": "Thank you for the specific suggestions."
+        },
+        {
+          "speaker": "Customer",
+          "ja": "こちらこそ。新しいお店を応援しています。",
+          "en": "Thank you. I am rooting for your new café."
+        }
+      ],
+      "speaking": {
+        "role": "Customer giving feedback",
+        "partnerRole": "New café owner",
+        "opening": "ケーキはおいしかったです。飲み物とメニューについて、少し感想をお伝えしてもいいですか。",
+        "goal": "Praise one thing, identify two observable issues, and offer two respectful, concrete suggestions.",
+        "closure": "Leave the owner room to choose how to respond; avoid asserting a technical cause you did not verify.",
+        "wordBank": [
+          "感想",
+          "ぬるい",
+          "メニュー板",
+          "値段",
+          "提案",
+          "見やすい"
+        ]
+      },
+      "modes": {
+        "see": "Read a specific feedback exchange with English support.",
+        "recall": "Recall one positive observation and two suggestions.",
+        "hear": "Hear measured feedback and suggestion phrasing.",
+        "type": "Type one polite suggestion with kana support.",
+        "say": "Give useful feedback without diagnosing equipment.",
+        "write": "Write a short, kind feedback note with two recommendations."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language, register and pedagogy review",
+    "Qualified billing and payment-method review for Master 7",
+    "Qualified food-allergy, cross-contact and emergency-plan review for Master 8",
+    "Qualified café-service and culturally appropriate feedback review for Master 9",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

@@ -1,0 +1,7 @@
+# Pair-safe specialty stage IDs
+
+The existing Spanish Construction Foreman stage IDs (`foundation-construction-foreman` and `master-construction-foreman`) and their saved progress keys stay unchanged. A Japanese→English stage of that trade must use a distinct permanent ID such as `foundation-japanese-construction-foreman`. This keeps lesson, speaking, deck, download and progress identities separate. Never rename either ID after learner activity exists.
+
+The stage manifest now accepts `moduleId` on a stage and an explicit `nativeLanguage` on its entry. Lookup rejects an incorrect target/native pair before consulting the stage cache. Two entries can share a Core trade base only when they have different pairs and distinct stage IDs. The validator rejects duplicate IDs, ambiguous same-pair entries and invalid IDs. Existing one-pair manifest entries retain their current IDs and behavior.
+
+The three-lesson Japanese Foreman pilot in PR #244 is **not registered** here. A complete Foundation 1–10 stage file, corresponding lesson-content and Reader assets, speaking/card/verb and offline links, and a pair-specific Core 60 path still need to be built and tested. Before registration, check start/end lessons and all six modes in Japanese→English, Spanish→English regression, unsupported pairs, account-scoped progress migration/isolation, and desktop/phone/offline behavior. Keep `reviewed:false` until qualified Japanese and construction-domain review is recorded. The pilot is a draft, not a released course.

@@ -112,7 +112,7 @@ export const lookupWord = createServerFn({ method: "POST" })
 
       const native = data.nativeLanguage ?? "English";
       // A Core 60 stage lesson resolves from a lazily loaded stage chunk: load it first.
-      await ensureStageForModule(data.lesson?.moduleId);
+      await ensureStageForModule(data.lesson?.moduleId, { targetLanguage: data.language, nativeLanguage: native });
       if (
         data.lesson &&
         (!resolveTutorLesson(data.lesson) ||

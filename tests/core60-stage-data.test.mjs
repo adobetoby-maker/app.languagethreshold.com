@@ -13,6 +13,7 @@ import { MASTER_ROOFING_FOCUS } from "../src/data/master-roofing-curriculum.ts";
 import {
   deriveStageModule,
   findStageEntry,
+  manifestStageModuleId,
   masterComplicationRule,
   parseStageFile,
   stageCurriculumFromFile,
@@ -155,6 +156,8 @@ test("parseStageFile rejects a file for another module, stage or language", () =
   assert.equal(parseStageFile(file, { ...expected, moduleId: "master-plumber" }), null);
   assert.equal(parseStageFile(file, { ...expected, stage: "foundation" }), null);
   assert.equal(parseStageFile(file, { ...expected, language: "English" }), null);
+  assert.equal(parseStageFile(file, { ...expected, nativeLanguage: "Japanese" }), null);
+  assert.ok(validateStageFile(file, { ...expected, nativeLanguage: "Japanese" }).some((error) => error.includes('nativeLanguage must be "Japanese"')));
   assert.equal(parseStageFile({ ...file, version: 2 }, expected), null);
   assert.equal(parseStageFile({ ...file, lessons: [{ n: 1 }] }, expected), null);
 });
@@ -226,6 +229,27 @@ test("derived stages follow their base in the catalog and never replace a hand-w
   assert.equal(out.length, HANDWRITTEN_MODULES.length + 3);
   assert.deepEqual(findStageEntry(manifest, "master-plumber")?.stage, "master");
   assert.equal(findStageEntry(manifest, "foundation-plumber"), null);
+});
+
+test("shared Foreman base keeps Spanish IDs and assigns Japanese stages their own stable IDs", () => {
+  const spanish = { base: "construction-foreman", language: "Spanish", foundation: {} };
+  const japanese = {
+    base: "construction-foreman", language: "Japanese", nativeLanguage: "English",
+    foundation: { moduleId: "foundation-japanese-construction-foreman" },
+  };
+  const manifest = [spanish, japanese];
+  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
+  assert.equal(manifestStageModuleId(spanish, "foundation"), "foundation-construction-foreman");
+  assert.equal(manifestStageModuleId(japanese, "foundation"), "foundation-japanese-construction-foreman");
+  assert.equal(findStageEntry(manifest, "foundation-construction-foreman", "Japanese", "English"), null);
+  assert.equal(findStageEntry(manifest, "foundation-japanese-construction-foreman", "Spanish", "English"), null);
+  assert.equal(findStageEntry(manifest, "foundation-japanese-construction-foreman", "Japanese", "Spanish"), null);
+  assert.equal(findStageEntry(manifest, "foundation-japanese-construction-foreman", "Japanese", "English")?.entry, japanese);
+  const modules = withDerivedStageModules(HANDWRITTEN_MODULES, manifest);
+  assert.equal(modules.find((m) => m.id === "foundation-construction-foreman")?.languages?.[0], "Spanish");
+  assert.equal(modules.find((m) => m.id === "foundation-japanese-construction-foreman")?.languages?.[0], "Japanese");
+  assert.ok(validateManifest([spanish, { ...japanese, foundation: {} }], HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id]))
+    .some((error) => error.includes("listed for more than one pair")));
 });
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {

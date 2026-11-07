@@ -84,8 +84,8 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
       if (!moduleSupportsLearningPair(module, data.language, nativeLanguage)) {
         return { pairs: null, error: "This language is not available for this module" };
       }
-      await ensureStageForModule(module.id);
-      const curriculum = getCurriculum(module.id);
+      await ensureStageForModule(module.id, { targetLanguage: data.language, nativeLanguage });
+      const curriculum = getCurriculum(module.id, data.language, nativeLanguage);
       const request = {
         model: "claude-haiku-5-5",
         max_tokens: 8000,

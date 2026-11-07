@@ -4154,8 +4154,8 @@ Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
  * A module's curriculum. Data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the
  * stage registry: null until their chunk has loaded (see useStageCurriculum), immediate under Node.
  */
-export function getCurriculum(moduleId: string): ModuleCurriculum | null {
-  return CURRICULA[moduleId] ?? stageCurriculum(moduleId);
+export function getCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): ModuleCurriculum | null {
+  return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
 }
 
 export function getCurrentLesson(

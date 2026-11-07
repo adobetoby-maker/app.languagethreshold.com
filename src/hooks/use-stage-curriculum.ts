@@ -27,14 +27,14 @@ export function useStageCurriculaVersion(): number {
  * "none" for every module that is not a data-driven stage (nothing to wait for), else "loading"
  * until its curriculum is in the registry ("ready") or known to be absent ("unavailable").
  */
-export function useStageCurriculum(moduleId: string | null | undefined): StageCurriculumStatus {
+export function useStageCurriculum(moduleId: string | null | undefined, targetLanguage?: string, nativeLanguage?: string): StageCurriculumStatus {
   useStageCurriculaVersion();
-  const status = stageCurriculumStatus(moduleId);
+  const status = stageCurriculumStatus(moduleId, targetLanguage, nativeLanguage);
   const wanted = status === "loading" || status === "unavailable";
   // loading and unavailable both want a load, so a failed load retries when the module is opened
   // again, not on every render.
   useEffect(() => {
-    if (moduleId && wanted) void loadStageCurriculum(moduleId);
-  }, [moduleId, wanted]);
+    if (moduleId && wanted) void loadStageCurriculum(moduleId, { targetLanguage, nativeLanguage });
+  }, [moduleId, wanted, targetLanguage, nativeLanguage]);
   return status;
 }

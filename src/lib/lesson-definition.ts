@@ -44,7 +44,7 @@ export function getLessonDefinition(input: {
   contentVersion: string;
 }): LessonDefinition | null {
   const { moduleId, lessonNumber, targetLanguage, instructionLanguage, contentVersion } = input;
-  const source = getCurriculum(moduleId)?.lessons.find((l) => l.n === lessonNumber);
+  const source = getCurriculum(moduleId, targetLanguage, instructionLanguage)?.lessons.find((l) => l.n === lessonNumber);
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";

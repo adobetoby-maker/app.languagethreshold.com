@@ -19,7 +19,7 @@ import { HANDWRITTEN_MODULES } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import {
   stageFileRelativePath,
-  stageModuleId,
+  manifestStageModuleId,
   type Core60StageKind,
 } from "../src/lib/core60-stage-core.ts";
 import { validateManifest, validateStageFile } from "../src/lib/core60-validate.ts";
@@ -88,7 +88,7 @@ if (files.length > 0) {
   for (const entry of CORE60_MANIFEST) {
     for (const stage of ["foundation", "master"] as Core60StageKind[]) {
       if (!entry[stage]) continue;
-      const moduleId = stageModuleId(stage, entry.base);
+      const moduleId = manifestStageModuleId(entry, stage);
       const relative = stageFileRelativePath(entry.language, moduleId);
       listed.add(relative);
       const path = join(STAGE_ROOT, relative);
@@ -96,7 +96,7 @@ if (files.length > 0) {
         report(moduleId, [`listed in the manifest but ${path} does not exist`]);
         continue;
       }
-      checkFile(path, { moduleId, stage, language: entry.language });
+      checkFile(path, { moduleId, stage, language: entry.language, nativeLanguage: entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English") });
       const content = join(CONTENT_ROOT, relative);
       if (!existsSync(content)) {
         if (strict) report(moduleId, [`no lesson content (passages, verbs) at ${content}`]);

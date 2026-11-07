@@ -4,7 +4,7 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
-import { core30PathBannerText } from "@/lib/core60-path";
+import { core30PathBannerText, core60PathsForPair } from "@/lib/core60-path";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { MODULES } from "@/data/modules";
 import { reloadNewestAppVersion } from "@/lib/app-update";
@@ -105,7 +105,10 @@ export function TabShell() {
   // ...and a Core 30 module whose trade does not have both its Foundation and Master yet.
   const core30PathBanner =
     state.currentTab === "core30" && !foundation && !master
-      ? core30PathBannerText(state.activeModuleId)
+      ? core30PathBannerText(
+          state.activeModuleId,
+          core60PathsForPair(state.selectedLanguage, state.nativeLanguage),
+        )
       : null;
   const purposeName = foundation ? "Core 60 · Foundation" : master ? "Core 60 · Master" : tool.name;
   const purposeText = foundation

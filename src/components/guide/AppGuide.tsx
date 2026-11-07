@@ -13,7 +13,7 @@ import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
   core60Eyebrow,
-  core60PathOf,
+  core60PathOfPair,
   core60StageName,
   stageLessonLabel,
   stageLessonShort,
@@ -131,7 +131,8 @@ function useOpenCore30Of() {
 
 /** "Core 60 · Roofing · Step 2 of 3", above the heading of a stage page of a trade that has a path. */
 function StageEyebrow({ moduleId }: { moduleId: string }) {
-  const path = core60PathOf(moduleId);
+  const { state } = useApp();
+  const path = core60PathOfPair(moduleId, state.selectedLanguage, state.nativeLanguage);
   if (!path) return null;
   return (
     <p
@@ -151,7 +152,8 @@ function StageEyebrow({ moduleId }: { moduleId: string }) {
  */
 function Core60PathCard({ moduleId }: { moduleId: string }) {
   const openCore30Of = useOpenCore30Of();
-  const path = core60PathOf(moduleId);
+  const { state } = useApp();
+  const path = core60PathOfPair(moduleId, state.selectedLanguage, state.nativeLanguage);
   if (!path) return null;
   const labels = { foundation: "Foundation", core: "Core", master: "Master" };
   return (

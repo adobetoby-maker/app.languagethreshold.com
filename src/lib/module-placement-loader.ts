@@ -2,7 +2,7 @@ import { getCurriculum } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 import { ensureStageForModule } from "@/data/core60-stages";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
-import { core60PathOf } from "./core60-path";
+import { core60PathOfPair } from "./core60-path";
 import { loadLessonContent } from "./lesson-content";
 import { loadLessonDeck } from "./lesson-words";
 import { authoredWordsPairForModule, pickAuthoredWords, pickDeckWords } from "./lesson-words-core";
@@ -20,7 +20,7 @@ export async function loadModulePlacement(
   const module = getModule(moduleId);
   if (!module || !moduleSupportsLearningPair(module, target, native))
     throw new Error("Placement is not available for this module and language pair.");
-  const path = core60PathOf(moduleId);
+  const path = core60PathOfPair(moduleId, target, native);
   const stages = path
     ? path.steps.filter((s) => s.available).map((s) => ({ id: s.moduleId, label: s.stage }))
     : [{ id: moduleId, label: "course" }];

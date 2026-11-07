@@ -117,7 +117,12 @@ export function findStageEntry(
   const matches: { entry: Core60ManifestEntry; stage: Core60StageKind }[] = [];
   for (const entry of manifest) {
     if (targetLanguage && entry.language !== targetLanguage) continue;
-    if (nativeLanguage && (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !== nativeLanguage) continue;
+    if (
+      nativeLanguage &&
+      (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !==
+        nativeLanguage
+    )
+      continue;
     if (entry.foundation && moduleId === manifestStageModuleId(entry, "foundation"))
       matches.push({ entry, stage: "foundation" });
     if (entry.master && moduleId === manifestStageModuleId(entry, "master"))
@@ -239,7 +244,7 @@ export function deriveStageModule(
   const foundation = stage === "foundation";
   const derived: AppModule = {
     id: manifestStageModuleId(entry, stage),
-    name: `${base.name} ${foundation ? "Foundation" : "Master"}`,
+    name: `${entry.tradeLabel ?? base.name} ${foundation ? "Foundation" : "Master"}`,
     emoji: base.emoji,
     category: base.category,
     blurb:
@@ -260,14 +265,29 @@ export function deriveStageModule(
     challengePrompts: own.challengePrompts ?? [...base.challengePrompts],
     vocabFocus: own.vocabFocus ?? [...base.vocabFocus],
   };
+  // A stage belongs to the manifest's exact pair, even when a base course is
+  // reused for another target language. Never inherit the base's Spanish pair.
+  derived.authoredPair = {
+    target: language as NonNullable<AppModule["authoredPair"]>["target"],
+    native: (entry.nativeLanguage ??
+      (language === "English" ? "Spanish" : "English")) as NonNullable<
+      AppModule["authoredPair"]
+    >["native"],
+  };
   if (base.authoredPair) {
-    derived.authoredPair = { ...base.authoredPair };
-    if (base.id === "spanish-basics" || base.id === "spanish-cognates" || base.id === "japanese-basics")
+    if (
+      base.id === "spanish-basics" ||
+      base.id === "spanish-cognates" ||
+      base.id === "japanese-basics"
+    )
       derived.aiPersona = base.aiPersona;
   }
   if (base.learnDirection) derived.learnDirection = base.learnDirection;
   if (base.nativeLanguages) derived.nativeLanguages = [...base.nativeLanguages];
-  if (entry.nativeLanguage) derived.nativeLanguages = [entry.nativeLanguage as NonNullable<AppModule["nativeLanguages"]>[number]];
+  if (entry.nativeLanguage)
+    derived.nativeLanguages = [
+      entry.nativeLanguage as NonNullable<AppModule["nativeLanguages"]>[number],
+    ];
   return derived;
 }
 

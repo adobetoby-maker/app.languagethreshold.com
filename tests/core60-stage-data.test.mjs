@@ -25,6 +25,7 @@ import { validateManifest, validateStageFile, vosotrosForms } from "../src/lib/c
 import {
   CORE60_PATHS,
   core60PathOf,
+  core60PathOfPair,
   core60PathsFromManifest,
   hasCore30Checkpoints,
   showFoundationNudge,
@@ -250,6 +251,37 @@ test("shared Foreman base keeps Spanish IDs and assigns Japanese stages their ow
   assert.equal(modules.find((m) => m.id === "foundation-japanese-construction-foreman")?.languages?.[0], "Japanese");
   assert.ok(validateManifest([spanish, { ...japanese, foundation: {} }], HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id]))
     .some((error) => error.includes("listed for more than one pair")));
+});
+
+test("French stages on a shared base keep French progress ids and French/English ownership", () => {
+  const spanish = { base: "electrician", language: "Spanish", foundation: {}, master: {} };
+  const french = {
+    base: "electrician", language: "French", nativeLanguage: "English",
+    foundation: { moduleId: "foundation-french-electrician" },
+    master: { moduleId: "master-french-electrician" },
+  };
+  const manifest = [spanish, french];
+  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
+  const frenchModules = withDerivedStageModules(HANDWRITTEN_MODULES, manifest);
+  const frenchStage = frenchModules.find((module) => module.id === "foundation-french-electrician");
+  assert.deepEqual(frenchStage.authoredPair, { target: "French", native: "English" });
+  assert.deepEqual(frenchStage.languages, ["French"]);
+  assert.deepEqual(frenchStage.nativeLanguages, ["English"]);
+  const frenchPaths = core60PathsFromManifest(manifest, {}, "French", "English");
+  const spanishPaths = core60PathsFromManifest(manifest, {}, "Spanish", "English");
+  assert.deepEqual(frenchPaths.electrician.foundationId, "foundation-french-electrician");
+  assert.deepEqual(frenchPaths.electrician.masterId, "master-french-electrician");
+  assert.deepEqual(spanishPaths.electrician.foundationId, "foundation-electrician");
+  assert.deepEqual(spanishPaths.electrician.masterId, "master-electrician");
+  assert.equal(core60PathOf("foundation-electrician", frenchPaths), null);
+  assert.equal(core60PathOf("foundation-french-electrician", spanishPaths), null);
+  assert.equal(core60PathOf("foundation-french-electrician", frenchPaths)?.tradeModuleId, "electrician");
+  assert.equal(core60PathOfPair("foundation-roofing", "French", "English"), null);
+  assert.equal(core60PathOfPair("foundation-roofing", "Spanish", "English")?.tradeModuleId, "roofing");
+  assert.ok(validateManifest([
+    { base: "spanish-basics", language: "French", nativeLanguage: "English", foundation: { moduleId: "foundation-french-basics" } },
+  ], HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id]))
+    .some((error) => error.includes("use a separate base module for French/English")));
 });
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {

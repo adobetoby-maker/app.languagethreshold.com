@@ -14,6 +14,8 @@ assert plan["registered"] is False and plan["reviewed"] is False
 assert plan["recordingsGenerated"] is False and plan["watchIntegrated"] is False
 assert plan["bundleId"] == "com.languagethreshold.core60v4.watchkitapp"
 assert plan["voiceIdentitiesVerified"] is False
+assert plan["nativeFrenchRecordedPlaybackIntegrated"] is False
+assert "not a builder/playback mismatch" in plan["lookupContract"]
 assert plan["selectedTextCount"] == len(plan["selected"]) == 12
 assert plan["requestedClipCount"] == 24
 assert [item["priority"] for item in plan["selected"]] == list(range(1, 13))
@@ -25,7 +27,7 @@ assert all(item["recorded"] is False and item["listeningReviewed"] is False
 assert all((module.ROOT / ref["path"]).is_file()
            for item in plan["selected"] for ref in item["sourceRefs"])
 assert module.v4_lookup_key("Bonjour!") == "bonjour"
-assert module.v4_lookup_key("Bonjour !") == "bonjour "  # Current V4 behavior; tracked blocker.
+assert module.v4_lookup_key("Bonjour !") == "bonjour "  # Current shared V4 key; parity tested separately.
 assert plan["lookupKeysWithTrailingSpace"] == sum(
     item["v4LookupKeyHasTrailingSpace"] for item in plan["selected"])
 size = plan["sizePlan"]

@@ -1,0 +1,1337 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "c0239e5cbb488a808ea99155cf44ff7691cd5d4bb21bdd4d18c38f91cc7a74c5",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:1",
+      "n": 1,
+      "title": "Morning crew check-in",
+      "objective": "Greet the crew and ask one worker to confirm their role.",
+      "sourceObjective": "Greet the crew and ask one worker to confirm their role.",
+      "words": [
+        {
+          "es": "さぎょうはん",
+          "en": "Crew",
+          "kind": "term",
+          "cardId": "card-ja-en-af37b3172ebccd89"
+        },
+        {
+          "es": "しょくちょう",
+          "en": "Foreman",
+          "kind": "term",
+          "cardId": "card-ja-en-f63458e56c4239f1"
+        },
+        {
+          "es": "だいく",
+          "en": "Carpenter",
+          "kind": "term",
+          "cardId": "card-ja-en-afd1e2f7523b9598"
+        },
+        {
+          "es": "でんきこう",
+          "en": "Electrician",
+          "kind": "term",
+          "cardId": "card-ja-en-f246678c90906975"
+        },
+        {
+          "es": "はいかんこう",
+          "en": "Plumber",
+          "kind": "term",
+          "cardId": "card-ja-en-5a35b68ed142880a"
+        },
+        {
+          "es": "てもと",
+          "en": "Helper",
+          "kind": "term",
+          "cardId": "card-ja-en-31b1192d7fac6e5b"
+        },
+        {
+          "es": "なまえ",
+          "en": "Name",
+          "kind": "term",
+          "cardId": "card-ja-en-b6e1274f0def0ac7"
+        },
+        {
+          "es": "しゅっきんひょう",
+          "en": "Attendance list",
+          "kind": "term",
+          "cardId": "card-ja-en-f05be8b99962aadb"
+        },
+        {
+          "es": "シフト",
+          "en": "Shift",
+          "kind": "term",
+          "cardId": "card-ja-en-368d552d3f4453a8"
+        },
+        {
+          "es": "しゅうごう ばしょ",
+          "en": "Meeting point",
+          "kind": "term",
+          "cardId": "card-ja-en-691bdc4b9cade766"
+        },
+        {
+          "es": "さぎょうはんの みなさん、おはようございます。",
+          "en": "Good morning, crew.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-da9db91f5bb31c7c"
+        },
+        {
+          "es": "おなまえは なんですか。",
+          "en": "What is your name?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-a398c1aaf7958108"
+        },
+        {
+          "es": "わたしは しょくちょうです。",
+          "en": "I am the foreman.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3f0b09b26ad394b3"
+        },
+        {
+          "es": "でんきこうですか。",
+          "en": "Are you the electrician?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ce7b52ecdec9aa8a"
+        },
+        {
+          "es": "シフトを かくにんしてください。",
+          "en": "Please confirm your shift.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8e9a7cf231d25cf0"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:1",
+        "title": "Morning crew check-in",
+        "sentences": [
+          {
+            "target": "さぎょうはんが しゅうごう ばしょに つきます。",
+            "native": "The crew arrives at the meeting point."
+          },
+          {
+            "target": "しょくちょうは しゅっきんひょうを もっています。ひとりずつ なまえを ききます。",
+            "native": "The foreman has the attendance list and asks each person's name."
+          },
+          {
+            "target": "だいく、でんきこう、はいかんこう、てもとは、じぶんの シフトを かくにんします。",
+            "native": "The carpenter, electrician, plumber and helper confirm their shift."
+          },
+          {
+            "target": "さぎょうはんの みなさん、おはようございます。",
+            "native": "Good morning, crew."
+          },
+          {
+            "target": "おなまえは なんですか。",
+            "native": "What is your name?"
+          },
+          {
+            "target": "わたしは しょくちょうです。",
+            "native": "I am the foreman."
+          },
+          {
+            "target": "でんきこうですか。",
+            "native": "Are you the electrician?"
+          },
+          {
+            "target": "シフトを かくにんしてください。",
+            "native": "Please confirm your shift."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use 職長 for the crew foreman, not 現場監督 for the site supervisor. Ask a name with おなまえは なんですか and make polite requests with ～てください.",
+        "teachingNotesEnglish": [
+          "Role terms: しょくちょう (職長) is the foreman in this course, the lead of a crew. げんばかんとく (現場監督), taught in the Foundation stage, is the site supervisor. It is a different role. Do not treat the two words as synonyms.",
+          "さぎょうはん (作業班) is the crew, meaning the work team. てもと (手元) is the helper, a person who works at hand to support a tradesperson.",
+          "Katakana: シフト (shift) is a loanword written in katakana. Katakana is used for words borrowed from other languages.",
+          "が marks the subject of an action: さぎょうはんが (the crew) つきます.",
+          "を marks the object of a verb: シフトを かくにんしてください (confirm the shift) and しゅっきんひょうを もっています (has the attendance list).",
+          "～ています shows an ongoing state. Here もっています means 'has (and is holding)'.",
+          "ひとりずつ means 'one by one' or 'each person'.",
+          "～てください is a polite request: 'please do ...'.",
+          "でんきこうですか asks 'Are you the electrician?' It uses the same pattern as だいくですか from the Foundation stage.",
+          "Source mismatch, documented and not changed: the objective says 'confirm their role', but the content has each worker confirm their shift."
+        ],
+        "examples": [
+          {
+            "es": "さぎょうはんが しゅうごう ばしょに つきます。",
+            "en": "The crew arrives at the meeting point."
+          },
+          {
+            "es": "しょくちょうは しゅっきんひょうを もっています。ひとりずつ なまえを ききます。",
+            "en": "The foreman has the attendance list and asks each person's name."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:1",
+        "summary": "Greet the crew, ask a worker's name and role, then confirm the worker's shift. The English source objective says role, while its final instruction asks about a shift; practice both without treating them as identical.",
+        "openingLine": "さぎょうはんの みなさん、おはようございます。おなまえは なんですか。",
+        "partnerRole": "A crew member arriving at the morning meeting point who gives a name and role and confirms a shift.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____が しゅうごう ばしょに つきます。",
+          "hint": "The crew arrives at the meeting point.",
+          "answer": "さぎょうはん",
+          "explanation": "さぎょうはん appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょくちょうは ____を もっています。ひとりずつ なまえを ききます。",
+          "hint": "The foreman has the attendance list and asks each person's name.",
+          "answer": "しゅっきんひょう",
+          "explanation": "しゅっきんひょう appears in this lesson's reading."
+        },
+        {
+          "prompt": "だいく、でんきこう、はいかんこう、てもとは、じぶんの ____を かくにんします。",
+          "hint": "The carpenter, electrician, plumber and helper confirm their shift.",
+          "answer": "シフト",
+          "explanation": "シフト appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:2",
+      "n": 2,
+      "title": "A question at the safety briefing",
+      "objective": "Name a concern from the safety briefing and ask where to find the site plan.",
+      "sourceObjective": "Name a concern from the safety briefing and ask where to find the site plan.",
+      "words": [
+        {
+          "es": "あんぜん ミーティング",
+          "en": "Safety briefing",
+          "kind": "term",
+          "cardId": "card-ja-en-ee1fe6c77af39709"
+        },
+        {
+          "es": "きけん",
+          "en": "Hazard",
+          "kind": "term",
+          "cardId": "card-ja-en-9c364fa93f2510bd"
+        },
+        {
+          "es": "あんぜん けいかくしょ",
+          "en": "Safety plan",
+          "kind": "term",
+          "cardId": "card-ja-en-feffc6688b22f532"
+        },
+        {
+          "es": "さぎょう エリア",
+          "en": "Work area",
+          "kind": "term",
+          "cardId": "card-ja-en-3aef1872cfc406bf"
+        },
+        {
+          "es": "でぐち",
+          "en": "Exit",
+          "kind": "term",
+          "cardId": "card-ja-en-b8c95720b34823d1"
+        },
+        {
+          "es": "ひなん しゅうごう ばしょ",
+          "en": "Assembly point",
+          "kind": "term",
+          "cardId": "card-ja-en-05d4756a0f52c394"
+        },
+        {
+          "es": "ヘルメット",
+          "en": "Hard hat",
+          "kind": "term",
+          "cardId": "card-ja-en-5d12d9303b1c6846"
+        },
+        {
+          "es": "ほご",
+          "en": "Protection",
+          "kind": "term",
+          "cardId": "card-ja-en-fa941b89adff6281"
+        },
+        {
+          "es": "せきにんしゃ",
+          "en": "Responsible person",
+          "kind": "term",
+          "cardId": "card-ja-en-e69bf8f42d984a5a"
+        },
+        {
+          "es": "しつもん",
+          "en": "Question",
+          "kind": "term",
+          "cardId": "card-ja-en-9333fef2d2af1ffc"
+        },
+        {
+          "es": "しつもんが あります。",
+          "en": "I have a question.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-4541addddea3181a"
+        },
+        {
+          "es": "あんぜん けいかくしょは どこですか。",
+          "en": "Where is the safety plan?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-df7459fc69e0c05c"
+        },
+        {
+          "es": "この エリアに きけんな ところが あります。",
+          "en": "There is a hazard in this area.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-0828fb8d01834bcf"
+        },
+        {
+          "es": "せきにんしゃは どなたですか。",
+          "en": "Who is the responsible person?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-01c059d0a73d7101"
+        },
+        {
+          "es": "ひなん しゅうごう ばしょを かくにんしてください。",
+          "en": "Confirm the assembly point.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ea205715af8b4bd4"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:2",
+        "title": "A question at the safety briefing",
+        "sentences": [
+          {
+            "target": "あんぜん ミーティングは さぎょう エリアで おこないます。",
+            "native": "The safety briefing is in the work area."
+          },
+          {
+            "target": "せきにんしゃは あんぜん けいかくしょで、でぐちと ひなん しゅうごう ばしょを ゆびさします。",
+            "native": "The responsible person points out the exit and assembly point in the safety plan."
+          },
+          {
+            "target": "だれかが、ヘルメットと、きけんに たいする していの ほごぐについて しつもんします。",
+            "native": "Someone asks a question about the hard hat and the protection specified for a hazard."
+          },
+          {
+            "target": "しつもんが あります。",
+            "native": "I have a question."
+          },
+          {
+            "target": "あんぜん けいかくしょは どこですか。",
+            "native": "Where is the safety plan?"
+          },
+          {
+            "target": "この エリアに きけんな ところが あります。",
+            "native": "There is a hazard in this area."
+          },
+          {
+            "target": "せきにんしゃは どなたですか。",
+            "native": "Who is the responsible person?"
+          },
+          {
+            "target": "ひなん しゅうごう ばしょを かくにんしてください。",
+            "native": "Confirm the assembly point."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Ask location with どこですか and identify the responsible person with どなたですか. Distinguish the safety plan in the dialogue from the site plan named in the English source objective.",
+        "teachingNotesEnglish": [
+          "Katakana loanwords in this lesson: ミーティング (meeting), エリア (area) and ヘルメット (helmet).",
+          "あんぜん ミーティング (safety briefing) does not say when it happens. This avoids the time-of-day meaning of ちょうれい.",
+          "で marks where an action happens in さぎょう エリアで (in the work area). おこないます means hold or carry out: literally, as for the safety briefing, we hold it in the work area. は marks the briefing as the topic, so を is not used. In けいかくしょで, で marks the document used to point out the exit, not the physical location of the exit.",
+          "について means 'about': ヘルメットと、きけんに たいする していの ほごぐについて means about the hard hat and the specified protective equipment for a hazard.",
+          "に たいする means 'against' or 'for' a hazard. していの means 'specified'. ほごぐ means protective equipment.",
+          "せきにんしゃ (責任者) is the responsible or accountable person in this briefing. たんとうしゃ is a person assigned to a matter; it is a different role.",
+          "ひなん しゅうごう ばしょ is an evacuation assembly point; Lesson 1 しゅうごう ばしょ is a general meeting point. Confirm the actual site-designated point separately.",
+          "ゆびさします means 'point at' something physically.",
+          "～てください is a polite request: 'please do ...'.",
+          "These sentences are language practice only. They are not site safety instructions and do not approve any procedure.",
+          "Source mismatch, documented and not changed: the objective says 'site plan', but every item says 'safety plan'.",
+          "きけんな ところ means a dangerous spot: きけん takes な before a noun; ところ means spot or place.",
+          "だれかが means someone. This reading describes a question; it does not certify equipment or a plan."
+        ],
+        "examples": [
+          {
+            "es": "あんぜん ミーティングは さぎょう エリアで おこないます。",
+            "en": "The safety briefing is in the work area."
+          },
+          {
+            "es": "せきにんしゃは あんぜん けいかくしょで、でぐちと ひなん しゅうごう ばしょを ゆびさします。",
+            "en": "The responsible person points out the exit and assembly point in the safety plan."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:2",
+        "summary": "Raise one concern from the briefing, ask where the safety plan is, and repeat the assembly point. Do not assume a site plan and safety plan are the same document.",
+        "openingLine": "しつもんが あります。あんぜん けいかくしょは どこですか。",
+        "partnerRole": "A briefing leader who locates the safety plan and identifies the responsible person and evacuation assembly point.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____は さぎょう エリアで おこないます。",
+          "hint": "The safety briefing is in the work area.",
+          "answer": "あんぜん ミーティング",
+          "explanation": "あんぜん ミーティング appears in this lesson's reading."
+        },
+        {
+          "prompt": "せきにんしゃは あんぜん けいかくしょで、でぐちと ____を ゆびさします。",
+          "hint": "The responsible person points out the exit and assembly point in the safety plan.",
+          "answer": "ひなん しゅうごう ばしょ",
+          "explanation": "ひなん しゅうごう ばしょ appears in this lesson's reading."
+        },
+        {
+          "prompt": "だれかが、____と、きけんに たいする していの ほごぐについて しつもんします。",
+          "hint": "Someone asks a question about the hard hat and the protection specified for a hazard.",
+          "answer": "ヘルメット",
+          "explanation": "ヘルメット appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:3",
+      "n": 3,
+      "title": "The right tool",
+      "objective": "Name a tool and ask a crew member to bring it.",
+      "sourceObjective": "Name a tool and ask a crew member to bring it.",
+      "words": [
+        {
+          "es": "どうぐ",
+          "en": "Tool",
+          "kind": "term",
+          "cardId": "card-ja-en-edca0e56cb6554ee"
+        },
+        {
+          "es": "かなづち",
+          "en": "Hammer",
+          "kind": "term",
+          "cardId": "card-ja-en-0b08101a2a754fcd"
+        },
+        {
+          "es": "のこぎり",
+          "en": "Saw",
+          "kind": "term",
+          "cardId": "card-ja-en-ca074bad6822e279"
+        },
+        {
+          "es": "ドリル",
+          "en": "Drill",
+          "kind": "term",
+          "cardId": "card-ja-en-1f657010098f64e6"
+        },
+        {
+          "es": "すいへいき",
+          "en": "Level",
+          "kind": "term",
+          "cardId": "card-ja-en-7120e9dc70b74e40"
+        },
+        {
+          "es": "メジャー",
+          "en": "Tape measure",
+          "kind": "term",
+          "cardId": "card-ja-en-a6db5dc80aa618fc"
+        },
+        {
+          "es": "レンチ",
+          "en": "Wrench",
+          "kind": "term",
+          "cardId": "card-ja-en-b788bbba25fd11e0"
+        },
+        {
+          "es": "ねじ",
+          "en": "Screw",
+          "kind": "term",
+          "cardId": "card-ja-en-6d41a7502b90c357"
+        },
+        {
+          "es": "くぎ",
+          "en": "Nail",
+          "kind": "term",
+          "cardId": "card-ja-en-c6fd7356efe324b1"
+        },
+        {
+          "es": "はこ",
+          "en": "Box",
+          "kind": "term",
+          "cardId": "card-ja-en-11fa9deb76ab0b0e"
+        },
+        {
+          "es": "すいへいきが ひつようです。",
+          "en": "I need the level.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-70cec5f3382dd408"
+        },
+        {
+          "es": "メジャーは どこですか。",
+          "en": "Where is the tape measure?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c5f2adfd344ba096"
+        },
+        {
+          "es": "はこを もって きてください。",
+          "en": "Please bring the box.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-878566611624f105"
+        },
+        {
+          "es": "この どうぐで いいですか。",
+          "en": "Is this the correct tool?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6535b8fb28922ccc"
+        },
+        {
+          "es": "ねじが ひとつ たりません。",
+          "en": "A screw is missing.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-74b24daf82a9ab5c"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:3",
+        "title": "The right tool",
+        "sentences": [
+          {
+            "target": "てもとが はこの なかから どうぐを さがします。",
+            "native": "The helper looks for a tool in the box."
+          },
+          {
+            "target": "かなづち、のこぎり、ドリル、レンチが みえます。",
+            "native": "They see a hammer, a saw, a drill and a wrench."
+          },
+          {
+            "target": "しょくちょうは すいへいきと メジャーを たのみます。ねじと くぎも ゆびさします。",
+            "native": "The foreman asks for the level and tape measure; they also point out a screw and a nail."
+          },
+          {
+            "target": "すいへいきが ひつようです。",
+            "native": "I need the level."
+          },
+          {
+            "target": "メジャーは どこですか。",
+            "native": "Where is the tape measure?"
+          },
+          {
+            "target": "はこを もって きてください。",
+            "native": "Please bring the box."
+          },
+          {
+            "target": "この どうぐで いいですか。",
+            "native": "Is this the correct tool?"
+          },
+          {
+            "target": "ねじが ひとつ たりません。",
+            "native": "A screw is missing."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use ～が ひつようです for a needed tool, どこですか for its location, and ～てください to ask someone to bring it.",
+        "teachingNotesEnglish": [
+          "Katakana loanwords in this lesson: ドリル (drill), メジャー (tape measure), レンチ (wrench).",
+          "メジャー and ねじ are general words for tape measure and screw. Site jargon is sometimes different, for example コンベックス or スケール for a tape measure, and ビス for a wood screw.",
+          "てもと (手元) is the helper, as in Lesson 1.",
+          "から means 'from': はこの なかから どうぐを さがします (looks for a tool from inside the box).",
+          "みえます means 'can be seen'. みます means 'look at', so it is not used here.",
+          "たのみます means 'ask someone for something'. ゆびさします means 'point at'.",
+          "はこを もって きてください combines もって (carrying), きて (coming) and ～てください. It means 'please bring it (carry it and come back).'",
+          "この どうぐで いいですか is the natural way to ask 'Is this the correct tool?'",
+          "ねじが ひとつ たりません: たりません is a set phrase meaning 'is short' or 'is missing'. Treat it as a fixed phrase for now. The negative ～ません pattern is taught later.",
+          "Source mismatch: none in the English. The objective and items match.",
+          "Xが ひつようです means X is needed; が marks the needed item, as in すいへいきが ひつようです."
+        ],
+        "examples": [
+          {
+            "es": "てもとが はこの なかから どうぐを さがします。",
+            "en": "The helper looks for a tool in the box."
+          },
+          {
+            "es": "かなづち、のこぎり、ドリル、レンチが みえます。",
+            "en": "They see a hammer, a saw, a drill and a wrench."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:3",
+        "summary": "Ask a helper for a level and tape measure, confirm the tool, and report one missing screw.",
+        "openingLine": "すいへいきが ひつようです。メジャーは どこですか。",
+        "partnerRole": "A crew helper who searches the tool box and confirms which tool is needed.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "てもとが はこの なかから ____を さがします。",
+          "hint": "The helper looks for a tool in the box.",
+          "answer": "どうぐ",
+          "explanation": "どうぐ appears in this lesson's reading."
+        },
+        {
+          "prompt": "かなづち、のこぎり、ドリル、____が みえます。",
+          "hint": "They see a hammer, a saw, a drill and a wrench.",
+          "answer": "レンチ",
+          "explanation": "レンチ appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょくちょうは ____と メジャーを たのみます。ねじと くぎも ゆびさします。",
+          "hint": "The foreman asks for the level and tape measure; they also point out a screw and a nail.",
+          "answer": "すいへいき",
+          "explanation": "すいへいき appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-af37b3172ebccd89",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうはん",
+      "native": "Crew",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-f63458e56c4239f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょくちょう",
+      "native": "Foreman",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-afd1e2f7523b9598",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だいく",
+      "native": "Carpenter",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-f246678c90906975",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でんきこう",
+      "native": "Electrician",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-5a35b68ed142880a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はいかんこう",
+      "native": "Plumber",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-31b1192d7fac6e5b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てもと",
+      "native": "Helper",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-b6e1274f0def0ac7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "なまえ",
+      "native": "Name",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-f05be8b99962aadb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅっきんひょう",
+      "native": "Attendance list",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-368d552d3f4453a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "シフト",
+      "native": "Shift",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-691bdc4b9cade766",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうごう ばしょ",
+      "native": "Meeting point",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-da9db91f5bb31c7c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうはんの みなさん、おはようございます。",
+      "native": "Good morning, crew.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-a398c1aaf7958108",
+      "courseId": "construction-foreman-ja-en",
+      "target": "おなまえは なんですか。",
+      "native": "What is your name?",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-3f0b09b26ad394b3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "わたしは しょくちょうです。",
+      "native": "I am the foreman.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-ce7b52ecdec9aa8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でんきこうですか。",
+      "native": "Are you the electrician?",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-8e9a7cf231d25cf0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "シフトを かくにんしてください。",
+      "native": "Please confirm your shift.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "card-ja-en-ee1fe6c77af39709",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん ミーティング",
+      "native": "Safety briefing",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-9c364fa93f2510bd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きけん",
+      "native": "Hazard",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-feffc6688b22f532",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん けいかくしょ",
+      "native": "Safety plan",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-3aef1872cfc406bf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう エリア",
+      "native": "Work area",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-b8c95720b34823d1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でぐち",
+      "native": "Exit",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-05d4756a0f52c394",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひなん しゅうごう ばしょ",
+      "native": "Assembly point",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-5d12d9303b1c6846",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ヘルメット",
+      "native": "Hard hat",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-fa941b89adff6281",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほご",
+      "native": "Protection",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-9333fef2d2af1ffc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもん",
+      "native": "Question",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-4541addddea3181a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもんが あります。",
+      "native": "I have a question.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-df7459fc69e0c05c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん けいかくしょは どこですか。",
+      "native": "Where is the safety plan?",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-0828fb8d01834bcf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この エリアに きけんな ところが あります。",
+      "native": "There is a hazard in this area.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-01c059d0a73d7101",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃは どなたですか。",
+      "native": "Who is the responsible person?",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-ea205715af8b4bd4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひなん しゅうごう ばしょを かくにんしてください。",
+      "native": "Confirm the assembly point.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "card-ja-en-edca0e56cb6554ee",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どうぐ",
+      "native": "Tool",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-0b08101a2a754fcd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かなづち",
+      "native": "Hammer",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-ca074bad6822e279",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこぎり",
+      "native": "Saw",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-1f657010098f64e6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ドリル",
+      "native": "Drill",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-7120e9dc70b74e40",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すいへいき",
+      "native": "Level",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-a6db5dc80aa618fc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メジャー",
+      "native": "Tape measure",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-b788bbba25fd11e0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レンチ",
+      "native": "Wrench",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-6d41a7502b90c357",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねじ",
+      "native": "Screw",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-c6fd7356efe324b1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "くぎ",
+      "native": "Nail",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-11fa9deb76ab0b0e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はこ",
+      "native": "Box",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-70cec5f3382dd408",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すいへいきが ひつようです。",
+      "native": "I need the level.",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-c5f2adfd344ba096",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メジャーは どこですか。",
+      "native": "Where is the tape measure?",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-878566611624f105",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はこを もって きてください。",
+      "native": "Please bring the box.",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-6535b8fb28922ccc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この どうぐで いいですか。",
+      "native": "Is this the correct tool?",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "card-ja-en-74b24daf82a9ab5c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねじが ひとつ たりません。",
+      "native": "A screw is missing.",
+      "kind": "phrase",
+      "firstLesson": 3
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-af37b3172ebccd89",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうはん",
+      "native": "Crew",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-f63458e56c4239f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょくちょう",
+      "native": "Foreman",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-afd1e2f7523b9598",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だいく",
+      "native": "Carpenter",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-f246678c90906975",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でんきこう",
+      "native": "Electrician",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-5a35b68ed142880a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はいかんこう",
+      "native": "Plumber",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-31b1192d7fac6e5b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てもと",
+      "native": "Helper",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-b6e1274f0def0ac7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "なまえ",
+      "native": "Name",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-f05be8b99962aadb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅっきんひょう",
+      "native": "Attendance list",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-368d552d3f4453a8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "シフト",
+      "native": "Shift",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-691bdc4b9cade766",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しゅうごう ばしょ",
+      "native": "Meeting point",
+      "kind": "term",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-da9db91f5bb31c7c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうはんの みなさん、おはようございます。",
+      "native": "Good morning, crew.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-a398c1aaf7958108",
+      "courseId": "construction-foreman-ja-en",
+      "target": "おなまえは なんですか。",
+      "native": "What is your name?",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-3f0b09b26ad394b3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "わたしは しょくちょうです。",
+      "native": "I am the foreman.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-ce7b52ecdec9aa8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でんきこうですか。",
+      "native": "Are you the electrician?",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-8e9a7cf231d25cf0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "シフトを かくにんしてください。",
+      "native": "Please confirm your shift.",
+      "kind": "phrase",
+      "firstLesson": 1
+    },
+    {
+      "id": "dict-ja-en-ee1fe6c77af39709",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん ミーティング",
+      "native": "Safety briefing",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-9c364fa93f2510bd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きけん",
+      "native": "Hazard",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-feffc6688b22f532",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん けいかくしょ",
+      "native": "Safety plan",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-3aef1872cfc406bf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょう エリア",
+      "native": "Work area",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-b8c95720b34823d1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "でぐち",
+      "native": "Exit",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-05d4756a0f52c394",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひなん しゅうごう ばしょ",
+      "native": "Assembly point",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-5d12d9303b1c6846",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ヘルメット",
+      "native": "Hard hat",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-fa941b89adff6281",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほご",
+      "native": "Protection",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-e69bf8f42d984a5a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃ",
+      "native": "Responsible person",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-9333fef2d2af1ffc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもん",
+      "native": "Question",
+      "kind": "term",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-4541addddea3181a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しつもんが あります。",
+      "native": "I have a question.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-df7459fc69e0c05c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "あんぜん けいかくしょは どこですか。",
+      "native": "Where is the safety plan?",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-0828fb8d01834bcf",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この エリアに きけんな ところが あります。",
+      "native": "There is a hazard in this area.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-01c059d0a73d7101",
+      "courseId": "construction-foreman-ja-en",
+      "target": "せきにんしゃは どなたですか。",
+      "native": "Who is the responsible person?",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-ea205715af8b4bd4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ひなん しゅうごう ばしょを かくにんしてください。",
+      "native": "Confirm the assembly point.",
+      "kind": "phrase",
+      "firstLesson": 2
+    },
+    {
+      "id": "dict-ja-en-edca0e56cb6554ee",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どうぐ",
+      "native": "Tool",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-0b08101a2a754fcd",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かなづち",
+      "native": "Hammer",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-ca074bad6822e279",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のこぎり",
+      "native": "Saw",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-1f657010098f64e6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ドリル",
+      "native": "Drill",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-7120e9dc70b74e40",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すいへいき",
+      "native": "Level",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-a6db5dc80aa618fc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メジャー",
+      "native": "Tape measure",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-b788bbba25fd11e0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "レンチ",
+      "native": "Wrench",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-6d41a7502b90c357",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねじ",
+      "native": "Screw",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-c6fd7356efe324b1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "くぎ",
+      "native": "Nail",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-11fa9deb76ab0b0e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はこ",
+      "native": "Box",
+      "kind": "term",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-70cec5f3382dd408",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すいへいきが ひつようです。",
+      "native": "I need the level.",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-c5f2adfd344ba096",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メジャーは どこですか。",
+      "native": "Where is the tape measure?",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-878566611624f105",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はこを もって きてください。",
+      "native": "Please bring the box.",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-6535b8fb28922ccc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この どうぐで いいですか。",
+      "native": "Is this the correct tool?",
+      "kind": "phrase",
+      "firstLesson": 3
+    },
+    {
+      "id": "dict-ja-en-74b24daf82a9ab5c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねじが ひとつ たりません。",
+      "native": "A screw is missing.",
+      "kind": "phrase",
+      "firstLesson": 3
+    }
+  ]
+}

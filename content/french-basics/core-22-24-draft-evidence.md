@@ -1,0 +1,9 @@
+# French 101 Core 22–24 draft checkpoint
+
+This bounded French-target / English-support batch is stacked on draft PR #259. It does not register runtime lessons, change stable lesson or progress IDs, publish content, or include recorded audio. `reviewed` remains `false`.
+
+`source-english-core-22-24.json` pins the exact English objectives, 42 card meanings and 18 Reader meanings from Spanish 101, plus whole-file SHA-256 hashes of the source curriculum and practice files. `python3 scripts/validate-french-basics-core-22-24-draft.py` verifies the hashes, every English meaning, six aligned reading lines per lesson, and the structure of the speaking and check material. The build script is reproducible from the pinned source and authored French entries.
+
+Core 22 teaches `plus/moins + adjectif + que`, `aussi + adjectif + que` and `meilleur`. The upstream English objective is visibly truncated (`Comparisons: Use más .`), so the fuller French scope is inferred from its six pinned examples and needs independent curriculum review. The literal English “less far away” is rendered `moins loin`; `plus proche` is a more idiomatic alternative but would not be an exact rendering. Core 23 uses `le`, `la`, `l’` and gender-neutral plural `les` as French direct-object pronouns. Core 24 uses `me`, `te`, `lui`, `nous` and `leur` for recipients, avoiding a false one-to-one Spanish mapping. Notes flag broad or context-sensitive source glosses.
+
+Each lesson contains a French-specific grammar explanation, six original aligned lines, fourteen cards, a contextual speaking task and five recall, writing, listening-script and comprehension checks. No independent Fable/Opus call was made because the prior bounded batches exhausted the Claude CLI review budget. French fidelity, curriculum, qualified human review, runtime six-mode/Reader/cards/dictionary/speaking/offline integration, recorded audio and phone acceptance remain open. This draft is **not a released course**.

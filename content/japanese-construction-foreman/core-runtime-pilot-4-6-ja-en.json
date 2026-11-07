@@ -1,0 +1,1300 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "b70bc0bcc9e043ea1aa00939473de6c4593bd242e53e350ddf50d93ac6a484f6",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:4",
+      "n": 4,
+      "title": "Confirm the material order",
+      "objective": "Request a material and confirm its quantity and unit from the order.",
+      "sourceObjective": "Request a material and confirm its quantity and unit from the order.",
+      "words": [
+        {
+          "es": "ざいりょう",
+          "en": "Material",
+          "kind": "term",
+          "cardId": "card-ja-en-95657ec126f4a531"
+        },
+        {
+          "es": "もくざい",
+          "en": "Lumber",
+          "kind": "term",
+          "cardId": "card-ja-en-0af7af7427765435"
+        },
+        {
+          "es": "パネル",
+          "en": "Panel",
+          "kind": "term",
+          "cardId": "card-ja-en-b0d6f17916f05733"
+        },
+        {
+          "es": "コンクリート",
+          "en": "Concrete",
+          "kind": "term",
+          "cardId": "card-ja-en-cfcc36873d17789a"
+        },
+        {
+          "es": "すうりょう",
+          "en": "Quantity",
+          "kind": "term",
+          "cardId": "card-ja-en-1c2b43899e73858b"
+        },
+        {
+          "es": "たんい",
+          "en": "Unit",
+          "kind": "term",
+          "cardId": "card-ja-en-712c9bdb1e129cd2"
+        },
+        {
+          "es": "サイズ",
+          "en": "Measurement",
+          "kind": "term",
+          "cardId": "card-ja-en-432fb17e4fe8865a"
+        },
+        {
+          "es": "ちゅうもん",
+          "en": "Order",
+          "kind": "term",
+          "cardId": "card-ja-en-596b3510f77e8df3"
+        },
+        {
+          "es": "のうひん",
+          "en": "Delivery",
+          "kind": "term",
+          "cardId": "card-ja-en-69eefd4531b98b8a"
+        },
+        {
+          "es": "のうにゅうぎょうしゃ",
+          "en": "Supplier",
+          "kind": "term",
+          "cardId": "card-ja-en-ce097bce7e34224f"
+        },
+        {
+          "es": "ちゅうもんの すうりょうは どのくらい ですか",
+          "en": "What quantity does the order specify?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-dd01f76ed1e2a24a"
+        },
+        {
+          "es": "たんいを かくにん して ください",
+          "en": "Please confirm the unit.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-82fe618908568038"
+        },
+        {
+          "es": "この ざいりょうが ひつよう です",
+          "en": "I need this material.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-3502eef6e3ff4d8d"
+        },
+        {
+          "es": "サイズは ちゅうもんしょに かいて あります",
+          "en": "The measurement is in the order.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-41f9502a76979f2e"
+        },
+        {
+          "es": "のうひんは いつ ですか",
+          "en": "When does the delivery arrive?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-d547d26965362d65"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:4",
+        "title": "Confirm the material order",
+        "sentences": [
+          {
+            "target": "のうにゅうぎょうしゃは もくざい と パネル と コンクリートの ちゅうもんを うけます",
+            "native": "The supplier receives an order for lumber, a panel and concrete."
+          },
+          {
+            "target": "しょくちょうは ざいりょう、 すうりょう、 たんい、 サイズを かくにん します",
+            "native": "The foreman confirms the material, quantity, unit and measurement."
+          },
+          {
+            "target": "のうひんは ちゅうもんの かくにん まち です",
+            "native": "The delivery is awaiting confirmation of the order."
+          },
+          {
+            "target": "ちゅうもんの すうりょうは どのくらい ですか",
+            "native": "What quantity does the order specify?"
+          },
+          {
+            "target": "たんいを かくにん して ください",
+            "native": "Please confirm the unit."
+          },
+          {
+            "target": "この ざいりょうが ひつよう です",
+            "native": "I need this material."
+          },
+          {
+            "target": "サイズは ちゅうもんしょに かいて あります",
+            "native": "The measurement is in the order."
+          },
+          {
+            "target": "のうひんは いつ ですか",
+            "native": "When does the delivery arrive?"
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Distinguish ちゅうもん (the order), のうひん (delivery), and のうにゅうぎょうしゃ (supplier). Ask quantity with どのくらい and timing with いつ.",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "のうにゅうぎょうしゃは もくざい と パネル と コンクリートの ちゅうもんを うけます",
+            "en": "The supplier receives an order for lumber, a panel and concrete."
+          },
+          {
+            "es": "しょくちょうは ざいりょう、 すうりょう、 たんい、 サイズを かくにん します",
+            "en": "The foreman confirms the material, quantity, unit and measurement."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:4",
+        "summary": "Request one material and confirm the order's quantity, unit, measurement, and expected delivery with the supplier. Read the actual order before acting.",
+        "openingLine": "この ざいりょうが ひつよう です。ちゅうもんの すうりょうは どのくらい ですか。",
+        "partnerRole": "A supplier representative who can read back the material order and confirm delivery details without guessing a quantity or unit.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____は もくざい と パネル と コンクリートの ちゅうもんを うけます",
+          "hint": "The supplier receives an order for lumber, a panel and concrete.",
+          "answer": "のうにゅうぎょうしゃ",
+          "explanation": "のうにゅうぎょうしゃ appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょくちょうは ざいりょう、 ____、 たんい、 サイズを かくにん します",
+          "hint": "The foreman confirms the material, quantity, unit and measurement.",
+          "answer": "すうりょう",
+          "explanation": "すうりょう appears in this lesson's reading."
+        },
+        {
+          "prompt": "____は ちゅうもんの かくにん まち です",
+          "hint": "The delivery is awaiting confirmation of the order.",
+          "answer": "のうひん",
+          "explanation": "のうひん appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:5",
+      "n": 5,
+      "title": "Find the current plan detail",
+      "objective": "Point out a location on the plan and ask which revision and measurement apply.",
+      "sourceObjective": "Point out a location on the plan and ask which revision and measurement apply.",
+      "words": [
+        {
+          "es": "ずめん",
+          "en": "Plan",
+          "kind": "term",
+          "cardId": "card-ja-en-0f8b6364e6d6693d"
+        },
+        {
+          "es": "かいてい",
+          "en": "Revision",
+          "kind": "term",
+          "cardId": "card-ja-en-29da1ae12d86dc78"
+        },
+        {
+          "es": "かべ",
+          "en": "Wall",
+          "kind": "term",
+          "cardId": "card-ja-en-cf950417329853f1"
+        },
+        {
+          "es": "ドア",
+          "en": "Door",
+          "kind": "term",
+          "cardId": "card-ja-en-ae3b858a6a16b7ce"
+        },
+        {
+          "es": "かど",
+          "en": "Corner",
+          "kind": "term",
+          "cardId": "card-ja-en-f10cbd0cc1ee75d6"
+        },
+        {
+          "es": "すんぽう",
+          "en": "Dimension",
+          "kind": "term",
+          "cardId": "card-ja-en-d0e01ed2262d2673"
+        },
+        {
+          "es": "きじゅんてん",
+          "en": "Reference point",
+          "kind": "term",
+          "cardId": "card-ja-en-8d09b29f9a3678a6"
+        },
+        {
+          "es": "きた",
+          "en": "North",
+          "kind": "term",
+          "cardId": "card-ja-en-9a2b680f3067531a"
+        },
+        {
+          "es": "きごう",
+          "en": "Symbol",
+          "kind": "term",
+          "cardId": "card-ja-en-1e2e0d8b6414c2d4"
+        },
+        {
+          "es": "しょうさいず",
+          "en": "Detail",
+          "kind": "term",
+          "cardId": "card-ja-en-def0145165f1929f"
+        },
+        {
+          "es": "これは さいしんばん ですか",
+          "en": "Is this the current revision?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-87347f0bfa1a5679"
+        },
+        {
+          "es": "きじゅんてんを ゆびさして ください",
+          "en": "Point out the reference point.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6f5fecdd2177722c"
+        },
+        {
+          "es": "この きごうは どういう いみ ですか",
+          "en": "What does this symbol mean?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-357b700aedafd865"
+        },
+        {
+          "es": "ずめんの すんぽうを かくにん して ください",
+          "en": "Confirm the dimension on the plan.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-cffdc87e6b9c1365"
+        },
+        {
+          "es": "この しょうさいずが わかりません",
+          "en": "I do not understand this detail.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-550b2487c172e6e9"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:5",
+        "title": "Find the current plan detail",
+        "sentences": [
+          {
+            "target": "ずめんには かべ と ドア と かどが かいて あります",
+            "native": "The plan shows a wall, a door and a corner."
+          },
+          {
+            "target": "きたと きじゅんてんで しょうさいずの いちが わかります",
+            "native": "North and the reference point help locate the detail."
+          },
+          {
+            "target": "だれかが かいてい と すんぽう と きごうを たずねます",
+            "native": "Someone asks about the revision, dimension and a symbol."
+          },
+          {
+            "target": "これは さいしんばん ですか",
+            "native": "Is this the current revision?"
+          },
+          {
+            "target": "きじゅんてんを ゆびさして ください",
+            "native": "Point out the reference point."
+          },
+          {
+            "target": "この きごうは どういう いみ ですか",
+            "native": "What does this symbol mean?"
+          },
+          {
+            "target": "ずめんの すんぽうを かくにん して ください",
+            "native": "Confirm the dimension on the plan."
+          },
+          {
+            "target": "この しょうさいずが わかりません",
+            "native": "I do not understand this detail."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use ずめん for the drawing or plan and すんぽう for a dimension. Check さいしんばん before relying on a revision; かいてあります describes information shown on the plan.",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "ずめんには かべ と ドア と かどが かいて あります",
+            "en": "The plan shows a wall, a door and a corner."
+          },
+          {
+            "es": "きたと きじゅんてんで しょうさいずの いちが わかります",
+            "en": "North and the reference point help locate the detail."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:5",
+        "summary": "Point out the wall and door on a drawing, ask whether the revision is current, and confirm which dimension applies at the reference point.",
+        "openingLine": "これは さいしんばん ですか。ずめんの すんぽうを かくにん して ください。",
+        "partnerRole": "A coworker holding the plan who can locate a detail and check its revision and dimension against the document.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____には かべ と ドア と かどが かいて あります",
+          "hint": "The plan shows a wall, a door and a corner.",
+          "answer": "ずめん",
+          "explanation": "ずめん appears in this lesson's reading."
+        },
+        {
+          "prompt": "きたと ____で しょうさいずの いちが わかります",
+          "hint": "North and the reference point help locate the detail.",
+          "answer": "きじゅんてん",
+          "explanation": "きじゅんてん appears in this lesson's reading."
+        },
+        {
+          "prompt": "だれかが かいてい と ____ と きごうを たずねます",
+          "hint": "Someone asks about the revision, dimension and a symbol.",
+          "answer": "すんぽう",
+          "explanation": "すんぽう appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:6",
+      "n": 6,
+      "title": "Repeat the framing instruction",
+      "objective": "Ask for a framing instruction to be repeated and confirm the referenced part.",
+      "sourceObjective": "Ask for a framing instruction to be repeated and confirm the referenced part.",
+      "words": [
+        {
+          "es": "わくぐみ",
+          "en": "Framing",
+          "kind": "term",
+          "cardId": "card-ja-en-5888c759adc460ad"
+        },
+        {
+          "es": "たてわく",
+          "en": "Stud",
+          "kind": "term",
+          "cardId": "card-ja-en-3c9fc8900f705571"
+        },
+        {
+          "es": "はり",
+          "en": "Beam",
+          "kind": "term",
+          "cardId": "card-ja-en-7ebd335b9895e162"
+        },
+        {
+          "es": "ねだ",
+          "en": "Joist",
+          "kind": "term",
+          "cardId": "card-ja-en-74cd90bc2030353d"
+        },
+        {
+          "es": "したわく",
+          "en": "Plate",
+          "kind": "term",
+          "cardId": "card-ja-en-cc6064145cc09eca"
+        },
+        {
+          "es": "まぐさ",
+          "en": "Header",
+          "kind": "term",
+          "cardId": "card-ja-en-f0e54e470f44bb15"
+        },
+        {
+          "es": "ふごう",
+          "en": "Mark",
+          "kind": "term",
+          "cardId": "card-ja-en-391958546db055f3"
+        },
+        {
+          "es": "しじ",
+          "en": "Instruction",
+          "kind": "term",
+          "cardId": "card-ja-en-b641a7b8b3b15d44"
+        },
+        {
+          "es": "てじゅん",
+          "en": "Sequence",
+          "kind": "term",
+          "cardId": "card-ja-en-f57b5720a0bc287b"
+        },
+        {
+          "es": "かくにん",
+          "en": "Confirmation",
+          "kind": "term",
+          "cardId": "card-ja-en-fc176af78fc308d2"
+        },
+        {
+          "es": "しじを もういちど いって ください",
+          "en": "Please repeat the instruction.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-d8cc9892335bd528"
+        },
+        {
+          "es": "この はりの ことですか",
+          "en": "Do you mean this beam?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-24d8271bfe99b74e"
+        },
+        {
+          "es": "ずめんの ふごうを ゆびさして ください",
+          "en": "Point out the mark on the plan.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-7740904a62561f7a"
+        },
+        {
+          "es": "していの てじゅんは なんですか",
+          "en": "What is the specified sequence?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-1726f50632152b14"
+        },
+        {
+          "es": "さぎょうを つづける まえに かくにんが ひつよう です",
+          "en": "I need confirmation before continuing.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-15587298932acce5"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:6",
+        "title": "Repeat the framing instruction",
+        "sentences": [
+          {
+            "target": "わくぐみずは たてわく、 はり、 ねだを しめします",
+            "native": "The framing plan identifies the stud, beam and joist."
+          },
+          {
+            "target": "したわく、 まぐさ、 ふごうが しじに でてきます",
+            "native": "The plate, header and a mark appear in the instruction."
+          },
+          {
+            "target": "さぎょうはんは てじゅんの かくにんを たのみます",
+            "native": "The crew asks for confirmation of the sequence."
+          },
+          {
+            "target": "しじを もういちど いって ください",
+            "native": "Please repeat the instruction."
+          },
+          {
+            "target": "この はりの ことですか",
+            "native": "Do you mean this beam?"
+          },
+          {
+            "target": "ずめんの ふごうを ゆびさして ください",
+            "native": "Point out the mark on the plan."
+          },
+          {
+            "target": "していの てじゅんは なんですか",
+            "native": "What is the specified sequence?"
+          },
+          {
+            "target": "さぎょうを つづける まえに かくにんが ひつよう です",
+            "native": "I need confirmation before continuing."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use もういちど いってください to request repetition, ～の ことですか to confirm a referenced part, and まえに for 'before'. Distinguish beam はり from joist ねだ.",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "わくぐみずは たてわく、 はり、 ねだを しめします",
+            "en": "The framing plan identifies the stud, beam and joist."
+          },
+          {
+            "es": "したわく、 まぐさ、 ふごうが しじに でてきます",
+            "en": "The plate, header and a mark appear in the instruction."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:6",
+        "summary": "Ask a coworker to repeat a framing instruction, identify the beam or joist on the drawing, and confirm the specified sequence before continuing.",
+        "openingLine": "しじを もういちど いって ください。この はりの ことですか。",
+        "partnerRole": "A framing lead who repeats the instruction, points to the plan mark, and confirms which part and sequence are intended.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "わくぐみずは ____、 はり、 ねだを しめします",
+          "hint": "The framing plan identifies the stud, beam and joist.",
+          "answer": "たてわく",
+          "explanation": "たてわく appears in this lesson's reading."
+        },
+        {
+          "prompt": "したわく、 ____、 ふごうが しじに でてきます",
+          "hint": "The plate, header and a mark appear in the instruction.",
+          "answer": "まぐさ",
+          "explanation": "まぐさ appears in this lesson's reading."
+        },
+        {
+          "prompt": "さぎょうはんは ____の かくにんを たのみます",
+          "hint": "The crew asks for confirmation of the sequence.",
+          "answer": "てじゅん",
+          "explanation": "てじゅん appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-95657ec126f4a531",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ざいりょう",
+      "native": "Material",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-0af7af7427765435",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もくざい",
+      "native": "Lumber",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-b0d6f17916f05733",
+      "courseId": "construction-foreman-ja-en",
+      "target": "パネル",
+      "native": "Panel",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-cfcc36873d17789a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリート",
+      "native": "Concrete",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-1c2b43899e73858b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すうりょう",
+      "native": "Quantity",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-712c9bdb1e129cd2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たんい",
+      "native": "Unit",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-432fb17e4fe8865a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サイズ",
+      "native": "Measurement",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-596b3510f77e8df3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもん",
+      "native": "Order",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-69eefd4531b98b8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひん",
+      "native": "Delivery",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-ce097bce7e34224f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうにゅうぎょうしゃ",
+      "native": "Supplier",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-dd01f76ed1e2a24a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもんの すうりょうは どのくらい ですか",
+      "native": "What quantity does the order specify?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-82fe618908568038",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たんいを かくにん して ください",
+      "native": "Please confirm the unit.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-3502eef6e3ff4d8d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この ざいりょうが ひつよう です",
+      "native": "I need this material.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-41f9502a76979f2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サイズは ちゅうもんしょに かいて あります",
+      "native": "The measurement is in the order.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-d547d26965362d65",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひんは いつ ですか",
+      "native": "When does the delivery arrive?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "card-ja-en-0f8b6364e6d6693d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめん",
+      "native": "Plan",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-29da1ae12d86dc78",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいてい",
+      "native": "Revision",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-cf950417329853f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かべ",
+      "native": "Wall",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-ae3b858a6a16b7ce",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ドア",
+      "native": "Door",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-f10cbd0cc1ee75d6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かど",
+      "native": "Corner",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-d0e01ed2262d2673",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すんぽう",
+      "native": "Dimension",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-8d09b29f9a3678a6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんてん",
+      "native": "Reference point",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-9a2b680f3067531a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きた",
+      "native": "North",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-1e2e0d8b6414c2d4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きごう",
+      "native": "Symbol",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-def0145165f1929f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうさいず",
+      "native": "Detail",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-87347f0bfa1a5679",
+      "courseId": "construction-foreman-ja-en",
+      "target": "これは さいしんばん ですか",
+      "native": "Is this the current revision?",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-6f5fecdd2177722c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんてんを ゆびさして ください",
+      "native": "Point out the reference point.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-357b700aedafd865",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この きごうは どういう いみ ですか",
+      "native": "What does this symbol mean?",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-cffdc87e6b9c1365",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの すんぽうを かくにん して ください",
+      "native": "Confirm the dimension on the plan.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-550b2487c172e6e9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この しょうさいずが わかりません",
+      "native": "I do not understand this detail.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "card-ja-en-5888c759adc460ad",
+      "courseId": "construction-foreman-ja-en",
+      "target": "わくぐみ",
+      "native": "Framing",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-3c9fc8900f705571",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たてわく",
+      "native": "Stud",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-7ebd335b9895e162",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はり",
+      "native": "Beam",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-74cd90bc2030353d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねだ",
+      "native": "Joist",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-cc6064145cc09eca",
+      "courseId": "construction-foreman-ja-en",
+      "target": "したわく",
+      "native": "Plate",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-f0e54e470f44bb15",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まぐさ",
+      "native": "Header",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-391958546db055f3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふごう",
+      "native": "Mark",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-b641a7b8b3b15d44",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しじ",
+      "native": "Instruction",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-f57b5720a0bc287b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てじゅん",
+      "native": "Sequence",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-d8cc9892335bd528",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しじを もういちど いって ください",
+      "native": "Please repeat the instruction.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-24d8271bfe99b74e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この はりの ことですか",
+      "native": "Do you mean this beam?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-7740904a62561f7a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの ふごうを ゆびさして ください",
+      "native": "Point out the mark on the plan.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-1726f50632152b14",
+      "courseId": "construction-foreman-ja-en",
+      "target": "していの てじゅんは なんですか",
+      "native": "What is the specified sequence?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "card-ja-en-15587298932acce5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうを つづける まえに かくにんが ひつよう です",
+      "native": "I need confirmation before continuing.",
+      "kind": "phrase",
+      "firstLesson": 6
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-95657ec126f4a531",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ざいりょう",
+      "native": "Material",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-0af7af7427765435",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もくざい",
+      "native": "Lumber",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-b0d6f17916f05733",
+      "courseId": "construction-foreman-ja-en",
+      "target": "パネル",
+      "native": "Panel",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-cfcc36873d17789a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリート",
+      "native": "Concrete",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-1c2b43899e73858b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すうりょう",
+      "native": "Quantity",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-712c9bdb1e129cd2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たんい",
+      "native": "Unit",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-432fb17e4fe8865a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サイズ",
+      "native": "Measurement",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-596b3510f77e8df3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもん",
+      "native": "Order",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-69eefd4531b98b8a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひん",
+      "native": "Delivery",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-ce097bce7e34224f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうにゅうぎょうしゃ",
+      "native": "Supplier",
+      "kind": "term",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-dd01f76ed1e2a24a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちゅうもんの すうりょうは どのくらい ですか",
+      "native": "What quantity does the order specify?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-82fe618908568038",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たんいを かくにん して ください",
+      "native": "Please confirm the unit.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-3502eef6e3ff4d8d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この ざいりょうが ひつよう です",
+      "native": "I need this material.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-41f9502a76979f2e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サイズは ちゅうもんしょに かいて あります",
+      "native": "The measurement is in the order.",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-d547d26965362d65",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のうひんは いつ ですか",
+      "native": "When does the delivery arrive?",
+      "kind": "phrase",
+      "firstLesson": 4
+    },
+    {
+      "id": "dict-ja-en-0f8b6364e6d6693d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめん",
+      "native": "Plan",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-29da1ae12d86dc78",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かいてい",
+      "native": "Revision",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-cf950417329853f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かべ",
+      "native": "Wall",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-ae3b858a6a16b7ce",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ドア",
+      "native": "Door",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-f10cbd0cc1ee75d6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かど",
+      "native": "Corner",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-d0e01ed2262d2673",
+      "courseId": "construction-foreman-ja-en",
+      "target": "すんぽう",
+      "native": "Dimension",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-8d09b29f9a3678a6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんてん",
+      "native": "Reference point",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-9a2b680f3067531a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きた",
+      "native": "North",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-1e2e0d8b6414c2d4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きごう",
+      "native": "Symbol",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-def0145165f1929f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょうさいず",
+      "native": "Detail",
+      "kind": "term",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-87347f0bfa1a5679",
+      "courseId": "construction-foreman-ja-en",
+      "target": "これは さいしんばん ですか",
+      "native": "Is this the current revision?",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-6f5fecdd2177722c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きじゅんてんを ゆびさして ください",
+      "native": "Point out the reference point.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-357b700aedafd865",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この きごうは どういう いみ ですか",
+      "native": "What does this symbol mean?",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-cffdc87e6b9c1365",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの すんぽうを かくにん して ください",
+      "native": "Confirm the dimension on the plan.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-550b2487c172e6e9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この しょうさいずが わかりません",
+      "native": "I do not understand this detail.",
+      "kind": "phrase",
+      "firstLesson": 5
+    },
+    {
+      "id": "dict-ja-en-5888c759adc460ad",
+      "courseId": "construction-foreman-ja-en",
+      "target": "わくぐみ",
+      "native": "Framing",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-3c9fc8900f705571",
+      "courseId": "construction-foreman-ja-en",
+      "target": "たてわく",
+      "native": "Stud",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-7ebd335b9895e162",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はり",
+      "native": "Beam",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-74cd90bc2030353d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ねだ",
+      "native": "Joist",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-cc6064145cc09eca",
+      "courseId": "construction-foreman-ja-en",
+      "target": "したわく",
+      "native": "Plate",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-f0e54e470f44bb15",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まぐさ",
+      "native": "Header",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-391958546db055f3",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふごう",
+      "native": "Mark",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-b641a7b8b3b15d44",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しじ",
+      "native": "Instruction",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-f57b5720a0bc287b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てじゅん",
+      "native": "Sequence",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-fc176af78fc308d2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かくにん",
+      "native": "Confirmation",
+      "kind": "term",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-d8cc9892335bd528",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しじを もういちど いって ください",
+      "native": "Please repeat the instruction.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-24d8271bfe99b74e",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この はりの ことですか",
+      "native": "Do you mean this beam?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-7740904a62561f7a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんの ふごうを ゆびさして ください",
+      "native": "Point out the mark on the plan.",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-1726f50632152b14",
+      "courseId": "construction-foreman-ja-en",
+      "target": "していの てじゅんは なんですか",
+      "native": "What is the specified sequence?",
+      "kind": "phrase",
+      "firstLesson": 6
+    },
+    {
+      "id": "dict-ja-en-15587298932acce5",
+      "courseId": "construction-foreman-ja-en",
+      "target": "さぎょうを つづける まえに かくにんが ひつよう です",
+      "native": "I need confirmation before continuing.",
+      "kind": "phrase",
+      "firstLesson": 6
+    }
+  ]
+}

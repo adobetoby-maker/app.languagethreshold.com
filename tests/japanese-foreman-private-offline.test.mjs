@@ -53,6 +53,7 @@ test("private offline candidates preserve exact pairs, IDs, Reader and card owne
     assert.equal(pack.lessons[0].id, `${id}:lesson:1`);
     assert.equal(pack.lessons[count - 1].id, `${id}:lesson:${count}`);
     const cards = new Map(pack.cards.map((card) => [card.id, card]));
+    const firstSeen = new Map();
     for (const [index, lesson] of pack.lessons.entries()) {
       assert.equal(lesson.n, index + 1);
       assert.equal(lesson.reader.id, `reader-${lesson.id}`);
@@ -64,7 +65,11 @@ test("private offline candidates preserve exact pairs, IDs, Reader and card owne
         assert.equal(card.courseId, id);
         assert.equal(card.target, word.es);
         assert.equal(card.native, word.en);
+        if (!firstSeen.has(word.cardId)) firstSeen.set(word.cardId, lesson.n);
       }
+    }
+    for (const [cardId, firstLesson] of firstSeen) {
+      assert.equal(cards.get(cardId).firstLesson, firstLesson);
     }
     for (const source of manifest.sourceBundles) {
       assert.equal(source.sha256, sha(readFileSync(join(content, source.file))));

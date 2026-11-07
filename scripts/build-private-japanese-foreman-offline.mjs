@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Deterministic private text/Reader/cards candidates; never writes public/. */
 import { createHash } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
@@ -50,7 +50,11 @@ function make(stage) {
   if (lessons.length !== stage.count || lessons.some((lesson, i) => lesson.n !== i + 1)) {
     throw Error(`Private ${stage.stage} lesson numbering is incomplete`);
   }
-  const cards = [...new Map(bundles.flatMap((bundle) => bundle.cards).map((card) => [card.id, card])).values()];
+  const cardById = new Map();
+  for (const card of bundles.flatMap((bundle) => bundle.cards)) {
+    if (!cardById.has(card.id)) cardById.set(card.id, card);
+  }
+  const cards = [...cardById.values()];
   if (cards.some((card) => card.courseId !== stage.courseId || !card.target || !card.native) ||
       lessons.some((lesson) => lesson.words.some((word) => !cards.some((card) =>
         card.id === word.cardId && card.target === word.es && card.native === word.en)))) {
@@ -84,13 +88,21 @@ function make(stage) {
 
 if (!CHECK) mkdirSync(OUTPUT, { recursive: true });
 for (const stage of stages) {
-  for (const { name, value } of make(stage)) {
+  const artifacts = make(stage);
+  const expectedNames = new Set(artifacts.map(({ name }) => name));
+  for (const { name, value } of artifacts) {
     const destination = path.join(OUTPUT, name);
     if (CHECK) {
       if (!existsSync(destination) || readFileSync(destination, "utf8") !== value) {
         throw Error(`Private offline artifact is stale: ${name}`);
       }
     } else writeFileSync(destination, value);
+  }
+  if (!CHECK) {
+    for (const name of readdirSync(OUTPUT)) {
+      if (new RegExp(`^${stage.courseId}-[a-f0-9]{64}\\.json$`).test(name) &&
+          !expectedNames.has(name)) unlinkSync(path.join(OUTPUT, name));
+    }
   }
   console.log(`${stage.stage}: private ${stage.count} lesson candidate ${CHECK ? "verified" : "built"}; release disabled`);
 }

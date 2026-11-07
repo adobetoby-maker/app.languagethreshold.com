@@ -1,0 +1,464 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "4bbc446659f810627480dd46147797b8c1e686f6f7e4bdff4cd7b809588cde4b",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 16,
+      "titleEnglish": "Safety Compliance Officer Walks the Scaffold",
+      "objectiveEnglish": "Walk a safety compliance officer through scaffold inspections and records using formal, precise language.",
+      "terms": [
+        {
+          "en": "the compliance officer",
+          "kind": "term",
+          "ja": "安全コンプライアンス担当者"
+        },
+        {
+          "en": "the inspection log",
+          "kind": "term",
+          "ja": "点検記録簿"
+        },
+        {
+          "en": "the signature",
+          "kind": "term",
+          "ja": "署名"
+        },
+        {
+          "en": "the green tag",
+          "kind": "term",
+          "ja": "緑色の点検タグ"
+        },
+        {
+          "en": "the platform",
+          "kind": "term",
+          "ja": "作業床"
+        },
+        {
+          "en": "the toe board",
+          "kind": "term",
+          "ja": "幅木"
+        },
+        {
+          "en": "the top rail",
+          "kind": "term",
+          "ja": "手すり（上部手すり）"
+        },
+        {
+          "en": "the midrail",
+          "kind": "term",
+          "ja": "中桟（なかさん）"
+        },
+        {
+          "en": "the cross braces",
+          "kind": "term",
+          "ja": "交差筋かい"
+        },
+        {
+          "en": "the access ladder",
+          "kind": "term",
+          "ja": "昇降はしご"
+        },
+        {
+          "en": "the north face",
+          "kind": "term",
+          "ja": "北面"
+        },
+        {
+          "en": "the scaffold erector",
+          "kind": "term",
+          "ja": "足場組立作業員"
+        },
+        {
+          "en": "the training certificate",
+          "kind": "term",
+          "ja": "研修修了証"
+        },
+        {
+          "en": "the inspection frequency",
+          "kind": "term",
+          "ja": "点検頻度"
+        },
+        {
+          "en": "the corrective action",
+          "kind": "term",
+          "ja": "是正措置"
+        },
+        {
+          "en": "Under our safety plan, it's checked before every shift.",
+          "kind": "phrase",
+          "ja": "当社の安全計画に基づき、毎シフト前に点検されています。"
+        },
+        {
+          "en": "The results are written in the log and on the tag.",
+          "kind": "phrase",
+          "ja": "結果は点検記録簿とタグに記入されます。"
+        },
+        {
+          "en": "Here is this month's inspection log, Officer Carrillo.",
+          "kind": "phrase",
+          "ja": "カリージョさん、こちらが今月の点検記録簿です。"
+        },
+        {
+          "en": "Would you like to see the scaffold erectors' training certificates?",
+          "kind": "phrase",
+          "ja": "足場組立作業員の研修修了証をご覧になりますか。"
+        },
+        {
+          "en": "You're right; this tag is missing the signature.",
+          "kind": "phrase",
+          "ja": "ご指摘のとおりです。このタグには署名が入っていません。"
+        },
+        {
+          "en": "Nobody goes up until the competent person checks and signs it.",
+          "kind": "phrase",
+          "ja": "指名された点検責任者が点検し、署名するまで、誰も足場に上がりません。"
+        },
+        {
+          "en": "The corrective action is documented today, and I'll email it to you.",
+          "kind": "phrase",
+          "ja": "是正措置は本日記録し、メールでお送りします。"
+        },
+        {
+          "en": "Guys, don't go up on this section until further notice.",
+          "kind": "phrase",
+          "ja": "みんな、追って連絡があるまで、この部分の足場には上がらないで。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is compliance officer Inés Carrillo: walk her along the north-face scaffold and explain who inspects it, how often your safety plan requires it and where the records are, using formal usted and passive se (se inspecciona, se registra).",
+      "grammarFocusSpanish": "Formal register; passive se for procedures (el andamio se inspecciona cada turno según nuestro plan de seguridad; se registra en la tarjeta)",
+      "grammarExamplesEnglish": [
+        "The scaffold is inspected every shift according to our safety plan.",
+        "Each inspection is recorded on the tag and signed."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは安全コンプライアンス担当者のイネス・カリージョです。北面の足場を一緒に歩きながら、誰が点検するのか、点検頻度は安全計画でどう定められているか、記録はどこに残るのかを説明してください。丁寧語（です・ます）で話し、「〜されています」「〜に記入されます」のような受身形を使いましょう。",
+      "grammarTeachingJapanese": "手順や決まりを説明するときは、誰がするかを省いた受身形（〜されます・〜されています）がよく使われます。まず「当社の安全計画に基づき」と根拠を一度示し、その後は主語を省いて受身で続けると自然です。安全コンプライアンス担当者への説明のような改まった会話でも、この形を使えます。",
+      "grammarExamplesJapanese": [
+        "当社の安全計画に基づき、足場は毎シフト点検されています。",
+        "点検のたびに、結果はタグに記録され、点検者が署名します。"
+      ],
+      "teachingNotesEnglish": [
+        "Inspection frequency is stated only as the company safety plan’s requirement (before every shift), as in the English source. Do not attribute the frequency to OSHA, Japanese law, or any other regulatory authority.",
+        "The source gives no code, OSHA or Japanese legal guarantee. Do not add one. The only authority in the lesson is the company safety plan.",
+        "Specialist check: 幅木, 手すり（上部手すり）, 中桟, 交差筋かい and 昇降はしご are provisional Japanese scaffolding part names. Confirm them with a Japanese scaffolding specialist and company terminology.",
+        "Specialist check: green tag color (緑色の点検タグ) follows the company safety plan, as the source note says. Confirm the tag scheme before the lesson is treated as final.",
+        "Specialist check: US-source competent person is rendered provisionally as 指名された点検責任者（competent person）, not as a licensed or certified person. Verify the exact authority and company title with a qualified scaffold safety specialist.",
+        "Specialist check: 研修修了証 is generic. Do not name a jurisdiction-specific certificate unless the company's training records use one.",
+        "Gender: the Japanese keeps 担当者 and 足場組立作業員 neutral. The source's la oficial and la andamiera forms do not need a Japanese equivalent.",
+        "Register: the crew line 「みんな、追って連絡があるまで、この部分の足場には上がらないで。」 is informal and plural, matching the source's informal crew command. The officer-facing lines stay in 丁寧語.",
+        "Native review is still required before this lesson is marked reviewed.",
+        "The English source fields are retained verbatim for source-hash tracking only and are not learner-facing Japanese-course copy. Runtime lessons must use the Japanese-adapted fields after review.",
+        "Confirm whether the compliance officer is an in-house safety role or a government inspector before choosing a final title; the source does not say."
+      ],
+      "titleJapanese": "安全コンプライアンス担当者と足場を点検する",
+      "objectiveJapanese": "安全コンプライアンス担当者に対し、丁寧で正確な言葉づかいで、足場の点検担当者、会社の安全計画で定める点検頻度、記録の保管場所を説明する。"
+    },
+    {
+      "n": 17,
+      "titleEnglish": "Daily Log After the Pump Truck No-Show",
+      "objectiveEnglish": "Write the daily log in clear written Spanish: work done, lost hours and cause, who was notified and next steps.",
+      "terms": [
+        {
+          "en": "the daily log",
+          "kind": "term",
+          "ja": "作業日誌"
+        },
+        {
+          "en": "the concrete pump truck",
+          "kind": "term",
+          "ja": "コンクリートポンプ車"
+        },
+        {
+          "en": "the pump operator",
+          "kind": "term",
+          "ja": "ポンプ車オペレーター"
+        },
+        {
+          "en": "the pump company",
+          "kind": "term",
+          "ja": "圧送会社"
+        },
+        {
+          "en": "the lost hours",
+          "kind": "term",
+          "ja": "ロス時間"
+        },
+        {
+          "en": "the downtime",
+          "kind": "term",
+          "ja": "手待ち時間"
+        },
+        {
+          "en": "the reason for the delay",
+          "kind": "term",
+          "ja": "遅延の理由"
+        },
+        {
+          "en": "the scheduled time",
+          "kind": "term",
+          "ja": "予定時刻"
+        },
+        {
+          "en": "the dispatch office",
+          "kind": "term",
+          "ja": "配車センター"
+        },
+        {
+          "en": "the ready-mix concrete",
+          "kind": "term",
+          "ja": "生コンクリート"
+        },
+        {
+          "en": "the work performed",
+          "kind": "term",
+          "ja": "作業内容"
+        },
+        {
+          "en": "the next steps",
+          "kind": "term",
+          "ja": "今後の対応"
+        },
+        {
+          "en": "the owner",
+          "kind": "term",
+          "ja": "発注者"
+        },
+        {
+          "en": "the written confirmation",
+          "kind": "term",
+          "ja": "書面での確認"
+        },
+        {
+          "en": "the weather conditions",
+          "kind": "term",
+          "ja": "気象条件"
+        },
+        {
+          "en": "The pump truck was scheduled for 7:00 and did not arrive.",
+          "kind": "phrase",
+          "ja": "ポンプ車の予定時刻は7:00でしたが、到着しませんでした。"
+        },
+        {
+          "en": "Due to the missing pump truck, 4 hours of work were lost.",
+          "kind": "phrase",
+          "ja": "ポンプ車の未着により、作業時間を4時間ロスしました。"
+        },
+        {
+          "en": "It should be noted that dispatch was called 3 times.",
+          "kind": "phrase",
+          "ja": "なお、配車センターへは3回電話しました。"
+        },
+        {
+          "en": "However, the plant held the trucks before they left.",
+          "kind": "phrase",
+          "ja": "しかし、生コン工場は出発前に生コン車の出荷を止めました。"
+        },
+        {
+          "en": "In addition, the crew checked the formwork and cleaned the pour area.",
+          "kind": "phrase",
+          "ja": "また、作業班は型枠を点検し、打設箇所を清掃しました。"
+        },
+        {
+          "en": "Therefore, the pour was rescheduled for tomorrow.",
+          "kind": "phrase",
+          "ja": "したがって、打設の日程を明日に変更しました。"
+        },
+        {
+          "en": "Elena Cruz was notified by phone at 8:15.",
+          "kind": "phrase",
+          "ja": "8:15、エレナ・クルス氏に電話で連絡しました。"
+        },
+        {
+          "en": "Elena, I'm sending you the log so you can forward it to the owner.",
+          "kind": "phrase",
+          "ja": "クルスさん、発注者へ転送していただけるよう、作業日誌をお送りします。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is project manager Elena Cruz: read her your daily log on the pump truck no-show, covering work done, lost hours and cause, who was notified and next steps, using debido a, por lo tanto, sin embargo and cabe señalar que.",
+      "grammarFocusSpanish": "Written register; report connectors (debido a, por lo tanto, además, sin embargo, cabe señalar que)",
+      "grammarExamplesEnglish": [
+        "Because the pump truck didn't arrive, the crew lost the morning.",
+        "However, it should be noted that the pump company gave no notice of the delay."
+      ],
+      "speakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。ポンプ車が来なかった件について、作業内容、ロス時間と原因、通知した相手、今後の対応を作業日誌の形で読み上げてください。「ため」「したがって」「しかし」「なお」を使い、丁寧語で話しましょう。",
+      "grammarTeachingJapanese": "この課では、書き言葉の接続表現を使って報告文を組み立てます。「〜ため」は文に続けて「ポンプ車が到着しなかったため」、名詞に続けて「ポンプ車の未着のため」となります。「〜により」も書き言葉で原因を示せます。「したがって」「しかし」「また」「なお」で文をつなぐと、日誌として読みやすくなります。口語の言いさしや脱線は、そのまま日誌に書きません。原因は、確認できた事実と、人から聞いた説明を分けて書きます。聞いた内容は「〜とのことでした」で示します。",
+      "grammarExamplesJapanese": [
+        "ポンプ車が到着しなかったため、作業班は午前中の作業をロスしました。",
+        "しかし、圧送会社からは遅延の連絡がなかったことを付記します。"
+      ],
+      "teachingNotesEnglish": [
+        "Observed versus claimed cause: 'did not arrive' is the observed fact. If a cause (for example, a dispatch error) is only reported by the pump company or dispatch, the Japanese must use 〜とのことでした, not a bare statement. The source does not say who caused the no-show, so do not add blame.",
+        "Specialist check: 手待ち時間 is used for downtime. Confirm whether the company's billing or log form uses 手待ち時間, 待機時間 or another term.",
+        "Specialist check: 発注者 is used for 'owner'. Some contracts use 施主. Confirm which term the project contract uses.",
+        "Specialist check: 圧送会社 and 配車センター are generic. Confirm the company's actual names for the pump supplier and the dispatch office.",
+        "Register: 「なお」「付記します」 are written-log forms. The spoken equivalent of the source's 'ojo' note is not taught as a log phrase.",
+        "The source says the plant held the trucks. Do not turn this into a stated cause for the pump truck no-show; the link is not in the source.",
+        "Elena Cruz is addressed as クルス氏 in the log and クルスさん when addressing her. The source’s usted register is kept with 丁寧語 (お送りします).",
+        "Native review is still required before this lesson is marked reviewed.",
+        "The English source fields are retained verbatim for source-hash tracking only; runtime lessons must not show their Spanish-specific objective, speaking or grammar instructions as Japanese-course copy.",
+        "The source says the plant held the trucks; 生コン車 is inferred from the ready-mix concrete context. Confirm the vehicle type with the English-course owner before release."
+      ],
+      "titleJapanese": "ポンプ車が来なかった日の作業日誌",
+      "objectiveJapanese": "実施した作業、作業できなかった時間とその原因、連絡した相手、今後の対応を、明確な書き言葉で事実に基づいて作業日誌にまとめる。"
+    },
+    {
+      "n": 18,
+      "titleEnglish": "Inspection Moved: Calls, Texts and Voicemails",
+      "objectiveEnglish": "Reschedule by phone, text the crew and leave clear voicemails using polite phone and text conventions.",
+      "terms": [
+        {
+          "en": "the city scheduler",
+          "kind": "term",
+          "ja": "市の日程担当者"
+        },
+        {
+          "en": "the insulation inspection",
+          "kind": "term",
+          "ja": "断熱検査"
+        },
+        {
+          "en": "the arrival window",
+          "kind": "term",
+          "ja": "到着予定時間帯"
+        },
+        {
+          "en": "the confirmed time",
+          "kind": "term",
+          "ja": "確定時刻"
+        },
+        {
+          "en": "the voicemail",
+          "kind": "term",
+          "ja": "留守番電話メッセージ"
+        },
+        {
+          "en": "the voice mailbox",
+          "kind": "term",
+          "ja": "留守番電話（ボイスメール）"
+        },
+        {
+          "en": "the missed call",
+          "kind": "term",
+          "ja": "不在着信"
+        },
+        {
+          "en": "the crew group chat",
+          "kind": "term",
+          "ja": "作業班のグループチャット"
+        },
+        {
+          "en": "the permit number",
+          "kind": "term",
+          "ja": "建築許可番号"
+        },
+        {
+          "en": "the confirmation number",
+          "kind": "term",
+          "ja": "確認番号"
+        },
+        {
+          "en": "the permit office",
+          "kind": "term",
+          "ja": "許認可窓口"
+        },
+        {
+          "en": "the drywall sub",
+          "kind": "term",
+          "ja": "石膏ボード工事の協力業者"
+        },
+        {
+          "en": "the drywall hanging",
+          "kind": "term",
+          "ja": "石膏ボード張り"
+        },
+        {
+          "en": "the loaded truck",
+          "kind": "term",
+          "ja": "荷積み済みのトラック"
+        },
+        {
+          "en": "This is Miguel Rojas, the foreman on the duplex job.",
+          "kind": "phrase",
+          "ja": "ミゲル・ロハスと申します。デュプレックス（2戸1棟の住宅）の現場で職長をしております。"
+        },
+        {
+          "en": "Could you confirm the inspector's arrival window for me?",
+          "kind": "phrase",
+          "ja": "検査員の到着予定時間帯を確認していただけますでしょうか。"
+        },
+        {
+          "en": "Would it be possible for the inspector to arrive before 10:00?",
+          "kind": "phrase",
+          "ja": "検査員に10時前にご到着いただくことは可能でしょうか。"
+        },
+        {
+          "en": "Could you give me the confirmation number, please?",
+          "kind": "phrase",
+          "ja": "確認番号をお伝えいただけますでしょうか。"
+        },
+        {
+          "en": "Team, the inspection moved to tomorrow, from 8 to 12.",
+          "kind": "phrase",
+          "ja": "みんな、検査は明日に変更。8:00〜12:00。"
+        },
+        {
+          "en": "Óscar, it's Miguel; call me before you head out with the truck.",
+          "kind": "phrase",
+          "ja": "オスカル、ミゲルだけど。トラックで出る前に電話して。"
+        },
+        {
+          "en": "Sorry, Óscar, I know you already loaded the truck.",
+          "kind": "phrase",
+          "ja": "ごめん、オスカル。もう荷積み済みなのは分かってる。"
+        },
+        {
+          "en": "Thank you very much, Lorena; I'll look out for your email confirmation.",
+          "kind": "phrase",
+          "ja": "イバラさん、ありがとうございました。確認のメールをお待ちしております。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is city scheduler Lorena Ibarra, then drywall sub Óscar Fuentes: confirm the new inspection window, read your crew text aloud and call Óscar, using le llamo de parte de, ¿me podría confirmar...? and ¿sería posible...?",
+      "grammarFocusSpanish": "Phone and text conventions; conditional politeness (le llamo de parte de..., ¿me podría confirmar la hora?, ¿sería posible pasar a la tarde?)",
+      "grammarExamplesEnglish": [
+        "Good afternoon, I'm calling on behalf of Rivera Construction about the inspection.",
+        "Would it be possible to move the inspection to the afternoon, between 1:00 and 4:00?"
+      ],
+      "speakingJapanese": "あなたは職長です。最初にAIは市の日程担当者のロレナ・イバラです。検査の新しい到着予定時間帯を確認してください。次に、石膏ボード工事の協力業者オスカル・フエンテスに電話します。留守番電話にメッセージを残す場合は名前を先に言い、チャットでは短く数字を使って作業班に伝えてください。電話では「〜の者ですが」「〜していただけますでしょうか」「〜は可能でしょうか」の形を使ってください。",
+      "grammarTeachingJapanese": "電話、留守番電話、チャットでは、礼儀の形を分けて使います。電話では最初に「〜の者ですが」と所属を伝え、「〜と申します」と名乗ります。依頼は「〜していただけますでしょうか」「〜は可能でしょうか」で和らげます。留守番電話では、まず名前を言い、用件を短く伝えます。作業班のチャットでは、「みんな、検査は明日に変更。8:00〜12:00。」のように短い文と数字で十分です。",
+      "grammarExamplesJapanese": [
+        "こんにちは。リベラ建設の者ですが、検査の件でお電話しております。",
+        "検査を午後1時から4時の間に変更することは可能でしょうか。"
+      ],
+      "teachingNotesEnglish": [
+        "Channels are distinct. Phone is a live request, voicemail is a one-way message that must name the caller first, and the crew group chat is a short written update. Do not blur them in the Japanese.",
+        "The crew text says 「検査は明日に変更」 and avoids claiming that an arrival window is confirmed. Do not write 確定 unless the scheduler confirms it.",
+        "Specialist check: 断熱検査 is the literal rendering of insulation inspection. Confirm the Japanese inspection name for the jurisdiction (for example an interim or energy-code inspection) and whether 検査員 or 検査担当者 is correct.",
+        "Specialist check: 許認可窓口 is used for permit office. Confirm the authority and office name for the project.",
+        "The US duplex is rendered as デュプレックス（2戸1棟の住宅）, avoiding 二世帯住宅, which can imply a different Japanese building type. Confirm the actual building type before release.",
+        "Specialist check: 石膏ボード工事の協力業者 is used for drywall sub. Confirm whether the contract uses 協力業者, 下請 or another term.",
+        "Drywall and loading terms (石膏ボード張り, 荷積み済み) are standard site terms. Native trade review is still required.",
+        "Gender: the Japanese keeps 市の日程担当者 neutral, while the source's programadora is female. The Japanese does not mark it.",
+        "Native review is still required before this lesson is marked reviewed.",
+        "The English source fields are retained verbatim for source-hash tracking only; use reviewed Japanese-adapted fields for any learner-facing copy.",
+        "The vocabulary item 確定時刻 names a confirmed time in general; this scenario does not assert that a new arrival window has been confirmed.",
+        "Lorena Ibarra is addressed as イバラさん in the Japanese message; confirm preferred name and role rendering in native review."
+      ],
+      "titleJapanese": "検査日程の変更：電話・メッセージ・留守番電話",
+      "objectiveJapanese": "丁寧な電話とチャットの表現を使い、検査機関に電話して検査日程の変更を依頼し、作業班にはチャットで、協力業者には電話と留守番電話で変更をはっきり伝える。"
+    }
+  ],
+  "sourceOnlyEnglishFields": [
+    "titleEnglish",
+    "objectiveEnglish",
+    "speakingEnglish",
+    "grammarFocusSpanish",
+    "grammarExamplesEnglish",
+    "terms.en"
+  ]
+}

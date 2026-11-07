@@ -3754,6 +3754,564 @@
         "say": "Explain the concern and ask to inspect a compromise.",
         "write": "Write a polite reason and alternative request."
       }
+    },
+    {
+      "n": 22,
+      "stableId": "travel-breakfast:22:ja-en",
+      "sourceEnglish": {
+        "objective": "learn local habits about milky coffee, sugar, lingering, and paying first",
+        "roleplay": "Ask a barista which café habits mark someone as a tourist and how long it is fine to stay at a table.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "espresso with a little milk",
+          "sugar",
+          "counter",
+          "table",
+          "register",
+          "bill",
+          "tip",
+          "habit",
+          "tourist",
+          "Do you pay first at the register here?",
+          "Does the coffee already come with sugar?",
+          "Is it okay to stay at the table for a while?",
+          "What habits are typical of tourists here?",
+          "Can I order another cortado later?"
+        ],
+        "englishReading": [
+          "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+          "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+          "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+          "Then she asks: Does the coffee already come with sugar?",
+          "He answers: No, the sugar is on the counter, so you add as much as you want.",
+          "The traveler also wants to know: What habits are typical of tourists here?",
+          "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+          "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+          "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional."
+        ],
+        "englishSourceSha256": "52ad296bee97c4e663c4dc972a7632da595b4e5ca3e0bac93bb59c6701db641b"
+      },
+      "title": "Ask how this café works",
+      "objective": "Ask where to pay, whether sugar is included, and whether another order is needed to stay longer.",
+      "focus": "この店では (at this shop) limits a question to the current café. 先にお会計ですか asks whether payment comes first. ～てもいいですか asks permission; do not generalize one café’s policy to a region.",
+      "scene": "A traveler asks staff about this café’s payment and seating rules before ordering.",
+      "cards": [
+        {
+          "ja": "この店では",
+          "en": "at this café",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "カウンター",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル席",
+          "en": "table seat",
+          "kind": "term"
+        },
+        {
+          "ja": "先に払う",
+          "en": "pay first",
+          "kind": "term"
+        },
+        {
+          "ja": "あとで払う",
+          "en": "pay later",
+          "kind": "term"
+        },
+        {
+          "ja": "砂糖",
+          "en": "sugar",
+          "kind": "term"
+        },
+        {
+          "ja": "ミルク",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "追加注文",
+          "en": "additional order",
+          "kind": "term"
+        },
+        {
+          "ja": "しばらく",
+          "en": "for a while",
+          "kind": "term"
+        },
+        {
+          "ja": "店の決まり",
+          "en": "shop policy",
+          "kind": "term"
+        },
+        {
+          "ja": "先にお会計ですか",
+          "en": "Do I pay first?",
+          "kind": "term"
+        },
+        {
+          "ja": "しばらく座ってもいいですか",
+          "en": "May I sit for a while?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "すみません。この店では先にお会計ですか。",
+          "en": "Excuse me. Do I pay first at this café?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。レジで先にお支払いください。",
+          "en": "Yes. Please pay at the register first."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "カウンターで注文しますか。",
+          "en": "Do I order at the counter?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。ご注文を伺います。",
+          "en": "Yes. I will take your order."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "ミルク入りのコーヒーを一杯ください。",
+          "en": "One coffee with milk, please."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "砂糖は最初から入っていますか。",
+          "en": "Is sugar already added?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ。砂糖はあちらにあります。",
+          "en": "No. The sugar is over there."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "しばらくテーブル席に座ってもいいですか。",
+          "en": "May I sit at a table for a while?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。今日は空いています。追加注文のときはレジにお越しください。",
+          "en": "Yes. We have space today. Please come to the register for another order."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about café policy",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。ご注文はお決まりですか。",
+        "goal": "Ask this café about payment, sugar and seating, then place one order.",
+        "closure": "Confirm the local shop policy rather than assuming a universal rule.",
+        "wordBank": [
+          "この店では",
+          "先にお会計ですか",
+          "カウンター",
+          "砂糖",
+          "しばらく",
+          "追加注文"
+        ]
+      },
+      "modes": {
+        "see": "Read a shop-specific café exchange with English support.",
+        "recall": "Recall payment, sugar and seating questions.",
+        "hear": "Hear 先に and あとで in policy questions.",
+        "type": "Type 先にお会計ですか with kana support.",
+        "say": "Ask staff about this shop’s rules before ordering.",
+        "write": "Write a brief question about paying and staying."
+      }
+    },
+    {
+      "n": 23,
+      "stableId": "travel-breakfast:23:ja-en",
+      "sourceEnglish": {
+        "objective": "ask a local for a specific recommendation, opening hours, and walking directions",
+        "roleplay": "Ask the hotel host where to find the best bakery open before 7 a.m. and how to walk there.",
+        "englishWordAnchors": [
+          "bakery",
+          "receptionist",
+          "sweet bread",
+          "opening hours",
+          "map",
+          "block",
+          "street",
+          "traffic light",
+          "corner",
+          "square",
+          "Can you recommend a bakery nearby?",
+          "What time does it open?",
+          "Is it open before 7?",
+          "How do I get there on foot from here?",
+          "How many blocks is it?",
+          "Can you repeat that, please?"
+        ],
+        "englishReading": [
+          "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+          "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+          "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+          "Ana asks: What time does it open?",
+          "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+          "Then Ana asks: How do I get there on foot from here?",
+          "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+          "Ana does not understand everything and asks: Can you repeat that, please?",
+          "He calmly repeats: The bakery is on the corner, across from the square."
+        ],
+        "englishSourceSha256": "3a8178e8ffbcf8ee9468502dcaf27583f1152c322dc68476556afc00c623de87"
+      },
+      "title": "Find a bakery open early",
+      "objective": "Ask hotel staff for a nearby bakery, verify its current opening time, and repeat walking directions.",
+      "focus": "近くのパン屋 (nearby bakery), 何時に開きますか (what time does it open?) and もう一度お願いします (please repeat) form a practical route request. Hours and routes can change, so confirm with current local information.",
+      "scene": "Before breakfast, a hotel guest asks for an early bakery and repeats the route.",
+      "cards": [
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "近く",
+          "en": "nearby",
+          "kind": "term"
+        },
+        {
+          "ja": "朝早く",
+          "en": "early in the morning",
+          "kind": "term"
+        },
+        {
+          "ja": "営業時間",
+          "en": "opening hours",
+          "kind": "term"
+        },
+        {
+          "ja": "何時",
+          "en": "what time",
+          "kind": "term"
+        },
+        {
+          "ja": "地図",
+          "en": "map",
+          "kind": "term"
+        },
+        {
+          "ja": "徒歩",
+          "en": "on foot",
+          "kind": "term"
+        },
+        {
+          "ja": "道",
+          "en": "road",
+          "kind": "term"
+        },
+        {
+          "ja": "角",
+          "en": "corner",
+          "kind": "term"
+        },
+        {
+          "ja": "信号",
+          "en": "traffic light",
+          "kind": "term"
+        },
+        {
+          "ja": "右",
+          "en": "right",
+          "kind": "term"
+        },
+        {
+          "ja": "左",
+          "en": "left",
+          "kind": "term"
+        },
+        {
+          "ja": "近くのパン屋を教えてください",
+          "en": "Please tell me about a nearby bakery",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう一度お願いします",
+          "en": "Please say that again",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "おはようございます。朝早く開くパン屋は近くにありますか。",
+          "en": "Good morning. Is there a nearby bakery that opens early?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "一軒あります。こちらの地図をご覧ください。",
+          "en": "There is one. Please look at this map."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "何時に開きますか。",
+          "en": "What time does it open?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "表示では六時半からです。今日の営業時間も確認しましょう。",
+          "en": "The listing says six thirty. Let us also check today’s hours."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。ここから徒歩で行けますか。",
+          "en": "Thank you. Can I walk there from here?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。この道をまっすぐ進んでください。",
+          "en": "Yes. Go straight along this road."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "二つ目の信号を右に曲がると、角にあります。",
+          "en": "Turn right at the second traffic light, and it is on the corner."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "すみません。信号は二つ目ですね。もう一度お願いします。",
+          "en": "Excuse me. The second traffic light, right? Please say it again."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。二つ目の信号を右です。出発前に地図でも確認してください。",
+          "en": "Yes. Right at the second traffic light. Please check the map too before leaving."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest finding breakfast",
+        "partnerRole": "Hotel front desk staff",
+        "opening": "おはようございます。何かお探しですか。",
+        "goal": "Ask for a bakery, confirm today’s hours and repeat the walking route.",
+        "closure": "Use current hours and a map before leaving.",
+        "wordBank": [
+          "パン屋",
+          "近く",
+          "営業時間",
+          "徒歩",
+          "信号",
+          "もう一度お願いします"
+        ]
+      },
+      "modes": {
+        "see": "Read an early bakery route with aligned English.",
+        "recall": "Recall bakery, hours and directions.",
+        "hear": "Hear 二つ目 and 右に曲がる in a route.",
+        "type": "Type a request to repeat directions with kana support.",
+        "say": "Ask for current hours and repeat the route aloud.",
+        "write": "Write a short bakery question and route summary."
+      }
+    },
+    {
+      "n": 24,
+      "stableId": "travel-breakfast:24:ja-en",
+      "sourceEnglish": {
+        "objective": "alert staff, ask someone to call emergency services, give the location, and describe what you saw",
+        "roleplay": "A guest at the next table collapses; alert the staff, ask for emergency help, and describe what happened.",
+        "englishWordAnchors": [
+          "emergency",
+          "ambulance",
+          "waiter",
+          "manager",
+          "customer",
+          "next table",
+          "floor",
+          "emergency number",
+          "address",
+          "corner",
+          "operator",
+          "paramedics",
+          "Help, please, it's an emergency!",
+          "Can you call an ambulance, please?",
+          "A man fell at the next table.",
+          "What is the exact address of the café?",
+          "I don't know if he is breathing well.",
+          "We are on the corner of Juárez and Madero."
+        ],
+        "englishReading": [
+          "I am having breakfast in a café when the customer at the next table falls to the floor.",
+          "I stand up and say to the waiter: Help, please, it's an emergency!",
+          "The manager comes quickly and I ask him: Can you call an ambulance, please?",
+          "He dials the emergency number and the operator asks him for the address.",
+          "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+          "Then the operator wants to know what happened, because that information helps the paramedics.",
+          "I explain to her: A man fell at the next table and he isn't answering.",
+          "I also tell her: I don't know if he is breathing well.",
+          "Then I wait at the door to show the table to the paramedics when they arrive."
+        ],
+        "englishSourceSha256": "f9fca21783eb812a6cb1404b874aa957f5bf385aff31f7e2136fbedb03630773"
+      },
+      "title": "Call for help at a café",
+      "objective": "Alert staff to a collapse, ask them to call local emergency services, and report only the location and what you observed.",
+      "focus": "助けてください (please help) and 救急車を呼んでください (please call an ambulance) are urgent requests. Report 見たこと (what you saw) without diagnosis. Confirm the exact location and use the local emergency service number; medical and regional procedures require qualified review.",
+      "scene": "A guest sees another customer collapse and immediately alerts café staff.",
+      "cards": [
+        {
+          "ja": "助けてください",
+          "en": "Please help",
+          "kind": "term"
+        },
+        {
+          "ja": "緊急です",
+          "en": "It is an emergency",
+          "kind": "term"
+        },
+        {
+          "ja": "救急車",
+          "en": "ambulance",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "staff member",
+          "kind": "term"
+        },
+        {
+          "ja": "責任者",
+          "en": "person in charge",
+          "kind": "term"
+        },
+        {
+          "ja": "お客さん",
+          "en": "customer",
+          "kind": "term"
+        },
+        {
+          "ja": "隣の席",
+          "en": "next table",
+          "kind": "term"
+        },
+        {
+          "ja": "床",
+          "en": "floor",
+          "kind": "term"
+        },
+        {
+          "ja": "住所",
+          "en": "address",
+          "kind": "term"
+        },
+        {
+          "ja": "店の名前",
+          "en": "shop name",
+          "kind": "term"
+        },
+        {
+          "ja": "場所",
+          "en": "location",
+          "kind": "term"
+        },
+        {
+          "ja": "通報",
+          "en": "emergency call",
+          "kind": "term"
+        },
+        {
+          "ja": "救急車を呼んでください",
+          "en": "Please call an ambulance",
+          "kind": "phrase"
+        },
+        {
+          "ja": "隣の席の人が倒れました",
+          "en": "The person at the next table collapsed",
+          "kind": "phrase"
+        },
+        {
+          "ja": "反応がありません",
+          "en": "There is no response",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "助けてください。緊急です。",
+          "en": "Please help. It is an emergency."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "どうしましたか。",
+          "en": "What happened?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "隣の席の人が床に倒れました。",
+          "en": "The person at the next table fell to the floor."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "救急車を呼んでください。",
+          "en": "Please call an ambulance."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "すぐにこの地域の緊急通報先に連絡します。",
+          "en": "I will contact the local emergency service immediately."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "店の住所と場所を確認します。",
+          "en": "I will confirm the shop address and location."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "あのテーブルです。声をかけましたが、反応がありません。",
+          "en": "It is that table. I spoke to the person, but there was no response."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "電話で見たことを伝えます。係員の指示を聞きます。",
+          "en": "I will tell the operator what we observed and listen to their instructions."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "入口で救急隊を案内します。",
+          "en": "I will guide the emergency team from the entrance."
+        }
+      ],
+      "speaking": {
+        "role": "Witness alerting café staff",
+        "partnerRole": "Café staff contacting local emergency services",
+        "opening": "いらっしゃいませ。どうしましたか。",
+        "goal": "Alert staff, request an ambulance, state the shop location and describe only what you observed.",
+        "closure": "Follow the emergency operator’s instructions; do not diagnose or delay the call.",
+        "wordBank": [
+          "助けてください",
+          "緊急です",
+          "救急車を呼んでください",
+          "隣の席",
+          "倒れました",
+          "店の住所"
+        ]
+      },
+      "modes": {
+        "see": "Read a witness report with aligned English.",
+        "recall": "Recall alert, location and observation phrases.",
+        "hear": "Hear 救急車 and 緊急 in urgent speech.",
+        "type": "Type a request for an ambulance with kana support.",
+        "say": "Report a collapse to staff without diagnosing.",
+        "write": "Write a factual location and observation report."
+      }
     }
   ],
   "reviewGates": [

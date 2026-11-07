@@ -79,7 +79,7 @@
       },
       "title": "Review a written statement with an inspector",
       "objective": "Answer formal questions about a breakfast incident, distinguish what you witnessed from what others reported, and request corrections before confirming a written statement.",
-      "focus": "私が見た範囲では limits a claim to observation; ～と聞きました marks secondhand information; 署名する前に修正してください requests a correction before signing. The source's hotel allergen process and serving time are not assumed true of this scene; do not sign a statement with unresolved errors or assert an unverified cause.",
+      "focus": "私が見た範囲では limits a statement to firsthand observation; ～と聞きました marks information received from another person. アレルギー反応 and アレルゲン記録 are the clinical and inspection terms in the source; 署名する前に修正してください requests a correction.",
       "scene": "A witness reads a hotel incident statement line by line with an inspector and corrects a mistaken time.",
       "cards": [
         {
@@ -151,6 +151,16 @@
           "ja": "署名する前に",
           "en": "before signing",
           "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルゲン記録",
+          "en": "allergen record",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -210,7 +220,7 @@
         "partnerRole": "Inspector",
         "opening": "署名する前に、記載された時刻と私が見たことを確認したいです。",
         "goal": "Answer formal questions, identify one time error, distinguish firsthand from secondhand information, and request a corrected copy before deciding whether to sign.",
-        "closure": "Do not infer cause or validate the hotel's allergen process without evidence; leave an unresolved error unsigned.",
+        "closure": "Read the corrected statement and ask for a copy if signing.",
         "wordBank": [
           "報告書",
           "誤記",
@@ -293,7 +303,7 @@
       },
       "title": "Email a consent-limited incident summary",
       "objective": "Draft a clear hotel email about a breakfast incident, first asking the affected friend which health details they authorize sharing.",
-      "focus": "まず・次に・一方で・最後に structure a formal summary; 本人の同意を確認する precedes disclosure of personal health information. The English source's diagnosis, medical report attachment and fixed 15-day response request are not treated as automatic; share only what the friend explicitly approves and verify the recipient/attachments before sending.",
+      "focus": "まず・次に・一方で・最後に structure a formal summary. 本人の同意 and 健康情報 name consent and health information; 救急外来 is the emergency department. Ask the affected friend which details they agree to include before sending the revised message.",
       "scene": "A traveler reads a draft incident email aloud to the affected friend and revises it to match the friend's disclosure choices.",
       "cards": [
         {
@@ -365,6 +375,16 @@
           "ja": "送信前に確認する",
           "en": "check before sending",
           "kind": "term"
+        },
+        {
+          "ja": "救急外来",
+          "en": "emergency department",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -424,7 +444,7 @@
         "partnerRole": "Affected friend reviewing disclosure",
         "opening": "ホテルへのメールに、どの情報を書いてよいか先に確認したいです。",
         "goal": "Ask the friend which details may be shared, read a concise ordered draft, and revise the disclosure and attachments before sending.",
-        "closure": "Do not send health details beyond the friend's explicit choice or imply a legal response deadline.",
+        "closure": "Read the revised email and attachment list to the friend before sending.",
         "wordBank": [
           "件名",
           "本人の同意",

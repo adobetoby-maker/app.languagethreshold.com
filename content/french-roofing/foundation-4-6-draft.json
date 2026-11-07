@@ -1,0 +1,404 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "foundation",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceFiles": [
+    "src/data/foundation-roofing-curriculum.ts",
+    "public/lesson-content/es/foundation-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/foundation-roofing-curriculum.ts": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "public/lesson-content/es/foundation-roofing.json": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+  },
+  "englishSourceSubsetSHA256": "b338332cfd62fc5a5d1ab8753bfc6603d73b524d11fb0c18ad04ae936473e54d",
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Have, There Is, Need and Want",
+      "objectiveEnglish": "Say what you have, what is there, what you need and what you want",
+      "grammarFocusEnglish": "avoir (to have): j'ai, tu as, il/elle/on a; il y a (there is / there are, does not change); avoir besoin de + noun (besoin d'un outil, besoin de clous); vouloir (to want); il faut + infinitive (one has to / it is necessary to); de after negation and quantities (pas d'eau, plus de clous)",
+      "words": [
+        {
+          "en": "the water",
+          "kind": "term",
+          "fr": "l'eau",
+          "noteEnglish": "Feminine. Say de l'eau for 'some water'."
+        },
+        {
+          "en": "the tool",
+          "kind": "term",
+          "fr": "l'outil",
+          "noteEnglish": "Masculine: un outil, l'outil."
+        },
+        {
+          "en": "the gloves",
+          "kind": "term",
+          "fr": "les gants",
+          "noteEnglish": "Masculine plural."
+        },
+        {
+          "en": "the hard hat",
+          "kind": "term",
+          "fr": "le casque",
+          "noteEnglish": "Casque de chantier is also used in France."
+        },
+        {
+          "en": "the material",
+          "kind": "term",
+          "fr": "les matériaux",
+          "noteEnglish": "Building materials such as shingles and underlayment. Le matériel usually means tools and equipment."
+        },
+        {
+          "en": "the trash, the debris",
+          "kind": "term",
+          "fr": "les débris",
+          "noteEnglish": "Débris are broken pieces on the ground. Les déchets is the everyday word for trash or waste."
+        },
+        {
+          "en": "the tarp",
+          "kind": "term",
+          "fr": "la bâche"
+        },
+        {
+          "en": "the broom",
+          "kind": "term",
+          "fr": "le balai"
+        },
+        {
+          "en": "There's a problem.",
+          "kind": "phrase",
+          "fr": "Il y a un problème.",
+          "noteEnglish": "Il y a is used for both there is and there are."
+        },
+        {
+          "en": "I need more nails.",
+          "kind": "phrase",
+          "fr": "J'ai besoin de plus de clous.",
+          "noteEnglish": "Besoin de takes a noun with de; before a vowel it becomes d' (besoin d'un outil)."
+        },
+        {
+          "en": "I'm thirsty.",
+          "kind": "phrase",
+          "fr": "J'ai soif.",
+          "noteEnglish": "Use avoir for thirst, hunger, heat and cold: j'ai soif, j'ai faim, j'ai chaud, j'ai froid."
+        },
+        {
+          "en": "You have to wear the harness.",
+          "kind": "phrase",
+          "fr": "Il faut porter le harnais.",
+          "noteEnglish": "Il faut + infinitive means 'you have to.' Follow the employer's fall-protection requirements and local rules."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Il y a un problème",
+        "target": [
+          "Il y a un problème sur le chantier.",
+          "Il n'y a pas d'eau et il fait très chaud.",
+          "J'ai soif et je veux de l'eau fraîche.",
+          "J'ai le casque et les gants, mais j'ai besoin d'un outil.",
+          "J'ai besoin de plus de clous pour les bardeaux.",
+          "Il y a des matériaux sur le camion et des débris par terre.",
+          "Il faut balayer avec le balai et couvrir le toit avec la bâche."
+        ],
+        "native": [
+          "There's a problem on the jobsite.",
+          "There's no water and it's very hot.",
+          "I'm thirsty and I want cold water.",
+          "I have the hard hat and the gloves, but I need a tool.",
+          "I need more nails for the shingles.",
+          "There's material on the truck and debris on the ground.",
+          "We have to sweep with the broom and cover the roof with the tarp."
+        ]
+      },
+      "speakingEnglish": "Tell the crew lead what you have, what you need, and what is missing on the roof.",
+      "speakingFrenchOpening": "Chef, j'ai le casque et les gants. J'ai besoin d'un outil. Il n'y a pas de clous sur le toit.",
+      "grammarTeachingEnglish": "Avoir (to have) is irregular: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont. It covers possession and physical states: j'ai soif, j'ai chaud, j'ai froid. Il y a means both there is and there are, and it never changes: Il y a un problème; Il y a des clous. For none, use Il n'y a pas de, or Il n'y a pas d' before a vowel: Il n'y a pas d'eau. Avoir besoin de means to need. Keep un/une for one item (besoin d'un outil) but use de without an article for plurals and mass nouns (besoin de clous, besoin d'eau). Vouloir (to want) is irregular: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent. Il faut + infinitive means one has to or it is necessary to. It has no subject change: Il faut couvrir le toit. More nails is plus de clous (pronounce the s in plus). No more nails is il n'y a plus de clous (the s is usually silent). Negative quantities take de: pas d'eau. A polite request can use je voudrais instead of the more direct je veux.",
+      "verbs": [
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleFrench": "J'ai le casque et les gants, mais j'ai besoin d'un outil.",
+          "exampleEnglish": "I have the hard hat and the gloves, but I need a tool."
+        },
+        {
+          "infinitiveFrench": "avoir besoin de",
+          "meaningEnglish": "to need",
+          "exampleFrench": "J'ai besoin de plus de clous pour les bardeaux.",
+          "exampleEnglish": "I need more nails for the shingles."
+        },
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Vous voulez de l'eau ?",
+          "exampleEnglish": "Do you want water?"
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Chantier is the standard word for a jobsite in France and Quebec. Quebec crews may also say la job informally.",
+        "Casque, gants, bâche and balai are widely understood. Specialized equipment names vary by crew, so confirm them on site.",
+        "Vous is the safe default with a crew lead or someone you do not know. Tu is for close, informal contact."
+      ]
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Go, Do and Can",
+      "objectiveEnglish": "Talk about plans, actions and what you can do",
+      "grammarFocusEnglish": "aller + infinitive for the near future (je vais monter); faire for tasks and work (faire le nettoyage) and for weather (il fait chaud); pouvoir + infinitive for ability and requests (vous pouvez m'aider); time words aujourd'hui, demain, maintenant, après; à + le = au for places",
+      "words": [
+        {
+          "en": "today",
+          "kind": "term",
+          "fr": "aujourd'hui"
+        },
+        {
+          "en": "tomorrow",
+          "kind": "term",
+          "fr": "demain"
+        },
+        {
+          "en": "now",
+          "kind": "term",
+          "fr": "maintenant"
+        },
+        {
+          "en": "after, later",
+          "kind": "term",
+          "fr": "après",
+          "noteEnglish": "Après means after. For later in the future, say plus tard."
+        },
+        {
+          "en": "the jobsite",
+          "kind": "term",
+          "fr": "le chantier"
+        },
+        {
+          "en": "the truck",
+          "kind": "term",
+          "fr": "le camion",
+          "noteEnglish": "Le camion is standard. In Quebec, le char means a car; a pickup may informally be le pick-up or le truck."
+        },
+        {
+          "en": "the house",
+          "kind": "term",
+          "fr": "la maison"
+        },
+        {
+          "en": "early",
+          "kind": "term",
+          "fr": "tôt",
+          "noteEnglish": "Tôt means early in the day. En avance means ahead of time."
+        },
+        {
+          "en": "I'm going to go up.",
+          "kind": "phrase",
+          "fr": "Je vais monter.",
+          "noteEnglish": "Aller + infinitive needs no preposition: je vais monter, not je vais à monter."
+        },
+        {
+          "en": "Can you help me?",
+          "kind": "phrase",
+          "fr": "Vous pouvez m'aider ?"
+        },
+        {
+          "en": "It's hot (weather).",
+          "kind": "phrase",
+          "fr": "Il fait chaud.",
+          "noteEnglish": "Weather uses faire. For a person feeling hot, say j'ai chaud."
+        },
+        {
+          "en": "Let's start.",
+          "kind": "phrase",
+          "fr": "On commence.",
+          "noteEnglish": "Commençons is the more formal form of let's start."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Aujourd'hui, on va au chantier",
+        "target": [
+          "Aujourd'hui, on va à une nouvelle maison.",
+          "On arrive tôt au chantier en camion.",
+          "Maintenant, je vais monter sur le toit.",
+          "Il fait chaud, alors on travaille vite.",
+          "Vous pouvez m'aider avec l'échelle ?",
+          "Après ça, on fait le nettoyage.",
+          "Demain, on va commencer un autre toit."
+        ],
+        "native": [
+          "Today we're going to a new house.",
+          "We get to the jobsite early in the truck.",
+          "Now I'm going to go up on the roof.",
+          "It's hot, so we work fast.",
+          "Can you help me with the ladder?",
+          "After that we do the cleanup.",
+          "Tomorrow we're going to start another roof."
+        ]
+      },
+      "speakingEnglish": "Explain your plan for today on the jobsite and ask a crew member if they can help you.",
+      "speakingFrenchOpening": "Aujourd'hui, on arrive tôt au chantier. Maintenant, je vais monter sur le toit. Vous pouvez m'aider avec l'échelle ?",
+      "grammarTeachingEnglish": "Aller (to go) is irregular: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont. Aller + infinitive expresses the near future, as in English 'going to': Je vais monter; Nous allons commencer. Ne…pas goes around the conjugated verb: je ne vais pas monter. Faire (to do, to make) is irregular: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font. It covers work and tasks, as in faire le nettoyage, and weather, as in il fait chaud and il fait froid. Pouvoir (to be able to, can) is irregular: je peux, tu peux, il/elle/on peut, nous pouvons, vous pouvez, ils/elles peuvent. It is followed by a bare infinitive. Object pronouns go before that infinitive: vous pouvez m'aider (can you help me). On means we in speech and takes the third-person singular verb: on va, on fait, on commence. À + le becomes au: au chantier. À + les becomes aux; à la and à l' do not change.",
+      "verbs": [
+        {
+          "infinitiveFrench": "aller",
+          "meaningEnglish": "to go",
+          "exampleFrench": "Maintenant, je vais monter sur le toit.",
+          "exampleEnglish": "Now I'm going to go up on the roof."
+        },
+        {
+          "infinitiveFrench": "faire",
+          "meaningEnglish": "to do, to make",
+          "exampleFrench": "Après ça, on fait le nettoyage.",
+          "exampleEnglish": "After that we do the cleanup."
+        },
+        {
+          "infinitiveFrench": "pouvoir",
+          "meaningEnglish": "to be able to, can",
+          "exampleFrench": "Vous pouvez m'aider avec l'échelle ?",
+          "exampleEnglish": "Can you help me with the ladder?"
+        }
+      ],
+      "regionalNotesEnglish": [
+        "In Quebec, le char means a car. Pickups may be called le pick-up or le truck informally. Le camion is standard everywhere.",
+        "Vous pouvez m'aider ? is the standard spoken form. Pouvez-vous m'aider ? is more formal or written, and informal Quebec speech often uses tu peux.",
+        "Quebec informal speech often says asteure for now. Maintenant is standard in France and Quebec."
+      ]
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Present Tense",
+      "objectiveEnglish": "Say what you and the crew do every day with regular verbs",
+      "grammarFocusEnglish": "present tense of regular -er verbs (travailler, monter, couper, clouer); spelling-change -er verbs (manger, nettoyer); regular habiter; time words le matin, l'après-midi, à midi, à six heures, à la fin de la journée",
+      "words": [
+        {
+          "en": "the work, the job",
+          "kind": "term",
+          "fr": "le travail",
+          "noteEnglish": "Le boulot is informal in France. Quebec speakers often say la job."
+        },
+        {
+          "en": "the morning",
+          "kind": "term",
+          "fr": "le matin"
+        },
+        {
+          "en": "the afternoon",
+          "kind": "term",
+          "fr": "l'après-midi"
+        },
+        {
+          "en": "the crew",
+          "kind": "term",
+          "fr": "l'équipe",
+          "noteEnglish": "Feminine noun: une équipe. The elided l' hides the gender."
+        },
+        {
+          "en": "the coworker",
+          "kind": "term",
+          "fr": "le collègue",
+          "noteEnglish": "Use la collègue for a woman."
+        },
+        {
+          "en": "the day",
+          "kind": "term",
+          "fr": "la journée",
+          "noteEnglish": "La journée is the working day. Le jour is a day as a calendar unit."
+        },
+        {
+          "en": "the week",
+          "kind": "term",
+          "fr": "la semaine"
+        },
+        {
+          "en": "the lunch",
+          "kind": "term",
+          "fr": "le déjeuner",
+          "noteEnglish": "France: le déjeuner means lunch. Quebec, Belgium and Switzerland: le déjeuner means breakfast, and le dîner means lunch. Say à midi to avoid confusion."
+        },
+        {
+          "en": "I work on roofs.",
+          "kind": "phrase",
+          "fr": "Je travaille sur les toits."
+        },
+        {
+          "en": "We go up at seven.",
+          "kind": "phrase",
+          "fr": "On monte à sept heures."
+        },
+        {
+          "en": "Where do you live?",
+          "kind": "phrase",
+          "fr": "Vous habitez où ?",
+          "noteEnglish": "Habiter is the everyday regular verb for where you live; Où habitez-vous ? is more formal."
+        },
+        {
+          "en": "We clean up at the end.",
+          "kind": "phrase",
+          "fr": "On nettoie à la fin."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Une journée normale",
+        "target": [
+          "Je travaille sur les toits cinq jours par semaine.",
+          "L'équipe arrive au chantier à six heures du matin.",
+          "On monte à sept heures.",
+          "Mon collègue coupe les bardeaux et moi, je cloue.",
+          "On mange à midi.",
+          "L'après-midi, l'équipe descend les vieux matériaux.",
+          "On nettoie à la fin de la journée."
+        ],
+        "native": [
+          "I work on roofs five days a week.",
+          "The crew gets to the jobsite at six in the morning.",
+          "We go up at seven.",
+          "My coworker cuts the shingles and I nail.",
+          "We eat lunch at twelve.",
+          "In the afternoon, the crew brings down the old material.",
+          "We clean up at the end of the day."
+        ]
+      },
+      "speakingEnglish": "Describe a normal workday: when the crew arrives, what you do in the morning and afternoon.",
+      "speakingFrenchOpening": "L'équipe arrive à six heures. Le matin, je cloue les bardeaux. On mange à midi.",
+      "grammarTeachingEnglish": "Present tense of -er verbs: remove -er and add the endings -e, -es, -e, -ons, -ez, -ent. Travailler: je travaille, tu travailles, il/elle/on travaille, nous travaillons, vous travaillez, ils/elles travaillent. Monter, couper and clouer follow the same pattern. Silent endings: travaillent is pronounced like travaille. Manger is a spelling-change verb: it keeps an e before -ons so the g stays soft (nous mangeons). Nettoyer is also a spelling-change verb: y becomes i before a silent ending (je nettoie, ils nettoient) and stays y before -ons and -ez (nous nettoyons, vous nettoyez). Habiter is regular: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent. The h is silent, so je becomes j'. Descendre (to bring down) is a -re verb: l'équipe descend. Other -re patterns come later. On takes the third-person singular verb: on mange, on nettoie.",
+      "verbs": [
+        {
+          "infinitiveFrench": "travailler",
+          "meaningEnglish": "to work",
+          "exampleFrench": "Je travaille sur les toits cinq jours par semaine.",
+          "exampleEnglish": "I work on roofs five days a week."
+        },
+        {
+          "infinitiveFrench": "manger",
+          "meaningEnglish": "to eat",
+          "exampleFrench": "On mange à midi.",
+          "exampleEnglish": "We eat lunch at twelve."
+        },
+        {
+          "infinitiveFrench": "habiter",
+          "meaningEnglish": "to live",
+          "exampleFrench": "Vous habitez où ?",
+          "exampleEnglish": "Where do you live?"
+        },
+        {
+          "infinitiveFrench": "nettoyer",
+          "meaningEnglish": "to clean",
+          "exampleFrench": "On nettoie à la fin de la journée.",
+          "exampleEnglish": "We clean up at the end of the day."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "France: petit-déjeuner, déjeuner, dîner. Quebec, Belgium and Switzerland: déjeuner (breakfast), dîner (lunch), souper (supper). À midi avoids confusion.",
+        "Le boulot is informal in France. Quebec speakers often say la job. Le travail is understood everywhere.",
+        "Habiter is the everyday verb for where you live in France and Quebec."
+      ]
+    }
+  ],
+  "reviewNotesEnglish": [
+    "Human review must confirm the target French variety/register and trade terminology.",
+    "A qualified safety reviewer must assess the source-aligned heat/work-fast sentence in Foundation 5 and harness language in Foundation 4 before release."
+  ]
+}

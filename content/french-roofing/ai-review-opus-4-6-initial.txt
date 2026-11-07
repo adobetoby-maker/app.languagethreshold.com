@@ -1,0 +1,58 @@
+**Verdict: FAIL** for AI curriculum scope. The structure is sound. `scripts/validate-french-roofing-pilot.py` passes for F4–F6: source hashes, English pairs, readings and verb counts. All English source fields match the source exactly. The draft makes no invented regulatory claims. The fail comes from two regional terminology errors and three teaching gaps, listed below.
+
+## Material findings
+
+**1. L5: `le char` is wrong for "truck".** It appears in two places: `words[the truck].noteEnglish` and `regionalNotesEnglish[0]`. In Quebec, *char* means a car, not a truck. A learner would mislabel a vehicle on site.
+- Word note, replace with: "Le camion is standard everywhere. In informal Quebec speech, a pickup is often le pick-up or le truck. Le char means a car, not a truck."
+- `regionalNotesEnglish[0]`, replace with: "In Quebec, le char is a car. Pickups are often called le pick-up or le truck informally. Le camion is standard and understood everywhere."
+
+**2. L6: the lunch-word warning is missing its key half.** This affects `words[the lunch].noteEnglish` and `regionalNotesEnglish[0]`. The draft teaches *le déjeuner* = lunch. It never says that in Quebec, Belgium and Switzerland, *le déjeuner* means breakfast. A Quebec crew would hear "breakfast."
+- Word note, replace with: "France: le déjeuner = lunch. Quebec, Belgium and Switzerland: le déjeuner = breakfast and le dîner = lunch. Midi (noon) is understood everywhere."
+- `regionalNotesEnglish[0]`, replace with: "France: petit-déjeuner, déjeuner, dîner. Quebec, Belgium and Switzerland: déjeuner (breakfast), dîner (lunch), souper (supper). Say à midi to avoid confusion."
+
+**3. L6: `vivre` breaks the lesson's own objective.** The objective is "regular verbs." The draft uses irregular *vivre*, then admits that *habiter* is the everyday verb. *Habiter* is a regular -er verb, more natural, and matches the objective. The current phrase also uses inversion (*Où vivez-vous ?*), which contradicts L5's note that intonation is the standard spoken form.
+- In `verbs[2]`, set `infinitiveFrench` to "habiter" and `exampleFrench` to "Vous habitez où ?". The English stays "to live" / "Where do you live?".
+- Change `words[Where do you live?].fr` to "Vous habitez où ?". Change its note to: "Habiter is the everyday verb for where you live. Vivre also means to live (je vis), but it is irregular."
+- In `grammarFocusEnglish`, replace "irregular vivre" with "habiter (regular; j'habite with elision)".
+- In `grammarTeachingEnglish`, replace the *vivre* paradigm with: "Habiter is regular: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent. The h is silent, so je becomes j'."
+- Replace `regionalNotesEnglish[2]` to match.
+
+**4. L4: two key utterances use grammar the lesson never teaches.**
+- **(a) `speakingFrenchOpening`:** the model answer for "what is missing" uses *Il manque des clous*. *Il manque* is never taught. Either:
+  - change the line to "Il n'y a plus de clous sur le toit.", which uses only taught structures, or
+  - add to `grammarTeachingEnglish` and `grammarFocusEnglish`: "Il manque + noun = … is missing: il manque des clous. Like il y a, it does not change."
+- **(b) `words[You have to wear the harness.].fr`:** this uses *Vous devez*, but *devoir* is never taught. The lesson's own structure for "have to" is *il faut*. Change it to "Il faut porter le harnais." In the note, add "Il faut = you have to / it is necessary." Keep the existing employer and local-rules disclaimer.
+
+**5. L5 and L6: the contraction `au` is used everywhere but never taught.** It appears in L5's `reading.titleFrench`, `reading.target[1]` and `speakingFrenchOpening`, and in L6's `reading.target[1]`. F1–F3 never teach it either.
+- Append to L5 `grammarTeachingEnglish`: "À + le becomes au: au chantier. À + les becomes aux. À la and à l' do not change: à la maison, à l'échelle."
+- Add "à + le = au" to `grammarFocusEnglish`.
+
+## Minor (fix in the same pass; not blocking)
+- **L5 `reading.target[0]`:** *on va à une nouvelle maison* reads awkwardly, because *aller à la maison* suggests "going home." Better: "Aujourd'hui, on va sur un nouveau chantier" or "…on travaille sur une nouvelle maison." The English is "Today we're going to a new house," so the second option is closer.
+- **L5 `reading.target[1]` and `speakingFrenchOpening`:** "On arrive tôt au chantier, en camion." is more natural than *au chantier tôt, dans le camion*.
+- **L5 `grammarTeachingEnglish`:** "Negation wraps the verb group" is imprecise. Replace with: "Ne…pas goes around the conjugated verb: je ne vais pas monter."
+- **L4 vs L6, `matériel` / `matériaux`:** L4 teaches *le matériel*, but L6 `reading.target[5]` uses *les vieux matériaux* with no note. Add an L6 note: "Les matériaux = building materials (shingles, felt), as opposed to le matériel from L4." Also consider *les vieux bardeaux*, which is the usual tear-off wording.
+- **L6 `words[the crew]`:** add the gender note "Feminine: une équipe." The *l'* hides the gender.
+- **L4 `vouloir`:** add a note that *je voudrais* is the polite way to ask a crew lead for something, since *je veux* can sound blunt.
+- **L4 `J'ai besoin de plus de clous`:** add a note that *plus* is pronounced with the s here ("more"), unlike *ne…plus* ("no more").
+
+## Checked and fine
+- **Conjugations:** the paradigms for *avoir, vouloir, aller, faire, pouvoir, travailler*, the *manger* -ge- spelling rule and the *nettoyer* y→i rule are correct.
+- **Grammar choices:** *Il y a* / *il n'y a pas de*, *avoir soif/chaud*, *il fait chaud*, *aller* + bare infinitive, and object pronoun before the infinitive (*m'aider*) are all correct.
+- **Progression:** L4–L6 recycle F1–F3 vocabulary as they should: *harnais*, *bardeaux*, *commencer*, *on*, *avoir chaud*, *faire* for weather, *le matériel*. Each lesson keeps the source's verb count (3, 3, 4).
+- **Regional notes:** *asteure*, *la job*, *le boulot* and *casque de chantier* are accurate.
+- **Safety wording:** the harness and PPE notes only defer to the employer and local authority. They make no invented requirements.
+
+`★ Insight ─────────────────────────────────────`
+- Both regional errors hide in the notes, not in the main terms: *camion* and *déjeuner* are correct in France. The validator checks structure only, so wrong regional meanings get past it. Only a reviewer who knows the target dialect will catch them.
+- Findings 3 and 4 come from carrying the Spanish lesson plan over into French. Spanish *vivir* is regular, so the source's "regular verbs" objective worked for Spanish. Where the source asks for a meaning, the French verb has to fit the lesson's grammar goal (*habiter*), not just translate the word.
+`─────────────────────────────────────────────────`
+
+## Human gates (not covered by this AI review)
+1. **Target region:** the owner should decide between France and Quebec. That sets the defaults for meal words, the truck term, and *vous*/*tu* with crew members (the L5 speaking task uses *vous* with a crew member; Quebec crews usually use *tu*).
+2. **Trade terminology:** a qualified French-speaking roofer should confirm *bardeaux*, *bâche*, *matériel*/*matériaux*, *casque*, and tear-off wording for the target region.
+3. **Safety content:** a safety reviewer should check the harness phrase and L5 "Il fait chaud, alors on travaille vite." That line faithfully translates the English source ("work fast in the heat"), so any change belongs at the source level, which is the owner's call.
+4. **Native-teacher review:** a blind check of naturalness and register across all three lessons, following the Core 60 pipeline standard.
+5. **Pronunciation and audio:** check *plus* [plys], elision with *habiter*, and silent -ent endings.
+
+I didn't edit the draft. Next step would be one fix pass covering findings 1–5, then re-running `scripts/validate-french-roofing-pilot.py`.

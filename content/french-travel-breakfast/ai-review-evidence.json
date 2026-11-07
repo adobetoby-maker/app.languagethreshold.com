@@ -1,0 +1,388 @@
+{
+  "schema": 1,
+  "scope": "French→English Travel Breakfast Foundation 1–3 only; exact English source is Spanish Travel Breakfast",
+  "aiNotHumanReview": true,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "initialFable": {
+    "verdict": "fail",
+    "findings": [
+      {
+        "lesson": 1,
+        "field": "words[the menu].fr + passage.french[4]",
+        "severity": "material",
+        "issue": "False friend: in a French café 'le menu' is a fixed-price set formula; the list you read to order is 'la carte'. 'Sam lit le menu' reads as Sam reading the set-menu board.",
+        "suggestion": "fr: 'la carte' (note: 'le menu' = fixed-price formula; 'la carte' = the list of items). Line 4: 'Sam lit la carte et commande un jus d'orange.'"
+      },
+      {
+        "lesson": 1,
+        "field": "passage.french[8]",
+        "severity": "material",
+        "issue": "Spanish carryover: 'du pan dulce' is untranslated Spanish inside the French line; the anchor is 'sweet bread' and the lesson teaches 'le pain'. A learner cannot use 'pan dulce' in a French café.",
+        "suggestion": "'Rosa recommande un churro et du pain sucré.' (or 'une viennoiserie' if the owner allows a francophone equivalent). Keep dish names like churro/chilaquiles/tortilla, which are established loanwords."
+      },
+      {
+        "lesson": 2,
+        "field": "words[3 pieces of sweet bread].fr + speakingFrench + passage.french[6]",
+        "severity": "material",
+        "issue": "Same Spanish carryover ('pan dulce') in a teachable phrase, the speaking prompt and reading line 6; '3 pièces de pan dulce' is also unnatural (French counts pastries directly, not 'pièces de').",
+        "suggestion": "Phrase: '3 pains sucrés, s'il vous plaît.' Line 6: 'Emma : En tasse, et 3 pains sucrés.' Speaking: '...et 3 pains sucrés à un barista...'. Keep 'la pièce' as the price unit (line 7)."
+      },
+      {
+        "lesson": 3,
+        "field": "passage.french[5]",
+        "severity": "material",
+        "issue": "Spanish carryover: 'le pan dulce est frais'.",
+        "suggestion": "'Rosa : Oui, le pain sucré est frais.'"
+      },
+      {
+        "lesson": 1,
+        "field": "words[the churro].noteEnglish",
+        "severity": "minor",
+        "issue": "Wrong pronunciation: French keeps the Spanish affricate, 'churro' is [tʃuʁo] (Larousse), not 'SHOO-ro'.",
+        "suggestion": "'Pronounced TCHOO-ro with a soft French r; this borrowed word keeps the tch sound, unlike French ch.'"
+      },
+      {
+        "lesson": 1,
+        "field": "teachingNotesEnglish[6]",
+        "severity": "minor",
+        "issue": "'French has five vowels plus nasal vowels' is false; French has about a dozen oral vowel sounds plus nasals. Only the five vowel letters claim would be true.",
+        "suggestion": "'French has five vowel letters but many more vowel sounds (é/è, u vs ou, eu) plus nasal vowels (pain, bonjour, enchanté).'"
+      },
+      {
+        "lesson": 1,
+        "field": "speakingFrench",
+        "severity": "minor",
+        "issue": "'le barista' is masculine while the passage barista Rosa is 'la barista'; learners see both with no note.",
+        "suggestion": "'Saluez la barista avec « Bonjour »...' or add a note that barista is the same word for both genders (le/la barista)."
+      },
+      {
+        "lesson": 2,
+        "field": "passage.french[5], passage.french[7]",
+        "severity": "minor",
+        "issue": "'La tasse coûte 30 pesos', 'La pièce coûte 20 pesos' are literal calques of the Spanish; French café price talk uses 'c'est ... la tasse/la pièce' or 'la tasse est à ...'.",
+        "suggestion": "'Luis : C'est 30 pesos la tasse et 35 le verre.' / 'Luis : C'est 20 pesos la pièce et 200 la douzaine.' (anchors 'the cup costs...' still hold)."
+      },
+      {
+        "lesson": 2,
+        "field": "words[2 americanos].noteEnglish + teachingNotesEnglish[4]",
+        "severity": "minor",
+        "issue": "In France the everyday term for espresso plus hot water is 'un allongé'; 'café américain' is understood but often means filter coffee.",
+        "suggestion": "Keep 'cafés américains' for anchor fidelity; note: 'In France you will more often hear un (café) allongé; un café américain may also mean filter coffee.'"
+      },
+      {
+        "lesson": 2,
+        "field": "titleFrench / words[Is breakfast from 7 to 11?].fr",
+        "severity": "minor",
+        "issue": "Spelling choice: traditional noun is 'petit déjeuner' (no hyphen); 'petit-déjeuner' is the 1990 reformed noun and the verb. Either is accepted, but the choice should be deliberate and consistent across modules.",
+        "suggestion": "Pick one form for the whole program and record it in the content rules; current draft is at least internally consistent."
+      },
+      {
+        "lesson": 3,
+        "field": "words[sweet].noteEnglish",
+        "severity": "minor",
+        "issue": "'Doux means soft or mild, not sweet' is overstated; 'doux' does mean sweet for wine, cider and some fruit (vin doux, pomme douce).",
+        "suggestion": "'Sucré is the safe word for sweet to taste. Doux usually means mild or soft, though it means sweet for wine or cider (vin doux).'"
+      },
+      {
+        "lesson": 3,
+        "field": "words[Is this table free?].noteEnglish + words[Is the bread from today?].fr",
+        "severity": "minor",
+        "issue": "Register: subject-verb inversion ('est-elle', 'est-il') is formal/written; in a café the normal polite spoken forms are intonation or est-ce que. The note's claim that inversion 'is the polite question form' misleads learners.",
+        "suggestion": "Keep inversion in the phrase if desired but fix the note: 'Inversion is formal; in a café you will usually hear « Cette table est libre ? » or « Est-ce que cette table est libre ? »'. For bread: 'Le pain est du jour ?' as the primary form, 'd'aujourd'hui' as the literal gloss."
+      },
+      {
+        "lesson": 3,
+        "field": "passage.french[7]",
+        "severity": "minor",
+        "issue": "Anchor says 'brings coffee, orange juice' (mass nouns); the French uses 'un café, un jus d'orange' (one each). Natural, but drifts from the anchor.",
+        "suggestion": "Either keep and note the count-noun convention, or 'Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa.'"
+      }
+    ],
+    "residualGates": [
+      "Blind native French review (France and Québec reader) before `reviewed: true`; this is an AI draft review, not human approval.",
+      "Owner ruling on source-locked Mexican items (pesos, pan dulce, chilaquiles, Oaxaca) vs francophone café adaptation; findings above assume anchors stay and only the Spanish noun phrase 'pan dulce' is translated.",
+      "Owner ruling on Lesson 3 English anchors 'Ser and Estar' title/objective, which name Spanish grammar in a French course.",
+      "Regional check: Québec uses 'le déjeuner' for breakfast and 'le dîner' for lunch; decide whether notes flag this.",
+      "Typography pass: French spacing before : ? ! should use non-breaking spaces in the final JSON/UI.",
+      "Audio/pronunciation check of all English respellings against recorded French (œufs liaison, nasal vowels, churro).",
+      "French validator and test pins do not exist yet; run the pipeline order from CLAUDE.md once a French validator is added."
+    ]
+  },
+  "initialOpus": {
+    "verdict": "fail",
+    "findings": [
+      {
+        "lesson": 1,
+        "field": "teachingNotesEnglish[5]",
+        "severity": "material",
+        "issue": "The note says 'French has five vowels plus nasal vowels'. That is the Spanish five-vowel system carried over. French has about 12 oral vowels and 3–4 nasal vowels, and the lesson itself relies on é/è, u/ou and eu/œu contrasts.",
+        "suggestion": "Replace with: 'French has more vowel sounds than English spelling shows: é vs è, u (jus) vs ou (bonjour), eu/œu (œufs), plus nasal vowels (pain, bonjour, enchanté).'"
+      },
+      {
+        "lesson": 1,
+        "field": "passage.french[7]; words/teachingNotes[0]",
+        "severity": "material",
+        "issue": "'du pan dulce' puts a Spanish word in the French reading. The English anchor says 'sweet bread', not 'pan dulce', so the note's reason ('kept because the English anchors name them') is false for this item. Oaxaca, churro and tortillas are named in the English anchors; pan dulce is not.",
+        "suggestion": "Use 'du pain sucré' (or 'un pain sucré mexicain' on first mention). Correct the teaching note so it lists only the items the English anchors name."
+      },
+      {
+        "lesson": 2,
+        "field": "words[12].fr; passage.french[5]; speakingFrench",
+        "severity": "material",
+        "issue": "'3 pièces de pan dulce' copies the Mexican 'piezas de pan dulce'. A French speaker would not order 'trois pièces de…'. 'La pièce' is natural only for unit prices ('20 pesos la pièce').",
+        "suggestion": "Use '3 pains sucrés, s'il vous plaît' and 'En tasse, et 3 pains sucrés.' Keep 'la pièce' for price framing: 'C'est 20 pesos la pièce, 200 la douzaine.' Reword the 'the piece' note to cover only that use."
+      },
+      {
+        "lesson": 2,
+        "field": "focusFrench; teachingNotesEnglish[4]",
+        "severity": "material",
+        "issue": "The focus claims 0–1,000 but skips the hard French-specific numbers: 70/80/90 (soixante-dix, quatre-vingts, quatre-vingt-dix), 'et un' in 21–71, invariable 'mille', and 'cent' without s when not multiplied. The hyphen note ('hyphens join the tens and units') leaves out the 'vingt et un' exception.",
+        "suggestion": "Add soixante-dix, quatre-vingts, quatre-vingt-dix, vingt et un and mille to the focus and the numbers note. Rewrite the cents rule: 'cent takes an s only when multiplied and final: deux cents, but cent, deux cent vingt; same for quatre-vingts.'"
+      },
+      {
+        "lesson": 3,
+        "field": "focusFrench",
+        "severity": "material",
+        "issue": "'Être pour tout' overcorrects the ser/estar point. French uses avoir for a person's hot or cold ('j'ai chaud'), and 'je suis chaud' has a slang or sexual meaning. The lesson teaches chaud/froid and asks learners to talk about their coffee, so they will carry the trap over to themselves.",
+        "suggestion": "Change to: 'Être + adjectif pour décrire les choses (le café est chaud)'. Add a note: 'For how you feel, say j'ai chaud / j'ai froid, never je suis chaud.'"
+      },
+      {
+        "lesson": 3,
+        "field": "words[10].fr, words[11].fr; passage.french[1],[3]",
+        "severity": "material",
+        "issue": "'Cette table est-elle libre ?' and 'Le pain est-il d'aujourd'hui ?' use complex inversion, which the course has not taught. Both are formal or written style, so the note's claim that inversion is the polite question form is misleading for a café.",
+        "suggestion": "Use rising intonation, which is natural and polite with vous context: 'Cette table est libre ?' and 'Le pain est du jour ?' Teach 'Est-ce que…' as the neutral alternative. Mention inversion later as formal only."
+      },
+      {
+        "lesson": "1-3",
+        "field": "teachingNotesEnglish ('GENERAL FRANCOPHONE CAFÉ USE')",
+        "severity": "material",
+        "issue": "France-specific usage is labelled 'general Francophone'. 'Un café' = espresso holds in France, Belgium and Switzerland, not in Québec. 'Petit-déjeuner' is France usage; Québec, Belgium and Switzerland say 'déjeuner' for breakfast, and there 'dîner' is lunch.",
+        "suggestion": "Relabel these as 'FRANCE USAGE'. Add: 'In Québec, Belgium and Switzerland breakfast is le déjeuner.' This needs an owner ruling on the target variety."
+      },
+      {
+        "lesson": "1-3",
+        "field": "speakingFrench",
+        "severity": "material",
+        "issue": "The speaking instructions are written in French ('Saluez le barista…'). The source field is an English instruction, and a Foundation L1 learner cannot read French instructions.",
+        "suggestion": "Confirm the schema. If the field is learner-facing, write it in English (source text adapted: 'Greet a barista with Bonjour, say your name, and pronounce café, jus, lait and œufs clearly'). Optionally keep the French as a model line."
+      },
+      {
+        "lesson": 1,
+        "field": "words[8].noteEnglish",
+        "severity": "minor",
+        "issue": "'close to pan' points the learner to English 'pan' or Spanish 'pan', not to the nasal vowel [pɛ̃].",
+        "suggestion": "'A nasal vowel: start the a in English \"bad\", let air through the nose, and do not pronounce the n.'"
+      },
+      {
+        "lesson": 1,
+        "field": "words[9].noteEnglish",
+        "severity": "minor",
+        "issue": "The word note says Bonjour 'works all day', but teaching note [1] says until evening. The word note also refers to 'buenos días', which an English-speaking learner may not know.",
+        "suggestion": "'Use from morning until early evening; then say Bonsoir.' Drop the Spanish reference."
+      },
+      {
+        "lesson": 1,
+        "field": "words[13].noteEnglish",
+        "severity": "minor",
+        "issue": "'Bonne journée' is not tied to vous; it also works with tu. 'Au revoir' is neutral.",
+        "suggestion": "'Standard polite goodbye in shops and cafés; bonne journée works with anyone.'"
+      },
+      {
+        "lesson": 1,
+        "field": "focusFrench",
+        "severity": "minor",
+        "issue": "'Le h muet' is listed, but no word in the lesson has an h.",
+        "suggestion": "Drop it, or add an example such as 'l'heure' (taught in L2) with a forward reference."
+      },
+      {
+        "lesson": 1,
+        "field": "words[11]; passage.french[2]",
+        "severity": "minor",
+        "issue": "Sam's gender is unspecified in the source, but French forces 'enchanté'. The passage commits Sam to male.",
+        "suggestion": "Keep 'enchanté' and add a teaching note that the source name is ambiguous, or log it for an owner ruling."
+      },
+      {
+        "lesson": 1,
+        "field": "passage.french[4]; teachingNotes[3]",
+        "severity": "minor",
+        "issue": "In a French café the usual order is 'un (café) crème'. 'Café au lait' is more of a home breakfast term.",
+        "suggestion": "Keep 'café au lait' to match the anchor. Add: 'In a French café, ask for un crème.'"
+      },
+      {
+        "lesson": 2,
+        "field": "words[0].noteEnglish",
+        "severity": "minor",
+        "issue": "'Pronounce it as in Spanish: PEH-sos' is wrong. French speakers say [pezo] ('pay-ZOH'), with a voiced s and a silent final s.",
+        "suggestion": "'In French: pay-ZOH; the final s is silent.'"
+      },
+      {
+        "lesson": 2,
+        "field": "passage.french[0]",
+        "severity": "minor",
+        "issue": "'entre au Café Luna le matin' reads as a habit ('in the mornings'). The English describes a single event.",
+        "suggestion": "'Un matin, Emma entre au Café Luna.' or '…ce matin.'"
+      },
+      {
+        "lesson": 2,
+        "field": "passage.french[4]; words[5]",
+        "severity": "minor",
+        "issue": "Coffee 'in a glass' is the Mexican vaso, often a to-go cup. In a French café, 'le verre' for an americano is unusual, and learners may miss the contrast.",
+        "suggestion": "Keep 'le verre' to match the anchor. Add a source-specific note: 'Takeaway is à emporter; a paper cup is un gobelet.'"
+      },
+      {
+        "lesson": 2,
+        "field": "passage.french[2]",
+        "severity": "minor",
+        "issue": "'Il y a des portions de chilaquiles jusqu'à midi' is understandable but stiff.",
+        "suggestion": "'On sert des chilaquiles jusqu'à midi.' If 'portions' must be kept, keep the current line."
+      },
+      {
+        "lesson": 2,
+        "field": "teachingNotesEnglish[5]",
+        "severity": "minor",
+        "issue": "The 24-hour clock is missing, though Francophone menus and hours use it (15 h). The note also leaves out 'midi et demi' (no -e) next to 'heures et demie'.",
+        "suggestion": "Add: 'Schedules use 24 h: 15 h = 3 pm. Midi et demi, but huit heures et demie.'"
+      },
+      {
+        "lesson": 3,
+        "field": "words[1].noteEnglish",
+        "severity": "minor",
+        "issue": "The feminine form is taught with a masculine example (le lait), so agreement is never shown.",
+        "suggestion": "'Feminine: froide — la bière est froide / la salsa est froide.'"
+      },
+      {
+        "lesson": 3,
+        "field": "teachingNotesEnglish[1]; passage.french[0]",
+        "severity": "minor",
+        "issue": "'tables sont occupées' uses feminine plural agreement (-es), which the lesson never teaches. Only masculine/feminine singular pairs are given.",
+        "suggestion": "Add: 'Plural adds -s: occupé → occupés / occupées (les tables sont occupées).'"
+      },
+      {
+        "lesson": 3,
+        "field": "words[11].noteEnglish",
+        "severity": "minor",
+        "issue": "'d'aujourd'hui' is about time, not origin, so it is a poor example of 'être + de for origin'. 'du jour' is the café idiom.",
+        "suggestion": "'Du jour = baked today (pain du jour). For origin: le café est du Mexique.'"
+      },
+      {
+        "lesson": 3,
+        "field": "words[4].noteEnglish",
+        "severity": "minor",
+        "issue": "'Fort' is not mentioned, though it is common in France for spicy-hot food ('c'est fort').",
+        "suggestion": "Add: 'You will also hear c'est fort for spicy food.'"
+      },
+      {
+        "lesson": 3,
+        "field": "titleEnglish / objectiveEnglish [SOURCE ENGLISH CONSTRAINT]",
+        "severity": "material",
+        "issue": "The immutable English anchors 'Ser and Estar' and 'with ser and estar' are Spanish grammar and are wrong for a French course. The draft correctly teaches être, but the learner-facing title contradicts it.",
+        "suggestion": "Owner ruling to retitle as 'Être and Describing Things' / 'Describe food, drinks and tables at a café with être and adjective agreement.'"
+      },
+      {
+        "lesson": "1-3",
+        "field": "passage settings and words [SOURCE ENGLISH CONSTRAINT]",
+        "severity": "minor",
+        "issue": "The anchors lock in Oaxaca, pesos, churro, tortillas and chilaquiles. That is valid as a French-speaking traveller in Mexico, but it teaches no euro or Francophone café framing. The objective's 'prices in pesos' blocks euro prices with a decimal comma (2,50 €).",
+        "suggestion": "Owner ruling: keep the Mexico frame and add a euro/Francophone café module elsewhere, or adapt the anchors."
+      },
+      {
+        "lesson": "1,3",
+        "field": "passage.titleFrench [SOURCE ENGLISH CONSTRAINT]",
+        "severity": "minor",
+        "issue": "'Un petit-déjeuner à Oaxaca' and 'Petit-déjeuner à Oaxaca' are near-duplicates, inherited from the source titles.",
+        "suggestion": "For L3, use 'Une table libre à Oaxaca' (subject to owner ruling)."
+      }
+    ],
+    "residualGates": [
+      "Blind native French teacher review of all three lessons (AI review only; reviewed stays false; no human approval claimed)",
+      "Owner ruling on target variety (France vs Québec/Belgium/Swiss vs neutral) before regional notes are final",
+      "Owner ruling on source-English constraints: L3 'Ser and Estar' title/objective, Mexico/peso frame, pan dulce vs 'sweet bread'",
+      "Schema confirmation: language of the speakingFrench field (learner instruction vs model line)",
+      "Pronunciation/audio review of all English respellings (pesos, pain, matin, œufs, liaison in huit heures)",
+      "French-specific validator: flag Spanish lexical leakage (pan dulce, piezas calques) and untaught complex inversion",
+      "Arithmetic check passed (2×30 + 3×20 = 120); re-run after any price edits"
+    ]
+  },
+  "scopedFableRecheck": {
+    "verdict": "fail",
+    "materialRemaining": [
+      {
+        "lesson": 1,
+        "field": "focusFrench (also lessons 2 and 3)",
+        "issue": "New finding, not in prior review: the source focus field is English text describing the target-language focus (focusSpanish = 'The five vowels, ch, j...'), but the draft writes focusFrench in French ('Salutations avec vous ; les sons é/è...'). A Foundation lesson-1 learner cannot read a French focus line, and no English counterpart field exists.",
+        "suggestion": "Write the focus in English as the source does (e.g. L1: 'Greetings with vous; the sounds é/è, u/ou, eu/œu, nasal vowels, the French r and silent final letters'), or add focusEnglish alongside and confirm with the owner which field the UI displays."
+      }
+    ],
+    "minorRemaining": [
+      "petit-déjeuner spelling is now internally inconsistent: hyphenated in L1/L2 passage titles and the L2 phrase, unhyphenated in L1 note 2 and L3 note 6; pick one form program-wide.",
+      "L1 speakingFrench model line omits jus and lait although speakingInstructionEnglish asks the learner to pronounce café, jus, lait and œufs; it also uses untaught 'Je voudrais' and 's'il vous plaît' (first taught in L2), and gives only 'enchanté' without the enchantée option.",
+      "L2 passage line 1 'Un matin, Emma entre au Café Luna' means 'one morning'; anchor is 'in the morning' and the taught term is le matin; consider 'Le matin, Emma entre au Café Luna.'",
+      "L3 note 5 says inversion is deferred, but L1 teaches 'comment allez-vous ?' and L2 'Quelle heure est-il ?'; add 'except fixed phrases' to the note.",
+      "Apostrophe characters are mixed (curly ’ in speakingFrench and some lines, straight ' elsewhere, e.g. L1 'Je m’appelle' vs 'Je m'appelle'); normalize in the typography pass.",
+      "L2 'le matin' respelling 'mah-TAN' and 'les pesos' silent-s claim are approximate; verify in the audio/pronunciation check.",
+      "L3 'piquant' note: 'ça pique' is the more common spoken way to say something is spicy-hot in France; 'c'est fort' is acceptable but less specific."
+    ],
+    "residualGates": [
+      "Blind native French review (France and Québec reader) before reviewed: true; this recheck is AI review, not human approval.",
+      "Owner ruling on regional adaptation: Mexico/peso/Oaxaca/chilaquiles frame is preserved for this pilot per instruction; euro/francophone café variant is a later gate.",
+      "Owner ruling on L3 source-locked title/objective 'Ser and Estar' remaining provenance-only while titleFrenchCourseEnglish/objectiveFrenchCourseEnglish are displayed.",
+      "Schema confirmation: which of focusFrench, speakingFrench, speakingInstructionEnglish, titleFrenchCourseEnglish and objectiveFrenchCourseEnglish the Core 60 UI renders; French validator and test pins do not exist yet.",
+      "Typography pass: non-breaking spaces before : ? ! and consistent apostrophes in final JSON/UI.",
+      "Audio/pronunciation check of all English respellings against recorded French (œufs liaison, nasals, churro, pesos).",
+      "Process: draft is Haiku-generated and AI-corrected; Opus generation plus blind review is the project standard."
+    ]
+  },
+  "scopedOpusRecheck": {
+    "verdict": "pass",
+    "materialRemaining": [],
+    "minorRemaining": [
+      "All prior material findings are resolved: the vowel-system claim; pan dulce replaced by pain sucré in L1, L2 and L3; the pièces calque; French numbers 70/80/90, 21, cent/cents and mille; being hot or cold as a person (j'ai chaud, not je suis chaud); questions now use intonation or est-ce que instead of untaught inversion; FRANCE USAGE labels with Québec, Belgium and Switzerland déjeuner notes; English speaking instructions; L3 learner-facing title and objective now teach être. The Mexico/peso frame is preserved.",
+      "Conditional on display: several teachingNotesEnglish lines are authoring or process text, not learner teaching. Examples: L2[0] 'Keep pesos in this pilot; a separate Francophone café scenario should teach euros', L2[1] 'do not teach pan dulce as a French ordering phrase', L3[0] 'keep the old title/objective only as source provenance', L3[4] 'is deferred'. If learners see these notes, move the lines to a provenance or authoring field. This becomes material if the notes are learner-facing.",
+      "L1: the speaking model line does not contain jus or lait, but speakingInstructionEnglish asks the learner to pronounce café, jus, lait and œufs. The line also uses Je voudrais and s'il vous plaît, which L1 has not taught. Suggested line: 'Bonjour ! Je m'appelle Sam, enchanté. Un café, un jus et du lait, s'il vous plaît.' Or add Je voudrais to the L1 words.",
+      "Apostrophes are inconsistent: ’ and ' are mixed (Je m’appelle in speakingFrench, Je m'appelle in words and passage; s’il vs s'il; jus d’orange). Normalize them before any exact-match speaking or answer checking.",
+      "Spelling of breakfast is inconsistent: petit-déjeuner in the L1/L2 titles and the L2 phrase, petit déjeuner in the L1/L3 notes. Pick one.",
+      "L2 numbers note: add the 81/91 exception (quatre-vingt-un and quatre-vingt-onze take no et) and the regional forms septante/nonante (Belgium, Switzerland) and huitante (some Swiss cantons).",
+      "L2: the takeaway-cup tip (gobelet, à emporter) sits in the TIME note. Move it to the le verre word note.",
+      "L3 words[4]: 'Épicé also works' is imprecise, since épicé means spiced or seasoned and not necessarily hot. Suggested wording: 'épicé = spiced; for chili heat use piquant or c'est fort.'",
+      "L3: 'Le pain est du jour ?' is understandable but slightly stiff. 'Il est d'aujourd'hui, le pain ?' or 'C'est du pain du jour ?' would be more natural. Leave this to the native reviewer.",
+      "L1 notes: 'French r is not Spanish rolled rr' assumes the English learner knows Spanish. Suggested wording: 'French r is made in the back of the throat, not rolled.'",
+      "L1 vowel note: 'accents distinguish vowel quality' is incomplete. à/a and où/ou are distinguished in writing only, and ç is a cedilla, not a vowel accent.",
+      "L1 churro: many French speakers say chourro [ʃuʁo]. The TCHOO-ro respelling is acceptable but should go to audio review.",
+      "focusFrench is written in French in all three lessons, while the source focus field is English. Confirm whether learners see it. If they do, give an English version."
+    ],
+    "residualGates": [
+      "Blind native French teacher review of L1–L3. AI review is not human approval; reviewed stays false.",
+      "Owner ruling on target variety (France vs Québec/Belgium/Switzerland vs neutral) before the FRANCE USAGE notes and number forms are final.",
+      "Regional adaptation is a later gate: the Mexico/peso/Oaxaca frame is kept for this pilot. A Francophone café scenario with euros and decimal commas (2,50 €) still needs to be authored.",
+      "Schema confirmation of learner visibility for teachingNotesEnglish and focusFrench. If teachingNotesEnglish is learner-facing, the process-text lines are material.",
+      "Process: draftModel is Haiku. The project standard is Opus generation plus blind review, so decide whether to regenerate or accept the Haiku draft with corrections.",
+      "Pronunciation and audio review of every English respelling (ZHÜ, leh-ZUH, pay-ZOH, luh mah-TAN, churro).",
+      "A French-specific validator is still unbuilt. It should check for Spanish lexical leakage (pan dulce, piezas), untaught inversion and apostrophe normalization.",
+      "Arithmetic check passes: 2×30 + 3×20 = 120. Re-run it after any price edit."
+    ]
+  },
+  "finalFableRecheckBeforeMinorCopyEdits": {
+    "verdict": "pass",
+    "materialRemaining": [],
+    "minorRemaining": [
+      "Learner-facing text still carries provenance/process wording that assumes knowledge of 'the source': L1 teaching note 3 ('the source does not specify Sam's gender'), L2 word notes for pesos ('retained from the English source'), café américain ('follows the source') and pains sucrés ('keeps the source's sweet-bread meaning'), L2 objectiveFrenchCourseEnglish ('the source's Mexico travel example'), L3 teaching note 4 ('SOURCE-SPECIFIC: ... come from the Mexico English source'). Not a fidelity defect; scrub or reword before display.",
+      "L1 teaching note 6 says French has 'five vowel letters'; standard count is six (a, e, i, o, u, y).",
+      "L3 'du jour' note example 'le café est du Mexique' is understandable but 'vient du Mexique' is the more natural origin phrasing.",
+      "L2 teaching note 1 wording 'French uses 120 pesos to say the total' is awkward; meaning is clear."
+    ],
+    "residualGates": [
+      "Native French teacher review (not AI).",
+      "Regional adaptation decision for Mexico/peso/churro/chilaquiles setting versus a France/Québec café variant.",
+      "Audio/pronunciation review of the respelling guides (e.g. ZHÜ, SÜ-kr, pay-ZOH).",
+      "UI schema confirmation and wiring for focusEnglish and the *FrenchCourseEnglish display fields; focusFrench must render as a target-language model, not as the Foundation learner's only focus text.",
+      "Strip provenance ('source') wording from learner-facing fields before runtime display."
+    ]
+  },
+  "postReviewCopyEdits": "Corrected factual vowel-letter count and stripped reviewer-identified source/process wording from learner-facing fields; source-pair validator reran. These copy edits have not had another independent AI pass.",
+  "humanFrenchReview": false,
+  "regionalApproval": false,
+  "audioListeningReview": false,
+  "runtimeWiring": false,
+  "released": false
+}

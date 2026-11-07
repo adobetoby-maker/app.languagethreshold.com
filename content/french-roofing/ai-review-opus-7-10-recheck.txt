@@ -1,0 +1,46 @@
+**Verdict: PASS** for the scoped AI roofing/curriculum review. All seven material findings from my initial report are fixed. I found no new material mistakes, but one stale note was introduced and should be cleaned up. This is an AI review, not human approval, and `reviewed` stays `false`. I made no edits.
+
+The file changed on disk while I was reviewing it (saved 02:50). This verdict covers the current version, sha256 `377aa823…acb237`.
+
+**Checks run**
+- `scripts/validate-french-roofing-pilot.py` passes all three stages (exit 0), before and after the 02:50 change.
+- I compared the English fields to `source-english-foundation-7-10.json` with my own script, not the validator. Titles, objectives, speaking prompts, word lists, readings and verb meanings/examples all match the source, counting the `*Source` fallback fields, with zero mismatches.
+- Only two English fields were adapted, both in L10. Both keep the original string: `objectiveEnglishSource` (the Spanish→French objective) and `reading.sourceNative[6]` (caída→chute).
+
+**Material findings**
+
+| # | Finding | Status | What the draft does now |
+|---|---|---|---|
+| 1 | L10 vouloir dire: French and English examples didn't match | Resolved | `exampleEnglish` is "What does the word chute mean?". `exampleEnglishSource` keeps caída. The validator now accepts `exampleEnglishSource` (line 48). |
+| 2 | L8 utiliser glossed as "to wear" | Resolved | `meaningEnglish` is "to use". `meaningEnglishSource` keeps the source. The verb card now has a note pointing to porter. |
+| 3 | L8 negation rule too broad | Resolved | The rule now names pas/jamais/plus/rien and says un, une, du, de la and des become de (d' before a vowel). It says le/la/les stay, and nothing changes after être, citing "Ce n'est pas une urgence". That matches L10. |
+| 4 | L9 command rule garbled, attendre called an -er verb | Resolved | Now: drop vous, keep the vous form (attendez, apportez, venez), Faites as the irregular. The -er label is gone. It also adds Passez-moi and Ne le touchez pas. |
+| 5 | L9 answer field contained "(pour passer)" | Resolved | The answer is now just "excusez-moi", and the note says pardon also works. |
+| 6 | L9 speaking model used untaught words (scie, poser) and showed an unsafe ladder setup | Resolved | It now uses marteau and corde (corde is taught in F1–3), plus Apportez, Attendez and Faites attention. "Contre le mur" is gone. A note says this is language practice, not a ladder procedure, and to follow site rules. No new safety rules were added. |
+| 7 | L10 "If it's serious, call 911" could lead to not calling | Resolved for AI scope | The source reading is kept. The teaching text adds: follow the employer's emergency procedure and the posted numbers on site, and "If you are unsure… seek help promptly." This avoids inventing medical or safety rules. A safety reviewer may want "when in doubt, call" in its place. |
+
+**Ladder, harness and emergency wording**
+- Every safety note points to site procedures and invents no rules, including the L8 harness note.
+- The emergency numbers are consistent across the word note, the regional note and the teaching text: 911 for the US and Canada including Quebec, 112 for France and the EU.
+
+**Introduced issue (minor, should be fixed)**
+- L10, second regional note: "The English example keeps the source word caída…" is now false. The English example and reading line both say chute after fix 1. The verb card's own note is correct, so the regional note should be reworded or deleted.
+
+**Minor items still open (none blocking)**
+- **New, L9 teaching text:** the vous-command rule is stated twice in a row. Delete the first sentence.
+- **New:** two curly apostrophes, in L7 "s’arrête" and the L8 note "d’eau". Everything else uses straight apostrophes, so text matching could treat them differently.
+- **L7 "what":** the answer field still accepts only "qu'est-ce que", so a typed "quoi" is marked wrong. The L7 lines also still use untaught words: il nous faut, mettre and diriger.
+- **L8:** the note that casual "Plus de clous" means "no more nails" still isn't there. The new pronunciation line ("pronounce the s" in plus de) would read better as "often pronounce".
+- **L10:** France's 15 and 18 aren't mentioned (optional).
+
+**Still needs humans**
+- A native French speaker for France and Quebec register and audio.
+- A roofing safety reviewer for the trade terms (paquet versus ballot), the ladder and harness wording against OSHA and CNESST, and the "seek help promptly" line.
+- A recheck of emergency numbers for the actual deployment regions.
+
+`★ Insight ─────────────────────────────────────`
+- The fix for findings 1 and 2 works by keeping the source string in a `*Source` field: the validator reads that field when it exists. Learners see the corrected text, while the source check still compares against the original. The same pattern is already used for `objectiveEnglishSource` and `reading.sourceNative`.
+- The stale caída note shows the risk of that pattern. Once a field is adapted, notes written about the old version can become wrong, and no structural validator can catch that. Searching the notes for the old source word (here "caída") after each adaptation would.
+`─────────────────────────────────────────────────`
+
+Next step if you want it: reword the L10 caída note, then put this report in the empty `ai-review-opus-7-10-recheck.txt`.

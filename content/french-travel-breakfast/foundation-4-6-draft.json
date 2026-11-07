@@ -1,0 +1,457 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "foundation",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/foundation-travel-breakfast.json": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "public/lesson-content/es/foundation-travel-breakfast.json": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a"
+  },
+  "draftModel": "Haiku via Claude CLI OAuth; corrected after independent Fable and Opus AI reviews",
+  "sourceEnglishPolicy": "Source English anchors are provenance only. Use French-course title/objective, focusEnglish and speakingInstructionEnglish for beginners.",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Have, There Is, Need and Want",
+      "objectiveEnglish": "Say what you have, need and want at breakfast, and ask what the café has.",
+      "titleFrenchCourseEnglish": "Avoir, Il y a and Needs at the Café",
+      "objectiveFrenchCourseEnglish": "Say what you have, need and want at a café, and ask whether the café has something.",
+      "focusEnglish": "Have and need with avoir, il y a and avoir besoin de; polite requests with je voudrais; il faut for rules such as paying at the register; du/de la/des for amounts.",
+      "focusFrench": "Avoir (j'ai, tu as, il a, nous avons, vous avez, ils ont) ; il y a ; avoir besoin de ; je voudrais ; il faut + infinitif ; du/de la/des.",
+      "words": [
+        {
+          "en": "the orange juice",
+          "kind": "term",
+          "fr": "le jus d'orange",
+          "noteEnglish": "Jus alone means juice of any kind. Pressé means freshly squeezed and is common in French cafés."
+        },
+        {
+          "en": "the toast",
+          "kind": "term",
+          "fr": "le pain grillé",
+          "noteEnglish": "Pain grillé is toast. In Québec, you will also hear des rôties."
+        },
+        {
+          "en": "the butter",
+          "kind": "term",
+          "fr": "le beurre",
+          "noteEnglish": "Pronounced BUHR. Butter is always le beurre."
+        },
+        {
+          "en": "the jam",
+          "kind": "term",
+          "fr": "la confiture",
+          "noteEnglish": "Confiture is the everyday word for jam or preserves in France."
+        },
+        {
+          "en": "the fruit",
+          "kind": "term",
+          "fr": "le fruit",
+          "noteEnglish": "Use les fruits for fruit in general or several pieces of fruit."
+        },
+        {
+          "en": "the tea",
+          "kind": "term",
+          "fr": "le thé",
+          "noteEnglish": "Pronounced TAY. The accent on é is part of the spelling."
+        },
+        {
+          "en": "the napkin",
+          "kind": "term",
+          "fr": "la serviette",
+          "noteEnglish": "A paper napkin in a café is often called une serviette en papier."
+        },
+        {
+          "en": "the spoon",
+          "kind": "term",
+          "fr": "la cuillère",
+          "noteEnglish": "Pronounced kwee-YEHR. A small spoon for coffee is une petite cuillère."
+        },
+        {
+          "en": "the fork",
+          "kind": "term",
+          "fr": "la fourchette",
+          "noteEnglish": "The word has the ending -ette, which is feminine."
+        },
+        {
+          "en": "Do you have fresh orange juice?",
+          "kind": "phrase",
+          "fr": "Vous avez du jus d'orange pressé ?",
+          "noteEnglish": "Pressé means freshly squeezed; frais can mean fresh or chilled. Vous avez is a polite question with a server."
+        },
+        {
+          "en": "Is there toast?",
+          "kind": "phrase",
+          "fr": "Il y a du pain grillé ?",
+          "noteEnglish": "Il y a means there is or there are, and it never changes form."
+        },
+        {
+          "en": "I need a napkin, please.",
+          "kind": "phrase",
+          "fr": "J'ai besoin d'une serviette, s'il vous plaît.",
+          "noteEnglish": "Avoir besoin de + noun means need. Before a vowel, de becomes d', as in d'une."
+        },
+        {
+          "en": "I'd like a tea without sugar.",
+          "kind": "phrase",
+          "fr": "Je voudrais un thé sans sucre.",
+          "noteEnglish": "Je voudrais (I would like) is the polite way to order. Sans means without."
+        },
+        {
+          "en": "Do you have to pay at the register?",
+          "kind": "phrase",
+          "fr": "Il faut payer à la caisse ?",
+          "noteEnglish": "Il faut + infinitive means one must or you have to. Payer is the verb to pay."
+        },
+        {
+          "en": "I'm very hungry.",
+          "kind": "phrase",
+          "fr": "J'ai très faim.",
+          "noteEnglish": "French uses avoir faim (to have hunger), not être. Use très (very), not beaucoup, before faim."
+        }
+      ],
+      "speakingInstructionEnglish": "Tell the server you are very hungry, ask if they have fresh orange juice, then say you need a fork and a napkin, please.",
+      "speakingFrench": "J'ai très faim. Vous avez du jus d'orange pressé ? J'ai besoin d'une fourchette et d'une serviette, s'il vous plaît.",
+      "passage": {
+        "titleFrench": "Une commande à Oaxaca",
+        "english": [
+          "In a café in Oaxaca, Emma tells the server Luis: I'm very hungry.",
+          "Emma: Do you have fresh orange juice?",
+          "Luis: Yes, and there is also fresh fruit with breakfast.",
+          "Emma: Is there toast?",
+          "Luis: Yes, the toast comes with butter and jam.",
+          "Emma: I'd like a tea without sugar and a spoon, please.",
+          "Emma: I also need a fork and a napkin, please.",
+          "Luis: Sure, and you have to pay at the register at the end."
+        ],
+        "french": [
+          "Dans un café à Oaxaca, Emma dit au serveur Luis : J'ai très faim.",
+          "Emma : Vous avez du jus d'orange pressé ?",
+          "Luis : Oui, et il y a aussi des fruits frais au petit-déjeuner.",
+          "Emma : Il y a du pain grillé ?",
+          "Luis : Oui, le pain grillé est servi avec du beurre et de la confiture.",
+          "Emma : Je voudrais un thé sans sucre et une cuillère, s'il vous plaît.",
+          "Emma : J'ai aussi besoin d'une fourchette et d'une serviette, s'il vous plaît.",
+          "Luis : Bien sûr, et il faut payer à la caisse à la fin."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Avoir means to have: j'ai, tu as, il or elle a, nous avons, vous avez, ils or elles ont. Use it for hunger and needs: j'ai faim, j'ai besoin de.",
+        "Il y a means there is or there are. It never changes, so use it for both one item and several: Il y a du pain grillé ? Il y a des fruits.",
+        "Avoir besoin de + noun means to need. De + une becomes d'une before the vowel: j'ai besoin d'une serviette.",
+        "Avoir envie de means to feel like or want to: J'ai envie de manger (with a verb), or J'ai envie d'un thé (with a noun). This is an optional extension.",
+        "Je voudrais (I would like) is softer and more polite than je veux (I want). Use it to order at a café.",
+        "Il faut + infinitive means one must or you have to. Use it for rules, such as paying at the register.",
+        "In Oaxaca, a café may serve fresh orange juice and fruit with breakfast. In France, you will often see jus d'orange pressé on the menu.",
+        "Use vous with a server or any adult you have just met. Move to tu if the other person suggests it or begins using it."
+      ],
+      "authoringNotesEnglish": [
+        "The English title, objective, and reading lines are kept exactly as the source gives them. The French-course fields are the learner-facing display text.",
+        "Oaxaca and Mexico remain the setting because the English reading lines name them. No prices appear in this lesson, so no euro or peso conversion is needed.",
+        "Native French review is still open. The phrase Il faut payer à la caisse is used for the English 'Do you have to pay' line; a native speaker should confirm that it sounds natural in a café.",
+        "Le toast is a common alternative to pain grillé in French cafés. This draft uses pain grillé as the standard form.",
+        "A France or Québec café variant with local currency is still needed before the lesson claims general French-speaking coverage."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Go, Do and Can",
+      "objectiveEnglish": "Say where you are going for breakfast, what you will order, and what you can do at a café.",
+      "titleFrenchCourseEnglish": "Going, Doing and Asking Permission at a Café",
+      "objectiveFrenchCourseEnglish": "Say where you are going and what you plan to order, and ask politely what you can do at a café.",
+      "focusEnglish": "Going somewhere and planning with aller and aller + infinitive, doing with faire, and asking permission with pouvoir and est-ce que.",
+      "focusFrench": "Aller (je vais, tu vas, nous allons, vous allez, ils vont) + à + lieu ; aller + infinitif pour un projet ; faire (je fais, vous faites) ; pouvoir (je peux, vous pouvez) pour demander la permission ; est-ce que pour une question.",
+      "words": [
+        {
+          "en": "the bakery",
+          "kind": "term",
+          "fr": "la boulangerie",
+          "noteEnglish": "A bakery sells bread and pastries. Un boulanger is the baker."
+        },
+        {
+          "en": "the café",
+          "kind": "term",
+          "fr": "le café",
+          "noteEnglish": "The café as a place uses the same word as coffee. Un café alone usually means an espresso in France."
+        },
+        {
+          "en": "the market",
+          "kind": "term",
+          "fr": "le marché",
+          "noteEnglish": "Un marché is an open-air market, often held on certain days of the week."
+        },
+        {
+          "en": "the counter",
+          "kind": "term",
+          "fr": "le comptoir",
+          "noteEnglish": "Le comptoir is the bar or counter where you order or sit on a stool."
+        },
+        {
+          "en": "the terrace",
+          "kind": "term",
+          "fr": "la terrasse",
+          "noteEnglish": "En terrasse means seated outside at café tables."
+        },
+        {
+          "en": "the register",
+          "kind": "term",
+          "fr": "la caisse",
+          "noteEnglish": "La caisse is the till or cash desk where you pay. The person there is le caissier or la caissière."
+        },
+        {
+          "en": "the restroom",
+          "kind": "term",
+          "fr": "les toilettes",
+          "noteEnglish": "Les toilettes is the everyday word; les WC is also common on signs."
+        },
+        {
+          "en": "to go",
+          "kind": "term",
+          "fr": "à emporter",
+          "noteEnglish": "In France say à emporter; in Québec pour emporter is usual."
+        },
+        {
+          "en": "for here",
+          "kind": "term",
+          "fr": "sur place",
+          "noteEnglish": "Sur place means eaten on the premises, in the café."
+        },
+        {
+          "en": "I'm going to the bakery.",
+          "kind": "phrase",
+          "fr": "Je vais à la boulangerie.",
+          "noteEnglish": "À + la stays à la (à la boulangerie). À + le contracts to au (au marché); de + le contracts to du (près du marché)."
+        },
+        {
+          "en": "I'm going to order the chilaquiles.",
+          "kind": "phrase",
+          "fr": "Je vais commander les chilaquiles.",
+          "noteEnglish": "Aller + infinitive means going to do something. Commander means to order."
+        },
+        {
+          "en": "We're going to have breakfast here.",
+          "kind": "phrase",
+          "fr": "Nous allons prendre le petit-déjeuner ici.",
+          "noteEnglish": "Nous allons is the nous form of aller. In everyday speech, on va is also common."
+        },
+        {
+          "en": "Can I sit on the terrace?",
+          "kind": "phrase",
+          "fr": "Est-ce que je peux m'asseoir en terrasse ?",
+          "noteEnglish": "En terrasse is the usual café idiom for sitting outdoors. Est-ce que je peux...? asks permission."
+        },
+        {
+          "en": "Can I pay by card?",
+          "kind": "phrase",
+          "fr": "Est-ce que je peux payer par carte ?",
+          "noteEnglish": "Par carte means by card. Est-ce que turns a statement into a question."
+        },
+        {
+          "en": "Do you make eggs to order?",
+          "kind": "phrase",
+          "fr": "Je peux choisir la cuisson des œufs ?",
+          "noteEnglish": "A natural way to ask whether you may choose how the eggs are cooked; cuisson means cooking method."
+        }
+      ],
+      "speakingInstructionEnglish": "Tell the barista you will eat here, ask if you can sit on the terrace, and ask if you can pay by card.",
+      "speakingFrench": "Je vais manger sur place. Est-ce que je peux m'asseoir en terrasse ? Est-ce que je peux payer par carte ?",
+      "passage": {
+        "titleFrench": "Au comptoir et en terrasse",
+        "english": [
+          "Emma is going to have breakfast at a café near the market.",
+          "At the counter, Diego the barista makes coffee.",
+          "Emma: I'm going to order the chilaquiles.",
+          "Emma: It's for here, not to go.",
+          "Emma: Can I sit on the terrace?",
+          "Diego: Yes, you can, and the restroom is in the back.",
+          "Emma: Can I pay by card?",
+          "Diego: Yes, you can pay at the register.",
+          "Afterward, Emma is going to go to the bakery for bread."
+        ],
+        "french": [
+          "Emma va prendre le petit-déjeuner dans un café près du marché.",
+          "Au comptoir, le barista Diego prépare le café.",
+          "Emma : Je vais commander les chilaquiles.",
+          "Emma : C'est sur place, pas à emporter.",
+          "Emma : Est-ce que je peux m'asseoir en terrasse ?",
+          "Diego : Oui, bien sûr, et les toilettes sont au fond.",
+          "Emma : Est-ce que je peux payer par carte ?",
+          "Diego : Oui, vous pouvez payer à la caisse.",
+          "Ensuite, Emma va aller à la boulangerie chercher du pain."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Aller means to go: je vais, tu vas, il va, nous allons, vous allez, ils vont. Use aller + à + place to say where you are going. À + le becomes au; de + le becomes du. À la stays à la.",
+        "Aller + infinitive means going to do something: Je vais commander. It is the usual way to talk about plans in French.",
+        "Faire means to make or to do: je fais, nous faisons, vous faites. It is used for making a meal or doing an activity.",
+        "Pouvoir means to be able to or can: je peux, tu peux, vous pouvez. Use Est-ce que je peux... ? to ask permission.",
+        "Est-ce que puts a question in front of any statement, so you do not have to change the word order.",
+        "Ask Où sont les toilettes ? in a café. In Québec, la salle de bain is also common for the restroom; in France it usually means a room with a bath or shower.",
+        "France: sur place / à emporter. Québec: pour ici / pour emporter is common."
+      ],
+      "authoringNotesEnglish": [
+        "Oaxaca and chilaquiles remain the setting because the English reading lines name them. Chilaquiles stays as a loan word in French.",
+        "The eggs-to-order phrase replaces the earlier à la demande wording, which only means on request; native French naturalness review remains open.",
+        "The source reading says is going to go. French va aller à la boulangerie preserves the near-future form and is standard French.",
+        "No prices or currency conversions appear in this lesson. The French café context is not yet adapted to a France or Québec setting."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Present Tense",
+      "objectiveEnglish": "Talk about what you eat and drink for breakfast using present-tense verbs.",
+      "titleFrenchCourseEnglish": "Present Tense: What You Eat, Drink and Ask",
+      "objectiveFrenchCourseEnglish": "Talk about what you eat and drink for breakfast, what your family drinks, and where you live, using the French present tense.",
+      "focusEnglish": "Present tense of -er verbs (manger, habiter) and useful irregular breakfast verbs (prendre, boire, ouvrir), with vous for adults just met.",
+      "focusFrench": "Présent des verbes en -er (manger, habiter) et des verbes courants prendre, boire, ouvrir ; vous avec le personnel et les adultes que l'on vient de rencontrer.",
+      "words": [
+        {
+          "en": "the chilaquiles",
+          "kind": "term",
+          "fr": "les chilaquiles",
+          "noteEnglish": "A Mexican breakfast of fried tortilla pieces in salsa. Keep the plural les in French."
+        },
+        {
+          "en": "the scrambled eggs",
+          "kind": "term",
+          "fr": "les œufs brouillés",
+          "noteEnglish": "Œufs brouillés are scrambled eggs in France and Québec."
+        },
+        {
+          "en": "the fried eggs",
+          "kind": "term",
+          "fr": "les œufs au plat",
+          "noteEnglish": "Œufs au plat are fried eggs, usually served with a runny yolk."
+        },
+        {
+          "en": "the beans",
+          "kind": "term",
+          "fr": "les haricots",
+          "noteEnglish": "Les haricots means beans. Mexican-style beans may be haricots noirs or haricots rouges; haricots verts are green beans."
+        },
+        {
+          "en": "the cheese",
+          "kind": "term",
+          "fr": "le fromage",
+          "noteEnglish": "Fromage is used for all cheese, and it is masculine."
+        },
+        {
+          "en": "the ham",
+          "kind": "term",
+          "fr": "le jambon",
+          "noteEnglish": "Jambon means ham. Jambon blanc is cooked ham; jambon cru is cured ham."
+        },
+        {
+          "en": "the bacon",
+          "kind": "term",
+          "fr": "le bacon",
+          "noteEnglish": "Le bacon is common in French cafés. Lardons are small cubes of bacon used in cooking."
+        },
+        {
+          "en": "the green salsa",
+          "kind": "term",
+          "fr": "la salsa verde",
+          "noteEnglish": "Salsa verde is the Spanish dish name used as a loan in this Mexican café scene; French sauce verte usually means a different herb sauce."
+        },
+        {
+          "en": "the avocado",
+          "kind": "term",
+          "fr": "l'avocat",
+          "noteEnglish": "Avocat is also the word for lawyer. In a café, it means avocado."
+        },
+        {
+          "en": "the oatmeal",
+          "kind": "term",
+          "fr": "le porridge",
+          "noteEnglish": "Le porridge is common in France; in Québec, gruau is common. Flocons d'avoine means oat flakes."
+        },
+        {
+          "en": "I have breakfast at 8 every day.",
+          "kind": "phrase",
+          "fr": "Je prends le petit-déjeuner à 8 heures tous les jours.",
+          "noteEnglish": "Prendre is irregular: je prends, tu prends, vous prenez. Tous les jours means every day."
+        },
+        {
+          "en": "Do you drink coffee or tea?",
+          "kind": "phrase",
+          "fr": "Vous buvez du café ou du thé ?",
+          "noteEnglish": "Boire is irregular: je bois, vous buvez, ils boivent. Vous is the safe form with an adult you have just met."
+        },
+        {
+          "en": "Do you live here?",
+          "kind": "phrase",
+          "fr": "Vous habitez ici ?",
+          "noteEnglish": "Habiter is a regular -er verb. Vous is the polite form for someone you have just met."
+        },
+        {
+          "en": "We eat eggs with beans.",
+          "kind": "phrase",
+          "fr": "Nous mangeons des œufs avec des haricots.",
+          "noteEnglish": "Manger is regular, but the nous form adds an e: nous mangeons."
+        },
+        {
+          "en": "My kids drink milk.",
+          "kind": "phrase",
+          "fr": "Mes enfants boivent du lait.",
+          "noteEnglish": "Mes enfants is the neutral way to say my children. Ils boivent is the ils form of boire."
+        },
+        {
+          "en": "Are you open on Sundays?",
+          "kind": "phrase",
+          "fr": "Vous ouvrez le dimanche ?",
+          "noteEnglish": "Ouvrir ends in -ir but takes endings like an -er verb in the present: j'ouvre, vous ouvrez."
+        }
+      ],
+      "speakingInstructionEnglish": "Chat with a fellow guest: say what you eat, ask if they drink coffee or tea, and ask if they live here.",
+      "speakingFrench": "Je mange des œufs au petit-déjeuner. Vous buvez du café ou du thé ? Vous habitez ici ?",
+      "passage": {
+        "titleFrench": "Au petit-déjeuner de l'hôtel",
+        "english": [
+          "Emma has chilaquiles with green salsa for breakfast at her hotel.",
+          "Emma: I have breakfast at 8 every day.",
+          "Emma puts cheese and avocado on her chilaquiles.",
+          "Lucía, another hotel guest, eats scrambled eggs with ham.",
+          "Emma: Do you drink coffee or tea?",
+          "Lucía: I drink coffee, and my kids eat oatmeal.",
+          "Emma: Do you live here in Oaxaca?",
+          "Lucía: No, I live in Puebla, and there we eat beans.",
+          "Lucía: At home, my husband eats fried eggs with bacon."
+        ],
+        "french": [
+          "Emma prend des chilaquiles avec de la salsa verde au petit-déjeuner à son hôtel.",
+          "Emma : Je prends le petit-déjeuner à 8 heures tous les jours.",
+          "Emma met du fromage et de l'avocat sur ses chilaquiles.",
+          "Lucía, une autre cliente de l'hôtel, mange des œufs brouillés avec du jambon.",
+          "Emma : Vous buvez du café ou du thé ?",
+          "Lucía : Je bois du café, et mes enfants mangent du porridge.",
+          "Emma : Vous habitez ici, à Oaxaca ?",
+          "Lucía : Non, j'habite à Puebla, et là-bas, nous mangeons des haricots.",
+          "Lucía : À la maison, mon mari mange des œufs au plat avec du bacon."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "Regular -er verbs drop -er and add -e, -es, -e, -ons, -ez, -ent: je mange, tu manges, il mange, nous mangeons, vous mangez, ils mangent. The -ent ending is silent.",
+        "Prendre (to take) is common for breakfast and drinks: je prends le petit-déjeuner, vous prenez un café.",
+        "Boire (to drink) is irregular: je bois, tu bois, il boit, nous buvons, vous buvez, ils boivent.",
+        "Ouvrir (to open) follows a similar pattern to -er verbs in the present: j'ouvre, tu ouvres, vous ouvrez.",
+        "Use vous with adults you have just met and with staff. Switch to tu if the other person suggests it: On peut se tutoyer ? With a friend, Tu bois du café ? is natural.",
+        "Beans are les haricots. In this Mexico scene, Mexican-style beans are often haricots noirs; a menu may also use the word frijoles."
+      ],
+      "authoringNotesEnglish": [
+        "The source English lines are preserved exactly. French uses vous between Emma and Lucía because they are adult hotel guests who have just met.",
+        "Lucía is a guest from Puebla in the Oaxaca frame. The Puebla and Oaxaca references are kept for the English anchors, and no euro conversion is applied.",
+        "Porridge stands in for oatmeal. In Québec, gruau is common, so a regional note may be needed.",
+        "Irregular verbs (prendre, boire, ouvrir) are included in the present-tense material. A native teacher should check whether the beginner pacing is right for these forms.",
+        "French café context here is the Mexico scene. A France or Québec variant with local dishes and currency is still needed.",
+        "Regular -ir verbs such as choisir are deferred from this beginner lesson; the source Spanish present-tense objective is mirrored through French -er and high-use irregular breakfast verbs instead."
+      ],
+      "reviewed": false
+    }
+  ]
+}

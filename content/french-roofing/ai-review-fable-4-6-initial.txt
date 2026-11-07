@@ -1,0 +1,45 @@
+Verdict: **FAIL** for AI language scope. The on-disk draft matches the pasted JSON, both source hashes verify, and apostrophes are consistent (straight only). Every English pair, reading line and verb example aligns with the source. The failure comes from four material language and teaching findings below.
+
+## Material findings
+
+**1. Lesson 5, `words[5].noteEnglish` and `regionalNotesEnglish[0]`: "le char" is wrong.** In Quebec, *le char* means a car, never a truck. A roofer told to say *le char* for the crew truck will be misunderstood. Correction:
+- Note: "In Quebec, le char means a car. A pickup is informally le pick-up or le truck. Le camion is standard everywhere."
+- Regional note: "Quebec speakers say le char for a car and le pick-up or le truck informally for a pickup. Le camion is standard and understood everywhere."
+
+**2. Lesson 6, verb 3, `words[10]`, `grammarFocusEnglish`, `grammarTeachingEnglish`, `regionalNotesEnglish[2]`: "vivre" contradicts the lesson's own objective.** The objective is regular verbs. *Vivre* is irregular, and the draft itself admits *habiter* is the everyday verb. *Habiter* is a regular -er verb and the idiomatic answer to "Where do you live?". The inversion *Où vivez-vous ?* also breaks the spoken register lesson 5 established with *Vous pouvez m'aider ?*. Correction:
+- Verb: `infinitiveFrench` "habiter", `exampleFrench` "Vous habitez où ?" (English pair unchanged).
+- Phrase: fr "Vous habitez où ?", note "Où habitez-vous ? is the formal written form."
+- Grammar focus: replace "irregular vivre" with "habiter".
+- Grammar teaching: delete the vivre paragraph. Add "Habiter (to live) is a regular -er verb: j'habite, vous habitez. Say Vous habitez où ? to ask where someone lives."
+- Regional note 3: delete or rewrite as "Habiter is the everyday verb for where you live in France and Quebec."
+
+**3. Lesson 4, `words[4]` and `reading.target[5]`: "le matériel" is the wrong sense and contradicts lesson 6.** Roofing material on a truck is *les matériaux*. *Le matériel* means tools and equipment. Lesson 6 already uses *les vieux matériaux* for "the old material", so the draft teaches two words for one English term. Correction:
+- fr "les matériaux", note "Building materials: shingles, underlayment, nails. Le matériel means tools and equipment."
+- Reading line 6: "Il y a des matériaux sur le camion et des débris par terre."
+
+**4. Lesson 4, `words[11]`: "Vous devez porter le harnais." uses an untaught verb.** *Devoir* appears nowhere in lessons 4 to 6, while the grammar teaching and reading line 7 use *il faut* for "have to". Correction: fr "Il faut porter le harnais.", note "Il faut covers 'you have to' on a crew. Devoir (vous devez) comes later." Keep the existing safety sentence.
+
+## Minor notes
+
+- Lesson 4 grammar focus and teaching group "plus de clous" with negation. On its own *plus de clous* means "more nails". *Il n'y a plus de clous* means "no more nails", with a different pronunciation. Add one sentence making that distinction.
+- Lesson 4 teaching: "the noun after de takes the article shown" states no rule. Say: "keep un/une for one item (besoin d'un outil); drop the article for plurals and mass nouns (besoin de clous, besoin d'eau)."
+- Lesson 4 speaking opening uses *Il manque des clous*, an untaught verb. *Il n'y a pas de clous sur le toit* uses taught grammar.
+- Lesson 4 reading line 3: *eau fraîche* is idiomatic. "Cold water" literally is *eau froide*. Either is fine. Worth a note.
+- Lesson 4 reading line 2 uses *il fait très chaud* one lesson before *faire* is taught. Acceptable forward reference, since lesson 5 covers it.
+- Lesson 5 reading line 1: *on va à une nouvelle maison* is understood but unidiomatic. *On va sur une nouvelle maison* is what a roofer says. Line 2: *en camion* is more natural than *dans le camion*.
+- Lesson 5: *m'aider avec l'échelle* is anglicized but common in casual speech, especially in Quebec. *M'aider pour l'échelle* is the cleaner France form.
+- Lesson 6 teaching: "is not part of this lesson's verb list" is reviewer talk in learner text. Replace with "Descendre (to bring down) is a -re verb: l'équipe descend. You will learn -re verbs later."
+- Lesson 6 reading line 5: *On mange à midi* drops "lunch". Fine, since *manger à midi* implies it.
+- Lesson 6 regional note 1 could add that Quebec *déjeuner* means breakfast, the most common trap for this word.
+- The draft puts a space before "?" throughout. That is the France convention. Quebec typography omits it. Pick one and record it.
+- The harness disclaimer appears both in the word note and in regional note 4. One copy is enough.
+
+## Qualified human gates
+
+These need a native speaker, and this review does not clear them:
+
+- A Quebec roofer to confirm the crew terms: *bardeaux*, *casque* versus *casque de sécurité*, *bâche* versus *toile*, *chef* versus *boss* as address for a crew lead.
+- A France roofer to confirm *bardeaux* is what the crew says for asphalt shingles, as opposed to *shingles* or *bardeaux bitumés*.
+- Naturalness of the full reading passages read aloud, especially lesson 5 lines 1 and 2.
+
+Everything else checks out. All 36 word pairs and 21 reading lines keep the immutable English, the conjugation tables for avoir, vouloir, aller, faire, pouvoir, travailler, manger and nettoyer are correct, and the spelling-change explanations are accurate. The verdict flips to PASS once the four material edits land and the file is re-reviewed.

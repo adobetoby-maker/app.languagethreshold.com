@@ -1,0 +1,55 @@
+Review complete. The on-disk draft at `content/french-roofing/foundation-1-3-draft.json` matches the inline draft, and the README sets no verbs-per-lesson rule, so finding 2 is flagged as a spec check. All seven, eight and seven native reading lines match the source exactly, and word order and `en` strings match. The SHA was not recomputed because the serialization of the subset is unspecified.
+
+**Material findings**
+
+1. **L1 reading line 5, speakingFrenchOpening, titleEnglish L3.** The source is Spanish-bound. `Comment dit-on « échelle » en espagnol ?` and the L3 title "Ser and Estar" contradict a French-target course, and the L1 opener drops the language entirely, so the learner asks how to say "marteau" while already saying it in French. The opener does not satisfy its own prompt, which asks for a language. Fix needs a source-level ruling: either add a French-program variant of the English pair ("in French", "The verb être") or, if the English pair must stay, make the opener `Comment dit-on « hammer » et « harness » en français ?` and state the mismatch in the note.
+
+2. **All lessons, verbs.** Source lists three verbs per lesson; the draft ships two and drops `répéter`, `commencer` and `monter`. Each dropped verb already appears in the lesson's own reading or phrases. If the spec is three, add: L1 `répéter`, "Mon collègue répète le mot."; L2 `commencer`, "On commence à six heures du matin."; L3 `monter`, "On monte quand le toit est sec."
+
+3. **L3 grammarTeachingEnglish.** The être paradigm omits `vous êtes`. That is the form a new worker uses with the boss, and `s'il vous plaît` was taught in L1. Add `vous êtes`, and add `on est` since L2 already uses `on` for "we".
+
+4. **L3 words `sûr`, reading line 7.** `sûr` primarily reads as "sure, certain" at this level, so `je suis sûr` means "I'm sure" and `il est sûr` can read "he is sure". For a person, safe is `en sécurité`. Regional: Quebec trade talk uses `sécuritaire` for safe conditions and gear; France says `sans danger` or `fiable` for equipment. Suggested reading line 7: `Oui, le harnais est prêt et il est sans danger.` with a note listing `sécuritaire` for Quebec.
+
+5. **L2 reading lines 3 and 4, speakingFrenchOpening.** `Combien de paquets nous faut-il ?`, `Il nous faut trente paquets` and `Il me faut vingt paquets` introduce impersonal `falloir` plus subject inversion, untaught in grammarTeachingEnglish, in lesson 2. L1 already taught `avoir besoin de`. Fix: `On a besoin de combien de paquets aujourd'hui ?`, `On a besoin de trente paquets de bardeaux.`, opener `J'ai besoin de vingt paquets de bardeaux.`
+
+6. **L3 reading line 6.** `Le matériel est-il prêt ?` uses complex inversion with a noun subject, formal and above level, and conflicts with the lesson's own phrase form `Est-ce qu'il est prêt ?`. Fix: `Est-ce que le matériel est prêt ?`
+
+7. **L1 words "Please repeat", noteEnglish.** `Redites, s'il vous plaît` is not a common standalone request. Replace the alternative with `Vous pouvez répéter, s'il vous plaît ?`
+
+8. **L2 words "It's seven o'clock", noteEnglish.** "Il est plus heure (sept heures)" is garbled. Fix: "Il est + number + heures: il est sept heures."
+
+9. **L3 grammarTeachingEnglish, agreement sentence.** "The spelling changes are written even when silent" is misleading. The feminine of `prêt`, `froid`, `chaud`, `dangereux`, `glissant` is audible; only `mouillé/mouillée` and `sûr/sûre` are silent. Fix: "Some feminine endings are heard (prête, froide, chaude), some are only written (mouillée)."
+
+10. **L1 speakingFrenchOpening and reading line 1.** `je suis nouveau` has no feminine note. Add "A woman says je suis nouvelle" to the opener note, and "ma collègue" for a female coworker on reading line 6.
+
+11. **L1 words `le harnais`, reading line 3.** The draft correctly writes `du harnais`, but gives no aspirated-h note while the lesson is about silent letters. Learners will produce `l'harnais`. Add: "Aspirated h: no elision or liaison, le harnais, du harnais."
+
+12. **L3 words `chaud`, `froid`.** No note that people use `avoir`: `j'ai chaud`, `j'ai froid`. `Je suis chaud` is slang with a different meaning. Add the note; it is a likely learner error on a hot roof.
+
+**Minor findings**
+
+13. L1 "How do you say" note: `Comment on dit… ?` is the more casual spoken form; `dit-on` is neutral standard, not specifically "the natural form in speech." Reword.
+14. L2 `le paquet` note: "in this pilot" is process language in learner-facing text. Remove.
+15. L3 `le chef` note: `patron` is the standard word for the owner or employer, not an informal crew-lead term. Quebec informal is `le boss`.
+16. L2 `la livre` note: in France `une livre` is still current colloquial usage for 500 g, not only historical. In Quebec it is the imperial pound.
+17. L2 regionalNotesEnglish: "France uses metric in most construction work" should be "all".
+18. L1 grammarFocus lists the `in` nasal but the teaching gives no example; `besoin` is already in the reading.
+19. L2 `dans vingt minutes` reuses `dans` from L1 with a time meaning. One line in the teaching would prevent the "inside" reading.
+20. L3 `L'air est froid le matin` is literal; `Il fait froid le matin` is the natural line. Acceptable only because the lesson drills être; say so in a note.
+21. L3 `Est-ce qu'il est prêt ?`: add `C'est prêt ?` as the everyday spoken form.
+
+**Regional notes**
+
+- Numbers: Quebec and France both use `soixante-dix`, `quatre-vingt-dix`. Belgium and Switzerland use `septante`, `nonante`. Worth one line in L2 grammarFocus.
+- L2 opener `Chef,` as a vocative is common in France; Quebec crews say `Boss`.
+- Typography: the space before `?` and inside « » is France style; Quebec usually omits the space before `?`.
+- `Bonjour` covers all day in both; `Bon matin` is heard in Quebec but is a calque. Optional note on L1.
+- `matériel` versus `équipement` for equipment: both understood, `équipement` more common in Quebec.
+
+**Human-review limits**
+
+- This is an AI read, not native sign-off. Items 4, 5, 15 and the regional list need a native speaker from each of France and Quebec.
+- `draftModel` is Haiku. Project rule in CLAUDE.md sets Opus plus blind native review as the standard for shipped content. Keep `reviewed: false`.
+- Source-level rulings needed on findings 1 and 2 before fixes are applied.
+
+**Verdict: FAIL.** Findings 1 through 9 are learner-facing errors or untaught structures that must be fixed before this draft goes to native review.

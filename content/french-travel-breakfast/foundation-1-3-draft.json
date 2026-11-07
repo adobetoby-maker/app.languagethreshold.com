@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "foundation",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/foundation-travel-breakfast.json": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "public/lesson-content/es/foundation-travel-breakfast.json": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a"
+  },
+  "draftModel": "Haiku via Claude CLI OAuth; corrected after Fable and Opus AI review",
+  "sourceEnglishPolicy": "Preserve immutable source English objective, terms and reading lines for traceability; use French-course title/objective and instructions for learner display. Mexico/peso references remain pending an approved regional adaptation.",
+  "lessons": [
+    {
+      "n": 1,
+      "titleEnglish": "Sounds and Greetings",
+      "objectiveEnglish": "Say breakfast words clearly and greet a server or barista politely in the morning.",
+      "focusFrench": "Salutations avec vous ; les sons é/è, u/ou et eu/œu, les voyelles nasales, le r et les lettres finales muettes.",
+      "words": [
+        {
+          "en": "the coffee",
+          "kind": "term",
+          "fr": "le café",
+          "noteEnglish": "Pronounced kah-FAY, stress on the last syllable. Alone, un café in France usually means an espresso."
+        },
+        {
+          "en": "the juice",
+          "kind": "term",
+          "fr": "le jus",
+          "noteEnglish": "Pronounced ZHÜ (the French j is like the s in 'measure'). Orange juice is le jus d'orange."
+        },
+        {
+          "en": "the milk",
+          "kind": "term",
+          "fr": "le lait",
+          "noteEnglish": "Pronounced LEH; the final t is silent."
+        },
+        {
+          "en": "the tortilla",
+          "kind": "term",
+          "fr": "la tortilla",
+          "noteEnglish": "Borrowed from Spanish and used in French for the Mexican flatbread; pronounced tor-TEE-ya."
+        },
+        {
+          "en": "the churro",
+          "kind": "term",
+          "fr": "le churro",
+          "noteEnglish": "Borrowed word, pronounced approximately TCHOO-ro with a French r; unlike the usual French ch sound."
+        },
+        {
+          "en": "the eggs",
+          "kind": "term",
+          "fr": "les œufs",
+          "noteEnglish": "Pronounced leh-ZUH in the plural (liaison of the s). Singular un œuf is pronounced uhf."
+        },
+        {
+          "en": "the sugar",
+          "kind": "term",
+          "fr": "le sucre",
+          "noteEnglish": "Pronounced SÜ-kr; the final e is silent and the r is soft."
+        },
+        {
+          "en": "the menu",
+          "kind": "term",
+          "fr": "la carte",
+          "noteEnglish": "In a café, la carte lists what you can order; un menu is usually a set-price meal."
+        },
+        {
+          "en": "the bread",
+          "kind": "term",
+          "fr": "le pain",
+          "noteEnglish": "Pain has a nasal vowel [pɛ̃]; do not pronounce the final n."
+        },
+        {
+          "en": "Good morning!",
+          "kind": "phrase",
+          "fr": "Bonjour !",
+          "noteEnglish": "Use from morning until early evening; then say Bonsoir."
+        },
+        {
+          "en": "Hi, how are you?",
+          "kind": "phrase",
+          "fr": "Bonjour, comment allez-vous ?",
+          "noteEnglish": "Vous is the polite form for a server or someone you do not know."
+        },
+        {
+          "en": "My name is Sam, nice to meet you.",
+          "kind": "phrase",
+          "fr": "Je m'appelle Sam, enchanté.",
+          "noteEnglish": "Say enchantée if the speaker is a woman."
+        },
+        {
+          "en": "Thank you very much, see you tomorrow!",
+          "kind": "phrase",
+          "fr": "Merci beaucoup, à demain !",
+          "noteEnglish": null
+        },
+        {
+          "en": "Goodbye, have a good day.",
+          "kind": "phrase",
+          "fr": "Au revoir, bonne journée.",
+          "noteEnglish": "Standard polite goodbye in shops and cafés; bonne journée works with anyone."
+        }
+      ],
+      "speakingFrench": "Bonjour ! Je m'appelle Sam, enchanté. Un café, un jus, du lait et des œufs, s'il vous plaît.",
+      "passage": {
+        "titleFrench": "Un petit-déjeuner à Oaxaca",
+        "english": [
+          "Sam greets the barista Rosa in Oaxaca: Good morning!",
+          "Rosa: Hi, how are you?",
+          "Sam: My name is Sam, nice to meet you.",
+          "Sam reads the menu and orders an orange juice.",
+          "Sam also orders a coffee with milk.",
+          "Sam doesn't put sugar in the coffee.",
+          "To eat, Sam orders eggs with tortillas.",
+          "Rosa recommends a churro and sweet bread.",
+          "Sam: Thank you very much, see you tomorrow!"
+        ],
+        "french": [
+          "Sam salue la barista Rosa à Oaxaca : Bonjour !",
+          "Rosa : Bonjour, comment allez-vous ?",
+          "Sam : Je m'appelle Sam, enchanté.",
+          "Sam lit la carte et commande un jus d'orange.",
+          "Sam commande aussi un café au lait.",
+          "Sam ne met pas de sucre dans le café.",
+          "Pour manger, Sam commande des œufs avec des tortillas.",
+          "Rosa recommande un churro et du pain sucré.",
+          "Sam : Merci beaucoup, à demain !"
+        ]
+      },
+      "teachingNotesEnglish": [
+        "In the Oaxaca scene, a churro and tortillas are named foods; pain sucré means sweet bread. A French café often sells pastries called viennoiseries.",
+        "FRANCE USAGE: Bonjour is used from morning until early evening; Bonsoir follows. In Québec, Belgium and Switzerland, breakfast is often le déjeuner rather than le petit-déjeuner.",
+        "Use vous with a server or stranger. Enchanté changes to enchantée when the speaker is a woman.",
+        "FRANCE USAGE: un café alone commonly means espresso; un café au lait is usually a breakfast drink. At a café, un crème is a common coffee-with-milk order.",
+        "French ch is usually sh (chat); j is the zh of measure; French r is made in the back of the throat, not rolled.",
+        "French writing has six vowel letters (a, e, i, o, u, y) and many vowel sounds: é/è, u/ou, eu/œu and nasal vowels (pain, bonjour). The accents in é and è show vowel quality; other accents can distinguish words in writing."
+      ],
+      "titleFrenchCourseEnglish": "Greetings and French Café Sounds",
+      "objectiveFrenchCourseEnglish": "Greet a café server politely and pronounce common breakfast words clearly in French.",
+      "speakingInstructionEnglish": "Greet the barista with Bonjour, say your name, and pronounce café, jus, lait and œufs clearly.",
+      "reviewed": false,
+      "focusEnglish": "Polite morning greetings with vous; French é/è, u/ou and eu/œu, nasal vowels, the French r, and silent final letters."
+    },
+    {
+      "n": 2,
+      "titleEnglish": "Numbers, Time and Measurements",
+      "objectiveEnglish": "Use numbers, prices in pesos, clock times and café quantities to order and check a total.",
+      "focusFrench": "Nombres 0–1 000 : vingt et un, soixante-dix, quatre-vingts, quatre-vingt-dix, cent/deux cents, mille ; heures et demie ; prix à la tasse et à la pièce.",
+      "words": [
+        {
+          "en": "the pesos",
+          "kind": "term",
+          "fr": "les pesos",
+          "noteEnglish": "Pesos are the currency in this Mexico scene; in French, pronounce pay-ZOH with a silent final s."
+        },
+        {
+          "en": "the time",
+          "kind": "term",
+          "fr": "l'heure",
+          "noteEnglish": "Pronounced 'leur'. Quelle heure est-il ? means what time is it?"
+        },
+        {
+          "en": "the morning",
+          "kind": "term",
+          "fr": "le matin",
+          "noteEnglish": "Pronounced luh mah-TAN."
+        },
+        {
+          "en": "noon",
+          "kind": "term",
+          "fr": "midi",
+          "noteEnglish": "Pronounced mee-DEE. Le midi on its own means lunchtime."
+        },
+        {
+          "en": "the cup",
+          "kind": "term",
+          "fr": "la tasse",
+          "noteEnglish": "Pronounced 'tahss'."
+        },
+        {
+          "en": "the glass",
+          "kind": "term",
+          "fr": "le verre",
+          "noteEnglish": "Le verre is a glass. For a takeaway cup, say un gobelet; à emporter means to take away."
+        },
+        {
+          "en": "the piece",
+          "kind": "term",
+          "fr": "la pièce",
+          "noteEnglish": "Use la pièce for a unit price: 20 pesos la pièce. Count pastries directly when ordering."
+        },
+        {
+          "en": "the serving",
+          "kind": "term",
+          "fr": "la portion",
+          "noteEnglish": "Pronounced por-SYON. One plate of chilaquiles is one portion."
+        },
+        {
+          "en": "the dozen",
+          "kind": "term",
+          "fr": "la douzaine",
+          "noteEnglish": "Pronounced doo-ZEN."
+        },
+        {
+          "en": "the slice",
+          "kind": "term",
+          "fr": "la part",
+          "noteEnglish": "For a slice of cake: une part de gâteau. Pronounced 'par'."
+        },
+        {
+          "en": "2 americanos, please.",
+          "kind": "phrase",
+          "fr": "2 cafés américains, s'il vous plaît.",
+          "noteEnglish": "In France, un allongé is common for espresso diluted with hot water; café américain is intelligible but can also mean filter coffee."
+        },
+        {
+          "en": "A table for 4, please.",
+          "kind": "phrase",
+          "fr": "Une table pour 4, s'il vous plaît.",
+          "noteEnglish": null
+        },
+        {
+          "en": "3 pieces of sweet bread, please.",
+          "kind": "phrase",
+          "fr": "3 pains sucrés, s'il vous plaît.",
+          "noteEnglish": "Natural order in French; pain sucré means sweet bread. A French café may instead sell viennoiseries."
+        },
+        {
+          "en": "Is it 120 pesos?",
+          "kind": "phrase",
+          "fr": "Ça fait 120 pesos ?",
+          "noteEnglish": "Ça fait... ? is the everyday French for 'That comes to...?'"
+        },
+        {
+          "en": "It's half past 8.",
+          "kind": "phrase",
+          "fr": "Il est huit heures et demie.",
+          "noteEnglish": "Written form: Il est 8 h 30."
+        },
+        {
+          "en": "Is breakfast from 7 to 11?",
+          "kind": "phrase",
+          "fr": "Le petit-déjeuner, c'est de 7 h à 11 h ?",
+          "noteEnglish": null
+        }
+      ],
+      "speakingFrench": "Deux cafés et trois pains sucrés, s'il vous plaît. Ça fait cent vingt pesos ?",
+      "passage": {
+        "titleFrench": "Petit-déjeuner au Café Luna",
+        "english": [
+          "Emma walks into Café Luna in the morning.",
+          "Emma looks at the time: It's half past 8.",
+          "Luis: There are servings of chilaquiles until noon.",
+          "Emma: 2 americanos, please.",
+          "Luis: The cup costs 30 pesos and the glass 35.",
+          "Emma: In a cup, and 3 pieces of sweet bread.",
+          "Luis: The piece costs 20 pesos and the dozen 200.",
+          "Emma: Is it 120 pesos?",
+          "Luis: Yes, and the slice of cake costs 45."
+        ],
+        "french": [
+          "Un matin, Emma entre au Café Luna.",
+          "Emma regarde l'heure : Il est huit heures et demie.",
+          "Luis : On sert des portions de chilaquiles jusqu'à midi.",
+          "Emma : 2 cafés américains, s'il vous plaît.",
+          "Luis : C'est 30 pesos la tasse et 35 le verre.",
+          "Emma : En tasse, et 3 pains sucrés.",
+          "Luis : C'est 20 pesos la pièce et 200 la douzaine.",
+          "Emma : Ça fait 120 pesos ?",
+          "Luis : Oui, et la part de gâteau coûte 45."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "This Mexico café scene uses pesos, chilaquiles and Café Luna. A café elsewhere may use a different currency.",
+        "Pain sucré means sweet bread. In France, a bakery or café may offer a viennoiserie instead.",
+        "FRANCE USAGE: Ça fait combien ? asks the total. A slice of cake is une part de gâteau; la pièce can state a unit price.",
+        "FRANCE USAGE: un allongé is a common café order; café américain is intelligible but can also refer to filter coffee.",
+        "NUMBERS: 21 = vingt et un, 70 = soixante-dix, 80 = quatre-vingts, 90 = quatre-vingt-dix, 100 = cent, 120 = cent vingt, 200 = deux cents, 220 = deux cent vingt, 1 000 = mille. Cent takes s only when multiplied and final; quatre-vingts loses s when another number follows. In standard France usage, 81 = quatre-vingt-un and 91 = quatre-vingt-onze (no et); Belgium and Switzerland also use septante/nonante, and some Swiss cantons use huitante.",
+        "TIME: Il est huit heures et demie, but midi et demi. Timetables often use 24-hour notation: 15 h = 3 pm; 8 h 30 = 8:30."
+      ],
+      "titleFrenchCourseEnglish": "Numbers, Time and Café Prices",
+      "objectiveFrenchCourseEnglish": "Use French numbers, clock times and café quantities to order and check a total in this Mexico travel scene.",
+      "speakingInstructionEnglish": "Order two coffees and three pieces of sweet bread from a barista, then repeat the total in pesos to check it.",
+      "reviewed": false,
+      "focusEnglish": "French numbers to 1,000, including 70/80/90; café prices by cup or piece; clock times and quantities."
+    },
+    {
+      "n": 3,
+      "titleEnglish": "Ser and Estar",
+      "objectiveEnglish": "Describe food, drinks and tables at a café with ser and estar.",
+      "focusFrench": "Être + adjectif pour les choses (le café est chaud) ; accord masculin/féminin et singulier/pluriel ; questions polies avec l'intonation ou est-ce que. Pour une personne : j'ai chaud/froid, jamais je suis chaud.",
+      "words": [
+        {
+          "en": "hot",
+          "kind": "term",
+          "fr": "chaud",
+          "noteEnglish": "Feminine: chaude. Pronounced SHOH."
+        },
+        {
+          "en": "cold",
+          "kind": "term",
+          "fr": "froid",
+          "noteEnglish": "Feminine: froide, as in la boisson est froide. For how you feel, say j'ai froid."
+        },
+        {
+          "en": "fresh",
+          "kind": "term",
+          "fr": "frais",
+          "noteEnglish": "Feminine: fraîche. Le pain est frais."
+        },
+        {
+          "en": "sweet",
+          "kind": "term",
+          "fr": "sucré",
+          "noteEnglish": "Sucré is the safe word for sweet to taste. Doux means mild or soft, but can mean sweet for wine or cider."
+        },
+        {
+          "en": "spicy",
+          "kind": "term",
+          "fr": "piquant",
+          "noteEnglish": "Feminine: piquante. Épicé means spiced, not necessarily hot; for chili heat say piquant or ça pique."
+        },
+        {
+          "en": "delicious",
+          "kind": "term",
+          "fr": "délicieux",
+          "noteEnglish": "Feminine: délicieuse."
+        },
+        {
+          "en": "taken",
+          "kind": "term",
+          "fr": "occupé",
+          "noteEnglish": "Feminine: occupée."
+        },
+        {
+          "en": "free, available",
+          "kind": "term",
+          "fr": "libre",
+          "noteEnglish": "The same form for both genders: libre."
+        },
+        {
+          "en": "the server (woman)",
+          "kind": "term",
+          "fr": "la serveuse",
+          "noteEnglish": "Masculine: le serveur. Pronounced sair-VUHZ."
+        },
+        {
+          "en": "The coffee is very hot.",
+          "kind": "phrase",
+          "fr": "Le café est très chaud.",
+          "noteEnglish": "French uses être for both the temporary state and the lasting quality. Très means very."
+        },
+        {
+          "en": "Is this table free?",
+          "kind": "phrase",
+          "fr": "Cette table est libre ?",
+          "noteEnglish": "Natural spoken question with rising intonation. Est-ce que cette table est libre ? is another neutral option; inversion is more formal."
+        },
+        {
+          "en": "Is the bread from today?",
+          "kind": "phrase",
+          "fr": "Le pain est du jour ?",
+          "noteEnglish": "Du jour means made today in café usage. For origin, say le café vient du Mexique."
+        },
+        {
+          "en": "The salsa is very spicy.",
+          "kind": "phrase",
+          "fr": "La salsa est très piquante.",
+          "noteEnglish": "Salsa is Mexican here; the feminine agreement is piquante."
+        },
+        {
+          "en": "I'm ready to order.",
+          "kind": "phrase",
+          "fr": "Je suis prêt à commander.",
+          "noteEnglish": "A man says prêt; a woman says je suis prête."
+        }
+      ],
+      "speakingFrench": "Cette table est libre ? Mon café est chaud et la salsa est très piquante.",
+      "passage": {
+        "titleFrench": "Une table libre à Oaxaca",
+        "english": [
+          "Daniel is at a café in Oaxaca, and many tables are taken.",
+          "Daniel asks the server: Is this table free?",
+          "The server, Rosa, says: Yes, it is free.",
+          "Daniel: Is the bread from today?",
+          "Rosa: Yes, the sweet bread is fresh.",
+          "Daniel: I'm ready to order.",
+          "Rosa brings coffee, orange juice and chilaquiles with salsa.",
+          "Daniel: The coffee is very hot, but the juice is cold.",
+          "Daniel: The salsa is very spicy, but it is delicious."
+        ],
+        "french": [
+          "Daniel est dans un café à Oaxaca, et beaucoup de tables sont occupées.",
+          "Daniel demande à la serveuse : Cette table est libre ?",
+          "La serveuse, Rosa, dit : Oui, elle est libre.",
+          "Daniel : Le pain est du jour ?",
+          "Rosa : Oui, le pain sucré est frais.",
+          "Daniel : Je suis prêt à commander.",
+          "Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa.",
+          "Daniel : Le café est très chaud, mais le jus est froid.",
+          "Daniel : La salsa est très piquante, mais elle est délicieuse."
+        ]
+      },
+      "teachingNotesEnglish": [
+        "French uses être to describe food and tables, with adjective agreement; it does not have the Spanish ser/estar distinction.",
+        "Être describes objects here. A person says j'ai chaud or j'ai froid, never je suis chaud to mean temperature.",
+        "Adjective agreement: chaud/chaude, froid/froide, frais/fraîche, occupé/occupée. Plural adds -s: occupé, occupés, occupée, occupées (les tables sont occupées).",
+        "This Oaxaca café serves salsa and chilaquiles. Pain sucré means sweet bread in French.",
+        "You can ask a café question with rising intonation or est-ce que. Fixed phrases like comment allez-vous are useful now; productive inversion comes later.",
+        "FRANCE USAGE: petit-déjeuner is breakfast; in Québec, Belgium and Switzerland le déjeuner can mean breakfast."
+      ],
+      "titleFrenchCourseEnglish": "Describing Food and Tables with Être",
+      "objectiveFrenchCourseEnglish": "Describe food, drinks and available tables in French with être and adjective agreement.",
+      "speakingInstructionEnglish": "Ask a server if a table is free, then describe whether your coffee is hot or cold and whether the salsa is spicy.",
+      "reviewed": false,
+      "focusEnglish": "Describe objects with être and adjective agreement; ask natural café questions with intonation or est-ce que. For how a person feels, say j'ai chaud or j'ai froid."
+    }
+  ],
+  "authoringNotesEnglish": [
+    "The Mexico English source fixes Oaxaca, pesos, churros, tortillas and chilaquiles. This draft preserves that setting. Author a separate France/Québec café variant with local money before claiming general Francophone coverage.",
+    "The Spanish source calls L3 Ser and Estar. Those exact English fields remain only for provenance; learner-facing title and objective are the French-course fields.",
+    "French-course fields are proposed for display but are not wired into the app. Confirm UI schema before runtime integration.",
+    "AI reviews are Fable and Opus checks only. Native French teacher, regional and audio review remain open."
+  ]
+}

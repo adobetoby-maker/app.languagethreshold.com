@@ -1,0 +1,1300 @@
+{
+  "version": 1,
+  "state": "private-runtime-draft",
+  "reviewed": false,
+  "courseId": "construction-foreman-ja-en",
+  "sourceModuleId": "construction-foreman",
+  "baseModuleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "sourceEnglishSubsetSha256": "a0ea9657b77f3557cfd997c9081a6a94f59b1720303475e949fe1e80eb2df52f",
+  "lessons": [
+    {
+      "id": "construction-foreman-ja-en:lesson:7",
+      "n": 7,
+      "title": "Find the approved roof instructions",
+      "objective": "Identify one roof material and ask where its approved installation instructions are.",
+      "sourceObjective": "Identify one roof material and ask where its approved installation instructions are.",
+      "words": [
+        {
+          "es": "やね",
+          "en": "Roof",
+          "kind": "term",
+          "cardId": "card-ja-en-99ba85f82d01183d"
+        },
+        {
+          "es": "のじいた",
+          "en": "Sheathing",
+          "kind": "term",
+          "cardId": "card-ja-en-c15506567bb1677b"
+        },
+        {
+          "es": "OSBパネル",
+          "en": "OSB panel",
+          "kind": "term",
+          "cardId": "card-ja-en-2850ccd729699852"
+        },
+        {
+          "es": "メンブレン",
+          "en": "Membrane",
+          "kind": "term",
+          "cardId": "card-ja-en-e1c2d7ba2be2acb9"
+        },
+        {
+          "es": "アスファルトシングル",
+          "en": "Asphalt shingle",
+          "kind": "term",
+          "cardId": "card-ja-en-1aa1fdd2ab54a50d"
+        },
+        {
+          "es": "むね",
+          "en": "Ridge",
+          "kind": "term",
+          "cardId": "card-ja-en-fef746b888250cc4"
+        },
+        {
+          "es": "のき",
+          "en": "Eave",
+          "kind": "term",
+          "cardId": "card-ja-en-b23de40a72668300"
+        },
+        {
+          "es": "メーカー",
+          "en": "Manufacturer",
+          "kind": "term",
+          "cardId": "card-ja-en-527c2e9c11f928f1"
+        },
+        {
+          "es": "マニュアル",
+          "en": "Manual",
+          "kind": "term",
+          "cardId": "card-ja-en-5f2d3c1303daba79"
+        },
+        {
+          "es": "のぼりぐち",
+          "en": "Access",
+          "kind": "term",
+          "cardId": "card-ja-en-27df47ee355efeca"
+        },
+        {
+          "es": "どの ざいりょうが していされて いますか。",
+          "en": "Which material is specified?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8e5bb2a3d3044250"
+        },
+        {
+          "es": "メーカーの マニュアルが ひつようです。",
+          "en": "I need the manufacturer's manual.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-a333f6498e17fa0d"
+        },
+        {
+          "es": "きょかされた のぼりぐちは どこですか。",
+          "en": "Where is the authorized access?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-6599cdba34800ba8"
+        },
+        {
+          "es": "ずめんで いちを かくにんして ください。",
+          "en": "Confirm the location on the plan.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-c5e92fee709be2be"
+        },
+        {
+          "es": "この アスファルトシングルは ちゅうもんした ものです。",
+          "en": "This asphalt shingle is from the order.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-47beeae6c4d4a7e7"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:7",
+        "title": "Find the approved roof instructions",
+        "sentences": [
+          {
+            "target": "やねの ずめんに、むね、のき、のぼりぐちが しめされて います。",
+            "native": "The roof plan marks the ridge, eave and access."
+          },
+          {
+            "target": "ちゅうもんには、のじいたようの OSBパネル、メンブレン、それに アスファルトシングルの サンプルが ふくまれて います。",
+            "native": "The order includes an OSB panel for the sheathing, a membrane and a sample asphalt shingle."
+          },
+          {
+            "target": "さぎょうはんは、しごとを かくにんする まえに、メーカーの マニュアルを さがします。",
+            "native": "The crew looks for the manufacturer's manual before confirming the task."
+          },
+          {
+            "target": "どの ざいりょうが していされて いますか。",
+            "native": "Which material is specified?"
+          },
+          {
+            "target": "メーカーの マニュアルが ひつようです。",
+            "native": "I need the manufacturer's manual."
+          },
+          {
+            "target": "きょかされた のぼりぐちは どこですか。",
+            "native": "Where is the authorized access?"
+          },
+          {
+            "target": "ずめんで いちを かくにんして ください。",
+            "native": "Confirm the location on the plan."
+          },
+          {
+            "target": "この アスファルトシングルは ちゅうもんした ものです。",
+            "native": "This asphalt shingle is from the order."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use していされています for a specified material and どこですか to ask where an access point is. のぼりぐち means a physical way up; verify actual site access and the manufacturer's instructions.",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "やねの ずめんに、むね、のき、のぼりぐちが しめされて います。",
+            "en": "The roof plan marks the ridge, eave and access."
+          },
+          {
+            "es": "ちゅうもんには、のじいたようの OSBパネル、メンブレン、それに アスファルトシングルの サンプルが ふくまれて います。",
+            "en": "The order includes an OSB panel for the sheathing, a membrane and a sample asphalt shingle."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:7",
+        "summary": "Identify a roof material on the plan and ask where its manufacturer's approved installation instructions and authorized access point are. Do not infer authorization from a vocabulary answer.",
+        "openingLine": "どの ざいりょうが していされて いますか。メーカーの マニュアルが ひつようです。",
+        "partnerRole": "A site colleague who locates the approved roof material and manufacturer manual and directs the learner to verify authorized access.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "____の ずめんに、むね、のき、のぼりぐちが しめされて います。",
+          "hint": "The roof plan marks the ridge, eave and access.",
+          "answer": "やね",
+          "explanation": "やね appears in this lesson's reading."
+        },
+        {
+          "prompt": "ちゅうもんには、のじいたようの ____、メンブレン、それに アスファルトシングルの サンプルが ふくまれて います。",
+          "hint": "The order includes an OSB panel for the sheathing, a membrane and a sample asphalt shingle.",
+          "answer": "OSBパネル",
+          "explanation": "OSBパネル appears in this lesson's reading."
+        },
+        {
+          "prompt": "さぎょうはんは、しごとを かくにんする まえに、メーカーの ____を さがします。",
+          "hint": "The crew looks for the manufacturer's manual before confirming the task.",
+          "answer": "マニュアル",
+          "explanation": "マニュアル appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:8",
+      "n": 8,
+      "title": "Check the concrete delivery",
+      "objective": "Ask which concrete delivery and foundation check are confirmed, and which are pending.",
+      "sourceObjective": "Ask which concrete delivery and foundation check are confirmed, and which are pending.",
+      "words": [
+        {
+          "es": "きそ",
+          "en": "Foundation",
+          "kind": "term",
+          "cardId": "card-ja-en-055ab3e09e7ce729"
+        },
+        {
+          "es": "コンクリート",
+          "en": "Concrete",
+          "kind": "term",
+          "cardId": "card-ja-en-cfcc36873d17789a"
+        },
+        {
+          "es": "かたわく",
+          "en": "Formwork",
+          "kind": "term",
+          "cardId": "card-ja-en-0cf9f44681a74d50"
+        },
+        {
+          "es": "てっきん",
+          "en": "Reinforcement",
+          "kind": "term",
+          "cardId": "card-ja-en-4e917dae47c12197"
+        },
+        {
+          "es": "はいごう",
+          "en": "Mix",
+          "kind": "term",
+          "cardId": "card-ja-en-7e44c27621182da8"
+        },
+        {
+          "es": "トラック",
+          "en": "Truck",
+          "kind": "term",
+          "cardId": "card-ja-en-dbc364e997999af1"
+        },
+        {
+          "es": "サンプル",
+          "en": "Sample",
+          "kind": "term",
+          "cardId": "card-ja-en-7858f96b458b61c1"
+        },
+        {
+          "es": "けんさ",
+          "en": "Inspection",
+          "kind": "term",
+          "cardId": "card-ja-en-4ec360fdba16dfb7"
+        },
+        {
+          "es": "みかんりょう こうもく",
+          "en": "Pending item",
+          "kind": "term",
+          "cardId": "card-ja-en-fcbc011af3e10d13"
+        },
+        {
+          "es": "きょか",
+          "en": "Authorization",
+          "kind": "term",
+          "cardId": "card-ja-en-b51369ba4ead63cb"
+        },
+        {
+          "es": "コンクリートの のうにゅうは かくにんされて いますか。",
+          "en": "Is the concrete delivery confirmed?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-2a36ad34dcd1041c"
+        },
+        {
+          "es": "けんさは まだ おわって いません。",
+          "en": "The inspection is still pending.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-8c49a520071bd3b2"
+        },
+        {
+          "es": "だれが はいごうを かくにんしますか。",
+          "en": "Who confirms the mix?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-99fb8d50a091142b"
+        },
+        {
+          "es": "そのための きょかが ひつようです。",
+          "en": "I need the corresponding authorization.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-375c735d7f6eb37c"
+        },
+        {
+          "es": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+          "en": "Record the pending item in the report.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-ef784f2bb3e621cc"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:8",
+        "title": "Check the concrete delivery",
+        "sentences": [
+          {
+            "target": "きそ ほうこくしょには、かたわくと てっきんが かかれて います。",
+            "native": "The foundation report mentions the formwork and reinforcement."
+          },
+          {
+            "target": "ミキサーしゃには、しょるいに しめされた はいごうの コンクリートと サンプルが あります。",
+            "native": "The concrete truck has a mix and a sample identified in the documentation."
+          },
+          {
+            "target": "けんさ、みかんりょう こうもく、きょかは、せきにんしゃと いっしょに みなおします。",
+            "native": "The inspection, a pending item and the authorization are reviewed with the responsible person."
+          },
+          {
+            "target": "コンクリートの のうにゅうは かくにんされて いますか。",
+            "native": "Is the concrete delivery confirmed?"
+          },
+          {
+            "target": "けんさは まだ おわって いません。",
+            "native": "The inspection is still pending."
+          },
+          {
+            "target": "だれが はいごうを かくにんしますか。",
+            "native": "Who confirms the mix?"
+          },
+          {
+            "target": "そのための きょかが ひつようです。",
+            "native": "I need the corresponding authorization."
+          },
+          {
+            "target": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+            "native": "Record the pending item in the report."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Distinguish はいごう (mix design) from the delivered コンクリート. Use まだ おわっていません for a pending inspection and だれが for the person confirming a mix.",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "きそ ほうこくしょには、かたわくと てっきんが かかれて います。",
+            "en": "The foundation report mentions the formwork and reinforcement."
+          },
+          {
+            "es": "ミキサーしゃには、しょるいに しめされた はいごうの コンクリートと サンプルが あります。",
+            "en": "The concrete truck has a mix and a sample identified in the documentation."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:8",
+        "summary": "Ask what concrete delivery and foundation checks are confirmed and which inspection or authorization remains pending. Refer to the documented mix design, not a guessed specification.",
+        "openingLine": "コンクリートの のうにゅうは かくにんされて いますか。けんさは まだ おわって いません。",
+        "partnerRole": "A responsible site contact who can check the delivery paperwork, report pending inspection status, and identify who may confirm the mix design.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "きそ ほうこくしょには、____と てっきんが かかれて います。",
+          "hint": "The foundation report mentions the formwork and reinforcement.",
+          "answer": "かたわく",
+          "explanation": "かたわく appears in this lesson's reading."
+        },
+        {
+          "prompt": "ミキサーしゃには、しょるいに しめされた ____の コンクリートと サンプルが あります。",
+          "hint": "The concrete truck has a mix and a sample identified in the documentation.",
+          "answer": "はいごう",
+          "explanation": "はいごう appears in this lesson's reading."
+        },
+        {
+          "prompt": "____、みかんりょう こうもく、きょかは、せきにんしゃと いっしょに みなおします。",
+          "hint": "The inspection, a pending item and the authorization are reviewed with the responsible person.",
+          "answer": "けんさ",
+          "explanation": "けんさ appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "construction-foreman-ja-en:lesson:9",
+      "n": 9,
+      "title": "Record a reported problem",
+      "objective": "Acknowledge a reported problem and ask where it occurred.",
+      "sourceObjective": "Acknowledge a reported problem and ask where it occurred.",
+      "words": [
+        {
+          "es": "もんだい",
+          "en": "Problem",
+          "kind": "term",
+          "cardId": "card-ja-en-73dbf09b35b8f26c"
+        },
+        {
+          "es": "ほうこく",
+          "en": "Report",
+          "kind": "term",
+          "cardId": "card-ja-en-b6c49e8c115590e4"
+        },
+        {
+          "es": "ばしょ",
+          "en": "Location",
+          "kind": "term",
+          "cardId": "card-ja-en-d2eaf5119822ad38"
+        },
+        {
+          "es": "まちがい",
+          "en": "Error",
+          "kind": "term",
+          "cardId": "card-ja-en-9a7f85bf3371488c"
+        },
+        {
+          "es": "ふそく",
+          "en": "Shortage",
+          "kind": "term",
+          "cardId": "card-ja-en-2c0ef9c3696b4393"
+        },
+        {
+          "es": "そんしょう",
+          "en": "Damage",
+          "kind": "term",
+          "cardId": "card-ja-en-9c31789035dfd578"
+        },
+        {
+          "es": "しょけん",
+          "en": "Observation",
+          "kind": "term",
+          "cardId": "card-ja-en-d839201425c23c0a"
+        },
+        {
+          "es": "しらせ",
+          "en": "Notice",
+          "kind": "term",
+          "cardId": "card-ja-en-7db3609d4bb67b44"
+        },
+        {
+          "es": "じこく",
+          "en": "Time",
+          "kind": "term",
+          "cardId": "card-ja-en-1ddd6fb1badbcbf6"
+        },
+        {
+          "es": "ちょうさ",
+          "en": "Review",
+          "kind": "term",
+          "cardId": "card-ja-en-312070b40a63f91f"
+        },
+        {
+          "es": "しらせて くれて ありがとうございます。",
+          "en": "Thank you for letting me know.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-f91bacf06470b73b"
+        },
+        {
+          "es": "どこで おきましたか。",
+          "en": "At which location did it happen?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-886c92cff82d0512"
+        },
+        {
+          "es": "なんじに きづきましたか。",
+          "en": "At what time did you notice it?",
+          "kind": "phrase",
+          "cardId": "card-ja-en-7d121eb32e593992"
+        },
+        {
+          "es": "ほうこくを きろくします。",
+          "en": "I will record the report.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-fe5dfcd18f2ea6a0"
+        },
+        {
+          "es": "もんだいの ちょうさが ひつようです。",
+          "en": "We need a review of the problem.",
+          "kind": "phrase",
+          "cardId": "card-ja-en-92f1d22f719eb881"
+        }
+      ],
+      "modes": [
+        "see",
+        "recall",
+        "hear",
+        "type",
+        "say",
+        "write"
+      ],
+      "reader": {
+        "id": "reader-construction-foreman-ja-en:lesson:9",
+        "title": "Record a reported problem",
+        "sentences": [
+          {
+            "target": "だれかが もんだいと、そんしょうの かのうせいを しらせます。",
+            "native": "Someone gives notice of a problem and possible damage."
+          },
+          {
+            "target": "ほうこくしょには、ばしょ、じこく、まちがい、ふそくが きろくされます。",
+            "native": "The report records the location, time, an error and a shortage."
+          },
+          {
+            "target": "しょくちょうは、じっさいに みた ことと、まだ ちょうさが ひつような ことを わけます。",
+            "native": "The foreman separates the observation from what still needs review."
+          },
+          {
+            "target": "しらせて くれて ありがとうございます。",
+            "native": "Thank you for letting me know."
+          },
+          {
+            "target": "どこで おきましたか。",
+            "native": "At which location did it happen?"
+          },
+          {
+            "target": "なんじに きづきましたか。",
+            "native": "At what time did you notice it?"
+          },
+          {
+            "target": "ほうこくを きろくします。",
+            "native": "I will record the report."
+          },
+          {
+            "target": "もんだいの ちょうさが ひつようです。",
+            "native": "We need a review of the problem."
+          }
+        ]
+      },
+      "grammar": {
+        "focus": "Use どこで for where an event happened and なんじに for when it was noticed. Separate じっさいに みた こと (observed facts) from items still requiring ちょうさ (review).",
+        "teachingNotesEnglish": [],
+        "examples": [
+          {
+            "es": "だれかが もんだいと、そんしょうの かのうせいを しらせます。",
+            "en": "Someone gives notice of a problem and possible damage."
+          },
+          {
+            "es": "ほうこくしょには、ばしょ、じこく、まちがい、ふそくが きろくされます。",
+            "en": "The report records the location, time, an error and a shortage."
+          }
+        ]
+      },
+      "speaking": {
+        "id": "speak-construction-foreman-ja-en:lesson:9",
+        "summary": "Acknowledge a reported problem, ask where and when it was noticed, and record the account without assigning a cause or blame before review.",
+        "openingLine": "しらせて くれて ありがとうございます。どこで おきましたか。",
+        "partnerRole": "A crew member who reports an observed problem and helps distinguish direct observations from unverified explanations.",
+        "locale": "ja-JP"
+      },
+      "checks": [
+        {
+          "prompt": "だれかが ____と、そんしょうの かのうせいを しらせます。",
+          "hint": "Someone gives notice of a problem and possible damage.",
+          "answer": "もんだい",
+          "explanation": "もんだい appears in this lesson's reading."
+        },
+        {
+          "prompt": "ほうこくしょには、____、じこく、まちがい、ふそくが きろくされます。",
+          "hint": "The report records the location, time, an error and a shortage.",
+          "answer": "ばしょ",
+          "explanation": "ばしょ appears in this lesson's reading."
+        },
+        {
+          "prompt": "しょくちょうは、じっさいに みた ことと、まだ ____が ひつような ことを わけます。",
+          "hint": "The foreman separates the observation from what still needs review.",
+          "answer": "ちょうさ",
+          "explanation": "ちょうさ appears in this lesson's reading."
+        }
+      ],
+      "reviewed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-ja-en-99ba85f82d01183d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "やね",
+      "native": "Roof",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-c15506567bb1677b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のじいた",
+      "native": "Sheathing",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-2850ccd729699852",
+      "courseId": "construction-foreman-ja-en",
+      "target": "OSBパネル",
+      "native": "OSB panel",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-e1c2d7ba2be2acb9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メンブレン",
+      "native": "Membrane",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-1aa1fdd2ab54a50d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "アスファルトシングル",
+      "native": "Asphalt shingle",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-fef746b888250cc4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "むね",
+      "native": "Ridge",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-b23de40a72668300",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のき",
+      "native": "Eave",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-527c2e9c11f928f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メーカー",
+      "native": "Manufacturer",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-5f2d3c1303daba79",
+      "courseId": "construction-foreman-ja-en",
+      "target": "マニュアル",
+      "native": "Manual",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-27df47ee355efeca",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のぼりぐち",
+      "native": "Access",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-8e5bb2a3d3044250",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの ざいりょうが していされて いますか。",
+      "native": "Which material is specified?",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-a333f6498e17fa0d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メーカーの マニュアルが ひつようです。",
+      "native": "I need the manufacturer's manual.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-6599cdba34800ba8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかされた のぼりぐちは どこですか。",
+      "native": "Where is the authorized access?",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-c5e92fee709be2be",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんで いちを かくにんして ください。",
+      "native": "Confirm the location on the plan.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-47beeae6c4d4a7e7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この アスファルトシングルは ちゅうもんした ものです。",
+      "native": "This asphalt shingle is from the order.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "card-ja-en-055ab3e09e7ce729",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きそ",
+      "native": "Foundation",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-cfcc36873d17789a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリート",
+      "native": "Concrete",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-0cf9f44681a74d50",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かたわく",
+      "native": "Formwork",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-4e917dae47c12197",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てっきん",
+      "native": "Reinforcement",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-7e44c27621182da8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はいごう",
+      "native": "Mix",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-dbc364e997999af1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "トラック",
+      "native": "Truck",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-7858f96b458b61c1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンプル",
+      "native": "Sample",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-4ec360fdba16dfb7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさ",
+      "native": "Inspection",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-fcbc011af3e10d13",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもく",
+      "native": "Pending item",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-b51369ba4ead63cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょか",
+      "native": "Authorization",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-2a36ad34dcd1041c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリートの のうにゅうは かくにんされて いますか。",
+      "native": "Is the concrete delivery confirmed?",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-8c49a520071bd3b2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさは まだ おわって いません。",
+      "native": "The inspection is still pending.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-99fb8d50a091142b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だれが はいごうを かくにんしますか。",
+      "native": "Who confirms the mix?",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-375c735d7f6eb37c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そのための きょかが ひつようです。",
+      "native": "I need the corresponding authorization.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-ef784f2bb3e621cc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+      "native": "Record the pending item in the report.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "card-ja-en-73dbf09b35b8f26c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もんだい",
+      "native": "Problem",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-b6c49e8c115590e4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほうこく",
+      "native": "Report",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-d2eaf5119822ad38",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ばしょ",
+      "native": "Location",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-9a7f85bf3371488c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まちがい",
+      "native": "Error",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-2c0ef9c3696b4393",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふそく",
+      "native": "Shortage",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-9c31789035dfd578",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そんしょう",
+      "native": "Damage",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-7db3609d4bb67b44",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しらせ",
+      "native": "Notice",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-1ddd6fb1badbcbf6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じこく",
+      "native": "Time",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-312070b40a63f91f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさ",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-f91bacf06470b73b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しらせて くれて ありがとうございます。",
+      "native": "Thank you for letting me know.",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-886c92cff82d0512",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どこで おきましたか。",
+      "native": "At which location did it happen?",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-7d121eb32e593992",
+      "courseId": "construction-foreman-ja-en",
+      "target": "なんじに きづきましたか。",
+      "native": "At what time did you notice it?",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-fe5dfcd18f2ea6a0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほうこくを きろくします。",
+      "native": "I will record the report.",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "card-ja-en-92f1d22f719eb881",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もんだいの ちょうさが ひつようです。",
+      "native": "We need a review of the problem.",
+      "kind": "phrase",
+      "firstLesson": 9
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dict-ja-en-99ba85f82d01183d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "やね",
+      "native": "Roof",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-c15506567bb1677b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のじいた",
+      "native": "Sheathing",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-2850ccd729699852",
+      "courseId": "construction-foreman-ja-en",
+      "target": "OSBパネル",
+      "native": "OSB panel",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-e1c2d7ba2be2acb9",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メンブレン",
+      "native": "Membrane",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-1aa1fdd2ab54a50d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "アスファルトシングル",
+      "native": "Asphalt shingle",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-fef746b888250cc4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "むね",
+      "native": "Ridge",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-b23de40a72668300",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のき",
+      "native": "Eave",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-527c2e9c11f928f1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メーカー",
+      "native": "Manufacturer",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-5f2d3c1303daba79",
+      "courseId": "construction-foreman-ja-en",
+      "target": "マニュアル",
+      "native": "Manual",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-27df47ee355efeca",
+      "courseId": "construction-foreman-ja-en",
+      "target": "のぼりぐち",
+      "native": "Access",
+      "kind": "term",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-8e5bb2a3d3044250",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どの ざいりょうが していされて いますか。",
+      "native": "Which material is specified?",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-a333f6498e17fa0d",
+      "courseId": "construction-foreman-ja-en",
+      "target": "メーカーの マニュアルが ひつようです。",
+      "native": "I need the manufacturer's manual.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-6599cdba34800ba8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょかされた のぼりぐちは どこですか。",
+      "native": "Where is the authorized access?",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-c5e92fee709be2be",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ずめんで いちを かくにんして ください。",
+      "native": "Confirm the location on the plan.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-47beeae6c4d4a7e7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "この アスファルトシングルは ちゅうもんした ものです。",
+      "native": "This asphalt shingle is from the order.",
+      "kind": "phrase",
+      "firstLesson": 7
+    },
+    {
+      "id": "dict-ja-en-055ab3e09e7ce729",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きそ",
+      "native": "Foundation",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-cfcc36873d17789a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリート",
+      "native": "Concrete",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-0cf9f44681a74d50",
+      "courseId": "construction-foreman-ja-en",
+      "target": "かたわく",
+      "native": "Formwork",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-4e917dae47c12197",
+      "courseId": "construction-foreman-ja-en",
+      "target": "てっきん",
+      "native": "Reinforcement",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-7e44c27621182da8",
+      "courseId": "construction-foreman-ja-en",
+      "target": "はいごう",
+      "native": "Mix",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-dbc364e997999af1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "トラック",
+      "native": "Truck",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-7858f96b458b61c1",
+      "courseId": "construction-foreman-ja-en",
+      "target": "サンプル",
+      "native": "Sample",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-4ec360fdba16dfb7",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさ",
+      "native": "Inspection",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-fcbc011af3e10d13",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもく",
+      "native": "Pending item",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-b51369ba4ead63cb",
+      "courseId": "construction-foreman-ja-en",
+      "target": "きょか",
+      "native": "Authorization",
+      "kind": "term",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-2a36ad34dcd1041c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "コンクリートの のうにゅうは かくにんされて いますか。",
+      "native": "Is the concrete delivery confirmed?",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-8c49a520071bd3b2",
+      "courseId": "construction-foreman-ja-en",
+      "target": "けんさは まだ おわって いません。",
+      "native": "The inspection is still pending.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-99fb8d50a091142b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "だれが はいごうを かくにんしますか。",
+      "native": "Who confirms the mix?",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-375c735d7f6eb37c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そのための きょかが ひつようです。",
+      "native": "I need the corresponding authorization.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-ef784f2bb3e621cc",
+      "courseId": "construction-foreman-ja-en",
+      "target": "みかんりょう こうもくを ほうこくしょに きろくして ください。",
+      "native": "Record the pending item in the report.",
+      "kind": "phrase",
+      "firstLesson": 8
+    },
+    {
+      "id": "dict-ja-en-73dbf09b35b8f26c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もんだい",
+      "native": "Problem",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-b6c49e8c115590e4",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほうこく",
+      "native": "Report",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-d2eaf5119822ad38",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ばしょ",
+      "native": "Location",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-9a7f85bf3371488c",
+      "courseId": "construction-foreman-ja-en",
+      "target": "まちがい",
+      "native": "Error",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-2c0ef9c3696b4393",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ふそく",
+      "native": "Shortage",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-9c31789035dfd578",
+      "courseId": "construction-foreman-ja-en",
+      "target": "そんしょう",
+      "native": "Damage",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-d839201425c23c0a",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しょけん",
+      "native": "Observation",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-7db3609d4bb67b44",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しらせ",
+      "native": "Notice",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-1ddd6fb1badbcbf6",
+      "courseId": "construction-foreman-ja-en",
+      "target": "じこく",
+      "native": "Time",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-312070b40a63f91f",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ちょうさ",
+      "native": "Review",
+      "kind": "term",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-f91bacf06470b73b",
+      "courseId": "construction-foreman-ja-en",
+      "target": "しらせて くれて ありがとうございます。",
+      "native": "Thank you for letting me know.",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-886c92cff82d0512",
+      "courseId": "construction-foreman-ja-en",
+      "target": "どこで おきましたか。",
+      "native": "At which location did it happen?",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-7d121eb32e593992",
+      "courseId": "construction-foreman-ja-en",
+      "target": "なんじに きづきましたか。",
+      "native": "At what time did you notice it?",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-fe5dfcd18f2ea6a0",
+      "courseId": "construction-foreman-ja-en",
+      "target": "ほうこくを きろくします。",
+      "native": "I will record the report.",
+      "kind": "phrase",
+      "firstLesson": 9
+    },
+    {
+      "id": "dict-ja-en-92f1d22f719eb881",
+      "courseId": "construction-foreman-ja-en",
+      "target": "もんだいの ちょうさが ひつようです。",
+      "native": "We need a review of the problem.",
+      "kind": "phrase",
+      "firstLesson": 9
+    }
+  ]
+}

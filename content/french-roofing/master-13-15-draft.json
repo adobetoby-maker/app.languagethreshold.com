@@ -1,0 +1,737 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "a56084a84e56a47ee6dae8d8f911d0f924fdbf58953f4d3ae881d084b630e8b4",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 13,
+      "titleEnglish": "Fall Incident Report",
+      "objectiveEnglishSource": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+      "focusEnglishSource": "Past narration with time markers",
+      "lessonType": "Case",
+      "block": "D",
+      "speakingEnglishSource": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+      "grammarExamplesEnglish": [
+        "At a quarter past ten, Julio was going down to the ladder.",
+        "While he was coming down, his foot slipped and he fell."
+      ],
+      "titleFrench": "Signaler une chute avec une chronologie précise",
+      "objectiveFrench": "Réagir à une chute selon le protocole d’urgence, puis rapporter les faits observés dans l’ordre, au téléphone et par écrit.",
+      "grammarFocusFrench": "Passé composé et imparfait pour le récit; à, pendant que, puis et vers pour distinguer heure certaine et heure estimée.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe et votre responsable appelle après la chute. Indiquez d’abord que les secours locaux ont été contactés selon le protocole, puis rapportez uniquement les faits observés et les heures certaines ou estimées. Ne posez pas de diagnostic et ne concluez pas à une cause avant l’enquête.",
+      "speakingFrenchOpening": "Je vous informe qu’un collègue a chuté. Les secours ont été appelés selon le protocole du chantier.",
+      "teachingNotesFrench": "Le récit distingue constat, estimation et hypothèse. Le texte source affirme une cause probable liée à la longe et une méthode de passage; la version affichée réserve ces conclusions à l’enquête et au spécialiste. Les secours, les premiers soins, les déplacements et l’accès aux lieux suivent le protocole local.",
+      "words": [
+        {
+          "en": "the fall",
+          "kind": "term",
+          "fr": "la chute"
+        },
+        {
+          "en": "the incident report",
+          "kind": "term",
+          "fr": "le rapport d’incident"
+        },
+        {
+          "en": "the first aid",
+          "kind": "term",
+          "fr": "les premiers secours"
+        },
+        {
+          "en": "the lifeline",
+          "kind": "term",
+          "fr": "la ligne de vie"
+        },
+        {
+          "en": "the roof anchor",
+          "kind": "term",
+          "fr": "l’ancrage de toiture"
+        },
+        {
+          "en": "the harness",
+          "kind": "term",
+          "fr": "le harnais"
+        },
+        {
+          "en": "the lanyard",
+          "kind": "term",
+          "fr": "la longe"
+        },
+        {
+          "en": "the scene",
+          "kind": "term",
+          "fr": "les lieux de l’incident"
+        },
+        {
+          "en": "the injured person",
+          "kind": "term",
+          "fr": "la personne blessée"
+        },
+        {
+          "en": "the paramedics",
+          "kind": "term",
+          "fr": "les secouristes"
+        },
+        {
+          "en": "the ankle",
+          "kind": "term",
+          "fr": "la cheville"
+        },
+        {
+          "en": "the extension ladder",
+          "kind": "term",
+          "fr": "l’échelle coulissante"
+        },
+        {
+          "en": "the roof edge",
+          "kind": "term",
+          "fr": "le bord du toit"
+        },
+        {
+          "en": "the exact time",
+          "kind": "term",
+          "fr": "l’heure exacte"
+        },
+        {
+          "en": "At a quarter past ten, Julio was at the roof edge.",
+          "kind": "phrase",
+          "fr": "Vers dix heures quinze, Julio se trouvait près du bord du toit."
+        },
+        {
+          "en": "While he was coming down, his foot slipped.",
+          "kind": "phrase",
+          "fr": "Pendant qu’il descendait, son pied a glissé."
+        },
+        {
+          "en": "Call 911 right now.",
+          "kind": "phrase",
+          "fr": "Appelez les secours locaux tout de suite.",
+          "enDisplay": "Call local emergency services right now."
+        },
+        {
+          "en": "Don't move him; wait for the paramedics.",
+          "kind": "phrase",
+          "fr": "Évitez de le déplacer, sauf danger immédiat ou consigne des secours.",
+          "enDisplay": "Avoid moving him unless there is immediate danger or responders instruct you."
+        },
+        {
+          "en": "Easy, help is on the way.",
+          "kind": "phrase",
+          "fr": "Reste calme, les secours arrivent."
+        },
+        {
+          "en": "What time exactly did it happen?",
+          "kind": "phrase",
+          "fr": "À quelle heure exactement est-ce arrivé ?"
+        },
+        {
+          "en": "I'm informing you that we had an accident.",
+          "kind": "phrase",
+          "fr": "Je vous informe qu’un accident s’est produit."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Signaler une chute avec une chronologie précise",
+        "target": [
+          "Mardi, vers dix heures quinze, Julio se trouvait au bord du toit près de l’échelle coulissante.",
+          "Pendant qu’il descendait, son pied a glissé; il est tombé d’environ huit pieds sur l’herbe.",
+          "La source indique que sa longe n’était pas reliée à la ligne de vie pendant le passage vers l’échelle; la cause reste à déterminer.",
+          "Rogelio s’est approché et a demandé d’appeler immédiatement les secours locaux selon le protocole du chantier.",
+          "Julio était conscient et disait avoir très mal à la cheville.",
+          "Rogelio : « Reste calme; les secours arrivent. »",
+          "Rogelio a demandé à l’équipe d’éviter de déplacer Julio, sauf danger immédiat ou consigne des secours.",
+          "Kevin, formé aux premiers secours, a suivi sa formation; Marcos a empêché l’accès aux lieux.",
+          "Les secouristes sont arrivés vers dix heures trente et ont transporté Julio à l’hôpital.",
+          "Ensuite, Rogelio a appelé son responsable : « Je vous informe qu’un accident s’est produit; Julio a chuté et les secours l’ont pris en charge. »",
+          "Le responsable : « À quelle heure exactement est-ce arrivé ? »",
+          "Rogelio : « Je ne connais pas l’heure exacte; je l’estime entre dix heures quinze et dix heures vingt. »",
+          "Cet après-midi-là, Rogelio a rédigé un rapport d’incident : heure estimée, vers 10 h 15.",
+          "Description : Julio passait du toit vers l’échelle quand il a perdu l’équilibre et chuté.",
+          "Observation à vérifier : la connexion de la longe au système de protection pendant ce passage; ne pas attribuer de cause avant l’enquête.",
+          "Suite prévue : conserver les faits, suivre l’enquête et revoir avec une personne qualifiée la méthode approuvée de passage du toit à l’échelle."
+        ],
+        "native": [
+          "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+          "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+          "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+          "Rogelio ran to him and shouted: Call 911 right now.",
+          "Julio was conscious, but his ankle hurt a lot.",
+          "Rogelio: Easy, help is on the way; don't move.",
+          "Rogelio to the crew: Don't move him; wait for the paramedics.",
+          "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+          "The paramedics arrived at half past ten and took the injured man to the hospital.",
+          "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+          "Supervisor: What time exactly did it happen?",
+          "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+          "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+          "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+          "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+          "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected."
+        ],
+        "nativeDisplay": [
+          "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+          "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+          "The source says the lanyard was not connected during the ladder transfer; the cause remains to be investigated.",
+          "Rogelio approached and asked someone to call local emergency services immediately under the site protocol.",
+          "Julio was conscious, but his ankle hurt a lot.",
+          "Rogelio: Easy, help is on the way; don't move.",
+          "Rogelio asked the crew to avoid moving Julio unless there was immediate danger or responders instructed otherwise.",
+          "Kevin, trained in first aid, followed his training; Marcos controlled access to the scene.",
+          "The paramedics arrived at half past ten and took the injured man to the hospital.",
+          "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+          "Supervisor: What time exactly did it happen?",
+          "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+          "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+          "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+          "Observation to verify: the lanyard's connection to the protective system during the transfer; do not assign cause before investigation.",
+          "Next step: preserve the facts, follow the investigation and have a qualified person review the approved roof-to-ladder transfer method."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to go down",
+          "exampleEnglish": "Julio was at the roof edge and was going down to the ladder.",
+          "sourceInfinitiveSpanish": "bajar",
+          "infinitiveFrench": "descendre",
+          "exampleFrench": "Julio se trouvait au bord du toit et descendait vers l’échelle."
+        },
+        {
+          "meaningEnglish": "to slip",
+          "exampleEnglish": "While he was coming down, his foot slipped.",
+          "sourceInfinitiveSpanish": "resbalar",
+          "infinitiveFrench": "glisser",
+          "exampleFrench": "Pendant qu’il descendait, son pied a glissé."
+        },
+        {
+          "meaningEnglish": "to lose",
+          "exampleEnglish": "He lost his balance and fell.",
+          "sourceInfinitiveSpanish": "perder",
+          "infinitiveFrench": "perdre",
+          "exampleFrench": "Il a perdu l’équilibre et est tombé."
+        },
+        {
+          "meaningEnglish": "to shout",
+          "exampleEnglish": "Rogelio ran to him and shouted.",
+          "sourceInfinitiveSpanish": "gritar",
+          "infinitiveFrench": "crier",
+          "exampleFrench": "Rogelio s’est approché et a crié pour demander de l’aide."
+        },
+        {
+          "meaningEnglish": "to write",
+          "exampleEnglish": "That afternoon, Rogelio wrote the incident report.",
+          "sourceInfinitiveSpanish": "escribir",
+          "infinitiveFrench": "rédiger",
+          "exampleFrench": "Cet après-midi-là, Rogelio a rédigé le rapport d’incident."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez les faits observés, les heures estimées et les points à vérifier.",
+        "recall": "Remettez les événements dans l’ordre sans inventer une cause.",
+        "hear": "Écoutez dix heures quinze et dix heures trente; distinguez estimation et constat.",
+        "type": "Écrivez en français : What time exactly did it happen?",
+        "say": "Signalez la chute à votre responsable sans diagnostiquer ni blâmer.",
+        "write": "Rédigez une chronologie factuelle avec les sources de chaque heure."
+      },
+      "reviewGapsEnglish": [
+        "Qualified emergency-medical, occupational safety and fall-protection review required for response to a fall, moving an injured person, first aid, site control, transfer from roof to ladder and causal conclusions.",
+        "US 911 is exact source provenance only; qualified locale-specific review must establish emergency routing for France/Québec. Incident-reporting obligations and terminology need legal/workplace review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 14,
+      "titleEnglish": "Near-Miss Conversation",
+      "objectiveEnglishSource": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+      "focusEnglishSource": "Casi, por poco, podría haber; si clauses",
+      "lessonType": "Case",
+      "block": "D",
+      "speakingEnglishSource": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+      "grammarExamplesEnglish": [
+        "It nearly fell on the neighbor's head.",
+        "The bundle could have hit someone."
+      ],
+      "titleFrench": "Discuter d’un quasi-accident sans blâmer",
+      "objectiveFrench": "Décrire ce qui a failli se produire, écouter les témoins et convenir d’une prévention adaptée au chantier.",
+      "grammarFocusFrench": "Faillir + infinitif, presque, aurait pu + infinitif et conditionnel passé pour évoquer une possibilité sans la présenter comme un fait.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe après la chute d’un paquet de bardeaux près d’un passant. Vérifiez la sécurité des personnes, décrivez le quasi-accident sans dramatiser ni promettre l’absence de sanction, demandez ce qui a été observé et confiez la prévention à une personne qualifiée.",
+      "speakingFrenchOpening": "Est-ce que tout le monde va bien ? Décrivons les faits avant de décider de la suite.",
+      "teachingNotesFrench": "Faillir et presque expriment un événement évité; aurait pu décrit un risque hypothétique. Le texte source donne un poids de paquet et une solution technique de support/planche comme s’ils étaient universels; la version affichée demande de vérifier le produit, la méthode de stockage et le plan de circulation. Une discussion sans blâme ne garantit pas l’absence de procédure disciplinaire.",
+      "words": [
+        {
+          "en": "the near-miss",
+          "kind": "term",
+          "fr": "le quasi-accident"
+        },
+        {
+          "en": "the bundle of shingles",
+          "kind": "term",
+          "fr": "le paquet de bardeaux"
+        },
+        {
+          "en": "the stack",
+          "kind": "term",
+          "fr": "la pile"
+        },
+        {
+          "en": "the roof bracket (roof jack)",
+          "kind": "term",
+          "fr": "le support de toit"
+        },
+        {
+          "en": "the toe board",
+          "kind": "term",
+          "fr": "la planche d’arrêt"
+        },
+        {
+          "en": "the slope",
+          "kind": "term",
+          "fr": "la pente"
+        },
+        {
+          "en": "the danger zone",
+          "kind": "term",
+          "fr": "la zone dangereuse"
+        },
+        {
+          "en": "the sidewalk",
+          "kind": "term",
+          "fr": "le trottoir"
+        },
+        {
+          "en": "the pedestrian",
+          "kind": "term",
+          "fr": "le passant"
+        },
+        {
+          "en": "the warning sign",
+          "kind": "term",
+          "fr": "le panneau d’avertissement"
+        },
+        {
+          "en": "the lesson",
+          "kind": "term",
+          "fr": "la leçon"
+        },
+        {
+          "en": "the injury",
+          "kind": "term",
+          "fr": "la blessure"
+        },
+        {
+          "en": "the cause",
+          "kind": "term",
+          "fr": "la cause"
+        },
+        {
+          "en": "the prevention",
+          "kind": "term",
+          "fr": "la prévention"
+        },
+        {
+          "en": "It nearly fell on his head.",
+          "kind": "phrase",
+          "fr": "Le paquet a failli lui tomber dessus."
+        },
+        {
+          "en": "A tragedy almost happened.",
+          "kind": "phrase",
+          "fr": "Un accident grave a presque eu lieu."
+        },
+        {
+          "en": "It could have killed someone.",
+          "kind": "phrase",
+          "fr": "Cela aurait pu blesser quelqu’un gravement.",
+          "enDisplay": "It could have seriously injured someone."
+        },
+        {
+          "en": "If someone had been below, they would be in the hospital.",
+          "kind": "phrase",
+          "fr": "Si quelqu’un s’était trouvé dessous, il aurait pu être blessé.",
+          "enDisplay": "If someone had been below, they could have been injured."
+        },
+        {
+          "en": "What can we change so it doesn't happen again?",
+          "kind": "phrase",
+          "fr": "Que pouvons-nous changer pour éviter que cela se reproduise ?"
+        },
+        {
+          "en": "Thanks for speaking up, that helps everyone.",
+          "kind": "phrase",
+          "fr": "Merci de l’avoir signalé; cela aide tout le monde."
+        },
+        {
+          "en": "Are you OK, bro?",
+          "kind": "phrase",
+          "fr": "Est-ce que tu vas bien ?"
+        },
+        {
+          "en": "Sorry for the scare, sir.",
+          "kind": "phrase",
+          "fr": "Je suis désolé de cette frayeur, monsieur."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Discuter d’un quasi-accident sans blâmer",
+        "target": [
+          "Au milieu de la matinée, un paquet de bardeaux a glissé sur la pente et est tombé du toit.",
+          "Il a atterri sur le trottoir, à deux pas d’un voisin qui promenait son chien.",
+          "Personne n’a été blessé, mais l’équipe s’est tue.",
+          "Rogelio est descendu d’abord pour parler au passant.",
+          "Rogelio : « Je suis désolé de cette frayeur, monsieur; allez-vous bien ? »",
+          "Puis il est revenu vers l’équipe; Kevin était pâle.",
+          "Rogelio : « Est-ce que tu vas bien ? »",
+          "Rogelio : « Le paquet a failli tomber sur le passant; un accident grave a presque eu lieu. »",
+          "Rogelio : « Le poids d’un paquet dépend du produit; cette chute aurait pu blesser quelqu’un gravement. »",
+          "Rogelio : « Si quelqu’un s’était trouvé dessous, il aurait pu être blessé. »",
+          "Rogelio : « Signalons ce quasi-accident et cherchons les faits sans blâmer; la suite suivra la procédure de l’entreprise. »",
+          "Kevin : « J’avais laissé la pile sans dispositif de retenue parce que je pensais revenir tout de suite. »",
+          "Rogelio : « Merci de l’avoir signalé; cela aide tout le monde. »",
+          "Rogelio : « Arrêtons la manutention jusqu’à ce qu’une personne qualifiée vérifie le stockage et la protection des passants. »",
+          "Rogelio : « Que pouvons-nous changer pour éviter que cela se reproduise ? »",
+          "Marcos a proposé de délimiter la zone au sol et de vérifier la signalisation selon le plan de circulation du chantier.",
+          "Cet après-midi-là, Rogelio a consigné les faits et les mesures proposées dans le registre de prévention."
+        ],
+        "native": [
+          "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+          "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+          "Nobody got a single injury, but everyone went quiet.",
+          "Rogelio went down first to talk to the pedestrian.",
+          "Rogelio: Sorry for the scare, sir; are you all right?",
+          "Then he went up with the crew, and Kevin was pale.",
+          "Rogelio: Are you OK, bro?",
+          "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+          "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+          "Rogelio: If someone had been below, they would be in the hospital.",
+          "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+          "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+          "Rogelio: Thanks for speaking up, that helps everyone.",
+          "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+          "Rogelio: What can we change so it doesn't happen again?",
+          "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+          "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company."
+        ],
+        "nativeDisplay": [
+          "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+          "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+          "Nobody got a single injury, but everyone went quiet.",
+          "Rogelio went down first to talk to the pedestrian.",
+          "Rogelio: Sorry for the scare, sir; are you all right?",
+          "Then he went up with the crew, and Kevin was pale.",
+          "Rogelio: Are you OK, bro?",
+          "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+          "Rogelio: A bundle's weight depends on the product; the fall could have seriously injured someone.",
+          "Rogelio: If someone had been below, they could have been injured.",
+          "Rogelio: Report this near-miss and seek the facts without blame; next steps follow company procedure.",
+          "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+          "Rogelio: Thanks for speaking up, that helps everyone.",
+          "Rogelio: Stop handling the material until a qualified person checks storage and pedestrian protection.",
+          "Rogelio: What can we change so it doesn't happen again?",
+          "Marcos proposed marking the ground zone and checking signs under the site's traffic plan.",
+          "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to weigh",
+          "exampleEnglish": "Depending on the brand, a bundle can weigh more than 60 pounds.",
+          "sourceInfinitiveSpanish": "pesar",
+          "infinitiveFrench": "peser",
+          "exampleFrench": "Le poids d’un paquet dépend du produit."
+        },
+        {
+          "meaningEnglish": "to hit",
+          "exampleEnglish": "The bundle nearly hit the neighbor.",
+          "sourceInfinitiveSpanish": "golpear",
+          "infinitiveFrench": "heurter",
+          "exampleFrench": "Le paquet a failli heurter le passant."
+        },
+        {
+          "meaningEnglish": "to propose",
+          "exampleEnglish": "Marcos proposes putting cones on the sidewalk.",
+          "sourceInfinitiveSpanish": "proponer",
+          "infinitiveFrench": "proposer",
+          "exampleFrench": "Marcos propose de délimiter la zone."
+        },
+        {
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "We want to understand the cause.",
+          "sourceInfinitiveSpanish": "entender",
+          "infinitiveFrench": "comprendre",
+          "exampleFrench": "Nous voulons comprendre les faits et les causes."
+        },
+        {
+          "meaningEnglish": "to walk",
+          "exampleEnglish": "A neighbor was walking his dog.",
+          "sourceInfinitiveSpanish": "caminar",
+          "infinitiveFrench": "promener",
+          "exampleFrench": "Un voisin promenait son chien."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez l’événement réel et ce qui aurait pu arriver.",
+        "recall": "Retrouvez la question qui demande un changement préventif.",
+        "hear": "Écoutez a failli et aurait pu; classez fait et possibilité.",
+        "type": "Écrivez en français : It nearly fell on his head.",
+        "say": "Menez une discussion factuelle sur le quasi-accident, sans promettre de sanction ou d’impunité.",
+        "write": "Rédigez un signalement bref et une demande de vérification qualifiée."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/material-handling and public-protection review required for shingle-bundle weight, roof-jack/toe-board storage, fall zone and sidewalk controls; cones/signs alone may not protect pedestrians.",
+        "Qualified incident-investigation, HR and local legal review required before promising that nobody is punished; France/Québec terminology and register require qualified review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 15,
+      "titleEnglish": "Weather Call: Stop Work and Tarp",
+      "objectiveEnglishSource": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+      "focusEnglishSource": "Si + present → future; short radio commands",
+      "lessonType": "Case",
+      "block": "D",
+      "speakingEnglishSource": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+      "grammarExamplesEnglish": [
+        "If it starts raining, we come down.",
+        "If the cell keeps going like this, it will arrive in half an hour."
+      ],
+      "titleFrench": "Décider l’arrêt des travaux avant l’orage",
+      "objectiveFrench": "Donner à la radio des consignes courtes d’arrêt et de repli, puis annoncer la protection temporaire seulement si le plan et les conditions la permettent.",
+      "grammarFocusFrench": "Si + présent suivi du présent ou du futur; impératifs radio courts et confirmation de réception.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe à la radio. Signalez l’évolution météo, ordonnez l’arrêt et le repli en priorité, demandez un accusé de réception. N’ordonnez pas de bâcher pendant un danger de foudre ou de vent; toute protection temporaire suit le plan approuvé et une évaluation des conditions.",
+      "speakingFrenchOpening": "Attention, équipe : l’orage approche. Arrêtez le travail et confirmez que vous m’avez reçu.",
+      "teachingNotesFrench": "Si + présent peut introduire une condition, mais la décision météo réelle suit le plan du chantier. Le texte source ordonne un bâchage et une fixation détaillée avant l’arrivée présumée d’un orage, puis affirme que la toiture est couverte et promet un retour à sept heures. Ces éléments ne sont ni universels ni vérifiés; la version affichée priorise l’arrêt, le refuge prévu et la vérification ultérieure.",
+      "words": [
+        {
+          "en": "the radar",
+          "kind": "term",
+          "fr": "le radar"
+        },
+        {
+          "en": "the storm cell",
+          "kind": "term",
+          "fr": "la cellule orageuse"
+        },
+        {
+          "en": "the radio (the device)",
+          "kind": "term",
+          "fr": "la radio"
+        },
+        {
+          "en": "the tarp",
+          "kind": "term",
+          "fr": "la bâche"
+        },
+        {
+          "en": "the battens (wood strips)",
+          "kind": "term",
+          "fr": "les tasseaux"
+        },
+        {
+          "en": "the gust",
+          "kind": "term",
+          "fr": "la rafale"
+        },
+        {
+          "en": "the downpour",
+          "kind": "term",
+          "fr": "l’averse"
+        },
+        {
+          "en": "the open section",
+          "kind": "term",
+          "fr": "la partie ouverte"
+        },
+        {
+          "en": "the ground",
+          "kind": "term",
+          "fr": "le sol"
+        },
+        {
+          "en": "the alert",
+          "kind": "term",
+          "fr": "l’alerte"
+        },
+        {
+          "en": "the plastic cap nails",
+          "kind": "term",
+          "fr": "les clous à rondelle plastique"
+        },
+        {
+          "en": "the sky",
+          "kind": "term",
+          "fr": "le ciel"
+        },
+        {
+          "en": "the loose material",
+          "kind": "term",
+          "fr": "les matériaux non fixés"
+        },
+        {
+          "en": "the pickup truck",
+          "kind": "term",
+          "fr": "la camionnette"
+        },
+        {
+          "en": "If it starts raining, we come down.",
+          "kind": "phrase",
+          "fr": "S’il commence à pleuvoir, nous descendons."
+        },
+        {
+          "en": "If it thunders, nobody stays up top.",
+          "kind": "phrase",
+          "fr": "S’il tonne, personne ne reste sur le toit."
+        },
+        {
+          "en": "If it thunders, everyone down now.",
+          "kind": "phrase",
+          "fr": "S’il tonne, tout le monde descend immédiatement."
+        },
+        {
+          "en": "Tarp on the open section, now.",
+          "kind": "phrase",
+          "fr": "Protégez la partie ouverte seulement si le plan et les conditions le permettent.",
+          "enDisplay": "Protect the open section only if the plan and conditions allow safe work."
+        },
+        {
+          "en": "Copy, heading down.",
+          "kind": "phrase",
+          "fr": "Bien reçu, je descends."
+        },
+        {
+          "en": "Do you copy?",
+          "kind": "phrase",
+          "fr": "Vous me recevez ?"
+        },
+        {
+          "en": "I confirm that we stopped because of the weather.",
+          "kind": "phrase",
+          "fr": "Je confirme l’arrêt des travaux à cause de la météo."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Décider l’arrêt des travaux avant l’orage",
+        "target": [
+          "Vers treize heures trente, Rogelio a consulté le radar et vu une cellule orageuse à environ vingt miles.",
+          "Le ciel était encore dégagé, mais le vent commençait à changer.",
+          "Rogelio à la radio : « Attention, équipe, alerte météo; Marcos, vous me recevez ? »",
+          "Marcos : « Bien reçu, je vous entends. »",
+          "Rogelio : « La trajectoire peut changer; n’attendons pas une heure d’arrivée supposée. »",
+          "Rogelio : « Arrêtons le travail et suivons le plan météo du chantier dès maintenant. »",
+          "Rogelio : « Kevin et Julio, cessez les travaux sur la partie ouverte et préparez le repli sûr. »",
+          "Rogelio : « Toute bâche et sa fixation attendront une évaluation sûre des conditions et la méthode approuvée. »",
+          "Rogelio : « Marcos, ne déplace les matériaux non fixés que si tu peux le faire sans risque; sinon, replie-toi. »",
+          "Rogelio : « Le radar signale de la foudre; si vous entendez le tonnerre, descendez immédiatement selon le plan. »",
+          "Vers treize heures cinquante, l’équipe a entendu le premier coup de tonnerre.",
+          "Rogelio à la radio : « Tonnerre confirmé : tout le monde descend maintenant. Accusez réception. »",
+          "Julio : « Bien reçu, je descends; je confirmerai l’état de la protection une fois en sécurité. »",
+          "Rogelio : « Éloignez-vous des échelles et rejoignez le lieu de refuge prévu par le plan. »",
+          "À quatorze heures, une forte averse et des rafales ont commencé.",
+          "Depuis un lieu sûr, Rogelio a appelé la propriétaire : « Nous avons arrêté les travaux à cause de la météo; je confirmerai l’état de la toiture après inspection sûre. »",
+          "Rogelio : « La reprise et l’horaire dépendront des conditions et de l’autorisation prévue; je vous tiendrai informée. »"
+        ],
+        "native": [
+          "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+          "The sky was still clear, but the wind was starting to change.",
+          "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+          "Marcos: Copy, I hear you.",
+          "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+          "Rogelio: But we're not going to wait for the rain: we start closing up now.",
+          "Rogelio: Kevin and Julio, tarp on the open section, now.",
+          "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+          "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+          "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+          "At ten to two the first thunder was heard.",
+          "Rogelio on the radio: It thundered: everyone down now.",
+          "Julio: Copy, heading down; the tarp is secured.",
+          "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+          "At two o'clock sharp the downpour began, with a lot of wind.",
+          "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+          "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles."
+        ],
+        "nativeDisplay": [
+          "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+          "The sky was still clear, but the wind was starting to change.",
+          "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+          "Marcos: Copy, I hear you.",
+          "Rogelio: The storm path can change; don't rely on a guessed arrival time.",
+          "Rogelio: Stop work and follow the site's weather plan now.",
+          "Rogelio: Kevin and Julio, stop work on the open section and prepare for a safe retreat.",
+          "Rogelio: Any tarp and fastening must await a safe conditions assessment and an approved method.",
+          "Rogelio: Marcos, move loose material only if you can do so safely; otherwise retreat.",
+          "Rogelio: Radar shows lightning; if you hear thunder, come down immediately under the plan.",
+          "At ten to two the first thunder was heard.",
+          "Rogelio on the radio: It thundered: everyone down now.",
+          "Julio: Copy, heading down; I'll confirm the protection's condition once safe.",
+          "Rogelio: Stay clear of ladders and go to the refuge named in the plan.",
+          "At two o'clock sharp the downpour began, with a lot of wind.",
+          "From a safe place Rogelio called the homeowner: We stopped for weather; I'll confirm the roof's condition after a safe inspection.",
+          "Rogelio: The restart and time depend on conditions and the planned authorization; I'll keep you informed."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stay",
+          "exampleEnglish": "If it thunders, nobody stays up top.",
+          "sourceInfinitiveSpanish": "quedarse",
+          "infinitiveFrench": "rester",
+          "exampleFrench": "S’il tonne, personne ne reste sur le toit."
+        },
+        {
+          "meaningEnglish": "to gather",
+          "exampleEnglish": "Marcos, gather the loose material and bring it down.",
+          "sourceInfinitiveSpanish": "juntar",
+          "infinitiveFrench": "rassembler",
+          "exampleFrench": "Rassemblez les matériaux seulement si cela peut se faire sans risque."
+        },
+        {
+          "meaningEnglish": "to knock off, to throw",
+          "exampleEnglish": "A gust can knock it off.",
+          "sourceInfinitiveSpanish": "tirar",
+          "infinitiveFrench": "faire tomber",
+          "exampleFrench": "Une rafale peut faire tomber un objet."
+        },
+        {
+          "meaningEnglish": "to come back",
+          "exampleEnglish": "If the sun comes out tomorrow, we'll be back at seven.",
+          "sourceInfinitiveSpanish": "volver",
+          "infinitiveFrench": "revenir",
+          "exampleFrench": "Nous reviendrons quand les conditions et le plan permettront la reprise."
+        },
+        {
+          "meaningEnglish": "to wait",
+          "exampleEnglish": "We're not going to wait for the rain.",
+          "sourceInfinitiveSpanish": "esperar",
+          "infinitiveFrench": "attendre",
+          "exampleFrench": "N’attendons pas la pluie pour suivre le plan météo."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez l’alerte, l’arrêt et le repli avant la pluie.",
+        "recall": "Retrouvez la demande d’accusé de réception à la radio.",
+        "hear": "Écoutez les consignes brèves et l’heure estimée.",
+        "type": "Écrivez en français : If it thunders, everyone down now.",
+        "say": "Donnez une alerte radio et ordonnez le repli sans demander de bâcher sous la foudre.",
+        "write": "Rédigez un message au propriétaire sans promettre l’état du toit ni une heure de reprise."
+      },
+      "reviewGapsEnglish": [
+        "Qualified lightning/weather and roofing site-safety review required for stop-work trigger, safe descent, refuge, radar interpretation, temporary tarping, fastening and material handling; the source's ridge-down batten/cap-nail sequence must not be taught as universal.",
+        "Qualified regional/employer and homeowner-contract review required before asserting roof coverage or a next-day 7 a.m. restart."
+      ],
+      "reviewed": false
+    }
+  ]
+}

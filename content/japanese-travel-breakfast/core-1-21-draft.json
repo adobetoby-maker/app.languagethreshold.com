@@ -3235,6 +3235,525 @@
         "say": "Ask about handling without accepting an unsafe inference.",
         "write": "Write an allergy statement and two handling questions."
       }
+    },
+    {
+      "n": 19,
+      "stableId": "travel-breakfast:19:ja-en",
+      "sourceEnglish": {
+        "objective": "ask why standing and sitting prices differ and choose where to drink your coffee",
+        "roleplay": "You notice the table price is higher than the counter price; ask how pricing works and decide where to sit.",
+        "englishWordAnchors": [
+          "counter",
+          "table",
+          "terrace",
+          "menu",
+          "price",
+          "coffee with milk",
+          "waiter",
+          "table service",
+          "surcharge",
+          "bill",
+          "tip",
+          "Why is it more expensive at the table?",
+          "How much does it cost on the terrace?",
+          "I am going to have my coffee at the counter.",
+          "Is there a surcharge for the terrace?",
+          "I prefer to sit at a table, please."
+        ],
+        "englishReading": [
+          "I go into a small café and look at the menu on the wall.",
+          "The menu says: coffee with milk, 2 euros at the counter and 3 euros at the table.",
+          "First I ask the waiter: Why is it more expensive at the table?",
+          "He explains: At the table there is table service, and on the terrace there is a surcharge.",
+          "Then I ask: How much does it cost on the terrace?",
+          "The waiter answers: According to the menu, it costs 4 euros.",
+          "I am in a hurry, so I say: I am going to have my coffee at the counter.",
+          "After that I pay the bill at the counter and leave a small tip."
+        ],
+        "englishSourceSha256": "d103e04559d1045658866bfacd9d94cb2c5a00702b550528b1655307a9326215"
+      },
+      "title": "Compare two posted prices",
+      "objective": "Ask why one café posts different prices for counter and table service, then choose where to drink coffee.",
+      "focus": "カウンター席 and テーブル席 name seating areas. 店内利用 means eating or drinking in the shop. 料金が違うのはなぜですか asks why prices differ. This is a fictional menu example; a counter/table surcharge is not a general Japanese café rule. Confirm the posted total before ordering.",
+      "scene": "A café menu displays one price at the counter and another at a table; Sam asks staff what applies.",
+      "cards": [
+        {
+          "ja": "カウンター席",
+          "en": "counter seat",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル席",
+          "en": "table seat",
+          "kind": "term"
+        },
+        {
+          "ja": "店内利用",
+          "en": "for use inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "price; charge",
+          "kind": "term"
+        },
+        {
+          "ja": "追加料金",
+          "en": "additional charge",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "税込み",
+          "en": "tax included",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "なぜ",
+          "en": "why",
+          "kind": "term"
+        },
+        {
+          "ja": "料金が違うのはなぜですか",
+          "en": "Why are the prices different?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カウンター席にします",
+          "en": "I will choose a counter seat",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "メニューの料金を確認したいです。",
+          "en": "I would like to check the menu prices."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Of course."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーはカウンター席で五百円、テーブル席で六百円ですか。",
+          "en": "Is the coffee five hundred yen at the counter and six hundred at a table?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。この店ではテーブル席に追加料金があります。",
+          "en": "Yes. At this shop, table seating has an additional charge."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "料金が違うのはなぜですか。",
+          "en": "Why are the prices different?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "テーブル席では席までお持ちするためです。",
+          "en": "Because we bring orders to the table."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、カウンター席にします。合計は五百円ですか。",
+          "en": "Then I will take a counter seat. Is the total five hundred yen?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、税込みで五百円です。",
+          "en": "Yes, five hundred yen including tax."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler comparing posted prices",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席はお決まりですか。",
+        "goal": "Ask why the shop posts different counter and table prices and confirm the total before choosing.",
+        "closure": "Treat this as this shop’s policy, not a national pricing custom.",
+        "wordBank": [
+          "カウンター席",
+          "テーブル席",
+          "料金が違うのはなぜですか",
+          "追加料金",
+          "合計"
+        ]
+      },
+      "modes": {
+        "see": "Read the price comparison with aligned English.",
+        "recall": "Recall counter, table and total-price terms.",
+        "hear": "Hear five hundred versus six hundred yen.",
+        "type": "Type a price-difference question with kana support.",
+        "say": "Ask about two posted prices and choose a seat.",
+        "write": "Write a short price clarification and total check."
+      }
+    },
+    {
+      "n": 20,
+      "stableId": "travel-breakfast:20:ja-en",
+      "sourceEnglish": {
+        "objective": "show what your booking promised, question the charge calmly, and agree on a corrected bill",
+        "roleplay": "Your hotel bills you for breakfast your booking says is included; resolve it calmly with the front desk.",
+        "englishWordAnchors": [
+          "bill",
+          "front desk",
+          "receptionist",
+          "charge",
+          "booking",
+          "confirmation email",
+          "breakfast included",
+          "rate",
+          "room",
+          "mistake",
+          "receipt",
+          "corrected bill",
+          "I think there is a mistake on the bill.",
+          "My booking says breakfast is included.",
+          "Can you explain this charge to me?",
+          "Can you remove the charge, please?",
+          "Can you give me a new receipt, please?"
+        ],
+        "englishReading": [
+          "Before leaving the hotel, I check the bill at the front desk.",
+          "I see a charge of 36 dollars for breakfast.",
+          "I calmly tell the receptionist: I think there is a mistake on the bill.",
+          "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+          "He checks my room rate on the computer.",
+          "Then he says: You are right, I am going to remove the charge.",
+          "I ask him: Can you give me a new receipt, please?",
+          "In the end, I pay the corrected bill without the breakfast."
+        ],
+        "englishSourceSha256": "c1af154841c7779b34c4fe77aa9a41286a1e6ab14a72b3e2977b5ce418e13a28"
+      },
+      "title": "Question a hotel breakfast charge",
+      "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+      "focus": "予約確認メール is booking confirmation email. 朝食付き means breakfast included in a specific booking. 明細 is the itemized bill. ～ようですが expresses tentative observation without declaring staff wrong. Ask the desk to check the booked rate before asking for correction.",
+      "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "予約確認メール",
+          "en": "booking confirmation email",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食付き",
+          "en": "breakfast included",
+          "kind": "term"
+        },
+        {
+          "ja": "宿泊プラン",
+          "en": "room plan",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized bill",
+          "kind": "term"
+        },
+        {
+          "ja": "請求",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "訂正",
+          "en": "correction",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食代が入っているようです",
+          "en": "There seems to be a breakfast charge",
+          "kind": "phrase"
+        },
+        {
+          "ja": "訂正した明細をいただけますか",
+          "en": "Could I have a corrected bill?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。明細を確認したいです。",
+          "en": "Excuse me. I would like to check the bill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "朝食代が入っているようです。",
+          "en": "There seems to be a breakfast charge."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "ご予約の内容を確認します。",
+          "en": "I will check your booking details."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "こちらが予約確認メールです。朝食付きと書いてあります。",
+          "en": "Here is my booking confirmation email. It says breakfast is included."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "ありがとうございます。宿泊プランを確認します。",
+          "en": "Thank you. I will check the room plan."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "確認できました。朝食代は請求しないプランです。",
+          "en": "I confirmed it. This plan does not charge separately for breakfast."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "訂正した明細をいただけますか。",
+          "en": "Could I have a corrected bill?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。新しい明細をお渡しします。",
+          "en": "Yes. I will give you a new bill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest checking a bill",
+        "partnerRole": "Front desk staff",
+        "opening": "お会計の確認でしょうか。",
+        "goal": "Show the booking confirmation, question the breakfast line calmly, and ask for a corrected bill after verification.",
+        "closure": "Keep the original and corrected documents for your records.",
+        "wordBank": [
+          "明細",
+          "朝食代",
+          "予約確認メール",
+          "朝食付き",
+          "確認してください",
+          "訂正した明細"
+        ]
+      },
+      "modes": {
+        "see": "Read a hotel bill check with aligned English.",
+        "recall": "Recall booking, included breakfast and corrected bill.",
+        "hear": "Hear 朝食付き and 朝食代 as distinct phrases.",
+        "type": "Type a tentative charge question with kana help.",
+        "say": "Ask the desk to verify the booking and correct a confirmed error.",
+        "write": "Write a calm bill query and document request."
+      }
+    },
+    {
+      "n": 21,
+      "stableId": "travel-breakfast:21:ja-en",
+      "sourceEnglish": {
+        "objective": "state a seating preference, explain your reason, and accept or propose a compromise",
+        "roleplay": "A server asks your group to move to a smaller table for a reservation; explain why you'd like to stay and reach a compromise.",
+        "englishWordAnchors": [
+          "table",
+          "window",
+          "server (female)",
+          "reservation",
+          "corner",
+          "counter",
+          "stroller",
+          "patio",
+          "shade",
+          "chair",
+          "We prefer this table because we have a stroller.",
+          "What time does the reservation arrive?",
+          "What if we finish before 10:15?",
+          "If possible, we would like to stay here.",
+          "That's fine, we understand."
+        ],
+        "englishReading": [
+          "It is Saturday morning and my family is having breakfast at a big table by the window.",
+          "The server comes over and says: Excuse me, we have a reservation and we need this table.",
+          "She offers us a smaller table in the corner, near the counter.",
+          "I calmly explain to her: We prefer this table because we have a stroller and it does not fit in the corner.",
+          "Then I ask her: What time does the reservation arrive?",
+          "The server answers that the group arrives at 10:30.",
+          "So I propose: What if we finish breakfast here before 10:15 and then move to the patio for coffee?",
+          "She smiles and says: Perfect, there is shade on the patio and I will bring you an extra chair.",
+          "I tell her: Thank you very much for your help, this way we are all happy."
+        ],
+        "englishSourceSha256": "f745303a2165bb7225b5dfd98773a74a2e9fcc2b1ee530c1c156beb3d8742415"
+      },
+      "title": "Negotiate a table change",
+      "objective": "Explain why a smaller table will not fit a stroller, ask when a reservation begins, and agree on a workable alternative.",
+      "focus": "ベビーカーが入らない means a stroller will not fit. 予約は何時からですか asks the reserved time. ～なら expresses a conditional compromise. Do not block exits or aisles; the staff and group should inspect the offered space before agreeing.",
+      "scene": "Staff needs a reserved table; Sam’s family checks another space that can fit the stroller.",
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "小さいテーブル",
+          "en": "small table",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカー",
+          "en": "stroller",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "窓際",
+          "en": "by the window",
+          "kind": "term"
+        },
+        {
+          "ja": "別の席",
+          "en": "another seat",
+          "kind": "term"
+        },
+        {
+          "ja": "何時から",
+          "en": "from what time",
+          "kind": "term"
+        },
+        {
+          "ja": "移れます",
+          "en": "can move",
+          "kind": "term"
+        },
+        {
+          "ja": "確認したいです",
+          "en": "I would like to check",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカーが入りません",
+          "en": "The stroller will not fit",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別の席を見せてください",
+          "en": "Please show us another seat",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "すみません。この席は十時半から予約があります。",
+          "en": "Excuse me. This table is reserved from ten thirty."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あちらの小さいテーブルに移れますか。",
+          "en": "Could you move to that smaller table?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ベビーカーが入るか確認したいです。",
+          "en": "I would like to check whether the stroller fits."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "あの席にはベビーカーが入りません。",
+          "en": "The stroller will not fit at that table."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。別の席をお探しします。",
+          "en": "I am sorry. I will look for another seat."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "予約は何時からですか。",
+          "en": "From what time is the reservation?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "十時半からです。こちらの席なら通路も空きます。",
+          "en": "From ten thirty. This seat also keeps the aisle clear."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "見てから決めてもいいですか。",
+          "en": "May we decide after looking?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、もちろんです。",
+          "en": "Yes, of course."
+        }
+      ],
+      "speaking": {
+        "role": "Parent negotiating seating",
+        "partnerRole": "Café staff",
+        "opening": "すみません。この席は十時半から予約があります。",
+        "goal": "Explain stroller-space needs, ask the reservation time, and inspect an alternative seat before agreeing.",
+        "closure": "Agree only to a layout that works for the group and keeps the aisle clear.",
+        "wordBank": [
+          "予約",
+          "ベビーカー",
+          "入りません",
+          "別の席",
+          "通路",
+          "見てから決めます"
+        ]
+      },
+      "modes": {
+        "see": "Read the seating negotiation with aligned English.",
+        "recall": "Recall reason, time and alternative-seat phrases.",
+        "hear": "Hear 十時半 and 通路 in context.",
+        "type": "Type a stroller-space explanation with kana support.",
+        "say": "Explain the concern and ask to inspect a compromise.",
+        "write": "Write a polite reason and alternative request."
+      }
     }
   ],
   "reviewGates": [

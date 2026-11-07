@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "70c953107217d10b9a8c6eb694ac42b67184c0d237c6c4e8531a360249d00450",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 22,
+      "titleEnglish": "Anchor & Lifeline Check",
+      "objectiveEnglishSource": "Raise a concern about the anchor or lifeline",
+      "speakingEnglishSource": "Stop work and ask the competent person to confirm the site-specific setup.",
+      "titleFrench": "Vérifier l’ancrage et la ligne de vie",
+      "objectiveFrench": "Signaler un doute sur l’ancrage ou la ligne de vie et demander une vérification avant la reprise.",
+      "speakingFrenchInstruction": "Interrompez l’accès et signalez le doute. Demandez à la personne compétente de vérifier l’installation, le matériel, la distance libre de chute et le plan de sauvetage du chantier avant toute reprise.",
+      "speakingFrenchOpening": "On arrête le travail : qui peut vérifier cet ancrage et cette ligne de vie ?",
+      "grammarFocusFrench": "Question avec qui/ où; avant de + infinitif; si + présent pour une condition non vérifiée.",
+      "words": [
+        {
+          "en": "anchor",
+          "kind": "term",
+          "fr": "l’ancrage"
+        },
+        {
+          "en": "lifeline",
+          "kind": "term",
+          "fr": "la ligne de vie"
+        },
+        {
+          "en": "fall distance",
+          "kind": "term",
+          "fr": "la distance libre de chute"
+        },
+        {
+          "en": "harness",
+          "kind": "term",
+          "fr": "le harnais"
+        },
+        {
+          "en": "lanyard",
+          "kind": "term",
+          "fr": "la longe"
+        },
+        {
+          "en": "competent person",
+          "kind": "term",
+          "fr": "la personne compétente"
+        },
+        {
+          "en": "inspection",
+          "kind": "term",
+          "fr": "l’inspection"
+        },
+        {
+          "en": "rope",
+          "kind": "term",
+          "fr": "la corde"
+        },
+        {
+          "en": "stop work",
+          "kind": "term",
+          "fr": "arrêter le travail"
+        },
+        {
+          "en": "Use the roof anchor — don't freelance.",
+          "kind": "phrase",
+          "fr": "Utilisez l’ancrage approuvé; n’improvisez pas."
+        },
+        {
+          "en": "Stop work. The anchor is not safe.",
+          "kind": "phrase",
+          "fr": "Arrêtez le travail. Cet ancrage semble dangereux."
+        },
+        {
+          "en": "Where is the competent person?",
+          "kind": "phrase",
+          "fr": "Où est la personne compétente ?"
+        },
+        {
+          "en": "Check the lifeline for damage.",
+          "kind": "phrase",
+          "fr": "Vérifiez que la ligne de vie n’est pas endommagée."
+        },
+        {
+          "en": "Confirm the anchor setup before we continue.",
+          "kind": "phrase",
+          "fr": "Faites confirmer l’installation de l’ancrage avant de reprendre."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Vérifier l’ancrage et la ligne de vie",
+        "target": [
+          "Pendant le travail sur le toit, un ouvrier remarque un problème avec la ligne de vie.",
+          "Il s’arrête et prévient le contremaître.",
+          "Le contremaître dit : « Arrêtez le travail. Cet ancrage semble dangereux. »",
+          "Il demande : « Où est la personne compétente ? »",
+          "Vérifiez que la ligne de vie n’est pas endommagée.",
+          "La personne compétente inspecte le système et confirme la distance libre de chute requise.",
+          "Faites confirmer l’installation de l’ancrage avant de reprendre.",
+          "Un harnais ne protège pas si l’ancrage ou la longe fait défaut."
+        ],
+        "native": [
+          "While they work on the roof, a worker sees something wrong with the lifeline.",
+          "He stops and tells the foreman.",
+          "The foreman says: Stop work. The anchor is not safe.",
+          "The foreman asks: Where is the competent person?",
+          "Check whether the lifeline has any damage.",
+          "The competent person does the inspection and confirms the fall distance of the system.",
+          "Confirm the anchor setup before we continue.",
+          "A harness is no use if the anchor or the lanyard fails."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work. The anchor is not safe.",
+          "sourceInfinitiveSpanish": "detener",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "Arrêtez le travail. Cet ancrage semble dangereux."
+        },
+        {
+          "meaningEnglish": "to check / to inspect",
+          "exampleEnglish": "Check whether the lifeline has any damage.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Vérifiez que la ligne de vie n’est pas endommagée."
+        },
+        {
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "The competent person confirms the fall distance of the system.",
+          "sourceInfinitiveSpanish": "confirmar",
+          "infinitiveFrench": "confirmer",
+          "exampleFrench": "La personne compétente confirme la distance libre de chute requise."
+        },
+        {
+          "meaningEnglish": "to notify / to tell (a warning)",
+          "exampleEnglish": "The worker stops and tells the foreman.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "L’ouvrier s’arrête et prévient le contremaître."
+        },
+        {
+          "meaningEnglish": "to fail",
+          "exampleEnglish": "A harness is no use if the anchor or the lanyard fails.",
+          "sourceInfinitiveSpanish": "fallar",
+          "infinitiveFrench": "faire défaut",
+          "exampleFrench": "Un harnais ne protège pas si l’ancrage ou la longe fait défaut."
+        }
+      ],
+      "teachingNotesFrench": "Une ligne de vie, une longe et un ancrage forment un système à vérifier ensemble. La distance libre de chute se calcule selon l’installation réelle; cette lecture ne donne ni cote ni procédure de sécurité.",
+      "practiceModesFrench": {
+        "see": "Repérez dans le dialogue qui arrête le travail et qui vérifie le système.",
+        "recall": "Retrouvez la phrase qui demande où est la personne compétente.",
+        "hear": "Écoutez « ligne de vie », puis indiquez l’objet signalé.",
+        "type": "Écrivez en français : Confirm the anchor setup before we continue.",
+        "say": "Dites à voix haute une demande de vérification avant la reprise.",
+        "write": "Rédigez deux phrases pour signaler le doute et demander la vérification du système."
+      },
+      "regionalNotesEnglish": [
+        "Qualified fall-protection review is required for anchorage, lifeline setup, clearance, rescue, and the exact English safety source before release.",
+        "France/Québec terms for competent person, lifeline and fall clearance need qualified regional review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 23,
+      "titleEnglish": "Footing & Weather",
+      "objectiveEnglishSource": "Warn about slippery conditions and changing weather",
+      "speakingEnglishSource": "Warn the crew about slick footing and bring them down when lightning approaches.",
+      "titleFrench": "Appui et changement de météo",
+      "objectiveFrench": "Avertir l’équipe d’une surface glissante et demander l’arrêt et la descente selon le plan météo du chantier.",
+      "speakingFrenchInstruction": "Signalez la rosée et la perte d’adhérence. Si un orage approche, faites arrêter le travail et appliquer le plan d’évacuation du chantier; demandez une confirmation de chaque membre de l’équipe.",
+      "speakingFrenchOpening": "La toiture est glissante et l’orage approche : on arrête le travail, tout le monde a compris ?",
+      "grammarFocusFrench": "Impératif de sécurité; si + présent; parce que pour expliquer un risque observable.",
+      "words": [
+        {
+          "en": "dew",
+          "kind": "term",
+          "fr": "la rosée"
+        },
+        {
+          "en": "footing",
+          "kind": "term",
+          "fr": "l’appui"
+        },
+        {
+          "en": "lightning",
+          "kind": "term",
+          "fr": "la foudre"
+        },
+        {
+          "en": "slippery",
+          "kind": "term",
+          "fr": "glissant"
+        },
+        {
+          "en": "wet",
+          "kind": "term",
+          "fr": "mouillé"
+        },
+        {
+          "en": "rain",
+          "kind": "term",
+          "fr": "la pluie"
+        },
+        {
+          "en": "wind",
+          "kind": "term",
+          "fr": "le vent"
+        },
+        {
+          "en": "storm",
+          "kind": "term",
+          "fr": "l’orage"
+        },
+        {
+          "en": "boots",
+          "kind": "term",
+          "fr": "les bottes"
+        },
+        {
+          "en": "Watch your footing — the dew is slick.",
+          "kind": "phrase",
+          "fr": "Attention à votre appui : la rosée rend le toit glissant."
+        },
+        {
+          "en": "Don't work the roof in lightning.",
+          "kind": "phrase",
+          "fr": "Ne travaillez pas sur le toit quand il y a de la foudre."
+        },
+        {
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase",
+          "fr": "Arrêtez le travail et descendez si la météo change."
+        },
+        {
+          "en": "The roof is wet. Be careful.",
+          "kind": "phrase",
+          "fr": "Le toit est mouillé. Faites attention."
+        },
+        {
+          "en": "A storm is coming. Come down now.",
+          "kind": "phrase",
+          "fr": "Un orage arrive. Descendez maintenant."
+        },
+        {
+          "en": "Wear boots with good grip.",
+          "kind": "phrase",
+          "fr": "Portez des bottes offrant une bonne adhérence."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Appui et changement de météo",
+        "target": [
+          "Il est six heures trente du matin et il y a encore de la rosée sur le toit.",
+          "Le contremaître prévient l’équipe : « Le toit est mouillé. Faites attention. »",
+          "Cherchez un appui stable, car la rosée rend le toit glissant.",
+          "Portez des bottes offrant une bonne adhérence.",
+          "Plus tard, le vent se lève et des nuages sombres apparaissent dans le ciel.",
+          "Ne travaillez pas sur le toit quand il y a de la foudre.",
+          "Le contremaître crie : « Un orage arrive. Descendez maintenant. »",
+          "Arrêtez le travail et descendez si la météo change."
+        ],
+        "native": [
+          "It is 6:30 in the morning and there is still dew on the roof.",
+          "The foreman warns: The roof is wet. Be careful.",
+          "Look for solid footing, because the dew makes the roof slippery.",
+          "Wear boots with good grip.",
+          "Later, the wind picks up and dark clouds appear in the sky.",
+          "Do not work the roof in lightning.",
+          "The foreman shouts: A storm is coming. Come down now.",
+          "Stop work and come down if the weather changes."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to come down",
+          "exampleEnglish": "A storm is coming. Come down now.",
+          "sourceInfinitiveSpanish": "bajar",
+          "infinitiveFrench": "descendre",
+          "exampleFrench": "Un orage arrive. Descendez maintenant."
+        },
+        {
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work and come down if the weather changes.",
+          "sourceInfinitiveSpanish": "detener",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "Arrêtez le travail et descendez si la météo change."
+        },
+        {
+          "meaningEnglish": "to use, to wear",
+          "exampleEnglish": "Wear boots with good grip.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "porter",
+          "exampleFrench": "Portez des bottes offrant une bonne adhérence."
+        },
+        {
+          "meaningEnglish": "to look for",
+          "exampleEnglish": "We look for solid footing because the dew is slick.",
+          "sourceInfinitiveSpanish": "buscar",
+          "infinitiveFrench": "chercher",
+          "exampleFrench": "Nous cherchons un appui stable parce que la rosée rend le toit glissant."
+        },
+        {
+          "meaningEnglish": "to change",
+          "exampleEnglish": "Come down if the weather changes.",
+          "sourceInfinitiveSpanish": "cambiar",
+          "infinitiveFrench": "changer",
+          "exampleFrench": "Descendez si la météo change."
+        }
+      ],
+      "teachingNotesFrench": "La rosée, le vent et l’orage changent les conditions du chantier. Le dialogue sert à pratiquer l’alerte et l’arrêt; le seuil de reprise et l’évacuation suivent le plan météo approuvé.",
+      "practiceModesFrench": {
+        "see": "Repérez les signes de changement de météo dans la scène.",
+        "recall": "Retrouvez l’avertissement sur la rosée et l’appui.",
+        "hear": "Écoutez « l’orage approche », puis choisissez l’alerte correspondante.",
+        "type": "Écrivez en français : Stop work and come down if the weather changes.",
+        "say": "Avertissez oralement l’équipe de l’orage qui approche.",
+        "write": "Rédigez une consigne d’arrêt et une demande de confirmation de l’équipe."
+      },
+      "regionalNotesEnglish": [
+        "Qualified site-safety review is required for slippery roofs, lightning, stop-work triggers and descent/evacuation procedures.",
+        "Boot grip and any time or weather threshold in the English scene are not a universal safety clearance."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 24,
+      "titleEnglish": "Heat & Water",
+      "objectiveEnglishSource": "Check on crew hydration and heat symptoms",
+      "speakingEnglishSource": "Ask a worker how they feel and direct a water break under the site heat plan.",
+      "titleFrench": "Chaleur et pauses d’eau",
+      "objectiveFrench": "Demander comment va un collègue, reconnaître un malaise possible et appliquer le plan chaleur du chantier.",
+      "speakingFrenchInstruction": "Demandez à un collègue comment il se sent. S’il a des vertiges ou semble malade, arrêtez l’activité, faites appliquer le plan chaleur du chantier et demandez l’aide prévue par ce plan; ne posez pas de diagnostic.",
+      "speakingFrenchOpening": "Vous n’avez pas l’air bien : comment vous sentez-vous ? On arrête et on suit le plan chaleur.",
+      "grammarFocusFrench": "Se sentir + adjectif; avoir des vertiges; impératif et condition si pour demander de l’aide.",
+      "words": [
+        {
+          "en": "water break",
+          "kind": "term",
+          "fr": "la pause pour boire de l’eau"
+        },
+        {
+          "en": "heat",
+          "kind": "term",
+          "fr": "la chaleur"
+        },
+        {
+          "en": "shade",
+          "kind": "term",
+          "fr": "l’ombre"
+        },
+        {
+          "en": "water",
+          "kind": "term",
+          "fr": "l’eau"
+        },
+        {
+          "en": "dizzy",
+          "kind": "term",
+          "fr": "étourdi"
+        },
+        {
+          "en": "heat exhaustion",
+          "kind": "term",
+          "fr": "l’épuisement dû à la chaleur"
+        },
+        {
+          "en": "rest",
+          "kind": "term",
+          "fr": "le repos"
+        },
+        {
+          "en": "hydration",
+          "kind": "term",
+          "fr": "l’hydratation"
+        },
+        {
+          "en": "sunscreen",
+          "kind": "term",
+          "fr": "la crème solaire"
+        },
+        {
+          "en": "Take a water break every hour.",
+          "kind": "phrase",
+          "fr": "Prenez une pause pour boire de l’eau toutes les heures."
+        },
+        {
+          "en": "How do you feel?",
+          "kind": "phrase",
+          "fr": "Comment vous sentez-vous ?"
+        },
+        {
+          "en": "Are you dizzy?",
+          "kind": "phrase",
+          "fr": "Avez-vous des vertiges ?"
+        },
+        {
+          "en": "Go to the shade and rest.",
+          "kind": "phrase",
+          "fr": "Allez à l’ombre et reposez-vous."
+        },
+        {
+          "en": "Drink water now.",
+          "kind": "phrase",
+          "fr": "Buvez de l’eau maintenant."
+        },
+        {
+          "en": "Tell me if you feel sick.",
+          "kind": "phrase",
+          "fr": "Dites-moi si vous vous sentez mal."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Chaleur et pauses d’eau",
+        "target": [
+          "Il fait très chaud et le soleil tape sur le toit.",
+          "Le contremaître dit : « Prenez une pause pour boire de l’eau toutes les heures. »",
+          "Mais Raúl n’a pas l’air bien, alors le contremaître s’approche.",
+          "Il lui demande : « Comment vous sentez-vous ? »",
+          "« Avez-vous des vertiges ? »",
+          "Raúl répond que oui, un peu.",
+          "Le contremaître lui dit : « Allez à l’ombre et reposez-vous. Buvez de l’eau maintenant. »",
+          "« Dites-moi si vous vous sentez mal, et nous suivrons le plan chaleur du chantier. »",
+          "S’hydrater et se reposer à l’ombre aident à prévenir l’épuisement dû à la chaleur."
+        ],
+        "native": [
+          "It is very hot and the sun beats down on the roof.",
+          "The foreman says: Take a water break every hour.",
+          "But Raúl does not look well, and the foreman walks over.",
+          "The foreman asks him: How do you feel?",
+          "Are you dizzy?",
+          "Raúl answers yes, a little.",
+          "The foreman tells him: Go to the shade and rest. Drink water now.",
+          "Tell me if you feel sick, and we will follow the site heat plan.",
+          "Hydration and rest in the shade help prevent heat exhaustion."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to take, to drink",
+          "exampleEnglish": "Raúl drinks water every hour.",
+          "sourceInfinitiveSpanish": "tomar",
+          "infinitiveFrench": "boire",
+          "exampleFrench": "Raúl boit de l’eau toutes les heures."
+        },
+        {
+          "meaningEnglish": "to rest",
+          "exampleEnglish": "Raúl rests in the shade because he feels dizzy.",
+          "sourceInfinitiveSpanish": "descansar",
+          "infinitiveFrench": "se reposer",
+          "exampleFrench": "Raúl se repose à l’ombre parce qu’il a des vertiges."
+        },
+        {
+          "meaningEnglish": "to feel",
+          "exampleEnglish": "How do you feel, Raúl?",
+          "sourceInfinitiveSpanish": "sentirse",
+          "infinitiveFrench": "se sentir",
+          "exampleFrench": "Comment vous sentez-vous, Raúl ?"
+        },
+        {
+          "meaningEnglish": "to let know, to tell, to notify",
+          "exampleEnglish": "Raúl tells the foreman if he feels sick.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "Raúl prévient le contremaître s’il se sent mal."
+        },
+        {
+          "meaningEnglish": "to go",
+          "exampleEnglish": "Raúl goes to the shade to rest.",
+          "sourceInfinitiveSpanish": "ir",
+          "infinitiveFrench": "aller",
+          "exampleFrench": "Raúl va à l’ombre pour se reposer."
+        }
+      ],
+      "teachingNotesFrench": "Avoir des vertiges décrit un symptôme; cela ne permet pas de diagnostiquer un épuisement dû à la chaleur. Les pauses, l’aide et les mesures d’urgence suivent le plan chaleur et les responsables du chantier.",
+      "practiceModesFrench": {
+        "see": "Repérez la question posée à Raúl et sa réponse dans la scène.",
+        "recall": "Retrouvez la phrase qui demande si Raúl a des vertiges.",
+        "hear": "Écoutez « Comment vous sentez-vous ? », puis indiquez qui répond.",
+        "type": "Écrivez en français : Tell me if you feel sick.",
+        "say": "Demandez à voix haute comment se sent un collègue.",
+        "write": "Rédigez deux phrases pour arrêter l’activité et demander de suivre le plan chaleur."
+      },
+      "regionalNotesEnglish": [
+        "Qualified heat-illness/occupational-health review is required for symptom response, hydration schedule and emergency escalation before release.",
+        "The English source's hourly water break is a fictional scene, not a universal prevention interval; sunscreen does not replace the site heat plan."
+      ],
+      "reviewed": false
+    }
+  ]
+}

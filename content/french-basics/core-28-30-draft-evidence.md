@@ -1,0 +1,9 @@
+# French 101 Core 28–30 draft checkpoint
+
+This French-target / English-support batch is stacked on draft PR #261. It preserves stable learner identities and progress: no runtime registration, generated app assets, or audio are included. `reviewed:false` remains.
+
+`source-english-core-28-30.json` pins exact Spanish 101 English objectives, 42 card meanings and 18 Reader meanings, with SHA-256 hashes of both source files. `python3 scripts/validate-french-basics-core-28-30-draft.py` checks each source item and English pair, hashes, reading alignment and draft/check structure. `scripts/build-french-basics-core-28-30-draft.py` reproducibly generates the source-pinned JSON and authored French draft.
+
+Core 28 contrasts the French imparfait for old routines with Core 26's passé composé for completed events, retaining *l’espagnol* because the English source says the learner used to study Spanish. Core 29 does not force Spanish por/para into two French words: it uses `pour` for purpose/beneficiary, `par` for route/thanks, `vers` for direction and `à cause de` for a rain-related cause. Core 30 connects contrast, reason, result and sequence. Its café scene makes `Ana l’invite` mean she treats Luis; the ambiguity of *inviter* outside that context is noted. These choices need independent language review.
+
+Each lesson has French-specific grammar, fourteen cards, six aligned reading lines, contextual speaking, and five checks including script-only listening. Claude CLI review budget was previously exhausted, so no Fable/Opus call was made. Independent French fidelity/curriculum and qualified human review remain open, as do six-mode runtime, Reader/cards/dictionary/speaking/offline integration, recorded audio and phone acceptance. Core 1–30 source-pinned drafts now exist across stacked PRs, but this is **not a released course**.

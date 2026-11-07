@@ -1,0 +1,9 @@
+# French 101 Foundation 1–3 private runtime pilot
+
+This fixture converts the existing reviewed:false Foundation 1–3 authored draft into the app's stage-file word shape (`es` is the generic target-language field even for French) under the **distinct** stable module ID `foundation-french-basics`. It is stored in `content/french-basics/private-runtime-foundation-1-3.json`, outside `src/data/core60`, absent from `CORE60_MANIFEST`, and marked `privatePilot:true`, `registered:false`, `reviewed:false`. It does not change Spanish or Japanese course IDs, registered curricula, or learner progress. It has no recorded audio.
+
+The stage-file portion is executable by `parseStageFile` and `stageCurriculumFromFile` for three lessons. The sidecar retains exact authored French/English Reader dialogue pairs, cards and term-only dictionary entries, speaking briefs, and the four checks per lesson. It explicitly records inputs for See, Recall, Hear, Type, Say and Write; Hear and Say are script-only. This is a **partial stage fixture**, not a shippable ten-lesson Foundation file. The production validator correctly requires all ten lessons before registration.
+
+The builder verifies the authored draft's SHA-256 Spanish source reference and writes its own draft/source hashes. The focused Node test checks those hashes, distinct French/Spanish/Japanese module keys, absence from the live manifest, stage conversion, exact authored pairs and six-mode inputs. The pilot has 3 lessons, 54 cards and 24 Reader pairs. It does not introduce a language-pair-aware production registry, ship dictionary entries, change any progress key, or unlock a user-facing course.
+
+Independent French fidelity/curriculum and qualified human review, full Foundation 1–10 authoring and validation, app UI integration, offline pack handling, speech recognition and feedback, recorded French audio, signed-in browser and phone acceptance remain open. The draft is not a release candidate.

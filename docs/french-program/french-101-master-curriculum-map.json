@@ -1,0 +1,1557 @@
+{
+  "schema": 1,
+  "state": "curriculum-proposal-unreviewed",
+  "target": "French",
+  "native": "English",
+  "moduleIds": [
+    "foundation-french-basics",
+    "french-basics",
+    "master-french-basics"
+  ],
+  "sourcePaths": [
+    "src/data/core60/es/master-spanish-basics.json",
+    "src/data/spanish-basics-practice.json"
+  ],
+  "sourceSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+  },
+  "sourceAudit": {
+    "masterLessons": 20,
+    "readerLinesPerLesson": 12,
+    "totalMasterReaderLines": 240,
+    "exactEarlierEnglishReaderLines": 123,
+    "masterObjectivesRepeatFoundationOrCoreConcepts": 20
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableLessonKey": "master-french-basics:1",
+      "spanishSourceTitle": "Introduce a classmate",
+      "spanishSourceObjectiveEnglish": "Introduce a classmate: Say each Spanish vowel clearly: a, e, i, o, u.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 7,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 6,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 1
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Introduce a classmate for a real purpose",
+      "proposedObjectiveEnglish": "Introduce a new classmate to a group, adapt tu/vous and role information, and answer two follow-up questions without prompts.",
+      "prerequisites": [
+        "foundation:1",
+        "core:21",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "tu/vous; je m’appelle; il/elle s’appelle; parce que",
+      "performanceComplication": "The listener asks why the classmate joined and requests a more formal introduction.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 2,
+      "stableLessonKey": "master-french-basics:2",
+      "spanishSourceTitle": "Pack for a first class",
+      "spanishSourceObjectiveEnglish": "Pack for a first class: A noun has grammatical gender.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 2
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Prepare from a changing supplies brief",
+      "proposedObjectiveEnglish": "Read a short supplies brief, reconcile what is already available with what is missing, and explain a revised packing list.",
+      "prerequisites": [
+        "foundation:2",
+        "core:14",
+        "core:23"
+      ],
+      "frenchFormsAndDiscourse": "il faut; avoir besoin de; dans/sur; à la place de",
+      "performanceComplication": "One listed item is unavailable; propose a substitute and confirm it.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 3,
+      "stableLessonKey": "master-french-basics:3",
+      "spanishSourceTitle": "Prepare materials for a group",
+      "spanishSourceObjectiveEnglish": "Prepare materials for a group: Usually add -s after a vowel and -es after a consonant.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 3
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Allocate materials among four people",
+      "proposedObjectiveEnglish": "Count and allocate shared materials to named recipients, explain a shortage, and agree who will bring the missing items.",
+      "prerequisites": [
+        "foundation:3",
+        "core:24",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "il y a; il manque; lui/leur; chacun",
+      "performanceComplication": "Two people need the same item; negotiate a fair allocation.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 4,
+      "stableLessonKey": "master-french-basics:4",
+      "spanishSourceTitle": "Identity or current condition?",
+      "spanishSourceObjectiveEnglish": "Identity or current condition?: Use ser for identity, origin and characteristics.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 5
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Clarify identity, role and current condition",
+      "proposedObjectiveEnglish": "Distinguish a person’s role from a temporary condition, ask a clarification question and restate the confirmed facts.",
+      "prerequisites": [
+        "foundation:5",
+        "foundation:6",
+        "core:21"
+      ],
+      "frenchFormsAndDiscourse": "être; se sentir; sembler; qui/quel",
+      "performanceComplication": "The listener confuses who is responsible with who is available today.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 5,
+      "stableLessonKey": "master-french-basics:5",
+      "spanishSourceTitle": "Describe a room accurately",
+      "spanishSourceObjectiveEnglish": "Describe a room accurately: Hay means there is or there are.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 7,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 4,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 6
+            }
+          ]
+        },
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 7
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Report what a room contains and what changed",
+      "proposedObjectiveEnglish": "Describe a room from two observations, distinguish people from objects, and explain what moved or is missing.",
+      "prerequisites": [
+        "foundation:7",
+        "core:18",
+        "core:26"
+      ],
+      "frenchFormsAndDiscourse": "il y avait vs il y a; être à/se trouver; passé composé",
+      "performanceComplication": "A missing item appears in a new location; update the report.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 6,
+      "stableLessonKey": "master-french-basics:6",
+      "spanishSourceTitle": "Ask instead of guessing",
+      "spanishSourceObjectiveEnglish": "Ask instead of guessing: Put no before the verb to make a negative.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "foundation-spanish-basics",
+              "n": 9
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Repair a misunderstood request",
+      "proposedObjectiveEnglish": "Recognize a misunderstood request, reformulate it politely, check the answer and summarize the agreement.",
+      "prerequisites": [
+        "foundation:9",
+        "foundation:10",
+        "core:8"
+      ],
+      "frenchFormsAndDiscourse": "pardon; pourriez-vous répéter; si je comprends bien; donc",
+      "performanceComplication": "The partner repeats the wrong item or time; correct it without guessing.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 7,
+      "stableLessonKey": "master-french-basics:7",
+      "spanishSourceTitle": "Explain your study routine",
+      "spanishSourceObjectiveEnglish": "Explain your study routine: Remove -ar and add -o, -as, -a, -amos, -an: hablo, hablas, habla, hablamos, hablan.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 1
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Explain and adjust a study routine",
+      "proposedObjectiveEnglish": "Describe a weekly study routine, contrast it with today’s exception and agree on a revised schedule.",
+      "prerequisites": [
+        "core:1",
+        "core:10",
+        "core:28"
+      ],
+      "frenchFormsAndDiscourse": "imparfait habituel; présent exceptionnel; sauf/au lieu de",
+      "performanceComplication": "A class time changes; distinguish habitual from one-off actions.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 8,
+      "stableLessonKey": "master-french-basics:8",
+      "spanishSourceTitle": "Read and write a short message",
+      "spanishSourceObjectiveEnglish": "Read and write a short message: Remove -ir and add -o, -es, -e, -imos, -en.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 3
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Read and answer a short message",
+      "proposedObjectiveEnglish": "Extract a request and deadline from a message, write a concise reply, and confirm a new meeting time.",
+      "prerequisites": [
+        "core:3",
+        "core:10",
+        "core:19"
+      ],
+      "frenchFormsAndDiscourse": "demander de; répondre que; conditionnel poli; convenir de",
+      "performanceComplication": "The suggested time conflicts with another commitment.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 9,
+      "stableLessonKey": "master-french-basics:9",
+      "spanishSourceTitle": "Choose and describe an item",
+      "spanishSourceObjectiveEnglish": "Choose and describe an item: Adjectives agree with the noun they describe: un libro rojo, unas mochilas rojas.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 4
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Compare options and choose an item",
+      "proposedObjectiveEnglish": "Compare two candidate items using relevant properties, give a reason for the choice and check the other person’s preference.",
+      "prerequisites": [
+        "core:4",
+        "core:17",
+        "core:22"
+      ],
+      "frenchFormsAndDiscourse": "plus/moins/aussi...que; meilleur; cependant",
+      "performanceComplication": "The preferred item is unavailable; choose a second-best option.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 10,
+      "stableLessonKey": "master-french-basics:10",
+      "spanishSourceTitle": "Return the right belongings",
+      "spanishSourceObjectiveEnglish": "Return the right belongings: Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 7,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 4,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 5
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Return the correct belonging",
+      "proposedObjectiveEnglish": "Identify an owner from several clues, describe the item precisely and return it while confirming its ownership.",
+      "prerequisites": [
+        "core:5",
+        "core:17",
+        "core:23"
+      ],
+      "frenchFormsAndDiscourse": "mon/ma/mes; celui/celle; le/la/les; appartenir à",
+      "performanceComplication": "Two similar belongings have different owners.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 11,
+      "stableLessonKey": "master-french-basics:11",
+      "spanishSourceTitle": "Order around different preferences",
+      "spanishSourceObjectiveEnglish": "Order around different preferences: With gustar, the liked thing controls the verb: me gusta el libro; me gustan los libros.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 11
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Order for people with different preferences",
+      "proposedObjectiveEnglish": "Ask about two people’s preferences and a restriction, place an order and confirm that each person receives the right item.",
+      "prerequisites": [
+        "core:11",
+        "core:12",
+        "core:24"
+      ],
+      "frenchFormsAndDiscourse": "aimer/préférer; sans; au lieu de; lui/leur",
+      "performanceComplication": "One requested ingredient is unavailable; offer an acceptable alternative.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 12,
+      "stableLessonKey": "master-french-basics:12",
+      "spanishSourceTitle": "Make a plan everyone can do",
+      "spanishSourceObjectiveEnglish": "Make a plan everyone can do: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 13
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Negotiate a feasible group plan",
+      "proposedObjectiveEnglish": "Combine ability, permission, location and timing to propose a plan that everyone can follow.",
+      "prerequisites": [
+        "core:10",
+        "core:13",
+        "core:19"
+      ],
+      "frenchFormsAndDiscourse": "pouvoir; devoir; si + présent; d’abord/ensuite",
+      "performanceComplication": "One member cannot attend the first time; revise the plan.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 13,
+      "stableLessonKey": "master-french-basics:13",
+      "spanishSourceTitle": "Explain what needs doing",
+      "spanishSourceObjectiveEnglish": "Explain what needs doing: Necesitar + infinitive expresses a need.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 14
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Turn a request into a prioritized task list",
+      "proposedObjectiveEnglish": "Read a short request, distinguish required from optional tasks, assign responsibility and confirm completion criteria.",
+      "prerequisites": [
+        "core:14",
+        "core:24",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "il faut; devoir; avant de; pour que (optional extension)",
+      "performanceComplication": "One task must be done before another can start.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 14,
+      "stableLessonKey": "master-french-basics:14",
+      "spanishSourceTitle": "Tell a daily routine in order",
+      "spanishSourceObjectiveEnglish": "Tell a daily routine in order: A reflexive pronoun changes with the person: me, te, se, nos, se.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 16
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Narrate a routine and an interruption",
+      "proposedObjectiveEnglish": "Describe a normal sequence, then explain a specific interruption and the next action.",
+      "prerequisites": [
+        "core:16",
+        "core:26",
+        "core:28"
+      ],
+      "frenchFormsAndDiscourse": "d’habitude; soudain; passé composé vs imparfait",
+      "performanceComplication": "The routine is interrupted halfway; communicate the revised order.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 15,
+      "stableLessonKey": "master-french-basics:15",
+      "spanishSourceTitle": "Give directions on campus",
+      "spanishSourceObjectiveEnglish": "Give directions on campus: Use en for in/on/at as context requires.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 18
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Guide someone through an unfamiliar place",
+      "proposedObjectiveEnglish": "Give multi-step directions using landmarks, ask the listener to repeat the route and correct a wrong turn.",
+      "prerequisites": [
+        "core:9",
+        "core:18",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "tourner; traverser; à côté de; si...alors",
+      "performanceComplication": "The usual entrance is closed; use another route.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 16,
+      "stableLessonKey": "master-french-basics:16",
+      "spanishSourceTitle": "Separate now from tomorrow",
+      "spanishSourceObjectiveEnglish": "Separate now from tomorrow: Use a present form of ir + a + infinitive: voy a estudiar.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 19
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Separate an action now from a future plan",
+      "proposedObjectiveEnglish": "Report what is happening now, state a near-future intention and explain what must finish first.",
+      "prerequisites": [
+        "core:19",
+        "core:20",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "être en train de; aller + infinitif; avant de",
+      "performanceComplication": "A current delay changes tomorrow’s plan.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 17,
+      "stableLessonKey": "master-french-basics:17",
+      "spanishSourceTitle": "Refer back without repeating",
+      "spanishSourceObjectiveEnglish": "Refer back without repeating: Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 23
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Refer back in a longer conversation",
+      "proposedObjectiveEnglish": "Track two people and several objects across turns, use unambiguous references and repair a pronoun misunderstanding.",
+      "prerequisites": [
+        "core:21",
+        "core:23",
+        "core:24"
+      ],
+      "frenchFormsAndDiscourse": "le/la/les; lui/leur; celui-ci/celle-là; reformulation",
+      "performanceComplication": "The partner mistakes which object or person a pronoun refers to.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 18,
+      "stableLessonKey": "master-french-basics:18",
+      "spanishSourceTitle": "Tell what happened yesterday",
+      "spanishSourceObjectiveEnglish": "Tell what happened yesterday: The preterite reports completed past actions.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 26
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Give a coherent account of yesterday",
+      "proposedObjectiveEnglish": "Narrate a completed outing in time order, include who went where and what happened, then answer follow-up questions.",
+      "prerequisites": [
+        "core:26",
+        "core:27",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "passé composé avec avoir/être; d’abord/puis/finalement",
+      "performanceComplication": "The partner asks which event happened first and why plans changed.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 19,
+      "stableLessonKey": "master-french-basics:19",
+      "spanishSourceTitle": "Contrast a habit and an event",
+      "spanishSourceObjectiveEnglish": "Contrast a habit and an event: Use the imperfect for past habits or background: estudiaba, comía, vivía.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 28
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Contrast a past habit with one event",
+      "proposedObjectiveEnglish": "Explain what usually happened before, what happened once, and how the one event affected the routine.",
+      "prerequisites": [
+        "core:26",
+        "core:28",
+        "core:30"
+      ],
+      "frenchFormsAndDiscourse": "imparfait habituel vs passé composé ponctuel; depuis",
+      "performanceComplication": "A single event breaks the established habit; keep the timeline clear.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    },
+    {
+      "n": 20,
+      "stableLessonKey": "master-french-basics:20",
+      "spanishSourceTitle": "Spanish 101 final conversation",
+      "spanishSourceObjectiveEnglish": "Spanish 101 final conversation: Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step.",
+      "sourceWordCount": 20,
+      "sourceReaderLineCount": 12,
+      "exactEarlierEnglishReaderLineCount": 6,
+      "exactEarlierEnglishReaderLines": [
+        {
+          "line": 7,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        },
+        {
+          "line": 8,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        },
+        {
+          "line": 9,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        },
+        {
+          "line": 10,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        },
+        {
+          "line": 11,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        },
+        {
+          "line": 12,
+          "earlier": [
+            {
+              "stage": "spanish-basics",
+              "n": 30
+            }
+          ]
+        }
+      ],
+      "proposedFrenchMasterTitle": "Carry a multi-turn French conversation",
+      "proposedObjectiveEnglish": "Open, clarify, compare, decide, report a past event and close a conversation with minimal prompting and suitable register.",
+      "prerequisites": [
+        "core:22",
+        "core:24",
+        "core:26",
+        "core:28",
+        "master:1-19"
+      ],
+      "frenchFormsAndDiscourse": "tu/vous; clarifier; comparer; négocier; récapituler",
+      "performanceComplication": "A plan changes mid-conversation; negotiate a response and recap the agreement.",
+      "pairPolicy": "replace legacy beginner English card/Reader pairs with new Master-level English support paired to original French; keep legacy source only as immutable provenance; no runtime overwrite or progress migration without review"
+    }
+  ]
+}

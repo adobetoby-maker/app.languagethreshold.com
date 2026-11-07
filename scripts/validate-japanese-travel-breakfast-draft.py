@@ -344,6 +344,21 @@ def main():
     assert [lesson["n"] for lesson in all_master] == list(range(1, 21))
     assert len({lesson["stableId"] for lesson in all_master}) == 20
     assert len(data["lessons"]) == 10 and len(core["lessons"]) == 30
+    clinical = {
+        ("core", 25): ["火傷", "皮膚", "冷たい水", "ナプキン"],
+        ("master", 4): ["アレルギー反応", "アドレナリン自己注射器", "微量"],
+        ("master", 8): ["アナフィラキシー", "抗ヒスタミン薬", "アドレナリン自己注射器"],
+        ("master", 10): ["高山病", "コカ茶"],
+        ("master", 13): ["のどのかゆみ", "じんましん", "唇の腫れ", "呼吸困難", "めまい"],
+        ("master", 14): ["セリアック病"],
+        ("master", 16): ["アレルギー反応", "アレルゲン記録"],
+        ("master", 17): ["救急外来"],
+    }
+    for (stage, n), terms in clinical.items():
+        lesson = core["lessons"][n - 1] if stage == "core" else all_master[n - 1]
+        learner_ja = " ".join([lesson["focus"], *(card["ja"] for card in lesson["cards"]), *(row["ja"] for row in lesson["reader"])])
+        assert all(term in learner_ja for term in terms), (stage, n, terms)
+        assert "not medical advice" not in lesson["focus"].lower()
     print("Japanese Breakfast F10/C30/M20 private draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
 

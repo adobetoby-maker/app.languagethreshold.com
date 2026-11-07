@@ -79,7 +79,7 @@
       },
       "title": "Give the hotel a factual incident timeline",
       "objective": "Report what a friend ate, observed symptom changes, when local emergency help was called, and what responders did, separating known times from estimates.",
-      "focus": "～ごろ gives an approximate time; その後 and すぐに sequence events; 見ました・聞きました distinguish observed facts from what someone reported. The English source's 112 is a regional emergency number, not a universal Japanese number. Do not diagnose or state that a food caused the reaction without clinical confirmation; follow the person's own emergency plan and local emergency services.",
+      "focus": "～ごろ gives an approximate time; 数分後 and すぐに sequence events. のどのかゆみ, じんましん, 唇の腫れ, 呼吸困難 and めまい state the symptoms in the English source; アレルギー反応 names the reported event.",
       "scene": "After emergency responders have taken a guest for care, a witness gives a hotel manager a careful chronology for an incident report.",
       "cards": [
         {
@@ -151,6 +151,36 @@
           "ja": "正確な時刻は分かりません",
           "en": "I do not know the exact time",
           "kind": "term"
+        },
+        {
+          "ja": "のどのかゆみ",
+          "en": "itchy throat",
+          "kind": "term"
+        },
+        {
+          "ja": "じんましん",
+          "en": "hives",
+          "kind": "term"
+        },
+        {
+          "ja": "唇の腫れ",
+          "en": "lip swelling",
+          "kind": "term"
+        },
+        {
+          "ja": "呼吸困難",
+          "en": "difficulty breathing",
+          "kind": "term"
+        },
+        {
+          "ja": "めまい",
+          "en": "dizziness",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -176,8 +206,8 @@
         },
         {
           "speaker": "Witness",
-          "ja": "その後、発疹が見え、息苦しいと話しました。",
-          "en": "After that, I saw a rash, and she said she had difficulty breathing."
+          "ja": "その後、腕にじんましんが出て、唇が腫れ、息苦しいと話しました。",
+          "en": "After that, she had hives on her arms, her lips swelled, and she said she had difficulty breathing."
         },
         {
           "speaker": "Witness",
@@ -191,8 +221,8 @@
         },
         {
           "speaker": "Witness",
-          "ja": "救急隊が対応し、その後、友人は救急車で病院へ運ばれました。",
-          "en": "The responders took over, and then my friend was taken to hospital by ambulance."
+          "ja": "救急隊が来たときはめまいが強く、その後、救急車で病院へ運ばれました。",
+          "en": "She was very dizzy when responders arrived, then was taken to hospital by ambulance."
         },
         {
           "speaker": "Witness",
@@ -203,14 +233,19 @@
           "speaker": "Manager",
           "ja": "ありがとうございます。不確かな時刻は推測せず、確認できた情報だけ記録します。",
           "en": "Thank you. We will not guess uncertain times and will record only verified information."
+        },
+        {
+          "speaker": "Witness",
+          "ja": "厨房の説明では、ケーキにアーモンド粉が入っていたそうです。",
+          "en": "According to the kitchen, the cake contained almond flour."
         }
       ],
       "speaking": {
         "role": "Witness giving an incident timeline",
         "partnerRole": "Hotel duty manager",
         "opening": "確認できたことと、時刻があいまいなことを分けて説明します。",
-        "goal": "Give observed events in order, distinguish reported symptoms from observations, identify the emergency call, and mark estimated times honestly.",
-        "closure": "Do not diagnose the cause or replace emergency responders' instructions; use the person's own plan and local emergency service procedures.",
+        "goal": "Give the timeline of the breakfast, named symptoms, emergency call, responder arrival and ambulance transfer, marking approximate times clearly.",
+        "closure": "Repeat the timeline slowly if the duty manager asks.",
         "wordBank": [
           "時系列",
           "何時ごろ",
@@ -292,7 +327,7 @@
       },
       "title": "Report a mislabeled bread near miss",
       "objective": "Describe a mislabeled bread tray without blame, stop an unverified selection, and agree to check labels and preparation controls before future service.",
-      "focus": "もう少しで～ところでした reports a near miss; ～かもしれません marks uncertainty; ～を確認しましょう proposes a process check. A new sign or color code alone does not verify gluten-free preparation or prevent cross-contact. Do not promise a bread is suitable for celiac disease from a tray label alone.",
+      "focus": "セリアック病 means celiac disease; 小麦粉 means wheat flour; グルテンフリー表示 names the gluten-free sign. もう少しで～ところでした reports a near miss, and ～かもしれません marks uncertainty about how the trays were mixed up.",
       "scene": "At a bakery café, a friend notices a gluten-free sign beside bread whose ingredient label lists wheat and raises the discrepancy with staff.",
       "cards": [
         {
@@ -364,6 +399,11 @@
           "ja": "確認できません",
           "en": "cannot verify",
           "kind": "term"
+        },
+        {
+          "ja": "セリアック病",
+          "en": "celiac disease",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -374,8 +414,8 @@
         },
         {
           "speaker": "Guest",
-          "ja": "食べる前に気づいてよかったです。まだ何も食べていません。",
-          "en": "I am glad we noticed before eating. I have not eaten anything yet."
+          "ja": "セリアック病があり、もう少しで食べるところでした。先に原材料を見てよかったです。",
+          "en": "I have celiac disease and almost ate it. I am glad I read the ingredients first."
         },
         {
           "speaker": "Baker",
@@ -422,8 +462,8 @@
         "role": "Friend reporting a bakery near miss",
         "partnerRole": "Baker and guest with celiac disease",
         "opening": "すみません。表示と原材料が違うようです。食べる前に確認できますか。",
-        "goal": "State the observable discrepancy, stop the unverified order, ask about ingredients and cross-contact, and suggest a process review without assigning blame.",
-        "closure": "Do not certify any bakery item as gluten-free from a sign or color code alone.",
+        "goal": "Name the guest's celiac disease, identify the wheat-flour label and misplaced gluten-free sign, then discuss two prevention steps with the baker.",
+        "closure": "Restate the agreed label-and-tray checking steps.",
         "wordBank": [
           "グルテンフリー表示",
           "小麦粉",

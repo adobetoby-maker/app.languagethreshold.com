@@ -79,7 +79,7 @@
       },
       "title": "Check an outdated breakfast allergen chart",
       "objective": "Read the hotel's allergen chart with staff, notice a supplier change, and request current ingredient and preparation details before anyone with a sesame allergy chooses food.",
-      "focus": "食べる前に and 確認した後で sequence checks; ～かどうか asks whether information is current. A chart or verbal reassurance alone cannot establish allergy safety. Avoid claiming any item is safe until the guest and qualified staff verify current ingredients and cross-contact handling.",
+      "focus": "食べる前に and 確認した後で sequence checks; ～かどうか asks whether the chart is current. ごまアレルギー, 微量, アレルギー反応 and アドレナリン自己注射器 name the source's clinical concepts directly.",
       "scene": "At a hotel breakfast buffet, one guest helps a companion with a sesame allergy ask the host about an old chart and a new bread supplier.",
       "cards": [
         {
@@ -151,6 +151,21 @@
           "ja": "注文を見送る",
           "en": "to hold off on ordering",
           "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
+        },
+        {
+          "ja": "アドレナリン自己注射器",
+          "en": "epinephrine auto-injector",
+          "kind": "term"
+        },
+        {
+          "ja": "微量",
+          "en": "trace amount",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -203,14 +218,19 @@
           "speaker": "Companion",
           "ja": "ほかの選択肢について、担当者に相談しましょう。",
           "en": "Let's ask the appropriate staff member about other options."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "アドレナリン自己注射器がかばんにあることも確認しました。",
+          "en": "I also checked that my epinephrine auto-injector is in my bag."
         }
       ],
       "speaking": {
         "role": "Guest checking an allergen chart",
         "partnerRole": "Hotel breakfast host",
         "opening": "この表示表はいつ更新されましたか。",
-        "goal": "Ask the date and supplier, request current labels and preparation details, and say that unverified food will not be chosen.",
-        "closure": "Do not provide a safety guarantee, diagnose a reaction, or improvise treatment; follow the guest's existing emergency plan and local emergency procedures if needed.",
+        "goal": "Ask the chart date and supplier, request the current label, and explain the companion's sesame allergy and auto-injector information.",
+        "closure": "Summarize which labels and preparation details staff confirmed and which remain unresolved.",
         "wordBank": [
           "アレルゲン表示表",
           "ごま",
@@ -505,7 +525,7 @@
       },
       "title": "Plan substitutes when oat milk is unavailable",
       "objective": "Compare available drink options for two friends with different preferences, verify ingredients and preparation with staff, and agree on a temporary plan.",
-      "focus": "～より and ～のほうが compare options; ～が届くまで sets a temporary period; ～か確認してください asks for verification. Vegan and lactose-avoiding needs are distinct; a plant-based label or lactose-free claim does not establish allergy safety or cross-contact controls.",
+      "focus": "～より and ～のほうが compare drink options; ～が届くまで sets a temporary period. ヴィーガン and 乳糖を避けています describe two different dietary needs, while 乳糖を含まない牛乳 is still dairy milk.",
       "scene": "A group at a café learns that oat milk is out of stock and asks staff what can actually be prepared for each person.",
       "cards": [
         {
@@ -636,7 +656,7 @@
         "partnerRole": "Café server",
         "opening": "オーツミルクがない場合、ほかにどんな選択肢がありますか。",
         "goal": "Ask about two substitutes, compare them, distinguish vegan preference from lactose avoidance, and request ingredient/preparation checks before ordering.",
-        "closure": "Choose only after staff confirms the relevant details; never claim an item is safe for an allergy.",
+        "closure": "Confirm each person's chosen drink and the expected delivery time with staff.",
         "wordBank": [
           "在庫切れ",
           "豆乳",

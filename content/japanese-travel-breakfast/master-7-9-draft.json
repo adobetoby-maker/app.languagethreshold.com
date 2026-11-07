@@ -292,7 +292,7 @@
       },
       "title": "Decline removal of nuts from a prepared pastry",
       "objective": "Politely decline an offer to remove nuts from a prepared pastry for a friend with a tree-nut allergy, and ask about a verifiable alternative or choose nothing.",
-      "focus": "お気持ちはありがたいですが acknowledges kindness before declining; 取り除くだけでは～ません explains that removing visible nuts does not resolve unknown cross-contact. Never call a packaged item or drink safe merely from a label or menu; the person with the allergy and qualified staff must verify current ingredients and preparation. Follow their own emergency plan if symptoms occur.",
+      "focus": "お気持ちはありがたいですが acknowledges kindness before declining; 取り除かないでください is a direct negative request. 木の実アレルギー and アナフィラキシー name the source's clinical terms; 表面 and 生地 distinguish the visible topping from the pastry itself.",
       "scene": "At a bakery café, a server offers to remove almond pieces from a pastry; the guests decline and ask for current labeling and preparation information.",
       "cards": [
         {
@@ -364,6 +364,21 @@
           "ja": "何も食べません",
           "en": "I will not eat anything",
           "kind": "term"
+        },
+        {
+          "ja": "アナフィラキシー",
+          "en": "anaphylaxis",
+          "kind": "term"
+        },
+        {
+          "ja": "抗ヒスタミン薬",
+          "en": "antihistamine",
+          "kind": "term"
+        },
+        {
+          "ja": "アドレナリン自己注射器",
+          "en": "epinephrine auto-injector",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -384,8 +399,8 @@
         },
         {
           "speaker": "Guest",
-          "ja": "お気持ちはありがたいですが、それは遠慮します。",
-          "en": "I appreciate the offer, but we will decline."
+          "ja": "ありがとうございます。でも、アーモンドを取り除かないでください。",
+          "en": "Thank you, but please don't scrape off the almonds."
         },
         {
           "speaker": "Guest",
@@ -416,14 +431,24 @@
           "speaker": "Server",
           "ja": "分かりました。確認できた情報だけをお伝えします。",
           "en": "Understood. I will tell you only what we can verify."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "以前、木の実でアナフィラキシーを起こしたことがあります。",
+          "en": "I have had anaphylaxis from tree nuts before."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "医師の指示で、抗ヒスタミン薬とアドレナリン自己注射器を持っています。",
+          "en": "I carry an antihistamine and an epinephrine auto-injector as my doctor instructed."
         }
       ],
       "speaking": {
         "role": "Friend declining a pastry",
         "partnerRole": "Bakery café server",
         "opening": "友人は木の実にアレルギーがあります。アーモンドを取り除くだけでは注文できません。",
-        "goal": "Thank the server, decline removal of visible nuts, ask for current ingredient and preparation details, and choose no food if verification is unavailable.",
-        "closure": "Do not diagnose, prescribe, or promise that another item is safe; follow the guest's existing emergency plan and local emergency services if needed.",
+        "goal": "Thank the server, decline scraping almonds off the pastry, explain the friend's tree-nut allergy and past anaphylaxis, and ask about another item.",
+        "closure": "End by restating the friend's decision about the offered food.",
         "wordBank": [
           "木の実",
           "アレルギー",

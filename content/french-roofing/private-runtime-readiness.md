@@ -1,0 +1,9 @@
+# French Roofing — private runtime readiness
+
+The French→English Roofing source has 10 Foundation, 30 Core, and 20 Master **draft** lessons. `private-runtime-candidate.json` is a disabled inspection fixture generated from 20 SHA-256-pinned draft files. It keeps the existing `roofing` module ID, exact French target / English support pair, and stage-local lesson numbers. It is not imported by the public catalog, Core 60 registry, offline worker, or native app. Learner progress is unchanged.
+
+The fixture contains 983 word/card placements (898 distinct exact French–English pairs), 646 aligned Reader lines, and 60 French speaking openings. It exposes candidate word IDs for See, Recall, Hear, Type, Say, and Write. Only 29 lessons currently carry authored `practiceModesFrench` prompts; candidate IDs alone do not prove that six modes work. All lesson and release review flags remain false.
+
+The Core 24 and Master 11 clinical-vocabulary corrections remain direct in the generated source: *avoir des vertiges*, *l’épuisement dû à la chaleur*, and *le coup de chaleur* retain their meanings and grammatical examples. The source builders now reproduce those corrections exactly. Clinical vocabulary does not require learner-facing hedging; any uncertain trade or factual claim belongs in the internal review ledger, separate from the teaching text.
+
+Remaining work: independent post-edit French fidelity and curriculum review; qualified regional and roofing review of technical claims (including Core 21 fall protection and Master warranty/insurance/weather scenes); complete six-mode prompts and real runtime/Reader/card/dictionary/speaking integration; pair-isolated progress and authenticated desktop/phone testing; offline registration and verification; exact French recorded audio with listening checks; and V4 native/Watch acceptance. This fixture does not mark any lesson reviewed or ready for release.

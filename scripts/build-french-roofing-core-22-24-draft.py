@@ -70,7 +70,7 @@ AUTHOR = {
     24: {
         "titleFrench": "Chaleur et pauses d’eau",
         "objectiveFrench": "Demander comment va un collègue, reconnaître un malaise possible et appliquer le plan chaleur du chantier.",
-        "speakingFrenchInstruction": "Demandez à un collègue comment il se sent. S’il a des vertiges ou semble malade, arrêtez l’activité, faites appliquer le plan chaleur du chantier et demandez l’aide prévue par ce plan; ne posez pas de diagnostic.",
+        "speakingFrenchInstruction": "Demandez à un collègue comment il se sent. Employez avoir des vertiges et l’épuisement dû à la chaleur dans le dialogue, puis donnez les consignes prévues par le plan chaleur du chantier.",
         "speakingFrenchOpening": "Vous n’avez pas l’air bien : comment vous sentez-vous ? On arrête et on suit le plan chaleur.",
         "grammarFocusFrench": "Se sentir + adjectif; avoir des vertiges; impératif et condition si pour demander de l’aide.",
         "wordsFrench": ["la pause pour boire de l’eau", "la chaleur", "l’ombre", "l’eau", "étourdi", "l’épuisement dû à la chaleur", "le repos", "l’hydratation", "la crème solaire", "Prenez une pause pour boire de l’eau toutes les heures.", "Comment vous sentez-vous ?", "Avez-vous des vertiges ?", "Allez à l’ombre et reposez-vous.", "Buvez de l’eau maintenant.", "Dites-moi si vous vous sentez mal."],
@@ -92,7 +92,7 @@ AUTHOR = {
             ["prévenir", "Raúl prévient le contremaître s’il se sent mal."],
             ["aller", "Raúl va à l’ombre pour se reposer."]
         ],
-        "teachingNotesFrench": "Avoir des vertiges décrit un symptôme; cela ne permet pas de diagnostiquer un épuisement dû à la chaleur. Les pauses, l’aide et les mesures d’urgence suivent le plan chaleur et les responsables du chantier.",
+        "teachingNotesFrench": "Avoir des vertiges veut dire ressentir des étourdissements; l’épuisement dû à la chaleur correspond à heat exhaustion. Les impératifs prenez, allez, reposez-vous et buvez servent à donner des consignes claires.",
         "practiceFrench": {"see": "Repérez la question posée à Raúl et sa réponse dans la scène.", "recall": "Retrouvez la phrase qui demande si Raúl a des vertiges.", "hear": "Écoutez « Comment vous sentez-vous ? », puis indiquez qui répond.", "type": "Écrivez en français : Tell me if you feel sick.", "say": "Demandez à voix haute comment se sent un collègue.", "write": "Rédigez deux phrases pour arrêter l’activité et demander de suivre le plan chaleur."},
         "regionalNotesEnglish": ["Qualified heat-illness/occupational-health review is required for symptom response, hydration schedule and emergency escalation before release.", "The English source's hourly water break is a fictional scene, not a universal prevention interval; sunscreen does not replace the site heat plan."],
     },

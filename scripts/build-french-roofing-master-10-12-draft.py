@@ -60,7 +60,7 @@ AUTHOR = {
             "Rogelio : « Boire de l’eau n’est pas facultatif, même si nous sommes en retard. »",
             "Rogelio : « Kevin, si tu as des étourdissements ou te sens mal, préviens-moi tout de suite. »",
             "Rogelio : « Des étourdissements, un mal de tête ou des nausées peuvent signaler un problème lié à la chaleur. »",
-            "Rogelio : « Si quelqu’un présente des signes graves, nous arrêterons le travail et suivrons le protocole d’urgence du site, y compris l’appel aux secours locaux. »",
+            "Rogelio : « Le coup de chaleur est une urgence ; nous arrêterons le travail et appellerons les secours locaux. »",
             "Rogelio : « Nous visons vendredi, mais nous ne sacrifierons pas la sécurité pour tenir ce délai. »",
             "Rogelio : « Vendredi, si tout se passe bien, nous partagerons des tacos après le travail. »",
             "Rogelio : « Courage, l’équipe ! »",
@@ -68,7 +68,7 @@ AUTHOR = {
         ],
         "verbsFrench": [["arrêter", "Nous arrêterons selon le plan et les conditions."], ["prévenir", "Si tu te sens mal, préviens-moi tout de suite."], ["avoir des étourdissements", "Si tu as des étourdissements, préviens-moi et va à l’ombre avec de l’aide."], ["faire", "Il fait très chaud et nous suivons le plan de pauses."], ["appeler", "En cas d’urgence, nous appellerons les secours locaux selon le protocole du site."]],
         "practiceFrench": {"see": "Repérez les engagements, les conditions et les symptômes à signaler.", "recall": "Retrouvez la phrase qui demande de signaler immédiatement un malaise.", "hear": "Écoutez l’horaire envisagé et le rappel des pauses.", "type": "Écrivez en français : If you get dizzy, tell me right away.", "say": "Annoncez le plan chaleur sans garantir l’heure ni la date de fin.", "write": "Rédigez un message d’équipe qui renvoie au protocole chaleur et d’urgence local."},
-        "teachingNotesFrench": "Le futur simple exprime une intention; les horaires et la fréquence des pauses ne sont pas des règles universelles. Le récit source présente une liste de symptômes comme un diagnostic et promet une fin vendredi. La version affichée demande de suivre le plan chaleur et le protocole d’urgence locaux, sans remplacer une formation médicale.",
+        "teachingNotesFrench": "Le futur simple exprime les engagements de Rogelio : nous adapterons, nous prendrons, nous appellerons. L’épuisement dû à la chaleur signifie heat exhaustion; le coup de chaleur signifie heatstroke. Le protocole d’urgence du chantier figure dans le dialogue.",
         "reviewGapsEnglish": ["Qualified occupational heat-safety and medical review required for symptom language, heat exhaustion/stroke distinction, hydration, electrolytes, break frequency, work hours and emergency response. US 911 in source must not be generalized to France/Québec without locale-specific routing.", "Qualified labor/supervisor review required for scheduling and Friday commitment; neither draft nor source constitutes a safe work plan."],
     },
     12: {
@@ -135,7 +135,7 @@ def main() -> None:
                 5: "Rogelio: We plan to start at six and stop at two, if conditions allow.",
                 7: "Rogelio: We'll take the planned breaks in the shade, and nobody will skip them to catch up.",
                 10: "Rogelio: Dizziness, headache or nausea can signal a heat-related problem.",
-                11: "Rogelio: If someone shows severe symptoms, we'll stop work and follow the site's emergency protocol, including a call to local emergency services.",
+                11: "Rogelio: Heatstroke is an emergency; we will stop work and call local emergency services.",
                 12: "Rogelio: We aim for Friday, but we won't sacrifice safety for the deadline.",
                 15: "Later, Rogelio told the boss: We'll follow the plan; I'll confirm progress on Friday.",
             }

@@ -2,6 +2,7 @@
 """Validate private Japanese Breakfast Foundation drafts against pinned English anchors."""
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,6 +48,43 @@ def main():
             assert pair["ja"].strip() and pair["en"].strip()
             assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
     print("Japanese Breakfast F1–10 draft: source hashes, stable IDs, pairs, Reader, speaking, six modes PASS")
+
+    core = json.loads((ROOT / "content/japanese-travel-breakfast/core-1-3-draft.json").read_text())
+    generated_bytes = subprocess.check_output(
+        ["git", "show", "HEAD:public/lesson-content/es/travel-breakfast.json"], cwd=ROOT
+    )
+    generated = json.loads(generated_bytes)
+    travel_bytes = (ROOT / "src/data/travel-zone.ts").read_bytes()
+    assert core["target"] == "Japanese" and core["native"] == "English"
+    assert core["stageId"] == "travel-breakfast"
+    assert core["reviewed"] is False and core["registered"] is False
+    assert core["audio"] == "none"
+    assert core["source"]["readerSha256"] == digest(generated_bytes)
+    assert core["source"]["curriculumSha256"] == digest(travel_bytes)
+    assert len(core["lessons"]) == 3
+    for n, lesson in enumerate(core["lessons"], 1):
+        original = generated["lessons"][str(n)]
+        source_fields = {
+            "n": n,
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishReading": original["passage"]["native"],
+        }
+        assert lesson["n"] == n
+        assert lesson["stableId"] == f"travel-breakfast:{n}:ja-en"
+        assert lesson["sourceEnglish"]["englishWordAnchors"] == source_fields["englishWordAnchors"]
+        assert lesson["sourceEnglish"]["englishReading"] == source_fields["englishReading"]
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(source_fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert lesson["sourceEnglish"]["objective"] in travel_bytes.decode()
+        assert lesson["sourceEnglish"]["roleplay"] in travel_bytes.decode()
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    print("Japanese Breakfast C1–3 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
 
 if __name__ == "__main__":

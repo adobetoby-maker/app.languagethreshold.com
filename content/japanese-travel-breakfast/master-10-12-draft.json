@@ -1,0 +1,665 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "master-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "role": "Exact English objectives, speaking roles, grammar examples, word anchors and Reader lines retained as provenance; Japanese learner scenes are original contextual teach-back dialogues"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "master-travel-breakfast:10:ja-en",
+      "sourceEnglish": {
+        "n": 10,
+        "title": "Mediate Two Friends' Pre-Trek Breakfast Argument",
+        "objective": "Report each friend's position fairly, add the staff's facts, and help the group agree on one plan.",
+        "speaking": "You are the friend in the middle, and the AI plays Ana, Lars and Wilber from the hostel: report each friend's position fairly with dijo que and decía que plus the imperfect, add Wilber's facts about the market, and help everyone agree on one plan.",
+        "lessonType": "People",
+        "block": "C",
+        "englishWordAnchors": [
+          "the emoliente (hot herbal drink)",
+          "the hen broth",
+          "the chuta bread",
+          "the quinoa",
+          "the altitude sickness",
+          "the coca tea",
+          "the trek",
+          "the pickup time",
+          "the hostel",
+          "the position (opinion)",
+          "the middle ground",
+          "the agreement",
+          "the opening",
+          "the backpack",
+          "the early morning (before dawn)",
+          "Ana said she wanted to try the hen broth at the market.",
+          "Lars was saying there wasn't time before the pickup.",
+          "Wilber, could you tell me what time the market opens?",
+          "Wilber explained to us that the market opened at 6.",
+          "Listen, you both have a point.",
+          "Lars, you were saying the pickup was at 7, right?",
+          "What if we go to the market and come back before 7?",
+          "So it's settled: a quick market trip and backpacks ready beforehand."
+        ],
+        "englishGrammarExamples": [
+          "Ana said she wanted to have breakfast at the market.",
+          "Lars was saying there wasn't time before the trek."
+        ],
+        "englishReading": [
+          "It was 5 in the early morning in Cusco, and my friends Ana and Lars were arguing before the trek.",
+          "We were in the hostel kitchen, where Wilber, the person in charge, was making a hot emoliente.",
+          "Ana said she wanted to try the hen broth at the market.",
+          "She was also saying that the chuta bread at the San Pedro market was famous and that she didn't want to leave Cusco without trying it.",
+          "Lars was saying there wasn't time before the pickup.",
+          "His position was that the hostel's quinoa was enough and that rushing around with altitude sickness before a long trek was a bad idea.",
+          "I stepped into the middle and told them: Listen, you both have a point.",
+          "Then I asked Lars: Lars, you were saying the pickup was at 7, right?",
+          "Lars checked the agency's message and confirmed that the pickup time was at 7 at the hostel door.",
+          "Then I asked Wilber: Wilber, could you tell me what time the market opens?",
+          "Wilber explained to us that the market opened at 6.",
+          "He added that, after the opening, the broth stalls filled up quickly and that the market was a 10-minute walk away.",
+          "Wilber also said that coca tea helped many travelers with altitude sickness, so he served each of us a cup.",
+          "With that information, I proposed a middle ground: What if we go to the market and come back before 7?",
+          "Ana agreed to come back at 6:45, and Lars said he was on board if we left our backpacks ready at the front desk.",
+          "To close the agreement, I summed it up out loud: So it's settled: a quick market trip and backpacks ready beforehand.",
+          "Ana smiled, Lars finished his emoliente, and we headed out to San Pedro at 6 sharp."
+        ],
+        "englishSourceSha256": "04a1d45638028de52912319e8fbd6424514f88381c5c628521a59a9400b2a393"
+      },
+      "title": "Mediate a group breakfast plan before pickup",
+      "objective": "Report two friends' preferences fairly, verify the market's opening and pickup time, then agree on a breakfast plan without rushing anyone who feels unwell.",
+      "focus": "～と言っていました reports another person's position without treating it as a fact; 一方で contrasts views; ～なら offers a conditional compromise. The English source's coca-tea altitude claim is excluded: food and drinks are not presented as treatment for altitude symptoms. Do not promise a rushed market trip is safe or feasible.",
+      "scene": "At a mountain lodge, two friends disagree about visiting a morning market before a scheduled shuttle pickup.",
+      "cards": [
+        {
+          "ja": "集合時刻",
+          "en": "pickup time",
+          "kind": "term"
+        },
+        {
+          "ja": "朝市",
+          "en": "morning market",
+          "kind": "term"
+        },
+        {
+          "ja": "開店時刻",
+          "en": "opening time",
+          "kind": "term"
+        },
+        {
+          "ja": "宿",
+          "en": "lodging",
+          "kind": "term"
+        },
+        {
+          "ja": "意見",
+          "en": "opinion",
+          "kind": "term"
+        },
+        {
+          "ja": "折衷案",
+          "en": "compromise",
+          "kind": "term"
+        },
+        {
+          "ja": "体調",
+          "en": "physical condition",
+          "kind": "term"
+        },
+        {
+          "ja": "荷物",
+          "en": "luggage",
+          "kind": "term"
+        },
+        {
+          "ja": "送迎車",
+          "en": "shuttle vehicle",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to verify",
+          "kind": "term"
+        },
+        {
+          "ja": "～と言っていました",
+          "en": "said that ...",
+          "kind": "term"
+        },
+        {
+          "ja": "一方で",
+          "en": "on the other hand",
+          "kind": "term"
+        },
+        {
+          "ja": "～なら",
+          "en": "if ...",
+          "kind": "term"
+        },
+        {
+          "ja": "無理をしない",
+          "en": "not to push oneself",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Mediator",
+          "ja": "美咲さんは朝市で朝食を食べたいと言っていました。",
+          "en": "Misaki said she wanted to eat breakfast at the morning market."
+        },
+        {
+          "speaker": "Mediator",
+          "ja": "一方で、ルカさんは送迎車に遅れるのを心配しています。",
+          "en": "On the other hand, Luca is worried about missing the shuttle."
+        },
+        {
+          "speaker": "Luca",
+          "ja": "集合時刻は七時だと思います。まず予約の連絡を確認しましょう。",
+          "en": "I think pickup is at seven. Let's check the booking message first."
+        },
+        {
+          "speaker": "Host",
+          "ja": "連絡には、宿の前に七時集合と書いてあります。",
+          "en": "The message says to meet outside the lodge at seven."
+        },
+        {
+          "speaker": "Mediator",
+          "ja": "朝市の開店時刻と、宿からの距離も確認できますか。",
+          "en": "Could we check the market opening time and distance from the lodge too?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "六時に開きますが、混み具合は分かりません。",
+          "en": "It opens at six, but I do not know how crowded it will be."
+        },
+        {
+          "speaker": "Misaki",
+          "ja": "体調がよくない人がいたら、無理をしないほうがいいですね。",
+          "en": "If someone feels unwell, we should not push them."
+        },
+        {
+          "speaker": "Mediator",
+          "ja": "では、先に荷物を用意して、全員の体調を聞きましょう。",
+          "en": "Then let's prepare our bags first and ask how everyone feels."
+        },
+        {
+          "speaker": "Mediator",
+          "ja": "時間と体調に余裕があるなら朝市へ、なければ宿で食べるのはどうですか。",
+          "en": "If we have enough time and everyone feels well, how about the market; otherwise, we can eat at the lodge?"
+        },
+        {
+          "speaker": "Luca",
+          "ja": "その条件なら賛成です。出発前にもう一度時刻を確認しましょう。",
+          "en": "I agree on those conditions. Let's check the time again before leaving."
+        }
+      ],
+      "speaking": {
+        "role": "Friend mediating a breakfast plan",
+        "partnerRole": "Two travelers and a lodging host",
+        "opening": "お二人の意見を整理しましょう。まず集合時刻を確認します。",
+        "goal": "Report each person's view fairly, ask staff for opening and pickup facts, and propose a conditional plan that respects time and health.",
+        "closure": "Do not recommend a drink as treatment for altitude symptoms or pressure an unwell traveler to rush; seek appropriate local help if needed.",
+        "wordBank": [
+          "集合時刻",
+          "朝市",
+          "意見",
+          "確認",
+          "体調",
+          "折衷案"
+        ]
+      },
+      "modes": {
+        "see": "Read a mediated group decision with aligned English.",
+        "recall": "Recall each friend's view and verified schedule facts.",
+        "hear": "Hear reported speech and contrasting positions.",
+        "type": "Type a conditional compromise with kana support.",
+        "say": "Mediate the group without promising a rushed trip.",
+        "write": "Write a balanced summary and conditional plan."
+      }
+    },
+    {
+      "n": 11,
+      "stableId": "master-travel-breakfast:11:ja-en",
+      "sourceEnglish": {
+        "n": 11,
+        "title": "Keep a Tired Group Going at a Dawn Lodge Breakfast",
+        "objective": "Encourage a sleepy, cranky group, commit to a clear plan, and keep spirits up while the bread finishes.",
+        "speaking": "You are the group's organizer, and the AI plays cook Mirta and your sleepy companions Noor, Felipe and Greta: encourage them, commit to tasks with the future (me encargaré, saldremos), and keep spirits up with ¡vamos! and dale while the bread finishes.",
+        "lessonType": "People",
+        "block": "C",
+        "englishWordAnchors": [
+          "the thermos",
+          "the kettle",
+          "the yerba mate (dried leaves)",
+          "the dulce de leche",
+          "the pastries",
+          "the homemade bread",
+          "the packed lunch",
+          "the headlamp",
+          "the jacket",
+          "the trail",
+          "the trailhead",
+          "the sunrise",
+          "the spirits (mood)",
+          "the plan for the day",
+          "calmly, without rushing",
+          "I'll take care of the thermos and the yerba.",
+          "Come on, we'll still leave on time!",
+          "Felipe, relax, the bread will be ready in a little while.",
+          "Mirta, roughly how much longer does the bread need?",
+          "Noor, can you put the packed lunches together while we wait?",
+          "Greta, I'll make you a mate while the bread bakes.",
+          "We'll get to the trail before sunrise, you'll see.",
+          "Come on, guys, the day is going to be beautiful."
+        ],
+        "englishGrammarExamples": [
+          "I'll take care of the thermos and you the packed lunches.",
+          "Come on, we'll get to the trail before sunrise!"
+        ],
+        "englishReading": [
+          "At 5 in the morning, Sam and his companions Noor, Felipe and Greta are having breakfast at a lodge in El Chaltén before heading out to hike.",
+          "Mirta, the cook, takes the kettle off the stove and lets them know that the homemade bread needs more time in the oven.",
+          "Sam: Mirta, roughly how much longer does the bread need?",
+          "Mirta: About 20 minutes, but in the meantime you can eat the pastries with dulce de leche.",
+          "Felipe is in a bad mood because he wanted to leave right away, and he says they are going to miss the sunrise.",
+          "Sam: Felipe, relax, the bread will be ready in a little while.",
+          "Sam: We'll get to the trail before sunrise, you'll see.",
+          "Sam calmly explains the plan for the day: they will leave at 6, hike 2 hours to the lagoon and come back to the lodge in the afternoon.",
+          "Sam: I'll take care of the thermos and the yerba.",
+          "Sam: Noor, can you put the packed lunches together while we wait?",
+          "Noor yawns, but she fills each packed lunch with cheese and fruit and leaves room for the bread.",
+          "Greta is cold and can't find her jacket or her headlamp.",
+          "Felipe, calmer now, tells her: Greta, both things are in your backpack.",
+          "Sam: Greta, I'll make you a mate while the bread bakes.",
+          "With the hot mate and the pastries, the group's spirits improve a lot.",
+          "Mirta takes the homemade bread out of the oven and tells the group: It's ready, guys, the trailhead is a 10-minute walk away.",
+          "Sam: Come on, we'll still leave on time!",
+          "Sam: Come on, guys, the day is going to be beautiful."
+        ],
+        "englishSourceSha256": "f1564ba1742be1955c1aa8c0334b8488993551caa747e67be9bcd7c196667ef1"
+      },
+      "title": "Keep a tired group organized at dawn",
+      "objective": "Encourage a sleepy group, divide preparation tasks, and agree on a realistic departure plan while breakfast is delayed.",
+      "focus": "～を担当します assigns a task; ～までに prepares by a deadline; 無理をせず gives a humane limit. The English source's promise to reach the trail before sunrise is not repeated: confirm actual route, weather, daylight and the group's condition instead.",
+      "scene": "At a hiking lodge, bread is still baking and the group shares tasks while the cook confirms when breakfast will be ready.",
+      "cards": [
+        {
+          "ja": "水筒",
+          "en": "thermos",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りの昼食",
+          "en": "packed lunch",
+          "kind": "term"
+        },
+        {
+          "ja": "上着",
+          "en": "jacket",
+          "kind": "term"
+        },
+        {
+          "ja": "ヘッドライト",
+          "en": "headlamp",
+          "kind": "term"
+        },
+        {
+          "ja": "登山口",
+          "en": "trailhead",
+          "kind": "term"
+        },
+        {
+          "ja": "出発予定",
+          "en": "planned departure",
+          "kind": "term"
+        },
+        {
+          "ja": "天気予報",
+          "en": "weather forecast",
+          "kind": "term"
+        },
+        {
+          "ja": "体調",
+          "en": "physical condition",
+          "kind": "term"
+        },
+        {
+          "ja": "担当する",
+          "en": "to take charge of",
+          "kind": "term"
+        },
+        {
+          "ja": "あと何分",
+          "en": "how many more minutes",
+          "kind": "term"
+        },
+        {
+          "ja": "～までに",
+          "en": "by ...",
+          "kind": "term"
+        },
+        {
+          "ja": "無理をせず",
+          "en": "without pushing too hard",
+          "kind": "term"
+        },
+        {
+          "ja": "準備しましょう",
+          "en": "let's get ready",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Cook",
+          "ja": "パンはまだ焼いています。あと十五分ほどかかる予定です。",
+          "en": "The bread is still baking. It is expected to take about fifteen more minutes."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "ありがとうございます。正確な時間が分かったら教えてください。",
+          "en": "Thank you. Please tell us when you know the exact time."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "眠くて、出発の準備がまだ終わっていません。",
+          "en": "I am sleepy, and I have not finished getting ready to leave."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "無理をせず、一つずつ準備しましょう。私は水筒を担当します。",
+          "en": "Let's get ready one thing at a time without pushing too hard. I will take care of the thermos."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "美咲さんは持ち帰りの昼食を確認してくれますか。",
+          "en": "Misaki, could you check the packed lunches?"
+        },
+        {
+          "speaker": "Misaki",
+          "ja": "はい。人数と中身を確認しておきます。",
+          "en": "Yes. I will check the count and contents."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "出発前に上着とヘッドライトも確認しましょう。",
+          "en": "Let's check our jackets and headlamps before leaving too."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "天気予報と登山口までの道も見ておきます。",
+          "en": "I will also check the weather forecast and route to the trailhead."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "パンが焼けました。熱いので、受け取るときは気をつけてください。",
+          "en": "The bread is ready. It is hot, so please take care when receiving it."
+        },
+        {
+          "speaker": "Organizer",
+          "ja": "全員の体調と準備を確認してから、出発時刻を決めましょう。",
+          "en": "Let's decide when to leave after checking everyone's condition and readiness."
+        }
+      ],
+      "speaking": {
+        "role": "Group organizer at a hiking lodge",
+        "partnerRole": "Cook and tired companions",
+        "opening": "パンはあと何分ぐらいかかりますか。待つ間に準備を分担しましょう。",
+        "goal": "Ask for an updated breakfast time, assign two preparation tasks, encourage the group, and confirm readiness before departure.",
+        "closure": "Do not promise arrival before sunrise or ignore weather, route or a companion's condition.",
+        "wordBank": [
+          "あと何分",
+          "担当します",
+          "水筒",
+          "昼食",
+          "上着",
+          "体調"
+        ]
+      },
+      "modes": {
+        "see": "Read a realistic dawn-preparation scene with aligned English.",
+        "recall": "Recall the delay and assigned tasks.",
+        "hear": "Hear task commitments and timing language.",
+        "type": "Type a task assignment with kana support.",
+        "say": "Coordinate the group while checking readiness.",
+        "write": "Write a short task list and departure condition."
+      }
+    },
+    {
+      "n": 12,
+      "stableId": "master-travel-breakfast:12:ja-en",
+      "sourceEnglish": {
+        "n": 12,
+        "title": "Usted or Tú: Coach a Friend at a Casa Particular",
+        "objective": "Explain when to switch between usted and tú, then model it with the host, her grandson and an older guest.",
+        "speaking": "You are coaching your friend Marcus, and the AI plays Marcus, host señora Odalys, her grandson Yandiel and guest don Rigoberto: explain when to use usted or tú, then model each with softeners like quisiera, ¿me podría…? and ¿te importa…?",
+        "lessonType": "Teach-back",
+        "block": "C",
+        "englishWordAnchors": [
+          "the casa particular (private guesthouse)",
+          "the host (female)",
+          "the grandson",
+          "the guest (male)",
+          "the way you address someone",
+          "the use of tú",
+          "the familiarity, closeness",
+          "the respect",
+          "Mr. (title of respect)",
+          "the papaya",
+          "the guava",
+          "the smoothie, milkshake",
+          "the coffee pot",
+          "the front porch",
+          "I would like",
+          "Marcus, speak to señora Odalys using usted.",
+          "Señora Odalys, could you serve me a little more coffee?",
+          "Yandiel, do you mind passing me the papaya?",
+          "Don Rigoberto, are you from here, from Trinidad?",
+          "I'd like another guava smoothie, if it's no trouble.",
+          "You can use tú with Yandiel, because he used tú with us first.",
+          "If she tells you to use tú with her, then you switch.",
+          "Now you try: ask don Rigoberto for the sugar."
+        ],
+        "englishGrammarExamples": [
+          "Señora Odalys, could you pass me the coffee pot, please?",
+          "Yandiel, do you mind if I sit here?"
+        ],
+        "englishReading": [
+          "Lucía and her friend Marcus are having breakfast on the front porch of a casa particular in Trinidad, Cuba.",
+          "The host, señora Odalys, puts a coffee pot of freshly brewed coffee on the table.",
+          "Marcus doesn't know which way of addressing people to use with each person at the table, so Lucía explains the difference to him.",
+          "Lucía: Marcus, speak to señora Odalys using usted.",
+          "Lucía: With the owner of the house or with an older person, usted shows respect.",
+          "Lucía: If she tells you to use tú with her, then you switch.",
+          "Then Lucía gives an example with a gentle question: Señora Odalys, could you serve me a little more coffee?",
+          "Yandiel, the host's grandson, comes out to the porch and asks Marcus: Hey, are you American?",
+          "Lucía: You can use tú with Yandiel, because he used tú with us first.",
+          "Lucía: Among young people, using tú shows closeness and is not a lack of respect.",
+          "Lucía gives the example: Yandiel, do you mind passing me the papaya?",
+          "Don Rigoberto, a guest of about 70, comes out of his room and sits down next to Marcus.",
+          "Lucía: An older man you call don, you also address with usted.",
+          "Marcus asks carefully: Don Rigoberto, are you from here, from Trinidad?",
+          "Don Rigoberto smiles and answers: No, I'm from Cienfuegos, but I come to this house every year.",
+          "Lucía: Now you try: ask don Rigoberto for the sugar.",
+          "Marcus: Don Rigoberto, could you pass me the sugar, please?",
+          "At the end, Marcus says to the host with a smile: I'd like another guava smoothie, if it's no trouble."
+        ],
+        "englishSourceSha256": "f06c5d934066bf5e1ee27b1c4a48a1c74d43783fb071784c2c6d2c0ff88a7f79"
+      },
+      "title": "Coach polite and casual requests at a guesthouse",
+      "objective": "Explain how to begin politely with an unfamiliar host or guest, listen for the form of address they prefer, and model a more casual request with a familiar peer.",
+      "focus": "～ていただけますか and です・ます are polite requests; ～てくれる？ is casual with a familiar peer. Japanese formality depends on relationship, setting and the other person's cues; it is not a fixed age rule. The Spanish usted/tú distinction stays as source provenance, not a literal Japanese grammar equivalence.",
+      "scene": "A traveler coaches a friend through breakfast requests to a guesthouse host, a new guest and a familiar travel companion.",
+      "cards": [
+        {
+          "ja": "宿の方",
+          "en": "guesthouse host",
+          "kind": "term"
+        },
+        {
+          "ja": "宿泊客",
+          "en": "guest",
+          "kind": "term"
+        },
+        {
+          "ja": "同行者",
+          "en": "travel companion",
+          "kind": "term"
+        },
+        {
+          "ja": "丁寧な言い方",
+          "en": "polite way of speaking",
+          "kind": "term"
+        },
+        {
+          "ja": "くだけた言い方",
+          "en": "casual way of speaking",
+          "kind": "term"
+        },
+        {
+          "ja": "関係",
+          "en": "relationship",
+          "kind": "term"
+        },
+        {
+          "ja": "呼び方",
+          "en": "form of address",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒーポット",
+          "en": "coffee pot",
+          "kind": "term"
+        },
+        {
+          "ja": "砂糖",
+          "en": "sugar",
+          "kind": "term"
+        },
+        {
+          "ja": "～ていただけますか",
+          "en": "could you please ...?",
+          "kind": "term"
+        },
+        {
+          "ja": "～てくれる？",
+          "en": "could you ...? (casual)",
+          "kind": "term"
+        },
+        {
+          "ja": "失礼します",
+          "en": "excuse me",
+          "kind": "term"
+        },
+        {
+          "ja": "ご希望",
+          "en": "preference",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to check",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Coach",
+          "ja": "初めて会う宿の方には、まず丁寧に話しましょう。",
+          "en": "When meeting the guesthouse host for the first time, let's begin politely."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "どんなふうに頼めばいいですか。",
+          "en": "How should I ask?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "『コーヒーをもう少しいただけますか』と言えます。",
+          "en": "You can say, 'Could I please have a little more coffee?'"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "すみません。コーヒーをもう少しいただけますか。",
+          "en": "Excuse me. Could I please have a little more coffee?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "もちろんです。私のことは名前で呼んでください。",
+          "en": "Of course. Please call me by my name."
+        },
+        {
+          "speaker": "Coach",
+          "ja": "呼び方は相手の希望に合わせましょう。丁寧さも場面を見て調整します。",
+          "en": "Let's follow the person's preference for how to address them. We can adjust formality to the situation too."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "初めて会う宿泊客にはどう話しますか。",
+          "en": "How should I speak to a guest I have just met?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "まずは『砂糖を取っていただけますか』と丁寧に聞けます。",
+          "en": "You could begin by politely asking, 'Could you pass the sugar?'"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "いつもの同行者には、くだけて話してもいいですか。",
+          "en": "Can I speak more casually with my usual travel companion?"
+        },
+        {
+          "speaker": "Coach",
+          "ja": "お互いにそう話しているなら、『砂糖を取ってくれる？』でも自然です。",
+          "en": "If you already speak that way with each other, 'Could you pass the sugar?' in casual form is natural too."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler coaching a friend",
+        "partnerRole": "Guesthouse host, unfamiliar guest and familiar companion",
+        "opening": "初めて会う人には、まず丁寧にお願いしましょう。",
+        "goal": "Model polite requests to the host and new guest, then a casual request to a familiar companion while checking preferred forms of address.",
+        "closure": "Do not infer a person's preferred address from age alone; follow their cues and the setting.",
+        "wordBank": [
+          "丁寧",
+          "くだけた",
+          "～ていただけますか",
+          "～てくれる？",
+          "呼び方",
+          "確認"
+        ]
+      },
+      "modes": {
+        "see": "Read three register choices with aligned English support.",
+        "recall": "Recall which requests suit unfamiliar and familiar relationships.",
+        "hear": "Hear polite and casual request endings.",
+        "type": "Type one polite request with kana support.",
+        "say": "Coach a friend through context-sensitive address.",
+        "write": "Write paired polite and casual requests for the same item."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language, register and pedagogy review",
+    "Qualified travel, altitude-health and transport-timing review for Master 10",
+    "Qualified hiking, food-handling and hot-bread safety review for Master 11",
+    "Qualified Japanese social-register and guesthouse-cultural review for Master 12",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

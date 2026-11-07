@@ -21,6 +21,10 @@ REVIEW_REQUIRED = {
     "core": [6, 18, 24, 25, 27, 30],
     "master": [4, 8, 13, 14, 15, 19, 20],
 }
+SOURCE_LOCALE = re.compile(
+    r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
+    r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
+)
 
 
 def digest(path):
@@ -33,10 +37,23 @@ def need(value, where):
     return value.strip()
 
 
+def learner_draft_fields(raw):
+    """Exclude immutable Spanish-course anchors and editorial provenance."""
+    excluded = {"titleEnglish", "objectiveEnglish", "scenarioEnglishSource", "authoringNotesEnglish"}
+    fields = {key: value for key, value in raw.items() if key not in excluded and not key.startswith("source")}
+    fields["words"] = [
+        {key: value for key, value in word.items() if key != "en"}
+        for word in raw["words"]
+    ]
+    fields["passage"] = {key: value for key, value in raw["passage"].items() if key != "english"}
+    return fields
+
+
 def build():
     lessons = []
     files = []
     source_revisions = set()
+    locale_carryover = set()
     for stage, expected in STAGE_SIZES.items():
         stage_lessons = []
         for path in sorted(SOURCE.glob(f"{stage}-*-draft.json")):
@@ -53,6 +70,8 @@ def build():
             files.append({"path": str(path.relative_to(ROOT)), "sha256": digest(path)})
             for raw in draft["lessons"]:
                 n = raw["n"]
+                if SOURCE_LOCALE.search(json.dumps(learner_draft_fields(raw), ensure_ascii=False)):
+                    locale_carryover.add(f"{stage}:{n}")
                 if raw.get("reviewed") is not False:
                     raise ValueError(f"Unexpected lesson review flag: {stage} {n}")
                 words = []
@@ -104,16 +123,6 @@ def build():
         lessons.extend(sorted(stage_lessons, key=lambda lesson: lesson["n"]))
     if len(source_revisions) != 1:
         raise ValueError(f"Mixed source revisions: {sorted(source_revisions)}")
-    source_locale_terms = re.compile(r"\b(?:Oaxaca|Mexico|pesos?|Spanish|espagnol)\b", re.I)
-    locale_carryover = []
-    for lesson in lessons:
-        learner_fields = {key: value for key, value in lesson.items() if key not in ("sourceFiles",)}
-        learner_fields["words"] = [
-            {key: value for key, value in word.items() if key != "sourceEnglish"}
-            for word in lesson["words"]
-        ]
-        if source_locale_terms.search(json.dumps(learner_fields, ensure_ascii=False)):
-            locale_carryover.append(lesson["draftLessonKey"])
     return {
         "schema": 1,
         "purpose": "private exact-pair runtime-readiness fixture; not learner-facing",
@@ -126,7 +135,7 @@ def build():
         "lessonCount": len(lessons),
         "wordPlacements": sum(len(lesson["words"]) for lesson in lessons),
         "readerLines": sum(len(lesson["reader"]) for lesson in lessons),
-        "sourceLocaleCarryoverLessonKeys": locale_carryover,
+        "sourceLocaleCarryoverLessonKeys": sorted(locale_carryover, key=lambda key: (list(STAGE_SIZES).index(key.split(":")[0]), int(key.split(":")[1]))),
         "releaseGate": {
             "enabled": False,
             "catalogRegistered": False,

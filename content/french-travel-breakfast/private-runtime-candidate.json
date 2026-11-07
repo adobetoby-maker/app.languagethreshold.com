@@ -52,11 +52,11 @@
     },
     {
       "path": "content/french-travel-breakfast/foundation-4-6-draft.json",
-      "sha256": "9fa21b472ce989459ef91d60195c29df9816b61b892e973b0fc94ddfd05c95fd"
+      "sha256": "dfc9b1ba805897fb680e3c49a2b2803a779c462ab5e29c6e300cafc1961fe518"
     },
     {
       "path": "content/french-travel-breakfast/foundation-7-10-draft.json",
-      "sha256": "9e8d6b638555a66b5620ee4d3b41423f928cfd2efd1f042c1460b671c44b6096"
+      "sha256": "b91f0f961c37425bb7d08cbc60856c2ec11296393a1f56664e70ba5192760d65"
     },
     {
       "path": "content/french-travel-breakfast/master-1-3-draft.json",
@@ -96,13 +96,19 @@
   "wordPlacements": 1117,
   "readerLines": 708,
   "sourceLocaleCarryoverLessonKeys": [
-    "foundation:4",
-    "foundation:6",
-    "foundation:8",
+    "foundation:5",
+    "foundation:7",
     "foundation:9",
     "foundation:10",
+    "core:3",
+    "core:7",
+    "core:22",
+    "core:23",
+    "core:24",
     "core:25",
-    "core:29"
+    "core:28",
+    "core:29",
+    "master:7"
   ],
   "releaseGate": {
     "enabled": false,
@@ -1040,12 +1046,12 @@
           "kind": "phrase"
         }
       ],
-      "readerTitleFrench": "Une commande à Oaxaca",
+      "readerTitleFrench": "Une commande à Lyon",
       "reader": [
         {
           "id": "foundation:4:line:1",
-          "targetFrench": "Dans un café à Oaxaca, Emma dit au serveur Luis : J'ai très faim.",
-          "supportEnglish": "In a café in Oaxaca, Emma tells the server Luis: I'm very hungry."
+          "targetFrench": "Dans un café à Lyon, Emma dit au serveur Luis : J'ai très faim.",
+          "supportEnglish": "In a café in Lyon, Emma tells the server Luis: I'm very hungry."
         },
         {
           "id": "foundation:4:line:2",
@@ -1481,8 +1487,8 @@
       "words": [
         {
           "id": "foundation:6:word:1",
-          "targetFrench": "les chilaquiles",
-          "supportEnglish": "the chilaquiles",
+          "targetFrench": "le pain perdu",
+          "supportEnglish": "the French toast",
           "sourceEnglish": "the chilaquiles",
           "kind": "term"
         },
@@ -1502,8 +1508,8 @@
         },
         {
           "id": "foundation:6:word:4",
-          "targetFrench": "les haricots",
-          "supportEnglish": "the beans",
+          "targetFrench": "les fruits",
+          "supportEnglish": "the fruit",
           "sourceEnglish": "the beans",
           "kind": "term"
         },
@@ -1530,8 +1536,8 @@
         },
         {
           "id": "foundation:6:word:8",
-          "targetFrench": "la salsa verde",
-          "supportEnglish": "the green salsa",
+          "targetFrench": "la salade de fruits",
+          "supportEnglish": "the fruit salad",
           "sourceEnglish": "the green salsa",
           "kind": "term"
         },
@@ -1572,8 +1578,8 @@
         },
         {
           "id": "foundation:6:word:14",
-          "targetFrench": "Nous mangeons des œufs avec des haricots.",
-          "supportEnglish": "We eat eggs with beans.",
+          "targetFrench": "Nous mangeons des œufs et des fruits.",
+          "supportEnglish": "We eat eggs and fruit.",
           "sourceEnglish": "We eat eggs with beans.",
           "kind": "phrase"
         },
@@ -1592,12 +1598,12 @@
           "kind": "phrase"
         }
       ],
-      "readerTitleFrench": "Au petit-déjeuner de l'hôtel",
+      "readerTitleFrench": "Au petit-déjeuner de l'hôtel à Lyon",
       "reader": [
         {
           "id": "foundation:6:line:1",
-          "targetFrench": "Emma prend des chilaquiles avec de la salsa verde au petit-déjeuner à son hôtel.",
-          "supportEnglish": "Emma has chilaquiles with green salsa for breakfast at her hotel."
+          "targetFrench": "Emma prend du pain perdu et de la salade de fruits au petit-déjeuner à son hôtel de Lyon.",
+          "supportEnglish": "Emma has French toast and fruit salad for breakfast at her hotel in Lyon."
         },
         {
           "id": "foundation:6:line:2",
@@ -1606,13 +1612,13 @@
         },
         {
           "id": "foundation:6:line:3",
-          "targetFrench": "Emma met du fromage et de l'avocat sur ses chilaquiles.",
-          "supportEnglish": "Emma puts cheese and avocado on her chilaquiles."
+          "targetFrench": "Emma mange aussi du fromage et de l’avocat sur du pain.",
+          "supportEnglish": "Emma also has cheese and avocado on bread."
         },
         {
           "id": "foundation:6:line:4",
-          "targetFrench": "Lucía, une autre cliente de l'hôtel, mange des œufs brouillés avec du jambon.",
-          "supportEnglish": "Lucía, another hotel guest, eats scrambled eggs with ham."
+          "targetFrench": "Lucie, une autre cliente de l’hôtel, mange des œufs brouillés avec du jambon.",
+          "supportEnglish": "Lucie, another hotel guest, eats scrambled eggs with ham."
         },
         {
           "id": "foundation:6:line:5",
@@ -1621,23 +1627,23 @@
         },
         {
           "id": "foundation:6:line:6",
-          "targetFrench": "Lucía : Je bois du café, et mes enfants mangent du porridge.",
-          "supportEnglish": "Lucía: I drink coffee, and my kids eat oatmeal."
+          "targetFrench": "Lucie : Je bois du café, et mes enfants mangent du porridge.",
+          "supportEnglish": "Lucie: I drink coffee, and my kids eat oatmeal."
         },
         {
           "id": "foundation:6:line:7",
-          "targetFrench": "Emma : Vous habitez ici, à Oaxaca ?",
-          "supportEnglish": "Emma: Do you live here in Oaxaca?"
+          "targetFrench": "Emma : Vous habitez ici, à Lyon ?",
+          "supportEnglish": "Emma: Do you live here in Lyon?"
         },
         {
           "id": "foundation:6:line:8",
-          "targetFrench": "Lucía : Non, j'habite à Puebla, et là-bas, nous mangeons des haricots.",
-          "supportEnglish": "Lucía: No, I live in Puebla, and there we eat beans."
+          "targetFrench": "Lucie : Non, j’habite à Grenoble ; chez nous, nous mangeons des œufs et des fruits.",
+          "supportEnglish": "Lucie: No, I live in Grenoble; at home we eat eggs and fruit."
         },
         {
           "id": "foundation:6:line:9",
-          "targetFrench": "Lucía : À la maison, mon mari mange des œufs au plat avec du bacon.",
-          "supportEnglish": "Lucía: At home, my husband eats fried eggs with bacon."
+          "targetFrench": "Lucie : À la maison, mon mari mange des œufs au plat avec du bacon.",
+          "supportEnglish": "Lucie: At home, my husband eats fried eggs with bacon."
         }
       ],
       "speaking": {
@@ -2175,12 +2181,12 @@
           "kind": "phrase"
         }
       ],
-      "readerTitleFrench": "Petit-déjeuner sans viande à Oaxaca",
+      "readerTitleFrench": "Un petit-déjeuner à Lyon avec des restrictions alimentaires",
       "reader": [
         {
           "id": "foundation:8:line:1",
-          "targetFrench": "Emma et Tom prennent le petit-déjeuner dans un café à Oaxaca.",
-          "supportEnglish": "Emma and Tom are having breakfast at a café in Oaxaca."
+          "targetFrench": "Emma et Tom prennent le petit-déjeuner dans un café à Lyon.",
+          "supportEnglish": "Emma and Tom are having breakfast at a café in Lyon."
         },
         {
           "id": "foundation:8:line:2",
@@ -2204,23 +2210,23 @@
         },
         {
           "id": "foundation:8:line:6",
-          "targetFrench": "Luis : Je vais demander à la cuisine s'ils utilisent des fruits à coque ou des cacahuètes.",
-          "supportEnglish": "Luis: I'm going to ask the kitchen if they use nuts or peanuts."
+          "targetFrench": "Luis : Je vais demander à la cuisine quels ingrédients et ustensiles sont utilisés.",
+          "supportEnglish": "Luis: I will ask the kitchen which ingredients and utensils are used."
         },
         {
           "id": "foundation:8:line:7",
-          "targetFrench": "Luis : Normalement, les chilaquiles verts sans crème ni fromage n'ont ni viande ni produits laitiers, mais je vérifie avec la cuisine.",
-          "supportEnglish": "Luis: The green chilaquiles without cream or cheese have no meat or dairy."
+          "targetFrench": "Luis : Je ne peux pas confirmer la préparation de ce plat.",
+          "supportEnglish": "Luis: I cannot confirm how this dish is prepared."
         },
         {
           "id": "foundation:8:line:8",
-          "targetFrench": "Luis : Les tortillas de maïs sont normalement sans gluten, mais je demande à la cuisine pour les allergies.",
-          "supportEnglish": "Luis: The corn tortillas don't have gluten."
+          "targetFrench": "Tom : Alors, je ne mange rien ici.",
+          "supportEnglish": "Tom: Then I won't eat anything here."
         },
         {
           "id": "foundation:8:line:9",
-          "targetFrench": "Emma : Un autre café avec plus de lait sans lactose et moins de sucre, s'il vous plaît.",
-          "supportEnglish": "Emma: Another coffee with more lactose-free milk and less sugar, please."
+          "targetFrench": "Emma : Un autre café avec moins de sucre, s'il vous plaît.",
+          "supportEnglish": "Emma: Another coffee with less sugar, please."
         }
       ],
       "speaking": {

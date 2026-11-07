@@ -1631,6 +1631,538 @@
         "say": "Ask for takeaway and packaging.",
         "write": "Write a short change request and napkin question."
       }
+    },
+    {
+      "n": 10,
+      "stableId": "travel-breakfast:10:ja-en",
+      "sourceEnglish": {
+        "objective": "politely identify a missing or incorrect item and request the right one",
+        "roleplay": "You received the wrong coffee and one pastry is missing; resolve both without sounding hostile.",
+        "englishWordAnchors": [
+          "order",
+          "counter",
+          "receipt",
+          "americano (black coffee)",
+          "coffee with milk",
+          "pastry",
+          "cup",
+          "server (male)",
+          "table",
+          "decaf",
+          "Excuse me, I think there is a mistake with my order.",
+          "I ordered an americano, not a coffee with milk.",
+          "I am missing a pastry.",
+          "Can you change it for me, please?",
+          "Here is my receipt.",
+          "Can you check my order, please?"
+        ],
+        "englishReading": [
+          "I get to the counter and order an americano and a pastry.",
+          "Then the server gives me a cup of coffee with milk.",
+          "I check my bag and see that there is no pastry in it.",
+          "First, I smile and say: Excuse me, I think there is a mistake with my order.",
+          "Then I explain: I ordered an americano, not a coffee with milk.",
+          "I also say: I am missing a pastry, and here is my receipt.",
+          "I ask: Can you change it for me, please?",
+          "The server says: Of course, I will bring you the coffee and the pastry now."
+        ],
+        "englishSourceSha256": "8bd882be2f930e8acd854d1d0be94c86aa133b19a8bf8177b8d1a15d216a861c"
+      },
+      "title": "Correct an order politely",
+      "objective": "Explain that the drink is different from what you ordered and a pastry is missing; offer the receipt so staff can check.",
+      "focus": "注文したのは～です identifies the item ordered. ～ではなく means not X but Y. 入っていません says an item is missing from a bag. Ask staff to check before asserting fault. Menu labels for アメリカン and ブレンド vary, so use the exact label shown on this order.",
+      "scene": "Sam checks a takeaway bag and notices a different drink and missing pastry.",
+      "cards": [
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "袋",
+          "en": "bag",
+          "kind": "term"
+        },
+        {
+          "ja": "入っていません",
+          "en": "is not in it",
+          "kind": "term"
+        },
+        {
+          "ja": "違います",
+          "en": "is different; incorrect",
+          "kind": "term"
+        },
+        {
+          "ja": "ブレンド",
+          "en": "blend coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        },
+        {
+          "ja": "取り替えられますか",
+          "en": "Could it be replaced?",
+          "kind": "term"
+        },
+        {
+          "ja": "注文したのはブレンドです",
+          "en": "I ordered a blend coffee",
+          "kind": "phrase"
+        },
+        {
+          "ja": "クロワッサンが入っていません",
+          "en": "The croissant is missing",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。注文を確認していただけますか。",
+          "en": "Excuse me. Could you check my order?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。どうなさいましたか。",
+          "en": "Yes. What seems to be the problem?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "注文したのはブレンドですが、これはカフェオレです。",
+          "en": "I ordered a blend coffee, but this is coffee with milk."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "クロワッサンも袋に入っていません。",
+          "en": "The croissant is not in the bag either."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レシートはこちらです。",
+          "en": "Here is the receipt."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。少々お待ちください。",
+          "en": "I will check. Please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。ご注文を確認できました。",
+          "en": "I am sorry. We confirmed your order."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ブレンドとクロワッサンをお持ちします。",
+          "en": "I will bring the blend coffee and croissant."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler correcting a takeaway order",
+        "partnerRole": "Café staff",
+        "opening": "何かお困りですか。",
+        "goal": "Explain the different coffee and missing pastry, show the receipt, and ask staff to check.",
+        "closure": "Wait for the verified correction; avoid blame.",
+        "wordBank": [
+          "注文",
+          "確認していただけますか",
+          "注文したのは",
+          "入っていません",
+          "レシート"
+        ]
+      },
+      "modes": {
+        "see": "Read the correction scene with aligned English.",
+        "recall": "Recall missing-item and wrong-item forms.",
+        "hear": "Hear ブレンド versus カフェオレ.",
+        "type": "Type a receipt/check request with kana help.",
+        "say": "Correct a wrong drink and missing pastry politely.",
+        "write": "Write a concise two-item correction and offer the receipt."
+      }
+    },
+    {
+      "n": 11,
+      "stableId": "travel-breakfast:11:ja-en",
+      "sourceEnglish": {
+        "objective": "exchange greetings and talk briefly about the day, weather, and plans",
+        "roleplay": "Chat naturally with a barista or nearby customer while waiting.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "counter",
+          "barista",
+          "weather",
+          "forecast",
+          "coat",
+          "plans",
+          "morning",
+          "downtown",
+          "order",
+          "sleepiness",
+          "Good morning, how are you this morning?",
+          "It is very cold today, isn't it?",
+          "I am still a little sleepy.",
+          "I am going to visit downtown if it does not rain.",
+          "Sorry, can you repeat that more slowly, please?",
+          "You too, have a good day!"
+        ],
+        "englishReading": [
+          "It is early and I am in a small café, waiting for my coffee with milk at the counter.",
+          "The barista smiles at me and says: Good morning, how are you this morning?",
+          "I answer: Very well, thanks, but I am still a little sleepy.",
+          "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.",
+          "A man near me asks: What plans do you have for today?",
+          "I explain that I am going to visit downtown if it does not rain again.",
+          "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.",
+          "When my order is ready, the barista tells me: Have a great day!",
+          "I answer with a smile: You too, have a good day!"
+        ],
+        "englishSourceSha256": "539d184547036bbbf10bdce0d3ea3ea42e378efe3fdee47327f9cf5ff82b75d1"
+      },
+      "title": "Morning small talk",
+      "objective": "Exchange a greeting, comment on the weather and share a tentative plan while waiting for a drink.",
+      "focus": "今日は寒いですね invites agreement about present weather. ～なら expresses a condition, as in 雨が降らなければ. Keep the exchange brief and appropriate with staff; do not claim a forecast unless someone actually reports it. Ask for repetition politely if needed.",
+      "scene": "Sam makes brief small talk with a barista while waiting for a coffee.",
+      "cards": [
+        {
+          "ja": "今朝",
+          "en": "this morning",
+          "kind": "term"
+        },
+        {
+          "ja": "天気",
+          "en": "weather",
+          "kind": "term"
+        },
+        {
+          "ja": "寒い",
+          "en": "cold",
+          "kind": "term"
+        },
+        {
+          "ja": "雨",
+          "en": "rain",
+          "kind": "term"
+        },
+        {
+          "ja": "予定",
+          "en": "plan",
+          "kind": "term"
+        },
+        {
+          "ja": "駅前",
+          "en": "near the station",
+          "kind": "term"
+        },
+        {
+          "ja": "散歩",
+          "en": "walk",
+          "kind": "term"
+        },
+        {
+          "ja": "眠い",
+          "en": "sleepy",
+          "kind": "term"
+        },
+        {
+          "ja": "コート",
+          "en": "coat",
+          "kind": "term"
+        },
+        {
+          "ja": "もう一度",
+          "en": "one more time",
+          "kind": "term"
+        },
+        {
+          "ja": "ゆっくり",
+          "en": "slowly",
+          "kind": "term"
+        },
+        {
+          "ja": "今日は寒いですね",
+          "en": "It is cold today, isn’t it?",
+          "kind": "term"
+        },
+        {
+          "ja": "雨が降らなければ",
+          "en": "if it does not rain",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Barista",
+          "ja": "おはようございます。今日は寒いですね。",
+          "en": "Good morning. It is cold today, isn’t it?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。本当に寒いですね。",
+          "en": "Good morning. It really is cold."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "コーヒーはもう少しでできます。",
+          "en": "Your coffee will be ready shortly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。まだ少し眠いです。",
+          "en": "Thank you. I am still a little sleepy."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "今日はどちらへ行きますか。",
+          "en": "Where are you going today?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "雨が降らなければ、駅前を散歩します。",
+          "en": "If it does not rain, I will walk near the station."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "いいですね。こちらがコーヒーです。",
+          "en": "That sounds nice. Here is your coffee."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。よい一日を。",
+          "en": "Thank you. Have a good day."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "お客様も、よい一日を。",
+          "en": "You too. Have a good day."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler waiting for coffee",
+        "partnerRole": "Barista",
+        "opening": "おはようございます。今日は寒いですね。",
+        "goal": "Respond to a greeting, mention the weather and share a tentative plan.",
+        "closure": "Thank staff when the coffee arrives.",
+        "wordBank": [
+          "おはようございます",
+          "寒いですね",
+          "まだ少し眠いです",
+          "雨が降らなければ",
+          "よい一日を"
+        ]
+      },
+      "modes": {
+        "see": "Read a short café conversation with English after reveal.",
+        "recall": "Recall weather and conditional-plan phrases.",
+        "hear": "Hear 寒い and 眠い in context.",
+        "type": "Type a brief weather sentence with kana support.",
+        "say": "Make brief morning small talk while waiting.",
+        "write": "Write a greeting and one tentative plan."
+      }
+    },
+    {
+      "n": 12,
+      "stableId": "travel-breakfast:12:ja-en",
+      "sourceEnglish": {
+        "objective": "request the bill, understand cover or service charges, and choose a payment method",
+        "roleplay": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+        "englishWordAnchors": [
+          "bill",
+          "cover charge",
+          "tip",
+          "service charge",
+          "extra charge",
+          "cash",
+          "card",
+          "receipt",
+          "register",
+          "waitress",
+          "total",
+          "card terminal",
+          "Could you bring me the bill, please?",
+          "What is this charge?",
+          "Is the tip included?",
+          "Can I pay by card?",
+          "I want to pay in cash.",
+          "Could you give me the receipt, please?"
+        ],
+        "englishReading": [
+          "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+          "The waitress answers that he can pay at the register or at the table, as he prefers.",
+          "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+          "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+          "The traveler says he understands, but he wants to know if the tip is included.",
+          "She answers that service is not included, so the tip is optional.",
+          "Since he has no cash, the traveler asks: Can I pay by card?",
+          "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+          "Before leaving, the traveler checks the total and says thank you."
+        ],
+        "englishSourceSha256": "d82cade827143daf0050f6177d9766f3032834ddf3227f2cc8266838ba90bed3"
+      },
+      "title": "Understand the bill",
+      "objective": "Ask for the bill, clarify an unfamiliar item, confirm the total and payment method, then request a receipt.",
+      "focus": "お会計 is the bill/payment; 明細 is the itemized detail; 合計 is the total. こちらの料金は何ですか asks about an unfamiliar charge without assuming a cover charge or tip applies. Payment methods, service charges and tipping practices vary; check the actual bill and staff answer.",
+      "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "the bill; payment",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized details",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "別料金",
+          "en": "separate charge",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "端末",
+          "en": "card terminal",
+          "kind": "term"
+        },
+        {
+          "ja": "こちらの料金は何ですか",
+          "en": "What is this charge?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで払えますか",
+          "en": "Can I pay by card?",
+          "kind": "term"
+        },
+        {
+          "ja": "レシートをください",
+          "en": "The receipt, please",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。お会計をお願いします。",
+          "en": "Excuse me. The bill, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。こちらが明細です。",
+          "en": "Yes. Here are the itemized details."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "この飲み物は別料金ですか。",
+          "en": "Is this drink a separate charge?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。セットには含まれていません。",
+          "en": "Yes. It is not included in the set."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。合計はいくらですか。",
+          "en": "I see. What is the total?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "合計は千二百円です。",
+          "en": "The total is twelve hundred yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払えますか。",
+          "en": "Can I pay by card?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、レジで払えます。",
+          "en": "Yes, you can pay at the register."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レシートもください。",
+          "en": "The receipt too, please."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler paying for breakfast",
+        "partnerRole": "Café staff",
+        "opening": "お会計ですね。こちらが明細です。",
+        "goal": "Ask about a separate charge, confirm the total and card payment, and request the receipt.",
+        "closure": "Pay the confirmed amount; do not invent a universal service-charge or tip rule.",
+        "wordBank": [
+          "お会計",
+          "明細",
+          "別料金",
+          "合計",
+          "カードで払えますか",
+          "レシート"
+        ]
+      },
+      "modes": {
+        "see": "Read the bill clarification with aligned English.",
+        "recall": "Recall bill, itemized detail, total and receipt.",
+        "hear": "Hear 合計 and 別料金 in context.",
+        "type": "Type a charge question with kana help.",
+        "say": "Ask about one charge and confirm payment.",
+        "write": "Write a polite bill request and receipt request."
+      }
     }
   ],
   "reviewGates": [

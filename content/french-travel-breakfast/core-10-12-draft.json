@@ -1,0 +1,517 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 10,
+      "titleEnglish": "Fix the wrong order",
+      "objectiveEnglish": "politely identify a missing or incorrect item and request the right one",
+      "scenarioEnglishSource": "You received the wrong coffee and one pastry is missing; resolve both without sounding hostile.",
+      "titleFrenchCourseEnglish": "Corriger une commande",
+      "objectiveFrenchCourseEnglish": "Explain a wrong coffee and missing pastry politely in French.",
+      "focusEnglish": "Use je crois que to soften a correction, pas to contrast items, and il manque for a missing item.",
+      "focusFrench": "Signaler une erreur avec je crois que ; opposer deux boissons avec pas ; dire qu'il manque un article.",
+      "teachingNotesEnglish": "Je crois qu'il y a une erreur is a gentle way to point out a mistake. J'ai commandé X, pas Y identifies the difference. Il manque une viennoiserie means a pastry is missing. Voici mon reçu offers the receipt as evidence; pourriez-vous makes the request more polite.",
+      "words": [
+        {
+          "en": "order",
+          "kind": "term",
+          "fr": "la commande"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "receipt",
+          "kind": "term",
+          "fr": "le reçu"
+        },
+        {
+          "en": "americano (black coffee)",
+          "kind": "term",
+          "fr": "un americano",
+          "noteEnglish": "The source calls it an americano; local menus may use café allongé or another name for a longer black coffee."
+        },
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "un café au lait"
+        },
+        {
+          "en": "pastry",
+          "kind": "term",
+          "fr": "une viennoiserie"
+        },
+        {
+          "en": "cup",
+          "kind": "term",
+          "fr": "la tasse"
+        },
+        {
+          "en": "server (male)",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "decaf",
+          "kind": "term",
+          "fr": "un café décaféiné"
+        },
+        {
+          "en": "Excuse me, I think there is a mistake with my order.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, je crois qu'il y a une erreur dans ma commande."
+        },
+        {
+          "en": "I ordered an americano, not a coffee with milk.",
+          "kind": "phrase",
+          "fr": "J'ai commandé un americano, pas un café au lait."
+        },
+        {
+          "en": "I am missing a pastry.",
+          "kind": "phrase",
+          "fr": "Il manque une viennoiserie."
+        },
+        {
+          "en": "Can you change it for me, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me l'échanger, s'il vous plaît ?"
+        },
+        {
+          "en": "Here is my receipt.",
+          "kind": "phrase",
+          "fr": "Voici mon reçu."
+        },
+        {
+          "en": "Can you check my order, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous vérifier ma commande, s'il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Une erreur de commande",
+        "english": [
+          "I get to the counter and order an americano and a pastry.",
+          "Then the server gives me a cup of coffee with milk.",
+          "I check my bag and see that there is no pastry in it.",
+          "First, I smile and say: Excuse me, I think there is a mistake with my order.",
+          "Then I explain: I ordered an americano, not a coffee with milk.",
+          "I also say: I am missing a pastry, and here is my receipt.",
+          "I ask: Can you change it for me, please?",
+          "The server says: Of course, I will bring you the coffee and the pastry now."
+        ],
+        "french": [
+          "J'arrive au comptoir et je commande un americano et une viennoiserie.",
+          "Puis le serveur me donne une tasse de café au lait.",
+          "Je regarde dans mon sac et je vois qu'il n'y a pas de viennoiserie.",
+          "Je souris d'abord et je dis : « Excusez-moi, je crois qu'il y a une erreur dans ma commande. »",
+          "Puis j'explique : « J'ai commandé un americano, pas un café au lait. »",
+          "J'ajoute : « Il manque une viennoiserie, et voici mon reçu. »",
+          "Je demande : « Pourriez-vous me l'échanger, s'il vous plaît ? »",
+          "Le serveur répond : « Bien sûr, je vous apporte le café et la viennoiserie tout de suite. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Je commande un americano et une viennoiserie.",
+          "exampleEnglish": "I order an americano and a pastry.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "vérifier",
+          "meaningEnglish": "to check",
+          "exampleFrench": "Je regarde dans mon sac : il manque une viennoiserie.",
+          "exampleEnglish": "I check my bag and there is no pastry.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "infinitiveFrench": "échanger",
+          "meaningEnglish": "to change, to exchange",
+          "exampleFrench": "Pourriez-vous m'échanger ce café, s'il vous plaît ?",
+          "exampleEnglish": "Can you change the coffee for me, please?",
+          "sourceInfinitiveSpanish": "cambiar"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Je vous apporte le café et la viennoiserie tout de suite.",
+          "exampleEnglish": "I will bring you the coffee and the pastry now.",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "dire",
+          "meaningEnglish": "to say, to tell",
+          "exampleFrench": "Je souris et je dis : « Excusez-moi. »",
+          "exampleEnglish": "First I smile and say: Excuse me.",
+          "sourceInfinitiveSpanish": "decir"
+        }
+      ],
+      "speakingInstructionEnglish": "Tell the server that the coffee is wrong and a pastry is missing; show the receipt and ask for a correction.",
+      "speakingFrench": "Excusez-moi, je crois qu'il y a une erreur. J'ai commandé un americano, pas un café au lait, et il manque une viennoiserie.",
+      "regionalNotesEnglish": [
+        "Americano is retained from the English source. A café may use a different French name, such as café allongé, for a longer black coffee; confirm the menu wording locally."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 11,
+      "titleEnglish": "Make morning small talk",
+      "objectiveEnglish": "exchange greetings and talk briefly about the day, weather, and plans",
+      "scenarioEnglishSource": "Chat naturally with a barista or nearby customer while waiting.",
+      "titleFrenchCourseEnglish": "Faire la conversation le matin",
+      "objectiveFrenchCourseEnglish": "Exchange a greeting, weather comment and simple plan while waiting for coffee.",
+      "focusEnglish": "Use il fait for weather, avoir sommeil for sleepiness, and si + present for a real condition.",
+      "focusFrench": "Parler du temps avec il fait ; exprimer la fatigue avec avoir sommeil ; annoncer un projet avec si.",
+      "teachingNotesEnglish": "Il fait froid describes the weather. J'ai sommeil means I am sleepy; French uses avoir, not être, here. Je vais visiter... s'il ne pleut pas describes a plan that depends on the weather. Qu'avez-vous prévu aujourd'hui ? asks about plans. Answer politely but keep small talk brief when staff are busy.",
+      "words": [
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "un café au lait"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "barista",
+          "kind": "term",
+          "fr": "la barista"
+        },
+        {
+          "en": "weather",
+          "kind": "term",
+          "fr": "le temps"
+        },
+        {
+          "en": "forecast",
+          "kind": "term",
+          "fr": "les prévisions météo"
+        },
+        {
+          "en": "coat",
+          "kind": "term",
+          "fr": "un manteau"
+        },
+        {
+          "en": "plans",
+          "kind": "term",
+          "fr": "les projets"
+        },
+        {
+          "en": "morning",
+          "kind": "term",
+          "fr": "le matin"
+        },
+        {
+          "en": "downtown",
+          "kind": "term",
+          "fr": "le centre-ville"
+        },
+        {
+          "en": "order",
+          "kind": "term",
+          "fr": "la commande"
+        },
+        {
+          "en": "sleepiness",
+          "kind": "term",
+          "fr": "la somnolence",
+          "noteEnglish": "The natural sentence is J'ai sommeil, rather than using the noun la somnolence in everyday small talk."
+        },
+        {
+          "en": "Good morning, how are you this morning?",
+          "kind": "phrase",
+          "fr": "Bonjour, comment allez-vous ce matin ?"
+        },
+        {
+          "en": "It is very cold today, isn't it?",
+          "kind": "phrase",
+          "fr": "Il fait très froid aujourd'hui, n'est-ce pas ?"
+        },
+        {
+          "en": "I am still a little sleepy.",
+          "kind": "phrase",
+          "fr": "J'ai encore un peu sommeil."
+        },
+        {
+          "en": "I am going to visit downtown if it does not rain.",
+          "kind": "phrase",
+          "fr": "Je vais visiter le centre-ville s'il ne pleut pas."
+        },
+        {
+          "en": "Sorry, can you repeat that more slowly, please?",
+          "kind": "phrase",
+          "fr": "Pardon, pouvez-vous répéter plus lentement, s'il vous plaît ?"
+        },
+        {
+          "en": "You too, have a good day!",
+          "kind": "phrase",
+          "fr": "Vous aussi, bonne journée !"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Une conversation du matin",
+        "english": [
+          "It is early and I am in a small café, waiting for my coffee with milk at the counter.",
+          "The barista smiles at me and says: Good morning, how are you this morning?",
+          "I answer: Very well, thanks, but I am still a little sleepy.",
+          "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.",
+          "A man near me asks: What plans do you have for today?",
+          "I explain that I am going to visit downtown if it does not rain again.",
+          "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.",
+          "When my order is ready, the barista tells me: Have a great day!",
+          "I answer with a smile: You too, have a good day!"
+        ],
+        "french": [
+          "Il est tôt et je suis dans un petit café, où j'attends mon café au lait au comptoir.",
+          "La barista me sourit et dit : « Bonjour, comment allez-vous ce matin ? »",
+          "Je réponds : « Très bien, merci, mais j'ai encore un peu sommeil. »",
+          "Elle dit qu'il fait froid aujourd'hui parce qu'il a plu hier soir ; je lui dis que le temps est très différent dans mon pays.",
+          "Un homme près de moi demande : « Qu'avez-vous prévu aujourd'hui ? »",
+          "J'explique que je vais visiter le centre-ville s'il ne pleut pas de nouveau.",
+          "Il me recommande de prendre un manteau, car, selon les prévisions, l'après-midi sera frais.",
+          "Quand ma commande est prête, la barista me dit : « Passez une excellente journée ! »",
+          "Je réponds en souriant : « Vous aussi, bonne journée ! »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "faire",
+          "meaningEnglish": "to do, to make",
+          "exampleFrench": "Il fait froid aujourd'hui au café.",
+          "exampleEnglish": "Today it is cold at the café.",
+          "sourceInfinitiveSpanish": "hacer"
+        },
+        {
+          "infinitiveFrench": "attendre",
+          "meaningEnglish": "to wait",
+          "exampleFrench": "J'attends mon café au comptoir.",
+          "exampleEnglish": "I wait for my coffee at the counter.",
+          "sourceInfinitiveSpanish": "esperar"
+        },
+        {
+          "infinitiveFrench": "recommander",
+          "meaningEnglish": "to recommend",
+          "exampleFrench": "Il me recommande de prendre un manteau.",
+          "exampleEnglish": "He recommends that I bring a coat.",
+          "sourceInfinitiveSpanish": "recomendar"
+        },
+        {
+          "infinitiveFrench": "visiter",
+          "meaningEnglish": "to visit",
+          "exampleFrench": "Je visite le centre-ville avec un ami aujourd'hui.",
+          "exampleEnglish": "Today I visit downtown with my friend.",
+          "sourceInfinitiveSpanish": "visitar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Un homme me demande quels sont mes projets.",
+          "exampleEnglish": "A man asks me about my plans.",
+          "sourceInfinitiveSpanish": "preguntar"
+        }
+      ],
+      "speakingInstructionEnglish": "Greet a barista, comment on the weather, and mention one plan for the day.",
+      "speakingFrench": "Bonjour ! Il fait froid aujourd'hui, n'est-ce pas ? Je vais visiter le centre-ville s'il ne pleut pas. Et vous ?",
+      "regionalNotesEnglish": [
+        "The level of small talk with a café worker varies by venue and region; do not assume staff have time for a long conversation."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 12,
+      "titleEnglish": "Ask for the bill",
+      "objectiveEnglish": "request the bill, understand cover or service charges, and choose a payment method",
+      "scenarioEnglishSource": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+      "titleFrenchCourseEnglish": "Demander l'addition",
+      "objectiveFrenchCourseEnglish": "Ask about an unfamiliar charge, choose a payment method, and request a receipt in French.",
+      "focusEnglish": "Use à quoi correspond for a charge question, puis-je for payment, and compris for included amounts.",
+      "focusFrench": "Demander l'addition ; clarifier un supplément ; distinguer carte bancaire et espèces.",
+      "teachingNotesEnglish": "Pourriez-vous m'apporter l'addition ? politely requests the bill. À quoi correspond ce supplément ? asks what an extra charge is for. Puis-je payer par carte ? asks about card payment; en espèces means cash. Check the itemized total and request a reçu if needed. The source narrative's cover and service charges require country-specific review before learner release.",
+      "words": [
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l'addition"
+        },
+        {
+          "en": "cover charge",
+          "kind": "term",
+          "fr": "les frais de couvert",
+          "noteEnglish": "A cover charge is source-specific and not a general French café rule. Verify local billing practice before using this as advice."
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "le pourboire"
+        },
+        {
+          "en": "service charge",
+          "kind": "term",
+          "fr": "les frais de service",
+          "noteEnglish": "Service and tip rules vary by country; the source scenario needs locale review."
+        },
+        {
+          "en": "extra charge",
+          "kind": "term",
+          "fr": "un supplément"
+        },
+        {
+          "en": "cash",
+          "kind": "term",
+          "fr": "les espèces"
+        },
+        {
+          "en": "card",
+          "kind": "term",
+          "fr": "la carte bancaire"
+        },
+        {
+          "en": "receipt",
+          "kind": "term",
+          "fr": "le reçu"
+        },
+        {
+          "en": "register",
+          "kind": "term",
+          "fr": "la caisse"
+        },
+        {
+          "en": "waitress",
+          "kind": "term",
+          "fr": "la serveuse"
+        },
+        {
+          "en": "total",
+          "kind": "term",
+          "fr": "le total"
+        },
+        {
+          "en": "card terminal",
+          "kind": "term",
+          "fr": "le terminal de paiement"
+        },
+        {
+          "en": "Could you bring me the bill, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?"
+        },
+        {
+          "en": "What is this charge?",
+          "kind": "phrase",
+          "fr": "À quoi correspond ce supplément ?"
+        },
+        {
+          "en": "Is the tip included?",
+          "kind": "phrase",
+          "fr": "Le pourboire est-il compris ?"
+        },
+        {
+          "en": "Can I pay by card?",
+          "kind": "phrase",
+          "fr": "Puis-je payer par carte ?"
+        },
+        {
+          "en": "I want to pay in cash.",
+          "kind": "phrase",
+          "fr": "Je voudrais payer en espèces."
+        },
+        {
+          "en": "Could you give me the receipt, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me donner le reçu, s'il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Comprendre l'addition",
+        "english": [
+          "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+          "The waitress answers that he can pay at the register or at the table, as he prefers.",
+          "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+          "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+          "The traveler says he understands, but he wants to know if the tip is included.",
+          "She answers that service is not included, so the tip is optional.",
+          "Since he has no cash, the traveler asks: Can I pay by card?",
+          "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+          "Before leaving, the traveler checks the total and says thank you."
+        ],
+        "french": [
+          "Après son petit-déjeuner, le voyageur lève la main et dit : « Excusez-moi, pourriez-vous m'apporter l'addition, s'il vous plaît ? »",
+          "La serveuse répond qu'il peut payer à la caisse ou à la table, comme il préfère.",
+          "Quand l'addition arrive, le voyageur voit un supplément et demande : « À quoi correspond ce supplément ? »",
+          "La serveuse explique qu'il s'agit de frais de couvert indiqués à la dernière page de la carte.",
+          "Le voyageur dit qu'il comprend, mais il veut savoir si le pourboire est compris.",
+          "Elle répond que, dans cet établissement, le service n'est pas compris ; le pourboire est donc facultatif.",
+          "Comme il n'a pas d'espèces, le voyageur demande : « Puis-je payer par carte ? »",
+          "La serveuse apporte le terminal de paiement ; il paie et demande un reçu.",
+          "Avant de partir, le voyageur vérifie le total et dit merci."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Comme je n'ai pas d'espèces, je paie par carte.",
+          "exampleEnglish": "Since I have no cash, I pay by card.",
+          "sourceInfinitiveSpanish": "pagar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask for",
+          "exampleFrench": "Je demande un reçu avant de partir.",
+          "exampleEnglish": "I ask for the receipt before leaving.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "exampleEnglish": "Could you bring me the bill, please?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "comprendre",
+          "meaningEnglish": "to include",
+          "exampleFrench": "La carte indique que l'addition comprend les frais de couvert.",
+          "exampleEnglish": "The menu says the bill includes the cover charge.",
+          "sourceInfinitiveSpanish": "incluir"
+        },
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Je voudrais payer en espèces.",
+          "exampleEnglish": "I want to pay in cash.",
+          "sourceInfinitiveSpanish": "querer"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask for the bill, identify one unfamiliar charge, ask whether the tip is included, pay by card and request a receipt.",
+      "speakingFrench": "Excusez-moi, pourriez-vous m'apporter l'addition ? À quoi correspond ce supplément ? Puis-je payer par carte ?",
+      "regionalNotesEnglish": [
+        "Cover charges and service or tip rules differ by country. The source says service is not included in this café; that statement must not be presented as a general rule for France, Québec or another region without qualified review."
+      ],
+      "reviewed": false
+    }
+  ]
+}

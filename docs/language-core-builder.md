@@ -19,6 +19,10 @@ Japanese 101 needs qualified review of grammar, naturalness, translations, level
 
 Keep the **10 + 30 + 20 stages, six See/Recall/Hear/Type/Say/Write modes, lesson identity, Reader handoff, cards, speaking, review, and progress ownership**. Mirror the teaching *purpose* of each Spanish step, never its literal grammar or example sentences. A Japanese lesson must use natural Japanese, a coherent dialogue, English meaning, appropriate register, and script support. Introduce kanji only with contextual readings; provide furigana where it helps learners, and make kana usable without mandatory romanization. Distinguish dictionary forms, polite/plain forms, particles, counters, and sentence-final nuance rather than forcing Spanish conjugation concepts onto Japanese.
 
+### Clinical vocabulary fidelity
+
+For medical modules, teach the actual term, its direct meaning, and its grammatical use. Keep clinical specificity in both languages, including in cards, Reader lines, speaking prompts, and dictionary entries. Do not replace a term with a vague paraphrase, omit it, or add generic cautions or hedges solely because it appears in a medical context. Check terminology and translation accuracy; put any genuine source ambiguity in the authoring ledger for correction or terminology review. Clinical use remains the learner's or clinician's judgment.
+
 ### Foundation 10: start reading, hearing, and surviving a conversation
 
 | # | Spanish 101 step | Japanese 101 mirror: focus and learner outcome |

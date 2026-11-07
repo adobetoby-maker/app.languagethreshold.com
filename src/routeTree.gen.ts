@@ -39,6 +39,7 @@ import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-s
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
 import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
+import { Route as ApiCrmSignupRouteImport } from './routes/api.crm-signup'
 import { Route as ApiCustomerReferralRouteImport } from './routes/api.customer-referral'
 import { Route as ApiCustomerUnsubscribeRouteImport } from './routes/api.customer-unsubscribe'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
@@ -239,6 +240,11 @@ const ApiCertificateRoute = ApiCertificateRouteImport.update({
 const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
   id: '/api/create-checkout',
   path: '/api/create-checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCrmSignupRoute = ApiCrmSignupRouteImport.update({
+  id: '/api/crm-signup',
+  path: '/api/crm-signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiCustomerReferralRoute = ApiCustomerReferralRouteImport.update({
@@ -528,6 +534,7 @@ export interface FileRoutesByFullPath {
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/crm-signup': typeof ApiCrmSignupRoute
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
@@ -611,6 +618,7 @@ export interface FileRoutesByTo {
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/crm-signup': typeof ApiCrmSignupRoute
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
@@ -695,6 +703,7 @@ export interface FileRoutesById {
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/crm-signup': typeof ApiCrmSignupRoute
   '/api/customer-referral': typeof ApiCustomerReferralRoute
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
@@ -780,6 +789,7 @@ export interface FileRouteTypes {
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/crm-signup'
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
@@ -863,6 +873,7 @@ export interface FileRouteTypes {
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/crm-signup'
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
@@ -946,6 +957,7 @@ export interface FileRouteTypes {
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/crm-signup'
     | '/api/customer-referral'
     | '/api/customer-unsubscribe'
     | '/api/discussion'
@@ -1030,6 +1042,7 @@ export interface RootRouteChildren {
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
   ApiCreateCheckoutRoute: typeof ApiCreateCheckoutRoute
+  ApiCrmSignupRoute: typeof ApiCrmSignupRoute
   ApiCustomerReferralRoute: typeof ApiCustomerReferralRoute
   ApiCustomerUnsubscribeRoute: typeof ApiCustomerUnsubscribeRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
@@ -1293,6 +1306,13 @@ declare module '@tanstack/react-router' {
       path: '/api/create-checkout'
       fullPath: '/api/create-checkout'
       preLoaderRoute: typeof ApiCreateCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/crm-signup': {
+      id: '/api/crm-signup'
+      path: '/api/crm-signup'
+      fullPath: '/api/crm-signup'
+      preLoaderRoute: typeof ApiCrmSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/customer-referral': {
@@ -1686,6 +1706,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,
   ApiCreateCheckoutRoute: ApiCreateCheckoutRoute,
+  ApiCrmSignupRoute: ApiCrmSignupRoute,
   ApiCustomerReferralRoute: ApiCustomerReferralRoute,
   ApiCustomerUnsubscribeRoute: ApiCustomerUnsubscribeRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,

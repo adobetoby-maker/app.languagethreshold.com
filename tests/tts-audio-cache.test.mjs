@@ -1166,6 +1166,8 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
     const realOpen = env.indexedDB.open.bind(env.indexedDB);
     let release;
     const lateOpen = new Promise((resolve) => (release = resolve));
+    let resolveLateClose;
+    const lateConnectionClosed = new Promise((resolve) => (resolveLateClose = resolve));
     env.indexedDB.open = (name) => {
       const request = {};
       lateOpen.then(() => {
@@ -1175,7 +1177,13 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
           request.onupgradeneeded?.();
         };
         inner.onsuccess = () => {
-          request.result = inner.result;
+          const db = inner.result;
+          const close = db.close.bind(db);
+          db.close = () => {
+            close();
+            resolveLateClose();
+          };
+          request.result = db;
           request.onsuccess?.();
         };
       });
@@ -1188,14 +1196,20 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
 
     // The open finally completes after we gave up: that connection must be closed again.
     release();
-    // The fake IndexedDB open uses a timer. Immediate ticks can race ahead of it,
-    // especially while CI is running other tests, so observe the actual late open.
-    await waitUntil(
-      () =>
-        env.indexedDB.stats.opens > 0 &&
-        [...env.indexedDB.dbs.values()].every((record) => record.connections.size === 0),
-      "the late IndexedDB connection to open and close",
-    );
+    // Await the connection's actual close event. Polling elapsed time can race a
+    // busy CI host even when the cache releases the late connection correctly.
+    let closeTimer;
+    try {
+      await Promise.race([
+        lateConnectionClosed,
+        new Promise((_, reject) => {
+          closeTimer = setTimeout(() => reject(new Error("late IndexedDB connection was not closed")), 20_000);
+        }),
+      ]);
+    } finally {
+      clearTimeout(closeTimer);
+    }
+    assert.ok(env.indexedDB.stats.opens > 0, "the late connection opened");
     for (const record of env.indexedDB.dbs.values()) {
       assert.equal(record.connections.size, 0, "late connection was released");
     }

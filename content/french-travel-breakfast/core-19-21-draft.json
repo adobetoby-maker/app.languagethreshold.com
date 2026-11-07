@@ -1,0 +1,491 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 19,
+      "titleEnglish": "Understand counter and table prices",
+      "objectiveEnglish": "ask why standing and sitting prices differ and choose where to drink your coffee",
+      "scenarioEnglishSource": "You notice the table price is higher than the counter price; ask how pricing works and decide where to sit.",
+      "titleFrenchCourseEnglish": "Comprendre les prix au comptoir et à table",
+      "objectiveFrenchCourseEnglish": "Compare posted prices for counter, table and terrace service before choosing where to drink.",
+      "focusEnglish": "Use pourquoi plus cher to ask about a price difference and combien ça coûte to confirm a specific location.",
+      "focusFrench": "Comparer les prix affichés au comptoir, à table et en terrasse avant de commander.",
+      "teachingNotesEnglish": "Pourquoi est-ce plus cher à table ? asks for an explanation rather than making an accusation. Combien ça coûte en terrasse ? confirms the third price. These prices are specific to this imaginary café; read the local menu.",
+      "words": [
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "terrace",
+          "kind": "term",
+          "fr": "la terrasse"
+        },
+        {
+          "en": "menu",
+          "kind": "term",
+          "fr": "la carte"
+        },
+        {
+          "en": "price",
+          "kind": "term",
+          "fr": "le prix"
+        },
+        {
+          "en": "coffee with milk",
+          "kind": "term",
+          "fr": "un café au lait"
+        },
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "table service",
+          "kind": "term",
+          "fr": "le service à table"
+        },
+        {
+          "en": "surcharge",
+          "kind": "term",
+          "fr": "un supplément"
+        },
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "l’addition"
+        },
+        {
+          "en": "tip",
+          "kind": "term",
+          "fr": "un pourboire"
+        },
+        {
+          "en": "Why is it more expensive at the table?",
+          "kind": "phrase",
+          "fr": "Pourquoi est-ce plus cher à table ?"
+        },
+        {
+          "en": "How much does it cost on the terrace?",
+          "kind": "phrase",
+          "fr": "Combien ça coûte en terrasse ?"
+        },
+        {
+          "en": "I am going to have my coffee at the counter.",
+          "kind": "phrase",
+          "fr": "Je vais prendre mon café au comptoir."
+        },
+        {
+          "en": "Is there a surcharge for the terrace?",
+          "kind": "phrase",
+          "fr": "Il y a un supplément en terrasse ?"
+        },
+        {
+          "en": "I prefer to sit at a table, please.",
+          "kind": "phrase",
+          "fr": "Je préfère m’asseoir à une table, s’il vous plaît."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Comprendre les prix au comptoir et à table",
+        "english": [
+          "I go into a small café and look at the menu on the wall.",
+          "The menu says: coffee with milk, 2 euros at the counter and 3 euros at the table.",
+          "First I ask the waiter: Why is it more expensive at the table?",
+          "He explains: At the table there is table service, and on the terrace there is a surcharge.",
+          "Then I ask: How much does it cost on the terrace?",
+          "The waiter answers: According to the menu, it costs 4 euros.",
+          "I am in a hurry, so I say: I am going to have my coffee at the counter.",
+          "After that I pay the bill at the counter and leave a small tip."
+        ],
+        "french": [
+          "J’entre dans un petit café et je regarde la carte affichée au mur.",
+          "La carte indique : café au lait, deux euros au comptoir et trois euros à table.",
+          "Je demande d’abord au serveur : « Pourquoi est-ce plus cher à table ? »",
+          "Il explique : « À table, vous bénéficiez du service ; en terrasse, il y a un supplément. »",
+          "Puis je demande : « Combien ça coûte en terrasse ? »",
+          "Le serveur répond : « Selon la carte, cela coûte quatre euros. »",
+          "Je suis pressé, alors je dis : « Je vais prendre mon café au comptoir. »",
+          "Ensuite, je règle l’addition au comptoir et je laisse un petit pourboire."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "prendre",
+          "meaningEnglish": "to have (a drink), to take",
+          "exampleFrench": "Je prends mon café au comptoir.",
+          "exampleEnglish": "I have my coffee at the counter.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "infinitiveFrench": "coûter",
+          "meaningEnglish": "to cost",
+          "exampleFrench": "Combien ça coûte en terrasse ?",
+          "exampleEnglish": "How much does it cost on the terrace?",
+          "sourceInfinitiveSpanish": "costar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Je demande au serveur quel est le prix.",
+          "exampleEnglish": "I ask the waiter about the price.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "s’asseoir",
+          "meaningEnglish": "to sit down",
+          "exampleFrench": "Aujourd’hui, je m’assois en terrasse.",
+          "exampleEnglish": "Today I am sitting on the terrace.",
+          "sourceInfinitiveSpanish": "sentarse"
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Je règle l’addition au comptoir.",
+          "exampleEnglish": "I pay the bill at the counter.",
+          "sourceInfinitiveSpanish": "pagar"
+        }
+      ],
+      "speakingInstructionEnglish": "Compare the posted prices, ask why table service costs more in this scene, then choose a place to drink.",
+      "speakingFrench": "Bonjour, je vois deux prix pour le café au lait. Pourquoi est-ce plus cher à table ? Combien ça coûte en terrasse ?",
+      "regionalNotesEnglish": [
+        "Counter/table/terrace price differences and displayed surcharges are venue- and jurisdiction-specific; do not generalize them.",
+        "The source scene leaves a tip. Tipping practices vary by region."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 20,
+      "titleEnglish": "Dispute an included-breakfast charge",
+      "objectiveEnglish": "show what your booking promised, question the charge calmly, and agree on a corrected bill",
+      "scenarioEnglishSource": "Your hotel bills you for breakfast your booking says is included; resolve it calmly with the front desk.",
+      "titleFrenchCourseEnglish": "Contester un petit-déjeuner facturé à tort",
+      "objectiveFrenchCourseEnglish": "Show a booking confirmation, question the breakfast charge and request a corrected receipt.",
+      "focusEnglish": "Use ma réservation indique que to refer to the booking; pourriez-vous vérifier to request a check; la facture corrigée for the revised bill.",
+      "focusFrench": "Présenter la confirmation, demander une vérification et obtenir une facture corrigée.",
+      "teachingNotesEnglish": "Je crois qu’il y a une erreur sur la facture is a calm opening. Ma réservation indique que le petit-déjeuner est compris ties the request to written terms. Ask staff to verify before requesting a corrected bill and receipt.",
+      "words": [
+        {
+          "en": "bill",
+          "kind": "term",
+          "fr": "la facture"
+        },
+        {
+          "en": "front desk",
+          "kind": "term",
+          "fr": "la réception"
+        },
+        {
+          "en": "receptionist",
+          "kind": "term",
+          "fr": "le réceptionniste"
+        },
+        {
+          "en": "charge",
+          "kind": "term",
+          "fr": "les frais"
+        },
+        {
+          "en": "booking",
+          "kind": "term",
+          "fr": "la réservation"
+        },
+        {
+          "en": "confirmation email",
+          "kind": "term",
+          "fr": "l’e-mail de confirmation"
+        },
+        {
+          "en": "breakfast included",
+          "kind": "term",
+          "fr": "le petit-déjeuner compris"
+        },
+        {
+          "en": "rate",
+          "kind": "term",
+          "fr": "le tarif"
+        },
+        {
+          "en": "room",
+          "kind": "term",
+          "fr": "la chambre"
+        },
+        {
+          "en": "mistake",
+          "kind": "term",
+          "fr": "une erreur"
+        },
+        {
+          "en": "receipt",
+          "kind": "term",
+          "fr": "le reçu"
+        },
+        {
+          "en": "corrected bill",
+          "kind": "term",
+          "fr": "la facture corrigée"
+        },
+        {
+          "en": "I think there is a mistake on the bill.",
+          "kind": "phrase",
+          "fr": "Je crois qu’il y a une erreur sur la facture."
+        },
+        {
+          "en": "My booking says breakfast is included.",
+          "kind": "phrase",
+          "fr": "Ma réservation indique que le petit-déjeuner est compris."
+        },
+        {
+          "en": "Can you explain this charge to me?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous m’expliquer ces frais ?"
+        },
+        {
+          "en": "Can you remove the charge, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous retirer ces frais, s’il vous plaît ?"
+        },
+        {
+          "en": "Can you give me a new receipt, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me donner un nouveau reçu, s’il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Contester un petit-déjeuner facturé à tort",
+        "english": [
+          "Before leaving the hotel, I check the bill at the front desk.",
+          "I see a charge of 36 dollars for breakfast.",
+          "I calmly tell the receptionist: I think there is a mistake on the bill.",
+          "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+          "He checks my room rate on the computer.",
+          "Then he says: You are right, I am going to remove the charge.",
+          "I ask him: Can you give me a new receipt, please?",
+          "In the end, I pay the corrected bill without the breakfast."
+        ],
+        "french": [
+          "Avant de quitter l’hôtel, je vérifie la facture à la réception.",
+          "Je vois trente-six dollars de frais pour le petit-déjeuner.",
+          "Je dis calmement au réceptionniste : « Je crois qu’il y a une erreur sur la facture. »",
+          "Je lui montre d’abord l’e-mail de confirmation sur mon téléphone et je dis : « Ma réservation indique que le petit-déjeuner est compris. »",
+          "Il vérifie le tarif de ma chambre sur l’ordinateur.",
+          "Puis il dit : « Vous avez raison, je vais retirer ces frais. »",
+          "Je lui demande : « Pouvez-vous me donner un nouveau reçu, s’il vous plaît ? »",
+          "Finalement, je paie la facture corrigée, sans les frais de petit-déjeuner."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "vérifier",
+          "meaningEnglish": "to check",
+          "exampleFrench": "Avant de partir, je vérifie la facture à la réception.",
+          "exampleEnglish": "Before leaving, I check the bill at the front desk.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "infinitiveFrench": "montrer",
+          "meaningEnglish": "to show",
+          "exampleFrench": "Je lui montre l’e-mail de confirmation.",
+          "exampleEnglish": "I show him the confirmation email.",
+          "sourceInfinitiveSpanish": "mostrar"
+        },
+        {
+          "infinitiveFrench": "dire",
+          "meaningEnglish": "to say",
+          "exampleFrench": "Ma réservation indique que le petit-déjeuner est compris.",
+          "exampleEnglish": "My booking says breakfast is included.",
+          "sourceInfinitiveSpanish": "decir"
+        },
+        {
+          "infinitiveFrench": "retirer",
+          "meaningEnglish": "to remove",
+          "exampleFrench": "Je vais retirer ces frais.",
+          "exampleEnglish": "I am going to remove the charge.",
+          "sourceInfinitiveSpanish": "quitar"
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleFrench": "Je paie la facture corrigée.",
+          "exampleEnglish": "I pay the corrected bill.",
+          "sourceInfinitiveSpanish": "pagar"
+        }
+      ],
+      "speakingInstructionEnglish": "Show the confirmation and ask the front desk to check the breakfast charge and issue a corrected receipt if appropriate.",
+      "speakingFrench": "Bonjour, je crois qu’il y a une erreur sur la facture. Ma réservation indique que le petit-déjeuner est compris. Pourriez-vous vérifier ?",
+      "regionalNotesEnglish": [
+        "The source bill uses 36 dollars. Currency, taxes, booking terms and refund rights vary; this is a scenario, not legal or billing guidance.",
+        "A hotel must verify the actual booking conditions before changing a charge."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 21,
+      "titleEnglish": "Disagree politely about a table",
+      "objectiveEnglish": "state a seating preference, explain your reason, and accept or propose a compromise",
+      "scenarioEnglishSource": "A server asks your group to move to a smaller table for a reservation; explain why you'd like to stay and reach a compromise.",
+      "titleFrenchCourseEnglish": "Trouver un compromis pour une table",
+      "objectiveFrenchCourseEnglish": "Explain why a stroller needs space and negotiate a time-limited seating compromise.",
+      "focusEnglish": "Use nous préférons... parce que for your reason; et si... ? to propose a compromise; d’accord to accept.",
+      "focusFrench": "Expliquer une préférence de placement et proposer calmement un compromis.",
+      "teachingNotesEnglish": "Nous préférons cette table parce que... gives a concrete reason. Et si nous terminions avant dix heures quinze ? suggests a time-limited compromise. Confirm the server agrees before changing seats.",
+      "words": [
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "window",
+          "kind": "term",
+          "fr": "la fenêtre"
+        },
+        {
+          "en": "server (female)",
+          "kind": "term",
+          "fr": "la serveuse"
+        },
+        {
+          "en": "reservation",
+          "kind": "term",
+          "fr": "la réservation"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "le coin"
+        },
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "stroller",
+          "kind": "term",
+          "fr": "la poussette"
+        },
+        {
+          "en": "patio",
+          "kind": "term",
+          "fr": "la terrasse"
+        },
+        {
+          "en": "shade",
+          "kind": "term",
+          "fr": "l’ombre"
+        },
+        {
+          "en": "chair",
+          "kind": "term",
+          "fr": "une chaise"
+        },
+        {
+          "en": "We prefer this table because we have a stroller.",
+          "kind": "phrase",
+          "fr": "Nous préférons cette table parce que nous avons une poussette."
+        },
+        {
+          "en": "What time does the reservation arrive?",
+          "kind": "phrase",
+          "fr": "À quelle heure arrive la réservation ?"
+        },
+        {
+          "en": "What if we finish before 10:15?",
+          "kind": "phrase",
+          "fr": "Et si nous terminions avant dix heures quinze ?"
+        },
+        {
+          "en": "If possible, we would like to stay here.",
+          "kind": "phrase",
+          "fr": "Si possible, nous aimerions rester ici."
+        },
+        {
+          "en": "That's fine, we understand.",
+          "kind": "phrase",
+          "fr": "D’accord, nous comprenons."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Trouver un compromis pour une table",
+        "english": [
+          "It is Saturday morning and my family is having breakfast at a big table by the window.",
+          "The server comes over and says: Excuse me, we have a reservation and we need this table.",
+          "She offers us a smaller table in the corner, near the counter.",
+          "I calmly explain to her: We prefer this table because we have a stroller and it does not fit in the corner.",
+          "Then I ask her: What time does the reservation arrive?",
+          "The server answers that the group arrives at 10:30.",
+          "So I propose: What if we finish breakfast here before 10:15 and then move to the patio for coffee?",
+          "She smiles and says: Perfect, there is shade on the patio and I will bring you an extra chair.",
+          "I tell her: Thank you very much for your help, this way we are all happy."
+        ],
+        "french": [
+          "C’est samedi matin et ma famille prend le petit-déjeuner à une grande table près de la fenêtre.",
+          "La serveuse s’approche et dit : « Excusez-moi, nous avons une réservation et nous avons besoin de cette table. »",
+          "Elle nous propose une table plus petite dans le coin, près du comptoir.",
+          "Je lui explique calmement : « Nous préférons cette table parce que nous avons une poussette et qu’elle ne tient pas dans le coin. »",
+          "Puis je lui demande : « À quelle heure arrive le groupe qui a réservé ? »",
+          "La serveuse répond que le groupe arrive à dix heures trente.",
+          "Je propose alors : « Et si nous terminions ici avant dix heures quinze, puis allions prendre le café en terrasse ? »",
+          "Elle sourit et dit : « Parfait, il y a de l’ombre en terrasse et je vous apporterai une chaise supplémentaire. »",
+          "Je lui dis : « Merci beaucoup pour votre aide ; ainsi, tout le monde y trouve son compte. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "préférer",
+          "meaningEnglish": "to prefer",
+          "exampleFrench": "Nous préférons cette table parce que nous avons une poussette.",
+          "exampleEnglish": "We prefer this table because we have a stroller.",
+          "sourceInfinitiveSpanish": "preferir"
+        },
+        {
+          "infinitiveFrench": "rester",
+          "meaningEnglish": "to stay",
+          "exampleFrench": "Si possible, nous resterons ici jusqu’à dix heures quinze.",
+          "exampleEnglish": "If possible, we will stay here until 10:15.",
+          "sourceInfinitiveSpanish": "quedarse"
+        },
+        {
+          "infinitiveFrench": "se déplacer",
+          "meaningEnglish": "to move (yourself)",
+          "exampleFrench": "Ensuite, nous nous déplaçons en terrasse.",
+          "exampleEnglish": "Afterward we move to the patio.",
+          "sourceInfinitiveSpanish": "moverse"
+        },
+        {
+          "infinitiveFrench": "proposer",
+          "meaningEnglish": "to propose, to suggest",
+          "exampleFrench": "Je propose de terminer avant dix heures quinze.",
+          "exampleEnglish": "I propose finishing before 10:15.",
+          "sourceInfinitiveSpanish": "proponer"
+        }
+      ],
+      "speakingInstructionEnglish": "Explain why the corner table does not fit your stroller, ask when the booking arrives, and offer a reasonable compromise.",
+      "speakingFrench": "Nous préférons cette table parce que nous avons une poussette. À quelle heure arrive le groupe ? Et si nous terminions avant dix heures quinze ?",
+      "regionalNotesEnglish": [
+        "Reservation and seating policies differ; the proposed compromise is only valid if staff agree."
+      ],
+      "reviewed": false
+    }
+  ]
+}

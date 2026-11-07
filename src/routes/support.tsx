@@ -1,6 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/support")({ component: Support });
+export const Route = createFileRoute("/support")({
+  head: () => ({
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com/support" }],
+    meta: [
+      { title: "Language Threshold Support" },
+      {
+        name: "description",
+        content: "Get help with accounts, billing, lessons or setting up a crew.",
+      },
+      { property: "og:title", content: "Language Threshold Support" },
+      {
+        property: "og:description",
+        content: "Get help with accounts, billing, lessons or setting up a crew.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/support" },
+      { name: "twitter:title", content: "Language Threshold Support" },
+      {
+        name: "twitter:description",
+        content: "Get help with accounts, billing, lessons or setting up a crew.",
+      },
+    ],
+  }),
+  component: Support,
+});
 function Support() {
   return (
     <main className="min-h-screen bg-background px-5 py-10 text-foreground">

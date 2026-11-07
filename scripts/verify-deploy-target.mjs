@@ -26,7 +26,7 @@ const EXPECTED_ORG_ID = "team_WPMJl6w7aYPU9xP3sr8Xx3uN";
 const MARKERS = [
   {
     file: "src/routes/index.tsx",
-    contains: "Job-Specific Language Training for Nurses, Foremen & Teams",
+    contains: "Language Threshold — Language Training for Work",
     why: "the app's document title",
   },
   {

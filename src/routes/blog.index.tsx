@@ -5,6 +5,17 @@ export const Route = createFileRoute("/blog/")({
   staleTime: 120000,
   head: () => ({
     meta: [
+      { property: "og:title", content: "Language Threshold Blog" },
+      {
+        property: "og:description",
+        content: "Practical language learning for work conversations.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/blog" },
+      { name: "twitter:title", content: "Language Threshold Blog" },
+      {
+        name: "twitter:description",
+        content: "Practical language learning for work conversations.",
+      },
       { title: "Blog — Language Threshold" },
       {
         name: "description",

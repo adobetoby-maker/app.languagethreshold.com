@@ -1,3 +1,5 @@
+import { faqSchema } from "@/data/buyer-information";
+import { BuyerFaq, PublicProof, ProductFooter } from "@/components/marketing/BuyerInformation";
 import { RefundGuaranteeCallout } from "../components/legal/RefundGuarantee";
 import { FounderStoryLink } from "../components/FounderStoryLink";
 import { individualCheckoutUrl } from "@/lib/individual-checkout";
@@ -19,7 +21,20 @@ export const Route = createFileRoute("/pricing")({
     </AuthProvider>
   ),
   head: () => ({
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema) }],
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com/pricing" }],
     meta: [
+      { property: "og:title", content: "Language Threshold Pricing — 7-Day Free Trial" },
+      {
+        property: "og:description",
+        content: "Individual, Family and Team plans. Compare prices and start with 7 days free.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/pricing" },
+      { name: "twitter:title", content: "Language Threshold Pricing — 7-Day Free Trial" },
+      {
+        name: "twitter:description",
+        content: "Individual, Family and Team plans. Compare prices and start with 7 days free.",
+      },
       { title: "Language Threshold Pricing — 7-Day Free Trial" },
       {
         name: "description",
@@ -70,7 +85,7 @@ const FEATURES_PRO = [
 
 const FEATURES_FAMILY = [
   "Pro access for up to 6 family members",
-  "Junior Linguist for kids ages 4–12",
+  "Junior Linguist for kids",
   "Separate family profiles and progress",
 ];
 
@@ -84,30 +99,70 @@ const PLAN_GROUPS = [
     title: "Individual",
     subtitle: "One learner · every published module",
     options: [
-      { id: "monthly", name: "Monthly", price: "$19", period: "/month", billing: "$19 charged monthly after the 7-day trial. Renews monthly until canceled.", comparison: "", savings: "" },
-      { id: "annual", name: "Annual", price: "$149", period: "/year", billing: "$149 charged once per year after the 7-day trial. About $12.42/month, billed annually.", comparison: "$228/year in 12 monthly payments", savings: "Save $79 a year" },
+      {
+        id: "monthly",
+        name: "Monthly",
+        price: "$19",
+        period: "/month",
+        billing: "$19 charged monthly after the 7-day trial. Renews monthly until canceled.",
+        comparison: "",
+        savings: "",
+      },
+      {
+        id: "annual",
+        name: "Annual",
+        price: "$149",
+        period: "/year",
+        billing:
+          "$149 charged once per year after the 7-day trial. About $12.42/month, billed annually — daily practice for the cost of a work lunch.",
+        comparison: "$228/year in 12 monthly payments",
+        savings: "Save $79 a year",
+      },
     ],
   },
   {
     title: "Family",
     subtitle: "Up to 6 profiles · includes Junior Linguist",
     options: [
-      { id: "family-monthly", name: "Monthly", price: "$35", period: "/month", billing: "$35 charged monthly after the 7-day trial. Renews monthly until canceled.", comparison: "", savings: "" },
-      { id: "family", name: "Annual", price: "$249", period: "/year", billing: "$249 charged once per year after the 7-day trial. About $20.75/month, billed annually.", comparison: "$420/year in 12 monthly payments", savings: "Save $171 a year" },
+      {
+        id: "family-monthly",
+        name: "Monthly",
+        price: "$35",
+        period: "/month",
+        billing: "$35 charged monthly after the 7-day trial. Renews monthly until canceled.",
+        comparison: "",
+        savings: "",
+      },
+      {
+        id: "family",
+        name: "Annual",
+        price: "$249",
+        period: "/year",
+        billing:
+          "$249 charged once per year after the 7-day trial. About $20.75/month, billed annually.",
+        comparison: "$420/year in 12 monthly payments",
+        savings: "Save $171 a year",
+      },
     ],
   },
 ] as const;
 
 type BillingPlan = "monthly" | "annual" | "family-monthly" | "family" | "junior";
 function isBillingPlan(value: string | null): value is BillingPlan {
-  return value === "monthly" || value === "annual" || value === "family-monthly" || value === "family" || value === "junior";
+  return (
+    value === "monthly" ||
+    value === "annual" ||
+    value === "family-monthly" ||
+    value === "family" ||
+    value === "junior"
+  );
 }
 
 export default function PricingPage() {
   const { user, loading: authLoading } = useAuth();
   const { teamActive, status } = useSubscription();
   const hasPlan = teamActive || status === "active" || status === "trialing";
-  const [billing, setBilling] = useState<BillingPlan>("monthly");
+  const [billing, setBilling] = useState<BillingPlan>("annual");
   const [loadingPlan, setLoadingPlan] = useState<BillingPlan | null>(null);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("plan");
@@ -147,7 +202,7 @@ export default function PricingPage() {
               ? ANNUAL_PRICE_ID
               : plan === "family-monthly"
                 ? FAMILY_MONTHLY_PRICE_ID
-              : FAMILY_PRICE_ID;
+                : FAMILY_PRICE_ID;
         await startCheckout(plan, priceId, user.id, user.email ?? undefined);
       }
     } catch (error) {
@@ -179,8 +234,8 @@ export default function PricingPage() {
             Individual or family. Clear pricing.
           </h1>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto leading-relaxed">
-            Individual: $19/month or $149/year for one learner. Family: $35/month or $249/year
-            for up to 6 profiles, including Junior Linguist.
+            Individual: $19/month or $149/year for one learner. Family: $35/month or $249/year for
+            up to 6 profiles, including Junior Linguist.
           </p>
         </div>
 
@@ -209,7 +264,8 @@ export default function PricingPage() {
           </p>
         )}
         <p className="mb-8 rounded-xl border border-border bg-card px-5 py-4 text-center text-sm text-muted-foreground">
-          Start with 7 days free. Your chosen price starts after the trial; payment and renewal terms are shown in checkout.
+          Start with 7 days free. Your chosen price starts after the trial; payment and renewal
+          terms are shown in checkout.
         </p>
         {PLAN_GROUPS.map((group) => (
           <section key={group.title} className="mb-9" aria-label={group.title + " plans"}>
@@ -229,6 +285,9 @@ export default function PricingPage() {
                     aria-label={group.title + " " + option.name}
                   >
                     <h3 className="text-lg font-semibold">{option.name}</h3>
+                    {plan === "annual" && (
+                      <p className="mt-2 font-semibold text-gold-ink">Recommended</p>
+                    )}
                     {option.comparison && (
                       <p className="mt-2 text-sm text-muted-foreground">
                         <span className="line-through">{option.comparison.split(" in ")[0]}</span>
@@ -240,7 +299,9 @@ export default function PricingPage() {
                       <strong className="text-4xl">{option.price}</strong>
                       <span className="text-sm text-muted-foreground">{option.period}</span>
                     </p>
-                    <p className="mt-3 rounded-lg bg-background/50 p-3 text-sm text-muted-foreground">{option.billing}</p>
+                    <p className="mt-3 rounded-lg bg-background/50 p-3 text-sm text-muted-foreground">
+                      {option.billing}
+                    </p>
                     <ul className="my-5 flex-1 space-y-2">
                       {features.map((feature) => (
                         <li key={feature} className="flex items-start gap-2 text-sm">
@@ -255,11 +316,21 @@ export default function PricingPage() {
                       disabled={hasPlan || authLoading || loadingPlan !== null || unavailable}
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-sm font-bold text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      {hasPlan ? "Your access is active" : unavailable ? "Checkout being prepared" : loadingPlan === plan ? "Preparing checkout…" : `Choose ${group.title} ${option.name.toLowerCase()}`}
-                      {!hasPlan && !unavailable && loadingPlan !== plan && <ChevronRight className="h-4 w-4" />}
+                      {hasPlan
+                        ? "Your access is active"
+                        : unavailable
+                          ? "Checkout being prepared"
+                          : loadingPlan === plan
+                            ? "Preparing checkout…"
+                            : `Choose ${group.title} ${option.name.toLowerCase()}`}
+                      {!hasPlan && !unavailable && loadingPlan !== plan && (
+                        <ChevronRight className="h-4 w-4" />
+                      )}
                     </button>
                     <p className="mt-3 text-center text-xs text-muted-foreground">
-                      {unavailable ? "Monthly pricing preview · Checkout is not available yet" : "7-day trial · Review renewal terms in checkout"}
+                      {unavailable
+                        ? "Monthly pricing preview · Checkout is not available yet"
+                        : "7-day trial · Review renewal terms in checkout"}
                     </p>
                   </article>
                 );
@@ -267,9 +338,60 @@ export default function PricingPage() {
             </div>
           </section>
         ))}
+        <section className="my-8" aria-labelledby="plan-comparison">
+          <h2 id="plan-comparison" className="mb-4 text-2xl font-semibold">
+            Compare plans
+          </h2>
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr>
+                  <th scope="col" className="p-3">
+                    Plan
+                  </th>
+                  <th scope="col" className="p-3">
+                    Learners
+                  </th>
+                  <th scope="col" className="p-3">
+                    Best fit
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                <tr>
+                  <th scope="row" className="p-3">
+                    Individual
+                  </th>
+                  <td className="p-3">1</td>
+                  <td className="p-3">Your own role-specific practice and progress</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-3">
+                    Family
+                  </th>
+                  <td className="p-3">Up to 6 profiles</td>
+                  <td className="p-3">Separate family progress, including Junior Linguist</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="p-3">
+                    Team
+                  </th>
+                  <td className="p-3">From 5 seats</td>
+                  <td className="p-3">Crew invitations, focus assignments and activity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <BuyerFaq />
+        <PublicProof />
         <RefundGuaranteeCallout />
         <div className="mb-7 text-center">
-          <button type="button" onClick={() => setBilling(billing === "junior" ? "monthly" : "junior")} className="text-sm font-semibold text-gold underline">
+          <button
+            type="button"
+            onClick={() => setBilling(billing === "junior" ? "monthly" : "junior")}
+            className="text-sm font-semibold text-gold underline"
+          >
             {billing === "junior" ? "Hide" : "See"} Junior Linguist kids-only plan
           </button>
         </div>
@@ -333,32 +455,31 @@ export default function PricingPage() {
                 </div>
               </div>
             )}
-
           </>
         )}
-            {/* Free tier */}
-            <div className="rounded-2xl border border-border bg-card/50 overflow-hidden">
-              <div className="px-6 py-5">
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-2xl font-bold text-foreground">Free</span>
-                  <span className="text-muted-foreground text-sm">forever</span>
-                </div>
-                <ul className="space-y-2.5">
-                  {FEATURES_FREE.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/"
-                  className="mt-5 inline-block text-xs text-gold underline underline-offset-2 hover:opacity-80"
-                >
-                  Continue with free access →
-                </Link>
-              </div>
+        {/* Free tier */}
+        <div className="rounded-2xl border border-border bg-card/50 overflow-hidden">
+          <div className="px-6 py-5">
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="text-2xl font-bold text-foreground">Free</span>
+              <span className="text-muted-foreground text-sm">forever</span>
             </div>
+            <ul className="space-y-2.5">
+              {FEATURES_FREE.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <CheckCircle className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/"
+              className="mt-5 inline-block text-xs text-gold underline underline-offset-2 hover:opacity-80"
+            >
+              Continue with free access →
+            </Link>
+          </div>
+        </div>
 
         {/* Team plans */}
         <div className="mt-8 rounded-xl border border-gold/40 bg-gold/5 px-5 py-6 sm:px-7">
@@ -403,11 +524,10 @@ export default function PricingPage() {
                 Got kids? Try Junior Linguist
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-                Designed for ages 4-12. Vocabulary games, stories, and speaking practice built for
-                little learners. Included free with the Family Plan.
+                Vocabulary games, stories, and speaking practice for kids. Included free with the Family Plan.
               </p>
               <a
-                href="https://juniorlinguist.vercel.app"
+                href="https://juniorlinguist.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-violet-400 underline underline-offset-2 hover:opacity-80"
@@ -418,6 +538,7 @@ export default function PricingPage() {
           </div>
         </div>
 
+        <ProductFooter />
         {/* Affiliate section — language learning tools */}
         <div className="mt-8 rounded-xl border border-border bg-card/40 px-5 py-5">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">

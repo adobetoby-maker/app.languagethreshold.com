@@ -86,6 +86,12 @@ def main():
     assert clinical_terms["dizzy"] == "étourdie"
     assert any("urticaire" in line["targetFrench"] for line in reaction["reader"])
     assert any("difficultés à respirer" in line["targetFrench"] for line in reaction["reader"])
+    altitude = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "master:10")
+    assert altitude["reviewed"] is False and altitude["registered"] is False
+    assert any(word["supportEnglish"] == "altitude sickness" and word["targetFrench"] == "le mal aigu des montagnes" for word in altitude["words"])
+    assert "altitude sickness" in altitude["reader"][5]["supportEnglish"]
+    assert "mal aigu des montagnes" in altitude["reader"][5]["targetFrench"]
+    assert "mal aigu des montagnes" in altitude["speaking"]["openingFrench"]
     tip = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:29")
     assert "10 percent" not in json.dumps(tip["reader"], ensure_ascii=False)
     assert "dix pour cent" not in json.dumps(tip["reader"], ensure_ascii=False)

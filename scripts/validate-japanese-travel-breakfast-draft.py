@@ -302,6 +302,50 @@ def main():
             assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
     print("Japanese Breakfast M16–18 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
+    master_19_20 = json.loads((ROOT / "content/japanese-travel-breakfast/master-19-20-draft.json").read_text())
+    assert master_19_20["target"] == "Japanese" and master_19_20["native"] == "English"
+    assert master_19_20["stageId"] == "master-travel-breakfast"
+    assert master_19_20["state"] == "authored-draft"
+    assert master_19_20["reviewed"] is False and master_19_20["registered"] is False
+    assert master_19_20["audio"] == "none"
+    assert master_19_20["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_19_20["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_19_20["lessons"]] == [19, 20]
+    for lesson in master_19_20["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    all_master = [
+        *master["lessons"], *next_master["lessons"], *master_7_9["lessons"],
+        *master_10_12["lessons"], *master_13_15["lessons"],
+        *master_16_18["lessons"], *master_19_20["lessons"],
+    ]
+    assert [lesson["n"] for lesson in all_master] == list(range(1, 21))
+    assert len({lesson["stableId"] for lesson in all_master}) == 20
+    assert len(data["lessons"]) == 10 and len(core["lessons"]) == 30
+    print("Japanese Breakfast F10/C30/M20 private draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,9 @@
+# French 101 Core 16–18 draft checkpoint
+
+This bounded batch is **French target / English support authored draft** content, stacked on Core 13–15 draft PR #256. It does not register runtime lessons, publish content, alter stable lesson/progress IDs, or include recorded audio. `reviewed` remains `false`.
+
+`source-english-core-16-18.json` pins the exact English objectives, 42 card/phrase meanings, and 18 Reader meanings from the Spanish 101 source. It records whole-file SHA-256 hashes for both source files. `python3 scripts/validate-french-basics-core-16-18-draft.py` compares every pinned source item and hash to current source, every English pair to the authored draft, all six aligned reading lines per lesson, and check/script status. Validators for Core 10–12 and 13–15 also pass on this branch.
+
+The lessons teach French pronominal routines (`je me`, `tu te`, `nous nous`), demonstrative adjective agreement plus `-ci/-là` and standalone `celui-là`, then precise location prepositions and contractions (`au`, `du`). Each has a contextual six-line reading, speaking task, and five recall, writing, listening-script, and comprehension checks. Broad English source glosses remain exact; French alternatives have contextual notes. The English source's “second floor” should receive a locale/building-signage check before release, since French and North American floor numbering can differ.
+
+Codex authored this batch. Previous French batches report exhausted Claude CLI review budget, so no costly Haiku/Fable/Opus retry was attempted and no independent AI or human review is claimed. French fidelity, curriculum review, and the floor-numbering issue remain open. Runtime six-mode, Reader/cards/dictionary/speaking/offline integration, audio, and phone acceptance remain open. This is not a released course.

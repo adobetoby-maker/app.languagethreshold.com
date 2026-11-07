@@ -1,0 +1,486 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "5a75469498ba3329a89d385795c17c6befd382098dbbc710df998db5c414866f",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 13,
+      "titleEnglish": "Drip Edge Sequence",
+      "objectiveEnglishSource": "Discuss edge placement with the installer",
+      "titleFrench": "Confirmer la séquence du larmier",
+      "objectiveFrench": "Demander au couvreur d’expliquer la séquence de pose du larmier approuvée pour ce toit.",
+      "speakingEnglishSource": "Ask the installer to explain the approved drip-edge sequence for this roof.",
+      "speakingFrenchInstruction": "Demandez au couvreur de vous expliquer, plan et produit en main, où le larmier va sous ou sur la sous-couche et quelle séquence a été approuvée.",
+      "speakingFrenchOpening": "Sur ce toit, quelle séquence de pose du larmier est approuvée ? Pouvez-vous me montrer les instructions du fabricant ?",
+      "grammarFocusFrench": "Question alternative sous ou par-dessus; ordre avant de + infinitif; selon le plan pour attribuer la séquence.",
+      "words": [
+        {
+          "en": "drip edge",
+          "kind": "term",
+          "fr": "le larmier"
+        },
+        {
+          "en": "eave",
+          "kind": "term",
+          "fr": "l’avant-toit"
+        },
+        {
+          "en": "rake",
+          "kind": "term",
+          "fr": "la rive latérale du toit"
+        },
+        {
+          "en": "underlayment",
+          "kind": "term",
+          "fr": "la sous-couche"
+        },
+        {
+          "en": "edge",
+          "kind": "term",
+          "fr": "le bord"
+        },
+        {
+          "en": "sequence",
+          "kind": "term",
+          "fr": "la séquence"
+        },
+        {
+          "en": "overlap",
+          "kind": "term",
+          "fr": "le recouvrement"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "le coin"
+        },
+        {
+          "en": "install",
+          "kind": "term",
+          "fr": "poser"
+        },
+        {
+          "en": "Install the drip edge first.",
+          "kind": "phrase",
+          "fr": "Posez d’abord le larmier.",
+          "noteEnglish": "Source job-scene phrase only; confirm the approved edge detail and product sequence."
+        },
+        {
+          "en": "Does the drip edge go under or over the underlayment?",
+          "kind": "phrase",
+          "fr": "Le larmier se pose-t-il sous la sous-couche ou par-dessus ?"
+        },
+        {
+          "en": "Start the drip edge at the eave.",
+          "kind": "phrase",
+          "fr": "Commencez le larmier à l’avant-toit.",
+          "noteEnglish": "Source job-scene phrase only; confirm the approved edge detail and product sequence."
+        },
+        {
+          "en": "Cut the drip edge at the corner.",
+          "kind": "phrase",
+          "fr": "Coupez le larmier au coin."
+        },
+        {
+          "en": "Explain the drip-edge sequence for this roof.",
+          "kind": "phrase",
+          "fr": "Expliquez la séquence de pose du larmier pour ce toit."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Confirmer la séquence du larmier",
+        "target": [
+          "Aujourd’hui, l’équipe va poser le larmier.",
+          "Avant de commencer, le contremaître parle aux couvreurs.",
+          "Expliquez la séquence de pose du larmier pour ce toit.",
+          "Le larmier se pose-t-il sous la sous-couche ou par-dessus ?",
+          "Les couvreurs vérifient les instructions du fabricant avant de répondre.",
+          "Selon le plan, commencez le larmier à l’avant-toit.",
+          "Coupez le larmier au coin."
+        ],
+        "native": [
+          "Today the crew is going to install the drip edge.",
+          "Before starting, the foreman talks to the installers.",
+          "Explain the drip-edge sequence for this roof.",
+          "Does the drip edge go under or over the underlayment?",
+          "The installers check the manufacturer's instructions before answering.",
+          "According to the plan, start the drip edge at the eave.",
+          "Cut the drip edge at the corner."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to install",
+          "exampleEnglish": "The installers install the drip edge first.",
+          "sourceInfinitiveSpanish": "instalar",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "Les couvreurs posent d’abord le larmier."
+        },
+        {
+          "meaningEnglish": "to start",
+          "exampleEnglish": "The crew starts the drip edge at the eave.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "L’équipe commence la pose du larmier à l’avant-toit."
+        },
+        {
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "The installer cuts the drip edge at the corner.",
+          "sourceInfinitiveSpanish": "cortar",
+          "infinitiveFrench": "couper",
+          "exampleFrench": "Le couvreur coupe le larmier au coin."
+        },
+        {
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "The installer explains the drip-edge sequence.",
+          "sourceInfinitiveSpanish": "explicar",
+          "infinitiveFrench": "expliquer",
+          "exampleFrench": "Le couvreur explique la séquence de pose du larmier."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The installers check the manufacturer's instructions.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Les couvreurs vérifient les instructions du fabricant."
+        }
+      ],
+      "teachingNotesFrench": "La position du larmier par rapport à la sous-couche varie selon le bord, le système et les instructions applicables. Les phrases source sont des exemples de communication, pas une séquence universelle.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site/product rules require qualified regional/trade review.",
+        "Confirm approved plans, manufacturer instructions and site safety controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 14,
+      "titleEnglish": "Underlayment Overlap",
+      "objectiveEnglishSource": "Verify the specified underlayment overlap",
+      "titleFrench": "Vérifier le recouvrement de la sous-couche",
+      "objectiveFrench": "Employer la phrase de recouvrement du guide puis vérifier la mesure prévue pour le produit choisi.",
+      "speakingEnglishSource": "Practice the guide's six-inch overlap phrase and verify it against the selected product instructions.",
+      "speakingFrenchInstruction": "Rappelez le six pouces du guide comme exemple linguistique; demandez la largeur de recouvrement et le type de fixation réellement prescrits pour ce produit.",
+      "speakingFrenchOpening": "Le guide donne six pouces comme exemple. Quel recouvrement et quelles fixations notre sous-couche exige-t-elle ?",
+      "grammarFocusFrench": "Recouvrement et mesures en pouces dans le guide source; rappel d’un exemple versus consigne du fabricant; passé composé pour le chantier d’hier.",
+      "words": [
+        {
+          "en": "underlayment",
+          "kind": "term",
+          "fr": "la sous-couche"
+        },
+        {
+          "en": "overlap",
+          "kind": "term",
+          "fr": "le recouvrement"
+        },
+        {
+          "en": "fastener",
+          "kind": "term",
+          "fr": "la fixation"
+        },
+        {
+          "en": "roll",
+          "kind": "term",
+          "fr": "le rouleau"
+        },
+        {
+          "en": "felt paper",
+          "kind": "term",
+          "fr": "le feutre bitumé"
+        },
+        {
+          "en": "plastic cap nails",
+          "kind": "term",
+          "fr": "les clous à rondelles de plastique"
+        },
+        {
+          "en": "wrinkle",
+          "kind": "term",
+          "fr": "le pli"
+        },
+        {
+          "en": "inch",
+          "kind": "term",
+          "fr": "le pouce"
+        },
+        {
+          "en": "manufacturer instructions",
+          "kind": "term",
+          "fr": "les instructions du fabricant"
+        },
+        {
+          "en": "Six-inch overlap on the underlayment.",
+          "kind": "phrase",
+          "fr": "Un recouvrement de six pouces pour la sous-couche.",
+          "noteEnglish": "Source guide example only; verify actual product overlap and fastener requirements."
+        },
+        {
+          "en": "Roll out the underlayment straight.",
+          "kind": "phrase",
+          "fr": "Déroulez la sous-couche bien droit."
+        },
+        {
+          "en": "No wrinkles.",
+          "kind": "phrase",
+          "fr": "Sans plis."
+        },
+        {
+          "en": "Is the overlap correct?",
+          "kind": "phrase",
+          "fr": "Le recouvrement est-il correct ?"
+        },
+        {
+          "en": "Fasten the underlayment with plastic cap nails.",
+          "kind": "phrase",
+          "fr": "Fixez la sous-couche avec des clous à rondelles de plastique.",
+          "noteEnglish": "Source guide example only; verify actual product overlap and fastener requirements."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Vérifier le recouvrement de la sous-couche",
+        "target": [
+          "Hier, l’équipe a nettoyé le support de couverture.",
+          "Aujourd’hui, elle commence à poser la sous-couche.",
+          "Déroulez la sous-couche bien droit.",
+          "Sans plis.",
+          "Le contremaître se souvient de l’exemple du guide : un recouvrement de six pouces pour la sous-couche.",
+          "Mais il vérifie aussi les instructions du fabricant.",
+          "Le recouvrement est-il correct ?",
+          "Un ouvrier mesure de nouveau le recouvrement.",
+          "Fixez la sous-couche avec des clous à rondelles de plastique."
+        ],
+        "native": [
+          "Yesterday the crew cleaned the deck.",
+          "Today they start on the underlayment.",
+          "Roll out the underlayment nice and straight.",
+          "No wrinkles.",
+          "The foreman recalls the guide: six-inch overlap on the underlayment.",
+          "But he also confirms with the manufacturer's instructions.",
+          "Is the overlap correct?",
+          "A worker measures the overlap again.",
+          "Fasten the underlayment with plastic cap nails."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to roll out",
+          "exampleEnglish": "Roll out the underlayment nice and straight.",
+          "sourceInfinitiveSpanish": "desenrollar",
+          "infinitiveFrench": "dérouler",
+          "exampleFrench": "Déroulez la sous-couche bien droit."
+        },
+        {
+          "meaningEnglish": "to fasten",
+          "exampleEnglish": "Fasten the underlayment with plastic cap nails.",
+          "sourceInfinitiveSpanish": "sujetar",
+          "infinitiveFrench": "fixer",
+          "exampleFrench": "Fixez la sous-couche avec des clous à rondelles de plastique."
+        },
+        {
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "A worker measures the overlap again.",
+          "sourceInfinitiveSpanish": "medir",
+          "infinitiveFrench": "mesurer",
+          "exampleFrench": "Un ouvrier mesure de nouveau le recouvrement."
+        },
+        {
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "The foreman confirms with the manufacturer's instructions.",
+          "sourceInfinitiveSpanish": "confirmar",
+          "infinitiveFrench": "confirmer",
+          "exampleFrench": "Le contremaître confirme en consultant les instructions du fabricant."
+        },
+        {
+          "meaningEnglish": "to start",
+          "exampleEnglish": "Today they start on the underlayment.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "Aujourd’hui, l’équipe commence à poser la sous-couche."
+        }
+      ],
+      "teachingNotesFrench": "Six pouces est l’exemple du guide source, pas la valeur de tous les produits. Le type de fixation et le recouvrement exigent les instructions du fabricant et le devis approuvé.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site/product rules require qualified regional/trade review.",
+        "Confirm approved plans, manufacturer instructions and site safety controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 15,
+      "titleEnglish": "Valley Protection",
+      "objectiveEnglishSource": "Direct membrane work at a valley",
+      "titleFrench": "Montrer la protection de la noue",
+      "objectiveFrench": "Demander à voir la protection de la noue avant qu’elle soit recouverte.",
+      "speakingEnglishSource": "Ask the crew lead to show the valley protection before it is covered.",
+      "speakingFrenchInstruction": "Demandez au chef d’équipe de vous montrer la protection de la noue et la fiche produit avant de la recouvrir; faites confirmer les détails approuvés.",
+      "speakingFrenchOpening": "Pouvez-vous me montrer la protection de la noue avant de la recouvrir et confirmer la fiche produit ?",
+      "grammarFocusFrench": "Impératif pluriel pour décrire des gestes; avant de + infinitif; demander une vérification visuelle avant recouvrement.",
+      "words": [
+        {
+          "en": "valley",
+          "kind": "term",
+          "fr": "la noue"
+        },
+        {
+          "en": "ice and water shield",
+          "kind": "term",
+          "fr": "la membrane de protection contre l’eau et la glace"
+        },
+        {
+          "en": "membrane",
+          "kind": "term",
+          "fr": "la membrane"
+        },
+        {
+          "en": "adhesive",
+          "kind": "term",
+          "fr": "l’adhésif"
+        },
+        {
+          "en": "backing paper",
+          "kind": "term",
+          "fr": "le papier protecteur"
+        },
+        {
+          "en": "width",
+          "kind": "term",
+          "fr": "la largeur"
+        },
+        {
+          "en": "leak",
+          "kind": "term",
+          "fr": "la fuite"
+        },
+        {
+          "en": "flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "shingle",
+          "kind": "term",
+          "fr": "le bardeau"
+        },
+        {
+          "en": "Run ice and water shield up the valley.",
+          "kind": "phrase",
+          "fr": "Posez la membrane de protection contre l’eau et la glace dans la noue.",
+          "noteEnglish": "Source language example; qualified roofer must verify membrane and valley product instructions."
+        },
+        {
+          "en": "Show me the valley protection before it is covered.",
+          "kind": "phrase",
+          "fr": "Montrez-moi la protection de la noue avant de la recouvrir."
+        },
+        {
+          "en": "Peel off the backing paper.",
+          "kind": "phrase",
+          "fr": "Retirez le papier protecteur."
+        },
+        {
+          "en": "Press it down flat.",
+          "kind": "phrase",
+          "fr": "Appliquez-la bien à plat.",
+          "noteEnglish": "Source language example; qualified roofer must verify membrane and valley product instructions."
+        },
+        {
+          "en": "Cut the membrane to length.",
+          "kind": "phrase",
+          "fr": "Coupez la membrane à la bonne longueur."
+        },
+        {
+          "en": "Is the valley covered all the way?",
+          "kind": "phrase",
+          "fr": "La noue est-elle entièrement protégée ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Montrer la protection de la noue",
+        "target": [
+          "La noue est un endroit où l’eau s’écoule avec force.",
+          "C’est pourquoi l’équipe ajoute une protection supplémentaire.",
+          "Coupez la membrane à la bonne longueur.",
+          "Retirez le papier protecteur de l’adhésif.",
+          "Posez la membrane de protection contre l’eau et la glace dans la noue.",
+          "Appliquez-la bien à plat sur le support.",
+          "Une fuite dans la noue peut endommager la maison.",
+          "Le contremaître demande : « La noue est-elle entièrement protégée ? »",
+          "Montrez-moi la protection de la noue avant de la recouvrir."
+        ],
+        "native": [
+          "The valley is a place where water runs with force.",
+          "That is why the crew adds extra protection.",
+          "Cut the membrane to length.",
+          "Peel the backing paper off the adhesive.",
+          "Run the ice and water shield up the valley.",
+          "Press it down flat against the deck.",
+          "A leak in the valley can damage the house.",
+          "The foreman asks: Is the valley covered all the way?",
+          "Show me the valley protection before it is covered."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Cut the membrane to length.",
+          "sourceInfinitiveSpanish": "cortar",
+          "infinitiveFrench": "couper",
+          "exampleFrench": "Coupez la membrane à la bonne longueur."
+        },
+        {
+          "meaningEnglish": "to remove / to peel off",
+          "exampleEnglish": "Peel the backing paper off the adhesive.",
+          "sourceInfinitiveSpanish": "quitar",
+          "infinitiveFrench": "retirer",
+          "exampleFrench": "Retirez le papier protecteur de l’adhésif."
+        },
+        {
+          "meaningEnglish": "to put / to place",
+          "exampleEnglish": "That is why the crew adds extra protection.",
+          "sourceInfinitiveSpanish": "poner",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "C’est pourquoi l’équipe pose une protection supplémentaire."
+        },
+        {
+          "meaningEnglish": "to press",
+          "exampleEnglish": "Press it down flat against the deck.",
+          "sourceInfinitiveSpanish": "presionar",
+          "infinitiveFrench": "appliquer",
+          "exampleFrench": "Appliquez-la bien à plat sur le support."
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "We show the valley protection before covering it.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Nous montrons la protection de la noue avant de la recouvrir."
+        }
+      ],
+      "teachingNotesFrench": "La membrane, sa largeur, son adhésif, sa pose et le traitement de la noue dépendent du système approuvé. Ne pas utiliser ce dialogue comme fiche de pose.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site/product rules require qualified regional/trade review.",
+        "Confirm approved plans, manufacturer instructions and site safety controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    }
+  ]
+}

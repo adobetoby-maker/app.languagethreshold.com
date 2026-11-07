@@ -49,7 +49,7 @@ def main():
             assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
     print("Japanese Breakfast F1–10 draft: source hashes, stable IDs, pairs, Reader, speaking, six modes PASS")
 
-    core = json.loads((ROOT / "content/japanese-travel-breakfast/core-1-21-draft.json").read_text())
+    core = json.loads((ROOT / "content/japanese-travel-breakfast/core-1-24-draft.json").read_text())
     generated_bytes = subprocess.check_output(
         ["git", "show", "HEAD:public/lesson-content/es/travel-breakfast.json"], cwd=ROOT
     )
@@ -61,7 +61,7 @@ def main():
     assert core["audio"] == "none"
     assert core["source"]["readerSha256"] == digest(generated_bytes)
     assert core["source"]["curriculumSha256"] == digest(travel_bytes)
-    assert len(core["lessons"]) == 21
+    assert len(core["lessons"]) == 24
     for n, lesson in enumerate(core["lessons"], 1):
         original = generated["lessons"][str(n)]
         source_fields = {
@@ -84,7 +84,7 @@ def main():
         for pair in [*lesson["cards"], *lesson["reader"]]:
             assert pair["ja"].strip() and pair["en"].strip()
             assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
-    print("Japanese Breakfast C1–21 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+    print("Japanese Breakfast C1–24 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
 
 if __name__ == "__main__":

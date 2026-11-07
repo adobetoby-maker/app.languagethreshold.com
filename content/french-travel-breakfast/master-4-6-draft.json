@@ -1,0 +1,696 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/master-travel-breakfast.json": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "public/lesson-content/es/master-travel-breakfast.json": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Read the Hotel's Allergen Chart Before the Buffet",
+      "objectiveEnglish": "Read a printed allergen chart with staff, flag what is out of date, and explain what to verify before eating.",
+      "titleFrenchCourseEnglish": "Vérifier le tableau des allergènes",
+      "objectiveFrenchCourseEnglish": "Compare a hotel buffet chart with current labels and ask what cannot be confirmed before eating.",
+      "sourceSpeakingEnglish": "You are reading the hotel's allergen chart with the AI, host Renzo, for your partner Elif, who is allergic to sesame: go through each bread and spread, ask clear questions, and say what to check using antes de / después de + infinitive and hay que.",
+      "sourceGrammarFocusEnglish": "Antes de / después de + infinitive; hay que (antes de servirte, hay que preguntar; la tabla dice que contiene sésamo)",
+      "focusEnglish": "Use avant de + infinitive and après avoir + past participle to order checks; state uncertainty rather than guarantee safety.",
+      "focusFrench": "Ordonner les vérifications avec avant de et après avoir ; expliciter ce qui reste incertain.",
+      "teachingNotesEnglish": "The chart in this Lima source scene is out of date. Ask for current labels and preparation details; a label or separate utensil alone does not establish safety. The English source contains an overconfident “I will tell you what you can eat” line and emergency treatment reference; both require qualified allergy and medical review before release.",
+      "words": [
+        {
+          "en": "the allergen chart",
+          "kind": "term",
+          "fr": "le tableau des allergènes"
+        },
+        {
+          "en": "the sesame",
+          "kind": "term",
+          "fr": "le sésame"
+        },
+        {
+          "en": "the seeds",
+          "kind": "term",
+          "fr": "les graines"
+        },
+        {
+          "en": "the traces",
+          "kind": "term",
+          "fr": "les traces"
+        },
+        {
+          "en": "the label",
+          "kind": "term",
+          "fr": "l’étiquette"
+        },
+        {
+          "en": "the supplier",
+          "kind": "term",
+          "fr": "le fournisseur"
+        },
+        {
+          "en": "the date last updated",
+          "kind": "term",
+          "fr": "la date de mise à jour"
+        },
+        {
+          "en": "the product spec sheet",
+          "kind": "term",
+          "fr": "la fiche technique du produit"
+        },
+        {
+          "en": "the sliced bread",
+          "kind": "term",
+          "fr": "le pain de mie"
+        },
+        {
+          "en": "the French roll",
+          "kind": "term",
+          "fr": "le petit pain"
+        },
+        {
+          "en": "the head chef",
+          "kind": "term",
+          "fr": "le chef de cuisine"
+        },
+        {
+          "en": "the separate utensils",
+          "kind": "term",
+          "fr": "les ustensiles séparés"
+        },
+        {
+          "en": "the allergic reaction",
+          "kind": "term",
+          "fr": "une réaction allergique"
+        },
+        {
+          "en": "the epinephrine auto-injector",
+          "kind": "term",
+          "fr": "l’auto-injecteur d’adrénaline"
+        },
+        {
+          "en": "up to date",
+          "kind": "term",
+          "fr": "à jour"
+        },
+        {
+          "en": "Before you serve yourself anything, we need to confirm the chart with Renzo.",
+          "kind": "phrase",
+          "fr": "Avant de te servir, nous devons vérifier le tableau avec Renzo."
+        },
+        {
+          "en": "Excuse me, what date is this allergen chart from?",
+          "kind": "phrase",
+          "fr": "Excusez-moi, de quand date ce tableau des allergènes ?"
+        },
+        {
+          "en": "The chart says the French roll doesn't contain sesame.",
+          "kind": "phrase",
+          "fr": "Le tableau indique que le petit pain ne contient pas de sésame."
+        },
+        {
+          "en": "Could you ask the head chef for the supplier's label?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous demander l’étiquette du fournisseur au chef ?"
+        },
+        {
+          "en": "If the chart isn't up to date, we need to check each label.",
+          "kind": "phrase",
+          "fr": "Si le tableau n’est pas à jour, il faut vérifier chaque étiquette."
+        },
+        {
+          "en": "After reading the label, I'll tell you what you can eat.",
+          "kind": "phrase",
+          "fr": "Après avoir lu l’étiquette, je te dirai ce qu’elle indique, sans conclure que c’est sûr."
+        },
+        {
+          "en": "My partner is allergic to sesame, even to traces.",
+          "kind": "phrase",
+          "fr": "Ma partenaire est allergique au sésame, même aux traces."
+        },
+        {
+          "en": "Better not eat anything without confirming it first.",
+          "kind": "phrase",
+          "fr": "Mieux vaut ne rien manger sans vérification préalable."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Vérifier le tableau des allergènes",
+        "english": [
+          "In the dining room of a hotel in Miraflores, in Lima, Elif and I arrive early for the breakfast buffet.",
+          "I tell Elif: Before you serve yourself anything, we need to confirm the chart with Renzo.",
+          "Renzo, the host, brings us the printed allergen chart and puts it on the table.",
+          "I explain to Renzo: My partner is allergic to sesame, even to traces.",
+          "After reading the first column, I ask him: Excuse me, what date is this allergen chart from?",
+          "Renzo points to the date last updated, March 3, but the hotel has had a new bread supplier since September.",
+          "I read aloud: The chart says the French roll doesn't contain sesame.",
+          "But the sliced bread from the new supplier has seeds on top, and the chart says nothing about that.",
+          "I tell Renzo: If the chart isn't up to date, we need to check each label.",
+          "Then I ask him: Could you ask the head chef for the supplier's label?",
+          "While Renzo goes to the kitchen, I tell Elif: After reading the label, I'll tell you what you can eat.",
+          "After talking to the head chef, Renzo comes back with the spec sheet for the sliced bread and the label for the French roll.",
+          "The spec sheet confirms that the seeds on the sliced bread are sesame.",
+          "The French roll's label says: May contain traces of sesame.",
+          "So I tell Elif: Better not eat anything without confirming it first.",
+          "Renzo explains that the head chef can make scrambled eggs with separate utensils, with only egg, salt and butter.",
+          "Before eating, Elif checks that she has her epinephrine auto-injector in her bag.",
+          "I explain to Renzo that if Elif has an allergic reaction, we have to use the auto-injector as her doctor instructed and call an ambulance."
+        ],
+        "french": [
+          "Dans la salle à manger d’un hôtel de Miraflores, à Lima, Elif et moi arrivons tôt pour le buffet du petit-déjeuner.",
+          "Je dis à Elif : « Avant de te servir, nous devons vérifier le tableau avec Renzo. »",
+          "Renzo, l’hôte, nous apporte le tableau imprimé des allergènes et le pose sur la table.",
+          "Je lui explique : « Ma partenaire est allergique au sésame, même aux traces. »",
+          "Après avoir lu la première colonne, je demande : « Excusez-moi, de quand date ce tableau des allergènes ? »",
+          "Renzo montre la date de mise à jour, le 3 mars, mais l’hôtel a changé de fournisseur de pain en septembre.",
+          "Je lis à voix haute : « Le tableau indique que le petit pain ne contient pas de sésame. »",
+          "Pourtant, le pain de mie du nouveau fournisseur porte des graines et le tableau n’en dit rien.",
+          "Je dis à Renzo : « Si le tableau n’est pas à jour, il faut vérifier chaque étiquette. »",
+          "Puis je lui demande : « Pourriez-vous demander l’étiquette du fournisseur au chef ? »",
+          "Pendant que Renzo va en cuisine, je dis à Elif : « Après avoir lu l’étiquette, je te dirai ce qu’elle indique ; il faudra aussi vérifier la préparation. »",
+          "Après avoir parlé au chef, Renzo revient avec la fiche technique du pain de mie et l’étiquette du petit pain.",
+          "La fiche technique confirme que les graines sur le pain de mie sont du sésame.",
+          "L’étiquette du petit pain indique : « Peut contenir des traces de sésame. »",
+          "Je dis donc à Elif : « Mieux vaut ne rien manger sans vérification préalable. »",
+          "Renzo explique que le chef peut préparer des œufs brouillés avec des ustensiles séparés, avec seulement des œufs, du sel et du beurre.",
+          "Avant de manger, Elif vérifie qu’elle a son auto-injecteur d’adrénaline dans son sac.",
+          "J’explique à Renzo que, si Elif a une réaction allergique, nous devons suivre les instructions de son médecin pour l’auto-injecteur et appeler une ambulance."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "confirmer",
+          "meaningEnglish": "to confirm",
+          "exampleFrench": "Renzo confirme les ingrédients auprès du chef.",
+          "exampleEnglish": "Renzo confirms the ingredients with the head chef.",
+          "sourceInfinitiveSpanish": "confirmar"
+        },
+        {
+          "infinitiveFrench": "vérifier",
+          "meaningEnglish": "to check",
+          "exampleFrench": "Je vérifie chaque étiquette avant le petit-déjeuner.",
+          "exampleEnglish": "I check each label before breakfast.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "infinitiveFrench": "lire",
+          "meaningEnglish": "to read",
+          "exampleFrench": "Je lis le tableau des allergènes avec Renzo.",
+          "exampleEnglish": "I read the allergen chart with Renzo.",
+          "sourceInfinitiveSpanish": "leer"
+        },
+        {
+          "infinitiveFrench": "contenir",
+          "meaningEnglish": "to contain",
+          "exampleFrench": "Le pain de mie contient du sésame.",
+          "exampleEnglish": "The sliced bread contains sesame.",
+          "sourceInfinitiveSpanish": "contener"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask for, to request",
+          "exampleFrench": "Je demande la fiche technique au chef.",
+          "exampleEnglish": "I ask the head chef for the spec sheet.",
+          "sourceInfinitiveSpanish": "pedir"
+        }
+      ],
+      "grammarExamples": [
+        {
+          "english": "Before trying the bread, you have to read the label.",
+          "french": "Avant de goûter le pain, il faut lire l’étiquette."
+        },
+        {
+          "english": "After talking to the kitchen, Renzo will confirm the ingredients for us.",
+          "french": "Après avoir parlé à la cuisine, Renzo nous confirmera les ingrédients."
+        }
+      ],
+      "speakingInstructionEnglish": "Question the dated chart, current labels and preparation with host Renzo; state what remains unknown instead of deciding what is safe for Elif.",
+      "speakingFrench": "Avant de te servir, vérifions la date du tableau. Renzo, pourriez-vous nous montrer les étiquettes actuelles et expliquer la préparation ? Si vous ne pouvez pas confirmer, nous ne commanderons pas.",
+      "regionalNotesEnglish": [
+        "Miraflores/Lima and the fictional March/September supplier change are source-scene details, not French hotel practice.",
+        "Source line “I’ll tell you what you can eat” overstates a companion’s role. The French line limits the claim, but the English source needs qualified allergy correction before release.",
+        "Separate utensils, product labels and an auto-injector reference do not establish meal safety or provide treatment instructions; qualified allergy/medical review is required."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Breakfast Room Closed: Propose a Fair Alternative",
+      "objectiveEnglish": "Explain what the booking promised and what you found, then propose a reasonable breakfast alternative.",
+      "titleFrenchCourseEnglish": "Proposer une solution au petit-déjeuner fermé",
+      "objectiveFrenchCourseEnglish": "Explain a closed hotel breakfast room using the booking terms and propose a fair alternative.",
+      "sourceSpeakingEnglish": "You are a hotel guest, and the AI is Yesenia, the receptionist in Cartagena: explain what your booking included and what you found this morning with the preterite and imperfect (bajé, estaba cerrada), then propose a fair alternative with ¿sería posible…?",
+      "sourceGrammarFocusEnglish": "Preterite vs imperfect; conditional for the proposal (la reserva incluía desayuno, bajé a las ocho y estaba cerrado; ¿sería posible un vale?)",
+      "focusEnglish": "Contrast what the booking promised with what happened; use serait-il possible de for a polite proposal.",
+      "focusFrench": "Présenter les faits, rappeler la réservation et proposer une solution équitable.",
+      "teachingNotesEnglish": "Ma réservation comprenait le petit-déjeuner states the promised service. Je suis descendu à huit heures, mais la terrasse était fermée contrasts event and state. Serait-il possible d’avoir un bon pour le café voisin ? offers one solution; hotel terms determine what is actually owed.",
+      "words": [
+        {
+          "en": "the voucher",
+          "kind": "term",
+          "fr": "un bon"
+        },
+        {
+          "en": "the repairs",
+          "kind": "term",
+          "fr": "les réparations"
+        },
+        {
+          "en": "the notice",
+          "kind": "term",
+          "fr": "un avis"
+        },
+        {
+          "en": "the temporary closure",
+          "kind": "term",
+          "fr": "une fermeture temporaire"
+        },
+        {
+          "en": "the refund",
+          "kind": "term",
+          "fr": "un remboursement"
+        },
+        {
+          "en": "the discount",
+          "kind": "term",
+          "fr": "une réduction"
+        },
+        {
+          "en": "the compensation",
+          "kind": "term",
+          "fr": "un dédommagement"
+        },
+        {
+          "en": "the café next door",
+          "kind": "term",
+          "fr": "le café voisin"
+        },
+        {
+          "en": "the alternative",
+          "kind": "term",
+          "fr": "une solution de rechange"
+        },
+        {
+          "en": "the inconvenience",
+          "kind": "term",
+          "fr": "le désagrément"
+        },
+        {
+          "en": "the booking platform",
+          "kind": "term",
+          "fr": "la plateforme de réservation"
+        },
+        {
+          "en": "the terms",
+          "kind": "term",
+          "fr": "les conditions"
+        },
+        {
+          "en": "the price",
+          "kind": "term",
+          "fr": "le prix"
+        },
+        {
+          "en": "the management",
+          "kind": "term",
+          "fr": "la direction"
+        },
+        {
+          "en": "reasonable",
+          "kind": "term",
+          "fr": "raisonnable"
+        },
+        {
+          "en": "My booking included breakfast, and the confirmation said so.",
+          "kind": "phrase",
+          "fr": "Ma réservation comprenait le petit-déjeuner ; la confirmation le précisait."
+        },
+        {
+          "en": "I went down at 8 and the terrace was closed.",
+          "kind": "phrase",
+          "fr": "Je suis descendu à huit heures et la terrasse était fermée."
+        },
+        {
+          "en": "There was no notice in the elevator or in the room.",
+          "kind": "phrase",
+          "fr": "Il n’y avait aucun avis dans l’ascenseur ni dans la chambre."
+        },
+        {
+          "en": "I understand it wasn't your fault, don't worry.",
+          "kind": "phrase",
+          "fr": "Je comprends que ce n’était pas de votre faute, ne vous inquiétez pas."
+        },
+        {
+          "en": "Would a voucher for the café next door be possible?",
+          "kind": "phrase",
+          "fr": "Serait-il possible d’avoir un bon pour le café voisin ?"
+        },
+        {
+          "en": "Could you check it with the management, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous vérifier avec la direction, s’il vous plaît ?"
+        },
+        {
+          "en": "If that's not possible, would you take the breakfast off my bill?",
+          "kind": "phrase",
+          "fr": "Si ce n’est pas possible, pourriez-vous retirer le petit-déjeuner de ma facture ?"
+        },
+        {
+          "en": "That seems like a fair solution, thank you very much.",
+          "kind": "phrase",
+          "fr": "Cela me semble une solution équitable, merci beaucoup."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Proposer une solution au petit-déjeuner fermé",
+        "english": [
+          "Daniel, a Canadian traveler, is spending three nights at a boutique hotel in the walled city of Cartagena.",
+          "He made the booking on a booking platform and paid the full price in advance.",
+          "According to the terms of the booking, breakfast on the terrace was included every day.",
+          "This morning Daniel goes to the front desk and talks with Yesenia, the receptionist.",
+          "Daniel: My booking included breakfast, and the confirmation said so.",
+          "Daniel: I went down at 8 and the terrace was closed.",
+          "Daniel: There was no notice in the elevator or in the room.",
+          "Yesenia: I'm very sorry, last night there was a leak and some urgent repairs started on the terrace.",
+          "Yesenia: It's a temporary closure, and nobody managed to put up the notice before 7.",
+          "Daniel: I understand it wasn't your fault, don't worry.",
+          "Daniel: I'm not looking for a refund, I just need an alternative for breakfast today.",
+          "Daniel: Would a voucher for the café next door be possible?",
+          "Daniel: If that's not possible, would you take the breakfast off my bill?",
+          "Yesenia: That seems reasonable to me, but any compensation has to be approved by the management.",
+          "Daniel: Could you check it with the management, please?",
+          "Yesenia calls her boss and, after 5 minutes, hands Daniel a voucher for a full breakfast.",
+          "Yesenia: In addition, we're offering you a 10% discount on the bill for the inconvenience.",
+          "Daniel: That seems like a fair solution, thank you very much."
+        ],
+        "french": [
+          "Daniel, un voyageur canadien, passe trois nuits dans un hôtel de charme de la vieille ville de Carthagène.",
+          "Il a réservé sur une plateforme et payé le prix total à l’avance.",
+          "D’après les conditions de la réservation, le petit-déjeuner sur la terrasse était compris chaque jour.",
+          "Ce matin, Daniel va à la réception et parle avec Yesenia, la réceptionniste.",
+          "Daniel : « Ma réservation comprenait le petit-déjeuner ; la confirmation le précisait. »",
+          "Daniel : « Je suis descendu à huit heures et la terrasse était fermée. »",
+          "Daniel : « Il n’y avait aucun avis dans l’ascenseur ni dans la chambre. »",
+          "Yesenia : « Je suis désolée ; une fuite s’est produite hier soir et des réparations urgentes ont commencé sur la terrasse. »",
+          "Yesenia : « La fermeture est temporaire, et personne n’a pu afficher l’avis avant sept heures. »",
+          "Daniel : « Je comprends que ce n’était pas de votre faute, ne vous inquiétez pas. »",
+          "Daniel : « Je ne demande pas un remboursement ; il me faut simplement une autre solution pour le petit-déjeuner aujourd’hui. »",
+          "Daniel : « Serait-il possible d’avoir un bon pour le café voisin ? »",
+          "Daniel : « Sinon, pourriez-vous retirer le petit-déjeuner de ma facture ? »",
+          "Yesenia : « Cela me semble raisonnable, mais tout dédommagement doit être approuvé par la direction. »",
+          "Daniel : « Pourriez-vous vérifier avec la direction, s’il vous plaît ? »",
+          "Yesenia appelle sa responsable et, cinq minutes plus tard, remet à Daniel un bon pour un petit-déjeuner complet.",
+          "Yesenia : « En outre, nous vous accordons une réduction de dix pour cent sur la facture pour ce désagrément. »",
+          "Daniel : « Cela me semble une solution équitable, merci beaucoup. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "comprendre",
+          "meaningEnglish": "to include",
+          "exampleFrench": "La réservation comprend le petit-déjeuner sur la terrasse.",
+          "exampleEnglish": "The booking includes breakfast on the terrace.",
+          "sourceInfinitiveSpanish": "incluir"
+        },
+        {
+          "infinitiveFrench": "descendre",
+          "meaningEnglish": "to go down",
+          "exampleFrench": "Je descends prendre le petit-déjeuner à huit heures.",
+          "exampleEnglish": "I go down to have breakfast at 8.",
+          "sourceInfinitiveSpanish": "bajar"
+        },
+        {
+          "infinitiveFrench": "consulter",
+          "meaningEnglish": "to check with, to consult",
+          "exampleFrench": "Yesenia consulte la direction à ce sujet.",
+          "exampleEnglish": "Yesenia checks the case with the management.",
+          "sourceInfinitiveSpanish": "consultar"
+        },
+        {
+          "infinitiveFrench": "déduire",
+          "meaningEnglish": "to take off, to discount",
+          "exampleFrench": "Pourriez-vous déduire le petit-déjeuner de ma facture ?",
+          "exampleEnglish": "Will you take the breakfast off my bill?",
+          "sourceInfinitiveSpanish": "descontar"
+        },
+        {
+          "infinitiveFrench": "proposer",
+          "meaningEnglish": "to offer",
+          "exampleFrench": "Nous vous proposons une réduction pour le désagrément.",
+          "exampleEnglish": "We're offering you a discount for the inconvenience.",
+          "sourceInfinitiveSpanish": "ofrecer"
+        }
+      ],
+      "grammarExamples": [
+        {
+          "english": "I went down at 8 and the terrace was still closed.",
+          "french": "Je suis descendu à huit heures et la terrasse était toujours fermée."
+        },
+        {
+          "english": "The booking included breakfast, so would a voucher be possible?",
+          "french": "La réservation comprenait le petit-déjeuner ; serait-il possible d’avoir un bon ?"
+        }
+      ],
+      "speakingInstructionEnglish": "Explain the promise and closure to receptionist Yesenia; propose a voucher or adjusted bill and ask her to check with management.",
+      "speakingFrench": "Ma réservation comprenait le petit-déjeuner. Je suis descendu à huit heures et la terrasse était fermée. Serait-il possible d’avoir un bon pour le café voisin ?",
+      "regionalNotesEnglish": [
+        "Cartagena, the hotel closure and ten-percent discount are fictional source-scene details; they do not establish any legal entitlement.",
+        "A Francophone destination needs an original local hotel setting and reviewed billing language."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "titleEnglish": "No Oat Milk Today: Choose Substitutes for the Group",
+      "objectiveEnglish": "Compare the available milk options for each person and agree on a plan until the delivery arrives.",
+      "titleFrenchCourseEnglish": "Choisir des substituts au lait d’avoine",
+      "objectiveFrenchCourseEnglish": "Compare drink options for three people when oat milk is unavailable, respecting each person’s stated choices.",
+      "sourceSpeakingEnglish": "You are ordering for your friends, and the AI is Matías, a server at a San Telmo confitería: compare the milk options with más/menos … que, pick one for vegan Hannah and one for lactose-avoiding Dev, and plan the rest with ir a and the future (va a llegar, volveremos).",
+      "sourceGrammarFocusEnglish": "Future and ir a; comparisons (la de soja es más espesa que la de almendra; el reparto va a llegar por la tarde)",
+      "focusEnglish": "Use plus/moins ... que for comparison and future or near future for delivery and return plans; verify ingredients rather than infer dietary suitability.",
+      "focusFrench": "Comparer les boissons disponibles et convenir d’un choix provisoire pour chaque personne.",
+      "teachingNotesEnglish": "Le soja est plus épais que l’amande compares texture; la livraison arrivera cet après-midi gives the plan. Vegan and lactose-avoidance needs are different: ask each person and confirm product ingredients, preparation and shared equipment. A baker’s informal “no milk” statement is not verification.",
+      "words": [
+        {
+          "en": "the soy milk",
+          "kind": "term",
+          "fr": "le lait de soja"
+        },
+        {
+          "en": "the lactose-free milk",
+          "kind": "term",
+          "fr": "le lait sans lactose"
+        },
+        {
+          "en": "the coconut milk",
+          "kind": "term",
+          "fr": "le lait de coco"
+        },
+        {
+          "en": "the plant-based drink",
+          "kind": "term",
+          "fr": "une boisson végétale"
+        },
+        {
+          "en": "the delivery",
+          "kind": "term",
+          "fr": "la livraison"
+        },
+        {
+          "en": "the croissants",
+          "kind": "term",
+          "fr": "les croissants"
+        },
+        {
+          "en": "the beef-fat croissant",
+          "kind": "term",
+          "fr": "le croissant à la graisse de bœuf"
+        },
+        {
+          "en": "the milk with a drop of coffee",
+          "kind": "term",
+          "fr": "un lait avec une goutte de café"
+        },
+        {
+          "en": "the foam",
+          "kind": "term",
+          "fr": "la mousse"
+        },
+        {
+          "en": "the taste",
+          "kind": "term",
+          "fr": "le goût"
+        },
+        {
+          "en": "the lactose",
+          "kind": "term",
+          "fr": "le lactose"
+        },
+        {
+          "en": "the café-bakery",
+          "kind": "term",
+          "fr": "le café-boulangerie"
+        },
+        {
+          "en": "vegan",
+          "kind": "term",
+          "fr": "végétalien, végétalienne"
+        },
+        {
+          "en": "thick",
+          "kind": "term",
+          "fr": "épais, épaisse"
+        },
+        {
+          "en": "meanwhile",
+          "kind": "term",
+          "fr": "en attendant"
+        },
+        {
+          "en": "What time is the delivery going to arrive?",
+          "kind": "phrase",
+          "fr": "À quelle heure arrivera la livraison ?"
+        },
+        {
+          "en": "Is the soy one thicker than the almond one?",
+          "kind": "phrase",
+          "fr": "Le lait de soja est plus épais que celui d’amande ?"
+        },
+        {
+          "en": "Hannah is vegan, so she's going to have the soy one.",
+          "kind": "phrase",
+          "fr": "Hannah est végétalienne, donc elle choisira le soja."
+        },
+        {
+          "en": "The butter croissants contain dairy, right?",
+          "kind": "phrase",
+          "fr": "Les croissants au beurre contiennent des produits laitiers, n’est-ce pas ?"
+        },
+        {
+          "en": "Could you bring us one with soy and one lactose-free?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous nous en apporter un au soja et un sans lactose ?"
+        },
+        {
+          "en": "What do you think, Hannah? The coconut one is less thick.",
+          "kind": "phrase",
+          "fr": "Qu’en penses-tu, Hannah ? Celui au coco est moins épais."
+        },
+        {
+          "en": "Dev, does the lactose-free one work for you for now?",
+          "kind": "phrase",
+          "fr": "Dev, celui sans lactose te convient-il pour le moment ?"
+        },
+        {
+          "en": "For now we'll order this, and we'll come back in the afternoon.",
+          "kind": "phrase",
+          "fr": "Pour l’instant, nous allons commander cela et nous reviendrons cet après-midi."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Choisir des substituts au lait d’avoine",
+        "english": [
+          "One Saturday at 10, Nora walks into a café-bakery in San Telmo with her friends Hannah and Dev to have breakfast.",
+          "The server, Matías, tells them that there is no oat milk today because the delivery hasn't arrived yet.",
+          "Nora: What time is the delivery going to arrive?",
+          "Matías: It will arrive in the afternoon, and meanwhile I can offer you another plant-based drink.",
+          "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+          "Nora: Is the soy one thicker than the almond one?",
+          "Matías: Yes, the soy one is thicker, and the coconut milk has a sweeter taste than both.",
+          "Hannah: I prefer the soy one, because it makes more foam than the coconut one.",
+          "Nora: Hannah is vegan, so she's going to have the soy one.",
+          "Dev avoids lactose, so Matías recommends the lactose-free milk to him.",
+          "Nora: Dev, does the lactose-free one work for you for now?",
+          "Dev: Yes, I'm going to order a lágrima, because it has less coffee than a cortado.",
+          "Nora: The butter croissants contain dairy, right?",
+          "Matías: Yes, but according to the baker, the beef-fat croissant has no butter or milk, although it does contain beef fat.",
+          "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+          "Nora: Could you bring us one with soy and one lactose-free?",
+          "Matías: Of course, and when the delivery arrives, I'm going to save some oat milk for you.",
+          "Nora: For now we'll order this, and we'll come back in the afternoon."
+        ],
+        "french": [
+          "Un samedi à dix heures, Nora entre dans un café-boulangerie de San Telmo avec ses amis Hannah et Dev pour prendre le petit-déjeuner.",
+          "Matías, le serveur, leur dit qu’il n’y a plus de lait d’avoine aujourd’hui, car la livraison n’est pas encore arrivée.",
+          "Nora : « À quelle heure arrivera la livraison ? »",
+          "Matías : « Cet après-midi ; en attendant, je peux vous proposer une autre boisson végétale. »",
+          "Matías : « Nous avons du lait de soja et du lait d’amande, les plus demandés par nos clients végétaliens. »",
+          "Nora : « Celui au soja est plus épais que celui à l’amande ? »",
+          "Matías : « Oui, celui au soja est plus épais, et le lait de coco a un goût plus sucré que les deux autres. »",
+          "Hannah : « Je préfère celui au soja, car il mousse davantage que celui au coco. »",
+          "Nora : « Hannah est végétalienne ; elle va donc prendre celui au soja. »",
+          "Dev évite le lactose ; Matías lui propose donc du lait sans lactose.",
+          "Nora : « Dev, celui sans lactose te convient-il pour le moment ? »",
+          "Dev : « Oui, je vais commander une lágrima, car elle contient moins de café qu’un cortado. »",
+          "Nora : « Les croissants au beurre contiennent des produits laitiers, n’est-ce pas ? »",
+          "Matías : « Oui ; selon le boulanger, le croissant à la graisse de bœuf ne contient ni beurre ni lait, mais il contient de la graisse de bœuf. »",
+          "Nora : « Alors Dev prendra deux croissants à la graisse de bœuf, et Hannah une salade de fruits. »",
+          "Nora : « Pourriez-vous nous en apporter un au soja et un sans lactose ? »",
+          "Matías : « Bien sûr ; quand la livraison arrivera, je vous garderai du lait d’avoine. »",
+          "Nora : « Pour l’instant, nous allons commander cela et nous reviendrons cet après-midi. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "arriver",
+          "meaningEnglish": "to arrive",
+          "exampleFrench": "La livraison arrivera cet après-midi.",
+          "exampleEnglish": "The delivery arrives in the afternoon.",
+          "sourceInfinitiveSpanish": "llegar"
+        },
+        {
+          "infinitiveFrench": "boire",
+          "meaningEnglish": "to have (a drink), to drink",
+          "exampleFrench": "Hannah boit un café avec du lait de soja.",
+          "exampleEnglish": "Hannah has a coffee with soy milk.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Dev commande une lágrima avec du lait sans lactose.",
+          "exampleEnglish": "Dev orders a lágrima with lactose-free milk.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "préférer",
+          "meaningEnglish": "to prefer",
+          "exampleFrench": "Hannah préfère celui au soja, car il mousse davantage.",
+          "exampleEnglish": "Hannah prefers the soy one because it makes more foam.",
+          "sourceInfinitiveSpanish": "preferir"
+        },
+        {
+          "infinitiveFrench": "revenir",
+          "meaningEnglish": "to come back, to return",
+          "exampleFrench": "Nous reviendrons cet après-midi pour le lait d’avoine.",
+          "exampleEnglish": "We come back in the afternoon for the oat milk.",
+          "sourceInfinitiveSpanish": "volver"
+        }
+      ],
+      "grammarExamples": [
+        {
+          "english": "The soy one is thicker than the almond one.",
+          "french": "Celui au soja est plus épais que celui à l’amande."
+        },
+        {
+          "english": "The delivery will arrive in the afternoon; meanwhile, Hannah is going to try the coconut one.",
+          "french": "La livraison arrivera cet après-midi ; en attendant, Hannah va essayer celui au coco."
+        }
+      ],
+      "speakingInstructionEnglish": "Compare options with Matías, let Hannah and Dev confirm their choices, and ask for ingredient and preparation details before ordering food.",
+      "speakingFrench": "À quelle heure arrivera le lait d’avoine ? Hannah préfère le soja ; Dev, est-ce que le lait sans lactose te convient ? Pouvez-vous vérifier les ingrédients des croissants ?",
+      "regionalNotesEnglish": [
+        "San Telmo, lágrima, cortado and beef-fat croissant are Argentine source-scene details, not Francophone café defaults.",
+        "The baker’s “no milk” statement does not verify suitability for lactose avoidance or allergy; recipe and cross-contact review are open."
+      ],
+      "reviewed": false
+    }
+  ]
+}

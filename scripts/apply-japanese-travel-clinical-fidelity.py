@@ -11,6 +11,19 @@ ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "content/japanese-travel-breakfast"
 
 PATCHES = {
+    "foundation-1-10-draft.json": {
+        3: {
+            "closure": "Thank the staff and repeat the café order.",
+        },
+        8: {
+            "focus": "まだ means not yet when paired with a negative. 肉を食べません states that you do not eat meat, and 砂糖は少なめで asks for less sugar. もっと, 少なめ and 別の ask for more, less and another option.",
+            "closure": "Confirm the ingredient answer and the final order with staff.",
+        },
+        10: {
+            "focus": "Japanese does not have Spanish -ción/-dad cognate patterns. Familiar-looking katakana words such as メニュー and レストラン can help, but meaning and pronunciation still need checking. ゆっくり話してください asks someone to speak slowly; もう一度お願いします asks for repetition.",
+            "closure": "Repeat the kitchen's answer and ask for clarification if needed.",
+        },
+    },
     "core-1-30-draft.json": {
         2: {
             "focus": "ブレンド and アメリカン are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～にできますか asks whether a drink can be changed to another option.",

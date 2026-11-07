@@ -10,16 +10,18 @@ spec = importlib.util.spec_from_file_location('foreman_master_builder', SCRIPT)
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 source = json.loads(builder.SOURCE.read_text())
+reader_source = json.loads(builder.READER_SOURCE.read_text())
 bundle = json.loads(builder.OUTPUT.read_text())
 assert bundle == builder.build(), 'generated bundle is stale'
 assert bundle['state'] == 'private-runtime-draft' and bundle['reviewed'] is False
 assert bundle['courseId'] == 'master-construction-foreman-ja-en'
 assert bundle['courseId'] != 'construction-foreman-ja-en'
 assert bundle['sourceEnglishSubsetSha256'] == source['englishSubsetSHA256']
+assert reader_source['sourceEnglishSubsetSha256'] == source['englishSubsetSHA256']
 assert bundle['pairKey'] == 'Japanese:English' and bundle['locale'] == 'ja-JP'
 assert [x['n'] for x in bundle['lessons']] == [19, 20]
 all_pairs = set()
-for lesson, src in zip(bundle['lessons'], source['lessons']):
+for lesson, src, reader in zip(bundle['lessons'], source['lessons'], reader_source['lessons']):
     n = src['n']
     assert lesson['id'] == f"{bundle['courseId']}:lesson:{n}"
     assert lesson['reviewed'] is False
@@ -30,19 +32,19 @@ for lesson, src in zip(bundle['lessons'], source['lessons']):
     assert [(x['es'], x['en'], x['kind']) for x in lesson['words']] == [(x['ja'], x['en'], x['kind']) for x in src['terms']]
     for term in src['terms']:
         all_pairs.add((term['ja'], term['en']))
-    expected_reader = [(x['ja'], x['en']) for x in src['terms'] if x['kind'] == 'phrase' and x['en'] not in builder.EXCLUDED_READER_ENGLISH[n]]
-    assert lesson['reader']['state'] == 'phrase-sequence-draft'
+    expected_reader = [(x['target'], x['native']) for x in reader['sentences']]
+    assert lesson['reader']['state'] == 'original-contextual-draft'
     assert [(x['target'], x['native']) for x in lesson['reader']['sentences']] == expected_reader
+    assert len(expected_reader) == 8
     assert [(x['es'], x['en']) for x in lesson['grammar']['examples']] == list(zip(src['grammarExamplesJapanese'], src['grammarExamplesEnglish']))
     assert lesson['speaking']['sourceSpeakingJapanese'] == src['speakingJapanese']
     assert lesson['speaking']['locale'] == 'ja-JP'
     assert len(lesson['checks']) == 3
-    for check, sentence in zip(lesson['checks'], lesson['reader']['sentences']):
-        assert check['prompt'].replace('____', check['answer'], 1) == sentence['target']
-        assert check['hint'] == sentence['native']
+    assert [x['answer'] for x in lesson['checks']] == reader['checkAnswers']
+    for check in lesson['checks']:
+        assert any(check['prompt'].replace('____', check['answer'], 1) == sentence['target']
+                   and check['hint'] == sentence['native'] for sentence in lesson['reader']['sentences'])
     assert lesson['technicalSourceBlockers'] == builder.BLOCKERS[n]
-    assert len(lesson['reader']['sentences']) == 8 - len(builder.EXCLUDED_READER_ENGLISH[n])
-    assert all(x['native'] not in builder.EXCLUDED_READER_ENGLISH[n] for x in lesson['reader']['sentences'])
 assert {(x['target'], x['native']) for x in bundle['cards']} == all_pairs
 assert {(x['target'], x['native']) for x in bundle['dictionary']} == all_pairs
 assert len({x['id'] for x in bundle['cards']}) == len(bundle['cards'])

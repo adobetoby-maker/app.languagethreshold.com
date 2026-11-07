@@ -1,0 +1,481 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "841b057e0cc3daa9597c72e3fd77ca8fecac71cd4e37367b6fea5043509b22cf",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 19,
+      "titleEnglish": "Step Flashing",
+      "objectiveEnglishSource": "Coordinate sidewall flashing one course at a time",
+      "titleFrench": "Décrire les solins du mur latéral",
+      "objectiveFrench": "Demander au couvreur de décrire le détail approuvé du solin le long du mur.",
+      "speakingEnglishSource": "Ask the installer to describe the sidewall flashing sequence.",
+      "speakingFrenchInstruction": "Demandez au couvreur de décrire le raccord toit-mur et de montrer le recouvrement des solins sur le détail approuvé.",
+      "speakingFrenchOpening": "Pouvez-vous me montrer le détail approuvé du solin au mur latéral et son recouvrement ?",
+      "grammarFocusFrench": "Impératif pluriel pour demander une démonstration; chaque + nom; avant de + infinitif pour l’ordre de vérification.",
+      "words": [
+        {
+          "en": "step flashing",
+          "kind": "term",
+          "fr": "le solin à gradins"
+        },
+        {
+          "en": "wall",
+          "kind": "term",
+          "fr": "le mur"
+        },
+        {
+          "en": "shingle course",
+          "kind": "term",
+          "fr": "le rang de bardeaux"
+        },
+        {
+          "en": "sidewall",
+          "kind": "term",
+          "fr": "le mur latéral"
+        },
+        {
+          "en": "flashing",
+          "kind": "term",
+          "fr": "le solin"
+        },
+        {
+          "en": "siding",
+          "kind": "term",
+          "fr": "le revêtement mural"
+        },
+        {
+          "en": "sealant",
+          "kind": "term",
+          "fr": "le produit d’étanchéité"
+        },
+        {
+          "en": "bend",
+          "kind": "term",
+          "fr": "plier"
+        },
+        {
+          "en": "overlap",
+          "kind": "term",
+          "fr": "le recouvrement"
+        },
+        {
+          "en": "Step flashing under each shingle course.",
+          "kind": "phrase",
+          "fr": "Posez un solin à gradins sous chaque rang de bardeaux.",
+          "noteEnglish": "Source job-scene phrase only; verify the approved wall/roof detail and manufacturer method."
+        },
+        {
+          "en": "Install one piece per course.",
+          "kind": "phrase",
+          "fr": "Posez une pièce par rang.",
+          "noteEnglish": "Source job-scene phrase only; verify the approved wall/roof detail and manufacturer method."
+        },
+        {
+          "en": "Bend the flashing against the wall.",
+          "kind": "phrase",
+          "fr": "Pliez le solin contre le mur."
+        },
+        {
+          "en": "Describe the sidewall flashing sequence.",
+          "kind": "phrase",
+          "fr": "Décrivez la séquence de pose du solin au mur latéral."
+        },
+        {
+          "en": "Show me how the flashing overlaps.",
+          "kind": "phrase",
+          "fr": "Montrez-moi comment les solins se recouvrent."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Décrire les solins du mur latéral",
+        "target": [
+          "Aujourd’hui, l’équipe travaille le long du mur latéral de la maison.",
+          "À cet endroit, le toit rejoint le mur.",
+          "Le contremaître demande aux couvreurs : « Expliquez la séquence de pose du solin au mur latéral. »",
+          "Ils répondent : « Un solin à gradins sous chaque rang. »",
+          "Posez une pièce par rang.",
+          "Pliez le solin contre le mur.",
+          "Montrez-moi comment les solins se recouvrent.",
+          "Le contremaître vérifie chaque pièce avant de poser le rang de bardeaux suivant."
+        ],
+        "native": [
+          "Today the crew is working on the sidewall of the house.",
+          "Here the roof meets the wall.",
+          "The foreman asks the installers: Explain the sidewall flashing sequence.",
+          "They answer: step flashing under each course.",
+          "Install one piece per course.",
+          "Bend the flashing against the wall.",
+          "Show me how the flashing overlaps.",
+          "The foreman checks each piece before placing the next course of shingles."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Install one piece per course.",
+          "sourceInfinitiveSpanish": "instalar",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "Posez une pièce par rang."
+        },
+        {
+          "meaningEnglish": "to bend",
+          "exampleEnglish": "Bend the flashing against the wall.",
+          "sourceInfinitiveSpanish": "doblar",
+          "infinitiveFrench": "plier",
+          "exampleFrench": "Pliez le solin contre le mur."
+        },
+        {
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "The installer explains the flashing sequence.",
+          "sourceInfinitiveSpanish": "explicar",
+          "infinitiveFrench": "expliquer",
+          "exampleFrench": "Le couvreur explique la séquence de pose du solin."
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "The installer shows how the flashing overlaps.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Le couvreur montre comment les solins se recouvrent."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks each piece before placing the next course.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le contremaître vérifie chaque pièce avant de poser le rang suivant."
+        }
+      ],
+      "teachingNotesFrench": "Le solin à gradins, son recouvrement et son raccord au parement dépendent du détail approuvé et du fabricant. Ce dialogue ne valide pas une séquence de pose.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology, site safety and product rules require qualified regional/trade review.",
+        "Confirm approved flashing details and fall-protection plan; this source scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 20,
+      "titleEnglish": "Ridge Caps & Finish",
+      "objectiveEnglishSource": "Discuss ridge-cap preparation and finish work",
+      "titleFrench": "Préparer la finition du faîtage",
+      "objectiveFrench": "Discuter de la préparation des bardeaux de faîtage et vérifier la méthode du produit choisi.",
+      "speakingEnglishSource": "Give the guide's ridge-cap instruction and verify the chosen product's method.",
+      "speakingFrenchInstruction": "Demandez si le produit permet de fabriquer les bardeaux de faîtage à partir du bardeau de départ; faites préciser la méthode de finition approuvée.",
+      "speakingFrenchOpening": "Que disent les instructions de ce produit sur les bardeaux de faîtage et la finition ?",
+      "grammarFocusFrench": "Si + présent pour une méthode permise par le produit; d’abord et quand pour ordonner les étapes de finition.",
+      "words": [
+        {
+          "en": "ridge cap",
+          "kind": "term",
+          "fr": "le bardeau de faîtage"
+        },
+        {
+          "en": "starter shingle",
+          "kind": "term",
+          "fr": "le bardeau de départ"
+        },
+        {
+          "en": "ridge",
+          "kind": "term",
+          "fr": "le faîtage"
+        },
+        {
+          "en": "hip",
+          "kind": "term",
+          "fr": "l’arêtier"
+        },
+        {
+          "en": "ridge vent",
+          "kind": "term",
+          "fr": "l’évent de faîtage"
+        },
+        {
+          "en": "cut",
+          "kind": "term",
+          "fr": "couper"
+        },
+        {
+          "en": "finish",
+          "kind": "term",
+          "fr": "la finition"
+        },
+        {
+          "en": "sealant",
+          "kind": "term",
+          "fr": "le produit d’étanchéité"
+        },
+        {
+          "en": "nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "Cut the ridge caps from a starter shingle.",
+          "kind": "phrase",
+          "fr": "Découpez les bardeaux de faîtage dans un bardeau de départ.",
+          "noteEnglish": "Source guide example; follow the chosen product instructions and approved detail."
+        },
+        {
+          "en": "Install the ridge caps along the ridge.",
+          "kind": "phrase",
+          "fr": "Posez les bardeaux de faîtage le long du faîtage."
+        },
+        {
+          "en": "Check the product instructions for the ridge cap.",
+          "kind": "phrase",
+          "fr": "Vérifiez les instructions du produit pour le bardeau de faîtage."
+        },
+        {
+          "en": "Seal the last cap.",
+          "kind": "phrase",
+          "fr": "Réalisez l’étanchéité du dernier bardeau de faîtage.",
+          "noteEnglish": "Source guide example; follow the chosen product instructions and approved detail."
+        },
+        {
+          "en": "Clean the roof when you finish.",
+          "kind": "phrase",
+          "fr": "Nettoyez le toit quand vous avez terminé."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Préparer la finition du faîtage",
+        "target": [
+          "L’équipe a presque terminé la toiture.",
+          "Il reste à faire le faîtage et l’arêtier.",
+          "D’abord, vérifiez les instructions du produit pour les bardeaux de faîtage.",
+          "Découpez les bardeaux de faîtage dans un bardeau de départ, si le produit le permet.",
+          "Posez les bardeaux de faîtage le long du faîtage.",
+          "Le contremaître vérifie aussi l’évent de faîtage.",
+          "Réalisez l’étanchéité du dernier bardeau de faîtage.",
+          "Quand vous avez terminé, nettoyez le toit."
+        ],
+        "native": [
+          "The crew is almost done with the roof.",
+          "The ridge and the hip are still missing.",
+          "First, check the product instructions for the ridge cap.",
+          "Cut the ridge caps from a starter shingle, if the product allows it.",
+          "Install the ridge caps along the ridge.",
+          "The foreman also checks the ridge vent.",
+          "Seal the last cap.",
+          "When you finish, clean the roof."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+          "sourceInfinitiveSpanish": "cortar",
+          "infinitiveFrench": "couper",
+          "exampleFrench": "Découpez les bardeaux de faîtage dans un bardeau de départ, si le produit le permet."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman also checks the ridge vent.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le contremaître vérifie aussi l’évent de faîtage."
+        },
+        {
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Install the ridge caps along the ridge.",
+          "sourceInfinitiveSpanish": "instalar",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "Posez les bardeaux de faîtage le long du faîtage."
+        },
+        {
+          "meaningEnglish": "to seal",
+          "exampleEnglish": "Seal the last cap.",
+          "sourceInfinitiveSpanish": "sellar",
+          "infinitiveFrench": "réaliser l’étanchéité",
+          "exampleFrench": "Réalisez l’étanchéité du dernier bardeau de faîtage."
+        },
+        {
+          "meaningEnglish": "to clean",
+          "exampleEnglish": "When you finish, clean the roof.",
+          "sourceInfinitiveSpanish": "limpiar",
+          "infinitiveFrench": "nettoyer",
+          "exampleFrench": "Quand vous avez terminé, nettoyez le toit."
+        }
+      ],
+      "teachingNotesFrench": "Découper un bardeau de départ n’est acceptable que si le produit le permet. L’étanchéité et l’évent de faîtage suivent les instructions du système choisi.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology, site safety and product rules require qualified regional/trade review.",
+        "Confirm approved flashing details and fall-protection plan; this source scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 21,
+      "titleEnglish": "Tie-Off Before Access",
+      "objectiveEnglishSource": "Give a clear fall-protection instruction",
+      "titleFrench": "Confirmer la protection avant l’accès",
+      "objectiveFrench": "Donner une consigne claire de protection contre les chutes et faire confirmer l’ancrage approuvé.",
+      "speakingEnglishSource": "Tell the crew to tie off before roof access and ask them to point to the approved anchor.",
+      "speakingFrenchInstruction": "Avant l’accès, demandez à la personne compétente de confirmer le système de protection, l’ancrage, la vérification du matériel et le plan de sauvetage. Arrêtez l’accès si ces points sont inconnus.",
+      "speakingFrenchOpening": "Avant de monter, qui confirme l’ancrage, le système de protection et le plan de sauvetage ?",
+      "grammarFocusFrench": "Interdiction avec personne ne / ne… pas; avant de + infinitif; demander à montrer l’ancrage approuvé.",
+      "words": [
+        {
+          "en": "harness",
+          "kind": "term",
+          "fr": "le harnais"
+        },
+        {
+          "en": "tie-off",
+          "kind": "term",
+          "fr": "l’ancrage"
+        },
+        {
+          "en": "roof anchor",
+          "kind": "term",
+          "fr": "l’ancrage de toiture"
+        },
+        {
+          "en": "lanyard",
+          "kind": "term",
+          "fr": "la longe"
+        },
+        {
+          "en": "fall protection",
+          "kind": "term",
+          "fr": "la protection contre les chutes"
+        },
+        {
+          "en": "buckle",
+          "kind": "term",
+          "fr": "la boucle"
+        },
+        {
+          "en": "hard hat",
+          "kind": "term",
+          "fr": "le casque de chantier"
+        },
+        {
+          "en": "fall hazard",
+          "kind": "term",
+          "fr": "le risque de chute"
+        },
+        {
+          "en": "Tie off before you go on the roof.",
+          "kind": "phrase",
+          "fr": "Attachez-vous avant de monter sur le toit."
+        },
+        {
+          "en": "Use the roof anchor — don't freelance.",
+          "kind": "phrase",
+          "fr": "Utilisez l’ancrage de toiture approuvé ; n’improvisez pas."
+        },
+        {
+          "en": "Lanyard short enough you won't hit the ground.",
+          "kind": "phrase",
+          "fr": "Une longe assez courte pour ne pas heurter le sol.",
+          "noteEnglish": "Oversimplified source safety claim; qualified fall-protection review and source correction required before release."
+        },
+        {
+          "en": "Show me the approved anchor.",
+          "kind": "phrase",
+          "fr": "Montrez-moi l’ancrage approuvé."
+        },
+        {
+          "en": "Check your harness before you climb.",
+          "kind": "phrase",
+          "fr": "Vérifiez votre harnais avant de monter."
+        },
+        {
+          "en": "Nobody goes up without a harness.",
+          "kind": "phrase",
+          "fr": "Personne ne monte sans harnais.",
+          "noteEnglish": "Oversimplified source safety claim; qualified fall-protection review and source correction required before release."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Confirmer la protection avant l’accès",
+        "target": [
+          "Avant de monter, le contremaître rassemble l’équipe près de l’échelle.",
+          "Personne ne monte sans harnais, car il y a un risque de chute au bord du toit.",
+          "Vérifiez votre harnais avant de monter : la boucle, la longe et les sangles.",
+          "Attachez votre harnais avant de monter sur le toit.",
+          "Montrez-moi l’ancrage approuvé.",
+          "Si vous ne voyez pas d’ancrage de toiture, ne montez pas et prévenez-moi.",
+          "Mettez aussi votre casque de chantier.",
+          "La protection contre les chutes ne fonctionne que si chacun l’utilise correctement.",
+          "Une fois attachée, chaque personne fait signe au contremaître pour le prévenir."
+        ],
+        "native": [
+          "Before going up, the foreman gathers the crew next to the ladder.",
+          "Nobody goes up without a harness, because there is a fall hazard at the edge of the roof.",
+          "Check your harness before you climb: the buckle, the lanyard, and the straps.",
+          "Tie your harness off before you go up on the roof.",
+          "Show me the approved anchor.",
+          "If you don't see a roof anchor, don't go up and tell me.",
+          "Put on your hard hat too.",
+          "Fall protection only works if each person uses it correctly.",
+          "After tying off, each person gives a thumbs up to let the foreman know."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to go up, to climb",
+          "exampleEnglish": "Nobody goes up without a harness.",
+          "sourceInfinitiveSpanish": "subir",
+          "infinitiveFrench": "monter",
+          "exampleFrench": "Personne ne monte sans harnais."
+        },
+        {
+          "meaningEnglish": "to check, to inspect",
+          "exampleEnglish": "Everyone checks their harness before going up.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Chacun vérifie son harnais avant de monter."
+        },
+        {
+          "meaningEnglish": "to anchor, to tie off",
+          "exampleEnglish": "We tie off the harness before going up on the roof.",
+          "sourceInfinitiveSpanish": "anclar",
+          "infinitiveFrench": "s’attacher",
+          "exampleFrench": "Nous attachons le harnais avant de monter sur le toit."
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "Each person shows the approved anchor to the foreman.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Chaque personne montre l’ancrage approuvé au contremaître."
+        },
+        {
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Fall protection only works if each person uses it correctly.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "utiliser",
+          "exampleFrench": "La protection contre les chutes ne fonctionne que si chacun l’utilise correctement."
+        }
+      ],
+      "teachingNotesFrench": "La scène source simplifie la protection contre les chutes. Un harnais, une longe « assez courte » ou un signe de la main ne suffisent pas à vérifier un système. Le choix de l’ancrage, la distance libre de chute, l’inspection, la formation et le sauvetage exigent le plan du chantier et une personne compétente; corriger la source avant publication.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology, site safety and product rules require qualified regional/trade review.",
+        "Confirm approved flashing details and fall-protection plan; this source scene is not a work procedure."
+      ],
+      "reviewed": false
+    }
+  ]
+}

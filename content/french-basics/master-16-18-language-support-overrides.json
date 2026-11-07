@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "cautionOverrides": [
+    {
+      "lesson": 16,
+      "from": "The source Spanish Master 16 contrasts present and future. This French scenario adds an explicit dependency; the simple future in one line may be reviewed as an extension rather than assessed production.",
+      "to": "Distinguish the check happening now from the printing planned for tomorrow. Confirm the date correction before sending the file to print."
+    },
+    {
+      "lesson": 17,
+      "from": "The dialogue intentionally includes one ambiguous lui, followed immediately by explicit repair. A reviewer should check referent clarity and avoid teaching ambiguity as the model answer.",
+      "to": "When lui could mean either person, name Nadia or Camille explicitly. Confirm the folder and recipient before handing it over."
+    },
+    {
+      "lesson": 18,
+      "from": "The route and museum are fictional; this is narrative practice, not visitor guidance. Review auxiliary choice and agreement in the completed-event forms.",
+      "to": "This museum route is fictional narrative practice. Use d’abord, puis, ensuite and finalement to place completed events in order."
+    }
+  ],
+  "stageSelection": [
+    {
+      "lesson": 16,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [0, 1, 2, 3, 4, 6, 7, 8],
+      "supplementalTerms": [
+        {"target": "affiche", "native": "poster"},
+        {"target": "fichier", "native": "file"},
+        {"target": "imprimerie", "native": "print shop"},
+        {"target": "document d’origine", "native": "original document"}
+      ]
+    },
+    {
+      "lesson": 17,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [1, 4, 5, 6, 7, 8, 9, 10],
+      "supplementalTerms": [
+        {"target": "réunion", "native": "meeting"},
+        {"target": "notes", "native": "notes"},
+        {"target": "images", "native": "images"},
+        {"target": "copies numériques", "native": "digital copies"}
+      ]
+    },
+    {
+      "lesson": 18,
+      "termIndexes": [0, 1, 2, 3, 4, 5, 6, 7],
+      "readerLineIndexes": [1, 2, 3, 4, 5, 6, 7, 9],
+      "supplementalTerms": [
+        {"target": "bus", "native": "bus"},
+        {"target": "cour", "native": "courtyard"},
+        {"target": "vestiaire", "native": "cloakroom"},
+        {"target": "exposition", "native": "exhibition"}
+      ]
+    }
+  ]
+}

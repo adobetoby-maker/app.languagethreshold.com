@@ -1,0 +1,5 @@
+# French 101 Master 1–18 private runtime fixture
+
+This stacked draft extends the private French 101 Master fragment through lessons 16–18. It preserves 18 stable lesson keys, 360 new bilingual card pairs, and 216 aligned Reader pairs with pinned redesigned drafts, support overlays, and legacy English-source hashes. The deterministic builder selects 20 stage words per lesson while retaining every original card and Reader line in the private sidecar.
+
+The fragment passes Master structural checks except for the expected incomplete-stage count (18 of 20). Six-mode inputs are present. It remains `registered:false`, `reviewed:false`, and script-only without recorded audio. Independent French review, qualified human review, and authenticated phone/offline acceptance remain open. Lesson 17 deliberately repairs an ambiguous lui and should be checked for referent clarity; lesson 18's museum route is fictional narrative practice, not verified visitor guidance. No live curriculum or learner progress changes.

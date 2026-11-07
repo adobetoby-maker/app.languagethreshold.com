@@ -1,0 +1,505 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Order eggs and a full breakfast",
+      "objectiveEnglish": "request eggs, sides, toast, fruit, and cooking preferences",
+      "scenarioEnglishSource": "Build a complete hot breakfast order and confirm what is included.",
+      "titleFrenchCourseEnglish": "Commander un petit-déjeuner complet",
+      "objectiveFrenchCourseEnglish": "Order eggs, sides and drinks, and confirm what is included in French.",
+      "focusEnglish": "Requesting politely with je voudrais; pronoun les for eggs; asking what is included.",
+      "focusFrench": "Commander poliment avec je voudrais ; remplacer les œufs par les ; demander ce qui est compris.",
+      "teachingNotesEnglish": "Je voudrais is a polite way to order. The pronoun les replaces plural œufs in Je les voudrais bien cuits. Bien cuits means well cooked. Compris means included in the price; ask separately about each drink or side instead of assuming.",
+      "words": [
+        {
+          "en": "scrambled eggs",
+          "kind": "term",
+          "fr": "les œufs brouillés"
+        },
+        {
+          "en": "fried eggs",
+          "kind": "term",
+          "fr": "les œufs au plat"
+        },
+        {
+          "en": "bacon",
+          "kind": "term",
+          "fr": "le bacon",
+          "noteEnglish": "Bacon is used in French, but the cut and preparation may vary by region; confirm the item locally."
+        },
+        {
+          "en": "toast",
+          "kind": "term",
+          "fr": "le pain grillé"
+        },
+        {
+          "en": "fruit",
+          "kind": "term",
+          "fr": "les fruits"
+        },
+        {
+          "en": "orange juice",
+          "kind": "term",
+          "fr": "le jus d'orange"
+        },
+        {
+          "en": "sausage",
+          "kind": "term",
+          "fr": "la saucisse"
+        },
+        {
+          "en": "potatoes",
+          "kind": "term",
+          "fr": "les pommes de terre"
+        },
+        {
+          "en": "butter",
+          "kind": "term",
+          "fr": "le beurre"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "menu",
+          "kind": "term",
+          "fr": "la carte"
+        },
+        {
+          "en": "without salt",
+          "kind": "term",
+          "fr": "sans sel"
+        },
+        {
+          "en": "I want two scrambled eggs, please.",
+          "kind": "phrase",
+          "fr": "Je voudrais deux œufs brouillés, s'il vous plaît."
+        },
+        {
+          "en": "Can you bring me toast?",
+          "kind": "phrase",
+          "fr": "Vous pouvez m'apporter du pain grillé ?"
+        },
+        {
+          "en": "I want them well done.",
+          "kind": "phrase",
+          "fr": "Je les voudrais bien cuits."
+        },
+        {
+          "en": "Does it come with fruit?",
+          "kind": "phrase",
+          "fr": "Est-ce que des fruits sont compris ?"
+        },
+        {
+          "en": "Is the coffee included?",
+          "kind": "phrase",
+          "fr": "Le café est-il compris ?"
+        },
+        {
+          "en": "What comes with the breakfast?",
+          "kind": "phrase",
+          "fr": "Qu'est-ce qui est compris dans le petit-déjeuner ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Un petit-déjeuner complet",
+        "english": [
+          "A traveler walks into a café in the morning.",
+          "He sits at a table and looks at the menu.",
+          "The waitress asks: What would you like?",
+          "He says: I want two scrambled eggs, please.",
+          "He also orders bacon, toast, and fruit.",
+          "The waitress asks: How do you want the eggs?",
+          "He answers: I want them well done, without salt.",
+          "Then he asks: Is the coffee included?",
+          "The waitress says: Yes, the coffee is included."
+        ],
+        "french": [
+          "Un voyageur entre dans un café le matin.",
+          "Il s'assied à une table et regarde la carte.",
+          "La serveuse demande : « Qu'est-ce que vous désirez ? »",
+          "Il dit : « Je voudrais deux œufs brouillés, s'il vous plaît. »",
+          "Il commande aussi du bacon, du pain grillé et des fruits.",
+          "La serveuse demande : « Comment voulez-vous vos œufs ? »",
+          "Il répond : « Je les voudrais bien cuits, sans sel. »",
+          "Puis il demande : « Le café est-il compris ? »",
+          "La serveuse dit : « Oui, le café est compris. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "vouloir",
+          "meaningEnglish": "to want",
+          "exampleFrench": "Je voudrais deux œufs brouillés, s'il vous plaît.",
+          "exampleEnglish": "I want two scrambled eggs, please.",
+          "sourceInfinitiveSpanish": "querer"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Il commande aussi du bacon, du pain grillé et des fruits.",
+          "exampleEnglish": "He also orders bacon, toast, and fruit.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Vous pouvez m'apporter du pain grillé ?",
+          "exampleEnglish": "Can you bring me toast?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "s'asseoir",
+          "meaningEnglish": "to sit down",
+          "exampleFrench": "Il s'assied à une table et regarde la carte.",
+          "exampleEnglish": "He sits at a table and looks at the menu.",
+          "sourceInfinitiveSpanish": "sentarse"
+        }
+      ],
+      "speakingInstructionEnglish": "Order eggs with a cooking preference, sides and a drink; ask the server what the breakfast includes.",
+      "speakingFrench": "Bonjour ! Je voudrais deux œufs brouillés, s'il vous plaît. Je les voudrais bien cuits. Le café est-il compris ?",
+      "regionalNotesEnglish": [
+        "Breakfast combinations and the meaning of bacon vary by region and café. Treat the included items as this café's offer, not a general rule."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Use hotel breakfast",
+      "objectiveEnglish": "ask whether breakfast is included, the hours, room number, and buffet rules",
+      "scenarioEnglishSource": "Arrive at a hotel breakfast and resolve uncertainty about access and seating.",
+      "titleFrenchCourseEnglish": "Utiliser le petit-déjeuner de l'hôtel",
+      "objectiveFrenchCourseEnglish": "Confirm breakfast access, hours, room number and buffet instructions in French.",
+      "focusEnglish": "Asking about inclusion and hours; giving a room number; hotel-specific instructions.",
+      "focusFrench": "Demander les horaires et l'accès au petit-déjeuner ; donner un numéro de chambre ; vérifier les consignes de l'hôtel.",
+      "teachingNotesEnglish": "Le petit-déjeuner est-il compris ? asks whether it is included. Quels sont les horaires ? asks for the service hours. Give your room number clearly: chambre deux cent quatorze for 214. À la carte means ordered from a menu. Ask the hotel for its own buffet and seating rules.",
+      "words": [
+        {
+          "en": "breakfast",
+          "kind": "term",
+          "fr": "le petit-déjeuner"
+        },
+        {
+          "en": "dining room",
+          "kind": "term",
+          "fr": "la salle du petit-déjeuner"
+        },
+        {
+          "en": "hours, schedule",
+          "kind": "term",
+          "fr": "les horaires"
+        },
+        {
+          "en": "room number",
+          "kind": "term",
+          "fr": "le numéro de chambre"
+        },
+        {
+          "en": "buffet",
+          "kind": "term",
+          "fr": "le buffet"
+        },
+        {
+          "en": "receptionist",
+          "kind": "term",
+          "fr": "la réceptionniste"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "plate",
+          "kind": "term",
+          "fr": "l'assiette"
+        },
+        {
+          "en": "coffee",
+          "kind": "term",
+          "fr": "le café"
+        },
+        {
+          "en": "rules",
+          "kind": "term",
+          "fr": "les consignes"
+        },
+        {
+          "en": "Is breakfast included?",
+          "kind": "phrase",
+          "fr": "Le petit-déjeuner est-il compris ?"
+        },
+        {
+          "en": "What are the breakfast hours?",
+          "kind": "phrase",
+          "fr": "Quels sont les horaires du petit-déjeuner ?"
+        },
+        {
+          "en": "My room is 214.",
+          "kind": "phrase",
+          "fr": "Ma chambre porte le numéro 214."
+        },
+        {
+          "en": "Can I sit at any table?",
+          "kind": "phrase",
+          "fr": "Puis-je m'asseoir à n'importe quelle table ?",
+          "noteEnglish": "Ask the hotel where guests may sit; the answer depends on its seating policy."
+        },
+        {
+          "en": "Excuse me, what are the buffet rules?",
+          "kind": "phrase",
+          "fr": "Excusez-moi, quelles sont les consignes du buffet ?"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "kind": "phrase",
+          "fr": "Vous pouvez répéter, s'il vous plaît ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Le petit-déjeuner à l'hôtel",
+        "english": [
+          "A traveler arrives at the hotel dining room in the morning.",
+          "He talks to the receptionist: Is breakfast included?",
+          "She says: Yes, it is included with your room.",
+          "He asks: What are the breakfast hours?",
+          "She answers that the hours are from 6:30 to 10:00, according to the hotel.",
+          "The traveler gives his room number: 214.",
+          "Then he asks: Is it a buffet or a menu?",
+          "She explains the buffet rules: take a clean plate and do not take food with you.",
+          "He looks for a free table and gets coffee."
+        ],
+        "french": [
+          "Un voyageur arrive dans la salle du petit-déjeuner de l'hôtel le matin.",
+          "Il demande à la réceptionniste : « Le petit-déjeuner est-il compris ? »",
+          "Elle répond : « Oui, il est compris avec votre chambre. »",
+          "Il demande : « Quels sont les horaires du petit-déjeuner ? »",
+          "Elle dit que, dans cet hôtel, le service va de 6 h 30 à 10 h.",
+          "Le voyageur donne son numéro de chambre : 214.",
+          "Puis il demande : « Est-ce un buffet ou un service à la carte ? »",
+          "Elle explique les consignes de ce buffet : prendre une assiette propre et ne pas emporter de nourriture.",
+          "Il cherche une table libre et prend un café."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Il demande : « Est-ce un buffet ou un service à la carte ? »",
+          "exampleEnglish": "He asks: Is it a buffet or a menu?",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "prendre",
+          "meaningEnglish": "to take; to have (a drink)",
+          "exampleFrench": "Je prends un café dans la salle du petit-déjeuner.",
+          "exampleEnglish": "I have coffee in the dining room.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "infinitiveFrench": "chercher",
+          "meaningEnglish": "to look for",
+          "exampleFrench": "Je cherche une table libre.",
+          "exampleEnglish": "I look for a free table.",
+          "sourceInfinitiveSpanish": "buscar"
+        },
+        {
+          "infinitiveFrench": "donner",
+          "meaningEnglish": "to give",
+          "exampleFrench": "Je donne mon numéro de chambre.",
+          "exampleEnglish": "I give my room number.",
+          "sourceInfinitiveSpanish": "dar"
+        },
+        {
+          "infinitiveFrench": "pouvoir",
+          "meaningEnglish": "to be able to; can",
+          "exampleFrench": "Puis-je prendre un café maintenant ?",
+          "exampleEnglish": "Can I have coffee now?",
+          "sourceInfinitiveSpanish": "poder"
+        }
+      ],
+      "speakingInstructionEnglish": "At a hotel, confirm whether breakfast is included, its hours and where to sit; give your room number.",
+      "speakingFrench": "Bonjour ! Le petit-déjeuner est-il compris ? Quels sont les horaires ? Ma chambre porte le numéro 214.",
+      "regionalNotesEnglish": [
+        "In France, petit-déjeuner is breakfast; in Québec, Belgium and Switzerland, déjeuner often means breakfast. Buffet rules in the reading belong to that example hotel only."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Explain a breakfast restriction",
+      "objectiveEnglish": "state an allergy or dietary need and confirm ingredients without seeking medical advice",
+      "scenarioEnglishSource": "Ask whether a breakfast item contains nuts, dairy, gluten, meat, or another ingredient.",
+      "titleFrenchCourseEnglish": "Expliquer une restriction alimentaire",
+      "objectiveFrenchCourseEnglish": "State a restriction, ask about ingredients and seek a kitchen check in French.",
+      "focusEnglish": "Saying je suis allergique à and je ne mange pas; asking contient-il and pouvez-vous vérifier.",
+      "focusFrench": "Déclarer une allergie ou une restriction ; demander les ingrédients ; faire vérifier auprès de la cuisine.",
+      "teachingNotesEnglish": "Je suis allergique aux fruits à coque names tree nuts; les arachides are peanuts and should be named separately when relevant. Je ne mange pas de viande states a dietary restriction. Contenir means to contain. Ask the kitchen to verify ingredients when staff are unsure. An ingredient answer alone does not establish that cross-contact is absent; the lesson does not provide medical guidance.",
+      "words": [
+        {
+          "en": "allergy",
+          "kind": "term",
+          "fr": "une allergie"
+        },
+        {
+          "en": "nuts",
+          "kind": "term",
+          "fr": "les fruits à coque",
+          "noteEnglish": "Fruits à coque means tree nuts. Arachides means peanuts; name both when both matter."
+        },
+        {
+          "en": "peanuts",
+          "kind": "term",
+          "fr": "les arachides"
+        },
+        {
+          "en": "dairy",
+          "kind": "term",
+          "fr": "les produits laitiers"
+        },
+        {
+          "en": "gluten",
+          "kind": "term",
+          "fr": "le gluten"
+        },
+        {
+          "en": "meat",
+          "kind": "term",
+          "fr": "la viande"
+        },
+        {
+          "en": "ingredients",
+          "kind": "term",
+          "fr": "les ingrédients"
+        },
+        {
+          "en": "bread",
+          "kind": "term",
+          "fr": "le pain"
+        },
+        {
+          "en": "butter",
+          "kind": "term",
+          "fr": "le beurre"
+        },
+        {
+          "en": "server",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "I have an allergy to nuts.",
+          "kind": "phrase",
+          "fr": "Je suis allergique aux fruits à coque.",
+          "noteEnglish": "An ingredient answer does not by itself rule out cross-contact; confirm with the kitchen according to your needs."
+        },
+        {
+          "en": "What ingredients does it have?",
+          "kind": "phrase",
+          "fr": "Quels ingrédients contient ce plat ?"
+        },
+        {
+          "en": "I don't eat meat.",
+          "kind": "phrase",
+          "fr": "Je ne mange pas de viande."
+        },
+        {
+          "en": "Can you check with the kitchen, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous vérifier auprès de la cuisine, s'il vous plaît ?"
+        },
+        {
+          "en": "I prefer to avoid dairy.",
+          "kind": "phrase",
+          "fr": "Je préfère éviter les produits laitiers."
+        },
+        {
+          "en": "Does this bread have gluten?",
+          "kind": "phrase",
+          "fr": "Est-ce que ce pain contient du gluten ?"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Vérifier les ingrédients",
+        "english": [
+          "I am in a café and I talk to the server before ordering.",
+          "First I say: I have an allergy to nuts.",
+          "Then I ask: What ingredients does it have?",
+          "The server is not sure, so he is going to check with the kitchen.",
+          "Afterward he tells me that, according to the kitchen, the bread has no nuts.",
+          "I also say: I don't eat meat, and I ask if the filling has meat in it.",
+          "If the kitchen is not sure, I order something else.",
+          "I only confirm the ingredients and I do not ask for medical advice."
+        ],
+        "french": [
+          "Je suis dans un café et je parle au serveur avant de commander.",
+          "Je commence par dire : « Je suis allergique aux fruits à coque. »",
+          "Puis je demande : « Quels ingrédients contient ce plat ? »",
+          "Le serveur n'est pas sûr ; il va donc vérifier auprès de la cuisine.",
+          "Ensuite, il me dit que, d'après la cuisine, le pain ne contient pas de fruits à coque.",
+          "Je dis aussi : « Je ne mange pas de viande », et je demande si la garniture en contient.",
+          "Si la cuisine n'est pas sûre, je commande autre chose.",
+          "Je confirme seulement les ingrédients ; je ne demande pas de conseil médical."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleFrench": "Je suis allergique aux fruits à coque.",
+          "exampleEnglish": "I have an allergy to nuts.",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "infinitiveFrench": "manger",
+          "meaningEnglish": "to eat",
+          "exampleFrench": "Je ne mange pas de viande.",
+          "exampleEnglish": "I don't eat meat.",
+          "sourceInfinitiveSpanish": "comer"
+        },
+        {
+          "infinitiveFrench": "contenir",
+          "meaningEnglish": "to contain; to carry",
+          "exampleFrench": "Ce pain ne contient pas de fruits à coque, selon la cuisine.",
+          "exampleEnglish": "The bread has no nuts in it.",
+          "sourceInfinitiveSpanish": "llevar"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Je demande si la garniture contient de la viande.",
+          "exampleEnglish": "I ask if the filling has meat in it.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "vérifier",
+          "meaningEnglish": "to check",
+          "exampleFrench": "Le serveur vérifie auprès de la cuisine.",
+          "exampleEnglish": "The server checks with the kitchen.",
+          "sourceInfinitiveSpanish": "revisar"
+        }
+      ],
+      "speakingInstructionEnglish": "Before ordering, tell the server about a restriction, ask for ingredient confirmation, and choose another item if the kitchen is unsure.",
+      "speakingFrench": "Bonjour. Je suis allergique aux fruits à coque. Pouvez-vous vérifier les ingrédients auprès de la cuisine ?",
+      "regionalNotesEnglish": [
+        "Fruits à coque and arachides are distinct terms. Allergy safety, cross-contact practices and menu labeling need qualified locale and medical/safety review."
+      ],
+      "reviewed": false
+    }
+  ]
+}

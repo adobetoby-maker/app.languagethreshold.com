@@ -1,0 +1,571 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "role": "Exact English curriculum objectives, roleplays, terms and Reader lines retained as provenance; Japanese learner scenes use original contextual wording and aligned English support"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "travel-breakfast:1:ja-en",
+      "sourceEnglish": {
+        "objective": "greet staff, learn whether to order at the counter, and find a place",
+        "roleplay": "Walk into a crowded Roman café and work out how ordering and seating operate.",
+        "englishWordAnchors": [
+          "café; coffee shop",
+          "counter",
+          "table",
+          "free table",
+          "waiter",
+          "menu",
+          "line; queue",
+          "patio; outdoor seating",
+          "sweet pastry",
+          "chair",
+          "Good morning, do I order here at the counter?",
+          "Is there a free table?",
+          "Do I sit wherever I want?",
+          "Sorry, I don't understand. Can you repeat, please?",
+          "Is it to go or to eat here?"
+        ],
+        "englishReading": [
+          "A traveler enters a very busy café.",
+          "There is a long line in front of the counter.",
+          "The traveler says: Good morning.",
+          "He asks the waitress: Do I order here at the counter?",
+          "The waitress answers: Yes, order here, please.",
+          "He asks: Is there a free table?",
+          "The waitress says: There is a table on the patio.",
+          "He waits in line and looks at the menu.",
+          "Then he orders a coffee and a sweet pastry."
+        ],
+        "englishSourceSha256": "5e1b0f321d4b5519793ff63fe1bfa716087134af93493de2dee065764c0600f5"
+      },
+      "title": "Entering a busy café",
+      "objective": "Greet staff, ask whether to order at the counter, and find out if a seat is available.",
+      "focus": "In a Japanese café, counter and seating practices vary. 注文はここでいいですか asks where to order. 空いていますか asks whether a seat is free. Check with staff rather than sitting or assuming a universal rule.",
+      "scene": "Sam enters a busy café near a station and asks the staff how to order.",
+      "cards": [
+        {
+          "ja": "カフェ",
+          "en": "café",
+          "kind": "term"
+        },
+        {
+          "ja": "混んでいます",
+          "en": "is crowded",
+          "kind": "term"
+        },
+        {
+          "ja": "列",
+          "en": "line; queue",
+          "kind": "term"
+        },
+        {
+          "ja": "カウンター",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "空いています",
+          "en": "is available",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで注文しますか",
+          "en": "Do I order here?",
+          "kind": "term"
+        },
+        {
+          "ja": "席は空いていますか",
+          "en": "Is a seat available?",
+          "kind": "term"
+        },
+        {
+          "ja": "少し待ちます",
+          "en": "I will wait a moment",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "駅の近くのカフェは混んでいます。",
+          "en": "The café near the station is busy."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "カウンターの前に列があります。",
+          "en": "There is a line in front of the counter."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。注文はここでいいですか。",
+          "en": "Good morning. Should I order here?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらでご注文ください。",
+          "en": "Yes, please order here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "席は空いていますか。",
+          "en": "Is a seat available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "窓の近くに一つ空いています。",
+          "en": "One seat near the window is available."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。少し待ちます。",
+          "en": "I understand. I will wait a moment."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "サムはメニューを見て、列で待ちます。",
+          "en": "Sam looks at the menu and waits in line."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを一杯ください。",
+          "en": "One coffee, please."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler entering a busy café",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。ご注文ですか。",
+        "goal": "Greet staff, ask where to order, then ask whether a seat is available.",
+        "closure": "Follow the staff’s actual instructions; do not assume counter service everywhere.",
+        "wordBank": [
+          "おはようございます",
+          "注文はここでいいですか",
+          "席は空いていますか",
+          "少し待ちます"
+        ]
+      },
+      "modes": {
+        "see": "Read the busy-café scene with aligned English after reveal.",
+        "recall": "Recall where-to-order and seat-availability questions.",
+        "hear": "Hear the distinction between 注文 and 席.",
+        "type": "Type a short counter question with kana help.",
+        "say": "Ask staff where to order and whether there is a seat.",
+        "write": "Write two questions and a polite acknowledgement."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "travel-breakfast:2:ja-en",
+      "sourceEnglish": {
+        "objective": "ask about coffee styles, size, milk, temperature, and where to drink it",
+        "roleplay": "Order a local coffee without assuming the names or customs are the same as at home.",
+        "englishWordAnchors": [
+          "black coffee",
+          "coffee with milk",
+          "medium",
+          "oat milk",
+          "hot",
+          "cold",
+          "counter",
+          "table",
+          "barista",
+          "size",
+          "milk",
+          "to go",
+          "What types of coffee are there?",
+          "What sizes do you have?",
+          "I want a coffee with milk, please.",
+          "Do you have oat milk?",
+          "Is it to drink here or to go?",
+          "Can it be hot, please?"
+        ],
+        "englishReading": [
+          "A traveler arrives at the counter of a café.",
+          "She asks: What types of coffee are there?",
+          "The barista says there is black coffee and coffee with milk.",
+          "She wants a medium coffee with milk.",
+          "She asks: Do you have oat milk?",
+          "The barista answers yes, and asks if she wants it hot or cold.",
+          "She asks for the coffee hot and asks: Is it to drink here or to go?",
+          "She takes a table and drinks her coffee."
+        ],
+        "englishSourceSha256": "b93dffc58b3ad7ccfe916d6bbc8521b7ff8e7c4294ce4b33cf40c959e33befb7"
+      },
+      "title": "Choosing a coffee",
+      "objective": "Ask what coffee is offered, check milk and size options, then state whether you will drink it there.",
+      "focus": "ブレンド and アメリカン are menu labels, not universal translations of black coffee. Ask what a shop offers. 牛乳 and オーツミルク are ingredients, but availability and allergy safety require confirmation. ～にできますか asks whether a change is possible.",
+      "scene": "Sam studies a café menu and checks which milk and size are available.",
+      "cards": [
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "ブレンド",
+          "en": "blend coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "アメリカン",
+          "en": "American-style coffee (menu label)",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk (menu label)",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "オーツミルク",
+          "en": "oat milk",
+          "kind": "term"
+        },
+        {
+          "ja": "サイズ",
+          "en": "size",
+          "kind": "term"
+        },
+        {
+          "ja": "小さい",
+          "en": "small",
+          "kind": "term"
+        },
+        {
+          "ja": "温かい",
+          "en": "hot; warm",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい",
+          "en": "cold",
+          "kind": "term"
+        },
+        {
+          "ja": "店内",
+          "en": "inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "どんなコーヒーがありますか",
+          "en": "What coffees do you have?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "オーツミルクはありますか",
+          "en": "Do you have oat milk?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "温かいものをお願いします",
+          "en": "A hot one, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "どんなコーヒーがありますか。",
+          "en": "What coffees do you have?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ブレンドとカフェオレがあります。",
+          "en": "We have blend coffee and café au lait."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カフェオレは小さいサイズがありますか。",
+          "en": "Is there a small café au lait?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, there is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "オーツミルクはありますか。",
+          "en": "Do you have oat milk?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今日はありません。牛乳ならあります。",
+          "en": "We do not have it today. We have milk."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、小さいブレンドを温かいものでお願いします。",
+          "en": "Then a small hot blend coffee, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "店内でお召し上がりですか。",
+          "en": "Will you drink it here?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、店内で飲みます。",
+          "en": "Yes, I will drink it here."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering coffee",
+        "partnerRole": "Barista",
+        "opening": "ご注文は何になさいますか。",
+        "goal": "Ask about coffee choices, size and milk availability; order a hot drink for here.",
+        "closure": "Repeat only options the barista confirmed.",
+        "wordBank": [
+          "どんなコーヒーがありますか",
+          "サイズ",
+          "オーツミルク",
+          "温かい",
+          "店内で飲みます"
+        ]
+      },
+      "modes": {
+        "see": "Read a coffee-choice scene and reveal accurate English support.",
+        "recall": "Recall milk, size and temperature terms.",
+        "hear": "Hear 温かい versus 冷たい.",
+        "type": "Type an availability question with kana support.",
+        "say": "Ask about coffee and milk, then place an order.",
+        "write": "Write a short order with confirmed size and temperature."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "travel-breakfast:3:ja-en",
+      "sourceEnglish": {
+        "objective": "ask what is fresh, filled, sweet, savory, or typical",
+        "roleplay": "Ask the server to explain three pastries and recommend one made that morning.",
+        "englishWordAnchors": [
+          "bakery",
+          "counter",
+          "sweet bread",
+          "pastry",
+          "bolillo (crusty white roll)",
+          "concha (sweet shell-shaped bread)",
+          "empanada (filled pastry)",
+          "cheese",
+          "filling",
+          "oven",
+          "croissant",
+          "jam",
+          "What is fresh today?",
+          "Which one is the most typical?",
+          "Is it filled?",
+          "Is it sweet or savory?",
+          "What do you recommend?",
+          "Which one came out of the oven today?"
+        ],
+        "englishReading": [
+          "A traveler walks into a bakery in the morning.",
+          "There are many breads and pastries on the counter.",
+          "He asks: What is fresh today?",
+          "The employee says the sweet bread is from this morning.",
+          "The traveler asks: Which one is filled?",
+          "She explains that the concha is sweet and the empanada is savory.",
+          "He says: I want to try something typical from here.",
+          "The employee recommends a bolillo with cheese.",
+          "The traveler orders a concha and a coffee, please."
+        ],
+        "englishSourceSha256": "002abf4f38f433af5df1f4568bb19f44ab5bc14e71a00521fdefd0a9ebd62564"
+      },
+      "title": "Choosing a pastry",
+      "objective": "Ask what was baked this morning, whether an item is filled, and which pastry the staff recommends.",
+      "focus": "今朝焼いたもの asks what was baked this morning; it does not certify freshness, ingredients or safety. 甘い and 塩味のある distinguish sweet and savory. 中身 refers to a filling. Pastry names vary by café, so use menu labels actually shown.",
+      "scene": "At a bakery café, Sam asks about three pastries without inventing what they contain.",
+      "cards": [
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き菓子",
+          "en": "baked pastry",
+          "kind": "term"
+        },
+        {
+          "ja": "今朝",
+          "en": "this morning",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きました",
+          "en": "baked",
+          "kind": "term"
+        },
+        {
+          "ja": "甘い",
+          "en": "sweet",
+          "kind": "term"
+        },
+        {
+          "ja": "塩味のある",
+          "en": "savory; salty",
+          "kind": "term"
+        },
+        {
+          "ja": "中身",
+          "en": "filling",
+          "kind": "term"
+        },
+        {
+          "ja": "あんパン",
+          "en": "sweet bean bun",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "今朝焼いたものはどれですか",
+          "en": "Which were baked this morning?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "中身は何ですか",
+          "en": "What is inside?",
+          "kind": "term"
+        },
+        {
+          "ja": "どれをおすすめしますか",
+          "en": "Which do you recommend?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "サムはパン屋のカウンターを見ます。",
+          "en": "Sam looks at the bakery counter."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "今朝焼いたものはどれですか。",
+          "en": "Which items were baked this morning?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "このクロワッサンとあんパンです。",
+          "en": "This croissant and anpan were."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "あんパンの中身は何ですか。",
+          "en": "What is inside the anpan?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あんこです。甘いですよ。",
+          "en": "Sweet bean paste. It is sweet."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "塩味のあるものはありますか。",
+          "en": "Do you have something savory?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "このチーズパンがあります。",
+          "en": "We have this cheese bread."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "どれをおすすめしますか。",
+          "en": "Which do you recommend?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今朝焼いたクロワッサンをおすすめします。",
+          "en": "I recommend the croissant baked this morning."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler at a bakery café",
+        "partnerRole": "Bakery staff",
+        "opening": "いらっしゃいませ。何かお探しですか。",
+        "goal": "Ask which items were baked this morning, ask about a filling, and request a recommendation.",
+        "closure": "Treat the staff answer as a menu description, not an allergen guarantee.",
+        "wordBank": [
+          "今朝焼いたもの",
+          "中身",
+          "甘い",
+          "塩味のある",
+          "おすすめ"
+        ]
+      },
+      "modes": {
+        "see": "Read a bakery counter scene with aligned English support.",
+        "recall": "Recall baked-today, filling, sweet and savory forms.",
+        "hear": "Hear 甘い versus 塩味のある.",
+        "type": "Type a short filling question with kana help.",
+        "say": "Ask about three pastries and request a recommendation.",
+        "write": "Write a question about baking time and a recommendation request."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language and register review",
+    "Qualified regional café/menu review",
+    "Qualified food-allergy review before any safety guidance",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

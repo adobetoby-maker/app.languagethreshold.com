@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "cautionOverrides": [
+    {
+      "lesson": 4,
+      "from": "The Spanish Master 4 source contrasts ser and estar. French has no such grammatical split; a role/state distinction comes from the predicate and context. Future forms in the dialogue should be checked for prerequisite load.",
+      "to": "French uses the predicate and context to distinguish an ongoing role from temporary availability. Confirm who can take the meeting today before assigning tasks."
+    },
+    {
+      "lesson": 5,
+      "from": "The original Spanish Master 5 source reuses hay and room descriptions. This task requires comparing observations and correcting an apparent loss; it is not a simple inventory drill.",
+      "to": "Compare the earlier and current observations before reporting a missing item. Correct the list once the binder is found."
+    },
+    {
+      "lesson": 6,
+      "from": "The original Spanish Master 6 source repeats beginner negation. This task adds precise correction and teach-back in a realistic multi-turn exchange. The dialogue uses a formal vous register.",
+      "to": "Correct both room and time politely. Ask for written confirmation only after the clerk has checked availability."
+    }
+  ],
+  "stageSelection": [
+    {
+      "lesson": 4,
+      "termIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "readerLineIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "supplementalTerms": [
+        {
+          "target": "réunion",
+          "native": "meeting"
+        },
+        {
+          "target": "compte rendu",
+          "native": "minutes"
+        },
+        {
+          "target": "disponibilité",
+          "native": "availability"
+        },
+        {
+          "target": "rôle",
+          "native": "role"
+        }
+      ]
+    },
+    {
+      "lesson": 5,
+      "termIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "readerLineIndexes": [
+        0,
+        1,
+        2,
+        7,
+        9,
+        11
+      ],
+      "supplementalTerms": [
+        {
+          "target": "grande table",
+          "native": "large table"
+        },
+        {
+          "target": "ce matin",
+          "native": "this morning"
+        },
+        {
+          "target": "liste",
+          "native": "list"
+        },
+        {
+          "target": "salle",
+          "native": "room"
+        },
+        {
+          "target": "fenêtre",
+          "native": "window"
+        },
+        {
+          "target": "observation",
+          "native": "observation"
+        }
+      ]
+    },
+    {
+      "lesson": 6,
+      "termIndexes": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "readerLineIndexes": [
+        0,
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "supplementalTerms": [
+        {
+          "target": "salle B",
+          "native": "room B"
+        },
+        {
+          "target": "salle D",
+          "native": "room D"
+        },
+        {
+          "target": "disponibilité",
+          "native": "availability"
+        },
+        {
+          "target": "confirmation écrite",
+          "native": "written confirmation"
+        },
+        {
+          "target": "demain",
+          "native": "tomorrow"
+        },
+        {
+          "target": "demande",
+          "native": "request"
+        }
+      ]
+    }
+  ],
+  "explanationOverrides": [
+    {
+      "lesson": 4,
+      "from": "French être can describe a role, identity, condition or availability; it does not split these functions into two verbs like Spanish ser/estar. Add context and time markers to distinguish a durable assignment (Maya est responsable de la réunion) from a temporary state (elle ne se sent pas bien aujourd’hui). Use qui to ask who is responsible and quand or à quelle heure to check availability. Restate the two confirmed facts separately.",
+      "to": "French être can describe a role, identity, condition or availability. Add context and time markers to distinguish an ongoing assignment (Maya est responsable de la réunion) from a temporary state (elle ne se sent pas bien aujourd’hui). Use qui to ask who is responsible and quand or à quelle heure to check availability. Restate the two confirmed facts separately."
+    }
+  ]
+}

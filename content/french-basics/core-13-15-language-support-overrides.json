@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 13–15 French-target English support; original drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 13,
+      "cardIndex": 2,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 14,
+      "cardIndex": 6,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 14,
+      "cardIndex": 7,
+      "from": {
+        "target": "les",
+        "native": "the / them (feminine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 15,
+      "cardIndex": 3,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    },
+    {
+      "lesson": 15,
+      "cardIndex": 4,
+      "from": {
+        "target": "les",
+        "native": "the / them (masculine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    }
+  ],
+  "dialogueOverrides": [],
+  "grammarOverrides": [
+    {
+      "lesson": 14,
+      "from": "Avoir besoin de names a need: J’ai besoin d’un cahier; J’ai besoin de réviser. De contracts to d’ before a vowel and to des only in some plural constructions; with indefinite plural objects, de is common: J’ai besoin de cahiers. Devoir + infinitive marks an obligation: je dois finir, nous devons arriver. French does not translate Spanish tener que word for word.",
+      "to": "Avoir besoin de names a need: J’ai besoin d’un cahier; J’ai besoin de réviser. De contracts to d’ before a vowel and to des only in some plural constructions; with indefinite plural objects, de is common: J’ai besoin de cahiers. Devoir + infinitive marks an obligation: je dois finir, nous devons arriver. Learn the French besoin de and devoir patterns separately.",
+      "reason": "Remove Spanish-specific comparison"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 13,
+      "from": "French does not copy Spanish puedo/podemos spelling. Keep the infinitive after pouvoir and put ne…pas around the conjugated pouvoir.",
+      "to": "Keep the infinitive after pouvoir and put ne…pas around the conjugated pouvoir.",
+      "reason": "Remove Spanish-specific comparison"
+    }
+  ]
+}

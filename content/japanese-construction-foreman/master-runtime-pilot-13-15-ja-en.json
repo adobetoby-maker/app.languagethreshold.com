@@ -14,7 +14,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:13",
       "n": 13,
-      "title": "Report an injury timeline",
+      "title": "A timeline without a guess",
       "objective": "Say and write the timeline of a table-saw injury with times and facts only, without guessing the cause.",
       "sourceObjective": "Say and write the timeline of a table-saw injury with times and facts only, without guessing the cause.",
       "words": [
@@ -173,28 +173,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:13",
-        "title": "Report an injury timeline",
-        "state": "phrase-sequence-draft",
+        "title": "A timeline without a guess",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "10時40分、サミュエルさんはテーブルソーで板を切っていました。",
-            "native": "At 10:40, Samuel was cutting a board on the saw."
+            "target": "午前、職長は安全管理者のパトリシアさんと話しました。",
+            "native": "In the morning, the foreman spoke with Patricia, the safety contact."
           },
           {
-            "target": "数分後、救急隊員がサミュエルさんを病院へ搬送しました。",
-            "native": "A few minutes later, the paramedics took him to the hospital."
+            "target": "二人は、サミュエルさんのけがについて時系列を確認しました。",
+            "native": "They reviewed the timeline of Samuel's injury."
           },
           {
-            "target": "けがをした瞬間は見ていません。私が着いたのは、その数秒後です。",
-            "native": "I didn't see the cut; I got there a few seconds later."
+            "target": "作業記録には、10時40分にサミュエルさんがテーブルソーの所にいたと書かれています。",
+            "native": "The work record says Samuel was at the table saw at 10:40."
           },
           {
-            "target": "原因は分かりません。私が見たことだけをお伝えします。",
-            "native": "I don't know the cause; I'm only telling you what I saw."
+            "target": "職長がその場に着いたのは、数秒後でした。",
+            "native": "The foreman arrived at the scene a few seconds later."
           },
           {
-            "target": "パトリシアさん、今日中に写真とロサさんの目撃証言の記録をお送りします。",
-            "native": "Patricia, I'll send you the photos and Rosa's statement today."
+            "target": "職長は、けがをした瞬間を見ていないと明確に伝えました。",
+            "native": "The foreman made clear that he did not see the moment of injury."
+          },
+          {
+            "target": "パトリシアさんは、確認済みの時刻と未確認の時刻を分けて記録しました。",
+            "native": "Patricia recorded confirmed times separately from unconfirmed times."
+          },
+          {
+            "target": "二人は、写真と目撃者の話を後で照合することにしました。",
+            "native": "They decided to compare the photographs with witness accounts later."
+          },
+          {
+            "target": "原因については推測せず、分かっている事実だけを報告書に残しました。",
+            "native": "They did not guess at the cause and kept only known facts in the report."
           }
         ]
       },
@@ -223,28 +235,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:13",
         "summary": "Give a factual incident timeline, distinguish witnessed from unwitnessed events, and route procedural questions to qualified safety personnel.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは安全管理者のパトリシア・レオンです。テーブルソーでのサミュエルさんのけがについて、出来事の時系列を話してください。「10時40分」「すぐに」「数分後」「待っている間に」などの時間の言葉を使い、過去の形で、事実だけを話してください。原因は推測しないでください。",
-        "openingLine": "10時40分、サミュエルさんはテーブルソーで板を切っていました。",
+        "openingLine": "確認した時刻と、見ていないことを分けてお伝えします。",
         "partnerRole": "A safety contact who asks what the foreman directly observed and when.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "10時40分、サミュエルさんは____で板を切っていました。",
-          "hint": "At 10:40, Samuel was cutting a board on the saw.",
-          "answer": "テーブルソー",
-          "explanation": "テーブルソー appears in this lesson’s source phrase."
+          "prompt": "二人は、サミュエルさんのけがについて____を確認しました。",
+          "hint": "They reviewed the timeline of Samuel's injury.",
+          "answer": "時系列",
+          "explanation": "時系列 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "数分後、____がサミュエルさんを病院へ搬送しました。",
-          "hint": "A few minutes later, the paramedics took him to the hospital.",
-          "answer": "救急隊員",
-          "explanation": "救急隊員 appears in this lesson’s source phrase."
+          "prompt": "作業記録には、____にサミュエルさんがテーブルソーの所にいたと書かれています。",
+          "hint": "The work record says Samuel was at the table saw at 10:40.",
+          "answer": "10時40分",
+          "explanation": "10時40分 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____をした瞬間は見ていません。私が着いたのは、その数秒後です。",
-          "hint": "I didn't see the cut; I got there a few seconds later.",
-          "answer": "けが",
-          "explanation": "けが appears in this lesson’s source phrase."
+          "prompt": "二人は、写真と____の話を後で照合することにしました。",
+          "hint": "They decided to compare the photographs with witness accounts later.",
+          "answer": "目撃者",
+          "explanation": "目撃者 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -255,7 +267,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:14",
       "n": 14,
-      "title": "Describe a rigging near miss",
+      "title": "Three accounts of a near miss",
       "objective": "Talk through a near miss with the rigger and the laborer without blame and agree on what changes in the next lift.",
       "sourceObjective": "Talk through a near miss with the rigger and the laborer without blame and agree on what changes in the next lift.",
       "words": [
@@ -402,32 +414,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:14",
-        "title": "Describe a rigging near miss",
-        "state": "phrase-sequence-draft",
+        "title": "Three accounts of a near miss",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ニコラス、鉄筋の束がそちらに落ちるところだった。",
-            "native": "The bundle almost fell on you, Nicolás."
+            "target": "午後、鉄筋の束が動いた後、職長はアルマさんとニコラスさんに話を聞きました。",
+            "native": "In the afternoon, after a bundle of rebar moved, the foreman spoke with Alma and Nicolás."
           },
           {
-            "target": "重大な事故になっていたかもしれない。だから今、こうして話している。",
-            "native": "It could have been serious; that's why we're talking about it."
+            "target": "ニコラスさんは、束が近くを通り、ひやりとしたと話しました。",
+            "native": "Nicolás said the bundle passed nearby and gave him a scare."
           },
           {
-            "target": "誰かを責めるためじゃない。何を変えるかを探しているんだ。",
-            "native": "We're not looking for someone to blame; we're looking for what to change."
+            "target": "アルマさんは、自分が見た動きだけを説明しました。",
+            "native": "Alma described only the movement she had seen."
           },
           {
-            "target": "アルマ、吊り上げる前に束をどう玉掛けしたか教えてくれる？",
-            "native": "Alma, tell me how you rigged the bundle before the lift."
+            "target": "職長は、これはヒヤリハットとして記録すると伝えました。",
+            "native": "The foreman said the event would be recorded as a near miss."
           },
           {
-            "target": "ニコラス、あの時、どうしてあの区域を通っていたのか教えてくれる？",
-            "native": "Nicolás, why were you walking through that area at that moment?"
+            "target": "二人に、どの位置から何が見えたかを一人ずつ尋ねました。",
+            "native": "He asked each person what they could see from their position."
           },
           {
-            "target": "二人とも、何があったのか正直に話してくれてありがとう。",
-            "native": "Thank you both for honestly telling me what happened."
+            "target": "職長は、誰かを責めるための聞き取りではないと説明しました。",
+            "native": "The foreman explained that the questions were not meant to blame anyone."
+          },
+          {
+            "target": "次の吊り上げ方法については、その場で決定しませんでした。",
+            "native": "They did not decide the method for the next lift on the spot."
+          },
+          {
+            "target": "確認が必要な点をまとめ、担当者と話す時間を決めました。",
+            "native": "They listed the questions needing review and set a time to speak with the responsible person."
           }
         ]
       },
@@ -454,28 +474,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:14",
         "summary": "Hear both workers without blame, report the near miss and refer lift-plan decisions to qualified riggers.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは玉掛け担当のアルマ・グスマンと作業員のニコラス・エレラを演じます。鉄筋の束が滑った件について、誰かを責めずに事実を確認してください。「落ちるところだった」「重大な事故になっていたかもしれない」のように、起きなかった危険を表してください。次の吊り上げで何を変えるか、二人と話し合ってください。条件には「〜ば」「〜たら」「〜ていなければ」などを使ってください。",
-        "openingLine": "ニコラス、鉄筋の束がそちらに落ちるところだった。",
+        "openingLine": "お二人が見たことを、一人ずつ聞かせてください。",
         "partnerRole": "A rigger and laborer who each describe what they observed.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ニコラス、____の束がそちらに落ちるところだった。",
-          "hint": "The bundle almost fell on you, Nicolás.",
-          "answer": "鉄筋",
-          "explanation": "鉄筋 appears in this lesson’s source phrase."
+          "prompt": "午後、____が動いた後、職長はアルマさんとニコラスさんに話を聞きました。",
+          "hint": "In the afternoon, after a bundle of rebar moved, the foreman spoke with Alma and Nicolás.",
+          "answer": "鉄筋の束",
+          "explanation": "鉄筋の束 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____な事故になっていたかもしれない。だから今、こうして話している。",
-          "hint": "It could have been serious; that's why we're talking about it.",
-          "answer": "重大",
-          "explanation": "重大 appears in this lesson’s source phrase."
+          "prompt": "職長は、これは____として記録すると伝えました。",
+          "hint": "The foreman said the event would be recorded as a near miss.",
+          "answer": "ヒヤリハット",
+          "explanation": "ヒヤリハット appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "誰かを____ためじゃない。何を変えるかを探しているんだ。",
-          "hint": "We're not looking for someone to blame; we're looking for what to change.",
+          "prompt": "職長は、誰かを____ための聞き取りではないと説明しました。",
+          "hint": "The foreman explained that the questions were not meant to blame anyone.",
           "answer": "責める",
-          "explanation": "責める appears in this lesson’s source phrase."
+          "explanation": "責める appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -486,7 +506,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:15",
       "n": 15,
-      "title": "Report a gas smell in a US scenario",
+      "title": "A clear report from the trench",
       "objective": "Stop work by radio, give short clear orders to clear the area and call emergency services and the gas utility.",
       "sourceObjective": "Stop work by radio, give short clear orders to clear the area and call emergency services and the gas utility.",
       "words": [
@@ -639,20 +659,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:15",
-        "title": "Report a gas smell in a US scenario",
-        "state": "phrase-sequence-draft",
+        "title": "A clear report from the trench",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "工事現場でガスのにおいがしています。通報します。",
-            "native": "I'm calling to report a gas smell at a construction site."
+            "target": "米国の現場で、ラウルさんは掘削溝の近くでガスのにおいに気づきました。",
+            "native": "At a US jobsite, Raúl noticed a gas smell near the trench."
           },
           {
-            "target": "そちらの緊急対応チームは、あと何分ぐらいで到着しますか。",
-            "native": "How soon will your emergency crew get here?"
+            "target": "ラウルさんは無線で、気づいた場所と時刻を職長に伝えました。",
+            "native": "Raúl radioed the foreman with the place and time he noticed it."
           },
           {
-            "target": "すみません、そこの方、それ以上近づかないでください。ガス漏れのおそれがあります。",
-            "native": "Ma'am, please don't come closer; there may be a gas leak."
+            "target": "職長は、聞き取った情報を短く復唱しました。",
+            "native": "The foreman repeated the information back briefly."
+          },
+          {
+            "target": "二人は、ガス管から漏れていると決めつけず、においを確認したとだけ記録しました。",
+            "native": "They did not assume a gas line was leaking; they recorded only that a smell had been noticed."
+          },
+          {
+            "target": "職長は、現場の住所を手元の記録で確認しました。",
+            "native": "The foreman checked the site address against the record he had."
+          },
+          {
+            "target": "米国の緊急連絡先である911へ伝える内容を、場所と観察した事実に分けました。",
+            "native": "For the US emergency contact 911, he separated the location from the facts observed."
+          },
+          {
+            "target": "近くに学校があることも、確認済みの情報として伝えました。",
+            "native": "He also reported the nearby school as a confirmed fact."
+          },
+          {
+            "target": "職長は、次の連絡のために担当者の返答を記録しました。",
+            "native": "The foreman recorded the contact's response for the next update."
           }
         ]
       },
@@ -679,28 +719,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:15",
         "summary": "Practice a source-based US 911/gas-utility report and short status updates; real emergency instructions require site approval.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは無線で話す重機オペレーターのラウル・メディナを演じます。「全作業中止！」「掘削溝から離れて！」のように短く明確に作業停止と退避を伝えてください。安全にできるなら機械のエンジンを切って歩いて離れるように伝え、911とガス会社に連絡してください。「〜たら、〜します」を使って次の行動を説明してください。ガス漏れの原因や規模を推測しないでください。",
-        "openingLine": "工事現場でガスのにおいがしています。通報します。",
+        "openingLine": "場所と確認できた事実をお伝えします。",
         "partnerRole": "A US emergency dispatcher or utility contact asking for location and observed facts.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "工事現場で____のにおいがしています。通報します。",
-          "hint": "I'm calling to report a gas smell at a construction site.",
-          "answer": "ガス",
-          "explanation": "ガス appears in this lesson’s source phrase."
+          "prompt": "米国の現場で、ラウルさんは____の近くでガスのにおいに気づきました。",
+          "hint": "At a US jobsite, Raúl noticed a gas smell near the trench.",
+          "answer": "掘削溝",
+          "explanation": "掘削溝 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "そちらの____は、あと何分ぐらいで到着しますか。",
-          "hint": "How soon will your emergency crew get here?",
-          "answer": "緊急対応チーム",
-          "explanation": "緊急対応チーム appears in this lesson’s source phrase."
+          "prompt": "職長は、現場の____を手元の記録で確認しました。",
+          "hint": "The foreman checked the site address against the record he had.",
+          "answer": "住所",
+          "explanation": "住所 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "すみません、そこの方、それ以上近づかないでください。____のおそれがあります。",
-          "hint": "Ma'am, please don't come closer; there may be a gas leak.",
-          "answer": "ガス漏れ",
-          "explanation": "ガス漏れ appears in this lesson’s source phrase."
+          "prompt": "米国の緊急連絡先である____へ伝える内容を、場所と観察した事実に分けました。",
+          "hint": "For the US emergency contact 911, he separated the location from the facts observed.",
+          "answer": "911",
+          "explanation": "911 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [

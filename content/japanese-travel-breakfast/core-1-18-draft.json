@@ -2707,6 +2707,534 @@
         "say": "Complete the café exchange mainly in Japanese; English help remains available.",
         "write": "Write a short order, correction and payment request."
       }
+    },
+    {
+      "n": 16,
+      "stableId": "travel-breakfast:16:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a high chair, child portions, milder options, and space for a stroller",
+        "roleplay": "Arrive with two young children and a stroller and arrange a table, a high chair, and kid-sized food.",
+        "englishWordAnchors": [
+          "high chair",
+          "stroller",
+          "kids' menu",
+          "child portion",
+          "table",
+          "bib",
+          "scrambled eggs",
+          "spicy",
+          "chili pepper",
+          "milk",
+          "corner",
+          "Do you have a high chair, please?",
+          "Is there room for the stroller?",
+          "Are there portions for children?",
+          "Can you make it without chili?",
+          "Is this spicy?",
+          "We are one adult and two children."
+        ],
+        "englishReading": [
+          "I arrive at the café at 8 with my 2 children and the stroller.",
+          "First I ask the waiter: Is there room for the stroller?",
+          "The waiter says: Yes, I'm going to give you a table in the corner.",
+          "Then I ask him: Do you have a high chair, please?",
+          "The waiter brings a high chair and a bib for my daughter.",
+          "After that I ask for the kids' menu, and my son wants a child portion of scrambled eggs.",
+          "The sauce on the dish is spicy, so I ask: Can you make it without chili?",
+          "To drink, I'm going to order 2 glasses of milk."
+        ],
+        "englishSourceSha256": "5097beabf73dcd025af7b93bea8a122dff2faee60457f4c20a058c28d4e775ff"
+      },
+      "title": "Breakfast with children",
+      "objective": "Ask for stroller space and a high chair, then check a smaller and milder breakfast option for children.",
+      "focus": "ベビーカー is stroller and 子ども用の椅子 is a child’s chair. 少なめ asks for a smaller amount; 辛くしないで asks for a non-spicy version, if the kitchen can make it. Confirm availability and ingredients rather than assuming an item is suitable for children.",
+      "scene": "Sam arrives at a café with two children and asks about seating and food options.",
+      "cards": [
+        {
+          "ja": "ベビーカー",
+          "en": "stroller",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども用の椅子",
+          "en": "high chair; child chair",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども二人",
+          "en": "two children",
+          "kind": "term"
+        },
+        {
+          "ja": "一人",
+          "en": "one adult",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "少なめ",
+          "en": "smaller amount",
+          "kind": "term"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "辛くしないで",
+          "en": "please make it not spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "たまご料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカーを置けますか",
+          "en": "Is there room for a stroller?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "大人一人と子ども二人です。",
+          "en": "One adult and two children."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ベビーカーを置ける席はありますか。",
+          "en": "Is there a seat with room for a stroller?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "通路をふさがない席を確認します。",
+          "en": "I will check for a seat that does not block the aisle."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらの席はいかがですか。",
+          "en": "How about this seat?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。子ども用の椅子はありますか。",
+          "en": "Thank you. Do you have a high chair?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、一つあります。",
+          "en": "Yes, we have one."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "たまご料理を少なめにできますか。",
+          "en": "Can you make a smaller portion of the egg dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "辛いものは入っていますか。",
+          "en": "Does it contain anything spicy?"
+        }
+      ],
+      "speaking": {
+        "role": "Parent arranging breakfast",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。何名様ですか。",
+        "goal": "State one adult and two children, ask for stroller room and a high chair, and check a small non-spicy option.",
+        "closure": "Wait for kitchen and seating confirmation before ordering.",
+        "wordBank": [
+          "子ども二人",
+          "ベビーカー",
+          "子ども用の椅子",
+          "少なめ",
+          "辛いもの"
+        ]
+      },
+      "modes": {
+        "see": "Read a family seating and menu exchange with aligned English.",
+        "recall": "Recall stroller, high chair and smaller portion requests.",
+        "hear": "Hear 子ども用の椅子 and ベビーカー distinctly.",
+        "type": "Type a stroller-space question with kana help.",
+        "say": "Ask about family seating and a child-size option.",
+        "write": "Write a short seating request and food question."
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "travel-breakfast:17:ja-en",
+      "sourceEnglish": {
+        "objective": "ask about step-free entry, table height, restroom access, and room for a wheelchair or crutches",
+        "roleplay": "Your companion uses a wheelchair; find out whether the café can seat you comfortably before you sit down.",
+        "englishWordAnchors": [
+          "wheelchair",
+          "crutches",
+          "ramp",
+          "step",
+          "entrance",
+          "aisle",
+          "height",
+          "room",
+          "accessible restroom",
+          "grab bars",
+          "waiter",
+          "table",
+          "Is there a step-free entrance?",
+          "Is there room for a wheelchair?",
+          "Is the restroom accessible?",
+          "Do you have a lower table?",
+          "Can we see the table before we sit down?",
+          "My friend uses crutches."
+        ],
+        "englishReading": [
+          "I arrive at a café with my friend Elena, who uses a wheelchair.",
+          "First, I ask the waiter: Is there a step-free entrance?",
+          "The waiter says: Yes, there is a ramp at the side door.",
+          "Then I ask: Is there room for a wheelchair next to the table?",
+          "He answers: I am going to give you the table by the window, because the aisle is wider.",
+          "Elena looks at the height of the table, and the waiter takes away a chair for her.",
+          "Next I ask: Is the restroom accessible?",
+          "The waiter says: Yes, the accessible restroom is at the back and it has grab bars.",
+          "Then we say: Perfect, we are going to sit here."
+        ],
+        "englishSourceSha256": "1e824f3c06b409038ed98a056aa4b4d88a918d00bfb733278ec5557f4a30ce1d"
+      },
+      "title": "Check access before seating",
+      "objective": "Ask about a step-free entrance, table clearance and restroom access while letting the wheelchair user decide what works.",
+      "focus": "段差のない入口 means a step-free entrance; 車いすが入れるスペース asks about room for a wheelchair. バリアフリートイレ is a common label but facilities differ; ask about the actual route and features. The companion, not the traveler or server, decides whether the table is usable.",
+      "scene": "Sam and friend Aya arrive at a café; Aya uses a wheelchair and checks the table herself.",
+      "cards": [
+        {
+          "ja": "車いす",
+          "en": "wheelchair",
+          "kind": "term"
+        },
+        {
+          "ja": "段差",
+          "en": "step",
+          "kind": "term"
+        },
+        {
+          "ja": "入口",
+          "en": "entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "段差のない入口",
+          "en": "step-free entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブルの高さ",
+          "en": "table height",
+          "kind": "term"
+        },
+        {
+          "ja": "スペース",
+          "en": "space",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "en": "restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "バリアフリートイレ",
+          "en": "accessible restroom label",
+          "kind": "term"
+        },
+        {
+          "ja": "見せてください",
+          "en": "please show me",
+          "kind": "term"
+        },
+        {
+          "ja": "確認したいです",
+          "en": "I would like to check",
+          "kind": "term"
+        },
+        {
+          "ja": "座れますか",
+          "en": "Can I sit here?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Aya",
+          "ja": "すみません。段差のない入口はありますか。",
+          "en": "Excuse me. Is there a step-free entrance?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "横の入口をご案内します。",
+          "en": "I will show you the side entrance."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "テーブルを見てから席を決めたいです。",
+          "en": "I would like to see the table before deciding on a seat."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。こちらをご覧ください。",
+          "en": "Of course. Please look here."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "車いすが入れるスペースはありますか。",
+          "en": "Is there room for my wheelchair?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "椅子を動かせます。通路も確認します。",
+          "en": "We can move a chair. I will check the aisle too."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "トイレまでの道も見せていただけますか。",
+          "en": "Could you show me the route to the restroom too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、ご案内します。",
+          "en": "Yes, I will show you."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "ありがとうございます。確認してから決めます。",
+          "en": "Thank you. I will decide after checking."
+        }
+      ],
+      "speaking": {
+        "role": "Wheelchair user checking access",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席をご案内しますか。",
+        "goal": "Ask about the entrance, table clearance and restroom route; inspect before deciding to sit.",
+        "closure": "The user decides whether the offered space works.",
+        "wordBank": [
+          "段差のない入口",
+          "車いす",
+          "スペース",
+          "テーブル",
+          "トイレまでの道",
+          "見せていただけますか"
+        ]
+      },
+      "modes": {
+        "see": "Read an access check led by the wheelchair user.",
+        "recall": "Recall entrance, space and restroom-route questions.",
+        "hear": "Hear 入口 and 通路 in context.",
+        "type": "Type a table-clearance request with kana help.",
+        "say": "Ask to see the actual route and table before deciding.",
+        "write": "Write three access questions in the user’s own voice."
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "travel-breakfast:18:ja-en",
+      "sourceEnglish": {
+        "objective": "ask how food is handled, whether tongs, toasters, or milk jugs are shared, and decide what to order",
+        "roleplay": "Your friend has a serious nut allergy; ask how pastries are stored and handled before ordering anything for them.",
+        "englishWordAnchors": [
+          "counter",
+          "display case",
+          "tongs",
+          "toaster",
+          "milk jug",
+          "nuts",
+          "allergy",
+          "cross-contact",
+          "almond milk",
+          "pastry",
+          "black coffee",
+          "My friend is allergic to nuts.",
+          "How do you store the pastries?",
+          "Do you use the same tongs for everything?",
+          "Do you share the toaster and the milk jug?",
+          "Can you show me the ingredients, please?",
+          "I'm going to order a black coffee, no pastry."
+        ],
+        "englishReading": [
+          "This morning, Elena and I arrived at the counter of a small café.",
+          "First, I told the barista: My friend is allergic to nuts.",
+          "Then I asked: How do you store the pastries in the display case?",
+          "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+          "I also asked: Do you share the toaster and the milk jug?",
+          "He answered: Yes, and we use the same jug for the almond milk.",
+          "Then he said: There is a risk of cross-contact at this counter.",
+          "So Elena decided: I'm going to order a black coffee, no pastry."
+        ],
+        "englishSourceSha256": "c0d7aefedb04ba5148c9e4e38a0ed388a7d7e8dc66a547faa96fe01b225d7504"
+      },
+      "title": "Ask about shared handling",
+      "objective": "Explain a companion’s nut allergy, ask about shared utensils and preparation, and decline an item when handling cannot be verified.",
+      "focus": "共用 means shared. 同じトングを使いますか asks whether the same tongs are used; 調理器具 asks about kitchen tools. An ingredient label is insufficient to establish allergy safety, and even a plain drink must not be assumed safe. This is communication practice pending qualified food-allergy review, not medical advice.",
+      "scene": "Aya has a nut allergy and asks a café worker about pastry storage and shared tools before ordering.",
+      "cards": [
+        {
+          "ja": "ナッツアレルギー",
+          "en": "nut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "共用",
+          "en": "shared use",
+          "kind": "term"
+        },
+        {
+          "ja": "トング",
+          "en": "tongs",
+          "kind": "term"
+        },
+        {
+          "ja": "トースター",
+          "en": "toaster",
+          "kind": "term"
+        },
+        {
+          "ja": "ミルクピッチャー",
+          "en": "milk jug",
+          "kind": "term"
+        },
+        {
+          "ja": "調理器具",
+          "en": "cooking tools",
+          "kind": "term"
+        },
+        {
+          "ja": "保管",
+          "en": "storage",
+          "kind": "term"
+        },
+        {
+          "ja": "確認できますか",
+          "en": "Can you verify?",
+          "kind": "term"
+        },
+        {
+          "ja": "注文しません",
+          "en": "I will not order it",
+          "kind": "term"
+        },
+        {
+          "ja": "同じトングを使いますか",
+          "en": "Do you use the same tongs?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に扱っていますか",
+          "en": "Are they handled separately?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Aya",
+          "ja": "ナッツアレルギーがあります。注文前に確認したいです。",
+          "en": "I have a nut allergy. I want to check before ordering."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "ナッツ入りのパンはどのように保管していますか。",
+          "en": "How do you store pastries with nuts?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ほかのパンと同じケースにあります。",
+          "en": "They are in the same display case as the other bread."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "同じトングを使いますか。",
+          "en": "Do you use the same tongs?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、共用しています。",
+          "en": "Yes, the tongs are shared."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "トースターやミルクピッチャーも共用ですか。",
+          "en": "Are the toaster and milk jug shared too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。詳しい扱い方は確認できません。",
+          "en": "Yes. I cannot verify the handling in detail."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "わかりました。ここでは注文しません。",
+          "en": "I understand. I will not order here."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler with a nut allergy",
+        "partnerRole": "Café staff",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "State the allergy, ask about display/storage and shared tongs, toaster and milk jug, then decline if safety cannot be verified.",
+        "closure": "Do not order an item on an unverified safety assumption.",
+        "wordBank": [
+          "ナッツアレルギー",
+          "同じトング",
+          "共用",
+          "トースター",
+          "ミルクピッチャー",
+          "注文しません"
+        ]
+      },
+      "modes": {
+        "see": "Read a shared-handling check with aligned English.",
+        "recall": "Recall shared versus separate handling.",
+        "hear": "Hear 共用 and 確認できません.",
+        "type": "Type a short tongs question with kana help.",
+        "say": "Ask about handling without accepting an unsafe inference.",
+        "write": "Write an allergy statement and two handling questions."
+      }
     }
   ],
   "reviewGates": [

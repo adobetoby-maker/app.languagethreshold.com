@@ -14,7 +14,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:19",
       "n": 19,
-      "title": "Review turnover documents carefully",
+      "title": "Questions at the daycare handover",
       "objective": "施設の施主に引き渡しの立会いで説明を行い、契約上の保証の対象と適用条件を伝え、依頼に対応する。",
       "sourceObjective": "Walk an owner through turnover, explain what the warranty covers and under which conditions, and handle requests.",
       "sourceTitle": "Turnover Walk: Warranty Limits at the Daycare",
@@ -175,20 +175,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:19",
-        "title": "Review turnover documents carefully",
-        "state": "phrase-sequence-draft",
+        "title": "Questions at the daycare handover",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
-            "native": "If the crack gets wider, let me know and we'll measure it."
+            "target": "保育施設の引き渡しで、職長は担当者に維持管理マニュアルを渡しました。",
+            "native": "At the daycare handover, the foreman gave the representative the maintenance manual."
           },
           {
-            "target": "担当技術者に書面で確認するよう依頼したいと思います。",
-            "native": "I would ask the project engineer to confirm it in writing."
+            "target": "担当者は、保証の対象範囲がどこに書かれているか尋ねました。",
+            "native": "The representative asked where the warranty coverage was described."
           },
           {
-            "target": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
-            "native": "Here is the manual with the warranty exclusions."
+            "target": "職長は、該当するページを示しましたが、その場で範囲を断定しませんでした。",
+            "native": "The foreman pointed to the relevant page without deciding the coverage on the spot."
+          },
+          {
+            "target": "壁の細いひび割れについても質問が出ました。",
+            "native": "A question also came up about a thin crack in the wall."
+          },
+          {
+            "target": "二人は、ひび割れの位置と見つけた日付を記録しました。",
+            "native": "They recorded the crack's location and the date it was found."
+          },
+          {
+            "target": "担当者は、新しい棚を壁に取り付けられるか尋ねました。",
+            "native": "The representative asked whether new shelves could be mounted on the wall."
+          },
+          {
+            "target": "職長は、耐荷重について担当技術者に書面で確認すると答えました。",
+            "native": "The foreman said he would ask the project engineer to confirm the load capacity in writing."
+          },
+          {
+            "target": "保証と棚の質問は、回答を受けてから改めて連絡することにしました。",
+            "native": "They agreed to follow up on the warranty and shelf questions after receiving an answer."
           }
         ]
       },
@@ -225,28 +245,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:19",
         "summary": "Walk through the available manual and route warranty and load questions to the authorized contract and engineering contacts.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは保育施設の責任者、クラウディア・ベニテスさんです。建物の引き渡しを順番に案内してください。保証の対象範囲と条件は、「〜であれば」と「〜ない限り」を使って説明してください。壁の耐荷重は誰が確認すべきかも説明してください。壁の荷重確認を誰にお願いするかを述べるときも、依頼に対応するときも、「〜することになると思います」「〜お願いしたいと思います」など控えめな表現を使ってください。",
-        "openingLine": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+        "openingLine": "保証については、まず契約書とマニュアルの記載を確認します。",
         "partnerRole": "A daycare owner or director asking what the turnover documents say.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ひび割れの幅が広がった場合は、____ください。幅を測定いたします。",
-          "hint": "If the crack gets wider, let me know and we'll measure it.",
-          "answer": "ご連絡",
-          "explanation": "ご連絡 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "担当技術者に____で確認するよう依頼したいと思います。",
-          "hint": "I would ask the project engineer to confirm it in writing.",
-          "answer": "書面",
-          "explanation": "書面 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "こちらが、保証の適用除外事項を記載した____です。",
-          "hint": "Here is the manual with the warranty exclusions.",
+          "prompt": "保育施設の引き渡しで、職長は担当者に____を渡しました。",
+          "hint": "At the daycare handover, the foreman gave the representative the maintenance manual.",
           "answer": "維持管理マニュアル",
-          "explanation": "維持管理マニュアル appears in this lesson’s source phrase."
+          "explanation": "維持管理マニュアル appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "壁の細い____についても質問が出ました。",
+          "hint": "A question also came up about a thin crack in the wall.",
+          "answer": "ひび割れ",
+          "explanation": "ひび割れ appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "職長は、____について担当技術者に書面で確認すると答えました。",
+          "hint": "The foreman said he would ask the project engineer to confirm the load capacity in writing.",
+          "answer": "耐荷重",
+          "explanation": "耐荷重 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -257,7 +277,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:20",
       "n": 20,
-      "title": "Report a difficult site day",
+      "title": "One report after a difficult day",
       "objective": "現場の一日を指揮し、新人を指導し、資材不足を解決し、墜落防止設備を外す近道を断り、ヒヤリハットに対応し、建築検査官に対応して報告する。",
       "sourceObjective": "Lead a full day: train, solve a shortage, refuse a shortcut, handle a near miss, meet the inspector and report.",
       "sourceTitle": "Capstone: A Hard Day on the Community Gym Job",
@@ -412,28 +432,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:20",
-        "title": "Report a difficult site day",
-        "state": "phrase-sequence-draft",
+        "title": "One report after a difficult day",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
-            "native": "Lupita, watch how I do it and then you do it."
+            "target": "地域体育館の現場で、職長は新人のルピタさんと朝の作業を確認しました。",
+            "native": "At the community gym site, the foreman reviewed the morning work with new hire Lupita."
           },
           {
-            "target": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
-            "native": "Gerardo, according to the delivery ticket, we're missing 12 joists."
+            "target": "午前中、納品書と現物を比べると、鉄骨ジョイストが12本足りませんでした。",
+            "native": "In the morning, a comparison of the delivery ticket with the items on site showed twelve steel joists missing."
           },
           {
-            "target": "不足分を本日中にお送りいただけますか。",
-            "native": "Could you send me the missing ones today?"
+            "target": "職長は、不足した数量をゲラルドさんに伝え、返答を待ちました。",
+            "native": "The foreman told Gerardo the quantity missing and waited for a reply."
           },
           {
-            "target": "レンチが2階から落下しましたが、誰にも当たりませんでした。",
-            "native": "The wrench fell from the second level, but it didn't hit anyone."
+            "target": "午後、レンチが上の階から落ちたと作業班から報告がありました。",
+            "native": "In the afternoon, the crew reported that a wrench had fallen from an upper level."
           },
           {
-            "target": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
-            "native": "Inspector Arce, would you like to start with the joist connections?"
+            "target": "けが人は報告されていませんが、職長は確認が必要な点を記録しました。",
+            "native": "No injury was reported, but the foreman recorded the points that needed checking."
+          },
+          {
+            "target": "後で、建築検査官のアルセさんが現場に来ました。",
+            "native": "Later, building inspector Arce came to the site."
+          },
+          {
+            "target": "職長は、確認済みの事実と未解決の質問を分けて説明しました。",
+            "native": "The foreman explained confirmed facts separately from unresolved questions."
+          },
+          {
+            "target": "日報には、納品の不足、落下の報告、検査官との会話を順番に記しました。",
+            "native": "In the daily report, he listed the short delivery, the falling-object report, and the conversation with the inspector in order."
           }
         ]
       },
@@ -471,28 +503,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:20",
         "summary": "Coach a worker, document a short delivery, report a near miss and ask the inspector for the next confirmed step.",
         "sourceSpeakingJapanese": "あなたは現場監督（フォアマン）です。AIは、新人作業員のルピタ（Lupita）、ゲラルド（Gerardo、納品元の担当者）、作業員のフェリペ（Felipe）、アルセ検査官（Inspector Arce）です。ルピタには親しい話し方で指示し、まず見本を見せてから本人にやってもらってください。ゲラルドには、納品書によると鉄骨ジョイストが足りていないことを伝え、不足分の本日中の発送を丁寧に依頼してください。フェリペが外周の墜落防止設備（手すり）を外したいと言ったら、安全手順を省く近道は認めないと「〜ことは認めません」を使って伝えてください。ヒヤリハット（負傷者なし）を振り返り、「〜のため」と「しかしながら」を使って、アルセ検査官に丁寧に現場を案内した後、出来事を報告してください。",
-        "openingLine": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+        "openingLine": "今日の出来事を、確認できた順にご報告します。",
         "partnerRole": "A crew member, supplier contact or inspector asking for factual status.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ルピタ、私の____を見てて。そのあと、自分でやってみて。",
-          "hint": "Lupita, watch how I do it and then you do it.",
-          "answer": "やり方",
-          "explanation": "やり方 appears in this lesson’s source phrase."
+          "prompt": "午前中、____と現物を比べると、鉄骨ジョイストが12本足りませんでした。",
+          "hint": "In the morning, a comparison of the delivery ticket with the items on site showed twelve steel joists missing.",
+          "answer": "納品書",
+          "explanation": "納品書 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "ゲラルドさん、納品書によると、鉄骨ジョイストが____不足しています。",
-          "hint": "Gerardo, according to the delivery ticket, we're missing 12 joists.",
-          "answer": "12本",
-          "explanation": "12本 appears in this lesson’s source phrase."
+          "prompt": "午後、____が上の階から落ちたと作業班から報告がありました。",
+          "hint": "In the afternoon, the crew reported that a wrench had fallen from an upper level.",
+          "answer": "レンチ",
+          "explanation": "レンチ appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____を本日中にお送りいただけますか。",
-          "hint": "Could you send me the missing ones today?",
-          "answer": "不足分",
-          "explanation": "不足分 appears in this lesson’s source phrase."
+          "prompt": "____には、納品の不足、落下の報告、検査官との会話を順番に記しました。",
+          "hint": "In the daily report, he listed the short delivery, the falling-object report, and the conversation with the inspector in order.",
+          "answer": "日報",
+          "explanation": "日報 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [

@@ -258,6 +258,8 @@ export function validateManifest(
     }
     if (/^(foundation|master)-/.test(entry.base)) errors.push(`${where}: base must be a Core 30 module`);
     if (!hasCurriculum(entry.base)) errors.push(`${where}: the base module has no Core 30 curriculum`);
+    if (base.authoredPair && (base.authoredPair.target !== entry.language || base.authoredPair.native !== native))
+      errors.push(`${where}: the base module is authored for ${base.authoredPair.target}/${base.authoredPair.native}; use a separate base module for ${entry.language}/${native}`);
     if (!entry.foundation && !entry.master) errors.push(`${where}: lists no stage`);
     if (!text(entry.language)) errors.push(`${where}: language is missing`);
     else if (!(LANGUAGES as readonly string[]).includes(entry.language) || languageTag(entry.language) === "und")

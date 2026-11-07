@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
-import { core60PathOf, stageLessonLabel } from "@/lib/core60-path";
+import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
 import { core30ScopeKey } from "@/lib/core30-scope";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import {
@@ -42,7 +42,9 @@ export function ModulePlacement({
 }) {
   const { state } = useApp();
   const { user } = useAuth();
-  const base = core60PathOf(moduleId)?.tradeModuleId ?? moduleId;
+  const base =
+    core60PathOfPair(moduleId, state.selectedLanguage, state.nativeLanguage)?.tradeModuleId ??
+    moduleId;
   return (
     <PlacementRunner
       key={`${user?.id ?? "guest"}:${base}:${state.selectedLanguage}:${state.nativeLanguage}:${managed}`}

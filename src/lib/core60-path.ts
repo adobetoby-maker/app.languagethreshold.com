@@ -8,9 +8,10 @@
 
 import { isFoundationModule, isMasterModule } from "./core30-plan.ts";
 import { getCurriculum } from "../data/curriculum.ts";
-import { getModule } from "../data/modules.ts";
+import { getModule, moduleSupportsLearningPair } from "../data/modules.ts";
 import { core60Manifest } from "../data/core60-stages.ts";
-import { stageModuleId, type Core60ManifestEntry } from "./core60-stage-core.ts";
+import { manifestStageModuleId, type Core60ManifestEntry } from "./core60-stage-core.ts";
+import type { Language, NativeLanguage } from "../data/languages.ts";
 
 export type Core60Stage = "foundation" | "core" | "master";
 
@@ -39,15 +40,24 @@ export const CORE60_PATHS: Record<string, Core60PathConfig> = {
 export function core60PathsFromManifest(
   manifest: readonly Core60ManifestEntry[],
   handWritten: Record<string, Core60PathConfig> = CORE60_PATHS,
+  targetLanguage?: string,
+  nativeLanguage?: string,
 ): Record<string, Core60PathConfig> {
   const out: Record<string, Core60PathConfig> = {};
   for (const entry of manifest) {
+    if (targetLanguage && entry.language !== targetLanguage) continue;
+    if (
+      nativeLanguage &&
+      (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !==
+        nativeLanguage
+    )
+      continue;
     const base = getModule(entry.base);
     if (!base || handWritten[entry.base] || out[entry.base]) continue;
     out[entry.base] = {
       tradeLabel: entry.tradeLabel ?? base.name,
-      foundationId: stageModuleId("foundation", entry.base),
-      masterId: stageModuleId("master", entry.base),
+      foundationId: manifestStageModuleId(entry, "foundation"),
+      masterId: manifestStageModuleId(entry, "master"),
       lessons: {
         foundation: 10,
         core: getCurriculum(entry.base)?.lessons.length ?? 30,
@@ -57,6 +67,34 @@ export function core60PathsFromManifest(
     };
   }
   return out;
+}
+
+/** A learner's path map, filtered before a shared base id can select a different language. */
+export function core60PathsForPair(
+  targetLanguage: Language,
+  nativeLanguage: NativeLanguage,
+): Record<string, Core60PathConfig> {
+  const handWritten = Object.fromEntries(
+    Object.entries(CORE60_PATHS).filter(([, path]) =>
+      [path.foundationId, path.masterId].every((id) => {
+        const module = getModule(id);
+        return module && moduleSupportsLearningPair(module, targetLanguage, nativeLanguage);
+      }),
+    ),
+  );
+  return {
+    ...handWritten,
+    ...core60PathsFromManifest(core60Manifest(), handWritten, targetLanguage, nativeLanguage),
+  };
+}
+
+/** Pair-safe path for learner-facing navigation and placement; stage ids remain progress ids. */
+export function core60PathOfPair(
+  moduleId: string | null | undefined,
+  targetLanguage: Language,
+  nativeLanguage: NativeLanguage,
+): Core60Path | null {
+  return core60PathOf(moduleId, core60PathsForPair(targetLanguage, nativeLanguage));
 }
 
 let allPaths: Record<string, Core60PathConfig> | null = null;
@@ -136,7 +174,9 @@ export function core60PathComplete(moduleId: string | null | undefined): boolean
 }
 
 /** "Foundation" / "Master" for those stages' modules, null for a Core 30 module. */
-export function core60StageName(moduleId: string | null | undefined): "Foundation" | "Master" | null {
+export function core60StageName(
+  moduleId: string | null | undefined,
+): "Foundation" | "Master" | null {
   if (isFoundationModule(moduleId)) return "Foundation";
   if (isMasterModule(moduleId)) return "Master";
   return null;

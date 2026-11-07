@@ -1,689 +1,1099 @@
 {
-  "schema": 1,
+  "schema": 2,
   "moduleId": "travel-breakfast",
   "targetLanguage": "French",
   "nativeLanguage": "English",
   "stage": "master",
-  "state": "translation-draft",
+  "state": "localized-content-draft",
   "reviewed": false,
   "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
   "sourceFilesSHA256": {
     "src/data/core60/es/master-travel-breakfast.json": "adb923e72401dd9559febc8170baac2fb6fb2aeaff8958eb2bc9e5a826526d8e",
     "public/lesson-content/es/master-travel-breakfast.json": "7fc7b7265fd9e8695c319b99f4c3a7f14047ce5bd3b9f316cf54d333556cd8b2"
   },
-  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "draftMethod": "Original Francophone learner scenes with exact English support; Spanish-course English anchors retained as source provenance only. Independent Fable/Opus and qualified human review pending.",
   "lessons": [
     {
       "n": 1,
-      "titleEnglish": "Teach a Friend How a Madrid Bar Breakfast Works",
-      "objectiveEnglish": "Explain step by step how to order, eat and pay at a Madrid bar counter, then have a friend explain it back.",
-      "titleFrenchCourseEnglish": "Expliquer le petit-déjeuner au comptoir",
-      "objectiveFrenchCourseEnglish": "Explain a busy Madrid bar’s sequence to a friend in French and have them teach it back.",
+      "sourceTitleEnglish": "Teach a Friend How a Madrid Bar Breakfast Works",
+      "sourceObjectiveEnglish": "Explain step by step how to order, eat and pay at a Madrid bar counter, then have a friend explain it back.",
       "sourceSpeakingEnglish": "You are coaching the AI, Brazilian traveler Thiago, through a Madrid bar breakfast: explain ordering, eating and paying in order with primero, luego, después, porque and por eso, then ask him to explain the routine back to you.",
       "sourceGrammarFocusEnglish": "Connectors for sequence and cause (primero pides en la barra, luego te sirven, porque pagas al final, por eso guardas el tique)",
-      "focusEnglish": "Use d’abord, ensuite, après, parce que and donc to teach the sequence and explain why each step matters.",
-      "focusFrench": "Raconter une suite d’actions et leurs causes avec d’abord, ensuite, parce que et donc.",
-      "teachingNotesEnglish": "This is a Madrid source scene, not a Francophone café rule. D’abord tu trouves une place, ensuite tu commandes, puis tu gardes le ticket explains the local routine. Ask your friend to repeat it in their own words.",
-      "words": [
+      "sourceWordsEnglish": [
         {
           "en": "the receipt",
-          "kind": "term",
-          "fr": "le ticket de caisse"
+          "kind": "term"
         },
         {
           "en": "the gap (free spot at the bar)",
-          "kind": "term",
-          "fr": "une place libre au comptoir"
+          "kind": "term"
         },
         {
           "en": "the bar stool",
-          "kind": "term",
-          "fr": "le tabouret de bar"
+          "kind": "term"
         },
         {
           "en": "the chalkboard menu",
-          "kind": "term",
-          "fr": "l’ardoise du menu"
+          "kind": "term"
         },
         {
           "en": "the breakfast deal",
-          "kind": "term",
-          "fr": "la formule petit-déjeuner"
+          "kind": "term"
         },
         {
           "en": "the black coffee (espresso)",
-          "kind": "term",
-          "fr": "le café noir (expresso)"
+          "kind": "term"
         },
         {
           "en": "the churros",
-          "kind": "term",
-          "fr": "les churros"
+          "kind": "term"
         },
         {
           "en": "the porras (thick churros)",
-          "kind": "term",
-          "fr": "les porras (gros churros)"
+          "kind": "term"
         },
         {
           "en": "the slice of Spanish omelette",
-          "kind": "term",
-          "fr": "une part de tortilla espagnole"
+          "kind": "term"
         },
         {
           "en": "the fresh-squeezed orange juice",
-          "kind": "term",
-          "fr": "un jus d’orange pressé"
+          "kind": "term"
         },
         {
           "en": "the card reader",
-          "kind": "term",
-          "fr": "le terminal de paiement"
+          "kind": "term"
         },
         {
           "en": "the change (money back)",
-          "kind": "term",
-          "fr": "la monnaie"
+          "kind": "term"
         },
         {
           "en": "the tip jar",
-          "kind": "term",
-          "fr": "le pot à pourboires"
+          "kind": "term"
         },
         {
           "en": "the hustle and noise",
-          "kind": "term",
-          "fr": "l’agitation et le bruit"
+          "kind": "term"
         },
         {
           "en": "First you find a spot at the bar, and then you order.",
-          "kind": "phrase",
-          "fr": "D’abord tu trouves une place au comptoir, puis tu commandes."
+          "kind": "phrase"
         },
         {
           "en": "Don't wait for a table, because almost everyone here eats breakfast standing up.",
-          "kind": "phrase",
-          "fr": "N’attends pas une table : ici, presque tout le monde déjeune debout."
+          "kind": "phrase"
         },
         {
           "en": "You pay at the end, so don't throw away the receipt.",
-          "kind": "phrase",
-          "fr": "On paie à la fin, alors ne jette pas le ticket."
+          "kind": "phrase"
         },
         {
           "en": "One moment, please, he's still deciding.",
-          "kind": "phrase",
-          "fr": "Un instant, s’il vous plaît, il choisit encore."
+          "kind": "phrase"
         },
         {
           "en": "I'll have a black coffee and some porras, please.",
-          "kind": "phrase",
-          "fr": "Je prendrai un café noir et des porras, s’il vous plaît."
+          "kind": "phrase"
         },
         {
           "en": "Afterwards, when you finish, you ask the waiter for the bill.",
-          "kind": "phrase",
-          "fr": "Ensuite, quand tu as fini, tu demandes l’addition au serveur."
+          "kind": "phrase"
         },
         {
           "en": "Okay, now you explain it to me, step by step.",
-          "kind": "phrase",
-          "fr": "D’accord, maintenant explique-moi la procédure étape par étape."
+          "kind": "phrase"
         },
         {
           "en": "Can you ring me up when you get a chance?",
-          "kind": "phrase",
-          "fr": "Vous pourrez m’encaisser quand vous aurez un moment ?"
+          "kind": "phrase"
         }
       ],
-      "passage": {
-        "titleFrench": "Expliquer le petit-déjeuner au comptoir",
-        "english": [
-          "Emma and her Brazilian friend Thiago walk into a bar in Lavapiés to have breakfast before strolling around the neighborhood.",
-          "It's really hectic, because at 9 half the neighborhood has its coffee at the bar.",
-          "Emma: First you find a spot at the bar, and then you order.",
-          "Emma: Don't wait for a table, because almost everyone here eats breakfast standing up.",
-          "Thiago finds a spot at the end of the bar and leaves his backpack on a free bar stool.",
-          "Emma: Before ordering, you look at the chalkboard menu, because that's where they write the day's prices.",
-          "The breakfast deal includes a coffee and churros for 3 euros.",
-          "Suddenly Paco, the waiter, plants himself in front of them and asks: What can I get you?",
-          "Thiago freezes, so Emma answers: One moment, please, he's still deciding.",
-          "After looking at the chalkboard again, Thiago says: I'll have a black coffee and some porras, please.",
-          "Emma orders a slice of Spanish omelette and a fresh-squeezed orange juice, and Paco serves them right away.",
-          "When Paco puts down the plates, he also puts a small receipt under Thiago's cup.",
-          "Emma: You pay at the end, so don't throw away the receipt.",
-          "Emma: Afterwards, when you finish, you ask the waiter for the bill.",
-          "Emma: If you pay by card, Paco brings you the card reader, and if you pay cash, he gives you your change.",
-          "Emma: Tipping isn't required, but if you want, you leave a few coins from your change in the tip jar.",
-          "Emma: Okay, now you explain it to me, step by step.",
-          "Thiago: First I find a spot and order, then I eat breakfast standing up, and since I pay at the end, I keep the receipt."
-        ],
-        "french": [
-          "Emma et son ami brésilien Thiago entrent dans un bar de Lavapiés pour prendre le petit-déjeuner avant de se promener dans le quartier.",
-          "Il y a beaucoup d’agitation : à neuf heures, la moitié du quartier prend son café au comptoir.",
-          "Emma : « D’abord, tu trouves une place au comptoir, puis tu commandes. »",
-          "Emma : « N’attends pas une table : ici, presque tout le monde prend son petit-déjeuner debout. »",
-          "Thiago trouve une place au bout du comptoir et pose son sac sur un tabouret libre.",
-          "Emma : « Avant de commander, regarde l’ardoise : c’est là qu’ils écrivent les prix du jour. »",
-          "La formule petit-déjeuner comprend un café et des churros pour trois euros.",
-          "Soudain, Paco, le serveur, se plante devant eux et demande : « Qu’est-ce que je vous sers ? »",
-          "Thiago reste muet ; Emma répond donc : « Un instant, s’il vous plaît, il choisit encore. »",
-          "Après avoir regardé de nouveau l’ardoise, Thiago dit : « Je prendrai un café noir et des porras, s’il vous plaît. »",
-          "Emma commande une part de tortilla espagnole et un jus d’orange pressé ; Paco les sert aussitôt.",
-          "Quand Paco pose les assiettes, il glisse aussi un petit ticket sous la tasse de Thiago.",
-          "Emma : « On paie à la fin, alors ne jette pas le ticket. »",
-          "Emma : « Ensuite, quand tu as fini, tu demandes l’addition au serveur. »",
-          "Emma : « Si tu paies par carte, Paco apporte le terminal ; si tu paies en espèces, il te rend la monnaie. »",
-          "Emma : « Le pourboire n’est pas obligatoire ici, mais tu peux laisser quelques pièces de ta monnaie dans le pot. »",
-          "Emma : « D’accord, maintenant explique-moi la procédure étape par étape. »",
-          "Thiago : « D’abord je trouve une place et je commande, puis je déjeune debout ; comme je paie à la fin, je garde le ticket. »"
-        ]
-      },
-      "verbs": [
+      "sourcePassageEnglish": [
+        "Emma and her Brazilian friend Thiago walk into a bar in Lavapiés to have breakfast before strolling around the neighborhood.",
+        "It's really hectic, because at 9 half the neighborhood has its coffee at the bar.",
+        "Emma: First you find a spot at the bar, and then you order.",
+        "Emma: Don't wait for a table, because almost everyone here eats breakfast standing up.",
+        "Thiago finds a spot at the end of the bar and leaves his backpack on a free bar stool.",
+        "Emma: Before ordering, you look at the chalkboard menu, because that's where they write the day's prices.",
+        "The breakfast deal includes a coffee and churros for 3 euros.",
+        "Suddenly Paco, the waiter, plants himself in front of them and asks: What can I get you?",
+        "Thiago freezes, so Emma answers: One moment, please, he's still deciding.",
+        "After looking at the chalkboard again, Thiago says: I'll have a black coffee and some porras, please.",
+        "Emma orders a slice of Spanish omelette and a fresh-squeezed orange juice, and Paco serves them right away.",
+        "When Paco puts down the plates, he also puts a small receipt under Thiago's cup.",
+        "Emma: You pay at the end, so don't throw away the receipt.",
+        "Emma: Afterwards, when you finish, you ask the waiter for the bill.",
+        "Emma: If you pay by card, Paco brings you the card reader, and if you pay cash, he gives you your change.",
+        "Emma: Tipping isn't required, but if you want, you leave a few coins from your change in the tip jar.",
+        "Emma: Okay, now you explain it to me, step by step.",
+        "Thiago: First I find a spot and order, then I eat breakfast standing up, and since I pay at the end, I keep the receipt."
+      ],
+      "sourceVerbsEnglish": [
         {
-          "infinitiveFrench": "chercher",
           "meaningEnglish": "to look for, to find",
-          "exampleFrench": "D’abord, tu cherches une place au comptoir.",
           "exampleEnglish": "First you find a spot at the bar.",
           "sourceInfinitiveSpanish": "buscar"
         },
         {
-          "infinitiveFrench": "demander",
           "meaningEnglish": "to order, to ask for",
-          "exampleFrench": "Ensuite, tu demandes l’addition au serveur.",
           "exampleEnglish": "Afterwards you ask the waiter for the bill.",
           "sourceInfinitiveSpanish": "pedir"
         },
         {
-          "infinitiveFrench": "mettre",
           "meaningEnglish": "to put; to serve (at a bar)",
-          "exampleFrench": "Je prendrai un café noir, s’il vous plaît.",
           "exampleEnglish": "I'll have a black coffee, please.",
           "sourceInfinitiveSpanish": "poner"
         },
         {
-          "infinitiveFrench": "servir",
           "meaningEnglish": "to serve",
-          "exampleFrench": "Paco sert les porras aussitôt.",
           "exampleEnglish": "Paco serves the porras right away.",
           "sourceInfinitiveSpanish": "servir"
         },
         {
-          "infinitiveFrench": "payer",
           "meaningEnglish": "to pay",
-          "exampleFrench": "On paie à la fin, alors ne jette pas le ticket.",
           "exampleEnglish": "You pay at the end, so don't throw away the receipt.",
           "sourceInfinitiveSpanish": "pagar"
         }
       ],
-      "grammarExamples": [
-        {
-          "english": "First you order at the bar, and then they serve you the coffee.",
-          "french": "D’abord, tu commandes au comptoir, puis on te sert le café."
-        },
-        {
-          "english": "Since it's so busy, first you find a spot and then you call the waiter.",
-          "french": "Comme il y a beaucoup d’agitation, tu cherches d’abord une place, puis tu appelles le serveur."
-        }
+      "sourceGrammarExamplesEnglish": [
+        "First you order at the bar, and then they serve you the coffee.",
+        "Since it's so busy, first you find a spot and then you call the waiter."
       ],
-      "speakingInstructionEnglish": "Coach Thiago through the Madrid scene in order; ask him to explain it back in French.",
-      "speakingFrench": "Explique à Thiago : d’abord, trouve une place ; ensuite, commande ; garde le ticket parce que tu paies à la fin. Maintenant, peux-tu me répéter les étapes ?",
-      "regionalNotesEnglish": [
-        "Lavapiés, porras, Spanish omelette and payment order belong to this Madrid source scene. A French-speaking city needs a separately authored local scenario.",
-        "The source’s optional tip statement is scenario-specific."
-      ],
-      "reviewed": false
-    },
-    {
-      "n": 2,
-      "titleEnglish": "Explain Media or Entera at a Seville Tostada Bar",
-      "objectiveEnglish": "Explain how tostadas are ordered by bread type, size and topping, and why locals choose each one.",
-      "titleFrenchCourseEnglish": "Expliquer les tartines de Séville",
-      "objectiveFrenchCourseEnglish": "Explain bread size, type, topping and pork content in a Seville tostada bar, then have a friend choose.",
-      "sourceSpeakingEnglish": "You are explaining Seville's tostada system to the AI, hostel roommate Ingrid: walk her through bread type, size and toppings and why locals choose each, using impersonal se (se pide media o entera) and si + present (si pides mollete…).",
-      "sourceGrammarFocusEnglish": "Impersonal se; si + present for general truths (se pide media o entera; si pides mollete, te lo tuestan)",
-      "focusEnglish": "Use on + present for a general local process and si + present for choices; verify a house item instead of guessing.",
-      "focusFrench": "Décrire une habitude avec on ; formuler une condition avec si ; demander confirmation.",
-      "teachingNotesEnglish": "On choisit d’abord le pain, puis la garniture translates the ordering sequence. Si tu prends un mollete, l’intérieur reste moelleux. These Andalusian breads and toppings are source-scene vocabulary; they are not French café staples.",
+      "titleFrenchCourseEnglish": "Expliquer un petit-déjeuner au comptoir",
+      "objectiveFrenchCourseEnglish": "Montrer à un ami comment lire le menu, commander et vérifier le paiement dans un café parisien.",
+      "settingEnglish": "Paris neighborhood café counter",
+      "focusEnglish": "Sequence and cause: first we read the menu, then we order; because payment varies, we ask when to pay.",
+      "focusFrench": "Connecteurs de suite et de cause : d’abord on lit la carte, puis on commande ; comme le paiement varie, on demande quand payer.",
+      "teachingNotesEnglish": "This is a fictional café. Do not generalize standing service, payment order, tips, prices or receipts to all Paris cafés.",
       "words": [
         {
-          "en": "the half (half-roll toast)",
-          "kind": "term",
-          "fr": "une demi-tartine"
+          "en": "the receipt",
+          "fr": "le ticket de caisse",
+          "kind": "term"
         },
         {
-          "en": "the whole (whole-roll toast)",
-          "kind": "term",
-          "fr": "une tartine entière"
+          "en": "the free spot at the counter",
+          "fr": "la place libre au comptoir",
+          "kind": "term"
         },
         {
-          "en": "the mollete (soft flat roll)",
-          "kind": "term",
-          "fr": "un mollete (petit pain plat et moelleux)"
+          "en": "the stool",
+          "fr": "le tabouret",
+          "kind": "term"
         },
         {
-          "en": "the Vienna-style roll",
-          "kind": "term",
-          "fr": "un petit pain viennois"
+          "en": "the menu board",
+          "fr": "l’ardoise",
+          "kind": "term"
         },
         {
-          "en": "the small roll",
-          "kind": "term",
-          "fr": "un petit pain"
+          "en": "the breakfast special",
+          "fr": "la formule petit-déjeuner",
+          "kind": "term"
         },
         {
-          "en": "the house bread",
-          "kind": "term",
-          "fr": "le pain de la maison"
+          "en": "the espresso",
+          "fr": "l’expresso",
+          "kind": "term"
         },
         {
-          "en": "the olive oil",
-          "kind": "term",
-          "fr": "l’huile d’olive"
+          "en": "the croissant",
+          "fr": "le croissant",
+          "kind": "term"
         },
         {
-          "en": "the grated tomato",
-          "kind": "term",
-          "fr": "la tomate râpée"
+          "en": "the pain au chocolat",
+          "fr": "le pain au chocolat",
+          "kind": "term"
         },
         {
-          "en": "the cured ham",
-          "kind": "term",
-          "fr": "le jambon cru"
+          "en": "the slice of bread",
+          "fr": "la tartine",
+          "kind": "term"
         },
         {
-          "en": "the red pork-lard spread",
-          "kind": "term",
-          "fr": "la manteca colorá (tartinade au saindoux et paprika)"
+          "en": "the fresh orange juice",
+          "fr": "le jus d’orange pressé",
+          "kind": "term"
         },
         {
-          "en": "the pork loin in lard spread",
-          "kind": "term",
-          "fr": "la zurrapa de lomo (porc confit dans le saindoux)"
+          "en": "the card reader",
+          "fr": "le terminal de paiement",
+          "kind": "term"
         },
         {
-          "en": "the soft inside of the bread",
-          "kind": "term",
-          "fr": "la mie moelleuse"
+          "en": "the change",
+          "fr": "la monnaie",
+          "kind": "term"
         },
         {
-          "en": "the crust",
-          "kind": "term",
-          "fr": "la croûte"
+          "en": "the tip jar",
+          "fr": "le pot à pourboires",
+          "kind": "term"
         },
         {
-          "en": "the toasting (how toasted it is)",
-          "kind": "term",
-          "fr": "le degré de grillage"
+          "en": "the busy room",
+          "fr": "la salle animée",
+          "kind": "term"
         },
         {
-          "en": "the salt shaker",
-          "kind": "term",
-          "fr": "la salière"
+          "en": "First we read the menu board, then we order.",
+          "fr": "D’abord, nous lisons l’ardoise, puis nous commandons.",
+          "kind": "phrase"
         },
         {
-          "en": "Here you order a half or a whole, depending on how hungry you are.",
-          "kind": "phrase",
-          "fr": "Ici, on choisit une demi ou une entière selon son appétit."
+          "en": "Could we sit here, or is this seat reserved?",
+          "fr": "Pouvons-nous nous asseoir ici, ou cette place est-elle réservée ?",
+          "kind": "phrase"
         },
         {
-          "en": "If you order a mollete, the bread stays soft inside.",
-          "kind": "phrase",
-          "fr": "Si tu prends un mollete, l’intérieur reste moelleux."
+          "en": "When do we pay at this café?",
+          "fr": "Quand paie-t-on dans ce café ?",
+          "kind": "phrase"
         },
         {
-          "en": "If you're really hungry, order a whole one.",
-          "kind": "phrase",
-          "fr": "Si tu as très faim, prends une entière."
+          "en": "One moment, my friend is still deciding.",
+          "fr": "Un instant, mon ami n’a pas encore choisi.",
+          "kind": "phrase"
         },
         {
-          "en": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
-          "kind": "phrase",
-          "fr": "Si tu ne manges pas de porc, évite la manteca colorá et la zurrapa."
+          "en": "I would like an espresso and a croissant, please.",
+          "fr": "Je voudrais un expresso et un croissant, s’il vous plaît.",
+          "kind": "phrase"
         },
         {
-          "en": "Excuse me, is the house bread a mollete or a Vienna roll?",
-          "kind": "phrase",
-          "fr": "Excusez-moi, le pain de la maison est un mollete ou un pain viennois ?"
+          "en": "Could we have the bill when you have a moment?",
+          "fr": "Pourrions-nous avoir l’addition quand vous aurez un moment ?",
+          "kind": "phrase"
         },
         {
-          "en": "Thanks for correcting me, I didn't know that.",
-          "kind": "phrase",
-          "fr": "Merci de m’avoir corrigé, je ne le savais pas."
+          "en": "Now explain the steps back to me.",
+          "fr": "Maintenant, explique-moi les étapes à ton tour.",
+          "kind": "phrase"
         },
         {
-          "en": "For me, a half with tomato and oil, please.",
-          "kind": "phrase",
-          "fr": "Pour moi, une demi avec tomate et huile, s’il vous plaît."
-        },
-        {
-          "en": "How do you order it here if I want it lightly toasted?",
-          "kind": "phrase",
-          "fr": "Comment demander une cuisson légère ici ?"
+          "en": "May I pay by card?",
+          "fr": "Puis-je payer par carte ?",
+          "kind": "phrase"
         }
       ],
       "passage": {
-        "titleFrench": "Expliquer les tartines de Séville",
+        "titleFrench": "Expliquer un petit-déjeuner au comptoir",
         "english": [
-          "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
-          "Me: Here you order the bread first and then the topping.",
-          "Me: Here you order a half or a whole, depending on how hungry you are.",
-          "Me: If you're really hungry, order a whole one.",
-          "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
-          "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
-          "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
-          "Me: I think the house bread is a mollete, but I'm going to ask.",
-          "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
-          "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
-          "Me: Thanks for correcting me, I didn't know that.",
-          "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
-          "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
-          "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
-          "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
-          "Ingrid: How do you order it here if I want it lightly toasted?",
-          "Rocío: You order it with light toasting, and we bring it out to you softer.",
-          "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her."
+          "Emma and her friend Thiago enter a neighborhood café in Paris.",
+          "Thiago wants to practice ordering breakfast in French.",
+          "Emma suggests reading the menu board before approaching the counter.",
+          "They see a breakfast special with a hot drink and a pastry.",
+          "Thiago asks whether an empty stool is available.",
+          "The server says they may sit there.",
+          "Emma explains that service and payment can vary by café.",
+          "She asks the server when this café takes payment.",
+          "The server says they can pay at the counter after ordering.",
+          "Thiago hesitates, so Emma asks for a moment.",
+          "Then Thiago orders an espresso and a croissant.",
+          "Emma orders a tartine and fresh orange juice.",
+          "The server repeats the order to check it.",
+          "Thiago asks whether he may pay by card.",
+          "The server brings the card reader and gives him a receipt.",
+          "Emma asks Thiago to explain what they did, step by step.",
+          "Thiago says they read the menu, checked the seat, ordered and paid.",
+          "Emma smiles because he can now describe this café’s routine himself."
         ],
         "french": [
-          "Ce matin, dans un bar à tostadas de Triana, j’explique à Ingrid comment on commande les tartines à Séville.",
-          "Moi : « Ici, on choisit d’abord le pain, puis ce qu’on met dessus. »",
-          "Moi : « On demande une demi ou une entière selon son appétit. »",
-          "Moi : « Si tu as très faim, prends une entière. »",
-          "Moi : « Si tu prends un mollete, la mie reste moelleuse, car ce pain en contient beaucoup. »",
-          "Moi : « Le pain viennois a une croûte plus fine et plus croustillante ; beaucoup de gens le préfèrent pour cela. »",
-          "Moi : « Si tu prends un pitufo, on t’apporte un petit pain, parfait avec un café. »",
-          "Moi : « Je crois que le pain de la maison est un mollete, mais je vais demander. »",
-          "Je dis à la patronne : « Excusez-moi, le pain de la maison est un mollete ou un pain viennois ? »",
-          "Rocío : « Le pain de la maison est un pain viennois ; il faut commander le mollete séparément. »",
-          "Moi : « Merci de m’avoir corrigé, je ne le savais pas. »",
-          "Puis je dis à Ingrid que la garniture la plus typique est la tomate râpée avec un bon filet d’huile d’olive : c’est léger et frais.",
-          "Moi : « La manteca colorá est du saindoux au paprika ; la zurrapa de lomo contient des morceaux de longe de porc dans du saindoux. »",
-          "Ingrid me dit qu’elle ne mange pas de porc ; je lui explique que le jambon cru en est aussi.",
-          "Moi : « Si tu ne manges pas de porc, évite la manteca colorá et la zurrapa. »",
-          "Ingrid : « Comment le commander ici si je le veux légèrement grillé ? »",
-          "Rocío : « Demandez une cuisson légère ; nous vous l’apporterons moins croustillant. »",
-          "Finalement, Ingrid commande une demi avec tomate et huile, légèrement grillée ; Rocío laisse la salière sur sa table."
+          "Emma et son ami Thiago entrent dans un café de quartier à Paris.",
+          "Thiago veut s’entraîner à commander son petit-déjeuner en français.",
+          "Emma propose de lire l’ardoise avant de s’approcher du comptoir.",
+          "Ils voient une formule petit-déjeuner avec une boisson chaude et une viennoiserie.",
+          "Thiago demande si un tabouret libre est disponible.",
+          "Le serveur dit qu’ils peuvent s’y asseoir.",
+          "Emma explique que le service et le paiement peuvent varier selon le café.",
+          "Elle demande au serveur quand on paie dans ce café.",
+          "Le serveur dit qu’ils peuvent payer au comptoir après avoir commandé.",
+          "Thiago hésite ; Emma demande donc un instant.",
+          "Puis Thiago commande un expresso et un croissant.",
+          "Emma commande une tartine et un jus d’orange pressé.",
+          "Le serveur répète la commande pour la vérifier.",
+          "Thiago demande s’il peut payer par carte.",
+          "Le serveur apporte le terminal de paiement et lui remet un ticket de caisse.",
+          "Emma demande à Thiago d’expliquer ce qu’ils ont fait, étape par étape.",
+          "Thiago dit qu’ils ont lu l’ardoise, vérifié la place, commandé et payé.",
+          "Emma sourit, car il peut maintenant décrire lui-même le fonctionnement de ce café."
         ]
       },
       "verbs": [
         {
-          "infinitiveFrench": "commander",
-          "meaningEnglish": "to order, to ask for",
-          "exampleFrench": "Ici, on commande une demi ou une entière.",
-          "exampleEnglish": "Here you order a half or a whole.",
-          "sourceInfinitiveSpanish": "pedir"
+          "infinitiveFrench": "lire",
+          "meaningEnglish": "to read",
+          "exampleEnglish": "First, we read the menu board.",
+          "exampleFrench": "D’abord, nous lisons l’ardoise."
         },
-        {
-          "infinitiveFrench": "avoir",
-          "meaningEnglish": "to have",
-          "exampleFrench": "Si tu as très faim, prends une entière.",
-          "exampleEnglish": "If you're really hungry, order a whole one.",
-          "sourceInfinitiveSpanish": "tener"
-        },
-        {
-          "infinitiveFrench": "préférer",
-          "meaningEnglish": "to prefer",
-          "exampleFrench": "Beaucoup de gens préfèrent le pain viennois.",
-          "exampleEnglish": "A lot of people prefer the Vienna roll.",
-          "sourceInfinitiveSpanish": "preferir"
-        },
-        {
-          "infinitiveFrench": "éviter",
-          "meaningEnglish": "to avoid",
-          "exampleFrench": "Si tu ne manges pas de porc, évite la manteca colorá.",
-          "exampleEnglish": "If you don't eat pork, avoid the manteca colorá.",
-          "sourceInfinitiveSpanish": "evitar"
-        },
-        {
-          "infinitiveFrench": "expliquer",
-          "meaningEnglish": "to explain",
-          "exampleFrench": "J’explique à Ingrid comment on commande les tostadas.",
-          "exampleEnglish": "I explain to Ingrid how tostadas are ordered.",
-          "sourceInfinitiveSpanish": "explicar"
-        }
-      ],
-      "grammarExamples": [
-        {
-          "english": "Here you order the bread first and then the topping.",
-          "french": "Ici, on choisit d’abord le pain, puis la garniture."
-        },
-        {
-          "english": "If you order a pitufo, they bring you a smaller roll.",
-          "french": "Si tu prends un pitufo, on t’apporte un petit pain."
-        }
-      ],
-      "speakingInstructionEnglish": "Explain the Seville bread choices and pork-containing toppings to Ingrid; ask her to choose and correct your own guess about the house bread.",
-      "speakingFrench": "Ici, on choisit d’abord la taille et le pain, puis la garniture. Si tu évites le porc, vérifie le jambon et les tartinades. Quel pain préfères-tu ?",
-      "regionalNotesEnglish": [
-        "Triana, mollete, pitufo, manteca colorá and zurrapa are Andalusian source details. A Francophone equivalent requires original local food and terminology.",
-        "Pork content is described in the source recipe; verify ingredients with the venue before an actual dietary decision."
-      ],
-      "reviewed": false
-    },
-    {
-      "n": 3,
-      "titleEnglish": "Coach Your Niece to Order Café de Olla Alone",
-      "objectiveEnglish": "Coach a teenager to order café de olla and a pan dulce on her own, with clear tips about the hot clay cup.",
-      "titleFrenchCourseEnglish": "Aider sa nièce à commander seule",
-      "objectiveFrenchCourseEnglish": "Coach a teen through ordering a hot café de olla and bread on her own while stating the hot-cup precautions clearly.",
-      "sourceSpeakingEnglish": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
-      "sourceGrammarFocusEnglish": "Commands with object pronouns (pídelo sin piloncillo, agárralo por el asa, no lo toques todavía)",
-      "focusEnglish": "Use direct imperatives with object pronouns: commande-le, tiens-le, ne le touche pas; keep drink-heat warnings practical.",
-      "focusFrench": "Donner des consignes au moyen de l’impératif et des pronoms compléments.",
-      "teachingNotesEnglish": "Commande-le sans piloncillo and tiens-le par l’anse show positive imperative plus object pronoun. Ne le touche pas encore shows the negative order. The hot clay cup is a source-scene detail; the learner should seek staff help if the drink is too hot to handle.",
-      "words": [
-        {
-          "en": "the clay mug",
-          "kind": "term",
-          "fr": "une tasse en terre cuite"
-        },
-        {
-          "en": "the handle",
-          "kind": "term",
-          "fr": "l’anse"
-        },
-        {
-          "en": "the rim",
-          "kind": "term",
-          "fr": "le bord"
-        },
-        {
-          "en": "the steam",
-          "kind": "term",
-          "fr": "la vapeur"
-        },
-        {
-          "en": "the piloncillo (raw cane sugar cone)",
-          "kind": "term",
-          "fr": "le piloncillo (sucre de canne brut)"
-        },
-        {
-          "en": "the cinnamon",
-          "kind": "term",
-          "fr": "la cannelle"
-        },
-        {
-          "en": "the egg-yolk bread",
-          "kind": "term",
-          "fr": "le pan de yema (pain aux jaunes d’œufs)"
-        },
-        {
-          "en": "the hot chocolate made with water",
-          "kind": "term",
-          "fr": "le chocolat chaud à l’eau"
-        },
-        {
-          "en": "the small eatery",
-          "kind": "term",
-          "fr": "une petite cantine"
-        },
-        {
-          "en": "the stall",
-          "kind": "term",
-          "fr": "le stand"
-        },
-        {
-          "en": "the bench",
-          "kind": "term",
-          "fr": "le banc"
-        },
-        {
-          "en": "the 50-peso bill",
-          "kind": "term",
-          "fr": "un billet de cinquante pesos"
-        },
-        {
-          "en": "the coins",
-          "kind": "term",
-          "fr": "les pièces"
-        },
-        {
-          "en": "lukewarm",
-          "kind": "term",
-          "fr": "tiède"
-        },
-        {
-          "en": "slowly, little by little",
-          "kind": "term",
-          "fr": "lentement, petit à petit"
-        },
-        {
-          "en": "Order it without piloncillo if you don't want it so sweet.",
-          "kind": "phrase",
-          "fr": "Commande-le sans piloncillo si tu ne le veux pas trop sucré."
-        },
-        {
-          "en": "Hold it by the handle, never by the rim.",
-          "kind": "phrase",
-          "fr": "Tiens-le par l’anse, jamais par le bord."
-        },
-        {
-          "en": "Don't touch it yet; wait until it stops steaming.",
-          "kind": "phrase",
-          "fr": "Ne le touche pas encore ; attends qu’il cesse de fumer."
-        },
-        {
-          "en": "Taste it slowly, because the clay holds the heat.",
-          "kind": "phrase",
-          "fr": "Goûte-le lentement : la terre cuite garde la chaleur."
-        },
-        {
-          "en": "Greet her first and speak to her formally.",
-          "kind": "phrase",
-          "fr": "Salue-la d’abord et vouvoie-la."
-        },
-        {
-          "en": "Ask her how much it is and pay her with the 50-peso bill.",
-          "kind": "phrase",
-          "fr": "Demande-lui le prix et paie avec le billet de cinquante pesos."
-        },
-        {
-          "en": "Good morning, doña Eustolia, may I have a café de olla?",
-          "kind": "phrase",
-          "fr": "Bonjour, doña Eustolia, je pourrais avoir un café de olla ?"
-        },
-        {
-          "en": "You've got this, I'll wait for you here on the bench.",
-          "kind": "phrase",
-          "fr": "Tu peux le faire ; je t’attends ici sur le banc."
-        }
-      ],
-      "passage": {
-        "titleFrench": "Aider sa nièce à commander seule",
-        "english": [
-          "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
-          "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
-          "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
-          "Carmen: Greet her first and speak to her formally.",
-          "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
-          "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
-          "Carmen: Order it without piloncillo if you don't want it so sweet.",
-          "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
-          "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
-          "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
-          "Carmen: If she gives you coins as change, put them away in your pants pocket.",
-          "Carmen: Hold it by the handle, never by the rim.",
-          "Carmen: Don't touch it yet; wait until it stops steaming.",
-          "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
-          "Carmen: Taste it slowly, because the clay holds the heat.",
-          "Carmen: You've got this, I'll wait for you here on the bench.",
-          "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
-          "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand."
-        ],
-        "french": [
-          "Tante Carmen et sa nièce Sofi, âgée de quinze ans, arrivent tôt dans une petite cantine du marché d’Oaxaca.",
-          "Le stand de doña Eustolia est au fond ; elle sert le café de olla très chaud dans une tasse en terre cuite.",
-          "Carmen veut que Sofi commande seule pour la première fois ; elle lui donne des conseils depuis le banc de la cantine.",
-          "Carmen : « Salue-la d’abord et vouvoie-la. »",
-          "Carmen : « Dis-lui : Bonjour, doña Eustolia, je pourrais avoir un café de olla ? »",
-          "Sofi demande si le café est très sucré ; Carmen explique que doña Eustolia le prépare avec du piloncillo et de la cannelle.",
-          "Carmen : « Commande-le sans piloncillo si tu ne le veux pas trop sucré. »",
-          "Carmen : « Si tu préfères autre chose, prends un chocolat chaud à l’eau ; il est très bon aussi. »",
-          "Carmen : « Choisis un pan de yema et demande-le à doña Eustolia avec le café. »",
-          "Carmen : « Demande-lui le prix et paie avec le billet de cinquante pesos. »",
-          "Carmen : « Si elle te rend des pièces, range-les dans la poche de ton pantalon. »",
-          "Carmen : « Tiens la tasse par l’anse, jamais par le bord. »",
-          "Carmen : « Ne la touche pas encore ; attends qu’elle cesse de fumer. »",
-          "Carmen : « Si elle est encore très chaude, laisse-la sur la table jusqu’à ce qu’elle soit tiède. »",
-          "Carmen : « Goûte-la lentement, car la terre cuite garde la chaleur. »",
-          "Carmen : « Tu peux le faire ; je t’attends ici sur le banc. »",
-          "Sofi va seule au stand, salue doña Eustolia et commande son café de olla avec son pan de yema.",
-          "Quelques minutes plus tard, Sofi revient au banc en tenant fermement la tasse par l’anse et le pain dans l’autre main."
-        ]
-      },
-      "verbs": [
         {
           "infinitiveFrench": "commander",
-          "meaningEnglish": "to order, to ask for",
-          "exampleFrench": "Commande-le sans piloncillo si tu ne le veux pas trop sucré.",
-          "exampleEnglish": "Order it without piloncillo if you don't want it so sweet.",
-          "sourceInfinitiveSpanish": "pedir"
+          "meaningEnglish": "to order",
+          "exampleEnglish": "Thiago orders an espresso.",
+          "exampleFrench": "Thiago commande un expresso."
         },
         {
-          "infinitiveFrench": "tenir",
-          "meaningEnglish": "to hold, to grab",
-          "exampleFrench": "Tiens-le par l’anse, jamais par le bord.",
-          "exampleEnglish": "Hold it by the handle, never by the rim.",
-          "sourceInfinitiveSpanish": "agarrar"
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "Emma asks when they pay.",
+          "exampleFrench": "Emma demande quand ils paient."
         },
         {
-          "infinitiveFrench": "toucher",
-          "meaningEnglish": "to touch",
-          "exampleFrench": "Ne le touche pas encore.",
-          "exampleEnglish": "Don't touch it yet.",
-          "sourceInfinitiveSpanish": "tocar"
-        },
-        {
-          "infinitiveFrench": "goûter",
-          "meaningEnglish": "to taste, to try",
-          "exampleFrench": "Goûte-le lentement, car la terre cuite garde la chaleur.",
-          "exampleEnglish": "Taste it slowly, because the clay holds the heat.",
-          "sourceInfinitiveSpanish": "probar"
+          "infinitiveFrench": "répéter",
+          "meaningEnglish": "to repeat",
+          "exampleEnglish": "The server repeats the order.",
+          "exampleFrench": "Le serveur répète la commande."
         },
         {
           "infinitiveFrench": "payer",
           "meaningEnglish": "to pay",
-          "exampleFrench": "Paie avec le billet de cinquante pesos.",
-          "exampleEnglish": "Pay her with the 50-peso bill.",
-          "sourceInfinitiveSpanish": "pagar"
+          "exampleEnglish": "They pay by card at this café.",
+          "exampleFrench": "Ils paient par carte dans ce café."
         }
       ],
       "grammarExamples": [
         {
-          "english": "If it's very hot, leave it on the table for a little while.",
-          "french": "Si c’est très chaud, laisse-le un moment sur la table."
+          "english": "First, we read the menu; then we order.",
+          "french": "D’abord, nous lisons la carte ; puis nous commandons."
         },
         {
-          "english": "Pick a pan de yema and ask doña Eustolia for it.",
-          "french": "Choisis un pan de yema et demande-le à doña Eustolia."
+          "english": "Because payment varies, we ask when to pay.",
+          "french": "Comme le paiement varie, nous demandons quand payer."
         }
       ],
-      "speakingInstructionEnglish": "Coach Sofi through greeting and ordering; use French imperatives and take care around the hot clay cup.",
-      "speakingFrench": "Sofi, salue doña Eustolia et demande le prix. Commande un café de olla et un pan de yema. La tasse est chaude : attends et demande de l’aide si nécessaire.",
-      "regionalNotesEnglish": [
-        "Oaxaca, café de olla, piloncillo, pan de yema and peso are Mexican source details, not Francophone café customs.",
-        "Do not use the scripted cup advice as a burn-care protocol. Hot-drink handling should be reviewed before release."
+      "speakingInstructionEnglish": "Coach Thiago through this café’s actual menu, seat, order and payment steps, then ask him to explain them back; do not generalize venue rules.",
+      "speakingFrench": "D’abord, lisons l’ardoise. Ensuite, demandons si cette place est libre. Comme le paiement varie selon le café, demandons quand payer. Maintenant, explique-moi les étapes à ton tour.",
+      "regionalNotesEnglish": "Paris café payment and seating customs vary. Menu, offer and service in this fictional scene require local editorial review.",
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "sourceTitleEnglish": "Explain Media or Entera at a Seville Tostada Bar",
+      "sourceObjectiveEnglish": "Explain how tostadas are ordered by bread type, size and topping, and why locals choose each one.",
+      "sourceSpeakingEnglish": "You are explaining Seville's tostada system to the AI, hostel roommate Ingrid: walk her through bread type, size and toppings and why locals choose each, using impersonal se (se pide media o entera) and si + present (si pides mollete…).",
+      "sourceGrammarFocusEnglish": "Impersonal se; si + present for general truths (se pide media o entera; si pides mollete, te lo tuestan)",
+      "sourceWordsEnglish": [
+        {
+          "en": "the half (half-roll toast)",
+          "kind": "term"
+        },
+        {
+          "en": "the whole (whole-roll toast)",
+          "kind": "term"
+        },
+        {
+          "en": "the mollete (soft flat roll)",
+          "kind": "term"
+        },
+        {
+          "en": "the Vienna-style roll",
+          "kind": "term"
+        },
+        {
+          "en": "the small roll",
+          "kind": "term"
+        },
+        {
+          "en": "the house bread",
+          "kind": "term"
+        },
+        {
+          "en": "the olive oil",
+          "kind": "term"
+        },
+        {
+          "en": "the grated tomato",
+          "kind": "term"
+        },
+        {
+          "en": "the cured ham",
+          "kind": "term"
+        },
+        {
+          "en": "the red pork-lard spread",
+          "kind": "term"
+        },
+        {
+          "en": "the pork loin in lard spread",
+          "kind": "term"
+        },
+        {
+          "en": "the soft inside of the bread",
+          "kind": "term"
+        },
+        {
+          "en": "the crust",
+          "kind": "term"
+        },
+        {
+          "en": "the toasting (how toasted it is)",
+          "kind": "term"
+        },
+        {
+          "en": "the salt shaker",
+          "kind": "term"
+        },
+        {
+          "en": "Here you order a half or a whole, depending on how hungry you are.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you order a mollete, the bread stays soft inside.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you're really hungry, order a whole one.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Excuse me, is the house bread a mollete or a Vienna roll?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thanks for correcting me, I didn't know that.",
+          "kind": "phrase"
+        },
+        {
+          "en": "For me, a half with tomato and oil, please.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you order it here if I want it lightly toasted?",
+          "kind": "phrase"
+        }
       ],
+      "sourcePassageEnglish": [
+        "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+        "Me: Here you order the bread first and then the topping.",
+        "Me: Here you order a half or a whole, depending on how hungry you are.",
+        "Me: If you're really hungry, order a whole one.",
+        "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+        "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+        "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+        "Me: I think the house bread is a mollete, but I'm going to ask.",
+        "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+        "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+        "Me: Thanks for correcting me, I didn't know that.",
+        "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+        "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+        "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+        "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+        "Ingrid: How do you order it here if I want it lightly toasted?",
+        "Rocío: You order it with light toasting, and we bring it out to you softer.",
+        "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her."
+      ],
+      "sourceVerbsEnglish": [
+        {
+          "meaningEnglish": "to order, to ask for",
+          "exampleEnglish": "Here you order a half or a whole.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "meaningEnglish": "to have",
+          "exampleEnglish": "If you're really hungry, order a whole one.",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "meaningEnglish": "to prefer",
+          "exampleEnglish": "A lot of people prefer the Vienna roll.",
+          "sourceInfinitiveSpanish": "preferir"
+        },
+        {
+          "meaningEnglish": "to avoid",
+          "exampleEnglish": "If you don't eat pork, avoid the manteca colorá.",
+          "sourceInfinitiveSpanish": "evitar"
+        },
+        {
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "I explain to Ingrid how tostadas are ordered.",
+          "sourceInfinitiveSpanish": "explicar"
+        }
+      ],
+      "sourceGrammarExamplesEnglish": [
+        "Here you order the bread first and then the topping.",
+        "If you order a pitufo, they bring you a smaller roll."
+      ],
+      "titleFrenchCourseEnglish": "Expliquer les choix d’une boulangerie lyonnaise",
+      "objectiveFrenchCourseEnglish": "Expliquer la taille du pain, les garnitures et les ingrédients à vérifier avant de commander.",
+      "settingEnglish": "Lyon neighborhood bakery breakfast",
+      "focusEnglish": "Impersonal on and if-clauses: here we choose the bread first; if you want a small portion, ask what sizes are offered.",
+      "focusFrench": "On impersonnel et propositions en si : ici, on choisit d’abord le pain ; si tu veux une petite portion, demande quelles tailles sont proposées.",
+      "teachingNotesEnglish": "Do not import Seville mollete/pitufo/manteca customs. Lyon scene is fictional; the baker confirms actual sizes, availability and ingredients.",
+      "words": [
+        {
+          "en": "the small portion",
+          "fr": "la petite portion",
+          "kind": "term"
+        },
+        {
+          "en": "the large portion",
+          "fr": "la grande portion",
+          "kind": "term"
+        },
+        {
+          "en": "the round loaf",
+          "fr": "la miche",
+          "kind": "term"
+        },
+        {
+          "en": "the baguette",
+          "fr": "la baguette",
+          "kind": "term"
+        },
+        {
+          "en": "the small roll",
+          "fr": "le petit pain",
+          "kind": "term"
+        },
+        {
+          "en": "the house bread",
+          "fr": "le pain maison",
+          "kind": "term"
+        },
+        {
+          "en": "the butter",
+          "fr": "le beurre",
+          "kind": "term"
+        },
+        {
+          "en": "the jam",
+          "fr": "la confiture",
+          "kind": "term"
+        },
+        {
+          "en": "the ham",
+          "fr": "le jambon",
+          "kind": "term"
+        },
+        {
+          "en": "the cheese",
+          "fr": "le fromage",
+          "kind": "term"
+        },
+        {
+          "en": "the pork ingredient",
+          "fr": "l’ingrédient à base de porc",
+          "kind": "term"
+        },
+        {
+          "en": "the soft crumb",
+          "fr": "la mie moelleuse",
+          "kind": "term"
+        },
+        {
+          "en": "the crust",
+          "fr": "la croûte",
+          "kind": "term"
+        },
+        {
+          "en": "the toasting",
+          "fr": "le grillage",
+          "kind": "term"
+        },
+        {
+          "en": "the ingredient list",
+          "fr": "la liste des ingrédients",
+          "kind": "term"
+        },
+        {
+          "en": "Here we choose the bread, then the topping.",
+          "fr": "Ici, on choisit le pain, puis la garniture.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you want a smaller portion, ask what is available.",
+          "fr": "Si tu veux une plus petite portion, demande ce qui est disponible.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you are hungry, ask about a larger portion.",
+          "fr": "Si tu as faim, renseigne-toi sur une plus grande portion.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you avoid pork, ask about the ham and preparation.",
+          "fr": "Si tu évites le porc, renseigne-toi sur le jambon et la préparation.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the house bread a baguette or a round loaf?",
+          "fr": "Le pain maison est-il une baguette ou une miche ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you for clarifying; I had misunderstood.",
+          "fr": "Merci pour la précision ; j’avais mal compris.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would like a small bread with jam, please.",
+          "fr": "Je voudrais un petit pain avec de la confiture, s’il vous plaît.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you toast it lightly?",
+          "fr": "Pourriez-vous le faire griller légèrement ?",
+          "kind": "phrase"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Expliquer les choix d’une boulangerie lyonnaise",
+        "english": [
+          "In a Lyon bakery, Camille explains the breakfast choices to her friend Ingrid.",
+          "They look at the breads, pastries and toppings on the menu.",
+          "Camille says they should ask which portions are available today.",
+          "The baker says the café has small rolls and slices of house bread.",
+          "Ingrid asks whether the house bread is a baguette.",
+          "The baker explains that today it is a round loaf.",
+          "Camille thanks her for clarifying instead of guessing.",
+          "Ingrid asks which bread has a soft crumb and which has a crisp crust.",
+          "The baker describes the breads available that morning.",
+          "Camille explains that Ingrid can choose butter, jam or cheese as a topping.",
+          "Ingrid says she does not eat pork.",
+          "Camille points out the ham option but asks the baker about other ingredients too.",
+          "The baker checks the current ingredient list with them.",
+          "Ingrid asks for a small bread with jam.",
+          "She asks whether it can be toasted lightly.",
+          "The baker confirms what the kitchen can prepare.",
+          "Camille summarizes the choices: bread, portion, topping and preparation.",
+          "Ingrid repeats her order clearly to the baker."
+        ],
+        "french": [
+          "Dans une boulangerie lyonnaise, Camille explique les choix du petit-déjeuner à son amie Ingrid.",
+          "Elles regardent les pains, les viennoiseries et les garnitures sur la carte.",
+          "Camille dit qu’elles devraient demander quelles portions sont proposées aujourd’hui.",
+          "La boulangère dit que le café propose des petits pains et des tranches de pain maison.",
+          "Ingrid demande si le pain maison est une baguette.",
+          "La boulangère explique qu’aujourd’hui, c’est une miche.",
+          "Camille la remercie pour la précision au lieu de deviner.",
+          "Ingrid demande quel pain a une mie moelleuse et lequel a une croûte croustillante.",
+          "La boulangère décrit les pains disponibles ce matin-là.",
+          "Camille explique qu’Ingrid peut choisir du beurre, de la confiture ou du fromage comme garniture.",
+          "Ingrid dit qu’elle ne mange pas de porc.",
+          "Camille montre l’option au jambon, mais demande aussi à la boulangère des précisions sur les autres ingrédients.",
+          "La boulangère vérifie avec elles la liste actuelle des ingrédients.",
+          "Ingrid demande un petit pain avec de la confiture.",
+          "Elle demande s’il peut être grillé légèrement.",
+          "La boulangère confirme ce que la cuisine peut préparer.",
+          "Camille résume les choix : le pain, la portion, la garniture et la préparation.",
+          "Ingrid répète clairement sa commande à la boulangère."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "choisir",
+          "meaningEnglish": "to choose",
+          "exampleEnglish": "Here we choose the bread first.",
+          "exampleFrench": "Ici, on choisit d’abord le pain."
+        },
+        {
+          "infinitiveFrench": "avoir",
+          "meaningEnglish": "to have",
+          "exampleEnglish": "The house bread has a soft crumb.",
+          "exampleFrench": "Le pain maison a une mie moelleuse."
+        },
+        {
+          "infinitiveFrench": "préférer",
+          "meaningEnglish": "to prefer",
+          "exampleEnglish": "Ingrid prefers the small roll.",
+          "exampleFrench": "Ingrid préfère le petit pain."
+        },
+        {
+          "infinitiveFrench": "éviter",
+          "meaningEnglish": "to avoid",
+          "exampleEnglish": "Ingrid avoids pork ingredients.",
+          "exampleFrench": "Ingrid évite les ingrédients à base de porc."
+        },
+        {
+          "infinitiveFrench": "expliquer",
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "Camille explains the available choices.",
+          "exampleFrench": "Camille explique les choix disponibles."
+        }
+      ],
+      "grammarExamples": [
+        {
+          "english": "Here, we choose the bread before the topping.",
+          "french": "Ici, on choisit le pain avant la garniture."
+        },
+        {
+          "english": "If you want a small portion, ask what is available.",
+          "french": "Si tu veux une petite portion, demande ce qui est disponible."
+        }
+      ],
+      "speakingInstructionEnglish": "Explain the actual bread, portion and topping choices shown today; ask the baker about pork ingredients and preparation instead of assuming.",
+      "speakingFrench": "Ici, on choisit le pain, puis la garniture. Si tu veux une petite portion, demande ce qui est disponible. Pourriez-vous nous préciser les ingrédients et la préparation ?",
+      "regionalNotesEnglish": "Lyon bakery products, portions and ingredient disclosure vary. Qualified local food/dietary review needed; no menu item is guaranteed available.",
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "sourceTitleEnglish": "Coach Your Niece to Order Café de Olla Alone",
+      "sourceObjectiveEnglish": "Coach a teenager to order café de olla and a pan dulce on her own, with clear tips about the hot clay cup.",
+      "sourceSpeakingEnglish": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
+      "sourceGrammarFocusEnglish": "Commands with object pronouns (pídelo sin piloncillo, agárralo por el asa, no lo toques todavía)",
+      "sourceWordsEnglish": [
+        {
+          "en": "the clay mug",
+          "kind": "term"
+        },
+        {
+          "en": "the handle",
+          "kind": "term"
+        },
+        {
+          "en": "the rim",
+          "kind": "term"
+        },
+        {
+          "en": "the steam",
+          "kind": "term"
+        },
+        {
+          "en": "the piloncillo (raw cane sugar cone)",
+          "kind": "term"
+        },
+        {
+          "en": "the cinnamon",
+          "kind": "term"
+        },
+        {
+          "en": "the egg-yolk bread",
+          "kind": "term"
+        },
+        {
+          "en": "the hot chocolate made with water",
+          "kind": "term"
+        },
+        {
+          "en": "the small eatery",
+          "kind": "term"
+        },
+        {
+          "en": "the stall",
+          "kind": "term"
+        },
+        {
+          "en": "the bench",
+          "kind": "term"
+        },
+        {
+          "en": "the 50-peso bill",
+          "kind": "term"
+        },
+        {
+          "en": "the coins",
+          "kind": "term"
+        },
+        {
+          "en": "lukewarm",
+          "kind": "term"
+        },
+        {
+          "en": "slowly, little by little",
+          "kind": "term"
+        },
+        {
+          "en": "Order it without piloncillo if you don't want it so sweet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hold it by the handle, never by the rim.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't touch it yet; wait until it stops steaming.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Taste it slowly, because the clay holds the heat.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Greet her first and speak to her formally.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ask her how much it is and pay her with the 50-peso bill.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good morning, doña Eustolia, may I have a café de olla?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You've got this, I'll wait for you here on the bench.",
+          "kind": "phrase"
+        }
+      ],
+      "sourcePassageEnglish": [
+        "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
+        "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
+        "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
+        "Carmen: Greet her first and speak to her formally.",
+        "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
+        "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
+        "Carmen: Order it without piloncillo if you don't want it so sweet.",
+        "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
+        "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
+        "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
+        "Carmen: If she gives you coins as change, put them away in your pants pocket.",
+        "Carmen: Hold it by the handle, never by the rim.",
+        "Carmen: Don't touch it yet; wait until it stops steaming.",
+        "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
+        "Carmen: Taste it slowly, because the clay holds the heat.",
+        "Carmen: You've got this, I'll wait for you here on the bench.",
+        "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
+        "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand."
+      ],
+      "sourceVerbsEnglish": [
+        {
+          "meaningEnglish": "to order, to ask for",
+          "exampleEnglish": "Order it without piloncillo if you don't want it so sweet.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "meaningEnglish": "to hold, to grab",
+          "exampleEnglish": "Hold it by the handle, never by the rim.",
+          "sourceInfinitiveSpanish": "agarrar"
+        },
+        {
+          "meaningEnglish": "to touch",
+          "exampleEnglish": "Don't touch it yet.",
+          "sourceInfinitiveSpanish": "tocar"
+        },
+        {
+          "meaningEnglish": "to taste, to try",
+          "exampleEnglish": "Taste it slowly, because the clay holds the heat.",
+          "sourceInfinitiveSpanish": "probar"
+        },
+        {
+          "meaningEnglish": "to pay",
+          "exampleEnglish": "Pay her with the 50-peso bill.",
+          "sourceInfinitiveSpanish": "pagar"
+        }
+      ],
+      "sourceGrammarExamplesEnglish": [
+        "If it's very hot, leave it on the table for a little while.",
+        "Pick a pan de yema and ask doña Eustolia for it."
+      ],
+      "titleFrenchCourseEnglish": "Accompagner une adolescente au comptoir",
+      "objectiveFrenchCourseEnglish": "Aider une adolescente à commander une boisson chaude et une viennoiserie elle-même, avec des consignes simples et courtoises.",
+      "settingEnglish": "Montréal café breakfast with a teen",
+      "focusEnglish": "French imperatives and object pronouns: order it, ask for it, wait before taking the cup.",
+      "focusFrench": "Impératif et pronoms compléments : commande-le, demande-la, attends avant de prendre la tasse.",
+      "teachingNotesEnglish": "No claim that a hot drink has cooled or is safe to handle; staff place it on the counter and the teen waits before drinking.",
+      "words": [
+        {
+          "en": "the mug",
+          "fr": "la tasse",
+          "kind": "term"
+        },
+        {
+          "en": "the handle",
+          "fr": "l’anse",
+          "kind": "term"
+        },
+        {
+          "en": "the rim",
+          "fr": "le bord",
+          "kind": "term"
+        },
+        {
+          "en": "the steam",
+          "fr": "la vapeur",
+          "kind": "term"
+        },
+        {
+          "en": "the sugar",
+          "fr": "le sucre",
+          "kind": "term"
+        },
+        {
+          "en": "the cinnamon",
+          "fr": "la cannelle",
+          "kind": "term"
+        },
+        {
+          "en": "the pastry",
+          "fr": "la viennoiserie",
+          "kind": "term"
+        },
+        {
+          "en": "the hot chocolate",
+          "fr": "le chocolat chaud",
+          "kind": "term"
+        },
+        {
+          "en": "the café",
+          "fr": "le café",
+          "kind": "term"
+        },
+        {
+          "en": "the counter",
+          "fr": "le comptoir",
+          "kind": "term"
+        },
+        {
+          "en": "the bench",
+          "fr": "la banquette",
+          "kind": "term"
+        },
+        {
+          "en": "the ten-dollar bill",
+          "fr": "le billet de dix dollars",
+          "kind": "term"
+        },
+        {
+          "en": "the coins",
+          "fr": "les pièces",
+          "kind": "term"
+        },
+        {
+          "en": "lukewarm",
+          "fr": "tiède",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "fr": "lentement",
+          "kind": "term"
+        },
+        {
+          "en": "Order it without extra sugar if you prefer.",
+          "fr": "Commande-le sans sucre ajouté si tu préfères.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ask the server to put the cup on the counter.",
+          "fr": "Demande au serveur de poser la tasse sur le comptoir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do not drink it yet if it is still very hot.",
+          "fr": "Ne le bois pas encore s’il est toujours très chaud.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait and ask the server if you are unsure.",
+          "fr": "Attends et demande au serveur si tu n’es pas sûre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Greet the server before ordering.",
+          "fr": "Salue le serveur avant de commander.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ask the price before you pay.",
+          "fr": "Demande le prix avant de payer.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hello, may I have a hot chocolate?",
+          "fr": "Bonjour, pourrais-je avoir un chocolat chaud ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You can do it; I will wait here.",
+          "fr": "Tu peux le faire ; je t’attends ici.",
+          "kind": "phrase"
+        }
+      ],
+      "passage": {
+        "titleFrench": "Accompagner une adolescente au comptoir",
+        "english": [
+          "In Montréal, Carmen takes her teenage niece Sofie to a café for breakfast.",
+          "Sofie wants to order a hot chocolate and a pastry by herself.",
+          "Carmen waits at a nearby table and helps her prepare a polite request.",
+          "She tells Sofie to greet the server first.",
+          "Sofie asks how much the hot chocolate costs.",
+          "The server points to the price on the menu.",
+          "Carmen says Sofie can ask for no extra sugar if she prefers.",
+          "Sofie chooses a pastry and checks its price too.",
+          "Then she walks to the counter and greets the server.",
+          "She asks for a hot chocolate and the pastry.",
+          "The server repeats the order and places the cup on the counter.",
+          "Sofie sees steam rising and leaves the cup where it is.",
+          "She asks the server whether the drink is still very hot.",
+          "Carmen tells her to wait before drinking if she is unsure.",
+          "Sofie pays after the server confirms the total.",
+          "She brings the pastry back to the table while the drink stays on the counter.",
+          "Carmen praises her clear request and asks her to explain what she said.",
+          "Sofie repeats her order and says she will wait before drinking."
+        ],
+        "french": [
+          "À Montréal, Carmen emmène sa nièce adolescente Sofie dans un café pour le petit-déjeuner.",
+          "Sofie veut commander elle-même un chocolat chaud et une viennoiserie.",
+          "Carmen attend à une table voisine et l’aide à préparer une demande polie.",
+          "Elle dit à Sofie de saluer d’abord le serveur.",
+          "Sofie demande combien coûte le chocolat chaud.",
+          "Le serveur lui montre le prix sur la carte.",
+          "Carmen dit que Sofie peut demander sans sucre ajouté si elle préfère.",
+          "Sofie choisit une viennoiserie et vérifie aussi son prix.",
+          "Puis elle va au comptoir et salue le serveur.",
+          "Elle demande un chocolat chaud et la viennoiserie.",
+          "Le serveur répète la commande et pose la tasse sur le comptoir.",
+          "Sofie voit de la vapeur s’élever et laisse la tasse où elle est.",
+          "Elle demande au serveur si la boisson est encore très chaude.",
+          "Carmen lui dit d’attendre avant de boire si elle n’est pas sûre.",
+          "Sofie paie après que le serveur a confirmé le total.",
+          "Elle rapporte la viennoiserie à la table tandis que la boisson reste au comptoir.",
+          "Carmen la félicite pour sa demande claire et lui demande d’expliquer ce qu’elle a dit.",
+          "Sofie répète sa commande et dit qu’elle attendra avant de boire."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order",
+          "exampleEnglish": "Sofie orders a hot chocolate.",
+          "exampleFrench": "Sofie commande un chocolat chaud."
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "Ask the server to put the cup on the counter.",
+          "exampleFrench": "Demande au serveur de poser la tasse sur le comptoir."
+        },
+        {
+          "infinitiveFrench": "attendre",
+          "meaningEnglish": "to wait",
+          "exampleEnglish": "Wait before drinking if it is still very hot.",
+          "exampleFrench": "Attends avant de boire si c’est encore très chaud."
+        },
+        {
+          "infinitiveFrench": "choisir",
+          "meaningEnglish": "to choose",
+          "exampleEnglish": "Sofie chooses a pastry.",
+          "exampleFrench": "Sofie choisit une viennoiserie."
+        },
+        {
+          "infinitiveFrench": "payer",
+          "meaningEnglish": "to pay",
+          "exampleEnglish": "Sofie pays after hearing the total.",
+          "exampleFrench": "Sofie paie après avoir entendu le total."
+        }
+      ],
+      "grammarExamples": [
+        {
+          "english": "If it is still very hot, leave it on the counter.",
+          "french": "Si c’est encore très chaud, laisse-le sur le comptoir."
+        },
+        {
+          "english": "Choose a pastry and ask the server for it.",
+          "french": "Choisis une viennoiserie et demande-la au serveur."
+        }
+      ],
+      "speakingInstructionEnglish": "Coach Sofie to greet, check the price and order alone; ask staff about the hot drink and wait if it is too hot.",
+      "speakingFrench": "Salue d’abord le serveur. Demande le prix, puis commande ton chocolat chaud. S’il est encore très chaud, attends avant de le boire. Je t’attends ici.",
+      "regionalNotesEnglish": "Montréal teen register and café ordering vary. Hot-drink scene needs qualified safety/parental editorial review; no temperature is declared safe.",
       "reviewed": false
     }
   ]

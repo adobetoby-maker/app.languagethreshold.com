@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "public/lesson-content/es/travel-breakfast.json": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "src/data/travel-zone.ts": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "draftMethod": "Source-pinned editorial draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 16,
+      "titleEnglish": "Bring children to breakfast",
+      "objectiveEnglish": "ask for a high chair, child portions, milder options, and space for a stroller",
+      "scenarioEnglishSource": "Arrive with two young children and a stroller and arrange a table, a high chair, and kid-sized food.",
+      "titleFrenchCourseEnglish": "Prendre le petit-déjeuner avec des enfants",
+      "objectiveFrenchCourseEnglish": "Arrange stroller space, a high chair and suitable portions for two children.",
+      "focusEnglish": "Use il y a de la place pour to ask about space; vous avez une chaise haute ? for a high chair; sans piment for a milder dish.",
+      "focusFrench": "Demander une place pour la poussette, une chaise haute et des portions adaptées ; vérifier le piment.",
+      "teachingNotesEnglish": "Je suis avec deux enfants announces your party. Il y a de la place pour la poussette ? asks about space without assuming access. Pourriez-vous le préparer sans piment ? requests an adjustment; ask what is actually in a dish before ordering for a child.",
+      "words": [
+        {
+          "en": "high chair",
+          "kind": "term",
+          "fr": "une chaise haute"
+        },
+        {
+          "en": "stroller",
+          "kind": "term",
+          "fr": "une poussette"
+        },
+        {
+          "en": "kids' menu",
+          "kind": "term",
+          "fr": "le menu enfant"
+        },
+        {
+          "en": "child portion",
+          "kind": "term",
+          "fr": "une portion enfant"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "bib",
+          "kind": "term",
+          "fr": "un bavoir"
+        },
+        {
+          "en": "scrambled eggs",
+          "kind": "term",
+          "fr": "des œufs brouillés"
+        },
+        {
+          "en": "spicy",
+          "kind": "term",
+          "fr": "épicé, épicée"
+        },
+        {
+          "en": "chili pepper",
+          "kind": "term",
+          "fr": "un piment"
+        },
+        {
+          "en": "milk",
+          "kind": "term",
+          "fr": "le lait"
+        },
+        {
+          "en": "corner",
+          "kind": "term",
+          "fr": "un coin"
+        },
+        {
+          "en": "Do you have a high chair, please?",
+          "kind": "phrase",
+          "fr": "Vous avez une chaise haute, s’il vous plaît ?"
+        },
+        {
+          "en": "Is there room for the stroller?",
+          "kind": "phrase",
+          "fr": "Il y a de la place pour la poussette ?"
+        },
+        {
+          "en": "Are there portions for children?",
+          "kind": "phrase",
+          "fr": "Vous proposez des portions pour enfants ?"
+        },
+        {
+          "en": "Can you make it without chili?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous le préparer sans piment ?"
+        },
+        {
+          "en": "Is this spicy?",
+          "kind": "phrase",
+          "fr": "C’est épicé ?"
+        },
+        {
+          "en": "We are one adult and two children.",
+          "kind": "phrase",
+          "fr": "Nous sommes un adulte et deux enfants."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Prendre le petit-déjeuner avec des enfants",
+        "english": [
+          "I arrive at the café at 8 with my 2 children and the stroller.",
+          "First I ask the waiter: Is there room for the stroller?",
+          "The waiter says: Yes, I'm going to give you a table in the corner.",
+          "Then I ask him: Do you have a high chair, please?",
+          "The waiter brings a high chair and a bib for my daughter.",
+          "After that I ask for the kids' menu, and my son wants a child portion of scrambled eggs.",
+          "The sauce on the dish is spicy, so I ask: Can you make it without chili?",
+          "To drink, I'm going to order 2 glasses of milk."
+        ],
+        "french": [
+          "J’arrive au café à huit heures avec mes deux enfants et la poussette.",
+          "Je demande d’abord au serveur : « Il y a de la place pour la poussette ? »",
+          "Le serveur répond : « Oui, je vais vous installer à une table dans le coin. »",
+          "Puis je lui demande : « Vous avez une chaise haute, s’il vous plaît ? »",
+          "Le serveur apporte une chaise haute et un bavoir pour ma fille.",
+          "Ensuite, je demande le menu enfant ; mon fils voudrait une petite portion d’œufs brouillés.",
+          "La sauce du plat est épicée, alors je demande : « Pourriez-vous le préparer sans piment ? »",
+          "Pour boire, je vais commander deux verres de lait."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "apporter",
+          "meaningEnglish": "to bring",
+          "exampleFrench": "Pourriez-vous m’apporter une chaise haute, s’il vous plaît ?",
+          "exampleEnglish": "Can you bring me a high chair, please?",
+          "sourceInfinitiveSpanish": "traer"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to ask for, to order",
+          "exampleFrench": "Je demande le menu enfant pour mon fils.",
+          "exampleEnglish": "I ask for the kids' menu for my son.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask (a question)",
+          "exampleFrench": "Je demande au serveur s’il y a de la place pour la poussette.",
+          "exampleEnglish": "I ask the waiter if there is room for the stroller.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "préparer",
+          "meaningEnglish": "to prepare, to make",
+          "exampleFrench": "Pourriez-vous préparer les œufs sans piment ?",
+          "exampleEnglish": "Can you make the eggs without chili?",
+          "sourceInfinitiveSpanish": "preparar"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask the café for stroller space, a high chair and a small mild portion; confirm the dish before ordering.",
+      "speakingFrench": "Bonjour, nous sommes un adulte et deux enfants. Il y a de la place pour la poussette ? Vous avez une chaise haute ?",
+      "regionalNotesEnglish": [
+        "Menu enfant and portion policies vary by venue. Do not assume the kitchen can remove an ingredient after preparation."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 17,
+      "titleEnglish": "Request an accessible table",
+      "objectiveEnglish": "ask about step-free entry, table height, restroom access, and room for a wheelchair or crutches",
+      "scenarioEnglishSource": "Your companion uses a wheelchair; find out whether the café can seat you comfortably before you sit down.",
+      "titleFrenchCourseEnglish": "Demander une table accessible",
+      "objectiveFrenchCourseEnglish": "Check step-free entry, wheelchair space, table height and restroom access with your companion.",
+      "focusEnglish": "Ask concrete access questions with est-ce que; describe a ramp and available turning space without assuming a venue is fully accessible.",
+      "focusFrench": "Vérifier l’entrée sans marche, l’espace autour de la table et l’accès aux toilettes.",
+      "teachingNotesEnglish": "Il y a une entrée sans marche ? asks about the route in. Il y a assez de place pour un fauteuil roulant ? checks space. Accessible can describe a restroom, but a spoken claim from staff should be checked with the person who will use it.",
+      "words": [
+        {
+          "en": "wheelchair",
+          "kind": "term",
+          "fr": "un fauteuil roulant"
+        },
+        {
+          "en": "crutches",
+          "kind": "term",
+          "fr": "des béquilles"
+        },
+        {
+          "en": "ramp",
+          "kind": "term",
+          "fr": "une rampe d’accès"
+        },
+        {
+          "en": "step",
+          "kind": "term",
+          "fr": "une marche"
+        },
+        {
+          "en": "entrance",
+          "kind": "term",
+          "fr": "l’entrée"
+        },
+        {
+          "en": "aisle",
+          "kind": "term",
+          "fr": "l’allée"
+        },
+        {
+          "en": "height",
+          "kind": "term",
+          "fr": "la hauteur"
+        },
+        {
+          "en": "room",
+          "kind": "term",
+          "fr": "la place"
+        },
+        {
+          "en": "accessible restroom",
+          "kind": "term",
+          "fr": "des toilettes accessibles"
+        },
+        {
+          "en": "grab bars",
+          "kind": "term",
+          "fr": "des barres d’appui"
+        },
+        {
+          "en": "waiter",
+          "kind": "term",
+          "fr": "le serveur"
+        },
+        {
+          "en": "table",
+          "kind": "term",
+          "fr": "la table"
+        },
+        {
+          "en": "Is there a step-free entrance?",
+          "kind": "phrase",
+          "fr": "Il y a une entrée sans marche ?"
+        },
+        {
+          "en": "Is there room for a wheelchair?",
+          "kind": "phrase",
+          "fr": "Il y a de la place pour un fauteuil roulant ?"
+        },
+        {
+          "en": "Is the restroom accessible?",
+          "kind": "phrase",
+          "fr": "Les toilettes sont accessibles ?"
+        },
+        {
+          "en": "Do you have a lower table?",
+          "kind": "phrase",
+          "fr": "Vous avez une table plus basse ?"
+        },
+        {
+          "en": "Can we see the table before we sit down?",
+          "kind": "phrase",
+          "fr": "On peut voir la table avant de s’installer ?"
+        },
+        {
+          "en": "My friend uses crutches.",
+          "kind": "phrase",
+          "fr": "Mon amie utilise des béquilles."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Demander une table accessible",
+        "english": [
+          "I arrive at a café with my friend Elena, who uses a wheelchair.",
+          "First, I ask the waiter: Is there a step-free entrance?",
+          "The waiter says: Yes, there is a ramp at the side door.",
+          "Then I ask: Is there room for a wheelchair next to the table?",
+          "He answers: I am going to give you the table by the window, because the aisle is wider.",
+          "Elena looks at the height of the table, and the waiter takes away a chair for her.",
+          "Next I ask: Is the restroom accessible?",
+          "The waiter says: Yes, the accessible restroom is at the back and it has grab bars.",
+          "Then we say: Perfect, we are going to sit here."
+        ],
+        "french": [
+          "J’arrive dans un café avec mon amie Elena, qui utilise un fauteuil roulant.",
+          "Je demande d’abord au serveur : « Il y a une entrée sans marche ? »",
+          "Le serveur répond : « Oui, il y a une rampe à la porte latérale. »",
+          "Puis je demande : « Il y a de la place pour un fauteuil roulant à côté de la table ? »",
+          "Il répond : « Je vais vous proposer la table près de la fenêtre, car l’allée est plus large. »",
+          "Elena regarde la hauteur de la table, et le serveur enlève une chaise pour elle.",
+          "Ensuite, je demande : « Les toilettes sont accessibles ? »",
+          "Le serveur dit : « Oui, les toilettes accessibles sont au fond et elles ont des barres d’appui. »",
+          "Puis nous disons : « Parfait, nous allons nous installer ici. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "demander",
+          "meaningEnglish": "to ask",
+          "exampleFrench": "Je demande d’abord au serveur si l’entrée est sans marche.",
+          "exampleEnglish": "First, I ask the waiter about the entrance.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "infinitiveFrench": "utiliser",
+          "meaningEnglish": "to use",
+          "exampleFrench": "Mon amie utilise un fauteuil roulant.",
+          "exampleEnglish": "My friend uses a wheelchair.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "infinitiveFrench": "pouvoir",
+          "meaningEnglish": "to be able to, can",
+          "exampleFrench": "On peut voir la table d’abord ?",
+          "exampleEnglish": "Can we see the table first?",
+          "sourceInfinitiveSpanish": "poder"
+        },
+        {
+          "infinitiveFrench": "s’asseoir",
+          "meaningEnglish": "to sit down",
+          "exampleFrench": "Nous nous asseyons à la table près de la fenêtre.",
+          "exampleEnglish": "We sit at the table by the window.",
+          "sourceInfinitiveSpanish": "sentarse"
+        },
+        {
+          "infinitiveFrench": "avoir besoin de",
+          "meaningEnglish": "to need",
+          "exampleFrench": "Nous avons besoin d’une table avec plus de place, s’il vous plaît.",
+          "exampleEnglish": "We need a table with more room, please.",
+          "sourceInfinitiveSpanish": "necesitar"
+        }
+      ],
+      "speakingInstructionEnglish": "Ask about entry, table and restroom features, then let your companion decide whether the setup works.",
+      "speakingFrench": "Bonjour, il y a une entrée sans marche ? Mon amie utilise un fauteuil roulant. Pourrions-nous voir la table et les toilettes avant de nous installer ?",
+      "regionalNotesEnglish": [
+        "Accessibility is specific to the person, route and venue. Do not present the server’s answer as a verified certification of accessibility."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 18,
+      "titleEnglish": "Check for cross-contact at the counter",
+      "objectiveEnglish": "ask how food is handled, whether tongs, toasters, or milk jugs are shared, and decide what to order",
+      "scenarioEnglishSource": "Your friend has a serious nut allergy; ask how pastries are stored and handled before ordering anything for them.",
+      "titleFrenchCourseEnglish": "Vérifier les risques de contact croisé",
+      "objectiveFrenchCourseEnglish": "Ask about nut handling, shared utensils and equipment before choosing whether to order.",
+      "focusEnglish": "Say allergy risk explicitly; ask whether tongs, toaster and milk jug are shared; make a decision without asking staff to guarantee safety.",
+      "focusFrench": "Signaler une allergie grave et demander comment les aliments et les ustensiles sont partagés.",
+      "teachingNotesEnglish": "Mon amie est allergique aux fruits à coque names the concern in this scene. Vous utilisez les mêmes pinces ? checks shared tongs. Il y a un risque de contact croisé ? asks about transfer between foods. If staff cannot verify ingredients or handling, do not assume an item is safe.",
+      "words": [
+        {
+          "en": "counter",
+          "kind": "term",
+          "fr": "le comptoir"
+        },
+        {
+          "en": "display case",
+          "kind": "term",
+          "fr": "la vitrine"
+        },
+        {
+          "en": "tongs",
+          "kind": "term",
+          "fr": "les pinces"
+        },
+        {
+          "en": "toaster",
+          "kind": "term",
+          "fr": "le grille-pain"
+        },
+        {
+          "en": "milk jug",
+          "kind": "term",
+          "fr": "le pichet à lait"
+        },
+        {
+          "en": "nuts",
+          "kind": "term",
+          "fr": "les fruits à coque"
+        },
+        {
+          "en": "allergy",
+          "kind": "term",
+          "fr": "une allergie"
+        },
+        {
+          "en": "cross-contact",
+          "kind": "term",
+          "fr": "le contact croisé"
+        },
+        {
+          "en": "almond milk",
+          "kind": "term",
+          "fr": "le lait d’amande"
+        },
+        {
+          "en": "pastry",
+          "kind": "term",
+          "fr": "une pâtisserie"
+        },
+        {
+          "en": "black coffee",
+          "kind": "term",
+          "fr": "un café noir"
+        },
+        {
+          "en": "My friend is allergic to nuts.",
+          "kind": "phrase",
+          "fr": "Mon amie est allergique aux fruits à coque."
+        },
+        {
+          "en": "How do you store the pastries?",
+          "kind": "phrase",
+          "fr": "Comment conservez-vous les pâtisseries ?"
+        },
+        {
+          "en": "Do you use the same tongs for everything?",
+          "kind": "phrase",
+          "fr": "Vous utilisez les mêmes pinces pour tout ?"
+        },
+        {
+          "en": "Do you share the toaster and the milk jug?",
+          "kind": "phrase",
+          "fr": "Le grille-pain et le pichet à lait sont-ils partagés ?"
+        },
+        {
+          "en": "Can you show me the ingredients, please?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me montrer la liste des ingrédients, s’il vous plaît ?"
+        },
+        {
+          "en": "I'm going to order a black coffee, no pastry.",
+          "kind": "phrase",
+          "fr": "Je vais prendre un café noir, sans pâtisserie."
+        }
+      ],
+      "passage": {
+        "titleFrench": "Vérifier les risques de contact croisé",
+        "english": [
+          "This morning, Elena and I arrived at the counter of a small café.",
+          "First, I told the barista: My friend is allergic to nuts.",
+          "Then I asked: How do you store the pastries in the display case?",
+          "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+          "I also asked: Do you share the toaster and the milk jug?",
+          "He answered: Yes, and we use the same jug for the almond milk.",
+          "Then he said: There is a risk of cross-contact at this counter.",
+          "So Elena decided: I'm going to order a black coffee, no pastry."
+        ],
+        "french": [
+          "Ce matin, Elena et moi sommes arrivés au comptoir d’un petit café.",
+          "J’ai d’abord dit au barista : « Mon amie est allergique aux fruits à coque. »",
+          "Puis j’ai demandé : « Comment conservez-vous les pâtisseries dans la vitrine ? »",
+          "Le barista a expliqué : « Le pain aux fruits à coque se trouve dans la même vitrine et nous utilisons parfois les mêmes pinces. »",
+          "J’ai aussi demandé : « Le grille-pain et le pichet à lait sont-ils partagés ? »",
+          "Il a répondu : « Oui, et nous utilisons le même pichet pour le lait d’amande. »",
+          "Puis il a dit : « Il y a un risque de contact croisé à ce comptoir. »",
+          "Elena a alors décidé : « Je vais prendre un café noir, sans pâtisserie. »"
+        ]
+      },
+      "verbs": [
+        {
+          "infinitiveFrench": "conserver",
+          "meaningEnglish": "to store, to keep",
+          "exampleFrench": "Comment conservez-vous les pâtisseries dans la vitrine ?",
+          "exampleEnglish": "How do you store the pastries in the display case?",
+          "sourceInfinitiveSpanish": "guardar"
+        },
+        {
+          "infinitiveFrench": "partager",
+          "meaningEnglish": "to share",
+          "exampleFrench": "Vous partagez le grille-pain et le pichet à lait ?",
+          "exampleEnglish": "Do you share the toaster and the milk jug?",
+          "sourceInfinitiveSpanish": "compartir"
+        },
+        {
+          "infinitiveFrench": "utiliser",
+          "meaningEnglish": "to use",
+          "exampleFrench": "Nous utilisons parfois les mêmes pinces.",
+          "exampleEnglish": "Sometimes we use the same tongs.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "infinitiveFrench": "commander",
+          "meaningEnglish": "to order, to ask for",
+          "exampleFrench": "Elena commande un café noir, sans pâtisserie.",
+          "exampleEnglish": "Elena orders a black coffee, no pastry.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "infinitiveFrench": "laver",
+          "meaningEnglish": "to wash",
+          "exampleFrench": "Lavez-vous le pichet à lait entre les boissons ?",
+          "exampleEnglish": "Do you wash the milk jug between drinks?",
+          "sourceInfinitiveSpanish": "lavar"
+        }
+      ],
+      "speakingInstructionEnglish": "Tell staff about the serious nut allergy; ask about storage, utensils and equipment, then make a cautious ordering decision.",
+      "speakingFrench": "Mon amie est allergique aux fruits à coque. Utilisez-vous les mêmes pinces ou le même pichet ? Pourriez-vous me montrer les ingrédients ?",
+      "regionalNotesEnglish": [
+        "Serious allergy wording, nuts category and cross-contact language require qualified allergy and regional French review. A black coffee is a scripted choice, not a safety assurance; verify the whole preparation pathway before ordering."
+      ],
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,2017 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "reviewed": false,
+  "registered": false,
+  "pairKey": "Japanese:English",
+  "targetLanguage": "Japanese",
+  "supportLanguage": "English",
+  "practiceModel": "contextual-japanese-form",
+  "note": "Whole authored Japanese sentence forms; no Spanish person/endings table or generated conjugations.",
+  "sourceSha256": {
+    "core-runtime-pilot-1-3-ja-en.json": "f8ebe55ad539b3030fc67cfbb09f235f64799393e4d255e79bd14b9c12f72084",
+    "core-runtime-pilot-10-12-ja-en.json": "2955fa89276b79b23328f4029988d47e8ec0d744e6be090336cf92a8629c1d4b",
+    "core-runtime-pilot-13-15-ja-en.json": "974c7fedc98edfb65c382656c2576d28c1c3531dd856295afc34cf5f47628d13",
+    "core-runtime-pilot-16-18-ja-en.json": "f708e41648b79cb70a62880210d59f04fd6e93afea1bbc58f8b1e88693b18514",
+    "core-runtime-pilot-19-21-ja-en.json": "19586b347088c861251564ffd172991f5f97be761fdbbff880c6a323990c95cf",
+    "core-runtime-pilot-22-24-ja-en.json": "e664837731bef368921b6329cada8794aa7de8a95ce3845c11dc10b54e2643f2",
+    "core-runtime-pilot-25-27-ja-en.json": "1407e6b78f85512cd31a35ddf5e5a3a3b234d806e758940602ed295ec691e9a4",
+    "core-runtime-pilot-28-30-ja-en.json": "ca536a2d9336e4b806095cfbdea21013fd43c55b77ca320c3fa598de0e0931e7",
+    "core-runtime-pilot-4-6-ja-en.json": "af3b973ec31ee904753da448b4fd95c743c05ff91930361448242f9435515e2d",
+    "core-runtime-pilot-7-9-ja-en.json": "43e65e64e31379bc09972e24d3cbe8f1c60a4427875ff08b9bdf7d3cf4e5db9a",
+    "foundation-runtime-draft-ja-en.json": "3b052654f908c92b5a81dd4b1ff35a2c86e1d3b4dd11a10be311596bcf141334",
+    "master-runtime-pilot-1-3-ja-en.json": "031de2a0f2f11bca530e4b282e438f831bcbfc8d019cb9b975e951f712b2ee76",
+    "master-runtime-pilot-10-12-ja-en.json": "5365086c07b1326fcb8df92ca9f66cc1d4532b5b0c36aea5edc3a5f6e3caa7cd",
+    "master-runtime-pilot-13-15-ja-en.json": "4679d37155fbbde6aa7eebea094cbc707ed0ef51a4cc3804fd369783f4fe7809",
+    "master-runtime-pilot-16-18-ja-en.json": "a1e6eb3b4eb5a8d4d0fe46917729ef0698280d8512575a08991dccbd202992d5",
+    "master-runtime-pilot-19-20-ja-en.json": "436c5f4259389c94bc0263cb4b611e4394e15de51c2e7313ec5796088c45d851",
+    "master-runtime-pilot-4-6-ja-en.json": "cfa8fbb8da2f723298279640b1957e4e01f92ad10aafc56233374802f2b92ab7",
+    "master-runtime-pilot-7-9-ja-en.json": "a14b5456a7c7175deba2d52b438017e95fd256b497a7053070cc1248f2cd5d96"
+  },
+  "counts": {
+    "lessons": 60,
+    "forms": 120
+  },
+  "lessons": [
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 1,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:1",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "Use polite greetings and です for self-introduction. Read hiragana in おはようございます, katakana in ヘルメット, and the reading of jobsite kanji such as 現場 (げんば).",
+      "forms": [
+        {
+          "id": "form-ja-en-6094541fd75ee5e7",
+          "sourceOrdinal": 1,
+          "target": "みなさん、おはようございます！",
+          "english": "Good morning, everyone!",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-aa5ac4914c6c0062",
+          "sourceOrdinal": 2,
+          "target": "はじめまして。私はカルロスです。",
+          "english": "Nice to meet you. My name is Carlos.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 2,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:2",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "Read US site measurements in feet, inches, pounds, and cubic yards. Use 時 for clock time, 時間 for duration, 枚 for flat boards, 袋 for bags, and 個 for blocks. The full 0–1,000 number patterns come in later practice.",
+      "forms": [
+        {
+          "id": "form-ja-en-284c45b17181a408",
+          "sourceOrdinal": 1,
+          "target": "おはようございます。今日は何時に始めますか？",
+          "english": "Good morning. What time do we start today?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a30eb831b2c4c6b2",
+          "sourceOrdinal": 2,
+          "target": "午前7時に始めて、午後4時に終わります。",
+          "english": "We start at 7 a.m. and finish at 4 p.m.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 3,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:3",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "Use です to identify people and ～ている for a resulting condition. あります marks where things are. A wall is checked for 垂直 (plumb); 水平 describes a level floor or top.",
+      "forms": [
+        {
+          "id": "form-ja-en-67f2e5a7b6fe963f",
+          "sourceOrdinal": 1,
+          "target": "私はこの現場の職長です。",
+          "english": "I'm the foreman on this job.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ee191130b5d37117",
+          "sourceOrdinal": 2,
+          "target": "田中さんは大工で、鈴木さんは電気工事士です。",
+          "english": "He's a carpenter and she's an electrician.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 4,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:4",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "持っています (have), あります (there is or are, for things), 〜が必要です (need), 〜がほしいです (want) and 〜なければなりません (everyone has to) for protective gear and materials.",
+      "forms": [
+        {
+          "id": "form-ja-en-fc43d38bf1a8afad",
+          "sourceOrdinal": 1,
+          "target": "全員、安全めがねをかけなければなりません。",
+          "english": "Everyone has to wear safety glasses.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-12ba0a2d90b8d25f",
+          "sourceOrdinal": 2,
+          "target": "ヘルメットは持っていますか？",
+          "english": "Do you have your hard hat?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 5,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:5",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "に for destinations (〜に行きます), 〜予定です for plans (going to), 〜ます and 〜できます (can) for jobsite tasks, with を marking what is done.",
+      "forms": [
+        {
+          "id": "form-ja-en-377e96805e42fc95",
+          "sourceOrdinal": 1,
+          "target": "私は金物店に行きます。",
+          "english": "I'm going to the hardware store.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f9459c0e966e6cdf",
+          "sourceOrdinal": 2,
+          "target": "フアンさんは屋根に行きます。",
+          "english": "Juan is going to the roof.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 6,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:6",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "ます形 for regular jobsite verbs (切ります, 運びます, 掃除します, 混ぜます, 拾います). は marks who does the task, を marks what is done, and 私が／田中さんたちが name the doer.",
+      "forms": [
+        {
+          "id": "form-ja-en-89345080d415785c",
+          "sourceOrdinal": 1,
+          "target": "私は石膏ボードを切ります。",
+          "english": "I cut the drywall.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-2d95a54173384912",
+          "sourceOrdinal": 2,
+          "target": "田中さんはビスを締めます。",
+          "english": "Mr. Tanaka tightens the screws.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 7,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:7",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "何、誰、どこ、いつ、いくら、いくつ、どう、なぜ、どの。数えるものに合わせて何枚・何本を使います。",
+      "forms": [
+        {
+          "id": "form-ja-en-6765506f26fba69a",
+          "sourceOrdinal": 1,
+          "target": "図面はどこにありますか？",
+          "english": "Where are the blueprints?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-cf20504d0b4f82a5",
+          "sourceOrdinal": 2,
+          "target": "図面は事務所にあります。",
+          "english": "The blueprints are in the office.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 8,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:8",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "いません・ありません、まだ〜ていません、決して〜ません、もっと、少なく、もう一つ。人と物で否定の動詞を分けます。",
+      "forms": [
+        {
+          "id": "form-ja-en-02e226b5c83c1ae3",
+          "sourceOrdinal": 1,
+          "target": "納品はまだ届いていません。",
+          "english": "The delivery has not arrived yet.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-511eb363a7b5b429",
+          "sourceOrdinal": 2,
+          "target": "足場には誰もいません。",
+          "english": "There is nobody on the scaffold.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 9,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:9",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "〜てもらえますか for a polite request and 〜てください for a polite instruction; 危険な場面では短く明確に作業を止めます。",
+      "forms": [
+        {
+          "id": "form-ja-en-262c6cb50248ce61",
+          "sourceOrdinal": 1,
+          "target": "すみません、はしごを持ってきてもらえますか？",
+          "english": "Excuse me, can you bring the ladder?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-72fba2ffc707504d",
+          "sourceOrdinal": 2,
+          "target": "はい、持ってきます。",
+          "english": "Yes, I will bring it.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "foundation",
+      "courseId": "foundation-construction-foreman-ja-en",
+      "lesson": 10,
+      "sourceLessonId": "foundation-construction-foreman-ja-en:lesson:10",
+      "sourceFile": "foundation-runtime-draft-ja-en.json",
+      "focus": "分かりません、ゆっくり話してください、〜はどういう意味ですか; Japanese does not form Spanish-style cognates, so learn useful kanji compounds and loanwords separately.",
+      "forms": [
+        {
+          "id": "form-ja-en-3032430f97522654",
+          "sourceOrdinal": 1,
+          "target": "すみません、分かりません。",
+          "english": "Sorry, I don't understand.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ab0078148d5ba127",
+          "sourceOrdinal": 2,
+          "target": "もう少しゆっくり話してもらえますか？",
+          "english": "Could you speak a little more slowly?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 1,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:1",
+      "sourceFile": "core-runtime-pilot-1-3-ja-en.json",
+      "focus": "Use 職長 for the crew foreman, not 現場監督 for the site supervisor. Ask a name with おなまえは なんですか and make polite requests with ～てください.",
+      "forms": [
+        {
+          "id": "form-ja-en-16f391988638cebe",
+          "sourceOrdinal": 1,
+          "target": "さぎょうはんが しゅうごう ばしょに つきます。",
+          "english": "The crew arrives at the meeting point.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-3b0fb149ad9279ba",
+          "sourceOrdinal": 2,
+          "target": "しょくちょうは しゅっきんひょうを もっています。ひとりずつ なまえを ききます。",
+          "english": "The foreman has the attendance list and asks each person's name.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 2,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:2",
+      "sourceFile": "core-runtime-pilot-1-3-ja-en.json",
+      "focus": "Ask location with どこですか and identify the responsible person with どなたですか. Distinguish the safety plan in the dialogue from the site plan named in the English source objective.",
+      "forms": [
+        {
+          "id": "form-ja-en-155e68b2aa440b1e",
+          "sourceOrdinal": 1,
+          "target": "あんぜん ミーティングは さぎょう エリアで おこないます。",
+          "english": "The safety briefing is in the work area.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-efba40846f4b91d3",
+          "sourceOrdinal": 2,
+          "target": "せきにんしゃは あんぜん けいかくしょで、でぐちと ひなん しゅうごう ばしょを ゆびさします。",
+          "english": "The responsible person points out the exit and assembly point in the safety plan.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 3,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:3",
+      "sourceFile": "core-runtime-pilot-1-3-ja-en.json",
+      "focus": "Use ～が ひつようです for a needed tool, どこですか for its location, and ～てください to ask someone to bring it.",
+      "forms": [
+        {
+          "id": "form-ja-en-8ee7bf4e3e84eb85",
+          "sourceOrdinal": 1,
+          "target": "てもとが はこの なかから どうぐを さがします。",
+          "english": "The helper looks for a tool in the box.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-fc590c8d83b6e3fb",
+          "sourceOrdinal": 2,
+          "target": "かなづち、のこぎり、ドリル、レンチが みえます。",
+          "english": "They see a hammer, a saw, a drill and a wrench.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 4,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:4",
+      "sourceFile": "core-runtime-pilot-4-6-ja-en.json",
+      "focus": "Distinguish ちゅうもん (the order), のうひん (delivery), and のうにゅうぎょうしゃ (supplier). Ask quantity with どのくらい and timing with いつ.",
+      "forms": [
+        {
+          "id": "form-ja-en-debcc651017c7f16",
+          "sourceOrdinal": 1,
+          "target": "のうにゅうぎょうしゃは もくざい と パネル と コンクリートの ちゅうもんを うけます",
+          "english": "The supplier receives an order for lumber, a panel and concrete.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-db81f71fb0b01b0b",
+          "sourceOrdinal": 2,
+          "target": "しょくちょうは ざいりょう、 すうりょう、 たんい、 サイズを かくにん します",
+          "english": "The foreman confirms the material, quantity, unit and measurement.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 5,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:5",
+      "sourceFile": "core-runtime-pilot-4-6-ja-en.json",
+      "focus": "Use ずめん for the drawing or plan and すんぽう for a dimension. Check さいしんばん before relying on a revision; かいてあります describes information shown on the plan.",
+      "forms": [
+        {
+          "id": "form-ja-en-e709eae0ea9098aa",
+          "sourceOrdinal": 1,
+          "target": "ずめんには かべ と ドア と かどが かいて あります",
+          "english": "The plan shows a wall, a door and a corner.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-4a6c0c7dcb08cd5d",
+          "sourceOrdinal": 2,
+          "target": "きたと きじゅんてんで しょうさいずの いちが わかります",
+          "english": "North and the reference point help locate the detail.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 6,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:6",
+      "sourceFile": "core-runtime-pilot-4-6-ja-en.json",
+      "focus": "Use もういちど いってください to request repetition, ～の ことですか to confirm a referenced part, and まえに for 'before'. Distinguish beam はり from joist ねだ.",
+      "forms": [
+        {
+          "id": "form-ja-en-506c9129a69ac777",
+          "sourceOrdinal": 1,
+          "target": "わくぐみずは たてわく、 はり、 ねだを しめします",
+          "english": "The framing plan identifies the stud, beam and joist.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-57bdcb273895be19",
+          "sourceOrdinal": 2,
+          "target": "したわく、 まぐさ、 ふごうが しじに でてきます",
+          "english": "The plate, header and a mark appear in the instruction.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 7,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:7",
+      "sourceFile": "core-runtime-pilot-7-9-ja-en.json",
+      "focus": "Use していされています for a specified material and どこですか to ask where an access point is. のぼりぐち means a physical way up; verify actual site access and the manufacturer's instructions.",
+      "forms": [
+        {
+          "id": "form-ja-en-af3bb09dde74611c",
+          "sourceOrdinal": 1,
+          "target": "やねの ずめんに、むね、のき、のぼりぐちが しめされて います。",
+          "english": "The roof plan marks the ridge, eave and access.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-749ecd9892d50cdc",
+          "sourceOrdinal": 2,
+          "target": "ちゅうもんには、のじいたようの OSBパネル、メンブレン、それに アスファルトシングルの サンプルが ふくまれて います。",
+          "english": "The order includes an OSB panel for the sheathing, a membrane and a sample asphalt shingle.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 8,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:8",
+      "sourceFile": "core-runtime-pilot-7-9-ja-en.json",
+      "focus": "Distinguish はいごう (mix design) from the delivered コンクリート. Use まだ おわっていません for a pending inspection and だれが for the person confirming a mix.",
+      "forms": [
+        {
+          "id": "form-ja-en-dbd631417c2795fb",
+          "sourceOrdinal": 1,
+          "target": "きそ ほうこくしょには、かたわくと てっきんが かかれて います。",
+          "english": "The foundation report mentions the formwork and reinforcement.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-eb9aca59f6f9f2cc",
+          "sourceOrdinal": 2,
+          "target": "ミキサーしゃには、しょるいに しめされた はいごうの コンクリートと サンプルが あります。",
+          "english": "The concrete truck has a mix and a sample identified in the documentation.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 9,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:9",
+      "sourceFile": "core-runtime-pilot-7-9-ja-en.json",
+      "focus": "Use どこで for where an event happened and なんじに for when it was noticed. Separate じっさいに みた こと (observed facts) from items still requiring ちょうさ (review).",
+      "forms": [
+        {
+          "id": "form-ja-en-4e8db034223901f8",
+          "sourceOrdinal": 1,
+          "target": "だれかが もんだいと、そんしょうの かのうせいを しらせます。",
+          "english": "Someone gives notice of a problem and possible damage.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-766cdacb816ead00",
+          "sourceOrdinal": 2,
+          "target": "ほうこくしょには、ばしょ、じこく、まちがい、ふそくが きろくされます。",
+          "english": "The report records the location, time, an error and a shortage.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 10,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:10",
+      "sourceFile": "core-runtime-pilot-10-12-ja-en.json",
+      "focus": "Read the number with its unit: フィート/インチ or メートル/センチメートル. Distinguish ながさ (length), はば (width) and たかさ (height); ask for repetition when a fraction is unclear.",
+      "forms": [
+        {
+          "id": "form-ja-en-358240d50e7f780a",
+          "sourceOrdinal": 1,
+          "target": "ひょうは フィート、インチ、メートル、センチメートルを くべつ して います。",
+          "english": "The sheet distinguishes the foot, inch, meter and centimeter.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-7b38ae82d0e9f04f",
+          "sourceOrdinal": 2,
+          "target": "すうちには それぞれ たんいが あります。ながさ、はば、たかさは べつべつの らんに かいて あります。",
+          "english": "Each number has a unit; length, width and height are in separate columns.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 11,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:11",
+      "sourceFile": "core-runtime-pilot-10-12-ja-en.json",
+      "focus": "Use なんじに to ask a start time, かかる じかん for duration, and へんこう for a change. Distinguish a proposed schedule from the confirmed revised plan.",
+      "forms": [
+        {
+          "id": "form-ja-en-a27dc9d8357ea4f4",
+          "sourceOrdinal": 1,
+          "target": "スケジュールは しぎょう、きゅうけい、ひるやすみ、しゅうぎょうを わけて かいて あります。",
+          "english": "The schedule separates the start, break, lunch and close.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-def97074d1b9f5c4",
+          "sourceOrdinal": 2,
+          "target": "おくれは さぎょうに かかる じかんを かえますが、ゆうせん じゅんいは かくにんが ひつようです。",
+          "english": "A delay changes a task's duration, but the priority needs confirmation.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 12,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:12",
+      "sourceFile": "core-runtime-pilot-10-12-ja-en.json",
+      "focus": "Use かくにん できません to say a status is unconfirmed and だれですか to identify the authorized person. たちいり せいげん means restricted entry; vocabulary practice is not electrical-work authorization.",
+      "forms": [
+        {
+          "id": "form-ja-en-0d04ea1757eeeca9",
+          "sourceOrdinal": 1,
+          "target": "ひょうしきは ぶんでんばんの ちかくの たちいり せいげん エリアを しめして います。",
+          "english": "The sign identifies a restricted area near the panelboard.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c39e3ed3d42785d3",
+          "sourceOrdinal": 2,
+          "target": "ほうこくでは、ケーブル、スイッチ、かいろへの でんげんに ついての しつもんが でて います。",
+          "english": "The report mentions a cable, a switch and a question about power to the circuit.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 13,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:13",
+      "sourceFile": "core-runtime-pilot-13-15-ja-en.json",
+      "focus": "Use しようしょ for the specification and しあげ for finish. Compare the サンプル with the drawing and ask for ちょうさ when they appear inconsistent; do not invent a technical solution.",
+      "forms": [
+        {
+          "id": "form-ja-en-00f1f36eda68a7ae",
+          "sourceOrdinal": 1,
+          "target": "せっこう ボードの しようしょには、つぎめ、テープ、パテについて かいて あります。",
+          "english": "The drywall panel specification describes the joint, tape and compound.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-125b6342051da196",
+          "sourceOrdinal": 2,
+          "target": "サンディング、テクスチャー、しあげを、とくていされた サンプルと くらべます。",
+          "english": "Sanding, texture and finish are compared with an identified sample.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 14,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:14",
+      "sourceFile": "core-runtime-pilot-13-15-ja-en.json",
+      "focus": "Use ちがい for a visible difference, きじゅん for a reference, and だれが to ask who will confirm a correction. Keep observation distinct from an agreed fix.",
+      "forms": [
+        {
+          "id": "form-ja-en-a8cb5abcc707ca32",
+          "sourceOrdinal": 1,
+          "target": "せきにんしゃは フィードバックを そんちょうして きき、けっかを みせます。",
+          "english": "The responsible person listens to the feedback respectfully and shows the result.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-2ee7dddcfd60c14c",
+          "sourceOrdinal": 2,
+          "target": "しゅうせいを たのむ まえに、ちがいを きじゅんと れいと くらべます。",
+          "english": "The difference is compared with a reference and an example before requesting a correction.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 15,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:15",
+      "sourceFile": "core-runtime-pilot-13-15-ja-en.json",
+      "focus": "Use どの しょくしゅで for trade experience, いつ for availability, and ～ましょう for a shared confirmation. Distinguish an orientation conversation from a formal hiring decision.",
+      "forms": [
+        {
+          "id": "form-ja-en-2792677b978176ea",
+          "sourceOrdinal": 1,
+          "target": "げんばかんとくは あたらしい かたを かんげいし、けいけんと しょくしゅについて たずねます。",
+          "english": "The supervisor welcomes the new person and asks about their experience and trade.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-05c2ec9628f57c99",
+          "sourceOrdinal": 2,
+          "target": "つごうと かいしびは、れんらくさきや ていあんされた スケジュールと いっしょに きろくされます。",
+          "english": "Availability and the start date are recorded beside the contact and proposed schedule.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 16,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:16",
+      "sourceFile": "core-runtime-pilot-16-18-ja-en.json",
+      "focus": "Use いぞん かんけい for a task dependency and さぎょう ひきつぎ for a work handoff. Ask どなたですか for the designated contact and distinguish decided details from open questions.",
+      "forms": [
+        {
+          "id": "form-ja-en-259e633665234400",
+          "sourceOrdinal": 1,
+          "target": "きょうりょく ぎょうしゃは、じしゃの チームの つごうが かわったと ほうこくし、カレンダーの こうしんを いらいして います。",
+          "english": "The subcontractor reports that their team's availability changed and requests a calendar update.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-dabd7419447a9a4c",
+          "sourceOrdinal": 2,
+          "target": "いぞん かんけいは、さぎょう ひきつぎと つぎの さぎょうはんの つうろに えいきょうします。",
+          "english": "The dependency affects the work handoff and the next crew's access.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 17,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:17",
+      "sourceFile": "core-runtime-pilot-16-18-ja-en.json",
+      "focus": "Distinguish ちゅうもん (order), じゅりょうしょ (receipt) and のうひん (delivery). Read back the address and quantity before agreeing on a revised date.",
+      "forms": [
+        {
+          "id": "form-ja-en-ae73e80d40d2d90b",
+          "sourceOrdinal": 1,
+          "target": "のうにゅうぎょうしゃは、のうひんに ふそくが あった あと、げんばの れんらく たんとうしゃに でんわします。",
+          "english": "The supplier calls the site's contact after an incomplete delivery.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-cd1e149af750427f",
+          "sourceOrdinal": 2,
+          "target": "ちゅうもんしょと じゅりょうしょには、じゅうしょ、うけとった すうりょう、そして ふそくが しめされて います。",
+          "english": "The order and receipt show the address, quantity received and a shortage.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 18,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:18",
+      "sourceFile": "core-runtime-pilot-16-18-ja-en.json",
+      "focus": "Use みかんりょう こうもく for a pending checklist item and しょうにん for actual approval. Do not describe an unconfirmed approval as granted.",
+      "forms": [
+        {
+          "id": "form-ja-en-b671203e64bdc67d",
+          "sourceOrdinal": 1,
+          "target": "せきにんしゃは、きょかしょと、けんさの ために もとめられた それぞれの しょるいを じゅんびします。",
+          "english": "The responsible person prepares the permit and each document requested for the inspection.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f296f314c4d05f27",
+          "sourceOrdinal": 2,
+          "target": "チェックリストでは、しょけん、みかんりょう こうもく、じっさいに うけた しょうにんを くべつします。",
+          "english": "The checklist distinguishes an observation, a pending item and an approval actually received.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 19,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:19",
+      "sourceFile": "core-runtime-pilot-19-21-ja-en.json",
+      "focus": "Use ばしょ and じゅうしょ to give a location and address, and repeat a dispatcher's しじ to confirm understanding. This exercise uses fictional information and makes no actual emergency call.",
+      "forms": [
+        {
+          "id": "form-ja-en-2587d52f2b59e0b5",
+          "sourceOrdinal": 1,
+          "target": "この れんらくの れんしゅう では、きんきゅう れんらく たんとうしゃ が げんば の ずめん を みて、じゅうしょ と つうろ を つたえます。",
+          "english": "In this communication rehearsal, the emergency contact consults the site plan to give the address and access.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1b460b41ded3ac8e",
+          "sourceOrdinal": 2,
+          "target": "つうしん しれいいん が、けが を した ひと の ばしょ と、どんな たすけ が ひつよう か を たずねます。",
+          "english": "The dispatcher asks the injured person's location and what help is needed.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 20,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:20",
+      "sourceFile": "core-runtime-pilot-19-21-ja-en.json",
+      "focus": "Use パンチ リスト for a closeout item list and distinguish かんりょう (work done) from けんしょう (verified). A reported correction is not necessarily approved.",
+      "forms": [
+        {
+          "id": "form-ja-en-29418cef623c680c",
+          "sourceOrdinal": 1,
+          "target": "こうじ しゅうりょう じゅんびには、けんとうする へやと しゃしんと ふぐあいを のせた パンチ リストが あります。",
+          "english": "Project closeout includes a punch list with a room, a photo and a defect to review.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-78b14b59245faf3e",
+          "sourceOrdinal": 2,
+          "target": "わりあてられた しゅうせいの ほうこくの しめきりが、せきにんしゃ ひとりひとりに しらされます。",
+          "english": "Each responsible person receives a deadline for reporting on their assigned correction.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 21,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:21",
+      "sourceFile": "core-runtime-pilot-19-21-ja-en.json",
+      "focus": "Use かんりょう した さぎょう for completed work and みかんりょう の こうもく for a pending item. Refer to the ほしょう しょるい instead of promising unverified warranty terms.",
+      "forms": [
+        {
+          "id": "form-ja-en-64157c48425e8a5f",
+          "sourceOrdinal": 1,
+          "target": "げんば あんない の はじめに、クライアントは、しあげと まえの ほうもんで みた ほかの ぶぶんに ついて しつもんします。",
+          "english": "The client begins the walkthrough with a question about the finish and another detail they saw on the previous visit.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-8e0a433819bff7f3",
+          "sourceOrdinal": 2,
+          "target": "しょくちょう は、かんりょう した さぎょう を みせ、みかんりょう の こうもく を しめし、ほしょう しょるい を さんしょう します。かくにん できて いない じょうけん は、やくそく しません。",
+          "english": "The foreman shows the completed work, identifies a pending item and consults the warranty document without promising terms they have not confirmed.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 22,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:22",
+      "sourceFile": "core-runtime-pilot-22-24-ja-en.json",
+      "focus": "Distinguish せいきゅうしょ (invoice), りょうしゅうしょ (receipt), まえばらいきん (deposit) and のこりきんがく (balance). A recorded payment does not by itself establish a change to agreed terms.",
+      "forms": [
+        {
+          "id": "form-ja-en-2be19d0d03ba6913",
+          "sourceOrdinal": 1,
+          "target": "せいきゅうしょ では、まえばらいきん、のこりきんがく、めいさい こうもく ごとの せつめい が わかれて います。ただし、おきゃくさま は、ある きんがく に こころあたり が ありません。",
+          "english": "The invoice separates the deposit, balance and each line-item description, but the client does not recognize an amount.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e2f9f9301e289695",
+          "sourceOrdinal": 2,
+          "target": "りょうしゅうしょ には、ふりこみ による しはらい と その ひにち が しめされて います。それだけでは、とりきめた じょうけん の へんこう が かくにん された こと には なりません。",
+          "english": "The receipt identifies a payment by transfer and its date; by itself it does not confirm a change to the agreed terms.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 23,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:23",
+      "sourceFile": "core-runtime-pilot-22-24-ja-en.json",
+      "focus": "Use ていあんの ひにち for a proposed date and かくてい for a confirmed one. Report the forecast and site condition as separate facts before promising a schedule.",
+      "forms": [
+        {
+          "id": "form-ja-en-b6ad89b940809020",
+          "sourceOrdinal": 1,
+          "target": "てんき よほうには あめと かぜの ことが かいて あり、せきにんしゃは げんばの じょうきょうを かくにん しながら、おくれが ある と ほうこく して います。",
+          "english": "The forecast mentions rain and wind, and the responsible person reports a delay while reviewing the site condition.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a3d985ce76cd7cbe",
+          "sourceOrdinal": 2,
+          "target": "スケジュールの へんこうには ていあんの ひにちと だいたい あんが ふくまれて いますが、どちらも さいしゅう かくていとして しめされて いません。",
+          "english": "The rescheduling includes a proposed date and an alternative, but neither is presented as final confirmation.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 24,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:24",
+      "sourceFile": "core-runtime-pilot-22-24-ja-en.json",
+      "focus": "Use しょけん for an observation, さんしょう しりょう for the current reference, and きょようはんい for tolerance. Ask for a documented review rather than prescribing an unverified correction.",
+      "forms": [
+        {
+          "id": "form-ja-en-32f63620510305b1",
+          "sourceOrdinal": 1,
+          "target": "ひんしつ じゅんかいの とき、だれかが ひょうめん、つなぎめ、しあげを せつめい して いますが、どの しゅうせいが てきせつかは まだ けつろんを だして いません。",
+          "english": "During the quality walkthrough, someone describes the surface, joint and finish without yet concluding which correction is appropriate.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-19f0bcc3d7e2aa39",
+          "sourceOrdinal": 2,
+          "target": "しょけんは、げんざいの さんしょう しりょうと ならんで しょうこ として ほぞん されます。きょようはんいは、がいとう する しりょうで かくにん する ひつようが あります。",
+          "english": "The observation is saved as evidence beside the current reference; the tolerance must be checked in the applicable documentation.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 25,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:25",
+      "sourceFile": "core-runtime-pilot-25-27-ja-en.json",
+      "focus": "Use まず to mark the first step and じぶん の ことば で to request a teach-back. Distinguish かんとく の もと で supervised practice from independent authorization.",
+      "forms": [
+        {
+          "id": "form-ja-en-f26d6b2c7c1852ea",
+          "sourceOrdinal": 1,
+          "target": "けんしゅうせい は デモンストレーション を みて、かんとく の もと で れんしゅう する まえ に、それぞれ の ステップ を せつめい します。",
+          "english": "The trainee watches a demonstration and describes each step before supervised practice.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1d949d58436cfa8e",
+          "sourceOrdinal": 2,
+          "target": "りかい できて いる と きめつけません。ぎもん が あれば、くりかえし を たのむ ことが でき、フィードバック が てじゅん を はっきり させる のに やくだちます。",
+          "english": "Understanding is not assumed: a question allows someone to ask for repetition, and feedback helps clarify the sequence.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 26,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:26",
+      "sourceFile": "core-runtime-pilot-25-27-ja-en.json",
+      "focus": "Use きがかり for a concern, そんちょう for respect, and てきせつな れんらく たんとうしゃ for the appropriate contact. Do not promise confidentiality that has not been confirmed.",
+      "forms": [
+        {
+          "id": "form-ja-en-2d80bd1f399764e9",
+          "sourceOrdinal": 1,
+          "target": "チームでは、そんちょう、しんらい、そして それぞれの さぎょうに ともなう せきにんについて はなしあいます。",
+          "english": "The team discusses respect, trust and the responsibility that comes with each task.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6641155e7f47dcf7",
+          "sourceOrdinal": 2,
+          "target": "きく ことと サポートが あれば、しょくちょうが 「じぶんは じょうきょうを すべて わかって いる」と きめつける ことなく、だれかが ふるまいについての きがかりを つたえられます。",
+          "english": "Listening and support allow someone to express a concern about conduct without the foreman assuming they know the whole situation.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 27,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:27",
+      "sourceFile": "core-runtime-pilot-25-27-ja-en.json",
+      "focus": "Use みかんりょうの こうもく for a pending item and distinguish reported progress from confirmed completion. Ask for チェックイン and identify open questions for tomorrow.",
+      "forms": [
+        {
+          "id": "form-ja-en-c14aad5ce8357ed2",
+          "sourceOrdinal": 1,
+          "target": "いちにちの しめくくりでは、さぎょうはんが あつまり、ほうこくと しんちょくを くらべて、みかんりょうの こうもくを きろく します。",
+          "english": "The end-of-day wrap-up brings the crew together to compare progress with the report and record a pending item.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-70ae3859413f01cf",
+          "sourceOrdinal": 2,
+          "target": "かたづけと ざいこ かくにんは、してい された たんとうしゃに わりあてます。みあたらない どうぐが あれば、だれが もって いるか きめつけずに きろく します。",
+          "english": "Cleanup and inventory are assigned to designated people; a missing tool is recorded without assuming who has it.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 28,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:28",
+      "sourceFile": "core-runtime-pilot-28-30-ja-en.json",
+      "focus": "Use じじつ for a confirmed fact and すいそく for an assumption. Give each person はつげん の じゅんばん, then record only what both sides actually agree on.",
+      "forms": [
+        {
+          "id": "form-ja-en-b2fd85e1ed61cd77",
+          "sourceOrdinal": 1,
+          "target": "ふたり が それぞれ いけん の くいちがい を せつめい します。あいて を そんちょう して きく ため には、それぞれ に はつげん の じゅんばん が ひつよう です。",
+          "english": "Two people describe a disagreement; respectful listening requires each to have a turn to speak.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-de37cf03cda9ed82",
+          "sourceOrdinal": 2,
+          "target": "せきにんしゃ は、かくにん された じじつ と すいそく を くべつ し、それぞれ の いいぶん を くりかえします。どちら が ただしい か は、まえもって きめつけません。",
+          "english": "The responsible person distinguishes a confirmed fact from an assumption and repeats each account without deciding in advance who is right.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 29,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:29",
+      "sourceFile": "core-runtime-pilot-28-30-ja-en.json",
+      "focus": "Use もくひょう for a goal, リソース for resources, and みなおし for a review. Describe a priority with a realistic plan rather than an unsupported promise.",
+      "forms": [
+        {
+          "id": "form-ja-en-a338335308f001ba",
+          "sourceOrdinal": 1,
+          "target": "しょくちょう は、こんしゅう の かだい と きたい して いる もくひょう を せつめい しますが、ゆうせん じこう を、うらづけ の ない やくそく には しません。",
+          "english": "The foreman explains the week's challenge and expected goal but does not turn a priority into an unsupported promise.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9a204663bd67899a",
+          "sourceOrdinal": 2,
+          "target": "それぞれ の コミットメント は、リソース、りよう できる サポート、そして じょうきょう が かわった ばあい の けいかく の みなおし に むすびついて います。",
+          "english": "Each commitment is linked to a resource, available support and a plan review if the situation changes.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "core",
+      "courseId": "construction-foreman-ja-en",
+      "lesson": 30,
+      "sourceLessonId": "construction-foreman-ja-en:lesson:30",
+      "sourceFile": "core-runtime-pilot-28-30-ja-en.json",
+      "focus": "Use しゅっせき かくにん for attendance and さぎょう ひきつぎ for work handoff. Summarize agreed details separately from unanswered questions; a practice briefing is not technical approval.",
+      "forms": [
+        {
+          "id": "form-ja-en-9b83a7b374297305",
+          "sourceOrdinal": 1,
+          "target": "ミーティング では、しゅっせき かくにん を、こうてい や それぞれ の さぎょう と むすびつけて かくにん します。せきにんしゃ は、だれ が きて いる か、だれ に れんらく が ひつよう か を かくにん します。",
+          "english": "The meeting connects attendance with the schedule and each task; the responsible person confirms who is present and who needs an update.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-58994c870c79eb25",
+          "sourceOrdinal": 2,
+          "target": "きけん に ついての しつもんは、げんば の ずめん の れんらく たんとうしゃに まわされます。かかわる ふたつ の さぎょうはんの あいだで、さぎょう ひきつぎを はっきり させます。",
+          "english": "A question about a hazard is referred to the site-plan contact, and a work handoff is clarified between the two crews involved.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 1,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:1",
+      "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
+      "focus": "Sequence まず → その後 → ですから and explain that site-specific engineer approval controls shore removal.",
+      "forms": [
+        {
+          "id": "form-ja-en-d249328e1fc9f175",
+          "sourceOrdinal": 1,
+          "target": "まず、スラブを打設し、その後、数日間養生します。",
+          "english": "First the slab is poured, and then it cures for several days.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-dbfecc30b00cd66e",
+          "sourceOrdinal": 2,
+          "target": "コンクリートはまだ自重を支えられません。ですから、支柱は残したままにします。",
+          "english": "The concrete can't carry its own weight yet; that's why the shores stay.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 2,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:2",
+      "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
+      "focus": "Explain plan-specific cover, chairs and measurement. Do not teach the disputed water/rebar-height claim as fact.",
+      "forms": [
+        {
+          "id": "form-ja-en-049bf07ac766b5c8",
+          "sourceOrdinal": 1,
+          "target": "塩分が鉄筋まで届くと、鉄筋の腐食が速く進みます。",
+          "english": "If salt reaches the steel, it corrodes faster.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-fba468889dfa1896",
+          "sourceOrdinal": 2,
+          "target": "このスラブでは、構造図に示されたかぶり厚さに従います。",
+          "english": "On this slab, the cover shown on the structural sheet is used.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 3,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:3",
+      "sourceFile": "master-runtime-pilot-1-3-ja-en.json",
+      "focus": "Use 〜前に for timing and 〜たら/〜場合 for conditional damage and escalation; follow the qualified site procedure.",
+      "forms": [
+        {
+          "id": "form-ja-en-4320af9370be1f39",
+          "sourceOrdinal": 1,
+          "target": "ゲートを開けて手を離してください。ゲートが自動で閉まらなければいけません。",
+          "english": "Open it and let go; the gate must close on its own.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-b00bb06b54c7f9b6",
+          "sourceOrdinal": 2,
+          "target": "点検タグの期限が切れていたら、着用しないでください。私に渡してください。",
+          "english": "If the tag is expired, don't put it on; give it to me.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 4,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:4",
+      "sourceFile": "master-runtime-pilot-4-6-ja-en.json",
+      "focus": "Use 〜前に and 〜必要があります to identify actions from the actual product data sheet and SDS; do not invent water, time or PPE specifications.",
+      "forms": [
+        {
+          "id": "form-ja-en-b804354fd39c4078",
+          "sourceOrdinal": 1,
+          "target": "袋を開ける前に、呼吸用保護具と保護めがねを着用しなければなりません。",
+          "english": "Before opening the bag, you have to put on the respirator and safety glasses.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d676f123f3ebe4ec",
+          "sourceOrdinal": 2,
+          "target": "データシートに示された時間だけ練り混ぜたあとは、すぐに充填しなければなりません。",
+          "english": "After mixing for the time the sheet gives, it has to be placed right away.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 5,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:5",
+      "sourceFile": "master-runtime-pilot-4-6-ja-en.json",
+      "focus": "Use 〜ていたとき to report a discovery and conditionals for options awaiting engineer and jurisdiction approval.",
+      "forms": [
+        {
+          "id": "form-ja-en-438869e3dd2ddb23",
+          "sourceOrdinal": 1,
+          "target": "フーチングのために掘削していたとき、パブロが古い浄化槽を見つけました。",
+          "english": "When we were digging for the footing, Pablo found an old tank.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-3b0faa205021dbca",
+          "sourceOrdinal": 2,
+          "target": "技術者にフーチングの別の位置を検討してもらうこともできます。",
+          "english": "We could ask the engineer for another location for the footing.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 6,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:6",
+      "sourceFile": "master-runtime-pilot-4-6-ja-en.json",
+      "focus": "Use 〜より and 〜見込みです for sourced estimates; separate an unapproved substitute from confirmed schedule changes.",
+      "forms": [
+        {
+          "id": "form-ja-en-3dc98a345d6057a2",
+          "sourceOrdinal": 1,
+          "target": "指定モデルは、代替品より納入に時間がかかる見込みです。",
+          "english": "The specified model is going to take longer than the substitute.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ebd2ff6f1735a7ef",
+          "sourceOrdinal": 2,
+          "target": "代替品のほうが早く届く見込みですが、指定品ほど良くはありません。",
+          "english": "The substitute will arrive sooner, but it isn't as good as the specified one.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 7,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:7",
+      "sourceFile": "master-runtime-pilot-7-9-ja-en.json",
+      "focus": "Give sourced times, quantities and locations; distinguish documented observations from mitigation outcomes.",
+      "forms": [
+        {
+          "id": "form-ja-en-9f85561a60481cf0",
+          "sourceOrdinal": 1,
+          "target": "日曜日に警備員が水に気づき、6時15分に私に電話をかけてきました。",
+          "english": "On Sunday the guard saw the water and called me at 6:15.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a325f892cbf8c762",
+          "sourceOrdinal": 2,
+          "target": "月曜日の8時に、壁3面の含水率を測定しました。",
+          "english": "On Monday at 8:00 we measured the moisture in 3 walls.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 8,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:8",
+      "sourceFile": "master-runtime-pilot-7-9-ja-en.json",
+      "focus": "Use a polite refusal and safer plan; do not authorize removal or specify unapproved fall-protection procedure.",
+      "forms": [
+        {
+          "id": "form-ja-en-90e6e1011e964790",
+          "sourceOrdinal": 1,
+          "target": "取り外さないでください。仮設の手すりは揚重作業まで、そのまま残します。",
+          "english": "Don't take it down; the guardrail stays until the lift.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9363c8e7f3e9a689",
+          "sourceOrdinal": 2,
+          "target": "仮設の手すりがない状態で、作業員に端の近くで作業させることはお勧めしません。",
+          "english": "I don't recommend that they work near the edge without the guardrail.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 9,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:9",
+      "sourceFile": "master-runtime-pilot-7-9-ja-en.json",
+      "focus": "Use measured observations and direct but respectful feedback; qualified personnel decide any corrective work.",
+      "forms": [
+        {
+          "id": "form-ja-en-7d78265ab05353f1",
+          "sourceOrdinal": 1,
+          "target": "作業を続ける前に、下げ振りで角を確認してほしいです。",
+          "english": "I want you to check the corner with the plumb bob before you keep going.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e5606ec6bd609d02",
+          "sourceOrdinal": 2,
+          "target": "ケビンに、段ごとに確認するよう教えることをお勧めします。",
+          "english": "I recommend you teach Kevin to check every course.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 10,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:10",
+      "sourceFile": "master-runtime-pilot-10-12-ja-en.json",
+      "focus": "Report each subcontractor account and compare drawing dates; a proposed installation sequence requires MEP approval.",
+      "forms": [
+        {
+          "id": "form-ja-en-730e65c7507e1ca1",
+          "sourceOrdinal": 1,
+          "target": "マリソルさんは、ダクトはすでに総合図に記入されていると言いました。",
+          "english": "Marisol said the duct was already marked on the coordination drawing.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c4b0477d75c06000",
+          "sourceOrdinal": 2,
+          "target": "トマスさんは、自分の図面にはケーブルラックが記入されていないと教えてくれました。",
+          "english": "Tomás told me his drawing didn't show the cable tray.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 11,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:11",
+      "sourceFile": "master-runtime-pilot-10-12-ja-en.json",
+      "focus": "Acknowledge fatigue and listen to concerns without promising unapproved hours, time off, staffing or training.",
+      "forms": [
+        {
+          "id": "form-ja-en-8d63f0e17aad9d32",
+          "sourceOrdinal": 1,
+          "target": "今週は、誰にも1日10時間を超える作業はさせません。",
+          "english": "This week nobody will work more than 10 hours a day.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-4d2f064153760e88",
+          "sourceOrdinal": 2,
+          "target": "イバンさん、月曜日からフェルナンダさんと一緒に大工の作業に入ってもらうよ。",
+          "english": "Iván, on Monday you'll start working with Fernanda in carpentry.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 12,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:12",
+      "sourceFile": "master-runtime-pilot-10-12-ja-en.json",
+      "focus": "Adjust Japanese register for different listeners while deferring certificate and use decisions to qualified officials.",
+      "forms": [
+        {
+          "id": "form-ja-en-28bd8915352d939c",
+          "sourceOrdinal": 1,
+          "target": "ベトさん、機械室のドア、閉めてもらえる？",
+          "english": "Beto, could you close the machine room door?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f4ab6fd870852c69",
+          "sourceOrdinal": 2,
+          "target": "検査担当のメンデスさん、今、新しい日程を確定してもよろしいでしょうか。",
+          "english": "Inspector Méndez, would it be all right if we confirm the new date now?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 13,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:13",
+      "sourceFile": "master-runtime-pilot-13-15-ja-en.json",
+      "focus": "Use observed times and completed actions; avoid inferring the injury cause or teaching unreviewed first-aid/table-saw procedures.",
+      "forms": [
+        {
+          "id": "form-ja-en-4ff04134493ac35e",
+          "sourceOrdinal": 1,
+          "target": "10時40分にサミュエルさんが叫び、私たちはすぐにテーブルソーを止めました。",
+          "english": "At 10:40 Samuel shouted and we stopped the saw right away.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1e288924ea0286c3",
+          "sourceOrdinal": 2,
+          "target": "救急車を待っている間、ロサさんはサミュエルさんの手の傷口を押さえ続けていました。",
+          "english": "While we were waiting for the ambulance, Rosa kept pressure on his hand.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 14,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:14",
+      "sourceFile": "master-runtime-pilot-13-15-ja-en.json",
+      "focus": "Use 〜ところだった for a near miss and ask neutral fact-finding questions; do not prescribe rigging or lift changes.",
+      "forms": [
+        {
+          "id": "form-ja-en-b4cf0039233fca91",
+          "sourceOrdinal": 1,
+          "target": "鉄筋の束がニコラスの上に落ちるところだった。",
+          "english": "The bundle almost fell on Nicolás.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d82750720c6933de",
+          "sourceOrdinal": 2,
+          "target": "介錯ロープを使えば、誰も吊り荷の近くにいる必要はありません。",
+          "english": "If we use the tag line, nobody will have to be near the load.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 15,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:15",
+      "sourceFile": "master-runtime-pilot-13-15-ja-en.json",
+      "focus": "Give concise, factual location and status information without guessing the cause; keep the source US 911 context.",
+      "forms": [
+        {
+          "id": "form-ja-en-380228c4a8b06f11",
+          "sourceOrdinal": 1,
+          "target": "消防隊が到着したら、掘削溝の正確な場所をお伝えします。",
+          "english": "If the firefighters arrive, I'll give them the exact location of the trench.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ddf6b8888594028f",
+          "sourceOrdinal": 2,
+          "target": "風向きが変わったら、集合場所を移動します。",
+          "english": "If the wind changes, we'll move the assembly point.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 16,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:16",
+      "sourceFile": "master-runtime-pilot-16-18-ja-en.json",
+      "focus": "Use formal Japanese for factual records; do not infer OSHA frequency, credential authority or tag approval.",
+      "forms": [
+        {
+          "id": "form-ja-en-7d57548d00201021",
+          "sourceOrdinal": 1,
+          "target": "当社の安全計画に基づき、足場は毎シフト点検されています。",
+          "english": "The scaffold is inspected every shift according to our safety plan.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e47d08fff9a36231",
+          "sourceOrdinal": 2,
+          "target": "点検のたびに、結果はタグに記録され、点検者が署名します。",
+          "english": "Each inspection is recorded on the tag and signed.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 17,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:17",
+      "sourceFile": "master-runtime-pilot-16-18-ja-en.json",
+      "focus": "Use ため, しかし, また and なお to separate observed events from unverified causes and commitments.",
+      "forms": [
+        {
+          "id": "form-ja-en-24820f356890a95e",
+          "sourceOrdinal": 1,
+          "target": "ポンプ車が到着しなかったため、作業班は午前中の作業をロスしました。",
+          "english": "Because the pump truck didn't arrive, the crew lost the morning.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-b2dd6ab1d86bada3",
+          "sourceOrdinal": 2,
+          "target": "しかし、圧送会社からは遅延の連絡がなかったことを付記します。",
+          "english": "However, it should be noted that the pump company gave no notice of the delay.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 18,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:18",
+      "sourceFile": "master-runtime-pilot-16-18-ja-en.json",
+      "focus": "Distinguish a live phone request, voicemail and crew chat; do not imply a proposed arrival window is confirmed.",
+      "forms": [
+        {
+          "id": "form-ja-en-08ddd4fc19de91d1",
+          "sourceOrdinal": 1,
+          "target": "こんにちは。リベラ建設の者ですが、検査の件でお電話しております。",
+          "english": "Good afternoon, I'm calling on behalf of Rivera Construction about the inspection.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ec4020c76e18649d",
+          "sourceOrdinal": 2,
+          "target": "検査を午後1時から4時の間に変更することは可能でしょうか。",
+          "english": "Would it be possible to move the inspection to the afternoon, between 1:00 and 4:00?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 19,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:19",
+      "sourceFile": "master-runtime-pilot-19-20-ja-en.json",
+      "focus": "Use conditional language for contract-dependent claims; do not promise coverage, repair or no-cost service without the actual agreement.",
+      "forms": [
+        {
+          "id": "form-ja-en-cea286f5b3576251",
+          "sourceOrdinal": 1,
+          "target": "床に手を加えていない限り、そのひび割れは保証の対象となります。",
+          "english": "The warranty covers those cracks as long as the floor isn't altered.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-dde316d15fbdba4e",
+          "sourceOrdinal": 2,
+          "target": "契約書に別段の定めがない限り、無償で点検することになると思います。",
+          "english": "We would check it at no cost, unless the contract says otherwise.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "stage": "master",
+      "courseId": "master-construction-foreman-ja-en",
+      "lesson": 20,
+      "sourceLessonId": "master-construction-foreman-ja-en:lesson:20",
+      "sourceFile": "master-runtime-pilot-19-20-ja-en.json",
+      "focus": "Separate observed shortages, requests and near-miss facts from unapproved safety procedures or schedule promises.",
+      "forms": [
+        {
+          "id": "form-ja-en-cc4f09dbdb04a398",
+          "sourceOrdinal": 1,
+          "target": "工程の遅れのため、フェリペは手すりを外すよう求めました。しかしながら、私は認めませんでした。",
+          "english": "Because of the schedule slip, Felipe asked to remove the guardrail; however, I didn't allow it.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-eab015182d56ad62",
+          "sourceOrdinal": 2,
+          "target": "ルピタ、安全帯のフックを掛けるまで、端に近づかないで。",
+          "english": "Lupita, don't go near the edge until you clip in.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,735 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "f609e4b52dffff8133783f3c8cac3243cb3cd91df26a3f2b23ba528e17190858",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 10,
+      "titleEnglish": "Conflict Between Two Crew Members",
+      "objectiveEnglishSource": "Hear both sides of a crew conflict, report what each person said, and settle it with a clear rule",
+      "focusEnglishSource": "Reported speech; imperfect for background",
+      "lessonType": "People",
+      "block": "C",
+      "speakingEnglishSource": "You are the crew lead and the AI plays two crew members arguing about a job that went wrong: hear each version, repeat back what each one said with dijo que, and settle it with a fair new rule and assignments.",
+      "grammarExamplesEnglish": [
+        "Marcos said the tarp wasn't his job.",
+        "It was raining hard when the tarp lifted."
+      ],
+      "titleFrench": "Régler un désaccord entre deux membres de l’équipe",
+      "objectiveFrench": "Écouter les deux versions d’un conflit, rapporter les propos de chacun et répartir clairement les responsabilités.",
+      "grammarFocusFrench": "Discours rapporté avec il a dit que; imparfait pour la situation de fond.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe. Écoutez séparément Julio et Marcos, reformulez leurs propos sans désigner un coupable, puis convenez des responsabilités et d’une vérification de la protection temporaire conforme au plan du chantier.",
+      "speakingFrenchOpening": "Je vais écouter chacun à son tour. Marcos, explique-moi ce que tu as constaté.",
+      "teachingNotesFrench": "L’imparfait décrit la pluie et le conflit en cours; le passé composé rapporte les paroles et les décisions. La fixation d’une bâche, son contrôle et l’accès au toit doivent suivre le plan de sécurité du chantier, et non une règle inventée pendant le dialogue.",
+      "words": [
+        {
+          "en": "the loose tarp",
+          "kind": "term",
+          "fr": "la bâche mal fixée"
+        },
+        {
+          "en": "the argument",
+          "kind": "term",
+          "fr": "la dispute"
+        },
+        {
+          "en": "the misunderstanding",
+          "kind": "term",
+          "fr": "le malentendu"
+        },
+        {
+          "en": "the version (one side of the story)",
+          "kind": "term",
+          "fr": "la version des faits"
+        },
+        {
+          "en": "the blame",
+          "kind": "term",
+          "fr": "la faute"
+        },
+        {
+          "en": "the shift",
+          "kind": "term",
+          "fr": "le quart de travail"
+        },
+        {
+          "en": "the task",
+          "kind": "term",
+          "fr": "la tâche"
+        },
+        {
+          "en": "the respect",
+          "kind": "term",
+          "fr": "le respect"
+        },
+        {
+          "en": "the agreement",
+          "kind": "term",
+          "fr": "l’accord"
+        },
+        {
+          "en": "the rule",
+          "kind": "term",
+          "fr": "la règle"
+        },
+        {
+          "en": "the witness",
+          "kind": "term",
+          "fr": "le témoin"
+        },
+        {
+          "en": "the complaint",
+          "kind": "term",
+          "fr": "la plainte"
+        },
+        {
+          "en": "the tie-down",
+          "kind": "term",
+          "fr": "l’attache"
+        },
+        {
+          "en": "the person responsible",
+          "kind": "term",
+          "fr": "la personne responsable"
+        },
+        {
+          "en": "He said the tarp wasn't his job.",
+          "kind": "phrase",
+          "fr": "Il a dit que la bâche ne relevait pas de lui."
+        },
+        {
+          "en": "He explained to me that it was already dark.",
+          "kind": "phrase",
+          "fr": "Il m’a expliqué qu’il faisait déjà sombre."
+        },
+        {
+          "en": "One at a time, please.",
+          "kind": "phrase",
+          "fr": "Un à la fois, s’il vous plaît."
+        },
+        {
+          "en": "OK, tell me your side.",
+          "kind": "phrase",
+          "fr": "D’accord, raconte-moi ta version."
+        },
+        {
+          "en": "Calm down, buddy.",
+          "kind": "phrase",
+          "fr": "Calmons-nous tous les deux."
+        },
+        {
+          "en": "Here we don't look for someone to blame.",
+          "kind": "phrase",
+          "fr": "Ici, nous cherchons une solution plutôt qu’un coupable."
+        },
+        {
+          "en": "With all due respect, that's not how it was.",
+          "kind": "phrase",
+          "fr": "Avec tout le respect que je vous dois, les faits étaient différents."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Régler un désaccord entre deux membres de l’équipe",
+        "target": [
+          "Lundi matin, un coin du grenier de la maison Martínez était humide.",
+          "La veille au soir, il pleuvait fort et la bâche mal fixée s’était soulevée dans le vent.",
+          "Quand Rogelio est arrivé, Julio et Marcos se disputaient vivement près du camion.",
+          "Rogelio : « Calmons-nous tous les deux; un à la fois, s’il vous plaît. »",
+          "Rogelio : « Marcos, d’accord, raconte-moi ta version. »",
+          "Marcos a dit que la bâche ne relevait pas de lui parce qu’il travaillait au garage ce jour-là.",
+          "Puis Julio a dit qu’il faisait déjà sombre, qu’il n’y avait pas d’attaches dans le camion et qu’il avait posé des pierres sur le bord.",
+          "Rogelio a écouté les deux sans les interrompre, puis il a parlé à Kevin, qui avait été témoin.",
+          "Kevin a dit qu’en fin de journée tout le monde était fatigué et que personne n’avait vérifié la bâche.",
+          "Plus tard, Rogelio a appelé son responsable : « Julio m’a expliqué qu’il faisait déjà sombre; Marcos a dit que ce n’était pas sa tâche. »",
+          "Le responsable : « Qui était chargé de vérifier la bâche ? »",
+          "Rogelio : « Avec tout le respect que je vous dois, la responsabilité n’était pas clairement attribuée. »",
+          "Rogelio a réuni l’équipe : « Nous cherchons une solution, pas un coupable; une accusation ne répare rien. »",
+          "Rogelio : « Désormais, désignons une personne qui vérifie les attaches selon le plan et m’envoie une photo avant le départ. »",
+          "Rogelio : « Julio, demain tu vérifies le côté nord; Marcos, tu vérifies le côté sud, si l’accès est sûr. »",
+          "Finalement, les deux ont trouvé un accord et les plaintes ont cessé."
+        ],
+        "native": [
+          "On Monday morning, the attic of the Martínez house was wet in one corner.",
+          "The night before it was raining hard, and the loose tarp lifted in the wind.",
+          "When Rogelio arrived, Julio and Marcos were having a heated argument next to the truck.",
+          "Rogelio: Calm down, buddy, and you too, Marcos; one at a time, please.",
+          "Rogelio: Marcos, OK, tell me your side.",
+          "Marcos said the tarp wasn't his job, because that day he was on the garage shift.",
+          "Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge.",
+          "Rogelio listened to both without interrupting and then talked with Kevin, who was a witness.",
+          "Kevin said that at the end of the day everyone was tired and that nobody checked the tarp.",
+          "Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job.",
+          "Boss: And who was responsible for the tarp?",
+          "Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned.",
+          "Rogelio gathered the crew and told them: Here we don't look for someone to blame, we look for solutions; blame fixes nothing.",
+          "Rogelio: From today, the rule is this: the last one down checks every tie-down on the tarp and sends me a photo.",
+          "Rogelio: Julio, tomorrow you check the north side, and Marcos, you check the south side.",
+          "In the end, the two reached an agreement and there were no more complaints."
+        ],
+        "nativeDisplay": [
+          "On Monday morning, the attic of the Martínez house was wet in one corner.",
+          "The night before it was raining hard, and the loose tarp lifted in the wind.",
+          "When Rogelio arrived, Julio and Marcos were having a heated argument next to the truck.",
+          "Rogelio: Calm down, buddy, and you too, Marcos; one at a time, please.",
+          "Rogelio: Marcos, OK, tell me your side.",
+          "Marcos said the tarp wasn't his job, because that day he was on the garage shift.",
+          "Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge.",
+          "Rogelio listened to both without interrupting and then talked with Kevin, who was a witness.",
+          "Kevin said that at the end of the day everyone was tired and that nobody checked the tarp.",
+          "Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job.",
+          "Boss: And who was responsible for the tarp?",
+          "Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned.",
+          "Rogelio gathered the crew and told them: Here we don't look for someone to blame, we look for solutions; blame fixes nothing.",
+          "Rogelio: From today, designate someone to check the tarp tie-downs under the site plan and send me a photo before leaving.",
+          "Rogelio: Julio, tomorrow check the north side and Marcos the south side, if access is safe.",
+          "In the end, the two reached an agreement and there were no more complaints."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to say",
+          "exampleEnglish": "Kevin says that nobody checked the tarp.",
+          "sourceInfinitiveSpanish": "decir",
+          "infinitiveFrench": "dire",
+          "exampleFrench": "Kevin dit que personne n’a vérifié la bâche."
+        },
+        {
+          "meaningEnglish": "to listen",
+          "exampleEnglish": "Rogelio listened to both without interrupting.",
+          "sourceInfinitiveSpanish": "escuchar",
+          "infinitiveFrench": "écouter",
+          "exampleFrench": "Rogelio a écouté les deux sans les interrompre."
+        },
+        {
+          "meaningEnglish": "to interrupt",
+          "exampleEnglish": "One at a time; don't interrupt, please.",
+          "sourceInfinitiveSpanish": "interrumpir",
+          "infinitiveFrench": "interrompre",
+          "exampleFrench": "Un à la fois; ne m’interrompez pas, s’il vous plaît."
+        },
+        {
+          "meaningEnglish": "to gather",
+          "exampleEnglish": "Rogelio gathered the crew.",
+          "sourceInfinitiveSpanish": "reunir",
+          "infinitiveFrench": "réunir",
+          "exampleFrench": "Rogelio a réuni l’équipe."
+        },
+        {
+          "meaningEnglish": "to assign",
+          "exampleEnglish": "Rogelio assigns one side of the roof to each of them.",
+          "sourceInfinitiveSpanish": "asignar",
+          "infinitiveFrench": "attribuer",
+          "exampleFrench": "Rogelio attribue une zone du toit à chacun, selon le plan."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez les deux versions et la tâche non attribuée.",
+        "recall": "Rapportez ce que Marcos et Julio ont dit avec il a dit que.",
+        "hear": "Écoutez les propos de chaque membre et identifiez le témoin.",
+        "type": "Écrivez en français : He said the tarp wasn't his job.",
+        "say": "Arbitrez sans blâmer; attribuez une vérification selon le plan.",
+        "write": "Rédigez une consigne qui identifie le responsable sans improviser une méthode de fixation."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/site-safety review required for tarp tie-down method, photo verification, access and assignment of responsibility; rocks on a tarp are depicted as a failed improvisation, not endorsed.",
+        "Qualified HR/local-language review required for conflict-resolution register and duties."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 11,
+      "titleEnglish": "Motivating the Crew Through a Hot Week",
+      "objectiveEnglishSource": "Keep a tired crew going through a heat wave with a clear plan, firm commitments and real encouragement",
+      "focusEnglishSource": "Future for commitments; encouragement register",
+      "lessonType": "People",
+      "block": "C",
+      "speakingEnglishSource": "You are the crew lead and the AI is a tired crew member during a heat wave with a deadline: acknowledge the hard week, give the plan and your commitments with the future (empezaremos, habrá), and make water and breaks non-negotiable.",
+      "grammarExamplesEnglish": [
+        "We'll start at six and there will be cold water all day.",
+        "We're going to finish on time, but nobody will work without a break."
+      ],
+      "titleFrench": "Soutenir l’équipe pendant une semaine de forte chaleur",
+      "objectiveFrench": "Reconnaître la fatigue de l’équipe, expliquer le plan de prévention de la chaleur et demander de signaler tout symptôme sans promettre un délai.",
+      "grammarFocusFrench": "Futur simple pour annoncer un plan sous réserve des conditions; impératif pour demander de signaler un symptôme.",
+      "speakingFrenchInstruction": "Vous dirigez une équipe fatiguée pendant une vague de chaleur. Reconnaissez l’effort, expliquez que les horaires et pauses suivent le plan chaleur du site, assurez l’accès à l’eau et à l’ombre, et demandez de signaler immédiatement tout malaise. Ne garantissez pas la date de fin.",
+      "speakingFrenchOpening": "Je sais que la semaine a été difficile. Parlons du plan chaleur avant de monter.",
+      "teachingNotesFrench": "Le futur simple exprime une intention; les horaires et la fréquence des pauses ne sont pas des règles universelles. Le récit source présente une liste de symptômes comme un diagnostic et promet une fin vendredi. La version affichée demande de suivre le plan chaleur et le protocole d’urgence locaux, sans remplacer une formation médicale.",
+      "words": [
+        {
+          "en": "the heat wave",
+          "kind": "term",
+          "fr": "la vague de chaleur"
+        },
+        {
+          "en": "the heat exhaustion",
+          "kind": "term",
+          "fr": "l’épuisement dû à la chaleur"
+        },
+        {
+          "en": "the heatstroke",
+          "kind": "term",
+          "fr": "le coup de chaleur"
+        },
+        {
+          "en": "the hydration",
+          "kind": "term",
+          "fr": "l’hydratation"
+        },
+        {
+          "en": "the water break",
+          "kind": "term",
+          "fr": "la pause pour boire de l’eau"
+        },
+        {
+          "en": "the shade",
+          "kind": "term",
+          "fr": "l’ombre"
+        },
+        {
+          "en": "the electrolytes",
+          "kind": "term",
+          "fr": "les électrolytes"
+        },
+        {
+          "en": "the cooler",
+          "kind": "term",
+          "fr": "la glacière"
+        },
+        {
+          "en": "the dizziness",
+          "kind": "term",
+          "fr": "les étourdissements"
+        },
+        {
+          "en": "the deadline",
+          "kind": "term",
+          "fr": "la date limite"
+        },
+        {
+          "en": "the workday",
+          "kind": "term",
+          "fr": "la journée de travail"
+        },
+        {
+          "en": "the schedule",
+          "kind": "term",
+          "fr": "l’horaire"
+        },
+        {
+          "en": "the effort",
+          "kind": "term",
+          "fr": "l’effort"
+        },
+        {
+          "en": "the early morning",
+          "kind": "term",
+          "fr": "le petit matin"
+        },
+        {
+          "en": "I know it's been a tough week.",
+          "kind": "phrase",
+          "fr": "Je sais que la semaine a été difficile."
+        },
+        {
+          "en": "We'll start at six and stop at two.",
+          "kind": "phrase",
+          "fr": "Nous prévoyons de commencer à six heures et d’arrêter à deux heures, selon le plan.",
+          "enDisplay": "We plan to start at six and stop at two, under the site plan."
+        },
+        {
+          "en": "There will be cold water in the cooler all day.",
+          "kind": "phrase",
+          "fr": "Il y aura de l’eau fraîche dans la glacière toute la journée."
+        },
+        {
+          "en": "Nobody will work without a break.",
+          "kind": "phrase",
+          "fr": "Personne ne travaillera sans les pauses prévues.",
+          "enDisplay": "Nobody will work without the planned breaks."
+        },
+        {
+          "en": "If you get dizzy, tell me right away.",
+          "kind": "phrase",
+          "fr": "Si vous avez des étourdissements, prévenez-moi tout de suite."
+        },
+        {
+          "en": "We'll finish on time, but without risks.",
+          "kind": "phrase",
+          "fr": "Nous visons la date prévue, mais la sécurité passe avant le délai.",
+          "enDisplay": "We aim to finish on time, but safety comes before the deadline."
+        },
+        {
+          "en": "Give it your all, guys!",
+          "kind": "phrase",
+          "fr": "Courage, l’équipe !"
+        },
+        {
+          "en": "Count on us, sir.",
+          "kind": "phrase",
+          "fr": "Vous pouvez compter sur nous pour suivre le plan.",
+          "enDisplay": "Count on us to follow the plan."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Soutenir l’équipe pendant une semaine de forte chaleur",
+        "target": [
+          "Les prévisions annonçaient une vague de chaleur pour la semaine, avec plus de cent degrés Fahrenheit l’après-midi.",
+          "L’entreprise visait une échéance : terminer le toit de l’école d’ici vendredi.",
+          "Mercredi, au petit matin, Rogelio a réuni l’équipe avant la montée sur le toit.",
+          "Rogelio : « Je sais que la semaine a été difficile et qu’il reste trois jours. »",
+          "Rogelio : « Voici le plan : nous adapterons l’horaire selon le plan chaleur du chantier. »",
+          "Rogelio : « Nous prévoyons de commencer à six heures et d’arrêter à deux heures, si les conditions le permettent. »",
+          "Rogelio : « Il y aura de l’eau fraîche dans la glacière toute la journée, ainsi que des électrolytes. »",
+          "Rogelio : « Nous prendrons les pauses prévues à l’ombre; personne ne les sautera pour rattraper le temps. »",
+          "Rogelio : « Boire de l’eau n’est pas facultatif, même si nous sommes en retard. »",
+          "Rogelio : « Kevin, si tu as des étourdissements ou te sens mal, préviens-moi tout de suite. »",
+          "Rogelio : « Des étourdissements, un mal de tête ou des nausées peuvent signaler un problème lié à la chaleur. »",
+          "Rogelio : « Si quelqu’un présente des signes graves, nous arrêterons le travail et suivrons le protocole d’urgence du site, y compris l’appel aux secours locaux. »",
+          "Rogelio : « Nous visons vendredi, mais nous ne sacrifierons pas la sécurité pour tenir ce délai. »",
+          "Rogelio : « Vendredi, si tout se passe bien, nous partagerons des tacos après le travail. »",
+          "Rogelio : « Courage, l’équipe ! »",
+          "Plus tard, Rogelio a dit au responsable : « Nous suivrons le plan; je confirmerai l’avancement vendredi. »"
+        ],
+        "native": [
+          "The forecast announced a heat wave for the whole week, with more than 100 degrees in the afternoon.",
+          "The company had a deadline: the school roof had to be ready by Friday.",
+          "On Wednesday, in the early morning, Rogelio gathered the crew before going up.",
+          "Rogelio: I know it's been a tough week, and there are still three days to go.",
+          "Rogelio: Here's the plan: we'll change the schedule until Friday.",
+          "Rogelio: We'll start at six and stop at two, before the worst of the heat.",
+          "Rogelio: There will be cold water in the cooler all day, and electrolytes too.",
+          "Rogelio: Every hour we'll take a water break in the shade, and nobody will work without a break.",
+          "Rogelio: Hydration isn't optional, even if we're behind.",
+          "Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away.",
+          "Rogelio: Dizziness, headache, nausea and heavy sweating are signs of heat exhaustion.",
+          "Rogelio: Heatstroke is an emergency, and in that case we'll call 911 without waiting.",
+          "Rogelio: We'll finish on time, but without risks; everyone's effort counts.",
+          "Rogelio: And on Friday, at the end of the workday, there will be tacos for everyone.",
+          "Rogelio: Give it your all, guys!",
+          "In the afternoon, Rogelio called the boss: Count on us, sir; it will be ready on Friday."
+        ],
+        "nativeDisplay": [
+          "The forecast announced a heat wave for the whole week, with more than 100 degrees in the afternoon.",
+          "The company had a deadline: the school roof had to be ready by Friday.",
+          "On Wednesday, in the early morning, Rogelio gathered the crew before going up.",
+          "Rogelio: I know it's been a tough week, and there are still three days to go.",
+          "Rogelio: Here's the plan: we'll adapt the schedule under the site's heat plan.",
+          "Rogelio: We plan to start at six and stop at two, if conditions allow.",
+          "Rogelio: There will be cold water in the cooler all day, and electrolytes too.",
+          "Rogelio: We'll take the planned breaks in the shade, and nobody will skip them to catch up.",
+          "Rogelio: Hydration isn't optional, even if we're behind.",
+          "Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away.",
+          "Rogelio: Dizziness, headache or nausea can signal a heat-related problem.",
+          "Rogelio: If someone shows severe symptoms, we'll stop work and follow the site's emergency protocol, including a call to local emergency services.",
+          "Rogelio: We aim for Friday, but we won't sacrifice safety for the deadline.",
+          "Rogelio: And on Friday, at the end of the workday, there will be tacos for everyone.",
+          "Rogelio: Give it your all, guys!",
+          "Later, Rogelio told the boss: We'll follow the plan; I'll confirm progress on Friday."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "We'll stop at two, before the worst of the heat.",
+          "sourceInfinitiveSpanish": "parar",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "Nous arrêterons selon le plan et les conditions."
+        },
+        {
+          "meaningEnglish": "to let someone know",
+          "exampleEnglish": "If you get dizzy, tell me right away.",
+          "sourceInfinitiveSpanish": "avisar",
+          "infinitiveFrench": "prévenir",
+          "exampleFrench": "Si tu te sens mal, préviens-moi tout de suite."
+        },
+        {
+          "meaningEnglish": "to get dizzy",
+          "exampleEnglish": "If you get dizzy, you come down to the shade.",
+          "sourceInfinitiveSpanish": "marearse",
+          "infinitiveFrench": "avoir des étourdissements",
+          "exampleFrench": "Si tu as des étourdissements, préviens-moi et va à l’ombre avec de l’aide."
+        },
+        {
+          "meaningEnglish": "to do, to make",
+          "exampleEnglish": "It's very hot and we take a break every hour.",
+          "sourceInfinitiveSpanish": "hacer",
+          "infinitiveFrench": "faire",
+          "exampleFrench": "Il fait très chaud et nous suivons le plan de pauses."
+        },
+        {
+          "meaningEnglish": "to call",
+          "exampleEnglish": "In that case we'll call 911 without waiting.",
+          "sourceInfinitiveSpanish": "llamar",
+          "infinitiveFrench": "appeler",
+          "exampleFrench": "En cas d’urgence, nous appellerons les secours locaux selon le protocole du site."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez les engagements, les conditions et les symptômes à signaler.",
+        "recall": "Retrouvez la phrase qui demande de signaler immédiatement un malaise.",
+        "hear": "Écoutez l’horaire envisagé et le rappel des pauses.",
+        "type": "Écrivez en français : If you get dizzy, tell me right away.",
+        "say": "Annoncez le plan chaleur sans garantir l’heure ni la date de fin.",
+        "write": "Rédigez un message d’équipe qui renvoie au protocole chaleur et d’urgence local."
+      },
+      "reviewGapsEnglish": [
+        "Qualified occupational heat-safety and medical review required for symptom language, heat exhaustion/stroke distinction, hydration, electrolytes, break frequency, work hours and emergency response. US 911 in source must not be generalized to France/Québec without locale-specific routing.",
+        "Qualified labor/supervisor review required for scheduling and Friday commitment; neither draft nor source constitutes a safe work plan."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 12,
+      "titleEnglish": "Register: Homeowner, Crew, Boss, Inspector",
+      "objectiveEnglishSource": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+      "focusEnglishSource": "Usted / tú switching; softeners (quisiera)",
+      "lessonType": "Teach-back",
+      "block": "C",
+      "speakingEnglishSource": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+      "grammarExamplesEnglish": [
+        "Look, we found rotten wood.",
+        "Excuse me, ma'am; I'd like to mention something we found."
+      ],
+      "titleFrench": "Adapter son registre : collègue, propriétaire, responsable, inspecteur",
+      "objectiveFrench": "Expliquer une même découverte à quatre interlocuteurs avec un ton adapté, sans présumer du tutoiement ni d’une approbation de l’inspecteur.",
+      "grammarFocusFrench": "Tu et vous selon la relation; conditionnel de politesse : je voudrais, pourriez-vous.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe et l’IA joue successivement un collègue, une propriétaire, votre responsable et un inspecteur. Annoncez une zone de bois dégradé avec le registre approprié, demandez la préférence de la personne pour tu ou vous si nécessaire et demandez une vérification avant recouvrement selon la procédure applicable.",
+      "speakingFrenchOpening": "J’ai repéré une zone de bois dégradé; je vais adapter mon explication à chaque personne.",
+      "teachingNotesFrench": "En français, le choix entre tu et vous dépend de la relation et de la préférence exprimée, pas seulement de l’âge ou de la fonction. Je voudrais et pourriez-vous marquent la politesse. La découverte de bois dégradé exige une vérification technique selon les procédures locales; la scène n’accorde aucune approbation réglementaire.",
+      "words": [
+        {
+          "en": "using usted with someone",
+          "kind": "term",
+          "fr": "vouvoyer quelqu’un"
+        },
+        {
+          "en": "using tú with someone",
+          "kind": "term",
+          "fr": "tutoyer quelqu’un"
+        },
+        {
+          "en": "the title (form of address)",
+          "kind": "term",
+          "fr": "le titre de civilité"
+        },
+        {
+          "en": "the tone",
+          "kind": "term",
+          "fr": "le ton"
+        },
+        {
+          "en": "the courtesy",
+          "kind": "term",
+          "fr": "la courtoisie"
+        },
+        {
+          "en": "the message",
+          "kind": "term",
+          "fr": "le message"
+        },
+        {
+          "en": "sir / ma'am",
+          "kind": "term",
+          "fr": "monsieur / madame"
+        },
+        {
+          "en": "respectful title before a first name",
+          "kind": "term",
+          "fr": "le titre respectueux devant un prénom"
+        },
+        {
+          "en": "the manager",
+          "kind": "term",
+          "fr": "le responsable"
+        },
+        {
+          "en": "the formality",
+          "kind": "term",
+          "fr": "le degré de formalité"
+        },
+        {
+          "en": "the rudeness",
+          "kind": "term",
+          "fr": "l’impolitesse"
+        },
+        {
+          "en": "the nickname",
+          "kind": "term",
+          "fr": "le surnom"
+        },
+        {
+          "en": "the request",
+          "kind": "term",
+          "fr": "la demande"
+        },
+        {
+          "en": "the slang",
+          "kind": "term",
+          "fr": "l’argot"
+        },
+        {
+          "en": "Look, we found rotten wood.",
+          "kind": "phrase",
+          "fr": "Regarde, nous avons trouvé du bois dégradé."
+        },
+        {
+          "en": "Sorry to bother you, ma'am.",
+          "kind": "phrase",
+          "fr": "Excusez-moi de vous déranger, madame."
+        },
+        {
+          "en": "I'd like to mention something we found.",
+          "kind": "phrase",
+          "fr": "Je voudrais vous signaler ce que nous avons trouvé."
+        },
+        {
+          "en": "Would you allow me to show you the area?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me permettre de vous montrer la zone ?"
+        },
+        {
+          "en": "I'm letting you know that we found a problem.",
+          "kind": "phrase",
+          "fr": "Je vous informe que nous avons trouvé un problème."
+        },
+        {
+          "en": "I'd like you to check it.",
+          "kind": "phrase",
+          "fr": "Je souhaiterais que vous l’examiniez."
+        },
+        {
+          "en": "Should I address you as usted or tú?",
+          "kind": "phrase",
+          "fr": "Préférez-vous que je vous tutoie ou que je vous vouvoie ?"
+        },
+        {
+          "en": "Use tú with me, no problem.",
+          "kind": "phrase",
+          "fr": "Vous pouvez me tutoyer, aucun problème."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Adapter son registre : collègue, propriétaire, responsable, inspecteur",
+        "target": [
+          "Kevin veut savoir comment parler à chaque personne sur le chantier; Rogelio lui donne un exemple.",
+          "Rogelio : « Le message reste le même : nous avons trouvé du bois dégradé; le ton change selon la personne. »",
+          "Rogelio : « Avec les collègues proches, on peut se tutoyer, mais il faut respecter la préférence de chacun. »",
+          "Rogelio : « À un collègue qui accepte le tutoiement, je dirais : Regarde, nous avons trouvé du bois dégradé; viens voir. »",
+          "Rogelio : « Avec la propriétaire, je commence par vous et par madame, sauf si elle préfère autre chose. »",
+          "Rogelio : « Je dirais : Excusez-moi de vous déranger, madame; je voudrais vous signaler ce que nous avons trouvé. »",
+          "Rogelio : « Puis je demanderais : Pourriez-vous me permettre de vous montrer la zone ? »",
+          "Rogelio : « Avec mon responsable, je reste courtois et je vais droit au but. »",
+          "Rogelio : « Je vous informe que nous avons trouvé une zone de bois dégradé; je vous envoie les photos. »",
+          "Rogelio : « Avec l’inspecteur, j’évite l’argot et je présente les constats clairement. »",
+          "Rogelio : « Je souhaiterais que vous l’examiniez avant le recouvrement, selon la procédure prévue. »",
+          "Rogelio : « Je voudrais, je souhaiterais et pourriez-vous atténuent une demande. »",
+          "Kevin : « Et si un membre de l’équipe est plus âgé, comme Ernesto ? »",
+          "Rogelio : « Demande-lui poliment : Préférez-vous que je vous tutoie ou que je vous vouvoie ? »",
+          "Rogelio : « Il peut répondre : Vous pouvez me tutoyer, aucun problème. »",
+          "Rogelio : « En cas de doute, commence par vous et adapte-toi à la préférence de la personne. »"
+        ],
+        "native": [
+          "Kevin wants to know how to talk to each person on the job, and Rogelio explains it to him with an example.",
+          "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person.",
+          "Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude.",
+          "Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you.",
+          "Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor.",
+          "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found.",
+          "Rogelio: And then I ask her: Would you allow me to show you the area?",
+          "Rogelio: With the company manager I also use usted, but I go straight to the point.",
+          "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now.",
+          "Rogelio: With the inspector there's more formality: no slang and no jokes.",
+          "Rogelio: To him I would say: I'd like you to check it before we cover it.",
+          "Rogelio: Quisiera, me gustaría and podría are words that soften a request.",
+          "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+          "Rogelio: Then ask him politely: Should I address you as usted or tú?",
+          "Rogelio: Many will tell you: Use tú with me, no problem.",
+          "Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect."
+        ],
+        "nativeDisplay": [
+          "Kevin wants to know how to talk to each person on the job, and Rogelio explains it to him with an example.",
+          "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person.",
+          "Rogelio: With close colleagues we may use informal address, but we respect each person's preference.",
+          "Rogelio: To a colleague who accepts informal address, I say: Look, we found rotten wood; come see.",
+          "Rogelio: With the homeowner I start formally and use a respectful title unless she prefers otherwise.",
+          "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found.",
+          "Rogelio: And then I ask her: Would you allow me to show you the area?",
+          "Rogelio: With the company manager I remain courteous but get to the point.",
+          "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now.",
+          "Rogelio: With the inspector there's more formality: no slang and no jokes.",
+          "Rogelio: I would like you to examine it before we cover it, according to the applicable procedure.",
+          "Rogelio: I'd like to, I wish to and could you are phrases that soften a request.",
+          "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+          "Rogelio: Then ask politely: Do you prefer that I address you informally or formally?",
+          "Rogelio: He may say: You can address me informally, no problem.",
+          "Rogelio: If you're unsure, start formally and adapt to the person's preference."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to speak",
+          "exampleEnglish": "Should I address you as usted or tú?",
+          "sourceInfinitiveSpanish": "hablar",
+          "infinitiveFrench": "parler",
+          "exampleFrench": "Préférez-vous que je vous tutoie ou que je vous vouvoie ?"
+        },
+        {
+          "meaningEnglish": "to want",
+          "exampleEnglish": "Kevin wants to know how to talk to each person.",
+          "sourceInfinitiveSpanish": "querer",
+          "infinitiveFrench": "vouloir",
+          "exampleFrench": "Kevin veut savoir comment s’adresser à chacun."
+        },
+        {
+          "meaningEnglish": "to allow",
+          "exampleEnglish": "Would you allow me to show you the area?",
+          "sourceInfinitiveSpanish": "permitir",
+          "infinitiveFrench": "permettre",
+          "exampleFrench": "Pourriez-vous me permettre de vous montrer la zone ?"
+        },
+        {
+          "meaningEnglish": "to show",
+          "exampleEnglish": "Rogelio shows the photos to the manager.",
+          "sourceInfinitiveSpanish": "mostrar",
+          "infinitiveFrench": "montrer",
+          "exampleFrench": "Rogelio montre les photos au responsable."
+        },
+        {
+          "meaningEnglish": "to change",
+          "exampleEnglish": "The message is the same, but the tone changes depending on the person.",
+          "sourceInfinitiveSpanish": "cambiar",
+          "infinitiveFrench": "changer",
+          "exampleFrench": "Le message reste le même, mais le ton change selon la personne."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Comparez quatre formulations d’un même constat.",
+        "recall": "Retrouvez la question sur la préférence pour tu ou vous.",
+        "hear": "Écoutez les demandes polies et le message direct au responsable.",
+        "type": "Écrivez en français : I'd like to mention something we found.",
+        "say": "Annoncez la découverte à quatre interlocuteurs avec le bon registre.",
+        "write": "Rédigez un message à l’inspecteur qui demande une vérification sans présumer de son autorité."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/structural and local-code review required for rotten-deck inspection, whether covering must pause and who has authority to approve work.",
+        "Qualified France/Québec language and workplace-register review required for tu/vous, civilities and the source's doña/usted-specific examples; source claim that nobody is offended by formal address is not universal."
+      ],
+      "reviewed": false
+    }
+  ]
+}

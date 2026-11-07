@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "cbb58e2908780f21b27904a0ca2144acf3f3aa2a496bf6829936aa1592c6d10a",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 19,
+      "titleEnglish": "Customer Walkthrough and Warranty",
+      "objectiveEnglishSource": "Walk a homeowner through the finished job and explain what the warranty covers, and under what conditions",
+      "focusEnglishSource": "Conditional; subjunctive in conditions (siempre que)",
+      "lessonType": "People",
+      "block": "E",
+      "speakingEnglishSource": "You are the crew lead and the AI is the homeowner on the final walkthrough: explain what was done, what each warranty would cover and under what conditions with siempre que and a menos que, and how to reach you.",
+      "grammarExamplesEnglish": [
+        "The warranty would cover any leak caused by the installation.",
+        "It's covered as long as the roof isn't modified."
+      ],
+      "titleFrench": "Faire la visite finale et expliquer les garanties",
+      "objectiveFrench": "Présenter les travaux réalisés et orienter le propriétaire vers les documents de garantie, sans promettre une couverture ou un délai non vérifiés.",
+      "grammarFocusFrench": "Conditionnel pour une possibilité; à condition que et sauf si pour les clauses dont le sens dépend du contrat.",
+      "speakingFrenchInstruction": "Vous dirigez la visite finale avec le propriétaire. Montrez ce qui a été documenté, distinguez garantie du produit et garantie de pose, consultez les certificats pour les exclusions et expliquez comment signaler un problème. Ne garantissez ni couverture intégrale ni délai de traitement.",
+      "speakingFrenchOpening": "Reprenons les travaux et les documents ensemble; je vérifierai les conditions exactes de chaque garantie.",
+      "teachingNotesFrench": "Le conditionnel décrit une possibilité, non une promesse. Les clauses de garantie dépendent des certificats, du fabricant, du contrat de pose, du produit et de la juridiction. La source promet que toute fuite de pose est couverte, qu’une modification peut exclure toute couverture, qu’un sinistre va à l’assureur, qu’un enregistrement sera fait cette semaine, qu’une réclamation sera traitée en quelques jours et qu’un entretien bisannuel suffit; aucune de ces affirmations ne doit être enseignée comme règle générale.",
+      "words": [
+        {
+          "en": "the final walkthrough",
+          "kind": "term",
+          "fr": "la visite finale"
+        },
+        {
+          "en": "the final invoice",
+          "kind": "term",
+          "fr": "la facture finale"
+        },
+        {
+          "en": "the product warranty",
+          "kind": "term",
+          "fr": "la garantie du produit"
+        },
+        {
+          "en": "the installation warranty",
+          "kind": "term",
+          "fr": "la garantie de pose"
+        },
+        {
+          "en": "the certificate",
+          "kind": "term",
+          "fr": "le certificat"
+        },
+        {
+          "en": "the registration",
+          "kind": "term",
+          "fr": "l’enregistrement"
+        },
+        {
+          "en": "the coverage",
+          "kind": "term",
+          "fr": "la couverture"
+        },
+        {
+          "en": "the exclusion",
+          "kind": "term",
+          "fr": "l’exclusion"
+        },
+        {
+          "en": "the normal wear",
+          "kind": "term",
+          "fr": "l’usure normale"
+        },
+        {
+          "en": "the storm damage",
+          "kind": "term",
+          "fr": "les dommages de tempête"
+        },
+        {
+          "en": "the installation defect",
+          "kind": "term",
+          "fr": "le défaut de pose"
+        },
+        {
+          "en": "the warranty claim",
+          "kind": "term",
+          "fr": "la réclamation au titre de la garantie"
+        },
+        {
+          "en": "the maintenance",
+          "kind": "term",
+          "fr": "l’entretien"
+        },
+        {
+          "en": "the business card",
+          "kind": "term",
+          "fr": "la carte professionnelle"
+        },
+        {
+          "en": "The warranty would cover any leak caused by the installation.",
+          "kind": "phrase",
+          "fr": "La garantie pourrait couvrir une fuite imputable à la pose, selon le certificat.",
+          "enDisplay": "The warranty might cover a leak caused by installation, depending on the certificate."
+        },
+        {
+          "en": "As long as the roof isn't modified.",
+          "kind": "phrase",
+          "fr": "À condition que les conditions du certificat soient remplies.",
+          "enDisplay": "If the certificate's conditions are met."
+        },
+        {
+          "en": "Unless there's an installation defect.",
+          "kind": "phrase",
+          "fr": "Sauf si une exclusion ou une autre cause s’applique.",
+          "enDisplay": "Unless an exclusion or another cause applies."
+        },
+        {
+          "en": "If you see a leak, call us right away.",
+          "kind": "phrase",
+          "fr": "Si vous voyez une fuite, prévenez-nous rapidement."
+        },
+        {
+          "en": "Would you like us to check the attic together?",
+          "kind": "phrase",
+          "fr": "Voulez-vous que nous examinions les combles ensemble, si l’accès est sûr ?",
+          "enDisplay": "Would you like us to examine the attic together if access is safe?"
+        },
+        {
+          "en": "Here's my card.",
+          "kind": "phrase",
+          "fr": "Voici ma carte."
+        },
+        {
+          "en": "Do you have any questions before signing?",
+          "kind": "phrase",
+          "fr": "Avez-vous des questions avant de signer ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Faire la visite finale et expliquer les garanties",
+        "target": [
+          "Vendredi après-midi, Rogelio a fait la visite finale avec M. et Mme Novak.",
+          "Ils ont d’abord fait le tour de la maison et examiné la gouttière, les descentes d’eau et le jardin.",
+          "Rogelio : « Nous avons passé l’aimant deux fois; si vous trouvez un clou, prévenez-nous. »",
+          "Rogelio : « La facture finale décrit le toit, la sous-couche et trois panneaux de support; vérifions ensemble les travaux effectivement réalisés. »",
+          "Mme Novak : « Et s’il y a une fuite l’hiver prochain ? »",
+          "Rogelio : « Il existe une garantie du produit et une garantie de pose; leurs conditions figurent dans leurs documents respectifs. »",
+          "Rogelio : « Une fuite imputable à la pose pourrait relever de notre garantie, selon le certificat et après examen de la cause. »",
+          "Rogelio : « La couverture et les exclusions doivent être lues dans le certificat; je ne peux pas promettre une couverture complète. »",
+          "Rogelio : « Une antenne ou des panneaux solaires peuvent modifier les conditions; vérifions les clauses avant d’en tirer une conclusion. »",
+          "Rogelio : « L’usure et les dégâts de tempête suivent les conditions du contrat et de l’assurance; la cause d’une fuite doit être établie. »",
+          "Rogelio : « Je vérifierai qui doit enregistrer la garantie du produit et vous transmettrai la confirmation si cela s’applique. »",
+          "Rogelio : « Voulez-vous que nous examinions les combles ensemble, si l’accès est sûr ? »",
+          "Dans les zones accessibles, ils n’ont pas vu d’humidité; une vérification de la ventilation demanderait les mesures appropriées.",
+          "Rogelio : « Si vous voyez une fuite, prévenez-nous rapidement; le délai et la procédure de réclamation sont indiqués dans vos documents. »",
+          "Rogelio : « Pour l’entretien, suivez le plan applicable et demandez une inspection qualifiée après une tempête si nécessaire. »",
+          "Rogelio : « Voici ma carte; avez-vous des questions avant de signer ? »"
+        ],
+        "native": [
+          "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+          "First they walked around the house and checked the gutter, the downspouts and the yard.",
+          "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+          "Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+          "Mrs. Novak: And what happens if we get a leak next winter?",
+          "Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+          "Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+          "Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+          "Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+          "Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+          "Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+          "Rogelio: Would you like us to check the attic together?",
+          "In the attic everything was dry and the ventilation was working well.",
+          "Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+          "Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+          "Rogelio: Here's my business card; do you have any questions before signing?"
+        ],
+        "nativeDisplay": [
+          "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+          "First they walked around the house and checked the gutter, the downspouts and the yard.",
+          "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+          "Rogelio: The final invoice describes the roof, underlayment and three deck sheets; let's verify the work actually completed.",
+          "Mrs. Novak: And what happens if we get a leak next winter?",
+          "Rogelio: There is a product warranty and an installation warranty; each document states its own conditions.",
+          "Rogelio: A leak caused by installation might fall under our warranty, depending on the certificate and an assessment of its cause.",
+          "Rogelio: Read coverage and exclusions in the certificate; I cannot promise complete coverage.",
+          "Rogelio: An antenna or solar panels can affect conditions; check the clauses before drawing a conclusion.",
+          "Rogelio: Wear and storm damage follow the contract and insurance terms; the cause of a leak must be established.",
+          "Rogelio: I'll check who must register the product warranty and send confirmation if applicable.",
+          "Rogelio: Would you like us to examine the attic together if access is safe?",
+          "In accessible areas they saw no moisture; checking ventilation properly would require appropriate measurements.",
+          "Rogelio: If you see a leak, contact us promptly; your documents state the claim process and timing.",
+          "Rogelio: For maintenance, follow the applicable plan and seek qualified inspection after a storm when needed.",
+          "Rogelio: Here's my business card; do you have any questions before signing?"
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to modify",
+          "exampleEnglish": "If someone modifies the roof, the warranty might not cover it.",
+          "sourceInfinitiveSpanish": "modificar",
+          "infinitiveFrench": "modifier",
+          "exampleFrench": "Si le toit est modifié, vérifiez les conditions de la garantie."
+        },
+        {
+          "meaningEnglish": "to handle, to attend to",
+          "exampleEnglish": "A warranty claim is handled within a few days.",
+          "sourceInfinitiveSpanish": "atender",
+          "infinitiveFrench": "traiter",
+          "exampleFrench": "Une réclamation est traitée selon la procédure du certificat."
+        },
+        {
+          "meaningEnglish": "to register",
+          "exampleEnglish": "I'm registering the product warranty this week.",
+          "sourceInfinitiveSpanish": "registrar",
+          "infinitiveFrench": "enregistrer",
+          "exampleFrench": "Je vérifierai qui doit enregistrer la garantie du produit."
+        },
+        {
+          "meaningEnglish": "to sign",
+          "exampleEnglish": "Do you have any questions before signing?",
+          "sourceInfinitiveSpanish": "firmar",
+          "infinitiveFrench": "signer",
+          "exampleFrench": "Avez-vous des questions avant de signer ?"
+        },
+        {
+          "meaningEnglish": "to include",
+          "exampleEnglish": "The final invoice includes the underlayment and three sheets of deck.",
+          "sourceInfinitiveSpanish": "incluir",
+          "infinitiveFrench": "inclure",
+          "exampleFrench": "La facture finale inclut les éléments réellement facturés."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Distinguez les deux garanties et les documents qui les définissent.",
+        "recall": "Retrouvez la phrase qui demande d’examiner la cause d’une fuite.",
+        "hear": "Écoutez couverture, exclusion et réclamation; associez chaque terme au document.",
+        "type": "Écrivez en français : Do you have any questions before signing?",
+        "say": "Présentez les documents sans promettre une couverture intégrale.",
+        "write": "Rédigez une suite après visite qui oriente le client vers le certificat et le contact de réclamation."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product, insurer and consumer-contract review required for warranty scope, exclusions, maintenance, manufacturer registration, claim timeline and the final invoice; the source's promises need actual certificate and contract verification.",
+        "Qualified site-safety and ventilation review required before attic access or declaring it dry/adequately ventilated; France/Québec legal and regional language review remains open."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 20,
+      "titleEnglish": "Full Storm-Repair Day",
+      "objectiveEnglishSource": "Run a full storm-repair day in Spanish, from the morning safety meeting to the written wrap-up",
+      "focusEnglishSource": "Integration of all Master grammar; nothing new",
+      "lessonType": "Capstone",
+      "block": "E",
+      "speakingEnglishSource": "You are the crew lead for a full storm-repair day and the AI plays the crew, the adjuster and the homeowner in turn: run the safety meeting, walk the adjuster, propose the deck repair, handle what goes wrong, make the weather call and give the end-of-day report.",
+      "grammarExamplesEnglish": [
+        "We found rotten wood and it would cost one more day.",
+        "If it starts to thunder, everyone down."
+      ],
+      "titleFrench": "Conduire une journée complète après une tempête",
+      "objectiveFrench": "Intégrer briefing, constats, échanges avec l’expert et le client, arrêt météo et rapport de fin de journée, sans transformer le scénario en procédure approuvée.",
+      "grammarFocusFrench": "Réemploi du passé composé, de l’imparfait, du conditionnel, de si + présent et du discours rapporté.",
+      "speakingFrenchInstruction": "Vous dirigez une journée fictive de réparation après tempête. L’IA joue l’équipe, l’expert et le propriétaire. Présentez le plan de sécurité approuvé, distinguez constat et décision d’assurance, demandez une vérification qualifiée du support, réagissez au glissement, arrêtez le travail avant l’orage selon le plan et faites un rapport factuel. Ne promettez ni couverture, ni délai, ni bâchage dangereux.",
+      "speakingFrenchOpening": "Bonjour à tous. Nous commençons par le briefing sécurité et les conditions de travail du jour.",
+      "teachingNotesFrench": "Cette synthèse réutilise la grammaire du Master mais n’est pas une procédure de chantier. La source cumule plusieurs affirmations non vérifiées : comptage d’impacts, décision de l’assureur, ordre d’urgence, avenant signé, réparation du support, effet de la ligne de vie, bâchage avant orage, reprise le lendemain et satisfaction client. La version affichée demande les vérifications et autorisations compétentes.",
+      "words": [
+        {
+          "en": "the safety talk",
+          "kind": "term",
+          "fr": "le briefing sécurité"
+        },
+        {
+          "en": "the whole crew",
+          "kind": "term",
+          "fr": "toute l’équipe"
+        },
+        {
+          "en": "the day's plan",
+          "kind": "term",
+          "fr": "le plan du jour"
+        },
+        {
+          "en": "the priority",
+          "kind": "term",
+          "fr": "la priorité"
+        },
+        {
+          "en": "the damaged roof",
+          "kind": "term",
+          "fr": "le toit endommagé"
+        },
+        {
+          "en": "the emergency repair",
+          "kind": "term",
+          "fr": "la réparation d’urgence"
+        },
+        {
+          "en": "the adjuster's report",
+          "kind": "term",
+          "fr": "le rapport de l’expert"
+        },
+        {
+          "en": "the new wood",
+          "kind": "term",
+          "fr": "le bois neuf"
+        },
+        {
+          "en": "the slip",
+          "kind": "term",
+          "fr": "le glissement"
+        },
+        {
+          "en": "the checklist",
+          "kind": "term",
+          "fr": "la liste de vérification"
+        },
+        {
+          "en": "the unsettled weather",
+          "kind": "term",
+          "fr": "la météo instable"
+        },
+        {
+          "en": "the end-of-day wrap-up",
+          "kind": "term",
+          "fr": "le bilan de fin de journée"
+        },
+        {
+          "en": "the follow-up",
+          "kind": "term",
+          "fr": "le suivi"
+        },
+        {
+          "en": "the customer satisfaction",
+          "kind": "term",
+          "fr": "la satisfaction du client"
+        },
+        {
+          "en": "Safety first, then speed.",
+          "kind": "phrase",
+          "fr": "La sécurité passe avant la vitesse."
+        },
+        {
+          "en": "I want each of you to check your harness.",
+          "kind": "phrase",
+          "fr": "Vérifiez vos équipements selon le plan de protection contre les chutes.",
+          "enDisplay": "Check your equipment under the fall-protection plan."
+        },
+        {
+          "en": "We found rotten wood and it would cost one more day.",
+          "kind": "phrase",
+          "fr": "Nous avons trouvé du bois dégradé; le délai reste à évaluer.",
+          "enDisplay": "We found damaged wood; the schedule impact still needs assessment."
+        },
+        {
+          "en": "Kevin nearly fell.",
+          "kind": "phrase",
+          "fr": "Kevin a glissé; nous arrêtons et vérifions sa sécurité.",
+          "enDisplay": "Kevin slipped; stop and check his condition."
+        },
+        {
+          "en": "If it starts to thunder, everyone down.",
+          "kind": "phrase",
+          "fr": "Si l’orage approche, tout le monde se replie selon le plan.",
+          "enDisplay": "If a storm approaches, everyone retreats under the plan."
+        },
+        {
+          "en": "Two damaged sections were repaired.",
+          "kind": "phrase",
+          "fr": "Deux zones endommagées ont été traitées, selon le relevé.",
+          "enDisplay": "Two damaged sections were treated, according to the report."
+        },
+        {
+          "en": "Sir, is it all right if I explain the plan to you?",
+          "kind": "phrase",
+          "fr": "Monsieur, puis-je vous expliquer le plan envisagé ?"
+        },
+        {
+          "en": "Good work, team; tomorrow we keep going.",
+          "kind": "phrase",
+          "fr": "Bon travail; demain, nous reprendrons si les conditions le permettent.",
+          "enDisplay": "Good work, team; we'll resume tomorrow if conditions allow."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Conduire une journée complète après une tempête",
+        "target": [
+          "À six heures, après la tempête nocturne, Rogelio a réuni l’équipe pour le briefing sécurité.",
+          "Rogelio : « La sécurité passe avant la vitesse; vérifiez l’équipement et le plan de protection contre les chutes avant l’accès au toit. »",
+          "Rogelio : « Le plan du jour prévoit d’évaluer le toit endommagé, de parler à l’expert et de vérifier les réparations possibles. »",
+          "À huit heures trente, l’expert est arrivé; ils ont relevé des impacts dans deux zones d’essai, sans présumer du résultat de la réclamation.",
+          "Le rapport de l’expert évoquait un remplacement du côté ouest et une réparation au nord, sous réserve de la décision applicable.",
+          "Pendant la dépose, l’équipe a trouvé du bois dégradé près de la cheminée.",
+          "Rogelio au propriétaire : « Puis-je vous expliquer le constat ? Une personne qualifiée doit évaluer le support et l’effet sur le délai. »",
+          "Le propriétaire a examiné une proposition d’avenant; la réparation et l’autorisation devront être vérifiées avant les travaux.",
+          "Vers treize heures, Kevin a glissé sur un bardeau humide; l’équipe a arrêté le travail et vérifié son état selon le protocole.",
+          "Rogelio : « Kevin a glissé. Arrêtons et suivons le plan d’incident avant de reprendre. »",
+          "Rogelio : « Nous devons examiner le système de protection avant toute conclusion sur ce qui a empêché la chute. »",
+          "L’après-midi, la météo est redevenue instable; Rogelio a donné à la radio une consigne de repli selon le plan.",
+          "Rogelio : « N’entreprenez une protection temporaire que si les conditions sont sûres et la méthode approuvée. »",
+          "L’équipe a quitté la zone de travail; dix minutes plus tard, la pluie a commencé.",
+          "Dans le rapport de fin de journée, Rogelio a distingué les zones traitées des réparations de support encore à confirmer.",
+          "Il a aussi consigné le glissement sans blessure signalée et noté les travaux qui restaient ouverts.",
+          "Puis il a envoyé au propriétaire un suivi factuel, car une communication claire fait partie du chantier.",
+          "Rogelio à l’équipe : « Merci pour le travail; nous confirmerons demain la reprise selon les conditions. »"
+        ],
+        "native": [
+          "At 6:00 a.m., Rogelio gathered the whole crew for the safety talk, after the overnight storm.",
+          "Rogelio: Safety first, then speed; I want each of you to check your harness before going up.",
+          "Rogelio: The day's plan has three priorities: cover the damaged roof, meet the adjuster, and do the emergency repair.",
+          "At 8:30 the adjuster arrived, and together they counted the hits in two test squares.",
+          "According to the adjuster's report, the west side would be fully replaced and the north side would be repaired.",
+          "While removing the broken shingles, the crew found rotten wood near the chimney.",
+          "Rogelio to the owner: Sir, is it all right if I explain the plan to you? We found rotten wood and it would cost one more day.",
+          "The owner signed the change order, and the crew put in new wood before lunch.",
+          "At one, Kevin stepped on a wet shingle and slipped, but the lifeline stopped him.",
+          "Rogelio: Kevin nearly fell; we stop for five minutes and go over the checklist.",
+          "Rogelio: Without the lifeline, it could have been a serious fall.",
+          "In the afternoon the unsettled weather came back, and Rogelio spoke on the radio: If it starts to thunder, everyone down.",
+          "Rogelio: Kevin and Julio, tarp on the north side; Marcos, gather the loose material.",
+          "The crew came down in time, and the rain started ten minutes later.",
+          "At the end-of-day wrap-up, Rogelio wrote: Two damaged sections were repaired and four sheets of deck were replaced.",
+          "In addition, a near-miss with no injuries was recorded, and the west side is still pending for tomorrow.",
+          "Then he sent the owner a message as a follow-up, because customer satisfaction is also part of the job.",
+          "Rogelio to the crew: Good work, team; tomorrow we keep going."
+        ],
+        "nativeDisplay": [
+          "At 6:00 a.m., Rogelio gathered the whole crew for the safety talk, after the overnight storm.",
+          "Rogelio: Safety before speed; check your equipment and fall-protection plan before roof access.",
+          "Rogelio: Today's plan is to assess the damaged roof, speak with the adjuster and verify possible repairs.",
+          "At 8:30 the adjuster arrived; they recorded hits in two test areas without presuming a claim outcome.",
+          "The adjuster's report suggested west-side replacement and north-side repair, subject to the applicable decision.",
+          "While removing the broken shingles, the crew found rotten wood near the chimney.",
+          "Rogelio to the owner: May I explain what we found? A qualified person must assess the deck and any schedule impact.",
+          "The owner reviewed a proposed change order; the repair and authorization must be verified before work.",
+          "At one, Kevin slipped on a wet shingle; the crew stopped and checked his condition under the site protocol.",
+          "Rogelio: Kevin slipped. Stop and follow the incident plan before work resumes.",
+          "Rogelio: We must examine the protective system before concluding what prevented a fall.",
+          "In the afternoon unsettled weather returned; Rogelio gave a radio retreat command under the plan.",
+          "Rogelio: Attempt temporary protection only if conditions are safe and the method approved.",
+          "The crew came down in time, and the rain started ten minutes later.",
+          "At the end-of-day report, Rogelio distinguished treated areas from deck repairs still to be confirmed.",
+          "He also recorded the slip with no injury reported and noted work still open.",
+          "Then he sent the owner a message as a follow-up, because customer satisfaction is also part of the job.",
+          "Rogelio to the crew: Thanks for the work; we'll confirm tomorrow's restart under the conditions."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stop (something)",
+          "exampleEnglish": "The lifeline stops the fall.",
+          "sourceInfinitiveSpanish": "detener",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "L’équipe a arrêté le travail après le glissement."
+        },
+        {
+          "meaningEnglish": "to step on",
+          "exampleEnglish": "Kevin stepped on a wet shingle.",
+          "sourceInfinitiveSpanish": "pisar",
+          "infinitiveFrench": "marcher sur",
+          "exampleFrench": "Kevin a marché sur un bardeau humide."
+        },
+        {
+          "meaningEnglish": "to repair",
+          "exampleEnglish": "Two damaged sections were repaired.",
+          "sourceInfinitiveSpanish": "reparar",
+          "infinitiveFrench": "réparer",
+          "exampleFrench": "Deux zones endommagées ont été traitées selon le relevé."
+        },
+        {
+          "meaningEnglish": "to receive, to meet",
+          "exampleEnglish": "Today we meet the adjuster at 8:30.",
+          "sourceInfinitiveSpanish": "recibir",
+          "infinitiveFrench": "accueillir",
+          "exampleFrench": "L’équipe a accueilli l’expert à huit heures trente."
+        },
+        {
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "First we have to cover the damaged roof.",
+          "sourceInfinitiveSpanish": "tapar",
+          "infinitiveFrench": "protéger",
+          "exampleFrench": "Toute protection temporaire exige des conditions sûres et une méthode approuvée."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez chaque interlocuteur et la décision qui lui revient.",
+        "recall": "Reconstituez la chronologie sans transformer une hypothèse en constat.",
+        "hear": "Écoutez les heures, les zones et l’ordre de repli.",
+        "type": "Écrivez en français : Safety first, then speed.",
+        "say": "Menez le briefing, le constat, le repli météo et le bilan sans promettre de résultat.",
+        "write": "Rédigez un rapport fictif qui sépare observations, autorisations, incident et travaux ouverts."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing, fall-protection, weather, emergency-medical, structural, insurance and contract review required across the integrated scenario; the source's rescue, tarping, damage-scope and repair sequence must not be released as instructions.",
+        "Qualified France/Québec register, unit and emergency routing review required; independent AI and human reviews remain open."
+      ],
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "d1745f7a4b86baa344040df233dcc46b927ee45e230d6547166686591092e13f",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 1,
+      "titleEnglish": "Why Shores Stay Until the Engineer Releases Them",
+      "objectiveEnglish": "Explain step by step why the shores stay until the engineer releases them, and have the new hire explain it back.",
+      "terms": [
+        {
+          "en": "the shore",
+          "kind": "term",
+          "ja": "支柱（しちゅう）"
+        },
+        {
+          "en": "the reshoring",
+          "kind": "term",
+          "ja": "支柱の盛り替え（しちゅうのもりかえ）"
+        },
+        {
+          "en": "the structural engineer",
+          "kind": "term",
+          "ja": "構造技術者（こうぞうぎじゅつしゃ）"
+        },
+        {
+          "en": "the go-ahead",
+          "kind": "term",
+          "ja": "許可（きょか）"
+        },
+        {
+          "en": "the concrete strength",
+          "kind": "term",
+          "ja": "コンクリートの強度（きょうど）"
+        },
+        {
+          "en": "the cylinder test",
+          "kind": "term",
+          "ja": "円柱供試体（えんちゅうきょうしたい）の試験"
+        },
+        {
+          "en": "the curing",
+          "kind": "term",
+          "ja": "養生（ようじょう）"
+        },
+        {
+          "en": "the load",
+          "kind": "term",
+          "ja": "荷重（かじゅう）"
+        },
+        {
+          "en": "the dead weight",
+          "kind": "term",
+          "ja": "自重（じじゅう）"
+        },
+        {
+          "en": "the deflection",
+          "kind": "term",
+          "ja": "たわみ"
+        },
+        {
+          "en": "the collapse",
+          "kind": "term",
+          "ja": "倒壊（とうかい）"
+        },
+        {
+          "en": "the formwork",
+          "kind": "term",
+          "ja": "型枠（かたわく）"
+        },
+        {
+          "en": "the form stripping",
+          "kind": "term",
+          "ja": "型枠の取り外し（とりはずし）"
+        },
+        {
+          "en": "the pour",
+          "kind": "term",
+          "ja": "打設（だせつ）"
+        },
+        {
+          "en": "the floor below",
+          "kind": "term",
+          "ja": "下の階（したのかい）"
+        },
+        {
+          "en": "First the slab is poured, then it has to cure.",
+          "kind": "phrase",
+          "ja": "まず、スラブを打設します。その後、養生が必要です。"
+        },
+        {
+          "en": "The shores stay because the concrete can't hold yet.",
+          "kind": "phrase",
+          "ja": "コンクリートはまだ荷重に耐えられないので、支柱は残したままにします。"
+        },
+        {
+          "en": "That's why we wait for the structural engineer's go-ahead.",
+          "kind": "phrase",
+          "ja": "ですから、構造技術者の許可が出るまで待ちます。"
+        },
+        {
+          "en": "I get it, but every job has its own design.",
+          "kind": "phrase",
+          "ja": "言いたいことは分かります。でも、設計は現場ごとに違います。"
+        },
+        {
+          "en": "Nobody removes a shore without the engineer's approval.",
+          "kind": "phrase",
+          "ja": "構造技術者の承認なしに、誰も支柱を外しません。"
+        },
+        {
+          "en": "The cylinder tests decide the timing, not us.",
+          "kind": "phrase",
+          "ja": "いつ外すかは、私たちではなく円柱供試体の試験結果で決まります。"
+        },
+        {
+          "en": "Now you tell me why we wait, in your own words.",
+          "kind": "phrase",
+          "ja": "では今度は、なぜ待つのか、自分の言葉で説明してください。"
+        },
+        {
+          "en": "If you have doubts, ask me first.",
+          "kind": "phrase",
+          "ja": "疑問があれば、まず私に聞いてください。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Mateo Ríos, a new carpenter: explain step by step why the shores stay until the engineer releases them, using primero, luego, porque and por eso, answer his questions, then have him explain it back.",
+      "grammarFocusSpanish": "Connectors for sequence and cause (primero se vacía, luego cura, porque el concreto todavía no aguanta, por eso esperamos)",
+      "grammarExamplesEnglish": [
+        "First the slab is poured, and then it cures for several days.",
+        "The concrete can't carry its own weight yet; that's why the shores stay."
+      ],
+      "speakingJapanese": "あなたは職長（しょくちょう）で、AIは新人の大工、マテオ・リオスです。構造技術者の許可（きょか）が出るまで支柱を残す理由を、順番に説明してください。「まず」「その後」で手順を示し、「ので」「ため」で理由を述べ、「ですから」で結論を伝えてください。マテオさんの質問には丁寧に答えてください。最後に、マテオさんに自分の言葉で説明し直してもらってください。",
+      "grammarTeachingJapanese": "この場面では、手順と理由を順番に話します。「まず〜します。その後〜します。」で手順の流れを示します。「〜てから〜」は、先に終わる動作を表します（例：打設してから、養生します）。理由は「〜ので」や「〜ため」で文の前半に置き、結論は「ですから」「そのため」で後ろに続けます。「まだ〜られません」は『今はまだ〜できない』、「〜たままにします」は、その状態を変えずにおくことを表します（例：支柱は残したままにします）。待つ条件は「〜まで〜ます」で表します（例：許可が出るまで待ちます）。",
+      "grammarExamplesJapanese": [
+        "まず、スラブを打設し、その後、数日間養生します。",
+        "コンクリートはまだ自重を支えられません。ですから、支柱は残したままにします。"
+      ],
+      "teachingNotesEnglish": [
+        "Japanese 支柱 is provisional for each individual shore, and is used consistently in the taught phrase, grammar and speaking prompt. Qualified trade review must choose the actual site term and release authority before approval."
+      ]
+    },
+    {
+      "n": 2,
+      "titleEnglish": "Rebar Chairs and Cover: How a Garage Slab Works",
+      "objectiveEnglish": "Explain how rebar, chairs and concrete cover work together and why the crew follows the cover shown on the plan.",
+      "terms": [
+        {
+          "en": "the rebar chairs",
+          "kind": "term",
+          "ja": "鉄筋用チェア（バーサポート）"
+        },
+        {
+          "en": "the concrete cover",
+          "kind": "term",
+          "ja": "かぶり厚さ"
+        },
+        {
+          "en": "the rebar mat",
+          "kind": "term",
+          "ja": "スラブ筋（格子状に組んだ鉄筋）"
+        },
+        {
+          "en": "the bottom mat",
+          "kind": "term",
+          "ja": "下端筋（したばきん）"
+        },
+        {
+          "en": "the top mat",
+          "kind": "term",
+          "ja": "上端筋（うわばきん）"
+        },
+        {
+          "en": "the tie",
+          "kind": "term",
+          "ja": "結束（けっそく）"
+        },
+        {
+          "en": "the tie wire",
+          "kind": "term",
+          "ja": "結束線（けっそくせん）"
+        },
+        {
+          "en": "the concrete blocks (dobies)",
+          "kind": "term",
+          "ja": "コンクリート製スペーサー（通称：サイコロ）"
+        },
+        {
+          "en": "the rust",
+          "kind": "term",
+          "ja": "さび"
+        },
+        {
+          "en": "the corrosion",
+          "kind": "term",
+          "ja": "腐食（ふしょく）"
+        },
+        {
+          "en": "the deicing salts",
+          "kind": "term",
+          "ja": "凍結防止剤（とうけつぼうしざい）"
+        },
+        {
+          "en": "the moisture",
+          "kind": "term",
+          "ja": "水分（すいぶん）"
+        },
+        {
+          "en": "the structural sheet",
+          "kind": "term",
+          "ja": "構造図（こうぞうず）"
+        },
+        {
+          "en": "the general note",
+          "kind": "term",
+          "ja": "一般注記（いっぱんちゅうき）"
+        },
+        {
+          "en": "the thickness",
+          "kind": "term",
+          "ja": "厚さ（あつさ）"
+        },
+        {
+          "en": "Here we use the cover the plan shows.",
+          "kind": "phrase",
+          "ja": "ここでは、図面に示されたかぶり厚さに従います。"
+        },
+        {
+          "en": "If the mat sits too low, water reaches the steel.",
+          "kind": "phrase",
+          "ja": "スラブ筋の位置が低すぎると、水が鉄筋まで届いてしまいます。"
+        },
+        {
+          "en": "The chairs keep the rebar at the right height.",
+          "kind": "phrase",
+          "ja": "鉄筋用チェアは、鉄筋を正しい高さに保ちます。"
+        },
+        {
+          "en": "Let's check the structural sheet together.",
+          "kind": "phrase",
+          "ja": "構造図を一緒に確認しましょう。"
+        },
+        {
+          "en": "Your last job had a different design; here this plan rules.",
+          "kind": "phrase",
+          "ja": "前の現場は設計が違いましたが、ここではこの図面に従います。"
+        },
+        {
+          "en": "Before the pour, the cover is measured at several points.",
+          "kind": "phrase",
+          "ja": "打設（だせつ）の前に、かぶり厚さを数か所で測ります。"
+        },
+        {
+          "en": "If a chair is broken, it gets replaced before the pour.",
+          "kind": "phrase",
+          "ja": "鉄筋用チェアが壊れていたら、打設の前に交換します。"
+        },
+        {
+          "en": "Can you explain to me why we use chairs?",
+          "kind": "phrase",
+          "ja": "なぜ鉄筋用チェアを使うのか、説明してもらえますか。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Lucía Ferrer, an apprentice: explain how chairs, rebar and cover work together on the garage deck using impersonal se and si + present, check the structural sheet with her, and have her explain it back.",
+      "grammarFocusSpanish": "Impersonal se; si + present for general truths (si el acero toca la tierra, se oxida; aquí se usa lo que dice el plano)",
+      "grammarExamplesEnglish": [
+        "If salt reaches the steel, it corrodes faster.",
+        "On this slab, the cover shown on the structural sheet is used."
+      ],
+      "speakingJapanese": "あなたは職長です。相手のAIは見習いのルシア・フェレールです。駐車場のスラブで、鉄筋用チェア、スラブ筋、かぶり厚さがどう組み合わさって機能するか説明してください。一般的な条件は「〜と」、現場の手順は主語を省いた「測ります」「交換します」などを使って述べてください。構造図を一緒に確認し、ルシアに今の説明を自分の言葉で説明し直してもらってください。",
+      "grammarTeachingJapanese": "一般的な条件や結果は「〜と」で表します。「スラブ筋の位置が低すぎると、水が鉄筋まで届いてしまいます」のように使います。「〜ために」は目的を表し、「鉄筋用チェアは、鉄筋を正しい高さに保つために使います」のように言います。名詞を詳しく説明するときは「構造図に示されたかぶり厚さ」と言えます。現場の決まりや一般的な手順では、主語を言わずに「測ります」「確認します」「交換します」のように表すのが自然です。「〜たら」は特定の場合に行う対応を示します。",
+      "grammarExamplesJapanese": [
+        "塩分が鉄筋まで届くと、鉄筋の腐食が速く進みます。",
+        "このスラブでは、構造図に示されたかぶり厚さに従います。"
+      ],
+      "teachingNotesEnglish": [
+        "Safety/source blocker: English terms[16] says a mat sitting too low lets water reach the steel. On a deck exposed to deicing salts from above, lowering the mat may increase top cover instead; a qualified structural/concrete specialist must verify or correct the English source before this lesson can be approved. Japanese currently preserves the source claim for alignment, not endorsement.",
+        "Chair, bar support, mat, spacer block and dobies are provisional Japanese trade terms pending jobsite specialist review."
+      ]
+    },
+    {
+      "n": 3,
+      "titleEnglish": "Teaching a New Laborer to Inspect a Harness",
+      "objectiveEnglish": "Train a new laborer to inspect a harness and lanyard step by step, then correct their teach-back.",
+      "terms": [
+        {
+          "en": "the harness",
+          "kind": "term",
+          "ja": "ハーネス"
+        },
+        {
+          "en": "the lanyard",
+          "kind": "term",
+          "ja": "ランヤード"
+        },
+        {
+          "en": "the shock absorber",
+          "kind": "term",
+          "ja": "ショックアブソーバー"
+        },
+        {
+          "en": "the snap hook",
+          "kind": "term",
+          "ja": "スナップフック"
+        },
+        {
+          "en": "the hook gate",
+          "kind": "term",
+          "ja": "フックのゲート"
+        },
+        {
+          "en": "the D-ring",
+          "kind": "term",
+          "ja": "Dリング"
+        },
+        {
+          "en": "the straps",
+          "kind": "term",
+          "ja": "ストラップ"
+        },
+        {
+          "en": "the stitching",
+          "kind": "term",
+          "ja": "縫い目"
+        },
+        {
+          "en": "the buckle",
+          "kind": "term",
+          "ja": "バックル"
+        },
+        {
+          "en": "the label",
+          "kind": "term",
+          "ja": "ラベル"
+        },
+        {
+          "en": "the inspection tag",
+          "kind": "term",
+          "ja": "点検タグ"
+        },
+        {
+          "en": "the manufacture date",
+          "kind": "term",
+          "ja": "製造年月日"
+        },
+        {
+          "en": "the wear",
+          "kind": "term",
+          "ja": "摩耗"
+        },
+        {
+          "en": "the anchor point",
+          "kind": "term",
+          "ja": "取付設備"
+        },
+        {
+          "en": "the competent person",
+          "kind": "term",
+          "ja": "コンピテントパーソン（米国の安全管理上の役割）"
+        },
+        {
+          "en": "out of service",
+          "kind": "term",
+          "ja": "使用禁止"
+        },
+        {
+          "en": "Check all of it before you put it on.",
+          "kind": "phrase",
+          "ja": "着用する前に、全体を点検してください。"
+        },
+        {
+          "en": "Don't use it if it has cuts or loose stitching.",
+          "kind": "phrase",
+          "ja": "切れ目や縫い目のほつれがある場合は、使用しないでください。"
+        },
+        {
+          "en": "If it's damaged, hand it to me and I'll give you another one.",
+          "kind": "phrase",
+          "ja": "破損していたら、私に渡してください。別のものを渡します。"
+        },
+        {
+          "en": "Tighten your leg straps so they're snug.",
+          "kind": "phrase",
+          "ja": "腿のストラップを、体にぴったり合うように締めてください。"
+        },
+        {
+          "en": "You missed checking the label and the inspection tag.",
+          "kind": "phrase",
+          "ja": "ラベルと点検タグの確認が抜けていました。"
+        },
+        {
+          "en": "Show me the label and read me the date.",
+          "kind": "phrase",
+          "ja": "ラベルを見せて、日付を読み上げてください。"
+        },
+        {
+          "en": "Clip it only to an approved anchor point.",
+          "kind": "phrase",
+          "ja": "承認済みの取付設備にだけ掛けてください。"
+        },
+        {
+          "en": "Very good, now you explain it to me from the start.",
+          "kind": "phrase",
+          "ja": "よくできました。では最初から、今度はあなたが説明してください。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Joaquín Bernal, a new laborer: train him to inspect his harness and lanyard step by step with commands like revísalo, póntelo and no lo uses si tiene cortes, then listen to his teach-back and correct it.",
+      "grammarFocusSpanish": "Commands with object pronouns (revísalo, póntelo, no lo uses si tiene cortes, entrégamelo)",
+      "grammarExamplesEnglish": [
+        "Open it and let go; the gate must close on its own.",
+        "If the tag is expired, don't put it on; give it to me."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは新人作業員のホアキン・ベルナルを演じます。ハーネスとランヤードの点検を、一つずつ順番に指導してください。「着用する前に、全体を点検してください」「切れ目や縫い目のほつれがある場合は、使用しないでください。」のように指示し、ホアキンが確認を飛ばしたら指摘してください。最後に、ホアキンに最初から説明してもらい、その説明（ティーチバック）を聞いて、間違いを丁寧に訂正してください。",
+      "grammarTeachingJapanese": "日本語では、ハーネスなど話題になっている物は文脈で分かる場合、繰り返さずに言えます。順番に指示するときは「着用する前に、点検してください」、禁止を伝えるときは「使用しないでください」を使います。条件は「破損していたら」や「破損がある場合は」、目的は「体に合うように」で表します。「ラベルを見せて、日付を読み上げてください」のように、て形で二つの動作をつなぎます。点検漏れを指摘するときは「確認が抜けていました」と言います。最後に、相手に最初から説明してもらい、誤りを訂正します。",
+      "grammarExamplesJapanese": [
+        "ゲートを開けて手を離してください。ゲートが自動で閉まらなければいけません。",
+        "点検タグの期限が切れていたら、着用しないでください。私に渡してください。"
+      ],
+      "teachingNotesEnglish": [
+        "Competent person is a US regulatory role. The Japanese loanword is provisional and does not itself define qualifications or authorize an inspection; a qualified safety specialist must review before release.",
+        "The English source says only the date on the label in terms[21]. Do not narrow it to the manufacture date without source confirmation."
+      ]
+    }
+  ]
+}

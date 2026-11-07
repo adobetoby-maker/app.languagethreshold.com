@@ -1,0 +1,433 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "4d26e78d504a013a10987e01ed5877b80abd5cc837d1f56c6aa43b8d2a518bd9",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 13,
+      "titleEnglish": "Incident Report: Hand Injury at the Table Saw",
+      "objectiveEnglish": "Say and write the timeline of a table-saw injury with times and facts only, without guessing the cause.",
+      "terms": [
+        {
+          "en": "the table saw",
+          "kind": "term",
+          "ja": "テーブルソー"
+        },
+        {
+          "en": "the blade guard",
+          "kind": "term",
+          "ja": "ブレードガード"
+        },
+        {
+          "en": "the saw blade",
+          "kind": "term",
+          "ja": "のこ刃"
+        },
+        {
+          "en": "the push stick",
+          "kind": "term",
+          "ja": "押し棒"
+        },
+        {
+          "en": "the riving knife",
+          "kind": "term",
+          "ja": "割刃"
+        },
+        {
+          "en": "the cut (wound)",
+          "kind": "term",
+          "ja": "切り傷"
+        },
+        {
+          "en": "direct pressure",
+          "kind": "term",
+          "ja": "直接圧迫"
+        },
+        {
+          "en": "the gauze pads",
+          "kind": "term",
+          "ja": "ガーゼ"
+        },
+        {
+          "en": "the hospital",
+          "kind": "term",
+          "ja": "病院"
+        },
+        {
+          "en": "the incident report",
+          "kind": "term",
+          "ja": "事故報告書"
+        },
+        {
+          "en": "the timeline",
+          "kind": "term",
+          "ja": "時系列"
+        },
+        {
+          "en": "the witness",
+          "kind": "term",
+          "ja": "目撃者"
+        },
+        {
+          "en": "the statement",
+          "kind": "term",
+          "ja": "目撃証言の記録"
+        },
+        {
+          "en": "the safety manager",
+          "kind": "term",
+          "ja": "安全管理者"
+        },
+        {
+          "en": "the cause",
+          "kind": "term",
+          "ja": "原因"
+        },
+        {
+          "en": "the investigation",
+          "kind": "term",
+          "ja": "調査"
+        },
+        {
+          "en": "At 10:40, Samuel was cutting a board on the saw.",
+          "kind": "phrase",
+          "ja": "10時40分、サミュエルさんはテーブルソーで板を切っていました。"
+        },
+        {
+          "en": "Right away, Rosa applied direct pressure with gauze from the first-aid kit.",
+          "kind": "phrase",
+          "ja": "すぐに、ロサさんは救急箱のガーゼで傷口を直接押さえました。"
+        },
+        {
+          "en": "While we were waiting, I turned off and unplugged the table saw.",
+          "kind": "phrase",
+          "ja": "待っている間に、私はテーブルソーの電源を切って、プラグを抜きました。"
+        },
+        {
+          "en": "A few minutes later, the paramedics took him to the hospital.",
+          "kind": "phrase",
+          "ja": "数分後、救急隊員がサミュエルさんを病院へ搬送しました。"
+        },
+        {
+          "en": "I didn't see the cut; I got there a few seconds later.",
+          "kind": "phrase",
+          "ja": "けがをした瞬間は見ていません。私が着いたのは、その数秒後です。"
+        },
+        {
+          "en": "I don't know the cause; I'm only telling you what I saw.",
+          "kind": "phrase",
+          "ja": "原因は分かりません。私が見たことだけをお伝えします。"
+        },
+        {
+          "en": "Patricia, I'll send you the photos and Rosa's statement today.",
+          "kind": "phrase",
+          "ja": "パトリシアさん、今日中に写真とロサさんの目撃証言の記録をお送りします。"
+        },
+        {
+          "en": "Nobody uses the saw until the investigation is finished.",
+          "kind": "phrase",
+          "ja": "調査が終わるまで、このテーブルソーは使用禁止です。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is safety manager Patricia León: walk her through the timeline of Samuel's table-saw injury in the past tense with time markers like a las 10:40, enseguida, unos minutos después and mientras esperábamos, giving facts only, no guesses.",
+      "grammarFocusSpanish": "Past narration with time markers (a las diez y cuarenta, enseguida, unos minutos después, mientras esperábamos)",
+      "grammarExamplesEnglish": [
+        "At 10:40 Samuel shouted and we stopped the saw right away.",
+        "While we were waiting for the ambulance, Rosa kept pressure on his hand."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは安全管理者のパトリシア・レオンです。テーブルソーでのサミュエルさんのけがについて、出来事の時系列を話してください。「10時40分」「すぐに」「数分後」「待っている間に」などの時間の言葉を使い、過去の形で、事実だけを話してください。原因は推測しないでください。",
+      "grammarTeachingJapanese": "日本語にはスペイン語の点過去・線過去と同じ区別はありませんが、出来事の進行と完了は「〜ていました」と「〜ました」で表せます。「10時40分」「すぐに」「数分後」のような時の言葉で順序を示します。「〜ている間」はその間ずっと続いていたこと（ロサさんは傷口を押さえ続けていました）、「〜ている間に」はその時間の中で一回起きたこと（電源を切りました）を表します。「見ていません」「分かりません」で自分が確認していないことを分けて伝えます。原因は推測しません。",
+      "grammarExamplesJapanese": [
+        "10時40分にサミュエルさんが叫び、私たちはすぐにテーブルソーを止めました。",
+        "救急車を待っている間、ロサさんはサミュエルさんの手の傷口を押さえ続けていました。"
+      ],
+      "teachingNotesEnglish": [
+        "Japanese has no tense contrast like the Spanish preterite and imperfect. The lesson teaches ~ていました for the scene that was in progress and ~ました for completed events, with time words and the te-form carrying the order.",
+        "The source line 'I don't know the cause' is kept as 原因は分かりません. Do not add speculation about cause.",
+        "目撃者 is gender-neutral. Names Samuel, Rosa and Patricia are kept. The 'table saw' is rendered as テーブルソー and should be checked against site usage.",
+        "This is a US-source jobsite. 目撃証言の記録 describes Rosa’s witness account, not a court filing; the company form title needs safety/incident-report review. 安全管理者 is a provisional role translation, not an asserted Japanese statutory designation.",
+        "職長 is used for the learner in the Master 10–15 speaking drafts; the full course role terminology still needs qualified review; no line claims a medical diagnosis. Table-saw and first-aid terminology needs qualified safety review."
+      ]
+    },
+    {
+      "n": 14,
+      "titleEnglish": "Near Miss: The Rebar Bundle That Slipped",
+      "objectiveEnglish": "Talk through a near miss with the rigger and the laborer without blame and agree on what changes in the next lift.",
+      "terms": [
+        {
+          "en": "the near miss",
+          "kind": "term",
+          "ja": "ヒヤリハット"
+        },
+        {
+          "en": "the rebar bundle",
+          "kind": "term",
+          "ja": "鉄筋の束"
+        },
+        {
+          "en": "the rigging",
+          "kind": "term",
+          "ja": "玉掛け用具"
+        },
+        {
+          "en": "the choker sling",
+          "kind": "term",
+          "ja": "目通し吊り（チョーク吊り）用のスリング"
+        },
+        {
+          "en": "the center of gravity",
+          "kind": "term",
+          "ja": "重心"
+        },
+        {
+          "en": "the tag line",
+          "kind": "term",
+          "ja": "介錯ロープ"
+        },
+        {
+          "en": "the bridge abutment",
+          "kind": "term",
+          "ja": "橋台"
+        },
+        {
+          "en": "the suspended load",
+          "kind": "term",
+          "ja": "吊り荷"
+        },
+        {
+          "en": "the test lift",
+          "kind": "term",
+          "ja": "試し吊り"
+        },
+        {
+          "en": "the wood blocking (dunnage)",
+          "kind": "term",
+          "ja": "台木（枕木）"
+        },
+        {
+          "en": "the load path",
+          "kind": "term",
+          "ja": "荷の移動経路"
+        },
+        {
+          "en": "the scare",
+          "kind": "term",
+          "ja": "ヒヤッとしたこと"
+        },
+        {
+          "en": "the preventive measures",
+          "kind": "term",
+          "ja": "予防策"
+        },
+        {
+          "en": "the lessons learned",
+          "kind": "term",
+          "ja": "教訓"
+        },
+        {
+          "en": "The bundle almost fell on you, Nicolás.",
+          "kind": "phrase",
+          "ja": "ニコラス、鉄筋の束がそちらに落ちるところだった。"
+        },
+        {
+          "en": "It could have been serious; that's why we're talking about it.",
+          "kind": "phrase",
+          "ja": "重大な事故になっていたかもしれない。だから今、こうして話している。"
+        },
+        {
+          "en": "We're not looking for someone to blame; we're looking for what to change.",
+          "kind": "phrase",
+          "ja": "誰かを責めるためじゃない。何を変えるかを探しているんだ。"
+        },
+        {
+          "en": "Alma, tell me how you rigged the bundle before the lift.",
+          "kind": "phrase",
+          "ja": "アルマ、吊り上げる前に束をどう玉掛けしたか教えてくれる？"
+        },
+        {
+          "en": "Nicolás, why were you walking through that area at that moment?",
+          "kind": "phrase",
+          "ja": "ニコラス、あの時、どうしてあの区域を通っていたのか教えてくれる？"
+        },
+        {
+          "en": "If it isn't balanced, we lower it and rig it again.",
+          "kind": "phrase",
+          "ja": "バランスが取れていなければ、いったん下ろして掛け直す。"
+        },
+        {
+          "en": "On the next lift, nobody will walk under the suspended load.",
+          "kind": "phrase",
+          "ja": "次の吊り上げでは、吊り荷の下を誰も通らない。"
+        },
+        {
+          "en": "Thank you both for honestly telling me what happened.",
+          "kind": "phrase",
+          "ja": "二人とも、何があったのか正直に話してくれてありがとう。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI plays rigger Alma Guzmán and laborer Nicolás Herrera: talk through the slipped rebar bundle without blame using por poco, casi and podría haber sido, and agree on changes for the next lift with si clauses.",
+      "grammarFocusSpanish": "Casi, por poco, podría haber; si clauses (por poco le cae; podría haber sido grave; si el bulto se mueve, nadie estará debajo)",
+      "grammarExamplesEnglish": [
+        "The bundle almost fell on Nicolás.",
+        "If we use the tag line, nobody will have to be near the load."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは玉掛け担当のアルマ・グスマンと作業員のニコラス・エレラを演じます。鉄筋の束が滑った件について、誰かを責めずに事実を確認してください。「落ちるところだった」「重大な事故になっていたかもしれない」のように、起きなかった危険を表してください。次の吊り上げで何を変えるか、二人と話し合ってください。条件には「〜ば」「〜たら」「〜ていなければ」などを使ってください。",
+      "grammarTeachingJapanese": "起きそうで実際には起きなかったことは「動詞の辞書形＋ところだった」で表します（落ちるところだった）。「落ちたところだった」は「落ちた直後だった」という別の意味になるため使いません。「〜てもおかしくなかった」「〜ていたかもしれない」で重大な結果の可能性を表せます。条件には「〜ば」「〜たら」を使い、後ろに非過去の形を続けます（使えば、近づく必要はない）。否定の条件は「〜ていなければ」（バランスが取れていなければ）です。発言は人を責めず、確認した事実と次の行動を分けます。",
+      "grammarExamplesJapanese": [
+        "鉄筋の束がニコラスの上に落ちるところだった。",
+        "介錯ロープを使えば、誰も吊り荷の近くにいる必要はありません。"
+      ],
+      "teachingNotesEnglish": [
+        "ヒヤリハット is the standard Japanese near-miss term. Reviewer should confirm whether the company uses ヒヤリ・ハット or another label.",
+        "A qualified rigging specialist must confirm 玉掛け, 目通し吊り用スリング, 台木, 試し吊り and 介錯ロープ. A choker sling can be wire rope or synthetic; this draft does not prescribe a sling type or lift procedure.",
+        "The fact-finding question is intentionally non-accusatory. The next-lift line must not imply suspended-load exclusion is required only for one lift; site safety review is required."
+      ]
+    },
+    {
+      "n": 15,
+      "titleEnglish": "Stop-Work Radio Call: Gas Smell at the Trench",
+      "objectiveEnglish": "Stop work by radio, give short clear orders to clear the area and call emergency services and the gas utility.",
+      "terms": [
+        {
+          "en": "the trench",
+          "kind": "term",
+          "ja": "掘削溝"
+        },
+        {
+          "en": "the gas smell",
+          "kind": "term",
+          "ja": "ガスのにおい"
+        },
+        {
+          "en": "the gas line",
+          "kind": "term",
+          "ja": "ガス管"
+        },
+        {
+          "en": "the leak",
+          "kind": "term",
+          "ja": "ガス漏れ"
+        },
+        {
+          "en": "the excavator bucket",
+          "kind": "term",
+          "ja": "バックホーのバケット"
+        },
+        {
+          "en": "the two-way radio",
+          "kind": "term",
+          "ja": "無線機"
+        },
+        {
+          "en": "the gas company",
+          "kind": "term",
+          "ja": "ガス会社"
+        },
+        {
+          "en": "the firefighters (fire department)",
+          "kind": "term",
+          "ja": "消防隊"
+        },
+        {
+          "en": "the spark",
+          "kind": "term",
+          "ja": "火花"
+        },
+        {
+          "en": "the ignition sources",
+          "kind": "term",
+          "ja": "着火源"
+        },
+        {
+          "en": "the hissing sound",
+          "kind": "term",
+          "ja": "シューという音"
+        },
+        {
+          "en": "the wind direction",
+          "kind": "term",
+          "ja": "風向き"
+        },
+        {
+          "en": "the caution tape",
+          "kind": "term",
+          "ja": "立入禁止テープ"
+        },
+        {
+          "en": "the crossing guard",
+          "kind": "term",
+          "ja": "学校の横断指導員"
+        },
+        {
+          "en": "the evacuation",
+          "kind": "term",
+          "ja": "退避"
+        },
+        {
+          "en": "Stop everything and get away from the trench now!",
+          "kind": "phrase",
+          "ja": "全作業中止！ 全員、今すぐ掘削溝から離れて！"
+        },
+        {
+          "en": "Raúl, shut off the machine if it's safe and walk away.",
+          "kind": "phrase",
+          "ja": "ラウル、安全にできるならエンジンを切って、歩いて離れて。"
+        },
+        {
+          "en": "Nobody light cigarettes or start engines.",
+          "kind": "phrase",
+          "ja": "誰もタバコに火をつけないで。エンジンもかけないで。"
+        },
+        {
+          "en": "I'm calling to report a gas smell at a construction site.",
+          "kind": "phrase",
+          "ja": "工事現場でガスのにおいがしています。通報します。"
+        },
+        {
+          "en": "Our excavator hit something and it smells like gas; there's a school nearby.",
+          "kind": "phrase",
+          "ja": "バックホーが何かに当たってしまい、ガスのにおいがします。近くに学校があります。"
+        },
+        {
+          "en": "How soon will your emergency crew get here?",
+          "kind": "phrase",
+          "ja": "そちらの緊急対応チームは、あと何分ぐらいで到着しますか。"
+        },
+        {
+          "en": "Ma'am, please don't come closer; there may be a gas leak.",
+          "kind": "phrase",
+          "ja": "すみません、そこの方、それ以上近づかないでください。ガス漏れのおそれがあります。"
+        },
+        {
+          "en": "If anyone crosses the tape, I'll stop them.",
+          "kind": "phrase",
+          "ja": "もし誰かがテープを越えたら、私が止めます。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is excavator operator Raúl Medina on the radio: stop work with short ustedes commands like ¡Paren todo! and ¡Aléjense de la zanja!, then call 911 and the gas company, using si + present → future for your next steps.",
+      "grammarFocusSpanish": "Si + present → future; short radio or phone commands (si alguien se acerca, lo pararé; ¡Paren todo! ¡Aléjense de la zanja!)",
+      "grammarExamplesEnglish": [
+        "If the firefighters arrive, I'll give them the exact location of the trench.",
+        "If the wind changes, we'll move the assembly point."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは無線で話す重機オペレーターのラウル・メディナを演じます。「全作業中止！」「掘削溝から離れて！」のように短く明確に作業停止と退避を伝えてください。安全にできるなら機械のエンジンを切って歩いて離れるように伝え、911とガス会社に連絡してください。「〜たら、〜します」を使って次の行動を説明してください。ガス漏れの原因や規模を推測しないでください。",
+      "grammarTeachingJapanese": "条件は「〜たら」で表せます（消防隊が到着したら、場所を伝えます）。日本語では未来を表す特別な動詞形は要りません。無線での緊急指示は短く、聞き取りやすくします。「全作業中止」「離れて」「エンジンをかけないで」のように、行動を明確に伝えます。緊急通報では「通報します」「お伝えします」などを使い、周囲の人には「近づかないでください」と伝えます。",
+      "grammarExamplesJapanese": [
+        "消防隊が到着したら、掘削溝の正確な場所をお伝えします。",
+        "風向きが変わったら、集合場所を移動します。"
+      ],
+      "teachingNotesEnglish": [
+        "退避 is used for worker evacuation. 避難 is the usual term for residents. Reviewer should confirm the site term.",
+        "The English source is a US-site scenario and explicitly says call 911 and the gas company. The Japanese speaking prompt preserves 911; never substitute Japan’s 119 without changing and reviewing the whole jurisdictional scenario.",
+        "A qualified site safety and utility reviewer must confirm stop-work radio wording, evacuation wording, machine-shutdown conditions, public warning, and school-crossing-guard role. No gas-handling procedure beyond the source is asserted. The Japanese public warning omits a gendered address because natural urgent Japanese does not require one."
+      ]
+    }
+  ]
+}

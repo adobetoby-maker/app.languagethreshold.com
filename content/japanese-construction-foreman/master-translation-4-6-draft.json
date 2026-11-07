@@ -1,0 +1,427 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/core60/es/master-construction-foreman.json",
+  "englishSubsetSHA256": "a7322c2817d1a430ebc5365d9c554a47ec342865e0c2a14e80ef7c8fef1336dc",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Read the Grout Data Sheet Before Mixing",
+      "objectiveEnglish": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts.",
+      "terms": [
+        {
+          "en": "the non-shrink grout",
+          "kind": "term",
+          "ja": "無収縮グラウト（むしゅうしゅくグラウト）"
+        },
+        {
+          "en": "the data sheet",
+          "kind": "term",
+          "ja": "データシート"
+        },
+        {
+          "en": "the safety data sheet (SDS)",
+          "kind": "term",
+          "ja": "安全データシート（SDS）"
+        },
+        {
+          "en": "the mixing water",
+          "kind": "term",
+          "ja": "練り混ぜ水（ねりまぜみず）"
+        },
+        {
+          "en": "the pump base",
+          "kind": "term",
+          "ja": "ポンプ基礎（ポンプきそ）"
+        },
+        {
+          "en": "the base plate",
+          "kind": "term",
+          "ja": "ベースプレート"
+        },
+        {
+          "en": "the mixer",
+          "kind": "term",
+          "ja": "ミキサー"
+        },
+        {
+          "en": "the mixing time",
+          "kind": "term",
+          "ja": "練り混ぜ時間（ねりまぜじかん）"
+        },
+        {
+          "en": "the consistency",
+          "kind": "term",
+          "ja": "流動性（りゅうどうせい）"
+        },
+        {
+          "en": "the working time",
+          "kind": "term",
+          "ja": "可使時間（かしじかん）"
+        },
+        {
+          "en": "the ambient temperature",
+          "kind": "term",
+          "ja": "周囲温度（しゅういおんど）"
+        },
+        {
+          "en": "the wet curing",
+          "kind": "term",
+          "ja": "湿潤養生（しつじゅんようじょう）"
+        },
+        {
+          "en": "the silica dust",
+          "kind": "term",
+          "ja": "シリカ粉じん（ふんじん）"
+        },
+        {
+          "en": "the respirator",
+          "kind": "term",
+          "ja": "呼吸用保護具（こきゅうようほごぐ）"
+        },
+        {
+          "en": "the lot number",
+          "kind": "term",
+          "ja": "ロット番号（ロットばんごう）"
+        },
+        {
+          "en": "Before mixing, we have to read the whole data sheet.",
+          "kind": "phrase",
+          "ja": "練り混ぜる前に、データシートを最後まで読む必要があります。"
+        },
+        {
+          "en": "We use the water per bag that the data sheet gives.",
+          "kind": "phrase",
+          "ja": "練り混ぜ水は、データシートに書かれている1袋あたりの量を使います。"
+        },
+        {
+          "en": "I know you add more water, but here the sheet rules.",
+          "kind": "phrase",
+          "ja": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。"
+        },
+        {
+          "en": "You have to put on the respirator before opening the bags.",
+          "kind": "phrase",
+          "ja": "袋を開ける前に、呼吸用保護具を着用しなければなりません。"
+        },
+        {
+          "en": "After placing it, it has to be kept moist per the data sheet.",
+          "kind": "phrase",
+          "ja": "充填したあとは、データシートどおりに湿潤養生を行う必要があります。"
+        },
+        {
+          "en": "What does the sheet say about the ambient temperature?",
+          "kind": "phrase",
+          "ja": "データシートには、周囲温度について何と書かれていますか。"
+        },
+        {
+          "en": "If it comes out too thick, don't add water; call me.",
+          "kind": "phrase",
+          "ja": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。"
+        },
+        {
+          "en": "Before starting, let's go over the working time together.",
+          "kind": "phrase",
+          "ja": "始める前に、可使時間を一緒に確認しましょう。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is Ernesto Salgado, a mason: read the grout data sheet together and explain the mixing and safety steps it requires before work starts, using antes de + infinitive, después de + infinitive and hay que.",
+      "grammarFocusSpanish": "Antes de / después de + infinitive; hay que (antes de mezclar hay que leer la hoja; después de echarlo, hay que curarlo como dice el fabricante)",
+      "grammarExamplesEnglish": [
+        "Before opening the bag, you have to put on the respirator and safety glasses.",
+        "After mixing for the time the sheet gives, it has to be placed right away."
+      ],
+      "speakingJapanese": "あなたは職長で、AIは左官のエルネスト・サルガドです。グラウトのデータシートを一緒に読み、作業開始前に必要な練り混ぜと安全の手順を説明してください。「〜前に」「〜たあとで」「〜なければなりません」「〜必要があります」を使ってください。エルネストが水を足したいと言ったら、データシートの指示を優先し、練り上がりが硬すぎるときは水を加えずにあなたを呼ぶよう伝えてください。",
+      "grammarTeachingJapanese": "動詞の辞書形＋前に（例：練り混ぜる前に、袋を開ける前に）で「〜する前に」を表します。動詞の「た形」＋あとで（例：充填したあとで）、または「〜てから」で「〜した後に」を表します。義務は「〜なければなりません」や「〜必要があります」で表し、指示には「〜てください」を使います。「データシートどおりに」のように、「〜どおりに」で指示や基準に従うことを表します。「〜あとで」の前は「た形」にします（例：充填したあとで）。「〜前に」の前は辞書形のままです。",
+      "grammarExamplesJapanese": [
+        "袋を開ける前に、呼吸用保護具と保護めがねを着用しなければなりません。",
+        "データシートに示された時間だけ練り混ぜたあとは、すぐに充填しなければなりません。"
+      ],
+      "teachingNotesEnglish": [
+        "Use only the actual product data sheet and SDS for water quantity, mixing and working time, curing, and respiratory protection. The lesson supplies no values or respirator type. A qualified trade/safety reviewer must confirm grout placement and terminology before release."
+      ]
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Old Septic Tank Under the New Footing",
+      "objectiveEnglish": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order.",
+      "terms": [
+        {
+          "en": "the septic tank",
+          "kind": "term",
+          "ja": "浄化槽（じょうかそう）"
+        },
+        {
+          "en": "the footing",
+          "kind": "term",
+          "ja": "フーチング（基礎の底部）"
+        },
+        {
+          "en": "the excavation",
+          "kind": "term",
+          "ja": "掘削（くっさく）"
+        },
+        {
+          "en": "the excavator",
+          "kind": "term",
+          "ja": "油圧ショベル（ゆあつショベル）"
+        },
+        {
+          "en": "the find",
+          "kind": "term",
+          "ja": "発見物（はっけんぶつ）"
+        },
+        {
+          "en": "the drain field",
+          "kind": "term",
+          "ja": "排水地下浸透施設（はいすいちかしんとうしせつ）"
+        },
+        {
+          "en": "the property records",
+          "kind": "term",
+          "ja": "物件の記録（ぶっけんのきろく）"
+        },
+        {
+          "en": "the health department",
+          "kind": "term",
+          "ja": "保健所（ほけんじょ）"
+        },
+        {
+          "en": "the pumping",
+          "kind": "term",
+          "ja": "汲み出し作業（くみだしさぎょう）"
+        },
+        {
+          "en": "the compacted fill",
+          "kind": "term",
+          "ja": "締め固めた埋め戻し材（しめかためた うめもどしざい）"
+        },
+        {
+          "en": "the bearing capacity",
+          "kind": "term",
+          "ja": "支持力（しじりょく）"
+        },
+        {
+          "en": "the change order",
+          "kind": "term",
+          "ja": "変更注文書（へんこうちゅうもんしょ）"
+        },
+        {
+          "en": "the additional cost",
+          "kind": "term",
+          "ja": "追加費用（ついかひよう）"
+        },
+        {
+          "en": "the footing relocation",
+          "kind": "term",
+          "ja": "フーチングの位置変更"
+        },
+        {
+          "en": "the estimate",
+          "kind": "term",
+          "ja": "見積書（みつもりしょ）"
+        },
+        {
+          "en": "When we were digging this morning, Pablo found an old septic tank.",
+          "kind": "phrase",
+          "ja": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。"
+        },
+        {
+          "en": "The tank was right where the new footing goes.",
+          "kind": "phrase",
+          "ja": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。"
+        },
+        {
+          "en": "Nobody saw it before because it wasn't in the records.",
+          "kind": "phrase",
+          "ja": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。"
+        },
+        {
+          "en": "We could remove it and backfill with compacted material, as the engineer specifies.",
+          "kind": "phrase",
+          "ja": "撤去したうえで、技術者の指定どおりに締め固めた材料で埋め戻す方法が考えられます。"
+        },
+        {
+          "en": "Another option would be to move the footing, if the engineer approves it.",
+          "kind": "phrase",
+          "ja": "もう一つの案としては、技術者の承認が得られれば、フーチングの位置を移すこともできます。"
+        },
+        {
+          "en": "I'll give you a written estimate for each option.",
+          "kind": "phrase",
+          "ja": "それぞれの案について、見積書をお出しします。"
+        },
+        {
+          "en": "I understand your concern about the cost, Mrs. Montes.",
+          "kind": "phrase",
+          "ja": "モンテス様、費用についてのご心配はよく分かります。"
+        },
+        {
+          "en": "Pablo, stop digging there until we check it.",
+          "kind": "phrase",
+          "ja": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is homeowner Gabriela Montes: explain what Pablo found while digging using the preterite and imperfect (cuando excavábamos, encontró), then propose change-order options with the conditional (podríamos, sería).",
+      "grammarFocusSpanish": "Preterite vs imperfect; conditional for the proposal (cuando excavábamos, Pablo encontró un tanque; podríamos pedirle al ingeniero otra ubicación)",
+      "grammarExamplesEnglish": [
+        "When we were digging for the footing, Pablo found an old tank.",
+        "We could ask the engineer for another location for the footing."
+      ],
+      "speakingJapanese": "あなたは職長です。AIは住宅の所有者ガブリエラ・モンテス様を演じます。今朝、掘削していたときにパブロが古い浄化槽を見つけたことを、「〜ていたとき、〜ました」を使って説明してください。変更注文書の選択肢として、技術者の指定どおりに撤去・埋め戻す案と、技術者の承認が得られればフーチングの位置を変える案を「〜こともできます」などを使って示してください。各案について見積書を出すと伝え、費用への懸念に答えてください。確認が終わるまで、その場所での掘削を止めていることを伝えてください。技術者の判断が出るまで、どの案も決定事項として伝えないでください。",
+      "grammarTeachingJapanese": "続いていた作業の最中に起きた出来事は「〜ていたとき、〜た」で示します（例：掘削していたとき、見つけました）。提案は断定せず「〜方法が考えられます」「〜こともできます」「〜という案もあります」などで示します。技術者の判断が必要な案は「〜の承認が得られれば」のように条件を明示します。",
+      "grammarExamplesJapanese": [
+        "フーチングのために掘削していたとき、パブロが古い浄化槽を見つけました。",
+        "技術者にフーチングの別の位置を検討してもらうこともできます。"
+      ],
+      "teachingNotesEnglish": [
+        "This is a US septic tank and county-jurisdiction scenario. 浄化槽 and 保健所 are provisional functional equivalents, not a claim that Japanese and US systems or agencies are identical. A qualified site/jurisdiction reviewer must confirm the terms and procedures. The drain-field term 排水地下浸透施設 is also provisional and needs jurisdiction-specific review.",
+        "フーチング is provisional for a spread footing. The engineer must specify or approve the alternatives; the lesson does not approve excavation, removal, backfill or relocation."
+      ]
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Back-Ordered Windows: Substitute or Wait?",
+      "objectiveEnglish": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule.",
+      "terms": [
+        {
+          "en": "the substitute model",
+          "kind": "term",
+          "ja": "代替モデル"
+        },
+        {
+          "en": "the substitution",
+          "kind": "term",
+          "ja": "代替品への切り替え"
+        },
+        {
+          "en": "the lead time",
+          "kind": "term",
+          "ja": "納期"
+        },
+        {
+          "en": "the substitution request",
+          "kind": "term",
+          "ja": "代替品承認申請"
+        },
+        {
+          "en": "the written approval",
+          "kind": "term",
+          "ja": "書面による承認"
+        },
+        {
+          "en": "the architect",
+          "kind": "term",
+          "ja": "設計者"
+        },
+        {
+          "en": "the U-factor",
+          "kind": "term",
+          "ja": "熱貫流率（ねつかんりゅうりつ）／U値"
+        },
+        {
+          "en": "the wind rating",
+          "kind": "term",
+          "ja": "耐風圧性能（たいふうあつせいのう）"
+        },
+        {
+          "en": "the tempered glass",
+          "kind": "term",
+          "ja": "強化ガラス"
+        },
+        {
+          "en": "the rough opening",
+          "kind": "term",
+          "ja": "開口部（下地開口）"
+        },
+        {
+          "en": "the flashing",
+          "kind": "term",
+          "ja": "水切り板金"
+        },
+        {
+          "en": "the building envelope",
+          "kind": "term",
+          "ja": "建物外皮（たてものがいひ）"
+        },
+        {
+          "en": "the critical path",
+          "kind": "term",
+          "ja": "クリティカルパス"
+        },
+        {
+          "en": "the quote",
+          "kind": "term",
+          "ja": "見積り"
+        },
+        {
+          "en": "the interior finishes",
+          "kind": "term",
+          "ja": "内装仕上げ"
+        },
+        {
+          "en": "According to the supplier, the specified windows will take 6 more weeks.",
+          "kind": "phrase",
+          "ja": "納入業者によると、指定の窓はあと6週間かかるそうです。"
+        },
+        {
+          "en": "The substitute will arrive sooner, but we have to check if it complies.",
+          "kind": "phrase",
+          "ja": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。"
+        },
+        {
+          "en": "Without the architect's written approval, nothing gets installed.",
+          "kind": "phrase",
+          "ja": "設計者の書面による承認がなければ、何も取り付けません。"
+        },
+        {
+          "en": "Andrés, can you send me the quote and the lead time?",
+          "kind": "phrase",
+          "ja": "アンドレスさん、見積りと納期を送っていただけますか。"
+        },
+        {
+          "en": "Elena, if we wait, the interior finishes will start later.",
+          "kind": "phrase",
+          "ja": "エレナさん、待つ場合は内装仕上げの開始が遅れます。"
+        },
+        {
+          "en": "We're going to send the substitution request to the architect today.",
+          "kind": "phrase",
+          "ja": "本日、代替品承認申請を設計者に送る予定です。"
+        },
+        {
+          "en": "Meanwhile, we're going to cover the openings with plastic.",
+          "kind": "phrase",
+          "ja": "その間、開口部をビニールシートで覆っておきます。"
+        },
+        {
+          "en": "Does the substitute have the same U-factor as the specified one?",
+          "kind": "phrase",
+          "ja": "代替品の熱貫流率（U値）は、指定品と同じですか。"
+        }
+      ],
+      "speakingEnglish": "You are the foreman, and the AI is project manager Elena Cruz: compare waiting for the specified windows with the substitute using the future and ir a (llegará, va a tardar) and comparisons (más que, tan… como), and say that any substitute needs the architect's written approval.",
+      "grammarFocusSpanish": "Future and ir a; comparisons (va a tardar más que el otro, llegarán antes, no es tan bueno como el especificado)",
+      "grammarExamplesEnglish": [
+        "The specified model is going to take longer than the substitute.",
+        "The substitute will arrive sooner, but it isn't as good as the specified one."
+      ],
+      "speakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。指定の窓を待つ場合と代替品を使う場合を「〜より」「〜ほど〜ない」「〜見込みです」「〜予定です」などで比べ、それぞれの案が工程と内装仕上げの開始にどう影響するか説明してください。納入業者によると指定の窓はあと6週間かかり、代替品は早く届く見込みですが、適合性の確認が必要です。代替品承認申請を設計者に送る予定です。代替品は設計者の書面による承認がなければ取り付けられないことを明確に伝えてください。",
+      "grammarTeachingJapanese": "【比較】「AのほうがBより〜／AはBより〜」：2つのものを比べます。例：「代替品のほうが指定品より早く届く」「指定品より納入に時間がかかる」。「AはBほど〜ない」：AがBと同じ程度ではないことを言います。例：「指定品ほど良くはない」。否定の形で使います。【見込み・予定】「〜見込みです」：まだ確定していないが、そうなると見ている見通しを言います。例：「6週間かかる見込みです」。「〜予定です」：これから行うと決まっている計画を言います。例：「申請を送る予定です」。【条件】「〜ば」：「待てば、〜」のように、条件と結果を言います。「〜なければ、〜ません」：「承認がなければ、取り付けません」のように、必要な条件を言います。【依頼】「〜ていただけますか」：丁寧に頼む表現です。【逆接】「〜が、〜」：「早く届く見込みですが、確認が必要です」のように、利点と注意点を続けて言います。",
+      "grammarExamplesJapanese": [
+        "指定モデルは、代替品より納入に時間がかかる見込みです。",
+        "代替品のほうが早く届く見込みですが、指定品ほど良くはありません。"
+      ],
+      "teachingNotesEnglish": [
+        "The substitution is only a proposal. Delivery timing alone does not establish a revised interior-finish start date; confirm schedule effects with the project manager. No substitute may be installed without the architect’s written approval.",
+        "耐風圧性能, クリティカルパス, 開口部（下地開口）, 水切り板金, 納期 as lead time, and the document title 代替品承認申請 need qualified construction review."
+      ]
+    }
+  ]
+}

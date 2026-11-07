@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "b70bc0bcc9e043ea1aa00939473de6c4593bd242e53e350ddf50d93ac6a484f6",
+  "draftModel": "Claude CLI haiku alias via claude.ai OAuth; revised from Fable and Opus AI findings",
+  "lessons": [
+    {
+      "n": 4,
+      "objectiveEnglish": "Request a material and confirm its quantity and unit from the order.",
+      "terms": [
+        {
+          "ja": "ざいりょう",
+          "en": "Material",
+          "kind": "term"
+        },
+        {
+          "ja": "もくざい",
+          "en": "Lumber",
+          "kind": "term"
+        },
+        {
+          "ja": "パネル",
+          "en": "Panel",
+          "kind": "term",
+          "teachingNotesEnglish": "Loanwords like パネル are written in katakana, as on order sheets and drawings."
+        },
+        {
+          "ja": "コンクリート",
+          "en": "Concrete",
+          "kind": "term"
+        },
+        {
+          "ja": "すうりょう",
+          "en": "Quantity",
+          "kind": "term"
+        },
+        {
+          "ja": "たんい",
+          "en": "Unit",
+          "kind": "term"
+        },
+        {
+          "ja": "サイズ",
+          "en": "Measurement",
+          "kind": "term",
+          "teachingNotesEnglish": "Here it means the size written on an order. すんぽう is reserved for Dimension in Core 5."
+        },
+        {
+          "ja": "ちゅうもん",
+          "en": "Order",
+          "kind": "term"
+        },
+        {
+          "ja": "のうひん",
+          "en": "Delivery",
+          "kind": "term",
+          "teachingNotesEnglish": "のうひん means delivering goods to a site, not parcel delivery (はいたつ)."
+        },
+        {
+          "ja": "のうにゅうぎょうしゃ",
+          "en": "Supplier",
+          "kind": "term"
+        },
+        {
+          "ja": "ちゅうもんの すうりょうは どのくらい ですか",
+          "en": "What quantity does the order specify?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "どのくらい asks how much or what amount for any quantity, including a count, volume or weight. いくつ, taught in Foundation, specifically asks for a count of items."
+        },
+        {
+          "ja": "たんいを かくにん して ください",
+          "en": "Please confirm the unit.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "を marks the thing acted on (たんい). ～て ください means 'please do'."
+        },
+        {
+          "ja": "この ざいりょうが ひつよう です",
+          "en": "I need this material.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "が marks what is needed (ひつよう)."
+        },
+        {
+          "ja": "サイズは ちゅうもんしょに かいて あります",
+          "en": "The measurement is in the order.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "かいてあります means is written there: かく (write) changes to かいて. ～てあります marks a state left by a deliberate action; it does not always mean written. ちゅうもんしょ is the order sheet (ちゅうもん + しょ, document); に marks where it is written."
+        },
+        {
+          "ja": "のうひんは いつ ですか",
+          "en": "When does the delivery arrive?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "いつ means when; のうひん here means the scheduled delivery of materials."
+        }
+      ],
+      "reading": [
+        {
+          "ja": "のうにゅうぎょうしゃは もくざい と パネル と コンクリートの ちゅうもんを うけます",
+          "en": "The supplier receives an order for lumber, a panel and concrete.",
+          "teachingNotesEnglish": "と joins nouns in a list. の links the whole list (もくざい と パネル と コンクリート) to ちゅうもん: an order for all three."
+        },
+        {
+          "ja": "しょくちょうは ざいりょう、 すうりょう、 たんい、 サイズを かくにん します",
+          "en": "The foreman confirms the material, quantity, unit and measurement.",
+          "teachingNotesEnglish": "しょくちょう = crew foreman. げんばかんとく = site supervisor, not used here."
+        },
+        {
+          "ja": "のうひんは ちゅうもんの かくにん まち です",
+          "en": "The delivery is awaiting confirmation of the order.",
+          "teachingNotesEnglish": "まち (waiting) is a noun here: かくにんまち = waiting for confirmation."
+        },
+        {
+          "ja": "ちゅうもんの すうりょうは どのくらい ですか",
+          "en": "What quantity does the order specify?"
+        },
+        {
+          "ja": "たんいを かくにん して ください",
+          "en": "Please confirm the unit."
+        },
+        {
+          "ja": "この ざいりょうが ひつよう です",
+          "en": "I need this material."
+        },
+        {
+          "ja": "サイズは ちゅうもんしょに かいて あります",
+          "en": "The measurement is in the order."
+        },
+        {
+          "ja": "のうひんは いつ ですか",
+          "en": "When does the delivery arrive?"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "objectiveEnglish": "Point out a location on the plan and ask which revision and measurement apply.",
+      "terms": [
+        {
+          "ja": "ずめん",
+          "en": "Plan",
+          "kind": "term"
+        },
+        {
+          "ja": "かいてい",
+          "en": "Revision",
+          "kind": "term",
+          "teachingNotesEnglish": "かいてい = revision. さいしんばん (latest edition) is the equivalent of 'current revision'."
+        },
+        {
+          "ja": "かべ",
+          "en": "Wall",
+          "kind": "term"
+        },
+        {
+          "ja": "ドア",
+          "en": "Door",
+          "kind": "term"
+        },
+        {
+          "ja": "かど",
+          "en": "Corner",
+          "kind": "term",
+          "teachingNotesEnglish": "かど is an outside corner. An inside corner is すみ."
+        },
+        {
+          "ja": "すんぽう",
+          "en": "Dimension",
+          "kind": "term"
+        },
+        {
+          "ja": "きじゅんてん",
+          "en": "Reference point",
+          "kind": "term"
+        },
+        {
+          "ja": "きた",
+          "en": "North",
+          "kind": "term"
+        },
+        {
+          "ja": "きごう",
+          "en": "Symbol",
+          "kind": "term"
+        },
+        {
+          "ja": "しょうさいず",
+          "en": "Detail",
+          "kind": "term",
+          "teachingNotesEnglish": "しょうさいず = detail drawing."
+        },
+        {
+          "ja": "これは さいしんばん ですか",
+          "en": "Is this the current revision?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "きじゅんてんを ゆびさして ください",
+          "en": "Point out the reference point.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "ゆびさす = point with a finger."
+        },
+        {
+          "ja": "この きごうは どういう いみ ですか",
+          "en": "What does this symbol mean?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "どういう いみ = what meaning."
+        },
+        {
+          "ja": "ずめんの すんぽうを かくにん して ください",
+          "en": "Confirm the dimension on the plan.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この しょうさいずが わかりません",
+          "en": "I do not understand this detail.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "わかりません = I don't understand."
+        }
+      ],
+      "reading": [
+        {
+          "ja": "ずめんには かべ と ドア と かどが かいて あります",
+          "en": "The plan shows a wall, a door and a corner."
+        },
+        {
+          "ja": "きたと きじゅんてんで しょうさいずの いちが わかります",
+          "en": "North and the reference point help locate the detail.",
+          "teachingNotesEnglish": "で here means 'by means of': by north and the reference point."
+        },
+        {
+          "ja": "だれかが かいてい と すんぽう と きごうを たずねます",
+          "en": "Someone asks about the revision, dimension and a symbol."
+        },
+        {
+          "ja": "これは さいしんばん ですか",
+          "en": "Is this the current revision?"
+        },
+        {
+          "ja": "きじゅんてんを ゆびさして ください",
+          "en": "Point out the reference point."
+        },
+        {
+          "ja": "この きごうは どういう いみ ですか",
+          "en": "What does this symbol mean?"
+        },
+        {
+          "ja": "ずめんの すんぽうを かくにん して ください",
+          "en": "Confirm the dimension on the plan."
+        },
+        {
+          "ja": "この しょうさいずが わかりません",
+          "en": "I do not understand this detail."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "objectiveEnglish": "Ask for a framing instruction to be repeated and confirm the referenced part.",
+      "terms": [
+        {
+          "ja": "わくぐみ",
+          "en": "Framing",
+          "kind": "term",
+          "teachingNotesEnglish": "North American approximation: 2x4 wood-frame construction. Timber post-and-beam framing uses じくぐみ."
+        },
+        {
+          "ja": "たてわく",
+          "en": "Stud",
+          "kind": "term",
+          "teachingNotesEnglish": "North American 2x4 stud."
+        },
+        {
+          "ja": "はり",
+          "en": "Beam",
+          "kind": "term"
+        },
+        {
+          "ja": "ねだ",
+          "en": "Joist",
+          "kind": "term"
+        },
+        {
+          "ja": "したわく",
+          "en": "Plate",
+          "kind": "term",
+          "teachingNotesEnglish": "したわく is the bottom or sole plate in this framing example. The English plate can refer to other members; うわわく is the top plate, and プレート may mean a metal plate."
+        },
+        {
+          "ja": "まぐさ",
+          "en": "Header",
+          "kind": "term",
+          "teachingNotesEnglish": "North American header: the beam or lintel over an opening."
+        },
+        {
+          "ja": "ふごう",
+          "en": "Mark",
+          "kind": "term",
+          "teachingNotesEnglish": "ふごう = member code on a drawing, distinct from きごう (symbol) in Core 5."
+        },
+        {
+          "ja": "しじ",
+          "en": "Instruction",
+          "kind": "term"
+        },
+        {
+          "ja": "てじゅん",
+          "en": "Sequence",
+          "kind": "term",
+          "teachingNotesEnglish": "てじゅん is the usual site word for work sequence."
+        },
+        {
+          "ja": "かくにん",
+          "en": "Confirmation",
+          "kind": "term"
+        },
+        {
+          "ja": "しじを もういちど いって ください",
+          "en": "Please repeat the instruction.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "いって is the て-form of いいます (say), not 行って (go). もういちど means once more."
+        },
+        {
+          "ja": "この はりの ことですか",
+          "en": "Do you mean this beam?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "Xのことですか asks whether the speaker means X; here X is this beam."
+        },
+        {
+          "ja": "ずめんの ふごうを ゆびさして ください",
+          "en": "Point out the mark on the plan.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "していの てじゅんは なんですか",
+          "en": "What is the specified sequence?",
+          "kind": "phrase",
+          "teachingNotesEnglish": "してい means specified; していの てじゅん is the sequence specified in the instruction."
+        },
+        {
+          "ja": "さぎょうを つづける まえに かくにんが ひつよう です",
+          "en": "I need confirmation before continuing.",
+          "kind": "phrase",
+          "teachingNotesEnglish": "まえに after a dictionary-form verb means 'before doing X'."
+        }
+      ],
+      "reading": [
+        {
+          "ja": "わくぐみずは たてわく、 はり、 ねだを しめします",
+          "en": "The framing plan identifies the stud, beam and joist.",
+          "teachingNotesEnglish": "わくぐみず = framing plan. For floor or roof framing plans the standard term is ふせず."
+        },
+        {
+          "ja": "したわく、 まぐさ、 ふごうが しじに でてきます",
+          "en": "The plate, header and a mark appear in the instruction."
+        },
+        {
+          "ja": "さぎょうはんは てじゅんの かくにんを たのみます",
+          "en": "The crew asks for confirmation of the sequence.",
+          "teachingNotesEnglish": "さぎょうはん = crew (workers). たのみます = asks for."
+        },
+        {
+          "ja": "しじを もういちど いって ください",
+          "en": "Please repeat the instruction."
+        },
+        {
+          "ja": "この はりの ことですか",
+          "en": "Do you mean this beam?"
+        },
+        {
+          "ja": "ずめんの ふごうを ゆびさして ください",
+          "en": "Point out the mark on the plan."
+        },
+        {
+          "ja": "していの てじゅんは なんですか",
+          "en": "What is the specified sequence?"
+        },
+        {
+          "ja": "さぎょうを つづける まえに かくにんが ひつよう です",
+          "en": "I need confirmation before continuing."
+        }
+      ]
+    }
+  ]
+}

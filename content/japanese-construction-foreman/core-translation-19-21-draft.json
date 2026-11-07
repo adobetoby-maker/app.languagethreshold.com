@@ -1,0 +1,404 @@
+{
+  "schema": 1,
+  "moduleId": "construction-foreman",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "core",
+  "state": "translation-draft",
+  "reviewed": false,
+  "source": "src/data/construction-foreman-lesson-content.ts",
+  "englishSubsetSHA256": "49c897402e24a7401b2bfe927c934815f382829ab1015530640a538f164c3404",
+  "draftModel": "haiku via Claude CLI OAuth",
+  "lessons": [
+    {
+      "n": 19,
+      "objectiveEnglish": "Practice requesting emergency help with the site location and known observations, without inventing treatment advice.",
+      "terms": [
+        {
+          "en": "Emergency",
+          "kind": "term",
+          "ja": "きんきゅう"
+        },
+        {
+          "en": "Help",
+          "kind": "term",
+          "ja": "たすけ"
+        },
+        {
+          "en": "Location",
+          "kind": "term",
+          "ja": "ばしょ"
+        },
+        {
+          "en": "Address",
+          "kind": "term",
+          "ja": "じゅうしょ"
+        },
+        {
+          "en": "Access",
+          "kind": "term",
+          "ja": "つうろ"
+        },
+        {
+          "en": "Injured person",
+          "kind": "term",
+          "ja": "けが を した ひと"
+        },
+        {
+          "en": "Emergency contact",
+          "kind": "term",
+          "ja": "きんきゅう れんらく たんとうしゃ"
+        },
+        {
+          "en": "Dispatcher",
+          "kind": "term",
+          "ja": "つうしん しれいいん"
+        },
+        {
+          "en": "Instruction",
+          "kind": "term",
+          "ja": "しじ"
+        },
+        {
+          "en": "Site plan",
+          "kind": "term",
+          "ja": "げんば の ずめん"
+        },
+        {
+          "en": "We need emergency help.",
+          "kind": "phrase",
+          "ja": "きんきゅう の たすけ が ひつよう です。"
+        },
+        {
+          "en": "I will confirm the location.",
+          "kind": "phrase",
+          "ja": "ばしょ を かくにん します。"
+        },
+        {
+          "en": "There is an injured person.",
+          "kind": "phrase",
+          "ja": "けが を した ひと が います。"
+        },
+        {
+          "en": "Which access should I indicate?",
+          "kind": "phrase",
+          "ja": "どの つうろ を しめせば いい ですか。"
+        },
+        {
+          "en": "I am listening to the dispatcher's instruction.",
+          "kind": "phrase",
+          "ja": "つうしん しれいいん の しじ を きいて います。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "In this communication rehearsal, the emergency contact consults the site plan to give the address and access.",
+          "ja": "この れんらくの れんしゅう では、きんきゅう れんらく たんとうしゃ が げんば の ずめん を みて、じゅうしょ と つうろ を つたえます。"
+        },
+        {
+          "en": "The dispatcher asks the injured person's location and what help is needed.",
+          "ja": "つうしん しれいいん が、けが を した ひと の ばしょ と、どんな たすけ が ひつよう か を たずねます。"
+        },
+        {
+          "en": "The caller repeats the instruction they understand and asks again if something is unclear; the exercise uses fictional details and does not place an emergency call.",
+          "ja": "つうほう する ひと は、りかい した しじ を くりかえし、わからない ところ が あれば もういちど たずねます。この れんしゅう では かくう の じょうほう を つかい、きんきゅう つうほう は しません。"
+        },
+        {
+          "en": "We need emergency help.",
+          "ja": "きんきゅう の たすけ が ひつよう です。"
+        },
+        {
+          "en": "I will confirm the location.",
+          "ja": "ばしょ を かくにん します。"
+        },
+        {
+          "en": "There is an injured person.",
+          "ja": "けが を した ひと が います。"
+        },
+        {
+          "en": "Which access should I indicate?",
+          "ja": "どの つうろ を しめせば いい ですか。"
+        },
+        {
+          "en": "I am listening to the dispatcher's instruction.",
+          "ja": "つうしん しれいいん の しじ を きいて います。"
+        }
+      ],
+      "teachingNotesEnglish": [
+        "Grammar: 〜を した ひと (a past-tense clause before ひと) builds 'injured person', like an English relative phrase.",
+        "Grammar: います is used for people (animate subjects), so 'There is an injured person' uses います; あります is for things.",
+        "Grammar: 〜ます / 〜します is polite. 'I will confirm the location' states a pending intention, not a completed confirmation.",
+        "Grammar: 〜ば いい ですか asks what to do or which to choose. しめす here means point out or indicate; it does not state that a route is clear or safe.",
+        "Grammar: 〜を きいて います (ongoing ている) shows active listening. It describes a current state, not a finished instruction.",
+        "These lines are fictional emergency communication rehearsal scripts, not guidance for real emergency calls.",
+        "Script: mostly hiragana with spaced words, following the continuity glossary. Kanji forms (e.g. 場所, 通路) are not used here, so learners may see them in other materials.",
+        "Specialist terms: 'Dispatcher' here means an emergency dispatch operator (つうしん しれいいん), not a site role. 'Emergency contact' is a person (たんとうしゃ), not contact details (れんらくさき).",
+        "Ambiguity: 'Access' is rendered as つうろ (glossary: access route), but the source may mean vehicle or entry access. The source does not specify.",
+        "Source ambiguity: reading line 3 says 'the caller', while the terms use 'emergency contact'. The source does not say whether they are the same person, so the ja line assumes no identity.",
+        "Source ambiguity: reading line 1 says the emergency contact 'consults the site plan', but the source does not say whether it is the current revision (かいてい) or approved. The ja uses げんば の ずめん without claiming either.",
+        "Scope: this is emergency communication practice only, not medical advice. No injury condition, treatment, safety outcome, or permission is stated or implied."
+      ]
+    },
+    {
+      "n": 20,
+      "objectiveEnglish": "Summarize two closeout items, assign a follow-up contact and distinguish completion from verification.",
+      "terms": [
+        {
+          "en": "Project closeout",
+          "kind": "term",
+          "ja": "こうじ しゅうりょう じゅんび"
+        },
+        {
+          "en": "Punch list",
+          "kind": "term",
+          "ja": "パンチ リスト"
+        },
+        {
+          "en": "Room",
+          "kind": "term",
+          "ja": "へや"
+        },
+        {
+          "en": "Defect",
+          "kind": "term",
+          "ja": "ふぐあい"
+        },
+        {
+          "en": "Photo",
+          "kind": "term",
+          "ja": "しゃしん"
+        },
+        {
+          "en": "Responsible person",
+          "kind": "term",
+          "ja": "せきにんしゃ"
+        },
+        {
+          "en": "Deadline",
+          "kind": "term",
+          "ja": "しめきり"
+        },
+        {
+          "en": "Correction",
+          "kind": "term",
+          "ja": "しゅうせい"
+        },
+        {
+          "en": "Verification",
+          "kind": "term",
+          "ja": "けんしょう"
+        },
+        {
+          "en": "Status",
+          "kind": "term",
+          "ja": "じょうきょう"
+        },
+        {
+          "en": "The punch list identifies the room.",
+          "kind": "phrase",
+          "ja": "パンチ リストに へやが しめされて います。"
+        },
+        {
+          "en": "This photo shows the observed defect.",
+          "kind": "phrase",
+          "ja": "この しゃしんに、みつかった ふぐあいが うつって います。"
+        },
+        {
+          "en": "Who confirms the correction?",
+          "kind": "phrase",
+          "ja": "しゅうせいは だれが かくにんしますか。"
+        },
+        {
+          "en": "Let's agree on the deadline.",
+          "kind": "phrase",
+          "ja": "しめきりについて ごうい しましょう。"
+        },
+        {
+          "en": "The status is still awaiting verification.",
+          "kind": "phrase",
+          "ja": "じょうきょうは まだ けんしょう まち です。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "Project closeout includes a punch list with a room, a photo and a defect to review.",
+          "ja": "こうじ しゅうりょう じゅんびには、けんとうする へやと しゃしんと ふぐあいを のせた パンチ リストが あります。"
+        },
+        {
+          "en": "Each responsible person receives a deadline for reporting on their assigned correction.",
+          "ja": "わりあてられた しゅうせいの ほうこくの しめきりが、せきにんしゃ ひとりひとりに しらされます。"
+        },
+        {
+          "en": "A completed task's status may still need verification; the foreman explains that difference in the meeting.",
+          "ja": "かんりょうした さぎょうでも、まだ けんしょうが ひつような ばあいが あります。しょくちょうは ミーティングで その ちがいを せつめいします。"
+        },
+        {
+          "en": "The punch list identifies the room.",
+          "ja": "パンチ リストに へやが しめされて います。"
+        },
+        {
+          "en": "This photo shows the observed defect.",
+          "ja": "この しゃしんに、みつかった ふぐあいが うつって います。"
+        },
+        {
+          "en": "Who confirms the correction?",
+          "ja": "しゅうせいは だれが かくにんしますか。"
+        },
+        {
+          "en": "Let's agree on the deadline.",
+          "ja": "しめきりについて ごうい しましょう。"
+        },
+        {
+          "en": "The status is still awaiting verification.",
+          "ja": "じょうきょうは まだ けんしょう まち です。"
+        }
+      ],
+      "teachingNotesEnglish": [
+        "Glossary choices: verification is けんしょう and confirmation is かくにん. Keep them separate so that verified is not treated as merely confirmed or completed.",
+        "Completion and verification are different states. かんりょうした さぎょう describes a completed task; まだ けんしょうが ひつような marks an open verification step. Reading line 3 keeps them separate.",
+        "じょうきょうは まだ けんしょう まち です means the status is awaiting verification. It does not say the item failed or was approved.",
+        "ごうい しましょう proposes reaching agreement on a deadline. It does not say a deadline has already been agreed.",
+        "Grammar: あります and います are used for existence and state. しめされて います is a passive-style state (is shown). ばあいが あります means 'there are cases where' and expresses 'may'. のせた modifies パンチ リスト (a punch list that carries those items).",
+        "Register: sentences use polite です/ます forms suitable for a jobsite. The question ends in ますか. The script is mostly kana with katakana loans; spacing is a draft convention and needs a course-wide copy edit.",
+        "Ambiguity in the English source: 'Who confirms the correction?' does not name a responsible person, so the Japanese keeps the question open with だれが.",
+        "Ambiguity in the English source: 'Room' could mean a room number, a space, or a location. The Japanese へや is kept neutral and does not specify a room number.",
+        "Source gap: the objective asks learners to summarize two closeout items and assign a follow-up contact. The reading lines do not clearly name two items or a follow-up contact (れんらく たんとうしゃ is not used). The English is preserved exactly as supplied.",
+        "Reading line 2 says 'receives a deadline'. The Japanese uses しらされます (is informed), which avoids claiming that the deadline was approved or set by a specific person.",
+        "パンチ リスト, こうじ しゅうりょう じゅんび and しゅうせい are working draft renderings; Japanese site usage has not been checked by a specialist.",
+        "This draft is AI-generated from the English source. It has not been reviewed by a human or a trade specialist."
+      ]
+    },
+    {
+      "n": 21,
+      "objectiveEnglish": "Guide a client through completed and pending work, invite questions and confirm who will follow up.",
+      "terms": [
+        {
+          "en": "Client",
+          "kind": "term",
+          "ja": "クライアント"
+        },
+        {
+          "en": "Walkthrough",
+          "kind": "term",
+          "ja": "げんば あんない"
+        },
+        {
+          "en": "Completed work",
+          "kind": "term",
+          "ja": "かんりょう した さぎょう"
+        },
+        {
+          "en": "Detail",
+          "kind": "term",
+          "ja": "ぶぶん"
+        },
+        {
+          "en": "Finish",
+          "kind": "term",
+          "ja": "しあげ"
+        },
+        {
+          "en": "Question",
+          "kind": "term",
+          "ja": "しつもん"
+        },
+        {
+          "en": "Warranty",
+          "kind": "term",
+          "ja": "ほしょう"
+        },
+        {
+          "en": "Document",
+          "kind": "term",
+          "ja": "しょるい"
+        },
+        {
+          "en": "Pending item",
+          "kind": "term",
+          "ja": "みかんりょう の こうもく"
+        },
+        {
+          "en": "Follow-up",
+          "kind": "term",
+          "ja": "フォローアップ"
+        },
+        {
+          "en": "Welcome to the walkthrough.",
+          "kind": "phrase",
+          "ja": "げんば あんない へ ようこそ。"
+        },
+        {
+          "en": "Here is the completed work.",
+          "kind": "phrase",
+          "ja": "こちら が かんりょう した さぎょう です。"
+        },
+        {
+          "en": "This detail is still awaiting review.",
+          "kind": "phrase",
+          "ja": "この ぶぶん は まだ けんとう まち です。"
+        },
+        {
+          "en": "Let's consult the warranty document.",
+          "kind": "phrase",
+          "ja": "ほしょう しょるい を さんしょう しましょう。"
+        },
+        {
+          "en": "Let's confirm who will follow up.",
+          "kind": "phrase",
+          "ja": "フォローアップ の たんとうしゃ を かくにん しましょう。"
+        }
+      ],
+      "reading": [
+        {
+          "en": "The client begins the walkthrough with a question about the finish and another detail they saw on the previous visit.",
+          "ja": "げんば あんない の はじめに、クライアントは、しあげと まえの ほうもんで みた ほかの ぶぶんに ついて しつもんします。"
+        },
+        {
+          "en": "The foreman shows the completed work, identifies a pending item and consults the warranty document without promising terms they have not confirmed.",
+          "ja": "しょくちょう は、かんりょう した さぎょう を みせ、みかんりょう の こうもく を しめし、ほしょう しょるい を さんしょう します。かくにん できて いない じょうけん は、やくそく しません。"
+        },
+        {
+          "en": "At the end, both people repeat the follow-up agreement and record who will answer each question.",
+          "ja": "さいご に、りょうほう が フォローアップ の とりきめ を くりかえし、だれ が どの しつもん に こたえるか を きろく します。"
+        },
+        {
+          "en": "Welcome to the walkthrough.",
+          "ja": "げんば あんない へ ようこそ。"
+        },
+        {
+          "en": "Here is the completed work.",
+          "ja": "こちら が かんりょう した さぎょう です。"
+        },
+        {
+          "en": "This detail is still awaiting review.",
+          "ja": "この ぶぶん は まだ けんとう まち です。"
+        },
+        {
+          "en": "Let's consult the warranty document.",
+          "ja": "ほしょう しょるい を さんしょう しましょう。"
+        },
+        {
+          "en": "Let's confirm who will follow up.",
+          "ja": "フォローアップ の たんとうしゃ を かくにん しましょう。"
+        }
+      ],
+      "teachingNotesEnglish": [
+        "Register: です/ます and しましょう keep the tone polite. Japanese often omits a subject when context is clear; the reading explicitly names the client and foreman.",
+        "こちら が ~です introduces the item being shown. こちら points to what the speaker is presenting.",
+        "まだ ~まち です: まだ means not yet, and けんとう まち means awaiting review. This marks the detail as neither confirmed nor agreed.",
+        "Glossary distinction: かくにん is used for confirmation. The review line uses けんとう to avoid implying the detail is already confirmed.",
+        "さんしょう (refer to) is used for 'consult' in 'consult the warranty document'. It means looking at the document, not asking a person.",
+        "ほしょう is the warranty term. Reading line 2 says terms not yet confirmed are not promised (かくにん できて いない じょうけん は、やくそく しません). Do not add coverage details the source does not state.",
+        "Pending versus completed: みかんりょう の こうもく marks an unfinished item; かんりょう した さぎょう marks completed work. Neither means verified.",
+        "たんとうしゃ (person in charge) is used for who will follow up. Glossary terms れんらく たんとうしゃ and せきにんしゃ are related but not identical; choose by context.",
+        "Reading line 1 begins with the client’s question. Reading line 3 embeds a question with か (だれ が どの しつもん に こたえるか).",
+        "しあげ means a surface or work finish in this context, not a claim that the whole project is complete.",
+        "Source ambiguity: 'Detail' may mean a specific part or a fine item. ぶぶん is a general rendering and may need a more specific word on a real site.",
+        "Source ambiguity: 'Let's consult the warranty document' could mean reading the document together or confirming with someone. The Japanese follows the English and uses さんしょう only.",
+        "Source ambiguity: reading line 2 says the foreman identifies 'a pending item', but the source does not say whether this is the same detail as 'still awaiting review'. The Japanese keeps the two lines as written.",
+        "Specialist terms: げんば あんない and フォローアップ are workable renderings for walkthrough and follow-up. They are not claimed as approved trade terminology.",
+        "Source gap: the objective says invite questions, but no English phrase explicitly invites them. Do not add an unpaired phrase to this translation draft."
+      ]
+    }
+  ]
+}

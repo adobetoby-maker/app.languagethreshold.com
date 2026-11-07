@@ -1,5 +1,7 @@
 # Japanese Breakfast dictionary sense audit — private draft
 
+Historical scoped audit only: the full F10/C30/M20 draft and subsequent clinical vocabulary corrections have changed the source. Use [the current full review queue](private-dictionary-full-review-2026-11-07.md) for the 60-lesson inventory. The evidence below remains attached to the older F/C source hashes and does not establish review of current entries.
+
 Scope: exact Japanese→English cards in Foundation 1–10 and Core 1–30 at PR #378 (`befb32aee`). This is a source-context audit, not fluent Japanese, food-safety, or human approval. No dictionary entry is released. All `reviewed:false` and `registered:false` flags remain unchanged.
 
 Pinned source SHA-256:

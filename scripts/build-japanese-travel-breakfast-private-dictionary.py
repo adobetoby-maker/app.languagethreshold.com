@@ -11,8 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content/japanese-travel-breakfast"
 OUTPUT = CONTENT / "private-dictionary-draft-ja-en.json"
 SOURCES = (
-    ("foundation", "foundation-1-10-draft.json", "foundation-travel-breakfast", 10),
-    ("core", "core-1-30-draft.json", "travel-breakfast", 30),
+    ("foundation", "foundation-1-10-draft.json", "foundation-travel-breakfast", 1, 10),
+    ("core", "core-1-30-draft.json", "travel-breakfast", 1, 30),
+    ("master", "master-1-3-draft.json", "master-travel-breakfast", 1, 3),
+    ("master", "master-4-6-draft.json", "master-travel-breakfast", 4, 6),
+    ("master", "master-7-9-draft.json", "master-travel-breakfast", 7, 9),
+    ("master", "master-10-12-draft.json", "master-travel-breakfast", 10, 12),
+    ("master", "master-13-15-draft.json", "master-travel-breakfast", 13, 15),
+    ("master", "master-16-18-draft.json", "master-travel-breakfast", 16, 18),
+    ("master", "master-19-20-draft.json", "master-travel-breakfast", 19, 20),
 )
 
 
@@ -20,7 +27,8 @@ def build():
     entries = {}
     source_hashes = {}
     placements = 0
-    for stage, filename, stage_id, expected_lessons in SOURCES:
+    seen_lessons = set()
+    for stage, filename, stage_id, first, last in SOURCES:
         raw = (CONTENT / filename).read_bytes()
         source_hashes[filename] = hashlib.sha256(raw).hexdigest()
         data = json.loads(raw)
@@ -28,9 +36,11 @@ def build():
             "travel-breakfast", stage_id, "Japanese", "English"
         )
         assert data["reviewed"] is False and data["registered"] is False
-        assert [lesson["n"] for lesson in data["lessons"]] == list(range(1, expected_lessons + 1))
+        assert [lesson["n"] for lesson in data["lessons"]] == list(range(first, last + 1))
         for lesson in data["lessons"]:
             assert lesson["stableId"] == f"{stage_id}:{lesson['n']}:ja-en"
+            assert lesson["stableId"] not in seen_lessons
+            seen_lessons.add(lesson["stableId"])
             for position, card in enumerate(lesson["cards"], 1):
                 target, native = card["ja"], card["en"]
                 assert target and native and target == target.strip() and native == native.strip()
@@ -61,6 +71,7 @@ def build():
                 })
                 placements += 1
 
+    assert len(seen_lessons) == 60
     by_target = defaultdict(set)
     for target, native in entries:
         by_target[target].add(native)
@@ -78,9 +89,11 @@ def build():
         "reviewed": False,
         "registered": False,
         "sourceSha256": source_hashes,
+        "ambiguousHeadwords": sorted(target for target, glosses in by_target.items() if len(glosses) > 1),
         "counts": {
             "foundationLessons": 10,
             "coreLessons": 30,
+            "masterLessons": 20,
             "placements": placements,
             "exactPairs": len(entries),
             "ambiguousHeadwords": sum(len(glosses) > 1 for glosses in by_target.values()),

@@ -1,0 +1,9 @@
+# French 101 Master 13–15 redesigned draft checkpoint
+
+This candidate batch follows the proposed 20-slot French Master map and stacks on redesigned Master 10–12. It preserves `master-french-basics:13`, `:14`, and `:15`. The Spanish course and practice are unchanged SHA-256-linked provenance; their repeated beginner lines are not learner-facing candidates. The new draft is `reviewed:false`, `registered:false`, and has no recorded audio.
+
+Each lesson has eight vocabulary cards, twelve new aligned French/English Reader and phrase-card pairs, a speaking scenario, French grammar notes, and five draft checks. Master 13 converts an exhibition request into required and optional tasks, including approval before printing. Master 14 contrasts an established rehearsal routine with a projector interruption and revised order. Master 15 gives directions to a fictional alternate library entrance, asks the visitor to repeat them and corrects a before/after wrong turn.
+
+`python3 scripts/validate-french-basics-master-redesign-13-15-draft.py` checks stable keys, map objectives/prerequisites, source hashes, 60 cards, 36 one-to-one Reader pairs, speaking/check structure, script-only listening status, and zero exact English Reader-line reuse from Spanish Foundation/Core/Master or redesigned French Master 1–12. The new English pairs deliberately differ from legacy Spanish Master where it repeats earlier stages. No learner progress or published runtime content changes.
+
+Independent French fidelity/curriculum and tense/register review, qualified human review, full runtime modes, dictionary, offline behavior, recorded audio and device acceptance remain. The fictional route must not be used as real location guidance without local verification. Claude review was not attempted because the earlier bounded CLI budget was exhausted. These are authored candidates, not released lessons.

@@ -1091,6 +1091,546 @@
         "say": "State a restriction and ask for verification without assuming safety.",
         "write": "Write a brief restriction statement and a decline when facts are uncertain."
       }
+    },
+    {
+      "n": 7,
+      "stableId": "travel-breakfast:7:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a typical regional breakfast and understand a cultural explanation",
+        "roleplay": "Tell the server you want the breakfast locals actually choose, not a tourist substitute.",
+        "englishWordAnchors": [
+          "table",
+          "server (male)",
+          "typical dish",
+          "chilaquiles (fried tortilla pieces in salsa)",
+          "salsa, sauce",
+          "beans",
+          "spiced clay-pot coffee",
+          "sweet bread, pastry",
+          "counter",
+          "breakfast",
+          "What do people here eat for breakfast?",
+          "I want the breakfast that locals order.",
+          "I don't want something just for tourists.",
+          "Can you recommend a typical dish to me?",
+          "Can you explain to me what it has in it?",
+          "Can you repeat that more slowly, please?"
+        ],
+        "englishReading": [
+          "Ana sits at a table in a small café in Puebla.",
+          "First she asks the server: What do people here eat for breakfast?",
+          "Then she says: I want the breakfast that locals order.",
+          "The server smiles and says that chilaquiles are a typical morning dish.",
+          "According to him, they are going to serve the chilaquiles with green salsa and beans.",
+          "Ana asks: Can you explain to me what it has in it?",
+          "The server explains that café de olla comes with cinnamon and that the sweet bread is for afterward.",
+          "Ana orders the chilaquiles, a café de olla, and a sweet bread.",
+          "At the end, she is going to pay at the counter."
+        ],
+        "englishSourceSha256": "a34d46208b74a136dd7d99563da7a880f4a295246b65f2fc88e402b48bbfa120"
+      },
+      "title": "Ask about a local breakfast",
+      "objective": "Ask staff what people in the area choose for breakfast, hear the explanation, and check the ingredients before ordering.",
+      "focus": "この辺りでは means around here; この店では means at this shop. 「地元の人は」 asks about local customers without claiming everyone eats the same thing. A recommendation is one staff member’s description, not a universal cultural fact or ingredient guarantee.",
+      "scene": "Sam asks a café worker which breakfast on this shop’s menu is popular with local customers.",
+      "cards": [
+        {
+          "ja": "この辺り",
+          "en": "this area",
+          "kind": "term"
+        },
+        {
+          "ja": "地元",
+          "en": "local area",
+          "kind": "term"
+        },
+        {
+          "ja": "地元の人",
+          "en": "local people",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "定食",
+          "en": "set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "おにぎり",
+          "en": "rice ball",
+          "kind": "term"
+        },
+        {
+          "ja": "味噌汁",
+          "en": "miso soup",
+          "kind": "term"
+        },
+        {
+          "ja": "漬物",
+          "en": "pickles",
+          "kind": "term"
+        },
+        {
+          "ja": "人気があります",
+          "en": "is popular",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "何が入っていますか",
+          "en": "What is in it?",
+          "kind": "term"
+        },
+        {
+          "ja": "この店では何が人気ですか",
+          "en": "What is popular at this shop?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "この辺りでは、朝食に何を食べますか。",
+          "en": "What do people around here eat for breakfast?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "人によりますが、この店ではおにぎり定食が人気です。",
+          "en": "It depends on the person, but the rice-ball set is popular here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何が付きますか。",
+          "en": "What comes with it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "おにぎりと味噌汁と漬物が付きます。",
+          "en": "It comes with rice balls, miso soup, and pickles."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おにぎりの中身は何ですか。",
+          "en": "What is inside the rice balls?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今日の中身は鮭です。",
+          "en": "Today the filling is salmon."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "材料をもう少し教えていただけますか。",
+          "en": "Could you tell me a little more about the ingredients?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。確認をお願いします。",
+          "en": "Thank you. Please check."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about local breakfast",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。メニューをご覧になりますか。",
+        "goal": "Ask about a local breakfast choice, what comes with it, and the ingredients before ordering.",
+        "closure": "Wait for any kitchen check; do not generalize one menu item to all Japanese breakfasts.",
+        "wordBank": [
+          "この辺り",
+          "朝食",
+          "この店では",
+          "何が付きますか",
+          "中身",
+          "材料"
+        ]
+      },
+      "modes": {
+        "see": "Read the shop recommendation with English support.",
+        "recall": "Recall local-area, set meal and ingredient questions.",
+        "hear": "Hear おにぎり and 味噌汁 in context.",
+        "type": "Type a short recommendation question with kana help.",
+        "say": "Ask what locals order and what is in one item.",
+        "write": "Write a recommendation question and an ingredient check."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "travel-breakfast:8:ja-en",
+      "sourceEnglish": {
+        "objective": "order several drinks and foods accurately and confirm who gets each item",
+        "roleplay": "Order breakfast for a family or group with different preferences.",
+        "englishWordAnchors": [
+          "waiter",
+          "order",
+          "coffee with milk",
+          "scrambled eggs",
+          "orange juice",
+          "sweet roll",
+          "toast",
+          "butter",
+          "decaf",
+          "check",
+          "table",
+          "ham sandwich",
+          "I want to order for everyone, please.",
+          "Is the order correct?",
+          "This is for her, right?",
+          "Without cheese, please.",
+          "Can you repeat the order, please?",
+          "The check, please."
+        ],
+        "englishReading": [
+          "I am in a café with my wife, my son, and my mother-in-law.",
+          "First, I say to the waiter: I want to order for everyone, please.",
+          "For me, a coffee with milk and some scrambled eggs.",
+          "For my wife, a tea and a ham sandwich, without cheese.",
+          "My son is going to have orange juice and a sweet roll.",
+          "My mother-in-law wants a decaf coffee and toast with butter.",
+          "Then, I repeat the order: Is that correct? The tea is for her, right?",
+          "The waiter smiles and says: Everything is right, I'll bring it right away.",
+          "At the end, I ask for the check at the table."
+        ],
+        "englishSourceSha256": "1c86fb57a2ac3cc9181bcd82167593abd51b9ed4bd95348faef5e9771497dc25"
+      },
+      "title": "Order for a group",
+      "objective": "Order different drinks and foods for three people, then read back who receives each item.",
+      "focus": "～には marks the person receiving an item. それぞれ means each person. こちらは誰の分ですか asks whose portion an item is. Japanese often uses a person’s name rather than a bare pronoun. Avoid mixing an allergy need with an ordinary taste preference.",
+      "scene": "Sam orders with two companions at a café and checks the server’s readback.",
+      "cards": [
+        {
+          "ja": "三人分",
+          "en": "for three people",
+          "kind": "term"
+        },
+        {
+          "ja": "それぞれ",
+          "en": "each",
+          "kind": "term"
+        },
+        {
+          "ja": "私には",
+          "en": "for me",
+          "kind": "term"
+        },
+        {
+          "ja": "友人には",
+          "en": "for my friend",
+          "kind": "term"
+        },
+        {
+          "ja": "子どもには",
+          "en": "for the child",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "紅茶",
+          "en": "black tea",
+          "kind": "term"
+        },
+        {
+          "ja": "オレンジジュース",
+          "en": "orange juice",
+          "kind": "term"
+        },
+        {
+          "ja": "卵料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "注文を確認してください",
+          "en": "Please check the order",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これは誰の分ですか",
+          "en": "Whose portion is this?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "ご注文をどうぞ。",
+          "en": "Please tell me your order."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "三人分をお願いします。",
+          "en": "An order for three people, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "私にはカフェオレと卵料理をお願いします。",
+          "en": "Coffee with milk and an egg dish for me, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "友人には紅茶とトーストをお願いします。",
+          "en": "Tea and toast for my friend, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "子どもにはオレンジジュースとパンをお願いします。",
+          "en": "Orange juice and bread for the child, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。カフェオレと卵料理はお客様の分ですね。",
+          "en": "Let me confirm. The coffee with milk and egg dish are for you."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。紅茶とトーストは友人の分です。",
+          "en": "Yes. The tea and toast are for my friend."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "オレンジジュースとパンはお子様の分ですね。",
+          "en": "The orange juice and bread are for the child."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、そのとおりです。",
+          "en": "Yes, that is correct."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering for a group",
+        "partnerRole": "Café server",
+        "opening": "ご注文をどうぞ。",
+        "goal": "Place three distinct orders and confirm who receives each item.",
+        "closure": "Read back the allocation before the server submits the order.",
+        "wordBank": [
+          "三人分",
+          "私には",
+          "友人には",
+          "子どもには",
+          "注文を確認してください",
+          "そのとおりです"
+        ]
+      },
+      "modes": {
+        "see": "Read the group order with aligned English.",
+        "recall": "Recall who gets each food and drink.",
+        "hear": "Hear the three recipient phrases.",
+        "type": "Type a short allocation sentence with kana help.",
+        "say": "Order for three and confirm the readback.",
+        "write": "Write a compact three-person order."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "travel-breakfast:9:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for food or coffee to go, packaging, napkins, and utensils",
+        "roleplay": "Convert part of a seated order into takeaway because your train leaves soon.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "croissant",
+          "counter",
+          "lid",
+          "paper bag",
+          "napkins",
+          "spoon",
+          "fork",
+          "to-go cup",
+          "bill",
+          "order",
+          "Can I order the coffee to go?",
+          "I want this to go, please.",
+          "Can you give me napkins and a spoon?",
+          "Can you put it in a bag for me?",
+          "Does it come with a lid?",
+          "My train leaves soon."
+        ],
+        "englishReading": [
+          "A traveler is in a café and looks at the clock.",
+          "First he orders a coffee with milk and a croissant at the counter.",
+          "Then he says: Excuse me, can I order the coffee to go?",
+          "The waitress asks: Do you want a lid and a bag?",
+          "The traveler answers: Yes, please, and I also need napkins and a spoon.",
+          "After that he changes the croissant order, because he is going to eat on the train.",
+          "He says: Can you put it in a paper bag for me?",
+          "In the end he pays the bill and says thank you.",
+          "With his order in hand, he quickly heads out to the station."
+        ],
+        "englishSourceSha256": "1df5fdc6e38ec3c990e004f907a050357d1f83d84d1cc393e6eb6d4c3bd38829"
+      },
+      "title": "Change part of an order to takeaway",
+      "objective": "Ask to take a coffee and pastry away, check packaging, and request a napkin or spoon.",
+      "focus": "持ち帰り means takeaway. ～に変更できますか asks if a change is possible; do not assume a prepared order can be changed. 袋 is a bag and ふた is a lid. Ask whether these are supplied; packaging and train policies vary.",
+      "scene": "Sam has limited time before a train and asks the café to change the unprepared part of an order.",
+      "cards": [
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "店内",
+          "en": "inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "変更できますか",
+          "en": "Can it be changed?",
+          "kind": "term"
+        },
+        {
+          "ja": "電車",
+          "en": "train",
+          "kind": "term"
+        },
+        {
+          "ja": "すぐ",
+          "en": "soon",
+          "kind": "term"
+        },
+        {
+          "ja": "紙袋",
+          "en": "paper bag",
+          "kind": "term"
+        },
+        {
+          "ja": "ふた",
+          "en": "lid",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkin",
+          "kind": "term"
+        },
+        {
+          "ja": "スプーン",
+          "en": "spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りにできますか",
+          "en": "Can it be made takeaway?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "袋に入れてください",
+          "en": "Please put it in a bag",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。電車の時間が近いです。",
+          "en": "Excuse me. My train time is close."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを持ち帰りに変更できますか。",
+          "en": "Can you change the coffee to takeaway?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "まだ作っていないので、変更できます。",
+          "en": "We have not made it yet, so we can change it."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。ふたはありますか。",
+          "en": "Thank you. Is there a lid?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、ふたを付けます。",
+          "en": "Yes, we will add a lid."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "クロワッサンも紙袋に入れてください。",
+          "en": "Please put the croissant in a paper bag too."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ナプキンを一枚いただけますか。",
+          "en": "Could I have one napkin?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Yes, here you are."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler changing an order",
+        "partnerRole": "Café staff",
+        "opening": "ご注文の変更ですか。",
+        "goal": "Ask whether coffee can be changed to takeaway and request packaging for a pastry.",
+        "closure": "Accept the change only after staff confirms it is possible.",
+        "wordBank": [
+          "持ち帰り",
+          "変更できますか",
+          "ふた",
+          "紙袋",
+          "ナプキン",
+          "いただけますか"
+        ]
+      },
+      "modes": {
+        "see": "Read a takeaway-change scene with English support.",
+        "recall": "Recall takeaway, lid, bag and napkin terms.",
+        "hear": "Hear 変更できます and 変更できません.",
+        "type": "Type a change request with guided input.",
+        "say": "Ask for takeaway and packaging.",
+        "write": "Write a short change request and napkin question."
+      }
     }
   ],
   "reviewGates": [

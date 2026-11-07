@@ -17,9 +17,9 @@ SOURCE_LOCALE = re.compile(
     r"\b(?:Oaxaca|Mexico|Mexique|Mexican|pesos?|Spanish|espagnol|Spain|Espagne|Madrid|"
     r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde)\b", re.I
 )
-LOCALIZED = {1, 2, 3, 4, 6, 8}
+LOCALIZED = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 REMAINING = [
-    "foundation:5", "foundation:7", "foundation:9", "foundation:10",
+    "foundation:10",
     "core:3", "core:7", "core:22", "core:23", "core:24", "core:25",
     "core:28", "core:29", "master:7",
 ]
@@ -56,7 +56,11 @@ def main():
     prices = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "foundation:2")
     assert "douze euros" in prices["speaking"]["openingFrench"]
     assert "twelve euros" in prices["reader"][7]["supportEnglish"]
-    print("French Travel Breakfast six localized Foundation pairs and remaining carryover passed")
+    bill = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "foundation:9")
+    assert "vingt euros" in bill["reader"][7]["targetFrench"]
+    assert "dix-huit euros" in bill["reader"][7]["targetFrench"]
+    assert "deux euros" in bill["reader"][8]["targetFrench"]
+    print("French Travel Breakfast nine localized Foundation pairs and remaining carryover passed")
 
 
 if __name__ == "__main__":

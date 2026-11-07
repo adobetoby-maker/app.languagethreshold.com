@@ -50,6 +50,8 @@ test('all new Master cards, Reader lines, dialogue, checks and six modes retain 
     assert.deepEqual(support.stageCards, expectedStage.map(w => ({target:w.es,native:w.en,kind:w.kind})));
     assert.deepEqual(support.backlogCards, source.words.filter((_, index) => ![...termIndexes,...selection.readerLineIndexes.map(x => x + 8)].includes(index)).map(w => ({target:w.fr,native:w.en,kind:w.kind})));
     assert.deepEqual(support.cards, source.words.map(w => ({target:w.fr, native:w.en, kind:w.kind})));
+    assert.deepEqual(support.dictionaryEntries, support.stageCards.filter(w => w.kind === 'term').map(({target,native}) => ({target,native})));
+    assert.equal(new Set(support.dictionaryEntries.map(w => w.target.toLocaleLowerCase())).size, support.dictionaryEntries.length);
     for (const excerpt of selection.supplementalPhrases ?? []) {
       assert.ok(source.reading.target[excerpt.sourceReaderLineIndex].includes(excerpt.target));
       assert.ok(source.reading.native[excerpt.sourceReaderLineIndex].includes(excerpt.native));
@@ -75,6 +77,24 @@ test('all new Master cards, Reader lines, dialogue, checks and six modes retain 
     assert.deepEqual(validateLessonContent({words:lesson.words}, {limits:contentLimitsFor('master-french-basics'), language:'French', nativeLanguage:'English', parts:{words:true, passage:false, verbs:false}}), []);
     for (const value of [lesson, support.cards, support.reader, support.dialogue, support.grammarNotes, support.checks, support.speaking]) {
       assert.doesNotMatch(JSON.stringify(value), /Spanish|espagnol|español/i);
+    }
+  }
+});
+
+test('Master prerequisites reference existing earlier stage slots', () => {
+  for (const row of fixture.support) {
+    assert.ok(row.prerequisites.length > 0);
+    for (const reference of row.prerequisites) {
+      if (reference === 'master:1-19') {
+        assert.equal(row.n, 20);
+        continue;
+      }
+      const match = /^(foundation|core|master):(\d+)$/.exec(reference);
+      assert.ok(match, `unexpected prerequisite ${reference}`);
+      const number = Number(match[2]);
+      if (match[1] === 'foundation') assert.ok(number >= 1 && number <= 10);
+      if (match[1] === 'core') assert.ok(number >= 1 && number <= 30);
+      if (match[1] === 'master') assert.ok(number >= 1 && number < row.n);
     }
   }
 });

@@ -81,6 +81,7 @@ for source in source_lessons:
     support.append({'n': n, 'stableLessonKey': source['stableLessonKey'], 'prerequisites': source['prerequisites'],
         'cards': cards, 'stageCardIndexes': terms + [8 + i for i in indexes],
         'stageCards': stage_cards, 'supplementalCards': supplemental + supplemental_phrases,
+        'dictionaryEntries': [{'target': card['target'], 'native': card['native']} for card in stage_cards if card['kind'] == 'term'],
         'backlogCards': [cards[i] for i in range(20) if i not in (terms + [8 + x for x in indexes])], 'reader': reader, 'dialogue': dialogue, 'grammarNotes': grammar, 'sourceGrammarNotes': source_grammar,
         'checks': source['checks'], 'speaking': source['speaking'], 'recordedAudio': False,
         'modes': {'see': {'readerLineCount': 12}, 'recall': {'cardCount': len(stage_cards)},

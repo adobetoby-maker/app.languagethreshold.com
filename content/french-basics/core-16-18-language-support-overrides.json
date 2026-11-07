@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "target": "French",
+  "native": "English",
+  "reviewed": false,
+  "scope": "Private Core 16–18 French-target English support; source drafts immutable",
+  "cardOverrides": [
+    {
+      "lesson": 16,
+      "cardIndex": 4,
+      "from": {
+        "target": "les",
+        "native": "the / them (feminine plural)"
+      },
+      "to": {
+        "target": "les",
+        "native": "the / them (plural, any gender)"
+      },
+      "reason": "French les does not encode gender"
+    },
+    {
+      "lesson": 17,
+      "cardIndex": 5,
+      "from": {
+        "target": "est",
+        "native": "is (identity)"
+      },
+      "to": {
+        "target": "est",
+        "native": "is"
+      },
+      "reason": "French est is not restricted to identity"
+    },
+    {
+      "lesson": 17,
+      "cardIndex": 6,
+      "from": {
+        "target": "se trouve / est",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "se trouve / est",
+        "native": "is located / is"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 18,
+      "cardIndex": 3,
+      "from": {
+        "target": "est / se trouve",
+        "native": "is (condition/location)"
+      },
+      "to": {
+        "target": "est / se trouve",
+        "native": "is / is located"
+      },
+      "reason": "Clarify location uses"
+    },
+    {
+      "lesson": 18,
+      "cardIndex": 6,
+      "from": {
+        "target": "dans / sur / à",
+        "native": "in / on / at"
+      },
+      "to": {
+        "target": "dans / sur / à",
+        "native": "in / on / at (choose by context)"
+      },
+      "reason": "Clarify non-interchangeable French prepositions"
+    }
+  ],
+  "dialogueOverrides": [],
+  "grammarOverrides": [
+    {
+      "lesson": 16,
+      "from": "In a French pronominal verb, the reflexive pronoun agrees with the subject: je me lève, tu te réveilles, Ana se douche, nous nous préparons. Me, te and se contract to m’, t’ and s’ before a vowel. The verb also changes with its subject. Se lever and se coucher take a grave accent in the je/tu/il/ils forms (je me lève, il se couche); nous nous levons keeps the stem without that accent. For clock time use à sept heures.",
+      "to": "In a French pronominal verb, the reflexive pronoun agrees with the subject: je me lève, tu te réveilles, Ana se douche, nous nous préparons. Me, te and se contract to m’, t’ and s’ before a vowel. The verb also changes with its subject. Se lever changes e to è in the je/tu/il/ils forms (je me lève); nous nous levons keeps e. Se coucher does not undergo that accent change: il se couche. For clock time use à sept heures.",
+      "reason": "Correct inaccurate se coucher accent rule"
+    }
+  ],
+  "cautionOverrides": [
+    {
+      "lesson": 17,
+      "from": "Spanish este/ese distinguishes distance within the adjective; French ce/cette/ces alone does not. Do not use ce as a standalone “that one”: choose celui-là or celle-là.",
+      "to": "Ce, cet, cette and ces do not by themselves distinguish near from far. Add -ci or -là after the noun, or use celui-là/celle-là when the noun is omitted.",
+      "reason": "Remove Spanish-specific comparison"
+    },
+    {
+      "lesson": 18,
+      "from": "Spanish en covers several locations. In French choose à, dans or sur by meaning. “The classroom is on the second floor” is au deuxième étage, not sur le deuxième étage.",
+      "to": "Choose à, dans or sur by meaning. “The classroom is on the second floor” is au deuxième étage, not sur le deuxième étage.",
+      "reason": "Remove Spanish-specific comparison"
+    }
+  ]
+}

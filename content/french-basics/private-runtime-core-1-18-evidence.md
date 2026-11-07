@@ -1,0 +1,9 @@
+# French 101 Core 1–18 private fixture
+
+Exact pair: French target / English support. This cumulative fixture extends corrected Core 1–15 with the source-pinned Core 16–18 drafts. It remains unregistered, `reviewed:false`, and without recorded audio; no published lesson or learner progress changes. Stable IDs remain `french-basics:1` through `french-basics:18`.
+
+The builder checks SHA-256 of all six draft batches, bounded English-source files, and the two Spanish-course source files. Core 16–18 draft/source hashes are `f132b521313ebab7cb7d0de15db681a019de0ce0963672924d2d8d1946bc3bf8` and `5d06f85097dcd7d1beddc58804fbfc50865212aea3f1b6b20e95a0a1dedfcb01`. The derived fixture retains 252 authored card pairs and 108 aligned Reader pairs; original text remains in `sourceCards`, `sourceReader`, and `sourceGrammarNotes`.
+
+`core-16-18-language-support-overrides.json` records five French-specific term gloss changes and three grammar/caution changes. It corrects an inaccurate source claim that *se coucher* takes the stem accent change of *se lever*. Lesson 17–18 cautions no longer compare learner-facing French to Spanish. The overlay SHA-256 is `7427ee1d76d82db3890c8313e3e844757a397831c7facc0f4101643dcc2af156`; the fixture SHA-256 is `8511b68fd5b8b3300d2d5894a5b4bbb5e36d8255013e44bc537104ce2ae81c9d`.
+
+The Core 16–18 source-pair validator, cumulative private fixture tests for 1–9, 1–12, 1–15 and 1–18, Core 60 validator, typecheck, and deterministic regeneration pass. The tests check exact cards and Reader lines, six mode inputs, stable IDs, lesson sizes, checks and speaking briefs. These checks do not establish French fidelity, curriculum quality, audio or device readiness. Fable/Opus CLI review remains budget-exhausted; no independent or qualified human review is claimed. Audio, offline/phone acceptance and live runtime registration remain open.

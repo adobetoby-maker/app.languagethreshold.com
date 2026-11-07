@@ -1188,7 +1188,14 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
 
     // The open finally completes after we gave up: that connection must be closed again.
     release();
-    for (let i = 0; i < 40; i++) await tick();
+    // The fake IndexedDB open uses a timer. Immediate ticks can race ahead of it,
+    // especially while CI is running other tests, so observe the actual late open.
+    await waitUntil(
+      () =>
+        env.indexedDB.stats.opens > 0 &&
+        [...env.indexedDB.dbs.values()].every((record) => record.connections.size === 0),
+      "the late IndexedDB connection to open and close",
+    );
     for (const record of env.indexedDB.dbs.values()) {
       assert.equal(record.connections.size, 0, "late connection was released");
     }

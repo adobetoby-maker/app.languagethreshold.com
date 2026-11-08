@@ -37,6 +37,30 @@ const TeamExamsPanel = lazy(() =>
 );
 
 export const Route = createFileRoute("/team")({
+  head: () => ({
+    links: [{ rel: "canonical", href: "https://app.languagethreshold.com/team" }],
+    meta: [
+      { title: "Language Threshold for Teams" },
+      {
+        name: "description",
+        content:
+          "Team plans start at $99/month for five learner seats. Assign focus modules and follow team activity.",
+      },
+      { property: "og:title", content: "Language Threshold for Teams" },
+      {
+        property: "og:description",
+        content:
+          "Team plans start at $99/month for five learner seats. Assign focus modules and follow team activity.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/team" },
+      { name: "twitter:title", content: "Language Threshold for Teams" },
+      {
+        name: "twitter:description",
+        content:
+          "Team plans start at $99/month for five learner seats. Assign focus modules and follow team activity.",
+      },
+    ],
+  }),
   component: () => (
     <AuthProvider>
       <TeamPage />
@@ -460,7 +484,16 @@ function OwnedTeamPage() {
       <Page>
         <ThemeToggle className={secondary + " mb-5 flex items-center gap-2"} />
         <h1 className="text-3xl font-semibold">Team workspace</h1>
-        <p className="mt-3 text-muted-foreground">Sign in to set up or join a company team.</p>
+        <p className="mt-3 text-muted-foreground">
+          Plans start at $99/month for five learner seats. Assign focus modules, follow activity and
+          manage your crew in one workspace.
+        </p>
+        <ul className="mt-5 space-y-2">
+          <li>Invite learners and assign their role-specific focus.</li>
+          <li>Follow team activity and course progress.</li>
+          <li>Manage seats as your crew changes.</li>
+        </ul>
+        <p className="mt-5">Sign in to set up or join a company team.</p>
         <button onClick={() => setAuthOpen(true)} className={button + " mt-5"}>
           Sign in or create account
         </button>

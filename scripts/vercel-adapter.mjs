@@ -121,6 +121,12 @@ writeFileSync(
         headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
         dest: "/lesson-content/$1",
       },
+      // Public scenario lists load independently of the page bundle.
+      {
+        src: "/scenario-catalog/(.*)",
+        headers: { "cache-control": "public, max-age=0, must-revalidate" },
+        dest: "/scenario-catalog/$1",
+      },
       // Trade packs: module-flavored static game content (Word Match boards first), cached offline.
       {
         src: "/trade-packs/(.*)",

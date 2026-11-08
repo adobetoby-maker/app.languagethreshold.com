@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AdvancedRouteImport } from './routes/advanced'
 import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
 import { Route as ExamBankRouteImport } from './routes/exam-bank'
@@ -29,6 +30,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RedditRouteImport } from './routes/reddit'
 import { Route as ReferRouteImport } from './routes/refer'
+import { Route as ScenariosRouteImport } from './routes/scenarios'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StaffRouteImport } from './routes/staff'
 import { Route as SupportRouteImport } from './routes/support'
@@ -89,6 +91,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
+import { Route as VsCanopylearnRouteImport } from './routes/vs.canopylearn'
 import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
 import { Route as VsDuolingoRouteImport } from './routes/vs.duolingo'
 
@@ -115,6 +118,11 @@ const AdvancedRoute = AdvancedRouteImport.update({
 const CertificateRoute = CertificateRouteImport.update({
   id: '/certificate',
   path: '/certificate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentsRoute = DocumentsRouteImport.update({
@@ -190,6 +198,11 @@ const RedditRoute = RedditRouteImport.update({
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScenariosRoute = ScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -492,6 +505,11 @@ const TeamAcceptRoute = TeamAcceptRouteImport.update({
   path: '/team/accept',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VsCanopylearnRoute = VsCanopylearnRouteImport.update({
+  id: '/vs/canopylearn',
+  path: '/vs/canopylearn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VsClinicalingoRoute = VsClinicalingoRouteImport.update({
   id: '/vs/clinicalingo',
   path: '/vs/clinicalingo',
@@ -508,6 +526,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -524,6 +543,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -583,6 +603,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog/': typeof BlogIndexRoute
@@ -592,6 +613,7 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -608,6 +630,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -667,6 +690,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog': typeof BlogIndexRoute
@@ -677,6 +701,7 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/advanced': typeof AdvancedRoute
   '/certificate': typeof CertificateRoute
+  '/compare': typeof CompareRoute
   '/documents': typeof DocumentsRoute
   '/email-preferences': typeof EmailPreferencesRoute
   '/exam-bank': typeof ExamBankRoute
@@ -693,6 +718,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -752,6 +778,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
+  '/vs/canopylearn': typeof VsCanopylearnRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
   '/vs/duolingo': typeof VsDuolingoRoute
   '/blog/': typeof BlogIndexRoute
@@ -763,6 +790,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -779,6 +807,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -838,6 +867,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog/'
@@ -847,6 +877,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -863,6 +894,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -922,6 +954,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog'
@@ -931,6 +964,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/advanced'
     | '/certificate'
+    | '/compare'
     | '/documents'
     | '/email-preferences'
     | '/exam-bank'
@@ -947,6 +981,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -1006,6 +1041,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/subscribe/success'
     | '/team_/accept'
+    | '/vs/canopylearn'
     | '/vs/clinicalingo'
     | '/vs/duolingo'
     | '/blog/'
@@ -1016,6 +1052,7 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   AdvancedRoute: typeof AdvancedRoute
   CertificateRoute: typeof CertificateRoute
+  CompareRoute: typeof CompareRoute
   DocumentsRoute: typeof DocumentsRoute
   EmailPreferencesRoute: typeof EmailPreferencesRoute
   ExamBankRoute: typeof ExamBankRoute
@@ -1032,6 +1069,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   RedditRoute: typeof RedditRoute
   ReferRoute: typeof ReferRoute
+  ScenariosRoute: typeof ScenariosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StaffRoute: typeof StaffRoute
   SupportRoute: typeof SupportRoute
@@ -1091,6 +1129,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
+  VsCanopylearnRoute: typeof VsCanopylearnRoute
   VsClinicalingoRoute: typeof VsClinicalingoRoute
   VsDuolingoRoute: typeof VsDuolingoRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1131,6 +1170,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate'
       fullPath: '/certificate'
       preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documents': {
@@ -1236,6 +1282,13 @@ declare module '@tanstack/react-router' {
       path: '/refer'
       fullPath: '/refer'
       preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scenarios': {
+      id: '/scenarios'
+      path: '/scenarios'
+      fullPath: '/scenarios'
+      preLoaderRoute: typeof ScenariosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1658,6 +1711,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamAcceptRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vs/canopylearn': {
+      id: '/vs/canopylearn'
+      path: '/vs/canopylearn'
+      fullPath: '/vs/canopylearn'
+      preLoaderRoute: typeof VsCanopylearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vs/clinicalingo': {
       id: '/vs/clinicalingo'
       path: '/vs/clinicalingo'
@@ -1680,6 +1740,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   AdvancedRoute: AdvancedRoute,
   CertificateRoute: CertificateRoute,
+  CompareRoute: CompareRoute,
   DocumentsRoute: DocumentsRoute,
   EmailPreferencesRoute: EmailPreferencesRoute,
   ExamBankRoute: ExamBankRoute,
@@ -1696,6 +1757,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   RedditRoute: RedditRoute,
   ReferRoute: ReferRoute,
+  ScenariosRoute: ScenariosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StaffRoute: StaffRoute,
   SupportRoute: SupportRoute,
@@ -1755,6 +1817,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
+  VsCanopylearnRoute: VsCanopylearnRoute,
   VsClinicalingoRoute: VsClinicalingoRoute,
   VsDuolingoRoute: VsDuolingoRoute,
   BlogIndexRoute: BlogIndexRoute,

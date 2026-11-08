@@ -1,3 +1,6 @@
+import { CourseExamples } from "@/components/marketing/CourseExamples";
+import { BuyerFaq, PublicProof, ProductFooter } from "@/components/marketing/BuyerInformation";
+import { faqSchema, productCapture } from "@/data/buyer-information";
 import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
 import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
@@ -60,9 +63,21 @@ export const Route = createFileRoute("/")({
   },
   component: Index,
   head: () => ({
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema) }],
     links: [{ rel: "canonical", href: "https://app.languagethreshold.com" }],
     meta: [
-      { title: "Language Threshold - Job-Specific Language Training for Nurses, Foremen & Teams" },
+      { property: "og:title", content: "Language Threshold — Language Training for Work" },
+      {
+        property: "og:description",
+        content: "Practice medical intakes, morning briefs and other job-specific conversations.",
+      },
+      { property: "og:url", content: "https://app.languagethreshold.com/" },
+      { name: "twitter:title", content: "Language Threshold — Language Training for Work" },
+      {
+        name: "twitter:description",
+        content: "Practice medical intakes, morning briefs and other job-specific conversations.",
+      },
+      { title: "Language Threshold — Language Training for Work" },
       {
         name: "description",
         content:
@@ -97,6 +112,7 @@ function GatedTabShell() {
               )))
         }
       />
+      <div id="free-lessons" className="scroll-mt-4" />
       <SubscriptionGate currentTab={state.currentTab}>
         <DeferredGameProviders>
           <TabShell />
@@ -110,7 +126,7 @@ function ProductIntro() {
   return (
     <section className="mx-auto mb-8 mt-4 max-w-5xl rounded-3xl border border-gold/25 bg-card/60 px-6 py-10 sm:px-10">
       <p className="mb-3 text-sm font-semibold text-gold-ink">
-        Job-specific language training for nurses, foremen, teams, coaches, and missionaries
+        Job-specific language training for nurses and foremen
       </p>
       <h1 className="max-w-3xl text-4xl font-bold leading-tight text-foreground sm:text-5xl">
         Practice the conversations your work actually needs.
@@ -118,8 +134,18 @@ function ProductIntro() {
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
         Build enough confidence to hold a basic conversation, then use it while you are learning it.
         Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
-        situations in Field Prep.
+        situations in Field Prep. Listen, replay and practice understanding spoken phrases, so you
+        can do more than point and gesture when a conversation matters.
       </p>
+      {productCapture && (
+        <img
+          src={productCapture.src}
+          alt={productCapture.alt}
+          width={productCapture.width}
+          height={productCapture.height}
+          className="mt-6 h-auto w-full rounded-xl border border-border"
+        />
+      )}
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
           to="/pricing"
@@ -128,18 +154,21 @@ function ProductIntro() {
           Start the 7-day free trial
         </Link>
         <a
-          href="#learning-space"
-          className="rounded-xl border border-border px-5 py-3 font-semibold text-foreground hover:border-gold/50"
+          href="#free-lessons"
+          className="inline-flex min-h-11 items-center px-3 py-3 text-foreground underline"
         >
           Try the free lessons
         </a>
         <a
           href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
-          className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+          className="inline-flex min-h-11 items-center px-3 py-3 text-foreground underline"
         >
           New to Spanish? Start Spanish 101
         </a>
       </div>
+      <p className="mt-5 text-sm text-muted-foreground">
+        Built around the daily conversations you and your team need at work.
+      </p>
       <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
         {[
           ["Medical", "Rehearse an intake, explain care, and check understanding."],
@@ -152,6 +181,46 @@ function ProductIntro() {
           </div>
         ))}
       </div>
+      <CourseExamples />
+      <PublicProof />
+      <section className="mt-10" aria-labelledby="practice-steps">
+        <h2 id="practice-steps" className="text-2xl font-semibold">
+          From a lesson to your next conversation
+        </h2>
+        <ol className="mt-5 grid gap-5 sm:grid-cols-3">
+          <li>
+            <h3 className="font-semibold">1. Choose your situation</h3>
+            <p>
+              Start with an intake, a morning brief or a conversation your assignment calls for.
+            </p>
+          </li>
+          <li>
+            <h3 className="font-semibold">2. Listen and repeat</h3>
+            <p>Read in both languages, replay the audio and practice the phrases you need.</p>
+          </li>
+          <li>
+            <h3 className="font-semibold">3. Rehearse in Field Prep</h3>
+            <p>
+              Practice your responses with the AI speaking partner before the real conversation.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <BuyerFaq />
+      <section className="rounded-xl border border-border p-5" aria-label="Plan overview">
+        <h2 className="text-2xl font-semibold">Choose the practice that fits</h2>
+        <p className="mt-3">
+          Individual: $19/month or $149/year. Family: $35/month or $249/year for up to 6 profiles.
+          Teams: from $99/month for five learner seats.
+        </p>
+        <a
+          href="/pricing"
+          className="mt-4 inline-flex min-h-11 items-center font-semibold text-gold-ink underline"
+        >
+          Compare plans →
+        </a>
+      </section>
+      <ProductFooter />
     </section>
   );
 }
@@ -272,6 +341,33 @@ function SpeakBridge({ children }: { children: ReactNode }) {
   return <SpeakProvider language={state.selectedLanguage}>{children}</SpeakProvider>;
 }
 
+function VisitorNavigation({ onOpenMatch }: { onOpenMatch: () => void }) {
+  const { user } = useAuth();
+  const { state } = useApp();
+  const [expanded, setExpanded] = useState(false);
+  const directLearningLink =
+    typeof window !== "undefined" && new URLSearchParams(window.location.search).has("tab");
+  if (user || directLearningLink || state.currentTab !== "reader" || expanded)
+    return <AppSidebar onOpenMatch={onOpenMatch} />;
+  return (
+    <>
+      <div className="contents desktop:hidden">
+        <AppSidebar onOpenMatch={onOpenMatch} />
+      </div>
+      <div className="hidden desktop:block shrink-0 border-r border-border p-3">
+        <button
+          type="button"
+          aria-expanded={false}
+          onClick={() => setExpanded(true)}
+          className="min-h-11 rounded-lg border border-border px-4 py-3 font-semibold"
+        >
+          Learning tools
+        </button>
+      </div>
+    </>
+  );
+}
+
 function Index() {
   const [matchOpen, setMatchOpen] = useState(false);
   const [personalizationOpen, setPersonalizationOpen] = useState(false);
@@ -303,7 +399,7 @@ function Index() {
                               <DailyChallengeProvider>
                                 <div className="lt-app-shell bg-background text-foreground">
                                   {/* Left sidebar (desktop) + bottom nav (mobile) */}
-                                  <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
+                                  <VisitorNavigation onOpenMatch={() => setMatchOpen(true)} />
 
                                   {/* Main column */}
                                   <div className="lt-main-column flex min-h-0 min-w-0 flex-1 flex-col">

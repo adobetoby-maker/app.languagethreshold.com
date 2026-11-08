@@ -90,6 +90,7 @@ import {
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
 import { AudioRoutingSettings } from "./settings/AudioRoutingSettings";
+import { VerbHabitSettings } from "./verbs/VerbHabitSettings";
 import { VoiceSettings } from "./settings/VoiceSettings";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
@@ -249,6 +250,7 @@ const TAB_ITEMS: {
     Icon: AlertTriangle,
   },
   // ── Play ─────────────────────────────────────────────────────────────────────
+  { key: "verbs", label: "Verbs", short: "Verbs", group: "Play", Icon: Repeat2 },
   { key: "games", label: "Games Hub", short: "Games", group: "Play", Icon: Gamepad2 },
   { key: "core30", label: "Core 60", short: "Core 60", group: "Play", Icon: ListChecks },
 ];
@@ -264,6 +266,7 @@ const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
   { key: "flashcards", Icon: Layers, label: "Cards" },
   { key: "speak", Icon: Mic2, label: "Speak" },
   { key: "core30", Icon: ListChecks, label: "Core 60" },
+  { key: "verbs", Icon: Repeat2, label: "Verbs" },
 ];
 
 function openAddWord() {
@@ -345,7 +348,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const { state, dispatch } = useApp();
   const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
-  const syncedStreak=useSyncedStudyStreak();
+  const syncedStreak = useSyncedStudyStreak();
   const fiery = syncedStreak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
@@ -1005,6 +1008,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
             <div className="mt-2">
               <PracticeBarSetting />
+              <VerbHabitSettings />
             </div>
 
             {/* Theme toggle — labeled row so the setting is discoverable */}

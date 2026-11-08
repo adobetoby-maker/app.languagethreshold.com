@@ -64,6 +64,7 @@ export function LessonVerbGames({
         <GameRound
           key={`${game}:${round}`}
           game={game}
+          language={language}
           source={game === "meanings" ? bank.meanings : bank.forms}
           replay={() => setRound((n) => n + 1)}
         />
@@ -73,10 +74,12 @@ export function LessonVerbGames({
 }
 function GameRound({
   game,
+  language,
   source,
   replay,
 }: {
   game: Game;
+  language: string;
   source: LessonGameItem[];
   replay: () => void;
 }) {
@@ -112,7 +115,11 @@ function GameRound({
   const finished = matching ? matched.length === items.length : !current;
   function check(value: string) {
     if (!current) return;
-    if (gameAnswer(current.answer, value)) {
+    const subjects =
+      ["Spanish", "English"].includes(language) && current.prompt.includes(" · ")
+        ? current.prompt.split(" · ")[0].split(" / ")
+        : [];
+    if (gameAnswer(current.answer, value, subjects)) {
       setDone(true);
       if (!missed) setScore((n) => n + 1);
       setFeedback("Correct. " + current.answer);
@@ -168,7 +175,11 @@ function GameRound({
                   {v.prompt.split("/").map((part, index, parts) => (
                     <span key={index}>
                       {part}
-                      {index < parts.length - 1 && <>/<wbr /></>}
+                      {index < parts.length - 1 && (
+                        <>
+                          /<wbr />
+                        </>
+                      )}
                     </span>
                   ))}
                 </button>

@@ -1,3 +1,4 @@
+import { VerbExitReminder } from "@/components/verbs/VerbExitReminder";
 import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
 import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
 import { consumeSpeakingAuthNavigation } from "@/lib/speaking-auth-return";
@@ -337,6 +338,7 @@ function Index() {
                                 <MatchAchievementsBridge />
                                 <MatchChallengeBridge />
                                 <PushReminderSync />
+                                <VerbExitReminder />
                                 <GlobalVocabCapture />
                                 <TeamActivityBridge />
                               </DailyChallengeProvider>

@@ -1,3 +1,4 @@
+import { VerbHabitSettings } from "./verbs/VerbHabitSettings";
 import { FounderStoryLink } from "./FounderStoryLink";
 import { useEffect, useState } from "react";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
@@ -141,6 +142,7 @@ export function TopNav() {
                 ])}
               />
               <PracticeBarSetting />
+              <VerbHabitSettings />
               <ReviewIntervalSettings />
               <DropdownMenu>
                 <DropdownMenuTrigger

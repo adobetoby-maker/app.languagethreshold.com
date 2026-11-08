@@ -150,7 +150,7 @@ export function VerbsSection() {
   );
 }
 
-function VerbPractice() {
+export function VerbPractice() {
   const { state } = useApp();
   const { user } = useAuth();
   const device = useVerbDevice();

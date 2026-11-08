@@ -1,6 +1,7 @@
 import type { TabKey } from "@/state/app-state";
 const GAME_TABS = new Set<TabKey>([
   "games",
+  "verbs",
   "conjugation",
   "sentenceBuild",
   "listeningDrill",

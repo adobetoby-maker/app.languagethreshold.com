@@ -1,3 +1,4 @@
+import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
 import { SoundPractice } from "@/components/sound-practice/SoundPractice";
 import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
@@ -809,7 +810,12 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const japanese = japaneseBasicsLesson(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage);
+  const japanese = japaneseBasicsLesson(
+    moduleId,
+    lesson.n,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
   const coursePractice = basics ?? japanese;
   const grammar = coursePractice?.grammar ?? lesson.grammar;
   const [grammarPassed, setGrammarPassed] = useState(false);
@@ -1533,6 +1539,21 @@ function OwnedLessonRunner({
               </ul>
             </div>
           )}
+          {state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" &&
+            /^(foundation-|master-)?place-directions$/.test(moduleId) && (
+              <details className="mb-4 rounded-xl border p-3">
+                <summary className="cursor-pointer py-2 font-semibold">
+                  🧰 Practice placement · picture game
+                </summary>
+                <PlaceDirectionsGame
+                  key={`${moduleId}:${lesson.n}`}
+                  initialRound={
+                    moduleId.startsWith("foundation-") && lesson.n === 9 ? 11 : (lesson.n - 1) % 12
+                  }
+                />
+              </details>
+            )}
           {definition?.soundPractice && (
             <SoundPractice
               key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
@@ -2950,8 +2971,14 @@ export function Core30Tab() {
   const { user } = useAuth();
   // A data-driven Core 60 stage (Foundation / Master) loads its curriculum on open: the lesson
   // page and runner mount once it is here, so their first render already has every lesson.
-  const stageStatus = useStageCurriculum(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
-  const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? "", state.selectedLanguage, state.nativeLanguage));
+  const stageStatus = useStageCurriculum(
+    state.activeModuleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const hasCore30 = Boolean(
+    getCurriculum(state.activeModuleId ?? "", state.selectedLanguage, state.nativeLanguage),
+  );
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {state.activeModuleId &&

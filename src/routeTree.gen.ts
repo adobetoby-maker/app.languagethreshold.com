@@ -25,6 +25,7 @@ import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
+import { Route as PlaceDirectionsRouteImport } from './routes/place-directions'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RedditRouteImport } from './routes/reddit'
@@ -170,6 +171,11 @@ const ModuleRequestRoute = ModuleRequestRouteImport.update({
 const OwnerRoute = OwnerRouteImport.update({
   id: '/owner',
   path: '/owner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaceDirectionsRoute = PlaceDirectionsRouteImport.update({
+  id: '/place-directions',
+  path: '/place-directions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -520,6 +526,7 @@ export interface FileRoutesByFullPath {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
@@ -604,6 +611,7 @@ export interface FileRoutesByTo {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
@@ -689,6 +697,7 @@ export interface FileRoutesById {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
@@ -775,6 +784,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/place-directions'
     | '/pricing'
     | '/privacy'
     | '/reddit'
@@ -859,6 +869,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/place-directions'
     | '/pricing'
     | '/privacy'
     | '/reddit'
@@ -943,6 +954,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/place-directions'
     | '/pricing'
     | '/privacy'
     | '/reddit'
@@ -1028,6 +1040,7 @@ export interface RootRouteChildren {
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
+  PlaceDirectionsRoute: typeof PlaceDirectionsRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   RedditRoute: typeof RedditRoute
@@ -1208,6 +1221,13 @@ declare module '@tanstack/react-router' {
       path: '/owner'
       fullPath: '/owner'
       preLoaderRoute: typeof OwnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/place-directions': {
+      id: '/place-directions'
+      path: '/place-directions'
+      fullPath: '/place-directions'
+      preLoaderRoute: typeof PlaceDirectionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -1692,6 +1712,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
+  PlaceDirectionsRoute: PlaceDirectionsRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   RedditRoute: RedditRoute,

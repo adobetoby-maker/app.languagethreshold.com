@@ -1,3 +1,4 @@
+import { PLACE_CURRICULUM } from "./place-directions.ts";
 import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
 import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
@@ -1734,7 +1735,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Greet the gutter crew, take roll and open the day",
     steps: [
       r("Read the lesson passage. Find the greeting, the roll call and the start time.", 7),
-      wm("Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, chofer, supervisor.", 5),
+      wm(
+        "Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, chofer, supervisor.",
+        5,
+      ),
       sp(
         "Open the day: 'Buenos días a todos. Hablo un poco de español. ¿Están todos? Empezamos a las siete.'",
         8,
@@ -1762,8 +1766,14 @@ const GUTTERS_LESSONS: Lesson[] = [
     title: "Ladder Setup & Power Lines",
     objective: "Direct ladder setup and keep ladders away from overhead power lines",
     steps: [
-      r("Read the passage. Find how the ladder is placed, tied off and kept clear of the lines.", 7),
-      wm("Drill: escalera, cables eléctricos, base firme, amarrar, estabilizador, tres puntos de apoyo.", 5),
+      r(
+        "Read the passage. Find how the ladder is placed, tied off and kept clear of the lines.",
+        7,
+      ),
+      wm(
+        "Drill: escalera, cables eléctricos, base firme, amarrar, estabilizador, tres puntos de apoyo.",
+        5,
+      ),
       sp(
         "Stop a worker: 'Alto. Hay cables eléctricos. Muevan la escalera lejos de los cables.'",
         8,
@@ -1790,7 +1800,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Tap every gutter part the crew lead names.", 7),
       wm("Drill: canaleta, bajante, gancho, codo, salida, tapa, esquina, abrazadera.", 5),
-      sp("Point and name: 'Esta es la canaleta. Aquí va la salida. El bajante baja por la esquina.'", 8),
+      sp(
+        "Point and name: 'Esta es la canaleta. Aquí va la salida. El bajante baja por la esquina.'",
+        8,
+      ),
     ],
   },
   {
@@ -1800,7 +1813,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find how each run is measured and written down.", 7),
       sb("Build: 'Midan el lado [lado]. ¿Cuántos pies mide? Apúntenlo en la hoja.' (4 sides)", 7),
-      sp("Call out and confirm: 'El frente mide cuarenta y dos pies. Repítame el número, por favor.'", 6),
+      sp(
+        "Call out and confirm: 'El frente mide cuarenta y dos pies. Repítame el número, por favor.'",
+        6,
+      ),
     ],
   },
   {
@@ -1851,7 +1867,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Coordinate two people carrying and lifting long gutter sections",
     steps: [
       r("Read the passage. Find how two workers carry and pass a long piece.", 7),
-      pt("Pattern: 'Tú agarras [lado]. Yo agarro [lado]. A la cuenta de tres, [acción].' Build 3.", 7),
+      pt(
+        "Pattern: 'Tú agarras [lado]. Yo agarro [lado]. A la cuenta de tres, [acción].' Build 3.",
+        7,
+      ),
       sp("Coordinate: 'Cuidado con la esquina de la casa. Despacio. Uno, dos, tres, arriba.'", 6),
     ],
   },
@@ -1904,7 +1923,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the steps to lift, align and fasten the gutter.", 7),
       wm("Drill: levantar, alinear, la línea, atornillar, nivel, sostener.", 5),
-      sp("Direct the lift: 'Sostengan la canaleta en la línea. Atornilla el primer gancho. Ahora el siguiente.'", 8),
+      sp(
+        "Direct the lift: 'Sostengan la canaleta en la línea. Atornilla el primer gancho. Ahora el siguiente.'",
+        8,
+      ),
     ],
   },
   {
@@ -1914,7 +1936,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find where each outlet and downspout is placed and why.", 7),
       sb("Build: 'La salida va en [lugar]. El bajante baja por [lugar].' (4 locations)", 7),
-      sp("Explain: 'Aquí cortamos la salida. El bajante baja por esta esquina, lejos de la puerta.'", 6),
+      sp(
+        "Explain: 'Aquí cortamos la salida. El bajante baja por esta esquina, lejos de la puerta.'",
+        6,
+      ),
     ],
   },
   {
@@ -1946,8 +1971,14 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Direct cutting and fitting miters at inside and outside corners",
     steps: [
       r("Read the passage. Find the inside corner, the outside corner and how they fit.", 7),
-      wm("Drill: esquina interior, esquina exterior, inglete, cortar, medir dos veces, ajustar.", 5),
-      sp("Direct: 'Mide dos veces y corta una vez. Esta es una esquina exterior. Sella la unión.'", 8),
+      wm(
+        "Drill: esquina interior, esquina exterior, inglete, cortar, medir dos veces, ajustar.",
+        5,
+      ),
+      sp(
+        "Direct: 'Mide dos veces y corta una vez. Esta es una esquina exterior. Sella la unión.'",
+        8,
+      ),
     ],
   },
   {
@@ -1957,7 +1988,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find what the guards do and how they are installed.", 7),
       wm("Drill: protector de canaleta, hojas, malla, instalar, encajar, limpiar primero.", 5),
-      sp("Explain: 'El cliente pidió protectores. Limpien la canaleta primero y luego instalen la malla.'", 8),
+      sp(
+        "Explain: 'El cliente pidió protectores. Limpien la canaleta primero y luego instalen la malla.'",
+        8,
+      ),
     ],
   },
   {
@@ -1966,8 +2000,14 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Direct water away from the foundation at each downspout",
     steps: [
       r("Read the passage. Find where the water goes after the downspout.", 7),
-      sb("Build: 'El agua tiene que ir lejos de [lugar]. Pongan [bloque / extensión] aquí.' (3 versions)", 7),
-      sp("Explain: 'Pongan el bloque de salpicadura aquí. El agua no puede quedarse junto a los cimientos.'", 6),
+      sb(
+        "Build: 'El agua tiene que ir lejos de [lugar]. Pongan [bloque / extensión] aquí.' (3 versions)",
+        7,
+      ),
+      sp(
+        "Explain: 'Pongan el bloque de salpicadura aquí. El agua no puede quedarse junto a los cimientos.'",
+        6,
+      ),
     ],
   },
   {
@@ -1976,7 +2016,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Discuss box gutters and the plan details on a commercial building",
     steps: [
       r("Read the passage. Find what makes a box gutter different and what the plans say.", 7),
-      wm("Drill: canaleta de caja, edificio comercial, planos, soldar, membrana, revisar los planos.", 5),
+      wm(
+        "Drill: canaleta de caja, edificio comercial, planos, soldar, membrana, revisar los planos.",
+        5,
+      ),
       sp(
         "Ask the GC: '¿Qué dicen los planos sobre la canaleta de caja? Quiero confirmar antes de empezar.'",
         8,
@@ -1990,7 +2033,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find where the scupper and the conductor head go on the wall.", 7),
       wm("Drill: gárgola, caja colectora, pared, parapeto, conectar, sellar.", 5),
-      sp("Direct: 'El agua sale por la gárgola. Pongan la caja colectora debajo y conecten el bajante.'", 8),
+      sp(
+        "Direct: 'El agua sale por la gárgola. Pongan la caja colectora debajo y conecten el bajante.'",
+        8,
+      ),
     ],
   },
   {
@@ -2026,7 +2072,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the homeowner's concern and the supervisor's answer.", 7),
       wm("Drill: dueño de la casa, cliente, preocupación, terminar hoy, entrada, ruido.", 5),
-      sp("Answer: 'Terminamos hoy. Vamos a dejar todo limpio. Si necesita algo, hable conmigo.'", 8),
+      sp(
+        "Answer: 'Terminamos hoy. Vamos a dejar todo limpio. Si necesita algo, hable conmigo.'",
+        8,
+      ),
     ],
   },
   {
@@ -2035,8 +2084,14 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Coordinate schedule and sequence with the GC on a shared site",
     steps: [
       r("Read the passage. Find what the GC needs and what the crew needs from the GC.", 7),
-      sb("Build: 'Necesitamos [cosa] antes de [tarea]. ¿Cuándo terminan [otra cuadrilla]?' (3 versions)", 7),
-      sp("Coordinate: 'Los pintores terminan la fascia hoy. Nosotros instalamos mañana temprano.'", 6),
+      sb(
+        "Build: 'Necesitamos [cosa] antes de [tarea]. ¿Cuándo terminan [otra cuadrilla]?' (3 versions)",
+        7,
+      ),
+      sp(
+        "Coordinate: 'Los pintores terminan la fascia hoy. Nosotros instalamos mañana temprano.'",
+        6,
+      ),
     ],
   },
   {
@@ -2046,7 +2101,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the items, the counts and the delivery time.", 7),
       wm("Drill: proveedor, pedido, entrega, cajas, piezas, color, confirmar.", 5),
-      sp("Order: 'Necesito dos bobinas blancas y una caja de ganchos. ¿Pueden entregarlas mañana?'", 8),
+      sp(
+        "Order: 'Necesito dos bobinas blancas y una caja de ganchos. ¿Pueden entregarlas mañana?'",
+        8,
+      ),
     ],
   },
   {
@@ -2055,7 +2113,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Respond to a fall or injury, call 911 and secure the site",
     steps: [
       r("Read the passage. Find each step: stop work, help, call 911, report.", 7),
-      pt("Pattern: 'No lo muevan. Llama al 911. Apaga [máquina]. Tú, espera en [lugar].' Build 3.", 7),
+      pt(
+        "Pattern: 'No lo muevan. Llama al 911. Apaga [máquina]. Tú, espera en [lugar].' Build 3.",
+        7,
+      ),
       sp(
         "Lead the response: 'Alto. Apaguen la máquina. No lo muevan. Tú, llama al 911. Tú, espera la ambulancia en la calle.'",
         6,
@@ -2068,7 +2129,10 @@ const GUTTERS_LESSONS: Lesson[] = [
     objective: "Walk the finished job, test the gutters and assign the punch list",
     steps: [
       r("Read the passage. Find each check on the walk and the open items.", 7),
-      wm("Drill: revisar, probar con agua, fuga, limpieza, imanes para clavos, lista de pendientes.", 5),
+      wm(
+        "Drill: revisar, probar con agua, fuga, limpieza, imanes para clavos, lista de pendientes.",
+        5,
+      ),
       sp(
         "Close out: 'Prueben con agua cada salida. Pasen el imán por el pasto. ¿Qué falta en la lista?'",
         8,
@@ -2102,7 +2166,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Greet the siding crew, take roll and open the day",
     steps: [
       r("Read the lesson passage. Find the greeting, the roll call and the wall assignments.", 7),
-      wm("Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, cortador, supervisor.", 5),
+      wm(
+        "Drill crew words: cuadrilla, jefe de cuadrilla, instalador, ayudante, cortador, supervisor.",
+        5,
+      ),
       sp(
         "Open the day: 'Buenos días a todos. Hablo un poco de español. ¿Están todos? Empezamos con la pared norte.'",
         8,
@@ -2151,8 +2218,14 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Name vinyl and fiber cement materials and the trim pieces",
     steps: [
       r("Read the passage. Tap every material and trim piece the crew lead names.", 7),
-      wm("Drill: vinilo, fibrocemento, panel, tira de arranque, canal J, poste de esquina, moldura, sofito.", 5),
-      sp("Point and name: 'Este es el panel de vinilo. Esta es la moldura. Aquí va el canal J.'", 8),
+      wm(
+        "Drill: vinilo, fibrocemento, panel, tira de arranque, canal J, poste de esquina, moldura, sofito.",
+        5,
+      ),
+      sp(
+        "Point and name: 'Este es el panel de vinilo. Esta es la moldura. Aquí va el canal J.'",
+        8,
+      ),
     ],
   },
   {
@@ -2187,7 +2260,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Check that the house wrap is lapped and taped as the manufacturer specifies",
     steps: [
       r("Read the passage. Find how the wrap is lapped and where the tape goes.", 7),
-      wm("Drill: barrera contra el agua, traslape, cinta, grapas, rasgadura, de abajo hacia arriba.", 5),
+      wm(
+        "Drill: barrera contra el agua, traslape, cinta, grapas, rasgadura, de abajo hacia arriba.",
+        5,
+      ),
       sp(
         "Check: 'Pongan la barrera de abajo hacia arriba. Revisen el traslape y la cinta en las instrucciones.'",
         8,
@@ -2217,7 +2293,10 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the measurements and the level line.", 7),
       sb("Build: 'Midan [pared]. Marquen la línea a nivel en [lugar].' (3 walls)", 7),
-      sp("Call out and confirm: 'La pared mide treinta pies de largo. Repítame el número, por favor.'", 6),
+      sp(
+        "Call out and confirm: 'La pared mide treinta pies de largo. Repítame el número, por favor.'",
+        6,
+      ),
     ],
   },
   {
@@ -2240,7 +2319,10 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the J-channel around each opening.", 7),
       wm("Drill: canal J, ventana, puerta, cortar, solapa, desagüe.", 5),
-      sp("Direct: 'Pongan el canal J alrededor de la ventana. Arriba, corten la solapa para que salga el agua.'", 8),
+      sp(
+        "Direct: 'Pongan el canal J alrededor de la ventana. Arriba, corten la solapa para que salga el agua.'",
+        8,
+      ),
     ],
   },
   {
@@ -2249,7 +2331,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Set corner posts and trim boards plumb and straight",
     steps: [
       r("Read the passage. Find the corner posts and the trim boards.", 7),
-      wm("Drill: poste de esquina, moldura, a plomo, derecho, esquina interior, esquina exterior.", 5),
+      wm(
+        "Drill: poste de esquina, moldura, a plomo, derecho, esquina interior, esquina exterior.",
+        5,
+      ),
       sp("Check: 'Este poste no está a plomo. Revisen con el nivel y ajústenlo.'", 8),
     ],
   },
@@ -2288,7 +2373,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Set up fiber cement cutting with dust control and stop unsafe cuts",
     steps: [
       r("Read the passage. Find the dust controls and the order to stop the cut.", 7),
-      wm("Drill: polvo de sílice, sierra con aspiradora, respirador, cortar afuera, viento, apagar la sierra.", 5),
+      wm(
+        "Drill: polvo de sílice, sierra con aspiradora, respirador, cortar afuera, viento, apagar la sierra.",
+        5,
+      ),
       sp(
         "Stop the cut: 'Alto. Apaga la sierra. No hay aspiradora. Nadie corta fibrocemento sin control de polvo.'",
         8,
@@ -2305,10 +2393,7 @@ const SIDING_LESSONS: Lesson[] = [
         "Pattern: 'Aquí clavamos [oculto / visible], según [instrucciones del fabricante / plan].' Build 3.",
         7,
       ),
-      sp(
-        "Check: '¿Qué clavo y qué distancia pide el fabricante? Revisen antes de seguir.'",
-        6,
-      ),
+      sp("Check: '¿Qué clavo y qué distancia pide el fabricante? Revisen antes de seguir.'", 6),
     ],
   },
   {
@@ -2341,7 +2426,10 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find each penetration and the block or trim it gets.", 7),
       wm("Drill: bloque de montaje, luz, ventila, llave de agua, medidor, cortar el hueco.", 5),
-      sp("Direct: 'Pongan un bloque de montaje en la luz. No corten cerca del medidor. Pregunten primero.'", 8),
+      sp(
+        "Direct: 'Pongan un bloque de montaje en la luz. No corten cerca del medidor. Pregunten primero.'",
+        8,
+      ),
     ],
   },
   {
@@ -2351,10 +2439,7 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find where caulk goes and where it does not.", 7),
       wm("Drill: sellador, calafatear, pintura, retocar, cortes, el sellador correcto.", 5),
-      sp(
-        "Check: 'Retoquen los cortes con pintura. Usen el sellador que pide el fabricante.'",
-        8,
-      ),
+      sp("Check: 'Retoquen los cortes con pintura. Usen el sellador que pide el fabricante.'", 8),
     ],
   },
   {
@@ -2364,7 +2449,10 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find how the crew protects the yard and the house.", 7),
       sb("Build: 'Cubran [cosa]. Pongan [material] en [lugar].' (4 versions)", 7),
-      sp("Direct: 'Cubran las plantas con la lona. Pongan los paneles en la entrada, no en el pasto.'", 6),
+      sp(
+        "Direct: 'Cubran las plantas con la lona. Pongan los paneles en la entrada, no en el pasto.'",
+        6,
+      ),
     ],
   },
   {
@@ -2409,7 +2497,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Coordinate sequence with the GC and answer an inspector's questions",
     steps: [
       r("Read the passage. Find what the inspector asks and what the supervisor shows.", 7),
-      sb("Build: 'El inspector quiere ver [cosa]. Necesitamos [cosa] antes de [tarea].' (3 versions)", 7),
+      sb(
+        "Build: 'El inspector quiere ver [cosa]. Necesitamos [cosa] antes de [tarea].' (3 versions)",
+        7,
+      ),
       sp(
         "Answer: 'Sí, la barrera y el tapajuntas están listos. Puede revisarlos antes de cubrir la pared.'",
         6,
@@ -2423,7 +2514,10 @@ const SIDING_LESSONS: Lesson[] = [
     steps: [
       r("Read the passage. Find the items, the counts and the delivery time.", 7),
       wm("Drill: proveedor, pedido, cajas, paneles, molduras, entrega, color.", 5),
-      sp("Order: 'Nos faltan diez cajas de paneles y cuatro molduras. ¿Pueden entregarlas mañana?'", 8),
+      sp(
+        "Order: 'Nos faltan diez cajas de paneles y cuatro molduras. ¿Pueden entregarlas mañana?'",
+        8,
+      ),
     ],
   },
   {
@@ -2432,7 +2526,10 @@ const SIDING_LESSONS: Lesson[] = [
     objective: "Respond to a fall, a cut or a shock, call 911 and secure the site",
     steps: [
       r("Read the passage. Find each step: stop work, shut off power, help, call 911, report.", 7),
-      pt("Pattern: 'Apaga [sierra / corriente]. No lo muevan. Llama al 911. Tú, espera en [lugar].' Build 3.", 7),
+      pt(
+        "Pattern: 'Apaga [sierra / corriente]. No lo muevan. Llama al 911. Tú, espera en [lugar].' Build 3.",
+        7,
+      ),
       sp(
         "Lead the response: 'Alto. Apaguen la sierra. No lo muevan. Tú, llama al 911. Tú, espera la ambulancia en la calle.'",
         6,
@@ -4065,10 +4162,19 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     lessons: CONSTRUCTION_LESSONS.map(({ n, title }) => {
       const content = FOREMAN_LESSON_CONTENT[n];
       return {
-        n, title, objective: content.objective, words: content.words,
+        n,
+        title,
+        objective: content.objective,
+        words: content.words,
         steps: [
-          r(`Read this lesson's own passage. Identify what is confirmed, what needs clarification and who should respond. ${content.objective}`, 7),
-          wm("Recall this lesson's terms and phrases through flashcards, matching and listening. Type and handwrite a response to its scenario.", 5),
+          r(
+            `Read this lesson's own passage. Identify what is confirmed, what needs clarification and who should respond. ${content.objective}`,
+            7,
+          ),
+          wm(
+            "Recall this lesson's terms and phrases through flashcards, matching and listening. Type and handwrite a response to its scenario.",
+            5,
+          ),
           sp(content.objective, 8),
         ],
       };
@@ -4143,6 +4249,7 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
 // Merge extended curricula — import is at bottom to avoid circular init issues
 import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
 CURRICULA["medical-mission-logistics"] = MEDICAL_MISSION_LOGISTICS_CURRICULUM;
+CURRICULA["place-directions"] = PLACE_CURRICULUM;
 CURRICULA["military"] = MILITARY_CURRICULUM;
 CURRICULA["sound-like-a-native"] = SOUND_CURRICULUM;
 CURRICULA["spanish-basics"] = SPANISH_BASICS_CURRICULUM;
@@ -4154,7 +4261,11 @@ Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
  * A module's curriculum. Data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the
  * stage registry: null until their chunk has loaded (see useStageCurriculum), immediate under Node.
  */
-export function getCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): ModuleCurriculum | null {
+export function getCurriculum(
+  moduleId: string,
+  targetLanguage?: string,
+  nativeLanguage?: string,
+): ModuleCurriculum | null {
   return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
 }
 

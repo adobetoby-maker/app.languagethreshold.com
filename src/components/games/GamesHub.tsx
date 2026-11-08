@@ -1,3 +1,4 @@
+import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
 import {
   Trophy,
   Swords,
@@ -261,6 +262,20 @@ export function GamesHub() {
         </p>
       </div>
 
+      {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+        <details className="rounded-2xl border border-border bg-card p-4">
+          <summary className="cursor-pointer py-2 font-semibold">
+            🧰 Place & Directions · pick up and place objects
+          </summary>
+          <p className="my-3 text-sm">
+            Follow Spanish instructions using the workshop scene.{" "}
+            <a className="underline" href="/place-directions">
+              Open the full game and course preview
+            </a>
+          </p>
+          <PlaceDirectionsGame />
+        </details>
+      )}
       <ExamShortcut />
 
       {/* ── Today's Challenge ─────────────────────────────────────────── */}

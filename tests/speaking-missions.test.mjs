@@ -171,12 +171,12 @@ test("speaking preview covers every authored topic in every speaking language", 
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
-      modules: 69,
-      challenges: 413,
-      lessons: 2050 + master,
+      modules: 70,
+      challenges: 416,
+      lessons: 2080 + master,
       curated: 6,
       core: 153,
-      total: 2616 + 6 + master,
+      total: 2649 + 6 + master,
     }),
     Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
     Japanese: { modules: 57, challenges: 366, lessons: 1710, curated: 0, core: 156, total: 2232 },
@@ -255,7 +255,7 @@ test("speaking preview covers every authored topic in every speaking language", 
   // Six additional base courses contribute 30 lessons and two challenges each.
   // Sound Like a Native contributes three base challenges and thirty Core lessons.
   // Japanese 101 contributes twelve stage/base challenges and sixty lesson missions.
-  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72;
+  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72 + 33;
 
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);

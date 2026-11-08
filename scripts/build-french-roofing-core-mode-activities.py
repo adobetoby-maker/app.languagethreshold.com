@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build private, source-linked Core 1–18 French Roofing activity drafts."""
+"""Build private, source-linked Core 1–21 French Roofing activity drafts."""
 import argparse
 import hashlib
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content/french-roofing/private-runtime-candidate.json"
-OUTPUT = ROOT / "content/french-roofing/private-mode-activities-core-1-18.json"
+OUTPUT = ROOT / "content/french-roofing/private-mode-activities-core-1-21.json"
 MODES = ("see", "recall", "hear", "type", "say", "write")
 
 # The cue and source reference for each activity are authored for its lesson.
@@ -156,6 +156,30 @@ PLAN = {
         "say": ("Tell a coworker to adjust the nail gun.", "word:15"),
         "write": ("Write what the worker checks before continuing.", "line:9"),
     },
+    19: {
+        "see": ("Find where the roof meets the sidewall.", "line:2"),
+        "recall": ("Without looking, name step flashing in French.", "word:1"),
+        "hear": ("Listen and identify the term for wall siding.", "word:6"),
+        "type": ("Type 'Describe the sidewall flashing sequence.' in French.", "word:13"),
+        "say": ("Ask the installer to show how the flashing overlaps.", "word:14"),
+        "write": ("Write what the foreman checks before the next shingle course.", "line:8"),
+    },
+    20: {
+        "see": ("Find which roof features are still unfinished.", "line:2"),
+        "recall": ("Without looking, name the ridge in French.", "word:3"),
+        "hear": ("Listen and identify the ridge vent.", "word:5"),
+        "type": ("Type 'Check the product instructions for the ridge cap.' in French.", "word:12"),
+        "say": ("Ask a coworker to check the ridge-cap product instructions.", "line:3"),
+        "write": ("Write what the foreman checks besides the ridge caps.", "line:6"),
+    },
+    21: {
+        "see": ("Find where the foreman gathers the crew.", "line:1"),
+        "recall": ("Without looking, name fall protection in French.", "word:5"),
+        "hear": ("Listen and identify the lanyard.", "word:4"),
+        "type": ("Type 'Show me the approved anchor.' in French.", "word:12"),
+        "say": ("Ask the foreman to show the approved roof anchor.", "line:5"),
+        "write": ("Write the three harness parts named for inspection.", "line:3"),
+    },
 }
 
 
@@ -199,7 +223,7 @@ def build():
                 "recordedAudioRequired": mode == "hear",
                 "readyForLearner": False,
             })
-    assert len(result["activities"]) == 108
+    assert len(result["activities"]) == 126
     return json.dumps(result, ensure_ascii=False, indent=2) + "\n"
 
 
@@ -210,7 +234,7 @@ if __name__ == "__main__":
     expected = build()
     if args.check:
         assert OUTPUT.read_text() == expected, "private Core mode activities are stale"
-        print("108 private Core activities: exact source pairs and release gates verified")
+        print("126 private Core activities: exact source pairs and release gates verified")
     else:
         OUTPUT.write_text(expected)
         print(OUTPUT)

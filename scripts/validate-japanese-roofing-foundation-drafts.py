@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate source-pinned, private Japanese Roofing Foundation 1–6 drafts."""
+"""Validate source-pinned, private Japanese Roofing Foundation 1–10 drafts."""
 import hashlib
 import json
 from pathlib import Path
@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODES = {"see", "recall", "hear", "type", "say", "write"}
 
 all_lessons = []
-for first, last in ((1, 3), (4, 6)):
+for first, last in ((1, 3), (4, 6), (7, 10)):
     path = ROOT / f"content/japanese-roofing/foundation-{first}-{last}-draft.json"
     data = json.loads(path.read_text())
     assert (data["moduleId"], data["stageId"], data["target"], data["native"]) == (
@@ -34,5 +34,5 @@ for first, last in ((1, 3), (4, 6)):
         assert all(form["contextEn"] in {line["en"] for line in lesson["reader"]} for form in lesson["forms"])
         all_lessons.append(lesson)
     assert all(value is False for value in data["reviewGates"].values())
-assert [lesson["n"] for lesson in all_lessons] == list(range(1, 7))
-print("Japanese Roofing Foundation 1–6 private draft: source hashes, IDs, pairs and gates pass")
+assert [lesson["n"] for lesson in all_lessons] == list(range(1, 11))
+print("Japanese Roofing Foundation 1–10 private draft: source hashes, IDs, pairs and gates pass")

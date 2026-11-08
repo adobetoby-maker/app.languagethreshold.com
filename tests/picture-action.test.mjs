@@ -95,13 +95,13 @@ test("preference parsing bounds voice speed and scene identities and rejects arb
 });
 test("native asset pack is bounded, all shared scenes and module sets have 960px app assets and hashes", () => {
   const m = JSON.parse(readFileSync("public/images/picture-action/app/manifest.json"));
-  assert.equal(m.scenes.length, 8);
+  assert.equal(m.scenes.length, 11);
   for (const s of m.scenes) {
     assert.equal(s.appPixels, 960);
     assert.equal(s.sha256.length, 64);
     assert.ok(statSync("public/images/picture-action/app/" + s.app).size < 450000);
   }
-  assert.ok(statSync("public/downloads/picture-action-app-assets.zip").size < 3000000);
+  assert.ok(statSync("public/downloads/picture-action-app-assets.zip").size < 4000000);
 });
 
 test("each module and its stages get their own objects and all shared variety scenes", () => {

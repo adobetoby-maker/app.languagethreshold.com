@@ -1,17 +1,8 @@
+import { ObjectIcon } from "./PictureObjectIcon";
+import { PictureAssemblyPuzzle } from "./PictureAssemblyPuzzle";
 import recordings from "@/data/picture-action-audio.json";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
-import {
-  Backpack,
-  Hammer,
-  RotateCcw,
-  Volume2,
-  Wrench,
-  HelpCircle,
-  BookOpen,
-  Package,
-  HardHat,
-  RectangleHorizontal,
-} from "lucide-react";
+import { RotateCcw, Volume2, Wrench, HelpCircle } from "lucide-react";
 import {
   pictureScenesForModule,
   basePictureModule,
@@ -33,123 +24,6 @@ import type { Point } from "@/lib/place-directions-game";
 const button =
   "rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50";
 const KEY = "lt.picture-action.settings.v1";
-function ObjectIcon({ id }: { id: string }) {
-  const icons: Record<string, typeof Hammer> = {
-    hammer: Hammer,
-    backpack: Backpack,
-    helmet: HardHat,
-    book: BookOpen,
-    box: Package,
-    tray: RectangleHorizontal,
-  };
-  const Icon = icons[id];
-  if (id === "net")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <ellipse cx="19" cy="11" rx="10" ry="7" />
-        <path d="M9 11l4 11h12l4-11M13 8l10 12M23 7L13 20M17 5v17M9 15L2 30" />
-      </svg>
-    );
-  const emoji = PICTURE_OBJECTS[id]?.icon;
-  if (emoji)
-    return (
-      <span className="text-3xl leading-none" aria-hidden="true">
-        {emoji}
-      </span>
-    );
-  if (Icon) return <Icon className="size-8" />;
-  if (id === "towel")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <rect x="6" y="3" width="20" height="26" rx="3" />
-        <path d="M10 3v26M6 22h20M6 25h20" />
-      </svg>
-    );
-  if (id === "brush")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <path d="M11 14V9a5 5 0 0 1 10 0v5" />
-        <rect x="4" y="14" width="24" height="8" rx="3" />
-        <path d="M6 22v6m4-6v6m4-6v6m4-6v6m4-6v6m4-6v6" />
-      </svg>
-    );
-  if (id === "cap")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <path d="M5 22C0 14 5 5 16 5s16 9 11 17zM6 22h20v5H6zM11 6l-2 13m12-13 2 13" />
-      </svg>
-    );
-  if (id === "hat")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <path d="M7 20v-6a9 9 0 0 1 18 0v6M3 20c6-4 20-4 26 0v4H3z" />
-        <path d="M12 7v11" />
-      </svg>
-    );
-  if (id === "shoes")
-    return (
-      <svg
-        className="size-8"
-        viewBox="0 0 32 32"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden="true"
-      >
-        <path d="M3 5h7l2 5 9 4c6 0 8 3 8 6H3zm0 15h26v4H3zM8 25h20v4H8zM15 10l-3 3m7-1-3 3" />
-      </svg>
-    );
-  return (
-    <svg
-      className="size-8"
-      viewBox="0 0 32 32"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      aria-hidden="true"
-    >
-      <g transform="rotate(40 16 16)">
-        <rect x="12" y="2" width="8" height="13" rx="3" fill="currentColor" />
-        <path d="M16 15v11m-2 0h4l-1 4h-2z" />
-      </g>
-    </svg>
-  );
-}
 export function PlaceDirectionsGame({
   initialRound = 0,
   moduleId = "place-directions",
@@ -164,6 +38,7 @@ export function PlaceDirectionsGame({
   nativeLanguage?: string;
 }) {
   const context = `${targetLanguage}:${nativeLanguage}:${moduleId}`;
+  const [assembly, setAssembly] = useState(false);
   const [sceneId, setSceneId] = useState<SceneId>(() => sceneForModule(moduleId, category));
   const scene = pictureScene(sceneId);
   const availableScenes = pictureScenesForModule(moduleId);
@@ -292,6 +167,7 @@ export function PlaceDirectionsGame({
     if (round >= scene.challenges.length - 1) {
       recordedAudio.current?.pause();
       setFinished(true);
+      setAssembly(true);
       window.speechSynthesis?.cancel();
       return;
     }
@@ -306,12 +182,13 @@ export function PlaceDirectionsGame({
     advance.current = next;
   });
   useEffect(() => {
-    if (!correct || finished) return;
+    if (!correct || finished || assembly) return;
     const timer = window.setTimeout(() => advance.current(), 850);
     return () => window.clearTimeout(timer);
-  }, [correct, finished, round, sceneId]);
+  }, [correct, finished, round, sceneId, assembly]);
   function switchScene(id: SceneId) {
     const s = pictureScene(id);
+    setAssembly(false);
     setSceneId(id);
     setScore(0);
     clear(s.challenges[0], 0);
@@ -328,7 +205,7 @@ export function PlaceDirectionsGame({
       window.speechSynthesis?.cancel();
       audioStarted.current = false;
       setHasPlayed(false);
-    } else speak();
+    } else if (!assembly) speak();
   }
   function check(p: Point, pickup = picked, assisted = false) {
     setPosition(p);
@@ -459,7 +336,22 @@ export function PlaceDirectionsGame({
           </select>
         </label>
       </div>
-      {finished ? (
+      {assembly ? (
+        <PictureAssemblyPuzzle
+          key={moduleId}
+          moduleId={moduleId}
+          targetLanguage={targetLanguage}
+          mode={mode}
+          rate={rate}
+          gender={voiceGender}
+          autoPlay={audioStarted.current}
+          onBack={() => {
+            setAssembly(false);
+            setScore(0);
+            clear(scene.challenges[0], 0);
+          }}
+        />
+      ) : finished ? (
         <div aria-label="Placement results" className="space-y-3">
           <h3 className="font-display text-2xl">Practice complete</h3>
           <p>
@@ -671,6 +563,18 @@ export function PlaceDirectionsGame({
           </details>
         </>
       )}
+      {!assembly && (
+        <button
+          className={button}
+          disabled={!ready}
+          onClick={() => {
+            recordedAudio.current?.pause();
+            setAssembly(true);
+          }}
+        >
+          Final challenge · pack & organize
+        </button>
+      )}
       <details>
         <summary className="cursor-pointer py-2 text-sm font-semibold">
           Voice and practice settings
@@ -699,7 +603,7 @@ export function PlaceDirectionsGame({
               const value = Number(e.target.value);
               setRate(value);
               save({ rate: value });
-              if (mode !== "text") speak(c, value);
+              if (mode !== "text" && !assembly) speak(c, value);
             }}
           >
             <option value={0.65}>Slower</option>

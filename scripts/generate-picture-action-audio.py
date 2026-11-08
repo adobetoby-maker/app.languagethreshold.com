@@ -9,7 +9,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--project', required=True)
     args = parser.parse_args()
-    source = subprocess.check_output(['node','--experimental-strip-types','--input-type=module','-e', 'import {PICTURE_SCENES} from "./src/lib/picture-action.ts"; console.log(JSON.stringify(PICTURE_SCENES.flatMap(s=>s.challenges.map(({id,es,en})=>({id,es,en})))));'],cwd=ROOT,text=True)
+    source = subprocess.check_output(['node','--experimental-strip-types','--input-type=module','-e', 'import {PICTURE_SCENES} from "./src/lib/picture-action.ts"; import {ASSEMBLY_PUZZLES} from "./src/lib/picture-assembly.ts"; console.log(JSON.stringify([...PICTURE_SCENES.flatMap(s=>s.challenges.map(({id,es,en})=>({id,es,en}))),...ASSEMBLY_PUZZLES.flatMap(p=>p.items.map(({id,es,en})=>({id,es,en})))]));'],cwd=ROOT,text=True)
     commands = json.loads(source)
     (ROOT/'content/picture-action/audio-script.json').write_text(json.dumps(commands,ensure_ascii=False,indent=2)+'\n')
     output = ROOT/'public/audio/picture-action'

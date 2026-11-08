@@ -192,7 +192,7 @@ test("cleaning behind the bed needs actual strokes; all images and the native pa
   }
   const r = await page.request.get("/downloads/picture-action-app-assets.zip");
   expect(r.ok()).toBe(true);
-  expect((await r.body()).byteLength).toBeLessThan(3000000);
+  expect((await r.body()).byteLength).toBeLessThan(4000000);
 });
 
 test("medical and OR modules get their own scene area and preserve the instruction language", async ({
@@ -277,5 +277,55 @@ test("fishing, soccer and farming have their own objects plus shared scene varie
   }
   await page.getByRole("combobox", { name: "Module practice", exact: true }).selectOption("soccer");
   await game.getByTestId("picture-scene").selectOption("module-soccer");
+  await expect(game.getByTestId("placement-command")).toContainText("el balón");
+});
+
+test("the last command opens a persistent six-item packing puzzle", async ({ page }, info) => {
+  await page.goto("/place-directions");
+  await page.getByRole("combobox", { name: "Module practice", exact: true }).selectOption("soccer");
+  const game = page.getByTestId("place-game");
+  await game.getByTestId("instruction-mode").selectOption("text");
+  await game.getByText("Act without dragging", { exact: true }).click();
+  for (const target of ["on", "under", "inside", "beside", "between", "front"]) {
+    await game.getByTestId("movable-tool").click();
+    await game.locator(`[data-place="${target}"]`).click();
+    if (target !== "front") await expect(game.getByTestId("placement-feedback")).toHaveText("");
+  }
+  const puzzle = game.getByTestId("assembly-puzzle");
+  await expect(puzzle).toBeVisible();
+  await expect(puzzle.getByTestId("assembly-count")).toHaveText("0 / 6");
+  await puzzle.getByTestId("assembly-slot-1").click();
+  await expect(puzzle.getByTestId("assembly-feedback")).toContainText("Try another");
+  await expect(puzzle.getByTestId("assembly-count")).toHaveText("0 / 6");
+  await puzzle.getByTestId("assembly-board").scrollIntoViewIfNeeded();
+  const b = (await puzzle.getByTestId("assembly-board").boundingBox())!,
+    t = (await puzzle.getByTestId("assembly-active-item").boundingBox())!;
+  await page.mouse.move(t.x + t.width / 2, t.y + t.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(b.x + b.width * 0.32, b.y + b.height * 0.28, { steps: 12 });
+  await page.mouse.up();
+  await expect(puzzle.getByTestId("assembly-count")).toHaveText("1 / 6");
+  await expect(puzzle.getByTestId("assembly-feedback")).toHaveText("");
+  for (const [n, slot] of [5, 1, 2, 3, 4].entries()) {
+    await puzzle
+      .getByRole("button", { name: /^Choose / })
+      .nth(slot)
+      .click();
+    await puzzle.getByTestId(`assembly-slot-${slot}`).click();
+    await expect(puzzle.getByTestId("assembly-count")).toHaveText(`${n + 2} / 6`);
+    await expect(puzzle.getByTestId("assembly-slot-0")).toHaveAttribute(
+      "aria-label",
+      "Compartment 1, packed",
+    );
+    if (slot !== 4) await expect(puzzle.getByTestId("assembly-feedback")).toHaveText("");
+  }
+  await expect(puzzle.getByTestId("assembly-complete")).toBeVisible();
+  await page.screenshot({
+    path: `/tmp/assembly-complete-${info.project.name}.png`,
+    fullPage: true,
+  });
+  await puzzle.getByRole("button", { name: "Start puzzle again" }).click();
+  await expect(puzzle.getByTestId("assembly-count")).toHaveText("0 / 6");
+  await puzzle.getByRole("button", { name: "Back to commands" }).click();
   await expect(game.getByTestId("placement-command")).toContainText("el balón");
 });

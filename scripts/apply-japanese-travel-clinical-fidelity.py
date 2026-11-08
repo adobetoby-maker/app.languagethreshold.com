@@ -26,7 +26,7 @@ PATCHES = {
     },
     "core-1-30-draft.json": {
         2: {
-            "focus": "ブレンド and アメリカン are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～にできますか asks whether a drink can be changed to another option.",
+            "focus": "ブレンド and カフェオレ are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～はありますか asks whether a drink or size is available; ～ならあります offers an available alternative.",
             "closure": "Repeat the drink and milk option the barista confirmed.",
         },
         3: {
@@ -34,7 +34,7 @@ PATCHES = {
             "closure": "Confirm the pastry name and filling with staff.",
         },
         6: {
-            "focus": "アレルギーがあります states an allergy; 肉を食べません and 乳製品を避けています describe dietary choices. 原材料 asks about ingredients, and 調理器具 asks about shared utensils. ～を確認していただけますか is a polite request to staff.",
+            "focus": "アレルギーがあります states an allergy; 原材料 names ingredients and 調理器具 names cooking utensils. ～を確認していただけますか is a polite request to staff; 注文しません states a decision not to order.",
             "closure": "Repeat the ingredient and utensil information that staff actually provided.",
         },
         15: {
@@ -171,6 +171,26 @@ PATCHES = {
     },
 }
 
+# Keep source-fidelity and factual review questions in the internal audit. These
+# are learner-facing speaking tasks, so they ask for the actual vocabulary and
+# grammar rather than an editorial caution about diagnosis or safety.
+MODE_SAY_REWRITES = {
+    ("core-1-30-draft.json", 6): "State the dietary restriction, name the ingredient, and ask staff about preparation utensils.",
+    ("core-1-30-draft.json", 18): "Ask staff whether the pastry and drink use shared tongs, a toaster, or a milk pitcher.",
+    ("core-1-30-draft.json", 24): "Tell staff that a person collapsed, name the observed breathing uncertainty, and ask for an ambulance.",
+    ("core-1-30-draft.json", 25): "Describe the hot-coffee burn and affected skin; ask staff for cold water, napkins, and a first-aid kit.",
+    ("master-4-6-draft.json", 4): "Explain the sesame allergy and epinephrine auto-injector; ask for the current label and preparation details.",
+    ("master-4-6-draft.json", 5): "Ask the clerk which breakfast options are available and when the group can collect them.",
+    ("master-7-9-draft.json", 8): "Tell the server about the tree-nut allergy and past anaphylaxis; decline scraping off almonds and ask about another item.",
+    ("master-7-9-draft.json", 9): "Describe the equipment issue and give the staff specific feedback about the service.",
+    ("master-10-12-draft.json", 10): "Report each friend's view, mention altitude sickness and the host's coca-tea statement, and negotiate a breakfast plan.",
+    ("master-13-15-draft.json", 13): "Name the itchy throat, hives, lip swelling, breathing difficulty, and dizziness in the event timeline.",
+    ("master-13-15-draft.json", 14): "Tell the baker about celiac disease, the wheat-flour label, and the misplaced gluten-free sign.",
+    ("master-16-18-draft.json", 16): "Distinguish what you observed from what staff reported, then request a corrected incident statement.",
+    ("master-19-20-draft.json", 19): "Tell the manager what worked, name the celiac and cross-contact concerns, and describe a condition for returning.",
+    ("master-19-20-draft.json", 20): "Lead the four-role breakfast conversation, naming the peanut allergy, ingredients, preparation method, and final order.",
+}
+
 
 def apply_file(name, lessons):
     path = DIR / name
@@ -179,10 +199,15 @@ def apply_file(name, lessons):
     assert data["reviewed"] is False and data["registered"] is False and data["audio"] == "none"
     for lesson in data["lessons"]:
         patch = lessons.get(lesson["n"])
-        if patch is None:
-            continue
         stable_id = lesson["stableId"]
         source = lesson.get("sourceEnglish")
+        say = MODE_SAY_REWRITES.get((name, lesson["n"]))
+        if say is not None:
+            assert set(lesson["modes"]) == {"see", "recall", "hear", "type", "say", "write"}
+            lesson["modes"]["say"] = say
+        if patch is None:
+            assert lesson["stableId"] == stable_id and lesson.get("sourceEnglish") == source
+            continue
         for key in ("focus", "objective"):
             if key in patch:
                 lesson[key] = patch[key]

@@ -9,8 +9,8 @@ const manifest = JSON.parse(
   readFileSync(new URL("../src/data/picture-action-audio.json", import.meta.url)),
 );
 test("every exact command has both HD voices in each supported language", () => {
-  assert.equal(script.length, 36);
-  assert.equal(manifest.clips.length, 144);
+  assert.equal(script.length, 492);
+  assert.equal(manifest.clips.length, script.length * 4);
   for (const c of script)
     for (const language of ["es", "en"])
       for (const gender of ["female", "male"]) {

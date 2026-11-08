@@ -1,3 +1,4 @@
+import profiles from "../../content/picture-action/module-profiles.json" with { type: "json" };
 import authored from "../../content/picture-action/scenes.json" with { type: "json" };
 import {
   CHALLENGES,
@@ -7,7 +8,16 @@ import {
   type Point,
   type Place,
 } from "./place-directions-game.ts";
-export type SceneId = "workshop" | "clinic" | "or" | "truck" | "bedroom";
+export type SceneId =
+  | "workshop"
+  | "clinic"
+  | "or"
+  | "truck"
+  | "bedroom"
+  | "fishing"
+  | "soccer"
+  | "farm"
+  | `module-${string}`;
 export type InstructionMode = "voice-text" | "voice" | "text";
 export interface PictureTarget {
   id: string;
@@ -52,16 +62,58 @@ const workshop: PictureScene = {
     start: initialPosition(c.place),
   })),
 };
-export const PICTURE_SCENES: readonly PictureScene[] = [
+export const SHARED_PICTURE_SCENES: readonly PictureScene[] = [
   workshop,
   ...(authored.scenes as PictureScene[]),
 ];
-export const PICTURE_OBJECTS: Record<string, { es: string; en: string }> = authored.objects;
+export const PICTURE_OBJECTS: Record<string, { es: string; en: string; icon?: string }> = {
+  ...authored.objects,
+  ...profiles.objects,
+};
+export const PICTURE_MODULES = profiles.modules;
+export function basePictureModule(id: string) {
+  return id.replace(/^(foundation-|master-)/, "");
+}
+export const MODULE_PICTURE_SCENES: readonly PictureScene[] = profiles.modules.map((m) => {
+  const base = SHARED_PICTURE_SCENES.find((s) => s.id === m.scene)!;
+  // Floor, shelves and seats support ordinary objects; hooks are reserved for the shared hang task.
+  const targets = base.targets.filter((t) => t.id !== "door-hook");
+  return {
+    ...base,
+    id: `module-${m.id}` as SceneId,
+    name: `${m.name} · objects & actions`,
+    challenges: Array.from({ length: 6 }, (_, i) => {
+      const object = m.objects[i % m.objects.length];
+      const word = PICTURE_OBJECTS[object];
+      const target = targets[i % targets.length];
+      const pickup = i >= 3;
+      return {
+        id: `module-${m.id}-${i + 1}`,
+        object,
+        es: `${pickup ? `Recoge ${word.es}. ` : ""}Pon ${word.es} ${target.es}.`,
+        en: `${pickup ? `Pick up the ${word.en}. ` : ""}Put the ${word.en} ${target.en}.`,
+        target: target.id,
+        action: "place" as const,
+        pickup,
+        start: base.id === "workshop" ? initialPosition(target.id as Place) : { x: 0.12, y: 0.9 },
+      };
+    }),
+  };
+});
+export const PICTURE_SCENES: readonly PictureScene[] = [
+  ...SHARED_PICTURE_SCENES,
+  ...MODULE_PICTURE_SCENES,
+];
+export function pictureScenesForModule(id: string) {
+  const own = MODULE_PICTURE_SCENES.find((s) => s.id === `module-${basePictureModule(id)}`);
+  return own ? [own, ...SHARED_PICTURE_SCENES] : [...SHARED_PICTURE_SCENES];
+}
 export function pictureScene(id: string) {
   return PICTURE_SCENES.find((s) => s.id === id) ?? workshop;
 }
 export function sceneForModule(moduleId: string, category = ""): SceneId {
-  const id = moduleId.toLowerCase();
+  const id = basePictureModule(moduleId.toLowerCase());
+  if (id !== "place-directions" && profiles.modules.some((m) => m.id === id)) return `module-${id}`;
   if (/or-evs|operating|surg|anesth/.test(id)) return "or";
   if (/clean|housekeep|hotel|hospitality/.test(id)) return "bedroom";
   if (/nurs|medical|clinic|physician|dental|patient|health|fmg/.test(id) || category === "Medical")
@@ -84,7 +136,7 @@ export function acceptsPictureTarget(scene: PictureScene, id: string, p: Point) 
     return false;
   const t = scene.targets.find((t) => t.id === id);
   if (!t) return false;
-  if (scene.id === "workshop") return acceptsPlace(id as Place, p);
+  if (scene.image === workshop.image) return acceptsPlace(id as Place, p);
   return Math.abs(p.x - t.point.x) <= t.width / 2 && Math.abs(p.y - t.point.y) <= t.height / 2;
 }
 export function cleaningDistance(scene: PictureScene, target: string, from: Point, to: Point) {

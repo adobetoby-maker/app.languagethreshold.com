@@ -13,7 +13,8 @@ import {
   RectangleHorizontal,
 } from "lucide-react";
 import {
-  PICTURE_SCENES,
+  pictureScenesForModule,
+  basePictureModule,
   PICTURE_OBJECTS,
   pictureScene,
   sceneForModule,
@@ -42,6 +43,27 @@ function ObjectIcon({ id }: { id: string }) {
     tray: RectangleHorizontal,
   };
   const Icon = icons[id];
+  if (id === "net")
+    return (
+      <svg
+        className="size-8"
+        viewBox="0 0 32 32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        aria-hidden="true"
+      >
+        <ellipse cx="19" cy="11" rx="10" ry="7" />
+        <path d="M9 11l4 11h12l4-11M13 8l10 12M23 7L13 20M17 5v17M9 15L2 30" />
+      </svg>
+    );
+  const emoji = PICTURE_OBJECTS[id]?.icon;
+  if (emoji)
+    return (
+      <span className="text-3xl leading-none" aria-hidden="true">
+        {emoji}
+      </span>
+    );
   if (Icon) return <Icon className="size-8" />;
   if (id === "towel")
     return (
@@ -144,6 +166,7 @@ export function PlaceDirectionsGame({
   const context = `${targetLanguage}:${nativeLanguage}:${moduleId}`;
   const [sceneId, setSceneId] = useState<SceneId>(() => sceneForModule(moduleId, category));
   const scene = pictureScene(sceneId);
+  const availableScenes = pictureScenesForModule(moduleId);
   const [round, setRound] = useState(initialRound),
     [ready, setReady] = useState(false),
     [mode, setMode] = useState<InstructionMode>("voice-text"),
@@ -171,7 +194,9 @@ export function PlaceDirectionsGame({
     audioStarted = useRef(false),
     settings = useRef<PicturePreferences>({ mode: "voice-text", rate: 0.85, scenes: {} }),
     heading = useRef<HTMLHeadingElement>(null);
-  const supported = supportsPicturePair(targetLanguage, nativeLanguage),
+  const supported =
+      supportsPicturePair(targetLanguage, nativeLanguage) &&
+      basePictureModule(moduleId) !== "japanese-basics",
     goal = scene.targets.find((t) => t.id === c.target)!,
     object = PICTURE_OBJECTS[c.object];
   const command = (x: PictureChallenge) => (targetLanguage === "English" ? x.en : x.es);
@@ -186,7 +211,10 @@ export function PlaceDirectionsGame({
     settings.current = prefs;
     setMode(prefs.mode);
     setRate(prefs.rate);
-    const id = prefs.scenes[context] ?? sceneForModule(moduleId, category),
+    const id =
+        (pictureScenesForModule(moduleId).some((s) => s.id === prefs.scenes[context])
+          ? prefs.scenes[context]
+          : undefined) ?? sceneForModule(moduleId, category),
       s = pictureScene(id),
       n = Math.max(0, Math.min(s.challenges.length - 1, initialRound));
     setSceneId(id);
@@ -409,7 +437,7 @@ export function PlaceDirectionsGame({
             onChange={(e) => switchScene(e.target.value as SceneId)}
             data-testid="picture-scene"
           >
-            {PICTURE_SCENES.map((s) => (
+            {availableScenes.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.name}
               </option>

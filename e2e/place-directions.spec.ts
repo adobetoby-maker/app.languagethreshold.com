@@ -192,7 +192,7 @@ test("cleaning behind the bed needs actual strokes; all images and the native pa
   }
   const r = await page.request.get("/downloads/picture-action-app-assets.zip");
   expect(r.ok()).toBe(true);
-  expect((await r.body()).byteLength).toBeLessThan(1500000);
+  expect((await r.body()).byteLength).toBeLessThan(3000000);
 });
 
 test("medical and OR modules get their own scene area and preserve the instruction language", async ({
@@ -209,11 +209,11 @@ test("medical and OR modules get their own scene area and preserve the instructi
   await page.goto(appUrl({ tab: "games", module: "nursing" }));
   await page.getByText("Picture & Action · words, objects, and actions", { exact: true }).click();
   const game = page.getByTestId("place-game");
-  await expect(game.getByTestId("picture-scene")).toHaveValue("clinic");
+  await expect(game.getByTestId("picture-scene")).toHaveValue("module-nursing");
   await game.getByTestId("picture-scene").selectOption("truck");
   await page.goto(appUrl({ tab: "games", module: "or-evs", target: "English", native: "Spanish" }));
   await page.getByText("Picture & Action · words, objects, and actions", { exact: true }).click();
-  await expect(game.getByTestId("picture-scene")).toHaveValue("or");
+  await expect(game.getByTestId("picture-scene")).toHaveValue("module-or-evs");
   await expect(game.getByTestId("placement-command")).toHaveText(
     "Put the tray on top of the cart.",
   );
@@ -241,4 +241,41 @@ test("HD command recordings load for both voices", async ({ page }) => {
   const male = await other;
   expect(male.url()).not.toEqual(female.url());
   expect((await male.body()).length).toBeGreaterThan(500);
+});
+
+test("fishing, soccer and farming have their own objects plus shared scene variety", async ({
+  page,
+}, info) => {
+  await page.goto("/place-directions");
+  const game = page.getByTestId("place-game");
+  for (const [module, noun] of [
+    ["sport-fishing", "la red"],
+    ["soccer", "el balón"],
+    ["dairy-farmer", "el cubo"],
+  ]) {
+    await page.getByRole("combobox", { name: "Module practice", exact: true }).selectOption(module);
+    await expect(game.getByTestId("picture-scene")).toHaveValue(`module-${module}`);
+    await expect(game.getByTestId("placement-command")).toContainText(noun);
+    await expect(game.getByTestId("picture-scene").locator("option")).toHaveCount(9);
+    await expect
+      .poll(() => game.locator("img").evaluate((img: HTMLImageElement) => img.naturalWidth))
+      .toBeGreaterThan(0);
+    await game.getByTestId("movable-tool").click();
+    await game.getByText("Act without dragging", { exact: true }).click();
+    await game.locator('[data-place="on"]').click();
+    await expect(game.getByTestId("placement-feedback")).toContainText("Correct placement");
+    await expect(game.getByTestId("placement-command")).toContainText("debajo de la mesa");
+    if (module === "soccer")
+      await page.screenshot({
+        path: `/tmp/picture-module-soccer-${info.project.name}.png`,
+        fullPage: true,
+      });
+    for (const scene of ["bedroom", "workshop", "truck"]) {
+      await game.getByTestId("picture-scene").selectOption(scene);
+      await expect(game.getByTestId("picture-scene")).toHaveValue(scene);
+    }
+  }
+  await page.getByRole("combobox", { name: "Module practice", exact: true }).selectOption("soccer");
+  await game.getByTestId("picture-scene").selectOption("module-soccer");
+  await expect(game.getByTestId("placement-command")).toContainText("el balón");
 });

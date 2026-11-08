@@ -1,3 +1,4 @@
+import { PICTURE_MODULES } from "@/lib/picture-action";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/place-directions")({
 });
 function PlaceDirectionsPreview() {
   const [ready, setReady] = useState(false);
+  const [practiceModule, setPracticeModule] = useState("place-directions");
   useEffect(() => setReady(true), []);
   const [tab, setTab] = useState("game"),
     [stage, setStage] = useState("foundation"),
@@ -53,7 +55,25 @@ function PlaceDirectionsPreview() {
           </button>
         </nav>
         {tab === "game" ? (
-          <PlaceDirectionsGame />
+          <div className="space-y-4">
+            <label className="block text-sm font-semibold">
+              Module practice
+              <select
+                aria-label="Module practice"
+                className="mt-1 w-full rounded-xl border bg-background p-3"
+                value={practiceModule}
+                disabled={!ready}
+                onChange={(e) => setPracticeModule(e.target.value)}
+              >
+                {PICTURE_MODULES.filter((m) => m.id !== "japanese-basics").map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <PlaceDirectionsGame key={practiceModule} moduleId={practiceModule} />
+          </div>
         ) : (
           <section className="space-y-4">
             <div className="flex flex-wrap gap-2">
@@ -130,8 +150,8 @@ function PlaceDirectionsPreview() {
           </section>
         )}
         <p className="text-sm text-muted-foreground">
-          Preview course. Human teaching review is pending. Game commands include HD
-          recordings in Spanish and English.
+          Preview course. Human teaching review is pending. Game commands include HD recordings in
+          Spanish and English.
         </p>
       </div>
     </main>

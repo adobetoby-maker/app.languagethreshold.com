@@ -658,6 +658,468 @@
           }
         }
       ]
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing dock",
+      "alt": "Fishing dock: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/fishing",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.37
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.55
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de pesca",
+          "en": "inside the tackle box",
+          "point": {
+            "x": 0.22,
+            "y": 0.59
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de pesca",
+          "en": "beside the tackle box",
+          "point": {
+            "x": 0.43,
+            "y": 0.64
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.5,
+            "y": 0.86
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.68
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "fishing-1",
+          "object": "net",
+          "es": "Pon la red encima de la mesa.",
+          "en": "Put the net on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-2",
+          "object": "tackle",
+          "es": "Pon la caja de pesca debajo de la mesa.",
+          "en": "Put the tackle box under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-3",
+          "object": "net",
+          "es": "Pon la red dentro de la caja de pesca.",
+          "en": "Put the net inside the tackle box.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-4",
+          "object": "tackle",
+          "es": "Recoge la caja de pesca. Pon la caja de pesca al lado de la caja de pesca.",
+          "en": "Pick up the tackle box. Put the tackle box beside the tackle box.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-5",
+          "object": "net",
+          "es": "Recoge la red. Pon la red entre los conos.",
+          "en": "Pick up the net. Put the net between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-6",
+          "object": "tackle",
+          "es": "Recoge la caja de pesca. Pon la caja de pesca delante de la mesa.",
+          "en": "Pick up the tackle box. Put the tackle box in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "soccer",
+      "name": "Sports training field",
+      "alt": "Sports training field: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/soccer",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.7,
+            "y": 0.44
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.71,
+            "y": 0.56
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de equipo",
+          "en": "inside the equipment box",
+          "point": {
+            "x": 0.21,
+            "y": 0.55
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de equipo",
+          "en": "beside the equipment box",
+          "point": {
+            "x": 0.43,
+            "y": 0.65
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.5,
+            "y": 0.83
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.73,
+            "y": 0.73
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "soccer-1",
+          "object": "ball",
+          "es": "Pon el balón encima de la mesa.",
+          "en": "Put the ball on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-2",
+          "object": "vest",
+          "es": "Pon el chaleco debajo de la mesa.",
+          "en": "Put the training vest under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-3",
+          "object": "ball",
+          "es": "Pon el balón dentro de la caja de equipo.",
+          "en": "Put the ball inside the equipment box.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-4",
+          "object": "vest",
+          "es": "Recoge el chaleco. Pon el chaleco al lado de la caja de equipo.",
+          "en": "Pick up the training vest. Put the training vest beside the equipment box.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-5",
+          "object": "ball",
+          "es": "Recoge el balón. Pon el balón entre los conos.",
+          "en": "Pick up the ball. Put the ball between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-6",
+          "object": "vest",
+          "es": "Recoge el chaleco. Pon el chaleco delante de la mesa.",
+          "en": "Pick up the training vest. Put the training vest in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "farm",
+      "name": "Farmyard",
+      "alt": "Farmyard: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/farm",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.42
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.56
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de suministros",
+          "en": "inside the supply crate",
+          "point": {
+            "x": 0.22,
+            "y": 0.54
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de suministros",
+          "en": "beside the supply crate",
+          "point": {
+            "x": 0.43,
+            "y": 0.66
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.54,
+            "y": 0.86
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.73,
+            "y": 0.73
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "farm-1",
+          "object": "bucket",
+          "es": "Pon el cubo encima de la mesa.",
+          "en": "Put the bucket on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-2",
+          "object": "gloves",
+          "es": "Pon los guantes debajo de la mesa.",
+          "en": "Put the gloves under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-3",
+          "object": "bucket",
+          "es": "Pon el cubo dentro de la caja de suministros.",
+          "en": "Put the bucket inside the supply crate.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-4",
+          "object": "gloves",
+          "es": "Recoge los guantes. Pon los guantes al lado de la caja de suministros.",
+          "en": "Pick up the gloves. Put the gloves beside the supply crate.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-5",
+          "object": "bucket",
+          "es": "Recoge el cubo. Pon el cubo entre los conos.",
+          "en": "Pick up the bucket. Put the bucket between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-6",
+          "object": "gloves",
+          "es": "Recoge los guantes. Pon los guantes delante de la mesa.",
+          "en": "Pick up the gloves. Put the gloves in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
     }
   ]
 }

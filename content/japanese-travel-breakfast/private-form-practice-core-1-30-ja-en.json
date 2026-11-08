@@ -1,0 +1,1374 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "registered": false,
+  "reviewed": false,
+  "pairKey": "Japanese:English",
+  "courseId": "travel-breakfast:ja-en",
+  "practiceModel": "contextual-japanese-form",
+  "note": "Whole authored Japanese Reader expressions; no Spanish person or ending slots. Authoring inputs only, not live exercises.",
+  "sourceFile": "core-1-30-draft.json",
+  "sourceSha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+  "counts": {
+    "lessons": 30,
+    "prompts": 93
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonId": "travel-breakfast:1:ja-en",
+      "grammarFocus": "In a Japanese café, counter and seating practices vary. 注文はここでいいですか asks where to order. 空いていますか asks whether a seat is free. Check with staff rather than sitting or assuming a universal rule.",
+      "prompts": [
+        {
+          "id": "form-ja-en-672fe325595aa56f",
+          "sourceReaderTurn": 3,
+          "focus": "counter-order-location",
+          "englishPrompt": "Good morning. Should I order here?",
+          "japaneseAnswer": "おはようございます。注文はここでいいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-2d9f02fb4b73d83d",
+          "sourceReaderTurn": 5,
+          "focus": "seat-availability-question",
+          "englishPrompt": "Is a seat available?",
+          "japaneseAnswer": "席は空いていますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c8cbad80523af3ed",
+          "sourceReaderTurn": 7,
+          "focus": "polite-wait-intention",
+          "englishPrompt": "I understand. I will wait a moment.",
+          "japaneseAnswer": "わかりました。少し待ちます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonId": "travel-breakfast:2:ja-en",
+      "grammarFocus": "ブレンド and アメリカン are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～にできますか asks whether a drink can be changed to another option.",
+      "prompts": [
+        {
+          "id": "form-ja-en-de40098638494660",
+          "sourceReaderTurn": 1,
+          "focus": "coffee-choice-question",
+          "englishPrompt": "What coffees do you have?",
+          "japaneseAnswer": "どんなコーヒーがありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-56bfbb65bdd0f1b0",
+          "sourceReaderTurn": 5,
+          "focus": "oat-milk-availability",
+          "englishPrompt": "Do you have oat milk?",
+          "japaneseAnswer": "オーツミルクはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-80ae3e5abfc51522",
+          "sourceReaderTurn": 9,
+          "focus": "drink-here-nonpast",
+          "englishPrompt": "Yes, I will drink it here.",
+          "japaneseAnswer": "はい、店内で飲みます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonId": "travel-breakfast:3:ja-en",
+      "grammarFocus": "今朝焼いたもの asks what was baked this morning; 甘い and 塩味のある distinguish sweet and savory; 中身 asks about a pastry's filling. Use the item names shown on the café's menu.",
+      "prompts": [
+        {
+          "id": "form-ja-en-06389c0fa1eb4106",
+          "sourceReaderTurn": 2,
+          "focus": "baked-this-morning-question",
+          "englishPrompt": "Which items were baked this morning?",
+          "japaneseAnswer": "今朝焼いたものはどれですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9c35ebb4c15fe73b",
+          "sourceReaderTurn": 4,
+          "focus": "filling-question",
+          "englishPrompt": "What is inside the anpan?",
+          "japaneseAnswer": "あんパンの中身は何ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-bc4853ff93253072",
+          "sourceReaderTurn": 6,
+          "focus": "savory-item-availability",
+          "englishPrompt": "Do you have something savory?",
+          "japaneseAnswer": "塩味のあるものはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonId": "travel-breakfast:4:ja-en",
+      "grammarFocus": "～をお願いします makes a polite order. 焼き加減 means cooking level; よく焼いてください requests well cooked. セットに含まれますか checks whether something is included. Menu contents and cooking choices vary; do not imply a fixed breakfast set.",
+      "prompts": [
+        {
+          "id": "form-ja-en-e4751860f95a7a3a",
+          "sourceReaderTurn": 3,
+          "focus": "choice-possibility-erabemasu-ka",
+          "englishPrompt": "Can I choose the egg dish?",
+          "japaneseAnswer": "卵料理は選べますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-8cf2c35fd6add920",
+          "sourceReaderTurn": 6,
+          "focus": "well-cooked-te-kudasai",
+          "englishPrompt": "Please cook them well.",
+          "japaneseAnswer": "よく焼いてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a45d9cb6a151b5e9",
+          "sourceReaderTurn": 8,
+          "focus": "set-inclusion-fukumaremasu-ka",
+          "englishPrompt": "Is coffee included in the set too?",
+          "japaneseAnswer": "コーヒーもセットに含まれますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonId": "travel-breakfast:5:ja-en",
+      "grammarFocus": "朝食付き means breakfast included in a particular booking; it is not assumed. 何時から何時まで asks the hours. 部屋番号 is room number. Follow the hotel’s stated buffet rules rather than treating one hotel’s practice as universal.",
+      "prompts": [
+        {
+          "id": "form-ja-en-0d1b20568d4500c5",
+          "sourceReaderTurn": 4,
+          "focus": "booking-confirmation-shimasu",
+          "englishPrompt": "I will check your room plan.",
+          "japaneseAnswer": "宿泊プランを確認します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d80f2774926b084c",
+          "sourceReaderTurn": 6,
+          "focus": "opening-hours-kara-made",
+          "englishPrompt": "What are the breakfast hours?",
+          "japaneseAnswer": "朝食は何時から何時までですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-cf86950a684336f7",
+          "sourceReaderTurn": 8,
+          "focus": "explanation-te-kudasai",
+          "englishPrompt": "Please explain the buffet rules.",
+          "japaneseAnswer": "ビュッフェのルールを教えてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonId": "travel-breakfast:6:ja-en",
+      "grammarFocus": "アレルギーがあります states an allergy; 肉を食べません and 乳製品を避けています describe dietary choices. 原材料 asks about ingredients, and 調理器具 asks about shared utensils. ～を確認していただけますか is a polite request to staff.",
+      "prompts": [
+        {
+          "id": "form-ja-en-911a8d35d8679aa4",
+          "sourceReaderTurn": 1,
+          "focus": "nut-allergy-arimasu",
+          "englishPrompt": "Excuse me. My companion has a nut allergy.",
+          "japaneseAnswer": "すみません。同行者にナッツアレルギーがあります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-dfcd390d1fe1869a",
+          "sourceReaderTurn": 2,
+          "focus": "ingredient-check-itadakemasu-ka",
+          "englishPrompt": "Could you check the ingredients of this bread?",
+          "japaneseAnswer": "このパンの原材料を確認していただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-2a2bd25feeee3ad5",
+          "sourceReaderTurn": 7,
+          "focus": "negative-order-shimasen",
+          "englishPrompt": "I understand. I will not order this bread.",
+          "japaneseAnswer": "わかりました。このパンは注文しません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonId": "travel-breakfast:7:ja-en",
+      "grammarFocus": "この辺りでは means around here; この店では means at this shop. 「地元の人は」 asks about local customers without claiming everyone eats the same thing. A recommendation is one staff member’s description, not a universal cultural fact or ingredient guarantee.",
+      "prompts": [
+        {
+          "id": "form-ja-en-7eca130116aec8a0",
+          "sourceReaderTurn": 1,
+          "focus": "local-area-dewa",
+          "englishPrompt": "What do people around here eat for breakfast?",
+          "japaneseAnswer": "この辺りでは、朝食に何を食べますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-869be25f27c19095",
+          "sourceReaderTurn": 2,
+          "focus": "this-shop-dewa",
+          "englishPrompt": "It depends on the person, but the rice-ball set is popular here.",
+          "japaneseAnswer": "人によりますが、この店ではおにぎり定食が人気です。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-382eb42355d85a49",
+          "sourceReaderTurn": 7,
+          "focus": "ingredient-detail-itadakemasu-ka",
+          "englishPrompt": "Could you tell me a little more about the ingredients?",
+          "japaneseAnswer": "材料をもう少し教えていただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonId": "travel-breakfast:8:ja-en",
+      "grammarFocus": "～には marks the person receiving an item. それぞれ means each person. こちらは誰の分ですか asks whose portion an item is. Japanese often uses a person’s name rather than a bare pronoun. Avoid mixing an allergy need with an ordinary taste preference.",
+      "prompts": [
+        {
+          "id": "form-ja-en-657e1f9d3fd4fb5b",
+          "sourceReaderTurn": 3,
+          "focus": "recipient-watashi-ni-wa",
+          "englishPrompt": "Coffee with milk and an egg dish for me, please.",
+          "japaneseAnswer": "私にはカフェオレと卵料理をお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-057b05be272a0f0a",
+          "sourceReaderTurn": 4,
+          "focus": "recipient-friend-ni-wa",
+          "englishPrompt": "Tea and toast for my friend, please.",
+          "japaneseAnswer": "友人には紅茶とトーストをお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-5f0c3224fcde75f2",
+          "sourceReaderTurn": 5,
+          "focus": "recipient-child-ni-wa",
+          "englishPrompt": "Orange juice and bread for the child, please.",
+          "japaneseAnswer": "子どもにはオレンジジュースとパンをお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonId": "travel-breakfast:9:ja-en",
+      "grammarFocus": "持ち帰り means takeaway. ～に変更できますか asks if a change is possible; do not assume a prepared order can be changed. 袋 is a bag and ふた is a lid. Ask whether these are supplied; packaging and train policies vary.",
+      "prompts": [
+        {
+          "id": "form-ja-en-46d3c51ceab055a4",
+          "sourceReaderTurn": 2,
+          "focus": "takeaway-change-dekimasu-ka",
+          "englishPrompt": "Can you change the coffee to takeaway?",
+          "japaneseAnswer": "コーヒーを持ち帰りに変更できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-91189e072fb647fa",
+          "sourceReaderTurn": 3,
+          "focus": "not-yet-made-te-inai",
+          "englishPrompt": "We have not made it yet, so we can change it.",
+          "japaneseAnswer": "まだ作っていないので、変更できます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-18b26ca628bd6cf3",
+          "sourceReaderTurn": 6,
+          "focus": "bag-request-te-kudasai",
+          "englishPrompt": "Please put the croissant in a paper bag too.",
+          "japaneseAnswer": "クロワッサンも紙袋に入れてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonId": "travel-breakfast:10:ja-en",
+      "grammarFocus": "注文したのは～です identifies the item ordered. ～ではなく means not X but Y. 入っていません says an item is missing from a bag. Ask staff to check before asserting fault. Menu labels for アメリカン and ブレンド vary, so use the exact label shown on this order.",
+      "prompts": [
+        {
+          "id": "form-ja-en-c1e6df2c249d1c63",
+          "sourceReaderTurn": 1,
+          "focus": "order-check-itadakemasu-ka",
+          "englishPrompt": "Excuse me. Could you check my order?",
+          "japaneseAnswer": "すみません。注文を確認していただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9a32fd8bb6b561ba",
+          "sourceReaderTurn": 3,
+          "focus": "ordered-item-no-wa-and-contrast",
+          "englishPrompt": "I ordered a blend coffee, but this is coffee with milk.",
+          "japaneseAnswer": "注文したのはブレンドですが、これはカフェオレです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ed53769bc64c2afb",
+          "sourceReaderTurn": 4,
+          "focus": "missing-item-te-imasen",
+          "englishPrompt": "The croissant is not in the bag either.",
+          "japaneseAnswer": "クロワッサンも袋に入っていません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonId": "travel-breakfast:11:ja-en",
+      "grammarFocus": "今日は寒いですね invites agreement about present weather. ～なら expresses a condition, as in 雨が降らなければ. Keep the exchange brief and appropriate with staff; do not claim a forecast unless someone actually reports it. Ask for repetition politely if needed.",
+      "prompts": [
+        {
+          "id": "form-ja-en-907e94697bcd403b",
+          "sourceReaderTurn": 1,
+          "focus": "weather-agreement-desu-ne",
+          "englishPrompt": "Good morning. It is cold today, isn’t it?",
+          "japaneseAnswer": "おはようございます。今日は寒いですね。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d6a1bc5ee38f454e",
+          "sourceReaderTurn": 5,
+          "focus": "destination-question",
+          "englishPrompt": "Where are you going today?",
+          "japaneseAnswer": "今日はどちらへ行きますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-90a429d6c629d227",
+          "sourceReaderTurn": 6,
+          "focus": "if-no-rain-nakereba",
+          "englishPrompt": "If it does not rain, I will walk near the station.",
+          "japaneseAnswer": "雨が降らなければ、駅前を散歩します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonId": "travel-breakfast:12:ja-en",
+      "grammarFocus": "お会計 is the bill/payment; 明細 is the itemized detail; 合計 is the total. こちらの料金は何ですか asks about an unfamiliar charge without assuming a cover charge or tip applies. Payment methods, service charges and tipping practices vary; check the actual bill and staff answer.",
+      "prompts": [
+        {
+          "id": "form-ja-en-7f862e21ff39c820",
+          "sourceReaderTurn": 1,
+          "focus": "bill-request-onegai-shimasu",
+          "englishPrompt": "Excuse me. The bill, please.",
+          "japaneseAnswer": "すみません。お会計をお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d0cc067a814e8de8",
+          "sourceReaderTurn": 3,
+          "focus": "separate-charge-question",
+          "englishPrompt": "Is this drink a separate charge?",
+          "japaneseAnswer": "この飲み物は別料金ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0dcb80a40d833acb",
+          "sourceReaderTurn": 7,
+          "focus": "card-payment-haraemasu-ka",
+          "englishPrompt": "Can I pay by card?",
+          "japaneseAnswer": "カードで払えますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 13,
+      "stableLessonId": "travel-breakfast:13:ja-en",
+      "grammarFocus": "～が香り高かったです describes an aromatic item after eating. 外はさくさく、中はふんわり gives a concrete texture contrast. おいしかったです is polite past. Staff access to the cook is not assumed; offer the compliment to the person serving you.",
+      "prompts": [
+        {
+          "id": "form-ja-en-85e1cc14d037cb2e",
+          "sourceReaderTurn": 3,
+          "focus": "past-aroma-yokatta-desu",
+          "englishPrompt": "The coffee had a wonderful aroma.",
+          "japaneseAnswer": "コーヒーの香りがとてもよかったです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a025da5c20b6b286",
+          "sourceReaderTurn": 4,
+          "focus": "texture-past-te-imashita",
+          "englishPrompt": "This pastry was crisp outside and soft inside.",
+          "japaneseAnswer": "この焼き菓子は外がさくさくで、中がふんわりしていました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-932c81a76325803e",
+          "sourceReaderTurn": 7,
+          "focus": "pass-compliment-itadakemasu-ka",
+          "englishPrompt": "Could you pass that on to the person who made it?",
+          "japaneseAnswer": "作った方にも伝えていただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonId": "travel-breakfast:14:ja-en",
+      "grammarFocus": "あと十二分です means twelve minutes remain. 何分くらいかかりますか asks an approximate preparation time. すぐできるもの asks what can be ready soon, but staff must answer. A quoted time is an estimate, not a guarantee; the traveler decides whether to order.",
+      "prompts": [
+        {
+          "id": "form-ja-en-cd3e691f0bf0e18b",
+          "sourceReaderTurn": 1,
+          "focus": "time-remaining-ato",
+          "englishPrompt": "Excuse me. I have twelve minutes before my tour.",
+          "japaneseAnswer": "すみません。ツアーまであと十二分です。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d624665f16c3471f",
+          "sourceReaderTurn": 4,
+          "focus": "duration-question-kakarimasu-ka",
+          "englishPrompt": "About how many minutes would a sandwich take?",
+          "japaneseAnswer": "サンドイッチは何分くらいかかりますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6a00ed5b8f1a688b",
+          "sourceReaderTurn": 6,
+          "focus": "takeaway-order-onegai-shimasu",
+          "englishPrompt": "Then a rice ball to take away, please.",
+          "japaneseAnswer": "では、おにぎりを持ち帰りでお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonId": "travel-breakfast:15:ja-en",
+      "grammarFocus": "This review combines entering, ordering, stating a dairy restriction, correcting a drink, small talk and payment. ～を注文しました identifies the original order; ～ではなく corrects the item received.",
+      "prompts": [
+        {
+          "id": "form-ja-en-d65a5f2fde0f480a",
+          "sourceReaderTurn": 3,
+          "focus": "dairy-restriction-sakete-imasu",
+          "englishPrompt": "Coffee and toast, please. I avoid dairy.",
+          "japaneseAnswer": "コーヒーとトーストをお願いします。乳製品を避けています。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6d3952c45186abd9",
+          "sourceReaderTurn": 8,
+          "focus": "milk-observation-nomimasen",
+          "englishPrompt": "Excuse me. This coffee appears to have regular milk. I will not drink it.",
+          "japaneseAnswer": "すみません。このコーヒーは牛乳のようです。飲みません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e4295c0d89844596",
+          "sourceReaderTurn": 10,
+          "focus": "if-unverified-nakereba",
+          "englishPrompt": "Thank you. If it cannot be verified, I will not order a drink.",
+          "japaneseAnswer": "ありがとうございます。確認できなければ、飲み物は注文しません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonId": "travel-breakfast:16:ja-en",
+      "grammarFocus": "ベビーカー is stroller and 子ども用の椅子 is a child’s chair. 少なめ asks for a smaller amount; 辛くしないで asks for a non-spicy version, if the kitchen can make it. Confirm availability and ingredients rather than assuming an item is suitable for children.",
+      "prompts": [
+        {
+          "id": "form-ja-en-0c6f2b1e732466d7",
+          "sourceReaderTurn": 2,
+          "focus": "stroller-space-availability",
+          "englishPrompt": "Is there a seat with room for a stroller?",
+          "japaneseAnswer": "ベビーカーを置ける席はありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0d35361704e2178a",
+          "sourceReaderTurn": 7,
+          "focus": "smaller-portion-dekimasu-ka",
+          "englishPrompt": "Can you make a smaller portion of the egg dish?",
+          "japaneseAnswer": "たまご料理を少なめにできますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-42193c83f4491224",
+          "sourceReaderTurn": 9,
+          "focus": "spicy-ingredient-question",
+          "englishPrompt": "Does it contain anything spicy?",
+          "japaneseAnswer": "辛いものは入っていますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonId": "travel-breakfast:17:ja-en",
+      "grammarFocus": "段差のない入口 means a step-free entrance; 車いすが入れるスペース asks about room for a wheelchair. バリアフリートイレ is a common label but facilities differ; ask about the actual route and features. The companion, not the traveler or server, decides whether the table is usable.",
+      "prompts": [
+        {
+          "id": "form-ja-en-0a8d2b4eaff40390",
+          "sourceReaderTurn": 1,
+          "focus": "step-free-entrance-availability",
+          "englishPrompt": "Excuse me. Is there a step-free entrance?",
+          "japaneseAnswer": "すみません。段差のない入口はありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0b5120cdbdcadb49",
+          "sourceReaderTurn": 5,
+          "focus": "wheelchair-space-availability",
+          "englishPrompt": "Is there room for my wheelchair?",
+          "japaneseAnswer": "車いすが入れるスペースはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1d4e7a4f567daf15",
+          "sourceReaderTurn": 7,
+          "focus": "route-show-itadakemasu-ka",
+          "englishPrompt": "Could you show me the route to the restroom too?",
+          "japaneseAnswer": "トイレまでの道も見せていただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonId": "travel-breakfast:18:ja-en",
+      "grammarFocus": "共用 means shared. 同じトングを使いますか asks about tongs; トースター and ミルクピッチャー name other equipment; 混入 means cross-contact. Use these terms to ask staff how the pastry and drink are handled.",
+      "prompts": [
+        {
+          "id": "form-ja-en-b7d8bd0716c539e0",
+          "sourceReaderTurn": 1,
+          "focus": "nut-allergy-and-check",
+          "englishPrompt": "I have a nut allergy. I want to check before ordering.",
+          "japaneseAnswer": "ナッツアレルギーがあります。注文前に確認したいです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d624a6e9fc9f68d4",
+          "sourceReaderTurn": 4,
+          "focus": "shared-tongs-question",
+          "englishPrompt": "Do you use the same tongs?",
+          "japaneseAnswer": "同じトングを使いますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-8f8a2026cc4c70d0",
+          "sourceReaderTurn": 6,
+          "focus": "toaster-milk-pitcher-shared-question",
+          "englishPrompt": "Are the toaster and milk jug shared too?",
+          "japaneseAnswer": "トースターやミルクピッチャーも共用ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 19,
+      "stableLessonId": "travel-breakfast:19:ja-en",
+      "grammarFocus": "カウンター席 and テーブル席 name seating areas. 店内利用 means eating or drinking in the shop. 料金が違うのはなぜですか asks why prices differ. This is a fictional menu example; a counter/table surcharge is not a general Japanese café rule. Confirm the posted total before ordering.",
+      "prompts": [
+        {
+          "id": "form-ja-en-4f51aca4d4f878f8",
+          "sourceReaderTurn": 3,
+          "focus": "counter-table-price-contrast",
+          "englishPrompt": "Is the coffee five hundred yen at the counter and six hundred at a table?",
+          "japaneseAnswer": "コーヒーはカウンター席で五百円、テーブル席で六百円ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-46dcf0f27f6a8d9a",
+          "sourceReaderTurn": 5,
+          "focus": "price-difference-why",
+          "englishPrompt": "Why are the prices different?",
+          "japaneseAnswer": "料金が違うのはなぜですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9d52615d23cdcd7e",
+          "sourceReaderTurn": 7,
+          "focus": "counter-seat-choice",
+          "englishPrompt": "Then I will take a counter seat. Is the total five hundred yen?",
+          "japaneseAnswer": "では、カウンター席にします。合計は五百円ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonId": "travel-breakfast:20:ja-en",
+      "grammarFocus": "予約確認メール is booking confirmation email. 朝食付き means breakfast included in a specific booking. 明細 is the itemized bill. ～ようですが expresses tentative observation without declaring staff wrong. Ask the desk to check the booked rate before asking for correction.",
+      "prompts": [
+        {
+          "id": "form-ja-en-c3ccb02d660d3cff",
+          "sourceReaderTurn": 2,
+          "focus": "tentative-charge-you-desu",
+          "englishPrompt": "There seems to be a breakfast charge.",
+          "japaneseAnswer": "朝食代が入っているようです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-05592e179695209f",
+          "sourceReaderTurn": 4,
+          "focus": "booking-confirmation-email",
+          "englishPrompt": "Here is my booking confirmation email. It says breakfast is included.",
+          "japaneseAnswer": "こちらが予約確認メールです。朝食付きと書いてあります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e1dc44cf7e034b34",
+          "sourceReaderTurn": 7,
+          "focus": "corrected-bill-itadakemasu-ka",
+          "englishPrompt": "Could I have a corrected bill?",
+          "japaneseAnswer": "訂正した明細をいただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 21,
+      "stableLessonId": "travel-breakfast:21:ja-en",
+      "grammarFocus": "ベビーカーが入らない means a stroller will not fit. 予約は何時からですか asks the reserved time. ～なら expresses a conditional compromise. Do not block exits or aisles; the staff and group should inspect the offered space before agreeing.",
+      "prompts": [
+        {
+          "id": "form-ja-en-d575ddfbae87a698",
+          "sourceReaderTurn": 4,
+          "focus": "stroller-does-not-fit",
+          "englishPrompt": "The stroller will not fit at that table.",
+          "japaneseAnswer": "あの席にはベビーカーが入りません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-4f18acee35789855",
+          "sourceReaderTurn": 6,
+          "focus": "reservation-time-question",
+          "englishPrompt": "From what time is the reservation?",
+          "japaneseAnswer": "予約は何時からですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-74d8d3d2afb70866",
+          "sourceReaderTurn": 8,
+          "focus": "decide-after-looking-te-mo-ii-desu-ka",
+          "englishPrompt": "May we decide after looking?",
+          "japaneseAnswer": "見てから決めてもいいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 22,
+      "stableLessonId": "travel-breakfast:22:ja-en",
+      "grammarFocus": "この店では (at this shop) limits a question to the current café. 先にお会計ですか asks whether payment comes first. ～てもいいですか asks permission; do not generalize one café’s policy to a region.",
+      "prompts": [
+        {
+          "id": "form-ja-en-4134da4819d57a83",
+          "sourceReaderTurn": 1,
+          "focus": "pay-first-at-this-shop",
+          "englishPrompt": "Excuse me. Do I pay first at this café?",
+          "japaneseAnswer": "すみません。この店では先にお会計ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d625e880828d15fb",
+          "sourceReaderTurn": 3,
+          "focus": "counter-order-question",
+          "englishPrompt": "Do I order at the counter?",
+          "japaneseAnswer": "カウンターで注文しますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-fc9a5bf7cd18d69d",
+          "sourceReaderTurn": 8,
+          "focus": "table-seat-permission",
+          "englishPrompt": "May I sit at a table for a while?",
+          "japaneseAnswer": "しばらくテーブル席に座ってもいいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 23,
+      "stableLessonId": "travel-breakfast:23:ja-en",
+      "grammarFocus": "近くのパン屋 (nearby bakery), 何時に開きますか (what time does it open?) and もう一度お願いします (please repeat) form a practical route request. Hours and routes can change, so confirm with current local information.",
+      "prompts": [
+        {
+          "id": "form-ja-en-fb24f39896b6210f",
+          "sourceReaderTurn": 1,
+          "focus": "nearby-bakery-availability",
+          "englishPrompt": "Good morning. Is there a nearby bakery that opens early?",
+          "japaneseAnswer": "おはようございます。朝早く開くパン屋は近くにありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f2691e6a5905bd83",
+          "sourceReaderTurn": 3,
+          "focus": "opening-time-question",
+          "englishPrompt": "What time does it open?",
+          "japaneseAnswer": "何時に開きますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-26781503d2eb07c9",
+          "sourceReaderTurn": 8,
+          "focus": "repeat-directions-onegai-shimasu",
+          "englishPrompt": "Excuse me. The second traffic light, right? Please say it again.",
+          "japaneseAnswer": "すみません。信号は二つ目ですね。もう一度お願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 24,
+      "stableLessonId": "travel-breakfast:24:ja-en",
+      "grammarFocus": "助けてください and 救急車を呼んでください are urgent requests. 隣の席の人が倒れました reports what happened; 店の住所は何ですか asks for the exact location; 呼吸がよく分かりません expresses uncertainty about breathing.",
+      "prompts": [
+        {
+          "id": "form-ja-en-ce63d282cc93219f",
+          "sourceReaderTurn": 1,
+          "focus": "urgent-help-request",
+          "englishPrompt": "Please help. It is an emergency.",
+          "japaneseAnswer": "助けてください。緊急です。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-07bd3bbad384ebb4",
+          "sourceReaderTurn": 3,
+          "focus": "person-fell-report",
+          "englishPrompt": "The person at the next table fell to the floor.",
+          "japaneseAnswer": "隣の席の人が床に倒れました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f04c63dd61d671d3",
+          "sourceReaderTurn": 4,
+          "focus": "ambulance-request",
+          "englishPrompt": "Please call an ambulance.",
+          "japaneseAnswer": "救急車を呼んでください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 25,
+      "stableLessonId": "travel-breakfast:25:ja-en",
+      "grammarFocus": "火傷（やけど） means a burn; 皮膚 means skin. 冷たい水をいただけますか asks for cold water, ナプキンをもう少しいただけますか asks for more napkins, and 救急箱はありますか asks for a first-aid kit. ～がかかりました reports where the hot coffee spilled.",
+      "prompts": [
+        {
+          "id": "form-ja-en-23cb5ea2a43c698a",
+          "sourceReaderTurn": 1,
+          "focus": "burn-report-yakedo",
+          "englishPrompt": "Hot coffee spilled on my arm and I got a burn.",
+          "japaneseAnswer": "熱いコーヒーが腕にかかって、火傷をしました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-657279073566ba9a",
+          "sourceReaderTurn": 3,
+          "focus": "cold-water-request",
+          "englishPrompt": "Could you bring me cold water, please?",
+          "japaneseAnswer": "冷たい水をいただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-bdb3b4806cf8b63b",
+          "sourceReaderTurn": 5,
+          "focus": "first-aid-kit-question",
+          "englishPrompt": "Do you have a first-aid kit?",
+          "japaneseAnswer": "救急箱はありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-4a4d7a5a693ee761",
+          "sourceReaderTurn": 7,
+          "focus": "skin-red-report",
+          "englishPrompt": "Your skin is red. I brought the first-aid kit.",
+          "japaneseAnswer": "皮膚が赤くなっていますね。救急箱をお持ちしました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-163046b7a719e753",
+          "sourceReaderTurn": 8,
+          "focus": "more-napkins-request",
+          "englishPrompt": "Could you pass me more napkins, please?",
+          "japaneseAnswer": "ナプキンをもう少しいただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 26,
+      "stableLessonId": "travel-breakfast:26:ja-en",
+      "grammarFocus": "二時間ほど仕事をしてもいいですか asks permission for about two hours. コンセントは使えますか asks whether an outlet may be used. ～たら moves a condition into a polite offer. Shop rules vary; ask before settling in.",
+      "prompts": [
+        {
+          "id": "form-ja-en-16fff1b977cbe8ad",
+          "sourceReaderTurn": 1,
+          "focus": "two-hour-work-permission",
+          "englishPrompt": "Excuse me. May I work here for about two hours?",
+          "japaneseAnswer": "すみません。ここで二時間ほど仕事をしてもいいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-566e1c17827599e2",
+          "sourceReaderTurn": 3,
+          "focus": "if-busy-tara",
+          "englishPrompt": "If it gets busy, I will free up the seat.",
+          "japaneseAnswer": "混んできたら席を空けます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ff818a6ae728a08f",
+          "sourceReaderTurn": 6,
+          "focus": "outlet-seat-availability",
+          "englishPrompt": "Is there a seat where I may use an outlet?",
+          "japaneseAnswer": "コンセントを使える席はありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 27,
+      "stableLessonId": "travel-breakfast:27:ja-en",
+      "grammarFocus": "朝食の時間より早く出ます explains an early departure. 持ち帰りの朝食 asks for a packed breakfast. アレルギーがあります states an allergy; ～を避ける必要があります specifies the ingredient to avoid. 何時に受け取れますか asks for the pickup time.",
+      "prompts": [
+        {
+          "id": "form-ja-en-51be532ffaf15311",
+          "sourceReaderTurn": 1,
+          "focus": "early-departure",
+          "englishPrompt": "Tomorrow I leave before breakfast service.",
+          "japaneseAnswer": "明日は朝食の時間より早く出発します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-252eeec56c767929",
+          "sourceReaderTurn": 6,
+          "focus": "nut-allergy-and-ingredients",
+          "englishPrompt": "I have a nut allergy. Can you check ingredients and how it is prepared?",
+          "japaneseAnswer": "私はナッツのアレルギーがあります。材料と調理方法を確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6c6ef71163afcba1",
+          "sourceReaderTurn": 9,
+          "focus": "pickup-time-and-place-question",
+          "englishPrompt": "If it can be prepared, when and where can I pick it up?",
+          "japaneseAnswer": "用意できる場合、何時にどこで受け取れますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 28,
+      "stableLessonId": "travel-breakfast:28:ja-en",
+      "grammarFocus": "この辺りに長くお住まいですか asks how long someone has lived nearby. そうなんですね and もう少し教えてください sustain interest. Keep personal questions optional and accept a short answer or a change of topic.",
+      "prompts": [
+        {
+          "id": "form-ja-en-d198d1b94834b860",
+          "sourceReaderTurn": 3,
+          "focus": "lived-here-long-question",
+          "englishPrompt": "Have you lived in this area long?",
+          "japaneseAnswer": "この辺りに長くお住まいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-aa016a30b121f486",
+          "sourceReaderTurn": 5,
+          "focus": "neighborhood-preference-question",
+          "englishPrompt": "I see. What do you like about this neighborhood?",
+          "japaneseAnswer": "そうなんですね。この近所の好きなところは何ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-64bb7df776931e6c",
+          "sourceReaderTurn": 7,
+          "focus": "tell-me-more-request",
+          "englishPrompt": "Really? Please tell me a little more.",
+          "japaneseAnswer": "そうですか。もう少し教えてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 29,
+      "stableLessonId": "travel-breakfast:29:ja-en",
+      "grammarFocus": "今日は私が払います offers to pay; 次は私に払わせてください makes a future reciprocal offer. チップは必要ですか asks about this café’s policy without assuming a local rule. Avoid assigning an unverified tip percentage to a whole country.",
+      "prompts": [
+        {
+          "id": "form-ja-en-d86e16b49795f85e",
+          "sourceReaderTurn": 1,
+          "focus": "offer-to-pay-today",
+          "englishPrompt": "I will pay today. Thank you for showing me around.",
+          "japaneseAnswer": "今日は私が払います。案内してくれてありがとう。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-5cfd396c0dc7161a",
+          "sourceReaderTurn": 4,
+          "focus": "let-me-pay-next-time",
+          "englishPrompt": "Then please let me pay next time.",
+          "japaneseAnswer": "では、次は私に払わせてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-302c86e444836edb",
+          "sourceReaderTurn": 8,
+          "focus": "tip-policy-question",
+          "englishPrompt": "Is a tip needed at this shop?",
+          "japaneseAnswer": "この店ではチップは必要ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 30,
+      "stableLessonId": "travel-breakfast:30:ja-en",
+      "grammarFocus": "This capstone combines ベビーチェア, ナッツのアレルギー, 明細 and ありがとうございました. Use ～をお願いします for a request, ～があります for a condition, and ～を確認したいです for a bill question.",
+      "prompts": [
+        {
+          "id": "form-ja-en-7c479095b52336c6",
+          "sourceReaderTurn": 1,
+          "focus": "high-chair-availability",
+          "englishPrompt": "Good morning. I am with my children. Do you have a high chair?",
+          "japaneseAnswer": "おはようございます。子どもと一緒です。ベビーチェアはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-8599dc18eb4defd8",
+          "sourceReaderTurn": 6,
+          "focus": "child-nut-allergy-and-preparation",
+          "englishPrompt": "My child has a nut allergy. Can you check ingredients and preparation?",
+          "japaneseAnswer": "子どもにナッツのアレルギーがあります。材料と調理方法を確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d5a36a53ddf66879",
+          "sourceReaderTurn": 12,
+          "focus": "bill-check-two-coffees",
+          "englishPrompt": "Thank you. By the way, I would like to check the bill. We ordered two coffees.",
+          "japaneseAnswer": "ありがとうございます。ところで、明細を確認したいです。コーヒーは二杯注文しました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-244e3c75bf74cbd6",
+          "sourceReaderTurn": 13,
+          "focus": "bill-correction",
+          "englishPrompt": "I will check. The bill charged for three. I will correct it.",
+          "japaneseAnswer": "確認します。三杯の請求になっていました。訂正します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

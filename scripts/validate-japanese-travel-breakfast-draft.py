@@ -359,6 +359,22 @@ def main():
         learner_ja = " ".join([lesson["focus"], *(card["ja"] for card in lesson["cards"]), *(row["ja"] for row in lesson["reader"])])
         assert all(term in learner_ja for term in terms), (stage, n, terms)
         assert "not medical advice" not in lesson["focus"].lower()
+    mode_terms = {
+        ("core", 25): ["burn", "skin", "napkins"],
+        ("master", 4): ["sesame allergy", "epinephrine auto-injector"],
+        ("master", 8): ["tree-nut allergy", "anaphylaxis"],
+        ("master", 10): ["altitude sickness", "coca-tea"],
+        ("master", 13): ["hives", "lip swelling", "dizziness"],
+        ("master", 14): ["celiac disease", "wheat-flour"],
+    }
+    for (stage, n), terms in mode_terms.items():
+        lesson = core["lessons"][n - 1] if stage == "core" else all_master[n - 1]
+        say = lesson["modes"]["say"].lower()
+        assert all(term in say for term in terms), (stage, n, terms)
+    for lesson in [*data["lessons"], *core["lessons"], *all_master]:
+        assert not any(term in lesson["modes"]["say"].lower() for term in
+                       ("without diagnosing", "without promising safety", "avoid self-diagnosis",
+                        "without a safety promise", "unsafe inference"))
     print("Japanese Breakfast F10/C30/M20 private draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
 

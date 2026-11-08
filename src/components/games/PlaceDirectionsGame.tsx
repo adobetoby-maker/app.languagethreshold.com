@@ -20,6 +20,7 @@ import {
 const button =
   "rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50";
 export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: number }) {
+  const [ready, setReady] = useState(false);
   const [round, setRound] = useState(Math.max(0, Math.min(CHALLENGES.length - 1, initialRound)));
   const c = CHALLENGES[round];
   const [position, setPosition] = useState<Point>(() => initialPosition(c.place));
@@ -36,12 +37,10 @@ export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: numbe
     start = useRef<Point | null>(null),
     heading = useRef<HTMLHeadingElement>(null);
   const goal = PLACES.find((p) => p.id === c.place)!;
-  useEffect(
-    () => () => {
-      if (typeof window !== "undefined") window.speechSynthesis?.cancel();
-    },
-    [],
-  );
+  useEffect(() => {
+    setReady(true);
+    return () => window.speechSynthesis?.cancel();
+  }, []);
   function reset(n: number) {
     setRound(n);
     setPosition(initialPosition(CHALLENGES[n].place));
@@ -167,11 +166,16 @@ export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: numbe
         {c.es}
       </h2>
       <div className="flex flex-wrap gap-2">
-        <button className={button} onClick={listen}>
+        <button className={button} disabled={!ready} onClick={listen}>
           <Volume2 className="mr-2 inline size-4" />
           Listen · device voice
         </button>
-        <button className={button} onClick={() => setHelp(!help)} aria-expanded={help}>
+        <button
+          className={button}
+          onClick={() => setHelp(!help)}
+          disabled={!ready}
+          aria-expanded={help}
+        >
           <HelpCircle className="mr-2 inline size-4" />
           English help
         </button>
@@ -207,7 +211,7 @@ export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: numbe
           type="button"
           aria-label={`Pick up ${c.tool}`}
           aria-pressed={picked}
-          disabled={demo || correct}
+          disabled={!ready || demo || correct}
           data-testid="movable-tool"
           onPointerDown={pointerDown}
           onPointerMove={pointerMove}
@@ -243,8 +247,9 @@ export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: numbe
         </button>
       </div>
       <p className="text-sm text-muted-foreground">
-        Your viewpoint: front is closest to you. For “under the wrench,” the wrench is drawn above
-        the movable tool.
+        Your viewpoint: front is closest to you.
+        {c.place === "under-tool" &&
+          " For under the wrench, the wrench is drawn above the movable tool."}
       </p>
       <div
         role="status"
@@ -257,7 +262,7 @@ export function PlaceDirectionsGame({ initialRound = 0 }: { initialRound?: numbe
         {demo ? "Demonstration — no point awarded. Tap Your turn to try it." : feedback}
       </div>
       <div className="flex flex-wrap gap-2">
-        <button className={button} disabled={correct} onClick={show}>
+        <button className={button} disabled={!ready || correct} onClick={show}>
           <Move className="mr-2 inline size-4" />
           {demo ? "Your turn" : "Show me"}
         </button>

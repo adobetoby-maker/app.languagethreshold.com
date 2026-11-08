@@ -44,9 +44,11 @@ def build():
 
     dictionary = read(BASE / "private-dictionary-inventory-fr-en.json")
     context = read(BASE / "private-dictionary-context-fr-en.json")
+    article_context = read(BASE / "private-dictionary-article-context-fr-en.json")
     audio = read(BASE / "private-audio-scope-fr-en.json")
     assert dictionary["sourceSha256"] == fixture_hash
     assert context["runtimeSha256"] == fixture_hash
+    assert article_context["runtimeSha256"] == fixture_hash
     assert audio["sourceFixtureSha256"] == fixture_hash
     assert dictionary["reviewed"] is False and audio["listeningReviewed"] is False
     assert dictionary["counts"]["distinctExactPairs"] == 898
@@ -62,14 +64,14 @@ def build():
         f"- Runtime fixture: [`private-runtime-candidate.json`](private-runtime-candidate.json), SHA-256 `{fixture_hash}`. Its {len(fixture['sourceFiles'])} source-file hashes were checked during generation.",
         f"- {len(fixture['lessons'])} lessons: Foundation 10, Core 30, Master 20. {fixture['wordPlacements']} card placements, {fixture['distinctWordPairs']} distinct exact French–English pairs, {fixture['readerLines']} aligned Reader lines, and 60 speaking openings.",
         f"- {len(activities)} private activity drafts, one per See/Recall/Hear/Type/Say/Write mode per lesson, in {len(batches)} source-pinned files. These are review models, not working app modes.",
-        f"- Dictionary: {dictionary['counts']['normalizedHeadwords']} normalized headwords; {dictionary['counts']['ambiguousHeadwords']} ambiguity flags ({dictionary['counts']['articleOnlyCandidates']} article-only candidates and {dictionary['counts']['otherMeaningVariations']} other meaning variations). [Context evidence](private-dictionary-context-fr-en.json) covers the latter nine.",
+        f"- Dictionary: {dictionary['counts']['normalizedHeadwords']} normalized headwords; {dictionary['counts']['ambiguousHeadwords']} ambiguity flags ({dictionary['counts']['articleOnlyCandidates']} article-only candidates and {dictionary['counts']['otherMeaningVariations']} other meaning variations). [Non-article context](private-dictionary-context-fr-en.json) and [article-candidate context](private-dictionary-article-context-fr-en.json) cover all 66.",
         f"- Audio: {audio['counts']['uniqueExactTexts']} distinct fr-FR texts / {2 * audio['counts']['uniqueExactTexts']} proposed two-voice clips. No recordings or listening approval are present. [Exact text scope](private-audio-scope-fr-en.json).",
         "",
         "## Review assignments",
         "",
         "1. A qualified French reviewer checks every card pair, Reader alignment, activity model, grammar, pronunciation cue, register, and France/Québec wording against the exact English support and source context. Preserve direct clinical vocabulary; put factual questions in this internal packet, not learner text.",
         "2. A qualified roofing reviewer checks technical/product claims, especially [Core 19–21](core-19-21-internal-review.md), and the warranty, insurance, storm, repair, inspection, and capstone scenes. Correct the English source and French together when a factual claim is wrong.",
-        "3. A dictionary reviewer resolves all 66 flagged headwords, recording whether forms are article variants, contextual glosses, or distinct senses; check the nine [source-context entries](private-dictionary-context-fr-en.json) first. Do not change sense IDs or register links from this queue alone.",
+        "3. A dictionary reviewer resolves all 66 flagged headwords, recording whether forms are article variants, contextual glosses, or distinct senses; use the [nine non-article entries](private-dictionary-context-fr-en.json) and [57 article candidates](private-dictionary-article-context-fr-en.json). Do not change sense IDs or register links from this queue alone.",
         "4. After text approval, check the exact fr-FR audio inventory and both voices. Record text hash, voice, duration, file hash, and listening findings for each clip; retake failed clips. Synthesis alone does not approve playback.",
         "",
         "## Priority factual and language questions",

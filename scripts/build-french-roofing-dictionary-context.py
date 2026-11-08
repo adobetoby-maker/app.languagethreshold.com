@@ -11,9 +11,10 @@ BASE = ROOT / "content/french-roofing"
 INVENTORY = BASE / "private-dictionary-inventory-fr-en.json"
 RUNTIME = BASE / "private-runtime-candidate.json"
 OUTPUT = BASE / "private-dictionary-context-fr-en.json"
+ARTICLE_OUTPUT = BASE / "private-dictionary-article-context-fr-en.json"
 
 
-def build():
+def build(article_only=False):
     inventory_raw, runtime_raw = INVENTORY.read_bytes(), RUNTIME.read_bytes()
     inventory, runtime = json.loads(inventory_raw), json.loads(runtime_raw)
     assert inventory["pairKey"] == "French:English"
@@ -24,7 +25,7 @@ def build():
     lessons = {lesson["draftLessonKey"]: lesson for lesson in runtime["lessons"]}
     evidence = []
     for group in inventory["ambiguityEvidence"]:
-        if group["articleOnlyCandidate"]:
+        if bool(group["articleOnlyCandidate"]) != article_only:
             continue
         variants = []
         for pair_id in group["pairIds"]:
@@ -54,13 +55,17 @@ def build():
                 "supportEnglish": pair["supportEnglish"],
                 "occurrences": occurrences,
             })
-        evidence.append({
+        record = {
             "headwordKey": group["headwordKey"],
             "variants": variants,
             "resolution": "unreviewed",
             "qualifiedFrenchAndTradeReviewRequired": True,
-        })
-    assert len(evidence) == inventory["counts"]["otherMeaningVariations"] == 9
+        }
+        if article_only:
+            record["articleOnlyCandidate"] = True
+        evidence.append(record)
+    expected = inventory["counts"]["articleOnlyCandidates" if article_only else "otherMeaningVariations"]
+    assert len(evidence) == expected
     return {
         "schema": 1,
         "purpose": "private source context for dictionary sense review; not approved glosses",
@@ -85,13 +90,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    result = build()
-    rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
-    if args.check:
-        assert OUTPUT.read_text() == rendered, "French Roofing dictionary context is stale"
-    else:
-        OUTPUT.write_text(rendered)
-    print(json.dumps(result["counts"]))
+    for output, article_only in ((OUTPUT, False), (ARTICLE_OUTPUT, True)):
+        result = build(article_only=article_only)
+        rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
+        if args.check:
+            assert output.read_text() == rendered, f"French Roofing dictionary context is stale: {output.name}"
+        else:
+            output.write_text(rendered)
+        print(output.name, json.dumps(result["counts"]))
 
 
 if __name__ == "__main__":

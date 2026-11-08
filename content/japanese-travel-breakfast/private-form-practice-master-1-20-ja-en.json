@@ -1,0 +1,977 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "registered": false,
+  "reviewed": false,
+  "pairKey": "Japanese:English",
+  "courseId": "master-travel-breakfast:ja-en",
+  "practiceModel": "contextual-japanese-form",
+  "note": "Whole authored Japanese Reader expressions; no Spanish person or ending slots. Authoring inputs only, not live exercises.",
+  "sourceHashes": {
+    "master-1-3-draft.json": "84b7673fc72175428d48dbf211b41be75b7dac31320c7c82e708ab1c9803d224",
+    "master-4-6-draft.json": "62e2ec4a86b1639f04241a0312acd3a6e06cb430950ec379964856d6d6fd5004",
+    "master-7-9-draft.json": "2df980428024f9bf436cbdd49d7b52cdcab5d9b49c6b670ba2988bb544b07337",
+    "master-10-12-draft.json": "a8cc57c13ee9a3f37009e17b8495240a793ea9a308648f53705a067fe16d7f79",
+    "master-13-15-draft.json": "b96284b91ef41e4f8c73ad65e9c2ee6eb6d70734e3ee526cabf5b1ca1729ea84",
+    "master-16-18-draft.json": "a566248455c3ff2ef12188ce7b7b824e38a0f9e6a850415e7ae60104b0bab6c9",
+    "master-19-20-draft.json": "43665cf686c2fee88655e3904f7e07606519744aa70b833dcfd6799f5bcaa127"
+  },
+  "counts": {
+    "lessons": 20,
+    "prompts": 66
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonId": "master-travel-breakfast:1:ja-en",
+      "grammarFocus": "まず・次に・最後に order steps; ～ので gives a reason. ここでは limits a rule to this café. The English Madrid source’s standing-bar, receipt and tip customs are not presented as universal Japanese practice.",
+      "prompts": [
+        {
+          "id": "form-ja-en-1d2af5daecf04b46",
+          "sourceReaderTurn": 3,
+          "focus": "first-step-mazu",
+          "englishPrompt": "First, check the sign at the entrance and see whether a seat is free.",
+          "japaneseAnswer": "まず、入口の案内を見て、席が空いているか確認します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-81ef22e6a2f199f3",
+          "sourceReaderTurn": 8,
+          "focus": "called-number-tara",
+          "englishPrompt": "When they call the number, we pick it up at the counter.",
+          "japaneseAnswer": "番号を呼ばれたらカウンターで受け取ります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9a53e060debf1917",
+          "sourceReaderTurn": 10,
+          "focus": "full-sequence-mazu-tsugi-saigo",
+          "englishPrompt": "First I check the sign, next I order and pay at the register, and finally I pick it up by number.",
+          "japaneseAnswer": "まず案内を見て、次にレジで注文と会計をして、最後に番号で受け取ります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonId": "master-travel-breakfast:2:ja-en",
+      "grammarFocus": "小さいほう・大きいほう compare bread sizes; ～なら introduces a condition; ～によって違います marks variation. 具 and 原材料 distinguish topping from ingredients, and ～を確認できますか asks staff for details.",
+      "prompts": [
+        {
+          "id": "form-ja-en-f7779ef12ebf4df7",
+          "sourceReaderTurn": 2,
+          "focus": "smaller-hou",
+          "englishPrompt": "Which one is smaller?",
+          "japaneseAnswer": "小さいほうはどれですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-293f5ea52d986d79",
+          "sourceReaderTurn": 4,
+          "focus": "small-large-contrast",
+          "englishPrompt": "This is the small size, and that is the large size.",
+          "japaneseAnswer": "こちらが小さいサイズで、あちらが大きいサイズです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-7285d65536eefbf7",
+          "sourceReaderTurn": 7,
+          "focus": "dairy-ingredient-request",
+          "englishPrompt": "I avoid dairy. Can you check the ingredients?",
+          "japaneseAnswer": "乳製品を避けています。材料を確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonId": "master-travel-breakfast:3:ja-en",
+      "grammarFocus": "先にあいさつして and ～てください sequence polite coaching. 持ち手 means handle, 飲み口 means rim, and 湯気 means steam; 熱いので～ gives a reason for handling a hot cup carefully.",
+      "prompts": [
+        {
+          "id": "form-ja-en-7e3624a774ef7758",
+          "sourceReaderTurn": 1,
+          "focus": "greeting-te-kudasai",
+          "englishPrompt": "First, try greeting the staff member.",
+          "japaneseAnswer": "まず、店員さんにあいさつしてみてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0c5077a89fbbbc88",
+          "sourceReaderTurn": 5,
+          "focus": "price-te-kudasai",
+          "englishPrompt": "Please ask the price too.",
+          "japaneseAnswer": "値段も聞いてみてください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c256ecb937f1e8f6",
+          "sourceReaderTurn": 7,
+          "focus": "hot-drink-node",
+          "englishPrompt": "It is this amount. Please be careful; the drink is hot.",
+          "japaneseAnswer": "こちらの金額です。飲み物は熱いのでお気をつけください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonId": "master-travel-breakfast:4:ja-en",
+      "grammarFocus": "食べる前に and 確認した後で sequence checks; ～かどうか asks whether the chart is current. ごまアレルギー, 微量, アレルギー反応 and アドレナリン自己注射器 name the source's clinical concepts directly.",
+      "prompts": [
+        {
+          "id": "form-ja-en-8f07317d60ad08bf",
+          "sourceReaderTurn": 1,
+          "focus": "sesame-allergy-before-eating",
+          "englishPrompt": "My companion has a sesame allergy. Can we check the information together before eating?",
+          "japaneseAnswer": "同行者はごまにアレルギーがあります。食べる前に、表示を一緒に確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d7833d39637b75d4",
+          "sourceReaderTurn": 5,
+          "focus": "whether-chart-current",
+          "englishPrompt": "Then I would like to check whether the bread information is current.",
+          "japaneseAnswer": "では、パンの情報が最新かどうか確認したいです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-b848959d44bd3f0d",
+          "sourceReaderTurn": 8,
+          "focus": "cross-contact-not-verified",
+          "englishPrompt": "The kitchen responded, but we cannot verify the cross-contact risk.",
+          "japaneseAnswer": "厨房から回答をもらいましたが、混入の可能性を確認できません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-170aa80bd0fdd178",
+          "sourceReaderTurn": 11,
+          "focus": "epinephrine-auto-injector",
+          "englishPrompt": "I also checked that my epinephrine auto-injector is in my bag.",
+          "japaneseAnswer": "アドレナリン自己注射器がかばんにあることも確認しました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonId": "master-travel-breakfast:5:ja-en",
+      "grammarFocus": "予約には～が含まれていました states the booking term; 今朝行ったら～でした reports what was found; ～していただけますか makes a polite proposal. Present a voucher or adjustment as a request requiring hotel approval, never a guaranteed entitlement.",
+      "prompts": [
+        {
+          "id": "form-ja-en-41c19ab3f73a252f",
+          "sourceReaderTurn": 3,
+          "focus": "went-and-found-closed",
+          "englishPrompt": "I went there at eight and found it closed, with no notice that I could find.",
+          "japaneseAnswer": "八時に行ったら閉まっていて、お知らせも見つかりませんでした。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c25d88fe2203b7b9",
+          "sourceReaderTurn": 5,
+          "focus": "alternative-request",
+          "englishPrompt": "Could we discuss an alternative for today's breakfast?",
+          "japaneseAnswer": "今日の朝食について、代案をご相談できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f1d25f87d9f34b4f",
+          "sourceReaderTurn": 7,
+          "focus": "charge-adjustment-request",
+          "englishPrompt": "If that is difficult, could the breakfast charge be adjusted?",
+          "japaneseAnswer": "それが難しければ、朝食分の料金調整は可能ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonId": "master-travel-breakfast:6:ja-en",
+      "grammarFocus": "～より and ～のほうが compare drink options; ～が届くまで sets a temporary period. ヴィーガン and 乳糖を避けています describe two different dietary needs, while 乳糖を含まない牛乳 is still dairy milk.",
+      "prompts": [
+        {
+          "id": "form-ja-en-a25f8c15b61eed79",
+          "sourceReaderTurn": 4,
+          "focus": "vegan-soy-ingredient-request",
+          "englishPrompt": "I am vegan. Could you check the ingredients and preparation of the soy drink?",
+          "japaneseAnswer": "私はヴィーガンです。豆乳の飲み物の原材料と調理方法を確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-ef9b797b2c3dc2a6",
+          "sourceReaderTurn": 6,
+          "focus": "lactose-free-dairy-question",
+          "englishPrompt": "I avoid lactose. Is lactose-free dairy milk an option?",
+          "japaneseAnswer": "私は乳糖を避けています。乳糖を含まない牛乳は選べますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1498998c54b12185",
+          "sourceReaderTurn": 9,
+          "focus": "once-checked-compare",
+          "englishPrompt": "Once you have checked, I would like to compare soy and almond milk.",
+          "japaneseAnswer": "確認できたら、豆乳とアーモンドミルクを比べたいです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonId": "master-travel-breakfast:7:ja-en",
+      "grammarFocus": "～を注文しました and ～が支払いました recount completed actions; まだ～が残っています tracks what remains. The English source's pesos, Nequi transfer and Colombian foods are provenance, not Japanese learner copy. Verify each charge and the shop's accepted payment method before paying.",
+      "prompts": [
+        {
+          "id": "form-ja-en-4aa6438db8d170fb",
+          "sourceReaderTurn": 4,
+          "focus": "paid-cash-past",
+          "englishPrompt": "Four people have already paid in cash.",
+          "japaneseAnswer": "四人はもう現金で支払いました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-c23735aacb856850",
+          "sourceReaderTurn": 5,
+          "focus": "payment-remains",
+          "englishPrompt": "Thank you. Payment for two breakfasts still remains.",
+          "japaneseAnswer": "ありがとうございます。まだ二人分の朝食代が残っています。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-e264bdc388e01fdd",
+          "sourceReaderTurn": 7,
+          "focus": "extra-coffee-not-paid",
+          "englishPrompt": "I ordered one extra coffee. I have not paid for it yet.",
+          "japaneseAnswer": "私がコーヒーを一杯追加しました。まだ払っていません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonId": "master-travel-breakfast:8:ja-en",
+      "grammarFocus": "お気持ちはありがたいですが acknowledges kindness before declining; 取り除かないでください is a direct negative request. 木の実アレルギー and アナフィラキシー name the source's clinical terms; 表面 and 生地 distinguish the visible topping from the pastry itself.",
+      "prompts": [
+        {
+          "id": "form-ja-en-0e58b19a2984ca48",
+          "sourceReaderTurn": 4,
+          "focus": "do-not-remove-almonds",
+          "englishPrompt": "Thank you, but please don't scrape off the almonds.",
+          "japaneseAnswer": "ありがとうございます。でも、アーモンドを取り除かないでください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-93e02bc6bf149270",
+          "sourceReaderTurn": 11,
+          "focus": "tree-nut-anaphylaxis",
+          "englishPrompt": "I have had anaphylaxis from tree nuts before.",
+          "japaneseAnswer": "以前、木の実でアナフィラキシーを起こしたことがあります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-b4da9b00bf525101",
+          "sourceReaderTurn": 12,
+          "focus": "antihistamine-epinephrine-auto-injector",
+          "englishPrompt": "I carry an antihistamine and an epinephrine auto-injector as my doctor instructed.",
+          "japaneseAnswer": "医師の指示で、抗ヒスタミン薬とアドレナリン自己注射器を持っています。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonId": "master-travel-breakfast:9:ja-en",
+      "grammarFocus": "少し～でした gives measured feedback; ～すると見やすいと思います and ～してはいかがですか make suggestions. Describe the served drink and readable prices rather than diagnosing the espresso machine or promising that a technical adjustment will fix the result.",
+      "prompts": [
+        {
+          "id": "form-ja-en-d4fd63e881da596e",
+          "sourceReaderTurn": 4,
+          "focus": "lukewarm-feedback",
+          "englishPrompt": "Today's café au lait felt a little lukewarm to me.",
+          "japaneseAnswer": "今日のカフェオレは、私には少しぬるく感じました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0cdcd752b2a38488",
+          "sourceReaderTurn": 5,
+          "focus": "temperature-suggestion",
+          "englishPrompt": "How about checking the temperature before serving it?",
+          "japaneseAnswer": "提供する前に温度を確認してはいかがですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-cbc531c8683985a8",
+          "sourceReaderTurn": 8,
+          "focus": "menu-board-suggestion",
+          "englishPrompt": "I think separating drinks and sweets and writing prices larger would make it easier to read.",
+          "japaneseAnswer": "飲み物と甘い物を分けて、値段を大きく書くと見やすいと思います。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonId": "master-travel-breakfast:10:ja-en",
+      "grammarFocus": "～と言っていました reports a person's position; 一方で contrasts two positions; ～なら introduces a compromise. 高山病 is altitude sickness, コカ茶 is coca tea, and ～と話しました reports the host's statement.",
+      "prompts": [
+        {
+          "id": "form-ja-en-e864f2358f1354d0",
+          "sourceReaderTurn": 1,
+          "focus": "reported-market-preference",
+          "englishPrompt": "Misaki said she wanted to eat breakfast at the morning market.",
+          "japaneseAnswer": "美咲さんは朝市で朝食を食べたいと言っていました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-96fce2af0e821984",
+          "sourceReaderTurn": 2,
+          "focus": "contrast-shuttle-concern",
+          "englishPrompt": "On the other hand, Luca is worried about missing the shuttle.",
+          "japaneseAnswer": "一方で、ルカさんは送迎車に遅れるのを心配しています。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-f5ba1fcd1e1f1b96",
+          "sourceReaderTurn": 9,
+          "focus": "conditional-compromise",
+          "englishPrompt": "If we have enough time and everyone feels well, how about the market; otherwise, we can eat at the lodge?",
+          "japaneseAnswer": "時間と体調に余裕があるなら朝市へ、なければ宿で食べるのはどうですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-63ab3ff7a7676b5b",
+          "sourceReaderTurn": 11,
+          "focus": "host-reported-altitude-sickness",
+          "englishPrompt": "The host said many travelers reported that coca tea helped with altitude sickness.",
+          "japaneseAnswer": "宿の方は、高山病にコカ茶が役立ったと言う旅行者が多いと話しました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonId": "master-travel-breakfast:11:ja-en",
+      "grammarFocus": "～を担当します assigns a task; ～までに prepares by a deadline; 無理をせず gives a humane limit. The English source's promise to reach the trail before sunrise is not repeated: confirm actual route, weather, daylight and the group's condition instead.",
+      "prompts": [
+        {
+          "id": "form-ja-en-0d185439862342ac",
+          "sourceReaderTurn": 3,
+          "focus": "not-finished-yet",
+          "englishPrompt": "I am sleepy, and I have not finished getting ready to leave.",
+          "japaneseAnswer": "眠くて、出発の準備がまだ終わっていません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-fa1a433a910e6421",
+          "sourceReaderTurn": 4,
+          "focus": "thermos-assignment",
+          "englishPrompt": "Let's get ready one thing at a time without pushing too hard. I will take care of the thermos.",
+          "japaneseAnswer": "無理をせず、一つずつ準備しましょう。私は水筒を担当します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6dee10301be0a1d3",
+          "sourceReaderTurn": 10,
+          "focus": "after-checking-decision",
+          "englishPrompt": "Let's decide when to leave after checking everyone's condition and readiness.",
+          "japaneseAnswer": "全員の体調と準備を確認してから、出発時刻を決めましょう。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonId": "master-travel-breakfast:12:ja-en",
+      "grammarFocus": "～ていただけますか and です・ます are polite requests; ～てくれる？ is casual with a familiar peer. Japanese formality depends on relationship, setting and the other person's cues; it is not a fixed age rule. The Spanish usted/tú distinction stays as source provenance, not a literal Japanese grammar equivalence.",
+      "prompts": [
+        {
+          "id": "form-ja-en-8ab346ffa40932f6",
+          "sourceReaderTurn": 4,
+          "focus": "polite-coffee-request",
+          "englishPrompt": "Excuse me. Could I please have a little more coffee?",
+          "japaneseAnswer": "すみません。コーヒーをもう少しいただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-54411757e779388d",
+          "sourceReaderTurn": 8,
+          "focus": "polite-sugar-request",
+          "englishPrompt": "You could begin by politely asking, 'Could you pass the sugar?'",
+          "japaneseAnswer": "まずは『砂糖を取っていただけますか』と丁寧に聞けます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-fec4a41f2f5c49b2",
+          "sourceReaderTurn": 10,
+          "focus": "casual-sugar-request",
+          "englishPrompt": "If you already speak that way with each other, 'Could you pass the sugar?' in casual form is natural too.",
+          "japaneseAnswer": "お互いにそう話しているなら、『砂糖を取ってくれる？』でも自然です。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 13,
+      "stableLessonId": "master-travel-breakfast:13:ja-en",
+      "grammarFocus": "～ごろ gives an approximate time; 数分後 and すぐに sequence events. のどのかゆみ, じんましん, 唇の腫れ, 呼吸困難 and めまい state the symptoms in the English source; アレルギー反応 names the reported event.",
+      "prompts": [
+        {
+          "id": "form-ja-en-306533a1a6475973",
+          "sourceReaderTurn": 2,
+          "focus": "about-eight-ten",
+          "englishPrompt": "At about 8:10, my friend ate a slice of breakfast cake.",
+          "japaneseAnswer": "八時十分ごろ、友人が朝食のケーキを一切れ食べました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-df4277421af5468e",
+          "sourceReaderTurn": 3,
+          "focus": "few-minutes-later-throat-itch",
+          "englishPrompt": "A few minutes later, she said her throat was itchy.",
+          "japaneseAnswer": "数分後、のどがかゆいと言っていました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a404447ed666c294",
+          "sourceReaderTurn": 5,
+          "focus": "hives-swollen-lips-breathing",
+          "englishPrompt": "After that, she had hives on her arms, her lips swelled, and she said she had difficulty breathing.",
+          "japaneseAnswer": "その後、腕にじんましんが出て、唇が腫れ、息苦しいと話しました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d3a291c652e4a5cb",
+          "sourceReaderTurn": 8,
+          "focus": "dizziness-ambulance-sequence",
+          "englishPrompt": "She was very dizzy when responders arrived, then was taken to hospital by ambulance.",
+          "japaneseAnswer": "救急隊が来たときはめまいが強く、その後、救急車で病院へ運ばれました。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonId": "master-travel-breakfast:14:ja-en",
+      "grammarFocus": "セリアック病 means celiac disease; 小麦粉 means wheat flour; グルテンフリー表示 names the gluten-free sign. もう少しで～ところでした reports a near miss, and ～かもしれません marks uncertainty about how the trays were mixed up.",
+      "prompts": [
+        {
+          "id": "form-ja-en-748bb229b5392f92",
+          "sourceReaderTurn": 1,
+          "focus": "gluten-free-sign-wheat-flour",
+          "englishPrompt": "Please wait. This tray has a gluten-free sign, but the ingredient list says wheat flour.",
+          "japaneseAnswer": "待ってください。このトレーにはグルテンフリーの表示がありますが、原材料に小麦粉と書いてあります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-051f2e86f935f85f",
+          "sourceReaderTurn": 2,
+          "focus": "celiac-disease-near-miss",
+          "englishPrompt": "I have celiac disease and almost ate it. I am glad I read the ingredients first.",
+          "japaneseAnswer": "セリアック病があり、もう少しで食べるところでした。先に原材料を見てよかったです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-655d2c33092b6d7f",
+          "sourceReaderTurn": 3,
+          "focus": "possible-tray-mixup",
+          "englishPrompt": "I will check the sign. We may have mixed up the trays when moving them.",
+          "japaneseAnswer": "表示を確認します。トレーを移したときに取り違えたかもしれません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonId": "master-travel-breakfast:15:ja-en",
+      "grammarFocus": "こちらへ and 階段を使ってください relay short directions; ～たら reports the next action. Follow posted routes and staff/emergency responder instructions, keep elevators unused during a fire evacuation, and do not call an alarm false or re-enter until responders authorize it. Accessibility assistance follows staff procedure rather than improvisation.",
+      "prompts": [
+        {
+          "id": "form-ja-en-fb3cf1b49f3b4b18",
+          "sourceReaderTurn": 2,
+          "focus": "emergency-exit-direction",
+          "englishPrompt": "Everyone, please listen to staff. The emergency exit is this way.",
+          "japaneseAnswer": "皆さん、係員の案内を聞いてください。非常口はこちらです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-7e4b1c1bb7111b8f",
+          "sourceReaderTurn": 3,
+          "focus": "stairs-direction",
+          "englishPrompt": "Do not use the elevator; proceed to the stairs staff indicate.",
+          "japaneseAnswer": "エレベーターは使わず、案内された階段へ進んでください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-51f7fc147727fd81",
+          "sourceReaderTurn": 7,
+          "focus": "meeting-point-direction",
+          "englishPrompt": "It is the designated area outside the building. Please proceed this way.",
+          "japaneseAnswer": "建物の外の指定された場所です。こちらへ進んでください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonId": "master-travel-breakfast:16:ja-en",
+      "grammarFocus": "私が見た範囲では limits a statement to firsthand observation; ～と聞きました marks information received from another person. アレルギー反応 and アレルゲン記録 are the clinical and inspection terms in the source; 署名する前に修正してください requests a correction.",
+      "prompts": [
+        {
+          "id": "form-ja-en-4834e7104a8c31c7",
+          "sourceReaderTurn": 2,
+          "focus": "time-correction",
+          "englishPrompt": "There is an error in the time in the second section. It was about 8:10, not 8:30.",
+          "japaneseAnswer": "二つ目の欄の時刻に誤記があります。八時半ではなく、八時十分ごろです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-8c6dfdd7f99566dd",
+          "sourceReaderTurn": 6,
+          "focus": "firsthand-observation-limit",
+          "englishPrompt": "As far as I observed, I could not confirm whether the information was displayed.",
+          "japaneseAnswer": "私が見た範囲では、表示の有無を確認できませんでした。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-5121ec7e05033285",
+          "sourceReaderTurn": 10,
+          "focus": "copy-if-signing",
+          "englishPrompt": "I have reviewed it. If I sign, could I have a copy too?",
+          "japaneseAnswer": "確認しました。署名する場合は、写しもいただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonId": "master-travel-breakfast:17:ja-en",
+      "grammarFocus": "まず・次に・一方で・最後に structure a formal summary. 本人の同意 and 健康情報 name consent and health information; 救急外来 is the emergency department. Ask the affected friend which details they agree to include before sending the revised message.",
+      "prompts": [
+        {
+          "id": "form-ja-en-a5233e3d12aa7b08",
+          "sourceReaderTurn": 2,
+          "focus": "consent-exclude-diagnosis-medication",
+          "englishPrompt": "You may say responders came, but please do not include a diagnosis or medication details.",
+          "japaneseAnswer": "救急隊が来たことは書いていいですが、診断や薬のことは書かないでください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-affc37e479fe36c7",
+          "sourceReaderTurn": 5,
+          "focus": "first-thanks",
+          "englishPrompt": "First, I will thank the staff who responded.",
+          "japaneseAnswer": "まず、対応してくれた係員へのお礼を書きます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0e84ef177d2ebb8c",
+          "sourceReaderTurn": 6,
+          "focus": "next-timeline",
+          "englishPrompt": "Next, I will briefly summarize the timeline I verified.",
+          "japaneseAnswer": "次に、私が確認した時系列を簡潔にまとめます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-53da042955363f1d",
+          "sourceReaderTurn": 9,
+          "focus": "finally-written-reply",
+          "englishPrompt": "Finally, I will ask for a written reply. Before sending, I will check the recipient and attachments.",
+          "japaneseAnswer": "最後に、書面での回答をお願いします。送信前に宛先と添付を確認します。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonId": "master-travel-breakfast:18:ja-en",
+      "grammarFocus": "電車が遅れているため explains the reason; 三人から五人に変わりました reports a changed group size; ～していただけますか makes requests without assuming acceptance. The English source's Asturias connections, lockbox and 10:30 breakfast are provenance, not automatic Japanese lodging arrangements. Confirm each change with the host before telling the group it is settled.",
+      "prompts": [
+        {
+          "id": "form-ja-en-5597abd68e1475a8",
+          "sourceReaderTurn": 1,
+          "focus": "train-delay-reason",
+          "englishPrompt": "Because the train is delayed, we are likely to arrive later than planned.",
+          "japaneseAnswer": "電車が遅れているため、到着が予定より遅くなりそうです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-829e88a54f950966",
+          "sourceReaderTurn": 2,
+          "focus": "group-size-change",
+          "englishPrompt": "Also, our group has changed from three to five. Could you confirm whether that is possible?",
+          "japaneseAnswer": "また、人数が三人から五人に変わりました。受け入れ可能か確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0d247aafa0e8598d",
+          "sourceReaderTurn": 4,
+          "focus": "key-pickup-request",
+          "englishPrompt": "Our expected arrival is about ten in the evening. Could you tell us how to collect the keys?",
+          "japaneseAnswer": "到着予定時刻は二十二時ごろです。鍵の受け取り方法も教えていただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 19,
+      "stableLessonId": "master-travel-breakfast:19:ja-en",
+      "grammarFocus": "全体として and 一方で balance praise and concern; 次回は～を確認できれば frames a condition for returning. セリアック病, グルテンフリー and 混入 name the source's clinical and food-handling concepts directly.",
+      "prompts": [
+        {
+          "id": "form-ja-en-11982f197e056c29",
+          "sourceReaderTurn": 2,
+          "focus": "overall-positive-feedback",
+          "englishPrompt": "Overall, we were pleased. We especially liked the seasonal fruit.",
+          "japaneseAnswer": "全体として満足しました。特に季節の果物がよかったです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-eb12bb7d219b3bb7",
+          "sourceReaderTurn": 4,
+          "focus": "celiac-disease-ingredients-preparation",
+          "englishPrompt": "Someone in our family has celiac disease. We need to check ingredients and preparation, not just a label.",
+          "japaneseAnswer": "家族にセリアック病の者がいます。表示だけでなく、原材料と調理方法を確認したいです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-462be0eda30096e9",
+          "sourceReaderTurn": 7,
+          "focus": "future-visit-condition",
+          "englishPrompt": "For a future visit, it would help to check available food information in advance.",
+          "japaneseAnswer": "次回は、選べる食品の情報を事前に確認できれば助かります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonId": "master-travel-breakfast:20:ja-en",
+      "grammarFocus": "まず・次に・最後に organize the capstone; ～なら asks about a substitute; 確認できないので注文しません explains a refusal. ピーナッツアレルギー, 原材料 and 調理方法 carry the source's specific food vocabulary.",
+      "prompts": [
+        {
+          "id": "form-ja-en-41288ce952b6e982",
+          "sourceReaderTurn": 1,
+          "focus": "first-step-instruction",
+          "englishPrompt": "First, greet the staff and say what you would like, without rushing.",
+          "japaneseAnswer": "まず、ゆっくりあいさつして、食べたい物を伝えてみて。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-512f96cf9ce71fe4",
+          "sourceReaderTurn": 3,
+          "focus": "peanut-allergy-information-request",
+          "englishPrompt": "Another relative has a peanut allergy. Could we check the information and preparation method?",
+          "japaneseAnswer": "別の親戚にはピーナッツのアレルギーがあります。資料と調理方法を確認できますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-195c8e0dc83f45a5",
+          "sourceReaderTurn": 5,
+          "focus": "substitute-ingredient-request",
+          "englishPrompt": "Could you check the substitute dish's ingredients and preparation?",
+          "japaneseAnswer": "代わりの料理の原材料と調理方法を確認していただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-438ae419818a1d81",
+          "sourceReaderTurn": 7,
+          "focus": "unverified-refusal",
+          "englishPrompt": "Understood. Because it cannot be verified, the affected person will hold off on ordering for now.",
+          "japaneseAnswer": "分かりました。確認できないので、本人は今は注文を見送ります。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0c45a61ea56f8cdc",
+          "sourceReaderTurn": 10,
+          "focus": "finally-factual-report",
+          "englishPrompt": "Finally, I will report at checkout that the information could not be found, as a matter of fact.",
+          "japaneseAnswer": "最後に、資料が見つからなかったことを会計時に事実として伝えます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

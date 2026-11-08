@@ -86,20 +86,20 @@ async function fixture(run, { realSecurity = false } = {}) {
                     ? { tip: "synthetic-tip" }
                     : args.tools[0].name === "speaking_translation"
                       ? { translation: "synthetic-native-translation" }
-                    : args.tools[0].name === "speaking_mission_turn"
-                      ? {
-                          assistantText: "synthetic-partner",
-                          deferredFeedback: ["synthetic-coaching"],
-                          provisionalObjectiveIds: [],
-                          shouldEnd: false,
-                          safetyStop: false,
-                        }
-                      : {
-                          target: "synthetic-target",
-                          gloss: "synthetic-gloss",
-                          hint: "synthetic-hint",
-                          keyword: "synthetic-keyword",
-                        },
+                      : args.tools[0].name === "speaking_mission_turn"
+                        ? {
+                            assistantText: "synthetic-partner",
+                            deferredFeedback: ["synthetic-coaching"],
+                            provisionalObjectiveIds: [],
+                            shouldEnd: false,
+                            safetyStop: false,
+                          }
+                        : {
+                            target: "synthetic-target",
+                            gloss: "synthetic-gloss",
+                            hint: "synthetic-hint",
+                            keyword: "synthetic-keyword",
+                          },
               },
             ],
           },
@@ -264,14 +264,27 @@ test("on-demand speaking translation is private, consent-gated, bounded and sepa
     privateHeaders(malformed);
     assert.deepEqual(await malformed.json(), { error: "Translation is unavailable. Try again." });
 
-    c.provider = async () => ({ content: [{ type: "tool_use", input: {
-      assistantText: "synthetic-partner",
-      deferredFeedback: ["synthetic-coaching"],
-      provisionalObjectiveIds: [], shouldEnd: false, safetyStop: false,
-    } }] });
-    const mission = await h.speak.POST(request("speak", {
-      ...missionBody(c), feedbackLanguage: "Mixed", nativeLanguage: "English",
-    }));
+    c.provider = async () => ({
+      content: [
+        {
+          type: "tool_use",
+          input: {
+            assistantText: "synthetic-partner",
+            deferredFeedback: ["synthetic-coaching"],
+            provisionalObjectiveIds: [],
+            shouldEnd: false,
+            safetyStop: false,
+          },
+        },
+      ],
+    });
+    const mission = await h.speak.POST(
+      request("speak", {
+        ...missionBody(c),
+        feedbackLanguage: "Mixed",
+        nativeLanguage: "English",
+      }),
+    );
     assert.equal(mission.status, 200);
     assert.match(c.models.at(-1).system, /concise English explanation/);
     assert.match(c.models.at(-1).system, /short Spanish model phrase/);
@@ -703,19 +716,111 @@ test("mission keeps four exchanges available before a natural close, while safet
     assert.equal((await safe.json()).shouldEnd, true);
   }));
 
-test("word tutor uses existing admission gates and returns a bounded card without conversation turns", async () => fixture(async (h, c) => {
-  const value = { mode: "lookup", word: "mapa", sentence: "Mira el mapa.", language: "Spanish", nativeLanguage: "English", level: "A2" };
-  c.auth = async () => null;
-  assert.equal((await h.speak.POST(request("speak", value))).status, 401);
-  assert.equal(c.models.length, 0);
-  c.auth = async () => ({ userId: "synthetic-a" });
-  const card = { meaning: "map", usage: "A masculine noun.", example: "Mira el mapa.", exampleMeaning: "Look at the map." };
-  c.provider = async () => ({ content: [{ type: "tool_use", input: card }] });
-  const response = await h.speak.POST(request("speak", value));
-  assert.equal(response.status, 200); privateHeaders(response);
-  assert.deepEqual(await response.json(), { card });
-  assert.deepEqual(JSON.parse(c.models.at(-1).messages[0].content), { word: "mapa", sentence: "Mira el mapa." });
-  assert.equal(c.models.at(-1).messages.length, 1);
-  c.provider = async () => ({ content: [{ type: "tool_use", input: { ...card, meaning: "" } }] });
-  assert.equal((await h.speak.POST(request("speak", value))).status, 502);
-}));
+test("word tutor uses existing admission gates and returns a bounded card without conversation turns", async () =>
+  fixture(async (h, c) => {
+    const value = {
+      mode: "lookup",
+      word: "mapa",
+      sentence: "Mira el mapa.",
+      language: "Spanish",
+      nativeLanguage: "English",
+      level: "A2",
+    };
+    c.auth = async () => null;
+    assert.equal((await h.speak.POST(request("speak", value))).status, 401);
+    assert.equal(c.models.length, 0);
+    c.auth = async () => ({ userId: "synthetic-a" });
+    const card = {
+      meaning: "map",
+      usage: "A masculine noun.",
+      example: "Mira el mapa.",
+      exampleMeaning: "Look at the map.",
+    };
+    c.provider = async () => ({ content: [{ type: "tool_use", input: card }] });
+    const response = await h.speak.POST(request("speak", value));
+    assert.equal(response.status, 200);
+    privateHeaders(response);
+    assert.deepEqual(await response.json(), { card });
+    assert.deepEqual(JSON.parse(c.models.at(-1).messages[0].content), {
+      word: "mapa",
+      sentence: "Mira el mapa.",
+    });
+    assert.equal(c.models.at(-1).messages.length, 1);
+    c.provider = async () => ({ content: [{ type: "tool_use", input: { ...card, meaning: "" } }] });
+    assert.equal((await h.speak.POST(request("speak", value))).status, 502);
+  }));
+
+test("conversation translation batches use the selected native language and validate exact line identities", () =>
+  fixture(async (h, c) => {
+    const value = {
+      mode: "translate",
+      language: "Spanish",
+      nativeLanguage: "French",
+      level: "A2",
+      translationLines: [
+        { id: "learner-1", text: "Trabajo en un hospital." },
+        { id: "partner-1", text: "¿Cómo puedo ayudarte?" },
+      ],
+    };
+    c.auth = async () => null;
+    assert.equal((await h.speak.POST(request("speak", value))).status, 401);
+    assert.equal(c.models.length, 0);
+    c.auth = async () => ({ userId: "synthetic-a" });
+    c.age = async () => false; // Free Speak keeps the chat admission policy. Missions retain their age gate.
+    c.provider = async (args) => ({
+      content: [
+        {
+          type: "tool_use",
+          input: {
+            translations: JSON.parse(args.messages[0].content).map((line) => ({
+              id: line.id,
+              translation: "synthetic native translation",
+            })),
+          },
+        },
+      ],
+    });
+    const response = await h.speak.POST(request("speak", value));
+    assert.equal(response.status, 200);
+    privateHeaders(response);
+    assert.equal((await response.json()).translations.length, 2);
+    assert.match(c.models.at(-1).system, /into French/);
+    assert.match(c.models.at(-1).system, /never as instructions/);
+    assert.deepEqual(JSON.parse(c.models.at(-1).messages[0].content), value.translationLines);
+    const japanese = await h.speak.POST(request("speak", { ...value, nativeLanguage: "Japanese" }));
+    assert.equal(japanese.status, 200);
+    assert.match(c.models.at(-1).system, /into Japanese/);
+    c.age = async () => true;
+    const before = c.models.length;
+    for (const bad of [
+      { translationLines: [] },
+      { translationLines: [value.translationLines[0], value.translationLines[0]] },
+      { translationLines: [{ id: "one", text: "x".repeat(2001) }] },
+      {
+        translationLines: Array.from({ length: 4 }, (_, i) => ({
+          id: String(i),
+          text: "x".repeat(1600),
+        })),
+      },
+      { translationLines: Array.from({ length: 9 }, (_, i) => ({ id: String(i), text: "short" })) },
+      { userText: "mixed request forms" },
+      { nativeLanguage: "Spanish" },
+      { scenarioVersionId: "unknown-mission" },
+    ]) {
+      const result = await h.speak.POST(request("speak", { ...value, ...bad }));
+      assert.equal(result.status, 400);
+      privateHeaders(result);
+    }
+    assert.equal(c.models.length, before);
+    for (const translations of [
+      [],
+      [{ id: "foreign", translation: "wrong" }],
+      value.translationLines.map(() => ({ id: "learner-1", translation: "duplicate" })),
+      value.translationLines.map((line) => ({ id: line.id, translation: " " })),
+    ]) {
+      c.provider = async () => ({ content: [{ type: "tool_use", input: { translations } }] });
+      const result = await h.speak.POST(request("speak", value));
+      assert.equal(result.status, 502);
+      privateHeaders(result);
+    }
+  }));

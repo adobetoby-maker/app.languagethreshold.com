@@ -1,5 +1,6 @@
 // Post-build script: produces a Vercel Build Output API v3 artifact.
 // Vercel detects .vercel/output/ and deploys it directly — no framework detection needed.
+import { PICTURE_ACTION_DOWNLOAD_ROUTE } from "./picture-action-download-route.mjs";
 import { assessmentCleanupSchedule } from "./assessment-cleanup-schedule.mjs";
 import { mkdirSync, writeFileSync, cpSync, rmSync } from "fs";
 import { execFileSync } from "child_process";
@@ -17,9 +18,20 @@ cpSync("dist/client", `${out}/static`, { recursive: true });
 await buildOfflineLessonPack(`${out}/static`);
 await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
 await buildOfflineLessonPack(`${out}/static`, "construction-foreman-es-en");
-for (const pack of ["foundation-military-en-es", "military-en-es", "master-military-en-es", "foundation-sound-like-a-native-es-en", "sound-like-a-native-es-en", "master-sound-like-a-native-es-en"])
+for (const pack of [
+  "foundation-military-en-es",
+  "military-en-es",
+  "master-military-en-es",
+  "foundation-sound-like-a-native-es-en",
+  "sound-like-a-native-es-en",
+  "master-sound-like-a-native-es-en",
+])
   await buildOfflineLessonPack(`${out}/static`, pack);
-for (const pack of ["foundation-japanese-basics-ja-en", "japanese-basics-ja-en", "master-japanese-basics-ja-en"])
+for (const pack of [
+  "foundation-japanese-basics-ja-en",
+  "japanese-basics-ja-en",
+  "master-japanese-basics-ja-en",
+])
   await buildOfflineLessonPack(`${out}/static`, pack);
 
 // Bundle server.js + all npm dependencies (h3-v2, @tanstack/*, seroval, etc.)
@@ -94,6 +106,7 @@ writeFileSync(
       },
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
+      PICTURE_ACTION_DOWNLOAD_ROUTE,
       {
         src: "/audio/(.*)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
@@ -129,7 +142,11 @@ writeFileSync(
       },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
-      { src: "/review-demo\\.html", dest: "/review-demo.html", headers: { "x-robots-tag": "noindex, nofollow" } },
+      {
+        src: "/review-demo\\.html",
+        dest: "/review-demo.html",
+        headers: { "x-robots-tag": "noindex, nofollow" },
+      },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },
       { src: "/roofing-review-data\\.js", dest: "/roofing-review-data.js" },
       { src: "/robots\\.txt", dest: "/robots.txt" },

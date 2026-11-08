@@ -162,6 +162,205 @@ def main():
             assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
     print("Japanese Breakfast M4–6 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
 
+    master_7_9 = json.loads((ROOT / "content/japanese-travel-breakfast/master-7-9-draft.json").read_text())
+    assert master_7_9["target"] == "Japanese" and master_7_9["native"] == "English"
+    assert master_7_9["stageId"] == "master-travel-breakfast"
+    assert master_7_9["reviewed"] is False and master_7_9["registered"] is False
+    assert master_7_9["audio"] == "none"
+    assert master_7_9["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_7_9["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_7_9["lessons"]] == [7, 8, 9]
+    for lesson in master_7_9["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    print("Japanese Breakfast M7–9 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
+    master_10_12 = json.loads((ROOT / "content/japanese-travel-breakfast/master-10-12-draft.json").read_text())
+    assert master_10_12["target"] == "Japanese" and master_10_12["native"] == "English"
+    assert master_10_12["stageId"] == "master-travel-breakfast"
+    assert master_10_12["reviewed"] is False and master_10_12["registered"] is False
+    assert master_10_12["audio"] == "none"
+    assert master_10_12["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_10_12["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_10_12["lessons"]] == [10, 11, 12]
+    for lesson in master_10_12["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    print("Japanese Breakfast M10–12 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
+    master_13_15 = json.loads((ROOT / "content/japanese-travel-breakfast/master-13-15-draft.json").read_text())
+    assert master_13_15["target"] == "Japanese" and master_13_15["native"] == "English"
+    assert master_13_15["stageId"] == "master-travel-breakfast"
+    assert master_13_15["reviewed"] is False and master_13_15["registered"] is False
+    assert master_13_15["audio"] == "none"
+    assert master_13_15["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_13_15["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_13_15["lessons"]] == [13, 14, 15]
+    for lesson in master_13_15["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    print("Japanese Breakfast M13–15 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
+    master_16_18 = json.loads((ROOT / "content/japanese-travel-breakfast/master-16-18-draft.json").read_text())
+    assert master_16_18["target"] == "Japanese" and master_16_18["native"] == "English"
+    assert master_16_18["stageId"] == "master-travel-breakfast"
+    assert master_16_18["reviewed"] is False and master_16_18["registered"] is False
+    assert master_16_18["audio"] == "none"
+    assert master_16_18["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_16_18["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_16_18["lessons"]] == [16, 17, 18]
+    for lesson in master_16_18["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    print("Japanese Breakfast M16–18 draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
+    master_19_20 = json.loads((ROOT / "content/japanese-travel-breakfast/master-19-20-draft.json").read_text())
+    assert master_19_20["target"] == "Japanese" and master_19_20["native"] == "English"
+    assert master_19_20["stageId"] == "master-travel-breakfast"
+    assert master_19_20["state"] == "authored-draft"
+    assert master_19_20["reviewed"] is False and master_19_20["registered"] is False
+    assert master_19_20["audio"] == "none"
+    assert master_19_20["source"]["curriculumSha256"] == digest(master_source_bytes)
+    assert master_19_20["source"]["readerSha256"] == digest(master_reader_bytes)
+    assert [item["n"] for item in master_19_20["lessons"]] == [19, 20]
+    for lesson in master_19_20["lessons"]:
+        n = lesson["n"]
+        original = master_source["lessons"][n - 1]
+        fields = {
+            "n": n,
+            "title": original["title"],
+            "objective": original["objective"],
+            "speaking": original["speaking"],
+            "lessonType": original["lessonType"],
+            "block": original["block"],
+            "englishWordAnchors": [w["en"] for w in original["words"]],
+            "englishGrammarExamples": [e["en"] for e in original["grammar"]["examples"]],
+            "englishReading": master_reader["lessons"][str(n)]["passage"]["native"],
+        }
+        assert lesson["stableId"] == f"master-travel-breakfast:{n}:ja-en"
+        assert all(lesson["sourceEnglish"][key] == value for key, value in fields.items())
+        assert lesson["sourceEnglish"]["englishSourceSha256"] == digest(
+            json.dumps(fields, ensure_ascii=False, separators=(",", ":")).encode()
+        )
+        assert len(lesson["cards"]) >= 12 and len(lesson["reader"]) >= 8
+        assert set(lesson["modes"]) == MODES
+        assert lesson["speaking"]["opening"] and lesson["speaking"]["wordBank"]
+        for pair in [*lesson["cards"], *lesson["reader"]]:
+            assert pair["ja"].strip() and pair["en"].strip()
+            assert not any(x in pair["ja"] for x in ["café", "pesos", "ser", "estar"])
+    all_master = [
+        *master["lessons"], *next_master["lessons"], *master_7_9["lessons"],
+        *master_10_12["lessons"], *master_13_15["lessons"],
+        *master_16_18["lessons"], *master_19_20["lessons"],
+    ]
+    assert [lesson["n"] for lesson in all_master] == list(range(1, 21))
+    assert len({lesson["stableId"] for lesson in all_master}) == 20
+    assert len(data["lessons"]) == 10 and len(core["lessons"]) == 30
+    clinical = {
+        ("core", 25): ["火傷", "皮膚", "冷たい水", "ナプキン"],
+        ("master", 4): ["アレルギー反応", "アドレナリン自己注射器", "微量"],
+        ("master", 8): ["アナフィラキシー", "抗ヒスタミン薬", "アドレナリン自己注射器"],
+        ("master", 10): ["高山病", "コカ茶"],
+        ("master", 13): ["のどのかゆみ", "じんましん", "唇の腫れ", "呼吸困難", "めまい"],
+        ("master", 14): ["セリアック病"],
+        ("master", 16): ["アレルギー反応", "アレルゲン記録"],
+        ("master", 17): ["救急外来"],
+    }
+    for (stage, n), terms in clinical.items():
+        lesson = core["lessons"][n - 1] if stage == "core" else all_master[n - 1]
+        learner_ja = " ".join([lesson["focus"], *(card["ja"] for card in lesson["cards"]), *(row["ja"] for row in lesson["reader"])])
+        assert all(term in learner_ja for term in terms), (stage, n, terms)
+        assert "not medical advice" not in lesson["focus"].lower()
+    print("Japanese Breakfast F10/C30/M20 private draft: source hashes, stable IDs, English anchors, pairs, Reader, speaking, six modes PASS")
+
 
 if __name__ == "__main__":
     main()

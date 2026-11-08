@@ -15,6 +15,11 @@ SOURCES = (
     ("core-1-30-draft.json", "travel-breakfast", 1, 30),
     ("master-1-3-draft.json", "master-travel-breakfast", 1, 3),
     ("master-4-6-draft.json", "master-travel-breakfast", 4, 6),
+    ("master-7-9-draft.json", "master-travel-breakfast", 7, 9),
+    ("master-10-12-draft.json", "master-travel-breakfast", 10, 12),
+    ("master-13-15-draft.json", "master-travel-breakfast", 13, 15),
+    ("master-16-18-draft.json", "master-travel-breakfast", 16, 18),
+    ("master-19-20-draft.json", "master-travel-breakfast", 19, 20),
 )
 VOICES = ("ja-JP-Chirp3-HD-Aoede", "ja-JP-Chirp3-HD-Charon")
 
@@ -52,7 +57,7 @@ def build():
                 add(word, lesson, f"speaking.wordBank[{i}]")
 
     assert {k: len(v) for k, v in stage_lessons.items()} == {
-        "foundation-travel-breakfast": 10, "travel-breakfast": 30, "master-travel-breakfast": 6
+        "foundation-travel-breakfast": 10, "travel-breakfast": 30, "master-travel-breakfast": 20
     }
     texts = sorted(occurrences)
     joined = "\n".join(texts).encode("utf-8")
@@ -71,7 +76,7 @@ def build():
         "voicesProposed": list(VOICES),
         "sourceSha256": source_hashes,
         "includedFields": ["cards[].ja", "reader[].ja", "speaking.opening", "speaking.wordBank[]"],
-        "excludedFields": ["English support", "mode instructions", "unwritten AI replies", "future Master 7–20"],
+        "excludedFields": ["English support", "mode instructions", "unwritten AI replies"],
         "stageLessons": dict(stage_lessons),
         "counts": {
             "lessons": sum(len(v) for v in stage_lessons.values()),

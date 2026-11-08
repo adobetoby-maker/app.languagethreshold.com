@@ -227,7 +227,7 @@
       },
       "title": "Choosing a coffee",
       "objective": "Ask what coffee is offered, check milk and size options, then state whether you will drink it there.",
-      "focus": "ブレンド and アメリカン are menu labels, not universal translations of black coffee. Ask what a shop offers. 牛乳 and オーツミルク are ingredients, but availability and allergy safety require confirmation. ～にできますか asks whether a change is possible.",
+      "focus": "ブレンド and アメリカン are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～にできますか asks whether a drink can be changed to another option.",
       "scene": "Sam studies a café menu and checks which milk and size are available.",
       "cards": [
         {
@@ -358,7 +358,7 @@
         "partnerRole": "Barista",
         "opening": "ご注文は何になさいますか。",
         "goal": "Ask about coffee choices, size and milk availability; order a hot drink for here.",
-        "closure": "Repeat only options the barista confirmed.",
+        "closure": "Repeat the drink and milk option the barista confirmed.",
         "wordBank": [
           "どんなコーヒーがありますか",
           "サイズ",
@@ -417,7 +417,7 @@
       },
       "title": "Choosing a pastry",
       "objective": "Ask what was baked this morning, whether an item is filled, and which pastry the staff recommends.",
-      "focus": "今朝焼いたもの asks what was baked this morning; it does not certify freshness, ingredients or safety. 甘い and 塩味のある distinguish sweet and savory. 中身 refers to a filling. Pastry names vary by café, so use menu labels actually shown.",
+      "focus": "今朝焼いたもの asks what was baked this morning; 甘い and 塩味のある distinguish sweet and savory; 中身 asks about a pastry's filling. Use the item names shown on the café's menu.",
       "scene": "At a bakery café, Sam asks about three pastries without inventing what they contain.",
       "cards": [
         {
@@ -543,7 +543,7 @@
         "partnerRole": "Bakery staff",
         "opening": "いらっしゃいませ。何かお探しですか。",
         "goal": "Ask which items were baked this morning, ask about a filling, and request a recommendation.",
-        "closure": "Treat the staff answer as a menu description, not an allergen guarantee.",
+        "closure": "Confirm the pastry name and filling with staff.",
         "wordBank": [
           "今朝焼いたもの",
           "中身",
@@ -953,7 +953,7 @@
       },
       "title": "State a food restriction",
       "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
-      "focus": "アレルギーがあります states an allergy; 肉を食べません states a preference and must not be conflated. 原材料 asks about ingredients; 調理器具 asks about utensils and possible shared handling. A statement that an ingredient is absent does not prove a dish is safe. If staff cannot confirm, do not order that dish. This language is a communication draft pending qualified food-allergy review, not medical advice.",
+      "focus": "アレルギーがあります states an allergy; 肉を食べません and 乳製品を避けています describe dietary choices. 原材料 asks about ingredients, and 調理器具 asks about shared utensils. ～を確認していただけますか is a polite request to staff.",
       "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
       "cards": [
         {
@@ -1074,7 +1074,7 @@
         "partnerRole": "Café staff",
         "opening": "ご注文はお決まりですか。",
         "goal": "State the companion’s allergy, request an ingredient and handling check, and decline the item if staff cannot verify it.",
-        "closure": "Do not interpret an ingredient list alone as proof of safety; this practice scenario is not medical advice.",
+        "closure": "Repeat the ingredient and utensil information that staff actually provided.",
         "wordBank": [
           "ナッツアレルギー",
           "原材料",
@@ -2553,7 +2553,7 @@
       },
       "title": "Breakfast midpoint review",
       "objective": "Handle greeting, seating, order, a dairy restriction, an incorrect drink, and payment in one Japanese-led scene.",
-      "focus": "This review combines earlier polite questions, order readback and bill terms. An allergy is not an ordinary substitution: if the wrong milk is used for an allergic guest, do not consume the drink or assume a remake is safe. Ask staff to verify ingredients and handling; decline if uncertain. English support remains available after reveal even though the speaking mission aims for Japanese.",
+      "focus": "This review combines entering, ordering, stating a dairy restriction, correcting a drink, small talk and payment. ～を注文しました identifies the original order; ～ではなく corrects the item received.",
       "scene": "Sam, who avoids dairy, checks a breakfast order and finds the drink was made with regular milk.",
       "cards": [
         {
@@ -2689,7 +2689,7 @@
         "partnerRole": "Café staff",
         "opening": "おはようございます。何名様ですか。",
         "goal": "Greet, ask for seating, order with a dairy restriction, identify a wrong drink, wait for staff verification, and ask to pay.",
-        "closure": "Do not drink an uncertain item or imply that a remake is automatically safe.",
+        "closure": "Confirm the corrected order and final bill with staff.",
         "wordBank": [
           "一人です",
           "席は空いていますか",
@@ -3101,7 +3101,7 @@
       },
       "title": "Ask about shared handling",
       "objective": "Explain a companion’s nut allergy, ask about shared utensils and preparation, and decline an item when handling cannot be verified.",
-      "focus": "共用 means shared. 同じトングを使いますか asks whether the same tongs are used; 調理器具 asks about kitchen tools. An ingredient label is insufficient to establish allergy safety, and even a plain drink must not be assumed safe. This is communication practice pending qualified food-allergy review, not medical advice.",
+      "focus": "共用 means shared. 同じトングを使いますか asks about tongs; トースター and ミルクピッチャー name other equipment; 混入 means cross-contact. Use these terms to ask staff how the pastry and drink are handled.",
       "scene": "Aya has a nut allergy and asks a café worker about pastry storage and shared tools before ordering.",
       "cards": [
         {
@@ -3217,7 +3217,7 @@
         "partnerRole": "Café staff",
         "opening": "ご注文はお決まりですか。",
         "goal": "State the allergy, ask about display/storage and shared tongs, toaster and milk jug, then decline if safety cannot be verified.",
-        "closure": "Do not order an item on an unverified safety assumption.",
+        "closure": "State which item the traveler chooses after staff answers the handling questions.",
         "wordBank": [
           "ナッツアレルギー",
           "同じトング",
@@ -4163,7 +4163,7 @@
       },
       "title": "Call for help at a café",
       "objective": "Alert staff to a collapse, ask them to call local emergency services, and report only the location and what you observed.",
-      "focus": "助けてください (please help) and 救急車を呼んでください (please call an ambulance) are urgent requests. Report 見たこと (what you saw) without diagnosis. Confirm the exact location and use the local emergency service number; medical and regional procedures require qualified review.",
+      "focus": "助けてください and 救急車を呼んでください are urgent requests. 隣の席の人が倒れました reports what happened; 店の住所は何ですか asks for the exact location; 呼吸がよく分かりません expresses uncertainty about breathing.",
       "scene": "A guest sees another customer collapse and immediately alerts café staff.",
       "cards": [
         {
@@ -4240,6 +4240,16 @@
           "ja": "反応がありません",
           "en": "There is no response",
           "kind": "term"
+        },
+        {
+          "ja": "救急隊員",
+          "en": "paramedics",
+          "kind": "term"
+        },
+        {
+          "ja": "呼吸がよく分かりません",
+          "en": "I do not know if the person is breathing well",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -4294,7 +4304,7 @@
         "partnerRole": "Café staff contacting local emergency services",
         "opening": "いらっしゃいませ。どうしましたか。",
         "goal": "Alert staff, request an ambulance, state the shop location and describe only what you observed.",
-        "closure": "Follow the emergency operator’s instructions; do not diagnose or delay the call.",
+        "closure": "Give the location and observed details to the emergency operator.",
         "wordBank": [
           "助けてください",
           "緊急です",
@@ -4350,8 +4360,8 @@
         "englishSourceSha256": "e380007056035955b7ce2fda25090524e8f3396cc82caa1cd1bcc06a192f0bf9"
       },
       "title": "Ask for help after a hot-drink spill",
-      "objective": "Tell staff a hot drink spilled, ask for cool running water and the first-aid kit, and respond to an apology without judging the injury.",
-      "focus": "熱い飲み物がかかりました reports a scald. 流水で冷やしたいです requests running water. This learner dialogue does not assess severity; seek appropriate medical help if unsure. The source’s wipe-with-napkins and self-diagnosis are not carried into the Japanese scene.",
+      "objective": "Report a hot-coffee burn on the arm, ask for cold water, napkins and a first-aid kit, and respond to the staff's apology and offer.",
+      "focus": "火傷（やけど） means a burn; 皮膚 means skin. 冷たい水をいただけますか asks for cold water, ナプキンをもう少しいただけますか asks for more napkins, and 救急箱はありますか asks for a first-aid kit. ～がかかりました reports where the hot coffee spilled.",
       "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
       "cards": [
         {
@@ -4428,13 +4438,33 @@
           "ja": "救急箱はありますか",
           "en": "Do you have a first-aid kit?",
           "kind": "term"
+        },
+        {
+          "ja": "火傷（やけど）",
+          "en": "burn",
+          "kind": "term"
+        },
+        {
+          "ja": "皮膚",
+          "en": "skin",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい水",
+          "en": "cold water",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkins",
+          "kind": "term"
         }
       ],
       "reader": [
         {
           "speaker": "Guest",
-          "ja": "熱いコーヒーが腕にかかりました。",
-          "en": "Hot coffee spilled on my arm."
+          "ja": "熱いコーヒーが腕にかかって、火傷をしました。",
+          "en": "Hot coffee spilled on my arm and I got a burn."
         },
         {
           "speaker": "Staff",
@@ -4443,13 +4473,13 @@
         },
         {
           "speaker": "Guest",
-          "ja": "水道の流水で冷やしたいです。案内していただけますか。",
-          "en": "I would like to cool it under running tap water. Could you show me where?"
+          "ja": "冷たい水をいただけますか。",
+          "en": "Could you bring me cold water, please?"
         },
         {
           "speaker": "Staff",
-          "ja": "こちらです。水道へご案内します。",
-          "en": "This way. I will show you the tap."
+          "ja": "はい、冷たい水をお持ちします。",
+          "en": "Yes, I will bring cold water."
         },
         {
           "speaker": "Guest",
@@ -4463,26 +4493,36 @@
         },
         {
           "speaker": "Manager",
-          "ja": "おけがの具合が心配です。医療機関への連絡もお手伝いできます。",
-          "en": "I am concerned about your injury. We can also help contact medical services."
+          "ja": "皮膚が赤くなっていますね。救急箱をお持ちしました。",
+          "en": "Your skin is red. I brought the first-aid kit."
         },
         {
           "speaker": "Guest",
-          "ja": "ありがとうございます。まず冷やして、必要な助けを確認します。",
-          "en": "Thank you. I will cool it first and check what help I need."
+          "ja": "ナプキンをもう少しいただけますか。",
+          "en": "Could you pass me more napkins, please?"
         },
         {
           "speaker": "Staff",
           "ja": "改めてお詫びします。",
           "en": "I apologize again."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お詫びに、朝食代はいただきません。",
+          "en": "As an apology, we will not charge you for breakfast."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。お気持ちを受け取ります。",
+          "en": "Thank you. I accept your offer."
         }
       ],
       "speaking": {
         "role": "Guest requesting assistance after a spill",
         "partnerRole": "Café staff",
         "opening": "申し訳ありません。大丈夫ですか。",
-        "goal": "Report the spill, request cool running water and a first-aid kit, and acknowledge the apology without diagnosing the injury.",
-        "closure": "Do not let an offer about the bill replace appropriate first aid or medical evaluation.",
+        "goal": "Name the burn and affected skin, request cold water, napkins and a first-aid kit, then accept or decline the apology and offer.",
+        "closure": "Close by answering the manager's offer politely.",
         "wordBank": [
           "熱いコーヒー",
           "腕",
@@ -4735,7 +4775,7 @@
       },
       "title": "Arrange an early packed breakfast",
       "objective": "Ask the hotel about breakfast before an early transfer, confirm pickup time and place, and disclose an allergy without assuming safe handling.",
-      "focus": "朝食の時間より早く出ます explains early departure. 持ち帰りの朝食 asks for a packed breakfast. アレルギーがあります must be followed by a specific ingredient and preparation question; availability or an ingredient list alone does not establish safety.",
+      "focus": "朝食の時間より早く出ます explains an early departure. 持ち帰りの朝食 asks for a packed breakfast. アレルギーがあります states an allergy; ～を避ける必要があります specifies the ingredient to avoid. 何時に受け取れますか asks for the pickup time.",
       "scene": "A hotel guest leaves before breakfast service and checks whether a suitable option exists.",
       "cards": [
         {
@@ -4871,7 +4911,7 @@
         "partnerRole": "Hotel front desk staff",
         "opening": "こんばんは。明日のご予定はいかがですか。",
         "goal": "Ask for an early option, disclose the specific allergy, request kitchen verification, and confirm pickup/price only if an option is available.",
-        "closure": "Do not accept an unverified meal as safe; arrange a different option if handling cannot be confirmed.",
+        "closure": "Confirm the pickup place, time, contents and price with the front desk.",
         "wordBank": [
           "早朝",
           "持ち帰りの朝食",
@@ -5313,7 +5353,7 @@
       },
       "title": "Breakfast from doorway to goodbye",
       "objective": "Coordinate a family breakfast, request suitable seating, disclose a nut allergy, question a charge, ask about this café’s policy, and close warmly.",
-      "focus": "This threshold combines prior requests: ベビーチェア, ナッツのアレルギー, 明細 and ありがとうございました. A menu label alone cannot establish allergen safety; ask about ingredients and preparation, and skip food that staff cannot verify. Confirm seating and bill details with staff rather than confronting other guests.",
+      "focus": "This capstone combines ベビーチェア, ナッツのアレルギー, 明細 and ありがとうございました. Use ～をお願いします for a request, ～があります for a condition, and ～を確認したいです for a bill question.",
       "scene": "A parent with children navigates seating, allergy questions and the bill in a busy café.",
       "cards": [
         {
@@ -5484,7 +5524,7 @@
         "partnerRole": "Café staff and local regular",
         "opening": "おはようございます。何名様ですか。",
         "goal": "In Japanese, request child seating, resolve a seat mix-up through staff, verify nut-allergy handling, hold a brief chat, correct a bill, and say goodbye.",
-        "closure": "Do not order unverified allergen-sensitive food; use the café’s actual payment policy.",
+        "closure": "Confirm the seating, food order and bill before saying goodbye.",
         "wordBank": [
           "ベビーチェア",
           "席",

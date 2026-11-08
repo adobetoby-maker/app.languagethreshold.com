@@ -1164,9 +1164,13 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
   const speak = await speakEnv();
   try {
     const realOpen = env.indexedDB.open.bind(env.indexedDB);
+    let openCalls = 0;
     let release;
     const lateOpen = new Promise((resolve) => (release = resolve));
+    let resolveLateClose;
+    const lateConnectionClosed = new Promise((resolve) => (resolveLateClose = resolve));
     env.indexedDB.open = (name) => {
+      openCalls += 1;
       const request = {};
       lateOpen.then(() => {
         const inner = realOpen(name);
@@ -1175,12 +1179,26 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
           request.onupgradeneeded?.();
         };
         inner.onsuccess = () => {
-          request.result = inner.result;
+          const db = inner.result;
+          const close = db.close.bind(db);
+          db.close = () => {
+            close();
+            resolveLateClose();
+          };
+          request.result = db;
           request.onsuccess?.();
         };
       });
       return request;
     };
+    // Exercise the late-open cleanup directly. On a loaded CI host the outer
+    // mission lookup can time out during user-key hashing, before it ever starts
+    // IndexedDB; that is a valid network fallback but cannot test connection cleanup.
+    const cache = speak.mod.createTtsAudioCache({
+      openBackend: () => speak.mod.openDefaultBackend("tts-audio-v1-late-open-test"),
+    });
+    assert.equal(await cache.get("missing"), null);
+    assert.ok(openCalls > 0, "the delayed IndexedDB open started");
     const started = performance.now();
     await speak.mod.speakMissionTts(learner("palabra cuatro"));
     assert.equal(speak.requests.length, 1);
@@ -1188,7 +1206,20 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
 
     // The open finally completes after we gave up: that connection must be closed again.
     release();
-    for (let i = 0; i < 40; i++) await tick();
+    // Await the connection's actual close event. Polling elapsed time can race a
+    // busy CI host even when the cache releases the late connection correctly.
+    let closeTimer;
+    try {
+      await Promise.race([
+        lateConnectionClosed,
+        new Promise((_, reject) => {
+          closeTimer = setTimeout(() => reject(new Error("late IndexedDB connection was not closed")), 20_000);
+        }),
+      ]);
+    } finally {
+      clearTimeout(closeTimer);
+    }
+    assert.ok(env.indexedDB.stats.opens > 0, "the late connection opened");
     for (const record of env.indexedDB.dbs.values()) {
       assert.equal(record.connections.size, 0, "late connection was released");
     }

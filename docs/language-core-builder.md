@@ -19,6 +19,10 @@ Japanese 101 needs qualified review of grammar, naturalness, translations, level
 
 Keep the **10 + 30 + 20 stages, six See/Recall/Hear/Type/Say/Write modes, lesson identity, Reader handoff, cards, speaking, review, and progress ownership**. Mirror the teaching *purpose* of each Spanish step, never its literal grammar or example sentences. A Japanese lesson must use natural Japanese, a coherent dialogue, English meaning, appropriate register, and script support. Introduce kanji only with contextual readings; provide furigana where it helps learners, and make kana usable without mandatory romanization. Distinguish dictionary forms, polite/plain forms, particles, counters, and sentence-final nuance rather than forcing Spanish conjugation concepts onto Japanese.
 
+### Clinical vocabulary fidelity
+
+For medical modules, teach the actual term, its direct meaning, and its grammatical use. Keep clinical specificity in both languages, including in cards, Reader lines, speaking prompts, and dictionary entries. Do not replace a term with a vague paraphrase, omit it, or add generic cautions or hedges solely because it appears in a medical context. Check terminology and translation accuracy; put any genuine source ambiguity in the authoring ledger for correction or terminology review. Clinical use remains the learner's or clinician's judgment.
+
 ### Foundation 10: start reading, hearing, and surviving a conversation
 
 | # | Spanish 101 step | Japanese 101 mirror: focus and learner outcome |
@@ -101,6 +105,22 @@ Keep the **10 + 30 + 20 stages, six See/Recall/Hear/Type/Say/Write modes, lesson
 3. **Author one source of truth.** For each lesson write its objective, focus, contextual word/phrase set with English meanings, original target-language dialogue or reading with sentence-aligned English, appropriate morphology/verb examples, speaking card, and review dependency. Preserve truthful draft/review fields and provenance. Generate the app's curriculum, Reader, decks, practice, and public lesson files from that source rather than maintaining divergent copies.
 4. **Connect the shared experience.** Register the exact pair in catalog and stage manifest; wire See/Recall/Hear/Type/Say/Write, Reader handoff, deck direction, lesson-linked speaking, dictionary links, checkpoints, and account-scoped progress. Verify that Spanish or another language cannot supply content when Japanese is missing.
 5. **Audit and verify.** Run the exact-pair module audit. Test Foundation 1/10, Core 1/15/30, Master 1/20, each of six modes, Reader, flashcards, speaking, and persistence on desktop and a narrow phone. Test Japanese text fit and furigana by inspection. Separate source completeness, fluent review, preview, production, and offline evidence in the ledger.
+
+### Completion and release contract for every language pair
+
+The builder applies this contract to general and specialist tracks, including French and Japanese. A source translation, catalog tile, generated fixture, passing structural validator, or AI review is a **draft**. Record the status and evidence for each exact target/native pair and each track; do not inherit a passing result from Spanish or another pair.
+
+| Gate | Evidence required before calling a track complete |
+| --- | --- |
+| Source and identity | Pin the source revision and English/native objectives, terms, and Reader lines used as the reference. Verify every target/native pair, stable module and lesson IDs, all 10 Foundation + 30 Core + 20 Master lessons, and unchanged existing progress keys. A source discrepancy is recorded and corrected explicitly. |
+| Teaching content | Every lesson has contextual vocabulary, aligned Reader text, a speaking opening, cards, and **authored** See/Recall/Hear/Type/Say/Write activities. A mode label, generic word-ID loop, or fallback from another language does not count as an authored activity. Check the course's progression, script, pronunciation, register, and native support text. |
+| Vocabulary fidelity and dictionary | Teach clinical, construction, and other specialist terms directly and precisely in cards, Reader, speaking, and dictionary entries. Preserve the source term and its meaning without AI clinical judgment, hedging, or unsolicited learner-facing cautions. Resolve ambiguous headwords with contextual senses and verify the intended term/translation in each occurrence. Keep factual or domain-review notes in the internal ledger. |
+| Review | Record independent language/curriculum AI findings and corrections by exact scope, and record qualified language/domain review separately where required. AI review is never human approval. Keep `reviewed: false` wherever that field means human review until such approval actually occurs; unresolved material findings prevent a complete/released claim. |
+| Runtime and progress | Exercise the exact-pair catalog, all six modes, Reader, cards in both directions, dictionary, speaking, and account-scoped progress. Verify switching languages/modules, sign-in/relaunch, and offline text behavior where offered. Existing learner progress and published IDs must survive the update. |
+| Audio and devices | Match each recorded clip to approved exact text, locale, voice, duration, and hash; check listening quality and actual playback. Verify narrow-phone/browser and native iPhone/Watch behavior, including bundle identity and size. Do not mark recorded/offline audio ready from an inventory or synthesis job alone. |
+| Promotion | Run repository tests, exact-pair checks, build, and `npm run smoke:e2e` before merging a complete web track to `main`; verify the exact production commit. Put the validated independent V4 build in TestFlight for the owner's physical-device inspection and record the build ID. TestFlight availability is the start of that inspection, not its result. Keep web, V4, and any Android release evidence distinct. |
+
+The course ledger should show counts and pass/fail evidence for each gate, including unresolved dictionary senses, missing authored mode activities, audio clips awaiting listening, and device checks. Work through missing items without changing learner progress; promote each course as its own gates pass.
 
 For Japanese specifically, review kana/kanji progression, furigana policy, natural word segmentation, pitch/voice behavior, honorific/polite register, and translations with a qualified Japanese speaker. A text pack can work offline while AI conversation cannot; do not claim offline audio until a device test proves it.
 

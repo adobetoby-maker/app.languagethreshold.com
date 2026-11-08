@@ -21,7 +21,7 @@ class BreakfastAudioScopeTests(unittest.TestCase):
         self.assertEqual(saved["pairKey"], "Japanese:English")
         self.assertEqual(saved["locale"], "ja-JP")
         self.assertEqual(saved["voicesProposed"], list(builder.VOICES))
-        self.assertEqual(saved["counts"]["lessons"], 46)
+        self.assertEqual(saved["counts"]["lessons"], 60)
         self.assertEqual(saved["counts"]["projectedClips"], saved["counts"]["uniqueExactTexts"] * 2)
         for filename, _, _, _ in builder.SOURCES:
             source = (builder.CONTENT / filename).read_bytes()

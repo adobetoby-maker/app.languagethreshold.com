@@ -14,10 +14,15 @@
     "ja-JP-Chirp3-HD-Charon"
   ],
   "sourceSha256": {
-    "foundation-1-10-draft.json": "f1407f72421f76172021bc2735e909251d956572ef35356ee7f84f81cbfc8764",
-    "core-1-30-draft.json": "007e49dd72da7f62cc817b7e6645181908b7be7a570985b69f1284b53db92024",
-    "master-1-3-draft.json": "b86757eec1b75a59fb1a4dc22f8ff29681603c013681eefba2a883f640173fb8",
-    "master-4-6-draft.json": "73a2a020a5912976037cb1a4c29c578fea42af967e97797012d4a55347258715"
+    "foundation-1-10-draft.json": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+    "core-1-30-draft.json": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "master-1-3-draft.json": "84b7673fc72175428d48dbf211b41be75b7dac31320c7c82e708ab1c9803d224",
+    "master-4-6-draft.json": "62e2ec4a86b1639f04241a0312acd3a6e06cb430950ec379964856d6d6fd5004",
+    "master-7-9-draft.json": "2df980428024f9bf436cbdd49d7b52cdcab5d9b49c6b670ba2988bb544b07337",
+    "master-10-12-draft.json": "a8cc57c13ee9a3f37009e17b8495240a793ea9a308648f53705a067fe16d7f79",
+    "master-13-15-draft.json": "b96284b91ef41e4f8c73ad65e9c2ee6eb6d70734e3ee526cabf5b1ca1729ea84",
+    "master-16-18-draft.json": "a566248455c3ff2ef12188ce7b7b824e38a0f9e6a850415e7ae60104b0bab6c9",
+    "master-19-20-draft.json": "43665cf686c2fee88655e3904f7e07606519744aa70b833dcfd6799f5bcaa127"
   },
   "includedFields": [
     "cards[].ja",
@@ -28,8 +33,7 @@
   "excludedFields": [
     "English support",
     "mode instructions",
-    "unwritten AI replies",
-    "future Master 7–20"
+    "unwritten AI replies"
   ],
   "stageLessons": {
     "foundation-travel-breakfast": [
@@ -82,23 +86,37 @@
       "master-travel-breakfast:3:ja-en",
       "master-travel-breakfast:4:ja-en",
       "master-travel-breakfast:5:ja-en",
-      "master-travel-breakfast:6:ja-en"
+      "master-travel-breakfast:6:ja-en",
+      "master-travel-breakfast:7:ja-en",
+      "master-travel-breakfast:8:ja-en",
+      "master-travel-breakfast:9:ja-en",
+      "master-travel-breakfast:10:ja-en",
+      "master-travel-breakfast:11:ja-en",
+      "master-travel-breakfast:12:ja-en",
+      "master-travel-breakfast:13:ja-en",
+      "master-travel-breakfast:14:ja-en",
+      "master-travel-breakfast:15:ja-en",
+      "master-travel-breakfast:16:ja-en",
+      "master-travel-breakfast:17:ja-en",
+      "master-travel-breakfast:18:ja-en",
+      "master-travel-breakfast:19:ja-en",
+      "master-travel-breakfast:20:ja-en"
     ]
   },
   "counts": {
-    "lessons": 46,
+    "lessons": 60,
     "placementsByField": {
-      "cards": 609,
-      "reader": 430,
-      "speaking.opening": 46,
-      "speaking.wordBank": 261
+      "cards": 833,
+      "reader": 577,
+      "speaking.opening": 60,
+      "speaking.wordBank": 345
     },
-    "uniqueExactTexts": 928,
-    "projectedClips": 1856,
-    "unicodeCharactersPerVoice": 10188,
-    "projectedUnicodeCharactersBothVoices": 20376
+    "uniqueExactTexts": 1278,
+    "projectedClips": 2556,
+    "unicodeCharactersPerVoice": 15306,
+    "projectedUnicodeCharactersBothVoices": 30612
   },
-  "exactTextSha256": "a4c67f5492b2385edfe302261a74eddcfffa70614ddda585baf909d43568c146",
+  "exactTextSha256": "89f2783c8fbbb2fd0a6aa03d6fcfcd26f673054131f9c577d4421c645fa29f9c",
   "reviewGates": {
     "japaneseTextReviewed": false,
     "domainReviewed": false,
@@ -130,6 +148,16 @@
         {
           "stableLessonId": "travel-breakfast:26:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "『コーヒーをもう少しいただけますか』と言えます。",
+      "sha256": "555f4b9be89e89581bfb5af83bf2d9359501ef209b39dd7d3d26fd01f5b9009c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[3].ja"
         }
       ]
     },
@@ -198,6 +226,20 @@
       ]
     },
     {
+      "text": "あと何分",
+      "sha256": "8e64abe8473c26ed022eb1597111df660666251bf12ca979b8807ecdb2f52e63",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
       "text": "あと十二分",
       "sha256": "2d8cd92ad7685bf71541fb7e71090e2e4fc99399e7688008d78992f5532e8f97",
       "occurrences": [
@@ -252,6 +294,16 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "ありがとう。自分の予定と必要なことは私が決めます。",
+      "sha256": "5cc2b7bbdec1ee001471f70fce9e96ddafd5199ae4135a59192b4c4f4fa1c0fa",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -382,6 +434,16 @@
       ]
     },
     {
+      "text": "ありがとうございます。お気持ちを受け取ります。",
+      "sha256": "faa368d4d576f6860c786515342195bfae540428463e470c1405b9f2d2f7eb6b",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[11].ja"
+        }
+      ]
+    },
+    {
       "text": "ありがとうございます。お話できてよかったです。そろそろ失礼します。",
       "sha256": "ff18276a34185fb8c550a6dd39784035d519edf6cbab95742b1a970147f3dda4",
       "occurrences": [
@@ -398,6 +460,16 @@
         {
           "stableLessonId": "travel-breakfast:23:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "ありがとうございます。でも、アーモンドを取り除かないでください。",
+      "sha256": "a09b317e926dd8044e18798f122875983af0ef73019e4e2e694ab66322126764",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -422,12 +494,12 @@
       ]
     },
     {
-      "text": "ありがとうございます。まず冷やして、必要な助けを確認します。",
-      "sha256": "91a171f9083ff3a2349321272d3267c1c65373ec903df94e0ae8abf4de2e74d4",
+      "text": "ありがとうございます。まだ二人分の朝食代が残っています。",
+      "sha256": "b4ab06d6009ae3dad70e337dab39ed1287a76ddb83e507a8d95bc7cb194f8d0d",
       "occurrences": [
         {
-          "stableLessonId": "travel-breakfast:25:ja-en",
-          "field": "reader[8].ja"
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[5].ja"
         }
       ]
     },
@@ -472,6 +544,26 @@
       ]
     },
     {
+      "text": "ありがとうございます。不確かな時刻は推測せず、確認できた情報だけ記録します。",
+      "sha256": "e85efd0e6703a24f63ed9a4e02eb19276db2e9e98a3511b819f0bf6902ad1272",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "ありがとうございます。修正後の文をもう一度読ませてください。",
+      "sha256": "6f92d7fea39af9249c830419ea2800b1b8a659ae5804ecea88e332de07bbbb69",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "ありがとうございます。子ども用の椅子はありますか。",
       "sha256": "c572c17f259f41dea7e0923ec53565d4ae9508265ec429ba0da840948f750da4",
       "occurrences": [
@@ -488,6 +580,26 @@
         {
           "stableLessonId": "travel-breakfast:20:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "ありがとうございます。料金と部屋の条件も確認してから検討します。",
+      "sha256": "c6f9a3d0980802b26d8abff0fed205558dde598091d1a4383e76bad06c58ad96",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "ありがとうございます。正確な時間が分かったら教えてください。",
+      "sha256": "4cba0089ffd06a28db3d77efa54f2d31974e3375c2ebc9b541030b25791baf58",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[2].ja"
         }
       ]
     },
@@ -672,6 +784,16 @@
       ]
     },
     {
+      "text": "いくら残っていますか",
+      "sha256": "179e704ca99e7f1aa83d81c83861b01ac04cbd29f266c6d77c458b338300f082",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
       "text": "いただけますか",
       "sha256": "096a3a46382306e834df323f23fd04a8b94edb2dd7decfff80db7627204d2adc",
       "occurrences": [
@@ -706,6 +828,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:6:ja-en",
           "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "いつもの同行者には、くだけて話してもいいですか。",
+      "sha256": "b39465cef3942f1a87eb477488d5388d489a71d8d98495607a854ddcd2c1e85a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[9].ja"
         }
       ]
     },
@@ -864,16 +996,6 @@
         {
           "stableLessonId": "travel-breakfast:13:ja-en",
           "field": "cards[9].ja"
-        }
-      ]
-    },
-    {
-      "text": "おけがの具合が心配です。医療機関への連絡もお手伝いできます。",
-      "sha256": "2d2c5eca696e97bf15111d5dd072eb69668e5bcd734fbfe211ac6e5d3b795e8a",
-      "occurrences": [
-        {
-          "stableLessonId": "travel-breakfast:25:ja-en",
-          "field": "reader[7].ja"
         }
       ]
     },
@@ -1232,6 +1354,16 @@
       ]
     },
     {
+      "text": "おはようございます。朝食のセットを一つお願いします。",
+      "sha256": "0272f1fd549f6d00034783ee25fb69377b4a2d8d5154b32bd8aeb5c8bf441b14",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
       "text": "おはようございます。朝食はいくらですか。",
       "sha256": "fdbb6491529b6d3fd733eb57d22944ecf0e9e81680b2f892bdc7b6c8de1a8967",
       "occurrences": [
@@ -1268,6 +1400,26 @@
         {
           "stableLessonId": "travel-breakfast:1:ja-en",
           "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "お二人の意見を整理しましょう。まず集合時刻を確認します。",
+      "sha256": "975747e315bd87d6044a73471301cbd89fe647ef43e0049f955dee0f43200f13",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "お互いにそう話しているなら、『砂糖を取ってくれる？』でも自然です。",
+      "sha256": "f0bb8283137bfd3d15839b3df4143ea2b5d84eae4621b194137e1a5709627963",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[10].ja"
         }
       ]
     },
@@ -1366,6 +1518,16 @@
       ]
     },
     {
+      "text": "お気持ちはありがたいですが",
+      "sha256": "c0ac5b3a8ea74d5048d072297bba9ea57710ee5fb75e7fb70f16f337d99d5ea2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
       "text": "お水",
       "sha256": "a4fa4f282e3698d54faccc39291d728d5cc0ffe2fb10224087e81076b8b98cea",
       "occurrences": [
@@ -1420,6 +1582,16 @@
       ]
     },
     {
+      "text": "お詫びに、朝食代はいただきません。",
+      "sha256": "578ecd6d96ac1a65f9244e6f29cbe4e3131ed60b37e6b45fb2e6527450acc116",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
       "text": "お話できてよかったです",
       "sha256": "30b501fa73d4759838efc170f6da6a8d525ab4f4d23208a2082f52841dca68c6",
       "occurrences": [
@@ -1440,6 +1612,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:7:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "お電話ありがとうございます。五人の宿泊は可能でしょうか。",
+      "sha256": "67eadc2e32480d4c17cf00c66b0705f80c726650b4b989cfe2c634d7a1dfce64",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[7].ja"
         }
       ]
     },
@@ -1554,6 +1736,26 @@
       ]
     },
     {
+      "text": "くだけた",
+      "sha256": "20f8455758a9bdfd3daed9e29af3fde2644e886f77e18b728bdbd2798b95479b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "くだけた言い方",
+      "sha256": "8443258255d38571bbf1664f0263cbd31538372df6406c46ea5ec7e9ab2a9628",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
       "text": "ください",
       "sha256": "54065d292cb7d38e39a90c0b3f43399be1bdefbbdc3c86b9a86b0eae66e78027",
       "occurrences": [
@@ -1622,6 +1824,26 @@
       ]
     },
     {
+      "text": "こちらが修正版です。未確認の原因は書いていません。",
+      "sha256": "2acd44e759b9366af69fbbe55e6d999e59880a7fcde9512dc173129b5f3103a1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "こちらが内訳です。お支払いは現金かカードです。",
+      "sha256": "6819676da258317e3987aac472a7e204bdab57188d69e01d15a60d1c654657d0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
       "text": "こちらが小さいサイズで、あちらが大きいサイズです。",
       "sha256": "a3c63a5a0bd9abc197033159b411554dd8051a6b7c45ccd9512247658502970e",
       "occurrences": [
@@ -1642,6 +1864,16 @@
       ]
     },
     {
+      "text": "こちらこそ。新しいお店を応援しています。",
+      "sha256": "97eaa1be232ac0ca8e3e04b8f147ab8b435876137ea4265a1166417258ea0c39",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
       "text": "こちらでご案内します。",
       "sha256": "42fae434f6703628db07029ce0449376adcfef5704e60887660eb961364a27ab",
       "occurrences": [
@@ -1658,16 +1890,6 @@
         {
           "stableLessonId": "foundation-travel-breakfast:7:ja-en",
           "field": "reader[9].ja"
-        }
-      ]
-    },
-    {
-      "text": "こちらです。水道へご案内します。",
-      "sha256": "e3f865b20e1e920102770925097277d02526247e183613f3dc2339c473b5cc20",
-      "occurrences": [
-        {
-          "stableLessonId": "travel-breakfast:25:ja-en",
-          "field": "reader[4].ja"
         }
       ]
     },
@@ -1712,6 +1934,16 @@
       ]
     },
     {
+      "text": "こちらは包装されていますが、製造場所の情報も確認します。",
+      "sha256": "484d872f2d0767958ca1d46b7fe344a59305458abdca05b0f5864c21c8d34eb7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "こちらは季節限定のおすすめです。",
       "sha256": "85853c4edc24995a2f7d66cf7d5cc6675e8e544704b2994029b38afc40f1d514",
       "occurrences": [
@@ -1722,6 +1954,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:10:ja-en",
           "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "こちらへ",
+      "sha256": "a64c7220190b9f5278efdac2f14bd4b7fbbd540cc49c3fc60d65d6565f59acc1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },
@@ -1924,6 +2166,16 @@
         {
           "stableLessonId": "travel-breakfast:13:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "この菓子パンはいかがですか。アーモンドが上にのっています。",
+      "sha256": "2fc17c0649096b0a03d3bc0422313609e47b9333aee59d4380414652f7badfff",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[1].ja"
         }
       ]
     },
@@ -2148,6 +2400,26 @@
       ]
     },
     {
+      "text": "ご希望",
+      "sha256": "270a99170cd98b1bf185c473fe4190f09592467e5b3d417b95cd137235560966",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "ご意見を記録し、厨房の手順を確認します。",
+      "sha256": "d4685898f291ef4b547d04d8dbaa247fce46d478fecd0d06a92f75e0bb0c8565",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "ご案内が遅れてしまい、申し訳ありません。",
       "sha256": "9fb10cef8b751585ecbc59525bc1cabd9888b51dc22ae1c49236eb1f09bc7066",
       "occurrences": [
@@ -2224,6 +2496,16 @@
         {
           "stableLessonId": "master-travel-breakfast:5:ja-en",
           "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "ご連絡ありがとうございます。部屋と寝具を確認して返信します。",
+      "sha256": "73dc1e0daf1f04991ddb4f86730a336613ed925d52118a04e63685c7b75fd800",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[3].ja"
         }
       ]
     },
@@ -2306,6 +2588,16 @@
       ]
     },
     {
+      "text": "じんましん",
+      "sha256": "5b0860f6544338cf98b57bc795ef89d14029cb2da39ba3fd24dfc4c963ed2c42",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
       "text": "すぐ",
       "sha256": "d05c91f864ef6c93868fd9e6d008c0a2222c1e33abf0c014584eac91aea98800",
       "occurrences": [
@@ -2346,6 +2638,16 @@
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "すぐに現地の救急サービスに通報しました。正確な時刻は記録を確認します。",
+      "sha256": "ddf91316f5af96280208da52cf9b1b326f3c28374a7d38fd583028370a573cd1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[6].ja"
         }
       ]
     },
@@ -2472,6 +2774,16 @@
       ]
     },
     {
+      "text": "すみません。コーヒーをもう少しいただけますか。",
+      "sha256": "69465cc18333a807dfcfea34991c6a5169cfe614f5aca353eb2c09f0f01c6f6b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
       "text": "すみません。ツアーまであと十二分です。",
       "sha256": "23568761e04e6d7d3987a16371a4845e08106030a892b4e66a2683dee6df4e0b",
       "occurrences": [
@@ -2532,6 +2844,16 @@
       ]
     },
     {
+      "text": "すみません。表示と原材料が違うようです。食べる前に確認できますか。",
+      "sha256": "dd7d62797b40be8faedd8bdb62a8fbd9d94df5922fd95a27a464c4ff9f158cdf",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
       "text": "すみません。電車の時間が近いです。",
       "sha256": "d41721c3b655c718d972314dedc64639e783f8a54dc8f884ee110cf21eb2d8c2",
       "occurrences": [
@@ -2548,6 +2870,16 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "ぜひ教えてください。",
+      "sha256": "da94918d76f50ba41dc8ae63805f75b6fa3cd5454ee1cabbb4e08ac139d43ced",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[3].ja"
         }
       ]
     },
@@ -2602,6 +2934,60 @@
       ]
     },
     {
+      "text": "その後",
+      "sha256": "05dcd44d3b36121ccd3b85009a5bd976709ec23ba52e9dd58db464674f8cabd4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "その後、腕にじんましんが出て、唇が腫れ、息苦しいと話しました。",
+      "sha256": "42034ad6206e1830add4d04e0c3b8755842eb753c180427aa0e99aeec852ad5d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "その条件なら賛成です。出発前にもう一度時刻を確認しましょう。",
+      "sha256": "9ddbc85560a24cb6e1f8f571717cf8162999475e8bfbececec6da3e6d1d016c8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "その聞き方なら大丈夫です。私の病名は書かないでください。",
+      "sha256": "d70f777f2e3b23580d76de185dd325f8911c0b61438c4f191f27986b2267d34d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "それから、レジからはメニュー板の値段が読みにくかったです。",
+      "sha256": "0e1f78a5f3ef1debe4f111da17bb555da02b9222252cba1e1b9807fc2df53f7b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "それが難しければ、朝食分の料金調整は可能ですか。",
       "sha256": "27c34821df4f238c0cbb5167a4c76c0556c3ca812c69bc7827d1d3328c666855",
       "occurrences": [
@@ -2618,6 +3004,16 @@
         {
           "stableLessonId": "travel-breakfast:8:ja-en",
           "field": "cards[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "それは本人から聞いたことですね。ほかに見たことはありますか。",
+      "sha256": "faa4b0497d5d0e2c73262f1dcf7489c73145cb0efe5ac8189d3baba660be3dee",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -2770,6 +3166,16 @@
       ]
     },
     {
+      "text": "では、先に荷物を用意して、全員の体調を聞きましょう。",
+      "sha256": "0f5097813bda7eef0874623dcd6b78d1fe9b526ac0f47fa10b425128b72df8e1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "では、小さいブレンドを温かいものでお願いします。",
       "sha256": "ac3d6b82c675d95388b0861f65003fc1715553e31bf4d4d7b1e040ae31854495",
       "occurrences": [
@@ -2786,6 +3192,16 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "では、見ていないことを断定する記載は削除します。",
+      "sha256": "3b316931048a3ad913c4f5e81536fd6b7f6f99d91265e1cdd62eb69b800b495a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[7].ja"
         }
       ]
     },
@@ -2880,6 +3296,16 @@
       ]
     },
     {
+      "text": "どんなふうに頼めばいいですか。",
+      "sha256": "c7aff76669c8336d7f09970006dd0fafc5ff5abad954c9afb673b531d744dab1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
       "text": "どんなコーヒーがありますか",
       "sha256": "1fa5a8bf975178ee693ce800fb5b88b261bfc3ef27eabbb4bddaab1285ae071b",
       "occurrences": [
@@ -2914,6 +3340,24 @@
       ]
     },
     {
+      "text": "ぬるい",
+      "sha256": "8ec22e34b3eab770c50ac69f4316cbb23a1ef92c7c8aaf31d98bca08bc0a7240",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:3:ja-en",
+          "field": "cards[18].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "ので",
       "sha256": "f17bfc45f716299f8c1565b6d3651237bd1faf9f60dde14f7fc19db59036218c",
       "occurrences": [
@@ -2924,6 +3368,16 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "のどのかゆみ",
+      "sha256": "c71fdff37284bce3959b66a578cdc569ef20b4ceda553f2990296bf5ac481e65",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[15].ja"
         }
       ]
     },
@@ -3142,6 +3596,16 @@
       ]
     },
     {
+      "text": "はい、五人分の寝具を用意できます。鍵の受け取りは到着前に説明します。",
+      "sha256": "ea465c2ec7696e1b186c803e3fba176d09b9b973c72530e79b5465cdd3a0a0e2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "はい、今は空いています。",
       "sha256": "4ca1271388035b182c2ef1aa54ecaebf13ddd49498dc93fe79ccffdba32b5fe4",
       "occurrences": [
@@ -3168,6 +3632,16 @@
         {
           "stableLessonId": "travel-breakfast:18:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "はい、冷たい水をお持ちします。",
+      "sha256": "c8a46ce907da77fec43d2ae631690d29d86bf46bb07a387edf5b033a694ec49b",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -3356,6 +3830,16 @@
       ]
     },
     {
+      "text": "はい。コーヒーを九杯と朝食を七人分記録しています。",
+      "sha256": "1a302d48f663c945f763d42717c12ac65207fc116be80383c59c3dc9f2ac2e9a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
       "text": "はい。セットには含まれていません。",
       "sha256": "a52a76301d41fae6bcde54457e1893807ad7fb5f7cf0d72f4c3667205d3da767",
       "occurrences": [
@@ -3396,6 +3880,16 @@
       ]
     },
     {
+      "text": "はい。人数と中身を確認しておきます。",
+      "sha256": "ecdea05bbd05cd801ffaa29ae9eb3c85d31e3c07e57eb4f72729839a753a6ce7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "はい。今日は空いています。追加注文のときはレジにお越しください。",
       "sha256": "a6eeeb1e362b1ab6cc1fe62f894c137d42d38f242d2c94f835f130d25c4da223",
       "occurrences": [
@@ -3422,6 +3916,16 @@
         {
           "stableLessonId": "travel-breakfast:28:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "はい。分からない点は分からないとお伝えします。",
+      "sha256": "1b3119d9ddfd3f81fcaf15d628ebd3ce38fe38034bfa935bf842d71d152bf77f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[7].ja"
         }
       ]
     },
@@ -3544,6 +4048,28 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "speaking.wordBank[1]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[4]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "まず、ゆっくりあいさつして、食べたい物を伝えてみて。",
+      "sha256": "20831ed0da6e42405ff3522c2acf989888afcea58b0e247e504340540f27a171",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[1].ja"
         }
       ]
     },
@@ -3558,12 +4084,32 @@
       ]
     },
     {
+      "text": "まず、対応してくれた係員へのお礼を書きます。",
+      "sha256": "0bae78c3ef6ee84763d876e31770d41f238ec0f235d99d46b78d88f083049813",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
       "text": "まず、店員さんにあいさつしてみてください。",
       "sha256": "b17c1a73fcac6d0783c982538ccb0e9bffc4d2524adf9e7016e5584996dd849f",
       "occurrences": [
         {
           "stableLessonId": "master-travel-breakfast:3:ja-en",
           "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "まずは『砂糖を取っていただけますか』と丁寧に聞けます。",
+      "sha256": "184b95124ed7cc4ded5e94dabe44eb41a129195af9d2e0b6abd84f3effd0a3bb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -3584,6 +4130,26 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "まず注文を確認します。その後、アレルゲンの情報について質問したいです。",
+      "sha256": "3f0215f9838154bfb38ffa21c445eb9110781e79252adeb0930a8886fa9e05ac",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "また、人数が三人から五人に変わりました。受け入れ可能か確認できますか。",
+      "sha256": "b2ebaa96dc9ea7bbad9ced29696125514238542a9a63aa8d899b0fd165418bd0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[2].ja"
         }
       ]
     },
@@ -3628,6 +4194,16 @@
       ]
     },
     {
+      "text": "まだ残っています",
+      "sha256": "f13903d265057ed99e905d27b6ada8f3b4c96799097860118e60d9ec500a21e9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
       "text": "まだ決めていません",
       "sha256": "802e807da430914e0d80da521d41a1e16119bf4ef11152f0b39ded5b63e356d1",
       "occurrences": [
@@ -3644,6 +4220,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:8:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "めまい",
+      "sha256": "41fdcdf25b7cce691af69847168c924cc43ada151dc258fb648bc6e715ced71b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[19].ja"
         }
       ]
     },
@@ -3714,6 +4300,26 @@
       ]
     },
     {
+      "text": "もう少しで",
+      "sha256": "08d96ee136b2b9ec6179f0469a181432d6672f91f5fc8a056c03c5c81f9e6e02",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "もちろんです。私のことは名前で呼んでください。",
+      "sha256": "be06db092bb90332d2ead739ad933eea78bda4c997bd45a937e6208670c64b85",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
       "text": "ゆっくり",
       "sha256": "da12b4a6e0d926ff229e1aee7db16289dcd27020bcac173d93b1a9918fde8441",
       "occurrences": [
@@ -3738,6 +4344,20 @@
         {
           "stableLessonId": "travel-breakfast:11:ja-en",
           "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "よかった点",
+      "sha256": "dcf8300835d4da3ee13e3279da2b79a625416845f71a7679e343c5143b945d7f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[4].ja"
         }
       ]
     },
@@ -3894,6 +4514,40 @@
       ]
     },
     {
+      "text": "アドレナリン自己注射器",
+      "sha256": "cd48c6fb39c779d4fff219412589e800251b2e7e95eb1e0aee004e41c1e46e52",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:4:ja-en",
+          "field": "cards[16].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "アドレナリン自己注射器がかばんにあることも確認しました。",
+      "sha256": "7740ad6cab2939b0e3e3af98e1a356d52ab422b5352803b93e3d9b2bbb3ddccf",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:4:ja-en",
+          "field": "reader[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "アナフィラキシー",
+      "sha256": "d80af7b6f14ba99b3fb1f482a15736798b60eb7f9ff7c4d9065f4654b1a4e088",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[15].ja"
+        }
+      ]
+    },
+    {
       "text": "アメリカン",
       "sha256": "025105fccb975c247b8ecb113043ef90fdc9579a240cca8803e2601c1f7d0a91",
       "occurrences": [
@@ -3926,6 +4580,36 @@
         {
           "stableLessonId": "travel-breakfast:30:ja-en",
           "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "アレルギー反応",
+      "sha256": "93f3af31f214f898e8c27b58f8a436d09089078ef8523961de89a851ae32385e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:4:ja-en",
+          "field": "cards[15].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[20].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[15].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[16].ja"
         }
       ]
     },
@@ -3944,6 +4628,40 @@
       ]
     },
     {
+      "text": "アレルゲン記録",
+      "sha256": "2a0eb7170901b25f36ba6a18161a6a97a75a612f16b4932227e8b9254c2dbb00",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
+      "text": "アレルゲン資料",
+      "sha256": "40d2d95447c0f3c86bfb6226a595eda068f9eed6476e12fa83af1aa4f122b3f1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "アーモンド",
+      "sha256": "195091c51f033b934960268fed7c9285906f4ebc74a6d020373dd286e04b3468",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[2].ja"
+        }
+      ]
+    },
+    {
       "text": "アーモンドミルク",
       "sha256": "ae1ea11593df9601d8a4d2c9bf373016bb455a59acf6152d5f0265609310c1a8",
       "occurrences": [
@@ -3954,6 +4672,26 @@
         {
           "stableLessonId": "master-travel-breakfast:6:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "エレベーター",
+      "sha256": "b47390ac87c3cce6c4c29512611461a995ca42f5e60665f5d04f9fdf444764a4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "エレベーターは使わず、案内された階段へ進んでください。",
+      "sha256": "c19dee20543e5caddfd5926e36354a5b3fae4c958b5607089301be53c58a0611",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[3].ja"
         }
       ]
     },
@@ -4312,6 +5050,54 @@
       ]
     },
     {
+      "text": "グルテンフリー表示",
+      "sha256": "230f1c91899e1b4470e6100779fa6840f4dfed8ee2a4dbc0d94f32c7c22cfaa3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[1]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "ケーキはおいしかったです。飲み物とメニューについて、少し感想をお伝えしてもいいですか。",
+      "sha256": "dac867dc7f5bc9161379a20a87041dbc2bfde3519c2c5aa4e8f8cd5e24d09a40",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "ケーキはおいしかったです。飲み物とメニューについて二つ提案があります。",
+      "sha256": "ef592b8d86a393c06ccf36d7ae927f2230a61872193503aef85443874adf579a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "コカ茶",
+      "sha256": "57056223ad0b52334ae9344eb3208e83ae112e9c8d04dc6bd3d0bb82fd72d3d9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
       "text": "コンセント",
       "sha256": "bb5d32d13e417fce147c7533b843e5b47e48bc953913971396a9aee47387f82b",
       "occurrences": [
@@ -4544,6 +5330,16 @@
       ]
     },
     {
+      "text": "コーヒーポット",
+      "sha256": "4706116d49cea6089de31349078450983403f37a2dff5fc8b35f06eb9f2c911d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
       "text": "サイズ",
       "sha256": "4c14fd476de3b66d18d2e79072e1a5979f4fd0c97d02e1814f8e1780e69f4918",
       "occurrences": [
@@ -4686,6 +5482,36 @@
         {
           "stableLessonId": "travel-breakfast:4:ja-en",
           "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "セリアック病",
+      "sha256": "4207d7c48c70504905450ca0da1fc77177b23b470b22742463b5aa0c0a29fe0f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[15].ja"
+        }
+      ]
+    },
+    {
+      "text": "セリアック病があり、もう少しで食べるところでした。先に原材料を見てよかったです。",
+      "sha256": "6fd64ebc73b5dcd90f85c41b454c7ff056a9cbf6976039837ee511509e215bba",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "チェックアウト",
+      "sha256": "915cbd4849b5497aacb8a8d2a501f44316237b97c573357ccbde9a43de2a287e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[2].ja"
         }
       ]
     },
@@ -4848,12 +5674,32 @@
       ]
     },
     {
+      "text": "トレー",
+      "sha256": "974d404a7478ff74906bfd2bebf922f13d03bf5dfef37447ba06b919495ec339",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
       "text": "トング",
       "sha256": "e540b005fb0eaa8326829564b98c989102914b007e065f2b2254e736e28615e5",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:18:ja-en",
           "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "トンネル",
+      "sha256": "880557be6ef571b328b00679c4e964df995b6c68ffe54a91d32160bc25f44ef8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[9].ja"
         }
       ]
     },
@@ -5018,6 +5864,10 @@
         {
           "stableLessonId": "travel-breakfast:9:ja-en",
           "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "cards[19].ja"
         }
       ]
     },
@@ -5028,6 +5878,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:4:ja-en",
           "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "ナプキンをもう少しいただけますか。",
+      "sha256": "2c713d23483946a2e93bb5dc5f7fe4836ee9fc6d8c6fa9beb984e566daf99358",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -5134,6 +5994,16 @@
       ]
     },
     {
+      "text": "パンが焼けました。熱いので、受け取るときは気をつけてください。",
+      "sha256": "6727767a8e8c3a60d2a1bef60cd10d526e645fbaf94d6d55bf7c4c4415810173",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
       "text": "パンの種類",
       "sha256": "e8b31ff8a189a6ae8ea2494bc519ff98bf1c2842bded87a07918dad990d6c3d7",
       "occurrences": [
@@ -5144,12 +6014,32 @@
       ]
     },
     {
+      "text": "パンはあと何分ぐらいかかりますか。待つ間に準備を分担しましょう。",
+      "sha256": "cd66fa295ce54f561e91ddf33bfed232bfe2871b5341a416103af97724692de9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
       "text": "パンはどうやって選びますか。",
       "sha256": "6a215767159a9c3258deef18da85a623a34d219e26208d82c06906a3e3de051a",
       "occurrences": [
         {
           "stableLessonId": "master-travel-breakfast:2:ja-en",
           "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "パンはまだ焼いています。あと十五分ほどかかる予定です。",
+      "sha256": "6a46532ea68f39833f0bee233f1a30733054fcfb0283735c6e49078382df813b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[1].ja"
         }
       ]
     },
@@ -5206,6 +6096,16 @@
       ]
     },
     {
+      "text": "ヒヤリハット",
+      "sha256": "88981a3a501604924bf4a4b1435fc75b92a601768c936f2875089031dfbe5122",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
       "text": "ビュッフェ",
       "sha256": "2ef05ba2c5c22a090b872fcd9a667d0f8dd6f3b6291ac4fd6699da4968f98902",
       "occurrences": [
@@ -5236,6 +6136,10 @@
         {
           "stableLessonId": "travel-breakfast:6:ja-en",
           "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[8].ja"
         }
       ]
     },
@@ -5314,6 +6218,16 @@
         {
           "stableLessonId": "travel-breakfast:10:ja-en",
           "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "ヘッドライト",
+      "sha256": "8192db30a493a051b469ae04ddd16a283973d7c9db70b0843d6701783d5b088b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[5].ja"
         }
       ]
     },
@@ -5424,6 +6338,26 @@
       ]
     },
     {
+      "text": "ホテルへのメールに、どの情報を書いてよいか先に確認したいです。",
+      "sha256": "971afd5d3423ab8b1f17264dd0dd2cc52b92701f3a10ba5dc0120103e25ba53f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "ホテルへのメールの下書きを読みます。健康情報はどこまで書いてもいいですか。",
+      "sha256": "5e8d9494e283cdb61fc5bf17bf981e99990dc8729f2224f97e8fe8f0ca78459c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "ミルク",
       "sha256": "ce5d99e2011980e1c872e6bbcb3c98a12957cd3929cbaad5085bb123326c698d",
       "occurrences": [
@@ -5510,6 +6444,20 @@
         {
           "stableLessonId": "foundation-travel-breakfast:1:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "メニュー板",
+      "sha256": "0916ddc628bd27be60eae29de21c93d8c705412cf935e93b21e9a2e45cfcb72e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[3]"
         }
       ]
     },
@@ -5668,6 +6616,40 @@
       ]
     },
     {
+      "text": "一方で",
+      "sha256": "77adb928c4767633298fed327233a18654acddfd63a5af9db02000e23f14d3a8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[12].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "一方で、ルカさんは送迎車に遅れるのを心配しています。",
+      "sha256": "267e592a6294acc856ca4221e48a36f2568125a19111a822dfe7bff9da42468e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "一方で、食品の情報について確認したい点があります。",
+      "sha256": "03fa13bf99ba348f78aced2c73094a310a915662dae30e3e32861110bda9d96f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "一杯",
       "sha256": "aff352b1a6e1d3ab045a0e9ab07fa8bce5999273584ff4c6478d1c01673a04b9",
       "occurrences": [
@@ -5688,6 +6670,26 @@
       ]
     },
     {
+      "text": "丁寧",
+      "sha256": "f938db4473756330e064a2616f4d3f7eea1effb5106dfc80f2e56773335ecce3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "丁寧な言い方",
+      "sha256": "4cffe5335b2c52f4e53e7f5afcba87a70177083e00d7cf62ebd8777bbb4f1d01",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
       "text": "三つ",
       "sha256": "0b993ba83fd2043808fe83f0f432ae5c0513e387287444b9a95caf9aefc946d5",
       "occurrences": [
@@ -5698,6 +6700,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:2:ja-en",
           "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "三人から五人に",
+      "sha256": "d319de36b50ec1fe9cccfe67150c39a23ac3ffe5f4d70199b46e8a7ae4098c1b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[13].ja"
         }
       ]
     },
@@ -5732,6 +6744,30 @@
         {
           "stableLessonId": "master-travel-breakfast:4:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "上のアーモンドを取り除きましょうか。",
+      "sha256": "4eb8141efb06ec0efd151023f90b667d0329f489c094759597d6770b7d65332e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "上着",
+      "sha256": "90c2f28eb1d34796c6c2148e420f44504b63f7149ca094dd70fb4d82808dcfc9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[5]"
         }
       ]
     },
@@ -5882,6 +6918,16 @@
       ]
     },
     {
+      "text": "予約前にお問い合わせください。確認できた内容をお伝えします。",
+      "sha256": "6b6971a37e7278eeb378b9970bcf0cecd7a0417ff5cfde4bba5bb0861d758659",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "予約確認メール",
       "sha256": "6efab4de7f699d7475e0c65f1044c9943d67f2281aafda8d19737710ae1c3243",
       "occurrences": [
@@ -5930,12 +6976,42 @@
       ]
     },
     {
+      "text": "事故報告書",
+      "sha256": "309b04692a48eaed285356cfee2431f9cc9a1b9fb98ad2d94eda5af682ea5220",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "事故報告書のために、見たことを時系列で教えてください。",
+      "sha256": "2e5d83f5746bef57da677bb8ad2bf9edf51a6f192bc6e34b15cdea09a0890b5b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "二つ目の信号を右に曲がると、角にあります。",
       "sha256": "fff8cdd436c8da6a6c47769a774b7993e2ba3cec30cf69f0d911dfe2c2d6d47f",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:23:ja-en",
           "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "二つ目の欄の時刻に誤記があります。八時半ではなく、八時十分ごろです。",
+      "sha256": "3f13a9fd126925e447c15401753e05cf387f1c76582355e5d4ecd12cc7c78f3e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[2].ja"
         }
       ]
     },
@@ -5978,6 +7054,26 @@
       ]
     },
     {
+      "text": "五〇四号室です。指定の集合場所で待っています。",
+      "sha256": "0f9a590a363feb235abcf07624830977388d4b2533395482618a4bc45987a123",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "五人",
+      "sha256": "d584a00dbd219264cee9f1f7eecd109c76261bbacb42d5c3d05f2b6d1a7033f2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
       "text": "五分くらいですが、混み具合で変わります。",
       "sha256": "f31241392fd8d4fbb5aa9373e6e8666a9bc75ef0ff57eb1dcbd380867317d2ab",
       "occurrences": [
@@ -5994,6 +7090,20 @@
         {
           "stableLessonId": "travel-breakfast:7:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "人数変更",
+      "sha256": "32fa6d9f4ef2382095687272a56e8b5409e3990274681e92162e10eb389c4cea",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[3]"
         }
       ]
     },
@@ -6028,12 +7138,32 @@
       ]
     },
     {
+      "text": "今はトンネルで電波が切れそうです。出たら折り返します。",
+      "sha256": "ac5ef760c179cbace405887e34d285b126a9f9525addb8c4dea508582aa8c4ae",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "今は空いていますが、昼には混むことがあります。",
       "sha256": "304c05729b7636e7783e6b7f759eed9ef9f97635f818f836a82d2ce5f93472e9",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:26:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "今日のカフェオレは、私には少しぬるく感じました。",
+      "sha256": "37f75e2057d18e0f8f6b61165e8b5a1a1d46cdb268f584aa26fc865a8bc44505",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -6234,6 +7364,26 @@
       ]
     },
     {
+      "text": "代わりの料理",
+      "sha256": "cb7a83a5bf388039cde766405262ab74759811e939afb842f0b10af1db0ceab5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "代わりの料理の原材料と調理方法を確認していただけますか。",
+      "sha256": "0d27c3c936e4bcc2043ea28bfe8e0fe4fa3183e0111a2e01bc20bbf04f92e8fe",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
       "text": "代案",
       "sha256": "2186680d11dfc0e79ae223b6864c33b35feaa1b381f55170902b72918558bf94",
       "occurrences": [
@@ -6244,6 +7394,40 @@
         {
           "stableLessonId": "master-travel-breakfast:5:ja-en",
           "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "以前、木の実でアナフィラキシーを起こしたことがあります。",
+      "sha256": "7ff3dc4b8608d7b4736d20006969b804485c5c515304654545b6f50242a559ee",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "件名",
+      "sha256": "31823180e7978523485c9f841beee5da0ec6636ac28447fe5b29779b547ec4a1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "件名は『朝食時の出来事について』にします。",
+      "sha256": "9a94386cb37b5740b4c97b5ddae99095cfb59ed17a9cdd76937b3a8382e2cd7e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -6276,6 +7460,18 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "cards[8].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },
@@ -6326,6 +7522,38 @@
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
           "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "体調",
+      "sha256": "656b70adf9021a2ce26a14a420cfe1d8f475bf3f27bdf076d3a77c87fc13902b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[7].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "体調がよくない人がいたら、無理をしないほうがいいですね。",
+      "sha256": "05646e4289072fc5ec42d648f8fb19685d46e9cd314f389f6eb89a785c911237",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[7].ja"
         }
       ]
     },
@@ -6398,6 +7626,16 @@
         {
           "stableLessonId": "foundation-travel-breakfast:7:ja-en",
           "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "何も食べません",
+      "sha256": "ac4ca3a5fabecb5849df49c5e9badae470129b4ad6c8fefd7731e2eedbb6fafa",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[14].ja"
         }
       ]
     },
@@ -6476,6 +7714,20 @@
       ]
     },
     {
+      "text": "何時ごろ",
+      "sha256": "ff41733fbd150821f4332dbd6aef91eac11fa2643cf92955d80ebad1834e8bfa",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "何時にお出かけですか。",
       "sha256": "a8a76e09e754264aec1f13901728d0dece073bbccb36c8d0d4c32ed699f240df",
       "occurrences": [
@@ -6516,6 +7768,30 @@
       ]
     },
     {
+      "text": "供述書",
+      "sha256": "af87f546a17b68c5a6cf9c0e9512d1dad9597f436cd6a7c8ab39f5ecc8722378",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "係員",
+      "sha256": "94c617250b913b29f22de636421579536014dd83e453b9ad46bbeddac32ef453",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[8].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
       "text": "保管",
       "sha256": "ab80791567a407da8e20b3d554d424660b6eee1557c3a19c72f039b46266458d",
       "occurrences": [
@@ -6540,6 +7816,46 @@
       ]
     },
     {
+      "text": "修正",
+      "sha256": "a05e98af3a821b31b5e8b5762f98e93fba0e1c9c54fd840ad7acafb3ead7540b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "修正する",
+      "sha256": "0720dad09eb707c40eb8e547762d4783f59770e45d89bc8cb8ce19dacd2e6038",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "修正版をもう一度見せてください。確認してから送ってください。",
+      "sha256": "88e25125b45123bedbadeaa7e4d5b81da7a1815321b329999f76fd5ff2480c87",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "個人情報",
+      "sha256": "0ec15c6313103c084fe11784535b2787e9d76f74ef1de856c10a97397b603988",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
       "text": "倒れました",
       "sha256": "55452e6510b15dd40aaae902a5efa52ee9382b80a687186035e8755f8e0c0cdb",
       "occurrences": [
@@ -6560,6 +7876,14 @@
         {
           "stableLessonId": "master-travel-breakfast:3:ja-en",
           "field": "speaking.wordBank[3]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[4]"
         }
       ]
     },
@@ -6580,6 +7904,20 @@
         {
           "stableLessonId": "master-travel-breakfast:3:ja-en",
           "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "健康情報",
+      "sha256": "eb1c348609b651167898c003eb1f19815f9fa96692e8094fbe5a7f3d0c9e29ce",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[3]"
         }
       ]
     },
@@ -6722,6 +8060,40 @@
       ]
     },
     {
+      "text": "全体として",
+      "sha256": "1f1303dcf0f5a733561e3c2e4c222c4a1d352a4da51708e64591a5d51c3d784c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[13].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "全体として満足しました。特に季節の果物がよかったです。",
+      "sha256": "da9d2f58fa8c6c18a97faad125d9250a6dca7431d59da7bf5e44792b19b733bd",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "全員の体調と準備を確認してから、出発時刻を決めましょう。",
+      "sha256": "1276d7167d0a0e882f2772585dcd388a75193ef70d31ae63dcb1d551fb9a551f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
       "text": "全部でいくらですか。",
       "sha256": "40a4defa8e70b7a3acb5b0c7a9ca9765ee65349e0df51b23c380f7246ab0c769",
       "occurrences": [
@@ -6738,6 +8110,26 @@
         {
           "stableLessonId": "master-travel-breakfast:5:ja-en",
           "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "八時十分ごろ",
+      "sha256": "44a6bc0714f93b7db0b723133b62dfa65d9ccf25d26090c62f418b44ff80bf85",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "八時十分ごろ、友人が朝食のケーキを一切れ食べました。",
+      "sha256": "c88bd3dc1272b70219afcfe4b4e223a73fb7239afcf28003efa6ec7065e22066",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[2].ja"
         }
       ]
     },
@@ -6762,6 +8154,16 @@
       ]
     },
     {
+      "text": "六時に開きますが、混み具合は分かりません。",
+      "sha256": "0e799fe7dbe7951404b9a5aebfd56f8a0509d3dedf5aeef50fa48f3e20b39c0f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "六時半から十時までです。",
       "sha256": "8f6f7348bce7341a570b2c1528ff48d99e8ec970cfb9effc248b3deac290589f",
       "occurrences": [
@@ -6782,6 +8184,36 @@
         {
           "stableLessonId": "travel-breakfast:18:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "共用のバターの容器も、混入が心配で使えませんでした。",
+      "sha256": "b154b5cc4101f328cc2c755fd2a2e8685b9d60022a5a15928f320c10ea53b203",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "共用の器具",
+      "sha256": "fed85f8201c49a45d79a19451c210cd94b68653f859563a918558b5b36167b28",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "共用の容器",
+      "sha256": "8239bb31e48ef086e71c6fdec930ea64176b2de201f90ad7f0ef497a8ba37b67",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[9].ja"
         }
       ]
     },
@@ -6820,6 +8252,36 @@
       ]
     },
     {
+      "text": "具体的な感想をありがとうございました。",
+      "sha256": "fb0629a7e6a38d05e5bc4378be6f6934b31eca23172a8779da9c315e0d5a7e1f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "具体的な提案をありがとうございます。",
+      "sha256": "43b6cd55d559b315cb13dc6a28dc1c8d91e678d728b5525b217e9cc254c07690",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "内訳を確認しました。カードで残りを支払い、領収書を受け取ります。",
+      "sha256": "a8f98638103880b2634f2f1e94b118847b6cd0ddfac45f6dd68d36804fe126a9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
       "text": "円",
       "sha256": "08002c6675f7436cb3d3f94de4e300a9c18e134a8ace3375e4c1d628578753c9",
       "occurrences": [
@@ -6834,12 +8296,60 @@
       ]
     },
     {
+      "text": "再確認",
+      "sha256": "fff83a1f8c0c9f03ca9cae35ee7f4e8018acc788b7a65000dac835b5d02210a4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "写し",
+      "sha256": "a661342ffb60a0965a9dedea6a549437f833fe00e7a40ec5936c4fe0fc7fc1f6",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[7].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
       "text": "冷たい",
       "sha256": "391c95870cee25f6c638043056234ef25c48e6afdf66fdb2c216528af4205cd8",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:2:ja-en",
           "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "冷たい水",
+      "sha256": "bb532476534639e148390e370384917be3e9f22eb12c6b1b4373523ef225fa2c",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "cards[18].ja"
+        }
+      ]
+    },
+    {
+      "text": "冷たい水をいただけますか。",
+      "sha256": "38b836c5fddabf2ef56342213bf8b25b08aa1de999637d564f98417cf6cd4523",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[3].ja"
         }
       ]
     },
@@ -6874,6 +8384,86 @@
       ]
     },
     {
+      "text": "出発予定",
+      "sha256": "ca5b39e3619e92a1ea8a07a9218f13ff5f320fff33acf626414752da98727cbd",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "出発前に、注文票と未払いの金額を確認できますか。",
+      "sha256": "cbf07846f27b95012f2b1575d637e087c58c55cda189312d99a72001381e6eab",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "出発前に上着とヘッドライトも確認しましょう。",
+      "sha256": "3e0b9d04f8a999067164132a0f6243dad8c910b9fe086d1252df8c0f78847d0f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "出発時刻",
+      "sha256": "1b29a8435ac90111ee9ffc592bd22d75c9af40423ed646a838d8c5060502f6da",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "分かりました。医療書類も添付しません。",
+      "sha256": "6fde18b410c9923fa096109225cf1e5666146cc6dfaeb43b39959b95d2391f6b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "分かりました。店の手順を見直してみます。",
+      "sha256": "a67e6bd0da2b1f5d60faf7924cb476f9c7fceb4d6b20937e70e22cf955923847",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "分かりました。確認できた情報だけをお伝えします。",
+      "sha256": "cc70cd0bf37c4266fc3bda86692ce70b1232e28f8c73b58cb1b125e33cb3d1df",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "分かりました。確認できないので、本人は今は注文を見送ります。",
+      "sha256": "c08d5f705f61f2ab8856a521c3378c07f74375da5a195d2930d426bda9008149",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "分かりました。確認できない食品は選びません。",
       "sha256": "6fd072a38f170ea306c2a095c9a90bc2327f34a7a4aa06df271134c7ffed2588",
       "occurrences": [
@@ -6884,12 +8474,52 @@
       ]
     },
     {
+      "text": "分かりました。避難計画に沿って対応します。",
+      "sha256": "cd1396dabf0e754f405a75c65b7c0224412babcfb5a536cdbe95c612d7f6c642",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
       "text": "列",
       "sha256": "c06d21404eee51cbe93750787309fd04d2a3dc2da755d3d62851e716668c3ac8",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:1:ja-en",
           "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "初めて会う人には、まず丁寧にお願いしましょう。",
+      "sha256": "04651b13b574217059741bf52f8c4f591013838881424599a30bfe0aaf3c0887",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "初めて会う宿の方には、まず丁寧に話しましょう。",
+      "sha256": "1074437e60843a085a18547b9de252a199d5e3b8cf6eeec8ead764b335011849",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "初めて会う宿泊客にはどう話しますか。",
+      "sha256": "8d41696fbfd2789d874e02a68a7a55519e45974763d58478bec0278c43c650de",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[7].ja"
         }
       ]
     },
@@ -6928,6 +8558,16 @@
       ]
     },
     {
+      "text": "別の親戚にはピーナッツのアレルギーがあります。資料と調理方法を確認できますか。",
+      "sha256": "aa366385777e16bcea27dad10ae53205d07fd284890c63894b5ea09853e84ced",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
       "text": "別料金",
       "sha256": "80e3aee8e32e35544073191d49431e4315ba42983cc6c05e59972c93e96c1424",
       "occurrences": [
@@ -6938,6 +8578,40 @@
         {
           "stableLessonId": "travel-breakfast:12:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "到着が遅れる",
+      "sha256": "19bf80275fead6d41f5cd5a4d8ab099943d3e7531d97399d9897d06fd160e78d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "到着予定時刻",
+      "sha256": "85b4cfab114190b159728dbce6197d1d596f3b261afb06df530c47969e754f8a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "到着予定時刻は二十二時ごろです。鍵の受け取り方法も教えていただけますか。",
+      "sha256": "383df5d0d04e6a9b8a3b4204d40bfe3682fd437318f452818f9946e2b470d776",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -6982,6 +8656,16 @@
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
           "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "医師の指示で、抗ヒスタミン薬とアドレナリン自己注射器を持っています。",
+      "sha256": "07df615f9bedd5b28ae2f41132cbd69c8435be64f376571b90c4cc0012d77acb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[12].ja"
         }
       ]
     },
@@ -7094,6 +8778,16 @@
       ]
     },
     {
+      "text": "原因は私には判断できません。食べた物の情報は確認してお渡しします。",
+      "sha256": "98be8d6ea9a70f20f95bbce9e42f35d5df1b48b855747de9fa1a8523630daa6e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
       "text": "原材料",
       "sha256": "95ad52ead511ddc027452acf3987d4437ca2424c8a4cec4b06638f1b081fefba",
       "occurrences": [
@@ -7124,6 +8818,22 @@
         {
           "stableLessonId": "master-travel-breakfast:6:ja-en",
           "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[3]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[3]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[4]"
         }
       ]
     },
@@ -7144,6 +8854,44 @@
         {
           "stableLessonId": "travel-breakfast:6:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "原材料表示",
+      "sha256": "110a286c652e21e6a4eeaf7af4b45403a0f2760e719bb256b0cb5d7bae85a962",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[8].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[4]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "原材料表示のある別の商品はありますか。",
+      "sha256": "e49bd2682784ab59aecef0d007391a760b76f645b8c973aeac428b958a49c938",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "原材料記録",
+      "sha256": "69e20a24c9d399ee1adef24248ab7a226d85b81a5cb0205b15439a414a70ddb2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[9].ja"
         }
       ]
     },
@@ -7232,6 +8980,26 @@
       ]
     },
     {
+      "text": "厨房に聞きましたが、混入の可能性までは確認できません。",
+      "sha256": "e9058f4a9b4486a855b1fb59ced75ff5b4cf79e704c783d5ddff616e16f479f7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "厨房の説明では、ケーキにアーモンド粉が入っていたそうです。",
+      "sha256": "2e379680186f3bcb422cf48a7d184848fa9258a65abfcef2f4c3419515b9e3cb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[11].ja"
+        }
+      ]
+    },
+    {
       "text": "友人には",
       "sha256": "65a1b11102e4cf0f966e750145e23f602c7ccaa1972240b3ecab105b53c124aa",
       "occurrences": [
@@ -7256,6 +9024,26 @@
       ]
     },
     {
+      "text": "友人は木の実にアレルギーがあります。",
+      "sha256": "c7293cf30c7aea23619ac91e3a41bd2f8aa82a78d8f3dc526382030c65f7ae30",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "友人は木の実にアレルギーがあります。アーモンドを取り除くだけでは注文できません。",
+      "sha256": "315e9744434356e50446715094f9f39735f2cff0c531b2a0a7dbe5de24f6bab5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
       "text": "反応がありません",
       "sha256": "db66be1769326462058f8404fd33db47f8b36e91554e3fdd57d787ab4e78a572",
       "occurrences": [
@@ -7276,6 +9064,34 @@
       ]
     },
     {
+      "text": "取り違え",
+      "sha256": "9d9e0e6f2de67c8b14ef9e202872f416343edba6b369baaf07976baca22d03dc",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "取り除く",
+      "sha256": "5817dd30d43e5ef3e408d5700248e59ad70c12b88436a3b91399eafb31551e94",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
       "text": "受け取り",
       "sha256": "4f60c01bbfc780906f8a852723ff677e7f45226ebf0944e7151e9ee69d7590e4",
       "occurrences": [
@@ -7286,6 +9102,16 @@
         {
           "stableLessonId": "travel-breakfast:27:ja-en",
           "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "可能でしょうか",
+      "sha256": "d78a0d07d4769921078780afb09cba06e11f875d29391f397a25ea947fe6d8bb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[14].ja"
         }
       ]
     },
@@ -7318,6 +9144,16 @@
         {
           "stableLessonId": "travel-breakfast:19:ja-en",
           "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "合計と残額をもう一度教えていただけますか。",
+      "sha256": "6d9bdce51f26bbcf39e9a519a0f91f91c2baa9378ddefd0d2d5d792984739b6c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -7362,6 +9198,16 @@
       ]
     },
     {
+      "text": "同行者",
+      "sha256": "3a66496b74b16636c9406f6ea771837ddbe883d49d4c221ff97ac3829d7fe4a8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
       "text": "同行者はごまにアレルギーがあります。食べる前に、表示を一緒に確認できますか。",
       "sha256": "e2fbaff540a9c244a5d723e8635fe4f3353d82060538e559919a47a404cdbe01",
       "occurrences": [
@@ -7392,6 +9238,94 @@
       ]
     },
     {
+      "text": "呼び方",
+      "sha256": "7db0aa78dbfc68944014557143c0fb86f13311cac9e8429e87cefe83b5edce96",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[7].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "呼び方は相手の希望に合わせましょう。丁寧さも場面を見て調整します。",
+      "sha256": "33ebc5add8071d16014451de63865d6b6f19598517493e52154d5d39a203577a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "呼吸がよく分かりません",
+      "sha256": "760b81676ba9cd4b410ce8287e3402efaf24b30c71a13c58868bcd31320205e7",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:24:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "呼吸困難",
+      "sha256": "74388226844714e03813c110457f44f470564080adbaf8d282fd15acaf128873",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[18].ja"
+        }
+      ]
+    },
+    {
+      "text": "品ぞろえ",
+      "sha256": "2338a962e7e363f6b68fa01e063f00eeba526be7c961f912837c6ad45fa4c97e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "品切れ",
+      "sha256": "af1fd77ac1f8ce40ad037590447ba9839b7fc396a64c24d98ce5a973d95308b9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "唇の腫れ",
+      "sha256": "656406a319fad60188dd21dd341e6190ec042effb449a23f3e026236802b6958",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "問い合わせ",
+      "sha256": "b6461f81ab176a2e8e4f01b77818d1e43bf7a8dd847ccef2e5c895f5c0c9943e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
       "text": "営業時間",
       "sha256": "ddf559906e4e019822bed43bad462962f55b5deccc308969869a73478967c41c",
       "occurrences": [
@@ -7406,6 +9340,16 @@
         {
           "stableLessonId": "travel-breakfast:23:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "四人はもう現金で支払いました。",
+      "sha256": "9089db7ddb7cac119accaec0a4375b74682afd1a1ab9cf3956d3ddd5f69b87e5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -7450,6 +9394,30 @@
         {
           "stableLessonId": "travel-breakfast:23:ja-en",
           "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "報告書",
+      "sha256": "af350b69d5c44e772a2f5e042fb75447ec2cca41739d50dc658e4880d1fdbd60",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "報告書の記載を、署名する前に一緒に確認しましょう。",
+      "sha256": "0da46f4a1f3643a572161e9e8baedb911d829b3822080cfb8f50bcb84ce7c7d8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[1].ja"
         }
       ]
     },
@@ -7512,6 +9480,26 @@
       ]
     },
     {
+      "text": "外に出ました",
+      "sha256": "944f6785117ec02947cf0119b30160175d99a3629520aa92c1e4d8847a3e6fb0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "外に出ました。同行者二人も一緒です。",
+      "sha256": "b3b04d30986ee2b40639d0c322123f0d9a4eaa4073a6b6f7c639c5f0d6206d6a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "外の席",
       "sha256": "e33f59b8dc9001b452f929d304092e93239e363378e8fe1dfebea37033819d90",
       "occurrences": [
@@ -7570,6 +9558,26 @@
       ]
     },
     {
+      "text": "天気予報",
+      "sha256": "37ac4dfe5a6f800ac9da15251d1861e49caaae191aafddd413248bce6d933d4f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "天気予報と登山口までの道も見ておきます。",
+      "sha256": "3c94bc3094b4ed6cde1a34d18b2d23cf45188fe6046df58f2d27dc350eef0db4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
       "text": "失礼しました。ご注文を確認できました。",
       "sha256": "63caad274327dc3b6879f6ddf666c41264dc3cb7a623f5aefef61f228e7aff97",
       "occurrences": [
@@ -7606,6 +9614,10 @@
         {
           "stableLessonId": "travel-breakfast:28:ja-en",
           "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },
@@ -7682,6 +9694,16 @@
       ]
     },
     {
+      "text": "季節の果物",
+      "sha256": "55e11ab925e34bf22195b922d083c7db23a7385a0455d9ba3d8aee09e02a1235",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
       "text": "季節限定",
       "sha256": "3d9bc252ff41b62d4522cfd04d29e8c30647f69021007f54d938f5df5846a155",
       "occurrences": [
@@ -7698,6 +9720,94 @@
         {
           "stableLessonId": "travel-breakfast:7:ja-en",
           "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "宛先",
+      "sha256": "214fa590cbd928ccdf9daa249a148981233e9bad300b06a7fd566cda0e32f29b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "客室番号",
+      "sha256": "dc31cbdb97ae9e5c735fa00a66ddad0210e00a1684fb2d7caa80e3d44919e71e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "客室番号と現在地を教えてください。消防隊の確認が済むまで戻らないでください。",
+      "sha256": "1540af88e39ce4fec3a85d1af8139b278fa182a424cfa917abb78c2dd43599ca",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "家族にセリアック病の者がいます。表示だけでなく、原材料と調理方法を確認したいです。",
+      "sha256": "3aea7a8bbfdd7032be3400be08a8d13563190a87353ba7205da94cc141d144c7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "宿",
+      "sha256": "34eb96f43db7be038442da02170360fe25e544e1121dc93a2cbe3f32944286e8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "宿の方",
+      "sha256": "5c93ba57d26313b576c5e2e09c8c63af0b2c7e5d44b5f608c864984b532dd4ac",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "宿の方は、高山病にコカ茶が役立ったと言う旅行者が多いと話しました。",
+      "sha256": "f9c87dbcf7d88ffaecbffbcd733a90488ec6055da04775fb238bc2dcbb1d25d8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "宿泊",
+      "sha256": "4834054867a147307a1135458c97da54413136c1b0c7ca0d5044374fe7c2c39d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[1].ja"
         }
       ]
     },
@@ -7726,6 +9836,16 @@
         {
           "stableLessonId": "travel-breakfast:5:ja-en",
           "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "宿泊客",
+      "sha256": "abdb552106d18f02a76fd776aae2498c755f4f94ae6533ac5b169a383a2646bc",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[2].ja"
         }
       ]
     },
@@ -7824,6 +9944,20 @@
       ]
     },
     {
+      "text": "小麦粉",
+      "sha256": "4ba92dfc20d6291412666a0e96ebc2f21ed391f59545a32fdf5fcae57e5921cb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "少し待ちます",
       "sha256": "a8303576a6c59618711000f872c7824e6f3d87e81d79a52ecaf39dadc91a5cb6",
       "occurrences": [
@@ -7858,6 +9992,16 @@
         {
           "stableLessonId": "master-travel-breakfast:3:ja-en",
           "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "少し～でした",
+      "sha256": "c1dcb8015e75c7d840d37993d707a4514173f74ac2677c5a9a19b6071a1f01a3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[11].ja"
         }
       ]
     },
@@ -8184,6 +10328,36 @@
       ]
     },
     {
+      "text": "建物の外の指定された場所です。こちらへ進んでください。",
+      "sha256": "1737a4e57e96e08e84be7303efef09489cee3fc3daa11e0ce2b30b77e070ff04",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "当直の責任者",
+      "sha256": "af718175f1f5da232c6cd1aa5c0e7e3efba9120a8e09e4715f97c87a66cb2f70",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "待ってください。このトレーにはグルテンフリーの表示がありますが、原材料に小麦粉と書いてあります。",
+      "sha256": "1e1b511833198d5b821bcbee90358a54fc640f001a60941db021e1d49ceaf927",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "徒歩",
       "sha256": "69eb492c36c49db9f403871769aa4f7ac39cb5dae64675a502fcb873f3508b38",
       "occurrences": [
@@ -8198,6 +10372,26 @@
       ]
     },
     {
+      "text": "微量",
+      "sha256": "799be9fd35963412c51cfdcd30834427b1f95a8c80bb774da72d833f5892db9c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:4:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "応援しています",
+      "sha256": "7a993b100c15aba94b31f748aedff34c63fc77bcc3faff26a8dedaf036ff4efe",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
       "text": "急いでいます",
       "sha256": "712fd16f825f9580e9ff702ffd73c045f2a16cd9ab1196a7f6c0e4749fee1ca8",
       "occurrences": [
@@ -8208,12 +10402,88 @@
       ]
     },
     {
+      "text": "息苦しさ",
+      "sha256": "3b404fb05cdea18b82cd8eaf58f3564295452740c05a99723d16ec4fd2aadb23",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "意見",
+      "sha256": "b36f8b3680ebf0d6678557e94d88e16c3b8b756c34c9987be48e372d88113ea3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "感想",
+      "sha256": "dcc23a41414b1e21a273ee47aa97bc3f5bfa632f05c54d93ba15169d70f5c5cd",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[1]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "成分",
       "sha256": "3989a72d75bfa601348a6fd9ec6b36e4a268d4140b69759d0c050f16e7ec6f73",
       "occurrences": [
         {
           "stableLessonId": "foundation-travel-breakfast:8:ja-en",
           "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "戻らない",
+      "sha256": "610b4925a89b032413d47d58fcee5ede88ec1cb3c07c00b126edf8c6529bed57",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "戻らないでください",
+      "sha256": "f7e3ac1388ef8ecfad3fb032fa57032f1adc5bb679e3b6177678c60abb1305a7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "手順を見直します。ただ、表示だけで適切だとは言いません。",
+      "sha256": "25def588a6df2a1353e4aebb8b3a2ea1c886d89db3cf6a597cd8ed5795fd75bc",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[9].ja"
         }
       ]
     },
@@ -8248,6 +10518,60 @@
         {
           "stableLessonId": "travel-breakfast:18:ja-en",
           "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "抗ヒスタミン薬",
+      "sha256": "5dc0447e21ddf50244f51f5a9e0c71eb56f4e08dfaf66d0c336a3adf2375fc07",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
+      "text": "折り返す",
+      "sha256": "1496079ce6475ac5f1c4e7ffa39acaa756900e612a49852e8300ba8ef95da404",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "折衷案",
+      "sha256": "c757d0b3e90e1be598ceab0485e082046c7cec68497f363685e0606b067e41b9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "担当します",
+      "sha256": "1e38a630fdfa42f779e0bcd1ce0fd77efee7d92e07084f5292b09e331707dbe1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "担当する",
+      "sha256": "57e018580c4ba8b0c6d7faf0cb8e2a6a03592eedae580df81e3a2191e0f0b1e7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[10].ja"
         }
       ]
     },
@@ -8300,6 +10624,16 @@
       ]
     },
     {
+      "text": "持ち帰りの昼食",
+      "sha256": "6394efc89dd0c710c518e59689f83acbb723fdada371bb36ea3f35e69d421811",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
       "text": "持ち帰りの朝食",
       "sha256": "1f60097d8b678d234fa3ab11371d5eae34dc4b419d1d8262d1d8f0278d0d1588",
       "occurrences": [
@@ -8334,12 +10668,120 @@
       ]
     },
     {
+      "text": "振り込み",
+      "sha256": "c5da61b51c6db8341d4391d59013719c43e3f1c8ea5afffb34c1f791eb97f4c1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "提供する前に温度を確認してはいかがですか。",
+      "sha256": "24b25e8f860a0922b5bd36031ec6e807c97b930a71b3c14d989b4fdf789a678f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "提供時刻",
+      "sha256": "5f2eff1390ef664777b78bc5311330ca331241bc4eea85c535fd546264d46ade",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "提案",
+      "sha256": "46adc4971354814ee0a8809981840b1f9b4a32f266e2049ffa7290171184c553",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[8].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "支払いました",
+      "sha256": "0454b212a4222a30610e6d000fd04c2e5ac97f23fb0061e4e4deb091ebc28767",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[13].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "支払い方法",
+      "sha256": "88ec5c7a6442fd8380ac62e722bd1dcbb08d082f248d1f089ee08dc1c9b95b75",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
       "text": "改めてお詫びします。",
       "sha256": "2ea84a756340b8b6dbd3e176e7b708243a2b7eb0eecea16f65d15ccc4c437d23",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:25:ja-en",
           "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "改善",
+      "sha256": "e0951339ae5ac26110ed07bc9dc2789ee77085b2375c58c96ed1ac2be782a31c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "改善してほしい点",
+      "sha256": "d0f9638501a6782014b18fbc00246dcdf83f5e9896920f83ce4fccd3e3871ae0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "改善してほしい点はありますか。",
+      "sha256": "c35cb1d42628513350ddeca149d03aa7470ea2e22e0980afdb12c640fb8b3b72",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "救急外来",
+      "sha256": "e7d832a554d0998a8174c5f7a089336a7c4c006f02abb14657630d75b98f5697",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[15].ja"
         }
       ]
     },
@@ -8384,6 +10826,10 @@
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
           "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[8].ja"
         }
       ]
     },
@@ -8412,12 +10858,92 @@
       ]
     },
     {
+      "text": "救急隊",
+      "sha256": "232ad6f1fff7de3b63e87974c0efd7a0134e4a708d58ba349c4ce7adb232aa4f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "救急隊が来たことは書いていいですが、診断や薬のことは書かないでください。",
+      "sha256": "52cb589851ddfbefec2290c8113ad125f559fd88d2cd6ef8b847ebe11fb64c86",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "救急隊が来たときはめまいが強く、その後、救急車で病院へ運ばれました。",
+      "sha256": "f32d78f2f050af8a09fab4f4ebcfec34ccedabf7a05cd44467af84c3011d4e17",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "救急隊が来た後はどうなりましたか。",
+      "sha256": "78a0e008b3cf5a39cc7d8308a3ea01a954a8f2a2337e035c1dc31f72303d092e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "救急隊員",
+      "sha256": "a1c1cb4f6db93eeb852259baa48dee7d506d19fc6e634bd0606043f5a13b4cd6",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:24:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
       "text": "散歩",
       "sha256": "39f6833d3a96a5b1fb813e364044312a009984441f1cd3d31cf78c815a3e4dca",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:11:ja-en",
           "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "数を確認する",
+      "sha256": "9283bbdc03b129f3258793fc90c1c2a0cc6cbbb3232aeec3345335810142e66d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "数分後、のどがかゆいと言っていました。",
+      "sha256": "23bee08e83eac4f1a681809a14fef1368ea29552b6fcd252959be05cebb8d552",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "文字",
+      "sha256": "14b69bd6eeb0839b41f193e8190713b89e19d280bf1b688bfff962dca31362b9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[6].ja"
         }
       ]
     },
@@ -8440,6 +10966,10 @@
         {
           "stableLessonId": "travel-breakfast:27:ja-en",
           "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },
@@ -8482,6 +11012,16 @@
       ]
     },
     {
+      "text": "新しい店の感想を聞かせていただけますか。",
+      "sha256": "b2209375ebe9b70e8dbd56f0daded865c1022883387b24892e771e09b2d15ab5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "旅行",
       "sha256": "e751bca25e1fc515534aecc28478c2d0b9098389230d7ef5912b658d45d7b8db",
       "occurrences": [
@@ -8506,6 +11046,16 @@
         {
           "stableLessonId": "travel-breakfast:27:ja-en",
           "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "明日の朝食時間を教えてください。少し遅い時間は可能でしょうか。",
+      "sha256": "11eabe1e65b01f8b16d1f8612a4ef0eae03540daa4ccd207610db4619a2780e1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[9].ja"
         }
       ]
     },
@@ -8560,6 +11110,40 @@
       ]
     },
     {
+      "text": "昼食",
+      "sha256": "da7eb3c9b483094100a58ba48c0eb0ecf09d8192a430549f2340bf90dd009450",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "時系列",
+      "sha256": "540f989c93df1a60d8ee50f0734a4c8e9e9bc9036523ba6616a062de595539c8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "時間と体調に余裕があるなら朝市へ、なければ宿で食べるのはどうですか。",
+      "sha256": "fa72b1449cd5b04e46bbc6fbbe8956c9690d95671001e44b2bd51fec83d1c720",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
       "text": "更新日",
       "sha256": "6c53bb8634618395be8a5da01475ee01b7a6b6bba0183d1a87162c6340bb1101",
       "occurrences": [
@@ -8570,6 +11154,20 @@
         {
           "stableLessonId": "master-travel-breakfast:4:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "書面での回答",
+      "sha256": "c3387f7b5924e23e8ed8cd782b65e777ecb970bb91340176a51dd56d6819bec4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[8].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[6]"
         }
       ]
     },
@@ -8594,6 +11192,34 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "speaking.wordBank[3]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[13].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "最後に、書面での回答をお願いします。送信前に宛先と添付を確認します。",
+      "sha256": "56cf5380c2ed39d17cfd12183024c506bdb82210e9d5d536f358c24dd9ef2548",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "最後に、資料が見つからなかったことを会計時に事実として伝えます。",
+      "sha256": "5f0a3198f734c8e39c1da32aae015e7f34acc92a0caeb98bd696ec70457d1b66",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[10].ja"
         }
       ]
     },
@@ -8652,6 +11278,30 @@
       ]
     },
     {
+      "text": "朝市",
+      "sha256": "534928c8284d6f1d452b2596bb9278f23d25c8d71657ef7da2d242597a66b0c0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "朝市の開店時刻と、宿からの距離も確認できますか。",
+      "sha256": "d2294ef6cc555e24b32e1d8fc241c771cb278fc88c2c159d0e219ff2d592f306",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
       "text": "朝早く",
       "sha256": "d902fec8cad5e298d75f6de422dd308de71c63ab5fae290503b12a25f319d7b9",
       "occurrences": [
@@ -8684,6 +11334,30 @@
         {
           "stableLessonId": "travel-breakfast:7:ja-en",
           "field": "speaking.wordBank[2]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "朝食とご滞在はいかがでしたか。",
+      "sha256": "ce08b32d90f97ebc20d668ed71c72b07485cfd67c06f7eccd010f8a377b4f0e0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "朝食の原材料表示を見ましたか。",
+      "sha256": "dfcf06499419618a76048cc3b1579014c14e2ac4b7a3c37d105e84f2fe0c5b87",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[5].ja"
         }
       ]
     },
@@ -8714,6 +11388,26 @@
         {
           "stableLessonId": "travel-breakfast:5:ja-en",
           "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "朝食は全体としてよかったです。よかった点と、次回確認したい点をお伝えしてもいいですか。",
+      "sha256": "b3e21b053d6f554e6cd39c34e1face87063a2e0377b0fd1b175181b047a2c350",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "朝食は八時から十時です。遅い時間については確認して連絡します。",
+      "sha256": "21c3357fbfdca02431b7c6f804f64ae2e7be06d278af1ca3ac0acd055395169f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[10].ja"
         }
       ]
     },
@@ -8822,6 +11516,62 @@
       ]
     },
     {
+      "text": "朝食時間",
+      "sha256": "b1985a962d22f0e19fae6489a0307df1e20ff31d682ea231785de3f9cccfabf8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[7].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "木の実",
+      "sha256": "4945face3cf3305cc1b158253041f6cedb9b16183af07ca333b689fe47de9723",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "未払い",
+      "sha256": "551ad166c0b2501e24c9fd3935f0b2eb1bcb5366a07c591c4f963a28047eb301",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "本人の同意",
+      "sha256": "8425fdce23e657640ab7b9ae1486ae4b83cdb0927a76ac701e6eb606e4daf4c5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "材料",
       "sha256": "e140c977bfb9051c1efa53ba15be72ff8cc7cef32bd12ddad2861a0d258a25e0",
       "occurrences": [
@@ -8924,12 +11674,32 @@
       ]
     },
     {
+      "text": "概要",
+      "sha256": "aaaf449bd4eac9c5629ab332244ab95c20fab59150ca0428592b44e1ffeba446",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
       "text": "横の入口をご案内します。",
       "sha256": "f6d6aff7c19085b1c32e86139fc26e77d214307b724be06e8aae07d52f175310",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:17:ja-en",
           "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "次からは表示を置く前に、製品とトレーを再確認するのはどうですか。",
+      "sha256": "b0a09ef1dd48ee7c3f19cfdc8295e22cebcb42d9612cb2580c99cd046899ba93",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -8944,6 +11714,24 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "speaking.wordBank[2]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "次に、私が確認した時系列を簡潔にまとめます。",
+      "sha256": "febc4c4926daf47f7f80341e3d8d084cd79a42ad2b74f46a5f49a759658554a5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "reader[6].ja"
         }
       ]
     },
@@ -8954,6 +11742,16 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "次の宿の方に、到着が遅れると連絡します。",
+      "sha256": "9df5c1ddf511d5ee354fb909e48ff7f5ef052918ff15cceeeeaf0173b8858998",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[9].ja"
         }
       ]
     },
@@ -9008,6 +11806,86 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "次回",
+      "sha256": "41435e1ac1eed9834930352bd93a7006c07f798764307a213b0d1bc8514e419f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "次回の予約",
+      "sha256": "8698e6a3f1c17b28efe48cd09e23e1da22a4607e9afe89a3eeedd8dcd85f0eb6",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "次回は、選べる食品の情報を事前に確認できれば助かります。",
+      "sha256": "baa5f8f7c24037bdc6147218316d5450fcebcb62d8e7994f173f498e6cd28967",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "正確な時刻",
+      "sha256": "5fcb313580e335dc49c05419f02fd73f84ec88bf2c693f2b2ce3938fceea139b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "正確な時刻は分かりません",
+      "sha256": "3cad954e3463d342660d95bb4094f57145c19210267d823293684e9af6cc85f7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "正確な時刻は記録で確認できますか。",
+      "sha256": "02dbe89b589411ab28a8c631c9d54b50e0842e47274b3854cc14dd97b40ae12a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "歩くのに手助けが必要な方がいます。係員に伝えます。",
+      "sha256": "a660df51194f6244a28bcea3bdb33021220d0575ed4804bf0a2b23b065ed7ce2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "残額",
+      "sha256": "d4b802dac6cb79c0b27d40a984fe5a61c2d84a15091d4ed5dfbdd0dcebaad137",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[3]"
         }
       ]
     },
@@ -9070,6 +11948,20 @@
       ]
     },
     {
+      "text": "水筒",
+      "sha256": "8d44ece11125a8bf4ec83502b8874a4fa24208675b747d170eff376bad9c4086",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
       "text": "水道",
       "sha256": "f034131cb9a072c9319d7ab3c8141df237f0142b4186b53858af29604276888d",
       "occurrences": [
@@ -9090,16 +11982,6 @@
         {
           "stableLessonId": "travel-breakfast:25:ja-en",
           "field": "cards[14].ja"
-        }
-      ]
-    },
-    {
-      "text": "水道の流水で冷やしたいです。案内していただけますか。",
-      "sha256": "9b9b17eb56caf8b78573725f52485953033bbe9a02267f460ee4f667eed202ed",
-      "occurrences": [
-        {
-          "stableLessonId": "travel-breakfast:25:ja-en",
-          "field": "reader[3].ja"
         }
       ]
     },
@@ -9164,6 +12046,14 @@
         {
           "stableLessonId": "master-travel-breakfast:3:ja-en",
           "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[2].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[1]"
         }
       ]
     },
@@ -9194,6 +12084,16 @@
         {
           "stableLessonId": "travel-breakfast:10:ja-en",
           "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "注文しました",
+      "sha256": "fbe7b2166ee02c32f6127d080f9238cd5fb0d2a05e18c8af9fd25fb18c28eaa7",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },
@@ -9268,6 +12168,30 @@
       ]
     },
     {
+      "text": "注文票",
+      "sha256": "29d9b00d3607037216869003e0186280be71d6c3a7a895de238a72a5e19cc5cb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "注文票と支払いを一緒に確認してもいいですか。",
+      "sha256": "72f01f07f77254b79e31fcbedaaf11e79072448d5a6080d8d3f3b52af1961d5a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
       "text": "流水",
       "sha256": "0fb688b74cfb39c8d165115596f02c11a806047f02c8842967da4292151b2553",
       "occurrences": [
@@ -9278,6 +12202,16 @@
         {
           "stableLessonId": "travel-breakfast:25:ja-en",
           "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "消防隊",
+      "sha256": "932e4077e312d1763f32a2903b1193e456bd3d3af6c88bd6a0e9dc8cb0649faa",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[9].ja"
         }
       ]
     },
@@ -9318,6 +12252,40 @@
         {
           "stableLessonId": "master-travel-breakfast:4:ja-en",
           "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "speaking.wordBank[5]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
+      "text": "添付ファイル",
+      "sha256": "905dd5bcfdaa470b5a024851c3ad7f15312271321abaad68cf5e4deeff36cd38",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[3].ja"
         }
       ]
     },
@@ -9346,12 +12314,96 @@
       ]
     },
     {
+      "text": "湯気",
+      "sha256": "6bb5eb4dbd2cba2708ff3ebe323569ce0bc12efd8ed10861f624540fc0331318",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:3:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "準備しましょう",
+      "sha256": "c7c14efe179217d7287d3833d8213604b2c22753042ba769edecc352ecd8497c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
       "text": "漬物",
       "sha256": "3e5ac90194e1c830e4e669c2c7bd5a6887ebbb704830cb3b5f86c664fa00feb9",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:7:ja-en",
           "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "火傷（やけど）",
+      "sha256": "a945d3af9ce9092f28d3bd61efe070c15181cc8a2f9222a6fc5f49806383703e",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
+      "text": "火災警報",
+      "sha256": "9bf2b063abdaed47524c3cdbe14a808c1ff17bdbd8580eb9fbf88cf088e52dfc",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "火災警報が鳴っています。案内に従って避難してください。",
+      "sha256": "472687b1c03bbb3a995e18bcc50759b60ccb0e3f2de648ce23f062f0d7459972",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "無理をしない",
+      "sha256": "02556dacbb8c942397c96ded5876f3674f3018708de675007a55ef94802c4dd0",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "無理をせず",
+      "sha256": "a586005e954812b290452468dec5ad162dd33d392dc5e3710041aed96a7a4796",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "無理をせず、一つずつ準備しましょう。私は水筒を担当します。",
+      "sha256": "7f88d343dc1602153f97d300665b231364e0a43d7409dad1b1ec93a06d39e669",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -9386,6 +12438,16 @@
         {
           "stableLessonId": "travel-breakfast:13:ja-en",
           "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "煙",
+      "sha256": "b32a359e85ed9e73c7451d48efbd3fccc9844fa54114c3c605f3ae62fc4524fd",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[2].ja"
         }
       ]
     },
@@ -9428,22 +12490,22 @@
       ]
     },
     {
+      "text": "熱いコーヒーが腕にかかって、火傷をしました。",
+      "sha256": "6c7b2c68a83e61b30a0858e3821a35d2e87c97dfec467f3856b58fa5d175cd24",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "熱いコーヒーが腕にかかりました",
       "sha256": "dced0bf32df409b597ba9ccc844cb22147d1039fc9fe3d91c79bc196b8bdb530",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:25:ja-en",
           "field": "cards[13].ja"
-        }
-      ]
-    },
-    {
-      "text": "熱いコーヒーが腕にかかりました。",
-      "sha256": "06e5257ae9ad5662add08c18dfd015a33eb75b38a17c5f73969d6da6f463da07",
-      "occurrences": [
-        {
-          "stableLessonId": "travel-breakfast:25:ja-en",
-          "field": "reader[1].ja"
         }
       ]
     },
@@ -9484,6 +12546,10 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[8].ja"
         }
       ]
     },
@@ -9528,6 +12594,16 @@
         {
           "stableLessonId": "travel-breakfast:13:ja-en",
           "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "生地",
+      "sha256": "386c838249b6505447dfdfa879c4111cb75c95ef113a0acd1788b3601839923d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[7].ja"
         }
       ]
     },
@@ -9616,6 +12692,70 @@
       ]
     },
     {
+      "text": "症状",
+      "sha256": "7e6f41473ceaf75a6082caebceb5668a7cbe8413d8496f884fa70db00ee183b1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "発疹",
+      "sha256": "18c59427be3c30392418a7aca7ec6257e12eead42cc2e587f88e0357884e8ef3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "登山口",
+      "sha256": "419ae0e224d2af81eb3f12f07faa89584238eefe8b43f2996c29d4c3f81f2437",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "皆さん、係員の案内を聞いてください。非常口はこちらです。",
+      "sha256": "73253aeaad5885fc31dbb9118faf35bd7df142b4ba0f5e97b98a262b8d8fa9e2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "皮膚",
+      "sha256": "633da1b772bab50ea1a8fa88011bde2c701eab2070cc78ace6eb621deec2255a",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "cards[17].ja"
+        }
+      ]
+    },
+    {
+      "text": "皮膚が赤くなっていますね。救急箱をお持ちしました。",
+      "sha256": "a3db789d73d4758e296f5fd72b52808ac3a10a09e06a316bc2b185a4f708afbe",
+      "occurrences": [
+        {
+          "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "皿",
       "sha256": "24f3a61ecd528fd01d4d3ac069b0029b18123b989ae4cbcc1964d033ebe46781",
       "occurrences": [
@@ -9646,6 +12786,16 @@
       ]
     },
     {
+      "text": "眠くて、出発の準備がまだ終わっていません。",
+      "sha256": "6cdfa8780281bdd809bd35da7a77d005c483a8450422ac719ddaa63c33265773",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
       "text": "砂糖",
       "sha256": "fb3cc4c83d7ac071ced578311493a945db631dcd702fc3e983dce075b84bb2e7",
       "occurrences": [
@@ -9660,6 +12810,10 @@
         {
           "stableLessonId": "travel-breakfast:22:ja-en",
           "field": "speaking.wordBank[4]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[9].ja"
         }
       ]
     },
@@ -9711,6 +12865,14 @@
         },
         {
           "stableLessonId": "master-travel-breakfast:6:ja-en",
+          "field": "speaking.wordBank[6]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[4]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
           "field": "speaking.wordBank[6]"
         }
       ]
@@ -9812,6 +12974,16 @@
       ]
     },
     {
+      "text": "確認しました。署名する場合は、写しもいただけますか。",
+      "sha256": "ebadf27f3b5f46090aad11ede99a9de4de24dd6ca96959da04aa21fed86082ac",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
       "text": "確認します",
       "sha256": "98cf5c6bdf4eadb13a81375f821f735c9472d84726e1753685285d4ffe16fb25",
       "occurrences": [
@@ -9874,6 +13046,36 @@
         {
           "stableLessonId": "master-travel-breakfast:5:ja-en",
           "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[14].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "確認できたことと、時刻があいまいなことを分けて説明します。",
+      "sha256": "97c0f018492e9f1d683a9f704e60de4a24a32b3ceea3e84e1e219c4f9edda17f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.opening"
         }
       ]
     },
@@ -9888,12 +13090,50 @@
       ]
     },
     {
+      "text": "確認できない",
+      "sha256": "84b35558ce46e79adf9c765d616cf69cd502046aac3e773941e586b9017b48ff",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
       "text": "確認できない場合は、そのパンを選ばないほうがいいですね。",
       "sha256": "4e119f47e74e7a5b0d407c1ecee5b8baa98d1c54b239e1fb396c3c5108745600",
       "occurrences": [
         {
           "stableLessonId": "master-travel-breakfast:2:ja-en",
           "field": "reader[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "確認できない場合は、今日は食べないことにします。",
+      "sha256": "e124aacc14db0e9964f5ca133828fe18d9e6aab31e4a2f04ebc483f86d51504e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "確認できない場合は、何も注文しません。",
+      "sha256": "0e03980951f231a0e706ed9011f4d75c0f1591bc7837ad56d2b4f76d25e3e956",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[8].ja"
         }
       ]
     },
@@ -9938,6 +13178,26 @@
       ]
     },
     {
+      "text": "確認できません",
+      "sha256": "67a6440ed54ab55eaecfc11fbe8ee5970aaf8f99bf5047d0243c9a69c47f7098",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "確認できれば",
+      "sha256": "735faba407bde8c8d50852e210cc43b5d6b34f992cfd945389a42a7d3ef20b12",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
       "text": "確認をお願いします",
       "sha256": "d2116e33ce342eb4a180a4182ae879012c9803bc41a2df78500b4a588bae6a89",
       "occurrences": [
@@ -9958,12 +13218,46 @@
       ]
     },
     {
+      "text": "私がコーヒーを一杯追加しました。まだ払っていません。",
+      "sha256": "10482675bed61dd6aebd314640af23808dc2c4e7cd2068603107cfeae9a97494",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
       "text": "私が払います",
       "sha256": "80b2e40c22ec240dc030106b834bdd57c86d9238b5a4f3e6fc1c2afaae77564e",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
+      "text": "私が見た範囲では",
+      "sha256": "52c109727cdba74a08b1bea2f60bb3f77d477a56179403744135e5e8929b76de",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[12].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "私が見た範囲では、表示の有無を確認できませんでした。",
+      "sha256": "980bd3c1afaf965df48f646732865701fdd56a589383fc7f6353d860f3df8d42",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[6].ja"
         }
       ]
     },
@@ -9988,6 +13282,16 @@
         {
           "stableLessonId": "travel-breakfast:8:ja-en",
           "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "私のメッセージの時刻を確認できます。記録を見せます。",
+      "sha256": "af6048d885330b9bdf6886e38d94857bf032922195d2fcac491fb461c6134d47",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -10154,6 +13458,66 @@
       ]
     },
     {
+      "text": "署名",
+      "sha256": "5bdb7e3aacfed5235d38603842da86b595d1b30fd132b6a451f162b0e5667f40",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "署名する前に",
+      "sha256": "8a2925e69f07875dec6ec4aec2b042e99b9d485c18edfa7c4dc4b8d38e56b322",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "署名する前に、記載された時刻と私が見たことを確認したいです。",
+      "sha256": "7b4585680d1e294f64b60b1de016d7ba4e4a876ae623a732bbdd9cb6f67ef870",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "美咲さんは持ち帰りの昼食を確認してくれますか。",
+      "sha256": "72cfab0bd6edad41b0f442292da604e9bd11ceac01b85ae361c8fd9eebfa2bc9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "美咲さんは朝市で朝食を食べたいと言っていました。",
+      "sha256": "04d7a8e765336cabdba68f22372fb947583ed32b534b6b5499ad2ba110244e63",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "聞きました",
+      "sha256": "b90c3612e06a3e6be8d67abb2b3604e60191306e8669e03ce1973312d908b5cb",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
       "text": "肉",
       "sha256": "2f79e1fce5422a8460debe38b0732cf9cf5939d49caf92ce580e80dd9dd5b711",
       "occurrences": [
@@ -10206,6 +13570,36 @@
       ]
     },
     {
+      "text": "荷物",
+      "sha256": "ba2a88af355e2196b9b916792385e419733dc92047d799fcacf5a4a425361418",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "菓子パン",
+      "sha256": "e2930ee8ee4a7337ce256ef092fd9e81010c6720598d7a65dddfccc4b64fd4c4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "衛生担当者",
+      "sha256": "b9ce1309282a4ffa29783cd9ca652bf19dfb1b4c2f46ef58d54b74e2e6b010d6",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[1].ja"
+        }
+      ]
+    },
+    {
       "text": "表示では六時半からです。今日の営業時間も確認しましょう。",
       "sha256": "5003c40c6e103ee0ecc8f3d6644f2adf0f01a57cc0bbefd84ee0827ec94cf1d3",
       "occurrences": [
@@ -10216,11 +13610,41 @@
       ]
     },
     {
+      "text": "表示と原材料を照合して、ほかのトレーも確認します。",
+      "sha256": "112a7bf897dcc38afc0cd6f483938cf807cbd4b883863f954285791285c64dd3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "表示を確認します。トレーを移したときに取り違えたかもしれません。",
+      "sha256": "2e9171e3fe22d07a1d20cb38244c2edabcb32cb14fbc533daa133b0e4dba77e4",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
       "text": "表示ラベル",
       "sha256": "047e66005e811047c5c1c7074f1c98f73e3af47be126ef3f7e3a528cf657e238",
       "occurrences": [
         {
           "stableLessonId": "master-travel-breakfast:4:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "表面",
+      "sha256": "4210b248fc43e137649490d2d113210fd5c57ce26f95dd684b3bb972e7e698dc",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
           "field": "cards[6].ja"
         }
       ]
@@ -10242,6 +13666,26 @@
         {
           "stableLessonId": "travel-breakfast:9:ja-en",
           "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "製造場所",
+      "sha256": "4d1d430c24c683f9af70a26a114f683d59eefc725f5767de106e7d44273b037c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "見える分を取り除くだけでは、原材料や混入を確認できません。",
+      "sha256": "b7605ef483e74e1ee77ced68075b2a52c6532d1c36a35dcec687433d9bd8e1ae",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[5].ja"
         }
       ]
     },
@@ -10282,6 +13726,40 @@
         {
           "stableLessonId": "travel-breakfast:21:ja-en",
           "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "見ました",
+      "sha256": "0ee0e4e4267c7708026353c5c3b1ccc53eb9d38f332b74bc801e835d0758da4a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "見やすい",
+      "sha256": "246b243a60b5fd5a0f36d49775bd87e2bee67cdb8ec86436bb9ff2be5886bf49",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[7].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "親戚",
+      "sha256": "360a1265a0f39382f5789b9261c83c31dd03a12a891f0d93a1dd0c1e5635f4d8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[1].ja"
         }
       ]
     },
@@ -10336,6 +13814,16 @@
       ]
     },
     {
+      "text": "記載",
+      "sha256": "2d93e103203657b63bf5499cacbf59e669c5184ed0a25da5556a0527e53f7d96",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
       "text": "話してください",
       "sha256": "8f7b2a8004708af67e567965ef20ab263f6a3badd21b6ee849c4cb34794688ae",
       "occurrences": [
@@ -10352,6 +13840,30 @@
         {
           "stableLessonId": "travel-breakfast:6:ja-en",
           "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "詳しく確認するため、お電話できますか。",
+      "sha256": "df8bf7b2dee12c45b37f5913c940ade910621fd610537f177f3dbaea1c5b84e1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "誤記",
+      "sha256": "5628e560980e723506735aaea9569fac1604fbc45cddb5c8e4650f49aad3993e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "speaking.wordBank[2]"
         }
       ]
     },
@@ -10388,6 +13900,26 @@
       ]
     },
     {
+      "text": "調理場所",
+      "sha256": "6fc07a885439b490eab2a41c65c377bb3e8b821e3a36dbded8401cb6d5cb1949",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "調理場所や共用の器具についても確認できますか。",
+      "sha256": "90b8eb300d28685f5c9ed58323c3b263fe5955199da3ad3c04f7a89e86c616d9",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "調理方法",
       "sha256": "5d70a99b5c4da0a105e83341a53200a7e489d7d5b860e7396f4a039ba0156786",
       "occurrences": [
@@ -10414,6 +13946,14 @@
         {
           "stableLessonId": "master-travel-breakfast:6:ja-en",
           "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:19:ja-en",
+          "field": "speaking.wordBank[4]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "cards[7].ja"
         }
       ]
     },
@@ -10428,6 +13968,16 @@
         {
           "stableLessonId": "travel-breakfast:30:ja-en",
           "field": "cards[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "警報が鳴っています。係員の案内に従いましょう。",
+      "sha256": "5d8a848a12fa693716e8dc0247787dc38be8c75ba38b7dc2db7e142e4a361b01",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.opening"
         }
       ]
     },
@@ -10456,6 +14006,16 @@
       ]
     },
     {
+      "text": "責めたいわけではありません。今はそのパンを選ばずに待ちます。",
+      "sha256": "399666827f04bb95d4c215ff56aa7fd5436686348ce84d8a52d08125e89bfbca",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
       "text": "責任者",
       "sha256": "757863f47ded4e5a1c6556464b6668c3ba58088b64f637c9699b511f6a74f656",
       "occurrences": [
@@ -10480,6 +14040,16 @@
         {
           "stableLessonId": "master-travel-breakfast:5:ja-en",
           "field": "reader[10].ja"
+        }
+      ]
+    },
+    {
+      "text": "資料が見つからず、最初に希望された料理も品切れです。",
+      "sha256": "6119b24c984fe9556491925dc136d63422960a5b40624e23599ab7af3ebfd029",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "reader[4].ja"
         }
       ]
     },
@@ -10592,6 +14162,26 @@
       ]
     },
     {
+      "text": "追加の寝具",
+      "sha256": "463732c27e58ab092aed63578c85536269d9c4009776e3d01513733759631dd8",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[5].ja"
+        }
+      ]
+    },
+    {
+      "text": "追加の注文があったか、皆に確認します。",
+      "sha256": "21fc6997f0dfcbaf8ef977c794f575ac71c300b376b89592fc5b72c8a44c3100",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
       "text": "追加料金",
       "sha256": "528969c7389f50681a0958d680bc6e0e9de750d851fc9731ad041c28731f9856",
       "occurrences": [
@@ -10628,12 +14218,54 @@
       ]
     },
     {
+      "text": "送信前に確認する",
+      "sha256": "5f604747129c3a9bf11f9aae97e1af1253d556ac4ff13c5dfdd1e4ab21565566",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:17:ja-en",
+          "field": "cards[14].ja"
+        }
+      ]
+    },
+    {
+      "text": "送迎車",
+      "sha256": "8545c468df883beb84c7fd2df9d291af354567fb18b36a08331bc8e544e49f13",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[5].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[9].ja"
+        }
+      ]
+    },
+    {
+      "text": "送迎車の出発が早まりました。あと十分です。",
+      "sha256": "9fb0c5b2634f498175472446debc246584eba7c938fa47ae11ad96005b55bf25",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
       "text": "通報",
       "sha256": "d969baa5f1be63b9d3f517854bae486307b072a5c6e345c1975cbff6a94f98a1",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
           "field": "cards[12].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:13:ja-en",
+          "field": "speaking.wordBank[5]"
         }
       ]
     },
@@ -10666,6 +14298,40 @@
         {
           "stableLessonId": "travel-breakfast:16:ja-en",
           "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "連絡には、宿の前に七時集合と書いてあります。",
+      "sha256": "44c284a63909464af4725cdcdc53f0f6754350dcdf76f2d2cf0ccc16d76cd7c2",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "reader[4].ja"
+        }
+      ]
+    },
+    {
+      "text": "遅れる",
+      "sha256": "423710e0b55ead9bcdf81e518410097ceaff374be0653ac1cad2e87999f65020",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:20:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "遅延",
+      "sha256": "ced64539643970f412bc476ea6c6a4680b073d3ae5f6154c5eab975185ff1f63",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[1]"
         }
       ]
     },
@@ -10706,6 +14372,14 @@
         {
           "stableLessonId": "travel-breakfast:29:ja-en",
           "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "cards[12].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "speaking.wordBank[6]"
         }
       ]
     },
@@ -10716,6 +14390,16 @@
         {
           "stableLessonId": "master-travel-breakfast:6:ja-en",
           "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "避難",
+      "sha256": "b4dcba27da757ba48f9ae17c286e1c8030b91456c5512ddb4ee9bb2fa82ce15c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[7].ja"
         }
       ]
     },
@@ -10734,6 +14418,20 @@
       ]
     },
     {
+      "text": "鍵の受け取り",
+      "sha256": "219a4964586575f3f723f5df8560636aa8ea13655873bc0ff7f4bdfdfe1e54e3",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.wordBank[5]"
+        }
+      ]
+    },
+    {
       "text": "長くお住まいですか",
       "sha256": "5332740715deefa609e9e713a622002192607504d0d3ef29216aa910128f448c",
       "occurrences": [
@@ -10744,12 +14442,46 @@
       ]
     },
     {
+      "text": "開店時刻",
+      "sha256": "66d57332024d79c8780c272822e926657a42fe131af8db0fb9f4546d6781e0d5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[3].ja"
+        }
+      ]
+    },
+    {
       "text": "間に合いますか",
       "sha256": "ce2b088da499c1aa27273109ce590d2f9b5047f6a38f597f6d69f39b4ccfd739",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:14:ja-en",
           "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
+      "text": "関係",
+      "sha256": "b4afe7e1b50681d08fbe3dc86a3baf81fdbf5256a8d90cce20e8e80242c79376",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "階段",
+      "sha256": "44ec5ddfce336444ce0f950629b3780de9306d058d15076c9ba4f0cf53e81613",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[3]"
         }
       ]
     },
@@ -10783,6 +14515,54 @@
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:24:ja-en",
+          "field": "reader[3].ja"
+        }
+      ]
+    },
+    {
+      "text": "集合場所",
+      "sha256": "47e6d66f500e28a248a9dc28d3d543a2c514108f1719c1893bacb44cf0011d0a",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[6].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "集合場所はどこですか。",
+      "sha256": "9bf96c874f515467aa94b639359b32899630383d891c50a82c30b77de01ff67e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "reader[6].ja"
+        }
+      ]
+    },
+    {
+      "text": "集合時刻",
+      "sha256": "b7c74c107e5dc952e4b72a8de3eaeb6b3c739b4d80a2f927d293637ce2fcec49",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[1].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "speaking.wordBank[1]"
+        }
+      ]
+    },
+    {
+      "text": "集合時刻は七時だと思います。まず予約の連絡を確認しましょう。",
+      "sha256": "68ddba48955616d9b21adee2dbfb7b51cc7104e693df4ad7c881beaf5200119f",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
           "field": "reader[3].ja"
         }
       ]
@@ -10822,6 +14602,16 @@
       ]
     },
     {
+      "text": "電波",
+      "sha256": "79293b2d4692b1240ed7c5e1729259631c055c2279ff99bb5833a5e77bf796b6",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[8].ja"
+        }
+      ]
+    },
+    {
       "text": "電話で見たことを伝えます。係員の指示を聞きます。",
       "sha256": "84aa8ab3663f053242b8fd940924753979b3a50394fb5741c5f2779f2c5a6a89",
       "occurrences": [
@@ -10842,12 +14632,64 @@
       ]
     },
     {
+      "text": "電車が遅れているため、到着が予定より遅くなりそうです。",
+      "sha256": "b9573f0fc53209a15afe585e20d764f2dda5d81cf01dbf8b21f0a709df1cfb7d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "reader[1].ja"
+        }
+      ]
+    },
+    {
+      "text": "電車が遅れているため、到着時刻と宿泊人数の変更についてご相談したいです。",
+      "sha256": "a382a1875449e50fb5b7fe8e104133c587338c36553a92d218105b3c66da8924",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "非常口",
+      "sha256": "b0d8aa3d578279ad27faf26fcc0f64b4522c69d2acce2eab990999767424de9c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "cards[3].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:15:ja-en",
+          "field": "speaking.wordBank[2]"
+        }
+      ]
+    },
+    {
       "text": "領収書",
       "sha256": "ab6bf86253ec8ddadf2cc13de83707c99753af87568c6844726afd256cce847c",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:20:ja-en",
           "field": "cards[9].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "cards[4].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:7:ja-en",
+          "field": "speaking.wordBank[6]"
+        }
+      ]
+    },
+    {
+      "text": "食べないで待つ",
+      "sha256": "c9ea67884ed266b4439e195c8c05866884b72de99290369f814a18cabe87aef5",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[11].ja"
         }
       ]
     },
@@ -10948,11 +14790,41 @@
       ]
     },
     {
+      "text": "飲み口",
+      "sha256": "7a72e065d929f095b67bd2db4f7a788ce1e5dcaf46a0bdf87dbb4abc2b859037",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:3:ja-en",
+          "field": "cards[16].ja"
+        }
+      ]
+    },
+    {
       "text": "飲み物",
       "sha256": "61e625d010ee54eb0ae666e7fa9a29d896b9d87a15160ab70f68486314f64a89",
       "occurrences": [
         {
           "stableLessonId": "travel-breakfast:25:ja-en",
+          "field": "cards[2].ja"
+        }
+      ]
+    },
+    {
+      "text": "飲み物と甘い物を分けて、値段を大きく書くと見やすいと思います。",
+      "sha256": "6244619376ceb10127ba874a32250f85419b07ecf207f74d036c7777c3e5da3b",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "reader[8].ja"
+        }
+      ]
+    },
+    {
+      "text": "飲み物の温度",
+      "sha256": "8bce6a0f366c106b5b913bb2424cbc3bf9df57b1a9b17e2f516b2285ffa3b597",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
           "field": "cards[2].ja"
         }
       ]
@@ -10964,6 +14836,16 @@
         {
           "stableLessonId": "master-travel-breakfast:1:ja-en",
           "field": "reader[7].ja"
+        }
+      ]
+    },
+    {
+      "text": "飲み物も調理方法を確認してから決めます。",
+      "sha256": "0ebcd1e67a8732bb3369c37e02ada1d4062c87993571c039751060edc44362fe",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:8:ja-en",
+          "field": "reader[9].ja"
         }
       ]
     },
@@ -11032,6 +14914,26 @@
       ]
     },
     {
+      "text": "高山病",
+      "sha256": "17216dcaa54e96d670fcef8b2c2e969d75d0ad7409df95c503363d330aa5c914",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[15].ja"
+        }
+      ]
+    },
+    {
+      "text": "～かもしれません",
+      "sha256": "2e7b29d11c3f661cb18e472ae4c03a6bcf114c10e08113e7c26e3e921568e425",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:14:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
       "text": "～が届くまで",
       "sha256": "84d268524c8ba695daa86746d3aa1c24599a9706012b0730481990e04eba3819",
       "occurrences": [
@@ -11042,12 +14944,104 @@
       ]
     },
     {
+      "text": "～してはいかがですか",
+      "sha256": "dbbc310161db02a5de758f804dc067b828a64ce8518ca909739d9b1a2ffb9fc1",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "～ていただけますか",
+      "sha256": "591df53d707522ec19a40d34dee6d355e2a7709ccf38395c4d5decfd07282729",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[10].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.wordBank[3]"
+        }
+      ]
+    },
+    {
+      "text": "～てくれる？",
+      "sha256": "7f24b6bc1b335d801059b2b714d157e2ccfd955aa4343227537a33bf90558c6e",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "cards[11].ja"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:12:ja-en",
+          "field": "speaking.wordBank[4]"
+        }
+      ]
+    },
+    {
+      "text": "～と思います",
+      "sha256": "3c52f66c6d8dbe5cdef4e24189a80245d41677aa68375812b0307e9794e2736d",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:9:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "～と聞きました",
+      "sha256": "d02e48e3315a233f3e2ba5c8e5a8f4563e4aa88292b996e838a669c4b454f19c",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:16:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "～と言っていました",
+      "sha256": "ac4f43c2dbce2927ef341145b0abb92ec30f67d5f1425038353f009b154ce469",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[11].ja"
+        }
+      ]
+    },
+    {
       "text": "～なら",
       "sha256": "8e174c88915eeead0cfa2306b880ab0c881878e5990c28b707b5b7f319527d28",
       "occurrences": [
         {
           "stableLessonId": "master-travel-breakfast:2:ja-en",
           "field": "speaking.wordBank[6]"
+        },
+        {
+          "stableLessonId": "master-travel-breakfast:10:ja-en",
+          "field": "cards[13].ja"
+        }
+      ]
+    },
+    {
+      "text": "～のため",
+      "sha256": "1fae1e7d0c3adaafa4ebb73118fba0862b6fe74ce5c2aa31a189345ffbf56d70",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:18:ja-en",
+          "field": "cards[12].ja"
+        }
+      ]
+    },
+    {
+      "text": "～までに",
+      "sha256": "ff207c25e87a0eef743efbbadf3630bfd10acaa324dc33821a216d8e9f0e1665",
+      "occurrences": [
+        {
+          "stableLessonId": "master-travel-breakfast:11:ja-en",
+          "field": "cards[12].ja"
         }
       ]
     },

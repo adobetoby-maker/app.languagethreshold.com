@@ -1539,21 +1539,20 @@ function OwnedLessonRunner({
               </ul>
             </div>
           )}
-          {state.selectedLanguage === "Spanish" &&
-            state.nativeLanguage === "English" &&
-            /^(foundation-|master-)?place-directions$/.test(moduleId) && (
-              <details className="mb-4 rounded-xl border p-3">
-                <summary className="cursor-pointer py-2 font-semibold">
-                  🧰 Practice placement · picture game
-                </summary>
-                <PlaceDirectionsGame
-                  key={`${moduleId}:${lesson.n}`}
-                  initialRound={
-                    moduleId.startsWith("foundation-") && lesson.n === 9 ? 11 : (lesson.n - 1) % 12
-                  }
-                />
-              </details>
-            )}
+          <details className="mb-4 rounded-xl border p-3">
+            <summary className="cursor-pointer py-2 font-semibold">
+              Picture & Action · scene practice
+            </summary>
+            <PlaceDirectionsGame
+              key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              moduleId={moduleId}
+              targetLanguage={state.selectedLanguage}
+              nativeLanguage={state.nativeLanguage}
+              initialRound={
+                moduleId.startsWith("foundation-place-directions") && lesson.n === 9 ? 11 : 0
+              }
+            />
+          </details>
           {definition?.soundPractice && (
             <SoundPractice
               key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}

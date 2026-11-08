@@ -262,20 +262,23 @@ export function GamesHub() {
         </p>
       </div>
 
-      {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
-        <details className="rounded-2xl border border-border bg-card p-4">
-          <summary className="cursor-pointer py-2 font-semibold">
-            🧰 Place & Directions · pick up and place objects
-          </summary>
-          <p className="my-3 text-sm">
-            Follow Spanish instructions using the workshop scene.{" "}
-            <a className="underline" href="/place-directions">
-              Open the full game and course preview
-            </a>
-          </p>
-          <PlaceDirectionsGame />
-        </details>
-      )}
+      <details className="rounded-2xl border border-border bg-card p-4">
+        <summary className="cursor-pointer py-2 font-semibold">
+          Picture & Action · words, objects, and actions
+        </summary>
+        <p className="my-3 text-sm">
+          Practice instructions in a scene that fits your module.{" "}
+          <a className="underline" href="/place-directions">
+            Open the full game and course preview
+          </a>
+        </p>
+        <PlaceDirectionsGame
+          key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          moduleId={state.activeModuleId ?? "core"}
+          targetLanguage={state.selectedLanguage}
+          nativeLanguage={state.nativeLanguage}
+        />
+      </details>
       <ExamShortcut />
 
       {/* ── Today's Challenge ─────────────────────────────────────────── */}

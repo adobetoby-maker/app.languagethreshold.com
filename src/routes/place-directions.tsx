@@ -31,7 +31,7 @@ function PlaceDirectionsPreview() {
           <h1 className="font-display text-3xl font-semibold">Place & Directions</h1>
           <p className="mt-2">Spanish with English support · 10 Foundation / 30 Core / 20 Master</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Pick it up. Put it under. Explain where it goes.
+            Pick it up. Put it under. Hang it on the door. Clean behind the bed.
           </p>
         </header>
         <nav className="flex gap-3" aria-label="Course and game">
@@ -41,7 +41,7 @@ function PlaceDirectionsPreview() {
             aria-pressed={tab === "game"}
             onClick={() => setTab("game")}
           >
-            Play the game
+            Play the scenes
           </button>
           <button
             className="rounded-xl border px-5 py-3 font-semibold"

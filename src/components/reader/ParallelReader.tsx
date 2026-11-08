@@ -461,6 +461,7 @@ export function ParallelReader() {
     const passage = buildCenteredPassage(activeSentences, sentenceIndex);
     if (pane === "right") {
       setWordReq({
+        readerPane: pane,
         word,
         sentence,
         language: state.selectedLanguage,
@@ -482,6 +483,7 @@ export function ParallelReader() {
       setWordReq({
         word,
         sentence: context,
+        readerPane: pane,
         language: state.selectedLanguage,
         textId: selected.id,
         textTitle: selected.title,

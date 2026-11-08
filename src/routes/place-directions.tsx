@@ -130,8 +130,8 @@ function PlaceDirectionsPreview() {
           </section>
         )}
         <p className="text-sm text-muted-foreground">
-          Preview course. Human teaching review is pending. Game audio uses your device’s Spanish
-          voice; dedicated recordings are not yet included.
+          Preview course. Human teaching review is pending. Game commands include HD
+          recordings in Spanish and English.
         </p>
       </div>
     </main>

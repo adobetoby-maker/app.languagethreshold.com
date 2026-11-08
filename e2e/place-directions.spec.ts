@@ -111,6 +111,10 @@ test("clinic actions, voice-only privacy, replay and remembered preferences", as
   await page.addInitScript(() => {
     const calls: string[] = [];
     (window as unknown as { pictureSpeech: string[] }).pictureSpeech = calls;
+    HTMLMediaElement.prototype.play = function () {
+      calls.push(this.src);
+      return Promise.resolve();
+    };
     Object.defineProperty(window, "speechSynthesis", {
       configurable: true,
       value: {
@@ -138,7 +142,7 @@ test("clinic actions, voice-only privacy, replay and remembered preferences", as
       page.evaluate(() => (window as unknown as { pictureSpeech: string[] }).pictureSpeech.length),
     )
     .toBeGreaterThan(0);
-  await game.getByRole("button", { name: /Replay · device voice/ }).click();
+  await game.getByRole("button", { name: /Replay · HD recording/ }).click();
   await game.getByTestId("movable-tool").click();
   await game.getByText("Act without dragging", { exact: true }).click();
   await game.locator('[data-place="door-hook"]').click();
@@ -217,4 +221,24 @@ test("medical and OR modules get their own scene area and preserve the instructi
   await page.getByText("Picture & Action · words, objects, and actions", { exact: true }).click();
   await expect(game.getByTestId("picture-scene")).toHaveValue("truck");
   await expect(game.getByTestId("placement-command")).toContainText("Pon la mochila");
+});
+
+test("HD command recordings load for both voices", async ({ page }) => {
+  await page.goto("/place-directions");
+  const game = page.getByTestId("place-game");
+  const recording = page.waitForResponse(
+    (r) => r.url().includes("/audio/picture-action/") && [200, 206].includes(r.status()),
+  );
+  await game.getByRole("button", { name: "Listen · HD recording" }).click();
+  const female = await recording;
+  expect((await female.body()).length).toBeGreaterThan(500);
+  await game.getByText("Voice and practice settings", { exact: true }).click();
+  await game.getByRole("combobox", { name: "Voice", exact: true }).selectOption("male");
+  const other = page.waitForResponse(
+    (r) => r.url().includes("/audio/picture-action/") && [200, 206].includes(r.status()),
+  );
+  await game.getByRole("button", { name: "Replay · HD recording" }).click();
+  const male = await other;
+  expect(male.url()).not.toEqual(female.url());
+  expect((await male.body()).length).toBeGreaterThan(500);
 });

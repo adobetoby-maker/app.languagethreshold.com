@@ -1,3 +1,4 @@
+import recordings from "@/data/picture-action-audio.json";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import {
   Backpack,
@@ -159,6 +160,9 @@ export function PlaceDirectionsGame({
     [hadHelp, setHadHelp] = useState(false),
     [speechError, setSpeechError] = useState(""),
     [cleanProgress, setCleanProgress] = useState(0);
+  const recordedAudio = useRef<HTMLAudioElement | null>(null);
+  const [voiceGender, setVoiceGender] = useState("female");
+  const [hasPlayed, setHasPlayed] = useState(false);
   const dragged = useRef(false);
   const board = useRef<HTMLDivElement>(null),
     start = useRef<Point | null>(null),
@@ -186,10 +190,15 @@ export function PlaceDirectionsGame({
       s = pictureScene(id),
       n = Math.max(0, Math.min(s.challenges.length - 1, initialRound));
     setSceneId(id);
+    recordedAudio.current?.pause();
+    recordedAudio.current = null;
     setRound(n);
     setPosition(s.challenges[n].start);
     setReady(true);
-    return () => window.speechSynthesis?.cancel();
+    return () => {
+      recordedAudio.current?.pause();
+      window.speechSynthesis?.cancel();
+    };
   }, [context, moduleId, category, initialRound]);
   function save(patch: Partial<PicturePreferences>) {
     settings.current = { ...settings.current, ...patch };
@@ -201,26 +210,40 @@ export function PlaceDirectionsGame({
   }
   function speak(x = c, speed = rate) {
     setSpeechError("");
-    if (!window.speechSynthesis) {
-      setSpeechError("Device speech is unavailable. Choose Voice + text or Text only to continue.");
+    recordedAudio.current?.pause();
+    window.speechSynthesis?.cancel();
+    const clip = recordings.clips.find(
+      (r) =>
+        r.id === x.id &&
+        r.language === (targetLanguage === "English" ? "en" : "es") &&
+        r.gender === voiceGender &&
+        r.text === command(x),
+    );
+    if (clip) {
+      audioStarted.current = true;
+      setHasPlayed(true);
+      const audio = new Audio(clip.url);
+      recordedAudio.current = audio;
+      audio.playbackRate = speed;
+      audio.preload = "auto";
+      audio.onerror = () => {
+        if (recordedAudio.current === audio)
+          setSpeechError("Recording could not load. Check your connection and tap Replay.");
+      };
+      void audio.play().catch(() => {
+        if (recordedAudio.current === audio)
+          setSpeechError("Tap Replay to start the HD recording.");
+      });
       return;
     }
-    audioStarted.current = true;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(command(x));
-    u.lang = targetLanguage === "English" ? "en-US" : "es-MX";
-    u.rate = speed;
-    const voice = window.speechSynthesis
-      .getVoices()
-      .find((v) => v.lang.toLowerCase().startsWith(u.lang.slice(0, 2)));
-    if (voice) u.voice = voice;
-    u.onerror = (e) => {
-      if (e.error !== "canceled" && e.error !== "interrupted")
-        setSpeechError("Audio could not play. Replay, or choose Voice + text or Text only.");
-    };
-    window.speechSynthesis.speak(u);
+    setSpeechError(
+      "This command’s HD recording is not available yet. Choose Voice + text or Text only to continue.",
+    );
   }
+
   function clear(x: PictureChallenge, n: number) {
+    recordedAudio.current?.pause();
+    recordedAudio.current = null;
     setRound(n);
     setPosition({ ...x.start });
     setPicked(false);
@@ -239,6 +262,7 @@ export function PlaceDirectionsGame({
   }
   function next() {
     if (round >= scene.challenges.length - 1) {
+      recordedAudio.current?.pause();
       setFinished(true);
       window.speechSynthesis?.cancel();
       return;
@@ -271,8 +295,11 @@ export function PlaceDirectionsGame({
     save({ mode: value });
     setSpeechError("");
     if (value === "text") {
+      recordedAudio.current?.pause();
+      recordedAudio.current = null;
       window.speechSynthesis?.cancel();
       audioStarted.current = false;
+      setHasPlayed(false);
     } else speak();
   }
   function check(p: Point, pickup = picked, assisted = false) {
@@ -435,7 +462,7 @@ export function PlaceDirectionsGame({
             {mode !== "text" && (
               <button className={button} disabled={!ready} onClick={() => speak()}>
                 <Volume2 className="mr-2 inline size-4" />
-                {audioStarted.current ? "Replay" : "Listen"} · device voice
+                {hasPlayed ? "Replay" : "Listen"} · HD recording
               </button>
             )}
             <button
@@ -621,6 +648,20 @@ export function PlaceDirectionsGame({
           Voice and practice settings
         </summary>
         <label className="mt-2 block text-sm">
+          Voice
+          <select
+            className="ml-2 rounded-lg border bg-background p-2"
+            value={voiceGender}
+            onChange={(e) => {
+              recordedAudio.current?.pause();
+              setVoiceGender(e.target.value);
+            }}
+          >
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </label>
+        <label className="mt-2 block text-sm">
           Voice speed
           <select
             className="ml-2 rounded-lg border bg-background p-2"
@@ -639,8 +680,8 @@ export function PlaceDirectionsGame({
           </select>
         </label>
         <p className="mt-2 text-sm text-muted-foreground">
-          Instructions use your device’s {targetLanguage} voice. Scene and instruction preferences
-          are remembered on this device. Practice results do not mark a lesson complete.
+          Instructions use HD recordings. Scene and instruction preferences are remembered on this
+          device. Practice results do not mark a lesson complete.
         </p>
         <a
           className="mt-2 inline-block text-sm underline"

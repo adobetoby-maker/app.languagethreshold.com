@@ -14,7 +14,9 @@ Core 25–27 adds another 18 private activities in `private-mode-activities-core
 
 Core 28–30 adds 18 more in `private-mode-activities-core-28-30.json` for cleanup, the punch list, and the closing briefing. The Foundation and Core activity pilot now covers all 40 lessons with 240 distinct source-linked draft activities. Master activities are being authored in bounded batches, and none of these pilots is ready for learner use.
 
-The first bounded Master 1–3 pilot in `private-mode-activities-master-1-3.json` adds 18 distinct activities for explaining the roof layers, discussing staggered joints, and checking nail placement. Its builder pins exact French/English source pairs and leaves every activity `readyForLearner:false`. The full pilot now covers 43 lessons and 258 activities; Master 4–20 still needs authored activities and qualified terminology review.
+The first bounded Master 1–3 pilot in `private-mode-activities-master-1-3.json` adds 18 distinct activities for explaining the roof layers, discussing staggered joints, and checking nail placement. Its builder pins exact French/English source pairs and leaves every activity `readyForLearner:false`. Master 7–20 still needs authored activities and qualified terminology review.
+
+Master 4–6 adds 18 more source-linked private activities in `private-mode-activities-master-4-6.json` for reading a spec sheet, explaining a change order, and discussing a substitute delivery. The pilot now covers 46 lessons and 276 draft activities. Product/warranty and contract claims remain in the qualified-review queue; these activities do not make the source claims approved.
 
 A separate [private audio scope](private-audio-scope-2026-11-07.md) pins 1,381 exact French strings from cards and Reader lines; it has no recordings. Interactive speaking openings require text curation before they can be included in a recording plan.
 

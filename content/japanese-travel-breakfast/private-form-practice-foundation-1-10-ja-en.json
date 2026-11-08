@@ -1,0 +1,458 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "registered": false,
+  "reviewed": false,
+  "pairKey": "Japanese:English",
+  "courseId": "foundation-travel-breakfast:ja-en",
+  "practiceModel": "contextual-japanese-form",
+  "note": "Whole authored Japanese Reader expressions; no Spanish person or ending slots. Authoring inputs only, not live exercises.",
+  "sourceFile": "foundation-1-10-draft.json",
+  "sourceSha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+  "counts": {
+    "lessons": 10,
+    "prompts": 30
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonId": "foundation-travel-breakfast:1:ja-en",
+      "grammarFocus": "おはようございます is a polite morning greeting. は in わたしは is pronounced wa; です makes a polite statement. Long vowels matter in コーヒー. Katakana often marks loanwords such as コーヒー and メニュー.",
+      "prompts": [
+        {
+          "id": "form-ja-en-67e068a7fb944262",
+          "sourceReaderTurn": 1,
+          "focus": "polite-morning-greeting",
+          "englishPrompt": "Good morning.",
+          "japaneseAnswer": "おはようございます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-df884af2407be13e",
+          "sourceReaderTurn": 3,
+          "focus": "topic-wa-and-polite-desu",
+          "englishPrompt": "I am Sam.",
+          "japaneseAnswer": "わたしはサムです。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-97656d69772a2f24",
+          "sourceReaderTurn": 5,
+          "focus": "availability-question-arimasu-ka",
+          "englishPrompt": "Do you have a menu?",
+          "japaneseAnswer": "メニューはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonId": "foundation-travel-breakfast:2:ja-en",
+      "grammarFocus": "Use コーヒーを二はい for two cups and パンを三つ for three general pieces. ですか asks for confirmation. 円 means yen; café prices vary, so the example total is fictional. The Spanish source's pesos are intentionally adapted to yen.",
+      "prompts": [
+        {
+          "id": "form-ja-en-1aeef42dc7e3da53",
+          "sourceReaderTurn": 2,
+          "focus": "cup-counter-ni-hai",
+          "englishPrompt": "Two coffees, please.",
+          "japaneseAnswer": "コーヒーを二はいください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-aa3f25f5e548cd08",
+          "sourceReaderTurn": 3,
+          "focus": "general-counter-mittsu",
+          "englishPrompt": "Three pieces of bread, please.",
+          "japaneseAnswer": "パンを三つください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-57f44202c8b2f4be",
+          "sourceReaderTurn": 7,
+          "focus": "price-confirmation-desu-ka",
+          "englishPrompt": "One thousand yen?",
+          "japaneseAnswer": "千円ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonId": "foundation-travel-breakfast:3:ja-en",
+      "grammarFocus": "Use この席は空いていますか to ask about seat availability. あつい describes a hot drink; つめたい describes a cold one. Japanese adjectives do not map onto the Spanish ser/estar distinction, so this lesson teaches predicate adjectives and current-state expressions instead.",
+      "prompts": [
+        {
+          "id": "form-ja-en-ac386d438ef227f6",
+          "sourceReaderTurn": 1,
+          "focus": "seat-availability-te-imasu-ka",
+          "englishPrompt": "Excuse me. Is this seat available?",
+          "japaneseAnswer": "すみません。この席は空いていますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-6adfbdeb1943eda4",
+          "sourceReaderTurn": 5,
+          "focus": "i-adjective-atsui",
+          "englishPrompt": "This coffee is hot, isn't it?",
+          "japaneseAnswer": "このコーヒーはあついですね。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-9582801d24abdd9f",
+          "sourceReaderTurn": 7,
+          "focus": "i-adjective-amai-ka",
+          "englishPrompt": "Is this bread sweet?",
+          "japaneseAnswer": "このパンはあまいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonId": "foundation-travel-breakfast:4:ja-en",
+      "grammarFocus": "ありますか asks whether an item is available. ほしいです expresses what you want; ～をください requests an item politely. Japanese does not copy Spanish tener/hay/querer conjugations. 「新鮮」 is not used to claim juice quality; ask whether it is freshly squeezed if that distinction matters.",
+      "prompts": [
+        {
+          "id": "form-ja-en-1499071e017a24d6",
+          "sourceReaderTurn": 3,
+          "focus": "item-availability-arimasu-ka",
+          "englishPrompt": "Do you have orange juice?",
+          "japaneseAnswer": "オレンジジュースはありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-91ef881327677a42",
+          "sourceReaderTurn": 6,
+          "focus": "negative-dewa-arimasen",
+          "englishPrompt": "No, it is not freshly squeezed.",
+          "japaneseAnswer": "いいえ、しぼりたてではありません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-eaa8031f0413228d",
+          "sourceReaderTurn": 7,
+          "focus": "polite-request-kudasai",
+          "englishPrompt": "Then tea, please.",
+          "japaneseAnswer": "では、おちゃをください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonId": "foundation-travel-breakfast:5:ja-en",
+      "grammarFocus": "ここで食べます states where an action takes place. ～てもいいですか asks permission. カードで払えますか asks whether card payment is possible. A terrace or payment method is never assumed available.",
+      "prompts": [
+        {
+          "id": "form-ja-en-7a14a0fb192e1563",
+          "sourceReaderTurn": 2,
+          "focus": "action-location-de",
+          "englishPrompt": "Yes, I will eat here.",
+          "japaneseAnswer": "はい、ここで食べます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-1712759479dd28a6",
+          "sourceReaderTurn": 3,
+          "focus": "permission-te-mo-ii-desu-ka",
+          "englishPrompt": "May I sit outside?",
+          "japaneseAnswer": "外の席に座ってもいいですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-2822ca8886bf2b2d",
+          "sourceReaderTurn": 7,
+          "focus": "payment-possibility-haraemasu-ka",
+          "englishPrompt": "Can I pay by card?",
+          "japaneseAnswer": "カードで払えますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonId": "foundation-travel-breakfast:6:ja-en",
+      "grammarFocus": "Japanese polite nonpast ～ます covers habits and future context; it does not inflect by person like Spanish present-tense verbs. いつも means usually; 毎朝 means every morning. を marks what is eaten or drunk. Avoid assuming another guest lives locally.",
+      "prompts": [
+        {
+          "id": "form-ja-en-4ff46436bb0cad1d",
+          "sourceReaderTurn": 3,
+          "focus": "polite-nonpast-question",
+          "englishPrompt": "What do you eat for breakfast?",
+          "japaneseAnswer": "朝ごはんは何を食べますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-d4e74e5819d1673d",
+          "sourceReaderTurn": 4,
+          "focus": "habit-itsumo-tabe-masu",
+          "englishPrompt": "I usually eat bread and eggs.",
+          "japaneseAnswer": "いつもパンとたまごを食べます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-47a445228082bca8",
+          "sourceReaderTurn": 6,
+          "focus": "daily-habit-nomi-masu",
+          "englishPrompt": "I drink coffee every morning.",
+          "japaneseAnswer": "毎朝コーヒーを飲みます。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonId": "foundation-travel-breakfast:7:ja-en",
+      "grammarFocus": "Use 何 (what), どこ (where), いつ (when), いくら (how much), and どれ (which). The question marker か closes a polite question. Ask the host for the actual price rather than assuming breakfast is included.",
+      "prompts": [
+        {
+          "id": "form-ja-en-174e2accb335bd67",
+          "sourceReaderTurn": 1,
+          "focus": "price-question-ikura-desu-ka",
+          "englishPrompt": "Good morning. How much is breakfast?",
+          "japaneseAnswer": "おはようございます。朝食はいくらですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-cdcf469064b4a5de",
+          "sourceReaderTurn": 4,
+          "focus": "location-question-doko-desu-ka",
+          "englishPrompt": "Thank you. Where is the restroom?",
+          "japaneseAnswer": "ありがとうございます。トイレはどこですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-52f74b8a3754f3a2",
+          "sourceReaderTurn": 8,
+          "focus": "choice-question-dore-desu-ka",
+          "englishPrompt": "Which do you recommend?",
+          "japaneseAnswer": "おすすめはどれですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonId": "foundation-travel-breakfast:8:ja-en",
+      "grammarFocus": "まだ means not yet when paired with a negative. 肉を食べません states that you do not eat meat, and 砂糖は少なめで asks for less sugar. もっと, 少なめ and 別の ask for more, less and another option.",
+      "prompts": [
+        {
+          "id": "form-ja-en-58a93e58a2a062dd",
+          "sourceReaderTurn": 2,
+          "focus": "not-yet-mada-te-imasen",
+          "englishPrompt": "I have not decided yet. Please wait a moment.",
+          "japaneseAnswer": "まだ決めていません。少し待ってください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-bdd2ffbfb06dcdf9",
+          "sourceReaderTurn": 4,
+          "focus": "negative-tabe-masen",
+          "englishPrompt": "I do not eat meat. Do you have a dish without meat?",
+          "japaneseAnswer": "肉は食べません。肉を使わない料理はありますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-a7cb5bbd4db12ad9",
+          "sourceReaderTurn": 7,
+          "focus": "less-sugar-sukuname-de",
+          "englishPrompt": "Less sugar, please.",
+          "japaneseAnswer": "砂糖は少なめでお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonId": "foundation-travel-breakfast:9:ja-en",
+      "grammarFocus": "～をください is a direct polite request; ～をいただけますか softens it. お会計 is the bill/payment. Do not translate Spanish usted commands mechanically. Tipping and change practices vary by place, so verify before offering to leave change.",
+      "prompts": [
+        {
+          "id": "form-ja-en-483158eca2e56901",
+          "sourceReaderTurn": 1,
+          "focus": "soft-request-itadake-masu-ka",
+          "englishPrompt": "Excuse me. Could I have a glass of water?",
+          "japaneseAnswer": "すみません。お水を一杯いただけますか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-05b38cf0b60c8862",
+          "sourceReaderTurn": 4,
+          "focus": "bill-request-onegai-shimasu",
+          "englishPrompt": "Thank you. The bill, please.",
+          "japaneseAnswer": "ありがとうございます。お会計をお願いします。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-378aeb77c68fb8ed",
+          "sourceReaderTurn": 8,
+          "focus": "polite-intention-harai-masu",
+          "englishPrompt": "Then I will pay by card.",
+          "japaneseAnswer": "では、カードで払います。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonId": "foundation-travel-breakfast:10:ja-en",
+      "grammarFocus": "Japanese does not have Spanish -ción/-dad cognate patterns. Familiar-looking katakana words such as メニュー and レストラン can help, but meaning and pronunciation still need checking. ゆっくり話してください asks someone to speak slowly; もう一度お願いします asks for repetition.",
+      "prompts": [
+        {
+          "id": "form-ja-en-ae05677dd70f5d7b",
+          "sourceReaderTurn": 2,
+          "focus": "non-understanding-wakari-masen",
+          "englishPrompt": "Excuse me, I do not quite understand.",
+          "japaneseAnswer": "すみません、よくわかりません。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-0af3af6af26b8f99",
+          "sourceReaderTurn": 3,
+          "focus": "repeat-slowly-te-kudasai",
+          "englishPrompt": "Please say it again slowly.",
+          "japaneseAnswer": "もう一度、ゆっくり話してください。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-ja-en-97815df84efaf878",
+          "sourceReaderTurn": 5,
+          "focus": "ingredient-question-nan-desu-ka",
+          "englishPrompt": "What are the ingredients?",
+          "japaneseAnswer": "材料は何ですか。",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

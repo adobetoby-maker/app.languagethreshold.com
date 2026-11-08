@@ -1,4 +1,5 @@
 import { useOverlayHistory } from "@/hooks/use-overlay-history";
+import { useReaderSidePanel } from "@/hooks/use-reader-side-panel";
 import { curriculumVocabulary, type CurriculumWordMatch } from "@/lib/curriculum-vocabulary";
 import { CurriculumPracticeLinks } from "./CurriculumPracticeLinks";
 import { useWordCardCache } from "@/state/word-card-cache";
@@ -84,6 +85,7 @@ function HighlightedSentence({ sentence, word }: { sentence: string; word: strin
 }
 
 export interface WordCardRequest {
+  readerPane?: "left" | "right";
   word: string;
   sentence: string;
   language: Language;
@@ -144,6 +146,11 @@ export function WordCard({
   const [showEtymology, setShowEtymology] = useState(false);
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
   const ref = useRef<HTMLDivElement>(null);
+  const sidePanel = useReaderSidePanel({
+    enabled: Boolean(request.readerPane),
+    side: request.readerPane ?? "right",
+    width: cardWidth(request.language),
+  });
 
   const CARD_W =
     typeof window === "undefined"
@@ -155,7 +162,7 @@ export function WordCard({
     return () => {
       window.dispatchEvent(new CustomEvent("lt:word-card-state", { detail: false }));
     };
-  }, []);
+  }, [request.readerPane, sidePanel?.side]);
 
   // Initial position estimate — runs synchronously before first paint.
   // Safe-area insets keep the card (and its close button) clear of the Dynamic
@@ -210,6 +217,9 @@ export function WordCard({
   // Click-away; Escape and Back are handled by useOverlayHistory.
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
+      // The two study panels can share the desktop margins. Keep the word
+      // open while using the tutor so its controls do not move mid-click.
+      if (e.target instanceof Element && e.target.closest('[data-reader-panel="tutor"]')) return;
       if (ref.current && !ref.current.contains(e.target as Node)) onClose();
     };
     // delay so the originating click doesn't immediately close it
@@ -312,6 +322,8 @@ export function WordCard({
       ref={ref}
       role="dialog"
       aria-label={`Word details for ${request.word}`}
+      data-reader-panel="word"
+      data-reader-panel-side={sidePanel?.side}
       style={{
         position: "fixed",
         // Centred on the SAFE area, not the raw viewport. The safe-area centre
@@ -326,6 +338,13 @@ export function WordCard({
         // the island when the definition is long.
         maxHeight:
           "calc(100dvh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
+        ...(sidePanel ? {
+          left: sidePanel.left,
+          top: sidePanel.top,
+          width: sidePanel.width,
+          maxHeight: sidePanel.maxHeight,
+          transform: "none",
+        } : {}),
       }}
       className="word-card-pop z-50 flex flex-col overflow-hidden overscroll-contain rounded-2xl border border-gold/50 bg-card/85 shadow-luxe backdrop-blur-2xl"
     >

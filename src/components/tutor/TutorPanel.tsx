@@ -5,6 +5,7 @@ import {
   type SiteGuideContext,
 } from "@/lib/site-guide";
 import { useOverlayHistory } from "@/hooks/use-overlay-history";
+import { useReaderSidePanel } from "@/hooks/use-reader-side-panel";
 import {
   currentTutorLesson,
   resolveTutorLesson,
@@ -97,6 +98,12 @@ export function TutorPanel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const sidePanel = useReaderSidePanel({
+    enabled: tutor.state.open && appState.currentTab === "reader",
+    side: "right",
+    width: 440,
+    avoidWordCard: true,
+  });
 
   // Pull in pending prefill from Word Card / external triggers
   useEffect(() => {
@@ -113,13 +120,13 @@ export function TutorPanel() {
 
   // Lock body scroll while the tutor sheet is open (mobile rubber-band prevention)
   useEffect(() => {
-    if (!tutor.state.open) return;
+    if (!tutor.state.open || sidePanel) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [tutor.state.open]);
+  }, [tutor.state.open, sidePanel]);
 
   const cefr = useMemo(() => LEVEL_TO_CEFR[appState.level] ?? "A1", [appState.level]);
   const passage = useMemo(
@@ -352,7 +359,9 @@ export function TutorPanel() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-[2px]"
+      className={sidePanel
+        ? "pointer-events-none fixed inset-0 z-40"
+        : "fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-[2px]"}
       style={{
         paddingTop: "max(12px, env(safe-area-inset-top))",
         paddingBottom: "max(12px, env(safe-area-inset-bottom))",
@@ -366,11 +375,20 @@ export function TutorPanel() {
       <div
         ref={panelRef}
         role="dialog"
-        aria-modal="true"
+        aria-modal={sidePanel ? undefined : true}
         aria-label="Language Threshold Tutor"
-        className="lt-tutor-panel relative flex w-full max-w-[min(100%,440px)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl"
+        data-reader-panel="tutor"
+        data-reader-panel-side={sidePanel?.side}
+        className="lt-tutor-panel pointer-events-auto relative flex w-full max-w-[min(100%,440px)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl"
         style={{
           maxHeight: "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
+          ...(sidePanel ? {
+            position: "fixed",
+            left: sidePanel.left,
+            top: sidePanel.top,
+            width: sidePanel.width,
+            maxHeight: sidePanel.maxHeight,
+          } : {}),
         }}
       >
         {/* Header */}

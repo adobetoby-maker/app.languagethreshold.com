@@ -8,6 +8,7 @@ const routes = [
   "/",
   "/pricing",
   "/compare",
+  "/scenarios",
   "/team",
   "/support",
   "/vs/clinicalingo",

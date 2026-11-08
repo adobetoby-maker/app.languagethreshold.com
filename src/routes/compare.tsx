@@ -84,7 +84,7 @@ function CompareCourses() {
               [
                 "Language Threshold",
                 "Foundation → Core → Master",
-                "Role-specific beginner, core and advanced practice: 10 + 30 + 20 lessons.",
+                "A1–B1 speaking tasks, plus advanced role-specific Master practice.",
               ],
               [
                 "Duolingo",
@@ -111,6 +111,12 @@ function CompareCourses() {
           </div>
         </section>
 
+        <a
+          href="/scenarios"
+          className="mt-5 inline-flex min-h-11 items-center font-semibold text-gold-ink underline"
+        >
+          Browse our scenarios and speaking levels →
+        </a>
         <section className="mt-10" aria-labelledby="role-coverage">
           <h2 id="role-coverage" className="text-2xl font-semibold">
             Compare by role

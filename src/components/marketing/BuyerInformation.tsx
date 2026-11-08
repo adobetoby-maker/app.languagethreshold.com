@@ -57,6 +57,9 @@ export function ProductFooter() {
     <footer className="my-10 space-y-6 border-t border-border pt-6">
       <FounderStoryLink />
       <nav aria-label="Compare language training" className="flex flex-wrap gap-5">
+        <a className="inline-flex min-h-11 items-center underline" href="/scenarios">
+          Scenarios & speaking levels
+        </a>
         <a className="inline-flex min-h-11 items-center underline" href="/compare">
           Compare all four by role
         </a>

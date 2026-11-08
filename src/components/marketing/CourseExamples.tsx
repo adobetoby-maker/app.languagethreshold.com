@@ -1,3 +1,4 @@
+import { programLevelSummary } from "@/data/program-levels";
 import examples from "@/data/comparison-highlights.generated.json";
 export function CourseExamples() {
   return (
@@ -9,6 +10,13 @@ export function CourseExamples() {
         Real lessons from our Spanish courses. Read the example, hear the recording and try the
         conversation.
       </p>
+      <p className="mt-3 font-semibold text-gold-ink">{programLevelSummary}</p>
+      <a
+        href="/scenarios"
+        className="mt-3 inline-flex min-h-11 items-center font-semibold text-gold-ink underline"
+      >
+        See scenarios by role and level →
+      </a>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         {examples.map((course) => (
           <article key={course.id} className="rounded-xl border border-border bg-background p-5">

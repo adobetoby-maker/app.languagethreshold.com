@@ -30,6 +30,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RedditRouteImport } from './routes/reddit'
 import { Route as ReferRouteImport } from './routes/refer'
+import { Route as ScenariosRouteImport } from './routes/scenarios'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StaffRouteImport } from './routes/staff'
 import { Route as SupportRouteImport } from './routes/support'
@@ -197,6 +198,11 @@ const RedditRoute = RedditRouteImport.update({
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScenariosRoute = ScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -537,6 +543,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -623,6 +630,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -710,6 +718,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/reddit': typeof RedditRoute
   '/refer': typeof ReferRoute
+  '/scenarios': typeof ScenariosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/staff': typeof StaffRoute
   '/support': typeof SupportRoute
@@ -798,6 +807,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -884,6 +894,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -970,6 +981,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reddit'
     | '/refer'
+    | '/scenarios'
     | '/sitemap.xml'
     | '/staff'
     | '/support'
@@ -1057,6 +1069,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   RedditRoute: typeof RedditRoute
   ReferRoute: typeof ReferRoute
+  ScenariosRoute: typeof ScenariosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StaffRoute: typeof StaffRoute
   SupportRoute: typeof SupportRoute
@@ -1269,6 +1282,13 @@ declare module '@tanstack/react-router' {
       path: '/refer'
       fullPath: '/refer'
       preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scenarios': {
+      id: '/scenarios'
+      path: '/scenarios'
+      fullPath: '/scenarios'
+      preLoaderRoute: typeof ScenariosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1737,6 +1757,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   RedditRoute: RedditRoute,
   ReferRoute: ReferRoute,
+  ScenariosRoute: ScenariosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StaffRoute: StaffRoute,
   SupportRoute: SupportRoute,

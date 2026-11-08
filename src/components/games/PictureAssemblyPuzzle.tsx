@@ -218,7 +218,7 @@ export function PictureAssemblyPuzzle({
               key={entry.id}
               aria-label={`Compartment ${entry.slot + 1}${done ? ", packed" : ""}`}
               data-testid={`assembly-slot-${entry.slot}`}
-              className={`absolute flex h-[17%] w-[28%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border ${done ? "border-emerald-400 bg-emerald-950/60" : "border-white/20 hover:border-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400"}`}
+              className={`absolute flex h-[17%] w-[28%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border text-white ${done ? "border-emerald-400 bg-emerald-950/60" : "border-white/20 hover:border-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400"}`}
               style={{ left: `${p.x * 100}%`, top: `${p.y * 100}%` }}
               disabled={done || complete}
               onClick={() => drop(entry.slot)}

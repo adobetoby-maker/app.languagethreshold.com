@@ -29,13 +29,13 @@ test("dragging, wrong placement, demonstration and pickup sequences", async ({ p
   await page.mouse.move(b!.x + b!.width * 0.61, b!.y + b!.height * 0.59, { steps: 15 });
   await page.mouse.up();
   await expect(game.getByTestId("placement-feedback")).toContainText("Correct placement");
-  await game.getByTestId("placement-next").click();
+  await expect(game.getByTestId("placement-feedback")).toHaveText("");
   await game.getByTestId("movable-tool").click();
   await game.locator('[data-place="inside"]').click();
-  await game.getByTestId("placement-next").click();
+  await expect(game.getByTestId("placement-feedback")).toHaveText("");
   await game.getByTestId("movable-tool").click();
   await game.locator('[data-place="on"]').click();
-  await game.getByTestId("placement-next").click();
+  await expect(game.getByTestId("placement-feedback")).toHaveText("");
   await expect(game.getByTestId("placement-command")).toContainText("Levanta el destornillador");
   await expect(game.locator('[data-place="outside"]')).toBeDisabled();
   await game.getByTestId("movable-tool").click();
@@ -143,7 +143,7 @@ test("clinic actions, voice-only privacy, replay and remembered preferences", as
   await game.getByText("Act without dragging", { exact: true }).click();
   await game.locator('[data-place="door-hook"]').click();
   await expect(game.getByTestId("placement-feedback")).toContainText("Correct placement");
-  await game.getByTestId("placement-next").click();
+  await expect(game.getByTestId("placement-feedback")).toHaveText("");
   await expect(game.getByTestId("placement-command")).toHaveText("Listen and act.");
   await game.getByRole("button", { name: "Show text help", exact: true }).click();
   await expect(game).toContainText("Pon los zapatos debajo del asiento de la silla.");

@@ -5,7 +5,6 @@ import {
   RotateCcw,
   Volume2,
   Wrench,
-  ArrowRight,
   HelpCircle,
   BookOpen,
   Package,
@@ -250,6 +249,15 @@ export function PlaceDirectionsGame({
     if (mode !== "text" && audioStarted.current) speak(x);
     heading.current?.scrollIntoView({ block: "nearest" });
   }
+  const advance = useRef(next);
+  useEffect(() => {
+    advance.current = next;
+  });
+  useEffect(() => {
+    if (!correct || finished) return;
+    const timer = window.setTimeout(() => advance.current(), 850);
+    return () => window.clearTimeout(timer);
+  }, [correct, finished, round, sceneId]);
   function switchScene(id: SceneId) {
     const s = pictureScene(id);
     setSceneId(id);
@@ -560,14 +568,9 @@ export function PlaceDirectionsGame({
               Restart
             </button>
             {correct && (
-              <button
-                className={`${button} border-emerald-500`}
-                onClick={next}
-                data-testid="placement-next"
-              >
-                {round === scene.challenges.length - 1 ? "See results" : "Next instruction"}
-                <ArrowRight className="ml-2 inline size-4" />
-              </button>
+              <span className="self-center text-sm text-emerald-500" role="status">
+                {round === scene.challenges.length - 1 ? "Opening results…" : "Next command…"}
+              </span>
             )}
           </div>
           <details>

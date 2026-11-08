@@ -4,6 +4,8 @@ The French→English Roofing source has 10 Foundation, 30 Core, and 20 Master **
 
 The fixture contains 983 word/card placements (898 distinct exact French–English pairs), 646 aligned Reader lines, and 60 French speaking openings. It exposes candidate word IDs for See, Recall, Hear, Type, Say, and Write. All Foundation 1–10, Core 1–30, and Master 1–20 lessons now have six authored `practiceModesFrench` prompt inputs. Candidate IDs and prompts alone do not prove that six modes work in the learner app. All lesson and release review flags remain false.
 
+The separate `private-mode-activities-foundation-1-3.json` is an 18-activity pilot: one distinct authored cue and source-linked French/English model for each of the six modes in Foundation 1–3. Its builder checks the current fixture hash and exact source IDs. Say and Write models are examples for open responses, not a single accepted answer. Hear still requires reviewed recordings. All 18 activities are marked `readyForLearner:false`, and this file is neither imported nor registered by the app. Run `python3 scripts/build-french-roofing-foundation-mode-activities.py --check` after any source edit.
+
 A separate [private audio scope](private-audio-scope-2026-11-07.md) pins 1,381 exact French strings from cards and Reader lines; it has no recordings. Interactive speaking openings require text curation before they can be included in a recording plan.
 
 The [private dictionary inventory](private-dictionary-readiness.md) pins all 898 exact card pairs and flags 66 repeated headwords with differing English display forms. These are review evidence, not approved senses or live dictionary links.

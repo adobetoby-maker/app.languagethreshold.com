@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build private, source-linked Core 1–15 French Roofing activity drafts."""
+"""Build private, source-linked Core 1–18 French Roofing activity drafts."""
 import argparse
 import hashlib
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content/french-roofing/private-runtime-candidate.json"
-OUTPUT = ROOT / "content/french-roofing/private-mode-activities-core-1-15.json"
+OUTPUT = ROOT / "content/french-roofing/private-mode-activities-core-1-18.json"
 MODES = ("see", "recall", "hear", "type", "say", "write")
 
 # The cue and source reference for each activity are authored for its lesson.
@@ -132,6 +132,30 @@ PLAN = {
         "say": ("Ask whether the valley is entirely protected.", "word:15"),
         "write": ("Write what the foreman asks to see before it is covered.", "line:9"),
     },
+    16: {
+        "see": ("Find where the foreman spots a nail placed too high.", "line:2"),
+        "recall": ("Without looking, name the nailing zone in French.", "word:7"),
+        "hear": ("Listen and identify the nail gun.", "word:6"),
+        "type": ("Type 'That nail is too high.' in French.", "word:11"),
+        "say": ("Ask a coworker to show you the nailing strip.", "word:15"),
+        "write": ("Write what the crew must correct in this course.", "line:6"),
+    },
+    17: {
+        "see": ("Find the guide's example number of nails per shingle.", "line:3"),
+        "recall": ("Without looking, name the nail pattern in French.", "word:1"),
+        "hear": ("Listen and identify the manufacturer's instructions.", "word:3"),
+        "type": ("Type 'How many nails does this shingle need?' in French.", "word:12"),
+        "say": ("Ask for the exact pattern for this product.", "word:15"),
+        "write": ("Write what the worker checks before setting the nail pattern.", "line:6"),
+    },
+    18: {
+        "see": ("Find how the nail heads should sit.", "line:4"),
+        "recall": ("Without looking, name an overdriven nail in French.", "word:1"),
+        "hear": ("Listen and identify the term for air pressure.", "word:4"),
+        "type": ("Type 'Stop. The nails are too deep.' in French.", "word:11"),
+        "say": ("Tell a coworker to adjust the nail gun.", "word:15"),
+        "write": ("Write what the worker checks before continuing.", "line:9"),
+    },
 }
 
 
@@ -175,7 +199,7 @@ def build():
                 "recordedAudioRequired": mode == "hear",
                 "readyForLearner": False,
             })
-    assert len(result["activities"]) == 90
+    assert len(result["activities"]) == 108
     return json.dumps(result, ensure_ascii=False, indent=2) + "\n"
 
 
@@ -186,7 +210,7 @@ if __name__ == "__main__":
     expected = build()
     if args.check:
         assert OUTPUT.read_text() == expected, "private Core mode activities are stale"
-        print("90 private Core activities: exact source pairs and release gates verified")
+        print("108 private Core activities: exact source pairs and release gates verified")
     else:
         OUTPUT.write_text(expected)
         print(OUTPUT)

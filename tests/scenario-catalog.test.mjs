@@ -32,3 +32,27 @@ test("scenario catalog matches source and every practice link preserves its miss
     catalog.count,
   );
 });
+
+test("deployed scenario JSON resolves to its static file before the SSR catch-all", async () => {
+  const { runInNewContext } = await import("node:vm");
+  const source = readFileSync("scripts/vercel-adapter.mjs", "utf8");
+  const configBlock = source.slice(source.indexOf("// Output config:"));
+  let config;
+  runInNewContext(configBlock, {
+    out: ".vercel/output",
+    process: { env: {} },
+    assessmentCleanupSchedule: () => ({}),
+    console: { log() {} },
+    writeFileSync: (_path, text) => {
+      config = JSON.parse(text);
+    },
+  });
+  const catalog = JSON.parse(readFileSync("src/data/scenario-catalog.generated.json"));
+  for (const module of catalog.modules) {
+    const rule = config.routes.find((r) => new RegExp(`^${r.src}$`).test(module.path));
+    assert(rule, module.path);
+    const destination = module.path.replace(new RegExp(`^${rule.src}$`), rule.dest);
+    assert.equal(destination, module.path, `SSR intercepted ${module.path}`);
+    assert.doesNotThrow(() => JSON.parse(readFileSync(`public${destination}`)));
+  }
+});

@@ -92,6 +92,7 @@ export function PictureAssemblyPuzzle({
   function drop(slot: number | null) {
     if (locked.current || placed.includes(active) || complete) return;
     if (slot !== item.slot) {
+      setPoint({ x: 0.12, y: 0.9 });
       setMessage("Try another compartment. Listen again or open text help.");
       return;
     }
@@ -143,7 +144,7 @@ export function PictureAssemblyPuzzle({
       {complete ? (
         <p
           role="status"
-          className="text-lg font-semibold text-emerald-500"
+          className="text-lg font-semibold text-emerald-700 dark:text-emerald-300"
           data-testid="assembly-complete"
         >
           Everything is organized. Puzzle complete!

@@ -1,0 +1,7 @@
+# French Roofing private audio scope
+
+This is an unsynthesized, exact-text inventory for the 60 French→English Roofing Supervisor draft lessons. It includes 983 French card-front placements and 646 French Reader-line placements, deduplicated to **1,381 exact strings**. A two-voice plan would require **2,762 clips** and 128,210 Unicode characters before any provider-specific billing calculation. The [machine-readable inventory](private-audio-scope-fr-en.json) records the source fixture hash, each exact text hash, all lesson occurrences, and the combined text hash `4d0be560dbe331767a80eedd67692c3ad8c625d0f7c83b505288d91b84ea55d4`.
+
+The 60 speaking openings are deferred because they are interactive prompts with blanks or embedded English instructions, not fixed French speech lines. English support, mode instructions and unwritten AI replies are also excluded. The scope does not select a voice or claim a provider price. `python3 scripts/build-french-roofing-private-audio-scope.py --check` fails if source text or the saved inventory changes without regeneration.
+
+All source lessons and this inventory remain `reviewed:false`, `registered:false`, `recordingsGenerated:false` and `listeningReviewed:false`. Before synthesis: resolve French and roofing terminology review, approve exact text and voice/locale choices, obtain current provider pricing, then generate bounded batches with text, voice, duration, hash and qualified listening checks. Playback, offline and V4 iPhone/Watch acceptance remain open. No learner-facing audio or progress changed.

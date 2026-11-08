@@ -66,8 +66,10 @@ console.log(JSON.stringify(ROOFING_LESSONS.slice(18,21).map(l => ({
             "titleFrench", "objectiveFrench", "speakingFrenchInstruction",
             "speakingFrenchOpening", "grammarFocusFrench", "teachingNotesFrench"
         ))
-    assert "qualified fall-protection review" in next(w for w in draft["lessons"][2]["words"]
-                                         if w["en"] == "Lanyard short enough you won't hit the ground.")["noteEnglish"]
+    assert not any("noteEnglish" in w for lesson in draft["lessons"] for w in lesson["words"])
+    internal = (CONTENT / "core-19-21-internal-review.md").read_text()
+    assert all(f"Core {n}" in internal for n in (19, 20, 21))
+    assert "reviewed:false" in internal and "blocked from release" in internal
     print("French Roofing Core 19–21: source hashes, exact English pairs, stable IDs and draft gates pass")
 
 

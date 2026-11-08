@@ -1,0 +1,7 @@
+# French Roofing private dictionary readiness
+
+The [exact-pair inventory](private-dictionary-inventory-fr-en.json) records all 983 card placements in the 60-lesson French→English Roofing draft: 898 distinct French/English pairs and 831 normalized French headwords. It pins the runtime candidate's SHA-256 hash and every source lesson/word ID. Run `python3 scripts/build-french-roofing-private-dictionary.py --check` after a source or fixture edit.
+
+Sixty-six French headwords appear with more than one English display form. Fifty-seven are **article-only candidates** under a simple leading “the/a/an” comparison; this classification is evidence for review, not a resolved dictionary sense. Nine have other variations: `le bardeau` (shingle/roof tile), `le chantier` (job/jobsite), `le danger` (danger/hazard), `le platelage du toit` and `le support de couverture` (deck/roof deck), `le rang de bardeaux` (shingle course/row), `les débris` (debris/trash), `l’ancrage` (anchor/tie-off), and `l’orage` (storm/thunderstorm). A qualified French and roofing reviewer must determine whether these are contextual glosses or separate senses before links or search results use them.
+
+Every entry has `partOfSpeech:null`, `inflection:null`, `reviewed:false`, and `registered:false`. This is a private review queue; no learner dictionary, card text, course registration, or progress changed. Keep direct clinical terms in the teaching source. Technical or factual concerns belong in the internal review record.

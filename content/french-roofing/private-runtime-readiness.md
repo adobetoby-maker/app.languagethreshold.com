@@ -6,6 +6,8 @@ The fixture contains 983 word/card placements (898 distinct exact French–Engli
 
 A separate [private audio scope](private-audio-scope-2026-11-07.md) pins 1,381 exact French strings from cards and Reader lines; it has no recordings. Interactive speaking openings require text curation before they can be included in a recording plan.
 
+The [private dictionary inventory](private-dictionary-readiness.md) pins all 898 exact card pairs and flags 66 repeated headwords with differing English display forms. These are review evidence, not approved senses or live dictionary links.
+
 The Core 24 and Master 11 clinical-vocabulary corrections remain direct in the generated source: *avoir des vertiges*, *l’épuisement dû à la chaleur*, and *le coup de chaleur* retain their meanings and grammatical examples. The source builders now reproduce those corrections exactly. Clinical vocabulary does not require learner-facing hedging; any uncertain trade or factual claim belongs in the internal review ledger, separate from the teaching text.
 
 Remaining work: independent post-edit French fidelity and curriculum review; qualified regional and roofing review of technical claims (including Core 21 fall protection and Master warranty/insurance/weather scenes); real six-mode runtime/Reader/card/dictionary/speaking integration; pair-isolated progress and authenticated desktop/phone testing; offline registration and verification; exact French recorded audio with listening checks; and V4 native/Watch acceptance. This fixture does not mark any lesson reviewed or ready for release.

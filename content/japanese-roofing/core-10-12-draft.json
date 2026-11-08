@@ -1,0 +1,533 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "b4e671293e692774964b497d6762df4c91d78a4dae3581174ffa2bc8efbeda57",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "roofing:10:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Tarp the Unfinished Roof",
+      "sourceEnglishObjective": "Close an unfinished work area before departure",
+      "sourceEnglishSpeaking": "Explain which section needs a tarp and have the crew repeat the plan.",
+      "title": "未完成部分をシートで覆う",
+      "objective": "帰る前に未完成の屋根部分を示し、養生の段取りを作業班に伝える。",
+      "focus": "～前に places an action before departure; ～ない部分 identifies unfinished work. ～たら expresses a change in conditions, and ～てください gives a direct crew instruction.",
+      "cards": [
+        {
+          "ja": "養生シート",
+          "en": "tarp",
+          "kind": "term"
+        },
+        {
+          "ja": "未完成の部分",
+          "en": "unfinished section",
+          "kind": "term"
+        },
+        {
+          "ja": "天候",
+          "en": "weather",
+          "kind": "term"
+        },
+        {
+          "ja": "雨",
+          "en": "rain",
+          "kind": "term"
+        },
+        {
+          "ja": "風",
+          "en": "wind",
+          "kind": "term"
+        },
+        {
+          "ja": "天気予報",
+          "en": "forecast",
+          "kind": "term"
+        },
+        {
+          "ja": "ロープ",
+          "en": "rope",
+          "kind": "term"
+        },
+        {
+          "ja": "雨漏り",
+          "en": "leak",
+          "kind": "term"
+        },
+        {
+          "ja": "今日終えられない部分には養生シートを掛けてください。",
+          "en": "Tarp anything you can't finish today.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "天候が変わったら作業を止めて屋根から下りてください。",
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "帰る前にこの部分を覆ってください。",
+          "en": "Cover this section before we leave.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "養生シートをしっかり固定してください。",
+          "en": "Tie down the tarp well.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今夜は雨が降ります。",
+          "en": "Rain is coming tonight.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "確認のため、段取りを繰り返してください。",
+          "en": "Repeat the plan to confirm.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午後四時で、風が吹いています。",
+          "en": "It is 4:00 in the afternoon and it is windy."
+        },
+        {
+          "ja": "天気予報では今夜は雨が降るそうです。",
+          "en": "The weather forecast says it will rain tonight."
+        },
+        {
+          "ja": "裏側には未完成の部分があります。",
+          "en": "There is an unfinished section at the back."
+        },
+        {
+          "ja": "雨で露出した屋根下地が濡れることがあります。",
+          "en": "Rain can wet the open deck."
+        },
+        {
+          "ja": "帰る前にこの部分を覆ってください。",
+          "en": "Cover this section before we leave."
+        },
+        {
+          "ja": "今日終えられない部分には養生シートを掛けてください。",
+          "en": "Tarp anything you can't finish today."
+        },
+        {
+          "ja": "ロープで養生シートをしっかり固定してください。",
+          "en": "Tie the tarp down well with the rope."
+        },
+        {
+          "ja": "天候が変わったら作業を止めて屋根から下りてください。",
+          "en": "Stop work and come down if the weather changes."
+        },
+        {
+          "ja": "確認のため、段取りを繰り返してください。",
+          "en": "Repeat the plan to confirm."
+        }
+      ],
+      "forms": [
+        {
+          "base": "覆う",
+          "exampleJa": "帰る前にこの部分を覆ってください。",
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "Cover this section before we leave.",
+          "sourceInfinitiveSpanish": "cubrir"
+        },
+        {
+          "base": "固定する",
+          "exampleJa": "ロープで養生シートをしっかり固定してください。",
+          "meaningEnglish": "to tie down",
+          "exampleEnglish": "Tie the tarp down well with the rope.",
+          "sourceInfinitiveSpanish": "amarrar"
+        },
+        {
+          "base": "止める",
+          "exampleJa": "天候が変わったら作業を止めてください。",
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work if the weather changes.",
+          "sourceInfinitiveSpanish": "detener"
+        },
+        {
+          "base": "下りる",
+          "exampleJa": "天候が変わったら屋根から下ります。",
+          "meaningEnglish": "to come down",
+          "exampleEnglish": "We come down off the roof if the weather changes.",
+          "sourceInfinitiveSpanish": "bajar"
+        },
+        {
+          "base": "繰り返す",
+          "exampleJa": "確認のため、段取りを繰り返します。",
+          "meaningEnglish": "to repeat",
+          "exampleEnglish": "We repeat the plan to confirm.",
+          "sourceInfinitiveSpanish": "repetir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "裏側の未完成部分に養生シートを掛けてください。段取りを繰り返して確認しましょう。",
+        "goal": "Explain which section needs a tarp and have the crew repeat the plan."
+      },
+      "modes": {
+        "see": "Find the unfinished section in the scene.",
+        "recall": "Recall tarp, forecast, rope, and leak.",
+        "hear": "Distinguish 雨 from 風 when spoken.",
+        "type": "Type 'Cover this section before we leave.' in Japanese.",
+        "say": "Explain which section needs a tarp and ask the crew to repeat the plan.",
+        "write": "Write the covering sequence before departure."
+      }
+    },
+    {
+      "n": 11,
+      "stableId": "roofing:11:ja-en",
+      "reviewed": false,
+      "titleEnglish": "First-Course Layout",
+      "sourceEnglishObjective": "Describe the chalk line and first course",
+      "sourceEnglishSpeaking": "Show a new worker where to run the first-course chalk line.",
+      "title": "最初の段の墨出し",
+      "objective": "最初の段の墨線、軒先、スターター材の位置を説明する。",
+      "focus": "～から marks the measurement starting point; ～に沿って marks placement along an edge. ～てから orders measuring and marking before laying the first course.",
+      "cards": [
+        {
+          "ja": "墨線",
+          "en": "chalk line",
+          "kind": "term"
+        },
+        {
+          "ja": "最初の段",
+          "en": "first course",
+          "kind": "term"
+        },
+        {
+          "ja": "スターター材",
+          "en": "starter strip",
+          "kind": "term"
+        },
+        {
+          "ja": "軒先",
+          "en": "eave",
+          "kind": "term"
+        },
+        {
+          "ja": "巻き尺",
+          "en": "tape measure",
+          "kind": "term"
+        },
+        {
+          "ja": "寸法",
+          "en": "measurement",
+          "kind": "term"
+        },
+        {
+          "ja": "まっすぐ",
+          "en": "straight",
+          "kind": "term"
+        },
+        {
+          "ja": "軒先の出幅",
+          "en": "overhang",
+          "kind": "term"
+        },
+        {
+          "ja": "最初の段のために墨線を引いてください。",
+          "en": "Run a chalk line for the first course.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここ、軒先から始めてください。",
+          "en": "Start here at the eave.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "線はまっすぐですか。",
+          "en": "Is the line straight?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "端から測ってください。",
+          "en": "Measure from the edge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スターター材を軒先に沿って置いてください。",
+          "en": "Put the starter strip along the eave.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "まず、職長が巻き尺を取り出します。",
+          "en": "First, the foreman takes out the tape measure."
+        },
+        {
+          "ja": "軒先の端から測り、図面に測定点を書き込みます。",
+          "en": "He measures from the edge of the eave and marks the points on the plan."
+        },
+        {
+          "ja": "そして「最初の段のために墨線を引いてください」と言います。",
+          "en": "Then he says: Run a chalk line for the first course."
+        },
+        {
+          "ja": "二人の作業員が墨つぼの糸を張り、はじきます。",
+          "en": "Two workers stretch the line and snap it."
+        },
+        {
+          "ja": "線はまっすぐですか。",
+          "en": "Is the line straight?"
+        },
+        {
+          "ja": "職長がもう一度寸法を確認します。",
+          "en": "The foreman checks the measurement again."
+        },
+        {
+          "ja": "ここ、軒先から始めてください。",
+          "en": "Start here at the eave."
+        },
+        {
+          "ja": "スターター材を軒先に沿って置いてください。",
+          "en": "Put the starter strip along the eave."
+        },
+        {
+          "ja": "軒先の出幅の寸法は作業図面に記されています。",
+          "en": "The overhang measurement is on the job plan."
+        }
+      ],
+      "forms": [
+        {
+          "base": "測る",
+          "exampleJa": "職長は軒先の端から測ります。",
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "The foreman measures from the edge of the eave.",
+          "sourceInfinitiveSpanish": "medir"
+        },
+        {
+          "base": "墨線を引く",
+          "exampleJa": "作業員は最初の段のために墨線を引きます。",
+          "meaningEnglish": "to run (a line), to mark out",
+          "exampleEnglish": "The workers run a chalk line for the first course.",
+          "sourceInfinitiveSpanish": "trazar"
+        },
+        {
+          "base": "始める",
+          "exampleJa": "作業員はここ、軒先から始めます。",
+          "meaningEnglish": "to start",
+          "exampleEnglish": "The workers start here at the eave.",
+          "sourceInfinitiveSpanish": "empezar"
+        },
+        {
+          "base": "置く",
+          "exampleJa": "スターター材を軒先に沿って置きます。",
+          "meaningEnglish": "to put, to place",
+          "exampleEnglish": "They put the starter strip along the eave.",
+          "sourceInfinitiveSpanish": "poner"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "職長はもう一度寸法を確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the measurement again.",
+          "sourceInfinitiveSpanish": "revisar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "最初の段の墨線はここに引いてください。軒先の端から測ります。",
+        "goal": "Show a new worker where to run the first-course chalk line."
+      },
+      "modes": {
+        "see": "Find where the foreman marks measurement points.",
+        "recall": "Recall chalk line, first course, eave, and starter strip.",
+        "hear": "Distinguish 墨線 from 巻き尺 when spoken.",
+        "type": "Type 'Is the line straight?' in Japanese.",
+        "say": "Show a new worker where to run the first-course chalk line.",
+        "write": "Write where the overhang measurement is recorded."
+      }
+    },
+    {
+      "n": 12,
+      "stableId": "roofing:12:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Joint Stagger",
+      "sourceEnglishObjective": "Communicate the job's stagger pattern",
+      "sourceEnglishSpeaking": "Use the guide's six-inch stagger phrase, then ask the lead to confirm the actual job specification.",
+      "title": "継ぎ目のずらし方",
+      "objective": "継ぎ目をずらす施工パターンを確認し、この現場の仕様を尋ねる。",
+      "focus": "～ないように expresses the desired nonalignment; ～によると attributes the six-inch example to the guide. この現場では asks for this job's actual specification.",
+      "cards": [
+        {
+          "ja": "継ぎ目",
+          "en": "joint",
+          "kind": "term"
+        },
+        {
+          "ja": "ずらし",
+          "en": "stagger",
+          "kind": "term"
+        },
+        {
+          "ja": "段",
+          "en": "course",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材",
+          "en": "shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "パターン",
+          "en": "pattern",
+          "kind": "term"
+        },
+        {
+          "ja": "インチ",
+          "en": "inch",
+          "kind": "term"
+        },
+        {
+          "ja": "揃える",
+          "en": "align",
+          "kind": "term"
+        },
+        {
+          "ja": "仕様",
+          "en": "specification",
+          "kind": "term"
+        },
+        {
+          "ja": "切る",
+          "en": "cut",
+          "kind": "term"
+        },
+        {
+          "ja": "継ぎ目を六インチずつずらしてください。",
+          "en": "Stagger the joints six inches.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "継ぎ目が一直線に揃ってはいけません。",
+          "en": "The joints must not line up.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この現場では、継ぎ目をどれだけずらしますか。",
+          "en": "What is the stagger for this job?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この現場の仕様を確認してください。",
+          "en": "Please confirm the job specification.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "次の段の継ぎ目を確認してください。",
+          "en": "Check the joints on the next course.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "作業班はすでにアスファルトシングル材の最初の段を敷いています。",
+          "en": "The crew already has the first course of asphalt shingles."
+        },
+        {
+          "ja": "これからの各段には配置のパターンが必要です。",
+          "en": "Now each new course needs a pattern."
+        },
+        {
+          "ja": "継ぎ目が一直線に揃ってはいけません。",
+          "en": "The joints must not line up."
+        },
+        {
+          "ja": "ガイドには「継ぎ目を六インチずつずらす」とあります。",
+          "en": "The guide says: stagger the joints six inches."
+        },
+        {
+          "ja": "しかし、現場ごとに仕様は異なります。",
+          "en": "But every job is different."
+        },
+        {
+          "ja": "作業員が「この現場では、継ぎ目をどれだけずらしますか」と尋ねます。",
+          "en": "A worker asks: What is the stagger for this job?"
+        },
+        {
+          "ja": "職長は事務所に電話し、「この現場の仕様を確認してください」と伝えます。",
+          "en": "The foreman calls the office: Please confirm the job specification."
+        },
+        {
+          "ja": "その間に、次の段の継ぎ目を確認してください。",
+          "en": "Meanwhile, check the joints on the next course."
+        }
+      ],
+      "forms": [
+        {
+          "base": "ずらす",
+          "exampleJa": "ガイドによると、継ぎ目を六インチずつずらします。",
+          "meaningEnglish": "to stagger",
+          "exampleEnglish": "Stagger the joints six inches, according to the guide.",
+          "sourceInfinitiveSpanish": "escalonar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "次の段の継ぎ目を確認してください。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the joints on the next course.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "確かめる",
+          "exampleJa": "この現場の仕様を確かめてください。",
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "Please confirm the job specification.",
+          "sourceInfinitiveSpanish": "confirmar"
+        },
+        {
+          "base": "揃える",
+          "exampleJa": "この段では継ぎ目を一直線に揃えません。",
+          "meaningEnglish": "to align",
+          "exampleEnglish": "The joints do not line up in this course.",
+          "sourceInfinitiveSpanish": "alinear"
+        },
+        {
+          "base": "切る",
+          "exampleJa": "この現場のパターンに合わせてシングル材を切ります。",
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Cut the shingle according to the job's pattern.",
+          "sourceInfinitiveSpanish": "cortar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "ガイドには六インチずつずらすとあります。この現場の仕様を確認してください。",
+        "goal": "Use the guide's six-inch stagger phrase, then ask the lead to confirm the actual job specification."
+      },
+      "modes": {
+        "see": "Find how the joints relate to one another.",
+        "recall": "Recall joint, stagger, course, and specification.",
+        "hear": "Distinguish 継ぎ目 from ずらし when spoken.",
+        "type": "Type 'What is the stagger for this job?' in Japanese.",
+        "say": "Cite the guide's six-inch example, then ask the lead for this job's specification.",
+        "write": "Write why the foreman calls the office."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

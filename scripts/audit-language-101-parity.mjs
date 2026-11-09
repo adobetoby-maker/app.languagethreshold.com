@@ -77,6 +77,24 @@ for (const name of frenchModeFiles) {
     frenchAuthoredModePrompts += modeNames.length;
   }
 }
+const frenchModeCandidatePath = "content/french-basics/private-runtime-foundation-1-10-authored-modes.json";
+const frenchModeCandidate = read(frenchFormsRoot, frenchModeCandidatePath);
+const frenchBaseFoundation = read(frenchFormsRoot, frenchPath("foundation"));
+if (frenchModeCandidate.registered !== false || frenchModeCandidate.reviewed !== false ||
+    JSON.stringify(frenchModeCandidate.stageFile) !== JSON.stringify(frenchBaseFoundation.stageFile) ||
+    frenchModeCandidate.support.length !== 10 || frenchModeCandidate.authoredModeSources.length !== frenchModeFiles.length)
+  throw new Error("French authored-mode candidate changed pair, stage, or release gate");
+let frenchCandidateModePrompts = 0;
+for (const [index, lesson] of frenchModeCandidate.support.entries()) {
+  if (lesson.stableLessonKey !== `foundation-french-basics:${index + 1}`)
+    throw new Error(`French authored-mode candidate lesson ${index + 1}: stable key changed`);
+  for (const mode of modeNames) {
+    if (!lesson.modes?.[mode]?.authoredPrompt?.prompt || !lesson.modes?.[mode]?.authoredPrompt?.targetText)
+      throw new Error(`French authored-mode candidate lesson ${index + 1}: ${mode} missing`);
+    frenchCandidateModePrompts++;
+  }
+}
+if (frenchCandidateModePrompts !== frenchAuthoredModePrompts) throw new Error("French mode candidate and sidecars differ");
 const spanishPractice = readTracked(root, "src/data/spanish-basics-practice.json");
 const japanesePractice = readTracked(root, "src/data/japanese-basics-practice.json");
 const lines = [
@@ -158,11 +176,11 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
   `- Japanese draft: ${totals.japaneseWords} words, ${totals.japaneseLines} Reader lines, ${totals.japaneseVerbs} verb references.`,
   `- French contextual forms: ${totals.frenchForms} exact-pair prompts across 60 private lessons. Japanese contextual forms: ${totals.japaneseForms} exact-pair prompts across 60 private lessons. These are authored sentence/form tasks, not the same unit as Spanish LessonVerb references.`,
   `- Lessons with fewer LessonVerb entries than Spanish: ${missing.length}/60 for both French and Japanese. This is a data-model difference, not a verdict that their contextual grammar practice is missing.`,
-  "- Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the exact-pair runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.", "");
+  "- Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the reviewed exact-pair learner runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.", "");
 lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
-  `- The French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags. Contextual form sidecars are additional private material, not yet integrated into these mode descriptors.`,
-  `- A separate source-pinned French Foundation sidecar now has ${frenchAuthoredModePrompts} distinct mode prompts across ${frenchModeLessons.size}/10 Foundation lessons. It is unreviewed and unregistered, and has not yet been integrated into the runtime descriptors; Core and Master have no corresponding authored-mode sidecar.`,
+  `- The original French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.`,
+  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 Foundation lessons. A separate private runtime candidate embeds all ${frenchCandidateModePrompts} prompts without changing stable stage IDs. Both candidate and sidecars remain unreviewed and unregistered; Core and Master have no corresponding authored-mode sidecar.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

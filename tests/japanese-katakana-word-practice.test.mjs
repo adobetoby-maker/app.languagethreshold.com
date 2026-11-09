@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-import { KATAKANA_GROUPS, PRACTICE_WORDS } from "../src/components/kana/writing/curriculum.ts";
+import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS } from "../src/components/kana/writing/curriculum.ts";
 import { setFittedWritingFont } from "../src/components/kana/writing/scoring.ts";
 
 const supplemental = new Map([
@@ -37,6 +37,23 @@ test("each basic katakana row progresses from characters to contextual word writ
     }
   }
   for (const word of supplemental.keys()) assert.ok(!sourcePairs.has(word), `${word} is already in Japanese 101`);
+});
+
+test("all hiragana rows now advance from characters to source-backed word writing", () => {
+  assert.equal(HIRAGANA_GROUPS.length, 10);
+  for (const group of HIRAGANA_GROUPS) {
+    const words = PRACTICE_WORDS[group.id];
+    assert.ok(words?.length >= 2, `${group.id} should have at least two words`);
+    for (const word of words) {
+      assert.ok([...word.kana].some((char) => group.chars.includes(char)), `${group.id}: ${word.kana}`);
+      assert.ok(word.romaji && word.meaning);
+    }
+  }
+  for (const id of ["h-h", "h-m", "h-y", "h-r", "h-w"]) {
+    for (const word of PRACTICE_WORDS[id]) {
+      assert.equal(sourcePairs.get(word.kana), word.meaning, `${id}: ${word.kana}`);
+    }
+  }
 });
 
 test("handwriting guide and scorer can fit multi-character words inside the square canvas", () => {

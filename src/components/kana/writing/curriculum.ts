@@ -150,6 +150,26 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "にほん", romaji: "nihon", meaning: "Japan" },
     { kana: "ねこ", romaji: "neko", meaning: "cat" },
   ],
+  "h-h": [
+    { kana: "ほん", romaji: "hon", meaning: "book" },
+    { kana: "へや", romaji: "heya", meaning: "room" },
+  ],
+  "h-m": [
+    { kana: "なまえ", romaji: "namae", meaning: "name" },
+    { kana: "まど", romaji: "mado", meaning: "window" },
+  ],
+  "h-y": [
+    { kana: "よん", romaji: "yon", meaning: "four" },
+    { kana: "ゆっくり", romaji: "yukkuri", meaning: "slowly" },
+  ],
+  "h-r": [
+    { kana: "だれ", romaji: "dare", meaning: "who" },
+    { kana: "ろく", romaji: "roku", meaning: "six" },
+  ],
+  "h-w": [
+    { kana: "わたし", romaji: "watashi", meaning: "I" },
+    { kana: "ほん", romaji: "hon", meaning: "book" },
+  ],
   "k-vowels": [
     { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
     { kana: "ドア", romaji: "doa", meaning: "door" },

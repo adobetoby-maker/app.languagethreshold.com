@@ -33,6 +33,8 @@ import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VerbPractice } from "@/components/core30/VerbPractice";
+import { ContextualFormPractice, type ContextualFormPrompt } from "@/components/core30/ContextualFormPractice";
+import type { FormPracticePair } from "@/lib/language-form-practice";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
@@ -88,6 +90,13 @@ export interface LessonPracticeKitProps {
    * only; the standalone six-tab kit ignores them.
    */
   verbs?: LessonVerb[];
+  /** Authored prompts for this exact language pair. Private drafts are not registered here. */
+  formPractice?: {
+    pairKey: FormPracticePair;
+    prompts: readonly ContextualFormPrompt[];
+    /** Separate progress signal even if the learner already finished Type words. */
+    onComplete?: () => void;
+  };
   writingResponse?: ReactNode;
 }
 
@@ -1459,27 +1468,44 @@ function VerbsPane({
   );
 }
 
+function FormsPane({
+  pairKey,
+  prompts,
+  onComplete,
+}: {
+  pairKey: FormPracticePair;
+  prompts: readonly ContextualFormPrompt[];
+  onComplete: () => void;
+}) {
+  const speak = useTargetSpeaker();
+  return <ContextualFormPractice pairKey={pairKey} prompts={prompts} speak={speak} onComplete={onComplete} />;
+}
+
 /** Type it: spell the lesson's words, or conjugate its verbs. */
 function TypeKindSwitch({
   kind,
+  showVerbs,
+  showForms,
   onChange,
 }: {
-  kind: "words" | "verbs";
-  onChange: (kind: "words" | "verbs") => void;
+  kind: "words" | "verbs" | "forms";
+  showVerbs: boolean;
+  showForms: boolean;
+  onChange: (kind: "words" | "verbs" | "forms") => void;
 }) {
+  const kinds = [
+    { id: "words" as const, label: "Words", Icon: Keyboard },
+    ...(showVerbs ? [{ id: "verbs" as const, label: "Verbs", Icon: Repeat }] : []),
+    ...(showForms ? [{ id: "forms" as const, label: "Forms", Icon: PenLine }] : []),
+  ];
   return (
     <div
       role="group"
       aria-label="What to type"
       data-testid="type-kind-switch"
-      className="mb-3 grid grid-cols-2 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+      className={cn("mb-3 grid gap-1 rounded-xl border border-border/50 bg-card/30 p-1", kinds.length === 3 ? "grid-cols-3" : "grid-cols-2")}
     >
-      {(
-        [
-          { id: "words", label: "Words", Icon: Keyboard },
-          { id: "verbs", label: "Verbs", Icon: Repeat },
-        ] as const
-      ).map(({ id, label, Icon }) => (
+      {kinds.map(({ id, label, Icon }) => (
         <button
           key={id}
           type="button"
@@ -1516,6 +1542,7 @@ export function LessonPracticeKit({
   matchingBatchSize,
   listeningItems,
   verbs,
+  formPractice,
   writingResponse,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
@@ -1535,9 +1562,16 @@ export function LessonPracticeKit({
   const [internalMode, setInternalMode] = useState<PracticeMode>(initialMode);
   // Verbs show only inside a lesson (controlled kit) that has them.
   const lessonVerbs = controlledMode !== undefined && verbs && verbs.length > 0 ? verbs : null;
+  const lessonForms = controlledMode !== undefined &&
+    formPractice?.pairKey === `${language}:${nativeLanguage}` &&
+    formPractice.prompts.length > 0 &&
+    formPractice.prompts.every((prompt) => prompt.pairKey === formPractice.pairKey)
+      ? formPractice : null;
   const requestedMode = controlledMode ?? internalMode;
   const mode: PracticeMode = requestedMode === "verbs" && !lessonVerbs ? "study" : requestedMode;
-  const [typeKind, setTypeKind] = useState<"words" | "verbs">("words");
+  const [typeKind, setTypeKind] = useState<"words" | "verbs" | "forms">("words");
+  const availableTypeKind = typeKind === "verbs" && !lessonVerbs || typeKind === "forms" && !lessonForms
+    ? "words" : typeKind;
   const recallTabs = lessonVerbs ? [...RECALL_MODES, VERBS_TAB] : RECALL_MODES;
   const setMode = (next: PracticeMode) => {
     setInternalMode(next);
@@ -1727,17 +1761,25 @@ export function LessonPracticeKit({
                   onComplete={() => complete("listen")}
                 />
               )}
-              {mode === "type" && lessonVerbs && (
-                <TypeKindSwitch kind={typeKind} onChange={setTypeKind} />
+              {mode === "type" && (lessonVerbs || lessonForms) && (
+                <TypeKindSwitch kind={availableTypeKind} showVerbs={Boolean(lessonVerbs)} showForms={Boolean(lessonForms)} onChange={setTypeKind} />
               )}
-              {mode === "type" && (!lessonVerbs || typeKind === "words") && (
+              {mode === "type" && availableTypeKind === "words" && (
                 <TypeMode words={words} onComplete={() => complete("type")} />
               )}
-              {mode === "type" && lessonVerbs && typeKind === "verbs" && (
+              {mode === "type" && lessonVerbs && availableTypeKind === "verbs" && (
                 <VerbsPane
                   key="conjugate"
                   verbs={lessonVerbs}
                   mode="conjugate"
+                  onComplete={() => { lessonForms?.onComplete?.(); complete("type"); }}
+                />
+              )}
+              {mode === "type" && lessonForms && availableTypeKind === "forms" && (
+                <FormsPane
+                  key={`${moduleId}-${lessonNumber}-forms`}
+                  pairKey={lessonForms.pairKey}
+                  prompts={lessonForms.prompts}
                   onComplete={() => complete("type")}
                 />
               )}

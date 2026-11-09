@@ -32,8 +32,8 @@ const lessons = authored.lessons.map((entry, index) => {
     return [mode, { id: `ja101:core:${index + 1}:${mode}`, prompt: activity.prompt,
       sourceDialogueTurn: activity.turn, targetText, nativeText }];
   }));
-  return { moduleId: 'core-japanese-basics', lessonNumber: index + 1,
-    stableLessonKey: `core-japanese-basics:${index + 1}`, reviewed: false, modes };
+  return { moduleId: 'japanese-basics', lessonNumber: index + 1,
+    stableLessonKey: `japanese-basics:${index + 1}`, reviewed: false, modes };
 });
 const preview = { schema: 1, pairKey: 'Japanese:English', registered: false, reviewed: false,
   sourceSha256: hash(sourceBytes), authoredSha256: hash(authoredBytes), lessonCount: 30,

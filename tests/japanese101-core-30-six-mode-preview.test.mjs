@@ -17,7 +17,8 @@ test('Core 1–30 have distinct source-linked Japanese activities in every mode'
   const ids = new Set();
   for (const [index, lesson] of preview.lessons.entries()) {
     assert.equal(lesson.lessonNumber, index + 1);
-    assert.equal(lesson.stableLessonKey, `core-japanese-basics:${index + 1}`);
+    assert.equal(lesson.moduleId, 'japanese-basics');
+    assert.equal(lesson.stableLessonKey, `japanese-basics:${index + 1}`);
     assert.equal(lesson.reviewed, false);
     assert.deepEqual(Object.keys(lesson.modes), modes);
     assert.equal(new Set(modes.map(mode => lesson.modes[mode].prompt)).size, 6);

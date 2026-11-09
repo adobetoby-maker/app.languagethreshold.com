@@ -9,6 +9,12 @@ export interface FormPracticeAnswer {
   knownJapaneseVariants?: readonly string[];
 }
 
+/** Touch-key insertion replaces only the current selection. */
+export function insertFrenchCharacter(value: string, character: string, start: number, end: number) {
+  const before = value.slice(0, start);
+  return { value: before + character + value.slice(end), caret: before.length + character.length };
+}
+
 function normalizeFormAnswer(value: string, pair: FormPracticePair): string {
   const text = value.normalize("NFKC").toLowerCase();
   if (pair === "Japanese:English") {

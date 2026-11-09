@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { isCorrectFormPracticeAnswer } from "../src/lib/language-form-practice.ts";
+import { isCorrectFormPracticeAnswer, insertFrenchCharacter } from "../src/lib/language-form-practice.ts";
+
+test("French accent touch keys insert at the caret or replace a selection", () => {
+  assert.deepEqual(insertFrenchCharacter("cafe", "é", 3, 4), { value: "café", caret: 4 });
+  assert.deepEqual(insertFrenchCharacter("il a", "’", 2, 2), { value: "il’ a", caret: 3 });
+  assert.deepEqual(insertFrenchCharacter("coeur", "œ", 1, 3), { value: "cœur", caret: 2 });
+});
 
 test("French form checking accepts explicit variants and punctuation differences but preserves accents", () => {
   const prompt = {

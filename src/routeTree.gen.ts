@@ -45,6 +45,7 @@ import { Route as ApiCustomerReferralRouteImport } from './routes/api.customer-r
 import { Route as ApiCustomerUnsubscribeRouteImport } from './routes/api.customer-unsubscribe'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
 import { Route as ApiDocumentsRouteImport } from './routes/api.documents'
+import { Route as ApiDownloadLeadRouteImport } from './routes/api.download-lead'
 import { Route as ApiExamBankRouteImport } from './routes/api.exam-bank'
 import { Route as ApiExamCheckRouteImport } from './routes/api.exam-check'
 import { Route as ApiExamCleanupRouteImport } from './routes/api.exam-cleanup'
@@ -62,6 +63,7 @@ import { Route as ApiOwnerAnalyticsRouteImport } from './routes/api.owner-analyt
 import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
+import { Route as ApiOwnerDownloadLeadsRouteImport } from './routes/api.owner-download-leads'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
 import { Route as ApiOwnerStaffCouponRouteImport } from './routes/api.owner-staff-coupon'
 import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
@@ -273,6 +275,11 @@ const ApiDocumentsRoute = ApiDocumentsRouteImport.update({
   path: '/api/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDownloadLeadRoute = ApiDownloadLeadRouteImport.update({
+  id: '/api/download-lead',
+  path: '/api/download-lead',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiExamBankRoute = ApiExamBankRouteImport.update({
   id: '/api/exam-bank',
   path: '/api/exam-bank',
@@ -356,6 +363,11 @@ const ApiOwnerCustomersRoute = ApiOwnerCustomersRouteImport.update({
 const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
   id: '/api/owner-discounts',
   path: '/api/owner-discounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerDownloadLeadsRoute = ApiOwnerDownloadLeadsRouteImport.update({
+  id: '/api/owner-download-leads',
+  path: '/api/owner-download-leads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiOwnerRedditRoute = ApiOwnerRedditRouteImport.update({
@@ -546,6 +558,7 @@ export interface FileRoutesByFullPath {
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/documents': typeof ApiDocumentsRoute
+  '/api/download-lead': typeof ApiDownloadLeadRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -563,6 +576,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -631,6 +645,7 @@ export interface FileRoutesByTo {
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/documents': typeof ApiDocumentsRoute
+  '/api/download-lead': typeof ApiDownloadLeadRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -648,6 +663,7 @@ export interface FileRoutesByTo {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -717,6 +733,7 @@ export interface FileRoutesById {
   '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/documents': typeof ApiDocumentsRoute
+  '/api/download-lead': typeof ApiDownloadLeadRoute
   '/api/exam-bank': typeof ApiExamBankRoute
   '/api/exam-check': typeof ApiExamCheckRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
@@ -734,6 +751,7 @@ export interface FileRoutesById {
   '/api/owner-crm': typeof ApiOwnerCrmRoute
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -804,6 +822,7 @@ export interface FileRouteTypes {
     | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/documents'
+    | '/api/download-lead'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -821,6 +840,7 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-download-leads'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -889,6 +909,7 @@ export interface FileRouteTypes {
     | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/documents'
+    | '/api/download-lead'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -906,6 +927,7 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-download-leads'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -974,6 +996,7 @@ export interface FileRouteTypes {
     | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/documents'
+    | '/api/download-lead'
     | '/api/exam-bank'
     | '/api/exam-check'
     | '/api/exam-cleanup'
@@ -991,6 +1014,7 @@ export interface FileRouteTypes {
     | '/api/owner-crm'
     | '/api/owner-customers'
     | '/api/owner-discounts'
+    | '/api/owner-download-leads'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -1060,6 +1084,7 @@ export interface RootRouteChildren {
   ApiCustomerUnsubscribeRoute: typeof ApiCustomerUnsubscribeRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
   ApiDocumentsRoute: typeof ApiDocumentsRoute
+  ApiDownloadLeadRoute: typeof ApiDownloadLeadRoute
   ApiExamBankRoute: typeof ApiExamBankRoute
   ApiExamCheckRoute: typeof ApiExamCheckRoute
   ApiExamCleanupRoute: typeof ApiExamCleanupRoute
@@ -1077,6 +1102,7 @@ export interface RootRouteChildren {
   ApiOwnerCrmRoute: typeof ApiOwnerCrmRoute
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
+  ApiOwnerDownloadLeadsRoute: typeof ApiOwnerDownloadLeadsRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
   ApiOwnerStaffCouponRoute: typeof ApiOwnerStaffCouponRoute
   ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
@@ -1363,6 +1389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/download-lead': {
+      id: '/api/download-lead'
+      path: '/api/download-lead'
+      fullPath: '/api/download-lead'
+      preLoaderRoute: typeof ApiDownloadLeadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/exam-bank': {
       id: '/api/exam-bank'
       path: '/api/exam-bank'
@@ -1480,6 +1513,13 @@ declare module '@tanstack/react-router' {
       path: '/api/owner-discounts'
       fullPath: '/api/owner-discounts'
       preLoaderRoute: typeof ApiOwnerDiscountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-download-leads': {
+      id: '/api/owner-download-leads'
+      path: '/api/owner-download-leads'
+      fullPath: '/api/owner-download-leads'
+      preLoaderRoute: typeof ApiOwnerDownloadLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/owner-reddit': {
@@ -1732,6 +1772,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCustomerUnsubscribeRoute: ApiCustomerUnsubscribeRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
   ApiDocumentsRoute: ApiDocumentsRoute,
+  ApiDownloadLeadRoute: ApiDownloadLeadRoute,
   ApiExamBankRoute: ApiExamBankRoute,
   ApiExamCheckRoute: ApiExamCheckRoute,
   ApiExamCleanupRoute: ApiExamCleanupRoute,
@@ -1749,6 +1790,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerCrmRoute: ApiOwnerCrmRoute,
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
+  ApiOwnerDownloadLeadsRoute: ApiOwnerDownloadLeadsRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,
   ApiOwnerStaffCouponRoute: ApiOwnerStaffCouponRoute,
   ApiOwnerSupportRoute: ApiOwnerSupportRoute,

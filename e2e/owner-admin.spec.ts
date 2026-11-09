@@ -389,6 +389,48 @@ async function openOwner(page: Page, tab = "overview", { gaConfigured = true } =
           };
         case "/api/owner-discounts":
           return { ready: true, discounts: [], hasMore: false, nextCursor: null };
+        case "/api/owner-crm":
+          return { contacts: [], assets: [], drafts: [], referrals: [], aiReady: false };
+        case "/api/owner-download-leads":
+          return {
+            requests: 3,
+            uniqueEmails: 2,
+            newEmails: 2,
+            todayEmails: 2,
+            todayRequests: 3,
+            testsExcluded: 1,
+            trackingStartedAt: "Tracking installed November 8. Earlier history is not included.",
+            sources: [
+              {
+                site: "medicalspanish.app",
+                signup_page: "/free-downloads/",
+                landing_page: "/nursing/",
+                resource_id: "medical-nursing",
+                resource_title: "Nursing Spanish trifold",
+                utm_source: "facebook",
+                utm_medium: "paid-social",
+                utm_campaign: "nursing-carousel",
+                utm_content: "slide-3",
+                referrer_host: "facebook.com",
+                requests: 3,
+                unique_emails: 2,
+              },
+            ],
+            daily: [{ day: "2026-11-08", requests: 3, unique_emails: 2 }],
+            recent: [
+              {
+                created_at: "2026-11-08T20:00:00Z",
+                email: "synthetic@example.test",
+                site: "medicalspanish.app",
+                resource_title: "Nursing Spanish trifold",
+                signup_page: "/free-downloads/",
+                landing_page: "/nursing/",
+                utm_source: "facebook",
+                utm_campaign: "nursing-carousel",
+                is_test: false,
+              },
+            ],
+          };
         case "/api/owner-analytics":
           if (url.searchParams.get("part") === "app") return app;
           return gaConfigured
@@ -582,7 +624,10 @@ test("support inbox reviews the recipient and message before a single reply requ
   await expect(
     page.getByRole("button", { name: "Send support reply", exact: true }),
   ).toBeDisabled();
-  await page.screenshot({ path: `test-results/support-inbox-${test.info().project.name}.png`, fullPage: true });
+  await page.screenshot({
+    path: `test-results/support-inbox-${test.info().project.name}.png`,
+    fullPage: true,
+  });
 });
 
 test("public support page has one working email destination and crew help", async ({ page }) => {
@@ -592,4 +637,57 @@ test("public support page has one working email destination and crew help", asyn
     "href",
     "mailto:support@languagethreshold.com?subject=Help%20setting%20up%20a%20crew",
   );
+});
+
+test.describe("download leads", () => {
+  test.use({ storageState: { cookies: [], origins: [] } });
+  test("download lead report shows source pages, requests and unique emails with clear tracking limits", async ({
+    page,
+  }) => {
+    await openOwner(page, "analytics");
+    const report = page.getByRole("region", { name: "Download leads", exact: true });
+    await expect(
+      report.getByRole("heading", { name: "Download leads", exact: true }),
+    ).toBeVisible();
+    await expect(report.getByText("/nursing/", { exact: true })).toBeVisible();
+    await expect(report.getByText("synthetic@example.test", { exact: true })).toBeVisible();
+    await expect(report.getByText(/First seen means first recorded/)).toBeVisible();
+    await report.getByLabel("Period", { exact: true }).selectOption("7");
+    await report.getByLabel("Include owner setup tests").check();
+    await expect(report.getByRole("button", { name: "Refresh", exact: true })).toBeEnabled();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+  });
+});
+
+test("marketing connects products and prepares an unsent resource follow-up", async ({ page }) => {
+  const posted = await openOwner(page, "marketing");
+  await expect(page.getByRole("heading", { name: "My AI Marketing", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open marketing ↗", exact: true })).toHaveCount(4);
+  await expect(page.getByText("Refreshes every minute", { exact: false })).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    ),
+  ).toBeLessThanOrEqual(0);
+  await page.getByRole("button", { name: "Prepare follow-up", exact: true }).click();
+  const form = page.getByRole("region", { name: "Download follow-up draft" });
+  await expect(form.getByLabel("Subject", { exact: true })).toHaveValue(
+    "Your Nursing Spanish trifold",
+  );
+  await form.getByLabel("Reminder date for a new contact").fill("2026-12-01");
+  await form.getByRole("button", { name: "Save draft & reminder" }).click();
+  await expect(form.getByRole("status")).toContainText("No email sent");
+  const writes = posted.filter((p) => p.path === "/api/owner-crm");
+  expect(writes).toHaveLength(2);
+  expect(writes[0].body).toMatchObject({
+    action: "contact",
+    contact: { email: "synthetic@example.test", follow_up_on: "2026-12-01" },
+  });
+  expect(writes[1].body).toMatchObject({
+    action: "draft",
+    draft: { subject: "Your Nursing Spanish trifold", include_referral: false },
+  });
+  expect(posted.some((p) => /send|signup/.test(p.path))).toBe(false);
 });

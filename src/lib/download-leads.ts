@@ -37,7 +37,8 @@ export const downloadLead = z
   .strict();
 export type DownloadLead = z.infer<typeof downloadLead>;
 export function isSetupLead(email: string) {
-  return /^(adobetoby|toby)(\+[^@]*)?@(gmail\.com|languagethreshold\.com)$/.test(email);
+  const canonical = email.replace(/\+[^@]*(?=@)/, "");
+  return canonical === "adobetoby@gmail.com" || canonical === "toby@languagethreshold.com";
 }
 export type LeadSource = Omit<DownloadLead, "event_id" | "email"> & {
   requests: number;

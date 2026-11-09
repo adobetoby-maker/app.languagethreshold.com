@@ -49,6 +49,7 @@ test("schema rejects URL queries, external paths, unexpected fields and invalid 
   assert.equal(isSetupLead("adobetoby+ltfree20261108@gmail.com"), true);
   assert.equal(isSetupLead("toby@languagethreshold.com"), true);
   assert.equal(isSetupLead("learner@example.com"), false);
+  assert.equal(isSetupLead("toby@gmail.com"), false);
 });
 test("unsigned, tampered, expired and cross-site writes cannot reach storage", async () => {
   const oldKeys = process.env.DOWNLOAD_LEAD_KEYS,

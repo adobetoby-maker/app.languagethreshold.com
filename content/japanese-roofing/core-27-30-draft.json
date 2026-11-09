@@ -1,0 +1,739 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "1ce2ec4795b8a9a5c3d068537e70c07daba2d7c12cb37e78f2aa8e9d9c24a479",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 27,
+      "stableId": "roofing:27:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Inspect Vents & Flashing",
+      "sourceEnglishObjective": "Check roof penetrations with the lead",
+      "sourceEnglishSpeaking": "Walk each penetration and ask the lead what has been checked.",
+      "title": "換気口と水切り板金の点検",
+      "objective": "班長と一緒に屋根の貫通部を点検する。",
+      "focus": "～の周り marks the flashing location. ～か asks about a crack, and ～てから can order photos before final closeout.",
+      "cards": [
+        {
+          "ja": "換気口",
+          "en": "vent",
+          "kind": "term"
+        },
+        {
+          "ja": "配管貫通部用ブーツ",
+          "en": "pipe boot",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り板金",
+          "en": "flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "貫通部",
+          "en": "penetration",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "ひび割れ",
+          "en": "crack",
+          "kind": "term"
+        },
+        {
+          "ja": "雨漏り",
+          "en": "leak",
+          "kind": "term"
+        },
+        {
+          "ja": "天窓",
+          "en": "skylight",
+          "kind": "term"
+        },
+        {
+          "ja": "煙突",
+          "en": "chimney",
+          "kind": "term"
+        },
+        {
+          "ja": "この換気口の周りの水切り板金を確認してください。",
+          "en": "Check the flashing around this vent.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "各貫通部の周りの水切り板金を撮影してください。",
+          "en": "Take a photo of the flashing around each penetration.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "貫通部を一つずつ一緒に見て回りましょう。",
+          "en": "Walk each penetration with me.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "配管貫通部用ブーツにひび割れはありますか。",
+          "en": "Is the pipe boot cracked?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すでに何を確認しましたか。",
+          "en": "What have you already checked?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "露出した釘をシーリングしてください。",
+          "en": "Seal the exposed nails.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "仕上げる前に、職長は屋根を貫くものをすべて確認したいと考えています。",
+          "en": "Before finishing, the foreman wants to check everything that goes through the roof."
+        },
+        {
+          "ja": "貫通部を一つずつ一緒に見て回りましょう。",
+          "en": "Let's walk each penetration together."
+        },
+        {
+          "ja": "職長は班長に「すでに何を確認しましたか」と尋ねます。",
+          "en": "He asks the crew lead: What have you already checked?"
+        },
+        {
+          "ja": "この換気口の周りの水切り板金を確認してください。",
+          "en": "Check the flashing around this vent."
+        },
+        {
+          "ja": "配管貫通部用ブーツにひび割れはありますか。",
+          "en": "Is the pipe boot cracked?"
+        },
+        {
+          "ja": "ひび割れがあると、水が入り雨漏りにつながることがあります。",
+          "en": "If there is a crack, water can cause a leak."
+        },
+        {
+          "ja": "各貫通部の周りの水切り板金を撮影してください。",
+          "en": "Take a photo of the flashing around each penetration."
+        },
+        {
+          "ja": "露出した釘をシーリングしてください。",
+          "en": "Seal the exposed nails."
+        }
+      ],
+      "forms": [
+        {
+          "base": "確認する",
+          "exampleJa": "この換気口の周りの水切り板金を確認してください。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the flashing around this vent.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "シーリングする",
+          "exampleJa": "露出した釘をシーリングしてください。",
+          "meaningEnglish": "to seal",
+          "exampleEnglish": "Seal the exposed nails.",
+          "sourceInfinitiveSpanish": "sellar"
+        },
+        {
+          "base": "撮る",
+          "exampleJa": "各貫通部の周りの水切り板金を撮影してください。",
+          "meaningEnglish": "to take",
+          "exampleEnglish": "Take a photo of the flashing around each penetration.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "base": "見て回る",
+          "exampleJa": "貫通部を一つずつ一緒に見て回ります。",
+          "meaningEnglish": "to walk through / to go over",
+          "exampleEnglish": "We walk through each penetration together.",
+          "sourceInfinitiveSpanish": "recorrer"
+        },
+        {
+          "base": "尋ねる",
+          "exampleJa": "職長は班長に、何を確認したか尋ねます。",
+          "meaningEnglish": "to ask (a question)",
+          "exampleEnglish": "The foreman asks the crew lead what they have checked.",
+          "sourceInfinitiveSpanish": "preguntar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "貫通部を一つずつ一緒に見て回りましょう。換気口の周りの水切り板金を確認し、写真を撮ってください。",
+        "goal": "Walk each penetration and ask the lead what has been checked."
+      },
+      "modes": {
+        "see": "Identify the vent, pipe boot, skylight, and chimney penetrations.",
+        "recall": "Recall flashing, crack, leak, and exposed nails.",
+        "hear": "Distinguish 換気口 from 貫通部 when spoken.",
+        "type": "Type 'Is the pipe boot cracked?' in Japanese.",
+        "say": "Walk the penetrations with the crew lead and ask what was checked.",
+        "write": "Write what is photographed at each penetration."
+      }
+    },
+    {
+      "n": 28,
+      "stableId": "roofing:28:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Ground Cleanup",
+      "sourceEnglishObjective": "Assign gutters and site cleanup",
+      "sourceEnglishSpeaking": "Assign a final gutter check and ground cleanup before leaving.",
+      "title": "地上の清掃",
+      "objective": "雨どいと現場の清掃作業を割り当てる。",
+      "focus": "～前に sets cleanup before leaving. ～たら asks for a completion report, while ～より compares the yard's before and after state.",
+      "cards": [
+        {
+          "ja": "雨どい",
+          "en": "gutter",
+          "kind": "term"
+        },
+        {
+          "ja": "廃材コンテナ",
+          "en": "dumpster",
+          "kind": "term"
+        },
+        {
+          "ja": "釘",
+          "en": "nail",
+          "kind": "term"
+        },
+        {
+          "ja": "清掃",
+          "en": "cleanup",
+          "kind": "term"
+        },
+        {
+          "ja": "磁石",
+          "en": "magnet",
+          "kind": "term"
+        },
+        {
+          "ja": "ほうき",
+          "en": "broom",
+          "kind": "term"
+        },
+        {
+          "ja": "廃材",
+          "en": "debris",
+          "kind": "term"
+        },
+        {
+          "ja": "庭",
+          "en": "yard",
+          "kind": "term"
+        },
+        {
+          "ja": "ごみ",
+          "en": "trash",
+          "kind": "term"
+        },
+        {
+          "ja": "縦どい",
+          "en": "downspout",
+          "kind": "term"
+        },
+        {
+          "ja": "帰る前に雨どいを確認し、現場を清掃しましょう。",
+          "en": "Let's check the gutters and clean the site before leaving.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "磁石での釘拾いが終わったら教えてください。",
+          "en": "Tell me when the magnetic nail sweep is finished.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "雨どいに釘や廃材がないか確認してください。",
+          "en": "Check the gutters for nails and debris.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "家の周りの釘をすべて拾ってください。",
+          "en": "Pick up every nail around the house.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "廃材コンテナはいっぱいですか。",
+          "en": "Is the dumpster full?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "庭を作業前よりきれいにして帰ってください。",
+          "en": "Leave the yard cleaner than you found it.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "屋根はすでに仕上がりましたが、清掃がまだ残っています。",
+          "en": "The roof is already finished, but the cleanup is still missing."
+        },
+        {
+          "ja": "職長は「帰る前に雨どいを確認し、現場を清掃しましょう」と言います。",
+          "en": "The foreman says: Let's check the gutters and clean the site before leaving."
+        },
+        {
+          "ja": "雨どいに釘や廃材がないか確認してください。",
+          "en": "Check the gutters for nails and debris."
+        },
+        {
+          "ja": "雨どいがいっぱいになると、縦どいが詰まることがあります。",
+          "en": "A full gutter can block the downspout."
+        },
+        {
+          "ja": "家の周りの釘をすべて拾ってください。",
+          "en": "Pick up every nail around the house."
+        },
+        {
+          "ja": "磁石で釘を拾い終わったら教えてください。",
+          "en": "Tell me when you finish picking up the nails with the magnet."
+        },
+        {
+          "ja": "廃材コンテナはいっぱいですか。",
+          "en": "Is the dumpster full?"
+        },
+        {
+          "ja": "庭をほうきで掃き、ごみを廃材コンテナに入れてください。",
+          "en": "Use the broom on the yard and put the trash in the dumpster."
+        },
+        {
+          "ja": "庭を作業前よりきれいにして帰ってください。",
+          "en": "Leave the yard cleaner than you found it."
+        }
+      ],
+      "forms": [
+        {
+          "base": "確認する",
+          "exampleJa": "帰る前に雨どいを確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "We check the gutters before leaving.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "拾う",
+          "exampleJa": "家の周りの釘をすべて拾います。",
+          "meaningEnglish": "to pick up",
+          "exampleEnglish": "We pick up every nail around the house.",
+          "sourceInfinitiveSpanish": "recoger"
+        },
+        {
+          "base": "清掃する",
+          "exampleJa": "帰る前に現場を清掃します。",
+          "meaningEnglish": "to clean",
+          "exampleEnglish": "We clean the site before leaving.",
+          "sourceInfinitiveSpanish": "limpiar"
+        },
+        {
+          "base": "伝える",
+          "exampleJa": "廃材コンテナがいっぱいなら職長に伝えます。",
+          "meaningEnglish": "to let (someone) know",
+          "exampleEnglish": "If the dumpster is full, I let the foreman know.",
+          "sourceInfinitiveSpanish": "avisar"
+        },
+        {
+          "base": "して帰る",
+          "exampleJa": "庭を作業前よりきれいにして帰ります。",
+          "meaningEnglish": "to leave (something in a state)",
+          "exampleEnglish": "We leave the yard cleaner than we found it.",
+          "sourceInfinitiveSpanish": "dejar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "帰る前に雨どいの釘や廃材を確認してください。磁石での釘拾いが終わったら教えてください。",
+        "goal": "Assign a final gutter check and ground cleanup before leaving."
+      },
+      "modes": {
+        "see": "Find the gutter, downspout, magnet, and dumpster.",
+        "recall": "Recall nail pickup, gutter check, and site cleanup.",
+        "hear": "Distinguish 雨どい from 縦どい when spoken.",
+        "type": "Type 'Is the dumpster full?' in Japanese.",
+        "say": "Assign gutter and ground cleanup before leaving.",
+        "write": "Write what the crew reports after the magnetic nail sweep."
+      }
+    },
+    {
+      "n": 29,
+      "stableId": "roofing:29:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Report Open Items",
+      "sourceEnglishObjective": "Hand off remaining work clearly",
+      "sourceEnglishSpeaking": "Tell the crew lead what remains open and confirm tomorrow's first task.",
+      "title": "未完了項目の報告",
+      "objective": "残っている作業を明確に引き継ぐ。",
+      "focus": "～の前に orders inspection before calling the job complete. ～てください gives handoff tasks, and ～まま marks an item left open.",
+      "cards": [
+        {
+          "ja": "残工事リスト",
+          "en": "punch list",
+          "kind": "term"
+        },
+        {
+          "ja": "未完了",
+          "en": "unfinished",
+          "kind": "term"
+        },
+        {
+          "ja": "明日",
+          "en": "tomorrow",
+          "kind": "term"
+        },
+        {
+          "ja": "未対応項目",
+          "en": "open item",
+          "kind": "term"
+        },
+        {
+          "ja": "完了",
+          "en": "finished",
+          "kind": "term"
+        },
+        {
+          "ja": "残った資材",
+          "en": "remaining materials",
+          "kind": "term"
+        },
+        {
+          "ja": "作業",
+          "en": "task",
+          "kind": "term"
+        },
+        {
+          "ja": "今日",
+          "en": "today",
+          "kind": "term"
+        },
+        {
+          "ja": "工事",
+          "en": "job",
+          "kind": "term"
+        },
+        {
+          "ja": "明日に残っている箇所はどこですか。",
+          "en": "Which areas are still open for tomorrow?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "残った資材を安全な場所に保管してください。",
+          "en": "Store the remaining materials in a safe place.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+          "en": "Walk the roof with me before we call the job complete.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これはまだ未対応です。",
+          "en": "This is still open.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "明日の最初の作業はこの箇所を仕上げることです。",
+          "en": "Tomorrow the first task is to finish this section.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "残工事リストに追加してください。",
+          "en": "Add it to the punch list.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "一日の終わりに、作業班は道具を片づけます。",
+          "en": "It is the end of the day and the crew packs up its tools."
+        },
+        {
+          "ja": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+          "en": "Walk the roof with me before we call the job complete."
+        },
+        {
+          "ja": "職長は「明日に残っている箇所はどこですか」と尋ねます。",
+          "en": "The foreman asks: Which areas are still open for tomorrow?"
+        },
+        {
+          "ja": "煙突の横の一区画がまだ仕上がっていません。",
+          "en": "One section next to the chimney is unfinished."
+        },
+        {
+          "ja": "これはまだ未対応です。",
+          "en": "This is still open."
+        },
+        {
+          "ja": "残工事リストに追加してください。",
+          "en": "Add it to the punch list."
+        },
+        {
+          "ja": "明日の最初の作業はこの箇所を仕上げることです。",
+          "en": "Tomorrow the first task is to finish this section."
+        },
+        {
+          "ja": "残った資材を安全な場所に保管してください。",
+          "en": "Store the remaining materials in a safe place."
+        },
+        {
+          "ja": "残工事リストがあれば、全員が明日の作業を把握できます。",
+          "en": "With the punch list, everyone knows what to do tomorrow."
+        }
+      ],
+      "forms": [
+        {
+          "base": "仕上げる",
+          "exampleJa": "明日、煙突の横の区画を仕上げます。",
+          "meaningEnglish": "to finish",
+          "exampleEnglish": "Tomorrow we finish the section next to the chimney.",
+          "sourceInfinitiveSpanish": "terminar"
+        },
+        {
+          "base": "追加する",
+          "exampleJa": "この未対応項目をリストに追加します。",
+          "meaningEnglish": "to add",
+          "exampleEnglish": "We add this open item to the list.",
+          "sourceInfinitiveSpanish": "agregar"
+        },
+        {
+          "base": "保管する",
+          "exampleJa": "残った資材を安全な場所に保管します。",
+          "meaningEnglish": "to store / to put away",
+          "exampleEnglish": "We store the remaining materials in a safe place.",
+          "sourceInfinitiveSpanish": "guardar"
+        },
+        {
+          "base": "見て回る",
+          "exampleJa": "工事を完了とする前に屋根を見て回ります。",
+          "meaningEnglish": "to walk through / to inspect",
+          "exampleEnglish": "We walk the roof before we call the job complete.",
+          "sourceInfinitiveSpanish": "recorrer"
+        },
+        {
+          "base": "残る",
+          "exampleJa": "明日に残っている箇所はどこですか。",
+          "meaningEnglish": "to remain / to be left",
+          "exampleEnglish": "Which areas are still open for tomorrow?",
+          "sourceInfinitiveSpanish": "quedar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "明日に残っている箇所はどこですか。未対応項目を残工事リストに追加し、残った資材を保管してください。",
+        "goal": "Tell the crew lead what remains open and confirm tomorrow's first task."
+      },
+      "modes": {
+        "see": "Find the unfinished section beside the chimney.",
+        "recall": "Recall open item, punch list, remaining materials, and closeout.",
+        "hear": "Distinguish 未完了 from 未対応 when spoken.",
+        "type": "Type 'This is still open' in Japanese.",
+        "say": "Hand off remaining work and the first task for tomorrow.",
+        "write": "Write the open item and where it is recorded."
+      }
+    },
+    {
+      "n": 30,
+      "stableId": "roofing:30:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Full Roofing Day",
+      "sourceEnglishObjective": "Lead a complete roofing day in Spanish",
+      "sourceEnglishSpeaking": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+      "title": "屋根工事の一日",
+      "objective": "日本語で屋根工事の一日を通して作業班を指揮する。",
+      "focus": "～前に orders the briefing and tie-off before work. ～てから sequences tear-off and installation; ～たら triggers the weather response and closeout.",
+      "cards": [
+        {
+          "ja": "作業前の打ち合わせ",
+          "en": "briefing",
+          "kind": "term"
+        },
+        {
+          "ja": "既存屋根材の撤去",
+          "en": "tear-off",
+          "kind": "term"
+        },
+        {
+          "ja": "施工する",
+          "en": "install",
+          "kind": "term"
+        },
+        {
+          "ja": "安全",
+          "en": "safety",
+          "kind": "term"
+        },
+        {
+          "ja": "完了確認",
+          "en": "closeout",
+          "kind": "term"
+        },
+        {
+          "ja": "班長",
+          "en": "crew lead",
+          "kind": "term"
+        },
+        {
+          "ja": "下葺き材",
+          "en": "underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り板金",
+          "en": "flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "防水シート",
+          "en": "tarp",
+          "kind": "term"
+        },
+        {
+          "ja": "残工事リスト",
+          "en": "punch list",
+          "kind": "term"
+        },
+        {
+          "ja": "始める前に今日の屋根工事の計画を確認しましょう。",
+          "en": "Let's review today's roof plan before we start.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根に上がる前にハーネスをアンカーに接続してください。",
+          "en": "Tie off before you go on the roof.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "天候が変わったら作業を止めて降りてください。",
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+          "en": "Walk the roof with me before we call the job complete.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "まず既存屋根材を撤去し、その後に施工します。",
+          "en": "Tear-off first, then installation.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日は安全を最優先にします。",
+          "en": "Safety comes first today.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "朝、職長は打ち合わせを始め、「始める前に今日の屋根工事の計画を確認しましょう」と言います。",
+          "en": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start."
+        },
+        {
+          "ja": "今日は安全を最優先にします。",
+          "en": "Safety comes first today."
+        },
+        {
+          "ja": "屋根に上がる前にハーネスをアンカーに接続してください。",
+          "en": "Tie off before you go on the roof."
+        },
+        {
+          "ja": "まず既存屋根材を撤去し、その後に施工します。",
+          "en": "Tear-off first, then installation."
+        },
+        {
+          "ja": "野地板の準備ができたら、作業班は下葺き材と水切り板金を取り付け、班長が各工程を確認します。",
+          "en": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step."
+        },
+        {
+          "ja": "午後に嵐の警報が届き、職長は「天候が変わったら作業を止めて降りてください」と指示します。",
+          "en": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes."
+        },
+        {
+          "ja": "作業班は未完了の区画を防水シートで覆います。",
+          "en": "The crew covers the unfinished section with a tarp."
+        },
+        {
+          "ja": "一日の終わりに職長は「工事を完了とする前に、一緒に屋根を見て回りましょう」と言います。",
+          "en": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete."
+        },
+        {
+          "ja": "残った項目は完了確認のため残工事リストに記録します。",
+          "en": "Whatever is left stays on the punch list for the closeout."
+        }
+      ],
+      "forms": [
+        {
+          "base": "接続する",
+          "exampleJa": "屋根に上がる前に必ずハーネスをアンカーに接続します。",
+          "meaningEnglish": "to tie off / to anchor",
+          "exampleEnglish": "We always tie off the harness before going up on the roof.",
+          "sourceInfinitiveSpanish": "anclar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "班長は施工の各工程を確認します。",
+          "meaningEnglish": "to check / to inspect",
+          "exampleEnglish": "The crew lead checks each step of the installation.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "止める",
+          "exampleJa": "天候が変わったら作業を止めて降りてください。",
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work and come down if the weather changes.",
+          "sourceInfinitiveSpanish": "detener"
+        },
+        {
+          "base": "覆う",
+          "exampleJa": "作業班は未完了の区画を防水シートで覆います。",
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "The crew covers the unfinished section with a tarp.",
+          "sourceInfinitiveSpanish": "cubrir"
+        },
+        {
+          "base": "見て回る",
+          "exampleJa": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+          "meaningEnglish": "to walk through / to go over (a roof, a site)",
+          "exampleEnglish": "Walk the roof with me before we call the job complete.",
+          "sourceInfinitiveSpanish": "recorrer"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "始める前に計画を確認しましょう。まず撤去、次に施工です。天候が変わったら作業を止め、残った項目は残工事リストに記録してください。",
+        "goal": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout."
+      },
+      "modes": {
+        "see": "Identify the briefing, tear-off, installation, tarp, and closeout scenes.",
+        "recall": "Recall underlayment, flashing, crew lead, and punch list.",
+        "hear": "Distinguish 下葺き材 from 水切り板金 when spoken.",
+        "type": "Type 'Let's review today's roof plan before we start' in Japanese.",
+        "say": "Lead a complete roofing day in Japanese from briefing to closeout.",
+        "write": "Write the work sequence and the response to the storm warning."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

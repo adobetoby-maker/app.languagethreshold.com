@@ -1,0 +1,42 @@
+{
+  "27": {
+    "title": "換気口と水切り板金の点検",
+    "objective": "班長と一緒に屋根の貫通部を点検する。",
+    "focus": "～の周り marks the flashing location. ～か asks about a crack, and ～てから can order photos before final closeout.",
+    "words": ["換気口", "配管貫通部用ブーツ", "水切り板金", "貫通部", "シーリング材", "ひび割れ", "雨漏り", "天窓", "煙突", "この換気口の周りの水切り板金を確認してください。", "各貫通部の周りの水切り板金を撮影してください。", "貫通部を一つずつ一緒に見て回りましょう。", "配管貫通部用ブーツにひび割れはありますか。", "すでに何を確認しましたか。", "露出した釘をシーリングしてください。"],
+    "reader": ["仕上げる前に、職長は屋根を貫くものをすべて確認したいと考えています。", "貫通部を一つずつ一緒に見て回りましょう。", "職長は班長に「すでに何を確認しましたか」と尋ねます。", "この換気口の周りの水切り板金を確認してください。", "配管貫通部用ブーツにひび割れはありますか。", "ひび割れがあると、水が入り雨漏りにつながることがあります。", "各貫通部の周りの水切り板金を撮影してください。", "露出した釘をシーリングしてください。"],
+    "verbs": [["確認する", "この換気口の周りの水切り板金を確認してください。"], ["シーリングする", "露出した釘をシーリングしてください。"], ["撮る", "各貫通部の周りの水切り板金を撮影してください。"], ["見て回る", "貫通部を一つずつ一緒に見て回ります。"], ["尋ねる", "職長は班長に、何を確認したか尋ねます。"]],
+    "speaking": "貫通部を一つずつ一緒に見て回りましょう。換気口の周りの水切り板金を確認し、写真を撮ってください。",
+    "modes": {"see": "Identify the vent, pipe boot, skylight, and chimney penetrations.", "recall": "Recall flashing, crack, leak, and exposed nails.", "hear": "Distinguish 換気口 from 貫通部 when spoken.", "type": "Type 'Is the pipe boot cracked?' in Japanese.", "say": "Walk the penetrations with the crew lead and ask what was checked.", "write": "Write what is photographed at each penetration."}
+  },
+  "28": {
+    "title": "地上の清掃",
+    "objective": "雨どいと現場の清掃作業を割り当てる。",
+    "focus": "～前に sets cleanup before leaving. ～たら asks for a completion report, while ～より compares the yard's before and after state.",
+    "words": ["雨どい", "廃材コンテナ", "釘", "清掃", "磁石", "ほうき", "廃材", "庭", "ごみ", "縦どい", "帰る前に雨どいを確認し、現場を清掃しましょう。", "磁石での釘拾いが終わったら教えてください。", "雨どいに釘や廃材がないか確認してください。", "家の周りの釘をすべて拾ってください。", "廃材コンテナはいっぱいですか。", "庭を作業前よりきれいにして帰ってください。"],
+    "reader": ["屋根はすでに仕上がりましたが、清掃がまだ残っています。", "職長は「帰る前に雨どいを確認し、現場を清掃しましょう」と言います。", "雨どいに釘や廃材がないか確認してください。", "雨どいがいっぱいになると、縦どいが詰まることがあります。", "家の周りの釘をすべて拾ってください。", "磁石で釘を拾い終わったら教えてください。", "廃材コンテナはいっぱいですか。", "庭をほうきで掃き、ごみを廃材コンテナに入れてください。", "庭を作業前よりきれいにして帰ってください。"],
+    "verbs": [["確認する", "帰る前に雨どいを確認します。"], ["拾う", "家の周りの釘をすべて拾います。"], ["清掃する", "帰る前に現場を清掃します。"], ["伝える", "廃材コンテナがいっぱいなら職長に伝えます。"], ["して帰る", "庭を作業前よりきれいにして帰ります。"]],
+    "speaking": "帰る前に雨どいの釘や廃材を確認してください。磁石での釘拾いが終わったら教えてください。",
+    "modes": {"see": "Find the gutter, downspout, magnet, and dumpster.", "recall": "Recall nail pickup, gutter check, and site cleanup.", "hear": "Distinguish 雨どい from 縦どい when spoken.", "type": "Type 'Is the dumpster full?' in Japanese.", "say": "Assign gutter and ground cleanup before leaving.", "write": "Write what the crew reports after the magnetic nail sweep."}
+  },
+  "29": {
+    "title": "未完了項目の報告",
+    "objective": "残っている作業を明確に引き継ぐ。",
+    "focus": "～の前に orders inspection before calling the job complete. ～てください gives handoff tasks, and ～まま marks an item left open.",
+    "words": ["残工事リスト", "未完了", "明日", "未対応項目", "完了", "残った資材", "作業", "今日", "工事", "明日に残っている箇所はどこですか。", "残った資材を安全な場所に保管してください。", "工事を完了とする前に、一緒に屋根を見て回りましょう。", "これはまだ未対応です。", "明日の最初の作業はこの箇所を仕上げることです。", "残工事リストに追加してください。"],
+    "reader": ["一日の終わりに、作業班は道具を片づけます。", "工事を完了とする前に、一緒に屋根を見て回りましょう。", "職長は「明日に残っている箇所はどこですか」と尋ねます。", "煙突の横の一区画がまだ仕上がっていません。", "これはまだ未対応です。", "残工事リストに追加してください。", "明日の最初の作業はこの箇所を仕上げることです。", "残った資材を安全な場所に保管してください。", "残工事リストがあれば、全員が明日の作業を把握できます。"],
+    "verbs": [["仕上げる", "明日、煙突の横の区画を仕上げます。"], ["追加する", "この未対応項目をリストに追加します。"], ["保管する", "残った資材を安全な場所に保管します。"], ["見て回る", "工事を完了とする前に屋根を見て回ります。"], ["残る", "明日に残っている箇所はどこですか。"]],
+    "speaking": "明日に残っている箇所はどこですか。未対応項目を残工事リストに追加し、残った資材を保管してください。",
+    "modes": {"see": "Find the unfinished section beside the chimney.", "recall": "Recall open item, punch list, remaining materials, and closeout.", "hear": "Distinguish 未完了 from 未対応 when spoken.", "type": "Type 'This is still open' in Japanese.", "say": "Hand off remaining work and the first task for tomorrow.", "write": "Write the open item and where it is recorded."}
+  },
+  "30": {
+    "title": "屋根工事の一日",
+    "objective": "日本語で屋根工事の一日を通して作業班を指揮する。",
+    "focus": "～前に orders the briefing and tie-off before work. ～てから sequences tear-off and installation; ～たら triggers the weather response and closeout.",
+    "words": ["作業前の打ち合わせ", "既存屋根材の撤去", "施工する", "安全", "完了確認", "班長", "下葺き材", "水切り板金", "防水シート", "残工事リスト", "始める前に今日の屋根工事の計画を確認しましょう。", "屋根に上がる前にハーネスをアンカーに接続してください。", "天候が変わったら作業を止めて降りてください。", "工事を完了とする前に、一緒に屋根を見て回りましょう。", "まず既存屋根材を撤去し、その後に施工します。", "今日は安全を最優先にします。"],
+    "reader": ["朝、職長は打ち合わせを始め、「始める前に今日の屋根工事の計画を確認しましょう」と言います。", "今日は安全を最優先にします。", "屋根に上がる前にハーネスをアンカーに接続してください。", "まず既存屋根材を撤去し、その後に施工します。", "野地板の準備ができたら、作業班は下葺き材と水切り板金を取り付け、班長が各工程を確認します。", "午後に嵐の警報が届き、職長は「天候が変わったら作業を止めて降りてください」と指示します。", "作業班は未完了の区画を防水シートで覆います。", "一日の終わりに職長は「工事を完了とする前に、一緒に屋根を見て回りましょう」と言います。", "残った項目は完了確認のため残工事リストに記録します。"],
+    "verbs": [["接続する", "屋根に上がる前に必ずハーネスをアンカーに接続します。"], ["確認する", "班長は施工の各工程を確認します。"], ["止める", "天候が変わったら作業を止めて降りてください。"], ["覆う", "作業班は未完了の区画を防水シートで覆います。"], ["見て回る", "工事を完了とする前に、一緒に屋根を見て回りましょう。"]],
+    "speaking": "始める前に計画を確認しましょう。まず撤去、次に施工です。天候が変わったら作業を止め、残った項目は残工事リストに記録してください。",
+    "modes": {"see": "Identify the briefing, tear-off, installation, tarp, and closeout scenes.", "recall": "Recall underlayment, flashing, crew lead, and punch list.", "hear": "Distinguish 下葺き材 from 水切り板金 when spoken.", "type": "Type 'Let's review today's roof plan before we start' in Japanese.", "say": "Lead a complete roofing day in Japanese from briefing to closeout.", "write": "Write the work sequence and the response to the storm warning."}
+  }
+}

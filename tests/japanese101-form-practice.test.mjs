@@ -3,11 +3,12 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-test("Japanese 101 Foundation and Core 1–20 form prompts retain exact source pairs", () => {
+test("Japanese 101 Foundation and Core 1–30 form prompts retain exact source pairs", () => {
   const batches = [
     ["foundation", "1-10", 10, 38, "foundation-japanese-basics"],
     ["core", "1-10", 10, 33, "japanese-basics"],
     ["core", "11-20", 10, 39, "japanese-basics"],
+    ["core", "21-30", 10, 42, "japanese-basics"],
   ];
   const ids = new Set();
   for (const [stage, range, lessonCount, promptCount, moduleId] of batches) {
@@ -40,5 +41,5 @@ test("Japanese 101 Foundation and Core 1–20 form prompts retain exact source p
     }
     assert.equal(batchCount, promptCount);
   }
-  assert.equal(ids.size, 110);
+  assert.equal(ids.size, 152);
 });

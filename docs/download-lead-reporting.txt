@@ -1,0 +1,46 @@
+Owner download lead reporting — 2026-11-08 Mountain Time
+
+Open /owner?tab=analytics. Download leads appears above existing analytics.
+The server authenticates the current user and verifies platform owner privileges
+before invoking owner_download_lead_report. Tables and reporting RPC have no
+anon/authenticated/PUBLIC grants; service_role only, RLS enabled.
+
+Coverage: CRM-accepted free-resource form requests from medicalspanish.app,
+constructionspanish.app and languagethreshold.com. This is not a count of every
+historical CRM contact, an email-delivery report or subscription confirmation.
+No earlier source-page history has been inferred or imported. The install
+comment states tracking begins with each site's reporting deployment.
+
+Each funnel uses its own server-only DOWNLOAD_LEAD_KEY; the app verifies
+DOWNLOAD_LEAD_KEYS (JSON site-to-key map). Keys are production-only and backed
+up in macOS Keychain under lt-download-report-<site>. They permit signed lead
+insertion only, with no read/CRM administration capability. HMAC binds timestamp
+and exact body, with five-minute replay window. Event IDs deduplicate a site's
+email/resource combination in ten-minute buckets. Repeating a later request
+counts again; unique email counts do not. This does not imply a unique person.
+
+The funnel validates consent and saves to Leader HQ first, then records the
+request before sending a resource email/unlocking the download. Reporting
+failures return an explicit retry message: the CRM email was already saved.
+A client retry uses the same bucket ID, preserving one report record. No
+analytics-only request sends emails or creates a second CRM contact itself.
+
+Email and requested resource are private owner data. No name, document content,
+IP address, URL query string or URL fragment is stored in this reporting table.
+First landing path and referring hostname are stored per browser tab without an
+email. Attribution is browser-supplied and can be missing/modified; not proof
+of ad-platform attribution. Existing session UTMs are retained across navigation.
+The current form path is recorded separately. Missing paths show Not recorded. Referrer stores hostname only.
+
+Owner addresses adobetoby@gmail.com and toby@languagethreshold.com (including
+plus aliases) are flagged as setup tests and excluded by default. Campaign
+names cannot cause real leads to be excluded. Tests can be shown explicitly.
+First-seen email means first tracked request across these forms, not first CRM
+contact. Dates use rolling 7/30/90-day periods; today/daily groups use Denver.
+Recent rows are capped at 100; aggregate counts include all matching rows.
+One email can appear in several source rows, so do not sum row unique counts.
+
+Validation includes signed-ingestion/replay/tamper/site isolation, owner role
+access, no-store response tests, database aggregate tests in a rolled-back
+transaction, RLS/grant inspection and synthetic phone/desktop browser fixtures.
+No customer mail or campaign activation is part of this reporting deployment.

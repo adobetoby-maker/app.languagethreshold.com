@@ -28,3 +28,7 @@ Verification: 2,936 repository tests; TypeScript; desktop and phone synthetic ow
 flow for product links, actual contact/draft payloads, and no send/signup request.
 Marketing live checks cover project deep links and return navigation. Synthetic
 browser fixtures never send customer email or create real contacts.
+
+The deploy scripts use Vercel archive uploads because the current static-file
+manifest exceeds the normal deployment request limit. Production deployment
+uses production runtime credentials; preview is not promoted as a substitute.

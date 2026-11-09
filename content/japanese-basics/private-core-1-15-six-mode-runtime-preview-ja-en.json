@@ -4,9 +4,9 @@
   "registered": false,
   "reviewed": false,
   "sourceSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
-  "authoredSha256": "34ddc7f0c4552730e7c5c72cd8e08fc342d6ebd30df8a8ac3105deb1c8ec729f",
-  "lessonCount": 8,
-  "activityCount": 48,
+  "authoredSha256": "e838213f297e8a2824a9c5b19f7ba74ffee594be5a3be30d08187cba283e80f3",
+  "lessonCount": 15,
+  "activityCount": 90,
   "lessons": [
     {
       "moduleId": "core-japanese-basics",
@@ -405,6 +405,356 @@
           "sourceDialogueTurn": 3,
           "targetText": "どの ほんですか。",
           "nativeText": "Which book?"
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 9,
+      "stableLessonKey": "core-japanese-basics:9",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:9:see",
+          "prompt": "Read the question about tomorrow. Identify どうして and give the exact English meaning of the whole question.",
+          "sourceDialogueTurn": 3,
+          "targetText": "どうして あしたですか。",
+          "nativeText": "Why tomorrow?"
+        },
+        "recall": {
+          "id": "ja101:core:9:recall",
+          "prompt": "Recall the reply explaining why tomorrow works; include きょう and the reason ending ～から.",
+          "sourceDialogueTurn": 4,
+          "targetText": "きょうは いそがしいですから。",
+          "nativeText": "Because I am busy today."
+        },
+        "hear": {
+          "id": "ja101:core:9:hear",
+          "prompt": "Listen to the question about the study place and select its exact English meaning.",
+          "sourceDialogueTurn": 5,
+          "targetText": "どこで べんきょうしますか。",
+          "nativeText": "Where will we study?"
+        },
+        "type": {
+          "id": "ja101:core:9:type",
+          "prompt": "Type the Japanese question 'When will we study?' using いつ and a polite question ending.",
+          "sourceDialogueTurn": 1,
+          "targetText": "いつ べんきょうしますか。",
+          "nativeText": "When will we study?"
+        },
+        "say": {
+          "id": "ja101:core:9:say",
+          "prompt": "Say the answer that the group will study at the library, marking the action place with で.",
+          "sourceDialogueTurn": 6,
+          "targetText": "としょかんで べんきょうします。",
+          "nativeText": "We will study at the library."
+        },
+        "write": {
+          "id": "ja101:core:9:write",
+          "prompt": "Write the complete Japanese sentence for 'We will study tomorrow,' keeping the time word あした.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あした べんきょうします。",
+          "nativeText": "We will study tomorrow."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 10,
+      "stableLessonKey": "core-japanese-basics:10",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:10:see",
+          "prompt": "Read the proposed meeting time. Identify ごご, さんじ, and じゅっぷん in the English meaning.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ごご さんじ じゅっぷんに あいましょう。",
+          "nativeText": "Let's meet at ten past three in the afternoon."
+        },
+        "recall": {
+          "id": "ja101:core:10:recall",
+          "prompt": "Recall the Japanese question asking what time to meet tomorrow; include なんじ and ～ましょうか.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あした なんじに あいましょうか。",
+          "nativeText": "What time shall we meet tomorrow?"
+        },
+        "hear": {
+          "id": "ja101:core:10:hear",
+          "prompt": "Listen to the reply accepting the time and choose the exact English meaning.",
+          "sourceDialogueTurn": 3,
+          "targetText": "さんじ じゅっぷんは だいじょうぶです。",
+          "nativeText": "Ten past three works."
+        },
+        "type": {
+          "id": "ja101:core:10:type",
+          "prompt": "Type the sentence for returning at four thirty, using よじはん and the scheduled-time particle に.",
+          "sourceDialogueTurn": 5,
+          "targetText": "よじはんに かえります。",
+          "nativeText": "I will return at four thirty."
+        },
+        "say": {
+          "id": "ja101:core:10:say",
+          "prompt": "Say the source sentence for meeting in front of the station, using まえで for the action place.",
+          "sourceDialogueTurn": 4,
+          "targetText": "えきの まえで あいます。",
+          "nativeText": "We will meet in front of the station."
+        },
+        "write": {
+          "id": "ja101:core:10:write",
+          "prompt": "Write the whole Japanese suggestion to meet at ten past three in the afternoon; preserve ～ましょう.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ごご さんじ じゅっぷんに あいましょう。",
+          "nativeText": "Let's meet at ten past three in the afternoon."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 11,
+      "stableLessonKey": "core-japanese-basics:11",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:11:see",
+          "prompt": "Read the contrast about scary movies. Identify the disliked item and how きらいです expresses dislike.",
+          "sourceDialogueTurn": 5,
+          "targetText": "でも、こわい えいがは きらいです。",
+          "nativeText": "But I dislike scary movies."
+        },
+        "recall": {
+          "id": "ja101:core:11:recall",
+          "prompt": "Recall the question asking what kind of music someone likes, keeping どんな and が.",
+          "sourceDialogueTurn": 1,
+          "targetText": "どんな おんがくが すきですか。",
+          "nativeText": "What kind of music do you like?"
+        },
+        "hear": {
+          "id": "ja101:core:11:hear",
+          "prompt": "Listen to the emphatic positive reply and choose the meaning that includes 'very much'.",
+          "sourceDialogueTurn": 4,
+          "targetText": "はい、とても すきです。",
+          "nativeText": "Yes, I like them very much."
+        },
+        "type": {
+          "id": "ja101:core:11:type",
+          "prompt": "Type the sentence for not liking books very much; include あまり and the polite negative.",
+          "sourceDialogueTurn": 6,
+          "targetText": "ほんは あまり すきじゃありません。",
+          "nativeText": "I do not like books very much."
+        },
+        "say": {
+          "id": "ja101:core:11:say",
+          "prompt": "Say the sentence for liking quiet music, keeping しずかな before おんがく and が before すき.",
+          "sourceDialogueTurn": 2,
+          "targetText": "しずかな おんがくが すきです。",
+          "nativeText": "I like quiet music."
+        },
+        "write": {
+          "id": "ja101:core:11:write",
+          "prompt": "Write the full Japanese question asking whether the listener likes movies too, including も and か.",
+          "sourceDialogueTurn": 3,
+          "targetText": "えいがも すきですか。",
+          "nativeText": "Do you like movies too?"
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 12,
+      "stableLessonKey": "core-japanese-basics:12",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:12:see",
+          "prompt": "Read the tea sentence. Identify the wanted thing marked by が and the English meaning of ほしいです.",
+          "sourceDialogueTurn": 3,
+          "targetText": "おちゃが ほしいです。",
+          "nativeText": "I want tea."
+        },
+        "recall": {
+          "id": "ja101:core:12:recall",
+          "prompt": "Recall the sentence for wanting to eat bread too; keep も and the ～たい form.",
+          "sourceDialogueTurn": 4,
+          "targetText": "パンも たべたいです。",
+          "nativeText": "I want to eat bread too."
+        },
+        "hear": {
+          "id": "ja101:core:12:hear",
+          "prompt": "Listen to the question about what the person wants and select its exact English meaning.",
+          "sourceDialogueTurn": 2,
+          "targetText": "なにが ほしいですか。",
+          "nativeText": "What do you want?"
+        },
+        "type": {
+          "id": "ja101:core:12:type",
+          "prompt": "Type the full Japanese sentence for 'I want to drink water,' including を and のみたいです.",
+          "sourceDialogueTurn": 5,
+          "targetText": "わたしは みずを のみたいです。",
+          "nativeText": "I want to drink water."
+        },
+        "say": {
+          "id": "ja101:core:12:say",
+          "prompt": "Say the polite café request for a menu, using the source ～をください wording.",
+          "sourceDialogueTurn": 1,
+          "targetText": "メニューを ください。",
+          "nativeText": "Please give me a menu."
+        },
+        "write": {
+          "id": "ja101:core:12:write",
+          "prompt": "Write the Japanese sentence for wanting tea, placing が before ほしいです.",
+          "sourceDialogueTurn": 3,
+          "targetText": "おちゃが ほしいです。",
+          "nativeText": "I want tea."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 13,
+      "stableLessonKey": "core-japanese-basics:13",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:13:see",
+          "prompt": "Read the photo question. Identify ～てもいいですか and its permission-seeking English meaning.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ここで しゃしんを とっても いいですか。",
+          "nativeText": "May I take a photo here?"
+        },
+        "recall": {
+          "id": "ja101:core:13:recall",
+          "prompt": "Recall the question asking whether a book can be read here; use the potential form よめます.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ほんは ここで よめますか。",
+          "nativeText": "Can I read a book here?"
+        },
+        "hear": {
+          "id": "ja101:core:13:hear",
+          "prompt": "Listen to the negative reply about taking a photo and select its exact English meaning.",
+          "sourceDialogueTurn": 2,
+          "targetText": "いいえ、とっては いけません。",
+          "nativeText": "No, you must not."
+        },
+        "type": {
+          "id": "ja101:core:13:type",
+          "prompt": "Type the question 'Can I enter this room?' using the source potential form はいれます.",
+          "sourceDialogueTurn": 5,
+          "targetText": "この へやに はいれますか。",
+          "nativeText": "Can I enter this room?"
+        },
+        "say": {
+          "id": "ja101:core:13:say",
+          "prompt": "Say the reply that permits entry but asks for quiet, preserving both sentences.",
+          "sourceDialogueTurn": 6,
+          "targetText": "はい。でも、しずかに おねがいします。",
+          "nativeText": "Yes. But please be quiet."
+        },
+        "write": {
+          "id": "ja101:core:13:write",
+          "prompt": "Write the short affirmative answer to the book-reading question, using よめます.",
+          "sourceDialogueTurn": 4,
+          "targetText": "はい、よめます。",
+          "nativeText": "Yes, you can."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 14,
+      "stableLessonKey": "core-japanese-basics:14",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:14:see",
+          "prompt": "Read the ticket reply. Identify かわなければなりません and the English obligation it expresses.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、きっぷを かわなければなりません。",
+          "nativeText": "Yes, we must buy tickets."
+        },
+        "recall": {
+          "id": "ja101:core:14:recall",
+          "prompt": "Recall the sentence saying we have to go quickly, including いかないといけません.",
+          "sourceDialogueTurn": 4,
+          "targetText": "はやく いかないといけません。",
+          "nativeText": "We have to go quickly."
+        },
+        "hear": {
+          "id": "ja101:core:14:hear",
+          "prompt": "Listen to the train schedule and choose the exact English meaning with the eight o'clock time.",
+          "sourceDialogueTurn": 3,
+          "targetText": "でんしゃは はちじに でます。",
+          "nativeText": "The train leaves at eight."
+        },
+        "type": {
+          "id": "ja101:core:14:type",
+          "prompt": "Type the question asking whether the listener will buy tickets, including きっぷ and かいますか.",
+          "sourceDialogueTurn": 1,
+          "targetText": "きっぷを かいますか。",
+          "nativeText": "Will you buy tickets?"
+        },
+        "say": {
+          "id": "ja101:core:14:say",
+          "prompt": "Say the suggestion to go to the station together, keeping いっしょに and ～ましょう.",
+          "sourceDialogueTurn": 6,
+          "targetText": "いっしょに えきへ いきましょう。",
+          "nativeText": "Let's go to the station together."
+        },
+        "write": {
+          "id": "ja101:core:14:write",
+          "prompt": "Write the full sentence saying the group will wait for a friend here, including でも and を.",
+          "sourceDialogueTurn": 5,
+          "targetText": "でも、ここで ともだちを まちます。",
+          "nativeText": "But we will wait for a friend here."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 15,
+      "stableLessonKey": "core-japanese-basics:15",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:15:see",
+          "prompt": "Read the afternoon sentence. Identify かいものします and its exact English activity meaning.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ごご かいものします。",
+          "nativeText": "In the afternoon I shop."
+        },
+        "recall": {
+          "id": "ja101:core:15:recall",
+          "prompt": "Recall the Japanese sentence for cleaning in the morning, using あさ and そうじします.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あさ そうじします。",
+          "nativeText": "I clean in the morning."
+        },
+        "hear": {
+          "id": "ja101:core:15:hear",
+          "prompt": "Listen to the Sunday activity sentence and choose the exact English meaning of うんどうします.",
+          "sourceDialogueTurn": 5,
+          "targetText": "にちようびは うんどうします。",
+          "nativeText": "On Sunday I exercise."
+        },
+        "type": {
+          "id": "ja101:core:15:type",
+          "prompt": "Type the Japanese sentence for cooking at noon, including ひる and りょうりします.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ひる りょうりします。",
+          "nativeText": "At noon I cook."
+        },
+        "say": {
+          "id": "ja101:core:15:say",
+          "prompt": "Say the evening sentence about studying Japanese; preserve the object particle を.",
+          "sourceDialogueTurn": 4,
+          "targetText": "よる にほんごを べんきょうします。",
+          "nativeText": "In the evening I study Japanese."
+        },
+        "write": {
+          "id": "ja101:core:15:write",
+          "prompt": "Write the full Japanese sentence for shopping in the afternoon, using ごご and かいものします.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ごご かいものします。",
+          "nativeText": "In the afternoon I shop."
         }
       }
     }

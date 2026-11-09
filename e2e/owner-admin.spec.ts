@@ -389,6 +389,8 @@ async function openOwner(page: Page, tab = "overview", { gaConfigured = true } =
           };
         case "/api/owner-discounts":
           return { ready: true, discounts: [], hasMore: false, nextCursor: null };
+        case "/api/owner-crm":
+          return { contacts: [], assets: [], drafts: [], referrals: [], aiReady: false };
         case "/api/owner-download-leads":
           return {
             requests: 3,
@@ -657,4 +659,30 @@ test.describe("download leads", () => {
       true,
     );
   });
+});
+
+test("marketing connects products and prepares an unsent resource follow-up", async ({ page }) => {
+  const posted = await openOwner(page, "marketing");
+  await expect(page.getByRole("heading", { name: "My AI Marketing", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open marketing ↗", exact: true })).toHaveCount(4);
+  await expect(page.getByText("Refreshes every minute", { exact: false })).toBeVisible();
+  await page.getByRole("button", { name: "Prepare follow-up", exact: true }).click();
+  const form = page.getByRole("region", { name: "Download follow-up draft" });
+  await expect(form.getByLabel("Subject", { exact: true })).toHaveValue(
+    "Your Nursing Spanish trifold",
+  );
+  await form.getByLabel("Reminder date for a new contact").fill("2026-12-01");
+  await form.getByRole("button", { name: "Save draft & reminder" }).click();
+  await expect(form.getByRole("status")).toContainText("No email sent");
+  const writes = posted.filter((p) => p.path === "/api/owner-crm");
+  expect(writes).toHaveLength(2);
+  expect(writes[0].body).toMatchObject({
+    action: "contact",
+    contact: { email: "synthetic@example.test", follow_up_on: "2026-12-01" },
+  });
+  expect(writes[1].body).toMatchObject({
+    action: "draft",
+    draft: { subject: "Your Nursing Spanish trifold", include_referral: false },
+  });
+  expect(posted.some((p) => /send|signup/.test(p.path))).toBe(false);
 });

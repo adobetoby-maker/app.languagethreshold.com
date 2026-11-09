@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOwnerResource } from "./use-owner-resource";
 import { ownerButton, ownerField, ownerPanel } from "./owner-ui";
 import type { LeadReport } from "@/lib/download-leads";
 
-export function OwnerDownloadLeads() {
+export function OwnerDownloadLeads({
+  onPrepare,
+  live = false,
+}: {
+  onPrepare?: (lead: LeadReport["recent"][number]) => void;
+  live?: boolean;
+}) {
   const [days, setDays] = useState("30");
   const [tests, setTests] = useState(false);
   const r = useOwnerResource<LeadReport>(
     `/api/owner-download-leads?days=${days}&tests=${tests ? "1" : "0"}`,
   );
+  const refresh = useRef(r.refresh);
+  refresh.current = r.refresh;
+  useEffect(() => {
+    if (!live) return;
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === "visible") refresh.current();
+    }, 60000);
+    return () => window.clearInterval(timer);
+  }, [live]);
   const d = r.data;
   if (!r.allowed) return null;
   return (
@@ -26,6 +41,12 @@ export function OwnerDownloadLeads() {
           {r.loading ? "Refreshing…" : "Refresh"}
         </button>
       </div>
+      {live && (
+        <p className="mt-3 text-sm">
+          Refreshes every minute while this page is visible. Source: accepted download requests;
+          subscription status must be checked in Leader HQ.
+        </p>
+      )}
       <div className="my-5 flex flex-wrap items-center gap-4">
         <label className="flex items-center gap-2 text-sm">
           Period{" "}
@@ -184,6 +205,15 @@ export function OwnerDownloadLeads() {
                       </td>
                       <td className="p-3 break-all">
                         {lead.email}
+                        {onPrepare && (
+                          <button
+                            type="button"
+                            className={`${ownerButton} mt-2 block`}
+                            onClick={() => onPrepare(lead)}
+                          >
+                            Prepare follow-up
+                          </button>
+                        )}
                         {lead.is_test && <span className="block font-semibold">Setup test</span>}
                       </td>
                       <td className="p-3">

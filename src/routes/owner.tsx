@@ -7,6 +7,7 @@ import { ownedTeamRequest } from "@/lib/team-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
 import { OwnerDownloadLeads } from "@/components/owner/OwnerDownloadLeads";
+import { OwnerMarketing } from "@/components/owner/OwnerMarketing";
 import { OwnerCrm } from "@/components/owner/OwnerCrm";
 import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
 import { OwnerSupport } from "@/components/owner/OwnerSupport";
@@ -474,6 +475,9 @@ function OwnedOwnerDashboard() {
             </OwnerTabPanel>
             <OwnerTabPanel id="support" active={tab === "support"}>
               <OwnerSupport />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="marketing" active={tab === "marketing"}>
+              <OwnerMarketing onEmail={() => selectTab("email")} />
             </OwnerTabPanel>
             <OwnerTabPanel id="email" active={tab === "email"}>
               <OwnerCrm />

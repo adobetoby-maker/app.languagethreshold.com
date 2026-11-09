@@ -79,6 +79,12 @@ function exactPair(pair: Pair): boolean {
   return pair.target === FRENCH_101_PAIR.target && pair.native === FRENCH_101_PAIR.native;
 }
 
+function collectStrings(value: unknown, output: Set<string>): void {
+  if (typeof value === "string") output.add(value);
+  else if (Array.isArray(value)) value.forEach(item => collectStrings(item, output));
+  else if (value && typeof value === "object") Object.values(value).forEach(item => collectStrings(item, output));
+}
+
 function checkFixture(fixture: PrivateFixture, id: StageId, count: number): void {
   if (!fixture.privatePilot || fixture.registered || fixture.reviewed || fixture.audioStatus !== "script-only; no recorded audio")
     throw new Error(`${id} must remain a private, unreviewed, script-only fixture`);
@@ -91,10 +97,20 @@ function checkFixture(fixture: PrivateFixture, id: StageId, count: number): void
       throw new Error(`${id} is missing a card, Reader, dictionary or speaking input at ${index + 1}`);
     if (JSON.stringify(Object.keys(sidecar.modes).sort()) !== JSON.stringify(modeNames))
       throw new Error(`${id} is missing a practice mode at ${index + 1}`);
+    const lessonSourceText = new Set<string>();
+    for (const [field, value] of Object.entries(sidecar)) {
+      if (field !== "modes") collectStrings(value, lessonSourceText);
+    }
+    const prompts = new Set<string>();
     for (const mode of modeNames) {
       const authored = (sidecar.modes[mode] as AuthoredMode).authoredPrompt;
       if (!authored?.prompt?.trim() || !authored.targetText?.trim())
         throw new Error(`${id} is missing an authored ${mode} activity at ${index + 1}`);
+      if (!lessonSourceText.has(authored.targetText))
+        throw new Error(`${id} ${mode} target is absent from lesson source at ${index + 1}`);
+      if (prompts.has(authored.prompt))
+        throw new Error(`${id} repeats an authored prompt at ${index + 1}`);
+      prompts.add(authored.prompt);
     }
   }
 }

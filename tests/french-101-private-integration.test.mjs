@@ -78,4 +78,10 @@ test('the private adapter rejects a wrong pair or altered progress identity', ()
   const countOnly = structuredClone(inputs);
   delete countOnly.core.support[24].modes.write.authoredPrompt;
   assert.throws(() => inspectPrivateFrench101(countOnly), /missing an authored write activity at 25/);
+  const wrongSource = structuredClone(inputs);
+  wrongSource.master.support[10].modes.recall.authoredPrompt.targetText = 'Une phrase sans lien avec cette leçon.';
+  assert.throws(() => inspectPrivateFrench101(wrongSource), /target is absent from lesson source at 11/);
+  const repeatedPrompt = structuredClone(inputs);
+  repeatedPrompt.foundation.support[0].modes.write.authoredPrompt.prompt = repeatedPrompt.foundation.support[0].modes.see.authoredPrompt.prompt;
+  assert.throws(() => inspectPrivateFrench101(repeatedPrompt), /repeats an authored prompt at 1/);
 });

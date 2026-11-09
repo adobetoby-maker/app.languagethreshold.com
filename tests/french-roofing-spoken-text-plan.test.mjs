@@ -23,6 +23,16 @@ test('French Roofing proposed spoken text preserves every exact lesson display s
   assert.equal(plan.rows.length, plan.counts.dialogueSpeakerLabels + plan.counts.headingsOrNarrationForReview);
   assert.equal(plan.counts.dialogueSpeakerLabels, 193);
   assert.equal(plan.counts.headingsOrNarrationForReview, 71);
+  const categories = plan.rows.reduce((counts, row) => {
+    counts[row.reviewCategory] = (counts[row.reviewCategory] ?? 0) + 1;
+    return counts;
+  }, {});
+  assert.deepEqual(categories, {
+    'speaker-label': 193,
+    'quoted-prefix-review': 53,
+    'report-heading-review': 13,
+    'narration-or-instruction-review': 5,
+  });
   const originals = new Map(source.texts.map(row => [row.sha256, row]));
   assert.equal(originals.size, source.texts.length);
   const colonPrefixed = source.texts.filter(row => /^[^:：]{1,50}\s*[:：]\s*.+$/.test(row.text));
@@ -37,10 +47,12 @@ test('French Roofing proposed spoken text preserves every exact lesson display s
     assert.equal(row.textReviewed, false);
     assert.equal(row.listeningReviewed, false);
     if (row.kind === 'dialogue-speaker-label') {
+      assert.equal(row.reviewCategory, 'speaker-label');
       assert.ok(row.prefix && row.displayText.endsWith(row.proposedSpokenText));
       assert.ok(row.proposedSpokenText.length < row.displayText.length);
     } else {
       assert.equal(row.kind, 'heading-or-narration-review');
+      assert.notEqual(row.reviewCategory, 'speaker-label');
       assert.equal(row.proposedSpokenText, row.displayText);
     }
   }

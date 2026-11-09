@@ -19,6 +19,13 @@ SPEAKER_NAMES = {
     "Mme Flores", "Mme Novak",
 }
 SPEAKER_ROLES = {"L’inspecteur", "Le fournisseur", "L’expert", "Le responsable"}
+REPORT_HEADINGS = {
+    "Avertissement", "Description", "Deuxième étape", "Heures déclarées",
+    "Matériaux consignés", "Observation à vérifier", "Points ouverts",
+    "Première étape", "Quatrième étape",
+    "Rapport quotidien du 14 octobre; adresse fictive", "Résumé", "Suite prévue",
+    "Troisième étape",
+}
 
 
 def sha(data):
@@ -45,10 +52,17 @@ def build():
         label = match.group(1).strip()
         if label in SPEAKER_NAMES or (label in SPEAKER_ROLES and match.group(2).startswith("«")):
             kind = "dialogue-speaker-label"
+            review_category = "speaker-label"
             proposed_spoken = match.group(2)
         else:
             kind = "heading-or-narration-review"
             proposed_spoken = display
+            if match.group(2).startswith("«"):
+                review_category = "quoted-prefix-review"
+            elif label in REPORT_HEADINGS:
+                review_category = "report-heading-review"
+            else:
+                review_category = "narration-or-instruction-review"
         if not proposed_spoken.strip():
             raise ValueError("Empty proposed spoken text")
         rows.append({
@@ -56,6 +70,7 @@ def build():
             "displayText": display,
             "prefix": label,
             "kind": kind,
+            "reviewCategory": review_category,
             "proposedSpokenText": proposed_spoken,
             "sourceOccurrences": item["occurrences"],
             "textReviewed": False,

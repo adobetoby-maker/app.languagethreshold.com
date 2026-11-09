@@ -1,0 +1,715 @@
+{
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/japanese-basics/foundation.json",
+  "sourceSha256": "b36cf1dda4c0121d3cfabf49576058e33e0af4f336b33ca53e0054ec794d9c85",
+  "practiceFile": "src/data/japanese-basics-practice.json",
+  "practiceSha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683",
+  "missionsFile": "content/japanese-basics/private-foundation-speaking-missions-ja-en.json",
+  "missionsSha256": "d5010bf3e75c9783376b4341d904d0f4e7dbfd297c4532b487ca3d55afb0bd7a",
+  "support": {
+    "1": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Meeting a classmate",
+        "target": [
+          "こんにちは。",
+          "わたしは あきです。",
+          "おなまえは なんですか。",
+          "わたしは けんです。",
+          "けんさん、よろしくおねがいします。",
+          "こちらこそ、よろしくおねがいします。"
+        ],
+        "native": [
+          "Hello.",
+          "I am Aki.",
+          "What is your name?",
+          "I am Ken.",
+          "Ken, pleased to meet you.",
+          "Likewise, pleased to meet you."
+        ]
+      },
+      "grammar": {
+        "focus": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question.",
+        "examples": [
+          {
+            "es": "こんにちは。",
+            "en": "Hello."
+          },
+          {
+            "es": "わたしは あきです。",
+            "en": "I am Aki."
+          }
+        ]
+      },
+      "speaking": "Role-play: Meet a new Japanese-speaking classmate. Greet the classmate politely Give your name with ～です and ask for theirs Address the classmate by name and exchange よろしくおねがいします. You did not catch the classmate’s name on the first answer. Close with こちらこそ、よろしくおねがいします。",
+      "openingLine": "こんにちは。",
+      "partnerRole": "Meet a new Japanese-speaking classmate",
+      "checks": [
+        {
+          "prompt": "____。",
+          "hint": "Hello.",
+          "answer": "こんにちは",
+          "explanation": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question."
+        },
+        {
+          "prompt": "____は あきです。",
+          "hint": "I am Aki.",
+          "answer": "わたし",
+          "explanation": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question."
+        },
+        {
+          "prompt": "けんさん、____。",
+          "hint": "Ken, pleased to meet you.",
+          "answer": "よろしくおねがいします",
+          "explanation": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:1",
+        "role": "Meet a new Japanese-speaking classmate",
+        "opening": "こんにちは。",
+        "objectives": [
+          "Greet the classmate politely",
+          "Give your name with ～です and ask for theirs",
+          "Address the classmate by name and exchange よろしくおねがいします"
+        ],
+        "complication": "You did not catch the classmate’s name on the first answer.",
+        "closure": "Close with こちらこそ、よろしくおねがいします。"
+      }
+    },
+    "2": {
+      "stage": "foundation",
+      "reading": {
+        "title": "At the study table",
+        "target": [
+          "これは なんですか。",
+          "それは ほんです。",
+          "この ほんは わたしのです。",
+          "あれは なんですか。",
+          "あれは かばんです。",
+          "えんぴつは つくえの うえです。"
+        ],
+        "native": [
+          "What is this?",
+          "That is a book.",
+          "This book is mine.",
+          "What is that over there?",
+          "That is a bag.",
+          "The pencil is on the desk."
+        ]
+      },
+      "grammar": {
+        "focus": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender.",
+        "examples": [
+          {
+            "es": "これは なんですか。",
+            "en": "What is this?"
+          },
+          {
+            "es": "それは ほんです。",
+            "en": "That is a book."
+          }
+        ]
+      },
+      "speaking": "Role-play: Identify study materials with a partner at the table. Ask what this nearby object is with これ Distinguish the book here from the bag over there with それ and あれ Describe whose book it is and where the pencil sits. Your partner points to a different object farther away. Confirm the pencil’s place on the desk.",
+      "openingLine": "これは なんですか。",
+      "partnerRole": "Identify study materials with a partner at the table",
+      "checks": [
+        {
+          "prompt": "____は なんですか。",
+          "hint": "What is this?",
+          "answer": "これ",
+          "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
+        },
+        {
+          "prompt": "____は ほんです。",
+          "hint": "That is a book.",
+          "answer": "それ",
+          "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
+        },
+        {
+          "prompt": "それは ____です。",
+          "hint": "That is a book.",
+          "answer": "ほん",
+          "explanation": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:2",
+        "role": "Identify study materials with a partner at the table",
+        "opening": "これは なんですか。",
+        "objectives": [
+          "Ask what this nearby object is with これ",
+          "Distinguish the book here from the bag over there with それ and あれ",
+          "Describe whose book it is and where the pencil sits"
+        ],
+        "complication": "Your partner points to a different object farther away.",
+        "closure": "Confirm the pencil’s place on the desk."
+      }
+    },
+    "3": {
+      "stage": "foundation",
+      "reading": {
+        "title": "At the stationery counter",
+        "target": [
+          "ノートを にさつ ください。",
+          "はい、ノートを にさつですね。",
+          "けしゴムも ひとつ ください。",
+          "はい、けしゴムも ひとつですね。",
+          "ノートは かばんの なかです。",
+          "ありがとうございます。"
+        ],
+        "native": [
+          "Two notebooks, please.",
+          "Yes, two notebooks, correct?",
+          "One eraser too, please.",
+          "Yes, one eraser too, correct?",
+          "The notebooks are in the bag.",
+          "Thank you very much."
+        ]
+      },
+      "grammar": {
+        "focus": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を.",
+        "examples": [
+          {
+            "es": "ノートを にさつ ください。",
+            "en": "Two notebooks, please."
+          },
+          {
+            "es": "はい、ノートを にさつですね。",
+            "en": "Yes, two notebooks, correct?"
+          }
+        ]
+      },
+      "speaking": "Role-play: Buy stationery from a counter clerk. Request two notebooks with the counter さつ Add one eraser with ひとつ Confirm the quantities repeated by the clerk. The clerk repeats the notebook quantity for confirmation. Thank the clerk after the notebooks are placed in the bag.",
+      "openingLine": "ノートを にさつ ください。",
+      "partnerRole": "Buy stationery from a counter clerk",
+      "checks": [
+        {
+          "prompt": "ノートを にさつ ____。",
+          "hint": "Two notebooks, please.",
+          "answer": "ください",
+          "explanation": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を."
+        },
+        {
+          "prompt": "ノートを ____ ください。",
+          "hint": "Two notebooks, please.",
+          "answer": "にさつ",
+          "explanation": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を."
+        },
+        {
+          "prompt": "____を にさつ ください。",
+          "hint": "Two notebooks, please.",
+          "answer": "ノート",
+          "explanation": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:3",
+        "role": "Buy stationery from a counter clerk",
+        "opening": "ノートを にさつ ください。",
+        "objectives": [
+          "Request two notebooks with the counter さつ",
+          "Add one eraser with ひとつ",
+          "Confirm the quantities repeated by the clerk"
+        ],
+        "complication": "The clerk repeats the notebook quantity for confirmation.",
+        "closure": "Thank the clerk after the notebooks are placed in the bag."
+      }
+    },
+    "4": {
+      "stage": "foundation",
+      "reading": {
+        "title": "A new study group",
+        "target": [
+          "こちらは どなたですか。",
+          "たなかさんです。",
+          "たなかさんは せんせいですか。",
+          "いいえ、がくせいです。",
+          "わたしの ともだちです。",
+          "みなさん、よろしくおねがいします。"
+        ],
+        "native": [
+          "Who is this person?",
+          "This is Tanaka.",
+          "Is Tanaka a teacher?",
+          "No, a student.",
+          "This person is my friend.",
+          "Everyone, pleased to meet you."
+        ]
+      },
+      "grammar": {
+        "focus": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name.",
+        "examples": [
+          {
+            "es": "こちらは どなたですか。",
+            "en": "Who is this person?"
+          },
+          {
+            "es": "たなかさんです。",
+            "en": "This is Tanaka."
+          }
+        ]
+      },
+      "speaking": "Role-play: Introduce someone to a new study group. Ask politely who the new person is Give Tanaka’s name and distinguish student from teacher Introduce the person as your friend to the group. Someone assumes Tanaka is a teacher. Exchange みなさん、よろしくおねがいします。 with the group.",
+      "openingLine": "こちらは どなたですか。",
+      "partnerRole": "Introduce someone to a new study group",
+      "checks": [
+        {
+          "prompt": "____は どなたですか。",
+          "hint": "Who is this person?",
+          "answer": "こちら",
+          "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
+        },
+        {
+          "prompt": "いいえ、____です。",
+          "hint": "No, a student.",
+          "answer": "がくせい",
+          "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
+        },
+        {
+          "prompt": "わたしの ____です。",
+          "hint": "This person is my friend.",
+          "answer": "ともだち",
+          "explanation": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:4",
+        "role": "Introduce someone to a new study group",
+        "opening": "こちらは どなたですか。",
+        "objectives": [
+          "Ask politely who the new person is",
+          "Give Tanaka’s name and distinguish student from teacher",
+          "Introduce the person as your friend to the group"
+        ],
+        "complication": "Someone assumes Tanaka is a teacher.",
+        "closure": "Exchange みなさん、よろしくおねがいします。 with the group."
+      }
+    },
+    "5": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Introductions after class",
+        "target": [
+          "わたしは マリです。",
+          "にほんから きました。",
+          "けんさんは どちらから きましたか。",
+          "アメリカから きました。",
+          "せんせいは どなたですか。",
+          "さとうさんが せんせいです。"
+        ],
+        "native": [
+          "I am Mari.",
+          "I came from Japan.",
+          "Ken, where did you come from?",
+          "I came from the United States.",
+          "Who is the teacher?",
+          "Sato is the teacher."
+        ]
+      },
+      "grammar": {
+        "focus": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
+        "examples": [
+          {
+            "es": "わたしは マリです。",
+            "en": "I am Mari."
+          },
+          {
+            "es": "にほんから きました。",
+            "en": "I came from Japan."
+          }
+        ]
+      },
+      "speaking": "Role-play: Exchange names and origins after class. Give Mari’s name and say she came from Japan Ask where Ken came from using どちらから Identify Sato as the teacher without swapping the speakers. A classmate asks which person is the teacher. Confirm that さとうさんが せんせいです。",
+      "openingLine": "わたしは マリです。",
+      "partnerRole": "Exchange names and origins after class",
+      "checks": [
+        {
+          "prompt": "にほんから ____。",
+          "hint": "I came from Japan.",
+          "answer": "きました",
+          "explanation": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual."
+        },
+        {
+          "prompt": "____から きました。",
+          "hint": "I came from Japan.",
+          "answer": "にほん",
+          "explanation": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual."
+        },
+        {
+          "prompt": "けんさんは ____から きましたか。",
+          "hint": "Ken, where did you come from?",
+          "answer": "どちら",
+          "explanation": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:5",
+        "role": "Exchange names and origins after class",
+        "opening": "わたしは マリです。",
+        "objectives": [
+          "Give Mari’s name and say she came from Japan",
+          "Ask where Ken came from using どちらから",
+          "Identify Sato as the teacher without swapping the speakers"
+        ],
+        "complication": "A classmate asks which person is the teacher.",
+        "closure": "Confirm that さとうさんが せんせいです。"
+      }
+    },
+    "6": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Looking for a classmate",
+        "target": [
+          "けんさんは どこに いますか。",
+          "あの へやに います。",
+          "いすは どこに ありますか。",
+          "ここに あります。",
+          "ねこも へやに いますか。",
+          "いいえ、ねこは あそこに います。"
+        ],
+        "native": [
+          "Where is Ken?",
+          "He is in that room.",
+          "Where is the chair?",
+          "It is here.",
+          "Is the cat in the room too?",
+          "No, the cat is over there."
+        ]
+      },
+      "grammar": {
+        "focus": "Use あります for inanimate things and います for people or animals. に marks where something exists; ここ, そこ, and あそこ locate it.",
+        "examples": [
+          {
+            "es": "けんさんは どこに いますか。",
+            "en": "Where is Ken?"
+          },
+          {
+            "es": "あの へやに います。",
+            "en": "He is in that room."
+          }
+        ]
+      },
+      "speaking": "Role-play: Find a classmate and an object with a study partner. Ask where Ken is using います for a person Ask where the chair is using あります for an object Locate the cat separately using います. The partner mistakes the cat’s location for the room. Confirm that the cat is over there.",
+      "openingLine": "けんさんは どこに いますか。",
+      "partnerRole": "Find a classmate and an object with a study partner",
+      "checks": [
+        {
+          "prompt": "けんさんは どこに ____か。",
+          "hint": "Where is Ken?",
+          "answer": "います",
+          "explanation": "Use あります for inanimate things and います for people or animals. に marks where something exists; ここ, そこ, and あそこ locate it."
+        },
+        {
+          "prompt": "けんさんは ____に いますか。",
+          "hint": "Where is Ken?",
+          "answer": "どこ",
+          "explanation": "Use あります for inanimate things and います for people or animals. に marks where something exists; ここ, そこ, and あそこ locate it."
+        },
+        {
+          "prompt": "____ へやに います。",
+          "hint": "He is in that room.",
+          "answer": "あの",
+          "explanation": "Use あります for inanimate things and います for people or animals. に marks where something exists; ここ, そこ, and あそこ locate it."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:6",
+        "role": "Find a classmate and an object with a study partner",
+        "opening": "けんさんは どこに いますか。",
+        "objectives": [
+          "Ask where Ken is using います for a person",
+          "Ask where the chair is using あります for an object",
+          "Locate the cat separately using います"
+        ],
+        "complication": "The partner mistakes the cat’s location for the room.",
+        "closure": "Confirm that the cat is over there."
+      }
+    },
+    "7": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Before a small meeting",
+        "target": [
+          "へやに なにが ありますか。",
+          "つくえと いすが あります。",
+          "まどの となりに ドアが あります。",
+          "へやに だれが いますか。",
+          "さとうさんが います。",
+          "かいぎは この へやです。"
+        ],
+        "native": [
+          "What is in the room?",
+          "There is a desk and a chair.",
+          "There is a door next to the window.",
+          "Who is in the room?",
+          "Sato is there.",
+          "The meeting is in this room."
+        ]
+      },
+      "grammar": {
+        "focus": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
+        "examples": [
+          {
+            "es": "へやに なにが ありますか。",
+            "en": "What is in the room?"
+          },
+          {
+            "es": "つくえと いすが あります。",
+            "en": "There is a desk and a chair."
+          }
+        ]
+      },
+      "speaking": "Role-play: Describe the meeting room with another attendee. Name the desk and chair in the room Locate the door next to the window Ask who is present using います and confirm the meeting room. The attendee asks about a person after asking about objects. Confirm that the meeting is in this room.",
+      "openingLine": "へやに なにが ありますか。",
+      "partnerRole": "Describe the meeting room with another attendee",
+      "checks": [
+        {
+          "prompt": "へやに ____が ありますか。",
+          "hint": "What is in the room?",
+          "answer": "なに",
+          "explanation": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable."
+        },
+        {
+          "prompt": "____と いすが あります。",
+          "hint": "There is a desk and a chair.",
+          "answer": "つくえ",
+          "explanation": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable."
+        },
+        {
+          "prompt": "つくえと ____が あります。",
+          "hint": "There is a desk and a chair.",
+          "answer": "いす",
+          "explanation": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:7",
+        "role": "Describe the meeting room with another attendee",
+        "opening": "へやに なにが ありますか。",
+        "objectives": [
+          "Name the desk and chair in the room",
+          "Locate the door next to the window",
+          "Ask who is present using います and confirm the meeting room"
+        ],
+        "complication": "The attendee asks about a person after asking about objects.",
+        "closure": "Confirm that the meeting is in this room."
+      }
+    },
+    "8": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Counting the group",
+        "target": [
+          "がくせいは なんにん いますか。",
+          "ふたり います。",
+          "ペンは いくつ ありますか。",
+          "ふたつ あります。",
+          "いち、に、さん。",
+          "けんさんは なんさいですか。",
+          "じゅうはっさいです。"
+        ],
+        "native": [
+          "How many students are there?",
+          "There are two people.",
+          "How many pens are there?",
+          "There are two.",
+          "One, two, three.",
+          "How old is Ken?",
+          "He is eighteen years old."
+        ]
+      },
+      "grammar": {
+        "focus": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい.",
+        "examples": [
+          {
+            "es": "がくせいは なんにん いますか。",
+            "en": "How many students are there?"
+          },
+          {
+            "es": "ふたり います。",
+            "en": "There are two people."
+          }
+        ]
+      },
+      "speaking": "Role-play: Count people and supplies in a study group. Ask how many students there are with なんにん Count pens as objects with いくつ and ふたつ Ask and answer Ken’s age with なんさい and じゅうはっさい. The partner shifts from counting people to counting pens. Confirm Ken’s age as eighteen.",
+      "openingLine": "がくせいは なんにん いますか。",
+      "partnerRole": "Count people and supplies in a study group",
+      "checks": [
+        {
+          "prompt": "____ います。",
+          "hint": "There are two people.",
+          "answer": "ふたり",
+          "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
+        },
+        {
+          "prompt": "____、に、さん。",
+          "hint": "One, two, three.",
+          "answer": "いち",
+          "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
+        },
+        {
+          "prompt": "いち、に、____。",
+          "hint": "One, two, three.",
+          "answer": "さん",
+          "explanation": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:8",
+        "role": "Count people and supplies in a study group",
+        "opening": "がくせいは なんにん いますか。",
+        "objectives": [
+          "Ask how many students there are with なんにん",
+          "Count pens as objects with いくつ and ふたつ",
+          "Ask and answer Ken’s age with なんさい and じゅうはっさい"
+        ],
+        "complication": "The partner shifts from counting people to counting pens.",
+        "closure": "Confirm Ken’s age as eighteen."
+      }
+    },
+    "9": {
+      "stage": "foundation",
+      "reading": {
+        "title": "Checking class supplies",
+        "target": [
+          "ノートは ありますか。",
+          "いいえ、ありません。",
+          "この ほんは けんさんのですか。",
+          "いいえ、けんさんのじゃありません。",
+          "せつめいは わかりますか。",
+          "まだ わかりません。"
+        ],
+        "native": [
+          "Do you have a notebook?",
+          "No, I do not.",
+          "Is this Ken's book?",
+          "No, it is not Ken's.",
+          "Do you understand the explanation?",
+          "I do not understand yet."
+        ]
+      },
+      "grammar": {
+        "focus": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません.",
+        "examples": [
+          {
+            "es": "ノートは ありますか。",
+            "en": "Do you have a notebook?"
+          },
+          {
+            "es": "いいえ、ありません。",
+            "en": "No, I do not."
+          }
+        ]
+      },
+      "speaking": "Role-play: Check supplies and understanding with a classmate. Ask whether a notebook is available and answer with ありません Check ownership of the book using の and じゃありません Ask whether the explanation is understood and answer with わかりません. The classmate thinks the book belongs to Ken. Say that the explanation is still not understood.",
+      "openingLine": "ノートは ありますか。",
+      "partnerRole": "Check supplies and understanding with a classmate",
+      "checks": [
+        {
+          "prompt": "ノートは ____。",
+          "hint": "Do you have a notebook?",
+          "answer": "ありますか",
+          "explanation": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません."
+        },
+        {
+          "prompt": "いいえ、____。",
+          "hint": "No, I do not.",
+          "answer": "ありません",
+          "explanation": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません."
+        },
+        {
+          "prompt": "____、ありません。",
+          "hint": "No, I do not.",
+          "answer": "いいえ",
+          "explanation": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:9",
+        "role": "Check supplies and understanding with a classmate",
+        "opening": "ノートは ありますか。",
+        "objectives": [
+          "Ask whether a notebook is available and answer with ありません",
+          "Check ownership of the book using の and じゃありません",
+          "Ask whether the explanation is understood and answer with わかりません"
+        ],
+        "complication": "The classmate thinks the book belongs to Ken.",
+        "closure": "Say that the explanation is still not understood."
+      }
+    },
+    "10": {
+      "stage": "foundation",
+      "reading": {
+        "title": "A confusing instruction",
+        "target": [
+          "すみません、しつもんが あります。",
+          "はい、なんですか。",
+          "この ことばが わかりません。",
+          "もういちど おねがいします。",
+          "はい、ゆっくり はなします。",
+          "ありがとうございます。わかりました。"
+        ],
+        "native": [
+          "Excuse me, I have a question.",
+          "Yes, what is it?",
+          "I do not understand this word.",
+          "One more time, please.",
+          "Yes, I will speak slowly.",
+          "Thank you very much. I understand now."
+        ]
+      },
+      "grammar": {
+        "focus": "Keep a conversation going with わかりません and もういちど おねがいします; the reply ゆっくり はなします means I will speak slowly. Review なんですか and ～が あります from Foundation.",
+        "examples": [
+          {
+            "es": "すみません、しつもんが あります。",
+            "en": "Excuse me, I have a question."
+          },
+          {
+            "es": "はい、なんですか。",
+            "en": "Yes, what is it?"
+          }
+        ]
+      },
+      "speaking": "Role-play: Ask a teacher to repeat an unclear instruction. Politely signal that you have a question Say which word you do not understand Ask for one more explanation and follow the slower reply. The first explanation is too fast to follow. Thank the teacher and say わかりました。",
+      "openingLine": "すみません、しつもんが あります。",
+      "partnerRole": "Ask a teacher to repeat an unclear instruction",
+      "checks": [
+        {
+          "prompt": "____、しつもんが あります。",
+          "hint": "Excuse me, I have a question.",
+          "answer": "すみません",
+          "explanation": "Keep a conversation going with わかりません and もういちど おねがいします; the reply ゆっくり はなします means I will speak slowly. Review なんですか and ～が あります from Foundation."
+        },
+        {
+          "prompt": "すみません、____が あります。",
+          "hint": "Excuse me, I have a question.",
+          "answer": "しつもん",
+          "explanation": "Keep a conversation going with わかりません and もういちど おねがいします; the reply ゆっくり はなします means I will speak slowly. Review なんですか and ～が あります from Foundation."
+        },
+        {
+          "prompt": "この ことばが ____。",
+          "hint": "I do not understand this word.",
+          "answer": "わかりません",
+          "explanation": "Keep a conversation going with わかりません and もういちど おねがいします; the reply ゆっくり はなします means I will speak slowly. Review なんですか and ～が あります from Foundation."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "foundation-japanese-basics:10",
+        "role": "Ask a teacher to repeat an unclear instruction",
+        "opening": "すみません、しつもんが あります。",
+        "objectives": [
+          "Politely signal that you have a question",
+          "Say which word you do not understand",
+          "Ask for one more explanation and follow the slower reply"
+        ],
+        "complication": "The first explanation is too fast to follow.",
+        "closure": "Thank the teacher and say わかりました。"
+      }
+    }
+  }
+}

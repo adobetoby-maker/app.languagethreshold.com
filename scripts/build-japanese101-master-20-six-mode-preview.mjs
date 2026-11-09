@@ -5,8 +5,8 @@ import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const sourcePath = resolve(root, 'content/japanese-basics/master.json');
-const authoredPath = resolve(root, 'content/japanese-basics/private-master-1-10-six-mode-prompts-ja-en.json');
-const outputPath = resolve(root, 'content/japanese-basics/private-master-1-10-six-mode-runtime-preview-ja-en.json');
+const authoredPath = resolve(root, 'content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json');
+const outputPath = resolve(root, 'content/japanese-basics/private-master-20-six-mode-runtime-preview-ja-en.json');
 const sourceBytes = readFileSync(sourcePath);
 const authoredBytes = readFileSync(authoredPath);
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -15,7 +15,7 @@ const authored = JSON.parse(authoredBytes);
 const modeNames = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 if (source.target !== 'Japanese' || source.native !== 'English' || source.reviewed !== false ||
     authored.pairKey !== 'Japanese:English' || authored.registered !== false || authored.reviewed !== false ||
-    authored.sourceSha256 !== hash(sourceBytes) || authored.lessons.length !== 10 || source.lessons.length !== 20)
+    authored.sourceSha256 !== hash(sourceBytes) || authored.lessons.length !== 20 || source.lessons.length !== 20)
   throw new Error('Master source, pair, or private gate changed');
 
 const lessons = authored.lessons.map((entry, index) => {
@@ -36,7 +36,7 @@ const lessons = authored.lessons.map((entry, index) => {
     stableLessonKey: `master-japanese-basics:${index + 1}`, reviewed: false, modes };
 });
 const preview = { schema: 1, pairKey: 'Japanese:English', registered: false, reviewed: false,
-  sourceSha256: hash(sourceBytes), authoredSha256: hash(authoredBytes), lessonCount: 10,
+  sourceSha256: hash(sourceBytes), authoredSha256: hash(authoredBytes), lessonCount: 20,
   activityCount: lessons.length * modeNames.length, lessons };
 const output = JSON.stringify(preview, null, 2) + '\n';
 if (process.argv.includes('--check')) {

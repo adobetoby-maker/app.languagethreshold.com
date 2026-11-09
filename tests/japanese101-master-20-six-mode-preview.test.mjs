@@ -3,16 +3,16 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 
 const source = JSON.parse(readFileSync(new URL('../content/japanese-basics/master.json', import.meta.url)));
-const authored = JSON.parse(readFileSync(new URL('../content/japanese-basics/private-master-1-10-six-mode-prompts-ja-en.json', import.meta.url)));
-const preview = JSON.parse(readFileSync(new URL('../content/japanese-basics/private-master-1-10-six-mode-runtime-preview-ja-en.json', import.meta.url)));
+const authored = JSON.parse(readFileSync(new URL('../content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json', import.meta.url)));
+const preview = JSON.parse(readFileSync(new URL('../content/japanese-basics/private-master-20-six-mode-runtime-preview-ja-en.json', import.meta.url)));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
-test('Master 1–10 have distinct source-linked Japanese activities in every mode', () => {
+test('Master 1–20 have distinct source-linked Japanese activities in every mode', () => {
   assert.equal(preview.pairKey, 'Japanese:English');
   assert.equal(preview.registered, false);
   assert.equal(preview.reviewed, false);
-  assert.equal(preview.lessonCount, 10);
-  assert.equal(preview.activityCount, 60);
+  assert.equal(preview.lessonCount, 20);
+  assert.equal(preview.activityCount, 120);
   assert.equal(preview.sourceSha256, authored.sourceSha256);
   const ids = new Set();
   for (const [index, lesson] of preview.lessons.entries()) {
@@ -33,5 +33,5 @@ test('Master 1–10 have distinct source-linked Japanese activities in every mod
       ids.add(activity.id);
     }
   }
-  assert.equal(ids.size, 60);
+  assert.equal(ids.size, 120);
 });

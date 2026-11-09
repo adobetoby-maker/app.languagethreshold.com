@@ -14,6 +14,21 @@ META = [
     ("Order local coffee", "ask about coffee styles, size, milk, temperature, and where to drink it", "Order a local coffee without assuming the names or customs are the same as at home."),
     ("Choose pastries and bread", "ask what is fresh, filled, sweet, savory, or typical", "Ask the server to explain three pastries and recommend one made that morning."),
 ]
+# Core 3's proposed Francophone bakery scene replaces two Spanish-source bakery
+# items. Keep the source meaning and verb identity pinned while checking the
+# localized French/English example pairs explicitly.
+LOCALIZED_VERB_EXAMPLES = {
+    (3, "recomendar"): (
+        "The employee recommends a bolillo with cheese.",
+        "The employee recommends a baguette with cheese.",
+        "L'employée recommande une baguette avec du fromage.",
+    ),
+    (3, "probar"): (
+        "Today we try a concha.",
+        "Today we try a brioche.",
+        "Aujourd'hui, nous goûtons une brioche.",
+    ),
+}
 
 
 def main() -> None:
@@ -42,11 +57,20 @@ def main() -> None:
         ]
         assert item["passage"]["english"] == original["passage"]["native"]
         assert len(item["passage"]["french"]) == len(item["passage"]["english"])
-        assert [(verb["meaningEnglish"], verb["exampleEnglish"], verb["sourceInfinitiveSpanish"])
-                for verb in item["verbs"]] == [
-            (verb["native"], verb["example"]["native"], verb["infinitive"])
-            for verb in original["verbs"]
-        ]
+        assert len(item["verbs"]) == len(original["verbs"])
+        for verb, source_verb in zip(item["verbs"], original["verbs"]):
+            assert (verb["meaningEnglish"], verb["sourceInfinitiveSpanish"]) == (
+                source_verb["native"], source_verb["infinitive"]
+            )
+            localized = LOCALIZED_VERB_EXAMPLES.get((number, source_verb["infinitive"]))
+            if localized:
+                source_example, english_example, french_example = localized
+                assert source_verb["example"]["native"] == source_example
+                assert (verb["exampleEnglish"], verb["exampleFrench"]) == (
+                    english_example, french_example
+                )
+            else:
+                assert verb["exampleEnglish"] == source_verb["example"]["native"]
         assert all(word["fr"].strip() for word in item["words"])
         assert all(line.strip() for line in item["passage"]["french"])
         assert all(verb["infinitiveFrench"].strip() and verb["exampleFrench"].strip() for verb in item["verbs"])

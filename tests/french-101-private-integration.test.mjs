@@ -14,6 +14,7 @@ import {
 const load = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const inputs = {
   foundation: load('content/french-basics/private-runtime-foundation-1-10-authored-modes.json'),
+  foundationGrammar: load('content/french-basics/private-foundation-grammar-briefs-fr-en.json'),
   core: load('content/french-basics/private-runtime-core-1-30-authored-modes.json'),
   master: load('content/french-basics/private-runtime-master-1-20-authored-modes.json'),
 };
@@ -33,6 +34,10 @@ test('private catalog and cache serve only the exact French-to-English pair', ()
   assert.deepEqual(candidate.catalog.map(module => module.id), FRENCH_101_STAGE_IDS);
   assert.ok(candidate.catalog.every(module => module.authoredPair?.target === 'French' && module.authoredPair?.native === 'English'));
   assert.deepEqual(FRENCH_101_STAGE_IDS.map(id => candidate.stage(id, pair)?.lessons.length), [10, 30, 20]);
+  assert.equal(candidate.foundationGrammar(1, pair)?.stableLessonKey, 'foundation-french-basics:1');
+  assert.equal(candidate.foundationGrammar(10, pair)?.stableLessonKey, 'foundation-french-basics:10');
+  assert.equal(candidate.foundationGrammar(1, { target: 'French', native: 'Spanish' }), null);
+  assert.equal(candidate.foundationGrammar(11, pair), null);
   assert.equal(candidate.stage('foundation-french-basics', pair), candidate.stage('foundation-french-basics', pair));
   for (const id of FRENCH_101_STAGE_IDS) {
     assert.equal(candidate.stage(id, { target: 'Spanish', native: 'English' }), null);
@@ -84,4 +89,7 @@ test('the private adapter rejects a wrong pair or altered progress identity', ()
   const repeatedPrompt = structuredClone(inputs);
   repeatedPrompt.foundation.support[0].modes.write.authoredPrompt.prompt = repeatedPrompt.foundation.support[0].modes.see.authoredPrompt.prompt;
   assert.throws(() => inspectPrivateFrench101(repeatedPrompt), /repeats an authored prompt at 1/);
+  const wrongGrammarTurn = structuredClone(inputs);
+  wrongGrammarTurn.foundationGrammar.lessons[0].examples[0].readerTurn = 2;
+  assert.throws(() => inspectPrivateFrench101(wrongGrammarTurn), /grammar Reader pair changed at 1/);
 });

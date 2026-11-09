@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceFiles": {
+    "foundation": {
+      "path": "content/japanese-basics/foundation.json",
+      "sha256": "b36cf1dda4c0121d3cfabf49576058e33e0af4f336b33ca53e0054ec794d9c85"
+    },
+    "core": {
+      "path": "content/japanese-basics/core.json",
+      "sha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5"
+    },
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    }
+  },
+  "unitCount": 3,
+  "activityCount": 7,
+  "units": [
+    {
+      "id": "ja101-katakana-contrast-unit:1",
+      "focus": "Sound marks: dakuten and handakuten",
+      "sourceExamples": [
+        {
+          "id": "ja101-katakana-contrast:1:example:1",
+          "sourceLessonKey": "foundation-japanese-basics:7",
+          "sourceTermIndex": 3,
+          "kana": "ドア",
+          "english": "door"
+        },
+        {
+          "id": "ja101-katakana-contrast:1:example:2",
+          "sourceLessonKey": "foundation-japanese-basics:3",
+          "sourceTermIndex": 5,
+          "kana": "けしゴム",
+          "english": "eraser"
+        },
+        {
+          "id": "ja101-katakana-contrast:1:example:3",
+          "sourceLessonKey": "japanese-basics:5",
+          "sourceTermIndex": 8,
+          "kana": "ペン",
+          "english": "pen"
+        }
+      ],
+      "activities": [
+        {
+          "id": "ja101-katakana-contrast:1:activity:1",
+          "mode": "recognize",
+          "prompt": "Which first sign appears in ドア: ト or ド?",
+          "answer": "ド",
+          "explanation": "The two strokes on ド are dakuten; the source word is ドア.",
+          "sourceExampleId": "ja101-katakana-contrast:1:example:1"
+        },
+        {
+          "id": "ja101-katakana-contrast:1:activity:2",
+          "mode": "recognize",
+          "prompt": "Which sign in ペン has the small circle: ヘ or ペ?",
+          "answer": "ペ",
+          "explanation": "The circle on ペ is handakuten; the source word is ペン.",
+          "sourceExampleId": "ja101-katakana-contrast:1:example:3"
+        },
+        {
+          "id": "ja101-katakana-contrast:1:activity:3",
+          "mode": "write",
+          "prompt": "Write the Japanese 101 source word for eraser.",
+          "answer": "けしゴム",
+          "explanation": "ゴ carries dakuten in the mixed-script word けしゴム.",
+          "sourceExampleId": "ja101-katakana-contrast:1:example:2"
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-contrast-unit:2",
+      "focus": "Small ュ in a contracted sound",
+      "sourceExamples": [
+        {
+          "id": "ja101-katakana-contrast:2:example:1",
+          "sourceLessonKey": "japanese-basics:12",
+          "sourceTermIndex": 6,
+          "kana": "メニュー",
+          "english": "menu"
+        }
+      ],
+      "activities": [
+        {
+          "id": "ja101-katakana-contrast:2:activity:1",
+          "mode": "recognize",
+          "prompt": "Which sign is small in メニュー: ユ or ュ?",
+          "answer": "ュ",
+          "explanation": "The source word メニュー uses small ュ after ニ.",
+          "sourceExampleId": "ja101-katakana-contrast:2:example:1"
+        },
+        {
+          "id": "ja101-katakana-contrast:2:activity:2",
+          "mode": "write",
+          "prompt": "Write the Japanese 101 source word for menu.",
+          "answer": "メニュー",
+          "explanation": "Keep the small ュ and the long-vowel mark ー.",
+          "sourceExampleId": "ja101-katakana-contrast:2:example:1"
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-contrast-unit:3",
+      "focus": "Long-vowel mark ー",
+      "sourceExamples": [
+        {
+          "id": "ja101-katakana-contrast:3:example:1",
+          "sourceLessonKey": "foundation-japanese-basics:3",
+          "sourceTermIndex": 4,
+          "kana": "ノート",
+          "english": "notebook"
+        },
+        {
+          "id": "ja101-katakana-contrast:3:example:2",
+          "sourceLessonKey": "master-japanese-basics:1",
+          "sourceTermIndex": 0,
+          "kana": "グループ",
+          "english": "group"
+        }
+      ],
+      "activities": [
+        {
+          "id": "ja101-katakana-contrast:3:activity:1",
+          "mode": "recognize",
+          "prompt": "Which sign extends the vowel in ノート?",
+          "answer": "ー",
+          "explanation": "The source word ノート places ー after ノ.",
+          "sourceExampleId": "ja101-katakana-contrast:3:example:1"
+        },
+        {
+          "id": "ja101-katakana-contrast:3:activity:2",
+          "mode": "write",
+          "prompt": "Write the Japanese 101 source word for group.",
+          "answer": "グループ",
+          "explanation": "Keep ー after ル in グループ.",
+          "sourceExampleId": "ja101-katakana-contrast:3:example:2"
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

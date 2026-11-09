@@ -13,6 +13,7 @@ SIDECARS = (
     BASE / "private-mode-activities-foundation-4-10.json",
     BASE / "private-mode-activities-core-1-3.json",
     BASE / "private-mode-activities-core-4-9.json",
+    BASE / "private-mode-activities-core-10-15.json",
 )
 MODES = {"see", "recall", "hear", "type", "say", "write"}
 
@@ -56,10 +57,10 @@ def main():
             assert activity["modelEnglish"] == pair["supportEnglish"], ref
             count += 1
     assert set(by_lesson) == ({f"foundation:{n}" for n in range(1, 11)} |
-                              {f"core:{n}" for n in range(1, 10)})
+                              {f"core:{n}" for n in range(1, 16)})
     assert all(modes == MODES for modes in by_lesson.values())
-    assert count == 114
-    print("French Breakfast Foundation 1–10 and Core 1–9: 114 exact-pair private activities; release gates closed")
+    assert count == 150
+    print("French Breakfast Foundation 1–10 and Core 1–15: 150 exact-pair private activities; release gates closed")
 
 
 if __name__ == "__main__":

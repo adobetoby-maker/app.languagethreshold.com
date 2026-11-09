@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { ownedTeamRequest } from "@/lib/team-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
+import { OwnerDownloadLeads } from "@/components/owner/OwnerDownloadLeads";
 import { OwnerCrm } from "@/components/owner/OwnerCrm";
 import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
 import { OwnerSupport } from "@/components/owner/OwnerSupport";
@@ -465,6 +466,7 @@ function OwnedOwnerDashboard() {
               )}
             </OwnerTabPanel>
             <OwnerTabPanel id="analytics" active={tab === "analytics"}>
+              <OwnerDownloadLeads />
               <OwnerAnalytics />
             </OwnerTabPanel>
             <OwnerTabPanel id="users" active={tab === "users"}>

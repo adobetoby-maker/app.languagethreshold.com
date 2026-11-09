@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
+  "authoredSha256": "4c9d467d81cc6a6a6087d3b0900ab9572343d67c196fe6754d265ab67d16b940",
+  "lessonCount": 3,
+  "activityCount": 18,
+  "lessons": [
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 1,
+      "stableLessonKey": "core-japanese-basics:1",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:1:see",
+          "prompt": "Read Aki's sentence. Identify where she works and explain what で marks in としょかんで.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あきさんは としょかんで はたらきます。",
+          "nativeText": "Aki works at the library."
+        },
+        "recall": {
+          "id": "ja101:core:1:recall",
+          "prompt": "From the English meaning, recall the whole Japanese sentence about talking with a friend tomorrow; include あした and と.",
+          "sourceDialogueTurn": 3,
+          "targetText": "あした ともだちと はなします。",
+          "nativeText": "Tomorrow I will talk with a friend."
+        },
+        "hear": {
+          "id": "ja101:core:1:hear",
+          "prompt": "Listen to the recorded Japanese sentence about the teacher. Choose its exact English meaning, including whose talk is heard.",
+          "sourceDialogueTurn": 4,
+          "targetText": "せんせいの はなしを ききます。",
+          "nativeText": "I listen to the teacher's talk."
+        },
+        "type": {
+          "id": "ja101:core:1:type",
+          "prompt": "Type the full Japanese sentence for 'I study Japanese every day,' using the polite ～ます form and object を.",
+          "sourceDialogueTurn": 1,
+          "targetText": "まいにち にほんごを べんきょうします。",
+          "nativeText": "I study Japanese every day."
+        },
+        "say": {
+          "id": "ja101:core:1:say",
+          "prompt": "Say the source sentence meaning 'I also read a book,' preserving も and the polite verb ending.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ほんも よみます。",
+          "nativeText": "I also read a book."
+        },
+        "write": {
+          "id": "ja101:core:1:write",
+          "prompt": "Write the full Japanese sentence about Aki working at the library; include the location-of-action particle で.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あきさんは としょかんで はたらきます。",
+          "nativeText": "Aki works at the library."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 2,
+      "stableLessonKey": "core-japanese-basics:2",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:2:see",
+          "prompt": "Read the lunch sentence and identify the polite form of たべる used for 'eat'.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ひるごはんを たべます。",
+          "nativeText": "I eat lunch."
+        },
+        "recall": {
+          "id": "ja101:core:2:recall",
+          "prompt": "Recall the Japanese sentence for 'A friend is coming'; use the polite form of くる found in the dialogue.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ともだちが きます。",
+          "nativeText": "A friend is coming."
+        },
+        "hear": {
+          "id": "ja101:core:2:hear",
+          "prompt": "Listen to the water sentence and select its exact English meaning; distinguish のみます from たべます.",
+          "sourceDialogueTurn": 2,
+          "targetText": "みずを のみます。",
+          "nativeText": "I drink water."
+        },
+        "type": {
+          "id": "ja101:core:2:type",
+          "prompt": "Type the Japanese sentence for watching a movie afterward, keeping そのあと and the polite verb form.",
+          "sourceDialogueTurn": 3,
+          "targetText": "そのあと えいがを みます。",
+          "nativeText": "After that I watch a movie."
+        },
+        "say": {
+          "id": "ja101:core:2:say",
+          "prompt": "Say the sentence meaning 'We study together,' including いっしょに and the polite form of する.",
+          "sourceDialogueTurn": 5,
+          "targetText": "いっしょに べんきょうします。",
+          "nativeText": "We study together."
+        },
+        "write": {
+          "id": "ja101:core:2:write",
+          "prompt": "Write the full source sentence for 'I drink water'; use を before the polite form of のむ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "みずを のみます。",
+          "nativeText": "I drink water."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 3,
+      "stableLessonKey": "core-japanese-basics:3",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:3:see",
+          "prompt": "Read the movie sentence and identify the polite past negative ending ～ませんでした and its English meaning.",
+          "sourceDialogueTurn": 3,
+          "targetText": "でも、えいがは みませんでした。",
+          "nativeText": "But I did not watch a movie."
+        },
+        "recall": {
+          "id": "ja101:core:3:recall",
+          "prompt": "Recall the source sentence about going to the library yesterday, including きのう and the polite past form.",
+          "sourceDialogueTurn": 1,
+          "targetText": "きのう としょかんに いきました。",
+          "nativeText": "Yesterday I went to the library."
+        },
+        "hear": {
+          "id": "ja101:core:3:hear",
+          "prompt": "Listen to the sentence about today and select the English meaning that preserves the present/future negative.",
+          "sourceDialogueTurn": 4,
+          "targetText": "きょうは そこに いきません。",
+          "nativeText": "Today I am not going there."
+        },
+        "type": {
+          "id": "ja101:core:3:type",
+          "prompt": "Type the Japanese sentence for 'I read a book' in the completed-action context, using ～ました.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ほんを よみました。",
+          "nativeText": "I read a book."
+        },
+        "say": {
+          "id": "ja101:core:3:say",
+          "prompt": "Say the sentence for doing homework later; distinguish its ～ます ending from the completed forms above.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あとで しゅくだいを します。",
+          "nativeText": "I will do homework later."
+        },
+        "write": {
+          "id": "ja101:core:3:write",
+          "prompt": "Write the entire Japanese sentence for 'But I did not watch a movie,' including でも and ～ませんでした.",
+          "sourceDialogueTurn": 3,
+          "targetText": "でも、えいがは みませんでした。",
+          "nativeText": "But I did not watch a movie."
+        }
+      }
+    }
+  ]
+}

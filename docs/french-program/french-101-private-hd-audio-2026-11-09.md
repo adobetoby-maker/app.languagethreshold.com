@@ -20,6 +20,12 @@ The exact `private-runtime-master-1-20.json` fixture has SHA-256 `233429fbd437e2
 
 Across the 60 lessons, the private course has 2,380 per-lesson clips, 919 distinct display strings across stages, 58,806 spoken characters, and 19,216,128 MP3 bytes. The combined report is `/Users/drive/lt-audio/french-101/course-coverage-2026-11-09.json`. All 60 listening sheets and all 2,380 local audio links resolve. These are structural/audio-file checks, not a listening or French-language approval.
 
+## Signal screen
+
+On November 9, the exact-text verifier passed all 60 private lesson manifests again. `scripts/audit-french101-audio-signal.py` then decoded all 2,380 lesson-file occurrences (2,132 unique file hashes) and flagged 49 files for focused listening: 30 Foundation, 16 Core, and 3 Master. Forty-three were very quiet, 45 had little active signal, and three had long leading or trailing silence; a file can have multiple flags. Most quiet flags are short words. The [private report](/Users/drive/lt-audio/french-101/signal-audit-2026-11-09.json) pins the manifest set at SHA-256 `693f59fe4ea8694f33f297dabbacc3fb496ca33f2d5575d043d88a5e1c4fd198`. All 49 audio links in the [focused listening sheet](/Users/drive/lt-audio/french-101/signal-review-2026-11-09.html) resolve.
+
+The three edge-silence priorities are Core 27 `son / sa / ses` (Aoede), Master 3 `Merci. Je lui donnerai aussi un crayon.` (Charon), and Master 15 `Pouvez-vous me redire le trajet avant de partir ?` (Charon). An automated flag is a listening priority, not a judgment about pronunciation or an approval decision. The owner's earlier pilot acceptance remains recorded separately. No recording, manifest review flag, playback route, or learner progress was changed by this screen.
+
 ## Remaining gates
 
 Human listening of new clips, qualified French lesson review, dictionary sense curation, full six-mode/runtime/offline wiring, browser/phone/native acceptance, and release checks remain open. The private course stays `reviewed:false` and unregistered.

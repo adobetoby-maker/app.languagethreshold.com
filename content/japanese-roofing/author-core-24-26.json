@@ -1,0 +1,32 @@
+{
+  "24": {
+    "title": "暑さと水分補給",
+    "objective": "作業員の水分補給と暑さによる症状を確認する。",
+    "focus": "～ごとに gives the hourly interval. ～なら invites a report of symptoms; ～ので connects dizziness with resting in the shade.",
+    "words": ["水分補給の休憩", "暑さ", "日陰", "水", "めまいがする", "熱疲労", "休む", "水分補給", "日焼け止め", "一時間ごとに水分補給の休憩を取ってください。", "体調はどうですか。", "めまいがしますか。", "日陰に行って休んでください。", "今、水を飲んでください。", "気分が悪ければ教えてください。"],
+    "reader": ["とても暑く、屋根には強い日差しが照りつけています。", "職長は「一時間ごとに水分補給の休憩を取ってください」と言います。", "しかし、ラウルの顔色が悪く見え、職長が近づきます。", "職長は「体調はどうですか」と尋ねます。", "「めまいがしますか。」", "ラウルは「はい、少し」と答えます。", "職長は「日陰に行って休んでください。今、水を飲んでください」と伝えます。", "「気分が悪ければ教えてください。現場の暑熱対策計画に従います。」", "水分補給と日陰での休息は熱疲労の予防に役立ちます。"],
+    "verbs": [["飲む", "ラウルは一時間ごとに水を飲みます。"], ["休む", "ラウルはめまいがするので日陰で休みます。"], ["感じる", "ラウル、体調はどう感じますか。"], ["伝える", "ラウルは気分が悪ければ職長に伝えます。"], ["行く", "ラウルは休むために日陰に行きます。"]],
+    "speaking": "体調はどうですか。めまいがしますか。日陰に行って休み、今、水を飲んでください。",
+    "modes": {"see": "Find the water, shade, and crew member feeling dizzy.", "recall": "Recall dizziness, heat exhaustion, hydration, and rest.", "hear": "Distinguish めまい from 熱疲労 when spoken.", "type": "Type 'Are you dizzy?' in Japanese.", "say": "Ask how a crew member feels and mention water and shade.", "write": "Write how the foreman follows the site heat plan."}
+  },
+  "25": {
+    "title": "落下する廃材",
+    "objective": "地上班が落下する廃材に近づかないよう伝える。",
+    "focus": "～の下に identifies a prohibited location. ～まで marks how long the crew waits, and ～前に orders warning before using the chute.",
+    "words": ["地上班", "廃材", "立入禁止区域", "ヘルメット", "警告テープ", "危険", "廃材用シュート", "カラーコーン", "既存屋根材の撤去", "落下する廃材から地上班を離してください。", "家から離れてください。", "作業している場所の下に立たないでください。", "私が安全を確認したと言うまで待ってください。", "警告テープを張ってください。", "頭上注意！廃材が落ちます！"],
+    "reader": ["既存屋根材の撤去を続ける前に、職長は地上班に話します。", "廃材が屋根から落ち、下にいる人がけがをすることがあります。", "立入禁止区域の周りに警告テープを張ってください。", "家から離れてください。", "ヘルメットをかぶっていても、作業している場所の下に立たないでください。", "落下する廃材から地上班を離してください。", "廃材用シュートを使うなら、先に「頭上注意！廃材が落ちます！」と知らせてください。", "私が安全を確認したと言うまで待ってください。"],
+    "verbs": [["張る", "立入禁止区域の周りに警告テープを張ります。"], ["離れる", "撤去作業の前に全員が家から離れます。"], ["待つ", "職長が安全を確認したと言うまで待ちます。"], ["知らせる", "廃材用シュートを使うなら先に周囲の人に知らせます。"], ["落ちる", "頭上注意！廃材が落ちます！"]],
+    "speaking": "地上班は家から離れてください。警告テープを張り、私が安全を確認したと言うまで待ってください。",
+    "modes": {"see": "Find the exclusion area and the ground crew below.", "recall": "Recall falling debris, chute, warning tape, and ground crew.", "hear": "Distinguish 廃材 from 廃材用シュート when spoken.", "type": "Type 'Don't stand under the work' in Japanese.", "say": "Warn the ground crew before debris comes down.", "write": "Write what the crew does before using the debris chute."}
+  },
+  "26": {
+    "title": "野地板の補修記録",
+    "objective": "補修した野地板の範囲を説明し、写真と寸法で記録する。",
+    "focus": "～前に places the photo before covering. ～まで prohibits covering until inspection; ～た後 gives the after-repair photo sequence.",
+    "words": ["補修写真", "野地板", "覆われる範囲", "補修", "合板", "写真", "損傷した範囲", "下地板", "寸法", "覆う前に補修した範囲の写真を撮ってください。", "損傷した範囲を見せてください。", "補修の前後に写真を撮ってください。", "私が確認するまで覆わないでください。", "補修した範囲はどのくらいの大きさですか。"],
+    "reader": ["既存屋根材の撤去中、作業班は野地板の損傷した範囲を見つけました。", "職長は「損傷した範囲を見せてください」と言います。", "補修の前後に写真を撮ってください。", "作業員は損傷した合板を交換します。", "職長は「補修した範囲はどのくらいの大きさですか」と尋ねます。", "作業員はその範囲を測り、寸法を伝えます。", "覆う前に補修した範囲の写真を撮ってください。", "私が確認するまで覆わないでください。", "補修写真は、覆われる範囲に何が残るかを示す記録です。"],
+    "verbs": [["撮る", "作業員は補修の前後に写真を撮ります。"], ["見せる", "作業員は損傷した範囲を職長に見せます。"], ["交換する", "作業員は損傷した合板を交換します。"], ["測る", "作業員はその範囲を測り、寸法を伝えます。"], ["確認する", "職長は覆う前に補修した範囲を確認します。"]],
+    "speaking": "損傷した範囲を見せてください。補修の前後に写真を撮り、寸法を伝えてください。私が確認するまで覆わないでください。",
+    "modes": {"see": "Find the damaged deck section and the repair photo.", "recall": "Recall deck, sheathing, plywood, measurement, and repair photo.", "hear": "Distinguish 野地板 from 下地板 when spoken.", "type": "Type 'How big is the repaired section?' in Japanese.", "say": "Ask a worker to show and document the deck repair.", "write": "Write the photo and measurement sequence before covering."}
+  }
+}

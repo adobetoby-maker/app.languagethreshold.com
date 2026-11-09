@@ -26,6 +26,8 @@ On November 9, the exact-text verifier passed all 60 private lesson manifests ag
 
 The three edge-silence priorities are Core 27 `son / sa / ses` (Aoede), Master 3 `Merci. Je lui donnerai aussi un crayon.` (Charon), and Master 15 `Pouvez-vous me redire le trajet avant de partir ?` (Charon). An automated flag is a listening priority, not a judgment about pronunciation or an approval decision. The owner's earlier pilot acceptance remains recorded separately. No recording, manifest review flag, playback route, or learner progress was changed by this screen.
 
+Six of the quietest clips received separate private retake candidates, totaling 18 spoken characters. The [comparison sheet](/Users/drive/lt-audio/french-101/signal-retakes-2026-11-09/review.html) has 12 resolving links, one original and one candidate for each word. Retakes for `et` (Charon), `oui` (Charon), and `en` (Aoede) returned byte-identical MP3s; another blind retry is unlikely to help. The `c’est` (Charon) candidate has a much stronger measured signal, while `ans` (Aoede) and `est` (Charon) remain quiet. The candidate [manifest](/Users/drive/lt-audio/french-101/signal-retakes-2026-11-09/manifest.json) pins every original and new SHA-256, voice, exact spoken text, duration, and signal metrics. All candidates are `listeningReviewed:false` and unregistered. No original recording or lesson manifest was replaced; selection awaits listening review.
+
 ## Remaining gates
 
 Human listening of new clips, qualified French lesson review, dictionary sense curation, full six-mode/runtime/offline wiring, browser/phone/native acceptance, and release checks remain open. The private course stays `reviewed:false` and unregistered.

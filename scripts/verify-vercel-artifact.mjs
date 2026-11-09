@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { verifyPictureActionDownloadRoute } from "./picture-action-download-route.mjs";
 import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -59,8 +60,13 @@ function verifyArtifact() {
   }
 
   const output = JSON.parse(readFileSync(outputConfig, "utf8"));
-  const audioRoute = output.routes?.findIndex(route => route.src === "/audio/(.*)" && route.dest === "/audio/$1");
-  const fallbackRoute = output.routes?.findIndex(route => route.src === "/(.*)");
+  verifyPictureActionDownloadRoute(output.routes);
+  if (!existsSync(".vercel/output/static/downloads/picture-action-app-assets.zip"))
+    throw new Error("Picture & Action native image archive is missing from static output.");
+  const audioRoute = output.routes?.findIndex(
+    (route) => route.src === "/audio/(.*)" && route.dest === "/audio/$1",
+  );
+  const fallbackRoute = output.routes?.findIndex((route) => route.src === "/(.*)");
   if (audioRoute < 0 || (fallbackRoute >= 0 && audioRoute > fallbackRoute))
     throw new Error("Recorded audio must route to static files before the app fallback.");
   const runtime = JSON.parse(readFileSync(functionConfig, "utf8"));

@@ -45,12 +45,31 @@ export function lessonGameBank(
     forms: forms.filter((v) => v.answer.trim()),
   };
 }
-export function gameAnswer(expected: string, actual: string): boolean {
-  return (
-    expected.normalize("NFC").trim().toLocaleLowerCase() ===
-    actual.normalize("NFC").trim().toLocaleLowerCase()
-  );
+export function gameAnswer(
+  expected: string,
+  actual: string,
+  subjects: readonly string[] = [],
+): boolean {
+  const normalize = (s: string) => s.normalize("NFC").trim().toLocaleLowerCase();
+  const answer = normalize(actual),
+    wanted = normalize(expected);
+  if (answer === wanted) return true;
+  const alternatives = subjects.flatMap((subject) => [
+    subject,
+    ...(subject === "nosotros"
+      ? ["nosotras"]
+      : subject === "vosotros"
+        ? ["vosotras"]
+        : subject === "ellos"
+          ? ["ellas"]
+          : []),
+  ]);
+  return alternatives.some((subject) => {
+    const prefix = normalize(subject) + " ";
+    return answer.startsWith(prefix) && answer.slice(prefix.length).trim() === wanted;
+  });
 }
+
 export const GAME_LETTERS = [..."abcdefghijklmnñopqrstuvwxyzáéíóúü"];
 export function maskedAnswer(answer: string, guesses: readonly string[]): string {
   return [...answer.normalize("NFC")]

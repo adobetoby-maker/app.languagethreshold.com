@@ -51,6 +51,13 @@ export const TOOL_CATALOG: Record<TabKey, ToolMetadata> = {
     stage: "Understand",
     accent: "reading",
   },
+  verbs: {
+    key: "verbs",
+    name: "Verbs",
+    purpose: "A ten-minute home for verb games, conjugations and useful speaking patterns.",
+    stage: "Use",
+    accent: "speaking",
+  },
   grammar: {
     key: "grammar",
     name: "Grammar Studio",
@@ -390,6 +397,8 @@ const FlashcardsStudio = lazy(() =>
   import("./flashcards/FlashcardsStudio").then((m) => ({ default: m.FlashcardsStudio })),
 );
 
+const VerbsHub = lazy(() => import("./verbs/VerbsHub").then((m) => ({ default: m.VerbsHub })));
+
 export const TAB_COMPONENTS: Record<TabKey, ComponentType> = {
   missionary: MissionaryHome,
   orthopedics: OrthopedicsHome,
@@ -405,6 +414,7 @@ export const TAB_COMPONENTS: Record<TabKey, ComponentType> = {
   conjugation: ConjugationGame,
   sentenceBuild: SentenceBuilder,
   games: GamesHub,
+  verbs: VerbsHub,
   listeningDrill: ListeningDrill,
   wordMatch: WordMatch,
   idiomMaster: IdiomMaster,

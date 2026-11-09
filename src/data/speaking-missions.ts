@@ -1,3 +1,4 @@
+import { placeLesson } from "./place-directions.ts";
 import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { japaneseBasicsLesson } from "./japanese-basics.ts";
@@ -1198,7 +1199,9 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const authoredTarget = module.authoredPair?.target ?? (module.learnDirection === "en-target" ? "English" : "Spanish");
+    const authoredTarget =
+      module.authoredPair?.target ??
+      (module.learnDirection === "en-target" ? "English" : "Spanish");
     const form = (language === authoredTarget ? word.es : word.en).trim();
     const key = form.toLocaleLowerCase();
     if (!form || seen.has(key)) continue;
@@ -1225,8 +1228,10 @@ function missionFromLesson(
     module.learnDirection === "en-target" ? "Spanish" : "English",
   );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
-  const basics = spanishBasicsLesson(module.id, lesson.n, language, "English") ??
+  const basics =
+    spanishBasicsLesson(module.id, lesson.n, language, "English") ??
     japaneseBasicsLesson(module.id, lesson.n, language, "English");
+  const place = placeLesson(module.id, lesson.n, language, "English");
   const sound = soundLesson(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
@@ -1249,6 +1254,7 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole:
+      place?.partnerRole ??
       sound?.partnerRole ??
       basics?.partnerRole ??
       military?.partnerRole ??
@@ -1306,6 +1312,7 @@ function missionFromLesson(
       },
     ],
     openingLine:
+      place?.openingLine ??
       sound?.openingLine ??
       basics?.openingLine ??
       military?.openingLine ??

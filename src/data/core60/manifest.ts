@@ -14,6 +14,16 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "place-directions",
+    language: "Spanish",
+    tradeLabel: "Place & Directions",
+    foundation: { blurb: "Ten guided lessons: under, inside, beside, pick it up and place it." },
+    master: {
+      blurb:
+        "Twenty applications: viewpoint, chained instructions, route changes, and clarification.",
+    },
+  },
+  {
     base: "sound-like-a-native",
     language: "Spanish",
     tradeLabel: "Sound Like a Native",
@@ -118,11 +128,13 @@ export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
     language: "Japanese",
     tradeLabel: "Japanese 101",
     foundation: {
-      blurb: "Ten beginner lessons on kana, greetings, quantities, people, location, and asking for help. Draft awaiting fluent review.",
+      blurb:
+        "Ten beginner lessons on kana, greetings, quantities, people, location, and asking for help. Draft awaiting fluent review.",
     },
     master: {
       userRole: "A Japanese 101 learner applying familiar language in everyday situations",
-      blurb: "Twenty applied beginner situations with longer readings. Draft awaiting fluent review; this is practice, not certification.",
+      blurb:
+        "Twenty applied beginner situations with longer readings. Draft awaiting fluent review; this is practice, not certification.",
     },
   },
 

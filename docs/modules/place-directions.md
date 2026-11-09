@@ -1,0 +1,19 @@
+# Place & Directions — Spanish / English
+
+2026-11-08. State: mapped 60 draft. Target Spanish; support/native English only. Base `place-directions`, stages `foundation-place-directions` (10), `place-directions` (30), `master-place-directions` (20). New stable IDs; existing lessons/progress unchanged.
+
+Source: `content/place-directions/scenarios.json` authors 60 settings, instructions, contextual observations, and resolutions. `scripts/build-place-directions.py` derives curriculum, aligned public passages, words, verb models, and shared practice records. Foundation/Core have 8 terms, 4 phrases, 7 aligned sentences and 3 verbs each; Master has 12 terms, 6 phrases, 12 sentences and 5 verbs each. Some command phrases are questions/descriptions by design. Stage numbering remains local.
+
+All 60 lessons are mapped to shared See/Recall/Hear/Type/Say/Write, stage-specific teaching settings, target-language speaking openings, authored vocabulary/decks, exact inline/full Reader links and lazy library packs. Six-mode structural coverage is tested for every lesson. No formal assessment or proficiency certification is claimed.
+
+The reusable workshop game is embedded in relevant core lessons and the main Practice Lab (Spanish/English only). Public preview route `/place-directions` opens it without sign-in and allows browsing all 60 lessons. Twelve challenges include inside/outside, on/under, behind/in front, near/far, between, and pickup-plus-placement, including under another tool. Normalized geometry has generous semantic drop regions and permits legitimate overlap. Touch/pointer drag and keyboard/tap destination alternatives use the same answer check. Show me never awards credit. Game score is session-local, not lesson completion or synced proficiency.
+
+Original generated workshop image is copied from the native prototype into `public/images/place-directions/workshop.jpg`; tools remain interactive overlays. The image-generation provenance/prompt remains with the native project. User-supplied inspiration: https://www.reddit.com/r/duolingospanish/comments/1x8mn72/spanish_lesson/ . The public post and owner screenshot were inspected; the video itself was not played/downloaded. No footage is copied.
+
+Human teaching review remains pending (reviewed=false). No new HD recordings were created: game Listen uses browser device Spanish speech explicitly labeled as such; written instructions remain usable if speech is unavailable. Standard app lesson playback retains existing speech behavior. The new verbs are excluded from the signed global verb-game compile until separate review.
+
+Offline lesson-pack registration/installation has not been added or verified for these new stage IDs; do not advertise downloadable/offline readiness. No native release/TestFlight upload is part of this web preview. Publication URL, commit and runtime evidence are recorded in the accompanying release evidence after deployment.
+
+## Local verification
+
+All 60 public lessons validate against their stage limits and map to six modes, readings, lesson speaking openings, and exact-pair gating. TypeScript, changed-file lint, both stage validators, production-style preview build and Build Output artifact verification pass. Six desktop/phone browser tests pass: pointer placement, wrong feedback, pickup and demonstration behavior; browsing all three stages; main Practice Lab entry; lesson game entry; six-mode navigation; returning from writing; and full Reader handoff. The first full test suite passed 2,913 tests; three catalog/compile expectations affected by adding this course were corrected and all 28 focused regression tests pass. Cold-start controls now wait for hydration so an early tap cannot be silently lost. Human content review, HD recordings, and installed offline testing remain separate gaps.

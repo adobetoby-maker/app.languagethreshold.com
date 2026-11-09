@@ -1,0 +1,1125 @@
+{
+  "schema": 1,
+  "targetLanguage": "Spanish",
+  "nativeLanguage": "English",
+  "reviewed": false,
+  "objects": {
+    "hat": {
+      "es": "el sombrero",
+      "en": "hat"
+    },
+    "shoes": {
+      "es": "los zapatos",
+      "en": "shoes"
+    },
+    "backpack": {
+      "es": "la mochila",
+      "en": "backpack"
+    },
+    "towel": {
+      "es": "la toalla",
+      "en": "towel"
+    },
+    "brush": {
+      "es": "el cepillo",
+      "en": "cleaning brush"
+    },
+    "tray": {
+      "es": "la bandeja",
+      "en": "tray"
+    },
+    "cap": {
+      "es": "el gorro",
+      "en": "cap"
+    },
+    "box": {
+      "es": "la caja",
+      "en": "box"
+    },
+    "hammer": {
+      "es": "el martillo",
+      "en": "hammer"
+    },
+    "helmet": {
+      "es": "el casco",
+      "en": "helmet"
+    },
+    "book": {
+      "es": "el libro",
+      "en": "book"
+    },
+    "screwdriver": {
+      "es": "el destornillador",
+      "en": "screwdriver"
+    }
+  },
+  "scenes": [
+    {
+      "id": "clinic",
+      "name": "Clinic room",
+      "alt": "Clinic room with the back of an open door and a coat hook on the left, exam couch in the middle, and a visitor chair on the right.",
+      "targets": [
+        {
+          "id": "door-hook",
+          "es": "en el gancho detrás de la puerta",
+          "en": "on the hook on the back of the door",
+          "point": {
+            "x": 0.215,
+            "y": 0.235
+          },
+          "width": 0.1,
+          "height": 0.1
+        },
+        {
+          "id": "under-chair",
+          "es": "debajo del asiento de la silla",
+          "en": "under the chair seat",
+          "point": {
+            "x": 0.8,
+            "y": 0.76
+          },
+          "width": 0.17,
+          "height": 0.13
+        },
+        {
+          "id": "chair-seat",
+          "es": "encima del asiento de la silla",
+          "en": "on the chair seat",
+          "point": {
+            "x": 0.79,
+            "y": 0.63
+          },
+          "width": 0.17,
+          "height": 0.09
+        },
+        {
+          "id": "exam-couch",
+          "es": "encima de la camilla",
+          "en": "on the exam couch",
+          "point": {
+            "x": 0.5,
+            "y": 0.44
+          },
+          "width": 0.2,
+          "height": 0.11
+        },
+        {
+          "id": "beside-chair",
+          "es": "al lado de la silla",
+          "en": "beside the chair",
+          "point": {
+            "x": 0.6,
+            "y": 0.84
+          },
+          "width": 0.12,
+          "height": 0.15
+        }
+      ],
+      "image": "/images/picture-action/clinic",
+      "challenges": [
+        {
+          "id": "clinic-1",
+          "object": "hat",
+          "es": "Cuelga el sombrero en el gancho detrás de la puerta.",
+          "en": "Hang the hat on the hook on the back of the door.",
+          "target": "door-hook",
+          "action": "hang",
+          "pickup": false,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        },
+        {
+          "id": "clinic-2",
+          "object": "shoes",
+          "es": "Pon los zapatos debajo del asiento de la silla.",
+          "en": "Put the shoes under the chair seat.",
+          "target": "under-chair",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        },
+        {
+          "id": "clinic-3",
+          "object": "backpack",
+          "es": "Levanta la mochila y ponla encima del asiento de la silla.",
+          "en": "Pick up the backpack and put it on the chair seat.",
+          "target": "chair-seat",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        },
+        {
+          "id": "clinic-4",
+          "object": "towel",
+          "es": "Pon la toalla encima de la camilla.",
+          "en": "Put the towel on the exam couch.",
+          "target": "exam-couch",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        },
+        {
+          "id": "clinic-5",
+          "object": "backpack",
+          "es": "Pon la mochila al lado de la silla.",
+          "en": "Put the backpack beside the chair.",
+          "target": "beside-chair",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        },
+        {
+          "id": "clinic-6",
+          "object": "brush",
+          "es": "Limpia debajo del asiento de la silla.",
+          "en": "Clean under the chair seat.",
+          "target": "under-chair",
+          "action": "clean",
+          "pickup": false,
+          "start": {
+            "x": 0.46,
+            "y": 0.87
+          }
+        }
+      ]
+    },
+    {
+      "id": "or",
+      "name": "Operating room",
+      "alt": "Empty operating room with an operating table in the center, a two-shelf metal cart on the right and a stool on the left.",
+      "targets": [
+        {
+          "id": "cart-top",
+          "es": "encima del carrito",
+          "en": "on top of the cart",
+          "point": {
+            "x": 0.85,
+            "y": 0.46
+          },
+          "width": 0.22,
+          "height": 0.07
+        },
+        {
+          "id": "cart-lower",
+          "es": "en el estante inferior del carrito",
+          "en": "on the cart’s lower shelf",
+          "point": {
+            "x": 0.85,
+            "y": 0.615
+          },
+          "width": 0.21,
+          "height": 0.065
+        },
+        {
+          "id": "stool-seat",
+          "es": "encima del taburete",
+          "en": "on the stool seat",
+          "point": {
+            "x": 0.12,
+            "y": 0.585
+          },
+          "width": 0.13,
+          "height": 0.055
+        },
+        {
+          "id": "table-top",
+          "es": "encima de la mesa de operaciones",
+          "en": "on the operating table",
+          "point": {
+            "x": 0.49,
+            "y": 0.42
+          },
+          "width": 0.34,
+          "height": 0.07
+        },
+        {
+          "id": "under-cart",
+          "es": "debajo del estante superior del carrito",
+          "en": "under the cart’s upper shelf",
+          "point": {
+            "x": 0.85,
+            "y": 0.55
+          },
+          "width": 0.19,
+          "height": 0.07
+        },
+        {
+          "id": "beside-stool",
+          "es": "al lado del taburete",
+          "en": "beside the stool",
+          "point": {
+            "x": 0.29,
+            "y": 0.79
+          },
+          "width": 0.11,
+          "height": 0.13
+        }
+      ],
+      "image": "/images/picture-action/or",
+      "challenges": [
+        {
+          "id": "or-1",
+          "object": "tray",
+          "es": "Pon la bandeja encima del carrito.",
+          "en": "Put the tray on top of the cart.",
+          "target": "cart-top",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "or-2",
+          "object": "towel",
+          "es": "Pon la toalla en el estante inferior del carrito.",
+          "en": "Put the towel on the cart’s lower shelf.",
+          "target": "cart-lower",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "or-3",
+          "object": "cap",
+          "es": "Pon el gorro encima del taburete.",
+          "en": "Put the cap on the stool seat.",
+          "target": "stool-seat",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "or-4",
+          "object": "tray",
+          "es": "Levanta la bandeja y ponla en el estante inferior del carrito.",
+          "en": "Pick up the tray and put it on the cart’s lower shelf.",
+          "target": "cart-lower",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "or-5",
+          "object": "towel",
+          "es": "Pon la toalla debajo del estante superior del carrito.",
+          "en": "Put the towel under the cart’s upper shelf.",
+          "target": "under-cart",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "or-6",
+          "object": "shoes",
+          "es": "Pon los zapatos al lado del taburete.",
+          "en": "Put the shoes beside the stool.",
+          "target": "beside-stool",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        }
+      ]
+    },
+    {
+      "id": "truck",
+      "name": "Pickup truck bed",
+      "alt": "Navy pickup truck viewed from behind, empty cargo bed, lowered tailgate, teal toolbox on the left and open ground on the right.",
+      "targets": [
+        {
+          "id": "bed-inside",
+          "es": "dentro de la caja de la camioneta",
+          "en": "inside the pickup truck bed",
+          "point": {
+            "x": 0.5,
+            "y": 0.57
+          },
+          "width": 0.42,
+          "height": 0.22
+        },
+        {
+          "id": "tailgate",
+          "es": "encima de la compuerta trasera",
+          "en": "on the lowered tailgate",
+          "point": {
+            "x": 0.5,
+            "y": 0.8
+          },
+          "width": 0.5,
+          "height": 0.12
+        },
+        {
+          "id": "toolbox-top",
+          "es": "encima de la caja de herramientas",
+          "en": "on top of the toolbox",
+          "point": {
+            "x": 0.1,
+            "y": 0.48
+          },
+          "width": 0.13,
+          "height": 0.09
+        },
+        {
+          "id": "outside-truck",
+          "es": "fuera de la camioneta",
+          "en": "outside the truck",
+          "point": {
+            "x": 0.9,
+            "y": 0.83
+          },
+          "width": 0.13,
+          "height": 0.15
+        },
+        {
+          "id": "left-bed",
+          "es": "a la izquierda dentro de la camioneta",
+          "en": "on the left inside the truck bed",
+          "point": {
+            "x": 0.31,
+            "y": 0.58
+          },
+          "width": 0.12,
+          "height": 0.2
+        },
+        {
+          "id": "right-bed",
+          "es": "a la derecha dentro de la camioneta",
+          "en": "on the right inside the truck bed",
+          "point": {
+            "x": 0.68,
+            "y": 0.58
+          },
+          "width": 0.12,
+          "height": 0.2
+        }
+      ],
+      "image": "/images/picture-action/truck",
+      "challenges": [
+        {
+          "id": "truck-1",
+          "object": "backpack",
+          "es": "Pon la mochila dentro de la caja de la camioneta.",
+          "en": "Put the backpack inside the pickup truck bed.",
+          "target": "bed-inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "truck-2",
+          "object": "box",
+          "es": "Pon la caja encima de la compuerta trasera.",
+          "en": "Put the box on the lowered tailgate.",
+          "target": "tailgate",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "truck-3",
+          "object": "hammer",
+          "es": "Pon el martillo encima de la caja de herramientas.",
+          "en": "Put the hammer on top of the toolbox.",
+          "target": "toolbox-top",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "truck-4",
+          "object": "backpack",
+          "es": "Levanta la mochila y ponla fuera de la camioneta.",
+          "en": "Pick up the backpack and put it outside the truck.",
+          "target": "outside-truck",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.5,
+            "y": 0.55
+          }
+        },
+        {
+          "id": "truck-5",
+          "object": "box",
+          "es": "Pon la caja a la izquierda dentro de la camioneta.",
+          "en": "Put the box on the left inside the truck bed.",
+          "target": "left-bed",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "truck-6",
+          "object": "helmet",
+          "es": "Pon el casco a la derecha dentro de la camioneta.",
+          "en": "Put the helmet on the right inside the truck bed.",
+          "target": "right-bed",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        }
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom & housekeeping",
+      "alt": "Bedroom seen from above, with visible floor behind the headboard, a raised bed, bedside table on the left and a chair in the foreground.",
+      "targets": [
+        {
+          "id": "behind-bed",
+          "es": "detrás de la cama",
+          "en": "behind the bed",
+          "point": {
+            "x": 0.57,
+            "y": 0.255
+          },
+          "width": 0.46,
+          "height": 0.1
+        },
+        {
+          "id": "under-bed",
+          "es": "debajo de la cama",
+          "en": "under the bed",
+          "point": {
+            "x": 0.57,
+            "y": 0.78
+          },
+          "width": 0.48,
+          "height": 0.08
+        },
+        {
+          "id": "bed-top",
+          "es": "encima de la cama",
+          "en": "on the bed",
+          "point": {
+            "x": 0.58,
+            "y": 0.53
+          },
+          "width": 0.4,
+          "height": 0.14
+        },
+        {
+          "id": "nightstand",
+          "es": "encima de la mesa de noche",
+          "en": "on the bedside table",
+          "point": {
+            "x": 0.175,
+            "y": 0.46
+          },
+          "width": 0.14,
+          "height": 0.055
+        },
+        {
+          "id": "beside-bed",
+          "es": "al lado de la cama",
+          "en": "beside the bed",
+          "point": {
+            "x": 0.94,
+            "y": 0.63
+          },
+          "width": 0.07,
+          "height": 0.21
+        },
+        {
+          "id": "chair-seat",
+          "es": "encima de la silla",
+          "en": "on the chair seat",
+          "point": {
+            "x": 0.115,
+            "y": 0.75
+          },
+          "width": 0.16,
+          "height": 0.09
+        }
+      ],
+      "image": "/images/picture-action/bedroom",
+      "challenges": [
+        {
+          "id": "bedroom-1",
+          "object": "brush",
+          "es": "Limpia detrás de la cama.",
+          "en": "Clean behind the bed.",
+          "target": "behind-bed",
+          "action": "clean",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "bedroom-2",
+          "object": "shoes",
+          "es": "Pon los zapatos debajo de la cama.",
+          "en": "Put the shoes under the bed.",
+          "target": "under-bed",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "bedroom-3",
+          "object": "towel",
+          "es": "Pon la toalla encima de la cama.",
+          "en": "Put the towel on the bed.",
+          "target": "bed-top",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "bedroom-4",
+          "object": "book",
+          "es": "Levanta el libro y ponlo encima de la mesa de noche.",
+          "en": "Pick up the book and put it on the bedside table.",
+          "target": "nightstand",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "bedroom-5",
+          "object": "brush",
+          "es": "Limpia al lado de la cama.",
+          "en": "Clean beside the bed.",
+          "target": "beside-bed",
+          "action": "clean",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        },
+        {
+          "id": "bedroom-6",
+          "object": "backpack",
+          "es": "Pon la mochila encima de la silla.",
+          "en": "Put the backpack on the chair seat.",
+          "target": "chair-seat",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.16
+          }
+        }
+      ]
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing dock",
+      "alt": "Fishing dock: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/fishing",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.37
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.55
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de pesca",
+          "en": "inside the tackle box",
+          "point": {
+            "x": 0.22,
+            "y": 0.59
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de pesca",
+          "en": "beside the tackle box",
+          "point": {
+            "x": 0.43,
+            "y": 0.64
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.5,
+            "y": 0.86
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.68
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "fishing-1",
+          "object": "net",
+          "es": "Pon la red encima de la mesa.",
+          "en": "Put the net on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-2",
+          "object": "tackle",
+          "es": "Pon la caja de pesca debajo de la mesa.",
+          "en": "Put the tackle box under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-3",
+          "object": "net",
+          "es": "Pon la red dentro de la caja de pesca.",
+          "en": "Put the net inside the tackle box.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-4",
+          "object": "tackle",
+          "es": "Recoge la caja de pesca. Pon la caja de pesca al lado de la caja de pesca.",
+          "en": "Pick up the tackle box. Put the tackle box beside the tackle box.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-5",
+          "object": "net",
+          "es": "Recoge la red. Pon la red entre los conos.",
+          "en": "Pick up the net. Put the net between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "fishing-6",
+          "object": "tackle",
+          "es": "Recoge la caja de pesca. Pon la caja de pesca delante de la mesa.",
+          "en": "Pick up the tackle box. Put the tackle box in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "soccer",
+      "name": "Sports training field",
+      "alt": "Sports training field: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/soccer",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.7,
+            "y": 0.44
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.71,
+            "y": 0.56
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de equipo",
+          "en": "inside the equipment box",
+          "point": {
+            "x": 0.21,
+            "y": 0.55
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de equipo",
+          "en": "beside the equipment box",
+          "point": {
+            "x": 0.43,
+            "y": 0.65
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.5,
+            "y": 0.83
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.73,
+            "y": 0.73
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "soccer-1",
+          "object": "ball",
+          "es": "Pon el balón encima de la mesa.",
+          "en": "Put the ball on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-2",
+          "object": "vest",
+          "es": "Pon el chaleco debajo de la mesa.",
+          "en": "Put the training vest under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-3",
+          "object": "ball",
+          "es": "Pon el balón dentro de la caja de equipo.",
+          "en": "Put the ball inside the equipment box.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-4",
+          "object": "vest",
+          "es": "Recoge el chaleco. Pon el chaleco al lado de la caja de equipo.",
+          "en": "Pick up the training vest. Put the training vest beside the equipment box.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-5",
+          "object": "ball",
+          "es": "Recoge el balón. Pon el balón entre los conos.",
+          "en": "Pick up the ball. Put the ball between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "soccer-6",
+          "object": "vest",
+          "es": "Recoge el chaleco. Pon el chaleco delante de la mesa.",
+          "en": "Pick up the training vest. Put the training vest in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "farm",
+      "name": "Farmyard",
+      "alt": "Farmyard: open container on the left, empty table on the right with clear space underneath, and two cones in front.",
+      "image": "/images/picture-action/farm",
+      "targets": [
+        {
+          "id": "on",
+          "es": "encima de la mesa",
+          "en": "on the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.42
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "under",
+          "es": "debajo de la mesa",
+          "en": "under the table",
+          "point": {
+            "x": 0.72,
+            "y": 0.56
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "inside",
+          "es": "dentro de la caja de suministros",
+          "en": "inside the supply crate",
+          "point": {
+            "x": 0.22,
+            "y": 0.54
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "beside",
+          "es": "al lado de la caja de suministros",
+          "en": "beside the supply crate",
+          "point": {
+            "x": 0.43,
+            "y": 0.66
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "between",
+          "es": "entre los conos",
+          "en": "between the cones",
+          "point": {
+            "x": 0.54,
+            "y": 0.86
+          },
+          "width": 0.13,
+          "height": 0.1
+        },
+        {
+          "id": "front",
+          "es": "delante de la mesa",
+          "en": "in front of the table",
+          "point": {
+            "x": 0.73,
+            "y": 0.73
+          },
+          "width": 0.13,
+          "height": 0.1
+        }
+      ],
+      "challenges": [
+        {
+          "id": "farm-1",
+          "object": "bucket",
+          "es": "Pon el cubo encima de la mesa.",
+          "en": "Put the bucket on the table.",
+          "target": "on",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-2",
+          "object": "gloves",
+          "es": "Pon los guantes debajo de la mesa.",
+          "en": "Put the gloves under the table.",
+          "target": "under",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-3",
+          "object": "bucket",
+          "es": "Pon el cubo dentro de la caja de suministros.",
+          "en": "Put the bucket inside the supply crate.",
+          "target": "inside",
+          "action": "place",
+          "pickup": false,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-4",
+          "object": "gloves",
+          "es": "Recoge los guantes. Pon los guantes al lado de la caja de suministros.",
+          "en": "Pick up the gloves. Put the gloves beside the supply crate.",
+          "target": "beside",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-5",
+          "object": "bucket",
+          "es": "Recoge el cubo. Pon el cubo entre los conos.",
+          "en": "Pick up the bucket. Put the bucket between the cones.",
+          "target": "between",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        },
+        {
+          "id": "farm-6",
+          "object": "gloves",
+          "es": "Recoge los guantes. Pon los guantes delante de la mesa.",
+          "en": "Pick up the gloves. Put the gloves in front of the table.",
+          "target": "front",
+          "action": "place",
+          "pickup": true,
+          "start": {
+            "x": 0.12,
+            "y": 0.9
+          }
+        }
+      ]
+    }
+  ]
+}

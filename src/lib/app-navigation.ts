@@ -16,6 +16,7 @@ export const APP_TABS = [
   "conjugation",
   "sentenceBuild",
   "games",
+  "verbs",
   "listeningDrill",
   "wordMatch",
   "idiomMaster",
@@ -72,7 +73,9 @@ export function appNavigationLocation(
     params.delete("way");
   }
   // The Verbs sub-route lives only under the Games tab.
-  if (context.tab !== "games") for (const key of VERB_ROUTE_PARAMS) params.delete(key);
+  if (context.tab !== "games" && context.tab !== "verbs")
+    for (const key of VERB_ROUTE_PARAMS) params.delete(key);
+  if (context.tab !== "verbs") params.delete("verbArea");
   // An explicit Core link must not inherit a specialty from another learner's profile.
   params.set("module", context.moduleId ?? "core");
   params.set("target", context.target);

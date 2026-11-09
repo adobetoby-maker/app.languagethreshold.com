@@ -1,3 +1,4 @@
+import { placeLesson } from "../data/place-directions.ts";
 import { soundLesson } from "../data/sound-like-a-native.ts";
 import { spanishBasicsLesson } from "../data/spanish-basics.ts";
 import { japaneseBasicsLesson } from "../data/japanese-basics.ts";
@@ -29,12 +30,25 @@ export function authoredLessonReading(
   if (targetLanguage === "Japanese" && instructionLanguage === "English" && lessonNumber) {
     const draft = japaneseBasicsLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
     return draft
-      ? { id: `${moduleId}-lesson-${lessonNumber}`, title: draft.reading.title,
-          sentences: draft.reading.target.map((target, i) => ({ target, en: draft.reading.native[i] })) }
+      ? {
+          id: `${moduleId}-lesson-${lessonNumber}`,
+          title: draft.reading.title,
+          sentences: draft.reading.target.map((target, i) => ({
+            target,
+            en: draft.reading.native[i],
+          })),
+        }
       : null;
   }
   if (targetLanguage !== "Spanish" || instructionLanguage !== "English" || !lessonNumber)
     return null;
+  const place = placeLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
+  if (place)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: place.reading.title,
+      sentences: place.reading.target.map((target, i) => ({ target, en: place.reading.native[i] })),
+    };
   const sound = soundLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage);
   if (sound)
     return {

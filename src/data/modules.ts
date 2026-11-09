@@ -84,6 +84,27 @@ export function moduleSupportsLearningPair(
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
   {
+    id: "place-directions",
+    name: "Place & Directions · Core 60",
+    emoji: "🧰",
+    category: "Core Basics",
+    priceCents: 0,
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    authoredPair: { target: "Spanish", native: "English" },
+    blurb:
+      "Put it inside, pick it up, move it under, and give clear directions. Toolbox, backpack, and truck-bed contexts across 10 Foundation, 30 Core, and 20 Master lessons.",
+    aiPersona:
+      "Teach practical Latin American Spanish placement and directions with English help. Keep the selected lesson's grammar and level. Distinguish dentro de, debajo de, encima de, delante de and detrás de. Establish the viewer's perspective for left/right and front/back. Teach affirmative tú commands and attached object pronouns, then negative commands, formal directions and multi-step clarification. Respond to requests to slow down. Require specific landmarks and confirm destinations; do not invent visual perception of a learner's actual room.",
+    userRole: "Learner following and giving placement and route instructions",
+    challengePrompts: [
+      "Pick up a tool and put it under the table.",
+      "Clarify which box and which side before moving an object.",
+      "Give a route and revise it when a landmark changes.",
+    ],
+    vocabFocus: ["position", "direction", "commands", "tools", "backpack", "truck bed"],
+  },
+  {
     id: "sound-like-a-native",
     name: "Sound Like a Native",
     emoji: "🗣️",
@@ -266,9 +287,11 @@ const CATALOG: AppModule[] = [
     languages: ["Japanese"],
     nativeLanguages: ["English"],
     authoredPair: { target: "Japanese", native: "English" },
-    blurb: "Beginner Japanese through 10 Foundation, 30 Core, and 20 application lessons. Draft Japanese content awaiting fluent review.",
+    blurb:
+      "Beginner Japanese through 10 Foundation, 30 Core, and 20 application lessons. Draft Japanese content awaiting fluent review.",
     priceCents: 0,
-    aiPersona: "You are a patient Japanese teacher. Practice beginner everyday Japanese with short, natural polite sentences and concise English explanations when asked. Respect Japanese particles, script, and register. Do not claim lesson completion is certified proficiency.",
+    aiPersona:
+      "You are a patient Japanese teacher. Practice beginner everyday Japanese with short, natural polite sentences and concise English explanations when asked. Respect Japanese particles, script, and register. Do not claim lesson completion is certified proficiency.",
     userRole: "A beginner studying Japanese",
     challengePrompts: [
       "Greet a classmate, say your name, and ask a clear question.",

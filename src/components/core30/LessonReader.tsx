@@ -1,3 +1,4 @@
+import { placeLesson } from "@/data/place-directions";
 import { soundLesson } from "@/data/sound-like-a-native";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
@@ -131,18 +132,24 @@ export function LessonReader({
     language === "Spanish" &&
     state.nativeLanguage === "English" &&
     lessonNumber &&
-    (spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
+    (placeLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
+      spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       soundLesson(moduleId, lessonNumber, language, state.nativeLanguage)) &&
     lessonNumber
       ? `seed-es-${moduleId}-lesson-${lessonNumber}`
       : null;
   const japaneseReaderId =
-    language === "Japanese" && state.nativeLanguage === "English" && lessonNumber &&
+    language === "Japanese" &&
+    state.nativeLanguage === "English" &&
+    lessonNumber &&
     japaneseBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage)
       ? `seed-ja-${moduleId}-lesson-${lessonNumber}`
       : null;
   const fullReaderId =
-    japaneseReaderId ?? basicsReaderId ?? militaryReaderId ?? (lessonPassage ? null : (entry?.id ?? null));
+    japaneseReaderId ??
+    basicsReaderId ??
+    militaryReaderId ??
+    (lessonPassage ? null : (entry?.id ?? null));
   const translationLanguage = lessonPassage
     ? state.nativeLanguage
     : contentPassage

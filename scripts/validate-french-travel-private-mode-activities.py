@@ -16,6 +16,7 @@ SIDECARS = (
     BASE / "private-mode-activities-core-10-15.json",
     BASE / "private-mode-activities-core-16-21.json",
     BASE / "private-mode-activities-core-22-30.json",
+    BASE / "private-mode-activities-master-1-10.json",
 )
 MODES = {"see", "recall", "hear", "type", "say", "write"}
 
@@ -38,7 +39,7 @@ def main():
         assert sidecar["audioListeningReviewed"] is False
         for activity in sidecar["activities"]:
             key = activity["lessonKey"]
-            assert key in lessons and (key.startswith("foundation:") or key.startswith("core:")), key
+            assert key in lessons and key.split(":")[0] in {"foundation", "core", "master"}, key
             mode = activity["mode"]
             assert mode in MODES and mode not in by_lesson[key], (key, mode)
             by_lesson[key].add(mode)
@@ -59,10 +60,11 @@ def main():
             assert activity["modelEnglish"] == pair["supportEnglish"], ref
             count += 1
     assert set(by_lesson) == ({f"foundation:{n}" for n in range(1, 11)} |
-                              {f"core:{n}" for n in range(1, 31)})
+                              {f"core:{n}" for n in range(1, 31)} |
+                              {f"master:{n}" for n in range(1, 11)})
     assert all(modes == MODES for modes in by_lesson.values())
-    assert count == 240
-    print("French Breakfast Foundation 1–10 and Core 1–30: 240 exact-pair private activities; release gates closed")
+    assert count == 300
+    print("French Breakfast Foundation 1–10, Core 1–30 and Master 1–10: 300 exact-pair private activities; release gates closed")
 
 
 if __name__ == "__main__":

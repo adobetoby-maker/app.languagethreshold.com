@@ -15,7 +15,7 @@ type Lead = LeadReport["recent"][number];
 export function OwnerMarketing({ onEmail }: { onEmail: () => void }) {
   const [lead, select] = useState<Lead | null>(null);
   return (
-    <div className="grid min-w-0 gap-5">
+    <div className="grid min-w-0 grid-cols-1 gap-5">
       <section className={ownerPanel}>
         <h2 className="text-2xl font-semibold">My AI Marketing</h2>
         <p className="mt-2">

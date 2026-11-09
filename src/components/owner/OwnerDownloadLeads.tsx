@@ -27,7 +27,7 @@ export function OwnerDownloadLeads({
   const d = r.data;
   if (!r.allowed) return null;
   return (
-    <section aria-label="Download leads" className={ownerPanel}>
+    <section aria-label="Download leads" className={`${ownerPanel} min-w-0 max-w-full`}>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h2 className="text-2xl font-semibold">Download leads</h2>

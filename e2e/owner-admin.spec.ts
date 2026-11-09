@@ -666,6 +666,11 @@ test("marketing connects products and prepares an unsent resource follow-up", as
   await expect(page.getByRole("heading", { name: "My AI Marketing", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Open marketing ↗", exact: true })).toHaveCount(4);
   await expect(page.getByText("Refreshes every minute", { exact: false })).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    ),
+  ).toBeLessThanOrEqual(0);
   await page.getByRole("button", { name: "Prepare follow-up", exact: true }).click();
   const form = page.getByRole("region", { name: "Download follow-up draft" });
   await expect(form.getByLabel("Subject", { exact: true })).toHaveValue(

@@ -1,0 +1,5 @@
+# French 101 form-practice private audio gap — 2026-11-09
+
+The current private Foundation/Core/Master form fixtures contain 329 prompt placements. Comparing each target answer with the corresponding local French 101 private audio manifest's exact `displayText` finds 258 covered placements and 71 missing. Master prompts use their preserved role-labelled `audioDisplayText`; all 96 of those match a manifest entry whose `spokenText` is the stripped learner answer.
+
+The 71 missing placements have 71 unique French strings, 2,291 characters in total, or 142 additional two-voice clips if both Aoede and Charon are recorded. By batch: Foundation 1–10 has 26 missing; Core 1–3 has 5; Core 4–6 has 4; Core 7–9 has 6; Core 10–12 has 6; Core 13–18 has 12; Core 19–30 has 12; Master has none. The Core gaps are authored contrasts. All files and prompts remain private and unreviewed, so this is a synthesis scope, not playback approval. Exact text, voice, hash, duration and listening review must be verified before any import. No learner progress changes.

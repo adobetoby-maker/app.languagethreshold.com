@@ -4,6 +4,6 @@ The November 7 coverage ledger counted 56 Japanese catalog-compatible tracks, in
 
 | Track | Ticket | Current evidence | Release state |
 | --- | --- | --- | --- |
-| Roofing Supervisor | [#431](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/431) | Foundation 1–10, Core 1–30 and Master 1–12 private source drafts; 440 Core/253 Master cards, 251 Core/193 Master Reader lines (Master 12 adapted register pairs) | Unreviewed, unregistered, no audio |
+| Roofing Supervisor | [#431](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/431) | Foundation 1–10, Core 1–30 and Master 1–15 private source drafts; 440 Core/317 Master cards, 251 Core/243 Master Reader lines (Master 12 adapted register pairs) | Unreviewed, unregistered, no audio |
 
 Audit the remaining Spanish-only tracks before updating the overall Japanese parity denominator. This page does not change the original 55-track count or imply a released lesson.

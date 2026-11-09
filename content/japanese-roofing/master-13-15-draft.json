@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "a39ea220d45da61013aecaf7dd098b271c906d2b141e3f01da9e3daa36715af9",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 13,
+      "stableId": "master-roofing:13:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Fall Incident Report",
+      "sourceEnglishObjective": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+      "title": "墜落事故の報告",
+      "objective": "墜落時の対応を伝え、起きたことを時刻と順序を明確にして電話と書面で報告する。",
+      "focus": "～しているとき places the fall during descent. ～ごろ and ～から～の間 distinguish approximate from bounded time; 推定原因 labels an inference in the written report.",
+      "cards": [
+        {
+          "ja": "墜落",
+          "en": "the fall",
+          "kind": "term"
+        },
+        {
+          "ja": "事故報告書",
+          "en": "the incident report",
+          "kind": "term"
+        },
+        {
+          "ja": "応急手当",
+          "en": "the first aid",
+          "kind": "term"
+        },
+        {
+          "ja": "親綱",
+          "en": "the lifeline",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根のアンカー",
+          "en": "the roof anchor",
+          "kind": "term"
+        },
+        {
+          "ja": "フルハーネス",
+          "en": "the harness",
+          "kind": "term"
+        },
+        {
+          "ja": "ランヤード",
+          "en": "the lanyard",
+          "kind": "term"
+        },
+        {
+          "ja": "現場",
+          "en": "the scene",
+          "kind": "term"
+        },
+        {
+          "ja": "負傷者",
+          "en": "the injured person",
+          "kind": "term"
+        },
+        {
+          "ja": "救急隊員",
+          "en": "the paramedics",
+          "kind": "term"
+        },
+        {
+          "ja": "足首",
+          "en": "the ankle",
+          "kind": "term"
+        },
+        {
+          "ja": "伸縮はしご",
+          "en": "the extension ladder",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根の端",
+          "en": "the roof edge",
+          "kind": "term"
+        },
+        {
+          "ja": "正確な時刻",
+          "en": "the exact time",
+          "kind": "term"
+        },
+        {
+          "ja": "十時十五分、フリオは屋根の端にいました。",
+          "en": "At a quarter past ten, Julio was at the roof edge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "降りているときに足を滑らせました。",
+          "en": "While he was coming down, his foot slipped.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今すぐ911に電話してください。",
+          "en": "Call 911 right now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "彼を動かさず、救急隊員を待ってください。",
+          "en": "Don't move him; wait for the paramedics.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "落ち着いてください。助けが向かっています。",
+          "en": "Easy, help is on the way.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "正確には何時に起きましたか。",
+          "en": "What time exactly did it happen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "事故が起きたことを報告します。",
+          "en": "I'm informing you that we had an accident.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "火曜日の十時十五分ごろ、フリオは屋根の端にいて、伸縮はしごへ降りようとしていました。",
+          "en": "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder."
+        },
+        {
+          "ja": "降りているときに足を滑らせ、約八フィート下の芝生に落ちました。",
+          "en": "While he was coming down, his foot slipped and he fell about 8 feet to the grass."
+        },
+        {
+          "ja": "その時、フリオはすでに屋根から降りかけていたため、ランヤードを親綱に接続していませんでした。",
+          "en": "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof."
+        },
+        {
+          "ja": "ロヘリオはフリオのところに走り、「今すぐ911に電話してください」と叫びました。",
+          "en": "Rogelio ran to him and shouted: Call 911 right now."
+        },
+        {
+          "ja": "フリオには意識がありましたが、足首がひどく痛みました。",
+          "en": "Julio was conscious, but his ankle hurt a lot."
+        },
+        {
+          "ja": "ロヘリオ「落ち着いてください。助けが向かっています。動かないでください。」",
+          "en": "Rogelio: Easy, help is on the way; don't move."
+        },
+        {
+          "ja": "ロヘリオは作業班に「彼を動かさず、救急隊員を待ってください」と伝えました。",
+          "en": "Rogelio to the crew: Don't move him; wait for the paramedics."
+        },
+        {
+          "ja": "ケビンは講習で習った基本的な応急手当をし、マルコスは警告テープで現場を囲みました。",
+          "en": "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape."
+        },
+        {
+          "ja": "救急隊員は十時三十分に到着し、負傷者を病院へ運びました。",
+          "en": "The paramedics arrived at half past ten and took the injured man to the hospital."
+        },
+        {
+          "ja": "その後、ロヘリオは監督者に電話し、「事故が起きたことを報告します。フリオが屋根から落ち、病院へ向かっています」と伝えました。",
+          "en": "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital."
+        },
+        {
+          "ja": "監督者「正確には何時に起きましたか。」",
+          "en": "Supervisor: What time exactly did it happen?"
+        },
+        {
+          "ja": "ロヘリオ「正確な時刻は分かりませんが、十時十五分から十時二十分の間です。」",
+          "en": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten."
+        },
+        {
+          "ja": "その日の午後、ロヘリオは墜落について事故報告書を書きました。「時刻：約十時十五分。」",
+          "en": "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15."
+        },
+        {
+          "ja": "「状況：作業員は屋根からはしごへ降りる途中、その移動中にバランスを失って墜落した。」",
+          "en": "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell."
+        },
+        {
+          "ja": "「推定原因：はしごへ移る際、ハーネスが親綱または屋根のアンカーに接続されていなかった。」",
+          "en": "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder."
+        },
+        {
+          "ja": "「対応：明日、屋根からはしごへ接続を外さず移る方法を作業班全員で確認する。」",
+          "en": "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected."
+        }
+      ],
+      "forms": [
+        {
+          "base": "降りる",
+          "exampleJa": "フリオは屋根の端からはしごへ降りようとしていました。",
+          "meaningEnglish": "to go down",
+          "exampleEnglish": "Julio was at the roof edge and was going down to the ladder.",
+          "sourceInfinitiveSpanish": "bajar"
+        },
+        {
+          "base": "滑る",
+          "exampleJa": "降りているときに足を滑らせました。",
+          "meaningEnglish": "to slip",
+          "exampleEnglish": "While he was coming down, his foot slipped.",
+          "sourceInfinitiveSpanish": "resbalar"
+        },
+        {
+          "base": "失う",
+          "exampleJa": "バランスを失って墜落しました。",
+          "meaningEnglish": "to lose",
+          "exampleEnglish": "He lost his balance and fell.",
+          "sourceInfinitiveSpanish": "perder"
+        },
+        {
+          "base": "叫ぶ",
+          "exampleJa": "ロヘリオはフリオのところに走って叫びました。",
+          "meaningEnglish": "to shout",
+          "exampleEnglish": "Rogelio ran to him and shouted.",
+          "sourceInfinitiveSpanish": "gritar"
+        },
+        {
+          "base": "書く",
+          "exampleJa": "その日の午後、ロヘリオは事故報告書を書きました。",
+          "meaningEnglish": "to write",
+          "exampleEnglish": "That afternoon, Rogelio wrote the incident report.",
+          "sourceInfinitiveSpanish": "escribir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "十時十五分から二十分の間に、フリオが屋根からはしごへ降りる途中で足を滑らせ、約八フィート墜落しました。救急隊員が十時三十分に到着しました。",
+        "goal": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next."
+      },
+      "modes": {
+        "see": "Identify the roof edge, ladder, lifeline, and injured worker.",
+        "recall": "Recall fall, ankle, paramedics, first aid, and incident report.",
+        "hear": "Distinguish 親綱 from ランヤード when spoken.",
+        "type": "Type 'What time exactly did it happen?' in Japanese.",
+        "say": "Report the incident by phone in chronological order with times.",
+        "write": "Write the report time, description, probable cause, and next action."
+      }
+    },
+    {
+      "n": 14,
+      "stableId": "master-roofing:14:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Near-Miss Conversation",
+      "sourceEnglishObjective": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+      "title": "重大事故になりかけた出来事を話し合う",
+      "objective": "責任追及をせず、起こりかけたことと原因を話し、再発を防ぐ変更点を決める。",
+      "focus": "～そうになった expresses a near event. ～ていたら～だった would state the counterfactual; ～ように asks for a change that prevents recurrence.",
+      "cards": [
+        {
+          "ja": "ヒヤリ・ハット事例",
+          "en": "the near-miss",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材の束",
+          "en": "the bundle of shingles",
+          "kind": "term"
+        },
+        {
+          "ja": "積み重ね",
+          "en": "the stack",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根用ブラケット",
+          "en": "the roof bracket (roof jack)",
+          "kind": "term"
+        },
+        {
+          "ja": "つま先板",
+          "en": "the toe board",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根の勾配面",
+          "en": "the slope",
+          "kind": "term"
+        },
+        {
+          "ja": "危険区域",
+          "en": "the danger zone",
+          "kind": "term"
+        },
+        {
+          "ja": "歩道",
+          "en": "the sidewalk",
+          "kind": "term"
+        },
+        {
+          "ja": "歩行者",
+          "en": "the pedestrian",
+          "kind": "term"
+        },
+        {
+          "ja": "警告標識",
+          "en": "the warning sign",
+          "kind": "term"
+        },
+        {
+          "ja": "教訓",
+          "en": "the lesson",
+          "kind": "term"
+        },
+        {
+          "ja": "けが",
+          "en": "the injury",
+          "kind": "term"
+        },
+        {
+          "ja": "原因",
+          "en": "the cause",
+          "kind": "term"
+        },
+        {
+          "ja": "予防",
+          "en": "the prevention",
+          "kind": "term"
+        },
+        {
+          "ja": "危うく彼の頭に当たるところでした。",
+          "en": "It nearly fell on his head.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "大惨事になりかけました。",
+          "en": "A tragedy almost happened.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "人が亡くなっていたかもしれません。",
+          "en": "It could have killed someone.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "下に人がいたら、病院に運ばれていたでしょう。",
+          "en": "If someone had been below, they would be in the hospital.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二度と起きないように何を変えられますか。",
+          "en": "What can we change so it doesn't happen again?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "話してくれてありがとうございます。皆の役に立ちます。",
+          "en": "Thanks for speaking up, that helps everyone.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "大丈夫か。",
+          "en": "Are you OK, bro?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "驚かせてしまい、申し訳ありません。",
+          "en": "Sorry for the scare, sir.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午前中、シングル材の束が屋根の勾配面を滑り落ち、屋根から落下しました。",
+          "en": "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof."
+        },
+        {
+          "ja": "束は犬を散歩させていた近所の人から二歩ほど離れた歩道に落ちました。",
+          "en": "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog."
+        },
+        {
+          "ja": "誰もけがをしませんでしたが、全員が静まり返りました。",
+          "en": "Nobody got a single injury, but everyone went quiet."
+        },
+        {
+          "ja": "ロヘリオはまず降りて、歩行者に話しかけました。",
+          "en": "Rogelio went down first to talk to the pedestrian."
+        },
+        {
+          "ja": "ロヘリオ「驚かせてしまい、申し訳ありません。おけがはありませんか。」",
+          "en": "Rogelio: Sorry for the scare, sir; are you all right?"
+        },
+        {
+          "ja": "その後、作業班のところへ上がると、ケビンは青ざめていました。",
+          "en": "Then he went up with the crew, and Kevin was pale."
+        },
+        {
+          "ja": "ロヘリオ「大丈夫か。」",
+          "en": "Rogelio: Are you OK, bro?"
+        },
+        {
+          "ja": "ロヘリオ「危うくあの人の頭に当たるところでした。大惨事になりかけました。」",
+          "en": "Rogelio: It nearly fell on his head; a tragedy almost happened."
+        },
+        {
+          "ja": "ロヘリオ「ブランドによっては一束が六十ポンドを超えることもあり、人が亡くなっていたかもしれません。」",
+          "en": "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone."
+        },
+        {
+          "ja": "ロヘリオ「下に人がいたら、病院に運ばれていたでしょう。」",
+          "en": "Rogelio: If someone had been below, they would be in the hospital."
+        },
+        {
+          "ja": "ロヘリオ「これはヒヤリ・ハット事例です。誰かを罰するためではなく、原因を理解したいのです。」",
+          "en": "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause."
+        },
+        {
+          "ja": "ケビン「少しの間だけだと思い、つま先板を付けずに束を積んでしまいました。」",
+          "en": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment."
+        },
+        {
+          "ja": "ロヘリオ「話してくれてありがとうございます。皆の役に立ちます。」",
+          "en": "Rogelio: Thanks for speaking up, that helps everyone."
+        },
+        {
+          "ja": "ロヘリオ「つま先板を付けた屋根用ブラケットに束を置けば、滑り落ちません。」",
+          "en": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide."
+        },
+        {
+          "ja": "ロヘリオ「二度と起きないように何を変えられますか。」",
+          "en": "Rogelio: What can we change so it doesn't happen again?"
+        },
+        {
+          "ja": "マルコスは資材を上げる間、下にカラーコーンで危険区域を示し、歩道に警告標識を置くことを提案しました。",
+          "en": "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up."
+        },
+        {
+          "ja": "その日の午後、ロヘリオはこの出来事を会社全体の予防の教訓として記録しました。",
+          "en": "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company."
+        }
+      ],
+      "forms": [
+        {
+          "base": "重さがある",
+          "exampleJa": "ブランドによっては一束が六十ポンドを超える重さがあります。",
+          "meaningEnglish": "to weigh",
+          "exampleEnglish": "Depending on the brand, a bundle can weigh more than 60 pounds.",
+          "sourceInfinitiveSpanish": "pesar"
+        },
+        {
+          "base": "当たる",
+          "exampleJa": "束は危うく近所の人に当たるところでした。",
+          "meaningEnglish": "to hit",
+          "exampleEnglish": "The bundle nearly hit the neighbor.",
+          "sourceInfinitiveSpanish": "golpear"
+        },
+        {
+          "base": "提案する",
+          "exampleJa": "マルコスは歩道にカラーコーンを置くことを提案します。",
+          "meaningEnglish": "to propose",
+          "exampleEnglish": "Marcos proposes putting cones on the sidewalk.",
+          "sourceInfinitiveSpanish": "proponer"
+        },
+        {
+          "base": "理解する",
+          "exampleJa": "原因を理解したいのです。",
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "We want to understand the cause.",
+          "sourceInfinitiveSpanish": "entender"
+        },
+        {
+          "base": "歩く",
+          "exampleJa": "近所の人は犬を連れて歩いていました。",
+          "meaningEnglish": "to walk",
+          "exampleEnglish": "A neighbor was walking his dog.",
+          "sourceInfinitiveSpanish": "caminar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "シングル材の束が歩道に落ち、危うく歩行者に当たるところでした。原因を一緒に確認し、再発しないよう変更点を決めましょう。",
+        "goal": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again."
+      },
+      "modes": {
+        "see": "Identify the sliding bundle, sidewalk, pedestrian, and toe board.",
+        "recall": "Recall near-miss, danger zone, roof bracket, warning sign, and cause.",
+        "hear": "Distinguish ヒヤリ・ハット from けが when spoken.",
+        "type": "Type 'It nearly fell on his head' in Japanese.",
+        "say": "Discuss what almost happened without blame and agree on a fix.",
+        "write": "Write the cause, proposed change, and prevention lesson."
+      }
+    },
+    {
+      "n": 15,
+      "stableId": "master-roofing:15:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Weather Call: Stop Work and Tarp",
+      "sourceEnglishObjective": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+      "sourceEnglishSpeaking": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+      "title": "無線で作業停止と養生を指示する",
+      "objective": "天候の変化を無線で伝え、作業停止、開口部の養生、全員の退避を指示する。",
+      "focus": "～たら gives the rain or thunder condition. ～まで marks the return time; 了解 and 聞こえますか support concise radio exchanges.",
+      "cards": [
+        {
+          "ja": "気象レーダー",
+          "en": "the radar",
+          "kind": "term"
+        },
+        {
+          "ja": "雷雨の雨雲",
+          "en": "the storm cell",
+          "kind": "term"
+        },
+        {
+          "ja": "無線機",
+          "en": "the radio (the device)",
+          "kind": "term"
+        },
+        {
+          "ja": "防水シート",
+          "en": "the tarp",
+          "kind": "term"
+        },
+        {
+          "ja": "押さえ木",
+          "en": "the battens (wood strips)",
+          "kind": "term"
+        },
+        {
+          "ja": "突風",
+          "en": "the gust",
+          "kind": "term"
+        },
+        {
+          "ja": "激しい雨",
+          "en": "the downpour",
+          "kind": "term"
+        },
+        {
+          "ja": "未施工の区画",
+          "en": "the open section",
+          "kind": "term"
+        },
+        {
+          "ja": "地上",
+          "en": "the ground",
+          "kind": "term"
+        },
+        {
+          "ja": "警報",
+          "en": "the alert",
+          "kind": "term"
+        },
+        {
+          "ja": "樹脂キャップ付きの釘",
+          "en": "the plastic cap nails",
+          "kind": "term"
+        },
+        {
+          "ja": "空",
+          "en": "the sky",
+          "kind": "term"
+        },
+        {
+          "ja": "固定されていない資材",
+          "en": "the loose material",
+          "kind": "term"
+        },
+        {
+          "ja": "ピックアップトラック",
+          "en": "the pickup truck",
+          "kind": "term"
+        },
+        {
+          "ja": "雨が降り始めたら降ります。",
+          "en": "If it starts raining, we come down.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "雷が鳴ったら屋根には誰も残りません。",
+          "en": "If it thunders, nobody stays up top.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "雷が鳴ったら全員すぐに降りてください。",
+          "en": "If it thunders, everyone down now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "未施工の区画に今すぐ防水シートを掛けてください。",
+          "en": "Tarp on the open section, now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "了解、降ります。",
+          "en": "Copy, heading down.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "聞こえますか。",
+          "en": "Do you copy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "天候のため作業を止めたことを確認します。",
+          "en": "I confirm that we stopped because of the weather.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午後一時半、ロヘリオは携帯電話で気象レーダーを確認し、約二十マイル離れた雷雨の雨雲を見つけました。",
+          "en": "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away."
+        },
+        {
+          "ja": "空はまだ晴れていましたが、風向きが変わり始めていました。",
+          "en": "The sky was still clear, but the wind was starting to change."
+        },
+        {
+          "ja": "ロヘリオは無線で「作業班へ。雷雨の警報です。マルコス、聞こえますか」と呼びかけました。",
+          "en": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?"
+        },
+        {
+          "ja": "マルコス「了解、聞こえています。」",
+          "en": "Marcos: Copy, I hear you."
+        },
+        {
+          "ja": "ロヘリオ「このまま進めば雨雲は三十分ほどで着きます。雨が降り始めたら降ります。」",
+          "en": "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down."
+        },
+        {
+          "ja": "ロヘリオ「ただし雨は待ちません。今から片づけを始めます。」",
+          "en": "Rogelio: But we're not going to wait for the rain: we start closing up now."
+        },
+        {
+          "ja": "ロヘリオ「ケビンとフリオ、未施工の区画に今すぐ防水シートを掛けてください。」",
+          "en": "Rogelio: Kevin and Julio, tarp on the open section, now."
+        },
+        {
+          "ja": "ロヘリオ「棟から下へ防水シートを掛け、押さえ木と樹脂キャップ付きの釘で固定してください。」",
+          "en": "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails."
+        },
+        {
+          "ja": "ロヘリオ「マルコス、固定されていない資材を集めて地上へ降ろしてください。突風で落ちることがあります。」",
+          "en": "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off."
+        },
+        {
+          "ja": "ロヘリオは無線で「レーダーには雨雲の中に雷が映っています。雷が鳴ったら屋根には誰も残りません。全員すぐに降りてください」と伝えました。",
+          "en": "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now."
+        },
+        {
+          "ja": "午後一時五十分、最初の雷鳴が聞こえました。",
+          "en": "At ten to two the first thunder was heard."
+        },
+        {
+          "ja": "ロヘリオは無線で「雷が鳴りました。全員すぐに降りてください」と指示しました。",
+          "en": "Rogelio on the radio: It thundered: everyone down now."
+        },
+        {
+          "ja": "フリオ「了解、降ります。防水シートは固定しました。」",
+          "en": "Julio: Copy, heading down; the tarp is secured."
+        },
+        {
+          "ja": "ロヘリオ「はしごにも誰も残らず、通り過ぎるまで全員ピックアップトラックへ移動してください。」",
+          "en": "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes."
+        },
+        {
+          "ja": "午後二時ちょうど、強風を伴う激しい雨が降り始めました。",
+          "en": "At two o'clock sharp the downpour began, with a lot of wind."
+        },
+        {
+          "ja": "ロヘリオはトラックから家主に電話し、「天候のため作業を止め、屋根を覆ってあります」と伝えました。",
+          "en": "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered."
+        },
+        {
+          "ja": "ロヘリオ「明日晴れたら七時に戻り、シングル材の施工を続けます。」",
+          "en": "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles."
+        }
+      ],
+      "forms": [
+        {
+          "base": "残る",
+          "exampleJa": "雷が鳴ったら屋根には誰も残りません。",
+          "meaningEnglish": "to stay",
+          "exampleEnglish": "If it thunders, nobody stays up top.",
+          "sourceInfinitiveSpanish": "quedarse"
+        },
+        {
+          "base": "集める",
+          "exampleJa": "マルコス、固定されていない資材を集めて降ろしてください。",
+          "meaningEnglish": "to gather",
+          "exampleEnglish": "Marcos, gather the loose material and bring it down.",
+          "sourceInfinitiveSpanish": "juntar"
+        },
+        {
+          "base": "落とす",
+          "exampleJa": "突風で資材が落ちることがあります。",
+          "meaningEnglish": "to knock off, to throw",
+          "exampleEnglish": "A gust can knock it off.",
+          "sourceInfinitiveSpanish": "tirar"
+        },
+        {
+          "base": "戻る",
+          "exampleJa": "明日晴れたら七時に戻ります。",
+          "meaningEnglish": "to come back",
+          "exampleEnglish": "If the sun comes out tomorrow, we'll be back at seven.",
+          "sourceInfinitiveSpanish": "volver"
+        },
+        {
+          "base": "待つ",
+          "exampleJa": "雨は待ちません。",
+          "meaningEnglish": "to wait",
+          "exampleEnglish": "We're not going to wait for the rain.",
+          "sourceInfinitiveSpanish": "esperar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "作業班へ、雷雨の警報です。未施工の区画に防水シートを掛け、資材を地上へ降ろしてください。雷が鳴ったので全員すぐに降りてください。",
+        "goal": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos)."
+      },
+      "modes": {
+        "see": "Identify the radar, open roof section, tarp, and loose materials.",
+        "recall": "Recall storm cell, battens, cap nails, gust, and pickup truck.",
+        "hear": "Distinguish 了解 from 聞こえますか in radio traffic.",
+        "type": "Type 'If it thunders, everyone down now' in Japanese.",
+        "say": "Call a stop-work and tarp sequence over the radio.",
+        "write": "Write the times and the homeowner's closeout message."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

@@ -13,9 +13,9 @@ import {
 
 const load = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const inputs = {
-  foundation: load('content/french-basics/private-runtime-foundation-1-10.json'),
-  core: load('content/french-basics/private-runtime-core-1-30.json'),
-  master: load('content/french-basics/private-runtime-master-1-20.json'),
+  foundation: load('content/french-basics/private-runtime-foundation-1-10-authored-modes.json'),
+  core: load('content/french-basics/private-runtime-core-1-30-authored-modes.json'),
+  master: load('content/french-basics/private-runtime-master-1-20-authored-modes.json'),
 };
 const pair = { target: 'French', native: 'English' };
 
@@ -54,6 +54,10 @@ test('all six-mode sidecars, Reader, cards, dictionary and speaking remain lesso
       const sidecar = candidate.activity(id, n, pair);
       assert.equal(sidecar?.stableLessonKey, `${id}:${n}`);
       assert.deepEqual(Object.keys(sidecar.modes).sort(), ['hear', 'recall', 'say', 'see', 'type', 'write']);
+      for (const mode of ['hear', 'recall', 'say', 'see', 'type', 'write']) {
+        assert.ok(sidecar.modes[mode].authoredPrompt.prompt.trim(), `${id}/${n} ${mode}`);
+        assert.ok(sidecar.modes[mode].authoredPrompt.targetText.trim(), `${id}/${n} ${mode}`);
+      }
       assert.ok(sidecar.reader && sidecar.cards.length && sidecar.dictionaryEntries.length && sidecar.speaking);
     }
     assert.equal(candidate.activity(id, 0, pair), null);
@@ -71,4 +75,7 @@ test('the private adapter rejects a wrong pair or altered progress identity', ()
   const accidentallyReleased = structuredClone(inputs);
   accidentallyReleased.foundation.registered = true;
   assert.throws(() => inspectPrivateFrench101(accidentallyReleased), /private, unreviewed/);
+  const countOnly = structuredClone(inputs);
+  delete countOnly.core.support[24].modes.write.authoredPrompt;
+  assert.throws(() => inspectPrivateFrench101(countOnly), /missing an authored write activity at 25/);
 });

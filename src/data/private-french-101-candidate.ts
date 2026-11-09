@@ -41,6 +41,7 @@ type PrivateFixture = {
   audioStatus: string;
   support: Sidecar[];
 };
+type AuthoredMode = { authoredPrompt?: { prompt?: string; targetText?: string } };
 type FoundationFixture = PrivateFixture & { stageFile: Core60StageFile };
 type CoreFixture = PrivateFixture & { target: string; native: string; coreCurriculum: ModuleCurriculum };
 type MasterFixture = PrivateFixture & { target: string; native: string; masterStageFragment: Core60StageFile };
@@ -90,6 +91,11 @@ function checkFixture(fixture: PrivateFixture, id: StageId, count: number): void
       throw new Error(`${id} is missing a card, Reader, dictionary or speaking input at ${index + 1}`);
     if (JSON.stringify(Object.keys(sidecar.modes).sort()) !== JSON.stringify(modeNames))
       throw new Error(`${id} is missing a practice mode at ${index + 1}`);
+    for (const mode of modeNames) {
+      const authored = (sidecar.modes[mode] as AuthoredMode).authoredPrompt;
+      if (!authored?.prompt?.trim() || !authored.targetText?.trim())
+        throw new Error(`${id} is missing an authored ${mode} activity at ${index + 1}`);
+    }
   }
 }
 

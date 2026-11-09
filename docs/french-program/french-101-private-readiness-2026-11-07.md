@@ -1,5 +1,7 @@
 # French 101 private full-course readiness audit — 2026-11-07
 
+Audio status has advanced since this dated audit. See [the 2026-11-09 private HD audio checkpoint](french-101-private-hd-audio-2026-11-09.md) for full Foundation/Core/Master file coverage and the still-open listening/release gates.
+
 Scope: stacked draft through PR #332 at `cfd1f3b91`, plus this audit's deterministic Master dictionary-sidecar derivation. Compare against `origin/main` at `cb0a1b6f5`. The course ticket is [FR-008 / issue #180](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/180), under [program issue #172](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/172). These are source checks, not French-language approval, a production audit, or device acceptance.
 
 | Gate | Source evidence | State |

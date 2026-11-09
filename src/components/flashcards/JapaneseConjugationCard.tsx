@@ -40,6 +40,8 @@ export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }
   const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const form = set.forms[register][tense];
+  const registerLabel = (value: JapaneseRegister) =>
+    value === "honorific" ? (set.advancedRegisterLabel ?? "honorific") : value;
 
   function onTouchStart(e: React.TouchEvent) {
     const t = e.touches[0];
@@ -108,7 +110,7 @@ export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }
         <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground mb-2">
           <span className={tense === "past" ? "text-primary font-semibold" : ""}>← past</span>
           <span className="font-medium text-foreground/80">
-            {register} · {tense}
+            {registerLabel(register)} · {tense}
           </span>
           <span className={tense === "present" ? "text-primary font-semibold" : ""}>present →</span>
         </div>
@@ -138,9 +140,10 @@ export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }
           <ChevronDown className="h-4 w-4" />
         </div>
         <p className="text-center text-[10px] text-muted-foreground/60 mt-1">
-          swipe · ↑ honorific · ↓ plain
+          swipe · ↑ {registerLabel("honorific")} · ↓ plain
         </p>
       </div>
+      {set.usageNote && <p className="text-sm text-muted-foreground">{set.usageNote}</p>}
 
       {/* More drawer — full grid */}
       <Drawer>
@@ -160,7 +163,7 @@ export function JapaneseConjugationCard({ set, onSpeak, showTranslation = true }
             {REGISTER_ORDER.map((reg) => (
               <div key={reg}>
                 <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                  {reg}
+                  {registerLabel(reg)}
                 </h4>
                 <div className="grid grid-cols-2 gap-2">
                   {TENSE_ORDER.map((t) => (

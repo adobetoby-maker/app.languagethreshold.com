@@ -29,6 +29,8 @@ export interface JapaneseConjugationSet {
   >;
   teForm?: string;
   taForm?: string;
+  advancedRegisterLabel?: string;
+  usageNote?: string;
 }
 
 const CATALOG: Record<string, JapaneseConjugationSet> = {
@@ -144,8 +146,10 @@ const CATALOG: Record<string, JapaneseConjugationSet> = {
     forms: {
       plain: { present: "ある", past: "あった" },
       polite: { present: "あります", past: "ありました" },
-      honorific: { present: "いらっしゃいます", past: "いらっしゃいました" },
+      honorific: { present: "ございます", past: "ございました" },
     },
+    advancedRegisterLabel: "very polite",
+    usageNote: "Use ございます for the existence of things. いらっしゃいます refers to people.",
     teForm: "あって",
     taForm: "あった",
   },

@@ -1,0 +1,7 @@
+# Japanese 101 Foundation form practice — private draft
+
+`content/japanese-basics/private-form-practice-foundation-1-10-ja-en.json` selects 38 exact Japanese→English dialogue pairs from Foundation 1–10. The deterministic builder pins the source SHA-256, stage-local module IDs, dialogue turn numbers, and stable prompt IDs. It selects forms for topic/question particles, possessives, counters, omitted subjects, origin and identifying particles, `あります` versus `います`, age, negative sentences, and polite requests. No Spanish person/endings table is projected onto Japanese.
+
+The fixture is `registered:false` and `reviewed:false`; it is not part of the learner runtime. All 38 selected Japanese text keys occur in the corresponding private Japanese 101 Foundation audio manifests (Foundation 1 uses `foundation-1-complete`). This is text coverage only. The new batches still have `listeningReviewed:false` outside the accepted pilot, and qualified Japanese review, runtime connection, offline audio, browser/phone and independent V4 acceptance remain open. No learner progress changes.
+
+Run `python3 scripts/build-japanese101-foundation-form-practice.py --check` after source edits, alongside `python3 scripts/build-japanese-basics.py --check` and `node --test tests/japanese-basics-course.test.mjs`. This contributes to [verb parity issue #427](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/427).

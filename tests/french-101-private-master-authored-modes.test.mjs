@@ -13,8 +13,8 @@ test('Master authored-mode candidate keeps stable identities and review gates cl
   assert.equal(candidate.reviewed, false);
   assert.deepEqual(candidate.masterStageFragment, base.masterStageFragment);
   assert.deepEqual(candidate.support.map(x => x.stableLessonKey), base.support.map(x => x.stableLessonKey));
-  assert.deepEqual(candidate.authoredModeCoverage, [1, 2, 3]);
-  assert.equal(candidate.authoredModeSources.length, 1);
+  assert.deepEqual(candidate.authoredModeCoverage, [1, 2, 3, 4, 5, 6]);
+  assert.equal(candidate.authoredModeSources.length, 2);
   for (const source of candidate.authoredModeSources) {
     assert.equal(source.sha256, sha(source.path));
     assert.equal(source.baseSha256, sha(source.basePath));
@@ -22,7 +22,7 @@ test('Master authored-mode candidate keeps stable identities and review gates cl
   for (const [index, lesson] of candidate.support.entries()) {
     for (const mode of ['see', 'recall', 'hear', 'type', 'say', 'write']) {
       const activity = lesson.modes[mode].authoredPrompt;
-      if (index >= 3) { assert.equal(activity, undefined); continue; }
+      if (index >= 6) { assert.equal(activity, undefined); continue; }
       assert.ok(activity.prompt.length >= 35);
       const source = mode === 'see' ? lesson.reader.target : [...lesson.cards.map(x => x.target), ...Object.values(lesson.grammarNotes.model ?? {})];
       assert.ok(source.includes(activity.targetText), `${index + 1} ${mode}`);

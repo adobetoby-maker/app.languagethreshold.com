@@ -115,7 +115,7 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
   `- French draft: ${totals.frenchCards} cards, ${totals.frenchLines} Reader lines, ${totals.frenchVerbs} verb references.`,
   `- Japanese draft: ${totals.japaneseWords} words, ${totals.japaneseLines} Reader lines, ${totals.japaneseVerbs} verb references.`,
   `- French contextual forms: ${totals.frenchForms} exact-pair prompts across 60 private lessons. Japanese contextual forms: ${totals.japaneseForms} exact-pair prompts across 60 private lessons. These are authored sentence/form tasks, not the same unit as Spanish LessonVerb references.`,
-  `- Lessons below the Spanish verb-reference count: ${missing.length}/60 for both French and Japanese.`,
+  `- Lessons with fewer LessonVerb entries than Spanish: ${missing.length}/60 for both French and Japanese. This is a data-model difference, not a verdict that their contextual grammar practice is missing.`,
   "- Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the exact-pair runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

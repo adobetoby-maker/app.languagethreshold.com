@@ -1,6 +1,6 @@
 # 101 lesson material parity: Spanish → French and Japanese
 
-- Spanish/Japanese source commit: `1b31d3cf6a5286f24769854ec5b1877dca325e4d`
+- Spanish/Japanese source commit: `ad5b620353dba3ec55eb86e456ecc2df29d727ee`
 - French private draft commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`
 - French contextual forms commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
 - Scope: Spanish 101 lesson-content files, Japanese 101 lesson-content files, and French 101 private runtime fixture. Counts indicate authored material only; they do not validate language quality, lesson flow, live registration, audio, or native app availability.
@@ -87,5 +87,5 @@
 - French draft: 1109 cards, 503 Reader lines, 0 verb references.
 - Japanese draft: 980 words, 488 Reader lines, 0 verb references.
 - French contextual forms: 329 exact-pair prompts across 60 private lessons. Japanese contextual forms: 235 exact-pair prompts across 60 private lessons. These are authored sentence/form tasks, not the same unit as Spanish LessonVerb references.
-- Lessons below the Spanish verb-reference count: 60/60 for both French and Japanese.
+- Lessons with fewer LessonVerb entries than Spanish: 60/60 for both French and Japanese. This is a data-model difference, not a verdict that their contextual grammar practice is missing.
 - Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the exact-pair runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.

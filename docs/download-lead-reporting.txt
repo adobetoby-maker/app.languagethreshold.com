@@ -30,7 +30,7 @@ IP address, URL query string or URL fragment is stored in this reporting table.
 First landing path and referring hostname are stored per browser tab without an
 email. Attribution is browser-supplied and can be missing/modified; not proof
 of ad-platform attribution. Existing session UTMs are retained across navigation.
-The current form path is recorded separately. Referrer stores hostname only.
+The current form path is recorded separately. Missing paths show Not recorded. Referrer stores hostname only.
 
 Owner addresses adobetoby@gmail.com and toby@languagethreshold.com (including
 plus aliases) are flagged as setup tests and excluded by default. Campaign

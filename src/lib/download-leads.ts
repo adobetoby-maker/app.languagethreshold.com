@@ -7,7 +7,7 @@ export const leadSites = [
 const path = z
   .string()
   .max(160)
-  .regex(/^\/[a-zA-Z0-9_./-]*$/);
+  .regex(/^(?:\/[a-zA-Z0-9_./-]*)?$/);
 const tag = z
   .string()
   .max(80)

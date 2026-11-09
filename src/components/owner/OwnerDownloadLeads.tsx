@@ -110,10 +110,10 @@ export function OwnerDownloadLeads() {
                       <td className="p-3">
                         <strong>{s.site}</strong>
                         <br />
-                        {s.signup_page}
+                        {s.signup_page || "Not recorded"}
                       </td>
                       <td className="p-3">
-                        {s.landing_page}
+                        {s.landing_page || "Not recorded"}
                         <br />
                         <span className="text-muted-foreground">
                           {s.referrer_host || "No referring site recorded"}

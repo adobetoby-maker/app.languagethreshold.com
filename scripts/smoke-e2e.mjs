@@ -104,9 +104,10 @@ const port = prod ? null : await findFreePort();
 const projects = ["--project=setup", "--project=desktop", ...(phone ? ["--project=iphone-pwa"] : [])];
 const specs = prod ? PROD_SPECS : LOCAL_SPECS;
 // Specs tagged @dev-only need a dev build (the fixture hook, unhashed chunk URLs): skipped on prod.
-// The production suite shares a remote app and test fixture. Serial execution avoids
-// cross-test interference that can leave Playwright without a final summary.
-const playwrightArgs = ["playwright", "test", ...specs, ...projects, ...(prod ? ["--grep-invert", "@dev-only", "--workers=1"] : []), "--reporter=line"];
+// Both local and production suites share app state and fixtures. Two local workers
+// reached the last test without a final summary; the same 123-case suite completed
+// serially (101 passed, 22 skipped). Keep the gate deterministic on every target.
+const playwrightArgs = ["playwright", "test", ...specs, ...projects, "--workers=1", ...(prod ? ["--grep-invert", "@dev-only"] : []), "--reporter=line"];
 // Both go through the helper that injects the public Supabase env: the specs' setup and
 // signed-in fixtures read it even when the app under test is the deployed build.
 const [cmd, cmdArgs] = ["node", ["scripts/with-supabase-public-env.mjs", "npx", ...playwrightArgs]];

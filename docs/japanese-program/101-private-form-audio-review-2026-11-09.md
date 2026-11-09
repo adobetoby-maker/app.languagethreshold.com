@@ -1,0 +1,7 @@
+# Japanese 101 private contextual-form audio review
+
+`scripts/build-japanese101-form-audio-review-sheet.mjs` matches all 235 private Japanese→English form prompts to the corresponding lesson's two `ja-JP` Aoede/Charon recordings. It verifies the form preview hash, the full-course source inventory fingerprint, each of 60 lesson manifest scopes and hashes, exact normalized display text, exact spoken text, voice/locale identity, MP3 byte count and SHA-256, positive duration metadata, and false listening-review flags. The resulting private [worksheet](/Users/drive/lt-audio/japanese-101/form-audio-review-2026-11-09.html) has 470 audio placements and separate accept/retake controls for each voice.
+
+The worksheet stores decisions in the browser under both the form source hash and manifest-set hash and exports them as JSON. It never updates lesson manifests, `reviewed`, `registered`, web playback, V4 resources, or learner progress. The ten previously accepted Japanese pilot clips remain a separate acceptance scope; these full-lesson recordings remain unreviewed until a listener records decisions. Signal retake candidates also require separate listening comparison before substitution.
+
+Run `node scripts/build-japanese101-form-audio-review-sheet.mjs --check` after source or audio changes. A local 375-pixel Chromium check rendered 235 cards and 470 audio elements, loaded the first MP3 metadata, showed no horizontal overflow or page errors, and retained a review choice after reload. This is review tooling, not learner audio acceptance.

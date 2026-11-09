@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { isCorrectFormPracticeAnswer } from "../src/lib/language-form-practice.ts";
+import { isCorrectFormPracticeAnswer, isCorrectFormMeaning } from "../src/lib/language-form-practice.ts";
+
+test("Japanese form meaning recognition uses the authored English cue", () => {
+  assert.ok(isCorrectFormMeaning("Hello!", "Hello."));
+  assert.equal(isCorrectFormMeaning("Goodbye", "Hello."), false);
+  assert.equal(isCorrectFormMeaning("", "Hello."), false);
+});
 
 test("Japanese form answers keep source wording and exact language ownership", () => {
   const sections = ["foundation-1-10", "core-1-10", "core-11-20", "core-21-30", "master-1-10", "master-11-20"];

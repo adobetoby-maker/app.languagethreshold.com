@@ -1,0 +1,853 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 6,
+    "alignedReaderPrompts": 36,
+    "newAuthoredContrasts": 12,
+    "totalPrompts": 48,
+    "grammarModels": 6
+  },
+  "lessons": [
+    {
+      "lesson": 13,
+      "stableLessonKey": "french-basics:13",
+      "grammarModel": {
+        "I": "Je peux étudier ici aujourd’hui.",
+        "you": "Est-ce que tu peux ouvrir la fenêtre ?",
+        "we": "Nous pouvons parler à voix basse.",
+        "they": "Ils ne peuvent pas manger dans cette salle."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-413949ff6f8bb6a5",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Je peux étudier ici aujourd’hui.",
+          "englishPrompt": "I can study here today.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je peux étudier ici aujourd’hui."
+          ]
+        },
+        {
+          "id": "form-fr-en-c3b7decd954547e8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Est-ce que tu peux ouvrir la fenêtre ?",
+          "englishPrompt": "Can you open the window?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que tu peux ouvrir la fenêtre ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-dff6a83020b9b696",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Ana peut aider à faire les devoirs.",
+          "englishPrompt": "Ana can help with the homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana peut aider à faire les devoirs."
+          ]
+        },
+        {
+          "id": "form-fr-en-80f5fc3d08167791",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Nous pouvons parler à voix basse.",
+          "englishPrompt": "We can speak quietly.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous pouvons parler à voix basse."
+          ]
+        },
+        {
+          "id": "form-fr-en-33937f2eea47ce40",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Ils ne peuvent pas manger dans cette salle.",
+          "englishPrompt": "They cannot eat in this room.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils ne peuvent pas manger dans cette salle."
+          ]
+        },
+        {
+          "id": "form-fr-en-c96e000900f67dd6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Pouvez-vous répéter la question, s’il vous plaît ?",
+          "englishPrompt": "Can you repeat the question, please?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Pouvez-vous répéter la question, s’il vous plaît ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-52cc8190fb9ed85b",
+          "source": "authored-draft-contrast",
+          "focus": "je-peux-permission",
+          "frenchAnswer": "Est-ce que je peux ouvrir la fenêtre ?",
+          "englishPrompt": "May I open the window?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que je peux ouvrir la fenêtre ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-ed817e15ae4d6682",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-pouvez",
+          "frenchAnswer": "Vous pouvez parler à voix basse.",
+          "englishPrompt": "You can speak quietly.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous pouvez parler à voix basse."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "french-basics:14",
+      "grammarModel": {
+        "need": "J’ai besoin de réviser les verbes.",
+        "must": "Je dois finir les devoirs.",
+        "Ana": "Ana a besoin d’un cahier.",
+        "we": "Nous devons arriver à huit heures."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-99a5cf22bc2981aa",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "J’ai besoin de réviser les verbes.",
+          "englishPrompt": "I need to review the verbs.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’ai besoin de réviser les verbes."
+          ]
+        },
+        {
+          "id": "form-fr-en-546770d2256155fe",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Je dois finir les devoirs.",
+          "englishPrompt": "I have to finish the homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je dois finir les devoirs."
+          ]
+        },
+        {
+          "id": "form-fr-en-e4e74eac6619778a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Ana a besoin d’un cahier.",
+          "englishPrompt": "Ana needs a notebook.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana a besoin d’un cahier."
+          ]
+        },
+        {
+          "id": "form-fr-en-d9031e361d7c5a4a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Nous devons arriver à huit heures.",
+          "englishPrompt": "We have to arrive at eight.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous devons arriver à huit heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-5351de198daeb7fb",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Luis doit lire deux pages.",
+          "englishPrompt": "Luis has to read two pages.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis doit lire deux pages."
+          ]
+        },
+        {
+          "id": "form-fr-en-be2b858df2cd68e7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Est-ce que tu as besoin d’aide pour cette question ?",
+          "englishPrompt": "Do you need help with this question?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que tu as besoin d’aide pour cette question ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-0261ca3a9e061349",
+          "source": "authored-draft-contrast",
+          "focus": "besoin-d-apostrophe",
+          "frenchAnswer": "J’ai besoin d’un cahier.",
+          "englishPrompt": "I need a notebook.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’ai besoin d’un cahier."
+          ]
+        },
+        {
+          "id": "form-fr-en-23aa148c74b60c7d",
+          "source": "authored-draft-contrast",
+          "focus": "devoir-infinitive",
+          "frenchAnswer": "Nous devons finir les devoirs.",
+          "englishPrompt": "We have to finish the homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous devons finir les devoirs."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "french-basics:15",
+      "grammarModel": {
+        "I": "Je fais mes devoirs à la bibliothèque.",
+        "Ana": "Ana fait une liste de courses.",
+        "we": "Nous faisons du sport après le cours.",
+        "friends": "Mes amis posent des questions en français."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-356a0e7b63f8221e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Je fais mes devoirs à la bibliothèque.",
+          "englishPrompt": "I do homework in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je fais mes devoirs à la bibliothèque."
+          ]
+        },
+        {
+          "id": "form-fr-en-7f0e692f78c7755f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Ana fait une liste de courses.",
+          "englishPrompt": "Ana makes a shopping list.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana fait une liste de courses."
+          ]
+        },
+        {
+          "id": "form-fr-en-e9129127985452f3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Nous faisons du sport après le cours.",
+          "englishPrompt": "We exercise after class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous faisons du sport après le cours."
+          ]
+        },
+        {
+          "id": "form-fr-en-98ce3ebe88244b79",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Luis prépare le dîner à la maison.",
+          "englishPrompt": "Luis makes dinner at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis prépare le dîner à la maison."
+          ]
+        },
+        {
+          "id": "form-fr-en-dc9a955111503a66",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Mes amis posent des questions en français.",
+          "englishPrompt": "My friends ask questions in French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Mes amis posent des questions en français."
+          ]
+        },
+        {
+          "id": "form-fr-en-d5ce667c4a7f0c5e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Qu’est-ce que tu fais le dimanche ?",
+          "englishPrompt": "What do you do on Sundays?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Qu’est-ce que tu fais le dimanche ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-f88d6e881c35d782",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-faites",
+          "frenchAnswer": "Vous faites du sport après le cours ?",
+          "englishPrompt": "Do you exercise after class?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous faites du sport après le cours ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-84cf40f7952a7f5e",
+          "source": "authored-draft-contrast",
+          "focus": "plural-ils-font",
+          "frenchAnswer": "Ils font leurs devoirs à la bibliothèque.",
+          "englishPrompt": "They do their homework in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils font leurs devoirs à la bibliothèque."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonKey": "french-basics:16",
+      "grammarModel": {
+        "I": "Je me lève à sept heures.",
+        "you": "Tu te réveilles tôt ?",
+        "we": "Nous nous préparons pour le cours.",
+        "Ana": "Ana se douche le matin."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-68b7dfc6d56895f8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Je me lève à sept heures.",
+          "englishPrompt": "I get up at seven.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je me lève à sept heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-fb1f2995c462eab9",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Ana se douche le matin.",
+          "englishPrompt": "Ana showers in the morning.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana se douche le matin."
+          ]
+        },
+        {
+          "id": "form-fr-en-9bad8dab9b793e0a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Nous nous préparons pour le cours.",
+          "englishPrompt": "We get ready for class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous nous préparons pour le cours."
+          ]
+        },
+        {
+          "id": "form-fr-en-7a44e3c0f212cf90",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Luis se couche à dix heures.",
+          "englishPrompt": "Luis goes to bed at ten.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis se couche à dix heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-a1271269672d4bbb",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Tu te réveilles tôt ?",
+          "englishPrompt": "Do you wake up early?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu te réveilles tôt ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-7ee5387dfed9e4dc",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Oui, je me réveille avant sept heures.",
+          "englishPrompt": "Yes, I wake up before seven.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Oui, je me réveille avant sept heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-20f2ece8bb77075e",
+          "source": "authored-draft-contrast",
+          "focus": "nous-nous-levons",
+          "frenchAnswer": "Nous nous levons à sept heures.",
+          "englishPrompt": "We get up at seven.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous nous levons à sept heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-b4cdf5c442fe97cc",
+          "source": "authored-draft-contrast",
+          "focus": "negated-reflexive",
+          "frenchAnswer": "Je ne me lève pas tôt.",
+          "englishPrompt": "I do not get up early.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je ne me lève pas tôt."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonKey": "french-basics:17",
+      "grammarModel": {
+        "book": "Ce livre est pour le cours.",
+        "bag": "Ce sac à dos est petit.",
+        "plural": "Ces cahiers-là sont à Ana.",
+        "choice": "Je veux ce cahier-ci, pas celui-là."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-53441f63d0acaff8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Ce livre est pour le cours.",
+          "englishPrompt": "This book is for class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ce livre est pour le cours."
+          ]
+        },
+        {
+          "id": "form-fr-en-d12b5135ff96db8c",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Ce sac à dos est petit.",
+          "englishPrompt": "This backpack is small.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ce sac à dos est petit."
+          ]
+        },
+        {
+          "id": "form-fr-en-6dc6e90a366fd3f1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Ces cahiers-là sont à Ana.",
+          "englishPrompt": "Those notebooks are Ana's.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ces cahiers-là sont à Ana."
+          ]
+        },
+        {
+          "id": "form-fr-en-d9f9aa393979f569",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Ces chaises-ci sont libres.",
+          "englishPrompt": "These chairs are available.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ces chaises-ci sont libres."
+          ]
+        },
+        {
+          "id": "form-fr-en-afe06f82a9ce0c54",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Cette table-là est près de la fenêtre.",
+          "englishPrompt": "That table is near the window.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Cette table-là est près de la fenêtre."
+          ]
+        },
+        {
+          "id": "form-fr-en-937cdbefbd792b03",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Je veux ce cahier-ci, pas celui-là.",
+          "englishPrompt": "I want this notebook, not that one.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je veux ce cahier-ci, pas celui-là."
+          ]
+        },
+        {
+          "id": "form-fr-en-4e5c79cfe64536f5",
+          "source": "authored-draft-contrast",
+          "focus": "cet-before-vowel",
+          "frenchAnswer": "Cet ordinateur est pour le cours.",
+          "englishPrompt": "This computer is for class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Cet ordinateur est pour le cours."
+          ]
+        },
+        {
+          "id": "form-fr-en-e50ec5dfe1944178",
+          "source": "authored-draft-contrast",
+          "focus": "feminine-celle-la",
+          "frenchAnswer": "Je veux cette table-ci, pas celle-là.",
+          "englishPrompt": "I want this table, not that one.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je veux cette table-ci, pas celle-là."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonKey": "french-basics:18",
+      "grammarModel": {
+        "floor": "La salle de cours est au deuxième étage.",
+        "near": "La bibliothèque est près du café.",
+        "under": "Le sac à dos est sous la table.",
+        "behind": "Luis est derrière Ana."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-2b4a1b2e4d905f6e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "La salle de cours est au deuxième étage.",
+          "englishPrompt": "The classroom is on the second floor.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "La salle de cours est au deuxième étage."
+          ]
+        },
+        {
+          "id": "form-fr-en-b6a39cd602cd0fb4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "La bibliothèque est près du café.",
+          "englishPrompt": "The library is near the café.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "La bibliothèque est près du café."
+          ]
+        },
+        {
+          "id": "form-fr-en-963f36115adf6b73",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Le magasin est loin de l’école.",
+          "englishPrompt": "The store is far from the school.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le magasin est loin de l’école."
+          ]
+        },
+        {
+          "id": "form-fr-en-4051aa21597aaeb2",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Le sac à dos est sous la table.",
+          "englishPrompt": "The backpack is under the table.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le sac à dos est sous la table."
+          ]
+        },
+        {
+          "id": "form-fr-en-e0fe1565211571da",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Ana est devant la porte.",
+          "englishPrompt": "Ana is in front of the door.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana est devant la porte."
+          ]
+        },
+        {
+          "id": "form-fr-en-111ff62aae48b302",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Luis est derrière Ana.",
+          "englishPrompt": "Luis is behind Ana.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis est derrière Ana."
+          ]
+        },
+        {
+          "id": "form-fr-en-4d520f9c678ae0e0",
+          "source": "authored-draft-contrast",
+          "focus": "sur-on-top",
+          "frenchAnswer": "Le livre est sur la table.",
+          "englishPrompt": "The book is on the table.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le livre est sur la table."
+          ]
+        },
+        {
+          "id": "form-fr-en-0a302640d2c3ff38",
+          "source": "authored-draft-contrast",
+          "focus": "dans-inside",
+          "frenchAnswer": "Le sac à dos est dans la salle de cours.",
+          "englishPrompt": "The backpack is in the classroom.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le sac à dos est dans la salle de cours."
+          ]
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

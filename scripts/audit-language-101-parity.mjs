@@ -60,6 +60,26 @@ const formPrompts = (base, language, pair) => {
 };
 const frenchForms = formPrompts(frenchFormsRoot, "french", "French:English");
 const japaneseForms = formPrompts(japaneseFormsRoot, "japanese", "Japanese:English");
+const japaneseSpeakingPath = "content/japanese-basics/private-foundation-practice-speaking-ja-en.json";
+let japaneseFoundationSpeakingCount = 0;
+if (existsSync(resolve(japaneseFormsRoot, japaneseSpeakingPath))) {
+  const candidate = read(japaneseFormsRoot, japaneseSpeakingPath);
+  if (candidate.pairKey !== "Japanese:English" || candidate.registered !== false || candidate.reviewed !== false ||
+      sha256(resolve(japaneseFormsRoot, candidate.sourceFile)) !== candidate.sourceSha256 ||
+      sha256(resolve(japaneseFormsRoot, candidate.practiceFile)) !== candidate.practiceSha256 ||
+      sha256(resolve(japaneseFormsRoot, candidate.missionsFile)) !== candidate.missionsSha256)
+    throw new Error("Japanese Foundation speaking candidate source or release gate changed");
+  const roles = new Set();
+  for (let n = 1; n <= 10; n++) {
+    const record = candidate.support?.[n];
+    if (record?.authoredSpeakingMission?.stableLessonKey !== `foundation-japanese-basics:${n}` ||
+        record.authoredSpeakingMission.opening !== record.openingLine || !record.authoredSpeakingMission.objectives?.length)
+      throw new Error(`Japanese Foundation speaking candidate lesson ${n} is incomplete`);
+    roles.add(record.authoredSpeakingMission.role);
+    japaneseFoundationSpeakingCount++;
+  }
+  if (roles.size !== 10) throw new Error("Japanese Foundation speaking roles are not lesson-specific");
+}
 const frenchModeDirectory = resolve(frenchFormsRoot, "content/french-basics");
 const frenchModeFiles = readdirSync(frenchModeDirectory).filter((name) => /^private-foundation-\d+-\d+-mode-prompts-fr-en\.json$/.test(name));
 const frenchModeLessons = new Set();
@@ -251,6 +271,7 @@ lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
   `- The original French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.`,
   `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across ${frenchCoreCoveredLessons.size}/30 lessons; Master has ${frenchMasterModePrompts} across ${frenchMasterCoveredLessons.size}/20 in separate private candidates. Stable lesson IDs and the base curricula are unchanged. All candidates remain unreviewed and unregistered.`,
+  `- Japanese Foundation has ${japaneseFoundationSpeakingCount}/10 lesson-specific speaking missions in a separate source-pinned private candidate; Japanese Core and Master speaking missions still use the shared generated partner role. The candidate remains unreviewed and unregistered.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

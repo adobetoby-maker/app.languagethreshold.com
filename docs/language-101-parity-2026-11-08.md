@@ -1,8 +1,8 @@
 # 101 lesson material parity: Spanish → French and Japanese
 
-- Spanish/Japanese source commit: `5e1da6a23252b85f7717593c6a191560b2af7168`
+- Spanish/Japanese source commit: `71437d5aedc5ae4a8cddadbb30b4b7d5c3cc7411`
 - French private draft commit: `62a1ea8166780df7d61ad15939e92b8a816c1752`
-- French contextual forms commit: `62a1ea8166780df7d61ad15939e92b8a816c1752`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
+- French contextual forms commit: `62a1ea8166780df7d61ad15939e92b8a816c1752`; Japanese contextual forms commit: `ef64e995f031089103bb7d1ed5c3abefaf40d2e5`
 - Scope: Spanish 101 lesson-content files, Japanese 101 lesson-content files, and French 101 private runtime fixture. Counts indicate authored material only; they do not validate language quality, lesson flow, live registration, audio, or native app availability.
 - French fixture is unregistered and `reviewed:false`. Japanese 101 is a mapped draft with `reviewed:false`. No draft is counted as a released course.
 
@@ -95,4 +95,5 @@
 - Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has 180 checks and 120 grammar examples; Japanese has 180 checks and 120 grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.
 - The original French private fixture has 302 checks and 360 six-mode descriptors across 60 lessons. Only 0 descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.
 - Source-pinned French Foundation sidecars contain 60 mode prompts across 10/10 lessons, all embedded in a private runtime candidate. French Core has 180 authored prompts across 30/30 lessons; Master has 120 across 20/20 in separate private candidates. Stable lesson IDs and the base curricula are unchanged. All candidates remain unreviewed and unregistered.
+- Japanese Foundation has 10/10 lesson-specific speaking missions in a separate source-pinned private candidate; Japanese Core and Master speaking missions still use the shared generated partner role. The candidate remains unreviewed and unregistered.
 - Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.

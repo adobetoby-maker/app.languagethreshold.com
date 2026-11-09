@@ -8,6 +8,7 @@ import { validateLessonContent } from '../src/lib/lesson-content-core.ts';
 const load = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const sha = path => createHash('sha256').update(readFileSync(new URL(`../${path}`, import.meta.url))).digest('hex');
 const fixture = load('content/french-basics/private-runtime-core-1-30.json');
+const authoredModes = load('content/french-basics/private-runtime-core-1-30-authored-modes.json');
 const baseOverlay = load('content/french-basics/core-1-9-language-support-overrides.json');
 const nextOverlay = load('content/french-basics/core-10-12-language-support-overrides.json');
 const thirdOverlay = load('content/french-basics/core-13-15-language-support-overrides.json');
@@ -53,6 +54,26 @@ test('French Core pilot pins sources and cannot affect registered language progr
   assert.equal(getCurriculum('spanish-basics')?.lessons.length, 30);
   assert.notEqual(fixture.coreCurriculum.moduleId, 'spanish-basics');
   assert.notEqual(fixture.coreCurriculum.moduleId, 'japanese-basics');
+});
+
+test('Core 1–3 authored mode candidate preserves all 30 stable French lesson identities', () => {
+  assert.equal(authoredModes.registered,false);
+  assert.equal(authoredModes.reviewed,false);
+  assert.deepEqual(authoredModes.coreCurriculum,fixture.coreCurriculum);
+  assert.deepEqual(authoredModes.authoredModeCoverage,[1,2,3]);
+  assert.equal(authoredModes.authoredModeSource.sha256,sha(authoredModes.authoredModeSource.path));
+  assert.equal(authoredModes.authoredModeSource.baseSha256,sha(authoredModes.authoredModeSource.basePath));
+  assert.deepEqual(authoredModes.support.map(x=>x.stableLessonKey),fixture.support.map(x=>x.stableLessonKey));
+  for(const [index,lesson] of authoredModes.support.entries()){
+    for(const mode of ['see','recall','hear','type','say','write']){
+      const activity=lesson.modes[mode].authoredPrompt;
+      if(index>=3){assert.equal(activity,undefined);continue;}
+      assert.ok(activity.prompt.trim());
+      const source=mode==='see'?lesson.reader.target:[...lesson.cards.map(x=>x.target),...Object.values(lesson.grammarNotes.model??{})];
+      assert.ok(source.includes(activity.targetText),`${index+1} ${mode}`);
+    }
+    assert.equal(lesson.modes.hear.recordedAudio,false);
+  }
 });
 
 test('all thirty private Core lessons pass stage-sized word rules and preserve every authored pair', () => {

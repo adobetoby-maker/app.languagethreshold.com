@@ -23,7 +23,9 @@ def display_key(value):
 
 
 def spoken_text(value):
-    return "".join(unicodedata.normalize("NFC", value).split())
+    # These draft strings have no beginner segmentation spaces. Preserve spaces
+    # inside English terms such as "architectural shingle" when sent to TTS.
+    return display_key(value)
 
 
 def inventory():

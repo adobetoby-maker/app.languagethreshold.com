@@ -1,0 +1,729 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "16082ede79f44a64e166714b444ec79540cd1988834a8db0070d7af8fd6174fc",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "master-roofing:7:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Hail Damage Inspection with an Adjuster",
+      "sourceEnglishObjective": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+      "title": "ひょう害の損害査定に立ち会う",
+      "objective": "損害査定人に嵐の経過と屋根の損傷を説明し、工事範囲を確認する。",
+      "focus": "～により attributes damage to the storm. ～では and ～に対して compare roof faces; ～平方フィート preserves the source measurement unit.",
+      "cards": [
+        {
+          "ja": "損害査定人",
+          "en": "the adjuster",
+          "kind": "term"
+        },
+        {
+          "ja": "保険会社",
+          "en": "the insurance company",
+          "kind": "term"
+        },
+        {
+          "ja": "ひょう",
+          "en": "the hail",
+          "kind": "term"
+        },
+        {
+          "ja": "衝突痕",
+          "en": "the hit (impact mark)",
+          "kind": "term"
+        },
+        {
+          "ja": "試験区画",
+          "en": "the test square",
+          "kind": "term"
+        },
+        {
+          "ja": "保険請求",
+          "en": "the claim",
+          "kind": "term"
+        },
+        {
+          "ja": "嵐",
+          "en": "the storm",
+          "kind": "term"
+        },
+        {
+          "ja": "表面粒",
+          "en": "the granule",
+          "kind": "term"
+        },
+        {
+          "ja": "へこみ",
+          "en": "the dent",
+          "kind": "term"
+        },
+        {
+          "ja": "雨どい",
+          "en": "the gutter",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根面",
+          "en": "the roof slope (one face of the roof)",
+          "kind": "term"
+        },
+        {
+          "ja": "工事範囲",
+          "en": "the scope of work",
+          "kind": "term"
+        },
+        {
+          "ja": "チョークの丸印",
+          "en": "the chalk circle",
+          "kind": "term"
+        },
+        {
+          "ja": "平方フィート",
+          "en": "the square foot",
+          "kind": "term"
+        },
+        {
+          "ja": "火曜日の夜に嵐が通りました。",
+          "en": "The storm came through Tuesday night.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この区画では衝突痕を十二個数えました。",
+          "en": "We counted 12 hits in this square.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここではシングル材の表面粒が失われています。",
+          "en": "Here the shingle lost granules.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "衝突痕を一つずつチョークで印してください。",
+          "en": "Mark each hit with chalk.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "衝突痕はいくつ数えましたか。",
+          "en": "How many hits do you count?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう少しゆっくり繰り返していただけますか。",
+          "en": "Can you repeat that more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この工事範囲に同意しますか。",
+          "en": "Do you agree with the scope?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "火曜日の夜に嵐が通り、ひょうは約十五分間降りました。",
+          "en": "The storm came through Tuesday night, and the hail fell for about 15 minutes."
+        },
+        {
+          "ja": "木曜日の午前十時、保険会社の損害査定人がオルティス家の請求を確認しに来ました。",
+          "en": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim."
+        },
+        {
+          "ja": "ロヘリオとケビンは巻き尺とチョークを持って査定人と屋根に上がりました。",
+          "en": "Rogelio and Kevin went up with him, with the tape measure and the chalk."
+        },
+        {
+          "ja": "まず雨どいを確認すると、西側の全体にへこみがありました。",
+          "en": "First they checked the gutter and found dents along the whole west side."
+        },
+        {
+          "ja": "西向きの屋根面に、十フィート四方の試験区画を印しました。",
+          "en": "On the roof slope that faces west, they marked a test square of 10 by 10 feet."
+        },
+        {
+          "ja": "ロヘリオ「ケビン、衝突痕を一つずつチョークで印してください。」",
+          "en": "Rogelio: Kevin, mark each hit with chalk, please."
+        },
+        {
+          "ja": "ケビンは各衝突痕をチョークの丸で囲みました。",
+          "en": "Kevin drew a chalk circle around each hit."
+        },
+        {
+          "ja": "ロヘリオ「この区画では衝突痕を十二個数えました。ここではシングル材の表面粒も失われています。」",
+          "en": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules."
+        },
+        {
+          "ja": "査定人「北側では衝突痕をいくつ数えましたか。」",
+          "en": "Adjuster: How many hits do you count on the north side?"
+        },
+        {
+          "ja": "ロヘリオ「北側では三個だけです。風は西から吹いていました。」",
+          "en": "Rogelio: On the north side we counted only 3, because the wind was coming from the west."
+        },
+        {
+          "ja": "査定人は早口で、平方フィート単位の寸法をいくつか伝えました。",
+          "en": "The adjuster spoke fast and gave several measurements in square feet."
+        },
+        {
+          "ja": "ロヘリオ「すみません、もう少しゆっくり繰り返していただけますか。」",
+          "en": "Rogelio: Sorry, can you repeat that more slowly?"
+        },
+        {
+          "ja": "査定人「はい。西側は千二百平方フィート、北側は八百平方フィートです。」",
+          "en": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800."
+        },
+        {
+          "ja": "査定人「保険会社によると、西側は全面交換、北側は補修です。」",
+          "en": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired."
+        },
+        {
+          "ja": "ロヘリオ「雨どいを含む工事範囲に同意しますか。」",
+          "en": "Rogelio: Do you agree with the scope of work, including the gutter?"
+        },
+        {
+          "ja": "査定人「はい。報告書に記載し、保険会社から所有者へ写しを送ります。」",
+          "en": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner."
+        }
+      ],
+      "forms": [
+        {
+          "base": "通る",
+          "exampleJa": "火曜日の夜に嵐が通りました。",
+          "meaningEnglish": "to pass, to come through",
+          "exampleEnglish": "The storm came through Tuesday night.",
+          "sourceInfinitiveSpanish": "pasar"
+        },
+        {
+          "base": "降る",
+          "exampleJa": "ひょうは約十五分間降りました。",
+          "meaningEnglish": "to fall",
+          "exampleEnglish": "The hail fell for about 15 minutes.",
+          "sourceInfinitiveSpanish": "caer"
+        },
+        {
+          "base": "数える",
+          "exampleJa": "この区画では衝突痕を十二個数えました。",
+          "meaningEnglish": "to count",
+          "exampleEnglish": "We counted 12 hits in this square.",
+          "sourceInfinitiveSpanish": "contar"
+        },
+        {
+          "base": "印を付ける",
+          "exampleJa": "十フィート四方の試験区画に印を付けました。",
+          "meaningEnglish": "to mark",
+          "exampleEnglish": "They marked a test square of 10 by 10 feet.",
+          "sourceInfinitiveSpanish": "marcar"
+        },
+        {
+          "base": "測る",
+          "exampleJa": "西側は千二百平方フィートあります。",
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "The west side measures 1,200 square feet.",
+          "sourceInfinitiveSpanish": "medir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "火曜日の夜にひょうが降りました。西側の十フィート四方の区画では衝突痕を十二個数えました。雨どいを含む工事範囲を確認しましょう。",
+        "goal": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work."
+      },
+      "modes": {
+        "see": "Identify the hail hits, chalk circles, test square, and dented gutter.",
+        "recall": "Recall adjuster, claim, roof slope, scope of work, and square foot.",
+        "hear": "Distinguish 衝突痕 from へこみ when spoken.",
+        "type": "Type 'We counted 12 hits in this square' in Japanese.",
+        "say": "Walk an adjuster through the storm findings and agree on the scope.",
+        "write": "Write the west and north roof measurements with their source units."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "master-roofing:8:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Saying No: Unsafe Request from the Homeowner",
+      "sourceEnglishObjective": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+      "title": "家主からの危険な依頼を断る",
+      "objective": "家主からの危険または不適切な依頼を丁寧に断り、代案を伝える。",
+      "focus": "お気持ちは分かりますが acknowledges the customer before refusal. ～ことはできません states the limit, and ～なら gives a conditional finish time.",
+      "cards": [
+        {
+          "ja": "雷",
+          "en": "the lightning",
+          "kind": "term"
+        },
+        {
+          "ja": "雷鳴",
+          "en": "the thunder",
+          "kind": "term"
+        },
+        {
+          "ja": "雷雨",
+          "en": "the thunderstorm",
+          "kind": "term"
+        },
+        {
+          "ja": "落雷による電撃",
+          "en": "the lightning strike (electric shock)",
+          "kind": "term"
+        },
+        {
+          "ja": "濡れた表面",
+          "en": "the wet surface",
+          "kind": "term"
+        },
+        {
+          "ja": "近道",
+          "en": "the shortcut",
+          "kind": "term"
+        },
+        {
+          "ja": "危険",
+          "en": "the risk",
+          "kind": "term"
+        },
+        {
+          "ja": "安全規則",
+          "en": "the safety rule",
+          "kind": "term"
+        },
+        {
+          "ja": "責任",
+          "en": "the responsibility",
+          "kind": "term"
+        },
+        {
+          "ja": "節約",
+          "en": "the savings",
+          "kind": "term"
+        },
+        {
+          "ja": "メーカー保証",
+          "en": "the manufacturer warranty",
+          "kind": "term"
+        },
+        {
+          "ja": "代案",
+          "en": "the alternative",
+          "kind": "term"
+        },
+        {
+          "ja": "急ぎ",
+          "en": "the hurry",
+          "kind": "term"
+        },
+        {
+          "ja": "判断",
+          "en": "the decision",
+          "kind": "term"
+        },
+        {
+          "ja": "雷が発生している間の作業はお勧めしません。",
+          "en": "I don't recommend that we work in lightning.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "下葺き材を省くことはできません。",
+          "en": "It isn't possible for us to skip the underlayment.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お急ぎなのは分かりますが、それはできません。",
+          "en": "I understand your hurry, but I can't do it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "申し訳ありませんが、それはできません。",
+          "en": "Unfortunately, that's something we can't do.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根を防水シートで覆うことはできます。",
+          "en": "What we can do is cover the roof with a tarp.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私が指示するまで屋根に上がらないでください。",
+          "en": "Don't go up until I say so.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "誰のためにも危険を冒さないでください。",
+          "en": "Don't take risks for anyone.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午後二時、西の遠くから雷鳴が聞こえました。",
+          "en": "It was two in the afternoon, and thunder could be heard far off, to the west."
+        },
+        {
+          "ja": "フローレスさんは急いで家から出て、ロヘリオに話しかけました。",
+          "en": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio."
+        },
+        {
+          "ja": "フローレスさん「子どもたちが土曜日に来るので、雨が降っても作業を続けてください。」",
+          "en": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains."
+        },
+        {
+          "ja": "フローレスさん「費用を節約するため、下葺き材なしでシングル材を敷いてください。」",
+          "en": "Mrs. Flores: And to save money, put the shingles on without the underlayment."
+        },
+        {
+          "ja": "ロヘリオ「お急ぎなのは分かりますが、それはできません。」",
+          "en": "Rogelio: I understand your hurry, but I can't do it."
+        },
+        {
+          "ja": "ロヘリオ「雷が発生しているとき、屋根は最も危険な場所です。雷の中や濡れた表面での作業はお勧めしません。」",
+          "en": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface."
+        },
+        {
+          "ja": "ロヘリオ「落雷による電撃は命に関わります。その危険は受け入れません。」",
+          "en": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk."
+        },
+        {
+          "ja": "ロヘリオ「下葺き材についても、申し訳ありませんが、それはできません。」",
+          "en": "Rogelio: About the underlayment, unfortunately, that's something we can't do."
+        },
+        {
+          "ja": "ロヘリオ「メーカーが保証の条件として求めているので、下葺き材を省くことはできません。」",
+          "en": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty."
+        },
+        {
+          "ja": "ロヘリオ「この近道は今日の節約に見えても、後で雨漏りとさらに大きな出費につながります。」",
+          "en": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense."
+        },
+        {
+          "ja": "ロヘリオ「代わりに屋根を防水シートで覆い、雷雨が過ぎたら戻ることができます。」",
+          "en": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes."
+        },
+        {
+          "ja": "ロヘリオ「予報が良ければ金曜日に仕上がり、土曜日までに屋根が完成します。」",
+          "en": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday."
+        },
+        {
+          "ja": "フローレスさんは少し考え、代案を受け入れました。",
+          "en": "Mrs. Flores thought for a moment and accepted the alternative."
+        },
+        {
+          "ja": "ロヘリオは作業班に「私が指示するまで屋根に上がらず、金属工具を屋根に置いたままにしないでください」と伝えました。",
+          "en": "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof."
+        },
+        {
+          "ja": "ロヘリオ「判断するのは私です。責任も私が負います。」",
+          "en": "Rogelio: The decision is mine, and so is the responsibility."
+        },
+        {
+          "ja": "ロヘリオ「ケビン、誰のためにも危険を冒さないでください。安全規則は全員同じです。」",
+          "en": "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone."
+        }
+      ],
+      "forms": [
+        {
+          "base": "作業する",
+          "exampleJa": "雷が発生している間の作業はお勧めしません。",
+          "meaningEnglish": "to work",
+          "exampleEnglish": "I don't recommend that we work in lightning.",
+          "sourceInfinitiveSpanish": "trabajar"
+        },
+        {
+          "base": "上がる",
+          "exampleJa": "私が指示するまで屋根に上がらないでください。",
+          "meaningEnglish": "to go up",
+          "exampleEnglish": "Don't go up until I say so.",
+          "sourceInfinitiveSpanish": "subir"
+        },
+        {
+          "base": "置いておく",
+          "exampleJa": "金属工具を屋根に置いたままにしないでください。",
+          "meaningEnglish": "to leave (something)",
+          "exampleEnglish": "Don't leave metal tools on the roof.",
+          "sourceInfinitiveSpanish": "dejar"
+        },
+        {
+          "base": "省く",
+          "exampleJa": "ここでは下葺き材を省きません。",
+          "meaningEnglish": "to skip",
+          "exampleEnglish": "Here we never skip the underlayment.",
+          "sourceInfinitiveSpanish": "saltarse"
+        },
+        {
+          "base": "できる",
+          "exampleJa": "代わりに屋根を防水シートで覆うことはできます。",
+          "meaningEnglish": "can, to be able to",
+          "exampleEnglish": "What we can do is cover the roof with a tarp.",
+          "sourceInfinitiveSpanish": "poder"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "お急ぎなのは分かりますが、雷の中での作業や下葺き材を省くことはできません。屋根を防水シートで覆い、雷雨が過ぎたら再開します。",
+        "goal": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative."
+      },
+      "modes": {
+        "see": "Identify the wet roof, lightning, underlayment, and tarp.",
+        "recall": "Recall thunderstorm, manufacturer warranty, shortcut, and alternative.",
+        "hear": "Distinguish 雷 from 雷鳴 when spoken.",
+        "type": "Type 'It isn't possible for us to skip the underlayment' in Japanese.",
+        "say": "Politely refuse the homeowner's request and offer the tarp alternative.",
+        "write": "Write the crew instruction after the homeowner accepts the alternative."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "master-roofing:9:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Feedback on a Bad Course",
+      "sourceEnglishObjective": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+      "title": "曲がった段への個別フィードバック",
+      "objective": "曲がったシングル材の段を具体的に示し、作業員と修正方法を決める。",
+      "focus": "～と思いますか invites the worker's view. ～てほしいです requests a correction, while ～より先に asks for consultation before an uncertain step.",
+      "cards": [
+        {
+          "ja": "曲がった段",
+          "en": "the crooked course",
+          "kind": "term"
+        },
+        {
+          "ja": "露出幅",
+          "en": "the exposure (visible part of the shingle)",
+          "kind": "term"
+        },
+        {
+          "ja": "不ぞろい",
+          "en": "the unevenness",
+          "kind": "term"
+        },
+        {
+          "ja": "寸法",
+          "en": "the measurement",
+          "kind": "term"
+        },
+        {
+          "ja": "巻き尺",
+          "en": "the tape measure",
+          "kind": "term"
+        },
+        {
+          "ja": "間違い",
+          "en": "the mistake",
+          "kind": "term"
+        },
+        {
+          "ja": "修正",
+          "en": "the correction",
+          "kind": "term"
+        },
+        {
+          "ja": "フィードバック",
+          "en": "the feedback",
+          "kind": "term"
+        },
+        {
+          "ja": "個別に",
+          "en": "in private",
+          "kind": "term"
+        },
+        {
+          "ja": "品質",
+          "en": "the quality",
+          "kind": "term"
+        },
+        {
+          "ja": "通り",
+          "en": "the alignment",
+          "kind": "term"
+        },
+        {
+          "ja": "信頼",
+          "en": "the trust",
+          "kind": "term"
+        },
+        {
+          "ja": "作業ペース",
+          "en": "the pace",
+          "kind": "term"
+        },
+        {
+          "ja": "作業員",
+          "en": "the worker",
+          "kind": "term"
+        },
+        {
+          "ja": "この段を一緒に見てほしいです。",
+          "en": "I want you to look at this course with me.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "叱るためではありません。",
+          "en": "It's not to scold you.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここで何が起きたと思いますか。",
+          "en": "What happened here, in your view?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今直した方がよいです。",
+          "en": "It's better that we fix it now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "三段ごとに測ってください。",
+          "en": "I'm asking you to measure every three courses.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "先に私に聞いてほしいです。",
+          "en": "I'd rather you ask me first.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "露出幅を確認してください。",
+          "en": "I'm asking you to check the exposure.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午後、ロヘリオはフリオの担当側で、曲がった段が左へ向かって上がっていることに気づきました。",
+          "en": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side."
+        },
+        {
+          "ja": "フリオは速く作業していましたが、露出幅がシングル材ごとに変わっていました。",
+          "en": "Julio was working fast, but the exposure changed from one shingle to the next."
+        },
+        {
+          "ja": "ロヘリオは作業班の前では何も言わず、フリオを脇に呼びました。",
+          "en": "Rogelio didn't say anything in front of the crew and called him aside."
+        },
+        {
+          "ja": "ロヘリオ「フリオ、この段を個別に一緒に見てほしいです。」",
+          "en": "Rogelio: Julio, I want you to look at this course with me, in private."
+        },
+        {
+          "ja": "ロヘリオ「叱るためではありません。作業ペースは良いですし、あなたを信頼しています。」",
+          "en": "Rogelio: It's not to scold you; your pace is good and I trust you."
+        },
+        {
+          "ja": "ロヘリオ「ここで何が起きたと思いますか。」",
+          "en": "Rogelio: What happened here, in your view?"
+        },
+        {
+          "ja": "フリオ「最後の墨線から測らず、目分量でやったと思います。」",
+          "en": "Julio: I think I didn't measure from the last line and I did it by eye."
+        },
+        {
+          "ja": "ロヘリオ「そういうこともありますが、この不ぞろいは道路から見える間違いになります。」",
+          "en": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street."
+        },
+        {
+          "ja": "ロヘリオ「段がさらに上がる前に、今直した方がよいです。」",
+          "en": "Rogelio: It's better that we fix it now, before the course climbs any higher."
+        },
+        {
+          "ja": "ロヘリオ「巻き尺で三段ごとに測り、寸法をシングル材に印してください。」",
+          "en": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle."
+        },
+        {
+          "ja": "ロヘリオ「通りが分からなければ、先に私に聞いてほしいです。」",
+          "en": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment."
+        },
+        {
+          "ja": "フリオ「分かりました。この四段を外して、もう一度取り付けます。」",
+          "en": "Julio: All right, I'll take off these four courses and put them back on."
+        },
+        {
+          "ja": "ロヘリオ「ありがとう。修正も仕事の一部です。品質は全員で守るものです。」",
+          "en": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone."
+        },
+        {
+          "ja": "その後、会社の監督者のソトさんが来て、地面に置かれたシングル材を見ました。",
+          "en": "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground."
+        },
+        {
+          "ja": "ロヘリオ「ソトさん、露出幅を一緒に確認してください。今、段を修正しています。」",
+          "en": "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course."
+        },
+        {
+          "ja": "ロヘリオにとって、フィードバックは明確に個別に伝え、作業員が分かる解決策を示すときに最も効果的です。",
+          "en": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands."
+        }
+      ],
+      "forms": [
+        {
+          "base": "見る",
+          "exampleJa": "この段を一緒に見てほしいです。",
+          "meaningEnglish": "to look at",
+          "exampleEnglish": "I want you to look at this course with me.",
+          "sourceInfinitiveSpanish": "mirar"
+        },
+        {
+          "base": "直す",
+          "exampleJa": "今直した方がよいです。",
+          "meaningEnglish": "to fix",
+          "exampleEnglish": "It's better that we fix it now.",
+          "sourceInfinitiveSpanish": "arreglar"
+        },
+        {
+          "base": "頼む",
+          "exampleJa": "三段ごとに測るよう頼みます。",
+          "meaningEnglish": "to ask for",
+          "exampleEnglish": "I'm asking you to measure every three courses.",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "base": "尋ねる",
+          "exampleJa": "分からなければ先に私に尋ねてください。",
+          "meaningEnglish": "to ask (a question)",
+          "exampleEnglish": "If you're not sure, ask me first.",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "base": "望む",
+          "exampleJa": "先に私に聞いてほしいです。",
+          "meaningEnglish": "to prefer",
+          "exampleEnglish": "I'd rather you ask me first.",
+          "sourceInfinitiveSpanish": "preferir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "この段を個別に一緒に見てほしいです。叱るためではありません。三段ごとに露出幅を測り、この四段を直しましょう。",
+        "goal": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix."
+      },
+      "modes": {
+        "see": "Find the crooked course and changing exposure.",
+        "recall": "Recall alignment, tape measure, feedback, and correction.",
+        "hear": "Distinguish 露出幅 from 寸法 when spoken.",
+        "type": "Type 'What happened here, in your view?' in Japanese.",
+        "say": "Give private, specific feedback and agree on the fix.",
+        "write": "Write the agreed measurement and four-course correction."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

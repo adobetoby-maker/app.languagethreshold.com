@@ -4,13 +4,14 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { isCorrectFormPracticeAnswer } from "../src/lib/language-form-practice.ts";
 
-test("French form checking accepts explicit variants and common typing differences", () => {
+test("French form checking accepts explicit variants and punctuation differences but preserves accents", () => {
   const prompt = {
     pairKey: "French:English",
     frenchAnswer: "Qu’est-ce que tu étudies ce semestre ?",
     knownFrenchVariants: ["Qu'étudies-tu ce semestre ?"],
   };
-  assert.ok(isCorrectFormPracticeAnswer("qu est ce que tu etudies ce semestre", prompt, "French:English"));
+  assert.equal(isCorrectFormPracticeAnswer("qu est ce que tu etudies ce semestre", prompt, "French:English"), false);
+  assert.ok(isCorrectFormPracticeAnswer("qu est ce que tu étudies ce semestre", prompt, "French:English"));
   assert.ok(isCorrectFormPracticeAnswer("Qu'étudies-tu ce semestre?", prompt, "French:English"));
   assert.equal(isCorrectFormPracticeAnswer("Que fais-tu ce semestre ?", prompt, "French:English"), false);
   assert.equal(isCorrectFormPracticeAnswer("", prompt, "French:English"), false);

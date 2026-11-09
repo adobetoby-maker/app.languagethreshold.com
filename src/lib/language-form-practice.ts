@@ -16,8 +16,6 @@ function normalizeFormAnswer(value: string, pair: FormPracticePair): string {
     return text.replace(/[\p{P}\p{Z}\s]/gu, "");
   }
   return text
-    .normalize("NFD")
-    .replace(/\p{M}/gu, "")
     .replace(/[^\p{L}\p{N}]+/gu, " ")
     .trim()
     .replace(/\s+/g, " ");

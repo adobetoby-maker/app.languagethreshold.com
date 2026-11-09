@@ -95,6 +95,28 @@ for (const [index, lesson] of frenchModeCandidate.support.entries()) {
   }
 }
 if (frenchCandidateModePrompts !== frenchAuthoredModePrompts) throw new Error("French mode candidate and sidecars differ");
+const frenchCoreModePath = "content/french-basics/private-core-1-3-mode-prompts-fr-en.json";
+const frenchCoreMode = read(frenchFormsRoot, frenchCoreModePath);
+const frenchCoreCandidate = read(frenchFormsRoot, "content/french-basics/private-runtime-core-1-30-authored-modes.json");
+const frenchBaseCore = read(frenchFormsRoot, frenchPath("core"));
+if (frenchCoreMode.pairKey !== "French:English" || frenchCoreMode.reviewed !== false || frenchCoreMode.registered !== false ||
+    sha256(resolve(frenchFormsRoot, frenchCoreMode.sourceFile)) !== frenchCoreMode.sourceSha256 ||
+    frenchCoreCandidate.reviewed !== false || frenchCoreCandidate.registered !== false ||
+    JSON.stringify(frenchCoreCandidate.coreCurriculum) !== JSON.stringify(frenchBaseCore.coreCurriculum) ||
+    JSON.stringify(frenchCoreCandidate.authoredModeCoverage) !== JSON.stringify([1, 2, 3]))
+  throw new Error("French Core authored-mode source, stable curriculum, or release gate changed");
+let frenchCoreModePrompts = 0;
+for (const [index, lesson] of frenchCoreCandidate.support.entries()) {
+  if (lesson.stableLessonKey !== `french-basics:${index + 1}`)
+    throw new Error(`French Core candidate lesson ${index + 1}: stable key changed`);
+  for (const mode of modeNames) {
+    const prompt = lesson.modes?.[mode]?.authoredPrompt;
+    if (index < 3 && (!prompt?.prompt || !prompt?.targetText))
+      throw new Error(`French Core candidate lesson ${index + 1}: ${mode} missing`);
+    if (index >= 3 && prompt) throw new Error(`French Core candidate lesson ${index + 1}: unexpected ${mode}`);
+    if (prompt) frenchCoreModePrompts++;
+  }
+}
 const spanishPractice = readTracked(root, "src/data/spanish-basics-practice.json");
 const japanesePractice = readTracked(root, "src/data/japanese-basics-practice.json");
 const lines = [
@@ -180,7 +202,7 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
 lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
   `- The original French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.`,
-  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 Foundation lessons. A separate private runtime candidate embeds all ${frenchCandidateModePrompts} prompts without changing stable stage IDs. Both candidate and sidecars remain unreviewed and unregistered; Core and Master have no corresponding authored-mode sidecar.`,
+  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across 3/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

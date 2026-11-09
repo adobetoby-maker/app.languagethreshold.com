@@ -14,6 +14,33 @@ META = [
     ("Settle who pays for the group", "offer to pay, respond when others insist, and follow local custom on treating", "Your new friends insist on paying for breakfast; negotiate politely, accept or decline, and agree how to settle."),
     ("Breakfast threshold", "handle a complete breakfast with children or special needs, a complication, a seating or charge disagreement, local customs, and a warm farewell without English", "Navigate a busy breakfast with a mixed group—an allergy, a wrong charge, a seating dispute, and a long chat with a local—from the doorway to a warm goodbye."),
 ]
+LOCALIZED_VERB_EXAMPLES = {
+    (28, "platicar"): (
+        "Don Ramón chats with everyone at the café.",
+        "Madame Martin chats with everyone at the café.",
+        "Madame Martin discute avec tout le monde au café.",
+    ),
+    (28, "contar"): (
+        "He tells me that he was a teacher at the school on the plaza.",
+        "She tells me that she used to teach at the school near the square.",
+        "Elle me raconte qu’elle enseignait à l’école près de la place.",
+    ),
+    (28, "dedicarse"): (
+        "And what do you do for a living?",
+        "And what did you do for a living?",
+        "Et quel métier exerciez-vous ?",
+    ),
+    (29, "pagar"): (
+        "If you pay the bill, I'll leave the tip.",
+        "If you pay the bill, I can offer to leave a tip.",
+        "Si vous payez l’addition, je peux proposer de laisser un pourboire.",
+    ),
+    (29, "dejar"): (
+        "They usually leave 10 percent.",
+        "If you want to leave a tip, ask the server.",
+        "Si vous voulez laisser un pourboire, demandez au serveur.",
+    ),
+}
 
 
 def main() -> None:
@@ -42,11 +69,20 @@ def main() -> None:
         ]
         assert item["passage"]["english"] == original["passage"]["native"]
         assert len(item["passage"]["french"]) == len(item["passage"]["english"])
-        assert [(verb["meaningEnglish"], verb["exampleEnglish"], verb["sourceInfinitiveSpanish"])
-                for verb in item["verbs"]] == [
-            (verb["native"], verb["example"]["native"], verb["infinitive"])
-            for verb in original["verbs"]
-        ]
+        assert len(item["verbs"]) == len(original["verbs"])
+        for verb, source_verb in zip(item["verbs"], original["verbs"]):
+            assert (verb["meaningEnglish"], verb["sourceInfinitiveSpanish"]) == (
+                source_verb["native"], source_verb["infinitive"]
+            )
+            localized = LOCALIZED_VERB_EXAMPLES.get((number, source_verb["infinitive"]))
+            if localized:
+                source_example, english_example, french_example = localized
+                assert source_verb["example"]["native"] == source_example
+                assert (verb["exampleEnglish"], verb["exampleFrench"]) == (
+                    english_example, french_example
+                )
+            else:
+                assert verb["exampleEnglish"] == source_verb["example"]["native"]
         assert all(word["fr"].strip() for word in item["words"])
         assert all(line.strip() for line in item["passage"]["french"])
         assert all(verb["infinitiveFrench"].strip() and verb["exampleFrench"].strip() for verb in item["verbs"])

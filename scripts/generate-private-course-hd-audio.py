@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Dry-run or synthesize a bounded private Chirp 3 HD inventory batch.
 
-Paid runs require a quota project and an approved exact-text SHA-256. This tool
-does not publish recordings or mark listening review complete.
+Paid runs require a quota project and an exact-text SHA-256. An unreviewed draft
+pilot has a separate ten-clip gate. This tool never publishes recordings.
 """
 import argparse
 import base64
@@ -49,6 +49,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--project", help="Google Cloud billing/quota project")
     parser.add_argument("--approved-sha256", help="reviewed inventory exactTextSha256")
+    parser.add_argument("--draft-pilot-sha256", help="unreviewed, source-pinned pilot exactTextSha256")
     parser.add_argument("--generate", action="store_true")
     parser.add_argument("--limit", type=int, default=20)
     args = parser.parse_args()
@@ -68,14 +69,27 @@ def main():
         raise SystemExit("Inventory aggregate text hash mismatch")
     if any(digest(row["text"].encode()) != row["sha256"] for row in rows):
         raise SystemExit("Inventory row text hash mismatch")
-    if args.generate and (not args.project or args.approved_sha256 != inventory["exactTextSha256"]):
-        raise SystemExit("Paid synthesis requires --project and exact --approved-sha256")
+    draft_pilot = args.draft_pilot_sha256 is not None
+    if args.approved_sha256 and draft_pilot:
+        raise SystemExit("Choose reviewed synthesis or an unreviewed draft pilot")
+    if args.generate:
+        if not args.project:
+            raise SystemExit("Paid synthesis requires --project")
+        if draft_pilot:
+            if args.draft_pilot_sha256 != inventory["exactTextSha256"] \
+                    or inventory.get("state") != "private-audio-pilot-unsynthesized" \
+                    or inventory.get("reviewed") is not False \
+                    or len(rows) > 5 or args.limit > 10:
+                raise SystemExit("Unreviewed draft pilot requires exact hash, five texts and ten-clip cap")
+        elif args.approved_sha256 != inventory["exactTextSha256"]:
+            raise SystemExit("Reviewed synthesis requires exact --approved-sha256")
     os.umask(0o077)
     path = args.output / "manifest.json"
     manifest = json.loads(path.read_text()) if path.is_file() else {
         "schema": 1, "state": "private-unreviewed-recordings", "locale": locale,
         "pairKey": inventory["pairKey"], "exactTextSha256": inventory["exactTextSha256"],
-        "voices": voices, "listeningReviewed": False, "clips": {},
+        "voices": voices, "textReviewed": not draft_pilot,
+        "listeningReviewed": False, "clips": {},
     }
     if any(manifest.get(k) != v for k, v in (("locale", locale), ("pairKey", inventory["pairKey"]),
                  ("exactTextSha256", inventory["exactTextSha256"]), ("voices", voices))):

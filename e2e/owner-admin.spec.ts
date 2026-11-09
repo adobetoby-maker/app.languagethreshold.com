@@ -658,4 +658,37 @@ test.describe("download leads", () => {
       true,
     );
   });
+  test("download report distinguishes no leads from unavailable reporting", async ({ page }) => {
+    test.setTimeout(45_000);
+    await openOwner(page, "analytics");
+    const report = page.getByRole("region", { name: "Download leads", exact: true });
+    await expect(report.getByText("synthetic@example.test", { exact: true })).toBeVisible();
+    await page.route("**/api/owner-download-leads?*", (route) =>
+      route.fulfill({
+        json: {
+          requests: 0,
+          uniqueEmails: 0,
+          newEmails: 0,
+          todayEmails: 0,
+          todayRequests: 0,
+          testsExcluded: 0,
+          trackingStartedAt: "Tracking begins with reporting deployment.",
+          sources: [],
+          daily: [],
+          recent: [],
+        },
+      }),
+    );
+    await report.getByRole("button", { name: "Refresh", exact: true }).click();
+    await expect(report.getByText(/No recorded download requests/)).toBeVisible();
+    await page.route("**/api/owner-download-leads?*", (route) =>
+      route.fulfill({
+        status: 503,
+        json: { error: "Download lead reporting is unavailable. Please refresh shortly." },
+      }),
+    );
+    await report.getByRole("button", { name: "Refresh", exact: true }).click();
+    await expect(report.getByRole("alert")).toContainText("unavailable");
+    await expect(report.getByText(/No recorded download requests/)).toHaveCount(0);
+  });
 });

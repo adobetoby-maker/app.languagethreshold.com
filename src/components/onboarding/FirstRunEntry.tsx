@@ -82,6 +82,15 @@ export function FirstRunEntry() {
               builds essential verbs and grammar before daily-life and specialty conversations.
             </p>
 
+            {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+              <a
+                href="/exams?target=Spanish&native=English"
+                className="mt-4 inline-flex min-h-11 items-center rounded-xl border border-border px-4 py-2 font-semibold hover:border-gold focus-visible:ring-2 focus-visible:ring-gold"
+              >
+                Take a free Spanish placement test
+              </a>
+            )}
+
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"

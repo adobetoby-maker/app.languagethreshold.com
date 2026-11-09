@@ -230,6 +230,14 @@ function PlacementRunner({
           Take placement test
         </button>
       )}
+      {target === "Spanish" && native === "English" && (
+        <a
+          className={`${button} mt-3 inline-flex items-center`}
+          href={`/exams?module=${encodeURIComponent(base)}&target=Spanish&native=English&test=post-core`}
+        >
+          Take the free post-Core test · unlimited retakes
+        </a>
+      )}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           ref={dialogRef}

@@ -126,24 +126,24 @@ export const KATAKANA_GROUPS: CharGroup[] = [
 // Contextual words shown after their character group is practiced.
 export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   "h-vowels": [
-    { kana: "あお", romaji: "ao", meaning: "blue" },
-    { kana: "うえ", romaji: "ue", meaning: "above" },
-    { kana: "いえ", romaji: "ie", meaning: "house" },
+    { kana: "あおい", romaji: "aoi", meaning: "blue" },
+    { kana: "うえ", romaji: "ue", meaning: "above/on" },
+    { kana: "いい", romaji: "ii", meaning: "good" },
   ],
   "h-k": [
     { kana: "かお", romaji: "kao", meaning: "face" },
-    { kana: "いく", romaji: "iku", meaning: "to go" },
-    { kana: "きく", romaji: "kiku", meaning: "to listen" },
+    { kana: "いきます", romaji: "ikimasu", meaning: "go" },
+    { kana: "きます", romaji: "kimasu", meaning: "come" },
   ],
   "h-s": [
-    { kana: "すき", romaji: "suki", meaning: "like / love" },
+    { kana: "すき", romaji: "suki", meaning: "like" },
     { kana: "さかな", romaji: "sakana", meaning: "fish" },
-    { kana: "そこ", romaji: "soko", meaning: "there" },
+    { kana: "そこ", romaji: "soko", meaning: "there near you" },
   ],
   "h-t": [
-    { kana: "たべる", romaji: "taberu", meaning: "to eat" },
+    { kana: "たべます", romaji: "tabemasu", meaning: "eat" },
     { kana: "ちいさい", romaji: "chiisai", meaning: "small" },
-    { kana: "とける", romaji: "tokeru", meaning: "to melt" },
+    { kana: "ともだち", romaji: "tomodachi", meaning: "friend" },
   ],
   "h-n": [
     { kana: "なに", romaji: "nani", meaning: "what" },

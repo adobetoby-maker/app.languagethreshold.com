@@ -6,16 +6,19 @@ import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
-const reviewedFixture = { ...manifest, listeningReviewed: true };
+const unreviewedFixture = { ...manifest, listeningReviewed: false };
 
 test("Japanese pilot resolves exact displayed lines for selected female and male voices", () => {
-  assert.match(recordedJapanesePath("わたしは あきです。", "ja-JP-Chirp3-HD-Aoede", "ja-JP", reviewedFixture), /female\.mp3$/);
-  assert.match(recordedJapanesePath("わたしは あきです。", "ja-JP-Chirp3-HD-Charon", "ja-JP", reviewedFixture), /male\.mp3$/);
+  assert.match(recordedJapanesePath("わたしは あきです。", "ja-JP-Chirp3-HD-Aoede", "ja-JP"), /female\.mp3$/);
+  assert.match(recordedJapanesePath("わたしは あきです。", "ja-JP-Chirp3-HD-Charon", "ja-JP"), /male\.mp3$/);
 });
 
-test("unreviewed pilot clips remain unavailable to learners", () => {
-  assert.equal(manifest.listeningReviewed, false);
-  assert.equal(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP"), null);
+test("owner-accepted pilot is available; an unreviewed manifest remains gated", () => {
+  assert.equal(manifest.listeningReviewed, true);
+  assert.equal(manifest.listeningReview.reviewer, "owner");
+  assert.equal(manifest.listeningReview.decision, "accepted-all-pilot-clips");
+  assert.match(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP"), /female\.mp3$/);
+  assert.equal(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP", unreviewedFixture), null);
 });
 
 test("public clips and the lookup manifest match exact Foundation 1 source and hashes", () => {
@@ -38,5 +41,5 @@ test("Japanese pilot never borrows audio for another line, voice or locale", () 
     ["わたしは あおきです。", "ja-JP-Chirp3-HD-Aoede", "ja-JP"],
     ["わたしは あきです。", "ja-JP-Chirp3-HD-Zephyr", "ja-JP"],
     ["わたしは あきです。", "ja-JP-Chirp3-HD-Aoede", "en-US"],
-  ]) assert.equal(recordedJapanesePath(text, voice, locale, reviewedFixture), null);
+  ]) assert.equal(recordedJapanesePath(text, voice, locale), null);
 });

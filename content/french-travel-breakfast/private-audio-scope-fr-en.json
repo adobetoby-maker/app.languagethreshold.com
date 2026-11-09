@@ -4,7 +4,7 @@
   "moduleId": "travel-breakfast",
   "pairKey": "French:English",
   "locale": "fr-FR",
-  "sourceFixtureSha256": "d9277c90c07bb296d5fee055665f4678b41070c0e1ae4247a73377d10e1fd50f",
+  "sourceFixtureSha256": "9963204ac5a3d37e46a6953952a8981c2275dcddbce7faf17853ed66544481bd",
   "reviewed": false,
   "registered": false,
   "recordingsGenerated": false,
@@ -95,9 +95,9 @@
       "reader": 708
     },
     "uniqueExactTexts": 1608,
-    "unicodeCharactersPerVoice": 77014
+    "unicodeCharactersPerVoice": 77010
   },
-  "exactTextSha256": "5019b3cd0a2e2f9a4e2eee81db2a82fc416d40af0122687ac3b5e37c044640b6",
+  "exactTextSha256": "0719184165388b755b9f71f41f8b8cffee122a54e9d1c370ac850cae4f03e4ed",
   "texts": [
     {
       "text": "Alors je demande : « Ici, on laisse habituellement un pourboire ? »",
@@ -4600,16 +4600,6 @@
       ]
     },
     {
-      "text": "Je confirme seulement les ingrédients ; je ne demande pas de conseil médical.",
-      "sha256": "0ad4645846c3a8b2f594440b33c04db26adcdeebaf0f51578d153c2ebc3fb808",
-      "occurrences": [
-        {
-          "draftLessonKey": "core:6",
-          "field": "reader[8].targetFrench"
-        }
-      ]
-    },
-    {
       "text": "Je crois qu’il y a une erreur sur la facture.",
       "sha256": "0d966388965d0a2678ed38157940659fb903a20604e95a12749b71e38c7371ac",
       "occurrences": [
@@ -5110,6 +5100,16 @@
         {
           "draftLessonKey": "core:11",
           "field": "reader[9].targetFrench"
+        }
+      ]
+    },
+    {
+      "text": "Je répète les ingrédients que j'évite, et le serveur vérifie ma commande.",
+      "sha256": "280811bf2263270c85c23ca88b1a3aef9c45873d9c30c79a02d3346ce8522621",
+      "occurrences": [
+        {
+          "draftLessonKey": "core:6",
+          "field": "reader[8].targetFrench"
         }
       ]
     },

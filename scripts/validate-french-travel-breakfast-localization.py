@@ -12,6 +12,7 @@ DRAFTS = [
     ROOT / "content/french-travel-breakfast/foundation-4-6-draft.json",
     ROOT / "content/french-travel-breakfast/foundation-7-10-draft.json",
     ROOT / "content/french-travel-breakfast/core-1-3-draft.json",
+    ROOT / "content/french-travel-breakfast/core-4-6-draft.json",
     ROOT / "content/french-travel-breakfast/core-7-9-draft.json",
     ROOT / "content/french-travel-breakfast/core-22-24-draft.json",
     ROOT / "content/french-travel-breakfast/core-25-27-draft.json",
@@ -24,7 +25,7 @@ SOURCE_LOCALE = re.compile(
     r"Roma|Rome|Italian|italien|Puebla|chilaquiles|salsa verde|Colombi\w*|Salento|"
     r"Nequi|arepas?|aguapanela\w*|calentado\w*|pan dulce|Doña|Don Ramón)\b", re.I
 )
-LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:7", "core:22", "core:23", "core:24", "core:25", "core:28", "core:29", "master:7"}
+LOCALIZED = {f"foundation:{n}" for n in range(1, 11)} | {"core:3", "core:6", "core:7", "core:22", "core:23", "core:24", "core:25", "core:28", "core:29", "master:7"}
 REMAINING = []
 
 
@@ -76,6 +77,9 @@ def main():
     assert "Oaxaca" not in json.dumps(burn["reader"], ensure_ascii=False)
     assert "small burn" in burn["reader"][5]["supportEnglish"]
     assert "petite brûlure" in burn["reader"][5]["targetFrench"]
+    restriction = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "core:6")
+    assert restriction["reader"][7]["supportEnglish"] == "I repeat the ingredients I avoid, and the server checks my order."
+    assert restriction["reader"][7]["targetFrench"] == "Je répète les ingrédients que j'évite, et le serveur vérifie ma commande."
     reaction = next(lesson for lesson in fixture["lessons"] if lesson["draftLessonKey"] == "master:13")
     assert reaction["reviewed"] is False and reaction["registered"] is False
     clinical_terms = {word["supportEnglish"]: word["targetFrench"] for word in reaction["words"]}

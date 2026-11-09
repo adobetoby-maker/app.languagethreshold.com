@@ -42,6 +42,19 @@ def main() -> None:
         ]
         assert item["passage"]["english"] == original["passage"]["native"]
         assert len(item["passage"]["french"]) == len(item["passage"]["english"])
+        if number == 6:
+            learner_english = item["passage"]["englishFrenchCourse"]
+            assert learner_english[:-1] == item["passage"]["english"][:-1]
+            assert learner_english[-1] == "I repeat the ingredients I avoid, and the server checks my order."
+            assert item["passage"]["french"][-1] == (
+                "Je répète les ingrédients que j'évite, et le serveur vérifie ma commande."
+            )
+            assert len(learner_english) == len(item["passage"]["french"])
+            assert "medical advice" not in item["teachingNotesEnglish"].lower()
+            assert "medical advice" not in " ".join(learner_english).lower()
+            assert "conseil médical" not in " ".join(item["passage"]["french"]).lower()
+            assert all("cross-contact" not in word.get("noteEnglish", "").lower()
+                       for word in item["words"])
         assert [(verb["meaningEnglish"], verb["exampleEnglish"], verb["sourceInfinitiveSpanish"])
                 for verb in item["verbs"]] == [
             (verb["native"], verb["example"]["native"], verb["infinitive"])

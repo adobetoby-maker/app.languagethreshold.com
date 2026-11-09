@@ -18,6 +18,25 @@ test("French form checking accepts explicit variants and punctuation differences
   assert.equal(isCorrectFormPracticeAnswer("Qu'étudies-tu ce semestre?", prompt, "Japanese:English"), false);
 });
 
+test("all accented French 101 source forms reject an accentless rewrite", () => {
+  const preview = JSON.parse(readFileSync(new URL(
+    "../content/french-basics/private-form-runtime-preview-fr-en.json", import.meta.url,
+  )));
+  let accented = 0;
+  for (const lesson of preview.lessons) {
+    for (const activity of lesson.activities.filter((item) => item.mode === "produce-target")) {
+      const withoutMarks = activity.answer.normalize("NFD").replace(/\p{M}/gu, "");
+      if (withoutMarks === activity.answer) continue;
+      accented += 1;
+      assert.equal(isCorrectFormPracticeAnswer(withoutMarks, {
+        pairKey: "French:English", frenchAnswer: activity.answer,
+        knownFrenchVariants: activity.knownFrenchVariants,
+      }, "French:English"), false, activity.id);
+    }
+  }
+  assert.equal(accented, 235);
+});
+
 test("Japanese form checking tolerates editorial spaces but preserves wording", () => {
   const prompt = {
     pairKey: "Japanese:English",

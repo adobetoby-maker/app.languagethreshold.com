@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'content/french-basics/private-runtime-core-1-30.json'
-RANGES = ((1, 3), (4, 6), (7, 9), (10, 12), (13, 15))
+RANGES = ((1, 3), (4, 6), (7, 9), (10, 12), (13, 15), (16, 18), (19, 21))
 PROMPTS = [ROOT / f'content/french-basics/private-core-{first}-{last}-mode-prompts-fr-en.json'
            for first, last in RANGES]
 OUT = ROOT / 'content/french-basics/private-runtime-core-1-30-authored-modes.json'

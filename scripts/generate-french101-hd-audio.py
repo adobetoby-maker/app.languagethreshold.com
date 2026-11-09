@@ -26,6 +26,7 @@ SOURCES = {
     "core": (30, "private-runtime-core-1-30.json", "french-basics"),
     "master": (20, "private-runtime-master-1-20.json", "master-french-basics"),
 }
+BASE_KEYS = {"foundation": "stageFile", "core": "coreCurriculum", "master": "masterStageFragment"}
 FOUNDATION_SPEAKERS = {"Claire", "Marc", "Léa", "Paul", "Hugo", "Inès", "Nadia", "Théo", "Sami"}
 MASTER_SPEAKERS = {"Professeure", "Élève", "Camarade", "Camille", "Responsable", "Léa",
                    "Noé", "Maya", "Hugo", "Ana", "Agent", "Coordinatrice", "Vendeur",
@@ -101,6 +102,18 @@ def lesson_source(stage, number):
             raise ValueError("Reader line lacks native pair")
         spoken = spoken_for_display(stage, display)
         add(display, spoken, f"reader[{index}].target")
+    # The native course retains exact authored source words that the web card
+    # sidecars omit. Record their audio too, without changing existing card or
+    # Reader records and without creating a duplicate for the same display text.
+    base = fixture[BASE_KEYS[stage]]["lessons"][number - 1]
+    if base["n"] != number:
+        raise ValueError("Source lesson number changed")
+    for index, word in enumerate(base["words"]):
+        if not isinstance(word.get("en"), str) or not word["en"].strip():
+            raise ValueError("Source word lacks native meaning")
+        display = exact(word["es"])
+        if sha(display.encode()) not in entries:
+            add(display, spoken_for_display(stage, display), f"sourceWords[{index}].es")
     return entries, sha(raw), module
 
 

@@ -55,3 +55,5 @@ The source moves from a busy café to ordering coffee and then a Mexican bakery.
 Private card/Reader audio scope and ten-clip Foundation 1 listening pilot: [`private-audio-scope-2026-11-08.md`](private-audio-scope-2026-11-08.md). These remain unreviewed and unpublished.
 
 Foundation 1–3 also have 18 private, lesson-specific See/Recall/Hear/Type/Say/Write activity prompts in `private-mode-activities-foundation-1-3.json`. `scripts/build-french-travel-foundation-1-3-mode-activities.py --check` verifies the fixture hash, source IDs, exact French/English answer pairs and disabled release gates. Hear activities require reviewed recorded audio; these activities remain unregistered and unreviewed.
+
+Foundation 2–3 have a second private ten-clip audio listening pilot, pinned by `private-audio-pilot-foundation-2-3.json` and described in [`private-audio-scope-2026-11-08.md`](private-audio-scope-2026-11-08.md). The two pilots total 20 generated clips; all remain unreviewed and unavailable in the app.

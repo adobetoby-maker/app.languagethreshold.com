@@ -123,7 +123,7 @@ export const KATAKANA_GROUPS: CharGroup[] = [
   { id: "k-w", name: "W-row ワヲン", chars: ["ワ", "ヲ", "ン"], romaji: ["wa", "wo", "n"] },
 ];
 
-// Words built from early hiragana groups — shown after the group is practiced
+// Contextual words shown after their character group is practiced.
 export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   "h-vowels": [
     { kana: "あお", romaji: "ao", meaning: "blue" },
@@ -149,6 +149,46 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "なに", romaji: "nani", meaning: "what" },
     { kana: "にほん", romaji: "nihon", meaning: "Japan" },
     { kana: "ねこ", romaji: "neko", meaning: "cat" },
+  ],
+  "k-vowels": [
+    { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
+    { kana: "ドア", romaji: "doa", meaning: "door" },
+  ],
+  "k-k": [
+    { kana: "コピー", romaji: "kopii", meaning: "copy" },
+    { kana: "クラス", romaji: "kurasu", meaning: "class" },
+  ],
+  "k-s": [
+    { kana: "クラス", romaji: "kurasu", meaning: "class" },
+    { kana: "スタッフ", romaji: "sutaffu", meaning: "staff" },
+  ],
+  "k-t": [
+    { kana: "ノート", romaji: "nooto", meaning: "notebook" },
+    { kana: "テスト", romaji: "tesuto", meaning: "test" },
+  ],
+  "k-n": [
+    { kana: "ノート", romaji: "nooto", meaning: "notebook" },
+    { kana: "ニュース", romaji: "nyuusu", meaning: "news" },
+  ],
+  "k-h": [
+    { kana: "ホテル", romaji: "hoteru", meaning: "hotel" },
+    { kana: "ハム", romaji: "hamu", meaning: "ham" },
+  ],
+  "k-m": [
+    { kana: "メニュー", romaji: "menyuu", meaning: "menu" },
+    { kana: "メンバー", romaji: "menbaa", meaning: "member" },
+  ],
+  "k-y": [
+    { kana: "ヨガ", romaji: "yoga", meaning: "yoga" },
+    { kana: "ユーロ", romaji: "yuuro", meaning: "euro" },
+  ],
+  "k-r": [
+    { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
+    { kana: "グループ", romaji: "guruupu", meaning: "group" },
+  ],
+  "k-w": [
+    { kana: "ペン", romaji: "pen", meaning: "pen" },
+    { kana: "パン", romaji: "pan", meaning: "bread" },
   ],
 };
 

@@ -118,9 +118,9 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
         }
       >
         {mode === "trace" && (
-          <TraceMode group={group} words={words} sentence={sentence} fullScreen={fullScreen} />
+          <TraceMode key={group.id} group={group} words={words} sentence={sentence} fullScreen={fullScreen} />
         )}
-        {mode === "complete" && <MissingHalfMode group={group} />}
+        {mode === "complete" && <MissingHalfMode key={group.id} group={group} />}
         {mode === "penpal" && <PenPalMode />}
       </div>
     </div>

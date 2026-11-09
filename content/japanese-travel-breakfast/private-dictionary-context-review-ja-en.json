@@ -1,0 +1,1473 @@
+{
+  "schema": 1,
+  "state": "private-context-review-queue",
+  "pairKey": "Japanese:English",
+  "reviewed": false,
+  "registered": false,
+  "sourceDictionarySha256": "ddefa80878c7e776648a34103a06e968800344422a6b7faabda8daf26d59d257",
+  "counts": {
+    "ambiguousHeadwords": 20,
+    "exactPairVariants": 45,
+    "cardOccurrences": 72,
+    "readerMatches": 65
+  },
+  "ambiguous": [
+    {
+      "headword": "ありがとうございます",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-2e3c578ce7e3ad8d",
+          "native": "Thank you",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:29:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Decide who pays for breakfast",
+              "objective": "Offer to pay, acknowledge a friend’s counteroffer, and agree who pays the bill and whether to ask about gratuity.",
+              "scene": "Friends finish breakfast and politely agree on the bill.",
+              "readerMatches": [
+                {
+                  "ja": "そうですか。ありがとうございます。",
+                  "en": "I see. Thank you."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-342d147ce8cbc500",
+          "native": "Thank you very much",
+          "kindVariants": [
+            "phrase"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:1:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Morning at the café",
+              "objective": "Greet café staff politely, say your name, and recognize common breakfast words in hiragana and katakana.",
+              "scene": "Sam enters a small café in the morning and asks about breakfast.",
+              "readerMatches": [
+                {
+                  "ja": "ありがとうございます。",
+                  "en": "Thank you very much."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "お会計",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-215c204329100cfa",
+          "native": "the bill",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:14:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "A rushed breakfast",
+              "objective": "Explain a twelve-minute limit, ask what can be prepared quickly, and confirm the expected time before ordering.",
+              "scene": "Sam has a tour meeting soon and asks a café worker for a realistic breakfast option.",
+              "readerMatches": [
+                {
+                  "ja": "先にお会計できますか。",
+                  "en": "Can I pay first?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:15:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Breakfast midpoint review",
+              "objective": "Handle greeting, seating, order, a dairy restriction, an incorrect drink, and payment in one Japanese-led scene.",
+              "scene": "Sam, who avoids dairy, checks a breakfast order and finds the drink was made with regular milk.",
+              "readerMatches": [
+                {
+                  "ja": "トーストのお会計をお願いします。カードで払えますか。",
+                  "en": "The bill for the toast, please. Can I pay by card?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-3415bc0c489ebc15",
+          "native": "the bill; payment",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:9:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Ask for the bill",
+              "objective": "Request water and the bill politely, then confirm the accepted way to pay.",
+              "scene": "Sam finishes breakfast and asks staff how to pay.",
+              "readerMatches": [
+                {
+                  "ja": "ありがとうございます。お会計をお願いします。",
+                  "en": "Thank you. The bill, please."
+                },
+                {
+                  "ja": "お会計はレジでお願いします。",
+                  "en": "Please pay at the register."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:12:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Understand the bill",
+              "objective": "Ask for the bill, clarify an unfamiliar item, confirm the total and payment method, then request a receipt.",
+              "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。お会計をお願いします。",
+                  "en": "Excuse me. The bill, please."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "よかった点",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-6eb3ac2918a154f2",
+          "native": "strong point",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:19:ja-en",
+              "sourceFile": "master-19-20-draft.json",
+              "cardPosition": 4,
+              "lessonTitle": "Give balanced breakfast feedback at checkout",
+              "objective": "Review the family's breakfasts with the lodging manager, name strengths and concerns, and explain what verified options would matter for a future stay.",
+              "scene": "At checkout, a family discusses breakfast quality and celiac-disease accommodation with a guesthouse manager.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-4be67e235b3b3c4a",
+          "native": "what worked well",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:9:ja-en",
+              "sourceFile": "master-7-9-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Give kind, specific feedback to a café owner",
+              "objective": "Tell a café owner what worked, explain two observable problems with the coffee and menu, and offer two concrete suggestions without claiming technical certainty.",
+              "scene": "A regular customer gives a new café owner courteous feedback about a lukewarm drink and hard-to-read menu board.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "わかりません",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-e4eb6ad548b1e4e7",
+          "native": "I do not know",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:6:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "State a food restriction",
+              "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
+              "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-9bfba742be5d2e48",
+          "native": "I do not understand",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:10:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 2,
+              "lessonTitle": "Ask for help understanding",
+              "objective": "Recognize common katakana loanwords and ask a café worker to repeat or explain an unfamiliar dish.",
+              "scene": "At a café, Sam cannot understand a seasonal specialty and asks for a slower explanation.",
+              "readerMatches": [
+                {
+                  "ja": "すみません、よくわかりません。",
+                  "en": "Excuse me, I do not quite understand."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "カフェオレ",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-db05bdeb7c92a336",
+          "native": "coffee with milk",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:8:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 6,
+              "lessonTitle": "Order for a group",
+              "objective": "Order different drinks and foods for three people, then read back who receives each item.",
+              "scene": "Sam orders with two companions at a café and checks the server’s readback.",
+              "readerMatches": [
+                {
+                  "ja": "私にはカフェオレと卵料理をお願いします。",
+                  "en": "Coffee with milk and an egg dish for me, please."
+                },
+                {
+                  "ja": "確認します。カフェオレと卵料理はお客様の分ですね。",
+                  "en": "Let me confirm. The coffee with milk and egg dish are for you."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:9:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Change part of an order to takeaway",
+              "objective": "Ask to take a coffee and pastry away, check packaging, and request a napkin or spoon.",
+              "scene": "Sam has limited time before a train and asks the café to change the unprepared part of an order.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "travel-breakfast:10:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 7,
+              "lessonTitle": "Correct an order politely",
+              "objective": "Explain that the drink is different from what you ordered and a pastry is missing; offer the receipt so staff can check.",
+              "scene": "Sam checks a takeaway bag and notices a different drink and missing pastry.",
+              "readerMatches": [
+                {
+                  "ja": "注文したのはブレンドですが、これはカフェオレです。",
+                  "en": "I ordered a blend coffee, but this is coffee with milk."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-08723115c8acbb48",
+          "native": "coffee with milk (menu label)",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:2:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 4,
+              "lessonTitle": "Choosing a coffee",
+              "objective": "Ask what coffee is offered, check milk and size options, then state whether you will drink it there.",
+              "scene": "Sam studies a café menu and checks which milk and size are available.",
+              "readerMatches": [
+                {
+                  "ja": "ブレンドとカフェオレがあります。",
+                  "en": "We have blend coffee and café au lait."
+                },
+                {
+                  "ja": "カフェオレは小さいサイズがありますか。",
+                  "en": "Is there a small café au lait?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "グルテンフリー表示",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-010ff92a2398d7e0",
+          "native": "gluten-free label",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:19:ja-en",
+              "sourceFile": "master-19-20-draft.json",
+              "cardPosition": 8,
+              "lessonTitle": "Give balanced breakfast feedback at checkout",
+              "objective": "Review the family's breakfasts with the lodging manager, name strengths and concerns, and explain what verified options would matter for a future stay.",
+              "scene": "At checkout, a family discusses breakfast quality and celiac-disease accommodation with a guesthouse manager.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-08d958c97283c099",
+          "native": "gluten-free sign",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:14:ja-en",
+              "sourceFile": "master-13-15-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Report a mislabeled bread near miss",
+              "objective": "Describe a mislabeled bread tray without blame, stop an unverified selection, and agree to check labels and preparation controls before future service.",
+              "scene": "At a bakery café, a friend notices a gluten-free sign beside bread whose ingredient label lists wheat and raises the discrepancy with staff.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "ナプキン",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-2e1f3343f806d9e7",
+          "native": "napkin",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:4:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 8,
+              "lessonTitle": "Ask what is available",
+              "objective": "Say you are hungry, ask whether orange juice is available, and request a fork and napkin politely.",
+              "scene": "At the café counter, Sam asks about juice before requesting utensils.",
+              "readerMatches": [
+                {
+                  "ja": "フォークとナプキンもください。",
+                  "en": "A fork and napkin too, please."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:9:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 8,
+              "lessonTitle": "Change part of an order to takeaway",
+              "objective": "Ask to take a coffee and pastry away, check packaging, and request a napkin or spoon.",
+              "scene": "Sam has limited time before a train and asks the café to change the unprepared part of an order.",
+              "readerMatches": [
+                {
+                  "ja": "ナプキンを一枚いただけますか。",
+                  "en": "Could I have one napkin?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-beddae3bb640b807",
+          "native": "napkins",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:25:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 19,
+              "lessonTitle": "Ask for help after a hot-drink spill",
+              "objective": "Report a hot-coffee burn on the arm, ask for cold water, napkins and a first-aid kit, and respond to the staff's apology and offer.",
+              "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
+              "readerMatches": [
+                {
+                  "ja": "ナプキンをもう少しいただけますか。",
+                  "en": "Could you pass me more napkins, please?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "予約",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-4b12701bdd1a49f6",
+          "native": "booking",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:27:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 9,
+              "lessonTitle": "Arrange an early packed breakfast",
+              "objective": "Ask the hotel about breakfast before an early transfer, confirm pickup time and place, and disclose an allergy without assuming safe handling.",
+              "scene": "A hotel guest leaves before breakfast service and checks whether a suitable option exists.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-0e1f6ec6571683a6",
+          "native": "reservation",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:20:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Question a hotel breakfast charge",
+              "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+              "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+              "readerMatches": [
+                {
+                  "ja": "ご予約の内容を確認します。",
+                  "en": "I will check your booking details."
+                },
+                {
+                  "ja": "こちらが予約確認メールです。朝食付きと書いてあります。",
+                  "en": "Here is my booking confirmation email. It says breakfast is included."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:21:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Negotiate a table change",
+              "objective": "Explain why a smaller table will not fit a stroller, ask when a reservation begins, and agree on a workable alternative.",
+              "scene": "Staff needs a reserved table; Sam’s family checks another space that can fit the stroller.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。この席は十時半から予約があります。",
+                  "en": "Excuse me. This table is reserved from ten thirty."
+                },
+                {
+                  "ja": "予約は何時からですか。",
+                  "en": "From what time is the reservation?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:30:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 4,
+              "lessonTitle": "Breakfast from doorway to goodbye",
+              "objective": "Coordinate a family breakfast, request suitable seating, disclose a nut allergy, question a charge, ask about this café’s policy, and close warmly.",
+              "scene": "A parent with children navigates seating, allergy questions and the bill in a busy café.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。この席は予約していました。",
+                  "en": "Excuse me. I reserved this table."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "会計",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-a1475c8b5f7178c3",
+          "native": "bill",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:29:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Decide who pays for breakfast",
+              "objective": "Offer to pay, acknowledge a friend’s counteroffer, and agree who pays the bill and whether to ask about gratuity.",
+              "scene": "Friends finish breakfast and politely agree on the bill.",
+              "readerMatches": [
+                {
+                  "ja": "会計はレジですか、テーブルですか。",
+                  "en": "Do we pay at the register or at the table?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:7:ja-en",
+              "sourceFile": "master-7-9-draft.json",
+              "cardPosition": 3,
+              "lessonTitle": "Settle a group breakfast bill before departure",
+              "objective": "Recount the group's orders and recorded payments, check the remaining balance with staff, and settle it before the shuttle departs.",
+              "scene": "A group organizer checks a rural café's order ledger as an earlier shuttle departure approaches.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-8eb539f4b2e23d77",
+          "native": "checkout",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:20:ja-en",
+              "sourceFile": "master-19-20-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Lead a group through a difficult breakfast",
+              "objective": "Coach a relative's order, seek allergen information for another relative, handle an unavailable dish, update the next host about a delay, and give measured checkout feedback in Japanese.",
+              "scene": "A family breakfast group handles a missing allergen binder, a sold-out dish and a delayed next appointment before checkout.",
+              "readerMatches": [
+                {
+                  "ja": "最後に、資料が見つからなかったことを会計時に事実として伝えます。",
+                  "en": "Finally, I will report at checkout that the information could not be found, as a matter of fact."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-7ba0916e5fea3522",
+          "native": "payment",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:1:ja-en",
+              "sourceFile": "master-1-3-draft.json",
+              "cardPosition": 8,
+              "lessonTitle": "Explain this café’s breakfast routine",
+              "objective": "Teach a friend this café’s sequence for finding a seat, ordering and paying, then have the friend explain it back.",
+              "scene": "A traveler coaches a friend through the routine posted at a particular café.",
+              "readerMatches": [
+                {
+                  "ja": "はい。この店ではレジで先に注文して会計します。",
+                  "en": "Yes. At this café, we order and pay at the register first."
+                },
+                {
+                  "ja": "まず案内を見て、次にレジで注文と会計をして、最後に番号で受け取ります。",
+                  "en": "First I check the sign, next I order and pay at the register, and finally I pick it up by number."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "失礼します",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-64657b42846a413d",
+          "native": "Excuse me; I will be going",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:28:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Chat with a café regular",
+              "objective": "Sustain a polite neighborhood conversation with follow-up questions, respond to a recommendation, and close naturally.",
+              "scene": "A café regular starts a friendly conversation with a traveler at a shared table.",
+              "readerMatches": [
+                {
+                  "ja": "ありがとうございます。お話できてよかったです。そろそろ失礼します。",
+                  "en": "Thank you. It was nice talking with you. I should be going now."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-07124ac55ee53385",
+          "native": "excuse me",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:12:ja-en",
+              "sourceFile": "master-10-12-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Coach polite and casual requests at a guesthouse",
+              "objective": "Explain how to begin politely with an unfamiliar host or guest, listen for the form of address they prefer, and model a more casual request with a familiar peer.",
+              "scene": "A traveler coaches a friend through breakfast requests to a guesthouse host, a new guest and a familiar travel companion.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "宿の方",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-46dd8db09a66ba34",
+          "native": "guesthouse host",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:12:ja-en",
+              "sourceFile": "master-10-12-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "Coach polite and casual requests at a guesthouse",
+              "objective": "Explain how to begin politely with an unfamiliar host or guest, listen for the form of address they prefer, and model a more casual request with a familiar peer.",
+              "scene": "A traveler coaches a friend through breakfast requests to a guesthouse host, a new guest and a familiar travel companion.",
+              "readerMatches": [
+                {
+                  "ja": "初めて会う宿の方には、まず丁寧に話しましょう。",
+                  "en": "When meeting the guesthouse host for the first time, let's begin politely."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:18:ja-en",
+              "sourceFile": "master-16-18-draft.json",
+              "cardPosition": 2,
+              "lessonTitle": "Update a guesthouse host about a delayed arrival",
+              "objective": "Text a guesthouse host about a train delay and larger group, then call to confirm arrival, room capacity, key pickup and breakfast timing.",
+              "scene": "A traveler on a delayed train texts a guesthouse, then calls when signal returns to clarify a larger booking and next morning's breakfast.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-9ee6a2903ace55e6",
+          "native": "lodging host",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:20:ja-en",
+              "sourceFile": "master-19-20-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Lead a group through a difficult breakfast",
+              "objective": "Coach a relative's order, seek allergen information for another relative, handle an unavailable dish, update the next host about a delay, and give measured checkout feedback in Japanese.",
+              "scene": "A family breakfast group handles a missing allergen binder, a sold-out dish and a delayed next appointment before checkout.",
+              "readerMatches": [
+                {
+                  "ja": "次の宿の方に、到着が遅れると連絡します。",
+                  "en": "I will tell the next lodging host that we will arrive late."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "少なめ",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-817cb6516c2e02bf",
+          "native": "less; a small amount",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:8:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 7,
+              "lessonTitle": "Not ready yet",
+              "objective": "Say you are not ready, explain that you do not eat meat, and ask for another drink with less sugar.",
+              "scene": "Sam asks for a moment and adjusts a drink order at a café.",
+              "readerMatches": [
+                {
+                  "ja": "砂糖は少なめでお願いします。",
+                  "en": "Less sugar, please."
+                },
+                {
+                  "ja": "はい、砂糖は少なめですね。",
+                  "en": "Yes, less sugar."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-9b36ff33678f907e",
+          "native": "smaller amount",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:16:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 7,
+              "lessonTitle": "Breakfast with children",
+              "objective": "Ask for stroller space and a high chair, then check a smaller and milder breakfast option for children.",
+              "scene": "Sam arrives at a café with two children and asks about seating and food options.",
+              "readerMatches": [
+                {
+                  "ja": "たまご料理を少なめにできますか。",
+                  "en": "Can you make a smaller portion of the egg dish?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "席",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-ea8a103101b26de8",
+          "native": "seat",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:1:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 5,
+              "lessonTitle": "Entering a busy café",
+              "objective": "Greet staff, ask whether to order at the counter, and find out if a seat is available.",
+              "scene": "Sam enters a busy café near a station and asks the staff how to order.",
+              "readerMatches": [
+                {
+                  "ja": "席は空いていますか。",
+                  "en": "Is a seat available?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:5:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Checking hotel breakfast",
+              "objective": "Ask whether your room plan includes breakfast, confirm the hours, and ask how the buffet works.",
+              "scene": "At the hotel dining-room entrance, Sam gives a room number and checks the booking.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "travel-breakfast:15:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 2,
+              "lessonTitle": "Breakfast midpoint review",
+              "objective": "Handle greeting, seating, order, a dairy restriction, an incorrect drink, and payment in one Japanese-led scene.",
+              "scene": "Sam, who avoids dairy, checks a breakfast order and finds the drink was made with regular milk.",
+              "readerMatches": [
+                {
+                  "ja": "おはようございます。一人です。席は空いていますか。",
+                  "en": "Good morning. I am alone. Is a seat available?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:16:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 5,
+              "lessonTitle": "Breakfast with children",
+              "objective": "Ask for stroller space and a high chair, then check a smaller and milder breakfast option for children.",
+              "scene": "Sam arrives at a café with two children and asks about seating and food options.",
+              "readerMatches": [
+                {
+                  "ja": "ベビーカーを置ける席はありますか。",
+                  "en": "Is there a seat with room for a stroller?"
+                },
+                {
+                  "ja": "通路をふさがない席を確認します。",
+                  "en": "I will check for a seat that does not block the aisle."
+                },
+                {
+                  "ja": "こちらの席はいかがですか。",
+                  "en": "How about this seat?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:21:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 2,
+              "lessonTitle": "Negotiate a table change",
+              "objective": "Explain why a smaller table will not fit a stroller, ask when a reservation begins, and agree on a workable alternative.",
+              "scene": "Staff needs a reserved table; Sam’s family checks another space that can fit the stroller.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。この席は十時半から予約があります。",
+                  "en": "Excuse me. This table is reserved from ten thirty."
+                },
+                {
+                  "ja": "あの席にはベビーカーが入りません。",
+                  "en": "The stroller will not fit at that table."
+                },
+                {
+                  "ja": "失礼しました。別の席をお探しします。",
+                  "en": "I am sorry. I will look for another seat."
+                },
+                {
+                  "ja": "十時半からです。こちらの席なら通路も空きます。",
+                  "en": "From ten thirty. This seat also keeps the aisle clear."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:26:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 4,
+              "lessonTitle": "Ask before working at a café table",
+              "objective": "Ask whether a two-hour work visit is welcome, check Wi-Fi and outlets, and ask when to order again.",
+              "scene": "A traveler with a laptop checks a café’s work and seating policy.",
+              "readerMatches": [
+                {
+                  "ja": "混んできたら席を空けます。",
+                  "en": "If it gets busy, I will free up the seat."
+                },
+                {
+                  "ja": "コンセントを使える席はありますか。",
+                  "en": "Is there a seat where I may use an outlet?"
+                },
+                {
+                  "ja": "あちらの席は使えます。",
+                  "en": "You may use it at that seat."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:30:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 3,
+              "lessonTitle": "Breakfast from doorway to goodbye",
+              "objective": "Coordinate a family breakfast, request suitable seating, disclose a nut allergy, question a charge, ask about this café’s policy, and close warmly.",
+              "scene": "A parent with children navigates seating, allergy questions and the bill in a busy café.",
+              "readerMatches": [
+                {
+                  "ja": "はい。こちらの席へどうぞ。",
+                  "en": "Yes. Please come to this table."
+                },
+                {
+                  "ja": "すみません。この席は予約していました。",
+                  "en": "Excuse me. I reserved this table."
+                },
+                {
+                  "ja": "失礼しました。別のお席をご案内します。",
+                  "en": "I am sorry. I will show you another table."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:1:ja-en",
+              "sourceFile": "master-1-3-draft.json",
+              "cardPosition": 6,
+              "lessonTitle": "Explain this café’s breakfast routine",
+              "objective": "Teach a friend this café’s sequence for finding a seat, ordering and paying, then have the friend explain it back.",
+              "scene": "A traveler coaches a friend through the routine posted at a particular café.",
+              "readerMatches": [
+                {
+                  "ja": "まず、入口の案内を見て、席が空いているか確認します。",
+                  "en": "First, check the sign at the entrance and see whether a seat is free."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-6d788c1b3c8bee87",
+          "native": "seat; place at a table",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:3:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 1,
+              "lessonTitle": "A table and a hot coffee",
+              "objective": "Ask whether a table is available and describe the temperature or taste of a drink or food without importing Spanish ser/estar grammar.",
+              "scene": "Sam asks for a table, then checks a coffee and a sweet pastry with the server.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。この席は空いていますか。",
+                  "en": "Excuse me. Is this seat available?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "料金",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-85ad5eaa1688dc9e",
+          "native": "charge",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:12:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 3,
+              "lessonTitle": "Understand the bill",
+              "objective": "Ask for the bill, clarify an unfamiliar item, confirm the total and payment method, then request a receipt.",
+              "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+              "readerMatches": [
+                {
+                  "ja": "この飲み物は別料金ですか。",
+                  "en": "Is this drink a separate charge?"
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:27:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Arrange an early packed breakfast",
+              "objective": "Ask the hotel about breakfast before an early transfer, confirm pickup time and place, and disclose an allergy without assuming safe handling.",
+              "scene": "A hotel guest leaves before breakfast service and checks whether a suitable option exists.",
+              "readerMatches": [
+                {
+                  "ja": "確認後に、受け取り時間と場所、料金をお知らせします。",
+                  "en": "After checking, I will tell you the pickup time, place and charge."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-956a7d707975ca94",
+          "native": "price",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:20:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 7,
+              "lessonTitle": "Question a hotel breakfast charge",
+              "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+              "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-9e8d321ddebbfc8c",
+          "native": "price; charge",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:19:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 5,
+              "lessonTitle": "Compare two posted prices",
+              "objective": "Ask why one café posts different prices for counter and table service, then choose where to drink coffee.",
+              "scene": "A café menu displays one price at the counter and another at a table; Sam asks staff what applies.",
+              "readerMatches": [
+                {
+                  "ja": "メニューの料金を確認したいです。",
+                  "en": "I would like to check the menu prices."
+                },
+                {
+                  "ja": "はい。この店ではテーブル席に追加料金があります。",
+                  "en": "Yes. At this shop, table seating has an additional charge."
+                },
+                {
+                  "ja": "料金が違うのはなぜですか。",
+                  "en": "Why are the prices different?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-ff9904dd2733677e",
+          "native": "rate",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:19:ja-en",
+              "sourceFile": "master-19-20-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Give balanced breakfast feedback at checkout",
+              "objective": "Review the family's breakfasts with the lodging manager, name strengths and concerns, and explain what verified options would matter for a future stay.",
+              "scene": "At checkout, a family discusses breakfast quality and celiac-disease accommodation with a guesthouse manager.",
+              "readerMatches": [
+                {
+                  "ja": "ありがとうございます。料金と部屋の条件も確認してから検討します。",
+                  "en": "Thank you. We will consider it after checking the rate and room terms too."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "明細",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-fabee0732c94fe5e",
+          "native": "itemized bill",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:20:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 5,
+              "lessonTitle": "Question a hotel breakfast charge",
+              "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+              "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+              "readerMatches": [
+                {
+                  "ja": "すみません。明細を確認したいです。",
+                  "en": "Excuse me. I would like to check the bill."
+                },
+                {
+                  "ja": "訂正した明細をいただけますか。",
+                  "en": "Could I have a corrected bill?"
+                },
+                {
+                  "ja": "はい。新しい明細をお渡しします。",
+                  "en": "Yes. I will give you a new bill."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "travel-breakfast:30:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 9,
+              "lessonTitle": "Breakfast from doorway to goodbye",
+              "objective": "Coordinate a family breakfast, request suitable seating, disclose a nut allergy, question a charge, ask about this café’s policy, and close warmly.",
+              "scene": "A parent with children navigates seating, allergy questions and the bill in a busy café.",
+              "readerMatches": [
+                {
+                  "ja": "ありがとうございます。ところで、明細を確認したいです。コーヒーは二杯注文しました。",
+                  "en": "Thank you. By the way, I would like to check the bill. We ordered two coffees."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-aaf96a072444ba80",
+          "native": "itemized details",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:12:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 2,
+              "lessonTitle": "Understand the bill",
+              "objective": "Ask for the bill, clarify an unfamiliar item, confirm the total and payment method, then request a receipt.",
+              "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+              "readerMatches": [
+                {
+                  "ja": "はい。こちらが明細です。",
+                  "en": "Yes. Here are the itemized details."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "確認してください",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-605d2f42e974d4c5",
+          "native": "Please check",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:6:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "State a food restriction",
+              "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
+              "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-2abe842936ec4653",
+          "native": "please check",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "foundation-travel-breakfast:8:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Not ready yet",
+              "objective": "Say you are not ready, explain that you do not eat meat, and ask for another drink with less sugar.",
+              "scene": "Sam asks for a moment and adjusts a drink order at a café.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "foundation-travel-breakfast:10:ja-en",
+              "sourceFile": "foundation-1-10-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Ask for help understanding",
+              "objective": "Recognize common katakana loanwords and ask a café worker to repeat or explain an unfamiliar dish.",
+              "scene": "At a café, Sam cannot understand a seasonal specialty and asks for a slower explanation.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "travel-breakfast:10:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 9,
+              "lessonTitle": "Correct an order politely",
+              "objective": "Explain that the drink is different from what you ordered and a pastry is missing; offer the receipt so staff can check.",
+              "scene": "Sam checks a takeaway bag and notices a different drink and missing pastry.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "travel-breakfast:20:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Question a hotel breakfast charge",
+              "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+              "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-8636e8888a35573c",
+          "native": "please verify",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:6:ja-en",
+              "sourceFile": "master-4-6-draft.json",
+              "cardPosition": 14,
+              "lessonTitle": "Plan substitutes when oat milk is unavailable",
+              "objective": "Compare available drink options for two friends with different preferences, verify ingredients and preparation with staff, and agree on a temporary plan.",
+              "scene": "A group at a café learns that oat milk is out of stock and asks staff what can actually be prepared for each person.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "確認する",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-4427ae663bba93de",
+          "native": "to check",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:5:ja-en",
+              "sourceFile": "master-4-6-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Negotiate breakfast after a hotel closure",
+              "objective": "Explain that breakfast was included in a booking, describe the closed dining room, and ask staff for an approved alternative or billing adjustment.",
+              "scene": "A guest calmly discusses an unexpectedly closed hotel breakfast room with the front-desk clerk.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:12:ja-en",
+              "sourceFile": "master-10-12-draft.json",
+              "cardPosition": 14,
+              "lessonTitle": "Coach polite and casual requests at a guesthouse",
+              "objective": "Explain how to begin politely with an unfamiliar host or guest, listen for the form of address they prefer, and model a more casual request with a familiar peer.",
+              "scene": "A traveler coaches a friend through breakfast requests to a guesthouse host, a new guest and a familiar travel companion.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-62aca932ad95736c",
+          "native": "to confirm",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:15:ja-en",
+              "sourceFile": "master-13-15-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Relay hotel evacuation directions",
+              "objective": "Follow hotel staff's evacuation instructions, pass brief clear directions to other guests, and report the group's location from the designated outside meeting place.",
+              "scene": "During a hotel breakfast alarm, guests follow an evacuation guide to a designated outside assembly point and account for companions.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:18:ja-en",
+              "sourceFile": "master-16-18-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Update a guesthouse host about a delayed arrival",
+              "objective": "Text a guesthouse host about a train delay and larger group, then call to confirm arrival, room capacity, key pickup and breakfast timing.",
+              "scene": "A traveler on a delayed train texts a guesthouse, then calls when signal returns to clarify a larger booking and next morning's breakfast.",
+              "readerMatches": [
+                {
+                  "ja": "詳しく確認するため、お電話できますか。",
+                  "en": "Could we speak by phone to confirm the details?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-9dd5a4d0130569bb",
+          "native": "to verify",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:4:ja-en",
+              "sourceFile": "master-4-6-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Check an outdated breakfast allergen chart",
+              "objective": "Read the hotel's allergen chart with staff, notice a supplier change, and request current ingredient and preparation details before anyone with a sesame allergy chooses food.",
+              "scene": "At a hotel breakfast buffet, one guest helps a companion with a sesame allergy ask the host about an old chart and a new bread supplier.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:10:ja-en",
+              "sourceFile": "master-10-12-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Mediate a group breakfast plan before pickup",
+              "objective": "Report two friends' preferences fairly, verify the market's opening and pickup time, then agree on a breakfast plan without rushing anyone who feels unwell.",
+              "scene": "At a mountain lodge, two friends disagree about visiting a morning market before a scheduled shuttle pickup.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:16:ja-en",
+              "sourceFile": "master-16-18-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Review a written statement with an inspector",
+              "objective": "Answer formal questions about a breakfast incident, distinguish what you witnessed from what others reported, and request corrections before confirming a written statement.",
+              "scene": "A witness reads a hotel incident statement line by line with an inspector and corrects a mistaken time.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "調理器具",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-2d5f6b61ced3122e",
+          "native": "cooking tools",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:18:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 7,
+              "lessonTitle": "Ask about shared handling",
+              "objective": "Explain a companion’s nut allergy, ask about shared utensils and preparation, and decline an item when handling cannot be verified.",
+              "scene": "Aya has a nut allergy and asks a café worker about pastry storage and shared tools before ordering.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-4db72c23a57ee38c",
+          "native": "cooking utensils",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:6:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 9,
+              "lessonTitle": "State a food restriction",
+              "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
+              "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+              "readerMatches": [
+                {
+                  "ja": "原材料は確認できましたが、調理器具は共用です。",
+                  "en": "We checked the ingredients, but the cooking utensils are shared."
+                }
+              ]
+            },
+            {
+              "stableLessonId": "master-travel-breakfast:4:ja-en",
+              "sourceFile": "master-4-6-draft.json",
+              "cardPosition": 8,
+              "lessonTitle": "Check an outdated breakfast allergen chart",
+              "objective": "Read the hotel's allergen chart with staff, notice a supplier change, and request current ingredient and preparation details before anyone with a sesame allergy chooses food.",
+              "scene": "At a hotel breakfast buffet, one guest helps a companion with a sesame allergy ask the host about an old chart and a new bread supplier.",
+              "readerMatches": [
+                {
+                  "ja": "今の表示ラベルと仕様書を厨房に確認します。調理器具についても聞きます。",
+                  "en": "I will check the current label and specification with the kitchen. I will also ask about utensils."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "責任者",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-b1b0d64e5d638898",
+          "native": "manager",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:5:ja-en",
+              "sourceFile": "master-4-6-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Negotiate breakfast after a hotel closure",
+              "objective": "Explain that breakfast was included in a booking, describe the closed dining room, and ask staff for an approved alternative or billing adjustment.",
+              "scene": "A guest calmly discusses an unexpectedly closed hotel breakfast room with the front-desk clerk.",
+              "readerMatches": [
+                {
+                  "ja": "近くの店の食事券を出せるか、責任者に確認します。",
+                  "en": "I will ask the manager whether we can offer a voucher for a nearby café."
+                },
+                {
+                  "ja": "責任者の承認が取れました。食事券をお渡しします。",
+                  "en": "The manager approved a voucher. Here it is."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-1b0be4a951560432",
+          "native": "person in charge",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:24:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 5,
+              "lessonTitle": "Call for help at a café",
+              "objective": "Alert staff to a collapse, ask them to call local emergency services, and report only the location and what you observed.",
+              "scene": "A guest sees another customer collapse and immediately alerts café staff.",
+              "readerMatches": []
+            },
+            {
+              "stableLessonId": "travel-breakfast:25:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 10,
+              "lessonTitle": "Ask for help after a hot-drink spill",
+              "objective": "Report a hot-coffee burn on the arm, ask for cold water, napkins and a first-aid kit, and respond to the staff's apology and offer.",
+              "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
+              "readerMatches": [
+                {
+                  "ja": "はい。責任者にも知らせます。",
+                  "en": "Yes. I will also tell the person in charge."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "headword": "遠慮します",
+      "variants": [
+        {
+          "exactPairId": "dict-ja-en-2c32cf33a929f58c",
+          "native": "I will decline",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "master-travel-breakfast:8:ja-en",
+              "sourceFile": "master-7-9-draft.json",
+              "cardPosition": 12,
+              "lessonTitle": "Decline removal of nuts from a prepared pastry",
+              "objective": "Politely decline an offer to remove nuts from a prepared pastry for a friend with a tree-nut allergy, and ask about a verifiable alternative or choose nothing.",
+              "scene": "At a bakery café, a server offers to remove almond pieces from a pastry; the guests decline and ask for current labeling and preparation information.",
+              "readerMatches": []
+            }
+          ]
+        },
+        {
+          "exactPairId": "dict-ja-en-467fb94f29b598a9",
+          "native": "I will politely decline",
+          "kindVariants": [
+            "term"
+          ],
+          "occurrences": [
+            {
+              "stableLessonId": "travel-breakfast:29:ja-en",
+              "sourceFile": "core-1-30-draft.json",
+              "cardPosition": 11,
+              "lessonTitle": "Decide who pays for breakfast",
+              "objective": "Offer to pay, acknowledge a friend’s counteroffer, and agree who pays the bill and whether to ask about gratuity.",
+              "scene": "Friends finish breakfast and politely agree on the bill.",
+              "readerMatches": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

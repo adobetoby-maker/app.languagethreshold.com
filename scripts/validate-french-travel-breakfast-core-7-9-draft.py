@@ -14,6 +14,11 @@ META = [
     ("Order for another person", "order several drinks and foods accurately and confirm who gets each item", "Order breakfast for a family or group with different preferences."),
     ("Request takeaway", "ask for food or coffee to go, packaging, napkins, and utensils", "Convert part of a seated order into takeaway because your train leaves soon."),
 ]
+LOCALIZED_CORE_7_ORDER_EXAMPLE = (
+    "The locals order chilaquiles in the morning.",
+    "In this café, guests order tartines in the morning.",
+    "Dans ce café, des clients commandent des tartines le matin.",
+)
 
 
 def main() -> None:
@@ -42,11 +47,19 @@ def main() -> None:
         ]
         assert item["passage"]["english"] == original["passage"]["native"]
         assert len(item["passage"]["french"]) == len(item["passage"]["english"])
-        assert [(verb["meaningEnglish"], verb["exampleEnglish"], verb["sourceInfinitiveSpanish"])
-                for verb in item["verbs"]] == [
-            (verb["native"], verb["example"]["native"], verb["infinitive"])
-            for verb in original["verbs"]
-        ]
+        assert len(item["verbs"]) == len(original["verbs"])
+        for verb, source_verb in zip(item["verbs"], original["verbs"]):
+            assert (verb["meaningEnglish"], verb["sourceInfinitiveSpanish"]) == (
+                source_verb["native"], source_verb["infinitive"]
+            )
+            if number == 7 and source_verb["infinitive"] == "pedir":
+                source_example, english_example, french_example = LOCALIZED_CORE_7_ORDER_EXAMPLE
+                assert source_verb["example"]["native"] == source_example
+                assert (verb["exampleEnglish"], verb["exampleFrench"]) == (
+                    english_example, french_example
+                )
+            else:
+                assert verb["exampleEnglish"] == source_verb["example"]["native"]
         assert all(word["fr"].strip() for word in item["words"])
         assert all(line.strip() for line in item["passage"]["french"])
         assert all(verb["infinitiveFrench"].strip() and verb["exampleFrench"].strip() for verb in item["verbs"])

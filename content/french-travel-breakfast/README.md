@@ -61,3 +61,7 @@ Foundation 4–10 add 42 more lesson-specific private activity prompts in `priva
 Core 1–3 add 18 more lesson-specific private prompts in `private-mode-activities-core-1-3.json`. `scripts/build-french-travel-core-1-3-mode-activities.py --check` verifies deterministic exact-pair generation; the cumulative validator now covers 13 lessons and 78 activities. Review, audio, integration, and device gates remain open.
 
 The Core 1–3 source validator explicitly pins Core 3's baguette and brioche verb examples as paired French/English bakery adaptations. It also verifies the original bolillo and concha source examples and verb identities, so these two deliberate substitutions cannot hide unrelated drift.
+
+Core 4–9 add 36 private, lesson-specific six-mode prompts in `private-mode-activities-core-4-9.json`. `scripts/build-french-travel-core-4-9-mode-activities.py --check` verifies deterministic exact-pair generation, and the cumulative validator now covers 19 lessons and 114 activities. Core 6's nut-allergy and ingredient language is taught directly. These drafts remain unregistered with qualified review, recorded Hear audio, runtime/offline/native integration, and device acceptance open.
+
+The Core 7–9 source validator pins Core 7's intentional tartine example alongside the Spanish-source chilaquiles example and their paired French/English wording. It keeps the original verb identity and meaning checked without treating the Francophone adaptation as accidental source drift.

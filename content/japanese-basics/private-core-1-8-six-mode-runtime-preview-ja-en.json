@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
+  "authoredSha256": "34ddc7f0c4552730e7c5c72cd8e08fc342d6ebd30df8a8ac3105deb1c8ec729f",
+  "lessonCount": 8,
+  "activityCount": 48,
+  "lessons": [
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 1,
+      "stableLessonKey": "core-japanese-basics:1",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:1:see",
+          "prompt": "Read Aki's sentence. Identify where she works and explain what で marks in としょかんで.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あきさんは としょかんで はたらきます。",
+          "nativeText": "Aki works at the library."
+        },
+        "recall": {
+          "id": "ja101:core:1:recall",
+          "prompt": "From the English meaning, recall the whole Japanese sentence about talking with a friend tomorrow; include あした and と.",
+          "sourceDialogueTurn": 3,
+          "targetText": "あした ともだちと はなします。",
+          "nativeText": "Tomorrow I will talk with a friend."
+        },
+        "hear": {
+          "id": "ja101:core:1:hear",
+          "prompt": "Listen to the recorded Japanese sentence about the teacher. Choose its exact English meaning, including whose talk is heard.",
+          "sourceDialogueTurn": 4,
+          "targetText": "せんせいの はなしを ききます。",
+          "nativeText": "I listen to the teacher's talk."
+        },
+        "type": {
+          "id": "ja101:core:1:type",
+          "prompt": "Type the full Japanese sentence for 'I study Japanese every day,' using the polite ～ます form and object を.",
+          "sourceDialogueTurn": 1,
+          "targetText": "まいにち にほんごを べんきょうします。",
+          "nativeText": "I study Japanese every day."
+        },
+        "say": {
+          "id": "ja101:core:1:say",
+          "prompt": "Say the source sentence meaning 'I also read a book,' preserving も and the polite verb ending.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ほんも よみます。",
+          "nativeText": "I also read a book."
+        },
+        "write": {
+          "id": "ja101:core:1:write",
+          "prompt": "Write the full Japanese sentence about Aki working at the library; include the location-of-action particle で.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あきさんは としょかんで はたらきます。",
+          "nativeText": "Aki works at the library."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 2,
+      "stableLessonKey": "core-japanese-basics:2",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:2:see",
+          "prompt": "Read the lunch sentence and identify the polite form of たべる used for 'eat'.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ひるごはんを たべます。",
+          "nativeText": "I eat lunch."
+        },
+        "recall": {
+          "id": "ja101:core:2:recall",
+          "prompt": "Recall the Japanese sentence for 'A friend is coming'; use the polite form of くる found in the dialogue.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ともだちが きます。",
+          "nativeText": "A friend is coming."
+        },
+        "hear": {
+          "id": "ja101:core:2:hear",
+          "prompt": "Listen to the water sentence and select its exact English meaning; distinguish のみます from たべます.",
+          "sourceDialogueTurn": 2,
+          "targetText": "みずを のみます。",
+          "nativeText": "I drink water."
+        },
+        "type": {
+          "id": "ja101:core:2:type",
+          "prompt": "Type the Japanese sentence for watching a movie afterward, keeping そのあと and the polite verb form.",
+          "sourceDialogueTurn": 3,
+          "targetText": "そのあと えいがを みます。",
+          "nativeText": "After that I watch a movie."
+        },
+        "say": {
+          "id": "ja101:core:2:say",
+          "prompt": "Say the sentence meaning 'We study together,' including いっしょに and the polite form of する.",
+          "sourceDialogueTurn": 5,
+          "targetText": "いっしょに べんきょうします。",
+          "nativeText": "We study together."
+        },
+        "write": {
+          "id": "ja101:core:2:write",
+          "prompt": "Write the full source sentence for 'I drink water'; use を before the polite form of のむ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "みずを のみます。",
+          "nativeText": "I drink water."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 3,
+      "stableLessonKey": "core-japanese-basics:3",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:3:see",
+          "prompt": "Read the movie sentence and identify the polite past negative ending ～ませんでした and its English meaning.",
+          "sourceDialogueTurn": 3,
+          "targetText": "でも、えいがは みませんでした。",
+          "nativeText": "But I did not watch a movie."
+        },
+        "recall": {
+          "id": "ja101:core:3:recall",
+          "prompt": "Recall the source sentence about going to the library yesterday, including きのう and the polite past form.",
+          "sourceDialogueTurn": 1,
+          "targetText": "きのう としょかんに いきました。",
+          "nativeText": "Yesterday I went to the library."
+        },
+        "hear": {
+          "id": "ja101:core:3:hear",
+          "prompt": "Listen to the sentence about today and select the English meaning that preserves the present/future negative.",
+          "sourceDialogueTurn": 4,
+          "targetText": "きょうは そこに いきません。",
+          "nativeText": "Today I am not going there."
+        },
+        "type": {
+          "id": "ja101:core:3:type",
+          "prompt": "Type the Japanese sentence for 'I read a book' in the completed-action context, using ～ました.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ほんを よみました。",
+          "nativeText": "I read a book."
+        },
+        "say": {
+          "id": "ja101:core:3:say",
+          "prompt": "Say the sentence for doing homework later; distinguish its ～ます ending from the completed forms above.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あとで しゅくだいを します。",
+          "nativeText": "I will do homework later."
+        },
+        "write": {
+          "id": "ja101:core:3:write",
+          "prompt": "Write the entire Japanese sentence for 'But I did not watch a movie,' including でも and ～ませんでした.",
+          "sourceDialogueTurn": 3,
+          "targetText": "でも、えいがは みませんでした。",
+          "nativeText": "But I did not watch a movie."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 4,
+      "stableLessonKey": "core-japanese-basics:4",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:4:see",
+          "prompt": "Read the quiet-room sentence. Identify the な-adjective and explain why な appears before へや.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ここは しずかな へやです。",
+          "nativeText": "This is a quiet room."
+        },
+        "recall": {
+          "id": "ja101:core:4:recall",
+          "prompt": "Recall the full Japanese sentence for 'This room is big,' keeping the い-adjective おおきい.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この へやは おおきいです。",
+          "nativeText": "This room is big."
+        },
+        "hear": {
+          "id": "ja101:core:4:hear",
+          "prompt": "Listen to the sentence about next door and choose its exact English meaning, including 'lively'.",
+          "sourceDialogueTurn": 4,
+          "targetText": "となりは にぎやかです。",
+          "nativeText": "Next door is lively."
+        },
+        "type": {
+          "id": "ja101:core:4:type",
+          "prompt": "Type the Japanese sentence for 'That room is small,' using あの and the い-adjective ちいさい.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あの へやは ちいさいです。",
+          "nativeText": "That room is small."
+        },
+        "say": {
+          "id": "ja101:core:4:say",
+          "prompt": "Say the sentence about the new desk being clean, preserving あたらしい and きれいです.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あたらしい つくえは きれいです。",
+          "nativeText": "The new desk is clean."
+        },
+        "write": {
+          "id": "ja101:core:4:write",
+          "prompt": "Write the full Japanese sentence for 'This is a quiet room,' including しずかな before the noun.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ここは しずかな へやです。",
+          "nativeText": "This is a quiet room."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 5,
+      "stableLessonKey": "core-japanese-basics:5",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:5:see",
+          "prompt": "Read the sentence about the bag. Identify おおきくないです and explain the negative い-adjective meaning.",
+          "sourceDialogueTurn": 3,
+          "targetText": "この かばんは おおきくないです。",
+          "nativeText": "This bag is not big."
+        },
+        "recall": {
+          "id": "ja101:core:5:recall",
+          "prompt": "Recall the Japanese question 'Whose bag is this?' using だれの and the question ending か.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この かばんは だれのですか。",
+          "nativeText": "Whose bag is this?"
+        },
+        "hear": {
+          "id": "ja101:core:5:hear",
+          "prompt": "Listen to the reply about the pen and select the exact English meaning of よくないです.",
+          "sourceDialogueTurn": 7,
+          "targetText": "いいえ、よくないです。",
+          "nativeText": "No, it is not good."
+        },
+        "type": {
+          "id": "ja101:core:5:type",
+          "prompt": "Type the question asking whether the umbrella is Tanaka's too; include も and the ownership の.",
+          "sourceDialogueTurn": 4,
+          "targetText": "この かさも たなかさんのですか。",
+          "nativeText": "Is this umbrella Tanaka's too?"
+        },
+        "say": {
+          "id": "ja101:core:5:say",
+          "prompt": "Say the correction that the item belongs to the teacher, keeping the initial polite no.",
+          "sourceDialogueTurn": 5,
+          "targetText": "いいえ、せんせいのです。",
+          "nativeText": "No, it is the teacher's."
+        },
+        "write": {
+          "id": "ja101:core:5:write",
+          "prompt": "Write the full Japanese question asking if this is a good pen, including いい before ペン.",
+          "sourceDialogueTurn": 6,
+          "targetText": "この ペンは いい ペンですか。",
+          "nativeText": "Is this a good pen?"
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 6,
+      "stableLessonKey": "core-japanese-basics:6",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:6:see",
+          "prompt": "Read the pencil sentence. Identify the thing needed and the conversational pattern ～が いります.",
+          "sourceDialogueTurn": 5,
+          "targetText": "えんぴつが いります。",
+          "nativeText": "We need a pencil."
+        },
+        "recall": {
+          "id": "ja101:core:6:recall",
+          "prompt": "Recall the Japanese question asking if someone has a notebook, using ありますか.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ノートは ありますか。",
+          "nativeText": "Do you have a notebook?"
+        },
+        "hear": {
+          "id": "ja101:core:6:hear",
+          "prompt": "Listen to the negative reply about today and choose its complete English meaning.",
+          "sourceDialogueTurn": 4,
+          "targetText": "いいえ、きょうは いりません。",
+          "nativeText": "No, we do not need one today."
+        },
+        "type": {
+          "id": "ja101:core:6:type",
+          "prompt": "Type the question 'Do we need a dictionary too?' using も and ひつようですか.",
+          "sourceDialogueTurn": 3,
+          "targetText": "じしょも ひつようですか。",
+          "nativeText": "Do we need a dictionary too?"
+        },
+        "say": {
+          "id": "ja101:core:6:say",
+          "prompt": "Say the short affirmative reply to the notebook question, preserving the polite あります form.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、あります。",
+          "nativeText": "Yes, I do."
+        },
+        "write": {
+          "id": "ja101:core:6:write",
+          "prompt": "Write the full Japanese sentence for 'We need a pencil,' including the needed-item particle が.",
+          "sourceDialogueTurn": 5,
+          "targetText": "えんぴつが いります。",
+          "nativeText": "We need a pencil."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 7,
+      "stableLessonKey": "core-japanese-basics:7",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:7:see",
+          "prompt": "Read the friend's station sentence. Identify the movement verb きます and its destination marked by に.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ともだちも えきに きます。",
+          "nativeText": "My friend will come to the station too."
+        },
+        "recall": {
+          "id": "ja101:core:7:recall",
+          "prompt": "Recall the sentence about going to the station tomorrow; include あした and いきます.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あした えきに いきます。",
+          "nativeText": "Tomorrow I will go to the station."
+        },
+        "hear": {
+          "id": "ja101:core:7:hear",
+          "prompt": "Listen to the afternoon sentence and choose the meaning that says the speaker returns home.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ごご うちに かえります。",
+          "nativeText": "In the afternoon I will return home."
+        },
+        "type": {
+          "id": "ja101:core:7:type",
+          "prompt": "Type the sentence for going to school from there, preserving そこから and destination へ.",
+          "sourceDialogueTurn": 3,
+          "targetText": "そこから がっこうへ いきます。",
+          "nativeText": "From there we will go to school."
+        },
+        "say": {
+          "id": "ja101:core:7:say",
+          "prompt": "Say the source question asking where someone is going, including どこへ and か.",
+          "sourceDialogueTurn": 5,
+          "targetText": "どこへ いきますか。",
+          "nativeText": "Where are you going?"
+        },
+        "write": {
+          "id": "ja101:core:7:write",
+          "prompt": "Write the sentence meaning the friend will also come to the station; include も and きます.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ともだちも えきに きます。",
+          "nativeText": "My friend will come to the station too."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 8,
+      "stableLessonKey": "core-japanese-basics:8",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:8:see",
+          "prompt": "Read the short question 'Which book?' Identify どの as the question word placed before a noun.",
+          "sourceDialogueTurn": 3,
+          "targetText": "どの ほんですか。",
+          "nativeText": "Which book?"
+        },
+        "recall": {
+          "id": "ja101:core:8:recall",
+          "prompt": "Recall the Japanese question 'What will you read?' using なに before the object particle を.",
+          "sourceDialogueTurn": 1,
+          "targetText": "なにを よみますか。",
+          "nativeText": "What will you read?"
+        },
+        "hear": {
+          "id": "ja101:core:8:hear",
+          "prompt": "Listen to the reply and choose the English meaning that identifies the blue book.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あおい ほんです。",
+          "nativeText": "The blue book."
+        },
+        "type": {
+          "id": "ja101:core:8:type",
+          "prompt": "Type the full choice question about the red, white, and black books; use どれ for which one.",
+          "sourceDialogueTurn": 5,
+          "targetText": "つぎは あかい ほんと しろい ほんと くろい ほん、どれを えらびますか。",
+          "nativeText": "Next, which will you choose: the red, white, or black book?"
+        },
+        "say": {
+          "id": "ja101:core:8:say",
+          "prompt": "Say the response meaning 'I will read this book,' including この before ほん.",
+          "sourceDialogueTurn": 2,
+          "targetText": "この ほんを よみます。",
+          "nativeText": "I will read this book."
+        },
+        "write": {
+          "id": "ja101:core:8:write",
+          "prompt": "Write the Japanese question for 'Which book?' with どの immediately before ほん.",
+          "sourceDialogueTurn": 3,
+          "targetText": "どの ほんですか。",
+          "nativeText": "Which book?"
+        }
+      }
+    }
+  ]
+}

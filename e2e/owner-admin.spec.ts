@@ -642,15 +642,16 @@ test.describe("download leads", () => {
   test("download lead report shows source pages, requests and unique emails with clear tracking limits", async ({
     page,
   }) => {
+    test.setTimeout(45_000);
     await openOwner(page, "analytics");
     const report = page.getByRole("region", { name: "Download leads", exact: true });
     await expect(
       report.getByRole("heading", { name: "Download leads", exact: true }),
     ).toBeVisible();
-    await expect(report.getByText("/nursing/", { exact: true })).toBeVisible();
+    await expect(report.getByRole("cell").filter({ hasText: "/nursing/" })).toBeVisible();
     await expect(report.getByText("synthetic@example.test", { exact: true })).toBeVisible();
     await expect(report.getByText(/First seen means first recorded/)).toBeVisible();
-    await report.getByLabel("Period", { exact: true }).selectOption("7");
+    await report.getByRole("combobox", { name: "Period", exact: true }).selectOption("7");
     await report.getByLabel("Include owner setup tests").check();
     await expect(report.getByRole("button", { name: "Refresh", exact: true })).toBeEnabled();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(

@@ -1,8 +1,8 @@
 # 101 lesson material parity: Spanish → French and Japanese
 
-- Spanish/Japanese source commit: `f695a1a02a7e5cd43fa9d9e9071811abc459e5bb`
-- French private draft commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`
-- French contextual forms commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
+- Spanish/Japanese source commit: `940237be2b6034fbcd94ecbd4e7e6dd7ac9815c1`
+- French private draft commit: `9c33205ec7e353a7485b785b9bc77e19f9149384`
+- French contextual forms commit: `9c33205ec7e353a7485b785b9bc77e19f9149384`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
 - Scope: Spanish 101 lesson-content files, Japanese 101 lesson-content files, and French 101 private runtime fixture. Counts indicate authored material only; they do not validate language quality, lesson flow, live registration, audio, or native app availability.
 - French fixture is unregistered and `reviewed:false`. Japanese 101 is a mapped draft with `reviewed:false`. No draft is counted as a released course.
 
@@ -94,4 +94,5 @@
 
 - Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has 180 checks and 120 grammar examples; Japanese has 180 checks and 120 grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.
 - The French private fixture has 302 checks and 360 six-mode descriptors across 60 lessons. Only 0 descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags. Contextual form sidecars are additional private material, not yet integrated into these mode descriptors.
+- A separate source-pinned French Foundation sidecar now has 60 distinct mode prompts across 10/10 Foundation lessons. It is unreviewed and unregistered, and has not yet been integrated into the runtime descriptors; Core and Master have no corresponding authored-mode sidecar.
 - Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.

@@ -21,6 +21,7 @@ const revision = (base) => execFileSync("git", ["rev-parse", "HEAD"], { cwd: bas
 const stageNames = ["foundation", "core", "master"];
 const stageLengths = { foundation: 10, core: 30, master: 20 };
 const stagePrefix = { foundation: "foundation-", core: "", master: "master-" };
+const modeNames = ["see", "recall", "hear", "type", "say", "write"];
 const frenchPath = (stage) => `content/french-basics/private-runtime-${stage}-1-${stageLengths[stage]}.json`;
 const lessonPath = (language, stage) =>
   `public/lesson-content/${language}/${stagePrefix[stage]}${language === "es" ? "spanish" : "japanese"}-basics.json`;
@@ -59,6 +60,23 @@ const formPrompts = (base, language, pair) => {
 };
 const frenchForms = formPrompts(frenchFormsRoot, "french", "French:English");
 const japaneseForms = formPrompts(japaneseFormsRoot, "japanese", "Japanese:English");
+const frenchModeDirectory = resolve(frenchFormsRoot, "content/french-basics");
+const frenchModeFiles = readdirSync(frenchModeDirectory).filter((name) => /^private-foundation-\d+-\d+-mode-prompts-fr-en\.json$/.test(name));
+const frenchModeLessons = new Set();
+let frenchAuthoredModePrompts = 0;
+for (const name of frenchModeFiles) {
+  const fixture = read(frenchFormsRoot, `content/french-basics/${name}`);
+  if (fixture.pairKey !== "French:English" || fixture.reviewed !== false || fixture.registered !== false ||
+      sha256(resolve(frenchFormsRoot, fixture.sourceFile)) !== fixture.sourceSha256)
+    throw new Error(`${name}: pair, source hash, or review gate changed`);
+  for (const lesson of fixture.lessons) {
+    if (frenchModeLessons.has(lesson.lesson) || lesson.stableLessonKey !== `foundation-french-basics:${lesson.lesson}` ||
+        modeNames.some((mode) => !lesson.modes?.[mode]?.prompt || !lesson.modes?.[mode]?.targetText))
+      throw new Error(`${name}: duplicate or incomplete lesson ${lesson.lesson}`);
+    frenchModeLessons.add(lesson.lesson);
+    frenchAuthoredModePrompts += modeNames.length;
+  }
+}
 const spanishPractice = readTracked(root, "src/data/spanish-basics-practice.json");
 const japanesePractice = readTracked(root, "src/data/japanese-basics-practice.json");
 const lines = [
@@ -74,7 +92,6 @@ const lines = [
 const totals = { spanishWords: 0, spanishLines: 0, spanishVerbs: 0, frenchCards: 0, frenchLines: 0, frenchVerbs: 0, japaneseWords: 0, japaneseLines: 0, japaneseVerbs: 0, frenchForms: 0, japaneseForms: 0 };
 const missing = [];
 const practiceTotals = { spanishChecks: 0, japaneseChecks: 0, spanishExamples: 0, japaneseExamples: 0, frenchChecks: 0, frenchModeDescriptors: 0, frenchTextPrompts: 0 };
-const modeNames = ["see", "recall", "hear", "type", "say", "write"];
 for (const stage of stageNames) {
   const spanish = read(root, lessonPath("es", stage));
   const japanese = read(root, lessonPath("ja", stage));
@@ -145,6 +162,7 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
 lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
   `- The French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags. Contextual form sidecars are additional private material, not yet integrated into these mode descriptors.`,
+  `- A separate source-pinned French Foundation sidecar now has ${frenchAuthoredModePrompts} distinct mode prompts across ${frenchModeLessons.size}/10 Foundation lessons. It is unreviewed and unregistered, and has not yet been integrated into the runtime descriptors; Core and Master have no corresponding authored-mode sidecar.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

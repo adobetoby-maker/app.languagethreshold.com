@@ -1,5 +1,7 @@
 # Japanese→English module program
 
+Latest audio checkpoint: [Japanese 101 Foundation private coverage, November 9](audio-foundation-coverage-2026-11-09.md). All 150 distinct Foundation source strings have two-voice private files, while listening review for 290 text/voice pairs and qualified Japanese review remain open. This does not change course or native release status.
+
 On November 7, the owner requested a main push. Japanese 101 PR #108 and Construction Foreman source-draft PR #110 were merged. The production app at `app.languagethreshold.com` serves main commit `af3bbf0ca1bdfcfeea4a51961a8d0021227a1e14` (Vercel production `READY`). Japanese 101 is a **mapped 60-lesson draft on the web**, with `reviewed:false` throughout; it is not a qualified language-reviewed or recorded-audio release. Construction Foreman contributes source drafts only: the exact Japanese→English audit still finds zero validated Foreman runtime lessons. No native V4 Japanese build has been uploaded to TestFlight.
 
 The merge candidate passed 2,899 unit tests, typecheck, Japanese asset checks, a stage build, 190 desktop/iPhone-PWA smoke tests, and the Japanese dictionary Playwright check on both screen sizes. These checks do not establish authenticated Japanese lesson practice, installed offline behavior, speech quality, native iPhone/Watch behavior, or qualified language and domain review. Learner progress IDs were preserved.

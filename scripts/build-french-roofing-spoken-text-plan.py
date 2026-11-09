@@ -32,22 +32,21 @@ def build():
     if len(source["texts"]) != source["counts"]["uniqueExactTexts"]:
         raise ValueError("Audio source count changed")
     rows = []
+    plain_count = 0
     for item in source["texts"]:
         display = item["text"]
         if sha(display.encode()) != item["sha256"]:
             raise ValueError("Audio source text hash changed")
         match = PREFIX.match(display)
-        if match:
-            label = match.group(1).strip()
-            if label in SPEAKER_NAMES:
-                kind = "dialogue-speaker-label"
-                proposed_spoken = match.group(2)
-            else:
-                kind = "heading-or-narration-review"
-                proposed_spoken = display
+        if not match:
+            plain_count += 1
+            continue  # Plain strings speak exactly as displayed in the source inventory.
+        label = match.group(1).strip()
+        if label in SPEAKER_NAMES:
+            kind = "dialogue-speaker-label"
+            proposed_spoken = match.group(2)
         else:
-            label = None
-            kind = "plain-source-text"
+            kind = "heading-or-narration-review"
             proposed_spoken = display
         if not proposed_spoken.strip():
             raise ValueError("Empty proposed spoken text")
@@ -72,10 +71,10 @@ def build():
         "registered": False,
         "reviewed": False,
         "counts": {
-            "exactDisplayTexts": len(rows),
+            "exactDisplayTexts": len(source["texts"]),
             "dialogueSpeakerLabels": sum(row["kind"] == "dialogue-speaker-label" for row in rows),
             "headingsOrNarrationForReview": sum(row["kind"] == "heading-or-narration-review" for row in rows),
-            "plainSourceTexts": sum(row["kind"] == "plain-source-text" for row in rows),
+            "plainSourceTexts": plain_count,
         },
         "rows": rows,
     }

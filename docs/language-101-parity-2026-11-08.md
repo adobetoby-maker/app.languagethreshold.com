@@ -1,8 +1,8 @@
 # 101 lesson material parity: Spanish → French and Japanese
 
-- Spanish/Japanese source commit: `94043f58b21e3cf1d603cc5a3e4f05960cb81ab7`
-- French private draft commit: `37b4e9de69380fd367fb930d60717945d7b4e6ce`
-- French contextual forms commit: `37b4e9de69380fd367fb930d60717945d7b4e6ce`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
+- Spanish/Japanese source commit: `b07f68f10f0ed235d4e112939e22a4758122d480`
+- French private draft commit: `10bfa04eba1fd8b69c1e654724549ae276da509e`
+- French contextual forms commit: `10bfa04eba1fd8b69c1e654724549ae276da509e`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
 - Scope: Spanish 101 lesson-content files, Japanese 101 lesson-content files, and French 101 private runtime fixture. Counts indicate authored material only; they do not validate language quality, lesson flow, live registration, audio, or native app availability.
 - French fixture is unregistered and `reviewed:false`. Japanese 101 is a mapped draft with `reviewed:false`. No draft is counted as a released course.
 
@@ -94,5 +94,5 @@
 
 - Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has 180 checks and 120 grammar examples; Japanese has 180 checks and 120 grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.
 - The original French private fixture has 302 checks and 360 six-mode descriptors across 60 lessons. Only 0 descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.
-- Source-pinned French Foundation sidecars contain 60 mode prompts across 10/10 lessons, all embedded in a private runtime candidate. French Core has 54 authored prompts across 9/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.
+- Source-pinned French Foundation sidecars contain 60 mode prompts across 10/10 lessons, all embedded in a private runtime candidate. French Core has 90 authored prompts across 15/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.
 - Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.

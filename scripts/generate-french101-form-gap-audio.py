@@ -86,6 +86,8 @@ def main():
     parser.add_argument("--project")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--reconcile-source-hashes", action="store_true",
+                        help="Repin changed fixture hashes only when all exact prompt placements and both existing clips still match")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--rpm", type=int, default=90)
     args = parser.parse_args()
@@ -94,6 +96,23 @@ def main():
     missing, fixture_hashes = source_inventory()
     old_path = args.output / "manifest.json"
     old = load(old_path) if old_path.exists() else {}
+    if args.reconcile_source_hashes:
+        if not old or old.get('pairKey') != 'French:English' or old.get('scope') != 'private-form-practice-gap' or old.get('registered') is not False or old.get('listeningReviewed') is not False:
+            raise ValueError('Only an existing private, unreviewed French form-gap manifest can be reconciled')
+        if old.get('promptPlacements') != missing or set(old.get('clips', {})) != set(missing):
+            raise ValueError('Current form prompt placements or spoken texts changed; reconciliation is unsafe')
+        for text in missing:
+            for gender in VOICES:
+                clip = old['clips'][text].get(gender)
+                if not clip or not valid_clip(args.output / clip['name'], text, gender, clip):
+                    raise ValueError(f'Existing form clip failed exact text, voice, hash or duration: {text} / {gender}')
+        old['fixtureSHA256'] = fixture_hashes
+        temp_manifest = old_path.with_suffix('.json.part')
+        temp_manifest.write_text(json.dumps(old, ensure_ascii=False, indent=2) + '\n')
+        temp_manifest.replace(old_path)
+        print(json.dumps({'reconciledFixtureHashes': len(fixture_hashes), 'verifiedClips': len(missing) * 2,
+                          'newClips': 0, 'registered': False, 'listeningReviewed': False}))
+        return
     if old and (old.get("fixtureSHA256") != fixture_hashes or set(old.get("clips", {})) - set(missing)):
         raise ValueError("Existing manifest does not match current exact-text fixture inventory")
     clips = old.get("clips", {})

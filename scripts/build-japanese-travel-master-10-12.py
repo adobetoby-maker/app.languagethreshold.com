@@ -15,7 +15,7 @@ builder.AUTHORED = [
         "n": 10,
         "title": "Mediate a group breakfast plan before pickup",
         "objective": "Report two friends' preferences fairly, verify the market's opening and pickup time, then agree on a breakfast plan without rushing anyone who feels unwell.",
-        "focus": "～と言っていました reports another person's position without treating it as a fact; 一方で contrasts views; ～なら offers a conditional compromise. The English source's coca-tea altitude claim is excluded: food and drinks are not presented as treatment for altitude symptoms. Do not promise a rushed market trip is safe or feasible.",
+        "focus": "～と言っていました reports a person's position; 一方で contrasts two positions; ～なら introduces a compromise. 高山病 is altitude sickness, コカ茶 is coca tea, and ～と話しました reports the host's statement.",
         "scene": "At a mountain lodge, two friends disagree about visiting a morning market before a scheduled shuttle pickup.",
         "cards": builder.cards([
             ("集合時刻", "pickup time"), ("朝市", "morning market"), ("開店時刻", "opening time"),
@@ -23,6 +23,7 @@ builder.AUTHORED = [
             ("体調", "physical condition"), ("荷物", "luggage"), ("送迎車", "shuttle vehicle"),
             ("確認する", "to verify"), ("～と言っていました", "said that ..."),
             ("一方で", "on the other hand"), ("～なら", "if ..."), ("無理をしない", "not to push oneself"),
+            ("高山病", "altitude sickness"), ("コカ茶", "coca tea"),
         ]),
         "reader": builder.pair_lines([
             ("Mediator", "美咲さんは朝市で朝食を食べたいと言っていました。", "Misaki said she wanted to eat breakfast at the morning market."),
@@ -35,12 +36,13 @@ builder.AUTHORED = [
             ("Mediator", "では、先に荷物を用意して、全員の体調を聞きましょう。", "Then let's prepare our bags first and ask how everyone feels."),
             ("Mediator", "時間と体調に余裕があるなら朝市へ、なければ宿で食べるのはどうですか。", "If we have enough time and everyone feels well, how about the market; otherwise, we can eat at the lodge?"),
             ("Luca", "その条件なら賛成です。出発前にもう一度時刻を確認しましょう。", "I agree on those conditions. Let's check the time again before leaving."),
+            ("Mediator", "宿の方は、高山病にコカ茶が役立ったと言う旅行者が多いと話しました。", "The host said many travelers reported that coca tea helped with altitude sickness."),
         ]),
         "speaking": {
             "role": "Friend mediating a breakfast plan", "partnerRole": "Two travelers and a lodging host",
             "opening": "お二人の意見を整理しましょう。まず集合時刻を確認します。",
-            "goal": "Report each person's view fairly, ask staff for opening and pickup facts, and propose a conditional plan that respects time and health.",
-            "closure": "Do not recommend a drink as treatment for altitude symptoms or pressure an unwell traveler to rush; seek appropriate local help if needed.",
+            "goal": "Report each friend's position fairly, ask the host about market and pickup times, relay the host's statement about coca tea, and negotiate a breakfast plan.",
+            "closure": "Summarize the agreed meeting and breakfast plan back to the group.",
             "wordBank": ["集合時刻", "朝市", "意見", "確認", "体調", "折衷案"],
         },
         "modes": {

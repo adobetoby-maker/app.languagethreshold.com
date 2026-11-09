@@ -24,3 +24,5 @@ Foundation 3, 8 and 10; Core 2, 3, 6, 15, 18, 24, 27 and 30; and Master 2, 3, 6,
 - Source-anchored draft validation proves identity and structure, not translation quality, six-mode runtime operation, offline readiness or native release. Recorded Japanese audio and physical-device acceptance remain absent.
 
 Rebuild order for this private stack: run the `build-japanese-travel-master-*.py` scripts in lesson order, then `scripts/apply-japanese-travel-clinical-fidelity.py`, then `scripts/validate-japanese-travel-breakfast-draft.py`. The Core file has no separate source generator in this stack; the idempotent correction script covers its changed entries.
+
+Master 10 regeneration check (2026-11-08): `scripts/build-japanese-travel-master-10-12.py` now emits the corrected `高山病` and `コカ茶` cards, attributed Reader line, grammar focus and speaking task directly. A regeneration leaves `master-10-12-draft.json` byte-identical to the reviewed:false private fixture, so later builds cannot silently remove those terms. This is source-fidelity maintenance, not qualified approval of the host's factual claim.

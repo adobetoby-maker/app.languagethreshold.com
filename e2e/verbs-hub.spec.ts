@@ -196,3 +196,24 @@ test("daily time counts active practice, pauses when hidden, and queues a return
   await page.clock.runFor(500);
   await expect(page.getByRole("dialog", { name: "Before you go, study your verbs" })).toBeVisible();
 });
+
+test("Core 60 overview and lesson both open the same scoped verb practice", async ({ page }) => {
+  await open(page);
+  const core = appUrl({ tab: "core30", module: "soccer" });
+  await page.goto(core);
+  const entry = page.getByTestId("core-verb-practice").filter({ visible: true });
+  await expect(entry).toBeVisible();
+  await entry.getByRole("link", { name: "Open verb practice" }).click();
+  await expect(page.getByTestId("verbs-hub")).toBeVisible();
+  await expect(page).toHaveURL(/module=soccer/);
+  await page.goto(core + "&lesson=1&way=see");
+  await expect(page.getByTestId("lesson-section-see")).toBeVisible();
+  await page
+    .getByTestId("lesson-section-see")
+    .getByRole("link", { name: "Open verb practice" })
+    .click();
+  await expect(page.getByTestId("verbs-hub")).toBeVisible();
+  await expect(page).toHaveURL(/target=Spanish&native=English/);
+  await page.goBack();
+  await expect(page.getByTestId("lesson-section-see")).toBeVisible();
+});

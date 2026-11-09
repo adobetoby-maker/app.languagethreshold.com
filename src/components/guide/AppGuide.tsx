@@ -1,3 +1,4 @@
+import { CoreVerbPracticeCard } from "@/components/verbs/CoreVerbPracticeCard";
 import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
 import { SoundPractice } from "@/components/sound-practice/SoundPractice";
 import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
@@ -1562,6 +1563,7 @@ function OwnedLessonRunner({
               active={section === "see"}
             />
           )}
+          <CoreVerbPracticeCard compact />
           {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
           {basics && verbs.length > 0 && (
             <LessonVerbGames
@@ -2594,6 +2596,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {!runnerActive && (
         <div className="mb-4">
           <StageEyebrow moduleId={moduleId} />
+          <CoreVerbPracticeCard />
           <h1 className="font-display text-2xl font-semibold tracking-tight">
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>

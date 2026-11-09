@@ -1166,9 +1166,12 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
     const realOpen = env.indexedDB.open.bind(env.indexedDB);
     let release;
     const lateOpen = new Promise((resolve) => (release = resolve));
+    let resolveOpenStarted;
+    const openStarted = new Promise((resolve) => (resolveOpenStarted = resolve));
     let resolveLateClose;
     const lateConnectionClosed = new Promise((resolve) => (resolveLateClose = resolve));
     env.indexedDB.open = (name) => {
+      resolveOpenStarted();
       const request = {};
       lateOpen.then(() => {
         const inner = realOpen(name);
@@ -1194,7 +1197,12 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
     assert.equal(speak.requests.length, 1);
     assert.ok(performance.now() - started < 4000, "playback proceeded without the store");
 
-    // The open finally completes after we gave up: that connection must be closed again.
+    // Playback can finish when the outer lookup times out just before the backend's
+    // own timeout. Wait for the backend's timeout after its open began so this
+    // exercise really delivers a connection after that backend abandoned it.
+    await openStarted;
+    await new Promise((resolve) => setTimeout(resolve, speak.mod.TTS_CACHE_TIMEOUT_MS + 100));
+    // The open finally completes after the backend gave up: it must close again.
     release();
     // Await the connection's actual close event. Polling elapsed time can race a
     // busy CI host even when the cache releases the late connection correctly.

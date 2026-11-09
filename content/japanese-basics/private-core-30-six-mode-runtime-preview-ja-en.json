@@ -4,9 +4,9 @@
   "registered": false,
   "reviewed": false,
   "sourceSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
-  "authoredSha256": "8cf22dd7dd0346f2ab21b840b6bb45fc65bbb5ba648678b5310afa198d1c2e2e",
-  "lessonCount": 23,
-  "activityCount": 138,
+  "authoredSha256": "1936c9783f91bee160b765d5ec49280085a32cc31b0d4ec31046b3fbc3d4b166",
+  "lessonCount": 30,
+  "activityCount": 180,
   "lessons": [
     {
       "moduleId": "core-japanese-basics",
@@ -1155,6 +1155,356 @@
           "sourceDialogueTurn": 5,
           "targetText": "もう わすれません。",
           "nativeText": "I will not forget them again."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 24,
+      "stableLessonKey": "core-japanese-basics:24",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:24:see",
+          "prompt": "Read the friend's gift sentence. Identify who gives the copy and who receives it with くれます.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ともだちは わたしに コピーを くれます。",
+          "nativeText": "My friend gives me a copy."
+        },
+        "recall": {
+          "id": "ja101:core:24:recall",
+          "prompt": "Recall the sentence for giving a friend a notebook, using に for the recipient and あげます.",
+          "sourceDialogueTurn": 1,
+          "targetText": "わたしは ともだちに ノートを あげます。",
+          "nativeText": "I give my friend a notebook."
+        },
+        "hear": {
+          "id": "ja101:core:24:hear",
+          "prompt": "Listen to the materials sentence and choose the meaning that says they came from the teacher.",
+          "sourceDialogueTurn": 3,
+          "targetText": "せんせいから しりょうを もらいました。",
+          "nativeText": "I received materials from the teacher."
+        },
+        "type": {
+          "id": "ja101:core:24:type",
+          "prompt": "Type the sentence for giving those materials to Aki, keeping あきさんに.",
+          "sourceDialogueTurn": 4,
+          "targetText": "その しりょうを あきさんに あげます。",
+          "nativeText": "I will give those materials to Aki."
+        },
+        "say": {
+          "id": "ja101:core:24:say",
+          "prompt": "Say the question asking whether Aki will read those materials, including か.",
+          "sourceDialogueTurn": 6,
+          "targetText": "あきさんは その しりょうを よみますか。",
+          "nativeText": "Will Aki read those materials?"
+        },
+        "write": {
+          "id": "ja101:core:24:write",
+          "prompt": "Write the complete sentence for receiving materials from the teacher, using から and もらいました.",
+          "sourceDialogueTurn": 3,
+          "targetText": "せんせいから しりょうを もらいました。",
+          "nativeText": "I received materials from the teacher."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 25,
+      "stableLessonKey": "core-japanese-basics:25",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:25:see",
+          "prompt": "Read the station sentence. Identify ともだちに as the person met and えきで as the meeting place.",
+          "sourceDialogueTurn": 1,
+          "targetText": "えきで ともだちに あいます。",
+          "nativeText": "I will meet my friend at the station."
+        },
+        "recall": {
+          "id": "ja101:core:25:recall",
+          "prompt": "Recall the sentence for going over to that person, including のところに.",
+          "sourceDialogueTurn": 4,
+          "targetText": "その ひとの ところに いきます。",
+          "nativeText": "I go over to that person."
+        },
+        "hear": {
+          "id": "ja101:core:25:hear",
+          "prompt": "Listen to the sentence about a person and choose the meaning that they are having trouble.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ひとが こまっています。",
+          "nativeText": "A person is having trouble."
+        },
+        "type": {
+          "id": "ja101:core:25:type",
+          "prompt": "Type the sentence for calling a friend over, using ともだちを with よびます.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ともだちを よびます。",
+          "nativeText": "I call my friend over."
+        },
+        "say": {
+          "id": "ja101:core:25:say",
+          "prompt": "Say both offers to help and carry the bag, preserving the two polite questions.",
+          "sourceDialogueTurn": 5,
+          "targetText": "てつだいましょうか。かばんを もちましょうか。",
+          "nativeText": "May I help? Shall I carry the bag?"
+        },
+        "write": {
+          "id": "ja101:core:25:write",
+          "prompt": "Write the sentence for the friend helping too, including も and てつだいます.",
+          "sourceDialogueTurn": 7,
+          "targetText": "ともだちも てつだいます。",
+          "nativeText": "My friend will help too."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 26,
+      "stableLessonKey": "core-japanese-basics:26",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:26:see",
+          "prompt": "Read the library invitation. Identify ～ませんか as an invitation and give its full English meaning.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あした、としょかんで べんきょうしませんか。",
+          "nativeText": "Would you like to study at the library tomorrow?"
+        },
+        "recall": {
+          "id": "ja101:core:26:recall",
+          "prompt": "Recall the completed-action sentence for going to school, using ～ました.",
+          "sourceDialogueTurn": 4,
+          "targetText": "がっこうへ いきました。",
+          "nativeText": "I went to school."
+        },
+        "hear": {
+          "id": "ja101:core:26:hear",
+          "prompt": "Listen to the acceptance and time proposal; choose the meaning that says two in the afternoon.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、いいですね。ごご にじは どうですか。",
+          "nativeText": "Yes, that sounds good. How about two in the afternoon?"
+        },
+        "type": {
+          "id": "ja101:core:26:type",
+          "prompt": "Type the two-sentence reply accepting two and asking what happened yesterday.",
+          "sourceDialogueTurn": 3,
+          "targetText": "にじで いいです。きのうは なにを しましたか。",
+          "nativeText": "Two is fine. What did you do yesterday?"
+        },
+        "say": {
+          "id": "ja101:core:26:say",
+          "prompt": "Say both the report of speaking with a friend and the invitation to read together tomorrow.",
+          "sourceDialogueTurn": 6,
+          "targetText": "ともだちと はなしました。あした、いっしょに ほんを よみませんか。",
+          "nativeText": "I spoke with a friend. Would you like to read a book together tomorrow?"
+        },
+        "write": {
+          "id": "ja101:core:26:write",
+          "prompt": "Write the full affirmative suggestion to read at the library, including ～ましょう.",
+          "sourceDialogueTurn": 7,
+          "targetText": "はい、としょかんで よみましょう。",
+          "nativeText": "Yes, let us read at the library."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 27,
+      "stableLessonKey": "core-japanese-basics:27",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:27:see",
+          "prompt": "Read the Kyoto reply. Identify the past negative ～ませんでした and the destination contrast に は.",
+          "sourceDialogueTurn": 2,
+          "targetText": "いいえ、きょうとには いきませんでした。",
+          "nativeText": "No, I did not go to Kyoto."
+        },
+        "recall": {
+          "id": "ja101:core:27:recall",
+          "prompt": "Recall the Japanese answer for going to a friend's town, using the polite past form.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ともだちの まちに いきました。",
+          "nativeText": "I went to a friend’s town."
+        },
+        "hear": {
+          "id": "ja101:core:27:hear",
+          "prompt": "Listen to the two-sentence reply and choose the meaning that says it was not a trip but involved study.",
+          "sourceDialogueTurn": 6,
+          "targetText": "いいえ、りょこうでは ありませんでした。ともだちの うちで べんきょうしました。",
+          "nativeText": "No, it was not a trip. I studied at my friend’s home."
+        },
+        "type": {
+          "id": "ja101:core:27:type",
+          "prompt": "Type the question asking whether someone went to Kyoto last week, including せんしゅう.",
+          "sourceDialogueTurn": 1,
+          "targetText": "せんしゅう きょうとに いきましたか。",
+          "nativeText": "Did you go to Kyoto last week?"
+        },
+        "say": {
+          "id": "ja101:core:27:say",
+          "prompt": "Say both sentences stating that studying was fun and was not difficult.",
+          "sourceDialogueTurn": 8,
+          "targetText": "はい、たのしかったです。むずかしくなかったです。",
+          "nativeText": "Yes, it was fun. It was not difficult."
+        },
+        "write": {
+          "id": "ja101:core:27:write",
+          "prompt": "Write the question asking if studying was fun, using the past い-adjective form.",
+          "sourceDialogueTurn": 7,
+          "targetText": "べんきょうは たのしかったですか。",
+          "nativeText": "Was studying fun?"
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 28,
+      "stableLessonKey": "core-japanese-basics:28",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:28:see",
+          "prompt": "Read the school habit sentence. Identify よく as 'often' and the past walking form.",
+          "sourceDialogueTurn": 2,
+          "targetText": "よく がっこうまで あるきました。",
+          "nativeText": "I often walked to school."
+        },
+        "recall": {
+          "id": "ja101:core:28:recall",
+          "prompt": "Recall the sentence for always going with a friend, including いつも and と.",
+          "sourceDialogueTurn": 4,
+          "targetText": "いいえ、いつも ともだちと いきました。",
+          "nativeText": "No, I always went with a friend."
+        },
+        "hear": {
+          "id": "ja101:core:28:hear",
+          "prompt": "Listen to the single event and choose the meaning that says the speaker walked alone yesterday.",
+          "sourceDialogueTurn": 6,
+          "targetText": "きのうは ひとりで あるきました。",
+          "nativeText": "Yesterday I walked alone."
+        },
+        "type": {
+          "id": "ja101:core:28:type",
+          "prompt": "Type the question asking how the listener got to school in the past.",
+          "sourceDialogueTurn": 1,
+          "targetText": "むかし、どうやって がっこうに いきましたか。",
+          "nativeText": "How did you get to school in the past?"
+        },
+        "say": {
+          "id": "ja101:core:28:say",
+          "prompt": "Say the reply about sometimes walking now, preserving both short sentences.",
+          "sourceDialogueTurn": 8,
+          "targetText": "はい。でも、ときどき あるきます。",
+          "nativeText": "Yes. But I sometimes walk."
+        },
+        "write": {
+          "id": "ja101:core:28:write",
+          "prompt": "Write the whole question asking how the listener went yesterday, including きのう.",
+          "sourceDialogueTurn": 5,
+          "targetText": "きのうは どうやって いきましたか。",
+          "nativeText": "How did you go yesterday?"
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 29,
+      "stableLessonKey": "core-japanese-basics:29",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:29:see",
+          "prompt": "Read the library sentence. Identify べんきょうしに as the purpose of going there.",
+          "sourceDialogueTurn": 1,
+          "targetText": "べんきょうしに としょかんへ いきます。",
+          "nativeText": "I am going to the library to study."
+        },
+        "recall": {
+          "id": "ja101:core:29:recall",
+          "prompt": "Recall the sentence for reading a book for the exam, using のために.",
+          "sourceDialogueTurn": 2,
+          "targetText": "しけんの ために ほんを よみます。",
+          "nativeText": "I read a book for the exam."
+        },
+        "hear": {
+          "id": "ja101:core:29:hear",
+          "prompt": "Listen to the rain reply and choose the English meaning that gives the reason.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あめが ふっていますから。",
+          "nativeText": "Because it is raining."
+        },
+        "type": {
+          "id": "ja101:core:29:type",
+          "prompt": "Type the sentence for going by train since it is raining, including なので.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あめなので、でんしゃで いきます。",
+          "nativeText": "Since it is raining, I will go by train."
+        },
+        "say": {
+          "id": "ja101:core:29:say",
+          "prompt": "Say the question asking what time someone will go to the library.",
+          "sourceDialogueTurn": 6,
+          "targetText": "なんじに としょかんに いきますか。",
+          "nativeText": "What time will you go to the library?"
+        },
+        "write": {
+          "id": "ja101:core:29:write",
+          "prompt": "Write the full answer for going at three in the afternoon, using ごご and に.",
+          "sourceDialogueTurn": 7,
+          "targetText": "ごご さんじに いきます。",
+          "nativeText": "I will go at three in the afternoon."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 30,
+      "stableLessonKey": "core-japanese-basics:30",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:30:see",
+          "prompt": "Read the opening plan. Identify the plain form でかける before よていでした and its English meaning.",
+          "sourceDialogueTurn": 1,
+          "targetText": "きょうは ともだちと でかける よていでした。",
+          "nativeText": "Today I had planned to go out with a friend."
+        },
+        "recall": {
+          "id": "ja101:core:30:recall",
+          "prompt": "Recall the result sentence for not going out today, including だから and ～ません.",
+          "sourceDialogueTurn": 3,
+          "targetText": "だから、きょうは でかけません。",
+          "nativeText": "So I will not go out today."
+        },
+        "hear": {
+          "id": "ja101:core:30:hear",
+          "prompt": "Listen to the weather contrast and choose the English meaning that it is raining.",
+          "sourceDialogueTurn": 2,
+          "targetText": "でも、あめが ふっています。",
+          "nativeText": "But it is raining."
+        },
+        "type": {
+          "id": "ja101:core:30:type",
+          "prompt": "Type the sentence for then calling a friend, keeping それから and recipient に.",
+          "sourceDialogueTurn": 4,
+          "targetText": "それから、ともだちに でんわします。",
+          "nativeText": "Then I will call my friend."
+        },
+        "say": {
+          "id": "ja101:core:30:say",
+          "prompt": "Say the next action of studying together at home, using そして and うちで.",
+          "sourceDialogueTurn": 5,
+          "targetText": "そして、うちで いっしょに べんきょうします。",
+          "nativeText": "And we will study together at home."
+        },
+        "write": {
+          "id": "ja101:core:30:write",
+          "prompt": "Write the final sentence for planning to go out tomorrow, using でかけるよていです.",
+          "sourceDialogueTurn": 7,
+          "targetText": "あしたは でかける よていです。",
+          "nativeText": "I plan to go out tomorrow."
         }
       }
     }

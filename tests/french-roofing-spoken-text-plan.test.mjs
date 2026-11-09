@@ -21,6 +21,8 @@ test('French Roofing proposed spoken text preserves every exact lesson display s
   assert.equal(plan.counts.exactDisplayTexts, source.counts.uniqueExactTexts);
   assert.equal(Object.values(plan.counts).slice(1).reduce((a, b) => a + b, 0), source.texts.length);
   assert.equal(plan.rows.length, plan.counts.dialogueSpeakerLabels + plan.counts.headingsOrNarrationForReview);
+  assert.equal(plan.counts.dialogueSpeakerLabels, 193);
+  assert.equal(plan.counts.headingsOrNarrationForReview, 71);
   const originals = new Map(source.texts.map(row => [row.sha256, row]));
   assert.equal(originals.size, source.texts.length);
   const colonPrefixed = source.texts.filter(row => /^[^:：]{1,50}\s*[:：]\s*.+$/.test(row.text));

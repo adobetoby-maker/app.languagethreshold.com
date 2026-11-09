@@ -18,6 +18,7 @@ SPEAKER_NAMES = {
     "Rogelio", "Kevin", "Julio", "Marcos", "M. Kim", "M. Ramírez",
     "Mme Flores", "Mme Novak",
 }
+SPEAKER_ROLES = {"L’inspecteur", "Le fournisseur", "L’expert", "Le responsable"}
 
 
 def sha(data):
@@ -42,7 +43,7 @@ def build():
             plain_count += 1
             continue  # Plain strings speak exactly as displayed in the source inventory.
         label = match.group(1).strip()
-        if label in SPEAKER_NAMES:
+        if label in SPEAKER_NAMES or (label in SPEAKER_ROLES and match.group(2).startswith("«")):
             kind = "dialogue-speaker-label"
             proposed_spoken = match.group(2)
         else:

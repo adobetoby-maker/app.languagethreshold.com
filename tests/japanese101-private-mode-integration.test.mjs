@@ -60,7 +60,13 @@ test('private Japanese mode adapter rejects changed pair, progress identity, and
   assert.throws(() => inspectPrivateJapanese101Modes(wrongLesson), /unstable lesson identity/);
   const missingLine = structuredClone(inputs);
   missingLine.foundation.lessons[0].modes.hear.targetText = '別の文。';
-  assert.throws(() => inspectPrivateJapanese101Modes(missingLine), /not an exact Reader pair/);
+  assert.throws(() => inspectPrivateJapanese101Modes(missingLine), /not its cited Reader turn/);
+  const wrongTurn = structuredClone(inputs);
+  wrongTurn.core.lessons[0].modes.see.sourceDialogueTurn = 3;
+  assert.throws(() => inspectPrivateJapanese101Modes(wrongTurn), /not its cited Reader turn/);
+  const repeatedPrompt = structuredClone(inputs);
+  repeatedPrompt.master.lessons[0].modes.recall.prompt = repeatedPrompt.master.lessons[0].modes.see.prompt;
+  assert.throws(() => inspectPrivateJapanese101Modes(repeatedPrompt), /repeated authored practice prompt/);
   const released = structuredClone(inputs);
   released.core.registered = true;
   assert.throws(() => inspectPrivateJapanese101Modes(released), /private review gate/);

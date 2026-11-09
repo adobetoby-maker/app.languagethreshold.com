@@ -71,12 +71,17 @@ export function inspectPrivateJapanese101Modes(inputs: Japanese101ModeInputs) {
         throw new Error(`${id}:${n}: missing existing reading, words, Reader, or speaking`);
       if (JSON.stringify(Object.keys(entry.modes).sort()) !== JSON.stringify([...modeNames].sort()))
         throw new Error(`${id}:${n}: missing authored practice mode`);
+      if (new Set(modeNames.map(mode => entry.modes[mode].prompt.trim())).size !== modeNames.length)
+        throw new Error(`${id}:${n}: repeated authored practice prompt`);
       for (const mode of modeNames) {
         const activity = entry.modes[mode];
+        const sourceLine = Number.isInteger(activity.sourceDialogueTurn)
+          ? reader.sentences[activity.sourceDialogueTurn - 1]
+          : null;
         if (activity.id !== `ja101:${index === 0 ? 'foundation' : index === 1 ? 'core' : 'master'}:${n}:${mode}` ||
             !activity.prompt.trim() || !activity.targetText.trim() || !activity.nativeText.trim() ||
-            !reader.sentences.some(line => line.target === activity.targetText && line.en === activity.nativeText))
-          throw new Error(`${id}:${n}:${mode}: activity is not an exact Reader pair`);
+            sourceLine?.target !== activity.targetText || sourceLine.en !== activity.nativeText)
+          throw new Error(`${id}:${n}:${mode}: activity is not its cited Reader turn`);
         if (activities.has(activity.id)) throw new Error(`${id}:${n}:${mode}: duplicate activity identity`);
         activities.set(activity.id, activity);
       }

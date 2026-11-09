@@ -81,8 +81,8 @@ def main():
                     or inventory.get("reviewed") is not False \
                     or len(rows) > 5 or args.limit > 10:
                 raise SystemExit("Unreviewed draft pilot requires exact hash, five texts and ten-clip cap")
-        elif args.approved_sha256 != inventory["exactTextSha256"]:
-            raise SystemExit("Reviewed synthesis requires exact --approved-sha256")
+        elif args.approved_sha256 != inventory["exactTextSha256"] or inventory.get("reviewed") is not True:
+            raise SystemExit("Reviewed synthesis requires a reviewed inventory and exact --approved-sha256")
     os.umask(0o077)
     path = args.output / "manifest.json"
     manifest = json.loads(path.read_text()) if path.is_file() else {

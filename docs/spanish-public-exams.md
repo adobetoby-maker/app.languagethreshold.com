@@ -26,7 +26,7 @@ The audit reads public static content from this checkout, makes no service calls
 
 - TypeScript and lint checks passed.
 - Production build and Vercel artifact/private-bank scan passed.
-- 2,942 unit tests: 2,941 passed in the sandbox; the remaining Swift locale test passed separately with compiler-cache access.
+- All 2,942 unit tests passed with compiler-cache access.
 - Guest flows verified on desktop and iPhone-sized Chromium: placement recommendation, all 60 post-Core questions, results, fresh retake and no horizontal overflow. No real users or exam sessions were created.
 
 Run the saved guest regression against a local app with public Supabase configuration:

@@ -38,6 +38,7 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
     "core-10-12",
     "core-13-18",
     "core-19-30",
+    "master-1-20",
   ];
   let checked = 0;
   const ids = new Set();
@@ -68,6 +69,24 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
       }
     }
   }
-  assert.equal(checked, 233);
-  assert.equal(ids.size, 233);
+  assert.equal(checked, 329);
+  assert.equal(ids.size, 329);
+});
+
+test("Master form answers preserve the exact spoken source without speaker labels", () => {
+  const draft = JSON.parse(readFileSync(new URL(
+    "../content/french-basics/private-form-practice-master-1-20-fr-en.json", import.meta.url,
+  )));
+  const source = JSON.parse(readFileSync(new URL(`../${draft.sourceFile}`, import.meta.url)));
+  for (const lesson of draft.lessons) {
+    const reader = source.support[lesson.lesson - 1].reader;
+    for (const prompt of lesson.prompts) {
+      const index = prompt.sourceReaderTurn - 1;
+      assert.equal(prompt.sourceFrenchLine, reader.target[index]);
+      assert.equal(prompt.sourceEnglishLine, reader.native[index]);
+      assert.equal(`${prompt.sourceFrenchSpeaker} : ${prompt.frenchAnswer}`, reader.target[index]);
+      assert.equal(`${prompt.sourceEnglishSpeaker}: ${prompt.englishPrompt}`, reader.native[index]);
+      assert.equal(prompt.audioDisplayText, reader.target[index]);
+    }
+  }
 });

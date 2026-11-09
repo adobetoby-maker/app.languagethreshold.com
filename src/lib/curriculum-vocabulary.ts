@@ -24,9 +24,22 @@ const normalized = (word: string) =>
     .trim()
     .replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, "")
     .toLowerCase();
+const pairKey = (language: string, native: string) => `${language}\u0000${native}`;
+const articlePattern = (language: string) =>
+  language === "Spanish" ? /^(?:el|la|los|las|un|una|unos|unas)\s+(?=\S+$)/u
+  : language === "French" ? /^(?:le|la|les|un|une|des)\s+(?=\S+$)|^l[’'](?=\S+$)/u
+  : language === "English" ? /^(?:the|a|an|to)\s+(?=\S+$)/u
+  : null;
+function lookupKeys(term: string, language: string): string[] {
+  const exact = normalized(term);
+  const pattern = articlePattern(language);
+  const bare = pattern ? exact.replace(pattern, "") : exact;
+  // Match an authored phrase only in full, and keep article+noun terms clickable.
+  if (!exact) return [];
+  return [...new Set([exact, bare].filter(Boolean))];
+}
 export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
-  const spanish = new Map<string, CurriculumWordMatch[]>();
-  const english = new Map<string, CurriculumWordMatch[]>();
+  const tables = new Map<string, Map<string, CurriculumWordMatch[]>>();
   for (const [es, en, index, lesson] of data.entries) {
     if (
       typeof es !== "string" ||
@@ -37,6 +50,9 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
       continue;
     const module = data.modules[index];
     if (!module) continue;
+    const target = module.target ?? "Spanish";
+    const native = module.native ?? "English";
+    if (target === native) continue;
     const base = {
       moduleId: module.id,
       moduleName: module.name,
@@ -47,43 +63,32 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
           ? "/?tab=dictionary&target=Spanish&native=English"
           : moduleLessonUrl({
               moduleId: module.id,
-              target: module.target ?? "Spanish",
-              native: module.native ?? "English",
+              target,
+              native,
               lesson,
               way: "see",
             }),
     };
-    for (const [table, word, meaning] of [
-      [spanish, es, en],
-      [english, en, es],
+    for (const [language, support, word, meaning] of [
+      [target, native, es, en],
+      [native, target, en, es],
     ] as const) {
+      const key = pairKey(language, support);
+      const table = tables.get(key) ?? new Map<string, CurriculumWordMatch[]>();
+      tables.set(key, table);
       // Slash-separated authored term alternatives are exact alternatives, never partial phrase matches.
       for (const term of word.split(/\s+\/\s+/u)) {
-        const key = normalized(term).replace(
-          table === spanish
-            ? /^(?:el|la|los|las|un|una|unos|unas)\s+(?=\S+$)/u
-            : /^(?:the|a|an|to)\s+(?=\S+$)/u,
-          "",
-        );
-        if (!key || /\s/u.test(key)) continue;
-        const matches = table.get(key) ?? [];
-        if (
-          !matches.some(
-            (m) => m.moduleId === module.id && m.lesson === lesson && m.meaning === meaning,
-          )
-        )
-          matches.push({ ...base, word: term, meaning });
-        table.set(key, matches);
+        for (const lookupKey of lookupKeys(term, language)) {
+          const matches = table.get(lookupKey) ?? [];
+          if (!matches.some(m => m.moduleId === module.id && m.lesson === lesson && m.meaning === meaning))
+            matches.push({ ...base, word: term, meaning });
+          table.set(lookupKey, matches);
+        }
       }
     }
   }
   return (word: string, language: string, native: string, preferredModule?: string) => {
-    if (!(
-      (language === "Spanish" && native === "English") ||
-      (language === "English" && native === "Spanish")
-    ))
-      return [];
-    const found = [...((language === "Spanish" ? spanish : english).get(normalized(word)) ?? [])];
+    const found = [...(tables.get(pairKey(language, native))?.get(normalized(word)) ?? [])];
     if (preferredModule)
       found.sort(
         (a, b) => Number(b.moduleId === preferredModule) - Number(a.moduleId === preferredModule),
@@ -108,11 +113,6 @@ export async function curriculumVocabulary(
   native: string,
   preferredModule?: string,
 ) {
-  if (!(
-    (language === "Spanish" && native === "English") ||
-    (language === "English" && native === "Spanish")
-  ))
-    return [];
   vocabulary ??= import("../data/curriculum-word-index.json").then((data) =>
     buildCurriculumVocabulary(data.default),
   );

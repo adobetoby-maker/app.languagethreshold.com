@@ -15,15 +15,16 @@ const rows: {
 }[] = [];
 for (const module of MODULES) {
   const englishTarget = module.learnDirection === "en-target";
-  const target = englishTarget ? "English" : "Spanish";
-  const native = englishTarget ? "Spanish" : "English";
+  const target = module.authoredPair?.target ?? (englishTarget ? "English" : "Spanish");
+  const native = module.authoredPair?.native ?? (englishTarget ? "Spanish" : "English");
   if (!moduleSupportsLearningPair(module, target, native)) continue;
   for (const lesson of getCurriculum(module.id)?.lessons ?? []) {
     for (const word of lesson.words ?? []) {
       if (word.kind !== "term" || !word.es.trim() || !word.en.trim()) continue;
       rows.push({
-        es: (englishTarget ? word.en : word.es).trim(),
-        en: (englishTarget ? word.es : word.en).trim(),
+        // Historical field names: es is always the authored target, en the support language.
+        es: word.es.trim(),
+        en: word.en.trim(),
         target,
         native,
         moduleId: module.id,

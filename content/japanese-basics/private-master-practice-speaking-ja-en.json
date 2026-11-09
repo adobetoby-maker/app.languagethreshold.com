@@ -1,0 +1,1701 @@
+{
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/japanese-basics/master.json",
+  "sourceSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
+  "extensionsFile": "content/japanese-basics/master-extensions.json",
+  "extensionsSha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7",
+  "practiceFile": "src/data/japanese-basics-practice.json",
+  "practiceSha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683",
+  "authoredSpeakingSources": [
+    {
+      "path": "content/japanese-basics/private-master-1-10-speaking-missions-ja-en.json",
+      "sha256": "50d2569ef96664100d48b31c7b377d6747686bece3f02a396500e8ebbd9ec1ab"
+    },
+    {
+      "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
+      "sha256": "cd2edd70d8722276b325200a5b8c7a3f3146ae98f3a9bb570a85b84b9bc66ce6"
+    }
+  ],
+  "authoredSpeakingCoverage": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "support": {
+    "1": {
+      "stage": "master",
+      "reading": {
+        "title": "At a study-group meeting",
+        "target": [
+          "こちらは あきさんです。グループの あたらしい メンバーです。",
+          "あきさん、どんな ほんが すきですか。",
+          "りょこうの ほんが すきです。",
+          "きのう としょかんで あいましたね。",
+          "はい。あの しずかな へやで べんきょうしました。",
+          "べんきょうは たのしかったですか。",
+          "はい、とても たのしかったです。",
+          "あしたも としょかんに いく つもりですか。",
+          "はい、あしたも いく つもりです。",
+          "では、いっしょに べんきょうしましょう。",
+          "この グループは せんしゅうも ここで べんきょうしました。",
+          "べんきょうは たのしかったですか。",
+          "はい、とても たのしかったです。",
+          "らいしゅうも いっしょに べんきょうする つもりです。"
+        ],
+        "native": [
+          "This is Aki, a new member of the group.",
+          "Aki, what kind of books do you like?",
+          "I like travel books.",
+          "We met at the library yesterday, didn't we?",
+          "Yes. I studied in that quiet room.",
+          "Was studying fun?",
+          "Yes, it was very fun.",
+          "Do you intend to go to the library tomorrow too?",
+          "Yes, I intend to go tomorrow too.",
+          "Then let us study together.",
+          "This group studied here last week too.",
+          "Was the study session fun?",
+          "Yes, it was a lot of fun.",
+          "We intend to study together next week too."
+        ]
+      },
+      "grammar": {
+        "focus": "Introduce a new group member, ask about a preference, recall a meeting with polite past ～ました, make a plan with ～つもりです, and describe how studying went with an い-adjective past (たのしい → たのしかったです).",
+        "examples": [
+          {
+            "es": "こちらは あきさんです。グループの あたらしい メンバーです。",
+            "en": "This is Aki, a new member of the group."
+          },
+          {
+            "es": "あきさん、どんな ほんが すきですか。",
+            "en": "Aki, what kind of books do you like?"
+          }
+        ]
+      },
+      "speaking": "Role-play: Introduce Aki to a study group. Introduce the new member and ask about a book preference Recall yesterday’s library meeting with polite past forms Discuss tomorrow’s study intention and how the earlier study went. A group member asks whether Aki plans to visit the library again tomorrow. Invite Aki to study together with the group.",
+      "openingLine": "こちらは あきさんです。グループの あたらしい メンバーです。",
+      "partnerRole": "Introduce Aki to a study group",
+      "checks": [
+        {
+          "prompt": "こちらは あきさんです。グループの ____ メンバーです。",
+          "hint": "This is Aki, a new member of the group.",
+          "answer": "あたらしい",
+          "explanation": "Introduce a new group member, ask about a preference, recall a meeting with polite past ～ました, make a plan with ～つもりです, and describe how studying went with an い-adjective past (たのしい → たのしかったです)."
+        },
+        {
+          "prompt": "こちらは あきさんです。____の あたらしい メンバーです。",
+          "hint": "This is Aki, a new member of the group.",
+          "answer": "グループ",
+          "explanation": "Introduce a new group member, ask about a preference, recall a meeting with polite past ～ました, make a plan with ～つもりです, and describe how studying went with an い-adjective past (たのしい → たのしかったです)."
+        },
+        {
+          "prompt": "こちらは あきさんです。グループの あたらしい ____です。",
+          "hint": "This is Aki, a new member of the group.",
+          "answer": "メンバー",
+          "explanation": "Introduce a new group member, ask about a preference, recall a meeting with polite past ～ました, make a plan with ～つもりです, and describe how studying went with an い-adjective past (たのしい → たのしかったです)."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:1",
+        "role": "Introduce Aki to a study group",
+        "opening": "こちらは あきさんです。グループの あたらしい メンバーです。",
+        "objectives": [
+          "Introduce the new member and ask about a book preference",
+          "Recall yesterday’s library meeting with polite past forms",
+          "Discuss tomorrow’s study intention and how the earlier study went"
+        ],
+        "complication": "A group member asks whether Aki plans to visit the library again tomorrow.",
+        "closure": "Invite Aki to study together with the group."
+      }
+    },
+    "2": {
+      "stage": "master",
+      "reading": {
+        "title": "A class supply note",
+        "target": [
+          "あしたの クラスに ノートを にさつ もってきてください。",
+          "ペンも ひとつ ひつようです。",
+          "じしょは いりますか。",
+          "いいえ、あしたは いりません。",
+          "この かばんに ノートを いれます。",
+          "ペンは どこに ありますか。",
+          "つくえの うえに あります。",
+          "これで だいじょうぶです。",
+          "ノートは あおいです。",
+          "ペンは くろいです。",
+          "ほんは かばんの なかに あります。",
+          "あした、これを もっていきます。"
+        ],
+        "native": [
+          "Please bring two notebooks to tomorrow's class.",
+          "You also need one pen.",
+          "Do we need a dictionary?",
+          "No, not tomorrow.",
+          "I will put the notebooks in this bag.",
+          "Where is the pen?",
+          "It is on the desk.",
+          "That's everything, then.",
+          "The notebooks are blue.",
+          "The pen is black.",
+          "The book is in the bag.",
+          "Tomorrow I will take these things."
+        ]
+      },
+      "grammar": {
+        "focus": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks. The polite request is ～てください: もつ becomes もって, くる becomes きて, so もってきてください means “please bring.”",
+        "examples": [
+          {
+            "es": "あしたの クラスに ノートを にさつ もってきてください。",
+            "en": "Please bring two notebooks to tomorrow's class."
+          },
+          {
+            "es": "ペンも ひとつ ひつようです。",
+            "en": "You also need one pen."
+          }
+        ]
+      },
+      "speaking": "Role-play: Check a supply note with a classmate before the first class. Read the requirement for two notebooks using ～さつ Ask which additional supplies must be brought Use ～てください to repeat the polite bring-this request. The classmate confuses two notebooks with two loose items. Confirm the full list before leaving for class.",
+      "openingLine": "あしたの クラスに ノートを にさつ もってきてください。",
+      "partnerRole": "Check a supply note with a classmate before the first class",
+      "checks": [
+        {
+          "prompt": "あしたの クラスに ノートを にさつ ____。",
+          "hint": "Please bring two notebooks to tomorrow's class.",
+          "answer": "もってきてください",
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks. The polite request is ～てください: もつ becomes もって, くる becomes きて, so もってきてください means “please bring.”"
+        },
+        {
+          "prompt": "あしたの クラスに ノートを ____ もってきてください。",
+          "hint": "Please bring two notebooks to tomorrow's class.",
+          "answer": "にさつ",
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks. The polite request is ～てください: もつ becomes もって, くる becomes きて, so もってきてください means “please bring.”"
+        },
+        {
+          "prompt": "あしたの クラスに ____を にさつ もってきてください。",
+          "hint": "Please bring two notebooks to tomorrow's class.",
+          "answer": "ノート",
+          "explanation": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks. The polite request is ～てください: もつ becomes もって, くる becomes きて, so もってきてください means “please bring.”"
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:2",
+        "role": "Check a supply note with a classmate before the first class",
+        "opening": "あしたの クラスに ノートを にさつ もってきてください。",
+        "objectives": [
+          "Read the requirement for two notebooks using ～さつ",
+          "Ask which additional supplies must be brought",
+          "Use ～てください to repeat the polite bring-this request"
+        ],
+        "complication": "The classmate confuses two notebooks with two loose items.",
+        "closure": "Confirm the full list before leaving for class."
+      }
+    },
+    "3": {
+      "stage": "master",
+      "reading": {
+        "title": "Before a group activity",
+        "target": [
+          "きょうは さんにんで べんきょうします。",
+          "ノートは さんさつ あります。",
+          "わたしは あきさんに いっさつ あげます。",
+          "けんさんにも いっさつ あげます。",
+          "せんせいから ペンを ふたつ もらいました。",
+          "あきさんは わたしに コピーを くれます。",
+          "みんな しりょうを もっていますか。",
+          "はい、さんにんとも もっています。",
+          "けんさんは ペンを ひとつ もらいます。",
+          "あきさんは ノートを もっています。",
+          "のこりは わたしの かばんに あります。",
+          "せんせいに かずを つたえます。"
+        ],
+        "native": [
+          "Three people will study today.",
+          "There are three notebooks.",
+          "I give one notebook to Aki.",
+          "I give one notebook to Ken too.",
+          "I received two pens from the teacher.",
+          "Aki gives me a copy.",
+          "Does everyone have the materials?",
+          "Yes, all three of us do.",
+          "Ken receives one pen.",
+          "Aki has a notebook.",
+          "The remaining pen is in my bag.",
+          "I tell the teacher the number."
+        ]
+      },
+      "grammar": {
+        "focus": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here.",
+        "examples": [
+          {
+            "es": "きょうは さんにんで べんきょうします。",
+            "en": "Three people will study today."
+          },
+          {
+            "es": "ノートは さんさつ あります。",
+            "en": "There are three notebooks."
+          }
+        ]
+      },
+      "speaking": "Role-play: Distribute notebooks and pens to a group of three. Count three people and the notebooks needed Name who gives or receives each item Check that every person has the materials before starting. One classmate thinks another person received the last notebook. Confirm that all three group members have their materials.",
+      "openingLine": "きょうは さんにんで べんきょうします。",
+      "partnerRole": "Distribute notebooks and pens to a group of three",
+      "checks": [
+        {
+          "prompt": "きょうは ____で べんきょうします。",
+          "hint": "Three people will study today.",
+          "answer": "さんにん",
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
+        },
+        {
+          "prompt": "____は さんにんで べんきょうします。",
+          "hint": "Three people will study today.",
+          "answer": "きょう",
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
+        },
+        {
+          "prompt": "ノートは ____ あります。",
+          "hint": "There are three notebooks.",
+          "answer": "さんさつ",
+          "explanation": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:3",
+        "role": "Distribute notebooks and pens to a group of three",
+        "opening": "きょうは さんにんで べんきょうします。",
+        "objectives": [
+          "Count three people and the notebooks needed",
+          "Name who gives or receives each item",
+          "Check that every person has the materials before starting"
+        ],
+        "complication": "One classmate thinks another person received the last notebook.",
+        "closure": "Confirm that all three group members have their materials."
+      }
+    },
+    "4": {
+      "stage": "master",
+      "reading": {
+        "title": "Checking on a classmate",
+        "target": [
+          "けんさんは がくせいです。",
+          "きょうは つかれています。",
+          "いま どこに いますか。",
+          "としょかんに います。",
+          "そこで ほんを よんでいます。",
+          "あきさんも としょかんに いますか。",
+          "いいえ、あきさんは うちに います。",
+          "あとで でんわします。",
+          "けんさんは だいじょうぶですか。",
+          "はい、すこし やすんでいます。",
+          "あきさんに つたえます。",
+          "あした また あいましょう。"
+        ],
+        "native": [
+          "Ken is a student.",
+          "Today he is tired.",
+          "Where is he now?",
+          "He is in the library.",
+          "He is reading a book there.",
+          "Is Aki in the library too?",
+          "No, Aki is at home.",
+          "I will call later.",
+          "Is Ken all right?",
+          "Yes, he is resting a little.",
+          "I will tell Aki.",
+          "Let us meet again tomorrow."
+        ]
+      },
+      "grammar": {
+        "focus": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress.",
+        "examples": [
+          {
+            "es": "けんさんは がくせいです。",
+            "en": "Ken is a student."
+          },
+          {
+            "es": "きょうは つかれています。",
+            "en": "Today he is tired."
+          }
+        ]
+      },
+      "speaking": "Role-play: Check on Ken with another classmate. Identify Ken as a student Describe his present tired state with つかれています Ask where he is separately from who he is and how he feels. The classmate answers the location question with Ken’s role instead. Confirm Ken’s location and the plan to call later.",
+      "openingLine": "けんさんは がくせいです。",
+      "partnerRole": "Check on Ken with another classmate",
+      "checks": [
+        {
+          "prompt": "けんさんは ____です。",
+          "hint": "Ken is a student.",
+          "answer": "がくせい",
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
+        },
+        {
+          "prompt": "きょうは ____。",
+          "hint": "Today he is tired.",
+          "answer": "つかれています",
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
+        },
+        {
+          "prompt": "いま どこに ____か。",
+          "hint": "Where is he now?",
+          "answer": "います",
+          "explanation": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:4",
+        "role": "Check on Ken with another classmate",
+        "opening": "けんさんは がくせいです。",
+        "objectives": [
+          "Identify Ken as a student",
+          "Describe his present tired state with つかれています",
+          "Ask where he is separately from who he is and how he feels"
+        ],
+        "complication": "The classmate answers the location question with Ken’s role instead.",
+        "closure": "Confirm Ken’s location and the plan to call later."
+      }
+    },
+    "5": {
+      "stage": "master",
+      "reading": {
+        "title": "A meeting room",
+        "target": [
+          "へやの なかに つくえが あります。",
+          "つくえの うえに ほんが あります。",
+          "いすは まどの となりです。",
+          "ドアの ちかくに せんせいが います。",
+          "あきさんも へやに います。",
+          "となりの へやには だれも いません。",
+          "かいぎは ここで します。",
+          "でんきは ついています。",
+          "この へやは しずかです。",
+          "あきさんは つくえの となりに います。",
+          "ドアの そとに かばんが あります。",
+          "かばんの もちぬしを さがします。"
+        ],
+        "native": [
+          "There is a desk in the room.",
+          "A book is on the desk.",
+          "The chair is next to the window.",
+          "The teacher is near the door.",
+          "Aki is also in the room.",
+          "There is no one in the next room.",
+          "The meeting will happen here.",
+          "The light is on.",
+          "This room is quiet.",
+          "Aki is next to the desk.",
+          "There is a bag outside the door.",
+          "We look for the bag's owner."
+        ]
+      },
+      "grammar": {
+        "focus": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on.",
+        "examples": [
+          {
+            "es": "へやの なかに つくえが あります。",
+            "en": "There is a desk in the room."
+          },
+          {
+            "es": "つくえの うえに ほんが あります。",
+            "en": "A book is on the desk."
+          }
+        ]
+      },
+      "speaking": "Role-play: Describe a meeting room to a colleague. Locate objects using あります Locate people using います Describe the light’s on-state with ついています. The colleague asks whether a person or an object is near the desk. Restate where the relevant objects and people are before the meeting.",
+      "openingLine": "へやの なかに つくえが あります。",
+      "partnerRole": "Describe a meeting room to a colleague",
+      "checks": [
+        {
+          "prompt": "へやの なかに つくえが ____。",
+          "hint": "There is a desk in the room.",
+          "answer": "あります",
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
+        },
+        {
+          "prompt": "へやの ____に つくえが あります。",
+          "hint": "There is a desk in the room.",
+          "answer": "なか",
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
+        },
+        {
+          "prompt": "つくえの ____に ほんが あります。",
+          "hint": "A book is on the desk.",
+          "answer": "うえ",
+          "explanation": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:5",
+        "role": "Describe a meeting room to a colleague",
+        "opening": "へやの なかに つくえが あります。",
+        "objectives": [
+          "Locate objects using あります",
+          "Locate people using います",
+          "Describe the light’s on-state with ついています"
+        ],
+        "complication": "The colleague asks whether a person or an object is near the desk.",
+        "closure": "Restate where the relevant objects and people are before the meeting."
+      }
+    },
+    "6": {
+      "stage": "master",
+      "reading": {
+        "title": "Arranging a meeting with the teacher near the station",
+        "target": [
+          "あした、えきの まえで あいますか。",
+          "はい、さんじに あいましょう。",
+          "すみません、えきまでの みちが わかりません。",
+          "この ちずを みましょう。",
+          "この みちを いきますか。",
+          "はい、まっすぐ いきます。",
+          "ひとりで いけますか。",
+          "はい、だいじょうぶです。",
+          "せんせいは ちずを みせます。",
+          "この ちずの えきは どこですか。",
+          "えきは ここです。この みちを まっすぐ いきます。",
+          "せんせいは もういちど せつめいします。",
+          "これで わかりますか。",
+          "はい、わかりました。ありがとうございます。"
+        ],
+        "native": [
+          "Are we meeting in front of the station tomorrow?",
+          "Yes, let us meet at three.",
+          "Sorry, I do not know the way to the station.",
+          "Let us look at this map.",
+          "Do I take this road?",
+          "Yes, you go straight.",
+          "Can I get there alone?",
+          "Yes, you will be fine.",
+          "The teacher shows the map.",
+          "Where is the station on this map?",
+          "The station is here. You go straight along this road.",
+          "The teacher explains once more.",
+          "Do you understand now?",
+          "Yes, I understand. Thank you."
+        ]
+      },
+      "grammar": {
+        "focus": "Confirm tomorrow’s meeting place and time, then say you do not know the route. Use a map, ask a follow-up question, and check whether you can get there alone. In この みちを いきます, を marks the road you travel along.",
+        "examples": [
+          {
+            "es": "あした、えきの まえで あいますか。",
+            "en": "Are we meeting in front of the station tomorrow?"
+          },
+          {
+            "es": "はい、さんじに あいましょう。",
+            "en": "Yes, let us meet at three."
+          }
+        ]
+      },
+      "speaking": "Role-play: Clarify directions to meet a teacher near the station. Confirm tomorrow’s meeting place and time Say that you do not know the route and ask about a map Check whether you can travel the road and arrive alone. The first directions are not enough for you to identify the route. Confirm the route and whether you can get there on your own.",
+      "openingLine": "あした、えきの まえで あいますか。",
+      "partnerRole": "Clarify directions to meet a teacher near the station",
+      "checks": [
+        {
+          "prompt": "あした、えきの まえで ____か。",
+          "hint": "Are we meeting in front of the station tomorrow?",
+          "answer": "あいます",
+          "explanation": "Confirm tomorrow’s meeting place and time, then say you do not know the route. Use a map, ask a follow-up question, and check whether you can get there alone. In この みちを いきます, を marks the road you travel along."
+        },
+        {
+          "prompt": "____、えきの まえで あいますか。",
+          "hint": "Are we meeting in front of the station tomorrow?",
+          "answer": "あした",
+          "explanation": "Confirm tomorrow’s meeting place and time, then say you do not know the route. Use a map, ask a follow-up question, and check whether you can get there alone. In この みちを いきます, を marks the road you travel along."
+        },
+        {
+          "prompt": "あした、えきの ____で あいますか。",
+          "hint": "Are we meeting in front of the station tomorrow?",
+          "answer": "まえ",
+          "explanation": "Confirm tomorrow’s meeting place and time, then say you do not know the route. Use a map, ask a follow-up question, and check whether you can get there alone. In この みちを いきます, を marks the road you travel along."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:6",
+        "role": "Clarify directions to meet a teacher near the station",
+        "opening": "あした、えきの まえで あいますか。",
+        "objectives": [
+          "Confirm tomorrow’s meeting place and time",
+          "Say that you do not know the route and ask about a map",
+          "Check whether you can travel the road and arrive alone"
+        ],
+        "complication": "The first directions are not enough for you to identify the route.",
+        "closure": "Confirm the route and whether you can get there on your own."
+      }
+    },
+    "7": {
+      "stage": "master",
+      "reading": {
+        "title": "One classmate explains a method for learning difficult Japanese words",
+        "target": [
+          "まいにち どうやって にほんごを べんきょうしますか。",
+          "まいあさ みじかい ぶんを かきます。",
+          "むずかしい ことばは どうしますか。",
+          "せんせいに ことばの いみを ききます。",
+          "べんきょうの やりかたも ききますか。",
+          "はい、べんきょうの やりかたも ききます。",
+          "その あと どうしますか。",
+          "もういちど ぶんを かきます。すこしずつ わかります。",
+          "しゅうまつは べんきょうしません。",
+          "でも、あたらしい ことばを ときどき よみます。",
+          "むずかしい ことばは せんせいに ききます。",
+          "この やりかたが すきです。"
+        ],
+        "native": [
+          "How do you study Japanese every day?",
+          "I write short sentences every morning.",
+          "What do you do with difficult words?",
+          "I ask the teacher the meanings of words.",
+          "Do you ask about the way to study them too?",
+          "Yes, I ask about the way to study them too.",
+          "What do you do after that?",
+          "I write the sentences again. Little by little I understand.",
+          "I do not study on weekends.",
+          "But I sometimes read new words.",
+          "I ask the teacher about difficult words.",
+          "I like this way of studying."
+        ]
+      },
+      "grammar": {
+        "focus": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
+        "examples": [
+          {
+            "es": "まいにち どうやって にほんごを べんきょうしますか。",
+            "en": "How do you study Japanese every day?"
+          },
+          {
+            "es": "まいあさ みじかい ぶんを かきます。",
+            "en": "I write short sentences every morning."
+          }
+        ]
+      },
+      "speaking": "Role-play: Explain a method for learning difficult words to a classmate. Ask how a classmate studies using どうやって Describe asking a teacher and writing sentences again Explain gradual progress with すこしずつ. The classmate gives only a daily time, so ask for the method instead. Restate the repeatable study method in order.",
+      "openingLine": "まいにち どうやって にほんごを べんきょうしますか。",
+      "partnerRole": "Explain a method for learning difficult words to a classmate",
+      "checks": [
+        {
+          "prompt": "まいにち どうやって にほんごを ____か。",
+          "hint": "How do you study Japanese every day?",
+          "answer": "べんきょうします",
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
+        },
+        {
+          "prompt": "まいにち ____ にほんごを べんきょうしますか。",
+          "hint": "How do you study Japanese every day?",
+          "answer": "どうやって",
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
+        },
+        {
+          "prompt": "____ どうやって にほんごを べんきょうしますか。",
+          "hint": "How do you study Japanese every day?",
+          "answer": "まいにち",
+          "explanation": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:7",
+        "role": "Explain a method for learning difficult words to a classmate",
+        "opening": "まいにち どうやって にほんごを べんきょうしますか。",
+        "objectives": [
+          "Ask how a classmate studies using どうやって",
+          "Describe asking a teacher and writing sentences again",
+          "Explain gradual progress with すこしずつ"
+        ],
+        "complication": "The classmate gives only a daily time, so ask for the method instead.",
+        "closure": "Restate the repeatable study method in order."
+      }
+    },
+    "8": {
+      "stage": "master",
+      "reading": {
+        "title": "Messages before Saturday",
+        "target": [
+          "あきさんから メッセージが きました。",
+          "「どようびに あえますか。」",
+          "わたしは どようびに あきさんに あう つもりです。",
+          "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "あきさんは「だいじょうぶです」と かきました。",
+          "えきの まえで あう よていです。",
+          "さんじに いきます。",
+          "きんようびの よる、でんわします。",
+          "わたしは「では、どようびに」と かきました。",
+          "えきの まえは わかりやすい ばしょです。",
+          "あめが ふっていますから、えきの なかで まちます。",
+          "あきさんも りょうかいしました。"
+        ],
+        "native": [
+          "A message came from Aki.",
+          "“Can we meet on Saturday?”",
+          "I plan to meet Aki on Saturday.",
+          "I replied, “How about three in front of the station?”",
+          "Aki wrote, “That works.”",
+          "We plan to meet in front of the station.",
+          "I will go at three.",
+          "I will call on Friday night.",
+          "I wrote, “See you Saturday, then.”",
+          "In front of the station is an easy place to find.",
+          "Because it is raining, we will wait inside the station.",
+          "Aki understood the plan too."
+        ]
+      },
+      "grammar": {
+        "focus": "Read a plan, reply with a time and place, and confirm the meeting. In a written reply, put the exact words inside 「」 and add と after the closing quote: 「…」と かきました / かえしました means “wrote … / replied ….”",
+        "examples": [
+          {
+            "es": "あきさんから メッセージが きました。",
+            "en": "A message came from Aki."
+          },
+          {
+            "es": "「どようびに あえますか。」",
+            "en": "“Can we meet on Saturday?”"
+          }
+        ]
+      },
+      "speaking": "Role-play: Reply to Aki’s written plan for Saturday. Identify the proposed day, time, and place in Aki’s message Compose a short reply with exact quoted words inside 「」 Confirm the meeting and mention the Friday night call. The reply lacks a meeting place on the first attempt. Send a complete time-and-place confirmation.",
+      "openingLine": "あきさんから メッセージが きました。",
+      "partnerRole": "Reply to Aki’s written plan for Saturday",
+      "checks": [
+        {
+          "prompt": "「____に あえますか。」",
+          "hint": "“Can we meet on Saturday?”",
+          "answer": "どようび",
+          "explanation": "Read a plan, reply with a time and place, and confirm the meeting. In a written reply, put the exact words inside 「」 and add と after the closing quote: 「…」と かきました / かえしました means “wrote … / replied ….”"
+        },
+        {
+          "prompt": "わたしは どようびに あきさんに あう ____。",
+          "hint": "I plan to meet Aki on Saturday.",
+          "answer": "つもりです",
+          "explanation": "Read a plan, reply with a time and place, and confirm the meeting. In a written reply, put the exact words inside 「」 and add と after the closing quote: 「…」と かきました / かえしました means “wrote … / replied ….”"
+        },
+        {
+          "prompt": "わたしは「ごご さんじに えきの まえは どうですか」と ____。",
+          "hint": "I replied, “How about three in front of the station?”",
+          "answer": "かえしました",
+          "explanation": "Read a plan, reply with a time and place, and confirm the meeting. In a written reply, put the exact words inside 「」 and add と after the closing quote: 「…」と かきました / かえしました means “wrote … / replied ….”"
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:8",
+        "role": "Reply to Aki’s written plan for Saturday",
+        "opening": "あきさんから メッセージが きました。",
+        "objectives": [
+          "Identify the proposed day, time, and place in Aki’s message",
+          "Compose a short reply with exact quoted words inside 「」",
+          "Confirm the meeting and mention the Friday night call"
+        ],
+        "complication": "The reply lacks a meeting place on the first attempt.",
+        "closure": "Send a complete time-and-place confirmation."
+      }
+    },
+    "9": {
+      "stage": "master",
+      "reading": {
+        "title": "At the shop counter",
+        "target": [
+          "この あおい かばんは いくらですか。",
+          "にせんえんです。",
+          "あの あかい かばんは？",
+          "さんぜんえんです。",
+          "あおい かばんの ほうが やすいです。",
+          "でも、あかい かばんの ほうが おおきいです。",
+          "どちらが べんりですか。",
+          "この あおい かばんを えらびます。",
+          "この かばんは かるいです。",
+          "あの かばんは おもいです。",
+          "わたしは まいにち つかいます。",
+          "だから、かるい ほうが いいです。"
+        ],
+        "native": [
+          "How much is this blue bag?",
+          "It is two thousand yen.",
+          "What about that red bag?",
+          "It is three thousand yen.",
+          "The blue bag is cheaper.",
+          "But the red bag is bigger.",
+          "Which is more convenient?",
+          "I choose this blue bag.",
+          "This bag is light.",
+          "That bag is heavy.",
+          "I will use it every day.",
+          "So the lighter one is better."
+        ]
+      },
+      "grammar": {
+        "focus": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here.",
+        "examples": [
+          {
+            "es": "この あおい かばんは いくらですか。",
+            "en": "How much is this blue bag?"
+          },
+          {
+            "es": "にせんえんです。",
+            "en": "It is two thousand yen."
+          }
+        ]
+      },
+      "speaking": "Role-play: Compare two bags with a shop clerk. Ask the price of the blue bag Compare the two bags using demonstratives and adjectives Choose one bag and explain why it fits. The clerk quotes the other bag’s price with さんぜん. Identify the chosen bag explicitly before buying it.",
+      "openingLine": "この あおい かばんは いくらですか。",
+      "partnerRole": "Compare two bags with a shop clerk",
+      "checks": [
+        {
+          "prompt": "____ あおい かばんは いくらですか。",
+          "hint": "How much is this blue bag?",
+          "answer": "この",
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
+        },
+        {
+          "prompt": "____です。",
+          "hint": "It is two thousand yen.",
+          "answer": "にせんえん",
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
+        },
+        {
+          "prompt": "____ あかい かばんは？",
+          "hint": "What about that red bag?",
+          "answer": "あの",
+          "explanation": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:9",
+        "role": "Compare two bags with a shop clerk",
+        "opening": "この あおい かばんは いくらですか。",
+        "objectives": [
+          "Ask the price of the blue bag",
+          "Compare the two bags using demonstratives and adjectives",
+          "Choose one bag and explain why it fits"
+        ],
+        "complication": "The clerk quotes the other bag’s price with さんぜん.",
+        "closure": "Identify the chosen bag explicitly before buying it."
+      }
+    },
+    "10": {
+      "stage": "master",
+      "reading": {
+        "title": "A lost umbrella",
+        "target": [
+          "この かさを みつけました。だれのですか。",
+          "わたしの じゃありません。",
+          "たなかさんの かさは あおいです。",
+          "この かさも あおいです。",
+          "たなかさんを よびます。",
+          "たなかさんは かさを みて、うなずきます。",
+          "「わたしのです。」",
+          "では、どうぞ。",
+          "たなかさんは「ありがとうございます」と いいます。",
+          "もう ひとつ かさが あります。",
+          "あきさんのです。",
+          "あきさんにも かえします。"
+        ],
+        "native": [
+          "I found this umbrella. Whose is it?",
+          "It is not mine.",
+          "Tanaka's umbrella is blue.",
+          "This umbrella is blue too.",
+          "I will call Tanaka.",
+          "Tanaka looks at the umbrella and nods.",
+          "“It is mine.”",
+          "Here you are.",
+          "Tanaka says, “Thank you.”",
+          "There is another umbrella.",
+          "It is Aki's.",
+          "I will return it to Aki too."
+        ]
+      },
+      "grammar": {
+        "focus": "Identify ownership, describe an item, and return it politely. Link two actions in order with the て-form: みる becomes みて, so かさを みて、うなずきます means “look at the umbrella and nod.”",
+        "examples": [
+          {
+            "es": "この かさを みつけました。だれのですか。",
+            "en": "I found this umbrella. Whose is it?"
+          },
+          {
+            "es": "わたしの じゃありません。",
+            "en": "It is not mine."
+          }
+        ]
+      },
+      "speaking": "Role-play: Identify the owner of a found umbrella. Ask whose umbrella was found Describe distinguishing details before returning it Use the て-form to link looking at the umbrella with the owner’s response. More than one person thinks the umbrella may be theirs. Return the umbrella to its identified owner politely.",
+      "openingLine": "この かさを みつけました。だれのですか。",
+      "partnerRole": "Identify the owner of a found umbrella",
+      "checks": [
+        {
+          "prompt": "この かさを ____。だれのですか。",
+          "hint": "I found this umbrella. Whose is it?",
+          "answer": "みつけました",
+          "explanation": "Identify ownership, describe an item, and return it politely. Link two actions in order with the て-form: みる becomes みて, so かさを みて、うなずきます means “look at the umbrella and nod.”"
+        },
+        {
+          "prompt": "____ かさを みつけました。だれのですか。",
+          "hint": "I found this umbrella. Whose is it?",
+          "answer": "この",
+          "explanation": "Identify ownership, describe an item, and return it politely. Link two actions in order with the て-form: みる becomes みて, so かさを みて、うなずきます means “look at the umbrella and nod.”"
+        },
+        {
+          "prompt": "この ____を みつけました。だれのですか。",
+          "hint": "I found this umbrella. Whose is it?",
+          "answer": "かさ",
+          "explanation": "Identify ownership, describe an item, and return it politely. Link two actions in order with the て-form: みる becomes みて, so かさを みて、うなずきます means “look at the umbrella and nod.”"
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:10",
+        "role": "Identify the owner of a found umbrella",
+        "opening": "この かさを みつけました。だれのですか。",
+        "objectives": [
+          "Ask whose umbrella was found",
+          "Describe distinguishing details before returning it",
+          "Use the て-form to link looking at the umbrella with the owner’s response"
+        ],
+        "complication": "More than one person thinks the umbrella may be theirs.",
+        "closure": "Return the umbrella to its identified owner politely."
+      }
+    },
+    "11": {
+      "stage": "master",
+      "reading": {
+        "title": "A small restaurant",
+        "target": [
+          "なにを たべたいですか。",
+          "わたしは やさいの りょうりが すきです。",
+          "にくは あまり たべません。",
+          "わたしは さかなを たべたいです。",
+          "メニューを みましょう。",
+          "この りょうりに にくは はいっていますか。",
+          "いいえ、にくは はいっていません。やさいだけです。",
+          "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+          "おちゃも ふたつ おねがいします。",
+          "ひとつは あたたかい おちゃです。",
+          "もう ひとつは つめたい おちゃです。",
+          "やさいの りょうりに にくは はいっていませんね。"
+        ],
+        "native": [
+          "What would you like to eat?",
+          "I like vegetable dishes.",
+          "I do not eat much meat.",
+          "I would like to eat fish.",
+          "Let's look at the menu.",
+          "Does this dish contain meat?",
+          "No, there is no meat in it. Only vegetables.",
+          "Then one vegetable dish and one fish dish, please.",
+          "Two teas too, please.",
+          "One is hot tea.",
+          "The other is cold tea.",
+          "There is no meat in the vegetable dish, right?"
+        ]
+      },
+      "grammar": {
+        "focus": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event.",
+        "examples": [
+          {
+            "es": "なにを たべたいですか。",
+            "en": "What would you like to eat?"
+          },
+          {
+            "es": "わたしは やさいの りょうりが すきです。",
+            "en": "I like vegetable dishes."
+          }
+        ]
+      },
+      "speaking": "Role-play: Order two meals with a restaurant server. Ask both diners what they want to eat Ask whether the vegetable dish contains meat using はいっていますか Record one vegetable dish without meat and one fish dish. One diner does not want meat, so the ingredient in the vegetable dish must be confirmed. Repeat both dishes and the no-meat detail before placing the order.",
+      "openingLine": "なにを たべたいですか。",
+      "partnerRole": "Order two meals with a restaurant server",
+      "checks": [
+        {
+          "prompt": "いいえ、にくは ____。やさいだけです。",
+          "hint": "No, there is no meat in it. Only vegetables.",
+          "answer": "はいっていません",
+          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
+        },
+        {
+          "prompt": "わたしは やさいの ____が すきです。",
+          "hint": "I like vegetable dishes.",
+          "answer": "りょうり",
+          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
+        },
+        {
+          "prompt": "____を みましょう。",
+          "hint": "Let's look at the menu.",
+          "answer": "メニュー",
+          "explanation": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:11",
+        "role": "Order two meals with a restaurant server",
+        "opening": "なにを たべたいですか。",
+        "objectives": [
+          "Ask both diners what they want to eat",
+          "Ask whether the vegetable dish contains meat using はいっていますか",
+          "Record one vegetable dish without meat and one fish dish"
+        ],
+        "complication": "One diner does not want meat, so the ingredient in the vegetable dish must be confirmed.",
+        "closure": "Repeat both dishes and the no-meat detail before placing the order."
+      }
+    },
+    "12": {
+      "stage": "master",
+      "reading": {
+        "title": "An afternoon trip",
+        "target": [
+          "あしたの ごご いけますか。",
+          "さんじなら いけます。",
+          "その へやに はいっても いいですか。",
+          "はい、だいじょうぶです。",
+          "しゃしんは とっても いいですか。",
+          "いいえ、なかでは とっては いけません。",
+          "では、みるだけに しましょう。",
+          "さんじに えきで あいましょう。",
+          "きっぷは いくらですか。",
+          "ふたりで にせんえんです。",
+          "その じかんは だいじょうぶですか。",
+          "はい、わたしも いく つもりです。"
+        ],
+        "native": [
+          "Can you go tomorrow afternoon?",
+          "I can go if it is at three.",
+          "May we enter that room?",
+          "Yes, that is fine.",
+          "May we take photos?",
+          "No, photos are not allowed inside.",
+          "Then let us just look.",
+          "Let's meet at the station at three.",
+          "How much is the ticket?",
+          "It is two thousand yen for the two of us.",
+          "Does that time work?",
+          "Yes, I intend to go too."
+        ]
+      },
+      "grammar": {
+        "focus": "Negotiate ability, permission, and timing before agreeing on a plan. ～なら sets a condition: さんじなら means “if it is at three.”",
+        "examples": [
+          {
+            "es": "あしたの ごご いけますか。",
+            "en": "Can you go tomorrow afternoon?"
+          },
+          {
+            "es": "さんじなら いけます。",
+            "en": "I can go if it is at three."
+          }
+        ]
+      },
+      "speaking": "Role-play: Negotiate an afternoon outing with a friend. Set a time the friend can make using さんじなら Ask whether the room may be entered Distinguish entry permission from the rule against indoor photos. The friend assumes that permission to enter also permits photos. Confirm the three o’clock station meeting and the no-photo rule inside.",
+      "openingLine": "あしたの ごご いけますか。",
+      "partnerRole": "Negotiate an afternoon outing with a friend",
+      "checks": [
+        {
+          "prompt": "あしたの ごご ____か。",
+          "hint": "Can you go tomorrow afternoon?",
+          "answer": "いけます",
+          "explanation": "Negotiate ability, permission, and timing before agreeing on a plan. ～なら sets a condition: さんじなら means “if it is at three.”"
+        },
+        {
+          "prompt": "____の ごご いけますか。",
+          "hint": "Can you go tomorrow afternoon?",
+          "answer": "あした",
+          "explanation": "Negotiate ability, permission, and timing before agreeing on a plan. ～なら sets a condition: さんじなら means “if it is at three.”"
+        },
+        {
+          "prompt": "あしたの ____ いけますか。",
+          "hint": "Can you go tomorrow afternoon?",
+          "answer": "ごご",
+          "explanation": "Negotiate ability, permission, and timing before agreeing on a plan. ～なら sets a condition: さんじなら means “if it is at three.”"
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:12",
+        "role": "Negotiate an afternoon outing with a friend",
+        "opening": "あしたの ごご いけますか。",
+        "objectives": [
+          "Set a time the friend can make using さんじなら",
+          "Ask whether the room may be entered",
+          "Distinguish entry permission from the rule against indoor photos"
+        ],
+        "complication": "The friend assumes that permission to enter also permits photos.",
+        "closure": "Confirm the three o’clock station meeting and the no-photo rule inside."
+      }
+    },
+    "13": {
+      "stage": "master",
+      "reading": {
+        "title": "Preparing a study room",
+        "target": [
+          "まず、へやを そうじしないと いけません。",
+          "つくえも ふかなければ なりません。",
+          "ノートは さんさつ ひつようです。",
+          "ペンは ありますか。",
+          "はい、かばんの なかに あります。",
+          "まどを あけても いいですか。",
+          "はい、あけてください。",
+          "これで じゅんびが できました。",
+          "せんせいが へやに きました。",
+          "ノートと ペンを みせます。",
+          "せんせいは それを みます。",
+          "せんせいは「だいじょうぶです」と いいます。"
+        ],
+        "native": [
+          "First, we have to clean the room.",
+          "We also have to wipe the desk.",
+          "We need three notebooks.",
+          "Do we have pens?",
+          "Yes, they are in the bag.",
+          "May I open the window?",
+          "Yes, please open it.",
+          "Now the preparations are complete.",
+          "The teacher came into the room.",
+          "I show the notebooks and pens.",
+          "The teacher looks at them.",
+          "The teacher says, “That is all right.”"
+        ]
+      },
+      "grammar": {
+        "focus": "Give a short task list, separate must-do from optional actions, and confirm completion.",
+        "examples": [
+          {
+            "es": "まず、へやを そうじしないと いけません。",
+            "en": "First, we have to clean the room."
+          },
+          {
+            "es": "つくえも ふかなければ なりません。",
+            "en": "We also have to wipe the desk."
+          }
+        ]
+      },
+      "speaking": "Role-play: Prepare a study room with two classmates. List room cleaning and desk wiping as required tasks Count the three notebooks and locate the pens Ask whether opening the window is allowed and confirm when preparation is complete. A classmate treats opening the window as a required task rather than a request for permission. Recap the completed required work and the window decision.",
+      "openingLine": "まず、へやを そうじしないと いけません。",
+      "partnerRole": "Prepare a study room with two classmates",
+      "checks": [
+        {
+          "prompt": "まず、へやを ____。",
+          "hint": "First, we have to clean the room.",
+          "answer": "そうじしないと いけません",
+          "explanation": "Give a short task list, separate must-do from optional actions, and confirm completion."
+        },
+        {
+          "prompt": "つくえも ____。",
+          "hint": "We also have to wipe the desk.",
+          "answer": "ふかなければ なりません",
+          "explanation": "Give a short task list, separate must-do from optional actions, and confirm completion."
+        },
+        {
+          "prompt": "ノートは さんさつ ____。",
+          "hint": "We need three notebooks.",
+          "answer": "ひつようです",
+          "explanation": "Give a short task list, separate must-do from optional actions, and confirm completion."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:13",
+        "role": "Prepare a study room with two classmates",
+        "opening": "まず、へやを そうじしないと いけません。",
+        "objectives": [
+          "List room cleaning and desk wiping as required tasks",
+          "Count the three notebooks and locate the pens",
+          "Ask whether opening the window is allowed and confirm when preparation is complete"
+        ],
+        "complication": "A classmate treats opening the window as a required task rather than a request for permission.",
+        "closure": "Recap the completed required work and the window decision."
+      }
+    },
+    "14": {
+      "stage": "master",
+      "reading": {
+        "title": "A delayed train before meeting a friend",
+        "target": [
+          "きょうは えきで ともだちに あう よていです。",
+          "いつ あう よていですか。",
+          "ごご さんじの よていです。",
+          "でも、でんしゃが おくれています。",
+          "では、あるいて えきへ いきます。",
+          "ともだちに メッセージを かきますか。",
+          "はい、「すこし おそく なります」と かきます。",
+          "それは いいですね。",
+          "そのあと えきに つきました。ともだちは まっていました。",
+          "あるいて えきへ いきました。",
+          "すこし おそく なりました。",
+          "ともだちは えきの まえで まっていました。",
+          "さんじはんに ともだちに あいました。"
+        ],
+        "native": [
+          "I plan to meet a friend at the station today.",
+          "When do you plan to meet?",
+          "It is planned for three in the afternoon.",
+          "But the train is delayed.",
+          "Then I will walk to the station.",
+          "Will you write a message to your friend?",
+          "Yes, I will write, “I will be a little late.”",
+          "That is good.",
+          "After that, I arrived at the station. My friend was waiting.",
+          "I walked to the station.",
+          "I was a little late.",
+          "My friend was waiting in front of the station.",
+          "I met my friend at three thirty."
+        ]
+      },
+      "grammar": {
+        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
+        "examples": [
+          {
+            "es": "きょうは えきで ともだちに あう よていです。",
+            "en": "I plan to meet a friend at the station today."
+          },
+          {
+            "es": "いつ あう よていですか。",
+            "en": "When do you plan to meet?"
+          }
+        ]
+      },
+      "speaking": "Role-play: Update a friend about a delayed train before a station meeting. State the planned 15:00 meeting and the ongoing train delay Describe walking to the station and quote a short late-arrival message Report the completed arrival and that the friend was waiting. The train delay changes the route and the meeting arrival time. Clarify the sequence from delay and message to arrival.",
+      "openingLine": "きょうは えきで ともだちに あう よていです。",
+      "partnerRole": "Update a friend about a delayed train before a station meeting",
+      "checks": [
+        {
+          "prompt": "そのあと えきに つきました。ともだちは ____。",
+          "hint": "After that, I arrived at the station. My friend was waiting.",
+          "answer": "まっていました",
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
+        },
+        {
+          "prompt": "きょうは えきで ともだちに あう ____。",
+          "hint": "I plan to meet a friend at the station today.",
+          "answer": "よていです",
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
+        },
+        {
+          "prompt": "でも、でんしゃが ____。",
+          "hint": "But the train is delayed.",
+          "answer": "おくれています",
+          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:14",
+        "role": "Update a friend about a delayed train before a station meeting",
+        "opening": "きょうは えきで ともだちに あう よていです。",
+        "objectives": [
+          "State the planned 15:00 meeting and the ongoing train delay",
+          "Describe walking to the station and quote a short late-arrival message",
+          "Report the completed arrival and that the friend was waiting"
+        ],
+        "complication": "The train delay changes the route and the meeting arrival time.",
+        "closure": "Clarify the sequence from delay and message to arrival."
+      }
+    },
+    "15": {
+      "stage": "master",
+      "reading": {
+        "title": "Finding a classroom",
+        "target": [
+          "この みちを まっすぐ いってください。",
+          "えきの まえで みぎに まがってください。",
+          "がっこうは えきの となりです。",
+          "クラスは にかいに あります。",
+          "にかいで べんきょうします。",
+          "みちは わかりますか。",
+          "はい、がっこうまで いけます。",
+          "ありがとうございます。",
+          "まどの となりに ドアが あります。",
+          "ドアを あけて はいってください。",
+          "せんせいは へやに います。",
+          "そこで もういちど きいてください。"
+        ],
+        "native": [
+          "Please go straight on this road.",
+          "Please turn right in front of the station.",
+          "The school is next to the station.",
+          "Our class is on the second floor.",
+          "We study on the second floor.",
+          "Do you understand the route?",
+          "Yes, I can get to the school.",
+          "Thank you.",
+          "There is a door next to the window.",
+          "Please open the door and enter.",
+          "The teacher is in the room.",
+          "Please ask again there."
+        ]
+      },
+      "grammar": {
+        "focus": "Use destinations, action locations, and position nouns to guide someone and check understanding.",
+        "examples": [
+          {
+            "es": "この みちを まっすぐ いってください。",
+            "en": "Please go straight on this road."
+          },
+          {
+            "es": "えきの まえで みぎに まがってください。",
+            "en": "Please turn right in front of the station."
+          }
+        ]
+      },
+      "speaking": "Role-play: Guide a visitor from the station to a classroom. Give the straight-road and right-turn directions in order Locate the school next to the station and the class on the second floor Ask whether the visitor understands the route and can reach the school. The visitor knows the school’s location but not which floor the class uses. Confirm the second-floor classroom and the visitor’s route.",
+      "openingLine": "この みちを まっすぐ いってください。",
+      "partnerRole": "Guide a visitor from the station to a classroom",
+      "checks": [
+        {
+          "prompt": "この みちを まっすぐ ____。",
+          "hint": "Please go straight on this road.",
+          "answer": "いってください",
+          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
+        },
+        {
+          "prompt": "この みちを ____ いってください。",
+          "hint": "Please go straight on this road.",
+          "answer": "まっすぐ",
+          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
+        },
+        {
+          "prompt": "この ____を まっすぐ いってください。",
+          "hint": "Please go straight on this road.",
+          "answer": "みち",
+          "explanation": "Use destinations, action locations, and position nouns to guide someone and check understanding."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:15",
+        "role": "Guide a visitor from the station to a classroom",
+        "opening": "この みちを まっすぐ いってください。",
+        "objectives": [
+          "Give the straight-road and right-turn directions in order",
+          "Locate the school next to the station and the class on the second floor",
+          "Ask whether the visitor understands the route and can reach the school"
+        ],
+        "complication": "The visitor knows the school’s location but not which floor the class uses.",
+        "closure": "Confirm the second-floor classroom and the visitor’s route."
+      }
+    },
+    "16": {
+      "stage": "master",
+      "reading": {
+        "title": "Before a visit",
+        "target": [
+          "いま、ほんを よんでいます。",
+          "あきさんは メッセージを かいています。",
+          "あした、ともだちに あう つもりです。",
+          "ごご えきへ いく よていです。",
+          "そこで いっしょに おちゃを のみます。",
+          "きのうは でんわしました。",
+          "でも、まだ じかんを きめていません。",
+          "よる また でんわします。",
+          "いま、じかんを しらべています。",
+          "さんじなら だいじょうぶです。",
+          "あきさんも さんじが いいです。",
+          "あしたの よていが きまりました。"
+        ],
+        "native": [
+          "I am reading a book now.",
+          "Aki is writing a message.",
+          "Tomorrow I intend to meet a friend.",
+          "I am scheduled to go to the station in the afternoon.",
+          "We will have tea together there.",
+          "Yesterday I called.",
+          "But we have not set a time yet.",
+          "I will call again tonight.",
+          "I am checking the time now.",
+          "Three o'clock works.",
+          "Three works for Aki too.",
+          "Tomorrow's plan is settled."
+        ]
+      },
+      "grammar": {
+        "focus": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11.",
+        "examples": [
+          {
+            "es": "いま、ほんを よんでいます。",
+            "en": "I am reading a book now."
+          },
+          {
+            "es": "あきさんは メッセージを かいています。",
+            "en": "Aki is writing a message."
+          }
+        ]
+      },
+      "speaking": "Role-play: Discuss current work and tomorrow’s visit with a friend. Describe reading and Aki’s writing as actions happening now Separate tomorrow’s intended meeting from the scheduled afternoon station trip Say that the meeting time has not yet been decided with まだ きめていません. The friend treats the undecided meeting time as a past decision. Confirm that another call will happen tonight to set the time.",
+      "openingLine": "いま、ほんを よんでいます。",
+      "partnerRole": "Discuss current work and tomorrow’s visit with a friend",
+      "checks": [
+        {
+          "prompt": "いま、ほんを ____。",
+          "hint": "I am reading a book now.",
+          "answer": "よんでいます",
+          "explanation": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11."
+        },
+        {
+          "prompt": "あきさんは メッセージを ____。",
+          "hint": "Aki is writing a message.",
+          "answer": "かいています",
+          "explanation": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11."
+        },
+        {
+          "prompt": "あした、ともだちに あう ____。",
+          "hint": "Tomorrow I intend to meet a friend.",
+          "answer": "つもりです",
+          "explanation": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:16",
+        "role": "Discuss current work and tomorrow’s visit with a friend",
+        "opening": "いま、ほんを よんでいます。",
+        "objectives": [
+          "Describe reading and Aki’s writing as actions happening now",
+          "Separate tomorrow’s intended meeting from the scheduled afternoon station trip",
+          "Say that the meeting time has not yet been decided with まだ きめていません"
+        ],
+        "complication": "The friend treats the undecided meeting time as a past decision.",
+        "closure": "Confirm that another call will happen tonight to set the time."
+      }
+    },
+    "17": {
+      "stage": "master",
+      "reading": {
+        "title": "A book to share",
+        "target": [
+          "この ほんは たなかさんのですか。",
+          "はい、たなかさんのです。",
+          "さっき かいました。",
+          "あきさんに みせても いいですか。",
+          "はい、いいですよ。",
+          "あきさんの ほんも ここに あります。",
+          "では、あとで あきさんに わたしてください。",
+          "どの ほんの ことですか。",
+          "あおい ほんの ことです。",
+          "たなかさんの なまえが かいてあります。",
+          "わたしは それを みて わかりました。",
+          "あきさんは あとで かえす つもりです。"
+        ],
+        "native": [
+          "Is this book Tanaka's?",
+          "Yes, it is Tanaka's.",
+          "Tanaka bought it earlier.",
+          "May I show it to Aki?",
+          "Yes, that's fine.",
+          "Aki’s book is here too.",
+          "Then please hand it to Aki later.",
+          "Which book do you mean?",
+          "I mean the blue book.",
+          "Tanaka's name is written in it.",
+          "I saw it and understood.",
+          "Aki intends to return it later."
+        ]
+      },
+      "grammar": {
+        "focus": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear.",
+        "examples": [
+          {
+            "es": "この ほんは たなかさんのですか。",
+            "en": "Is this book Tanaka's?"
+          },
+          {
+            "es": "はい、たなかさんのです。",
+            "en": "Yes, it is Tanaka's."
+          }
+        ]
+      },
+      "speaking": "Role-play: Clarify which book should be handed to Aki. Identify Tanaka’s book and ask permission to show it Notice that Aki’s own book is also present Ask どの ほんの ことですか when the final handoff reference is unclear. Two books are now in view and an omitted reference could mean either one. Name the intended book before handing it over.",
+      "openingLine": "この ほんは たなかさんのですか。",
+      "partnerRole": "Clarify which book should be handed to Aki",
+      "checks": [
+        {
+          "prompt": "この ____は たなかさんのですか。",
+          "hint": "Is this book Tanaka's?",
+          "answer": "ほん",
+          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
+        },
+        {
+          "prompt": "はい、____です。",
+          "hint": "Yes, it is Tanaka's.",
+          "answer": "たなかさんの",
+          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
+        },
+        {
+          "prompt": "さっき ____。",
+          "hint": "Tanaka bought it earlier.",
+          "answer": "かいました",
+          "explanation": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:17",
+        "role": "Clarify which book should be handed to Aki",
+        "opening": "この ほんは たなかさんのですか。",
+        "objectives": [
+          "Identify Tanaka’s book and ask permission to show it",
+          "Notice that Aki’s own book is also present",
+          "Ask どの ほんの ことですか when the final handoff reference is unclear"
+        ],
+        "complication": "Two books are now in view and an omitted reference could mean either one.",
+        "closure": "Name the intended book before handing it over."
+      }
+    },
+    "18": {
+      "stage": "master",
+      "reading": {
+        "title": "A day in Kyoto",
+        "target": [
+          "きのう ともだちと きょうとへ いきました。",
+          "あさ はやく えきに いきました。",
+          "でんしゃで まちへ いきました。",
+          "ひるごはんを たべました。",
+          "そのあと ほんやに いきました。",
+          "あたらしい ほんを かいました。",
+          "りょこうは とても たのしかったです。",
+          "ほんは どこで かいましたか。",
+          "ほんやで かいました。",
+          "ともだちは しゃしんを とりました。",
+          "わたしは みせで おちゃを のみました。",
+          "なんじに うちへ かえりましたか。",
+          "ごご しちじに うちへ かえりました。",
+          "また いきたいです。"
+        ],
+        "native": [
+          "Yesterday I went to Kyoto with a friend.",
+          "We went to the station early in the morning.",
+          "We went into town by train.",
+          "We ate lunch.",
+          "After that we went to a bookshop.",
+          "I bought a new book.",
+          "The trip was very fun.",
+          "Where did you buy the book?",
+          "I bought it at the bookshop.",
+          "My friend took photos.",
+          "I drank tea at a shop.",
+          "What time did you return home?",
+          "We returned home at seven in the evening.",
+          "I would like to go again."
+        ]
+      },
+      "grammar": {
+        "focus": "Narrate several completed actions in polite past, then check one detail with a partner.",
+        "examples": [
+          {
+            "es": "きのう ともだちと きょうとへ いきました。",
+            "en": "Yesterday I went to Kyoto with a friend."
+          },
+          {
+            "es": "あさ はやく えきに いきました。",
+            "en": "We went to the station early in the morning."
+          }
+        ]
+      },
+      "speaking": "Role-play: Tell a classmate about yesterday’s Kyoto outing. Sequence the early station trip, train ride, lunch, and bookshop visit Use polite past forms to describe completed actions Answer where the new book was bought. The listener asks whether the book was bought at the station or the bookshop. Confirm that the book was bought at the bookshop.",
+      "openingLine": "きのう ともだちと きょうとへ いきました。",
+      "partnerRole": "Tell a classmate about yesterday’s Kyoto outing",
+      "checks": [
+        {
+          "prompt": "きのう ともだちと きょうとへ ____。",
+          "hint": "Yesterday I went to Kyoto with a friend.",
+          "answer": "いきました",
+          "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
+        },
+        {
+          "prompt": "きのう ともだちと ____へ いきました。",
+          "hint": "Yesterday I went to Kyoto with a friend.",
+          "answer": "きょうと",
+          "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
+        },
+        {
+          "prompt": "____ ともだちと きょうとへ いきました。",
+          "hint": "Yesterday I went to Kyoto with a friend.",
+          "answer": "きのう",
+          "explanation": "Narrate several completed actions in polite past, then check one detail with a partner."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:18",
+        "role": "Tell a classmate about yesterday’s Kyoto outing",
+        "opening": "きのう ともだちと きょうとへ いきました。",
+        "objectives": [
+          "Sequence the early station trip, train ride, lunch, and bookshop visit",
+          "Use polite past forms to describe completed actions",
+          "Answer where the new book was bought"
+        ],
+        "complication": "The listener asks whether the book was bought at the station or the bookshop.",
+        "closure": "Confirm that the book was bought at the bookshop."
+      }
+    },
+    "19": {
+      "stage": "master",
+      "reading": {
+        "title": "Old and new travel habits",
+        "target": [
+          "むかし、まいにち がっこうまで あるきました。",
+          "いつも ともだちと いっしょに あるきました。",
+          "でも、きのうは でんしゃで いきました。",
+          "あめが ふっていましたから。",
+          "えきで ともだちを まちました。",
+          "それから いっしょに いきました。",
+          "いまも よく あるきます。",
+          "あめの ひは でんしゃを つかいます。",
+          "でんしゃは べんりでした。",
+          "でも、あるくのも すきです。",
+          "あしたは はれです。",
+          "だから、また あるく つもりです。"
+        ],
+        "native": [
+          "In the past, I walked to school every day.",
+          "I always walked with a friend.",
+          "But yesterday I went by train.",
+          "Because it was raining.",
+          "I waited for my friend at the station.",
+          "Then we went together.",
+          "I still often walk now.",
+          "On rainy days I use the train.",
+          "The train was convenient.",
+          "But I also like walking.",
+          "Tomorrow will be sunny.",
+          "So I intend to walk again."
+        ]
+      },
+      "grammar": {
+        "focus": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense.",
+        "examples": [
+          {
+            "es": "むかし、まいにち がっこうまで あるきました。",
+            "en": "In the past, I walked to school every day."
+          },
+          {
+            "es": "いつも ともだちと いっしょに あるきました。",
+            "en": "I always walked with a friend."
+          }
+        ]
+      },
+      "speaking": "Role-play: Compare old and current travel habits with a friend. Describe the former repeated walk with a friend Separate yesterday’s rainy train trip from that old habit Explain that walking still happens now, while rainy days call for the train. The listener assumes the one rainy train trip replaced walking entirely. Restate the present walk-versus-rainy-day train pattern.",
+      "openingLine": "むかし、まいにち がっこうまで あるきました。",
+      "partnerRole": "Compare old and current travel habits with a friend",
+      "checks": [
+        {
+          "prompt": "むかし、まいにち がっこうまで ____。",
+          "hint": "In the past, I walked to school every day.",
+          "answer": "あるきました",
+          "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
+        },
+        {
+          "prompt": "むかし、____ がっこうまで あるきました。",
+          "hint": "In the past, I walked to school every day.",
+          "answer": "まいにち",
+          "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
+        },
+        {
+          "prompt": "____、まいにち がっこうまで あるきました。",
+          "hint": "In the past, I walked to school every day.",
+          "answer": "むかし",
+          "explanation": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:19",
+        "role": "Compare old and current travel habits with a friend",
+        "opening": "むかし、まいにち がっこうまで あるきました。",
+        "objectives": [
+          "Describe the former repeated walk with a friend",
+          "Separate yesterday’s rainy train trip from that old habit",
+          "Explain that walking still happens now, while rainy days call for the train"
+        ],
+        "complication": "The listener assumes the one rainy train trip replaced walking entirely.",
+        "closure": "Restate the present walk-versus-rainy-day train pattern."
+      }
+    },
+    "20": {
+      "stage": "master",
+      "reading": {
+        "title": "A plan after class",
+        "target": [
+          "あきさん、こんにちは。",
+          "こんにちは。しつもんが あります。",
+          "はい、どんな しつもんですか。",
+          "この ことばを ゆっくり いってください。",
+          "はい、「しりょう」です。わかりますか。",
+          "はい、ありがとうございます。あした どこで あいますか。",
+          "ごご いちじに えきで あいましょう。",
+          "わかりました。きのうも そこで あいましたね。",
+          "では、また あした。",
+          "ひるごはんも いっしょに たべますか。",
+          "はい、でも にくは たべません。",
+          "では、やさいの りょうりを たべましょう。",
+          "いいですね。では、また あした。"
+        ],
+        "native": [
+          "Hello, Aki.",
+          "Hello. I have a question.",
+          "Yes, what is your question?",
+          "Please say this word slowly.",
+          "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+          "Yes, thank you. Where shall we meet tomorrow?",
+          "Let us meet at the station at one p.m.",
+          "Okay. We met there yesterday too, didn't we?",
+          "See you tomorrow, then.",
+          "Shall we have lunch together too?",
+          "Yes, but I do not eat meat.",
+          "Then let us eat a vegetable dish.",
+          "Sounds good. See you tomorrow."
+        ]
+      },
+      "grammar": {
+        "focus": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
+        "examples": [
+          {
+            "es": "あきさん、こんにちは。",
+            "en": "Hello, Aki."
+          },
+          {
+            "es": "こんにちは。しつもんが あります。",
+            "en": "Hello. I have a question."
+          }
+        ]
+      },
+      "speaking": "Role-play: Complete a multi-turn after-class conversation with Aki. Greet Aki and ask for an unclear word to be said slowly Confirm the meaning in context and plan tomorrow’s meeting Recall yesterday’s meeting at the same station and close politely. The kana いってください could mean say or go; the request concerns pronouncing a word. Confirm the one o’clock station meeting and say また あした。",
+      "openingLine": "あきさん、こんにちは。",
+      "partnerRole": "Complete a multi-turn after-class conversation with Aki",
+      "checks": [
+        {
+          "prompt": "この ことばを ゆっくり ____。",
+          "hint": "Please say this word slowly.",
+          "answer": "いってください",
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
+        },
+        {
+          "prompt": "はい、「____」です。わかりますか。",
+          "hint": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+          "answer": "しりょう",
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
+        },
+        {
+          "prompt": "ごご いちじに えきで ____。",
+          "hint": "Let us meet at the station at one p.m.",
+          "answer": "あいましょう",
+          "explanation": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb."
+        }
+      ],
+      "authoredSpeakingMission": {
+        "stableLessonKey": "master-japanese-basics:20",
+        "role": "Complete a multi-turn after-class conversation with Aki",
+        "opening": "あきさん、こんにちは。",
+        "objectives": [
+          "Greet Aki and ask for an unclear word to be said slowly",
+          "Confirm the meaning in context and plan tomorrow’s meeting",
+          "Recall yesterday’s meeting at the same station and close politely"
+        ],
+        "complication": "The kana いってください could mean say or go; the request concerns pronouncing a word.",
+        "closure": "Confirm the one o’clock station meeting and say また あした。"
+      }
+    }
+  }
+}

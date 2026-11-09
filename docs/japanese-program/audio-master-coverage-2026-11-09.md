@@ -1,0 +1,9 @@
+# Japanese 101 Master private audio coverage — 2026-11-09
+
+Source: exact Japanese→English Master lessons at main `a632864e38a46e9af6ec444f6a50f5ebced8843b`, inventory SHA-256 `8cfce671c012ea7e9be2128c9fad74aa4082560105eb1d9b0efbf63eb8d7d411`. The 20 Master lessons contain 486 lesson-specific target strings, representing 414 distinct normalized strings. The private folders `/Users/drive/lt-audio/japanese-101/master-1/` through `master-20/` contain both `ja-JP-Chirp3-HD-Aoede` and `ja-JP-Chirp3-HD-Charon` for each lesson string.
+
+Each lesson passed `scripts/verify-japanese-hd-batch.py`; `scripts/verify-japanese-hd-stage.py --module master-japanese-basics --output-root /Users/drive/lt-audio/japanese-101` then checked the whole stage. The result is 972 per-lesson MP3s, 7,470,240 bytes and 828 distinct text/voice pairs. Another 144 clips repeat a text/voice pair in separate lesson folders. A resumed dry run plans zero requests. The private [listening index](/Users/drive/lt-audio/japanese-101/master-listening-review-2026-11-09.html) links all 20 lesson sheets; all 992 local links resolve.
+
+Synthesis used the owner's pilot quota project `workerbee-494003` with no more than 20 new clips per invocation and a pinned 972-clip/9,572-character cap. At the [published Chirp 3 HD rate](https://cloud.google.com/text-to-speech/pricing) of US$0.00003 per character, the character count corresponds to about US$0.287 before billing adjustments.
+
+**All 828 distinct Master text/voice pairs still require listening approval.** Every new manifest and clip remains `listeningReviewed:false`, and no new MP3 is imported into web or V4 playback. Master course text remains `reviewed:false` pending qualified Japanese review. Offline audio packaging, native playback and physical-device acceptance remain open. No learner progress or lesson ID changed.

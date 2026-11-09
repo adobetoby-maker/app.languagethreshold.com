@@ -1,0 +1,729 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "30880d4b515e0feaf9458790049134463df80685d44bb97c2c2e16be0d99f31a",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "master-roofing:16:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Inspector on Site",
+      "sourceEnglishObjective": "Receive a city inspector formally, explain your procedures with passive se, and handle a correction notice",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for.",
+      "title": "市の検査員を迎える",
+      "objective": "市の検査員を丁寧に迎え、施工方法を説明し、是正通知の内容を確認する。",
+      "focus": "～されています describes a documented procedure without naming the actor. ～によると attributes a fastening rule to its source; ～していただけますか asks formally for a finding.",
+      "cards": [
+        {
+          "ja": "市の検査員",
+          "en": "the city inspector",
+          "kind": "term"
+        },
+        {
+          "ja": "建築許可証",
+          "en": "the building permit",
+          "kind": "term"
+        },
+        {
+          "ja": "検査記録票",
+          "en": "the inspection card",
+          "kind": "term"
+        },
+        {
+          "ja": "建築基準",
+          "en": "the building code",
+          "kind": "term"
+        },
+        {
+          "ja": "検査",
+          "en": "the check (review)",
+          "kind": "term"
+        },
+        {
+          "ja": "指摘事項",
+          "en": "the finding (inspector's note)",
+          "kind": "term"
+        },
+        {
+          "ja": "是正通知",
+          "en": "the correction notice",
+          "kind": "term"
+        },
+        {
+          "ja": "再検査",
+          "en": "the re-inspection",
+          "kind": "term"
+        },
+        {
+          "ja": "固定方法",
+          "en": "the fastening method",
+          "kind": "term"
+        },
+        {
+          "ja": "釘の本数",
+          "en": "the number of nails",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根裏の換気",
+          "en": "the attic ventilation",
+          "kind": "term"
+        },
+        {
+          "ja": "適合",
+          "en": "the compliance",
+          "kind": "term"
+        },
+        {
+          "ja": "要件",
+          "en": "the requirement",
+          "kind": "term"
+        },
+        {
+          "ja": "承認",
+          "en": "the approval",
+          "kind": "term"
+        },
+        {
+          "ja": "おはようございます。こちらが許可証です。",
+          "en": "Good morning, here's the permit.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根に上がりますか。それとも写真をご覧になりますか。",
+          "en": "Would you like to go up or would you rather see the photos?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここでは製品の施工説明書に従って釘留めしています。",
+          "en": "Here nailing is done according to the product instructions.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "次へ進む前に各列を確認しています。",
+          "en": "Each course is checked before continuing.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どこを是正する必要があるか教えていただけますか。",
+          "en": "Could you tell me what needs to be corrected?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "本日是正します。",
+          "en": "We'll correct it today.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "検査員が到着したら知らせてください。",
+          "en": "Let me know if you see the inspector arrive.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "十一時に、市の検査員ウォンさんが到着しました。作業班は南側でシングル材を施工していました。",
+          "en": "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side."
+        },
+        {
+          "ja": "ロヘリオは屋根から降りて挨拶しました。「おはようございます。こちらが許可証です。」",
+          "en": "Rogelio came down from the roof and greeted him: Good morning, here's the permit."
+        },
+        {
+          "ja": "市の要件に従い、建築許可証と検査記録票は車庫の窓に置いてありました。",
+          "en": "The building permit and the inspection card were in the garage window, as the city requires."
+        },
+        {
+          "ja": "検査員「ありがとうございます。固定方法と水切り板金を検査します。」",
+          "en": "Inspector: Thank you; I'm here to check the fastening and the flashing."
+        },
+        {
+          "ja": "ロヘリオ「屋根に上がりますか。それとも写真をご覧になりますか。」",
+          "en": "Rogelio: Would you like to go up or would you rather see the photos?"
+        },
+        {
+          "ja": "検査員「屋根に上がります。この現場ではシングル材をどう釘留めしていますか。」",
+          "en": "Inspector: I'd rather go up; how are the shingles nailed on this job?"
+        },
+        {
+          "ja": "ロヘリオ「ここでは製品の施工説明書に従って釘留めし、勾配と風に応じてメーカーの指定する釘の本数に調整しています。」",
+          "en": "Rogelio: Here nailing is done according to the product instructions, and the number of nails is adjusted for the slope and the wind, according to the manufacturer."
+        },
+        {
+          "ja": "ロヘリオ「次へ進む前に各列を確認し、固定方法をその日の報告書に記録しています。」",
+          "en": "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report."
+        },
+        {
+          "ja": "検査員は屋根裏の換気と煙突周りの水切り板金を確認しました。",
+          "en": "The inspector checked the attic ventilation and the chimney flashing."
+        },
+        {
+          "ja": "検査員「一点を除き、すべて建築基準に適合しています。」",
+          "en": "Inspector: Everything complies with the building code, except one thing."
+        },
+        {
+          "ja": "検査員「車庫の壁際では二列分、段差水切り板金が欠けています。」",
+          "en": "Inspector: On the garage wall the step flashing is missing on two courses."
+        },
+        {
+          "ja": "ロヘリオ「要件に照らして、どこを是正する必要があるか詳しく教えていただけますか。」",
+          "en": "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?"
+        },
+        {
+          "ja": "検査員は是正通知に指摘事項を書きました。「壁に接するすべての列に段差水切り板金を取り付けること。」",
+          "en": "The inspector wrote a finding on the correction notice: Step flashing must be installed on every course next to the wall."
+        },
+        {
+          "ja": "ロヘリオ「本日是正し、市のウェブサイトから再検査を申請します。」",
+          "en": "Rogelio: We'll correct it today and request the re-inspection through the city website."
+        },
+        {
+          "ja": "検査員「分かりました。適合が確認されれば承認します。」",
+          "en": "Inspector: Very good; if compliance is confirmed, you'll have the approval."
+        },
+        {
+          "ja": "最後にロヘリオはケビンに「次回、検査員が到着したら知らせてください」と言いました。",
+          "en": "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive."
+        }
+      ],
+      "forms": [
+        {
+          "base": "適合する",
+          "exampleJa": "すべて建築基準に適合しています。",
+          "meaningEnglish": "to comply",
+          "exampleEnglish": "Everything complies with the building code.",
+          "sourceInfinitiveSpanish": "cumplir"
+        },
+        {
+          "base": "是正する",
+          "exampleJa": "本日是正します。",
+          "meaningEnglish": "to correct",
+          "exampleEnglish": "We'll correct it today.",
+          "sourceInfinitiveSpanish": "corregir"
+        },
+        {
+          "base": "示す",
+          "exampleJa": "どこを是正する必要があるか示していただけますか。",
+          "meaningEnglish": "to indicate, to point out",
+          "exampleEnglish": "Could you tell me what needs to be corrected?",
+          "sourceInfinitiveSpanish": "indicar"
+        },
+        {
+          "base": "記録する",
+          "exampleJa": "固定方法をその日の報告書に記録しています。",
+          "meaningEnglish": "to note down",
+          "exampleEnglish": "The fastening method is noted in the day's report.",
+          "sourceInfinitiveSpanish": "anotar"
+        },
+        {
+          "base": "必要がある",
+          "exampleJa": "すべての列に段差水切り板金を取り付ける必要があります。",
+          "meaningEnglish": "must, to have to",
+          "exampleEnglish": "Step flashing must be installed on every course.",
+          "sourceInfinitiveSpanish": "deber"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "おはようございます。こちらが建築許可証です。固定方法と水切り板金についてご説明します。是正が必要な箇所を教えていただけますか。",
+        "goal": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for."
+      },
+      "modes": {
+        "see": "Identify the permit, inspection card, step flashing, and correction notice.",
+        "recall": "Recall inspector, requirement, compliance, re-inspection, and approval.",
+        "hear": "Distinguish 是正通知 from 再検査 when spoken.",
+        "type": "Type 'We'll correct it today' in Japanese.",
+        "say": "Greet the inspector formally and explain the documented fastening method.",
+        "write": "Record the finding, the required correction, and the re-inspection request."
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "master-roofing:17:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Written Daily Report and Deck Repair Documentation",
+      "sourceEnglishObjective": "Write a clear daily report: work done, deck repairs with photos, materials used and open items",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto.",
+      "title": "日報と野地板補修の記録",
+      "objective": "作業時間、施工量、野地板の補修、使用資材、未完了項目を日報にまとめる。",
+      "focus": "また and さらに add report items; そのため links a finding to the documented repair. ～を添付します identifies the evidence attached to the report.",
+      "cards": [
+        {
+          "ja": "日報",
+          "en": "the daily report",
+          "kind": "term"
+        },
+        {
+          "ja": "概要",
+          "en": "the summary",
+          "kind": "term"
+        },
+        {
+          "ja": "住所",
+          "en": "the address",
+          "kind": "term"
+        },
+        {
+          "ja": "作業時間",
+          "en": "the hours worked",
+          "kind": "term"
+        },
+        {
+          "ja": "スクエア（屋根面積の単位）",
+          "en": "the square (roofing unit)",
+          "kind": "term"
+        },
+        {
+          "ja": "野地板の補修",
+          "en": "the deck repair",
+          "kind": "term"
+        },
+        {
+          "ja": "交換した板",
+          "en": "the replaced sheet",
+          "kind": "term"
+        },
+        {
+          "ja": "使用資材",
+          "en": "the materials used",
+          "kind": "term"
+        },
+        {
+          "ja": "ルーフィング材のロール",
+          "en": "the roll of underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "未完了項目",
+          "en": "the open items",
+          "kind": "term"
+        },
+        {
+          "ja": "写真資料",
+          "en": "the photo evidence",
+          "kind": "term"
+        },
+        {
+          "ja": "さらに",
+          "en": "in addition",
+          "kind": "term"
+        },
+        {
+          "ja": "同様に",
+          "en": "likewise",
+          "kind": "term"
+        },
+        {
+          "ja": "そのため",
+          "en": "therefore",
+          "kind": "term"
+        },
+        {
+          "ja": "東側で十四スクエアを施工しました。",
+          "en": "14 squares were completed on the east side.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "腐った野地板を三枚交換しました。",
+          "en": "Three sheets of rotten deck were replaced.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "同様に、谷部に防水シートを施工しました。",
+          "en": "Likewise, the membrane was installed in the valley.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "西側の棟包み材はまだ未施工です。",
+          "en": "The ridge cap on the west side is still pending.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "補修前後の写真を添付します。",
+          "en": "Before and after photos are attached.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "以上、報告いたします。",
+          "en": "With nothing further, I sign off.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねえ、合板の写真を送って。",
+          "en": "Hey, send me the photos of the plywood.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "一日の終わりに、ロヘリオはピックアップトラックの中で日報を書きました。",
+          "en": "At the end of the day, Rogelio sat in the pickup to write the daily report."
+        },
+        {
+          "ja": "まずケビンに「ねえ、合板の写真を送って」とメッセージを送りました。",
+          "en": "First he sent Kevin a message: Hey, send me the photos of the plywood."
+        },
+        {
+          "ja": "その後、メッセージよりも改まった文体で日報を書きました。",
+          "en": "Then he wrote the report in a more formal tone than his messages."
+        },
+        {
+          "ja": "「十月十四日の日報。住所：パイン通り四百十八番地、オルテガ様邸。」",
+          "en": "Daily report for October 14; address: 418 Pine Street, Ortega house."
+        },
+        {
+          "ja": "「作業時間：午前七時から午後三時半まで。作業員五名。」",
+          "en": "Hours worked: from 7:00 a.m. to 3:30 p.m., with a crew of five people."
+        },
+        {
+          "ja": "「概要：東側で十四スクエアを施工し、さらに主要な谷部を仕上げた。」",
+          "en": "Summary: 14 squares were completed on the east side and, in addition, the main valley was finished."
+        },
+        {
+          "ja": "「既存屋根材の撤去中、天窓の近くに腐った野地板が見つかった。」",
+          "en": "During the tear-off, rotten deck was found near the skylight."
+        },
+        {
+          "ja": "「そのため、顧客が署名した変更指示書に従い、腐った野地板を三枚交換した。」",
+          "en": "Therefore, three sheets of rotten deck were replaced, according to the change order signed by the customer."
+        },
+        {
+          "ja": "「同様に、谷部と天窓の周囲に防水シートを施工した。」",
+          "en": "Likewise, the membrane was installed in the valley and around the skylight."
+        },
+        {
+          "ja": "「野地板補修と交換した各板の補修前後の写真を、記録用の写真資料として添付する。」",
+          "en": "Before and after photos of the deck repair and of each replaced sheet are attached, as photo evidence for the file."
+        },
+        {
+          "ja": "「使用資材：シングル材十五束、ルーフィング材三ロール、合板三枚。」",
+          "en": "Materials used: 15 bundles of shingles, 3 rolls of underlayment and 3 sheets of plywood."
+        },
+        {
+          "ja": "「未完了項目：西側の棟包み材はまだ未施工。さらに雨どいの清掃が必要。」",
+          "en": "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning."
+        },
+        {
+          "ja": "「明日の午後は雨の予報。そのため作業班は午前六時半に開始する。」",
+          "en": "Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m."
+        },
+        {
+          "ja": "「以上、報告いたします。」",
+          "en": "With nothing further, I sign off."
+        },
+        {
+          "ja": "「作業班長、ロヘリオ・メンドーサ。」",
+          "en": "Rogelio Mendoza, crew lead."
+        },
+        {
+          "ja": "送信前にロヘリオは日報を読み返し、二つの数字を修正しました。",
+          "en": "Before sending it, Rogelio read the report again and corrected two numbers."
+        }
+      ],
+      "forms": [
+        {
+          "base": "完了する",
+          "exampleJa": "東側で十四スクエアの施工を完了しました。",
+          "meaningEnglish": "to complete",
+          "exampleEnglish": "14 squares were completed on the east side.",
+          "sourceInfinitiveSpanish": "completar"
+        },
+        {
+          "base": "交換する",
+          "exampleJa": "腐った野地板を三枚交換しました。",
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "Three sheets of rotten deck were replaced.",
+          "sourceInfinitiveSpanish": "reemplazar"
+        },
+        {
+          "base": "添付する",
+          "exampleJa": "補修前後の写真を添付します。",
+          "meaningEnglish": "to attach",
+          "exampleEnglish": "Before and after photos are attached.",
+          "sourceInfinitiveSpanish": "adjuntar"
+        },
+        {
+          "base": "送る",
+          "exampleJa": "送る前にロヘリオは日報を読み返しました。",
+          "meaningEnglish": "to send",
+          "exampleEnglish": "Before sending it, Rogelio read the report again.",
+          "sourceInfinitiveSpanish": "enviar"
+        },
+        {
+          "base": "残る",
+          "exampleJa": "さらに雨どいの清掃が残っています。",
+          "meaningEnglish": "to be missing, still to be done",
+          "exampleEnglish": "In addition, the gutter still needs cleaning.",
+          "sourceInfinitiveSpanish": "faltar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "本日の作業時間は午前七時から午後三時半です。東側で十四スクエアを施工し、野地板を三枚交換しました。使用資材と未完了項目も報告します。",
+        "goal": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto."
+      },
+      "modes": {
+        "see": "Identify the daily report, replaced deck sheets, material list, and attached photos.",
+        "recall": "Recall hours worked, squares completed, open items, and change order.",
+        "hear": "Distinguish さらに, 同様に, and そのため in the report.",
+        "type": "Type 'Before and after photos are attached' in Japanese.",
+        "say": "Give the office manager an end-of-day report by phone.",
+        "write": "Write the work summary, repair evidence, materials, and open items."
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "master-roofing:18:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Client Texts and Phone Calls: Schedule Changes",
+      "sourceEnglishObjective": "Text a homeowner about a rain delay and handle their call to reschedule, politely and clearly",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+      "title": "施主へのメッセージと電話：日程変更",
+      "objective": "雨による延期を施主へ丁寧に伝え、電話で新しい作業日と到着時刻を確認する。",
+      "focus": "～してもよろしいでしょうか proposes a date politely; ～できます expresses an arrival option. ～でしたら checks the homeowner's availability.",
+      "cards": [
+        {
+          "ja": "テキストメッセージ",
+          "en": "the text message",
+          "kind": "term"
+        },
+        {
+          "ja": "電話",
+          "en": "the phone call",
+          "kind": "term"
+        },
+        {
+          "ja": "留守番電話",
+          "en": "the voicemail",
+          "kind": "term"
+        },
+        {
+          "ja": "電話番号",
+          "en": "the phone number",
+          "kind": "term"
+        },
+        {
+          "ja": "雨による延期",
+          "en": "the rain delay",
+          "kind": "term"
+        },
+        {
+          "ja": "日程変更",
+          "en": "the date change",
+          "kind": "term"
+        },
+        {
+          "ja": "新しい日付",
+          "en": "the new date",
+          "kind": "term"
+        },
+        {
+          "ja": "都合",
+          "en": "the availability",
+          "kind": "term"
+        },
+        {
+          "ja": "約束",
+          "en": "the appointment",
+          "kind": "term"
+        },
+        {
+          "ja": "到着時刻",
+          "en": "the arrival time",
+          "kind": "term"
+        },
+        {
+          "ja": "確認",
+          "en": "the confirmation",
+          "kind": "term"
+        },
+        {
+          "ja": "ご不便",
+          "en": "the inconvenience",
+          "kind": "term"
+        },
+        {
+          "ja": "私道",
+          "en": "the driveway",
+          "kind": "term"
+        },
+        {
+          "ja": "事前連絡",
+          "en": "the advance notice",
+          "kind": "term"
+        },
+        {
+          "ja": "こんにちは、メンドーサ・ルーフィングのロヘリオです。",
+          "en": "Good afternoon, this is Rogelio, from Mendoza Roofing.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "木曜日に開始してもよろしいでしょうか。",
+          "en": "Would it be possible to start on Thursday?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "よろしければ八時に到着できます。",
+          "en": "We could arrive at eight, if that works for you.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お返事をお待ちしております。",
+          "en": "I look forward to your reply.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どちら様でしょうか。",
+          "en": "Who am I speaking with?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません、電話が切れてしまいました。",
+          "en": "Sorry, the call dropped.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "念のため、私の電話番号をお伝えします。",
+          "en": "I'll leave you my number just in case.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "火曜日は一日中雨が降り、作業班はキムさんの家で作業を始められませんでした。",
+          "en": "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house."
+        },
+        {
+          "ja": "五時にロヘリオはキムさんへテキストメッセージを送りました。",
+          "en": "At five, Rogelio sent her a text message."
+        },
+        {
+          "ja": "メッセージ「こんにちは、メンドーサ・ルーフィングのロヘリオです。」",
+          "en": "Message: Good afternoon, this is Rogelio, from Mendoza Roofing."
+        },
+        {
+          "ja": "メッセージ「雨による延期のため、明日は開始できません。木曜日に開始してもよろしいでしょうか。」",
+          "en": "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?"
+        },
+        {
+          "ja": "メッセージ「よろしければ八時に到着できます。資材は水曜日に私道へ届く予定です。」",
+          "en": "Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday."
+        },
+        {
+          "ja": "メッセージ「ご不便をおかけして申し訳ありません。お返事をお待ちしております。」",
+          "en": "Message: Sorry for the inconvenience; I look forward to your reply."
+        },
+        {
+          "ja": "一時間後、ロヘリオの知らない番号から電話が鳴りました。",
+          "en": "An hour later the phone rang, from a number Rogelio didn't know."
+        },
+        {
+          "ja": "ロヘリオ「メンドーサ・ルーフィングです。こんにちは。どちら様でしょうか。」",
+          "en": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?"
+        },
+        {
+          "ja": "キムさんの夫「夫のダニエル・キムです。メッセージを見ましたが、木曜日は家にいません。」",
+          "en": "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home."
+        },
+        {
+          "ja": "ロヘリオ「承知しました。金曜日でしたらご都合はいかがでしょうか。」",
+          "en": "Rogelio: Don't worry; what would your availability be on Friday?"
+        },
+        {
+          "ja": "キムさんの夫「金曜日なら大丈夫です。でも、すみません、よく聞こえません。」",
+          "en": "Mr. Kim: Friday works, but sorry, I can't hear you well."
+        },
+        {
+          "ja": "電話が切れ、ロヘリオはかけ直しましたが、留守番電話につながりました。",
+          "en": "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail."
+        },
+        {
+          "ja": "ロヘリオは留守番電話に「すみません、電話が切れてしまいました。新しい日付は金曜日の八時です」と残しました。",
+          "en": "Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight."
+        },
+        {
+          "ja": "ロヘリオ「念のため、私の電話番号をお伝えします。確認のメッセージも送ります。」",
+          "en": "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text."
+        },
+        {
+          "ja": "その夜、ロヘリオは「日程変更を金曜日の午前八時に確認しました。到着時刻が変わる場合は事前にご連絡します」と書きました。",
+          "en": "That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes."
+        },
+        {
+          "ja": "キムさんの夫は「分かりました。約束の日程を確認しました」と返信しました。",
+          "en": "Mr. Kim replied: Perfect, the appointment is confirmed."
+        }
+      ],
+      "forms": [
+        {
+          "base": "鳴る",
+          "exampleJa": "一時間後、電話が鳴りました。",
+          "meaningEnglish": "to ring",
+          "exampleEnglish": "An hour later the phone rang.",
+          "sourceInfinitiveSpanish": "sonar"
+        },
+        {
+          "base": "聞こえる",
+          "exampleJa": "すみません、よく聞こえません。",
+          "meaningEnglish": "to hear",
+          "exampleEnglish": "Sorry, I can't hear you well.",
+          "sourceInfinitiveSpanish": "oír"
+        },
+        {
+          "base": "切れる",
+          "exampleJa": "すみません、電話が切れてしまいました。",
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Sorry, the call dropped.",
+          "sourceInfinitiveSpanish": "cortar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "金曜日への日程変更を確認します。",
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "I confirm the date change to Friday.",
+          "sourceInfinitiveSpanish": "confirmar"
+        },
+        {
+          "base": "返信する",
+          "exampleJa": "キムさんの夫は「分かりました」と返信しました。",
+          "meaningEnglish": "to reply",
+          "exampleEnglish": "Mr. Kim replied: Perfect.",
+          "sourceInfinitiveSpanish": "responder"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "こんにちは、メンドーサ・ルーフィングのロヘリオです。雨のため開始日を変更したいのですが、金曜日に開始してもよろしいでしょうか。八時に到着できます。",
+        "goal": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time."
+      },
+      "modes": {
+        "see": "Identify the text, phone call, voicemail, and confirmed appointment.",
+        "recall": "Recall rain delay, availability, new date, arrival time, and advance notice.",
+        "hear": "Distinguish 日程変更 from 到着時刻 when spoken.",
+        "type": "Type 'Would it be possible to start on Thursday?' in Japanese.",
+        "say": "Answer the homeowner's call and agree on a new date and time.",
+        "write": "Write a polite text confirming the delay and revised arrival time."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

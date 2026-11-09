@@ -31,12 +31,12 @@ def manifest_set_sha(root):
     return digest.hexdigest()
 
 
-def selected_outliers(root, report, limit):
+def selected_outliers(root, report, limit, *, include_all=False, offset=0):
     if report.get("course") != "French 101" or report.get("manifestSetSHA256") != manifest_set_sha(root):
         raise ValueError("Stale or wrong-course signal report")
     out = []
     for flag in sorted(report["flags"], key=lambda item: item["signal"]["peak"]):
-        if flag["signal"]["peak"] >= 0.0035:
+        if not include_all and flag["signal"]["peak"] >= 0.0035:
             continue
         path = Path(flag["path"])
         if not path.is_relative_to(root) or path.parent.parent != root:
@@ -61,9 +61,9 @@ def selected_outliers(root, report, limit):
                 for entry in expected.values()):
             raise ValueError("Flagged lesson fixture changed")
         out.append((flag, gender, clip))
-        if len(out) == limit:
+        if len(out) == offset + limit:
             break
-    return out
+    return out[offset:]
 
 
 def comparison_sheet(output, candidates):
@@ -95,11 +95,15 @@ def main():
     parser.add_argument("--signal-report", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--limit", type=int, default=6)
+    parser.add_argument("--all-flags", action="store_true", help="Include all signal flags, not only near-silent clips")
+    parser.add_argument("--offset", type=int, default=0, help="Start within the stable peak-sorted flag list")
     parser.add_argument("--project")
     parser.add_argument("--generate", action="store_true")
     args = parser.parse_args()
     if not 1 <= args.limit <= 20:
         raise SystemExit("Limit must be 1–20 clips")
+    if args.offset < 0:
+        raise SystemExit("Offset must be nonnegative")
     if args.generate and not args.project:
         raise SystemExit("--project is required for paid synthesis")
     root = PRIVATE_ROOT.resolve()
@@ -107,7 +111,7 @@ def main():
     if not output.is_relative_to(root) or output == root:
         raise ValueError("Retakes must stay in a separate French 101 private folder")
     report = json.loads(args.signal_report.read_text())
-    selected = selected_outliers(root, report, args.limit)
+    selected = selected_outliers(root, report, args.limit, include_all=args.all_flags, offset=args.offset)
     proposed = [{"source": item[0]["path"], "spokenText": item[0]["spokenText"],
                  "voice": item[0]["voice"], "originalPeak": item[0]["signal"]["peak"]}
                 for item in selected]

@@ -1772,7 +1772,7 @@ export function LessonPracticeKit({
                   key="conjugate"
                   verbs={lessonVerbs}
                   mode="conjugate"
-                  onComplete={() => { lessonForms?.onComplete?.(); complete("type"); }}
+                  onComplete={() => complete("type")}
                 />
               )}
               {mode === "type" && lessonForms && availableTypeKind === "forms" && (
@@ -1780,7 +1780,7 @@ export function LessonPracticeKit({
                   key={`${moduleId}-${lessonNumber}-forms`}
                   pairKey={lessonForms.pairKey}
                   prompts={lessonForms.prompts}
-                  onComplete={() => complete("type")}
+                  onComplete={() => lessonForms.onComplete?.()}
                 />
               )}
               {mode === "verbs" && lessonVerbs && (

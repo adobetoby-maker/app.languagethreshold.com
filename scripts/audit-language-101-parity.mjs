@@ -95,7 +95,7 @@ for (const [index, lesson] of frenchModeCandidate.support.entries()) {
   }
 }
 if (frenchCandidateModePrompts !== frenchAuthoredModePrompts) throw new Error("French mode candidate and sidecars differ");
-const frenchCoreModePaths = ["content/french-basics/private-core-1-3-mode-prompts-fr-en.json", "content/french-basics/private-core-4-6-mode-prompts-fr-en.json"];
+const frenchCoreModePaths = ["content/french-basics/private-core-1-3-mode-prompts-fr-en.json", "content/french-basics/private-core-4-6-mode-prompts-fr-en.json", "content/french-basics/private-core-7-9-mode-prompts-fr-en.json"];
 for (const path of frenchCoreModePaths) {
   const fixture = read(frenchFormsRoot, path);
   if (fixture.pairKey !== "French:English" || fixture.reviewed !== false || fixture.registered !== false ||
@@ -106,7 +106,7 @@ const frenchCoreCandidate = read(frenchFormsRoot, "content/french-basics/private
 const frenchBaseCore = read(frenchFormsRoot, frenchPath("core"));
 if (frenchCoreCandidate.reviewed !== false || frenchCoreCandidate.registered !== false ||
     JSON.stringify(frenchCoreCandidate.coreCurriculum) !== JSON.stringify(frenchBaseCore.coreCurriculum) ||
-    JSON.stringify(frenchCoreCandidate.authoredModeCoverage) !== JSON.stringify([1, 2, 3, 4, 5, 6]) ||
+    JSON.stringify(frenchCoreCandidate.authoredModeCoverage) !== JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9]) ||
     frenchCoreCandidate.authoredModeSources.length !== frenchCoreModePaths.length)
   throw new Error("French Core authored-mode source, stable curriculum, or release gate changed");
 let frenchCoreModePrompts = 0;
@@ -115,9 +115,9 @@ for (const [index, lesson] of frenchCoreCandidate.support.entries()) {
     throw new Error(`French Core candidate lesson ${index + 1}: stable key changed`);
   for (const mode of modeNames) {
     const prompt = lesson.modes?.[mode]?.authoredPrompt;
-    if (index < 6 && (!prompt?.prompt || !prompt?.targetText))
+    if (index < 9 && (!prompt?.prompt || !prompt?.targetText))
       throw new Error(`French Core candidate lesson ${index + 1}: ${mode} missing`);
-    if (index >= 6 && prompt) throw new Error(`French Core candidate lesson ${index + 1}: unexpected ${mode}`);
+    if (index >= 9 && prompt) throw new Error(`French Core candidate lesson ${index + 1}: unexpected ${mode}`);
     if (prompt) frenchCoreModePrompts++;
   }
 }
@@ -206,7 +206,7 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
 lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
   `- The original French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.`,
-  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across 6/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.`,
+  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across 9/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

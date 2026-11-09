@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
+  "sourceSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 10,
+      "stableLessonKey": "master-french-basics:10",
+      "modes": {
+        "see": {"prompt": "Read Ana’s opening report and count the scarves left after the workshop.", "targetText": "Ana : Deux écharpes ont été oubliées après l’atelier de ce matin."},
+        "recall": {"prompt": "Recall the initials on the first scarf using celle-ci.", "targetText": "Celle-ci porte les initiales de Nadia."},
+        "hear": {"prompt": "Listen for the noun naming an item of clothing found after the workshop.", "targetText": "une écharpe", "recordedAudio": false},
+        "type": {"prompt": "Type a tentative statement about the other scarf’s owner, using peut-être.", "targetText": "L’autre écharpe appartient peut-être à Camille."},
+        "say": {"prompt": "Ask a possible owner directly whether this scarf belongs to them.", "targetText": "Est-ce que cette écharpe vous appartient ?"},
+        "write": {"prompt": "Write the owner’s confirmation and thanks after the scarf is returned.", "targetText": "Oui, c’est la mienne ; merci de me l’avoir rendue."}
+      }
+    },
+    {
+      "lesson": 11,
+      "stableLessonKey": "master-french-basics:11",
+      "modes": {
+        "see": {"prompt": "Read Nadia’s original café order and identify the requested oat milk.", "targetText": "Nadia : Pour moi, un café avec du lait d’avoine, s’il vous plaît."},
+        "recall": {"prompt": "Recall Nadia’s preference for coffee without cow’s milk.", "targetText": "Nadia préfère un café sans lait de vache."},
+        "hear": {"prompt": "Listen for the phrase that excludes cow’s milk from Nadia’s drink.", "targetText": "sans lait de vache", "recordedAudio": false},
+        "type": {"prompt": "Type that the café has run out of oat milk today.", "targetText": "Nous n’avons plus de lait d’avoine."},
+        "say": {"prompt": "Offer soy milk in place of oat milk and ask whether it suits Nadia.", "targetText": "Le lait de soja vous conviendrait-il au lieu du lait d’avoine ?"},
+        "write": {"prompt": "Write the final order assigning soy coffee to Nadia and plain tea to Hugo.", "targetText": "Un café au lait de soja pour Nadia et un thé nature pour Hugo."}
+      }
+    },
+    {
+      "lesson": 12,
+      "stableLessonKey": "master-french-basics:12",
+      "modes": {
+        "see": {"prompt": "Read Léa’s schedule conflict and identify when her class ends.", "targetText": "Léa : Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures."},
+        "recall": {"prompt": "Recall why the proposed 14:00 meeting does not work for Léa.", "targetText": "Léa ne peut pas venir à quatorze heures."},
+        "hear": {"prompt": "Listen for the phrase naming a meeting time that works for everyone.", "targetText": "un horaire commun", "recordedAudio": false},
+        "type": {"prompt": "Type the condition that moves the group to the library if the room is taken.", "targetText": "Si elle est prise, nous travaillerons à la bibliothèque."},
+        "say": {"prompt": "State that the group may reserve the small room after 16:00.", "targetText": "Nous avons le droit de réserver la petite salle après seize heures."},
+        "write": {"prompt": "Write the work sequence: choose sources first, then prepare slides.", "targetText": "D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
+  "sourceSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 7,
+      "stableLessonKey": "master-french-basics:7",
+      "modes": {
+        "see": {"prompt": "Read Camille’s former Tuesday routine and identify révisais for a repeated past action.", "targetText": "Camille : D’habitude, je révisais le mardi après notre cours de langue."},
+        "recall": {"prompt": "Recall the customary Tuesday revision schedule using d’habitude.", "targetText": "D’habitude, je révisais le mardi après le cours."},
+        "hear": {"prompt": "Listen for the expression that signals a usual or repeated routine.", "targetText": "d’habitude", "recordedAudio": false},
+        "type": {"prompt": "Type this week’s exception: the class is on Thursday.", "targetText": "Cette semaine, le cours a lieu jeudi."},
+        "say": {"prompt": "Propose Friday revision instead of Tuesday, using au lieu de.", "targetText": "Au lieu de mardi, révisons ensemble vendredi."},
+        "write": {"prompt": "Write a clear acceptance of the new Friday time at 17:00.", "targetText": "Vendredi à dix-sept heures me convient."}
+      }
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "master-french-basics:8",
+      "modes": {
+        "see": {"prompt": "Read the coordinator’s first message and find the reply deadline before noon.", "targetText": "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi."},
+        "recall": {"prompt": "Recall what the coordinator requests and when the reply is due.", "targetText": "Elle demande de confirmer le rendez-vous avant midi."},
+        "hear": {"prompt": "Listen for the phrase meaning the answer must arrive before noon.", "targetText": "avant midi", "recordedAudio": false},
+        "type": {"prompt": "Type that Tuesday at 15:00 is unavailable, using ne…pas.", "targetText": "Je ne suis pas disponible mardi à quinze heures."},
+        "say": {"prompt": "Politely propose a Wednesday 09:00 meeting with pourrions-nous.", "targetText": "Pourrions-nous nous voir mercredi à neuf heures ?"},
+        "write": {"prompt": "Write the final Wednesday confirmation after the coordinator accepts it.", "targetText": "Je confirme notre rendez-vous mercredi à neuf heures."}
+      }
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "master-french-basics:9",
+      "modes": {
+        "see": {"prompt": "Read Hugo’s first comparison and identify plus légère que for weight.", "targetText": "Hugo : La lampe A est plus légère que la lampe B."},
+        "recall": {"prompt": "Recall the weight comparison between lamp A and lamp B.", "targetText": "La lampe A est plus légère que la lampe B."},
+        "hear": {"prompt": "Listen for the noun naming how long the lamp can run on its battery.", "targetText": "autonomie", "recordedAudio": false},
+        "type": {"prompt": "Type the price-versus-battery tradeoff for lamp B, using mais.", "targetText": "La lampe B est moins chère, mais son autonomie est plus courte."},
+        "say": {"prompt": "Explain why lamp A is preferred before learning it is sold out.", "targetText": "Je préfère la lampe A parce que sa batterie dure plus longtemps."},
+        "write": {"prompt": "Write the fallback choice once lamp A is known to be sold out.", "targetText": "Cependant, elle est épuisée ; choisissons la lampe C."}
+      }
+    }
+  ]
+}

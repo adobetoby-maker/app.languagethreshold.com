@@ -9,7 +9,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'content/french-basics/private-runtime-master-1-20.json'
 OUT = ROOT / 'content/french-basics/private-runtime-master-1-20-authored-modes.json'
-RANGES = ((1, 3), (4, 6))
+RANGES = ((1, 3), (4, 6), (7, 9), (10, 12), (13, 15), (16, 18), (19, 20))
 MODES = ('see', 'recall', 'hear', 'type', 'say', 'write')
 
 def digest(path):

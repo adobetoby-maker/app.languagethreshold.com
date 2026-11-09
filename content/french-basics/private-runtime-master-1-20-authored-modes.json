@@ -6341,17 +6341,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Camille’s former Tuesday routine and identify révisais for a repeated past action.",
+            "targetText": "Camille : D’habitude, je révisais le mardi après notre cours de langue."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the customary Tuesday revision schedule using d’habitude.",
+            "targetText": "D’habitude, je révisais le mardi après le cours."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the expression that signals a usual or repeated routine.",
+            "targetText": "d’habitude"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type this week’s exception: the class is on Thursday.",
+            "targetText": "Cette semaine, le cours a lieu jeudi."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -6366,10 +6382,18 @@
             "complication": "The class time changes and Tuesday is occupied by another commitment.",
             "closure": "Confirm the new Friday plan and what each person prepares."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Propose Friday revision instead of Tuesday, using au lieu de.",
+            "targetText": "Au lieu de mardi, révisons ensemble vendredi."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write a clear acceptance of the new Friday time at 17:00.",
+            "targetText": "Vendredi à dix-sept heures me convient."
+          }
         }
       }
     },
@@ -6869,17 +6893,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the coordinator’s first message and find the reply deadline before noon.",
+            "targetText": "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall what the coordinator requests and when the reply is due.",
+            "targetText": "Elle demande de confirmer le rendez-vous avant midi."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the phrase meaning the answer must arrive before noon.",
+            "targetText": "avant midi"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type that Tuesday at 15:00 is unavailable, using ne…pas.",
+            "targetText": "Je ne suis pas disponible mardi à quinze heures."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -6894,10 +6934,18 @@
             "complication": "The original time conflicts with a class.",
             "closure": "Restate the agreed Wednesday meeting in writing."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Politely propose a Wednesday 09:00 meeting with pourrions-nous.",
+            "targetText": "Pourrions-nous nous voir mercredi à neuf heures ?"
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the final Wednesday confirmation after the coordinator accepts it.",
+            "targetText": "Je confirme notre rendez-vous mercredi à neuf heures."
+          }
         }
       }
     },
@@ -7371,17 +7419,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Hugo’s first comparison and identify plus légère que for weight.",
+            "targetText": "Hugo : La lampe A est plus légère que la lampe B."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the weight comparison between lamp A and lamp B.",
+            "targetText": "La lampe A est plus légère que la lampe B."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the noun naming how long the lamp can run on its battery.",
+            "targetText": "autonomie"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the price-versus-battery tradeoff for lamp B, using mais.",
+            "targetText": "La lampe B est moins chère, mais son autonomie est plus courte."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -7396,10 +7460,18 @@
             "complication": "Lamp A is sold out; compare C against B with the same criteria.",
             "closure": "Confirm the price before buying the selected lamp."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Explain why lamp A is preferred before learning it is sold out.",
+            "targetText": "Je préfère la lampe A parce que sa batterie dure plus longtemps."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the fallback choice once lamp A is known to be sold out.",
+            "targetText": "Cependant, elle est épuisée ; choisissons la lampe C."
+          }
         }
       }
     },
@@ -7873,17 +7945,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Ana’s opening report and count the scarves left after the workshop.",
+            "targetText": "Ana : Deux écharpes ont été oubliées après l’atelier de ce matin."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the initials on the first scarf using celle-ci.",
+            "targetText": "Celle-ci porte les initiales de Nadia."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the noun naming an item of clothing found after the workshop.",
+            "targetText": "une écharpe"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type a tentative statement about the other scarf’s owner, using peut-être.",
+            "targetText": "L’autre écharpe appartient peut-être à Camille."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -7898,10 +7986,18 @@
             "complication": "A library slip may not prove ownership of the second scarf.",
             "closure": "Confirm the seam and return the correct scarf to Camille."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask a possible owner directly whether this scarf belongs to them.",
+            "targetText": "Est-ce que cette écharpe vous appartient ?"
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the owner’s confirmation and thanks after the scarf is returned.",
+            "targetText": "Oui, c’est la mienne ; merci de me l’avoir rendue."
+          }
         }
       }
     },
@@ -8388,17 +8484,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Nadia’s original café order and identify the requested oat milk.",
+            "targetText": "Nadia : Pour moi, un café avec du lait d’avoine, s’il vous plaît."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall Nadia’s preference for coffee without cow’s milk.",
+            "targetText": "Nadia préfère un café sans lait de vache."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the phrase that excludes cow’s milk from Nadia’s drink.",
+            "targetText": "sans lait de vache"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type that the café has run out of oat milk today.",
+            "targetText": "Nous n’avons plus de lait d’avoine."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -8413,10 +8525,18 @@
             "complication": "Oat milk is unavailable; the substitution needs Nadia’s consent.",
             "closure": "Repeat both final drinks and excluded ingredients."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Offer soy milk in place of oat milk and ask whether it suits Nadia.",
+            "targetText": "Le lait de soja vous conviendrait-il au lieu du lait d’avoine ?"
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the final order assigning soy coffee to Nadia and plain tea to Hugo.",
+            "targetText": "Un café au lait de soja pour Nadia et un thé nature pour Hugo."
+          }
         }
       }
     },
@@ -8890,17 +9010,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Léa’s schedule conflict and identify when her class ends.",
+            "targetText": "Léa : Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall why the proposed 14:00 meeting does not work for Léa.",
+            "targetText": "Léa ne peut pas venir à quatorze heures."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the phrase naming a meeting time that works for everyone.",
+            "targetText": "un horaire commun"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the condition that moves the group to the library if the room is taken.",
+            "targetText": "Si elle est prise, nous travaillerons à la bibliothèque."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -8915,10 +9051,18 @@
             "complication": "Léa cannot attend at two, and the large room is occupied.",
             "closure": "Agree on four thirty and leave room choice pending confirmation."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "State that the group may reserve the small room after 16:00.",
+            "targetText": "Nous avons le droit de réserver la petite salle après seize heures."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the work sequence: choose sources first, then prepare slides.",
+            "targetText": "D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives."
+          }
         }
       }
     },
@@ -9392,17 +9536,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the coordinator’s deadline and identify when the posters must be ready.",
+            "targetText": "Coordinatrice : L’exposition ouvre vendredi ; les affiches doivent être prêtes jeudi soir."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the required order: check captions before printing posters.",
+            "targetText": "Il faut vérifier les légendes avant d’imprimer les affiches."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the adjective that marks a task as required rather than optional.",
+            "targetText": "obligatoire"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the optional photo task as a condition on having time.",
+            "targetText": "Si nous avons le temps, nous ajouterons une photo."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -9417,10 +9577,18 @@
             "complication": "Printing cannot begin until captions are approved.",
             "closure": "Restate the required order and the condition for adding the photograph."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "State aloud who checks the captions before the posters can be printed.",
+            "targetText": "Camille vérifie les légendes."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the completion condition tied to the coordinator’s approval.",
+            "targetText": "La tâche est terminée quand la coordinatrice approuve le texte."
+          }
         }
       }
     },
@@ -9894,17 +10062,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the usual projector setup and identify installions for the past routine.",
+            "targetText": "Camille : D’habitude, nous installions le projecteur avant la répétition du matin."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the usual sequence before rehearsal using the imperfect.",
+            "targetText": "D’habitude, nous installions le projecteur avant la répétition."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the marker that introduces a sudden change to the routine.",
+            "targetText": "soudain"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the sudden equipment failure with est tombé en panne.",
+            "targetText": "Soudain, il est tombé en panne."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -9919,10 +10103,18 @@
             "complication": "The projector stops before the second part of the rehearsal.",
             "closure": "Rehearse the introduction without a screen and wait for replacement equipment."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Say what the team had already completed before the projector stopped.",
+            "targetText": "Nous avons déjà distribué les documents."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the revised rehearsal plan without a screen and with a replacement request.",
+            "targetText": "Nous répéterons sans écran, puis nous demanderons un autre appareil."
+          }
         }
       }
     },
@@ -10396,17 +10588,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the reception desk’s first direction and identify the alternate entrance.",
+            "targetText": "Accueil : L’entrée principale est fermée ; utilisez l’entrée latérale."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall why the visitor must use a different entrance today.",
+            "targetText": "L’entrée principale est fermée aujourd’hui."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the phrase that places the right turn immediately after the café.",
+            "targetText": "juste après"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the route past the fountain and right after the café.",
+            "targetText": "Passez devant la fontaine, puis tournez à droite après le café."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -10421,10 +10629,18 @@
             "complication": "The visitor repeats the turn as before the café rather than after it.",
             "closure": "Confirm the corrected route and what to do if the side door is closed."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask the visitor to repeat the route before leaving the desk.",
+            "targetText": "Pouvez-vous me redire le trajet ?"
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Correct the wrong turn before the café; the turn comes just after it.",
+            "targetText": "Non, ne tournez pas avant le café ; tournez juste après."
+          }
         }
       }
     },
@@ -10898,17 +11114,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Camille’s current task and find être en train de for work happening now.",
+            "targetText": "Camille : Non, je suis en train de vérifier la dernière légende."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall what Camille is doing now before the poster can be printed.",
+            "targetText": "Je suis en train de vérifier la dernière légende."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the expression that marks an action still in progress.",
+            "targetText": "être en train de"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the dependency: correct the caption before printing.",
+            "targetText": "Nous devons la corriger avant d’imprimer."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -10923,10 +11155,18 @@
             "complication": "The date correction is taking longer than expected.",
             "closure": "Confirm correction tonight and printing tomorrow morning, pending the source check."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "State the revised near-future printing plan for tomorrow morning.",
+            "targetText": "Nous allons imprimer demain matin."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write why the group will not print this evening after the correction runs long.",
+            "targetText": "Comme la correction prend plus de temps, nous n’imprimerons pas ce soir."
+          }
         }
       }
     },
@@ -11400,17 +11640,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Léa’s folder handoff and identify blue for Nadia and green for Camille.",
+            "targetText": "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the two folder recipients by name and color.",
+            "targetText": "Ce dossier bleu est pour Nadia ; le dossier vert est pour Camille."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the indirect-object pronoun used when one person receives the folder.",
+            "targetText": "lui donner"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type a handoff to Nadia, clarifying who lui refers to.",
+            "targetText": "Je vais lui donner le dossier bleu, à Nadia."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -11425,10 +11681,18 @@
             "complication": "A listener cannot tell which woman lui refers to.",
             "closure": "Restate blue for Nadia, green for Camille, copies for both."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Correct the ambiguous lui by explicitly naming Nadia.",
+            "targetText": "Non, par “lui”, je voulais dire Nadia."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the color contrast between the two folders using celui-ci and celui-là.",
+            "targetText": "Celui-ci est bleu ; celui-là est vert."
+          }
         }
       }
     },
@@ -11902,17 +12166,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the outing’s opening line and identify when the group left for the museum.",
+            "targetText": "Camille : Hier, notre groupe est parti pour le musée à neuf heures."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the departure time using sommes partis in the past.",
+            "targetText": "Nous sommes partis à neuf heures."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the sequence marker introducing the first event in the account.",
+            "targetText": "d’abord"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type when the rain began relative to the group’s arrival.",
+            "targetText": "Il a commencé à pleuvoir après notre arrivée."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -11927,10 +12207,18 @@
             "complication": "The listener thinks the rain began after the museum visit.",
             "closure": "Clarify that rain came before the route change and exhibition."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Explain the route change through the garden after the courtyard closed.",
+            "targetText": "Nous sommes entrés par la porte du jardin parce que la cour était fermée."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the ending sequence: exhibition first, return afterward.",
+            "targetText": "Finalement, nous avons vu l’exposition avant de rentrer."
+          }
         }
       }
     },
@@ -12404,17 +12692,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read Camille’s former Tuesday journey and identify venais for a repeated past habit.",
+            "targetText": "Camille : Avant, je venais au cours à vélo presque tous les mardis."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the old cycling routine with the imperfect venais.",
+            "targetText": "Avant, je venais à vélo chaque mardi."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the weather noun naming the storm that interrupted one journey.",
+            "targetText": "un orage"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the one-time storm event with a éclaté.",
+            "targetText": "Un jour, un orage a éclaté pendant le trajet."
+          }
         },
         "say": {
           "speakingBrief": {
@@ -12429,10 +12733,18 @@
             "complication": "The listener assumes one event ended the habit altogether.",
             "closure": "Restate that the learner checks the forecast and still cycles in good weather."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Explain when Camille takes the bus since that incident.",
+            "targetText": "Depuis cet incident, je prends le bus quand la météo annonce de la pluie."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Correct the inference that Camille never cycles now; she still does in good weather.",
+            "targetText": "Par beau temps, je viens encore à vélo."
+          }
         }
       }
     },
@@ -12944,17 +13256,33 @@
       "recordedAudio": false,
       "modes": {
         "see": {
-          "readerLineCount": 12
+          "readerLineCount": 12,
+          "authoredPrompt": {
+            "prompt": "Read the enrollment count and distinguish the twelve registered people from two awaiting replies.",
+            "targetText": "Camille : Douze personnes sont inscrites, et deux autres attendent une réponse."
+          }
         },
         "recall": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Recall the group’s overall task for Thursday’s workshop.",
+            "targetText": "Nous devons préparer l’atelier de jeudi."
+          }
         },
         "hear": {
           "scriptCount": 12,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the noun naming how many people a room can hold.",
+            "targetText": "une capacité"
+          }
         },
         "type": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Type the question needed to clarify seating capacity.",
+            "targetText": "De combien de places avons-nous besoin ?"
+          }
         },
         "say": {
           "speakingBrief": {
@@ -12970,10 +13298,18 @@
             "complication": "The preferred room becomes unavailable Thursday morning after the first comparison.",
             "closure": "Recap who checks the new room and who notifies participants, without claiming a booking before confirmation."
           },
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Compare the quieter small room with its lower capacity, using mais.",
+            "targetText": "La petite salle est plus calme, mais elle a moins de places."
+          }
         },
         "write": {
-          "cardCount": 20
+          "cardCount": 20,
+          "authoredPrompt": {
+            "prompt": "Write the capacity comparison without claiming the room is booked.",
+            "targetText": "La petite salle est plus calme, mais elle a moins de places."
+          }
         }
       }
     }
@@ -12990,6 +13326,36 @@
       "sha256": "3aa933633102280ddf3175f2cd977fb9bfac3a050a4dba7b9761bb0ec98014e4",
       "basePath": "content/french-basics/private-runtime-master-1-20.json",
       "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
+    },
+    {
+      "path": "content/french-basics/private-master-7-9-mode-prompts-fr-en.json",
+      "sha256": "12b79970c406b6032217fe16d262d69636cbefe870dd1cfa122f9ea18b61f3a8",
+      "basePath": "content/french-basics/private-runtime-master-1-20.json",
+      "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
+    },
+    {
+      "path": "content/french-basics/private-master-10-12-mode-prompts-fr-en.json",
+      "sha256": "19196a2b4e8bb7e5e7d38f2bfe9bce22df8a9bef2a1d32b60e0437da7c87a744",
+      "basePath": "content/french-basics/private-runtime-master-1-20.json",
+      "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
+    },
+    {
+      "path": "content/french-basics/private-master-13-15-mode-prompts-fr-en.json",
+      "sha256": "22a55a96c0d32cf67bd5c227fdf3fc644e310b0a84057a0c1fd68800c35c40cf",
+      "basePath": "content/french-basics/private-runtime-master-1-20.json",
+      "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
+    },
+    {
+      "path": "content/french-basics/private-master-16-18-mode-prompts-fr-en.json",
+      "sha256": "5aafbb54337d2df2dedc444ca7daf118ac5babb3320bb6f159e5100b680dba07",
+      "basePath": "content/french-basics/private-runtime-master-1-20.json",
+      "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
+    },
+    {
+      "path": "content/french-basics/private-master-19-20-mode-prompts-fr-en.json",
+      "sha256": "73944681a915d492426142ad7f58aca5bcfa9c20e8619c8f8331d1b50fa722ec",
+      "basePath": "content/french-basics/private-runtime-master-1-20.json",
+      "baseSha256": "233429fbd437e2633c50678588f8b0da2a100a19604502f5d3177d9c10450061"
     }
   ],
   "authoredModeCoverage": [
@@ -12998,6 +13364,20 @@
     3,
     4,
     5,
-    6
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
   ]
 }

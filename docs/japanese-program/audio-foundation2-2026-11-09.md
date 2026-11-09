@@ -1,0 +1,7 @@
+# Japanese 101 Foundation 2 private audio batch — 2026-11-09
+
+The exact Japanese→English source at main `90fde8960c8352a1cd2ab250772f219300a6ad89` yielded 17 distinct Foundation 2 strings and 34 two-voice recordings. `scripts/generate-japanese-hd-audio.py` now selects a stage-local lesson into a separate private output directory, leaving the owner's accepted Foundation 1 pilot manifest unchanged. It is resumable in batches of at most 20 paid clips per run. The two Foundation 2 runs made 20 and 14 requests through Google Cloud project `workerbee-494003` using `ja-JP-Chirp3-HD-Aoede` and `ja-JP-Chirp3-HD-Charon`.
+
+Private files: `/Users/drive/lt-audio/japanese-101/foundation-2/`. The manifest pins source inventory SHA-256 `8cfce671c012ea7e9be2128c9fad74aa4082560105eb1d9b0efbf63eb8d7d411`, exact source and spoken text, voice, locale, bytes, duration and file SHA-256. An independent verifier checked all 34 MP3s: 172 spoken characters across both voices, 190,272 bytes total, and durations 0.336–3.048 seconds. A resumed dry run planned zero requests. The private listening worksheet is `listening-review-2026-11-09.html` in the same directory.
+
+The new clips are `listeningReviewed:false` and are not in the web or V4 app. The owner's earlier approval of French and Japanese pilot recordings covers those pilot manifests, not this batch. Foundation 2 source remains a mapped draft, `reviewed:false`; qualified Japanese language review and listening review remain open before playback or release.

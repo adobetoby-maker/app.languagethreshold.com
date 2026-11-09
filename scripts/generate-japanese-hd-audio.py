@@ -52,6 +52,19 @@ def pilot_keys():
     return [normalized(text) for text in foundation["lessons"]["1"]["passage"]["target"][:5]]
 
 
+def lesson_keys(module, number):
+    if module not in ("foundation-japanese-basics", "japanese-basics", "master-japanese-basics"):
+        raise ValueError(f"Unsupported Japanese 101 module: {module}")
+    source = json.loads((ROOT / "public/lesson-content/ja" / f"{module}.json").read_text(encoding="utf-8"))
+    if source.get("language") != "Japanese" or source.get("nativeLanguage") != "English":
+        raise ValueError("Wrong lesson language pair")
+    lesson = source["lessons"].get(str(number))
+    if lesson is None:
+        raise ValueError(f"Missing lesson {number} in {module}")
+    values = [*lesson["passage"]["target"], *(word["es"] for word in lesson["words"])]
+    return list(dict.fromkeys(normalized(value) for value in values))
+
+
 def duration_seconds(path):
     result = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
@@ -75,18 +88,32 @@ def main():
     parser.add_argument("--generate", action="store_true", help="Call paid synthesis; default only reports plan")
     parser.add_argument("--limit", type=int, default=10, help="At most 20 new clips per run")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--module", help="Exact Japanese 101 stage module for a private lesson batch")
+    parser.add_argument("--lesson", type=int, help="Stage-local lesson number for --module")
     args = parser.parse_args()
     if not 1 <= args.limit <= 20:
         raise SystemExit("--limit must be between 1 and 20")
     if args.generate and not args.project:
         raise SystemExit("--project is required with --generate")
+    if bool(args.module) != bool(args.lesson):
+        raise SystemExit("--module and --lesson must be used together")
+    if args.module and args.output.expanduser().resolve() == DEFAULT_OUTPUT.resolve():
+        raise SystemExit("Use a separate --output directory for an unreviewed lesson batch")
     os.umask(0o077)
     entries, fingerprint = collect()
-    selected = pilot_keys()
+    selected = lesson_keys(args.module, args.lesson) if args.module else pilot_keys()
+    scope = {"module": args.module, "lesson": args.lesson} if args.module else None
     manifest_path = args.output / "manifest.json"
-    manifest = json.loads(manifest_path.read_text()) if manifest_path.is_file() else {"schema": 1, "locale": "ja-JP", "voices": VOICES, "clips": {}}
+    manifest = json.loads(manifest_path.read_text()) if manifest_path.is_file() else {
+        "schema": 1, "locale": "ja-JP", "voices": VOICES, "clips": {},
+        "sourceSHA256": fingerprint, "scope": scope, "listeningReviewed": False,
+    }
     if manifest["locale"] != "ja-JP" or manifest["voices"] != VOICES:
         raise ValueError("Existing manifest voice identity mismatch")
+    if scope and (manifest.get("scope") != scope or manifest.get("sourceSHA256") != fingerprint):
+        raise ValueError("Existing lesson batch scope or source fingerprint mismatch")
+    if scope and (manifest.get("listeningReviewed") is not False or set(manifest["clips"]) - set(selected)):
+        raise ValueError("Lesson batch has accepted or out-of-scope clips")
     jobs = []
     for key in selected:
         if key not in entries:
@@ -100,7 +127,7 @@ def main():
                     continue
             jobs.append((key, entries[key], gender, voice, name))
     planned = jobs[:args.limit]
-    print(json.dumps({"sourceSHA256": fingerprint, "pilotTexts": len(selected), "existingClips": len(selected) * 2 - len(jobs),
+    print(json.dumps({"sourceSHA256": fingerprint, "scope": scope, "selectedTexts": len(selected), "existingClips": len(selected) * 2 - len(jobs),
                       "plannedClips": len(planned), "plannedCharacters": sum(len(job[1]) for job in planned), "voices": VOICES,
                       "paidSynthesis": args.generate}, ensure_ascii=False), flush=True)
     if not args.generate:
@@ -123,7 +150,8 @@ def main():
                 duration = duration_seconds(temporary)
                 temporary.replace(path)
                 manifest["clips"].setdefault(key, {})[gender] = {"name": name, "voice": voice, "locale": "ja-JP",
-                    "spokenText": text, "bytes": len(data), "durationSeconds": duration, "sha256": hashlib.sha256(data).hexdigest()}
+                    "spokenText": text, "bytes": len(data), "durationSeconds": duration,
+                    "sha256": hashlib.sha256(data).hexdigest(), "listeningReviewed": False}
                 atomic_json(manifest_path, manifest)
                 break
             except urllib.error.HTTPError as error:

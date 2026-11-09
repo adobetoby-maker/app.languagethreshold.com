@@ -48,7 +48,7 @@ A={
  ('Serveuse : Préférez-vous le lait d’avoine pour le goût ou évitez-vous le lait de vache ?','Server: Do you prefer oat milk for the taste, or are you avoiding cow’s milk?'),
  ('Nadia : J’évite le lait de vache, mais le lait de soja me convient aussi.','Nadia: I avoid cow’s milk, but soy milk also works for me.'),
  ('Serveuse : Nous n’avons plus de lait d’avoine aujourd’hui.','Server: We have no oat milk left today.'),
- ('Serveuse : Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?','Server: Would a coffee with soy milk suit you instead of oat milk?'),
+ ('Serveuse : Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?','Server: Would a coffee with soy milk work for you instead of oat milk?'),
  ('Nadia : Oui, merci ; je préfère cette option à un café noir.','Nadia: Yes, thank you; I prefer that option to black coffee.'),
  ('Hugo : Mon thé reste sans sucre, n’est-ce pas ?','Hugo: My tea is still without sugar, right?'),
  ('Serveuse : Exactement : un thé nature sans sucre pour vous.','Server: Exactly: a plain tea without sugar for you.'),

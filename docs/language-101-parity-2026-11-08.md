@@ -1,6 +1,6 @@
 # 101 lesson material parity: Spanish → French and Japanese
 
-- Spanish/Japanese source commit: `ad5b620353dba3ec55eb86e456ecc2df29d727ee`
+- Spanish/Japanese source commit: `f695a1a02a7e5cd43fa9d9e9071811abc459e5bb`
 - French private draft commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`
 - French contextual forms commit: `fcebda23f0f4ec89ae0bb3929555e17f48b3874b`; Japanese contextual forms commit: `ce120ac2fc4afbe849a2f76ae4e127955d6e8664`
 - Scope: Spanish 101 lesson-content files, Japanese 101 lesson-content files, and French 101 private runtime fixture. Counts indicate authored material only; they do not validate language quality, lesson flow, live registration, audio, or native app availability.
@@ -89,3 +89,9 @@
 - French contextual forms: 329 exact-pair prompts across 60 private lessons. Japanese contextual forms: 235 exact-pair prompts across 60 private lessons. These are authored sentence/form tasks, not the same unit as Spanish LessonVerb references.
 - Lessons with fewer LessonVerb entries than Spanish: 60/60 for both French and Japanese. This is a data-model difference, not a verdict that their contextual grammar practice is missing.
 - Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the exact-pair runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.
+
+## Practice record evidence
+
+- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has 180 checks and 120 grammar examples; Japanese has 180 checks and 120 grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.
+- The French private fixture has 302 checks and 360 six-mode descriptors across 60 lessons. Only 0 descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags. Contextual form sidecars are additional private material, not yet integrated into these mode descriptors.
+- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.

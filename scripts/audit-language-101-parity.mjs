@@ -16,6 +16,7 @@ const frenchFormsRoot = resolve(arg("--french-forms-root") ?? frenchRoot);
 const japaneseFormsRoot = resolve(arg("--japanese-forms-root") ?? root);
 const output = arg("--output");
 const read = (base, path) => JSON.parse(readFileSync(resolve(base, path), "utf8"));
+const readTracked = (base, path) => JSON.parse(execFileSync("git", ["show", `HEAD:${path}`], { cwd: base, encoding: "utf8" }));
 const revision = (base) => execFileSync("git", ["rev-parse", "HEAD"], { cwd: base, encoding: "utf8" }).trim();
 const stageNames = ["foundation", "core", "master"];
 const stageLengths = { foundation: 10, core: 30, master: 20 };
@@ -58,6 +59,8 @@ const formPrompts = (base, language, pair) => {
 };
 const frenchForms = formPrompts(frenchFormsRoot, "french", "French:English");
 const japaneseForms = formPrompts(japaneseFormsRoot, "japanese", "Japanese:English");
+const spanishPractice = readTracked(root, "src/data/spanish-basics-practice.json");
+const japanesePractice = readTracked(root, "src/data/japanese-basics-practice.json");
 const lines = [
   "# 101 lesson material parity: Spanish → French and Japanese",
   "",
@@ -70,6 +73,8 @@ const lines = [
 ];
 const totals = { spanishWords: 0, spanishLines: 0, spanishVerbs: 0, frenchCards: 0, frenchLines: 0, frenchVerbs: 0, japaneseWords: 0, japaneseLines: 0, japaneseVerbs: 0, frenchForms: 0, japaneseForms: 0 };
 const missing = [];
+const practiceTotals = { spanishChecks: 0, japaneseChecks: 0, spanishExamples: 0, japaneseExamples: 0, frenchChecks: 0, frenchModeDescriptors: 0, frenchTextPrompts: 0 };
+const modeNames = ["see", "recall", "hear", "type", "say", "write"];
 for (const stage of stageNames) {
   const spanish = read(root, lessonPath("es", stage));
   const japanese = read(root, lessonPath("ja", stage));
@@ -80,8 +85,12 @@ for (const stage of stageNames) {
   if (spanish.nativeLanguage !== "English" || japanese.nativeLanguage !== "English" || french.native && french.native !== "English")
     throw new Error(`${stage}: support-language mismatch`);
   const support = new Map(french.support.map((entry) => [entry.n, entry]));
+  const spanishPracticeStage = spanishPractice[`${stage === "core" ? "" : `${stage}-`}spanish-basics`];
+  const japanesePracticeStage = japanesePractice[`${stage === "core" ? "" : `${stage}-`}japanese-basics`];
   if (support.size !== stageLengths[stage] || Object.keys(spanish.lessons).length !== stageLengths[stage] || Object.keys(japanese.lessons).length !== stageLengths[stage])
     throw new Error(`${stage}: lesson count mismatch`);
+  if (Object.keys(spanishPracticeStage ?? {}).length !== stageLengths[stage] || Object.keys(japanesePracticeStage ?? {}).length !== stageLengths[stage])
+    throw new Error(`${stage}: practice record count mismatch`);
   lines.push(`## ${stage[0].toUpperCase()}${stage.slice(1)} (${stageLengths[stage]})`, "",
     "| Lesson | Spanish words | French cards | Japanese words | Spanish Reader lines | French Reader lines | Japanese Reader lines | Spanish verb refs | French verb refs | Japanese verb refs | French form prompts | Japanese form prompts |",
     "| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |");
@@ -91,6 +100,22 @@ for (const stage of stageNames) {
     const fr = support.get(n);
     if (!es || !ja || !fr || fr.stableLessonKey !== `${stage === "core" ? "" : `${stage}-`}french-basics:${n}`)
       throw new Error(`${stage} ${n}: stable lesson key or lesson missing`);
+    const esPractice = spanishPracticeStage[String(n)];
+    const jaPractice = japanesePracticeStage[String(n)];
+    if (!esPractice || !jaPractice || !esPractice.openingLine || !jaPractice.openingLine ||
+        !esPractice.partnerRole || !jaPractice.partnerRole ||
+        !esPractice.speaking || !jaPractice.speaking ||
+        !modeNames.every((mode) => fr.modes?.[mode]))
+      throw new Error(`${stage} ${n}: practice record or French mode descriptor missing`);
+    practiceTotals.spanishChecks += esPractice.checks?.length ?? 0;
+    practiceTotals.japaneseChecks += jaPractice.checks?.length ?? 0;
+    practiceTotals.spanishExamples += esPractice.grammar?.examples?.length ?? 0;
+    practiceTotals.japaneseExamples += jaPractice.grammar?.examples?.length ?? 0;
+    practiceTotals.frenchChecks += fr.checks?.length ?? 0;
+    practiceTotals.frenchModeDescriptors += modeNames.length;
+    practiceTotals.frenchTextPrompts += modeNames.filter((mode) =>
+      Object.entries(fr.modes[mode]).some(([key, value]) =>
+        !["recordedAudio", "speakingBrief"].includes(key) && typeof value === "string" && value.trim().length > 0)).length;
     const row = {
       spanishWords: es.words?.length ?? 0,
       frenchCards: fr.cards?.length ?? 0,
@@ -117,6 +142,10 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
   `- French contextual forms: ${totals.frenchForms} exact-pair prompts across 60 private lessons. Japanese contextual forms: ${totals.japaneseForms} exact-pair prompts across 60 private lessons. These are authored sentence/form tasks, not the same unit as Spanish LessonVerb references.`,
   `- Lessons with fewer LessonVerb entries than Spanish: ${missing.length}/60 for both French and Japanese. This is a data-model difference, not a verdict that their contextual grammar practice is missing.`,
   "- Next: review the French and Japanese contextual form prompts for grammatical accuracy and coverage, then integrate them into the exact-pair runtime. Decide whether separate language-specific verb study is needed by lesson; do not copy Spanish morphology or infer completion from these unlike inventory units.", "");
+lines.push("## Practice record evidence", "",
+  `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
+  `- The French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags. Contextual form sidecars are additional private material, not yet integrated into these mode descriptors.`,
+  "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);
 else process.stdout.write(report);

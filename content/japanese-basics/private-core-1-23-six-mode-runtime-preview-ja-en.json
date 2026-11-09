@@ -4,9 +4,9 @@
   "registered": false,
   "reviewed": false,
   "sourceSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
-  "authoredSha256": "e838213f297e8a2824a9c5b19f7ba74ffee594be5a3be30d08187cba283e80f3",
-  "lessonCount": 15,
-  "activityCount": 90,
+  "authoredSha256": "8cf22dd7dd0346f2ab21b840b6bb45fc65bbb5ba648678b5310afa198d1c2e2e",
+  "lessonCount": 23,
+  "activityCount": 138,
   "lessons": [
     {
       "moduleId": "core-japanese-basics",
@@ -755,6 +755,406 @@
           "sourceDialogueTurn": 3,
           "targetText": "ごご かいものします。",
           "nativeText": "In the afternoon I shop."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 16,
+      "stableLessonKey": "core-japanese-basics:16",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:16:see",
+          "prompt": "Read the opening routine sentence. Identify まず and the six o'clock waking time.",
+          "sourceDialogueTurn": 1,
+          "targetText": "まず、ろくじに おきます。",
+          "nativeText": "First I get up at six."
+        },
+        "recall": {
+          "id": "ja101:core:16:recall",
+          "prompt": "Recall the Japanese sentence for eating breakfast next, including それから and を.",
+          "sourceDialogueTurn": 3,
+          "targetText": "それから、あさごはんを たべます。",
+          "nativeText": "Then I eat breakfast."
+        },
+        "hear": {
+          "id": "ja101:core:16:hear",
+          "prompt": "Listen to the departure sentence and choose the meaning with seven o'clock, read しちじ.",
+          "sourceDialogueTurn": 4,
+          "targetText": "しちじに でかけます。",
+          "nativeText": "I go out at seven."
+        },
+        "type": {
+          "id": "ja101:core:16:type",
+          "prompt": "Type the complete Japanese sentence for 'I wash my face,' marking the object with を.",
+          "sourceDialogueTurn": 2,
+          "targetText": "かおを あらいます。",
+          "nativeText": "I wash my face."
+        },
+        "say": {
+          "id": "ja101:core:16:say",
+          "prompt": "Say the final routine sentence about returning home in the afternoon, including さいごに.",
+          "sourceDialogueTurn": 5,
+          "targetText": "さいごに、ごご うちに かえります。",
+          "nativeText": "Finally, I return home in the afternoon."
+        },
+        "write": {
+          "id": "ja101:core:16:write",
+          "prompt": "Write the whole sentence for first getting up at six, using まず and the scheduled-time に.",
+          "sourceDialogueTurn": 1,
+          "targetText": "まず、ろくじに おきます。",
+          "nativeText": "First I get up at six."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 17,
+      "stableLessonKey": "core-japanese-basics:17",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:17:see",
+          "prompt": "Read the reply about that notebook. Identify さんびゃくえん and its exact yen amount.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あれは さんびゃくえんです。",
+          "nativeText": "That one is three hundred yen."
+        },
+        "recall": {
+          "id": "ja101:core:17:recall",
+          "prompt": "Recall the Japanese question asking the price of this notebook, including いくら.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この ノートは いくらですか。",
+          "nativeText": "How much is this notebook?"
+        },
+        "hear": {
+          "id": "ja101:core:17:hear",
+          "prompt": "Listen to the price reply and choose the English meaning with two hundred yen.",
+          "sourceDialogueTurn": 2,
+          "targetText": "それは にひゃくえんです。",
+          "nativeText": "That one is two hundred yen."
+        },
+        "type": {
+          "id": "ja101:core:17:type",
+          "prompt": "Type the short question asking about that blue notebook, using あの before the noun.",
+          "sourceDialogueTurn": 3,
+          "targetText": "あの あおい ノートは？",
+          "nativeText": "What about that blue notebook?"
+        },
+        "say": {
+          "id": "ja101:core:17:say",
+          "prompt": "Say the polite selection of this one, preserving では and これをください.",
+          "sourceDialogueTurn": 5,
+          "targetText": "では、これを ください。",
+          "nativeText": "Then I will take this one, please."
+        },
+        "write": {
+          "id": "ja101:core:17:write",
+          "prompt": "Write the full Japanese sentence that prices that one at three hundred yen.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あれは さんびゃくえんです。",
+          "nativeText": "That one is three hundred yen."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 18,
+      "stableLessonKey": "core-japanese-basics:18",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:18:see",
+          "prompt": "Read where Tanaka is. Identify the existence-location に with います.",
+          "sourceDialogueTurn": 1,
+          "targetText": "たなかさんは としょかんに います。",
+          "nativeText": "Tanaka is in the library."
+        },
+        "recall": {
+          "id": "ja101:core:18:recall",
+          "prompt": "Recall the sentence for Tanaka studying at the library, using action-place で.",
+          "sourceDialogueTurn": 2,
+          "targetText": "としょかんで べんきょうします。",
+          "nativeText": "Tanaka studies at the library."
+        },
+        "hear": {
+          "id": "ja101:core:18:hear",
+          "prompt": "Listen to the bag sentence and select the meaning that places it under the desk.",
+          "sourceDialogueTurn": 4,
+          "targetText": "かばんは つくえの したに あります。",
+          "nativeText": "The bag is under the desk."
+        },
+        "type": {
+          "id": "ja101:core:18:type",
+          "prompt": "Type the Japanese sentence for the book being on the desk, including のうえに.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ほんは つくえの うえに あります。",
+          "nativeText": "The book is on the desk."
+        },
+        "say": {
+          "id": "ja101:core:18:say",
+          "prompt": "Say the sentence locating the pen inside the bag, using のなかに.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ペンは かばんの なかに あります。",
+          "nativeText": "The pen is inside the bag."
+        },
+        "write": {
+          "id": "ja101:core:18:write",
+          "prompt": "Write the source sentence for studying at the library; contrast で here with the に in the preceding existence sentence.",
+          "sourceDialogueTurn": 2,
+          "targetText": "としょかんで べんきょうします。",
+          "nativeText": "Tanaka studies at the library."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 19,
+      "stableLessonKey": "core-japanese-basics:19",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:19:see",
+          "prompt": "Read the travel plan. Identify ～よていです and the English meaning of the scheduled plan.",
+          "sourceDialogueTurn": 3,
+          "targetText": "らいしゅうは りょこうする よていです。",
+          "nativeText": "I am scheduled to travel next week."
+        },
+        "recall": {
+          "id": "ja101:core:19:recall",
+          "prompt": "Recall the sentence for intending to meet a friend tomorrow, keeping あうつもりです.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あした ともだちに あう つもりです。",
+          "nativeText": "I intend to meet a friend tomorrow."
+        },
+        "hear": {
+          "id": "ja101:core:19:hear",
+          "prompt": "Listen to the question to Ken and choose the meaning that asks whether he intends to go too.",
+          "sourceDialogueTurn": 5,
+          "targetText": "けんさんも いく つもりですか。",
+          "nativeText": "Ken, do you intend to go too?"
+        },
+        "type": {
+          "id": "ja101:core:19:type",
+          "prompt": "Type the sentence about calling the night before the trip, preserving the time phrase.",
+          "sourceDialogueTurn": 4,
+          "targetText": "りょこうの まえの よる、でんわします。",
+          "nativeText": "I will call the night before the trip."
+        },
+        "say": {
+          "id": "ja101:core:19:say",
+          "prompt": "Say the afternoon station plan, including ごご and the destination へ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ごご えきへ いきます。",
+          "nativeText": "I will go to the station in the afternoon."
+        },
+        "write": {
+          "id": "ja101:core:19:write",
+          "prompt": "Write the complete sentence for a scheduled trip next week; use する before よていです.",
+          "sourceDialogueTurn": 3,
+          "targetText": "らいしゅうは りょこうする よていです。",
+          "nativeText": "I am scheduled to travel next week."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 20,
+      "stableLessonKey": "core-japanese-basics:20",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:20:see",
+          "prompt": "Read the book sentence. Identify よんでいます as an action in progress and give its English meaning.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ほんを よんでいます。",
+          "nativeText": "I am reading a book."
+        },
+        "recall": {
+          "id": "ja101:core:20:recall",
+          "prompt": "Recall the Japanese question 'What are you doing now?' with いま and していますか.",
+          "sourceDialogueTurn": 1,
+          "targetText": "いま、なにを していますか。",
+          "nativeText": "What are you doing now?"
+        },
+        "hear": {
+          "id": "ja101:core:20:hear",
+          "prompt": "Listen to Aki's sentence and choose the meaning that says she is drinking tea now.",
+          "sourceDialogueTurn": 3,
+          "targetText": "あきさんは おちゃを のんでいます。",
+          "nativeText": "Aki is drinking tea."
+        },
+        "type": {
+          "id": "ja101:core:20:type",
+          "prompt": "Type the sentence for Ken waiting for a friend outside, using まっています.",
+          "sourceDialogueTurn": 4,
+          "targetText": "けんさんは そとで ともだちを まっています。",
+          "nativeText": "Ken is waiting for a friend outside."
+        },
+        "say": {
+          "id": "ja101:core:20:say",
+          "prompt": "Say the source sentence about Aki and the teacher talking inside, using はなしています.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あきさんと せんせいは なかで はなしています。",
+          "nativeText": "Aki and the teacher are talking inside."
+        },
+        "write": {
+          "id": "ja101:core:20:write",
+          "prompt": "Write the full sentence 'I am reading a book,' keeping the object particle and ～ています form.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ほんを よんでいます。",
+          "nativeText": "I am reading a book."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 21,
+      "stableLessonKey": "core-japanese-basics:21",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:21:see",
+          "prompt": "Read the reply about the route. Identify しりません as the usual negative for knowing.",
+          "sourceDialogueTurn": 2,
+          "targetText": "いいえ、しりません。",
+          "nativeText": "No, I do not know it."
+        },
+        "recall": {
+          "id": "ja101:core:21:recall",
+          "prompt": "Recall the question asking if someone understands the map, using わかりますか.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ちずは わかりますか。",
+          "nativeText": "Do you understand the map?"
+        },
+        "hear": {
+          "id": "ja101:core:21:hear",
+          "prompt": "Listen to the station question and select the meaning that includes getting there on one's own.",
+          "sourceDialogueTurn": 6,
+          "targetText": "えきまで ひとりで いけますか。",
+          "nativeText": "Can you get to the station on your own?"
+        },
+        "type": {
+          "id": "ja101:core:21:type",
+          "prompt": "Type the source question 'Do you know this route?' with しっていますか.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この みちを しっていますか。",
+          "nativeText": "Do you know this route?"
+        },
+        "say": {
+          "id": "ja101:core:21:say",
+          "prompt": "Say the sentence about being able to reach the station with the map; include いけます.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ちずで えきまで いけます。",
+          "nativeText": "With the map, I can get to the station."
+        },
+        "write": {
+          "id": "ja101:core:21:write",
+          "prompt": "Write the short affirmative ability answer to the station question, using いけます.",
+          "sourceDialogueTurn": 7,
+          "targetText": "はい、いけます。",
+          "nativeText": "Yes, I can."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 22,
+      "stableLessonKey": "core-japanese-basics:22",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:22:see",
+          "prompt": "Read the first comparison. Identify which shop is closer and what より compares it with.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この みせは あの みせより ちかいです。",
+          "nativeText": "This shop is closer than that one."
+        },
+        "recall": {
+          "id": "ja101:core:22:recall",
+          "prompt": "Recall the question asking which of the two shops is more convenient, using どちらが.",
+          "sourceDialogueTurn": 3,
+          "targetText": "この みせと あの みせと、どちらが べんりですか。",
+          "nativeText": "Which is more convenient, this shop or that one?"
+        },
+        "hear": {
+          "id": "ja101:core:22:hear",
+          "prompt": "Listen to the contrast and choose the meaning that says the other shop is quieter.",
+          "sourceDialogueTurn": 2,
+          "targetText": "でも、あの みせの ほうが しずかです。",
+          "nativeText": "But that shop is quieter."
+        },
+        "type": {
+          "id": "ja101:core:22:type",
+          "prompt": "Type the sentence saying it is the most convenient in this town, including いちばん.",
+          "sourceDialogueTurn": 5,
+          "targetText": "この まちで いちばん べんりです。",
+          "nativeText": "It is the most convenient in this town."
+        },
+        "say": {
+          "id": "ja101:core:22:say",
+          "prompt": "Say both source sentences explaining which shop is more convenient and why.",
+          "sourceDialogueTurn": 4,
+          "targetText": "この みせの ほうが べんりです。えきの まえですから。",
+          "nativeText": "This shop is more convenient. It is in front of the station."
+        },
+        "write": {
+          "id": "ja101:core:22:write",
+          "prompt": "Write the full Japanese answer choosing the shop in front of the station.",
+          "sourceDialogueTurn": 7,
+          "targetText": "えきの まえの みせに いきます。",
+          "nativeText": "I will go to the shop in front of the station."
+        }
+      }
+    },
+    {
+      "moduleId": "core-japanese-basics",
+      "lessonNumber": 23,
+      "stableLessonKey": "core-japanese-basics:23",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:core:23:see",
+          "prompt": "Read the added item sentence. Identify も as the replacement for を when adding a pen.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ペンも いれます。",
+          "nativeText": "I put a pen in too."
+        },
+        "recall": {
+          "id": "ja101:core:23:recall",
+          "prompt": "Recall the sentence for putting the book in the bag, marking the object with を.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ほんを かばんに いれます。",
+          "nativeText": "I put the book in the bag."
+        },
+        "hear": {
+          "id": "ja101:core:23:hear",
+          "prompt": "Listen to the short discovery and choose the meaning that keeps the omitted object 'them'.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あ、みつけました。",
+          "nativeText": "Oh, I found them."
+        },
+        "type": {
+          "id": "ja101:core:23:type",
+          "prompt": "Type the Japanese sentence for looking for the keys, using を and さがしています.",
+          "sourceDialogueTurn": 3,
+          "targetText": "かぎを さがしています。",
+          "nativeText": "I am looking for my keys."
+        },
+        "say": {
+          "id": "ja101:core:23:say",
+          "prompt": "Say the question asking if the keys were put in the bag too, including も.",
+          "sourceDialogueTurn": 6,
+          "targetText": "かぎも かばんに いれましたか。",
+          "nativeText": "Did you put the keys in the bag too?"
+        },
+        "write": {
+          "id": "ja101:core:23:write",
+          "prompt": "Write the complete sentence for not forgetting them again, using もう and ～ません.",
+          "sourceDialogueTurn": 5,
+          "targetText": "もう わすれません。",
+          "nativeText": "I will not forget them again."
         }
       }
     }

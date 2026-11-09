@@ -37,6 +37,7 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
     "core-7-9",
     "core-10-12",
     "core-13-18",
+    "core-19-30",
   ];
   let checked = 0;
   const ids = new Set();
@@ -67,6 +68,6 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
       }
     }
   }
-  assert.equal(checked, 149);
-  assert.equal(ids.size, 149);
+  assert.equal(checked, 233);
+  assert.equal(ids.size, 233);
 });

@@ -1,0 +1,7 @@
+# Japanese 101 Master 11–20 form practice — private draft
+
+`content/japanese-basics/private-form-practice-master-11-20-ja-en.json` selects 42 exact Japanese→English dialogue pairs. The builder pins the Master source SHA-256, module ID, lesson/turn, and stable prompt ID. Selected scenes rehearse wants and ingredient state, conditions and permission, obligation, delayed plans and past progressive, directions with `に/で`, now versus future, reference clarification, past narration, habit versus one event, and the contextual `いってください` meaning “please say.”
+
+The fixture remains `registered:false` and `reviewed:false`. All 42 selected Japanese text keys occur in the corresponding private Master audio manifests; listening approval remains separate. Exact source lines are examples, not exhaustive translations. Qualified Japanese review, runtime answer handling and context, offline audio, browser/phone and independent V4 acceptance remain open. No learner progress changes.
+
+Run `python3 scripts/build-japanese101-master-11-20-form-practice.py --check`, `python3 scripts/build-japanese-basics.py --check`, and `node --test tests/japanese101-form-practice.test.mjs tests/japanese-basics-course.test.mjs` after source edits. The fixture test now covers 235 prompts across all 60 Japanese 101 lessons. This contributes to [verb parity issue #427](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/427).

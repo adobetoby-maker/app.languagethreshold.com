@@ -5020,24 +5020,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read the sentence about backpacks. Find the plural adjective ending that agrees with sacs.",
+            "targetText": "Les sacs à dos rouges sont ici."
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the grammar-model phrase for one red pencil case, including its feminine article.",
+            "targetText": "une trousse rouge"
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the classroom noun meaning ‘notebook’.",
+            "targetText": "cahier"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type the sentence describing the small blue notebook, placing petit after est.",
+            "targetText": "Le cahier bleu est petit."
+          }
         },
         "say": {
           "speakingBrief": "Role-play a stationery-shop visit. Ask the sales assistant for a red backpack and two small notebooks. Describe one item with a singular adjective and several items with plural adjectives. Ask where the red backpacks are, answer a related question, and confirm the choice. Use English only to explain a word if requested.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Tell the shopkeeper aloud that you are looking for a red backpack.",
+            "targetText": "Je cherche un sac à dos rouge."
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write that the books are interesting, with a plural adjective ending.",
+            "targetText": "Les livres sont intéressants."
+          }
         }
       }
     },
@@ -5389,24 +5413,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read who is looking for a phone. Use the sentence context to identify whose phone son refers to.",
+            "targetText": "La professeure cherche son téléphone."
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the complete sentence saying my books are in my backpack.",
+            "targetText": "Mes livres sont dans mon sac à dos."
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the noun meaning ‘notebook’ in the question about your belongings.",
+            "targetText": "cahier"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type ‘Your pencils are here’, using the plural possessive tes.",
+            "targetText": "Tes crayons sont ici."
+          }
         },
         "say": {
           "speakingBrief": "Role-play finding things after class. Ask a classmate where their notebook is, tell them their pencils are here, and say where your backpack and books are. Explain that the teacher is looking for her phone and identify where it is. Use mon/ma/mes, ton/ta/tes and son/sa/ses in context.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask a classmate aloud where their notebook is, using ton.",
+            "targetText": "Où est ton cahier ?"
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write the sentence placing the teacher’s phone on the table; make the owner explicit.",
+            "targetText": "Le téléphone de la professeure est sur la table."
+          }
         }
       }
     },
@@ -5764,24 +5812,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read the first sentence. Identify the avoir expression French uses for ‘I am hungry’.",
+            "targetText": "J'ai faim après le cours."
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the nous form of irregular avoir from the grammar model.",
+            "targetText": "nous avons"
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the short je form of avoir, including the elision before ai.",
+            "targetText": "j'ai"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type the complete sentence saying Ana is thirsty; use a, not est.",
+            "targetText": "Ana a soif."
+          }
         },
         "say": {
           "speakingBrief": "Role-play planning a snack after class. Say that you are hungry, ask whether your partner has water or a glass, and report what Ana, Luis and your friends have. Use j'ai, tu as, il/elle a, nous avons and ils/elles ont, then confirm what the group still needs.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask aloud whether a classmate has a glass for Ana.",
+            "targetText": "Tu as un verre pour Ana ?"
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write that we have water in the backpack, keeping the de l' before eau.",
+            "targetText": "Nous avons de l'eau dans le sac à dos."
+          }
         }
       }
     },
@@ -14722,15 +14794,26 @@
       }
     }
   ],
-  "authoredModeSource": {
-    "path": "content/french-basics/private-core-1-3-mode-prompts-fr-en.json",
-    "sha256": "7eeb2862ce2afd6244c3b6446bd252e3362a58b6e92eeb6325c7ef219c44db1a",
-    "basePath": "content/french-basics/private-runtime-core-1-30.json",
-    "baseSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5"
-  },
+  "authoredModeSources": [
+    {
+      "path": "content/french-basics/private-core-1-3-mode-prompts-fr-en.json",
+      "sha256": "7eeb2862ce2afd6244c3b6446bd252e3362a58b6e92eeb6325c7ef219c44db1a",
+      "basePath": "content/french-basics/private-runtime-core-1-30.json",
+      "baseSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5"
+    },
+    {
+      "path": "content/french-basics/private-core-4-6-mode-prompts-fr-en.json",
+      "sha256": "e00de82a24e437209862945119f747b6acb9c742c98ae4090ff4149c594b5dea",
+      "basePath": "content/french-basics/private-runtime-core-1-30.json",
+      "baseSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5"
+    }
+  ],
   "authoredModeCoverage": [
     1,
     2,
-    3
+    3,
+    4,
+    5,
+    6
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 4,
+      "stableLessonKey": "french-basics:4",
+      "modes": {
+        "see": {"prompt": "Read the sentence about backpacks. Find the plural adjective ending that agrees with sacs.", "targetText": "Les sacs à dos rouges sont ici."},
+        "recall": {"prompt": "Recall the grammar-model phrase for one red pencil case, including its feminine article.", "targetText": "une trousse rouge"},
+        "hear": {"prompt": "Listen for the classroom noun meaning ‘notebook’.", "targetText": "cahier", "recordedAudio": false},
+        "type": {"prompt": "Type the sentence describing the small blue notebook, placing petit after est.", "targetText": "Le cahier bleu est petit."},
+        "say": {"prompt": "Tell the shopkeeper aloud that you are looking for a red backpack.", "targetText": "Je cherche un sac à dos rouge."},
+        "write": {"prompt": "Write that the books are interesting, with a plural adjective ending.", "targetText": "Les livres sont intéressants."}
+      }
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "french-basics:5",
+      "modes": {
+        "see": {"prompt": "Read who is looking for a phone. Use the sentence context to identify whose phone son refers to.", "targetText": "La professeure cherche son téléphone."},
+        "recall": {"prompt": "Recall the complete sentence saying my books are in my backpack.", "targetText": "Mes livres sont dans mon sac à dos."},
+        "hear": {"prompt": "Listen for the noun meaning ‘notebook’ in the question about your belongings.", "targetText": "cahier", "recordedAudio": false},
+        "type": {"prompt": "Type ‘Your pencils are here’, using the plural possessive tes.", "targetText": "Tes crayons sont ici."},
+        "say": {"prompt": "Ask a classmate aloud where their notebook is, using ton.", "targetText": "Où est ton cahier ?"},
+        "write": {"prompt": "Write the sentence placing the teacher’s phone on the table; make the owner explicit.", "targetText": "Le téléphone de la professeure est sur la table."}
+      }
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "french-basics:6",
+      "modes": {
+        "see": {"prompt": "Read the first sentence. Identify the avoir expression French uses for ‘I am hungry’.", "targetText": "J'ai faim après le cours."},
+        "recall": {"prompt": "Recall the nous form of irregular avoir from the grammar model.", "targetText": "nous avons"},
+        "hear": {"prompt": "Listen for the short je form of avoir, including the elision before ai.", "targetText": "j'ai", "recordedAudio": false},
+        "type": {"prompt": "Type the complete sentence saying Ana is thirsty; use a, not est.", "targetText": "Ana a soif."},
+        "say": {"prompt": "Ask aloud whether a classmate has a glass for Ana.", "targetText": "Tu as un verre pour Ana ?"},
+        "write": {"prompt": "Write that we have water in the backpack, keeping the de l' before eau.", "targetText": "Nous avons de l'eau dans le sac à dos."}
+      }
+    }
+  ]
+}

@@ -56,18 +56,21 @@ test('French Core pilot pins sources and cannot affect registered language progr
   assert.notEqual(fixture.coreCurriculum.moduleId, 'japanese-basics');
 });
 
-test('Core 1–3 authored mode candidate preserves all 30 stable French lesson identities', () => {
+test('Core 1–6 authored mode candidate preserves all 30 stable French lesson identities', () => {
   assert.equal(authoredModes.registered,false);
   assert.equal(authoredModes.reviewed,false);
   assert.deepEqual(authoredModes.coreCurriculum,fixture.coreCurriculum);
-  assert.deepEqual(authoredModes.authoredModeCoverage,[1,2,3]);
-  assert.equal(authoredModes.authoredModeSource.sha256,sha(authoredModes.authoredModeSource.path));
-  assert.equal(authoredModes.authoredModeSource.baseSha256,sha(authoredModes.authoredModeSource.basePath));
+  assert.deepEqual(authoredModes.authoredModeCoverage,[1,2,3,4,5,6]);
+  assert.equal(authoredModes.authoredModeSources.length,2);
+  for(const source of authoredModes.authoredModeSources){
+    assert.equal(source.sha256,sha(source.path));
+    assert.equal(source.baseSha256,sha(source.basePath));
+  }
   assert.deepEqual(authoredModes.support.map(x=>x.stableLessonKey),fixture.support.map(x=>x.stableLessonKey));
   for(const [index,lesson] of authoredModes.support.entries()){
     for(const mode of ['see','recall','hear','type','say','write']){
       const activity=lesson.modes[mode].authoredPrompt;
-      if(index>=3){assert.equal(activity,undefined);continue;}
+      if(index>=6){assert.equal(activity,undefined);continue;}
       assert.ok(activity.prompt.trim());
       const source=mode==='see'?lesson.reader.target:[...lesson.cards.map(x=>x.target),...Object.values(lesson.grammarNotes.model??{})];
       assert.ok(source.includes(activity.targetText),`${index+1} ${mode}`);

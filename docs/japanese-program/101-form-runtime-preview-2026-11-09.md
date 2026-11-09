@@ -5,3 +5,5 @@
 Run `node scripts/build-japanese101-form-runtime-preview.mjs --check` and `node --test tests/japanese-101-private-form-runtime-preview.test.mjs tests/japanese101-form-practice.test.mjs` to verify deterministic output, lesson IDs, counts, language direction, and source-pair fidelity.
 
 This is a private runtime-shaped candidate. `registered:false` and `reviewed:false` remain in the output and source fixtures. It is not wired into the learner UI, progress, offline downloads, web release, or V4. Japanese language review of the forms and acceptable variants remains open. The activity shape is specific to Japanese contextual forms rather than a copy of Spanish person-ending tables.
+
+`node scripts/build-japanese101-form-review-sheet.mjs` creates the local review worksheet at `/Users/drive/lt-audio/japanese-101/form-review-2026-11-09.html`. It pins the exact preview hash, shows all 235 English cues and Japanese answers by lesson/source turn, and exports reviewer observations as JSON. Worksheet decisions are stored locally and do not change course review flags.

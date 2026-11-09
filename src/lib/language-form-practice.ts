@@ -15,6 +15,14 @@ export function insertFrenchCharacter(value: string, character: string, start: n
   return { value: before + character + value.slice(end), caret: before.length + character.length };
 }
 
+/** The authored English meaning is checked separately from target-language form spelling. */
+export function isCorrectFormMeaning(input: string, expectedEnglish: string): boolean {
+  const normalize = (value: string) => value.normalize("NFKC").toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
+  const answer = normalize(input);
+  return Boolean(answer) && answer === normalize(expectedEnglish);
+}
+
 function normalizeFormAnswer(value: string, pair: FormPracticePair): string {
   const text = value.normalize("NFKC").toLowerCase();
   if (pair === "Japanese:English") {

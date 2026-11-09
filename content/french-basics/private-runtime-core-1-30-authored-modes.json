@@ -6226,24 +6226,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read the café plan. Find the nous form of aller and the contraction before café.",
+            "targetText": "Nous allons au café à quatre heures."
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the grammar-model sentence placing her at the library, using à la rather than au.",
+            "targetText": "elle va à la bibliothèque"
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the place noun meaning ‘library’ in Ana’s destination.",
+            "targetText": "bibliothèque"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type ‘I am going to the park after class’ with vais and au.",
+            "targetText": "Je vais au parc après les cours."
+          }
         },
         "say": {
           "speakingBrief": "Role-play making plans after class. Ask a friend where they are going, say you are going to the park, and report where Ana, Luis and the group are going. Invite the friend to come with you and agree on four o’clock. Use at least four forms of aller and both au and à la.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask your classmates aloud whether they are going to the park with us.",
+            "targetText": "Tu vas au parc avec nous ?"
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write that the friends are going to the cinema, using the plural vont.",
+            "targetText": "Les amis vont au cinéma."
+          }
         }
       }
     },
@@ -6597,24 +6621,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read the final question. Identify lequel as ‘which one’ before de ces livres.",
+            "targetText": "Lequel de ces livres préfères-tu ?"
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the concise French question asking what this word means.",
+            "targetText": "Que signifie ce mot ?"
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the feminine demonstrative meaning ‘this’ in the lesson words.",
+            "targetText": "cette"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type the question about a favorite class, using masculine quel to agree with cours.",
+            "targetText": "Quel est ton cours préféré ?"
+          }
         },
         "say": {
           "speakingBrief": "Role-play choosing classes with a fellow student. Ask what they study, which class is their favorite, and which of two books they prefer. Answer with French and music, then ask what a word means. Use qu’est-ce que, quel and lequel with their different sentence patterns.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask a classmate aloud what they are studying this semester.",
+            "targetText": "Qu’est-ce que tu étudies ce semestre ?"
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write that your favorite class is French, repeating the noun after préféré.",
+            "targetText": "Mon cours préféré est le français."
+          }
         }
       }
     },
@@ -6966,24 +7014,48 @@
       },
       "modes": {
         "see": {
-          "readerLineCount": 6
+          "readerLineCount": 6,
+          "authoredPrompt": {
+            "prompt": "Read the reason question. Identify pourquoi as the word asking why someone studies French.",
+            "targetText": "Pourquoi étudies-tu le français ?"
+          }
         },
         "recall": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Recall the complete question asking when the class starts.",
+            "targetText": "Quand commence le cours ?"
+          }
         },
         "hear": {
           "scriptCount": 6,
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Listen for the place noun in the answer about where someone studies.",
+            "targetText": "bibliothèque"
+          }
         },
         "type": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Type the sentence saying class starts at nine o’clock, including à before the hour.",
+            "targetText": "Le cours commence à neuf heures."
+          }
         },
         "say": {
           "speakingBrief": "Role-play planning a study session. Ask your friend where they usually study, when class begins and why they study French. Answer with the library, nine o’clock and a reason involving friends. Swap roles and use où, quand, pourquoi and parce que naturally.",
-          "recordedAudio": false
+          "recordedAudio": false,
+          "authoredPrompt": {
+            "prompt": "Ask aloud where a classmate usually studies.",
+            "targetText": "Où étudies-tu d’habitude ?"
+          }
         },
         "write": {
-          "cardCount": 14
+          "cardCount": 14,
+          "authoredPrompt": {
+            "prompt": "Write a complete answer explaining why you study French, with parce que.",
+            "targetText": "J’étudie le français parce que je veux parler avec mes amis."
+          }
         }
       }
     },
@@ -14806,6 +14878,12 @@
       "sha256": "e00de82a24e437209862945119f747b6acb9c742c98ae4090ff4149c594b5dea",
       "basePath": "content/french-basics/private-runtime-core-1-30.json",
       "baseSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5"
+    },
+    {
+      "path": "content/french-basics/private-core-7-9-mode-prompts-fr-en.json",
+      "sha256": "9ccabacf9440bd7996469b9c34787962539c1e228527e92a49240a55aaafb051",
+      "basePath": "content/french-basics/private-runtime-core-1-30.json",
+      "baseSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5"
     }
   ],
   "authoredModeCoverage": [
@@ -14814,6 +14892,9 @@
     3,
     4,
     5,
-    6
+    6,
+    7,
+    8,
+    9
   ]
 }

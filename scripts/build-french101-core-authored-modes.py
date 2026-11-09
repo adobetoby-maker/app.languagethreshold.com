@@ -8,8 +8,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'content/french-basics/private-runtime-core-1-30.json'
+RANGES = ((1, 3), (4, 6), (7, 9))
 PROMPTS = [ROOT / f'content/french-basics/private-core-{first}-{last}-mode-prompts-fr-en.json'
-           for first, last in ((1, 3), (4, 6))]
+           for first, last in RANGES]
 OUT = ROOT / 'content/french-basics/private-runtime-core-1-30-authored-modes.json'
 MODES = ('see', 'recall', 'hear', 'type', 'say', 'write')
 
@@ -23,14 +24,14 @@ assert (base['target'], base['native'], base['registered'], base['reviewed']) ==
 assert [item['n'] for item in base['support']] == list(range(1, 31))
 result = deepcopy(base)
 result['authoredModeSources'] = []
-result['authoredModeCoverage'] = list(range(1, 7))
+result['authoredModeCoverage'] = list(range(1, 10))
 
-for path, numbers in zip(PROMPTS, (range(1, 4), range(4, 7))):
+for path, (first, last) in zip(PROMPTS, RANGES):
   fixture = json.loads(path.read_text())
   assert fixture['pairKey'] == 'French:English'
   assert fixture['sourceFile'] == str(BASE.relative_to(ROOT)) and fixture['sourceSha256'] == digest(BASE)
   assert fixture['registered'] is False and fixture['reviewed'] is False
-  assert [item['lesson'] for item in fixture['lessons']] == list(numbers)
+  assert [item['lesson'] for item in fixture['lessons']] == list(range(first, last + 1))
   result['authoredModeSources'].append({'path': str(path.relative_to(ROOT)), 'sha256': digest(path),
                                         'basePath': fixture['sourceFile'], 'baseSha256': fixture['sourceSha256']})
   for entry in fixture['lessons']:
@@ -55,11 +56,11 @@ for path, numbers in zip(PROMPTS, (range(1, 4), range(4, 7))):
           support['modes'][mode]['authoredPrompt'] = {'prompt': activity['prompt'], 'targetText': activity['targetText']}
 
 assert result['coreCurriculum'] == base['coreCurriculum']
-assert all('authoredPrompt' not in item['modes']['see'] for item in result['support'][6:])
+assert all('authoredPrompt' not in item['modes']['see'] for item in result['support'][9:])
 assert result['registered'] is False and result['reviewed'] is False
 serialized = json.dumps(result, ensure_ascii=False, indent=2) + '\n'
 if '--check' in sys.argv:
     assert OUT.read_text() == serialized, f'{OUT} needs regeneration'
 else:
     OUT.write_text(serialized)
-print('French 101 Core 1–6: 36 authored prompts in disabled Core 1–30 candidate')
+print('French 101 Core 1–9: 54 authored prompts in disabled Core 1–30 candidate')

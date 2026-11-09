@@ -496,7 +496,7 @@ test.describe("round modes", { tag: "@dev-only" }, () => {
     await page.keyboard.press("ArrowLeft");
     await expect(page.getByTestId("mode-count15")).toHaveAttribute("aria-checked", "true");
     await expect(page.getByTestId("mode-count15")).toBeFocused();
-    await page.getByRole("button", { name: "Verbs", exact: true }).click();
+    await page.getByTestId("verb-picker").getByRole("button", { name: "Verbs", exact: true }).click();
     await page.locator('[data-game="crush"]').click();
     await expect(page.getByTestId("mode-count15")).toHaveAttribute("aria-checked", "true");
   });

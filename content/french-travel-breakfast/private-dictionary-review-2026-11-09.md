@@ -14,4 +14,6 @@ There are 56 surface forms with more than one exact English gloss. These all rem
 
 Clinical and food-allergy vocabulary remains direct in learner drafts. This ledger is internal review evidence; it does not authorize replacing exact source terms with hedges or safety commentary. Qualified French and domain review, stable context-specific sense IDs, runtime links, audio, and exact-pair acceptance remain open. `reviewed:false`, `registered:false`.
 
-Regenerate with `python3 scripts/build-french-travel-private-dictionary.py`; verify with `python3 scripts/build-french-travel-private-dictionary.py --check`.
+The generated `private-dictionary-review.html` displays every multiple-gloss placement with the exact lesson objective and its full paired Reader context. This is a read-only worksheet; it contains no approval state or runtime hook.
+
+Regenerate both artifacts with `python3 scripts/build-french-travel-private-dictionary.py`; verify with `python3 scripts/build-french-travel-private-dictionary.py --check`.

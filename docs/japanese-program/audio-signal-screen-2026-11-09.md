@@ -1,0 +1,7 @@
+# Japanese 101 private audio signal screen — 2026-11-09
+
+The full-course source verifier passed against private audio at `/Users/drive/lt-audio/japanese-101`: 60 lessons, 840 unique Japanese strings, 1,680 distinct text/voice pairs, and 2,242 lesson-file occurrences. It checked current text, locale, voice, file size, SHA-256, duration, and source inventory SHA-256 `8cfce671c012ea7e9be2128c9fad74aa4082560105eb1d9b0efbf63eb8d7d411`.
+
+`scripts/audit-japanese101-audio-signal.py` decoded the 2,242 occurrences (2,079 unique file hashes) and screened for near silence, very little active signal, possible clipping, and long edge silence. The private [JSON report](/Users/drive/lt-audio/japanese-101/signal-audit-2026-11-09.json) pins the manifest set at SHA-256 `4d869e6a6a0924a296ed9c510e9181f7d58d4070fc723458cb29e4445fcfe2f9`. The [focused listening sheet](/Users/drive/lt-audio/japanese-101/signal-review-2026-11-09.html) contains the 12 flagged files; all its audio links resolve. All 12 are short words, particles, or endings: Foundation 1 `です` (Aoede), Foundation 2 `ほん` (both voices), Foundation 7 `いす` and `と` (Aoede), Foundation 8 `さん` and `ご` (Aoede), Core 7 `へ` (Charon), Core 10 `はん` (Aoede), Core 25 `に` (Charon) and `を` (Aoede), Master 17 `ほん` (Charon).
+
+These flags prioritize listening; they do not prove a recording is wrong or revoke the owner's earlier pilot approval. The 2,242 lesson files remain private and unregistered, and the full course still lacks listening approval. No text, audio file, learner progress, or playback gate changed.

@@ -1,7 +1,8 @@
 """Validate and copy the private Japanese 101 pilot into a reviewable web branch.
 
 This is deliberately limited to Foundation 1's first five lines. It does not
-generate paid audio or claim that a human has approved the listening quality.
+generate paid audio. Listening acceptance is read from the owner's private
+manifest only when every source clip carries the same acceptance decision.
 """
 
 import hashlib
@@ -38,6 +39,10 @@ def main():
     private = json.loads((SOURCE / "manifest.json").read_text(encoding="utf-8"))
     if private.get("schema") != 1 or private.get("locale") != "ja-JP" or private.get("voices") != VOICES:
         raise ValueError("Pilot manifest identity mismatch")
+    review = private.get("listeningReview", {})
+    accepted = private.get("listeningReviewed") is True
+    if accepted and (review.get("reviewer") != "owner" or review.get("decision") != "accepted-all-pilot-clips"):
+        raise ValueError("Pilot listening acceptance provenance mismatch")
     foundation = json.loads((ROOT / "public/lesson-content/ja/foundation-japanese-basics.json").read_text(encoding="utf-8"))
     if foundation.get("language") != "Japanese" or foundation.get("nativeLanguage") != "English":
         raise ValueError("Foundation language pair mismatch")
@@ -65,6 +70,8 @@ def main():
                 raise ValueError(f"Invalid pilot clip: {name}")
             if not 0.1 < clip["durationSeconds"] < 120:
                 raise ValueError(f"Invalid duration: {name}")
+            if accepted and clip.get("listeningReviewed") is not True:
+                raise ValueError(f"Pilot clip lacks owner listening acceptance: {name}")
             entries[key][gender] = clip
     DESTINATION.mkdir(parents=True, exist_ok=True)
     for pair in entries.values():
@@ -76,12 +83,13 @@ def main():
         "voices": VOICES,
         "sourceModule": "foundation-japanese-basics",
         "sourceLesson": 1,
-        "listeningReviewed": False,
+        "listeningReviewed": accepted,
+        "listeningReview": review if accepted else None,
         "entries": entries,
     }
     (DESTINATION / "manifest.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "src/data/japanese-101-recordings.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Validated and imported {sum(map(len, entries.values()))} clips for {len(entries)} exact lines; listening review remains open")
+    print(f"Validated and imported {sum(map(len, entries.values()))} clips for {len(entries)} exact lines; owner listening accepted: {accepted}")
 
 
 if __name__ == "__main__":

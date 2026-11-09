@@ -1164,11 +1164,13 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
   const speak = await speakEnv();
   try {
     const realOpen = env.indexedDB.open.bind(env.indexedDB);
+    let openCalls = 0;
     let release;
     const lateOpen = new Promise((resolve) => (release = resolve));
     let resolveLateClose;
     const lateConnectionClosed = new Promise((resolve) => (resolveLateClose = resolve));
     env.indexedDB.open = (name) => {
+      openCalls += 1;
       const request = {};
       lateOpen.then(() => {
         const inner = realOpen(name);
@@ -1189,6 +1191,14 @@ test("a hung or blocked IndexedDB open falls through to the network and does not
       });
       return request;
     };
+    // Exercise the late-open cleanup directly. On a loaded CI host the outer
+    // mission lookup can time out during user-key hashing, before it ever starts
+    // IndexedDB; that is a valid network fallback but cannot test connection cleanup.
+    const cache = speak.mod.createTtsAudioCache({
+      openBackend: () => speak.mod.openDefaultBackend("tts-audio-v1-late-open-test"),
+    });
+    assert.equal(await cache.get("missing"), null);
+    assert.ok(openCalls > 0, "the delayed IndexedDB open started");
     const started = performance.now();
     await speak.mod.speakMissionTts(learner("palabra cuatro"));
     assert.equal(speak.requests.length, 1);

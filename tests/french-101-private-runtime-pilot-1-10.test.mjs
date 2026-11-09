@@ -7,6 +7,7 @@ import { findStageEntry, parseStageFile, stageCurriculumFromFile, stageFileRelat
 import { validateStageFile } from '../src/lib/core60-validate.ts';
 
 const pilot=JSON.parse(readFileSync(new URL('../content/french-basics/private-runtime-foundation-1-10.json',import.meta.url),'utf8'));
+const authored=JSON.parse(readFileSync(new URL('../content/french-basics/private-runtime-foundation-1-10-authored-modes.json',import.meta.url),'utf8'));
 const source={lessons:['foundation-1-3-draft.json','foundation-4-6-draft.json','foundation-7-8-draft.json','foundation-9-10-draft.json'].flatMap(name=>JSON.parse(readFileSync(new URL(`../content/french-basics/${name}`,import.meta.url),'utf8')).lessons)};
 const sha=path=>createHash('sha256').update(readFileSync(new URL(`../${path}`,import.meta.url))).digest('hex');
 const plan=JSON.parse(readFileSync(new URL('../content/french-basics/foundation-1-10-curation-plan.json',import.meta.url),'utf8'));
@@ -73,5 +74,29 @@ test('all six mode inputs, Reader, cards, dictionary, speaking and checks retain
    assert.equal(s.modes.recall.cardCount,s.stageCardIndexes.length);
    assert.equal(s.modes.type.cardCount,s.stageCardIndexes.length);
    assert.equal(s.modes.write.cardCount,s.stageCardIndexes.length);
+ }
+});
+
+test('private authored-mode candidate retains French pair and stable lesson identities',()=>{
+ assert.equal(authored.registered,false);
+ assert.equal(authored.reviewed,false);
+ assert.deepEqual(authored.stageFile,pilot.stageFile);
+ assert.equal(findStageEntry(CORE60_MANIFEST,authored.stageFile.module),null);
+ assert.deepEqual(validateStageFile(authored.stageFile,{moduleId:'foundation-french-basics',stage:'foundation',language:'French'}),[]);
+ assert.deepEqual(stageCurriculumFromFile(parseStageFile(authored.stageFile,{moduleId:'foundation-french-basics',stage:'foundation',language:'French'})).lessons.map(l=>l.n),[1,2,3,4,5,6,7,8,9,10]);
+ assert.equal(authored.authoredModeSources.length,4);
+ for(const source of authored.authoredModeSources){
+   assert.equal(source.sha256,sha(source.path));
+   assert.equal(source.sourceSha256,sha(source.sourcePath));
+ }
+ for(const [index,lesson] of authored.support.entries()){
+   assert.equal(lesson.stableLessonKey,`foundation-french-basics:${index+1}`);
+   for(const mode of ['see','recall','hear','type','say','write']){
+     const activity=lesson.modes[mode].authoredPrompt;
+     assert.ok(activity.prompt.trim());
+     const sourceTexts=mode==='see'?lesson.reader.sentences.map(x=>x.target):lesson.cards.map(x=>x.target);
+     assert.ok(sourceTexts.includes(activity.targetText),`${index+1} ${mode}`);
+   }
+   assert.equal(lesson.modes.hear.recordedAudio,false);
  }
 });

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { isCorrectFormPracticeAnswer } from "../src/lib/language-form-practice.ts";
@@ -34,14 +35,26 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
     "core-1-3",
     "core-4-6",
     "core-7-9",
+    "core-10-12",
   ];
   let checked = 0;
+  const ids = new Set();
   for (const section of files) {
     const path = new URL(`../content/french-basics/private-form-practice-${section}-fr-en.json`, import.meta.url);
     const draft = JSON.parse(readFileSync(path, "utf8"));
     assert.equal(draft.pairKey, "French:English");
+    assert.match(draft.sourceFile, /^(?:content\/french-basics\/)?[^/]+\.json$/);
+    const sourcePath = draft.sourceFile.startsWith("content/")
+      ? `../${draft.sourceFile}`
+      : `../content/french-basics/${draft.sourceFile}`;
+    const source = readFileSync(new URL(sourcePath, import.meta.url));
+    assert.equal(draft.sourceSha256, createHash("sha256").update(source).digest("hex"));
+    assert.equal(draft.registered, false);
+    assert.equal(draft.reviewed, false);
     for (const lesson of draft.lessons) {
       for (const sourcePrompt of lesson.prompts) {
+        assert.equal(ids.has(sourcePrompt.id), false, sourcePrompt.id);
+        ids.add(sourcePrompt.id);
         const prompt = { ...sourcePrompt, pairKey: draft.pairKey };
         assert.ok(isCorrectFormPracticeAnswer(sourcePrompt.frenchAnswer, prompt, "French:English"), sourcePrompt.id);
         for (const variant of sourcePrompt.knownFrenchVariants ?? []) {
@@ -53,5 +66,6 @@ test("every private French 101 prompt is accepted only for its exact pair", () =
       }
     }
   }
-  assert.equal(checked, 77);
+  assert.equal(checked, 101);
+  assert.equal(ids.size, 101);
 });

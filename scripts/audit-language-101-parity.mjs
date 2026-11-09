@@ -130,6 +130,41 @@ for (const [index, lesson] of frenchCoreCandidate.support.entries()) {
     if (prompt) frenchCoreModePrompts++;
   }
 }
+const frenchMasterModePaths = readdirSync(frenchModeDirectory)
+  .filter((name) => /^private-master-\d+-\d+-mode-prompts-fr-en\.json$/.test(name))
+  .map((name) => `content/french-basics/${name}`);
+const frenchMasterCoveredLessons = new Set();
+for (const path of frenchMasterModePaths) {
+  const fixture = read(frenchFormsRoot, path);
+  if (fixture.pairKey !== "French:English" || fixture.reviewed !== false || fixture.registered !== false ||
+      sha256(resolve(frenchFormsRoot, fixture.sourceFile)) !== fixture.sourceSha256)
+    throw new Error(`${path}: French Master mode source or release gate changed`);
+  for (const lesson of fixture.lessons) {
+    if (frenchMasterCoveredLessons.has(lesson.lesson) || lesson.stableLessonKey !== `master-french-basics:${lesson.lesson}`)
+      throw new Error(`${path}: duplicate or mismatched Master lesson ${lesson.lesson}`);
+    frenchMasterCoveredLessons.add(lesson.lesson);
+  }
+}
+const frenchMasterCoverage = [...frenchMasterCoveredLessons].sort((a, b) => a - b);
+const frenchMasterCandidate = read(frenchFormsRoot, "content/french-basics/private-runtime-master-1-20-authored-modes.json");
+const frenchBaseMaster = read(frenchFormsRoot, frenchPath("master"));
+if (frenchMasterCandidate.reviewed !== false || frenchMasterCandidate.registered !== false ||
+    JSON.stringify(frenchMasterCandidate.masterStageFragment) !== JSON.stringify(frenchBaseMaster.masterStageFragment) ||
+    JSON.stringify(frenchMasterCandidate.authoredModeCoverage) !== JSON.stringify(frenchMasterCoverage) ||
+    frenchMasterCandidate.authoredModeSources.length !== frenchMasterModePaths.length)
+  throw new Error("French Master authored-mode source, stable stage, or release gate changed");
+let frenchMasterModePrompts = 0;
+for (const [index, lesson] of frenchMasterCandidate.support.entries()) {
+  if (lesson.stableLessonKey !== `master-french-basics:${index + 1}`)
+    throw new Error(`French Master candidate lesson ${index + 1}: stable key changed`);
+  for (const mode of modeNames) {
+    const prompt = lesson.modes?.[mode]?.authoredPrompt;
+    if (frenchMasterCoveredLessons.has(index + 1) && (!prompt?.prompt || !prompt?.targetText))
+      throw new Error(`French Master candidate lesson ${index + 1}: ${mode} missing`);
+    if (!frenchMasterCoveredLessons.has(index + 1) && prompt) throw new Error(`French Master candidate lesson ${index + 1}: unexpected ${mode}`);
+    if (prompt) frenchMasterModePrompts++;
+  }
+}
 const spanishPractice = readTracked(root, "src/data/spanish-basics-practice.json");
 const japanesePractice = readTracked(root, "src/data/japanese-basics-practice.json");
 const lines = [
@@ -215,7 +250,7 @@ lines.push("## Totals and next gate", "", `- Spanish: ${totals.spanishWords} wor
 lines.push("## Practice record evidence", "",
   `- Spanish and Japanese each have 60 stage-keyed practice records with speaking openings and partner roles. Spanish has ${practiceTotals.spanishChecks} checks and ${practiceTotals.spanishExamples} grammar examples; Japanese has ${practiceTotals.japaneseChecks} checks and ${practiceTotals.japaneseExamples} grammar examples. Counts alone do not establish equivalent pedagogy or fluent review.`,
   `- The original French private fixture has ${practiceTotals.frenchChecks} checks and ${practiceTotals.frenchModeDescriptors} six-mode descriptors across 60 lessons. Only ${practiceTotals.frenchTextPrompts} descriptors contain a mode-specific text prompt beyond a speaking brief; the other descriptors are counts or audio flags.`,
-  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across ${frenchCoreCoveredLessons.size}/30 lessons in a separate private Core candidate; Master has 0/20. Stable lesson IDs and the base curricula are unchanged. Both candidates remain unreviewed and unregistered.`,
+  `- Source-pinned French Foundation sidecars contain ${frenchAuthoredModePrompts} mode prompts across ${frenchModeLessons.size}/10 lessons, all embedded in a private runtime candidate. French Core has ${frenchCoreModePrompts} authored prompts across ${frenchCoreCoveredLessons.size}/30 lessons; Master has ${frenchMasterModePrompts} across ${frenchMasterCoveredLessons.size}/20 in separate private candidates. Stable lesson IDs and the base curricula are unchanged. All candidates remain unreviewed and unregistered.`,
   "- Release gap: verify authored See, Recall, Hear, Type, Say, and Write behavior lesson by lesson in the exact French and Japanese runtimes; validate aligned Reader, cards, dictionary, speaking, audio, progress, offline, phone, and native behavior before promotion.", "");
 const report = lines.join("\n");
 if (output) writeFileSync(resolve(output), report);

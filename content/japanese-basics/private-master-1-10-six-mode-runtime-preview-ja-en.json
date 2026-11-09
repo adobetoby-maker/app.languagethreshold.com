@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
+  "authoredSha256": "f03ce93850e1eda39c44cc2124d272ce69553ae5f4c76e9c858d4106a14a5950",
+  "lessonCount": 10,
+  "activityCount": 60,
+  "lessons": [
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 1,
+      "stableLessonKey": "master-japanese-basics:1",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:1:see",
+          "prompt": "Read the two-sentence introduction. Identify Aki and the new-member relationship expressed with の.",
+          "sourceDialogueTurn": 1,
+          "targetText": "こちらは あきさんです。グループの あたらしい メンバーです。",
+          "nativeText": "This is Aki, a new member of the group."
+        },
+        "recall": {
+          "id": "ja101:master:1:recall",
+          "prompt": "Recall the sentence about meeting at the library yesterday, keeping ～ました and the confirming ね.",
+          "sourceDialogueTurn": 4,
+          "targetText": "きのう としょかんで あいましたね。",
+          "nativeText": "We met at the library yesterday, didn't we?"
+        },
+        "hear": {
+          "id": "ja101:master:1:hear",
+          "prompt": "Listen to the reply about studying and choose the meaning that says it was very fun.",
+          "sourceDialogueTurn": 7,
+          "targetText": "はい、とても たのしかったです。",
+          "nativeText": "Yes, it was very fun."
+        },
+        "type": {
+          "id": "ja101:master:1:type",
+          "prompt": "Type the question asking whether Aki intends to go to the library tomorrow too.",
+          "sourceDialogueTurn": 8,
+          "targetText": "あしたも としょかんに いく つもりですか。",
+          "nativeText": "Do you intend to go to the library tomorrow too?"
+        },
+        "say": {
+          "id": "ja101:master:1:say",
+          "prompt": "Say the closing suggestion to study together, preserving では and ～ましょう.",
+          "sourceDialogueTurn": 10,
+          "targetText": "では、いっしょに べんきょうしましょう。",
+          "nativeText": "Then let us study together."
+        },
+        "write": {
+          "id": "ja101:master:1:write",
+          "prompt": "Write the complete sentence for liking travel books, including の and が before すき.",
+          "sourceDialogueTurn": 3,
+          "targetText": "りょこうの ほんが すきです。",
+          "nativeText": "I like travel books."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 2,
+      "stableLessonKey": "master-japanese-basics:2",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:2:see",
+          "prompt": "Read the supplies request. Identify the two notebooks counted with にさつ and the polite ～てください request.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あしたの クラスに ノートを にさつ もってきてください。",
+          "nativeText": "Please bring two notebooks to tomorrow's class."
+        },
+        "recall": {
+          "id": "ja101:master:2:recall",
+          "prompt": "Recall the Japanese question asking if a dictionary is needed, using いりますか.",
+          "sourceDialogueTurn": 3,
+          "targetText": "じしょは いりますか。",
+          "nativeText": "Do we need a dictionary?"
+        },
+        "hear": {
+          "id": "ja101:master:2:hear",
+          "prompt": "Listen to the negative answer and select the meaning that limits it to tomorrow.",
+          "sourceDialogueTurn": 4,
+          "targetText": "いいえ、あしたは いりません。",
+          "nativeText": "No, not tomorrow."
+        },
+        "type": {
+          "id": "ja101:master:2:type",
+          "prompt": "Type the sentence for putting the notebooks in this bag, including このかばんに.",
+          "sourceDialogueTurn": 5,
+          "targetText": "この かばんに ノートを いれます。",
+          "nativeText": "I will put the notebooks in this bag."
+        },
+        "say": {
+          "id": "ja101:master:2:say",
+          "prompt": "Say the question asking where the pen is, using どこにありますか.",
+          "sourceDialogueTurn": 6,
+          "targetText": "ペンは どこに ありますか。",
+          "nativeText": "Where is the pen?"
+        },
+        "write": {
+          "id": "ja101:master:2:write",
+          "prompt": "Write the sentence saying one pen is also needed, keeping も and ひとつ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ペンも ひとつ ひつようです。",
+          "nativeText": "You also need one pen."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 3,
+      "stableLessonKey": "master-japanese-basics:3",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:3:see",
+          "prompt": "Read the notebook transfer. Identify Aki as recipient and いっさつ as one bound notebook.",
+          "sourceDialogueTurn": 3,
+          "targetText": "わたしは あきさんに いっさつ あげます。",
+          "nativeText": "I give one notebook to Aki."
+        },
+        "recall": {
+          "id": "ja101:master:3:recall",
+          "prompt": "Recall the sentence stating there are three notebooks, using さんさつ and あります.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ノートは さんさつ あります。",
+          "nativeText": "There are three notebooks."
+        },
+        "hear": {
+          "id": "ja101:master:3:hear",
+          "prompt": "Listen to the pen sentence and choose the meaning that includes two pens from the teacher.",
+          "sourceDialogueTurn": 5,
+          "targetText": "せんせいから ペンを ふたつ もらいました。",
+          "nativeText": "I received two pens from the teacher."
+        },
+        "type": {
+          "id": "ja101:master:3:type",
+          "prompt": "Type the sentence for Aki giving me a copy, keeping わたしに and くれます.",
+          "sourceDialogueTurn": 6,
+          "targetText": "あきさんは わたしに コピーを くれます。",
+          "nativeText": "Aki gives me a copy."
+        },
+        "say": {
+          "id": "ja101:master:3:say",
+          "prompt": "Say the question asking whether everyone has the materials, including みんな.",
+          "sourceDialogueTurn": 7,
+          "targetText": "みんな しりょうを もっていますか。",
+          "nativeText": "Does everyone have the materials?"
+        },
+        "write": {
+          "id": "ja101:master:3:write",
+          "prompt": "Write the sentence for giving one notebook to Ken too, using にも and いっさつ.",
+          "sourceDialogueTurn": 4,
+          "targetText": "けんさんにも いっさつ あげます。",
+          "nativeText": "I give one notebook to Ken too."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 4,
+      "stableLessonKey": "master-japanese-basics:4",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:4:see",
+          "prompt": "Read Ken's condition today. Identify つかれています as a resulting state meaning tired.",
+          "sourceDialogueTurn": 2,
+          "targetText": "きょうは つかれています。",
+          "nativeText": "Today he is tired."
+        },
+        "recall": {
+          "id": "ja101:master:4:recall",
+          "prompt": "Recall the identity sentence saying Ken is a student, using がくせいです.",
+          "sourceDialogueTurn": 1,
+          "targetText": "けんさんは がくせいです。",
+          "nativeText": "Ken is a student."
+        },
+        "hear": {
+          "id": "ja101:master:4:hear",
+          "prompt": "Listen to the library action and choose the meaning that he is reading a book there.",
+          "sourceDialogueTurn": 5,
+          "targetText": "そこで ほんを よんでいます。",
+          "nativeText": "He is reading a book there."
+        },
+        "type": {
+          "id": "ja101:master:4:type",
+          "prompt": "Type the question asking whether Aki is in the library too, including も and いますか.",
+          "sourceDialogueTurn": 6,
+          "targetText": "あきさんも としょかんに いますか。",
+          "nativeText": "Is Aki in the library too?"
+        },
+        "say": {
+          "id": "ja101:master:4:say",
+          "prompt": "Say the correction that Aki is at home, preserving the initial polite no.",
+          "sourceDialogueTurn": 7,
+          "targetText": "いいえ、あきさんは うちに います。",
+          "nativeText": "No, Aki is at home."
+        },
+        "write": {
+          "id": "ja101:master:4:write",
+          "prompt": "Write the question asking where Ken is now, using いま and どこにいますか.",
+          "sourceDialogueTurn": 3,
+          "targetText": "いま どこに いますか。",
+          "nativeText": "Where is he now?"
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 5,
+      "stableLessonKey": "master-japanese-basics:5",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:5:see",
+          "prompt": "Read the teacher's position. Identify the person marked by が and the location near the door.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ドアの ちかくに せんせいが います。",
+          "nativeText": "The teacher is near the door."
+        },
+        "recall": {
+          "id": "ja101:master:5:recall",
+          "prompt": "Recall the sentence locating a book on the desk, using のうえに and あります.",
+          "sourceDialogueTurn": 2,
+          "targetText": "つくえの うえに ほんが あります。",
+          "nativeText": "A book is on the desk."
+        },
+        "hear": {
+          "id": "ja101:master:5:hear",
+          "prompt": "Listen to the next-room sentence and select the meaning that no one is there.",
+          "sourceDialogueTurn": 6,
+          "targetText": "となりの へやには だれも いません。",
+          "nativeText": "There is no one in the next room."
+        },
+        "type": {
+          "id": "ja101:master:5:type",
+          "prompt": "Type the sentence saying there is a desk in the room, using なかに and あります.",
+          "sourceDialogueTurn": 1,
+          "targetText": "へやの なかに つくえが あります。",
+          "nativeText": "There is a desk in the room."
+        },
+        "say": {
+          "id": "ja101:master:5:say",
+          "prompt": "Say the sentence for the meeting happening here, using action-location で.",
+          "sourceDialogueTurn": 7,
+          "targetText": "かいぎは ここで します。",
+          "nativeText": "The meeting will happen here."
+        },
+        "write": {
+          "id": "ja101:master:5:write",
+          "prompt": "Write the short sentence stating that the light is on, using ついています.",
+          "sourceDialogueTurn": 8,
+          "targetText": "でんきは ついています。",
+          "nativeText": "The light is on."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 6,
+      "stableLessonKey": "master-japanese-basics:6",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:6:see",
+          "prompt": "Read the route-repair sentence. Identify what the speaker does not know and the destination まで.",
+          "sourceDialogueTurn": 3,
+          "targetText": "すみません、えきまでの みちが わかりません。",
+          "nativeText": "Sorry, I do not know the way to the station."
+        },
+        "recall": {
+          "id": "ja101:master:6:recall",
+          "prompt": "Recall the question confirming a meeting in front of the station tomorrow.",
+          "sourceDialogueTurn": 1,
+          "targetText": "あした、えきの まえで あいますか。",
+          "nativeText": "Are we meeting in front of the station tomorrow?"
+        },
+        "hear": {
+          "id": "ja101:master:6:hear",
+          "prompt": "Listen to the direction reply and select the meaning that says to go straight.",
+          "sourceDialogueTurn": 6,
+          "targetText": "はい、まっすぐ いきます。",
+          "nativeText": "Yes, you go straight."
+        },
+        "type": {
+          "id": "ja101:master:6:type",
+          "prompt": "Type the question asking whether to take this road, keeping このみちを.",
+          "sourceDialogueTurn": 5,
+          "targetText": "この みちを いきますか。",
+          "nativeText": "Do I take this road?"
+        },
+        "say": {
+          "id": "ja101:master:6:say",
+          "prompt": "Say the follow-up question asking whether you can get there alone, using いけますか.",
+          "sourceDialogueTurn": 7,
+          "targetText": "ひとりで いけますか。",
+          "nativeText": "Can I get there alone?"
+        },
+        "write": {
+          "id": "ja101:master:6:write",
+          "prompt": "Write the affirmative suggestion to meet at three, using さんじに and ～ましょう.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、さんじに あいましょう。",
+          "nativeText": "Yes, let us meet at three."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 7,
+      "stableLessonKey": "master-japanese-basics:7",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:7:see",
+          "prompt": "Read the strategy sentence. Identify the teacher as the person asked and word meanings as the topic.",
+          "sourceDialogueTurn": 4,
+          "targetText": "せんせいに ことばの いみを ききます。",
+          "nativeText": "I ask the teacher the meanings of words."
+        },
+        "recall": {
+          "id": "ja101:master:7:recall",
+          "prompt": "Recall the question asking how someone studies Japanese every day, using どうやって.",
+          "sourceDialogueTurn": 1,
+          "targetText": "まいにち どうやって にほんごを べんきょうしますか。",
+          "nativeText": "How do you study Japanese every day?"
+        },
+        "hear": {
+          "id": "ja101:master:7:hear",
+          "prompt": "Listen to both final sentences and choose the meaning that includes writing again and gradual understanding.",
+          "sourceDialogueTurn": 8,
+          "targetText": "もういちど ぶんを かきます。すこしずつ わかります。",
+          "nativeText": "I write the sentences again. Little by little I understand."
+        },
+        "type": {
+          "id": "ja101:master:7:type",
+          "prompt": "Type the sentence for writing short sentences every morning, preserving まいあさ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "まいあさ みじかい ぶんを かきます。",
+          "nativeText": "I write short sentences every morning."
+        },
+        "say": {
+          "id": "ja101:master:7:say",
+          "prompt": "Say the question asking whether the learner also asks about the study method.",
+          "sourceDialogueTurn": 5,
+          "targetText": "べんきょうの やりかたも ききますか。",
+          "nativeText": "Do you ask about the way to study them too?"
+        },
+        "write": {
+          "id": "ja101:master:7:write",
+          "prompt": "Write the full affirmative reply about also asking how to study, including も.",
+          "sourceDialogueTurn": 6,
+          "targetText": "はい、べんきょうの やりかたも ききます。",
+          "nativeText": "Yes, I ask about the way to study them too."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 8,
+      "stableLessonKey": "master-japanese-basics:8",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:8:see",
+          "prompt": "Read the written reply. Identify the quoted meeting proposal and the と after the closing quote.",
+          "sourceDialogueTurn": 4,
+          "targetText": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "nativeText": "I replied, “How about three in front of the station?”"
+        },
+        "recall": {
+          "id": "ja101:master:8:recall",
+          "prompt": "Recall the exact quoted message asking whether the two can meet on Saturday.",
+          "sourceDialogueTurn": 2,
+          "targetText": "「どようびに あえますか。」",
+          "nativeText": "“Can we meet on Saturday?”"
+        },
+        "hear": {
+          "id": "ja101:master:8:hear",
+          "prompt": "Listen to Aki's response and choose the meaning that her written reply accepts the proposal.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あきさんは「だいじょうぶです」と かきました。",
+          "nativeText": "Aki wrote, “That works.”"
+        },
+        "type": {
+          "id": "ja101:master:8:type",
+          "prompt": "Type the sentence stating the plan to meet in front of the station, using よていです.",
+          "sourceDialogueTurn": 6,
+          "targetText": "えきの まえで あう よていです。",
+          "nativeText": "We plan to meet in front of the station."
+        },
+        "say": {
+          "id": "ja101:master:8:say",
+          "prompt": "Say the sentence for calling on Friday night, including きんようびのよる.",
+          "sourceDialogueTurn": 8,
+          "targetText": "きんようびの よる、でんわします。",
+          "nativeText": "I will call on Friday night."
+        },
+        "write": {
+          "id": "ja101:master:8:write",
+          "prompt": "Write the complete quoted reply proposing three in front of the station; keep 「」 and と.",
+          "sourceDialogueTurn": 4,
+          "targetText": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "nativeText": "I replied, “How about three in front of the station?”"
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 9,
+      "stableLessonKey": "master-japanese-basics:9",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:9:see",
+          "prompt": "Read the price comparison. Identify which bag is cheaper and the のほうが pattern.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あおい かばんの ほうが やすいです。",
+          "nativeText": "The blue bag is cheaper."
+        },
+        "recall": {
+          "id": "ja101:master:9:recall",
+          "prompt": "Recall the question asking how much this blue bag costs, including いくら.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この あおい かばんは いくらですか。",
+          "nativeText": "How much is this blue bag?"
+        },
+        "hear": {
+          "id": "ja101:master:9:hear",
+          "prompt": "Listen to the second price and choose the exact meaning of さんぜんえん.",
+          "sourceDialogueTurn": 4,
+          "targetText": "さんぜんえんです。",
+          "nativeText": "It is three thousand yen."
+        },
+        "type": {
+          "id": "ja101:master:9:type",
+          "prompt": "Type the contrasting sentence that the red bag is bigger, using でも and のほうが.",
+          "sourceDialogueTurn": 6,
+          "targetText": "でも、あかい かばんの ほうが おおきいです。",
+          "nativeText": "But the red bag is bigger."
+        },
+        "say": {
+          "id": "ja101:master:9:say",
+          "prompt": "Say the question asking which of the two bags is more convenient.",
+          "sourceDialogueTurn": 7,
+          "targetText": "どちらが べんりですか。",
+          "nativeText": "Which is more convenient?"
+        },
+        "write": {
+          "id": "ja101:master:9:write",
+          "prompt": "Write the final choice sentence selecting this blue bag, using をえらびます.",
+          "sourceDialogueTurn": 8,
+          "targetText": "この あおい かばんを えらびます。",
+          "nativeText": "I choose this blue bag."
+        }
+      }
+    },
+    {
+      "moduleId": "master-japanese-basics",
+      "lessonNumber": 10,
+      "stableLessonKey": "master-japanese-basics:10",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:master:10:see",
+          "prompt": "Read Tanaka's two actions. Identify みて as the て-form linking looking at the umbrella to nodding.",
+          "sourceDialogueTurn": 6,
+          "targetText": "たなかさんは かさを みて、うなずきます。",
+          "nativeText": "Tanaka looks at the umbrella and nods."
+        },
+        "recall": {
+          "id": "ja101:master:10:recall",
+          "prompt": "Recall both sentences stating the umbrella was found and asking whose it is.",
+          "sourceDialogueTurn": 1,
+          "targetText": "この かさを みつけました。だれのですか。",
+          "nativeText": "I found this umbrella. Whose is it?"
+        },
+        "hear": {
+          "id": "ja101:master:10:hear",
+          "prompt": "Listen to the ownership clue and choose the meaning that Tanaka's umbrella is blue.",
+          "sourceDialogueTurn": 3,
+          "targetText": "たなかさんの かさは あおいです。",
+          "nativeText": "Tanaka's umbrella is blue."
+        },
+        "type": {
+          "id": "ja101:master:10:type",
+          "prompt": "Type the sentence for calling Tanaka over, including object を and よびます.",
+          "sourceDialogueTurn": 5,
+          "targetText": "たなかさんを よびます。",
+          "nativeText": "I will call Tanaka."
+        },
+        "say": {
+          "id": "ja101:master:10:say",
+          "prompt": "Say the polite final handoff 'Here you are,' preserving では.",
+          "sourceDialogueTurn": 8,
+          "targetText": "では、どうぞ。",
+          "nativeText": "Here you are."
+        },
+        "write": {
+          "id": "ja101:master:10:write",
+          "prompt": "Write the denial that the found umbrella is mine, using the source negative ownership phrase.",
+          "sourceDialogueTurn": 2,
+          "targetText": "わたしの じゃありません。",
+          "nativeText": "It is not mine."
+        }
+      }
+    }
+  ]
+}

@@ -1,19 +1,29 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
-const source = JSON.parse(readFileSync(new URL('../src/data/core60/es/foundation-sound-like-a-native.json', import.meta.url)));
-const draft = JSON.parse(readFileSync(new URL('../content/french-pronunciation/foundation-1-3-draft.json', import.meta.url)));
+const sourceBytes = readFileSync(new URL('../src/data/core60/es/foundation-sound-like-a-native.json', import.meta.url));
+const source = JSON.parse(sourceBytes);
+const drafts = [
+  '../content/french-pronunciation/foundation-1-3-draft.json',
+  '../content/french-pronunciation/foundation-4-5-draft.json',
+].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
 assert.equal(source.lessons.length, 10);
-assert.equal(draft.targetLanguage, 'French');
-assert.equal(draft.nativeLanguage, 'English');
-assert.equal(draft.status, 'partial-authored-draft');
-for (const gate of ['reviewed', 'runtimeRegistered', 'audioPublished']) assert.equal(draft[gate], false);
-assert.equal(draft.lessons.length, 3);
+assert.equal(createHash('sha256').update(sourceBytes).digest('hex'), '7de3481c760a2c6c2a3bc96b88466f48d3b04d49ad219907358071e51567efba');
+for (const draft of drafts) {
+  assert.equal(draft.targetLanguage, 'French');
+  assert.equal(draft.nativeLanguage, 'English');
+  assert.equal(draft.status, 'partial-authored-draft');
+  for (const gate of ['reviewed', 'runtimeRegistered', 'audioPublished']) assert.equal(draft[gate], false);
+}
+assert.equal(drafts[0].lessons.length, 3);
+assert.equal(drafts[1].lessons.length, 2);
+const lessons = drafts.flatMap(draft => draft.lessons);
 
 const ids = new Set();
-for (const [index, lesson] of draft.lessons.entries()) {
+for (const [index, lesson] of lessons.entries()) {
   const n = index + 1;
   assert.equal(lesson.n, n);
   assert.equal(lesson.sourceSpanishLesson, n);
@@ -51,4 +61,4 @@ for (const [index, lesson] of draft.lessons.entries()) {
     assert(french.has(ref), `${lesson.id} ${mode} unknown answer reference: ${ref}`);
   }
 }
-console.log('French pronunciation F1–3 private draft: 3 source-mapped IDs, 30 cards, 12 Reader lines, 3 speaking scenes, 18 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–5 private draft: 5 source-mapped IDs, 50 cards, 20 Reader lines, 5 speaking scenes, 30 practice prompts; all release gates closed.');

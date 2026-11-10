@@ -1,0 +1,2536 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/foundation-1-3-draft.json",
+      "sha256": "dc71ab081ad4472c75fcc60ca31ff98f1ebaaebec20ffdcf7cbb0692ee5bd6f5"
+    },
+    {
+      "path": "content/french-pronunciation/foundation-4-5-draft.json",
+      "sha256": "bade013542758477a0edbc964320bd1967bf22d83e96e359b95464ea096e6bca"
+    },
+    {
+      "path": "content/french-pronunciation/foundation-6-8-draft.json",
+      "sha256": "4e5bf98f771e6a00c7b765438b0014043bdfe651b2a5104b3f2fd7fe912e5890"
+    },
+    {
+      "path": "content/french-pronunciation/foundation-9-10-draft.json",
+      "sha256": "788ddf93da7663a594868bc73f4f9940fbb3ebc9faae4cd44d58789612fb3952"
+    },
+    {
+      "path": "content/french-pronunciation/core-1-3-draft.json",
+      "sha256": "215fd02bce4cfa9408cea2ddf0df61cb7b2fa47512b686c422c9d272f9250c55"
+    },
+    {
+      "path": "content/french-pronunciation/core-4-6-draft.json",
+      "sha256": "2ae39a549d5fda2a7c4c90cc5c4b99ff86061e408cf4a326ec1ff779ab6c1d82"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "foundation": [
+      "foundation-french-sound-like-a-native:1:fr-en",
+      "foundation-french-sound-like-a-native:2:fr-en",
+      "foundation-french-sound-like-a-native:3:fr-en",
+      "foundation-french-sound-like-a-native:4:fr-en",
+      "foundation-french-sound-like-a-native:5:fr-en",
+      "foundation-french-sound-like-a-native:6:fr-en",
+      "foundation-french-sound-like-a-native:7:fr-en",
+      "foundation-french-sound-like-a-native:8:fr-en",
+      "foundation-french-sound-like-a-native:9:fr-en",
+      "foundation-french-sound-like-a-native:10:fr-en"
+    ],
+    "core": [
+      "core-french-sound-like-a-native:1:fr-en",
+      "core-french-sound-like-a-native:2:fr-en",
+      "core-french-sound-like-a-native:3:fr-en",
+      "core-french-sound-like-a-native:4:fr-en",
+      "core-french-sound-like-a-native:5:fr-en",
+      "core-french-sound-like-a-native:6:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 16,
+    "placementsByField": {
+      "cards": 160,
+      "reader": 64,
+      "speaking.closure": 16,
+      "speaking.opening": 16
+    },
+    "uniqueExactTexts": 236,
+    "twoVoiceClips": 472,
+    "unicodeCharactersPerVoice": 5592,
+    "projectedBillableCharactersTwoVoices": 11184
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.3355,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "c0c035ed2f8a362b1c2f27d1109d3b4c1dc2015d87b33fd9df2a313e9f8a740e",
+  "texts": [
+    {
+      "text": "Après le voyage, je suis les panneaux vers la sortie.",
+      "sha256": "abbe43bf13e2da7df20ee75410404262fd39d3a2936f74f9b1974b965c1309c5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Au café, la carte est sur la table.",
+      "sha256": "660ad291e12e45470e244dc3be56c51cd05eb15d1acfcad6fb776e866ac6557b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Au guichet, je demande un billet pour le départ de neuf heures.",
+      "sha256": "0c5a2d62a2b37f8bdad6935b1f62d4b2e0613ef49f1255b724911e6788a670dd",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avant de partir, je demande le ticket.",
+      "sha256": "7990fe11d4e405c7281486ceaf5c0f4f703ed9693bc57025f07a3e5c0e7886c7",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avez-vous une gomme ?",
+      "sha256": "8f10df505aec95693c362cd2b551f3cc9b5a0ed9f10c1e1a5e599006b708427a",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je cherche le guide à la gare.",
+      "sha256": "6b336f6b6e99cdc063f6046c4ec241157a508c436ef9c49fe38bdbe6c11c88e5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je cherche le parc.",
+      "sha256": "6529719f56723dca885f6b6424dab4eac06e55536e270066fd04bc2cd1b98751",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je cherche un nouveau livre.",
+      "sha256": "7483a0251c0ce735f2a234ed2b78db826ebcdf52c798c5a7feef8d4634ce8fda",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je voudrais du veau, s'il vous plaît.",
+      "sha256": "97aef35c62216c38e433ed39bacb50a61ccbe9950962bd8f117291253ca9406c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je voudrais une tasse de thé.",
+      "sha256": "c0db908b54335d4a64f51cfe1b0f751a4037c427d0e579667642466791fccb19",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, ma guitare est dans mon bagage.",
+      "sha256": "944cff879851fb1e9c27cd4122155f4066899173b98d48cb714a09d193408e6c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, où est le guichet ?",
+      "sha256": "7bdef32997d3cc76091f06430fb7947b79bd5ba5f394cb96eb2012ccd17f9bd5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, quel est le prix du pain ?",
+      "sha256": "faa49078300093f7b01a9c22991805433fb1d2da5d569cd8aa3725dd4cdebaed",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "C'est un grand restaurant.",
+      "sha256": "43b7b3d7221b777d14e29c4bbab5a2c06e9f8bc7aea32e74b36e6917e3d0bae1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ce vin est bon.",
+      "sha256": "5f7dc731c2c03a48a84f6a3959a48f67e136fa9c421b9f7d645f2cfd0e944989",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "D'accord, je prends ce café.",
+      "sha256": "20a0628c91a205dc88bc8155324c66bb0432c6853bbdf0d00a60fb04d44faff9",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "D'accord, on prend cette rue.",
+      "sha256": "803727560d570e59ede0eeb498c3e2629b494e9a06a71fda60391689bb3262ac",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Dans la cuisine, un moule est posé contre le mur.",
+      "sha256": "11bfa655f0b2ed29197cfefb97b7d55e7b54e771bc49ff43bdc8e839c16d3f16",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Dans le salon, je prépare une fleur pour une photo.",
+      "sha256": "1903a67c267b64c087f01e2d0db11574cb1244825f6f6baec61527dd1c280bfd",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Donnez-moi votre adresse, s'il vous plaît.",
+      "sha256": "9721a584c1a6f01132c916af3331f53674a29fd7c5755c672ded8ed97c65504b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle demande une tasse de thé.",
+      "sha256": "ab8e9a91e9470be732a910622d3a83a56e2836a4a86daecf0997d395f5a08b86",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle propose demain, et je suis d'accord.",
+      "sha256": "43144ec0fb822d7e6f82fa81cad4f1048d7c88a7fdf4357bcace0feee69748a1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "En partant tout de suite, nous allons gagner du temps.",
+      "sha256": "56244d56311695f688f7afe2295a05673572a7b66d94ecde8e442d5c969ce9da",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ensuite, je demande : « Tu veux du sucre ? »",
+      "sha256": "358b26f9762ddc02ae907448425c5d0739582934ee79e73aa48dbd137367591b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il dit que la sortie est à gauche.",
+      "sha256": "4a12bd059ceb429d83b700072f1c563df847a41cbf3ffc652d7783a40904fa48",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il fait chaud près du chalet.",
+      "sha256": "5e6062cb2685e6e0433400511292c74a4a2014f1ab6b657ec8b93948fe4f24c1",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il fait chaud, alors nous nous arrêtons près du chalet.",
+      "sha256": "09e6e841917954be899eede9f55d41d6db3a9353a8427569e13405b210b19110",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il y a quatre tables près de la cuisine.",
+      "sha256": "7380557b1080dffd450f10f47edec9bf260ba8cc64e78c84a964ac88979a89d2",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai une idée pour aider mon ami à trouver la rue.",
+      "sha256": "460cee78e8e262bfd87fd6ce83e4dd47867e415e09c0a226c0ee890ac0f90d7f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai une idée pour vous aider.",
+      "sha256": "f03f235475ae52852da04eca5d8d041841e615858014e055f641bc4d4c3f53c8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'arrive tôt au café et je m'assieds à une table.",
+      "sha256": "492ffe24e3d4a6480a267c4fe7fb2a4db7131f407531a39aadf7e7eff1bb2442",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'entre dans la gare avec ma valise.",
+      "sha256": "1d70390bf0b547a5c906bf0abcca396d67df5e37f98700154c2d958acd67045a",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je commande du veau et mon ami choisit du vin.",
+      "sha256": "8395ec60137a8b2681c65effbd364b520c875151d63ae1556c903ebe390dfd5a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je demande : « Quel café prenez-vous ? »",
+      "sha256": "ca63c5c752542802960b3dd17504a17ef63dcc476c043b6e83276fd8ef204825",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je demande au guide où poser mon bagage.",
+      "sha256": "13454ddf2d5a29ff28abe41474189dbe5f830e340503ef04424d4541dfea6388",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je demande le prix du pain.",
+      "sha256": "f9e78b75ec85b6d86a0d87ea8b4ecc52a3e832ac3f97ec696319ec7a29b8f6b8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je demande une adresse à l'agent d'accueil.",
+      "sha256": "dcd9f0a5b61e40fd361453294540a3f45a10f1fa2a4e77fcc743d820e1ed53a4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je demande une tasse de thé et une part de tarte.",
+      "sha256": "937645487103753328955ad9e237d2979d5ba7dbe99c4d9fedff7322c32647fa",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je fais une photo dans le salon.",
+      "sha256": "faae15590e84ab47cf51091d37b8be48ee039ca595e88791b84c33ede281f2d6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Je le lis chez moi et je le rends lundi prochain.",
+      "sha256": "e5c9292ec6a3a78edb84d46e98c96991411196882f5c18fbc0f24bb0c0849f69",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je le rends lundi.",
+      "sha256": "67a507029497cac544f6c57ef64e69a65576293ea6a845fc9f000287ab125b97",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lis un nouveau livre.",
+      "sha256": "9a5fd61554d8c32a1a805bbe1d5772be21c98d3455e9b0c06e2b78882d8218ff",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lui dis que ma guitare est dans le bagage.",
+      "sha256": "cd9d1f84929724e871af608dc7906fb59adf5b560b947123291b6e80cb980562",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lui donne l'adresse et nous partons ensemble.",
+      "sha256": "50755127782eeed35a1abe6ec8a473eccc0386ed4f7c09445772c87d95542cc5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je mets la fleur dans le sac et je fais la photo.",
+      "sha256": "8bf98afe404561fc87b47f728554c0eac7ca108e41ff2b9fe39ded06d421e4a3",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je montre le moule, le mur et la mie à mon ami.",
+      "sha256": "df16e961a683fa02da7c20c98b42bf0c7fe6e9a5cc9480588c264c80e3097d52",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je note le nom du livre que je choisis.",
+      "sha256": "2b57de7327cb03d390c44286111aad2a31cc40534d3f04492a40a53fd9d5b7ce",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je note le nom du livre.",
+      "sha256": "bb46f991bcb5cff0cc04cd5fbbc381ddee8e97ad7f87cb0e94593ea5f6a3f06c",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je passe la porte de la boulangerie.",
+      "sha256": "dd17e698180cbf16752abcf206c4625127a7b5e87f2daa6fe055ea7dd1ae86c9",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je passe près d'un feu rouge et de l'arrêt.",
+      "sha256": "afdd04a86f2a86cf717b61ca48fe80563b956b77f5850a454a39124018409011",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends la rue à droite.",
+      "sha256": "aa96bca76c9aabafdacf64ce265ef4daa5c700f55ab08405443b9e56e0c30a47",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends le train avec mon frère pour aller en ville.",
+      "sha256": "0af819a6cf3a9d3f982abbbf5573b274c5e159e0f4e3238173f53eca8351c6bb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends le train avec mon frère.",
+      "sha256": "5b5b199e5925b7bf7adcd5e6fd759dfda9c6cf192ca1b497858936f03e975f4d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends une pomme et un petit pain.",
+      "sha256": "fa810ccf1f2ae34e1a5c4dd4a158d28733c33d3e51ba9f37fbc817e8fd1059a8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je regarde une carte pour trouver le parc.",
+      "sha256": "c6bfb5b9024be1af57e55ee112f7e3f3d5d1796e6b6ff3f67fa0ff12fcab0765",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je suis sûr de la rue.",
+      "sha256": "ddb529b377cc8455d16f4249c767b3b0a75abc662faa597a3938238c0b1cbe30",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je trouve un fil sur mon sac.",
+      "sha256": "e49a52c84c06069dd0919ca1a71fc14fe4480c98c20b828b23a592ae69dae5c4",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je voudrais du veau, s'il vous plaît.",
+      "sha256": "69f9d6afc1d5dfe3e3e0c3eed21e7ff7fb470b1253e1a1bd9afeb78a3d83ff20",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je voudrais une tasse de thé.",
+      "sha256": "68a49612e3d9cf40dc81589f4d51c2a893f84ac556c6e7aa941c6f7ee2e11333",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'agent me donne l'adresse et un détail sur le trajet.",
+      "sha256": "1e69ebb7e10960465eb71a60a509f15fd4353c9e320697526379cc15ea82f545",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'arrêt est près du feu rouge.",
+      "sha256": "beb7e4e5a9b1b4c7974478833b8e47854a660414e6287525db6fb452b96984e6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La carte est sur la table.",
+      "sha256": "53b2a3daa1754fd8cde1411c54713570dd024209da38f7a6cf66b734b0daf7e6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "La dame demande du thé.",
+      "sha256": "03657deae6137950252351dc80f1d2cefeb49e5e7c67220e9b16e54b0d2bcc9c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La fleur est dans le sac.",
+      "sha256": "b9e66212399bf7e5a76049a5d5963bdf91f0d776b5104c4f930a48b39fa18e28",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La gare est à gauche.",
+      "sha256": "2826039a463da325e6e94e56e882bb60c288671ec74589ee9fe1e03c6915d75f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La lampe est près du livre.",
+      "sha256": "2e1b830e36b9df631f5b771e96cc9d9bdb94ede52f905e2c492b09191387c9a7",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La mie du pain est encore molle.",
+      "sha256": "e607a10c844788befc2741273eb8e11038a4564be08752fb97abb9e7cda9a751",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "La mie est encore molle.",
+      "sha256": "be226d1477766c601373f323cc3885809a714b6e2bf718bc43cea8ab202c25dd",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La montagne est derrière le chalet.",
+      "sha256": "3b85e3b0ea5588d91a1a1d9ac91d51024422d3b5767cb4c636914f2ba3a61afb",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "La porte est près du comptoir.",
+      "sha256": "5dd8e7ed13b405fbdbf1b801ca19dba9b45c8675d46db697da5c196ea388946b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "La roue est sous la voiture.",
+      "sha256": "4bc386a06b18fe0e646502754378c7da4186c3ccab95587854317908b736a49f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "La sortie est derrière le guichet.",
+      "sha256": "9306063e6f4c52a783bc05bdb71662f1eb9bd31d4ebfd400cfa61d0d00769e3f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "La tarte est sur la table à côté de ma tasse.",
+      "sha256": "db8cdfdbdec25c7f058ea451edfa8a00fc49e4c73ed7070fd7207dbf66265ac2",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "La tarte est sur la table.",
+      "sha256": "d4fe7f087e8313a795a14d24d77679762722f99360200a7e266553ac6f91eec5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "La tasse est sur la table.",
+      "sha256": "00efb3adcb1e8fb0e1216ccf944b31b3748934a312d224507a466a597f05c946",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le bateau est beau.",
+      "sha256": "f30d468af5c34bb31657666d81e1927529c80c87b96ec039817e8b7264dcc100",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le billet indique le quai quatre.",
+      "sha256": "66c9918f7f2f06b1c4d49fe858d4cc3e1a3b49292cfeb6a61d29678d00a732ef",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le chemin mène au chalet.",
+      "sha256": "249bca1405e35314d4e7f49366928b17aba269c7292603532aeb54320478ae99",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[7].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Le départ est à neuf heures.",
+      "sha256": "9c1568a4138ff8f303f18608a39265b6161b11931ac03ffbf6d36f453732e3cb",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le fil est sur le sac.",
+      "sha256": "f020c4f468860e0733eb68318627b161ec99460355b6c7106f59110bbe552829",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le fruit est mûr, et le moule est contre le mur.",
+      "sha256": "586d813253e6fb4c3cd4a0fd9eeafbc9d5be2364e124ecb1469b36eb34866080",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Le fruit est mûr.",
+      "sha256": "8878bf1d68ad38fcf5c6e9bc96211b1a508481af253367d1aec42dc4374e4a6d",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le fruit sur la table est mûr.",
+      "sha256": "0f0456bfa0b019a8c3267986c6e1d5e9969a136ece2d5b16e4882a774d6325e9",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le garage est près de la gare.",
+      "sha256": "7dfdb822ec978bbd0e93ff2423a80b8a724fa61bac463bda63761761a9c1aedc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide attend devant la gare.",
+      "sha256": "4ef52673f2ccf0e54009aea066a9b5f6ddb48ae9d38e5c6d95e5b92e52c0f365",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide attend à la gare.",
+      "sha256": "4077898e51b80cb1e1b985500ac4d68e85e5f44c38603bccd7678ed64970dfa2",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide m'attend devant la gare avec mon bagage.",
+      "sha256": "c035a19c33f9fdf18118dbd7416856c2e005b95dc28922bdb2fc465ffb32144d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide nous attend à la gare.",
+      "sha256": "dba918325ab8f1ac50360011c8a95a487ff8973e6e2de41b30d984961c8765a8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le moule est contre le mur.",
+      "sha256": "4292c6504c7e60e11904b54d1aa296f337b20c4a0b593582ae81c899bd0f1fda",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le parc est au bout de cette rue.",
+      "sha256": "b4f4ba0387bb51e4797e7200776252e528548301591bac1c0adcf7d8461cff61",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le parc est dans la rue à droite.",
+      "sha256": "a030a5e6dbdf30ce908dd1af3c577d67cce6aab94b9f67abfc9596ac007ffb80",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le restaurant est près de la gare.",
+      "sha256": "a7f9fb864f461bef5fe4ae6f5e994b155f5b143d2c3ef29c2ef0547d626e9d92",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le tissu est mou.",
+      "sha256": "a82636e936594d8cf8a3c253adec3075629789f195704feffa4e175e920c3dd1",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le vase est sur la table.",
+      "sha256": "d74a06fb8cbb3b6476e1c26c482ebc51eed43e386931aa050f7ae0215e6a77e3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Lundi, je cherche un nouveau livre à la bibliothèque.",
+      "sha256": "41d7dc452d059c6a516b934c58b90da3e11843a033f7e936e4f945c697fbfc5a",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ma guitare est dans mon bagage.",
+      "sha256": "a5167eafdf79487e8e4dbfcca2a04a9f9387108142339e392de274e8ffb199f2",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "reader[3].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'ai l'adresse et le détail.",
+      "sha256": "5003952c04bea8b92390875f7ac6cc5c1b3b8e1783bc8822164863382684186d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'ai le ticket de caisse.",
+      "sha256": "a28b8766bb2d0a30608969ebefa8764aa2850dfeefb501df9e6a401b4bf92c28",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je le rends lundi.",
+      "sha256": "b26f74f8ef944b3004774abfda4c6e60d1e916e37dd95de1cd3076e040895cc0",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je prends la rue à droite.",
+      "sha256": "c8ea96a557003ea1460be6a8f6970d70654ac04ae5d838bd8752171c401ba00d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais au quai quatre.",
+      "sha256": "d095b596ec011285356ff6cb432f53eb58d1b16fddcc2013ba45dba0334c3671",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais payer ici.",
+      "sha256": "45c8f6241ecf9dd1af77fd489fa47d2acfc8b48bceb5e41f62f9673339dc06b4",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais à gauche.",
+      "sha256": "07aedd4437fc6aea8ac27482cb21e5bc3790add8b4820fe0b9fce195e9f080dd",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, la photo est faite.",
+      "sha256": "e8ac72c2ba224b96c6ae706adf2cbecf0a59ca6e8ec77152a8cfce9ea81ad88f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, le bateau est beau et le vin est bon.",
+      "sha256": "2783f9bc4112eee176bf98836bead3c3c73592e265786f6a7c19aa4e9e3d76ed",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, nous allons gagner du temps.",
+      "sha256": "9623104e115607c637f7987a615cee5efde01fdb98838f46f4c8225fcec8ad28",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Mon ami demande qui prépare le café.",
+      "sha256": "bb8cc56cb9e2be4cde3a45c82dc60bfa2e83b2739555479a154f8479e69869f5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Mon billet indique le quai quatre.",
+      "sha256": "31fc82eb0f0d8bf5240f32f087f19246de056a8497a7ed4320688790e84a77fc",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Mon frère trouve un grand restaurant sur la place.",
+      "sha256": "302e33a164e1b2c17a72fe30cfde07a2ce326358038fe3857ec4cc49a74eecc6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous allons gagner du temps.",
+      "sha256": "7b968d81b0ef02cdff3cf73ccb5e6ebeff05ae6e5c5b4169c7d61859f02d1606",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous avons trouvé le restaurant.",
+      "sha256": "8f1a99643b5b0681221acfef2694ef50be4ebb8c5af8d5d57c0e7532d77f684e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Nous cherchons un restaurant près de la gare.",
+      "sha256": "168071db57553654f681cbfde351bdcde9d294b976c0e5253ce097d77dae60cc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous cherchons une rue près de la gare.",
+      "sha256": "50dd13a6e8a0f2a66a22fa69b1f2c97e0464604dc050d74e6c048e439469f4bc",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous choisissons une date pour notre prochaine rencontre.",
+      "sha256": "f6a270622d296758d0ac992fb50a7577599a54129d96505cbbd915cac1ed7be2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous déjeunons près de la rivière et voyons un beau bateau.",
+      "sha256": "bda9c841bae460f6bbfb2cb615c3982e129170ff7ae226ee885f3728dfcf821a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous suivons une ligne rouge sur le chemin.",
+      "sha256": "af111eaa838cebc275908afdd0cafe11b8292a45030e5b2bfa9b12bd111e973e",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous trouvons le restaurant.",
+      "sha256": "f186b67cc0570db2ca85044b866b80cc2784ae3c9fe7e6992fc245855578b70d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous voyons quatre tables près de la cuisine.",
+      "sha256": "5ae042fdf7e3d834fe7cc7b68bc66369fbaf8cb31ee2950b8e625ef33b6a9fd8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous y entrons avant de reprendre le train.",
+      "sha256": "92502f3e71d1cdb079d8e8eeeaa0a3e3e91619eff768d7f4ff2d99b2534b0188",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "On arrive tôt.",
+      "sha256": "e7fb72f557f2a10661e19680d5528a1d1a9442e6d75452be1adf9e0734856871",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "On prend le train ensemble.",
+      "sha256": "baab2c02d42af9af8a9996374d72f50c10b4fcdd0b6907084edfbf8a5d91984b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "On se voit demain.",
+      "sha256": "c1319e16ed4c0d570e220dde706db630b0f747febaa98c17bb4f852fb8e1fa7e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Oui, le moule est contre le mur.",
+      "sha256": "e4e7aa53ff2d0d92faeeaca31501544f5fd82c8d170ec83d6813fd50a71504e6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Oui, nous suivons ce chemin.",
+      "sha256": "fc9b80a385d251e478e6c0a454f32a1d5c9aeb79e06abeef3c33003ade86145d",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Où est le guichet ?",
+      "sha256": "9425f461483a7d424ab1a25ebe66674e3417c186f07b9bbbbf15aeca13c60815",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Pouvez-vous me donner l'adresse ?",
+      "sha256": "c254b762f60926c8e72e1120a5e82919bee00ea7f00a2de61a1f98246e3c9560",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[10].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Pouvez-vous me donner plus de détails sur le trajet ?",
+      "sha256": "3527c6a2db23b700d3377d870c33edfa1b2314a46c204683da3a4d5c317f7769",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis je demande : « Puis-je payer ici ? »",
+      "sha256": "194200876d706cf0e15c7afab10766cf50f6d0f803b4a4764fd8761ad3dee327",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis je marche jusqu'au parc avec la carte.",
+      "sha256": "337456053224a546297919ee281955607fcf3bd11a3562323c25aca3db366a76",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis nous voyons la lune au-dessus des toits.",
+      "sha256": "17eb68795c4d456610f79341457ae5cc912e0b5da36b1b4e2c71d84ccdf349a6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis-je avoir le ticket de caisse ?",
+      "sha256": "d2abc8958d9ddeaf6b7f003bd44f406cc15ffa22bf1aada8adbcf4957a64d3c6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis-je payer ici ?",
+      "sha256": "4a6f530105a529ac4e6f1260c2fc54e7d0e377cbcd0bbb88d9cebd78349c6ec8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quel café prenez-vous ?",
+      "sha256": "9e122484999a8920155c0b5d970000ecf093368db1f23974fb5f25edc130ebe5",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quel est le prix du pain ?",
+      "sha256": "dedeea7a3c8d74305ee23683f486e5da3b3f9dc2ed0a690880fec43dd7e11e48",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quelle date vous convient ?",
+      "sha256": "b84f32ffaea46f1bf4b87be4c621fafa3b11132c7e52e8b62d8aea218af73662",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[9].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Qui prépare le café ?",
+      "sha256": "20e09d1a9287cf232a78d67ebc9745bfd1ac2b5feed63287e8dec485687861d3",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Regardez la carte.",
+      "sha256": "1f53318c8733e0b91f59b81892244d12e2f4cb10f015536cec6be79ea0a1ef73",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Sa voiture est dans un garage près de la gare.",
+      "sha256": "82486839a9df373f3508303c94948dbf3b7b273dec6cf0016ffd94c93a15107d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Si tu veux, on prend cette rue.",
+      "sha256": "439a75653f483bf18301161ef3cfd30d85be31488399f7d87e939c63c31f6ad4",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[7].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "reader[2].fr"
+        },
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Très bien, on se voit demain.",
+      "sha256": "0c8747378830b6f42e83aef06a8c73775ccc854a2a52cba522fdb0aa6259d631",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Tu as vu la lune ?",
+      "sha256": "e5c6d532d9e13f4d5921ad30209d47a5d53e16f1e866e0204a71d00f1ad8139e",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Tu veux du sucre ?",
+      "sha256": "54cbd6e3bea41a224164a63112b9f41c477c65e6e46370f0aa9c3a6060df12d0",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un signal indique la direction du chalet.",
+      "sha256": "0f9e5f7fd6fedfc4e8af99832f9a12479c3ca62b3cdd0655a22d46fe0fe38630",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un vase est posé sur notre table.",
+      "sha256": "b10c81bd3e726417cff8a37c986df3fc945972a6f9c47ff7344be0d820c5fd4d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une dame attend à la table près de la fenêtre.",
+      "sha256": "093f94ce28ca0b60cf7edd5b55af70afee71be2d1b83fb53c16519094a762577",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une lampe éclaire la table des nouveautés.",
+      "sha256": "ce35342e7f706bbd45b2c711e652e3ef0fb6cc49cbb56e8d0dd2c80e67d110ef",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une ligne rouge marque le chemin.",
+      "sha256": "953afa92d2827970b2567d624f7b5a375d300005e774afc8c66b37d468ada428",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une roue de la voiture est sous le pont.",
+      "sha256": "2f9220eb6d62938fc3b9b33cde8c9cd6363bca477820eda87ffe0841f524c543",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "adresse",
+      "sha256": "192b69d3e9d9e04f07856bc4dd687f0dc6f539d0b66931b425b0b5c378fb6d57",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "aider",
+      "sha256": "ebde709e306badca2f843f1ef91c7fb216a99aa4417b32fe911e15acfff8bedd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "arrêt",
+      "sha256": "66a4eed442bd28254baff453ddb766bb55c287a08fa40fdde2b81313ff249c30",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "bagage",
+      "sha256": "5bfc28d3c866cad0e98a9f6a2fc1cc4b7fbf545f6938b1f72ff3f6541e209610",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[5].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "bateau",
+      "sha256": "25c9ec1ed3674b8810b459eebe2e4130992373b8db72206e4c5883526004eb6c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "beau",
+      "sha256": "a6ac558e3cc659a5e6cbd200141d984ffd3c06f357101f411cc78624f212a976",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "billet",
+      "sha256": "12a80e37cd884e891184f0cda20f777cd281d33dd3c80edf51e24ef83d2fd945",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "bon",
+      "sha256": "72b90a0d25a6e8f71d5f2ed323a8d4412fa7fb9c08c62a8c7a1810ab3176361c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "café",
+      "sha256": "850f7dc43910ff890f8879c0ed26fe697c93a067ad93a7d50f466a7028a9bf4e",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "carte",
+      "sha256": "d2c12420b9815e07b29b1256fdd6e39a94b69ed192009f0c5d7afffc99de44e9",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[2].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "chalet",
+      "sha256": "299d337473f9a00ab4c5bddac83ac1e522f286912c1fe2e9fe94240dfd00db8e",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "chaud",
+      "sha256": "9b53eea64683e8cc0fd57b29d838c3a47506d359443f68f4a0700c996cc19361",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "chemin",
+      "sha256": "554b653c59e510dc9b9f167242817025913daa44ecd52cc64e3f5f2c6f017328",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "cuisine",
+      "sha256": "2753cb15f1d6d34c2d6e101c9cd5b2b21ea938dd888de94436730734aad7f60d",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "dame",
+      "sha256": "50ce12611f6391ad3ead149248be9dc30950227e41febb83ea838b4929e524cd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "date",
+      "sha256": "0e87632cd46bd4907c516317eb6d81fe0f921a23c7643018f21292894b470681",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "demain",
+      "sha256": "8d87f74739c36a01a7800c7c80090b72158250f824c3db7b9a1809f876b64046",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "demander",
+      "sha256": "1ff1f040b6369230878b7fd659edf1bb2d2170795f9df0ef04584746db4f227a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "donner",
+      "sha256": "bf3a4b89f937367e3b8475a151544c7240b5d699d95bb216e5f5484f8047cf83",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "départ",
+      "sha256": "cfb53d7f9f6f135166e9aeffe0e5fa09177ef53423308e36c1cb96d859f04a03",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "détail",
+      "sha256": "2c6e708bd0e0585564dd37c1f54f96fce2f1dd3b5c093c8b3e1d0f51bf71d88b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "fil",
+      "sha256": "e0155ad9bb33317a2d65ec0fbb1cb1a0d0cffd90270603607534588d69f6ba16",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "fleur",
+      "sha256": "773d0439dc2a8982b55e1cd3afe989b4852b140dc98b0bde23faf5d043df4a3b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "frère",
+      "sha256": "c8b85fc9f669213cf2e291b358a6f472076d61e1abc5211f68505067f34ed48c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "gagner",
+      "sha256": "8df1320a706fae3747f3299abb6c912b0a9214b07bbcec555670710b3dc8515f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "garage",
+      "sha256": "21b747de22dbb757fde3b699afe057849d4e6b49b63629e4c40e75dd479dd375",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "gare",
+      "sha256": "dc8e5e575bf8c0e5e91135b937f063d32ee54ff05bbec9a1f51c91ca26bc7a40",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[1].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "gauche",
+      "sha256": "96cbc489bf1f6d57f6477c4528a22059c1cddb7a316f0f2933803994502cbda6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "gomme",
+      "sha256": "9f8003a073cba85144b2ba746b2dfcb5c4771ada69027f081f0bf43ecd569b17",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "grand",
+      "sha256": "4361cc01e665e9d5dfa0bbd56f0ec8272a35dd9289b868d8490d606997ad1567",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "guichet",
+      "sha256": "38a4bbbad8d4aff9de3f44621b3ec675c3b99aa3e84c18fb98a16138e654eebc",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "guide",
+      "sha256": "83ca68be6227af2feb15f227485ed18aff8ecae99416a4bd6df3be1b5e8059b4",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[3].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "guitare",
+      "sha256": "46a2c3e911a902431c99de7014a0d34862c060776d4c9f5b810dc5b3afd33a71",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:8:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:4:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "idée",
+      "sha256": "b56d2baf09dc5db203cd62429ee33ab6542224f95a69196a25ac7c1d1a0ca008",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:3:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "lampe",
+      "sha256": "158b51ff5078c2013c5376219eefb6d0a136da23091e7f2b783e4dc75690a0df",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "ligne",
+      "sha256": "fe9d9907da5ee9a793fffe9833635093f8f166c2b9f7f9a2646713ef8054a35c",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "livre",
+      "sha256": "c8f071fcb45fc339fd31b5f26c93c26dbc0d0351b61df339aa94a046a5384931",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "lundi",
+      "sha256": "b255c0e109f4dbce0e26dc28b2070abfe68a7dd5391d4162f022d0f8ee77692c",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "lune",
+      "sha256": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "mie",
+      "sha256": "298cf30c31d3d1bd262550cb58fc0ca5a6f8e1fbeb6ca6f6cca15744bbd6bd0a",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "montagne",
+      "sha256": "16f3b307214615a0edb6e590e9f67f8f318b19e1995fa2070afffb26f8c64239",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "mou",
+      "sha256": "e45f2c548199501355ec0c152eec188084465b662bbb06f22fb762b6cef1122c",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "moule",
+      "sha256": "407d60939509223d891c4bd92d3157ef9f86fdb986c912878b6b98d7a63ec2ae",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "mu",
+      "sha256": "19503ea6785ee1243cd3373fe0d201404089fb7c559d2cd4b025585ee36ff3c3",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "mur",
+      "sha256": "c8e5dba99f9b46cb28d7515061559b4e874d56a266a43a3c24fa45c6ad36d9fe",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "mûr",
+      "sha256": "b5492ab8705a621491997ce8e92b44c3c11e31a2857861ed8dba5f886fdfe520",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:2:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "nom",
+      "sha256": "2f588afe14a613cb44993b87574220e5af06f5e035cadaa682ec08a20b47c66f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "note",
+      "sha256": "edb465624291e4053c6c5ea4b7eb320dec773e10a57d26b95dcf0564f8e310f8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "nouveau",
+      "sha256": "79b996059587d5c6afb98fd8fe04e73b4d8ea61fc5ca2c5d2877696d4cc94265",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:5:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "pain",
+      "sha256": "5c78c8e7160e76ba9b6c41f74247bb7ba4887f5c06faecd6b9a009785b248c72",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "parc",
+      "sha256": "bb34299bcdea613b66d051ff8b1e0ca734eabc49d5802a4c57c23be603f575a5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "payer",
+      "sha256": "8d65fcf7d4880cd5224b36c33e43617cc519fc6514f79759f65fb571649dffab",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "petit",
+      "sha256": "8e3cefcb3c22369aad72eb9c22a0d0292c0640f01dfe2d6eb2827b4e5baa4deb",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "photo",
+      "sha256": "55c64d0fcd6f9d5f7c828093857e3fdfda68478bb4e9bd24d481ef391c7804e8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "pomme",
+      "sha256": "9169bf3e501fea19614cacd6d646b50b63aa822bc2360a4db06aee4cd504cb4f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "porte",
+      "sha256": "002c16d9a88473bd07de07d4a27c0388150c5f16d213640678bec5bdd9542480",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "prendre",
+      "sha256": "319814994806e48bc952ddaeaf3514562ef4639fc4ae103f1b3c3adcd2007cb6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "prix",
+      "sha256": "45fb665df5ac810ee3c017c61ce50ad5227a2d675309d7683c6ba71b519f6b5b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:3:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "quai",
+      "sha256": "3233fc4b6afb3e739b9cad0894b3e66a352c831eb9c14931b29ce812bf006e54",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "quatre",
+      "sha256": "a8dbf0437f641177de58fe8c05cb5e4c70a3eecdb018df2993e9424ec2092bee",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "quel",
+      "sha256": "e172a63898df16bdca8b3b3f1c9acbe5152862a7ac47eb9d4bad804e6d4efd62",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "qui",
+      "sha256": "760176194068f3029466de5c06f1faa6471a566c66eda866e984f0ca6674d96f",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:7:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "regarder",
+      "sha256": "82464f73d5a3fd8edd4b42557555689d53e757e69238d9f472ce5d5b94550279",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "restaurant",
+      "sha256": "ee275d64dafcd283c25b00a66fb771834a2c2bfb1a7b472b67cf59fd6936254f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "roue",
+      "sha256": "7e3af5674d415e4bb1da6a8628f67051a6196600611cf8d3591a08f5c1552ce2",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "rouge",
+      "sha256": "36d8324d1b77a342d518bb5005cd8065440109d827c57bc05601d60f6b684ff0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "rue",
+      "sha256": "1b0460762c0b89da3455ebb7f746785149182bd129f46b0a6ab5146720335003",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:5:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "sac",
+      "sha256": "162bd1e67d4593bab60331865336ccc51b34e5df74bcde1d751abd9d97445cf6",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "salon",
+      "sha256": "1a26b7dee6fc52c891e769ddab4fc79f4b6cce1b07a90fe95e53dcec05567f09",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "si",
+      "sha256": "97a62ad21d79c01cceb7767952acec4fec86bfe909b06e5f3f6963365cf91ab8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "signal",
+      "sha256": "d041924c15885af6d06530a425c6dbffc80520150c4dd264f40b4364b12421a8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:9:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "sortie",
+      "sha256": "ab647861f4cbf1bbcf71c969473484fc35f3b8775d84bb4f042d91ad30b7e3df",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "sous",
+      "sha256": "aa32b653a9dfd018e4b7cd51d3063819941f24ebd20324538a041bc4e01b035b",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "su",
+      "sha256": "0a64ce10853f25cb3dc3f7d498f62d72b406be37ba8caf5aa7671414d9696049",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:1:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "sucre",
+      "sha256": "2e5dea7a1430197929b131e17ee576d121333e8df92098067376571acf8d4dc3",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:6:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "table",
+      "sha256": "0d4fc4a78d3706edccafb665a8b2fdd9309e82c78625bb0f2b8e7bb9e1c4d21c",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[2].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "tarte",
+      "sha256": "d7981bbac6b7e6238516f7d2e33a313b36b73da38feae296a98e0de3b3c10ed4",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "tasse",
+      "sha256": "77310307dfc3914feaea6e4509419db99493ddac895cd1b95c28d279e0cd6fc8",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[1].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "thé",
+      "sha256": "da45b8e2d4272d7ea02ee2b79c896cca9ed37722639d8e7fbd4f3fae857886b7",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:2:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "ticket",
+      "sha256": "14069429150abcbf244c4c2fb2c4c46a49c93ca9457263ecd9ebb176de3a58bb",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "train",
+      "sha256": "116f54c41d0405dbb10e7b04ebc31e262a5b8c85c1233fcf36eaee344d91ae58",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "trouver",
+      "sha256": "7029e52a82225ea74cb0096dd44d0ac04de65a1c8b3a24db10c67dc9cf7d7587",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:6:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "tôt",
+      "sha256": "8bf75fc6250f1230feb1e737f2ee2133859de9c05118ba10bd9172391f6e6c84",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:4:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "valise",
+      "sha256": "e00f4b8b1242014876a61dc6e4a5f6b12b8733dac09a298bbd86d3a61724acd1",
+      "occurrences": [
+        {
+          "lessonId": "foundation-french-sound-like-a-native:10:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "vase",
+      "sha256": "30e436cb382491bb1f039032641fea80d45e142485fe3031fe0742ddd7de7d2a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "veau",
+      "sha256": "679cf52c37fc4ced6cd5f39b3906d60f74956605e35e5ead64e14c1249d6351a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "vin",
+      "sha256": "8a2539e2b69d9daf9d58dd63ee74ddfc4ef984015881f541b940755c92d0747f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "À la fin du repas, il dit : « Ce vin est bon. »",
+      "sha256": "19d6f5df494d3911595c5f5254910f198f96aa1ab30fd5d3674c9821c70e3179",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:1:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    }
+  ]
+}

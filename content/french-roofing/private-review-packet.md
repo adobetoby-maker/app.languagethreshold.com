@@ -8,14 +8,14 @@ This packet is an internal work queue for the French→English Roofing Superviso
 - 60 lessons: Foundation 10, Core 30, Master 20. 983 card placements, 898 distinct exact French–English pairs, 646 aligned Reader lines, and 60 speaking openings.
 - 360 private activity drafts, one per See/Recall/Hear/Type/Say/Write mode per lesson, in 12 source-pinned files. These are review models, not working app modes.
 - Dictionary: 831 normalized headwords; 66 ambiguity flags (57 article-only candidates and 9 other meaning variations). [Non-article context](private-dictionary-context-fr-en.json) and [article-candidate context](private-dictionary-article-context-fr-en.json) cover all 66.
-- Audio: 1381 distinct fr-FR texts / 2762 proposed two-voice clips. No recordings or listening approval are present. [Exact text scope](private-audio-scope-fr-en.json).
+- Audio: 1,381 distinct fr-FR display texts / 2,762 proposed two-voice clips. Forty clips across four bounded pilots have owner-accepted listening quality, while their text remains unreviewed. Full-course recording and registration remain open. The [exact-text scope](private-audio-scope-fr-en.json) and [spoken-text plan](private-spoken-text-plan-fr-en.json) pin 264 colon-prefixed display strings. The [private review sheet](/Users/drive/lt-audio/french-roofing/spoken-text-review-2026-11-09.html) shows each proposed spoken line with its exact lesson English support and preserves local decisions by display-text hash.
 
 ## Review assignments
 
 1. A qualified French reviewer checks every card pair, Reader alignment, activity model, grammar, pronunciation cue, register, and France/Québec wording against the exact English support and source context. Preserve direct clinical vocabulary; put factual questions in this internal packet, not learner text.
 2. A qualified roofing reviewer checks technical/product claims, especially [Core 19–21](core-19-21-internal-review.md), and the warranty, insurance, storm, repair, inspection, and capstone scenes. Correct the English source and French together when a factual claim is wrong.
 3. A dictionary reviewer resolves all 66 flagged headwords, recording whether forms are article variants, contextual glosses, or distinct senses; use the [nine non-article entries](private-dictionary-context-fr-en.json) and [57 article candidates](private-dictionary-article-context-fr-en.json). Do not change sense IDs or register links from this queue alone.
-4. After text approval, check the exact fr-FR audio inventory and both voices. Record text hash, voice, duration, file hash, and listening findings for each clip; retake failed clips. Synthesis alone does not approve playback.
+4. Resolve the 264 colon-prefixed spoken-text proposals with their lesson context, then approve the exact fr-FR speech text before full-course synthesis. Check both voices, text hash, duration, file hash, and listening findings for every new clip; retake failed clips. The 40 pilot listening approvals do not approve their text or any new full-course recording.
 
 ## Priority factual and language questions
 

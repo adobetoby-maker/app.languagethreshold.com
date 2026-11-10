@@ -14,9 +14,12 @@ DESTINATION = ROOT / "src/data/core60/fr/foundation-travel-lunch-fr.json"
 
 def selected_words(lesson):
     cards = lesson["cards"]
-    # Source lesson 7 marks single interrogatives as phrases. For the bounded
-    # stage word list they are terms; source cards and audio remain unchanged.
+    # Source lesson 2 marks counted-food noun groups as phrases, and lesson 7
+    # marks single interrogatives as phrases. The bounded stage lists classify
+    # these as terms; source cards and audio text remain unchanged.
     term_indices = {i for i, card in enumerate(cards, 1) if card["kind"] == "term"}
+    if lesson["n"] == 2:
+        term_indices.update((5, 6, 9, 10))
     if lesson["n"] == 7:
         term_indices.update((1, 2, 3, 4, 5, 6))
     mode_indices = {activity["sourceCard"] for activity in lesson["modes"].values()}

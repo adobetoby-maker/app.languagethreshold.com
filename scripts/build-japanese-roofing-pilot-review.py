@@ -30,8 +30,10 @@ def main():
         raise ValueError("Pilot language or voice identity changed")
     if manifest.get("quotaProject") != "project-91661021-fb2d-4524-b9f":
         raise ValueError("Pilot quota project changed")
-    if manifest["scope"] != "pilot" or manifest["listeningReviewed"] is not False or manifest["registered"] is not False:
+    if manifest["scope"] != "pilot" or not isinstance(manifest["listeningReviewed"], bool) or manifest["registered"] is not False:
         raise ValueError("Pilot release state changed")
+    if manifest["listeningReviewed"] and (manifest.get("listeningReview", {}).get("reviewer") != "owner" or manifest["listeningReview"].get("decision") != "accepted-all-pilot-clips"):
+        raise ValueError("Pilot listening approval provenance changed")
     if set(manifest["clips"]) != set(GENERATOR.PILOT_TEXTS):
         raise ValueError("Pilot text coverage changed")
     rows = []
@@ -62,7 +64,7 @@ def main():
     parts.append("</script></html>")
     output = AUDIO / "listening-review-2026-11-09.html"
     output.write_text("\n".join(parts))
-    print(json.dumps({"verifiedClips": len(rows), "listeningReviewed": False, "sheet": str(output)}))
+    print(json.dumps({"verifiedClips": len(rows), "listeningReviewed": manifest["listeningReviewed"], "sheet": str(output)}))
 
 
 if __name__ == "__main__":

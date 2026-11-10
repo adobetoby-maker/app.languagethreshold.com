@@ -1,0 +1,5 @@
+# Japanese Roofing Foundation 1–3 private activities — 2026-11-09
+
+The first three Japanese→English Roofing Supervisor lessons now have 18 distinct, source-linked See, Recall, Hear, Type, Say, and Write activities in `content/japanese-roofing/private-mode-activities-foundation-1-3.json`. Each activity has a stable lesson/mode ID, a specific English task, a one-based card or Reader reference, the exact aligned Japanese/English source pair, an explicit response kind, and an audio requirement for Hear. `scripts/validate-japanese-roofing-foundation-activities.py` regenerates the file deterministically and checks the SHA-256 of the unchanged lesson source.
+
+These are private authored drafts. `reviewed`, `registered`, `audioListeningReviewed`, and every `readyForLearner` flag remain false. Hear activities require reviewed recorded audio before learner use. Foundation 4–10, Core 1–30, and Master 1–20 still need comparable activity sets. Japanese and roofing-domain review, runtime integration, offline checks, and phone/native acceptance remain open; no course or audio is released by this checkpoint.

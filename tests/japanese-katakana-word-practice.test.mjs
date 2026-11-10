@@ -17,6 +17,9 @@ const supplemental = new Map([
   ["デザート", "dessert"],
   ["デパート", "department store"],
   ["バス", "bus"],
+  ["チケット", "ticket"],
+  ["シャツ", "shirt"],
+  ["ショッピング", "shopping"],
 ]);
 
 const sourcePairs = new Map();
@@ -29,11 +32,11 @@ for (const moduleId of ["foundation-japanese-basics", "japanese-basics", "master
   }
 }
 
-test("each basic and voiced katakana row progresses from characters to contextual word writing", () => {
-  assert.equal(KATAKANA_GROUPS.length, 15);
+test("each basic, voiced, and small-sign katakana row progresses to contextual word writing", () => {
+  assert.equal(KATAKANA_GROUPS.length, 17);
   for (const group of KATAKANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
-    assert.equal(words?.length, 2, `${group.id} should have two words`);
+    assert.ok(words?.length >= 2, `${group.id} should have at least two words`);
     for (const word of words) {
       assert.ok([...word.kana].some((char) => group.chars.includes(char)), `${group.id}: ${word.kana}`);
       assert.ok(word.romaji && word.meaning);
@@ -44,7 +47,7 @@ test("each basic and voiced katakana row progresses from characters to contextua
 });
 
 test("all hiragana rows advance from characters to exact Japanese 101 card pairs", () => {
-  assert.equal(HIRAGANA_GROUPS.length, 15);
+  assert.equal(HIRAGANA_GROUPS.length, 17);
   for (const group of HIRAGANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
     assert.ok(words?.length >= 2, `${group.id} should have at least two words`);

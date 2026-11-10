@@ -110,6 +110,13 @@ export const HIRAGANA_GROUPS: CharGroup[] = [
     chars: ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
     romaji: ["pa", "pi", "pu", "pe", "po"],
   },
+  { id: "h-small-tsu", name: "Small っ", chars: ["っ"], romaji: ["small tsu"] },
+  {
+    id: "h-contracted",
+    name: "Contracted ゃゅょ",
+    chars: ["ゃ", "ゅ", "ょ"],
+    romaji: ["small ya", "small yu", "small yo"],
+  },
 ];
 
 export const KATAKANA_GROUPS: CharGroup[] = [
@@ -193,6 +200,13 @@ export const KATAKANA_GROUPS: CharGroup[] = [
     chars: ["パ", "ピ", "プ", "ペ", "ポ"],
     romaji: ["pa", "pi", "pu", "pe", "po"],
   },
+  { id: "k-small-tsu", name: "Small ッ", chars: ["ッ"], romaji: ["small tsu"] },
+  {
+    id: "k-contracted",
+    name: "Contracted ャュョ",
+    chars: ["ャ", "ュ", "ョ"],
+    romaji: ["small ya", "small yu", "small yo"],
+  },
 ];
 
 // Contextual words shown after their character group is practiced.
@@ -262,6 +276,15 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "きっぷ", romaji: "kippu", meaning: "ticket" },
     { kana: "えんぴつ", romaji: "enpitsu", meaning: "pencil" },
   ],
+  "h-small-tsu": [
+    { kana: "きっぷ", romaji: "kippu", meaning: "ticket" },
+    { kana: "ゆっくり", romaji: "yukkuri", meaning: "slowly" },
+  ],
+  "h-contracted": [
+    { kana: "しゃしん", romaji: "shashin", meaning: "photo" },
+    { kana: "しゅくだい", romaji: "shukudai", meaning: "homework" },
+    { kana: "きょう", romaji: "kyou", meaning: "today" },
+  ],
   "k-vowels": [
     { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
     { kana: "ドア", romaji: "doa", meaning: "door" },
@@ -321,6 +344,15 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   "k-p": [
     { kana: "ペン", romaji: "pen", meaning: "pen" },
     { kana: "パン", romaji: "pan", meaning: "bread" },
+  ],
+  "k-small-tsu": [
+    { kana: "チケット", romaji: "chiketto", meaning: "ticket" },
+    { kana: "スタッフ", romaji: "sutaffu", meaning: "staff" },
+  ],
+  "k-contracted": [
+    { kana: "シャツ", romaji: "shatsu", meaning: "shirt" },
+    { kana: "メニュー", romaji: "menyuu", meaning: "menu" },
+    { kana: "ショッピング", romaji: "shoppingu", meaning: "shopping" },
   ],
 };
 

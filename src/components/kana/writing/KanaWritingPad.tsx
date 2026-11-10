@@ -109,7 +109,15 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
           </div>
           {groupIndex >= 10 && (
             <p className="text-sm text-muted-foreground">
-              {group.id.endsWith("-p")
+              {group.id.endsWith("-small-tsu")
+                ? script === "hiragana"
+                  ? "Small っ marks a brief pause before the next consonant, as in きっぷ (kippu). It is smaller than つ (tsu)."
+                  : "Small ッ marks a brief pause before the next consonant, as in チケット (chiketto). It is smaller than ツ (tsu)."
+                : group.id.endsWith("-contracted")
+                  ? script === "hiragana"
+                    ? "Small ゃ/ゅ/ょ joins the preceding sound. For example, しゃ is sha, not shi-ya."
+                    : "Small ャ/ュ/ョ joins the preceding sound. For example, シャ is sha, not shi-ya."
+                : group.id.endsWith("-p")
                 ? script === "hiragana"
                   ? "The small circle (゜) changes an H-row sound to P, as in ぷ in きっぷ."
                   : "The small circle (゜) changes an H-row sound to P, as in ペ in ペン."

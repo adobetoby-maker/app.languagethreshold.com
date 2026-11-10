@@ -7,7 +7,10 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DRAFT = ROOT / "content/french-travel-lunch/core-1-5-draft.json"
+DRAFTS = (
+    ROOT / "content/french-travel-lunch/core-1-5-draft.json",
+    ROOT / "content/french-travel-lunch/core-6-10-draft.json",
+)
 MODES = ("see", "recall", "hear", "type", "say", "write")
 
 
@@ -26,7 +29,7 @@ def core_purposes(source_bytes):
     return specs
 
 
-def validate(draft, source_bytes):
+def validate(draft, source_bytes, expected_numbers):
     require((draft.get("schema"), draft.get("courseId"), draft.get("stageId"),
              draft.get("targetLanguage"), draft.get("nativeLanguage"),
              draft.get("pairKey"), draft.get("locale"), draft.get("state"),
@@ -40,7 +43,7 @@ def validate(draft, source_bytes):
             "Spanish Core source hash changed")
     purposes = core_purposes(source_bytes)
     lessons = draft["lessons"]
-    require([lesson["n"] for lesson in lessons] == [1, 2, 3, 4, 5],
+    require([lesson["n"] for lesson in lessons] == list(expected_numbers),
             "Wrong private Core lesson sequence")
     ids = set()
     total_cards = total_reader = total_modes = 0
@@ -93,5 +96,16 @@ def validate(draft, source_bytes):
 
 
 if __name__ == "__main__":
-    draft = json.loads(DRAFT.read_text())
-    print(json.dumps(validate(draft, (ROOT / draft["source"]["path"]).read_bytes())))
+    drafts = [json.loads(path.read_text()) for path in DRAFTS]
+    source_bytes = (ROOT / drafts[0]["source"]["path"]).read_bytes()
+    first = validate(drafts[0], source_bytes, range(1, 6))
+    second = validate(drafts[1], source_bytes, range(6, 11))
+    all_lessons = drafts[0]["lessons"] + drafts[1]["lessons"]
+    require([lesson["n"] for lesson in all_lessons] == list(range(1, 11)),
+            "Core lessons are not contiguous")
+    require(len({lesson["stableId"] for lesson in all_lessons}) == 10,
+            "Core lesson IDs overlap")
+    print(json.dumps({"lessons": 10, "cards": first["cards"] + second["cards"],
+                      "readerTurns": first["readerTurns"] + second["readerTurns"],
+                      "modeActivities": first["modeActivities"] + second["modeActivities"],
+                      "reviewed": False, "registered": False}))

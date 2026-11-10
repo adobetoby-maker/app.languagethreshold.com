@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Check the first French Lunch lessons against pinned Spanish learning purposes."""
+"""Check the private French Lunch Foundation against pinned Spanish learning purposes."""
 
 import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DRAFT = ROOT / "content/french-travel-lunch/foundation-1-3-draft.json"
+DRAFTS = (
+    ROOT / "content/french-travel-lunch/foundation-1-3-draft.json",
+    ROOT / "content/french-travel-lunch/foundation-4-10-draft.json",
+)
 MODES = {"see", "recall", "hear", "type", "say", "write"}
 
 
@@ -15,7 +18,7 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def validate(draft, source, source_bytes):
+def validate(draft, source, source_bytes, expected_numbers):
     require((draft.get("schema"), draft.get("courseId"), draft.get("stageId"),
              draft.get("targetLanguage"), draft.get("nativeLanguage"),
              draft.get("pairKey"), draft.get("locale"), draft.get("state"),
@@ -29,12 +32,13 @@ def validate(draft, source, source_bytes):
             pin["sha256"] == hashlib.sha256(source_bytes).hexdigest(),
             "Spanish source hash changed")
     lessons = draft["lessons"]
-    require(len(lessons) == 3 and [lesson["n"] for lesson in lessons] == [1, 2, 3],
+    require([lesson["n"] for lesson in lessons] == list(expected_numbers),
             "Wrong private lesson sequence")
     seen_cards = set()
     seen_cues = set()
-    for lesson, original in zip(lessons, source["lessons"][:3]):
+    for lesson in lessons:
         number = lesson["n"]
+        original = source["lessons"][number - 1]
         prefix = f"foundation-travel-lunch:{number}:fr-en"
         require(lesson["stableId"] == prefix and lesson["reviewed"] is False,
                 f"Lesson {number}: identity or review changed")
@@ -71,18 +75,29 @@ def validate(draft, source, source_bytes):
                     activity["cueEnglish"].strip() and
                     activity["responseKind"] == ("open" if mode in ("say", "write") else "fixed"),
                     f"Lesson {number}: invalid {mode} activity")
-            cue = (number, activity["cueEnglish"])
+            cue = activity["cueEnglish"]
             require(cue not in seen_cues, f"Lesson {number}: duplicated prompt")
             seen_cues.add(cue)
     require(len(seen_cards) == sum(len(lesson["cards"]) for lesson in lessons) and
-            len(seen_cues) == 18, "Cross-lesson card or mode count changed")
-    return {"lessons": 3, "cards": len(seen_cards),
+            len(seen_cues) == 6 * len(lessons), "Cross-lesson card or mode count changed")
+    return {"lessons": len(lessons), "cards": len(seen_cards),
             "readerTurns": sum(len(lesson["reader"]) for lesson in lessons),
             "modeActivities": len(seen_cues), "reviewed": False, "registered": False}
 
 
 if __name__ == "__main__":
-    draft = json.loads(DRAFT.read_text())
-    source_path = ROOT / draft["source"]["path"]
+    drafts = [json.loads(path.read_text()) for path in DRAFTS]
+    source_path = ROOT / drafts[0]["source"]["path"]
     source_bytes = source_path.read_bytes()
-    print(json.dumps(validate(draft, json.loads(source_bytes), source_bytes)))
+    source = json.loads(source_bytes)
+    first = validate(drafts[0], source, source_bytes, range(1, 4))
+    second = validate(drafts[1], source, source_bytes, range(4, 11))
+    all_lessons = drafts[0]["lessons"] + drafts[1]["lessons"]
+    require([lesson["n"] for lesson in all_lessons] == list(range(1, 11)),
+            "Foundation lessons are not contiguous")
+    require(len({lesson["stableId"] for lesson in all_lessons}) == 10,
+            "Foundation lesson IDs overlap")
+    print(json.dumps({"lessons": 10, "cards": first["cards"] + second["cards"],
+                      "readerTurns": first["readerTurns"] + second["readerTurns"],
+                      "modeActivities": first["modeActivities"] + second["modeActivities"],
+                      "reviewed": False, "registered": False}))

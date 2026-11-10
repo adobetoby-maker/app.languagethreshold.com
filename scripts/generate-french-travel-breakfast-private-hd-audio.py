@@ -28,6 +28,10 @@ def sha(data):
 
 
 def source():
+    fixture_path = CONTENT / "private-runtime-candidate.json"
+    fixture = run_path(str(ROOT / "scripts/build-french-travel-breakfast-private-runtime.py"))["build"]()
+    if fixture_path.read_bytes() != (json.dumps(fixture, ensure_ascii=False, indent=2) + "\n").encode():
+        raise ValueError("Private runtime fixture differs from current lesson source files")
     expected = run_path(str(ROOT / "scripts/build-french-travel-breakfast-private-audio-scope.py"))["build"]()
     raw = INVENTORY.read_bytes()
     if raw != (json.dumps(expected, ensure_ascii=False, indent=2) + "\n").encode():

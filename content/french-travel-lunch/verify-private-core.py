@@ -13,6 +13,7 @@ DRAFTS = (
     ROOT / "content/french-travel-lunch/core-11-15-draft.json",
     ROOT / "content/french-travel-lunch/core-16-20-draft.json",
     ROOT / "content/french-travel-lunch/core-21-25-draft.json",
+    ROOT / "content/french-travel-lunch/core-26-30-draft.json",
 )
 MODES = ("see", "recall", "hear", "type", "say", "write")
 
@@ -104,11 +105,11 @@ if __name__ == "__main__":
     results = [validate(draft, source_bytes, range(1 + 5 * index, 6 + 5 * index))
                for index, draft in enumerate(drafts)]
     all_lessons = [lesson for draft in drafts for lesson in draft["lessons"]]
-    require([lesson["n"] for lesson in all_lessons] == list(range(1, 26)),
+    require([lesson["n"] for lesson in all_lessons] == list(range(1, 31)),
             "Core lessons are not contiguous")
-    require(len({lesson["stableId"] for lesson in all_lessons}) == 25,
+    require(len({lesson["stableId"] for lesson in all_lessons}) == 30,
             "Core lesson IDs overlap")
-    print(json.dumps({"lessons": 25, "cards": sum(result["cards"] for result in results),
+    print(json.dumps({"lessons": 30, "cards": sum(result["cards"] for result in results),
                       "readerTurns": sum(result["readerTurns"] for result in results),
                       "modeActivities": sum(result["modeActivities"] for result in results),
                       "reviewed": False, "registered": False}))

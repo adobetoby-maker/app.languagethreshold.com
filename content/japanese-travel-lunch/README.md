@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–12 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–15 draft
 
 This is an unregistered, unreviewed Foundation stage draft. It maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -12,4 +12,6 @@ Core 7–9 covers sharing dishes, stating vegetarian and sesame-allergy needs di
 
 Core 10–12 covers a timed museum lunch, a delayed/missing order with a bill correction, and three transactions for four diners. It adds 47 cards, 32 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-10-12.py` for that batch. The combined draft has 22 lessons, 326 cards, 217 Reader turns, and 132 mode activities. The Core 12 source asks about a tip; the Japanese scene asks about the service charge while keeping the direct term `チップ` in its cards. This register/context choice requires qualified Japanese review.
 
-Remaining work includes Core 13–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 13–15 covers specific praise for a cook, a low-pressure invitation with an authored decline branch, and a midpoint lunch review that directly states a nut allergy and asks about nuts. It adds 46 cards, 31 main Reader turns plus two alternate decline turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-13-15.py` for that batch. The combined draft has 25 lessons, 372 cards, 248 main Reader turns, and 150 mode activities. The nut-allergy wording and kitchen-response scene require qualified Japanese and domain review; no generic medical caveat appears in the teaching text.
+
+Remaining work includes Core 16–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

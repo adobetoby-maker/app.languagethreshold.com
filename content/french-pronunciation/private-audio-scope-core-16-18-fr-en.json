@@ -1,0 +1,541 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/core-16-18-draft.json",
+      "sha256": "b1638667742e4a599d4a92d2bdb0798c342b17a74bf84d91337eaa6817153097"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "core": [
+      "core-french-sound-like-a-native:16:fr-en",
+      "core-french-sound-like-a-native:17:fr-en",
+      "core-french-sound-like-a-native:18:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 3,
+    "placementsByField": {
+      "cards": 30,
+      "reader": 12,
+      "speaking.closure": 3,
+      "speaking.opening": 3
+    },
+    "uniqueExactTexts": 48,
+    "twoVoiceClips": 96,
+    "unicodeCharactersPerVoice": 1441,
+    "projectedBillableCharactersTwoVoices": 2882
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.0865,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "fefe2fe70ee6a6039e58364c27fd404f571c4c1afddcbb8a248dc028d84d8a44",
+  "texts": [
+    {
+      "text": "Allez tout droit vers le drapeau bleu.",
+      "sha256": "6517bcea0bb01e267b5a9bd734297d60169a0305d1b7cf5ade83e7f2256bb962",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Au marché, une vendeuse propose un bon gâteau et une pomme.",
+      "sha256": "c9dbdadada8d119e5628a2fcbef95a53b0413b28f42044735f35c09eedb152da",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je cherche le train pour ce trajet direct.",
+      "sha256": "bca3bafaa6a37de6bab18b84b86cf3569b3e4b39739e1506dd27a71823ba4a93",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je prends une bonne pomme et un gâteau.",
+      "sha256": "de24ab00a83c0bd053959048c05a263e27a29164f3ccd2865d09197a2e0cfc16",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, quel est le prix de la visite ?",
+      "sha256": "aa09dc73ade43942ee06e1c5ba059584dbafdd6817b935b069eef47dfc61c69b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "C'est un bon gâteau.",
+      "sha256": "52e2d317a9396e41a1255590fbdc864e0f50a9737a3e629ca24f79e3bed03a8d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ce trajet est direct.",
+      "sha256": "b96865cc8c0d750baca006d02adae33f8c5ba5700b1d5ed97b566cf8be8a942b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il y a du bruit dans la rue.",
+      "sha256": "01c6c0b0e179d96e9161441a71707f3e518e9a7d1ec14eae45c527ad63dc2fe2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai l'adresse de la gare.",
+      "sha256": "1a721c8d014e849f8484162372b08c21d60cbbfdabc3da46d54c33ff4f873462",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je choisis une bonne pomme et je demande le prix du gâteau.",
+      "sha256": "f467f864e922acdb3082091426a79c11b834ef27414ddb018d48d85b60411d5a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lui dis mon nom et elle répète : « Une pomme et un gâteau. »",
+      "sha256": "e5591f8a6357d7088d2b62addd6664476158a6804e27858ade5b600a709348f8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je me rapproche, prêt à prendre la brochure et à écouter son explication.",
+      "sha256": "deaf3d2a6f6aacb2bc4852e19deac98597a93f03f070c64a4976a3d6b5454a50",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je porte le sac sous le bras.",
+      "sha256": "09e2fa46594226294e06df1d199d9684e5e2e0f6ff72ceb745431235562dd02c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends une bonne pomme.",
+      "sha256": "908290606cf0e0c8ef885b332f9ffb7be0905e6809cd338e2ac3a46b89ed5410",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je suis prêt à prendre la brochure.",
+      "sha256": "6808eb6dd6b4ef0e1a2abb8bd574498a76a8010324c1a9cac97ef3935e894c39",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je trouve le bon train et je monte avant le départ.",
+      "sha256": "955d094d3addd6194d329ddc0e16adfef9334fac91d5a451a1b98c4d0012e6d3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'employée me tend une brochure, mais le bruit de la rue couvre sa voix.",
+      "sha256": "b934080873260fe43934f6ce325f5cfba5649b2b445f2e13b449ccc82fc9ee96",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le train part dans trois minutes.",
+      "sha256": "0dd6ac2fa1037138d47b2777ce70c9b7e950a9a9a46069ce466b976253fd7e8a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je prends la brochure.",
+      "sha256": "47e04e46873d9056b212231d21152c95ad84d9fd3462eaee102423a5dc27fadd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais tout droit vers le bon train.",
+      "sha256": "97b010c4aaadf7c0c2176cd0cb7a05998867a1b152f770c0d8f87cc8d6dbcc5f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, voici mon nom pour la commande.",
+      "sha256": "3d7cfb22890abfe22985b2cfef65d050342a56852f59b9ddfdf4f43c786ff9ea",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Pour garder ma commande de côté, la vendeuse me demande mon nom.",
+      "sha256": "2de353fd25e3ccc438bb59b971d154b261eea4fefc0f7b2046a8a673b7da7c99",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Puis je glisse la brochure dans le sac que je porte sous le bras.",
+      "sha256": "e98104b0fb24c3e127468f9d965c0d37e8cd1e29de025301b480d9a8f8c77079",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quel est le prix de la visite ?",
+      "sha256": "3453981cfa2df10c72757a1a1605196e0d903c42f1b9fe8ca55488d4e10ce637",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quel est votre nom ?",
+      "sha256": "150ef9cf3b768f40d13b9a02857d8ee0e85e9b26540f62604751b04ec98137d6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Trois trains sont annoncés, mais un seul suit le trajet direct.",
+      "sha256": "fdae9548dbb65d0a0f5bffc2456a24079600d15a25c7e30fa79bf6bafeab8fc1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un agent me dit d'aller tout droit vers le drapeau bleu près du quai.",
+      "sha256": "9c9c5d6501a98334beb367a46d919f3cb43d0356cc8152b017159e2492c90b3e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une pomme et un gâteau, s'il vous plaît.",
+      "sha256": "b8d113744b3a64f8ae3cc46f6391a9991397cc2a0958758d9000b316852f790e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "adresse",
+      "sha256": "192b69d3e9d9e04f07856bc4dd687f0dc6f539d0b66931b425b0b5c378fb6d57",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "bon",
+      "sha256": "72b90a0d25a6e8f71d5f2ed323a8d4412fa7fb9c08c62a8c7a1810ab3176361c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "bonne",
+      "sha256": "9cbf0bf2ae49a157ef1e5c21e925a3a9863767f3773f4f3796d2811d00c27463",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "bras",
+      "sha256": "20f20875d6ed77c926d9122c94126529aebfba3d5043b2b851b4a46010fa4a6a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "brochure",
+      "sha256": "c318132fa32974d9b455378c9cf9292e8c9aca332917142fd3d392e39917d4bc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "bruit",
+      "sha256": "5d3e2e3548764a69649c2993cc217e5337d79bc7a2b354c61e6cb3fa6f5f098c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "drapeau",
+      "sha256": "27b86c4e697f60987030282cbec051b25a65428a97ac9a5ab5b8c2aff3c0fae0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "droit",
+      "sha256": "a6993f8f3f26eb9a2f2d232636bc47c0a0a3a819a098063e4c95127a25a460e1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "nom",
+      "sha256": "2f588afe14a613cb44993b87574220e5af06f5e035cadaa682ec08a20b47c66f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "pomme",
+      "sha256": "9169bf3e501fea19614cacd6d646b50b63aa822bc2360a4db06aee4cd504cb4f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "prendre",
+      "sha256": "319814994806e48bc952ddaeaf3514562ef4639fc4ae103f1b3c3adcd2007cb6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "prix",
+      "sha256": "45fb665df5ac810ee3c017c61ce50ad5227a2d675309d7683c6ba71b519f6b5b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "prêt",
+      "sha256": "c9bb4c5a904c11f8c9a3f70afcf7ef745e11a9c510ee57c36c087e8f4bdba0f3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "train",
+      "sha256": "116f54c41d0405dbb10e7b04ebc31e262a5b8c85c1233fcf36eaee344d91ae58",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "trajet",
+      "sha256": "2628fe4db81faed18297fa7722d449b920a5b03e80256da975593be62478dc19",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "trois",
+      "sha256": "a69cf3d89f86a8337ed4549d5f5726a7a88faff53fbd1e7fb323cf4b6c8bd865",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "un",
+      "sha256": "68bca10eea2ba33f6f15a6ab0c7df2a49051a6541f9118d468b0585d5d60398b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "une",
+      "sha256": "52597892af72166c5a1b5a1ef53f51beb6de370dab847be9026fb145caf1c213",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:16:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "À l'office de tourisme, je demande le prix d'une visite guidée.",
+      "sha256": "fcb0236cc59b91d6701e0b01591d8a629ed1533f58fd186f623f8332ed9a1977",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:17:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "À la gare, je vérifie l'adresse du lieu de rendez-vous.",
+      "sha256": "8836adc2c69b00e7969706a216dbf43096f013d7de45f2b43a335b0ef01c9418",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:18:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    }
+  ]
+}

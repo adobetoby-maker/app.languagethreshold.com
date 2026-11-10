@@ -1,3 +1,4 @@
+import { ModuleAnswerReview } from "./ModuleAnswerReview";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
@@ -232,27 +233,6 @@ export function FreeSpanishExams({
                   ),
                 )}
               </ul>
-              {summary.missed.length > 0 && (
-                <details>
-                  <summary className="min-h-11 cursor-pointer py-3 font-semibold">
-                    Review answers marked incorrect
-                  </summary>
-                  <ul className="space-y-4">
-                    {summary.missed.map((question) => (
-                      <li key={question.id} className="rounded-xl border border-border p-3">
-                        <p>{question.prompt}</p>
-                        {question.hint && <p>{question.hint}</p>}
-                        <p>Your answer: {responses[question.id] || "I don’t know"}.</p>
-                        <p>Lesson answer: {question.answer}.</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-3 text-sm">
-                    Typed answers currently require the lesson’s wording and accents. If your answer
-                    is also valid, the question needs review.
-                  </p>
-                </details>
-              )}
             </div>
           )}
           {loaded.gap && (
@@ -280,6 +260,7 @@ export function FreeSpanishExams({
           <button className={button} type="button" onClick={() => void start()}>
             Retake with a new question draw
           </button>
+          <ModuleAnswerReview blocks={loaded.blocks} responses={responses} />
         </div>
       ) : loaded && question && block ? (
         <div className="space-y-4 border-t border-border pt-5" data-testid="free-exam-question">

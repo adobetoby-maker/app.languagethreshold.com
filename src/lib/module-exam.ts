@@ -2,6 +2,20 @@ import { placementBlockScore, placementCorrect, type PlacementBlock } from "./mo
 
 export type ModuleExamMode = "placement" | "post-core";
 
+/** Review only answers actually submitted, including explicit skips. Public lesson checks only. */
+export function moduleAnswerReview(blocks: PlacementBlock[], responses: Record<string, string>) {
+  return blocks.flatMap((block) =>
+    block.questions
+      .filter((question) => Object.hasOwn(responses, question.id))
+      .map((question) => ({
+        question,
+        lesson: block.lessons[question.lesson],
+        response: responses[question.id],
+        correct: placementCorrect(question, responses[question.id]),
+      })),
+  );
+}
+
 /** Count only submitted answers; untested later lessons are not mistakes. */
 export function placementAttemptSummary(
   blocks: PlacementBlock[],

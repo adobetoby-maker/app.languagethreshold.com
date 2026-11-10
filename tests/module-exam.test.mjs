@@ -5,6 +5,7 @@ import {
   moduleExamScore,
   nextModuleExamBlock,
   placementAttemptSummary,
+  moduleAnswerReview,
 } from "../src/lib/module-exam.ts";
 
 const lessons = Array.from({ length: 30 }, (_, index) => ({
@@ -73,4 +74,24 @@ test("a fully correct placement has no rejected answers and passes every block",
   assert.equal(summary.missed.length, 0);
   assert.ok(summary.blocks.every((b) => b.passed));
   assert.equal(nextModuleExamBlock(blocks, responses, "placement"), undefined);
+});
+
+test("answer review preserves submissions and correct keys, excludes untested items, and follows question order", () => {
+  const [meaning, typed, skipped] = blocks[0].questions;
+  const completed = typed.prompt.replace("____", typed.answer);
+  const responses = { [skipped.id]: "", [typed.id]: completed, [meaning.id]: "my wrong answer" };
+  const review = moduleAnswerReview(blocks, responses);
+  assert.deepEqual(
+    review.map((entry) => entry.question.id),
+    [meaning.id, typed.id, skipped.id],
+  );
+  assert.equal(review[0].response, "my wrong answer");
+  assert.equal(review[0].question.answer, meaning.answer);
+  assert.equal(review[0].correct, false);
+  assert.equal(review[1].response, completed);
+  assert.equal(review[1].question.answer, typed.answer);
+  assert.equal(review[1].correct, true);
+  assert.equal(review[2].response, "");
+  assert.equal(review[2].correct, false);
+  assert.equal(review[1].lesson.n, 1);
 });

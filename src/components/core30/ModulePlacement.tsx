@@ -1,3 +1,4 @@
+import { ModuleAnswerReview } from "@/components/exams/ModuleAnswerReview";
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
@@ -5,12 +6,7 @@ import { getModule } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
 import { core30ScopeKey } from "@/lib/core30-scope";
 import { moduleLessonUrl } from "@/lib/learning-link";
-import {
-  PLACEMENT_VERSION,
-  placementBlockScore,
-  placementResult,
-  placementCorrect,
-} from "@/lib/module-placement";
+import { PLACEMENT_VERSION, placementBlockScore, placementResult } from "@/lib/module-placement";
 import { sha256Hex } from "@/lib/exams2/hash";
 import type { loadModulePlacement } from "@/lib/module-placement-loader";
 import {
@@ -175,13 +171,6 @@ function PlacementRunner({
           ?.masteredAt,
       ),
     );
-  const missed = done
-    ? blocks.flatMap((b) =>
-        b.questions.filter(
-          (q) => Object.hasOwn(responses, q.id) && !placementCorrect(q, responses[q.id]),
-        ),
-      )
-    : [];
 
   function answer(text: string) {
     if (!attempt || !question || !activeBlock) return;
@@ -328,22 +317,7 @@ function PlacementRunner({
                 Independent study placement. Speaking is not assessed; this is not a proficiency
                 certificate.
               </p>
-              {!!missed.length && (
-                <details>
-                  <summary className="cursor-pointer py-3">Review tested answers</summary>
-                  <ul className="space-y-3">
-                    {missed.map((q) => (
-                      <li key={q.id}>
-                        <p>{q.prompt}</p>
-                        <p className="text-sm">
-                          Your answer: {responses[q.id] || "I don’t know"}. Lesson answer:{" "}
-                          {q.answer}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              )}
+              <ModuleAnswerReview blocks={blocks} responses={responses} />
             </div>
           ) : question && activeBlock ? (
             <div className="space-y-4">

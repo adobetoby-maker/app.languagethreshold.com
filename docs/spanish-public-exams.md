@@ -5,7 +5,7 @@ The public entry point is `/exams?target=Spanish&native=English`. The welcome sc
 ## Behavior
 
 - Typed checks accept either the missing word/phrase or the correct completed sentence. Exact sentence matching preserves the answer and accents; arbitrary text containing the answer does not pass.
-- Placement results show submitted-answer counts, per-block overall and typed scores, and the lesson answer for rejected responses. Coverage limits are labeled as untested material, not failed placement.
+- Completed placement and post-Core tests show every submitted question, the learner’s answer, the correct lesson answer and the grading result. Correct, incorrect and skipped responses are included in test order; untested questions stay out. Placement also shows submitted-answer counts and per-block overall/typed scores. Coverage limits are labeled as untested material, not failed placement.
 - Placement uses existing authored lesson vocabulary and contextual cloze checks in five-lesson blocks. It estimates the first block to revisit, continuing from Foundation through Core and Master where those stages exist. The estimate is lesson-relative, not a CEFR proficiency rating.
 - Post-Core tests cover all 30 Core lessons with 60 questions, continue after wrong answers, show a score and direct links to lessons to revisit, and allow unlimited fresh attempts.
 - Each attempt draws from the module's own Spanish/English material. Results do not grant lesson-completion credit. Speaking is not assessed.

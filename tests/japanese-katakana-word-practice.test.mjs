@@ -13,6 +13,10 @@ const supplemental = new Map([
   ["ハム", "ham"],
   ["ヨガ", "yoga"],
   ["ユーロ", "euro"],
+  ["メッセージ", "message"],
+  ["デザート", "dessert"],
+  ["デパート", "department store"],
+  ["バス", "bus"],
 ]);
 
 const sourcePairs = new Map();
@@ -25,8 +29,8 @@ for (const moduleId of ["foundation-japanese-basics", "japanese-basics", "master
   }
 }
 
-test("each basic katakana row progresses from characters to contextual word writing", () => {
-  assert.equal(KATAKANA_GROUPS.length, 10);
+test("each basic and voiced katakana row progresses from characters to contextual word writing", () => {
+  assert.equal(KATAKANA_GROUPS.length, 15);
   for (const group of KATAKANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
     assert.equal(words?.length, 2, `${group.id} should have two words`);

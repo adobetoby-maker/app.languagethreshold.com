@@ -15,6 +15,8 @@ test("writing practice covers the 46 basic characters in both scripts", () => {
 
   assert.deepEqual(HIRAGANA_GROUPS.slice(10).map(({ id }) => id), ["h-g", "h-z", "h-d", "h-b", "h-p"]);
   assert.equal(HIRAGANA_GROUPS.slice(10).flatMap(({ chars }) => chars).length, 25);
-  assert.equal(KATAKANA_GROUPS.flatMap(({ chars }) => chars).join(""), expectedKatakana);
-  assert.deepEqual(KATAKANA_GROUPS.map(({ romaji }) => romaji), HIRAGANA_GROUPS.slice(0, 10).map(({ romaji }) => romaji));
+  assert.equal(KATAKANA_GROUPS.slice(0, 10).flatMap(({ chars }) => chars).join(""), expectedKatakana);
+  assert.deepEqual(KATAKANA_GROUPS.slice(10).map(({ id }) => id), ["k-g", "k-z", "k-d", "k-b", "k-p"]);
+  assert.equal(KATAKANA_GROUPS.slice(10).flatMap(({ chars }) => chars).length, 25);
+  assert.deepEqual(KATAKANA_GROUPS.map(({ romaji }) => romaji), HIRAGANA_GROUPS.map(({ romaji }) => romaji));
 });

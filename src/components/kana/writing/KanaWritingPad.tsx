@@ -107,10 +107,12 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
               </button>
             ))}
           </div>
-          {script === "hiragana" && groupIndex >= 10 && (
+          {groupIndex >= 10 && (
             <p className="text-sm text-muted-foreground">
-              {group.id === "h-p"
-                ? "The small circle (゜) changes an H-row sound to P, as in ぷ in きっぷ."
+              {group.id.endsWith("-p")
+                ? script === "hiragana"
+                  ? "The small circle (゜) changes an H-row sound to P, as in ぷ in きっぷ."
+                  : "The small circle (゜) changes an H-row sound to P, as in ペ in ペン."
                 : `Two small marks (゛) voice the base row's sound. Practice the marked sign in ${words[0]?.kana}.`}
             </p>
           )}

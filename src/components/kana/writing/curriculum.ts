@@ -151,6 +151,36 @@ export const KATAKANA_GROUPS: CharGroup[] = [
     romaji: ["ra", "ri", "ru", "re", "ro"],
   },
   { id: "k-w", name: "W-row ワヲン", chars: ["ワ", "ヲ", "ン"], romaji: ["wa", "wo", "n"] },
+  {
+    id: "k-g",
+    name: "G-row (voiced) ガギグゲゴ",
+    chars: ["ガ", "ギ", "グ", "ゲ", "ゴ"],
+    romaji: ["ga", "gi", "gu", "ge", "go"],
+  },
+  {
+    id: "k-z",
+    name: "Z-row (voiced) ザジズゼゾ",
+    chars: ["ザ", "ジ", "ズ", "ゼ", "ゾ"],
+    romaji: ["za", "ji", "zu", "ze", "zo"],
+  },
+  {
+    id: "k-d",
+    name: "D-row (voiced) ダヂヅデド",
+    chars: ["ダ", "ヂ", "ヅ", "デ", "ド"],
+    romaji: ["da", "ji", "zu", "de", "do"],
+  },
+  {
+    id: "k-b",
+    name: "B-row (voiced) バビブベボ",
+    chars: ["バ", "ビ", "ブ", "ベ", "ボ"],
+    romaji: ["ba", "bi", "bu", "be", "bo"],
+  },
+  {
+    id: "k-p",
+    name: "P-row パピプペポ",
+    chars: ["パ", "ピ", "プ", "ペ", "ポ"],
+    romaji: ["pa", "pi", "pu", "pe", "po"],
+  },
 ];
 
 // Contextual words shown after their character group is practiced.
@@ -257,6 +287,26 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "グループ", romaji: "guruupu", meaning: "group" },
   ],
   "k-w": [
+    { kana: "ペン", romaji: "pen", meaning: "pen" },
+    { kana: "パン", romaji: "pan", meaning: "bread" },
+  ],
+  "k-g": [
+    { kana: "グループ", romaji: "guruupu", meaning: "group" },
+    { kana: "けしゴム", romaji: "keshigomu", meaning: "eraser" },
+  ],
+  "k-z": [
+    { kana: "メッセージ", romaji: "messeeji", meaning: "message" },
+    { kana: "デザート", romaji: "dezaato", meaning: "dessert" },
+  ],
+  "k-d": [
+    { kana: "ドア", romaji: "doa", meaning: "door" },
+    { kana: "デパート", romaji: "depaato", meaning: "department store" },
+  ],
+  "k-b": [
+    { kana: "メンバー", romaji: "menbaa", meaning: "member" },
+    { kana: "バス", romaji: "basu", meaning: "bus" },
+  ],
+  "k-p": [
     { kana: "ペン", romaji: "pen", meaning: "pen" },
     { kana: "パン", romaji: "pan", meaning: "bread" },
   ],

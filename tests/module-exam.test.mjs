@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { placementBlocks } from "../src/lib/module-placement.ts";
-import { moduleExamScore, nextModuleExamBlock } from "../src/lib/module-exam.ts";
+import {
+  moduleExamScore,
+  nextModuleExamBlock,
+  placementAttemptSummary,
+} from "../src/lib/module-exam.ts";
 
 const lessons = Array.from({ length: 30 }, (_, index) => ({
   moduleId: "demo",
@@ -45,4 +49,28 @@ test("a fresh draw has a fresh attempt and no prior answers", () => {
   const retry = placementBlocks(lessons, "retry");
   assert.equal(nextModuleExamBlock(retry, {}, "post-core"), retry[0]);
   assert.equal(moduleExamScore(retry, {}).correct, 0);
+});
+
+test("placement explains a weak block without counting untested questions as wrong", () => {
+  const responses = Object.fromEntries(blocks[0].questions.map((q) => [q.id, q.answer]));
+  responses[blocks[0].questions[1].id] = "wrong";
+  responses[blocks[0].questions[3].id] = "";
+  const summary = placementAttemptSummary(blocks, responses);
+  assert.equal(summary.answered, 10);
+  assert.equal(summary.correct, 8);
+  assert.equal(summary.missed.length, 2);
+  assert.equal(summary.blocks.length, 1);
+  assert.equal(summary.blocks[0].typedCorrect, 3);
+  assert.equal(summary.blocks[0].passed, false);
+});
+
+test("a fully correct placement has no rejected answers and passes every block", () => {
+  const responses = Object.fromEntries(
+    blocks.flatMap((b) => b.questions.map((q) => [q.id, q.answer])),
+  );
+  const summary = placementAttemptSummary(blocks, responses);
+  assert.equal(summary.correct, 60);
+  assert.equal(summary.missed.length, 0);
+  assert.ok(summary.blocks.every((b) => b.passed));
+  assert.equal(nextModuleExamBlock(blocks, responses, "placement"), undefined);
 });

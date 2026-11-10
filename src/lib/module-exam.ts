@@ -2,6 +2,34 @@ import { placementBlockScore, placementCorrect, type PlacementBlock } from "./mo
 
 export type ModuleExamMode = "placement" | "post-core";
 
+/** Count only submitted answers; untested later lessons are not mistakes. */
+export function placementAttemptSummary(
+  blocks: PlacementBlock[],
+  responses: Record<string, string>,
+) {
+  const attempted = blocks
+    .flatMap((block) => block.questions)
+    .filter((question) => Object.hasOwn(responses, question.id));
+  const missed = attempted.filter(
+    (question) => !placementCorrect(question, responses[question.id]),
+  );
+  return {
+    answered: attempted.length,
+    correct: attempted.length - missed.length,
+    missed,
+    blocks: blocks
+      .filter((block) => block.questions.some((q) => Object.hasOwn(responses, q.id)))
+      .map((block) => ({
+        block,
+        ...placementBlockScore(block, responses),
+        typedTotal: block.questions.filter((q) => q.type === "typed").length,
+        typedCorrect: block.questions.filter(
+          (q) => q.type === "typed" && placementCorrect(q, responses[q.id] ?? ""),
+        ).length,
+      })),
+  };
+}
+
 /** Placement stops at the first weak block; a post-Core check always tests the full module. */
 export function nextModuleExamBlock(
   blocks: PlacementBlock[],

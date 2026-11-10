@@ -18,6 +18,9 @@ test("guest placement, full post-Core check and unrestricted retake", async ({ p
   for (let i = 0; i < 10; i++)
     await hub.getByRole("button", { name: "I don’t know", exact: true }).click();
   await expect(hub.getByRole("heading", { name: /Estimated starting point/ })).toBeVisible();
+  await expect(hub.getByTestId("placement-scoring-summary")).toContainText(
+    "0 of 10 submitted answers marked correct",
+  );
   await hub.getByLabel("Choose your test").selectOption("post-core");
   await hub.getByRole("button", { name: "Take post-Core test", exact: true }).click();
   for (let i = 0; i < 60; i++)

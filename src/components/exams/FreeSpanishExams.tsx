@@ -3,7 +3,12 @@ import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { placementBlockScore, placementResult } from "@/lib/module-placement";
-import { moduleExamScore, nextModuleExamBlock, type ModuleExamMode } from "@/lib/module-exam";
+import {
+  moduleExamScore,
+  nextModuleExamBlock,
+  placementAttemptSummary,
+  type ModuleExamMode,
+} from "@/lib/module-exam";
 import type { loadModulePlacement } from "@/lib/module-placement-loader";
 
 type Loaded = Awaited<ReturnType<typeof loadModulePlacement>>;
@@ -93,6 +98,7 @@ export function FreeSpanishExams({
   const done = Boolean(loaded && (finished || !question));
   const result = loaded && done ? placementResult(loaded.blocks, responses) : null;
   const score = loaded && done ? moduleExamScore(loaded.blocks, responses) : null;
+  const summary = loaded && done ? placementAttemptSummary(loaded.blocks, responses) : null;
   const recommendation = result?.start ?? (result?.complete ? loaded?.gap : null);
   useEffect(() => {
     if (loaded) heading.current?.focus();
@@ -185,9 +191,11 @@ export function FreeSpanishExams({
           <h2 className="font-serif text-2xl" tabIndex={-1} ref={heading}>
             {mode === "post-core"
               ? `Your Core score: ${score.percent}%`
-              : recommendation
-                ? `Estimated starting point: ${stageLessonLabel(recommendation.moduleId, recommendation.n)}`
-                : "You passed every available placement block"}
+              : result?.complete && loaded.gap
+                ? "You passed all tested blocks; later lessons were not assessed"
+                : recommendation
+                  ? `Estimated starting point: ${stageLessonLabel(recommendation.moduleId, recommendation.n)}`
+                  : "You passed every available placement block"}
           </h2>
           {mode === "post-core" ? (
             <p>
@@ -199,9 +207,53 @@ export function FreeSpanishExams({
           ) : (
             <p>
               {recommendation?.title ??
-                "Try the Master lessons or choose a more challenging module."}{" "}
+                "You reached the end of this module’s placement material. Choose another module or revisit lessons for practice."}{" "}
               This is a study recommendation based on this attempt.
             </p>
+          )}
+          {mode === "placement" && summary && (
+            <div className="space-y-3" data-testid="placement-scoring-summary">
+              <p>
+                {summary.correct} of {summary.answered} submitted answers marked correct. Untested
+                lessons are not counted as wrong.
+              </p>
+              <p>
+                The test moves on when a five-lesson block reaches 80% overall and 80% on typed
+                answers. Otherwise it recommends the start of that block.
+              </p>
+              <ul className="space-y-2">
+                {summary.blocks.map(
+                  ({ block, correct, total, typedCorrect, typedTotal, passed }) => (
+                    <li key={block.questions[0].id}>
+                      {stageLessonLabel(block.lessons[0].moduleId, block.lessons[0].n)}–
+                      {block.lessons.at(-1)!.n}: {correct}/{total} correct; typed {typedCorrect}/
+                      {typedTotal}. {passed ? "Passed." : "Needs review."}
+                    </li>
+                  ),
+                )}
+              </ul>
+              {summary.missed.length > 0 && (
+                <details>
+                  <summary className="min-h-11 cursor-pointer py-3 font-semibold">
+                    Review answers marked incorrect
+                  </summary>
+                  <ul className="space-y-4">
+                    {summary.missed.map((question) => (
+                      <li key={question.id} className="rounded-xl border border-border p-3">
+                        <p>{question.prompt}</p>
+                        {question.hint && <p>{question.hint}</p>}
+                        <p>Your answer: {responses[question.id] || "I don’t know"}.</p>
+                        <p>Lesson answer: {question.answer}.</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-sm">
+                    Typed answers currently require the lesson’s wording and accents. If your answer
+                    is also valid, the question needs review.
+                  </p>
+                </details>
+              )}
+            </div>
           )}
           {loaded.gap && (
             <p>

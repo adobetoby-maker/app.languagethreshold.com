@@ -4,6 +4,7 @@ The public entry point is `/exams?target=Spanish&native=English`. The welcome sc
 
 ## Behavior
 
+- Placement results show submitted-answer counts, per-block overall and typed scores, and the lesson answer for rejected responses. Coverage limits are labeled as untested material, not failed placement.
 - Placement uses existing authored lesson vocabulary and contextual cloze checks in five-lesson blocks. It estimates the first block to revisit, continuing from Foundation through Core and Master where those stages exist. The estimate is lesson-relative, not a CEFR proficiency rating.
 - Post-Core tests cover all 30 Core lessons with 60 questions, continue after wrong answers, show a score and direct links to lessons to revisit, and allow unlimited fresh attempts.
 - Each attempt draws from the module's own Spanish/English material. Results do not grant lesson-completion credit. Speaking is not assessed.

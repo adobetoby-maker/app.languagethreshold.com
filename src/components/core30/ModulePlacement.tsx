@@ -265,9 +265,11 @@ function PlacementRunner({
           ) : result ? (
             <div className="space-y-4" data-testid="placement-result">
               <h3 className="text-xl font-semibold">
-                {recommendation
-                  ? `Start at ${stageLessonLabel(recommendation.moduleId, recommendation.n)}`
-                  : "You passed every available block"}
+                {result.complete && loaded?.gap
+                  ? "You passed all tested blocks; later lessons were not assessed"
+                  : recommendation
+                    ? `Start at ${stageLessonLabel(recommendation.moduleId, recommendation.n)}`
+                    : "You passed every available block"}
               </h3>
               {recommendation && <p>{recommendation.title}</p>}
               <p>{credit.length} earlier lessons are eligible for optional completion credit.</p>

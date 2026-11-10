@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 
 const sourceBytes = readFileSync(new URL('../src/data/core60/es/foundation-sound-like-a-native.json', import.meta.url));
 const source = JSON.parse(sourceBytes);
+const sourceMaster = JSON.parse(readFileSync(new URL('../src/data/core60/es/master-sound-like-a-native.json', import.meta.url)));
 const foundationDrafts = [
   '../content/french-pronunciation/foundation-1-3-draft.json',
   '../content/french-pronunciation/foundation-4-5-draft.json',
@@ -24,6 +25,7 @@ const coreDrafts = [
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const masterDrafts = [
   '../content/french-pronunciation/master-1-3-draft.json',
+  '../content/french-pronunciation/master-4-6-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
@@ -44,7 +46,7 @@ for (const draft of [...foundationDrafts, ...coreDrafts, ...masterDrafts]) {
 }
 assert.deepEqual(foundationDrafts.map(draft => draft.lessons.length), [3, 2, 3, 2]);
 assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3, 3, 4, 2, 3, 3, 2, 3, 3, 4]);
-assert.deepEqual(masterDrafts.map(draft => draft.lessons.length), [3]);
+assert.deepEqual(masterDrafts.map(draft => draft.lessons.length), [3, 3]);
 for (const draft of foundationDrafts) assert.equal(draft.stage, 'foundation');
 for (const draft of coreDrafts) assert.equal(draft.stage, 'core');
 for (const draft of masterDrafts) assert.equal(draft.stage, 'master');
@@ -71,8 +73,8 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
     french.add(word.fr);
   }
   if (stage === 'master') {
-   assert.equal(lesson.lessonType, 'Teach-back');
-   assert.equal(lesson.block, 'A');
+   assert.equal(lesson.lessonType, sourceMaster.lessons[n - 1].lessonType);
+   assert.equal(lesson.block, sourceMaster.lessons[n - 1].block);
    assert(lesson.grammar?.focus);
    assert.equal(lesson.grammar.examples.length, 2);
    for (const example of lesson.grammar.examples) assert(example.fr && example.en && !example.es);
@@ -100,4 +102,4 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
   }
  }
 }
-console.log('French pronunciation F1–10 + C1–30 + M1–3 private draft: 43 source-mapped IDs, 430 cards, 172 Reader lines, 43 speaking scenes, 258 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–10 + C1–30 + M1–6 private draft: 46 source-mapped IDs, 460 cards, 184 Reader lines, 46 speaking scenes, 276 practice prompts; all release gates closed.');

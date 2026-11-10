@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:4:fr-en",
+      "n": 4,
+      "sourceSpanishLesson": 4,
+      "title": "Carry a list to its ending",
+      "objective": "Use French rhythmic groups and a clear final item to distinguish a continuing list from a completed one.",
+      "focus": "In Il nous faut du pain, du lait et des pommes, keep pain and lait connected to the unfinished list, then let des pommes complete it. Leave a pause between groups when useful, without splitting each word into a separate beat.",
+      "words": [
+        { "fr": "pain", "en": "bread", "kind": "term" },
+        { "fr": "lait", "en": "milk", "kind": "term" },
+        { "fr": "pommes", "en": "apples", "kind": "term" },
+        { "fr": "liste", "en": "list", "kind": "term" },
+        { "fr": "courses", "en": "groceries; shopping", "kind": "term" },
+        { "fr": "carnet", "en": "notebook", "kind": "term" },
+        { "fr": "Il nous faut du pain, du lait et des pommes.", "en": "We need bread, milk, and apples.", "kind": "phrase" },
+        { "fr": "J'ai noté le pain et le lait, mais pas les pommes.", "en": "I wrote down the bread and milk, but not the apples.", "kind": "phrase" },
+        { "fr": "La liste continue après le lait.", "en": "The list continues after the milk.", "kind": "phrase" },
+        { "fr": "Les pommes terminent la liste des courses.", "en": "The apples finish the grocery list.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Avant de partir, Inès ouvre son carnet pour préparer les courses.", "en": "Before leaving, Inès opens her notebook to prepare the shopping." },
+        { "fr": "Elle dit à son frère : « Il nous faut du pain, du lait et des pommes. »", "en": "She tells her brother, 'We need bread, milk, and apples.'" },
+        { "fr": "Il entend que la liste continue après le lait et attend le dernier article.", "en": "He hears that the list continues after the milk and waits for the final item." },
+        { "fr": "Quand Inès dit « des pommes », il ferme le carnet et prend son sac.", "en": "When Inès says 'apples,' he closes the notebook and takes his bag." }
+      ],
+      "grammar": {
+        "focus": "Et joins the final item in a completed list; mais pas introduces an omitted item.",
+        "examples": [
+          { "fr": "Il nous faut du pain, du lait et des pommes.", "en": "We need bread, milk, and apples." },
+          { "fr": "J'ai noté le pain et le lait, mais pas les pommes.", "en": "I wrote down the bread and milk, but not the apples." }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speaking": {
+        "scene": "Reading a grocery list to a family member",
+        "roles": ["list reader", "shopper"],
+        "opening": "Bonjour, je lis la liste des courses avant de partir.",
+        "goals": ["Name the three items in one completed list.", "Make the first two items sound like the list continues.", "Confirm the final item before the shopper leaves."],
+        "complication": "The shopper starts to leave after hearing lait; continue the list and make the final item clear.",
+        "closure": "C'est tout : du pain, du lait et des pommes."
+      },
+      "practice": {
+        "see": { "prompt": "Mark where the list continues and where its final item closes the rhythmic group.", "wordRefs": ["Il nous faut du pain, du lait et des pommes.", "La liste continue après le lait."] },
+        "recall": { "prompt": "Recall the complete three-item grocery list.", "answerRef": "Il nous faut du pain, du lait et des pommes." },
+        "hear": { "prompt": "In the recorded list, distinguish the continuing item lait from the final item pommes.", "choices": ["lait", "pommes"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence saying that the apples finish the grocery list.", "answerRef": "Les pommes terminent la liste des courses." },
+        "say": { "prompt": "Read the full list so the shopper hears all three items.", "answerRef": "Il nous faut du pain, du lait et des pommes." },
+        "write": { "prompt": "Write one completed list and one sentence naming an item you did not record.", "requiredRefs": ["pain", "lait", "pommes", "liste"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:5:fr-en",
+      "n": 5,
+      "sourceSpanishLesson": 5,
+      "title": "Make a courteous request",
+      "objective": "Contrast a direct French request with a courteous question in a service exchange.",
+      "focus": "Compare Donnez-moi le formulaire, s'il vous plaît with Pourriez-vous me donner le formulaire, s'il vous plaît ? The conditional pourriez-vous and s'il vous plaît carry the courteous wording; follow one reviewed speaker's phrase rhythm without treating intonation alone as the source of politeness.",
+      "words": [
+        { "fr": "formulaire", "en": "form", "kind": "term" },
+        { "fr": "accueil", "en": "reception desk", "kind": "term" },
+        { "fr": "demande", "en": "request", "kind": "term" },
+        { "fr": "document", "en": "document", "kind": "term" },
+        { "fr": "signature", "en": "signature", "kind": "term" },
+        { "fr": "stylo", "en": "pen", "kind": "term" },
+        { "fr": "Donnez-moi le formulaire, s'il vous plaît.", "en": "Give me the form, please.", "kind": "phrase" },
+        { "fr": "Pourriez-vous me donner le formulaire, s'il vous plaît ?", "en": "Could you give me the form, please?", "kind": "phrase" },
+        { "fr": "Je voudrais signer le document à l'accueil.", "en": "I would like to sign the document at reception.", "kind": "phrase" },
+        { "fr": "Auriez-vous aussi un stylo ?", "en": "Would you also have a pen?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À l'accueil, Noor doit remplir un formulaire et signer un document.", "en": "At reception, Noor needs to fill out a form and sign a document." },
+        { "fr": "Elle demande : « Pourriez-vous me donner le formulaire, s'il vous plaît ? »", "en": "She asks, 'Could you give me the form, please?'" },
+        { "fr": "L'agent lui tend le formulaire, mais Noor n'a pas de stylo.", "en": "The agent hands her the form, but Noor does not have a pen." },
+        { "fr": "Elle ajoute : « Auriez-vous aussi un stylo ? »", "en": "She adds, 'Would you also have a pen?'" }
+      ],
+      "grammar": {
+        "focus": "Pourriez-vous and auriez-vous use the conditional in courteous questions; donnez-moi is an imperative form.",
+        "examples": [
+          { "fr": "Donnez-moi le formulaire, s'il vous plaît.", "en": "Give me the form, please." },
+          { "fr": "Pourriez-vous me donner le formulaire, s'il vous plaît ?", "en": "Could you give me the form, please?" }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "speaking": {
+        "scene": "Requesting a form and pen at reception",
+        "roles": ["visitor", "reception agent"],
+        "opening": "Bonjour, je voudrais signer le document à l'accueil.",
+        "goals": ["Ask for the form with a courteous question.", "Ask for a pen after receiving the form.", "Thank the agent for both items."],
+        "complication": "The agent gives you the form but overlooks the pen; make the second request without repeating the first.",
+        "closure": "Merci pour le formulaire et le stylo."
+      },
+      "practice": {
+        "see": { "prompt": "Compare the imperative request and the conditional question; identify the wording that changes the request.", "wordRefs": ["Donnez-moi le formulaire, s'il vous plaît.", "Pourriez-vous me donner le formulaire, s'il vous plaît ?"] },
+        "recall": { "prompt": "Recall the courteous question requesting the form.", "answerRef": "Pourriez-vous me donner le formulaire, s'il vous plaît ?" },
+        "hear": { "prompt": "In the recorded exchange, identify whether the visitor asks for a formulaire or a stylo.", "choices": ["formulaire", "stylo"], "audioRequired": true },
+        "type": { "prompt": "Type the French question for 'Would you also have a pen?'", "answerRef": "Auriez-vous aussi un stylo ?" },
+        "say": { "prompt": "Ask the agent for the form using pourriez-vous.", "answerRef": "Pourriez-vous me donner le formulaire, s'il vous plaît ?" },
+        "write": { "prompt": "Write a courteous request for the form and a second request for a pen.", "requiredRefs": ["formulaire", "stylo", "demande"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:6:fr-en",
+      "n": 6,
+      "sourceSpanishLesson": 6,
+      "title": "Change delivery, keep the message",
+      "objective": "Deliver one French message neutrally, with surprise, and with reassurance while preserving its words.",
+      "focus": "Keep Le train part à huit heures intelligible in all three deliveries. A surprised response may highlight huit heures; a reassuring repetition can return to an even phrase rhythm. Compare recordings from a reviewed speaker instead of memorizing one fixed emotional contour.",
+      "words": [
+        { "fr": "train", "en": "train", "kind": "term" },
+        { "fr": "heures", "en": "hours; o'clock", "kind": "term" },
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "annonce", "en": "announcement", "kind": "term" },
+        { "fr": "surprise", "en": "surprise", "kind": "term" },
+        { "fr": "calme", "en": "calm", "kind": "term" },
+        { "fr": "Le train part à huit heures.", "en": "The train leaves at eight o'clock.", "kind": "phrase" },
+        { "fr": "À huit heures ? C'est plus tôt que prévu !", "en": "At eight o'clock? That's earlier than planned!", "kind": "phrase" },
+        { "fr": "Oui, le départ est bien à huit heures.", "en": "Yes, the departure really is at eight o'clock.", "kind": "phrase" },
+        { "fr": "Je répète l'annonce d'une voix calme.", "en": "I repeat the announcement in a calm voice.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À la gare, Léo lit l'annonce : le train part à huit heures.", "en": "At the station, Léo reads the announcement: the train leaves at eight o'clock." },
+        { "fr": "Mina répond avec surprise : « À huit heures ? C'est plus tôt que prévu ! »", "en": "Mina responds with surprise: 'At eight o'clock? That's earlier than planned!'" },
+        { "fr": "Léo confirme l'heure et répète l'annonce d'une voix calme.", "en": "Léo confirms the time and repeats the announcement in a calm voice." },
+        { "fr": "Mina comprend que le départ est bien à huit heures et regarde son billet.", "en": "Mina understands that the departure really is at eight o'clock and checks her ticket." }
+      ],
+      "grammar": {
+        "focus": "À huit heures names the time; plus tôt que prévu compares it with the expected departure.",
+        "examples": [
+          { "fr": "Le train part à huit heures.", "en": "The train leaves at eight o'clock." },
+          { "fr": "À huit heures ? C'est plus tôt que prévu !", "en": "At eight o'clock? That's earlier than planned!" }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "speaking": {
+        "scene": "Confirming an unexpectedly early train",
+        "roles": ["traveler", "companion"],
+        "opening": "Le train part à huit heures.",
+        "goals": ["State the departure time neutrally.", "Respond to the earlier time with surprise.", "Repeat the unchanged departure time clearly and calmly."],
+        "complication": "Your companion thinks you said nine; repeat huit heures without changing the departure fact.",
+        "closure": "Oui, le départ est bien à huit heures."
+      },
+      "practice": {
+        "see": { "prompt": "Compare the statement and the surprised response; locate the unchanged departure time.", "wordRefs": ["Le train part à huit heures.", "À huit heures ? C'est plus tôt que prévu !"] },
+        "recall": { "prompt": "Recall the neutral statement giving the train's departure time.", "answerRef": "Le train part à huit heures." },
+        "hear": { "prompt": "Compare the recorded neutral and surprised deliveries; identify the unchanged word for the vehicle.", "choices": ["train", "départ"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence confirming that departure really is at eight.", "answerRef": "Oui, le départ est bien à huit heures." },
+        "say": { "prompt": "Repeat the departure announcement in a calm voice.", "answerRef": "Je répète l'annonce d'une voix calme." },
+        "write": { "prompt": "Write the same departure fact neutrally, then add a surprised response that keeps the time unchanged.", "requiredRefs": ["train", "heures", "surprise", "calme"] }
+      }
+    }
+  ]
+}

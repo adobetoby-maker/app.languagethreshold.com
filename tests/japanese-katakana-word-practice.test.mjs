@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS, KATAKANA_PRACTICE_SENTENCES, practiceSentenceForGroup, sentenceWritingCharacters } from "../src/components/kana/writing/curriculum.ts";
+import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS, HIRAGANA_PRACTICE_SENTENCES, KATAKANA_PRACTICE_SENTENCES, practiceSentenceForGroup, sentenceWritingCharacters } from "../src/components/kana/writing/curriculum.ts";
 import { setFittedWritingFont } from "../src/components/kana/writing/scoring.ts";
 
 const supplemental = new Map([
@@ -72,6 +72,20 @@ test("every katakana group advances to a sentence using one of its practice word
   }
   assert.deepEqual(sentenceWritingCharacters("ノートにかきます。"), ["ノ", "ー", "ト", "に", "か", "き", "ま", "す"]);
   assert.deepEqual(sentenceWritingCharacters("きっぷ。"), ["き", "っ", "ぷ"]);
+});
+
+test("every hiragana group advances to its own sentence using a practiced word", () => {
+  assert.deepEqual(Object.keys(HIRAGANA_PRACTICE_SENTENCES).sort(), HIRAGANA_GROUPS.map(({ id }) => id).sort());
+  assert.equal(new Set(Object.values(HIRAGANA_PRACTICE_SENTENCES).map(({ kana }) => kana)).size, HIRAGANA_GROUPS.length);
+  for (const group of HIRAGANA_GROUPS) {
+    const sentence = HIRAGANA_PRACTICE_SENTENCES[group.id];
+    assert.equal(practiceSentenceForGroup(group, "hiragana"), sentence, group.id);
+    assert.ok(sentence.kana.endsWith("。"), group.id);
+    assert.ok(sentence.romaji && sentence.meaning, group.id);
+    assert.ok(PRACTICE_WORDS[group.id].some(({ kana }) => sentence.kana.includes(kana)), group.id);
+    assert.ok([...sentence.kana].some((char) => group.chars.includes(char)), group.id);
+    assert.ok(sentenceWritingCharacters(sentence.kana).length >= 3, group.id);
+  }
 });
 
 test("handwriting guide and scorer can fit multi-character words inside the square canvas", () => {

@@ -368,19 +368,28 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   ],
 };
 
-// Simple sentences for sentence-level practice
-export const PRACTICE_SENTENCES: PracticeSentence[] = [
-  { kana: "あいうえお", romaji: "a i u e o", meaning: "The five vowels" },
-  { kana: "おはよう", romaji: "ohayou", meaning: "Good morning" },
-  { kana: "ありがとう", romaji: "arigatou", meaning: "Thank you" },
-  { kana: "いいえ", romaji: "iie", meaning: "No / Not at all" },
-  { kana: "すきです", romaji: "suki desu", meaning: "I like it" },
-  {
-    kana: "にほんごをべんきょうする",
-    romaji: "nihongo wo benkyou suru",
-    meaning: "I study Japanese",
-  },
-];
+// Supplemental sentence writing after each hiragana word group. Group IDs and
+// Japanese 101 lesson lines are unchanged; these prompts still need fluent review.
+export const HIRAGANA_PRACTICE_SENTENCES: Record<string, PracticeSentence> = {
+  "h-vowels": { kana: "あおいです。", romaji: "aoi desu", meaning: "It is blue." },
+  "h-k": { kana: "あしたいきます。", romaji: "ashita ikimasu", meaning: "I will go tomorrow." },
+  "h-s": { kana: "さかなをたべます。", romaji: "sakana o tabemasu", meaning: "I eat fish." },
+  "h-t": { kana: "ともだちといきます。", romaji: "tomodachi to ikimasu", meaning: "I go with a friend." },
+  "h-n": { kana: "ねこがいます。", romaji: "neko ga imasu", meaning: "There is a cat." },
+  "h-h": { kana: "ほんはへやにあります。", romaji: "hon wa heya ni arimasu", meaning: "The book is in the room." },
+  "h-m": { kana: "なまえをかきます。", romaji: "namae o kakimasu", meaning: "I write my name." },
+  "h-y": { kana: "ゆっくりはなしてください。", romaji: "yukkuri hanashite kudasai", meaning: "Please speak slowly." },
+  "h-r": { kana: "だれがきますか。", romaji: "dare ga kimasu ka", meaning: "Who is coming?" },
+  "h-w": { kana: "わたしはがくせいです。", romaji: "watashi wa gakusei desu", meaning: "I am a student." },
+  "h-g": { kana: "がくせいです。", romaji: "gakusei desu", meaning: "I am a student." },
+  "h-z": { kana: "みずをください。", romaji: "mizu o kudasai", meaning: "Please give me water." },
+  "h-d": { kana: "ともだちがきます。", romaji: "tomodachi ga kimasu", meaning: "A friend is coming." },
+  "h-b": { kana: "ことばをおぼえます。", romaji: "kotoba o oboemasu", meaning: "I learn vocabulary." },
+  "h-p": { kana: "きっぷをかいます。", romaji: "kippu o kaimasu", meaning: "I buy a ticket." },
+  "h-small-tsu": { kana: "きっぷをください。", romaji: "kippu o kudasai", meaning: "Please give me a ticket." },
+  "h-contracted": { kana: "きょうはしゃしんをとります。", romaji: "kyou wa shashin o torimasu", meaning: "I will take a photo today." },
+  "h-long-vowels": { kana: "きのうえいがをみました。", romaji: "kinou eiga o mimashita", meaning: "I watched a movie yesterday." },
+};
 
 // Supplemental sentence writing after each katakana word group. These are
 // writing-pad prompts, separate from the reviewed Japanese 101 lesson pairs.
@@ -408,7 +417,7 @@ export const KATAKANA_PRACTICE_SENTENCES: Record<string, PracticeSentence> = {
 export function practiceSentenceForGroup(group: CharGroup, script: "hiragana" | "katakana"): PracticeSentence | undefined {
   return script === "katakana"
     ? KATAKANA_PRACTICE_SENTENCES[group.id]
-    : PRACTICE_SENTENCES.find((sentence) => [...sentence.kana].some((char) => group.chars.includes(char)));
+    : HIRAGANA_PRACTICE_SENTENCES[group.id];
 }
 
 /** The handwriting canvas scores one sign at a time; punctuation is context only. */

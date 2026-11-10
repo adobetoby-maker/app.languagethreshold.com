@@ -4,11 +4,14 @@ import { createHash } from 'node:crypto';
 
 const sourceBytes = readFileSync(new URL('../src/data/core60/es/foundation-sound-like-a-native.json', import.meta.url));
 const source = JSON.parse(sourceBytes);
-const drafts = [
+const foundationDrafts = [
   '../content/french-pronunciation/foundation-1-3-draft.json',
   '../content/french-pronunciation/foundation-4-5-draft.json',
   '../content/french-pronunciation/foundation-6-8-draft.json',
   '../content/french-pronunciation/foundation-9-10-draft.json',
+].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
+const coreDrafts = [
+  '../content/french-pronunciation/core-1-3-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
@@ -21,24 +24,26 @@ for (const [path, expected] of [
   const bytes = readFileSync(new URL(path, import.meta.url));
   assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, `source changed: ${path}`);
 }
-for (const draft of drafts) {
+for (const draft of [...foundationDrafts, ...coreDrafts]) {
   assert.equal(draft.targetLanguage, 'French');
   assert.equal(draft.nativeLanguage, 'English');
   assert.equal(draft.status, 'partial-authored-draft');
   for (const gate of ['reviewed', 'runtimeRegistered', 'audioPublished']) assert.equal(draft[gate], false);
 }
-assert.equal(drafts[0].lessons.length, 3);
-assert.equal(drafts[1].lessons.length, 2);
-assert.equal(drafts[2].lessons.length, 3);
-assert.equal(drafts[3].lessons.length, 2);
-const lessons = drafts.flatMap(draft => draft.lessons);
+assert.deepEqual(foundationDrafts.map(draft => draft.lessons.length), [3, 2, 3, 2]);
+assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3]);
+for (const draft of foundationDrafts) assert.equal(draft.stage, 'foundation');
+for (const draft of coreDrafts) assert.equal(draft.stage, 'core');
 
 const ids = new Set();
-for (const [index, lesson] of lessons.entries()) {
+for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['core', coreDrafts, 30]]) {
+ const lessons = drafts.flatMap(draft => draft.lessons);
+ for (const [index, lesson] of lessons.entries()) {
   const n = index + 1;
+  assert(n <= total);
   assert.equal(lesson.n, n);
   assert.equal(lesson.sourceSpanishLesson, n);
-  assert.equal(lesson.id, `foundation-french-sound-like-a-native:${n}:fr-en`);
+  assert.equal(lesson.id, `${stage}-french-sound-like-a-native:${n}:fr-en`);
   assert(!ids.has(lesson.id));
   ids.add(lesson.id);
   assert(lesson.title && lesson.objective && lesson.focus);
@@ -71,5 +76,6 @@ for (const [index, lesson] of lessons.entries()) {
     const ref = lesson.practice[mode].answerRef;
     assert(french.has(ref), `${lesson.id} ${mode} unknown answer reference: ${ref}`);
   }
+ }
 }
-console.log('French pronunciation F1–10 private draft: 10 source-mapped IDs, 100 cards, 40 Reader lines, 10 speaking scenes, 60 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–10 + C1–3 private draft: 13 source-mapped IDs, 130 cards, 52 Reader lines, 13 speaking scenes, 78 practice prompts; all release gates closed.');

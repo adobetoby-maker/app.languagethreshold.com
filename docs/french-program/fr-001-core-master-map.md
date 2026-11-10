@@ -1,12 +1,12 @@
 # FR-001 Core and Master purpose map · planning evidence
 
-Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. These are **planned mappings**, not authored, reviewed, or registered lessons.
+Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core 1–3 have [private authored drafts](../../content/french-pronunciation/core-1-3-draft.json); the other 47 rows remain **planned mappings**, not authored, reviewed, or registered lessons.
 
 | Core | Spanish lesson purpose | French target to author |
 | --- | --- | --- |
-| 1 | b/v relationship | Hear and produce distinct French /b/ and /v/ in contextual pairs |
-| 2 | t/d placement and voicing | French /t/ versus /d/ in requests and names |
-| 3 | d in connected speech | Maintain /d/ in French phrase linking without adding an extra vowel |
+| 1 | b/v relationship | Hear and produce distinct French /b/ and /v/ in contextual pairs (authored draft) |
+| 2 | t/d placement and voicing | French /t/ versus /d/ in requests and names (authored draft) |
+| 3 | d in connected speech | Maintain /d/ in French phrase linking without adding an extra vowel (authored draft) |
 | 4 | g in connected speech | Hard /g/ in French words and consonant-vowel transitions |
 | 5 | a short r gesture | French /ʁ/ onset and word-medial realization from one reference speaker |
 | 6 | word-initial r | French /ʁ/ at word start and in short clusters |
@@ -58,4 +58,4 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 19 | conversation complication | Preserve clarity when a French scene changes unexpectedly |
 | 20 | final transfer portfolio | Compare baseline and final French speech with a stable rubric |
 
-French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the 50 lessons, their audio, or their native/web runtime exist.
+French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining 47 lessons, their audio, or their native/web runtime exist.

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS } from "../src/components/kana/writing/curriculum.ts";
+import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS, KATAKANA_PRACTICE_SENTENCES, practiceSentenceForGroup } from "../src/components/kana/writing/curriculum.ts";
 import { setFittedWritingFont } from "../src/components/kana/writing/scoring.ts";
 
 const supplemental = new Map([
@@ -56,6 +56,18 @@ test("all hiragana rows advance from characters to exact Japanese 101 card pairs
       assert.ok(word.romaji && word.meaning);
       assert.equal(sourcePairs.get(word.kana), word.meaning, `${group.id}: ${word.kana}`);
     }
+  }
+});
+
+test("every katakana group advances to a sentence using one of its practice words", () => {
+  assert.deepEqual(Object.keys(KATAKANA_PRACTICE_SENTENCES).sort(), KATAKANA_GROUPS.map(({ id }) => id).sort());
+  for (const group of KATAKANA_GROUPS) {
+    const sentence = KATAKANA_PRACTICE_SENTENCES[group.id];
+    assert.equal(practiceSentenceForGroup(group, "katakana"), sentence, group.id);
+    assert.ok(sentence.kana.endsWith("。"), group.id);
+    assert.ok(sentence.romaji && sentence.meaning, group.id);
+    assert.ok(PRACTICE_WORDS[group.id].some(({ kana }) => sentence.kana.includes(kana)), group.id);
+    assert.ok([...sentence.kana].some((char) => group.chars.includes(char)), group.id);
   }
 });
 

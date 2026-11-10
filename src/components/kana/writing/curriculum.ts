@@ -382,6 +382,35 @@ export const PRACTICE_SENTENCES: PracticeSentence[] = [
   },
 ];
 
+// Supplemental sentence writing after each katakana word group. These are
+// writing-pad prompts, separate from the reviewed Japanese 101 lesson pairs.
+export const KATAKANA_PRACTICE_SENTENCES: Record<string, PracticeSentence> = {
+  "k-vowels": { kana: "アメリカにいます。", romaji: "amerika ni imasu", meaning: "I am in the United States." },
+  "k-k": { kana: "クラスにいきます。", romaji: "kurasu ni ikimasu", meaning: "I go to class." },
+  "k-s": { kana: "スタッフがきました。", romaji: "sutaffu ga kimashita", meaning: "The staff arrived." },
+  "k-t": { kana: "ノートをください。", romaji: "nooto o kudasai", meaning: "Please give me a notebook." },
+  "k-n": { kana: "ニュースをみます。", romaji: "nyuusu o mimasu", meaning: "I watch the news." },
+  "k-h": { kana: "ホテルはどこですか。", romaji: "hoteru wa doko desu ka", meaning: "Where is the hotel?" },
+  "k-m": { kana: "メニューをください。", romaji: "menyuu o kudasai", meaning: "Please give me a menu." },
+  "k-y": { kana: "ヨガをします。", romaji: "yoga o shimasu", meaning: "I do yoga." },
+  "k-r": { kana: "グループでべんきょうします。", romaji: "guruupu de benkyou shimasu", meaning: "I study in a group." },
+  "k-w": { kana: "ペンをかします。", romaji: "pen o kashimasu", meaning: "I lend a pen." },
+  "k-g": { kana: "けしゴムをください。", romaji: "keshigomu o kudasai", meaning: "Please give me an eraser." },
+  "k-z": { kana: "メッセージをおくります。", romaji: "messeeji o okurimasu", meaning: "I send a message." },
+  "k-d": { kana: "ドアをあけます。", romaji: "doa o akemasu", meaning: "I open the door." },
+  "k-b": { kana: "バスでいきます。", romaji: "basu de ikimasu", meaning: "I go by bus." },
+  "k-p": { kana: "ペンでかきます。", romaji: "pen de kakimasu", meaning: "I write with a pen." },
+  "k-small-tsu": { kana: "チケットをください。", romaji: "chiketto o kudasai", meaning: "Please give me a ticket." },
+  "k-contracted": { kana: "シャツをきます。", romaji: "shatsu o kimasu", meaning: "I put on a shirt." },
+  "k-long-vowel": { kana: "ノートにかきます。", romaji: "nooto ni kakimasu", meaning: "I write in the notebook." },
+};
+
+export function practiceSentenceForGroup(group: CharGroup, script: "hiragana" | "katakana"): PracticeSentence | undefined {
+  return script === "katakana"
+    ? KATAKANA_PRACTICE_SENTENCES[group.id]
+    : PRACTICE_SENTENCES.find((sentence) => [...sentence.kana].some((char) => group.chars.includes(char)));
+}
+
 export const PEN_PAL_PROMPTS = [
   {
     id: "intro",

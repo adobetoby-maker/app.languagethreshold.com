@@ -3,7 +3,7 @@ import { Pencil, Eye, Mail } from "lucide-react";
 import { TraceMode } from "./TraceMode";
 import { MissingHalfMode } from "./MissingHalfMode";
 import { PenPalMode } from "./PenPalMode";
-import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS, PRACTICE_SENTENCES } from "./curriculum";
+import { HIRAGANA_GROUPS, KATAKANA_GROUPS, PRACTICE_WORDS, practiceSentenceForGroup } from "./curriculum";
 
 type Mode = "trace" | "complete" | "penpal";
 type Script = "hiragana" | "katakana";
@@ -37,9 +37,7 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
   const groups = script === "hiragana" ? HIRAGANA_GROUPS : KATAKANA_GROUPS;
   const group = groups[groupIndex];
   const words = PRACTICE_WORDS[group.id] ?? [];
-  const sentence = PRACTICE_SENTENCES.find((s) =>
-    s.kana.split("").some((c) => group.chars.includes(c)),
-  );
+  const sentence = practiceSentenceForGroup(group, script);
 
   return (
     <div className="flex flex-col gap-6">

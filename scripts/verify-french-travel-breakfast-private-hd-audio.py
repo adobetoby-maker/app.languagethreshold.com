@@ -70,14 +70,42 @@ def verify(allow_partial=False):
     expected = len(rows) * len(VOICES)
     if not allow_partial and checked != expected:
         raise ValueError(f'Incomplete private audio: {checked}/{expected}')
+    lesson_texts = {key: set() for keys in inventory['stageLessons'].values() for key in keys}
+    if {stage: len(keys) for stage, keys in inventory['stageLessons'].items()} != {
+            'foundation': 10, 'core': 30, 'master': 20}:
+        raise ValueError('Lesson stage coverage changed')
+    for key, row in rows.items():
+        for occurrence in row['occurrences']:
+            lesson = occurrence['draftLessonKey']
+            if lesson not in lesson_texts:
+                raise ValueError(f'Out-of-scope lesson occurrence: {lesson}')
+            lesson_texts[lesson].add(key)
+    lesson_coverage = []
+    for stage, keys in inventory['stageLessons'].items():
+        for lesson in keys:
+            expected_clips = 2 * len(lesson_texts[lesson])
+            recorded_clips = sum(len(manifest['clips'].get(key, {}).get('voices', {}))
+                                 for key in lesson_texts[lesson])
+            lesson_coverage.append({'stage': stage, 'draftLessonKey': lesson,
+                                    'exactTexts': len(lesson_texts[lesson]),
+                                    'verifiedClips': recorded_clips, 'expectedClips': expected_clips,
+                                    'complete': recorded_clips == expected_clips})
+    if len(lesson_coverage) != 60 or any(row['exactTexts'] == 0 for row in lesson_coverage):
+        raise ValueError('Incomplete lesson source coverage')
     return {'sourceTexts': len(rows), 'verifiedClips': checked, 'expectedClips': expected,
             'verifiedBytes': total_bytes, 'exactTextSha256': inventory['exactTextSha256'],
             'sourceInventorySha256': source_sha, 'listeningReviewed': False,
-            'registered': False}
+            'registered': False, 'completeLessons': sum(row['complete'] for row in lesson_coverage),
+            'lessonCoverage': lesson_coverage}
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--allow-partial', action='store_true')
+    parser.add_argument('--coverage-report', type=Path)
     args = parser.parse_args()
-    print(json.dumps(verify(args.allow_partial), ensure_ascii=False))
+    report = verify(args.allow_partial)
+    if args.coverage_report:
+        args.coverage_report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    print(json.dumps({key: value for key, value in report.items() if key != 'lessonCoverage'},
+                     ensure_ascii=False))

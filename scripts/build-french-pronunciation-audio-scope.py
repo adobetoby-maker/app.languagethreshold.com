@@ -24,6 +24,7 @@ SCOPES = {
     "core-11-12": (("core-11-12-draft.json",), BASE / "private-audio-scope-core-11-12-fr-en.json", {"core": list(range(11, 13))}),
     "core-13-15": (("core-13-15-draft.json",), BASE / "private-audio-scope-core-13-15-fr-en.json", {"core": list(range(13, 16))}),
     "core-16-18": (("core-16-18-draft.json",), BASE / "private-audio-scope-core-16-18-fr-en.json", {"core": list(range(16, 19))}),
+    "core-19-30": (("core-19-20-draft.json", "core-21-23-draft.json", "core-24-26-draft.json", "core-27-30-draft.json"), BASE / "private-audio-scope-core-19-30-fr-en.json", {"core": list(range(19, 31))}),
 }
 
 

@@ -1,6 +1,6 @@
 # FR-001 Core and Master purpose map · planning evidence
 
-Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core [1–3](../../content/french-pronunciation/core-1-3-draft.json), [4–6](../../content/french-pronunciation/core-4-6-draft.json), [7–10](../../content/french-pronunciation/core-7-10-draft.json), [11–12](../../content/french-pronunciation/core-11-12-draft.json), [13–15](../../content/french-pronunciation/core-13-15-draft.json), [16–18](../../content/french-pronunciation/core-16-18-draft.json), [19–20](../../content/french-pronunciation/core-19-20-draft.json), and [21–23](../../content/french-pronunciation/core-21-23-draft.json) have private authored drafts; the other 27 rows remain **planned mappings**, not authored, reviewed, or registered lessons.
+Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core [1–3](../../content/french-pronunciation/core-1-3-draft.json), [4–6](../../content/french-pronunciation/core-4-6-draft.json), [7–10](../../content/french-pronunciation/core-7-10-draft.json), [11–12](../../content/french-pronunciation/core-11-12-draft.json), [13–15](../../content/french-pronunciation/core-13-15-draft.json), [16–18](../../content/french-pronunciation/core-16-18-draft.json), [19–20](../../content/french-pronunciation/core-19-20-draft.json), [21–23](../../content/french-pronunciation/core-21-23-draft.json), and [24–26](../../content/french-pronunciation/core-24-26-draft.json) have private authored drafts; the other 24 rows remain **planned mappings**, not authored, reviewed, or registered lessons.
 
 | Core | Spanish lesson purpose | French target to author |
 | --- | --- | --- |
@@ -27,9 +27,9 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 21 | finding syllables | Spoken French syllables, elision, and resyllabification (authored draft) |
 | 22 | default stress | French phrase-final accent rather than Spanish word-stress rules (authored draft) |
 | 23 | written accents | French accent marks and vowel quality, including /e–ɛ/ (authored draft) |
-| 24 | stress can change meaning | French /e–ɛ/ or /ø–œ/ vowel contrasts that distinguish forms |
-| 25 | vowels in one syllable | French glides /j ɥ w/ in natural words |
-| 26 | vowels across syllables | French hiatus in selected words and phrase boundaries |
+| 24 | stress can change meaning | French /e–ɛ/ contrasts that distinguish words and verb forms (authored draft) |
+| 25 | vowels in one syllable | French glides /j ɥ w/ in natural words (authored draft) |
+| 26 | vowels across syllables | French adjacent vowels in separate syllables (authored draft) |
 | 27 | vowel-to-vowel linking | French enchaînement across word boundaries |
 | 28 | consonant-to-vowel linking | Required liaison versus no liaison in reviewed contexts |
 | 29 | meaning groups | French rhythmic groups and phrase-boundary pauses |
@@ -58,4 +58,4 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 19 | conversation complication | Preserve clarity when a French scene changes unexpectedly |
 | 20 | final transfer portfolio | Compare baseline and final French speech with a stable rubric |
 
-French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining 27 lessons, their audio, or their native/web runtime exist.
+French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining 24 lessons, their audio, or their native/web runtime exist.

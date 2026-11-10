@@ -1,0 +1,7 @@
+# Japanese→English Lunch & Casual Dining, private Foundation 1–3 draft
+
+This is an unregistered, unreviewed partial course draft. It maps the first three source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:3:ja-en`. The source file and each objective are pinned by SHA-256 in `foundation-1-3-draft.json`.
+
+The three lessons teach daytime greetings and lunch words, yen/prices with Japanese counters, then food qualities and seat availability without imposing the Spanish `ser`/`estar` distinction. They have 41 contextual cards, 28 bilingual Reader turns, three speaking scenes, and 18 distinct See/Recall/Hear/Type/Say/Write prompts. `private-mode-activities-foundation-1-3.json` cites the exact card for each prompt. Run `python3 content/japanese-travel-lunch/verify-private-f1-3.py` to check source identity, stage IDs, model/card links, all six modes per lesson, and closed release flags.
+
+Remaining work includes Foundation 4–10, Core 1–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

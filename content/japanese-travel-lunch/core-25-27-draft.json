@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      25,
+      26,
+      27
+    ]
+  },
+  "lessons": [
+    {
+      "n": 25,
+      "sourceEnglishTitle": "Recover a forgotten bag",
+      "sourceEnglishSkills": "call the restaurant, describe the bag and table, and arrange to collect it",
+      "sourceEnglishScenario": "You left your shopping bag under the table; call the restaurant, describe it, and arrange to pick it up.",
+      "title": "忘れた買い物袋を取りに行く",
+      "objective": "Call the restaurant, describe a forgotten blue cloth bag and window-side table, confirm it is held, and arrange pickup with ID and receipt.",
+      "focus": "忘れ物 means a forgotten item. 窓際の席 describes the table by the window. 青い布製の袋で、持ち手は白いです identifies the bag. 身分証明書 means ID; 預かっていただけますか asks staff to keep an item.",
+      "scene": "Daniel phones the restaurant after leaving his shopping bag under a table at lunch.",
+      "cards": [
+        {
+          "ja": "買い物袋",
+          "en": "shopping bag",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "窓際",
+          "en": "by the window",
+          "kind": "term"
+        },
+        {
+          "ja": "布製",
+          "en": "made of cloth",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち手",
+          "en": "handles",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "店長",
+          "en": "manager",
+          "kind": "term"
+        },
+        {
+          "ja": "忘れ物",
+          "en": "lost item",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "身分証明書",
+          "en": "ID",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "パスポート",
+          "en": "passport",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブルの下に袋を忘れました。",
+          "en": "I left a bag under the table.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "窓際のテーブルに座っていました。",
+          "en": "I was sitting at the table by the window.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "青い布製の袋で、持ち手は白いです。",
+          "en": "It is a blue cloth bag with white handles.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何時ごろ取りに行けますか。",
+          "en": "About what time can I come pick it up?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "七時まで預かっていただけますか。",
+          "en": "Could you keep it for me until seven?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "身分証明書を持って行く必要がありますか。",
+          "en": "Do I need to bring ID?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "ダニエルは昼食のあと、買い物袋をテーブルの下に忘れたことに気付きます。",
+          "en": "After lunch, Daniel realizes he left his shopping bag under the table."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "もしもし。今日そちらで昼食を食べて、テーブルの下に袋を忘れました。",
+          "en": "Hello. I ate lunch there today and left a bag under the table."
+        },
+        {
+          "speaker": "Manager",
+          "ja": "どんな袋ですか。どちらの席に座っていましたか。",
+          "en": "What does the bag look like, and where were you sitting?"
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "青い布製の袋で、持ち手は白いです。窓際のテーブルに座っていました。",
+          "en": "It is a blue cloth bag with white handles. I was sitting at the table by the window."
+        },
+        {
+          "speaker": "Manager",
+          "ja": "店員に確認します。少々お待ちください。",
+          "en": "I will check with the server. Please wait a moment."
+        },
+        {
+          "speaker": "Manager",
+          "ja": "ありました。忘れ物としてお預かりしています。",
+          "en": "We found it. We are keeping it with the lost items."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "何時ごろ取りに行けますか。七時まで預かっていただけますか。",
+          "en": "About what time can I pick it up? Could you keep it until seven?"
+        },
+        {
+          "speaker": "Manager",
+          "ja": "九時までにレジへお越しください。身分証明書をお持ちください。",
+          "en": "Please come to the register before nine and bring ID."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "分かりました。七時にパスポートと昼食の領収書を持って行きます。",
+          "en": "Understood. I will come at seven with my passport and lunch receipt."
+        }
+      ],
+      "speaking": {
+        "role": "Caller recovering a forgotten shopping bag",
+        "partnerRole": "Restaurant manager",
+        "opening": "お電話ありがとうございます。どうなさいましたか。",
+        "goal": "Describe the blue cloth bag with white handles, identify the window-side table, confirm the bag was found, and arrange pickup with ID.",
+        "closure": "七時にパスポートと領収書を持って行きます。"
+      },
+      "stableId": "travel-lunch:25:ja-en"
+    },
+    {
+      "n": 26,
+      "sourceEnglishTitle": "Host a business lunch",
+      "sourceEnglishSkills": "guide ordering for a guest, keep a professional conversation going, and settle the bill discreetly",
+      "sourceEnglishScenario": "Take a local supplier to lunch, help them order, keep the conversation going, and pay without fuss.",
+      "title": "取引先との昼食を進める",
+      "objective": "Invite a supplier to a business lunch, help them ask about a dish, maintain professional conversation, and quietly settle the bill by card.",
+      "focus": "仕入れ先 means supplier and 取引先 is a business contact. ご注文はお好きなものをどうぞ is a polite invitation to order. お会計は私がいたします says the host will pay. お先にお会計をお願いします lets the host settle discreetly.",
+      "scene": "A host takes a local supplier to lunch at a small restaurant and pays before returning to the table.",
+      "cards": [
+        {
+          "ja": "仕入れ先",
+          "en": "supplier",
+          "kind": "term"
+        },
+        {
+          "ja": "ランチメニュー",
+          "en": "lunch menu",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり料理",
+          "en": "daily special",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "主菜",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "小さな家族経営の店",
+          "en": "small family-run restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "ご注文はお好きなものをどうぞ。私がお支払いします。",
+          "en": "Order whatever you like; it is my treat.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "日替わり料理を試してみませんか。",
+          "en": "Would you like to try the daily special?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理にはどんな原材料が使われていますか。",
+          "en": "What ingredients are used in this dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今年のお仕事はいかがですか。",
+          "en": "How is business going this year?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計は私がいたします。",
+          "en": "I will take care of the bill.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お先にカードでお会計をお願いします。",
+          "en": "I would like to pay by card now, before returning to the table.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "私は仕入れ先のルイスさんを市場の近くの小さな店に招きます。",
+          "en": "I invite my supplier Ms. Ruiz to a small restaurant near the market."
+        },
+        {
+          "speaker": "Host",
+          "ja": "ご注文はお好きなものをどうぞ。私がお支払いします。",
+          "en": "Order whatever you like; it is my treat."
+        },
+        {
+          "speaker": "Ruiz",
+          "ja": "この料理にはどんな原材料が使われていますか。",
+          "en": "What ingredients are used in this dish?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "店員に聞いてみます。",
+          "en": "I will ask the server."
+        },
+        {
+          "speaker": "Server",
+          "ja": "店のレシピでは、ごまとしょうゆを使っています。",
+          "en": "Our house recipe uses sesame and soy sauce."
+        },
+        {
+          "speaker": "Host",
+          "ja": "日替わり料理を試してみませんか。今日の主菜だそうです。",
+          "en": "Would you like to try the daily special? It is today’s main course."
+        },
+        {
+          "speaker": "Ruiz",
+          "ja": "はい、それをお願いします。",
+          "en": "Yes, I will have that."
+        },
+        {
+          "speaker": "Host",
+          "ja": "今年のお仕事はいかがですか。",
+          "en": "How is business going this year?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "デザートの前に、私は静かに席を立ってレジへ行きます。",
+          "en": "Before dessert, I quietly leave the table and go to the register."
+        },
+        {
+          "speaker": "Host",
+          "ja": "お会計は私がいたします。お先にカードでお会計をお願いします。",
+          "en": "I will take care of the bill. I would like to pay by card now."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "支払いを済ませて、ルイスさんの席に戻ります。",
+          "en": "After paying, I return to Ms. Ruiz at the table."
+        }
+      ],
+      "speaking": {
+        "role": "Host taking a supplier to a business lunch",
+        "partnerRole": "Supplier and restaurant server",
+        "opening": "今日はお招きいただき、ありがとうございます。",
+        "goal": "Invite the guest to order, ask the server about dish ingredients, suggest the daily special, maintain a professional conversation, and discreetly pay the bill.",
+        "closure": "お会計は私がいたします。"
+      },
+      "stableId": "travel-lunch:26:ja-en"
+    },
+    {
+      "n": 27,
+      "sourceEnglishTitle": "Order lunch by phone for pickup",
+      "sourceEnglishSkills": "order clearly, spell a name, and confirm pickup time and total",
+      "sourceEnglishScenario": "Phone a takeaway shop, order lunch for four, spell your name, and confirm the pickup time and total.",
+      "title": "電話で持ち帰りの昼食を注文する",
+      "objective": "Place a takeout lunch order for four by phone, spell a surname, confirm the pickup time and total, and ask about card payment.",
+      "focus": "持ち帰りの注文 means takeout order. 四人分 means for four people. つづりは states a name’s spelling; 合計をもう一度お願いします asks to repeat the total. 受け取り is pickup.",
+      "scene": "Ana phones a café near her hotel to order lunch for four people to pick up later.",
+      "cards": [
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "to go",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily special",
+          "kind": "term"
+        },
+        {
+          "ja": "チキンサンド",
+          "en": "chicken sandwich",
+          "kind": "term"
+        },
+        {
+          "ja": "ライムジュース",
+          "en": "lime drink",
+          "kind": "term"
+        },
+        {
+          "ja": "名前",
+          "en": "name",
+          "kind": "term"
+        },
+        {
+          "ja": "名字",
+          "en": "last name",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りの注文をお願いします。",
+          "en": "I would like to place a takeout order.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "四人分です。",
+          "en": "It is for four people.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "名字はコワルスキーです。つづりは K、O、W、A、L、S、K、I です。",
+          "en": "The last name is Kowalski, spelled K, O, W, A, L, S, K, I.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何時に受け取りに行けますか。",
+          "en": "What time can I come pick it up?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "合計をもう一度お願いします。",
+          "en": "Could you repeat the total, please?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "受け取りのときにカードで払えますか。",
+          "en": "Can I pay by card when I pick it up?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "玉ねぎ抜きでお願いします。",
+          "en": "Without onion, please.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アナはホテルの近くのカフェに電話をかけます。",
+          "en": "Ana calls a café near the hotel."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "こんにちは。持ち帰りの注文をお願いします。四人分です。",
+          "en": "Hello. I would like to place a takeout order for four people."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "日替わり定食を二つ、チキンサンドを二つお願いします。",
+          "en": "Two daily specials and two chicken sandwiches, please."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "サンドは玉ねぎ抜きでお願いします。ライムジュースを四つください。",
+          "en": "The sandwiches without onion, please. Four lime drinks too."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "お名前をお願いします。",
+          "en": "May I have your name?"
+        },
+        {
+          "speaker": "Ana",
+          "ja": "アナ・コワルスキーです。名字のつづりは K、O、W、A、L、S、K、I です。",
+          "en": "I am Ana Kowalski. The last name is spelled K, O, W, A, L, S, K, I."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "何時に受け取りに行けますか。",
+          "en": "What time can I come pick it up?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "厨房が混んでいるので、一時半にご用意できます。合計は六千四百円です。",
+          "en": "The kitchen is busy, so it will be ready at one thirty. The total is six thousand four hundred yen."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "合計をもう一度お願いします。受け取りのときにカードで払えますか。",
+          "en": "Could you repeat the total? Can I pay by card when I pick it up?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "六千四百円です。現金でもカードでもお支払いいただけます。",
+          "en": "Six thousand four hundred yen. You can pay by cash or card."
+        }
+      ],
+      "speaking": {
+        "role": "Caller ordering takeout lunch for four",
+        "partnerRole": "Takeout café clerk",
+        "opening": "お電話ありがとうございます。ご注文をどうぞ。",
+        "goal": "Order two daily specials, two chicken sandwiches without onion, and four lime drinks; spell the surname Kowalski; confirm pickup at 1:30, total, and card payment.",
+        "closure": "一時半に受け取りに行きます。"
+      },
+      "stableId": "travel-lunch:27:ja-en"
+    }
+  ]
+}

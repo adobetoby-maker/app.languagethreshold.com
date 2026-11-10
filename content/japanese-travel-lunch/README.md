@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–24 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–27 draft
 
 This is an unregistered, unreviewed course draft. Its Foundation stage maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -20,4 +20,6 @@ Core 19–21 directly teaches a severe shellfish allergy including crustaceans, 
 
 Core 22–24 asks about a restaurant’s lunch hours, break, and after-meal coffee; orders a four-person deli picnic by weight; and directly reports a peanut-allergy reaction, a 119 ambulance request, what was eaten, and medicine already used. It adds 55 cards, 33 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-22-24.py` for that batch. The combined draft has 34 lessons, 534 cards, 342 main Reader turns, and 204 mode activities. The opening-hours, park-sign, vendor-ingredient, and paramedic responses are fictional scene content; qualified Japanese and domain review remain open.
 
-Remaining work includes Core 25–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 25–27 recovers a forgotten shopping bag by phone, hosts a professional lunch, and places a four-person takeout order while spelling a surname and confirming the total. It adds 52 cards, 30 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-25-27.py` for that batch. The combined draft has 37 lessons, 586 cards, 372 main Reader turns, and 222 mode activities. The business-lunch scene adapts the source’s tip and regional dish to Japanese restaurant context; a qualified Japanese reviewer must assess the register and ingredient details.
+
+Remaining work includes Core 28–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

@@ -59,8 +59,8 @@ def signal(path):
 
 
 def screen(job):
-    key, text, gender, clip = job
-    path = OUTPUT / clip['name']
+    output, key, text, gender, clip = job
+    path = output / clip['name']
     raw = path.read_bytes()
     if len(raw) != clip['bytes'] or sha(raw) != clip['sha256']:
         raise ValueError(f'MP3 byte/hash mismatch before signal screen: {path.name}')
@@ -78,11 +78,11 @@ def screen(job):
             'filename': clip['name'], 'issues': issues, 'signal': result}
 
 
-def audit(workers):
-    coverage = VERIFY(False)
+def audit(workers, output=OUTPUT):
+    coverage = VERIFY(False, output)
     if coverage['verifiedClips'] != 2762 or coverage['sourceTexts'] != 1381:
         raise ValueError('Full-course source or audio coverage changed')
-    manifest_bytes = (OUTPUT / 'manifest.json').read_bytes()
+    manifest_bytes = (output / 'manifest.json').read_bytes()
     manifest = json.loads(manifest_bytes)
     if (manifest['textReviewed'], manifest['listeningReviewed'], manifest['registered']) != (False, False, False):
         raise ValueError('Private audio review gate changed')
@@ -92,7 +92,7 @@ def audit(workers):
             clip = row['voices'][gender]
             if clip['listeningReviewed'] is not False:
                 raise ValueError('Individual clip review gate changed')
-            jobs.append((key, row['text'], gender, clip))
+            jobs.append((output, key, row['text'], gender, clip))
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(screen, jobs))
     flags = [row for row in results if row['issues']]
@@ -124,12 +124,15 @@ def review_sheet(report):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--workers', type=int, default=4)
-    parser.add_argument('--report', type=Path, default=OUTPUT / 'signal-screen-2026-11-09.json')
-    parser.add_argument('--review-sheet', type=Path, default=OUTPUT / 'signal-review-2026-11-09.html')
+    parser.add_argument('--audio-root', type=Path, default=OUTPUT)
+    parser.add_argument('--report', type=Path)
+    parser.add_argument('--review-sheet', type=Path)
     args = parser.parse_args()
     if not 1 <= args.workers <= 8:
         raise SystemExit('--workers must be 1–8')
-    report = audit(args.workers)
-    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
-    args.review_sheet.write_text(review_sheet(report))
+    report = audit(args.workers, args.audio_root)
+    report_path = args.report or args.audio_root / 'signal-screen-2026-11-09.json'
+    review_path = args.review_sheet or args.audio_root / 'signal-review-2026-11-09.html'
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    review_path.write_text(review_sheet(report))
     print(json.dumps({key: report[key] for key in ('filesDecoded', 'flaggedFiles')}, ensure_ascii=False))

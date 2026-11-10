@@ -113,6 +113,10 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
                 ? script === "hiragana"
                   ? "Small っ marks a brief pause before the next consonant, as in きっぷ (kippu). It is smaller than つ (tsu)."
                   : "Small ッ marks a brief pause before the next consonant, as in チケット (chiketto). It is smaller than ツ (tsu)."
+                : group.id === "h-long-vowels"
+                  ? "In words such as きのう (yesterday) and せんせい (teacher), う or い helps spell a long vowel. Write the whole word and listen for the held sound."
+                : group.id === "k-long-vowel"
+                  ? "The mark ー holds the vowel before it, as in ノート (notebook). Keep it horizontal when writing katakana."
                 : group.id.endsWith("-contracted")
                   ? script === "hiragana"
                     ? "Small ゃ/ゅ/ょ joins the preceding sound. For example, しゃ is sha, not shi-ya."

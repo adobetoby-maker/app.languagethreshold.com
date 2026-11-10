@@ -33,7 +33,7 @@ for (const moduleId of ["foundation-japanese-basics", "japanese-basics", "master
 }
 
 test("each basic, voiced, and small-sign katakana row progresses to contextual word writing", () => {
-  assert.equal(KATAKANA_GROUPS.length, 17);
+  assert.equal(KATAKANA_GROUPS.length, 18);
   for (const group of KATAKANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
     assert.ok(words?.length >= 2, `${group.id} should have at least two words`);
@@ -47,7 +47,7 @@ test("each basic, voiced, and small-sign katakana row progresses to contextual w
 });
 
 test("all hiragana rows advance from characters to exact Japanese 101 card pairs", () => {
-  assert.equal(HIRAGANA_GROUPS.length, 17);
+  assert.equal(HIRAGANA_GROUPS.length, 18);
   for (const group of HIRAGANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
     assert.ok(words?.length >= 2, `${group.id} should have at least two words`);

@@ -117,6 +117,7 @@ export const HIRAGANA_GROUPS: CharGroup[] = [
     chars: ["ゃ", "ゅ", "ょ"],
     romaji: ["small ya", "small yu", "small yo"],
   },
+  { id: "h-long-vowels", name: "Long vowels う・い", chars: ["う", "い"], romaji: ["u", "i"] },
 ];
 
 export const KATAKANA_GROUPS: CharGroup[] = [
@@ -207,6 +208,7 @@ export const KATAKANA_GROUPS: CharGroup[] = [
     chars: ["ャ", "ュ", "ョ"],
     romaji: ["small ya", "small yu", "small yo"],
   },
+  { id: "k-long-vowel", name: "Long vowel ー", chars: ["ー"], romaji: ["long vowel mark"] },
 ];
 
 // Contextual words shown after their character group is practiced.
@@ -285,6 +287,11 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "しゅくだい", romaji: "shukudai", meaning: "homework" },
     { kana: "きょう", romaji: "kyou", meaning: "today" },
   ],
+  "h-long-vowels": [
+    { kana: "きのう", romaji: "kinou", meaning: "yesterday" },
+    { kana: "せんせい", romaji: "sensei", meaning: "teacher" },
+    { kana: "えいが", romaji: "eiga", meaning: "movie" },
+  ],
   "k-vowels": [
     { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
     { kana: "ドア", romaji: "doa", meaning: "door" },
@@ -353,6 +360,11 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
     { kana: "シャツ", romaji: "shatsu", meaning: "shirt" },
     { kana: "メニュー", romaji: "menyuu", meaning: "menu" },
     { kana: "ショッピング", romaji: "shoppingu", meaning: "shopping" },
+  ],
+  "k-long-vowel": [
+    { kana: "ノート", romaji: "nooto", meaning: "notebook" },
+    { kana: "メニュー", romaji: "menyuu", meaning: "menu" },
+    { kana: "コピー", romaji: "kopii", meaning: "copy" },
   ],
 };
 

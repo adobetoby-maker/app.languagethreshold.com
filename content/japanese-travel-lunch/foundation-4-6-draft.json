@@ -1,0 +1,433 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "foundation-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-lunch.json",
+    "curriculumSha256": "980cd2974e3c4e023a1da2258ed9e32dc1e8e39e8ef87c6913bc0ed094a37dbc",
+    "sourceLessonNumbers": [
+      4,
+      5,
+      6
+    ]
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "title": "What is on today’s lunch menu",
+      "objective": "Ask what is available today, say what you would like, and request a spoon.",
+      "focus": "あります asks about available things. ほしいです says you want an item; 必要です says one is needed. In a restaurant, 〜をお願いします is a polite ordering request. 今日 means today, and 何がありますか asks what is available.",
+      "scene": "Sam checks the daily set lunch and requests a spoon.",
+      "cards": [
+        {
+          "ja": "今日",
+          "en": "today",
+          "kind": "term"
+        },
+        {
+          "ja": "ランチセット",
+          "en": "set lunch",
+          "kind": "term"
+        },
+        {
+          "ja": "あります",
+          "en": "there is / we have it",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありません",
+          "en": "there is none / we do not have it",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何がありますか",
+          "en": "What is available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ほしいです",
+          "en": "I want it",
+          "kind": "phrase",
+          "note": "Use 〜をお願いします when placing a polite order."
+        },
+        {
+          "ja": "スプーン",
+          "en": "spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "おはし",
+          "en": "chopsticks",
+          "kind": "term"
+        },
+        {
+          "ja": "今日のランチセットはありますか",
+          "en": "Is there a set lunch today?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スプーンをお願いします",
+          "en": "A spoon, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カレーをお願いします",
+          "en": "Curry, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "みそしる",
+          "en": "miso soup",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはんがほしいです",
+          "en": "I want rice",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スプーンが必要です",
+          "en": "I need a spoon",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。今日のランチセットはありますか。",
+          "en": "Excuse me. Is there a set lunch today?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, there is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何がありますか。",
+          "en": "What is available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "カレーとみそしるがあります。",
+          "en": "We have curry and miso soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カレーをお願いします。",
+          "en": "Curry, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。ごはんもあります。",
+          "en": "Certainly. We also have rice."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スプーンが必要です。スプーンをお願いします。",
+          "en": "I need a spoon. A spoon, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Yes, here you are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking a set lunch",
+        "partnerRole": "Lunch-counter staff",
+        "opening": "いらっしゃいませ。今日のランチセットはいかがですか。",
+        "goal": "Ask whether there is a set lunch today, say you want curry, and request a spoon.",
+        "closure": "ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:4:ja-en",
+      "sourceEnglishObjective": "Say what you have, need and want, and ask what there is for lunch today.",
+      "sourceObjectiveSha256": "87bc8c63815cc0e5bb1c14e63e2c0b27564afc79b3b98fe890293cd1d337afad"
+    },
+    {
+      "n": 5,
+      "title": "Going to lunch and paying by card",
+      "objective": "Say where you are going to eat, what you will order, and whether you can pay by card.",
+      "focus": "行きます marks going; 注文します means order. できますか asks whether an action is possible. カードで払えますか is a natural way to ask if card payment is accepted. Japanese polite verbs do not change with the speaker.",
+      "scene": "Sam and a companion decide where to eat before ordering.",
+      "cards": [
+        {
+          "ja": "食堂",
+          "en": "dining hall / casual restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "店",
+          "en": "shop / restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "行きます",
+          "en": "go / will go",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食べます",
+          "en": "eat / will eat",
+          "kind": "phrase"
+        },
+        {
+          "ja": "注文します",
+          "en": "order / will order",
+          "kind": "phrase"
+        },
+        {
+          "ja": "できますか",
+          "en": "Can it be done?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カード",
+          "en": "payment card",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "払います",
+          "en": "pay / will pay",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食堂に行きます",
+          "en": "I am going to the dining hall",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カレーを注文します",
+          "en": "I will order curry",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで払えますか",
+          "en": "Can I pay by card?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "はい、払えます",
+          "en": "Yes, you can pay that way",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Companion",
+          "ja": "どこで食べますか。",
+          "en": "Where will we eat?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "あの食堂に行きます。",
+          "en": "We will go to that casual restaurant."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "何を注文しますか。",
+          "en": "What will you order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カレーを注文します。",
+          "en": "I will order curry."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いらっしゃいませ。",
+          "en": "Welcome."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払えますか。",
+          "en": "Can I pay by card?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、払えます。",
+          "en": "Yes, you can."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、カレーをお願いします。",
+          "en": "Then curry, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Guest making lunch plans",
+        "partnerRole": "Companion and restaurant staff",
+        "opening": "どこで食べますか。",
+        "goal": "Tell a companion where you will eat and what you will order, then ask the staff if you can pay by card.",
+        "closure": "カードで払います。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:5:ja-en",
+      "sourceEnglishObjective": "Talk about where you are going to eat, what you plan to order, and what you can do.",
+      "sourceObjectiveSha256": "53e6ffc42c16f8956fd3527bba457170e8c7f5d7540546d743632c51f4ee6ed1"
+    },
+    {
+      "n": 6,
+      "title": "Eating, sharing, and paying",
+      "objective": "Talk about what people eat and share, and say how you are paying.",
+      "focus": "食べます can describe a habit or a planned meal; Japanese does not change it for I/you/they. 〜を食べますか asks what someone eats. 分けます means divide or share food; で marks a payment method.",
+      "scene": "Sam shares lunch with a companion and chooses a payment method.",
+      "cards": [
+        {
+          "ja": "食べます",
+          "en": "eat / will eat",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食べません",
+          "en": "do not eat / will not eat",
+          "kind": "phrase"
+        },
+        {
+          "ja": "分けます",
+          "en": "share / divide",
+          "kind": "phrase"
+        },
+        {
+          "ja": "払います",
+          "en": "pay / will pay",
+          "kind": "phrase"
+        },
+        {
+          "ja": "アボカド",
+          "en": "avocado",
+          "kind": "term"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "rice / meal",
+          "kind": "term"
+        },
+        {
+          "ja": "カードで",
+          "en": "by card",
+          "kind": "term"
+        },
+        {
+          "ja": "現金で",
+          "en": "in cash",
+          "kind": "term"
+        },
+        {
+          "ja": "わたしはサラダを食べます",
+          "en": "I eat salad",
+          "kind": "phrase"
+        },
+        {
+          "ja": "アボカドは食べますか",
+          "en": "Do you eat avocado?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サラダを分けます",
+          "en": "We will share the salad",
+          "kind": "phrase"
+        },
+        {
+          "ja": "現金で払います",
+          "en": "I will pay in cash",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで払います",
+          "en": "I will pay by card",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "わたしはサラダを食べます。",
+          "en": "I will eat salad."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "アボカドは食べますか。",
+          "en": "Do you eat avocado?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、食べます。",
+          "en": "Yes, I do."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "サラダを分けますか。",
+          "en": "Shall we share the salad?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、分けましょう。",
+          "en": "Yes, let us share it."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お会計はどうしますか。",
+          "en": "How would you like to pay?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払います。",
+          "en": "I will pay by card."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらでお願いします。",
+          "en": "Certainly, please pay here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest sharing lunch",
+        "partnerRole": "Lunch companion and cashier",
+        "opening": "アボカドは食べますか。",
+        "goal": "Say what you eat, ask whether your companion eats avocado, offer to share salad, and say how you will pay.",
+        "closure": "カードで払います。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:6:ja-en",
+      "sourceEnglishObjective": "Say what you and others eat, share and pay, using regular present-tense verbs.",
+      "sourceObjectiveSha256": "2d29048cfe37570bed608ac1c5e6ecbfb3dcb5cc4aa828d89dad3b8964d753f5"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

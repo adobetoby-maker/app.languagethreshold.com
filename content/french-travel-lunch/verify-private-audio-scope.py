@@ -65,7 +65,7 @@ def build():
             'proposedTwoVoiceClips': 2 * len(unique),
             'uniqueCharacters': sum(map(len, unique)),
             'proposedTwoVoiceCharacters': 2 * sum(map(len, unique)),
-            'synthesized': False, 'textReviewed': False,
+            'recordingsBundled': False, 'textReviewed': False,
             'listeningReviewed': False, 'registered': False}
 
 
@@ -81,4 +81,4 @@ if __name__ == '__main__':
                       'uniqueTexts': result['uniqueTexts'],
                       'proposedTwoVoiceClips': result['proposedTwoVoiceClips'],
                       'proposedTwoVoiceCharacters': result['proposedTwoVoiceCharacters'],
-                      'synthesized': result['synthesized']}))
+                      'recordingsBundled': result['recordingsBundled']}))

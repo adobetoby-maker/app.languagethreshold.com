@@ -14,6 +14,13 @@ const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
 assert.equal(source.lessons.length, 10);
 assert.equal(createHash('sha256').update(sourceBytes).digest('hex'), '7de3481c760a2c6c2a3bc96b88466f48d3b04d49ad219907358071e51567efba');
+for (const [path, expected] of [
+  ['../src/data/sound-like-a-native-core.json', '91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2'],
+  ['../src/data/core60/es/master-sound-like-a-native.json', 'e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb'],
+]) {
+  const bytes = readFileSync(new URL(path, import.meta.url));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, `source changed: ${path}`);
+}
 for (const draft of drafts) {
   assert.equal(draft.targetLanguage, 'French');
   assert.equal(draft.nativeLanguage, 'English');

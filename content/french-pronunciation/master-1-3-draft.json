@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:1:fr-en",
+      "n": 1,
+      "sourceSpanishLesson": 1,
+      "title": "State a plan naturally",
+      "objective": "Give short and longer French statements with a consistent reference speaker's phrase rhythm.",
+      "focus": "Say Aujourd'hui, j'ai le temps de relire le plan as a complete statement, giving the final rhythmic group a clear ending. In a longer statement, keep the earlier group connected to what follows rather than making every word or sentence end with the same pitch.",
+      "words": [
+        { "fr": "temps", "en": "time", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "plan", "en": "plan", "kind": "term" },
+        { "fr": "voix", "en": "voice", "kind": "term" },
+        { "fr": "message", "en": "message", "kind": "term" },
+        { "fr": "réunion", "en": "meeting", "kind": "term" },
+        { "fr": "Aujourd'hui, j'ai le temps de relire le plan.", "en": "Today I have time to reread the plan.", "kind": "phrase" },
+        { "fr": "Demain, je pars avant la réunion.", "en": "Tomorrow I leave before the meeting.", "kind": "phrase" },
+        { "fr": "J'explique le changement d'une voix calme.", "en": "I explain the change in a calm voice.", "kind": "phrase" },
+        { "fr": "Ma collègue écoute tout le message avant de répondre.", "en": "My colleague listens to the whole message before replying.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Aujourd'hui, Malik relit le plan de la réunion avec sa collègue.", "en": "Today Malik rereads the meeting plan with his colleague." },
+        { "fr": "Demain, il partira plus tôt, avant l'arrivée du groupe.", "en": "Tomorrow he will leave earlier, before the group arrives." },
+        { "fr": "Il enregistre un message d'une voix calme pour expliquer le changement.", "en": "He records a message in a calm voice to explain the change." },
+        { "fr": "Sa collègue écoute le message entier, puis confirme le nouveau plan.", "en": "His colleague listens to the whole message, then confirms the new plan." }
+      ],
+      "grammar": {
+        "focus": "A present statement with j'ai and a future plan with je pars carry different times without changing their basic statement form.",
+        "examples": [
+          { "fr": "Aujourd'hui, j'ai le temps de relire le plan.", "en": "Today I have time to reread the plan." },
+          { "fr": "Demain, je pars avant la réunion.", "en": "Tomorrow I leave before the meeting." }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speaking": {
+        "scene": "Explaining tomorrow's meeting plan to a colleague",
+        "roles": ["planner", "colleague"],
+        "opening": "Bonjour, aujourd'hui, j'ai le temps de relire le plan.",
+        "goals": ["State when you leave tomorrow.", "Explain the change in a calm voice.", "Confirm that the colleague heard the whole message."],
+        "complication": "The colleague says the meeting starts earlier than expected; restate your departure plan as a clear statement.",
+        "closure": "Merci, nous avons confirmé le plan pour demain."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the last rhythmic group in the two statements about today and tomorrow.", "wordRefs": ["Aujourd'hui, j'ai le temps de relire le plan.", "Demain, je pars avant la réunion."] },
+        "recall": { "prompt": "Recall the sentence saying when you leave tomorrow.", "answerRef": "Demain, je pars avant la réunion." },
+        "hear": { "prompt": "Listen for plan or réunion in the recorded planning statement.", "choices": ["plan", "réunion"], "audioRequired": true },
+        "type": { "prompt": "Type the French statement for 'Today I have time to reread the plan.'", "answerRef": "Aujourd'hui, j'ai le temps de relire le plan." },
+        "say": { "prompt": "Explain the change to your colleague in a calm voice.", "answerRef": "J'explique le changement d'une voix calme." },
+        "write": { "prompt": "Write two French statements giving today's review and tomorrow's departure.", "requiredRefs": ["temps", "plan", "demain", "réunion"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:2:fr-en",
+      "n": 2,
+      "sourceSpanishLesson": 2,
+      "title": "Ask two kinds of question",
+      "objective": "Contrast a French yes/no question with an information question while confirming a visit.",
+      "focus": "Ask Est-ce que la visite a lieu demain ? to check yes or no; ask À quelle heure commence la visite ? to request a time. Follow a reviewed speaker model for the contour of each full question rather than assigning one fixed rise to every question.",
+      "words": [
+        { "fr": "question", "en": "question", "kind": "term" },
+        { "fr": "réponse", "en": "answer", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "heure", "en": "time; hour", "kind": "term" },
+        { "fr": "visite", "en": "visit; tour", "kind": "term" },
+        { "fr": "information", "en": "information", "kind": "term" },
+        { "fr": "Est-ce que la visite a lieu demain ?", "en": "Is the visit taking place tomorrow?", "kind": "phrase" },
+        { "fr": "À quelle heure commence la visite ?", "en": "What time does the visit start?", "kind": "phrase" },
+        { "fr": "Je voudrais confirmer une information.", "en": "I would like to confirm a piece of information.", "kind": "phrase" },
+        { "fr": "Je n'ai pas encore la réponse.", "en": "I don't have the answer yet.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Camille téléphone au musée pour confirmer la visite de demain.", "en": "Camille calls the museum to confirm tomorrow's visit." },
+        { "fr": "Elle demande d'abord si la visite aura bien lieu.", "en": "She first asks whether the visit will take place." },
+        { "fr": "Puis elle pose une autre question : à quelle heure commencera-t-elle ?", "en": "Then she asks another question: what time will it start?" },
+        { "fr": "L'agent vérifie l'information et donne une réponse précise.", "en": "The agent checks the information and gives a precise answer." }
+      ],
+      "grammar": {
+        "focus": "Est-ce que introduces a yes/no question; à quelle heure asks for a specific time.",
+        "examples": [
+          { "fr": "Est-ce que la visite a lieu demain ?", "en": "Is the visit taking place tomorrow?" },
+          { "fr": "À quelle heure commence la visite ?", "en": "What time does the visit start?" }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speaking": {
+        "scene": "Confirming a museum visit by phone",
+        "roles": ["visitor", "museum agent"],
+        "opening": "Bonjour, je voudrais confirmer une information.",
+        "goals": ["Ask whether the visit takes place tomorrow.", "Ask what time it starts.", "Repeat the answer in your own words."],
+        "complication": "The agent confirms the day but has to check the start time; ask the information question again without changing its meaning.",
+        "closure": "Merci, j'ai maintenant la réponse pour la visite."
+      },
+      "practice": {
+        "see": { "prompt": "Label the yes/no question and the time question before comparing their word order and speaker-model contour.", "wordRefs": ["Est-ce que la visite a lieu demain ?", "À quelle heure commence la visite ?"] },
+        "recall": { "prompt": "Recall the question that asks whether the visit happens tomorrow.", "answerRef": "Est-ce que la visite a lieu demain ?" },
+        "hear": { "prompt": "Listen for demain or heure in the recorded visit question.", "choices": ["demain", "heure"], "audioRequired": true },
+        "type": { "prompt": "Type the French question for 'What time does the visit start?'", "answerRef": "À quelle heure commence la visite ?" },
+        "say": { "prompt": "Ask the agent for the visit's start time.", "answerRef": "À quelle heure commence la visite ?" },
+        "write": { "prompt": "Write a yes/no question about the day and an information question about the time.", "requiredRefs": ["visite", "demain", "heure"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:3:fr-en",
+      "n": 3,
+      "sourceSpanishLesson": 3,
+      "title": "Correct an order clearly",
+      "objective": "Shift focus in a French correction to distinguish tea from coffee and identify who ordered it.",
+      "focus": "Say J'ai commandé du thé, pas du café to correct the drink, then C'est moi qui ai commandé le thé to correct the person. Let the contrastive word carry the correction inside a natural phrase rather than stressing every word equally.",
+      "words": [
+        { "fr": "thé", "en": "tea", "kind": "term" },
+        { "fr": "café", "en": "coffee", "kind": "term" },
+        { "fr": "commande", "en": "order", "kind": "term" },
+        { "fr": "personne", "en": "person", "kind": "term" },
+        { "fr": "erreur", "en": "mistake", "kind": "term" },
+        { "fr": "serveur", "en": "waiter; server", "kind": "term" },
+        { "fr": "Le serveur apporte un café à notre table.", "en": "The server brings a coffee to our table.", "kind": "phrase" },
+        { "fr": "J'ai commandé du thé, pas du café.", "en": "I ordered tea, not coffee.", "kind": "phrase" },
+        { "fr": "Il y a une erreur dans la commande.", "en": "There is a mistake in the order.", "kind": "phrase" },
+        { "fr": "C'est moi qui ai commandé le thé.", "en": "I'm the one who ordered the tea.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Au café, le serveur apporte une tasse de café à notre table.", "en": "At the café, the server brings a cup of coffee to our table." },
+        { "fr": "Je lui dis : « J'ai commandé du thé, pas du café. »", "en": "I tell him, 'I ordered tea, not coffee.'" },
+        { "fr": "Une autre personne demande qui a passé la commande.", "en": "Another person asks who placed the order." },
+        { "fr": "Je réponds : « C'est moi qui ai commandé le thé. »", "en": "I answer, 'I'm the one who ordered the tea.'" }
+      ],
+      "grammar": {
+        "focus": "Pas du café corrects the drink; c'est moi qui identifies the person who ordered.",
+        "examples": [
+          { "fr": "J'ai commandé du thé, pas du café.", "en": "I ordered tea, not coffee." },
+          { "fr": "C'est moi qui ai commandé le thé.", "en": "I'm the one who ordered the tea." }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "speaking": {
+        "scene": "Correcting a drink at a café",
+        "roles": ["customer", "server"],
+        "opening": "Bonjour, il y a une erreur dans la commande.",
+        "goals": ["Correct coffee to tea.", "Explain who placed the order.", "Confirm the corrected drink."],
+        "complication": "The server understands the drink but thinks the other customer ordered it; shift the correction to who ordered the tea.",
+        "closure": "Merci, le thé est bien pour moi."
+      },
+      "practice": {
+        "see": { "prompt": "Identify the corrected drink in one sentence and the corrected person in the other.", "wordRefs": ["J'ai commandé du thé, pas du café.", "C'est moi qui ai commandé le thé."] },
+        "recall": { "prompt": "Recall the sentence correcting the drink.", "answerRef": "J'ai commandé du thé, pas du café." },
+        "hear": { "prompt": "Listen for thé or café in the recorded correction.", "choices": ["thé", "café"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'There is a mistake in the order.'", "answerRef": "Il y a une erreur dans la commande." },
+        "say": { "prompt": "Tell the server that you are the one who ordered tea.", "answerRef": "C'est moi qui ai commandé le thé." },
+        "write": { "prompt": "Write two French sentences correcting the drink and identifying the person who ordered it.", "requiredRefs": ["thé", "café", "commande", "personne"] }
+      }
+    }
+  ]
+}

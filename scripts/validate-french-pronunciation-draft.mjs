@@ -22,6 +22,9 @@ const coreDrafts = [
   '../content/french-pronunciation/core-24-26-draft.json',
   '../content/french-pronunciation/core-27-30-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
+const masterDrafts = [
+  '../content/french-pronunciation/master-1-3-draft.json',
+].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
 assert.equal(source.lessons.length, 10);
@@ -33,7 +36,7 @@ for (const [path, expected] of [
   const bytes = readFileSync(new URL(path, import.meta.url));
   assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, `source changed: ${path}`);
 }
-for (const draft of [...foundationDrafts, ...coreDrafts]) {
+for (const draft of [...foundationDrafts, ...coreDrafts, ...masterDrafts]) {
   assert.equal(draft.targetLanguage, 'French');
   assert.equal(draft.nativeLanguage, 'English');
   assert.equal(draft.status, 'partial-authored-draft');
@@ -41,11 +44,13 @@ for (const draft of [...foundationDrafts, ...coreDrafts]) {
 }
 assert.deepEqual(foundationDrafts.map(draft => draft.lessons.length), [3, 2, 3, 2]);
 assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3, 3, 4, 2, 3, 3, 2, 3, 3, 4]);
+assert.deepEqual(masterDrafts.map(draft => draft.lessons.length), [3]);
 for (const draft of foundationDrafts) assert.equal(draft.stage, 'foundation');
 for (const draft of coreDrafts) assert.equal(draft.stage, 'core');
+for (const draft of masterDrafts) assert.equal(draft.stage, 'master');
 
 const ids = new Set();
-for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['core', coreDrafts, 30]]) {
+for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['core', coreDrafts, 30], ['master', masterDrafts, 20]]) {
  const lessons = drafts.flatMap(draft => draft.lessons);
  for (const [index, lesson] of lessons.entries()) {
   const n = index + 1;
@@ -64,6 +69,14 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
     assert(word.fr && word.en && !word.es);
     assert(!french.has(word.fr), `duplicate word in ${lesson.id}: ${word.fr}`);
     french.add(word.fr);
+  }
+  if (stage === 'master') {
+   assert.equal(lesson.lessonType, 'Teach-back');
+   assert.equal(lesson.block, 'A');
+   assert(lesson.grammar?.focus);
+   assert.equal(lesson.grammar.examples.length, 2);
+   for (const example of lesson.grammar.examples) assert(example.fr && example.en && !example.es);
+   assert(lesson.speaking.complication);
   }
   assert.equal(lesson.reader.length, 4);
   for (const line of lesson.reader) assert(line.fr && line.en && !line.es);
@@ -87,4 +100,4 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
   }
  }
 }
-console.log('French pronunciation F1–10 + C1–30 private draft: 40 source-mapped IDs, 400 cards, 160 Reader lines, 40 speaking scenes, 240 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–10 + C1–30 + M1–3 private draft: 43 source-mapped IDs, 430 cards, 172 Reader lines, 43 speaking scenes, 258 practice prompts; all release gates closed.');

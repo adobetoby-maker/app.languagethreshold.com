@@ -411,6 +411,11 @@ export function practiceSentenceForGroup(group: CharGroup, script: "hiragana" | 
     : PRACTICE_SENTENCES.find((sentence) => [...sentence.kana].some((char) => group.chars.includes(char)));
 }
 
+/** The handwriting canvas scores one sign at a time; punctuation is context only. */
+export function sentenceWritingCharacters(sentence: string): string[] {
+  return [...sentence].filter((char) => /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}ー]/u.test(char));
+}
+
 export const PEN_PAL_PROMPTS = [
   {
     id: "intro",

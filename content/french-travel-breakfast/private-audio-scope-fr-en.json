@@ -4,7 +4,7 @@
   "moduleId": "travel-breakfast",
   "pairKey": "French:English",
   "locale": "fr-FR",
-  "sourceFixtureSha256": "579c33261f79408e455c584773cf3a0d2c9cc037719badeef3e6214c24e33b9b",
+  "sourceFixtureSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
   "reviewed": false,
   "registered": false,
   "recordingsGenerated": false,
@@ -95,9 +95,9 @@
       "reader": 708
     },
     "uniqueExactTexts": 1608,
-    "unicodeCharactersPerVoice": 77010
+    "unicodeCharactersPerVoice": 77223
   },
-  "exactTextSha256": "0719184165388b755b9f71f41f8b8cffee122a54e9d1c370ac850cae4f03e4ed",
+  "exactTextSha256": "233f49516fecc793c05f41f41a1a28c63cb5f47b3907ae950216bab4b57f9c68",
   "texts": [
     {
       "text": "Alors je demande : « Ici, on laisse habituellement un pourboire ? »",
@@ -1970,8 +1970,8 @@
       ]
     },
     {
-      "text": "Elif décide de ne rien manger au buffet et suit son autre plan pour le petit-déjeuner.",
-      "sha256": "81aa0cf95d0efd14d58bde989840ba94097f99f813b1c69ae51663027975eb22",
+      "text": "Elif décide de ne rien manger au buffet et vérifie que son auto-injecteur d’épinéphrine est dans son sac.",
+      "sha256": "f418c7ef059cb89c8259b9ff34e5a29762d65920610f993d6a482fb0d793a788",
       "occurrences": [
         {
           "draftLessonKey": "master:4",
@@ -3660,6 +3660,16 @@
       ]
     },
     {
+      "text": "Il a avec lui son antihistaminique et son auto-injecteur d’adrénaline, comme son médecin le lui a indiqué.",
+      "sha256": "5ff6d25f3673651389401351f0addb3a8b22a07320d693c92c9f1dbf75378906",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:8",
+          "field": "reader[15].targetFrench"
+        }
+      ]
+    },
+    {
       "text": "Il a répondu : « Oui, et nous utilisons le même pichet pour le lait d’amande. »",
       "sha256": "39df5f5e28dffedc2542a926231594ff64b56352661907a273ad7924a14f8e1c",
       "occurrences": [
@@ -4125,16 +4135,6 @@
       "occurrences": [
         {
           "draftLessonKey": "master:20",
-          "field": "reader[16].targetFrench"
-        }
-      ]
-    },
-    {
-      "text": "Il pose des questions sur une boisson, notamment sur ses ingrédients et les ustensiles utilisés.",
-      "sha256": "d1f8381fb829894fd6bde17be5052b8fe7a21aeebcd42529a726b3d48bfc35f9",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:8",
           "field": "reader[16].targetFrench"
         }
       ]
@@ -5674,12 +5674,22 @@
       ]
     },
     {
-      "text": "Kenji décide de ne pas commander de nourriture à ce comptoir.",
-      "sha256": "910519c33aa3f6dc230bde1ed7b42b747497c673dca401fad2248302a4274e02",
+      "text": "Kenji décide de ne pas commander de nourriture à ce comptoir ; Ana connaît les consignes du médecin : si des symptômes apparaissent, utiliser l’auto-injecteur et appeler le 112.",
+      "sha256": "c78daab10e1fdf9635180cb486726daa8ca18173da209c4f9abf09cc11b881b3",
       "occurrences": [
         {
           "draftLessonKey": "master:8",
-          "field": "reader[15].targetFrench"
+          "field": "reader[16].targetFrench"
+        }
+      ]
+    },
+    {
+      "text": "Kenji se souvient qu’il a eu une anaphylaxie après avoir mangé du nougat l’année dernière.",
+      "sha256": "d351aa3e00244e89ed84a7c7e4c55622c1b5d9f72af5356f9178488787531a1b",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:8",
+          "field": "reader[14].targetFrench"
         }
       ]
     },
@@ -5810,16 +5820,6 @@
         {
           "draftLessonKey": "master:2",
           "field": "reader[9].targetFrench"
-        }
-      ]
-    },
-    {
-      "text": "La boulangère en apporte un, mais son étiquette reste peu claire sur le matériel partagé.",
-      "sha256": "34e0531812b2d3aab0df17e06e85e862e9808f2560f1ee7a655ee3cafb279c9b",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:8",
-          "field": "reader[14].targetFrench"
         }
       ]
     },
@@ -9826,6 +9826,16 @@
       ]
     },
     {
+      "text": "Sam explique à Rémi que si Elif a une réaction allergique, ils suivront les consignes de son médecin pour l’auto-injecteur et appelleront une ambulance.",
+      "sha256": "7e2d8dffa4c8c4d84ced6b34410620cbac0556029371f06113718b7cc012d853",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:4",
+          "field": "reader[18].targetFrench"
+        }
+      ]
+    },
+    {
       "text": "Sam lit la carte et commande un jus d'orange.",
       "sha256": "9c34cae6c998b98a7d1d8e40c30902e157b84d8d2d78b0b25497458859e9f1c2",
       "occurrences": [
@@ -9862,16 +9872,6 @@
         {
           "draftLessonKey": "foundation:1",
           "field": "reader[6].targetFrench"
-        }
-      ]
-    },
-    {
-      "text": "Sam remercie Rémi d’avoir vérifié et demande à l’hôtel de mettre le tableau à jour.",
-      "sha256": "64448a5cdd7972636e79e5ce1709fd1b37b393d6dc12345cb9b7a73afbac1370",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:4",
-          "field": "reader[18].targetFrench"
         }
       ]
     },
@@ -14112,16 +14112,6 @@
       ]
     },
     {
-      "text": "le plan d’urgence personnel",
-      "sha256": "b17052b4d5d7346247e432370f023264de445c2f9a5c0e08b691b64a6cb4e769",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:4",
-          "field": "cards[14].targetFrench"
-        }
-      ]
-    },
-    {
       "text": "le plateau",
       "sha256": "ed56d341375d3b0bd0cd1ca12610b5891bdf6c5e00b08e053360bbf9e0b67df9",
       "occurrences": [
@@ -15470,16 +15460,6 @@
       ]
     },
     {
-      "text": "l’allergie grave",
-      "sha256": "c204866b58ce57a5aebc506f12d12151fd2c7b94f2d819332c77161606ec9563",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:8",
-          "field": "cards[4].targetFrench"
-        }
-      ]
-    },
-    {
       "text": "l’allée",
       "sha256": "e6a2416c3e598a57a9a4fdfab83a1ca75ab156b5ce086b57cd2bda69b55cd401",
       "occurrences": [
@@ -15490,12 +15470,32 @@
       ]
     },
     {
+      "text": "l’anaphylaxie",
+      "sha256": "58a68e174cc0f3656b395a392ce9227620158d83149d2a2ac765ab4e9cef7672",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:8",
+          "field": "cards[4].targetFrench"
+        }
+      ]
+    },
+    {
       "text": "l’anse",
       "sha256": "5f2d2ca914c632268f0cc83fbe9f209fb94df90b9dfadfaaec04ab4afe8e63fb",
       "occurrences": [
         {
           "draftLessonKey": "master:3",
           "field": "cards[2].targetFrench"
+        }
+      ]
+    },
+    {
+      "text": "l’antihistaminique",
+      "sha256": "c56fb54867504377166fea20c49776f03fd79141b7789fc98888746f44580e76",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:8",
+          "field": "cards[14].targetFrench"
         }
       ]
     },
@@ -15576,6 +15576,16 @@
         {
           "draftLessonKey": "master:20",
           "field": "cards[2].targetFrench"
+        }
+      ]
+    },
+    {
+      "text": "l’auto-injecteur d’épinéphrine",
+      "sha256": "3faa989f3480309f86ebfa94ca23f432570f96feb523c00ad7b9f18b2e7b87ad",
+      "occurrences": [
+        {
+          "draftLessonKey": "master:4",
+          "field": "cards[14].targetFrench"
         }
       ]
     },
@@ -15858,16 +15868,6 @@
         {
           "draftLessonKey": "master:4",
           "field": "cards[5].targetFrench"
-        }
-      ]
-    },
-    {
-      "text": "l’étiquette actuelle",
-      "sha256": "2336610144a7bc3d64bb98507d2f059e451fd6b5efa0ecb07459fb2cc51df6e2",
-      "occurrences": [
-        {
-          "draftLessonKey": "master:8",
-          "field": "cards[14].targetFrench"
         }
       ]
     },

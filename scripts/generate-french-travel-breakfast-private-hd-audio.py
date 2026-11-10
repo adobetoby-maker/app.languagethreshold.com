@@ -44,7 +44,7 @@ def source():
     rows = value["texts"]
     if len(rows) != value["counts"]["uniqueExactTexts"] or len(rows) != 1608:
         raise ValueError("Unexpected private source coverage")
-    if value["counts"]["unicodeCharactersPerVoice"] != 77010:
+    if value["counts"]["unicodeCharactersPerVoice"] != 77223:
         raise ValueError("Unexpected private source character count")
     if sha("\n".join(r["text"] for r in rows).encode()) != value["exactTextSha256"]:
         raise ValueError("Aggregate text hash changed")
@@ -76,6 +76,7 @@ def main():
     parser.add_argument("--project")
     parser.add_argument("--generate", action="store_true")
     parser.add_argument("--limit", type=int, default=20)
+    parser.add_argument("--output", type=Path, default=OUTPUT)
     args = parser.parse_args()
     if not 1 <= args.limit <= 20:
         raise SystemExit("--limit must be 1–20 new clips")
@@ -83,7 +84,8 @@ def main():
         raise SystemExit("Paid synthesis requires --project")
     os.umask(0o077)
     inventory, source_sha = source()
-    manifest_path = OUTPUT / "manifest.json"
+    output = args.output
+    manifest_path = output / "manifest.json"
     identity = {"schema": 1, "state": "private-unreviewed-full-course-recordings",
                 "pairKey": "French:English", "locale": "fr-FR", "voices": VOICES,
                 "sourceInventorySha256": source_sha,
@@ -104,7 +106,7 @@ def main():
         for gender, voice in VOICES.items():
             name = f"fr-breakfast-{row['sha256'][:20]}-{gender}.mp3"
             clip = recorded.get("voices", {}).get(gender)
-            path = OUTPUT / name
+            path = output / name
             if clip and path.is_file() and (clip.get("name"), clip.get("voice"),
                     clip.get("text"), clip.get("listeningReviewed")) == (name, voice, row["text"], False):
                 data = path.read_bytes()
@@ -114,14 +116,14 @@ def main():
                 raise ValueError(f"Existing recording requires inspection: {name}")
             jobs.append((row, gender, voice, name))
     batch = jobs[:args.limit]
-    print(json.dumps({"inventoryTexts": len(inventory["texts"]), "existingClips": 3216-len(jobs),
+    print(json.dumps({"inventoryTexts": len(inventory["texts"]), "existingClips": len(inventory["texts"]) * len(VOICES)-len(jobs),
                       "remainingClips": len(jobs), "plannedClips": len(batch),
                       "plannedCharacters": sum(len(r[0]["text"]) for r in batch),
                       "estimatedFullCourseUSD": round(2 * inventory["counts"]["unicodeCharactersPerVoice"] * 0.00003, 4),
                       "paidSynthesis": args.generate}, ensure_ascii=False), flush=True)
     if not args.generate:
         return
-    OUTPUT.mkdir(parents=True, exist_ok=True)
+    output.mkdir(parents=True, exist_ok=True)
     token = subprocess.run(["gcloud", "auth", "application-default", "print-access-token"],
                            capture_output=True, text=True, check=True).stdout.strip()
     for row, gender, voice, name in batch:
@@ -138,7 +140,7 @@ def main():
                     data = base64.b64decode(json.load(response)["audioContent"])
                 if len(data) <= 500:
                     raise ValueError("Empty MP3")
-                path = OUTPUT / name
+                path = output / name
                 temporary = path.with_suffix(".part")
                 temporary.write_bytes(data)
                 seconds = duration(temporary)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Make private, source-verified French Breakfast audio listening sheets."""
 
+import argparse
 import html
 import json
 from pathlib import Path
@@ -31,10 +32,10 @@ def stage_of(lesson_id):
     return stage
 
 
-def build():
-    report = verify()
+def build(output=OUTPUT):
+    report = verify(output=output)
     inventory, _ = source()
-    manifest = json.loads((OUTPUT / "manifest.json").read_text())
+    manifest = json.loads((output / "manifest.json").read_text())
     groups = {"foundation": [], "core": [], "master": []}
     lessons = {}
     for row in inventory["texts"]:
@@ -68,21 +69,21 @@ def build():
                     parts.append(f'<audio controls preload="none" src="{html.escape(name, quote=True)}"></audio>')
                 parts.append('</section>')
             filename = f"{stage}-{number}-listening-review-2026-11-09.html"
-            sheet = OUTPUT / filename
+            sheet = output / filename
             sheet.write_text(page(f"French Breakfast {stage.title()} {number} listening review", "".join(parts)),
                              encoding="utf-8")
             sheet.chmod(0o600)
             lesson_links.append(f'<li><a href="{filename}">Lesson {number}</a> — '
                                 f'{len(lessons[lesson_id])} exact strings</li>')
         filename = f"{stage}-listening-review-2026-11-09.html"
-        sheet = OUTPUT / filename
+        sheet = output / filename
         sheet.write_text(page(f"French Breakfast {stage.title()} listening review",
                               '<p>All clips await qualified French listening review.</p><ol>'
                               + ''.join(lesson_links) + '</ol>'), encoding="utf-8")
         sheet.chmod(0o600)
         index_links.append(f'<li><a href="{filename}">{stage.title()}</a> — '
                            f'{len(selected)} lessons, {len(rows)} distinct stage strings</li>')
-    index = OUTPUT / "listening-review-2026-11-09.html"
+    index = output / "listening-review-2026-11-09.html"
     index.write_text(page("French Breakfast listening review",
                           '<p>All clips await qualified French listening review.</p><ul>'
                           + ''.join(index_links) + '</ul>'), encoding="utf-8")
@@ -93,4 +94,7 @@ def build():
 
 
 if __name__ == "__main__":
-    print(json.dumps(build(), ensure_ascii=False))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output', type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    print(json.dumps(build(args.output), ensure_ascii=False))

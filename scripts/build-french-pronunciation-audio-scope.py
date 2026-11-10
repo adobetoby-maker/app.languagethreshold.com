@@ -21,6 +21,7 @@ OUTPUT = BASE / "private-audio-scope-fr-en.json"
 SCOPES = {
     "foundation-core-1-6": (FILES, OUTPUT, {"foundation": list(range(1, 11)), "core": list(range(1, 7))}),
     "core-7-10": (("core-7-10-draft.json",), BASE / "private-audio-scope-core-7-10-fr-en.json", {"core": list(range(7, 11))}),
+    "core-11-12": (("core-11-12-draft.json",), BASE / "private-audio-scope-core-11-12-fr-en.json", {"core": list(range(11, 13))}),
 }
 
 

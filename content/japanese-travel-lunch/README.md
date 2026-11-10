@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–21 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–24 draft
 
 This is an unregistered, unreviewed course draft. Its Foundation stage maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -18,4 +18,6 @@ Core 16–18 covers a tray-line workplace canteen, a child-size plain pasta orde
 
 Core 19–21 directly teaches a severe shellfish allergy including crustaceans, shared-fryer and stock questions, an unexpected bread/seat/service charge, and a budget-preserving response to an upsell. It adds 54 cards, 30 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-19-21.py` for that batch. The combined draft has 31 lessons, 479 cards, 309 main Reader turns, and 186 mode activities. The fictional kitchen, charge-resolution, and price scenes require qualified Japanese and domain review; those notes stay in this ledger and the learner-facing clinical terms remain direct.
 
-Remaining work includes Core 22–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 22–24 asks about a restaurant’s lunch hours, break, and after-meal coffee; orders a four-person deli picnic by weight; and directly reports a peanut-allergy reaction, a 119 ambulance request, what was eaten, and medicine already used. It adds 55 cards, 33 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-22-24.py` for that batch. The combined draft has 34 lessons, 534 cards, 342 main Reader turns, and 204 mode activities. The opening-hours, park-sign, vendor-ingredient, and paramedic responses are fictional scene content; qualified Japanese and domain review remain open.
+
+Remaining work includes Core 25–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

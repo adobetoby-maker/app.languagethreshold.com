@@ -1,6 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { recordedJapanesePath } from "../src/lib/recorded-japanese.ts";
+import {
+  JAPANESE_101_COURSE_AUDIO_REGISTERED,
+  JAPANESE_101_COURSE_SOURCE_SHA256,
+  recordedJapaneseCoursePath,
+  recordedJapanesePath,
+} from "../src/lib/recorded-japanese.ts";
 import manifest from "../src/data/japanese-101-recordings.json" with { type: "json" };
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -42,4 +47,44 @@ test("Japanese pilot never borrows audio for another line, voice or locale", () 
     ["わたしは あきです。", "ja-JP-Chirp3-HD-Zephyr", "ja-JP"],
     ["わたしは あきです。", "ja-JP-Chirp3-HD-Aoede", "en-US"],
   ]) assert.equal(recordedJapanesePath(text, voice, locale), null);
+});
+
+test("full-course lookup stays separate from the accepted pilot and rejects private review gates", () => {
+  const text = "こんにちは。";
+  const voice = manifest.voices.female;
+  const course = {
+    schema: 1,
+    locale: "ja-JP",
+    voices: manifest.voices,
+    sourceSHA256: JAPANESE_101_COURSE_SOURCE_SHA256,
+    scope: { module: "foundation-japanese-basics", lesson: 1 },
+    registered: false,
+    listeningReviewed: false,
+    clips: { [text]: {
+      female: { ...manifest.entries[text].female, listeningReviewed: false },
+      male: { ...manifest.entries[text].male, listeningReviewed: false },
+    } },
+  };
+  const lookup = (candidate, selectedText = text, selectedVoice = voice,
+    moduleId = "foundation-japanese-basics", lessonNumber = 1) =>
+    recordedJapaneseCoursePath(selectedText, selectedVoice, "ja-JP", moduleId, lessonNumber, candidate);
+  assert.equal(JAPANESE_101_COURSE_AUDIO_REGISTERED, false);
+  assert.equal(lookup(course), null);
+  assert.equal(lookup(null), null);
+  const manifestReviewed = { ...course, listeningReviewed: true };
+  assert.equal(lookup(manifestReviewed), null, "each clip still needs listening approval");
+  const fullyReviewed = structuredClone(manifestReviewed);
+  fullyReviewed.clips[text].female.listeningReviewed = true;
+  assert.equal(lookup(fullyReviewed), null, "private audio is still unregistered");
+  const installed = { ...fullyReviewed, registered: true };
+  assert.match(lookup(installed), /^\/audio\/japanese-101\/course\/foundation-1\/ja-101-.*-female\.mp3$/);
+  assert.equal(lookup(installed, "さようなら。"), null);
+  assert.equal(lookup(installed, text, manifest.voices.male), null);
+  assert.equal(lookup(installed, text, voice, "japanese-basics"), null);
+  assert.equal(lookup(installed, text, voice, "foundation-japanese-basics", 2), null);
+  assert.equal(lookup({ ...installed, sourceSHA256: "0".repeat(64) }), null);
+  assert.equal(lookup({ ...installed, voices: { ...installed.voices, female: "ja-JP-Chirp3-HD-Zephyr" } }), null);
+  const wrongHash = structuredClone(installed);
+  wrongHash.clips[text].female.sha256 = "bad";
+  assert.equal(lookup(wrongHash), null);
 });

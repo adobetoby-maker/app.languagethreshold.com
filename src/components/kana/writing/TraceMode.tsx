@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { ChevronRight, RotateCcw } from "lucide-react";
 import { CharacterCanvas, type CharacterCanvasRef } from "./CharacterCanvas";
-import { type CharGroup, type PracticeWord } from "./curriculum";
+import { kanaPatternNote, sentenceWritingCharacters, type CharGroup, type PracticeWord } from "./curriculum";
 import { type ScoreResult } from "./scoring";
 
 type Stage = "chars" | "words" | "sentence";
@@ -51,15 +51,15 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
   const [wordScores, setWordScores] = useState<(ScoreResult | null)[]>(
     Array(words.length).fill(null),
   );
-  const [sentenceScore, setSentenceScore] = useState<ScoreResult | null>(null);
   const [result, setResult] = useState<ScoreResult | null>(null);
+  const sentenceChars = sentenceWritingCharacters(sentence?.kana ?? "");
 
   const currentChar =
     stage === "chars"
       ? group.chars[index]
       : stage === "words"
         ? words[index]?.kana
-        : (sentence?.kana ?? "");
+        : (sentenceChars[index] ?? "");
 
   const currentRomaji =
     stage === "chars" ? group.romaji[index] : stage === "words" ? words[index]?.romaji : "";
@@ -70,6 +70,7 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
       : stage === "sentence"
         ? sentence?.meaning
         : undefined;
+  const patternNote = stage === "words" ? kanaPatternNote(currentChar) : null;
 
   const handleStrokeEnd = () => {
     if (!canvasRef.current?.hasStrokes()) return;
@@ -88,8 +89,6 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
         next[index] = res;
         return next;
       });
-    } else {
-      setSentenceScore(res);
     }
   };
 
@@ -105,6 +104,7 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
         setIndex(0);
       } else if (sentence) {
         setStage("sentence");
+        setIndex(0);
       }
       return;
     }
@@ -113,10 +113,15 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
         setIndex(index + 1);
       } else if (sentence) {
         setStage("sentence");
+        setIndex(0);
       } else {
         setStage("chars");
         setIndex(0);
       }
+      return;
+    }
+    if (index + 1 < sentenceChars.length) {
+      setIndex(index + 1);
       return;
     }
     // sentence done → restart
@@ -124,17 +129,14 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
     setIndex(0);
     setScores(Array(group.chars.length).fill(null));
     setWordScores(Array(words.length).fill(null));
-    setSentenceScore(null);
   };
-
-  const totalCount = stage === "chars" ? group.chars.length : stage === "words" ? words.length : 1;
 
   const stageLabel =
     stage === "chars"
       ? `Character ${index + 1} of ${group.chars.length}`
       : stage === "words"
         ? `Word ${index + 1} of ${words.length}`
-        : "Full sentence";
+        : `Sentence sign ${index + 1} of ${sentenceChars.length}`;
 
   return (
     <div className="flex flex-col gap-5">
@@ -153,6 +155,9 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
               <span className="text-xs text-muted-foreground">— {currentMeaning}</span>
             )}
           </div>
+          {stage === "sentence" && (
+            <p className="mt-2 text-sm text-foreground" lang="ja">{sentence?.kana}</p>
+          )}
         </div>
 
         {/* Char dot progress */}
@@ -185,8 +190,11 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
           ? "Trace the character following the dotted guide. Lift your finger to see your score."
           : stage === "words"
             ? "Write the full word. The guide is lighter — try to match it from memory."
-            : "Write the full sentence from memory. Take your time."}
+            : "Write the sentence one sign at a time. Keep the full sentence in view."}
       </p>
+      {patternNote && (
+        <p className="text-xs text-muted-foreground">{patternNote}</p>
+      )}
 
       {/* Canvas */}
       <div className="relative">
@@ -219,6 +227,21 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
           ))}
         </div>
       )}
+      {stage === "sentence" && (
+        <div className="flex flex-wrap gap-1" aria-label="Sentence writing progress">
+          {sentenceChars.map((char, i) => (
+            <span
+              key={`${i}-${char}`}
+              aria-current={i === index ? "step" : undefined}
+              className={`rounded border px-1.5 py-0.5 text-sm ${
+                i === index ? "border-gold bg-gold/10 text-gold" : i < index ? "border-green-500/40 text-green-600" : "border-border/50 text-muted-foreground"
+              }`}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Reset */}
       <button
@@ -228,7 +251,6 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
           setResult(null);
           setScores(Array(group.chars.length).fill(null));
           setWordScores(Array(words.length).fill(null));
-          setSentenceScore(null);
           canvasRef.current?.clear();
         }}
         className="inline-flex items-center gap-1.5 self-start rounded-full border border-border/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"

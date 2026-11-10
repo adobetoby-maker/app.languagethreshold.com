@@ -300,7 +300,9 @@ function convert(input: string, map: KanaMap, sokuon: string, nasal: string): st
       const next = s[i + 1];
       if (next === "n") {
         out += nasal;
-        i += 2; // consume both n's → ん
+        // Before a vowel or y, the second n starts the next syllable:
+        // konnichiha → こんにちは, onna → おんな.
+        i += i + 2 < s.length && (VOWELS.has(s[i + 2]) || s[i + 2] === "y") ? 1 : 2;
         continue;
       }
       if (CONSONANTS.has(next) && next !== "y") {

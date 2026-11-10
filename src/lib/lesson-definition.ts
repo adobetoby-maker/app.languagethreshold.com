@@ -47,7 +47,11 @@ export function getLessonDefinition(input: {
   // Keep the stable objective/lesson shell even for an unsupported pair; authored words, reading,
   // teaching and sound below are each gated by the requested pair. This preserves existing lesson
   // identity without borrowing a Spanish lesson's actual practice content.
-  const source = getCurriculum(moduleId)?.lessons.find((l) => l.n === lessonNumber);
+  const sourceCurriculum =
+    moduleId === "travel-lunch" && targetLanguage === "French"
+      ? getCurriculum(moduleId, targetLanguage, instructionLanguage)
+      : getCurriculum(moduleId);
+  const source = sourceCurriculum?.lessons.find((l) => l.n === lessonNumber);
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
@@ -56,7 +60,9 @@ export function getLessonDefinition(input: {
       source.words,
       targetLanguage,
       instructionLanguage,
-      authoredWordsPairForModule(getModule(moduleId)),
+      moduleId === "travel-lunch" && targetLanguage === "French" && instructionLanguage === "English"
+        ? { language: "French", nativeLanguage: "English" }
+        : authoredWordsPairForModule(getModule(moduleId)),
     ) ?? [];
   const patternWords = spanishPatternWords(
     moduleId,

@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–9 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–12 draft
 
 This is an unregistered, unreviewed Foundation stage draft. It maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -10,4 +10,6 @@ Core 4–6 continues the same source mapping with a made-to-order sandwich, toda
 
 Core 7–9 covers sharing dishes, stating vegetarian and sesame-allergy needs directly, and clarifying charges for table basics. It adds 48 cards, 31 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-7-9.py` for that batch. The combined draft has 19 lessons, 279 cards, 185 Reader turns, and 114 mode activities. The Core 8 source includes a generic guarantee caveat; the Japanese teaching text instead states the clinical term and asks concrete ingredient questions. Qualified language and factual review of that scene remains open in this internal ledger.
 
-Remaining work includes Core 10–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 10–12 covers a timed museum lunch, a delayed/missing order with a bill correction, and three transactions for four diners. It adds 47 cards, 32 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-10-12.py` for that batch. The combined draft has 22 lessons, 326 cards, 217 Reader turns, and 132 mode activities. The Core 12 source asks about a tip; the Japanese scene asks about the service charge while keeping the direct term `チップ` in its cards. This register/context choice requires qualified Japanese review.
+
+Remaining work includes Core 13–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

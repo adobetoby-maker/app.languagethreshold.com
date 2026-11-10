@@ -59,7 +59,8 @@ def main() -> None:
     scene = " ".join(eighth["passage"]["english"]).lower()
     assert "cross-contact" in scene and "cannot confirm" in scene
     assert "decides not to order food" in scene
-    assert "refuse the almond-removal shortcut" in eighth["speakingInstructionEnglish"].lower()
+    assert "preparation question" in eighth["speakingInstructionEnglish"].lower()
+    assert "current information" in eighth["speakingInstructionEnglish"].lower()
     print("French Travel Breakfast Master 7–9: exact source provenance and original bilingual pairs pass; review remains open")
 
 

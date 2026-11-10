@@ -29,6 +29,7 @@ const masterDrafts = [
   '../content/french-pronunciation/master-7-9-draft.json',
   '../content/french-pronunciation/master-10-12-draft.json',
   '../content/french-pronunciation/master-13-15-draft.json',
+  '../content/french-pronunciation/master-18-20-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
@@ -49,16 +50,17 @@ for (const draft of [...foundationDrafts, ...coreDrafts, ...masterDrafts]) {
 }
 assert.deepEqual(foundationDrafts.map(draft => draft.lessons.length), [3, 2, 3, 2]);
 assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3, 3, 4, 2, 3, 3, 2, 3, 3, 4]);
-assert.deepEqual(masterDrafts.map(draft => draft.lessons.length), [3, 3, 3, 3, 3]);
+assert.deepEqual(masterDrafts.map(draft => draft.lessons.length), [3, 3, 3, 3, 3, 3]);
 for (const draft of foundationDrafts) assert.equal(draft.stage, 'foundation');
 for (const draft of coreDrafts) assert.equal(draft.stage, 'core');
 for (const draft of masterDrafts) assert.equal(draft.stage, 'master');
 
 const ids = new Set();
+const authoredMasterNumbers = [...Array(15)].map((_, index) => index + 1).concat([18, 19, 20]);
 for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['core', coreDrafts, 30], ['master', masterDrafts, 20]]) {
  const lessons = drafts.flatMap(draft => draft.lessons);
  for (const [index, lesson] of lessons.entries()) {
-  const n = index + 1;
+  const n = stage === 'master' ? authoredMasterNumbers[index] : index + 1;
   assert(n <= total);
   assert.equal(lesson.n, n);
   assert.equal(lesson.sourceSpanishLesson, n);
@@ -106,6 +108,17 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
   if (lesson.id === 'master-french-sound-like-a-native:8:fr-en') {
    assert.deepEqual(lesson.practice.say.passage, lesson.reader.map(line => line.fr));
   }
+  if (lesson.id === 'master-french-sound-like-a-native:18:fr-en') {
+   assert.equal(lesson.evidenceRequirement.source, 'learner-saved-recording-or-instructor-observation');
+   assert.equal(lesson.evidenceRequirement.minimumPriorities, 2);
+  }
+  if (lesson.id === 'master-french-sound-like-a-native:20:fr-en') {
+   assert.deepEqual(lesson.practice.say.freshReading, lesson.reader.slice(0, 2).map(line => line.fr));
+   assert.equal(lesson.portfolio.commonPrompt, lesson.practice.say.answerRef);
+   assert.equal(lesson.portfolio.assessmentStatus, 'not-assessed');
+  }
  }
 }
-console.log('French pronunciation F1–10 + C1–30 + M1–15 private draft: 55 source-mapped IDs, 550 cards, 220 Reader lines, 55 speaking scenes, 330 practice prompts; all release gates closed.');
+assert(!ids.has('master-french-sound-like-a-native:16:fr-en'));
+assert(!ids.has('master-french-sound-like-a-native:17:fr-en'));
+console.log('French pronunciation F1–10 + C1–30 + M1–15/M18–20 private draft: 58 source-mapped IDs, 580 cards, 232 Reader lines, 58 speaking scenes, 348 practice prompts; Master 16–17 and all release gates remain open.');

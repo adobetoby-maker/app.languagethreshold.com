@@ -99,6 +99,7 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
               <button
                 key={g.id}
                 onClick={() => setGroupIndex(i)}
+                aria-label={g.name}
                 data-active={groupIndex === i}
                 className="rounded-full border px-2.5 py-1 font-mono text-[10px] transition-all data-[active=true]:border-gold data-[active=true]:bg-gold/10 data-[active=true]:text-gold data-[active=false]:border-border/50 data-[active=false]:text-muted-foreground/70 hover:border-gold/40"
               >
@@ -106,6 +107,13 @@ export function KanaWritingPad({ fullScreen = false }: { fullScreen?: boolean })
               </button>
             ))}
           </div>
+          {script === "hiragana" && groupIndex >= 10 && (
+            <p className="text-sm text-muted-foreground">
+              {group.id === "h-p"
+                ? "The small circle (゜) changes an H-row sound to P, as in ぷ in きっぷ."
+                : `Two small marks (゛) voice the base row's sound. Practice the marked sign in ${words[0]?.kana}.`}
+            </p>
+          )}
         </div>
       )}
 

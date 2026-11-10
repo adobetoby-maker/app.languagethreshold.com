@@ -68,6 +68,36 @@ export const HIRAGANA_GROUPS: CharGroup[] = [
     romaji: ["ra", "ri", "ru", "re", "ro"],
   },
   { id: "h-w", name: "W-row わをん", chars: ["わ", "を", "ん"], romaji: ["wa", "wo", "n"] },
+  {
+    id: "h-g",
+    name: "G-row (voiced) がぎぐげご",
+    chars: ["が", "ぎ", "ぐ", "げ", "ご"],
+    romaji: ["ga", "gi", "gu", "ge", "go"],
+  },
+  {
+    id: "h-z",
+    name: "Z-row (voiced) ざじずぜぞ",
+    chars: ["ざ", "じ", "ず", "ぜ", "ぞ"],
+    romaji: ["za", "ji", "zu", "ze", "zo"],
+  },
+  {
+    id: "h-d",
+    name: "D-row (voiced) だぢづでど",
+    chars: ["だ", "ぢ", "づ", "で", "ど"],
+    romaji: ["da", "ji", "zu", "de", "do"],
+  },
+  {
+    id: "h-b",
+    name: "B-row (voiced) ばびぶべぼ",
+    chars: ["ば", "び", "ぶ", "べ", "ぼ"],
+    romaji: ["ba", "bi", "bu", "be", "bo"],
+  },
+  {
+    id: "h-p",
+    name: "P-row ぱぴぷぺぽ",
+    chars: ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
+    romaji: ["pa", "pi", "pu", "pe", "po"],
+  },
 ];
 
 export const KATAKANA_GROUPS: CharGroup[] = [
@@ -169,6 +199,26 @@ export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   "h-w": [
     { kana: "わたし", romaji: "watashi", meaning: "I" },
     { kana: "ほん", romaji: "hon", meaning: "book" },
+  ],
+  "h-g": [
+    { kana: "がくせい", romaji: "gakusei", meaning: "student" },
+    { kana: "みぎ", romaji: "migi", meaning: "right" },
+  ],
+  "h-z": [
+    { kana: "みず", romaji: "mizu", meaning: "water" },
+    { kana: "じかん", romaji: "jikan", meaning: "time" },
+  ],
+  "h-d": [
+    { kana: "ともだち", romaji: "tomodachi", meaning: "friend" },
+    { kana: "でんしゃ", romaji: "densha", meaning: "train" },
+  ],
+  "h-b": [
+    { kana: "ことば", romaji: "kotoba", meaning: "word" },
+    { kana: "べんきょう", romaji: "benkyou", meaning: "study" },
+  ],
+  "h-p": [
+    { kana: "きっぷ", romaji: "kippu", meaning: "ticket" },
+    { kana: "えんぴつ", romaji: "enpitsu", meaning: "pencil" },
   ],
   "k-vowels": [
     { kana: "アメリカ", romaji: "amerika", meaning: "United States" },

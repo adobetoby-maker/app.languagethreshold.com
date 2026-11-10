@@ -40,7 +40,7 @@ test("each basic katakana row progresses from characters to contextual word writ
 });
 
 test("all hiragana rows advance from characters to exact Japanese 101 card pairs", () => {
-  assert.equal(HIRAGANA_GROUPS.length, 10);
+  assert.equal(HIRAGANA_GROUPS.length, 15);
   for (const group of HIRAGANA_GROUPS) {
     const words = PRACTICE_WORDS[group.id];
     assert.ok(words?.length >= 2, `${group.id} should have at least two words`);

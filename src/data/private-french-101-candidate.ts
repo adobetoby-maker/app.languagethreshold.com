@@ -41,11 +41,30 @@ type PrivateFixture = {
   audioStatus: string;
   support: Sidecar[];
 };
+type AuthoredMode = { authoredPrompt?: { prompt?: string; targetText?: string } };
+type FoundationGrammarBrief = {
+  n: number;
+  stableLessonKey: string;
+  sourceObjective: string;
+  grammarPoint: string;
+  explanation: string;
+  contrast: string;
+  examples: { readerTurn: number; target: string; native: string }[];
+  reviewed: boolean;
+};
+type FoundationGrammarBriefs = {
+  pairKey: string;
+  moduleId: string;
+  registered: boolean;
+  reviewed: boolean;
+  lessons: FoundationGrammarBrief[];
+};
 type FoundationFixture = PrivateFixture & { stageFile: Core60StageFile };
 type CoreFixture = PrivateFixture & { target: string; native: string; coreCurriculum: ModuleCurriculum };
 type MasterFixture = PrivateFixture & { target: string; native: string; masterStageFragment: Core60StageFile };
 export type French101PrivateInputs = {
   foundation: FoundationFixture;
+  foundationGrammar: FoundationGrammarBriefs;
   core: CoreFixture;
   master: MasterFixture;
 };
@@ -78,6 +97,12 @@ function exactPair(pair: Pair): boolean {
   return pair.target === FRENCH_101_PAIR.target && pair.native === FRENCH_101_PAIR.native;
 }
 
+function collectStrings(value: unknown, output: Set<string>): void {
+  if (typeof value === "string") output.add(value);
+  else if (Array.isArray(value)) value.forEach(item => collectStrings(item, output));
+  else if (value && typeof value === "object") Object.values(value).forEach(item => collectStrings(item, output));
+}
+
 function checkFixture(fixture: PrivateFixture, id: StageId, count: number): void {
   if (!fixture.privatePilot || fixture.registered || fixture.reviewed || fixture.audioStatus !== "script-only; no recorded audio")
     throw new Error(`${id} must remain a private, unreviewed, script-only fixture`);
@@ -90,12 +115,27 @@ function checkFixture(fixture: PrivateFixture, id: StageId, count: number): void
       throw new Error(`${id} is missing a card, Reader, dictionary or speaking input at ${index + 1}`);
     if (JSON.stringify(Object.keys(sidecar.modes).sort()) !== JSON.stringify(modeNames))
       throw new Error(`${id} is missing a practice mode at ${index + 1}`);
+    const lessonSourceText = new Set<string>();
+    for (const [field, value] of Object.entries(sidecar)) {
+      if (field !== "modes") collectStrings(value, lessonSourceText);
+    }
+    const prompts = new Set<string>();
+    for (const mode of modeNames) {
+      const authored = (sidecar.modes[mode] as AuthoredMode).authoredPrompt;
+      if (!authored?.prompt?.trim() || !authored.targetText?.trim())
+        throw new Error(`${id} is missing an authored ${mode} activity at ${index + 1}`);
+      if (!lessonSourceText.has(authored.targetText))
+        throw new Error(`${id} ${mode} target is absent from lesson source at ${index + 1}`);
+      if (prompts.has(authored.prompt))
+        throw new Error(`${id} repeats an authored prompt at ${index + 1}`);
+      prompts.add(authored.prompt);
+    }
   }
 }
 
 /** Explicit review-harness entrypoint: the caller supplies private fixture JSON. */
 export function inspectPrivateFrench101(inputs: French101PrivateInputs) {
-  const { foundation, core, master } = inputs;
+  const { foundation, foundationGrammar, core, master } = inputs;
   checkFixture(foundation, FRENCH_101_STAGE_IDS[0], 10);
   checkFixture(core, FRENCH_101_STAGE_IDS[1], 30);
   checkFixture(master, FRENCH_101_STAGE_IDS[2], 20);
@@ -112,6 +152,29 @@ export function inspectPrivateFrench101(inputs: French101PrivateInputs) {
   }
   if (core.coreCurriculum.moduleId !== "french-basics" || core.coreCurriculum.lessons.length !== 30)
     throw new Error("French 101 Core is not the expected 30-lesson curriculum");
+  if (foundationGrammar.pairKey !== "French:English" ||
+      foundationGrammar.moduleId !== FRENCH_101_STAGE_IDS[0] ||
+      foundationGrammar.registered || foundationGrammar.reviewed ||
+      foundationGrammar.lessons.length !== 10)
+    throw new Error("French 101 Foundation grammar has wrong pair, count, or private gate");
+  for (const [index, brief] of foundationGrammar.lessons.entries()) {
+    const n = index + 1;
+    const reader = foundation.support[index].reader as {
+      sentences?: { target: string; native: string }[];
+    };
+    if (brief.n !== n || brief.stableLessonKey !== `foundation-french-basics:${n}` ||
+        brief.sourceObjective !== foundation.stageFile.lessons[index].objective ||
+        brief.reviewed || !brief.grammarPoint.trim() || !brief.explanation.trim() ||
+        !brief.contrast.trim() || brief.examples.length < 2 || !reader.sentences)
+      throw new Error(`French 101 Foundation grammar identity or content changed at ${n}`);
+    for (const example of brief.examples) {
+      const line = Number.isInteger(example.readerTurn)
+        ? reader.sentences[example.readerTurn - 1]
+        : null;
+      if (line?.target !== example.target || line.native !== example.native)
+        throw new Error(`French 101 Foundation grammar Reader pair changed at ${n}`);
+    }
+  }
 
   const catalog = [
     deriveStageModule(baseCatalog, stageManifest, "foundation"),
@@ -150,6 +213,10 @@ export function inspectPrivateFrench101(inputs: French101PrivateInputs) {
     catalog,
     stage,
     activity,
+    foundationGrammar: (lessonNumber: number, pair: Pair): FoundationGrammarBrief | null =>
+      exactPair(pair) && Number.isInteger(lessonNumber) && lessonNumber > 0
+        ? foundationGrammar.lessons[lessonNumber - 1] ?? null
+        : null,
     /** Proposed IDs only; the shipped offline allowlist is deliberately unchanged. */
     candidateOfflinePackIds: FRENCH_101_STAGE_IDS.map((id) => `${id}-fr-en`),
     supportsPair: (pair: Pair) => exactPair(pair) && catalog.every((module) => moduleSupportsLearningPair(module, pair.target as "French", pair.native as "English")),

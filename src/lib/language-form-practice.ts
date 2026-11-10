@@ -1,0 +1,51 @@
+/** Exact-pair typed checking for authored French and Japanese form prompts. */
+export type FormPracticePair = "French:English" | "Japanese:English";
+
+export interface FormPracticeAnswer {
+  pairKey: FormPracticePair;
+  frenchAnswer?: string;
+  japaneseAnswer?: string;
+  knownFrenchVariants?: readonly string[];
+  knownJapaneseVariants?: readonly string[];
+}
+
+/** Touch-key insertion replaces only the current selection. */
+export function insertFrenchCharacter(value: string, character: string, start: number, end: number) {
+  const before = value.slice(0, start);
+  return { value: before + character + value.slice(end), caret: before.length + character.length };
+}
+
+/** The authored English meaning is checked separately from target-language form spelling. */
+export function isCorrectFormMeaning(input: string, expectedEnglish: string): boolean {
+  const normalize = (value: string) => value.normalize("NFKC").toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
+  const answer = normalize(input);
+  return Boolean(answer) && answer === normalize(expectedEnglish);
+}
+
+function normalizeFormAnswer(value: string, pair: FormPracticePair): string {
+  const text = value.normalize("NFKC").toLowerCase();
+  if (pair === "Japanese:English") {
+    // Mixed-script source lines may have editorial spaces between Japanese and English.
+    return text.replace(/[\p{P}\p{Z}\s]/gu, "");
+  }
+  return text
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+/** Only explicitly authored variants count; no inferred translation or conjugation is accepted. */
+export function isCorrectFormPracticeAnswer(
+  input: string,
+  prompt: FormPracticeAnswer,
+  selectedPair: FormPracticePair,
+): boolean {
+  if (prompt.pairKey !== selectedPair) return false;
+  const normalized = normalizeFormAnswer(input, selectedPair);
+  if (!normalized) return false;
+  const answers = selectedPair === "French:English"
+    ? [prompt.frenchAnswer, ...(prompt.knownFrenchVariants ?? [])]
+    : [prompt.japaneseAnswer, ...(prompt.knownJapaneseVariants ?? [])];
+  return answers.some((answer) => answer && normalizeFormAnswer(answer, selectedPair) === normalized);
+}

@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
+  "sourceSha256": "c3cb9ad054463ca4f6e8287be92e694d41e20e25a418bb9ca4403a0027e391fd",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "master-french-basics:1",
+      "modes": {
+        "see": {"prompt": "Read the teacher’s opening request and identify the polite conditional Pourriez-vous.", "targetText": "Professeure : Pourriez-vous présenter notre nouvelle camarade au groupe ?"},
+        "recall": {"prompt": "Recall how to introduce Camille to a peer using the familiar te.", "targetText": "Je te présente Camille. Elle vient de Lyon."},
+        "hear": {"prompt": "Listen for the formal introduction phrase used before Camille’s name.", "targetText": "je vous présente", "recordedAudio": false},
+        "type": {"prompt": "Type a formal introduction of Camille as a new classmate, using vous.", "targetText": "Je vous présente Camille, notre nouvelle camarade."},
+        "say": {"prompt": "Explain aloud why Camille is joining, using parce que to give her reason.", "targetText": "Elle nous rejoint parce qu’elle veut pratiquer la conversation."},
+        "write": {"prompt": "Write the formal introduction of Camille for the teacher, not the peer.", "targetText": "Je vous présente Camille, notre nouvelle camarade."}
+      }
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "master-french-basics:2",
+      "modes": {
+        "see": {"prompt": "Read the supplies email and identify the large-format notebook requirement.", "targetText": "Courriel : Pour le travail de demain, apportez un cahier grand format et deux stylos."},
+        "recall": {"prompt": "Recall the sentence that states which large-format notebook is required.", "targetText": "Il faut un cahier grand format pour le cours."},
+        "hear": {"prompt": "Listen for the phrase naming the large-format notebook in the instructions.", "targetText": "cahier grand format", "recordedAudio": false},
+        "type": {"prompt": "Type that the group is missing a large-format notebook, using il nous manque.", "targetText": "Il nous manque un cahier grand format."},
+        "say": {"prompt": "Ask aloud whether two ordinary notebooks can be used instead.", "targetText": "Peut-on utiliser deux cahiers ordinaires à la place ?"},
+        "write": {"prompt": "Write a direct question asking whether the substitute suits group work.", "targetText": "Cela convient-il pour le travail en groupe ?"}
+      }
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "master-french-basics:3",
+      "modes": {
+        "see": {"prompt": "Read Maya’s opening count and locate the shortage of one notebook.", "targetText": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers."},
+        "recall": {"prompt": "Recall the count of people and notebooks, using mais for the mismatch.", "targetText": "Il y a quatre personnes, mais seulement trois cahiers."},
+        "hear": {"prompt": "Listen for the recipient pronoun referring to one named person.", "targetText": "lui", "recordedAudio": false},
+        "type": {"prompt": "Type how you give Ana a notebook and then refer to her with lui.", "targetText": "Je donne un cahier à Ana ; je lui donne aussi un crayon."},
+        "say": {"prompt": "Tell the group aloud that you distribute pencils to them, using leur.", "targetText": "Je leur distribue les crayons."},
+        "write": {"prompt": "Write the agreed order for Ana and Hugo to share one dictionary.", "targetText": "Ana utilisera le dictionnaire d’abord, puis Hugo le prendra."}
+      }
+    }
+  ]
+}

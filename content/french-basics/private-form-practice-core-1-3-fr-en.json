@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 9,
+    "newAuthoredContrasts": 5,
+    "totalPrompts": 14,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "french-basics:1",
+      "grammarModel": {
+        "verb": "parler",
+        "je": "je parle",
+        "tu": "tu parles",
+        "il_elle": "il/elle parle",
+        "nous": "nous parlons",
+        "ils_elles": "ils/elles parlent"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-4fa8f242ece5c94a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "je-etudie-elision",
+          "frenchAnswer": "J'étudie le français le matin.",
+          "englishPrompt": "I study French in the morning.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ca2617a0f867ebd1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "nous-parlons",
+          "frenchAnswer": "Nous parlons à la bibliothèque.",
+          "englishPrompt": "We talk in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-a55ee621052cd831",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "plural-pratiquent",
+          "frenchAnswer": "Les étudiants pratiquent à la maison.",
+          "englishPrompt": "The students practice at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2634e160cbc35ba9",
+          "source": "authored-draft-contrast",
+          "focus": "singular-parle",
+          "frenchAnswer": "Il parle à la bibliothèque.",
+          "englishPrompt": "He talks in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-8f821c36274f7016",
+          "source": "authored-draft-contrast",
+          "focus": "plural-parlent",
+          "frenchAnswer": "Ils parlent à la bibliothèque.",
+          "englishPrompt": "They talk in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "french-basics:2",
+      "grammarModel": {
+        "verb": "manger",
+        "je": "je mange",
+        "tu": "tu manges",
+        "il_elle": "il/elle mange",
+        "nous": "nous mangeons",
+        "ils_elles": "ils/elles mangent"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-6e4dedcf535b6dd3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "je-mange",
+          "frenchAnswer": "Je mange du pain et je bois de l'eau.",
+          "englishPrompt": "I eat bread and drink water.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-921157364c93c64c",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "elle-mange",
+          "frenchAnswer": "Ana mange des fruits.",
+          "englishPrompt": "Ana eats fruit.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4991298185e089d0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "plural-mangent",
+          "frenchAnswer": "Les amis mangent à la cafétéria.",
+          "englishPrompt": "The friends eat in the cafeteria.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-6979746e2cea29f2",
+          "source": "authored-draft-contrast",
+          "focus": "nous-mangeons-spelling",
+          "frenchAnswer": "Nous mangeons à la cafétéria.",
+          "englishPrompt": "We eat at the cafeteria.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "french-basics:3",
+      "grammarModel": {
+        "verb": "finir",
+        "je": "je finis",
+        "tu": "tu finis",
+        "il_elle": "il/elle finit",
+        "nous": "nous finissons",
+        "ils_elles": "ils/elles finissent"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-4f722ba9b0cb1ed1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "je-vis-exception",
+          "frenchAnswer": "Je vis dans une petite ville.",
+          "englishPrompt": "I live in a small town.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4735ccf1fbe9d2e0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "nous-ecrivons-exception",
+          "frenchAnswer": "Nous écrivons des messages en français.",
+          "englishPrompt": "We write messages in French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-8e58003c49adfd00",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "plural-recoivent-exception",
+          "frenchAnswer": "Mes amis reçoivent une lettre.",
+          "englishPrompt": "My friends receive a letter.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-89a85c2adc967554",
+          "source": "authored-draft-contrast",
+          "focus": "je-finis",
+          "frenchAnswer": "Je finis mon message en français.",
+          "englishPrompt": "I finish my message in French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-bc6e6283b6559b3d",
+          "source": "authored-draft-contrast",
+          "focus": "nous-finissons",
+          "frenchAnswer": "Nous finissons nos messages en français.",
+          "englishPrompt": "We finish our messages in French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

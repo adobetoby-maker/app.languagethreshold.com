@@ -1,0 +1,7 @@
+# French 101 Core 1–3 form practice — private draft
+
+`private-form-practice-core-1-3-fr-en.json` is generated from the exact French→English `private-runtime-core-1-30.json` fixture by `scripts/build-french101-core-1-3-form-practice.py`. The output pins that fixture's SHA-256 and keeps the `french-basics:n` lesson keys. It is `registered:false` and `reviewed:false`; no learner course, audio route, or saved progress changes.
+
+The three lessons contain nine exact aligned Reader-turn prompts plus five newly authored contrast pairs. Core 1 contrasts written *il parle* and *ils parlent*; Core 2 adds *nous mangeons*; Core 3 contrasts *je finis* and *nous finissons*. These forms are checked against each lesson's authored grammar model. Core 3's Reader demonstrates irregular verbs but lacks a sentence using the regular *finir* model; the new pair supplies that context without changing the Reader or its English translation. Every prompt offers meaning recognition and target production as authoring inputs, rather than claiming a working form trainer.
+
+Run `python3 scripts/build-french101-core-1-3-form-practice.py --check` after a source change. Independent French/curriculum review and Core 4–30/Master form practice remain open, along with app UI, answer comparison, audio, offline, browser, phone and V4 acceptance. This work contributes to [verb parity issue #428](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/428).

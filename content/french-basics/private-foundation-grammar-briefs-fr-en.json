@@ -1,0 +1,331 @@
+{
+  "schema": 1,
+  "pairKey": "French:English",
+  "moduleId": "foundation-french-basics",
+  "sourceFixturePath": "content/french-basics/private-runtime-foundation-1-10.json",
+  "sourceFixtureSha256": "6eca43a19dc9ed6090eef417d58be728e90ff91a26798555c14422b59f5261d3",
+  "registered": false,
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "stableLessonKey": "foundation-french-basics:1",
+      "sourceObjective": "Greet a new adult learner, exchange names politely, and hear and produce the French /ʒ/, /u/, and nasal /ɔ̃/ sounds in familiar words.",
+      "grammarPoint": "Names and polite address",
+      "explanation": "Je m’appelle introduces your name. Comment vous appelez-vous ? asks an adult for a name with vous.",
+      "contrast": "Claire writes enchantée and Marc writes enchanté; the final -e changes the written form, not its pronunciation.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Claire: Bonjour ! Je m’appelle Claire.",
+          "native": "Hello! My name is Claire."
+        },
+        {
+          "readerTurn": 2,
+          "target": "Claire: Comment vous appelez-vous ?",
+          "native": "What is your name?"
+        },
+        {
+          "readerTurn": 4,
+          "target": "Claire: Enchantée, Marc. Ça va ?",
+          "native": "Pleased to meet you, Marc. How are you?"
+        },
+        {
+          "readerTurn": 5,
+          "target": "Marc: Enchanté, Claire. Ça va bien, merci. Et vous ?",
+          "native": "Pleased to meet you, Claire. I’m doing well, thank you. And you?"
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "stableLessonKey": "foundation-french-basics:2",
+      "sourceObjective": "Name familiar classroom objects with un or une, and use le or la when pointing to a specific object.",
+      "grammarPoint": "Introducing and identifying one object",
+      "explanation": "Use un with a masculine noun and une with a feminine noun when introducing one object. Learn the article with the noun.",
+      "contrast": "C’est un cahier introduces a notebook; voilà la gomme points to the specific eraser already in the conversation.",
+      "examples": [
+        {
+          "readerTurn": 2,
+          "target": "Paul: C’est un cahier.",
+          "native": "It’s a notebook."
+        },
+        {
+          "readerTurn": 3,
+          "target": "Léa: Et ça, c’est une trousse ?",
+          "native": "And that one, is it a pencil case?"
+        },
+        {
+          "readerTurn": 6,
+          "target": "Paul: C’est un stylo. Et voilà la gomme.",
+          "native": "It’s a pen. And here is the eraser."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableLessonKey": "foundation-french-basics:3",
+      "sourceObjective": "Distinguish one classroom object from several using un/une/des and le/la/les, and hear plural meaning through the article.",
+      "grammarPoint": "One object and several objects",
+      "explanation": "Des introduces unspecified plural objects; les identifies particular plural objects. The article often carries the audible number contrast.",
+      "contrast": "Les crayons means the pencils in view; des stylos means pens without identifying a particular set. Plural -s is written but usually silent.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Léa: Voilà les crayons.",
+          "native": "Here are the pencils."
+        },
+        {
+          "readerTurn": 2,
+          "target": "Paul: Merci ! Et ça, ce sont des stylos ?",
+          "native": "Thank you! And these, are they pens?"
+        },
+        {
+          "readerTurn": 3,
+          "target": "Léa: Oui, ce sont des stylos. Et voilà les cahiers.",
+          "native": "Yes, they are pens. And here are the notebooks."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 4,
+      "stableLessonKey": "foundation-french-basics:4",
+      "sourceObjective": "Introduce yourself and a classmate with je suis, tu es, and nous sommes; identify a third person or group with il/elle est or ils/elles sont, keeping tu or vous consistent with the relationship.",
+      "grammarPoint": "People and the forms of être",
+      "explanation": "Match the subject to être: je suis, tu es, il or elle est, nous sommes, vous êtes, ils or elles sont.",
+      "contrast": "Je suis identifies Nadia; nous sommes includes Hugo and Nadia. Tu addresses the classmate in this exchange.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Hugo: Salut ! Tu es Nadia ?",
+          "native": "Hi! Are you Nadia?"
+        },
+        {
+          "readerTurn": 2,
+          "target": "Nadia: Oui, je suis Nadia. Et toi, tu es Hugo ?",
+          "native": "Yes, I am Nadia. And you, are you Hugo?"
+        },
+        {
+          "readerTurn": 3,
+          "target": "Hugo: Oui, je suis Hugo. Nous sommes étudiants ici.",
+          "native": "Yes, I am Hugo. We are students here."
+        },
+        {
+          "readerTurn": 7,
+          "target": "Hugo: Ils sont étudiants aussi.",
+          "native": "They are students too."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "stableLessonKey": "foundation-french-basics:5",
+      "sourceObjective": "Introduce a learner’s role and origin with être and the appropriate Je viens de country chunk, and describe a person with a correctly matched adjective.",
+      "grammarPoint": "Role, origin, and agreement",
+      "explanation": "A plain role follows être without an article: je suis étudiant or je suis étudiante. Je viens changes its country preposition with the country name.",
+      "contrast": "Je viens d’Espagne uses d’ before Espagne; je viens de France uses de. Elle est française and elle est gentille match the woman described.",
+      "examples": [
+        {
+          "readerTurn": 2,
+          "target": "Marc: Oui, je suis étudiant. Et vous, vous êtes étudiante ?",
+          "native": "Yes, I am a student. And you, are you a student?"
+        },
+        {
+          "readerTurn": 3,
+          "target": "Claire: Oui, je suis étudiante. Je viens d’Espagne.",
+          "native": "Yes, I am a student. I come from Spain."
+        },
+        {
+          "readerTurn": 4,
+          "target": "Marc: Ah, je viens de France. Et la professeure ?",
+          "native": "Oh, I come from France. And the teacher?"
+        },
+        {
+          "readerTurn": 5,
+          "target": "Claire: Elle est française. Elle est gentille.",
+          "native": "She is French. She is kind."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "stableLessonKey": "foundation-french-basics:6",
+      "sourceObjective": "Locate a person or object with être, sur, dans, or près de/du, and describe a state with an adjective that matches the noun or person.",
+      "grammarPoint": "Location and a matching adjective",
+      "explanation": "Use être to locate an object or describe a state here. Sur means on, dans means in, and près du means near the.",
+      "contrast": "Il refers back to le livre; elle refers back to la trousse. Marc is fatigué; Claire is prête, with the adjective matching the person.",
+      "examples": [
+        {
+          "readerTurn": 2,
+          "target": "Marc: Il est sur la table.",
+          "native": "It is on the table."
+        },
+        {
+          "readerTurn": 4,
+          "target": "Marc: Elle est sur la table.",
+          "native": "It is on the table."
+        },
+        {
+          "readerTurn": 5,
+          "target": "Claire: Et le stylo ? Il est dans la trousse ?",
+          "native": "And the pen? Is it in the pencil case?"
+        },
+        {
+          "readerTurn": 6,
+          "target": "Marc: Non, il est près du livre.",
+          "native": "No, it is near the book."
+        },
+        {
+          "readerTurn": 8,
+          "target": "Marc: Oui, je suis fatigué. Et vous, vous êtes prête ?",
+          "native": "Yes, I am tired. And you, are you ready?"
+        },
+        {
+          "readerTurn": 9,
+          "target": "Claire: Oui, je suis prête. La porte est ouverte !",
+          "native": "Yes, I am ready. The door is open!"
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 7,
+      "stableLessonKey": "foundation-french-basics:7",
+      "sourceObjective": "Say what exists with il y a and where something is with être; negate existence with il n’y a pas de or d’ before a vowel.",
+      "grammarPoint": "Existence versus location",
+      "explanation": "Il y a says that something exists and stays the same with one or several things. Être locates a particular thing.",
+      "contrast": "Il y a une bibliothèque asks whether a library exists; elle est là gives its location. Negated existence uses il n’y a pas d’ before ordinateur.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Léa : Il y a une bibliothèque ici ?",
+          "native": "Is there a library here?"
+        },
+        {
+          "readerTurn": 2,
+          "target": "Théo : Oui, elle est là, près de la cantine.",
+          "native": "Yes, it is there, near the cafeteria."
+        },
+        {
+          "readerTurn": 3,
+          "target": "Léa : Il y a des tables ?",
+          "native": "Are there tables?"
+        },
+        {
+          "readerTurn": 7,
+          "target": "Léa : Il n’y a pas d’ordinateur ici, c’est ça ?",
+          "native": "There is no computer here, right?"
+        },
+        {
+          "readerTurn": 8,
+          "target": "Théo : Non, il n’y a pas d’ordinateur ici.",
+          "native": "No, there is no computer here."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "stableLessonKey": "foundation-french-basics:8",
+      "sourceObjective": "Give an assigned age with avoir (j’ai dix-huit ans), count 1–20, and say how many students there are and how many books a class needs.",
+      "grammarPoint": "Age, quantities, and need",
+      "explanation": "French states age with avoir: j’ai dix-huit ans. Use il y a for a count and avoir besoin de for what a group needs.",
+      "contrast": "Tu as quel âge ? asks for age; nous avons besoin de dix livres states a need for ten books.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Inès : Bonjour ! Tu as quel âge ?",
+          "native": "Hello! How old are you?"
+        },
+        {
+          "readerTurn": 2,
+          "target": "Sami : J’ai dix-huit ans. Et toi ?",
+          "native": "I am eighteen years old. And you?"
+        },
+        {
+          "readerTurn": 4,
+          "target": "Sami : Il y a dix élèves dans la classe, c’est ça ?",
+          "native": "There are ten students in the class, right?"
+        },
+        {
+          "readerTurn": 5,
+          "target": "Inès : Oui. Nous avons besoin de dix livres pour les élèves et d’un livre pour la professeure.",
+          "native": "Yes. We need ten books for the students and one book for the teacher."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "stableLessonKey": "foundation-french-basics:9",
+      "sourceObjective": "Ask simple yes/no questions in French and make a negative with ne…pas.",
+      "grammarPoint": "Questions and full negation",
+      "explanation": "A yes-or-no question can use rising intonation or est-ce que. In this course, write ne before the verb and pas after it.",
+      "contrast": "Elle n’est pas contracts ne before a vowel. After negated avoir, un livre becomes pas de livre; the role in je suis étudiant has no article.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Léa : Tu es étudiant ?",
+          "native": "Are you a student?"
+        },
+        {
+          "readerTurn": 2,
+          "target": "Marc : Oui, je suis étudiant.",
+          "native": "Yes, I am a student."
+        },
+        {
+          "readerTurn": 3,
+          "target": "Léa : Est-ce que la professeure est ici ?",
+          "native": "Is the teacher here?"
+        },
+        {
+          "readerTurn": 4,
+          "target": "Marc : Non, elle n’est pas ici. Elle est dans le bureau.",
+          "native": "No, she is not here. She is in the office."
+        },
+        {
+          "readerTurn": 5,
+          "target": "Léa : Tu as un livre ?",
+          "native": "Do you have a book?"
+        },
+        {
+          "readerTurn": 6,
+          "target": "Marc : Non, je n’ai pas de livre aujourd’hui.",
+          "native": "No, I do not have a book today."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 10,
+      "stableLessonKey": "foundation-french-basics:10",
+      "sourceObjective": "Ask a classmate to repeat or speak more slowly, ask a teacher politely, and review selected earlier forms: être, articles, agreement, il y a (from Lesson 7) and ne…pas.",
+      "grammarPoint": "Ask for repetition and review",
+      "explanation": "Je ne comprends pas says that you do not understand. Tu peux répéter, s’il te plaît ? asks a classmate to repeat; plus lentement asks for a slower pace.",
+      "contrast": "Je suis une nouvelle étudiante includes une because nouvelle modifies the role noun. Je ne comprends pas keeps the full written negation.",
+      "examples": [
+        {
+          "readerTurn": 1,
+          "target": "Léa : Bonjour, je suis une nouvelle étudiante.",
+          "native": "Hello, I am a new student."
+        },
+        {
+          "readerTurn": 4,
+          "target": "Léa : Je ne comprends pas ce mot.",
+          "native": "I do not understand this word."
+        },
+        {
+          "readerTurn": 6,
+          "target": "Léa : Tu peux répéter, s’il te plaît ? Plus lentement.",
+          "native": "Can you repeat, please? More slowly."
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

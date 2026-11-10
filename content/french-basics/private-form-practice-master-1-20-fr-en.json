@@ -6,7 +6,7 @@
   "registered": false,
   "reviewed": false,
   "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
-  "sourceSha256": "b7a9bf45679fc96a43657d9f6e1c8fe8b11c63d0819a59c16a502a94c3c83524",
+  "sourceSha256": "c3cb9ad054463ca4f6e8287be92e694d41e20e25a418bb9ca4403a0027e391fd",
   "counts": {
     "lessons": 20,
     "alignedReaderPrompts": 96,
@@ -332,7 +332,7 @@
       "grammarModel": {
         "role": "Maya est responsable de la réunion.",
         "state": "Elle ne se sent pas bien aujourd’hui.",
-        "availability": "Léa sera disponible après quinze heures.",
+        "availability": "Léa sera là avant quinze heures pour préparer la salle.",
         "repair": "Si j’ai bien compris, Maya dirige la réunion, mais Léa remplace Maya cet après-midi."
       },
       "prompts": [
@@ -548,7 +548,7 @@
         "repair": "Pardon, je voulais dire la salle B, pas la salle D.",
         "time": "La réunion commence à quinze heures trente, pas à quatorze heures trente.",
         "check": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?",
-        "close": "Oui, c’est bien cela ; merci de me le confirmer par écrit."
+        "close": "La salle B à quinze heures trente reste à confirmer ; j’attends votre réponse écrite."
       },
       "prompts": [
         {
@@ -2158,7 +2158,7 @@
         "open": "Nous devons préparer l’atelier de jeudi.",
         "clarify": "De combien de places avons-nous besoin ?",
         "compare": "La petite salle est plus calme, mais elle a moins de places.",
-        "close": "Je confirme l’horaire ; tu vérifieras la salle auprès de l’accueil."
+        "close": "Hugo vérifiera la grande salle auprès de l’accueil ; Camille préviendra les participants après confirmation."
       },
       "prompts": [
         {

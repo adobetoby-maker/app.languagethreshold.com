@@ -21,7 +21,7 @@
     },
     {
       "draftPath": "content/french-basics/master-4-6-redesign-draft.json",
-      "draftSha256": "91a0db73dd3b9b09dcd1f42eca94c5635d2784f97ae1a353fc154499371a0542",
+      "draftSha256": "bc12df06529ff0abae18d9bc10bd8e7b42a291adda719e12640c80f61e377bbf",
       "source": {
         "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
         "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
@@ -36,7 +36,7 @@
     },
     {
       "draftPath": "content/french-basics/master-7-9-redesign-draft.json",
-      "draftSha256": "dd6ef71f2f4adfb47ab0aaa181dac501353e49998c28a708970545514a27b4c5",
+      "draftSha256": "69a69913548ffe3f41b51af7fbe2a63d443b1f416be9d29f154ca9e846703d61",
       "source": {
         "curriculumMap": "docs/french-program/french-101-master-curriculum-map.json",
         "curriculumMapSha256": "96b66215eb8ac8778f3a17ef429489520a42e5aaddd4e10412008b0e1081ab6e",
@@ -45,7 +45,7 @@
         "legacySpanishPractice": "src/data/spanish-basics-practice.json",
         "legacySpanishPracticeSha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
         "priorRedesign": "content/french-basics/master-4-6-redesign-draft.json",
-        "priorRedesignSha256": "91a0db73dd3b9b09dcd1f42eca94c5635d2784f97ae1a353fc154499371a0542",
+        "priorRedesignSha256": "bc12df06529ff0abae18d9bc10bd8e7b42a291adda719e12640c80f61e377bbf",
         "policy": "Legacy English pairs remain provenance only; candidate learner pairs are newly authored and unreviewed"
       }
     }
@@ -2926,7 +2926,7 @@
         "model": {
           "role": "Maya est responsable de la réunion.",
           "state": "Elle ne se sent pas bien aujourd’hui.",
-          "availability": "Léa sera disponible après quinze heures.",
+          "availability": "Léa sera là avant quinze heures pour préparer la salle.",
           "repair": "Si j’ai bien compris, Maya dirige la réunion, mais Léa remplace Maya cet après-midi."
         },
         "caution": "French uses the predicate and context to distinguish an ongoing role from temporary availability. Confirm who can take the meeting today before assigning tasks."
@@ -2936,7 +2936,7 @@
         "model": {
           "role": "Maya est responsable de la réunion.",
           "state": "Elle ne se sent pas bien aujourd’hui.",
-          "availability": "Léa sera disponible après quinze heures.",
+          "availability": "Léa sera là avant quinze heures pour préparer la salle.",
           "repair": "Si j’ai bien compris, Maya dirige la réunion, mais Léa remplace Maya cet après-midi."
         },
         "caution": "The Spanish Master 4 source contrasts ser and estar. French has no such grammatical split; a role/state distinction comes from the predicate and context. Future forms in the dialogue should be checked for prerequisite load."
@@ -3867,7 +3867,7 @@
           "repair": "Pardon, je voulais dire la salle B, pas la salle D.",
           "time": "La réunion commence à quinze heures trente, pas à quatorze heures trente.",
           "check": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?",
-          "close": "Oui, c’est bien cela ; merci de me le confirmer par écrit."
+          "close": "La salle B à quinze heures trente reste à confirmer ; j’attends votre réponse écrite."
         },
         "caution": "Correct both room and time politely. Ask for written confirmation only after the clerk has checked availability."
       },
@@ -3877,7 +3877,7 @@
           "repair": "Pardon, je voulais dire la salle B, pas la salle D.",
           "time": "La réunion commence à quinze heures trente, pas à quatorze heures trente.",
           "check": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?",
-          "close": "Oui, c’est bien cela ; merci de me le confirmer par écrit."
+          "close": "La salle B à quinze heures trente reste à confirmer ; j’attends votre réponse écrite."
         },
         "caution": "The original Spanish Master 6 source repeats beginner negation. This task adds precise correction and teach-back in a realistic multi-turn exchange. The dialogue uses a formal vous register."
       },

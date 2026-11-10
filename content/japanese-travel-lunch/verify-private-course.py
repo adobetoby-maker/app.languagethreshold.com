@@ -69,6 +69,6 @@ for path in sorted(COURSE.glob('*-draft.json')):
 
 assert sorted(stages['foundation']) == list(range(1, 11))
 assert sorted(stages['core']) == list(range(1, 31))
-assert sorted(stages['master']) == [1, 2, 3]
-assert batches == 14 and len(all_ids) == 43 and (cards, readers, activities) == (704, 455, 258)
-print(f'Japanese Lunch private F10/C30/M3: {batches} batches, {len(all_ids)} unique lessons, {cards} cards, {readers} Reader turns, {activities} six-mode activities; release flags closed')
+assert sorted(stages['master']) == list(range(1, 7))
+assert batches == 15 and len(all_ids) == 46 and (cards, readers, activities) == (773, 509, 276)
+print(f'Japanese Lunch private F10/C30/M6: {batches} batches, {len(all_ids)} unique lessons, {cards} cards, {readers} Reader turns, {activities} six-mode activities; release flags closed')

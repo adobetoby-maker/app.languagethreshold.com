@@ -1,0 +1,702 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-lunch.json",
+    "curriculumSha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "readerPath": "public/lesson-content/es/master-travel-lunch.json",
+    "readerSha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539",
+    "sourceLessonNumbers": [
+      4,
+      5,
+      6
+    ]
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "sourceEnglishTitle": "Read the Allergen Chart Before Ordering for the Group",
+      "sourceEnglishObjective": "Read a restaurant's allergen chart with the server and explain to the group what to ask before ordering.",
+      "title": "アレルゲン表示を読んで注文を確認する",
+      "objective": "Read a restaurant allergen chart with the server, distinguish an ingredient mark from a trace mark, explain tree-nut information to the group, and ask the kitchen to confirm the selected dishes.",
+      "focus": "アレルゲン一覧 is an allergen chart. 木の実類 covers the listed tree nuts; 微量混入の可能性 means traces may be present, distinct from 原材料に含む. 記号の凡例 explains the chart symbols. 厨房に確認していただけますか asks for confirmation.",
+      "scene": "Alex, Priya, and Marco read an allergen chart at a small restaurant before ordering.",
+      "cards": [
+        {
+          "ja": "アレルゲン一覧",
+          "en": "allergen chart",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルゲン",
+          "en": "allergen",
+          "kind": "term"
+        },
+        {
+          "ja": "木の実類",
+          "en": "tree nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "アーモンド",
+          "en": "almonds",
+          "kind": "term"
+        },
+        {
+          "ja": "ヘーゼルナッツ",
+          "en": "hazelnuts",
+          "kind": "term"
+        },
+        {
+          "ja": "ピスタチオ",
+          "en": "pistachios",
+          "kind": "term"
+        },
+        {
+          "ja": "微量混入",
+          "en": "trace contamination",
+          "kind": "term"
+        },
+        {
+          "ja": "凡例",
+          "en": "chart key",
+          "kind": "term"
+        },
+        {
+          "ja": "記号",
+          "en": "symbol",
+          "kind": "term"
+        },
+        {
+          "ja": "注意書き",
+          "en": "warning note",
+          "kind": "term"
+        },
+        {
+          "ja": "菓子を作る厨房",
+          "en": "pastry kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理",
+          "en": "preparation",
+          "kind": "term"
+        },
+        {
+          "ja": "木の実類アレルギー",
+          "en": "tree-nut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "注文する前にアレルゲン一覧を見ましょう。",
+          "en": "Before ordering, let us look at the allergen chart.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません。この記号は何を意味しますか。",
+          "en": "Excuse me. What does this symbol mean?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここには木の実類の微量混入の可能性があると書いてあります。",
+          "en": "It says here that traces of tree nuts may be present.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "プリヤさん、選ぶ前に木の実類アレルギーがあると店員に伝えてください。",
+          "en": "Priya, tell the server you have a tree-nut allergy before choosing.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ソースと付け合わせについても聞きましょう。",
+          "en": "Let us ask about the sauce and side dish too.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理を運ぶ前に厨房に確認していただけますか。",
+          "en": "Could you confirm it with the kitchen before bringing the dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この表示なら、私は別のデザートにします。",
+          "en": "With this marking, I will choose a different dessert.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理を運ぶときにもアレルギーを伝えてください。",
+          "en": "Please mention the allergy again when bringing the dishes.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私は木の実類にアレルギーがあります。",
+          "en": "I have a tree-nut allergy.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アレックス、プリヤ、マルコは小さなレストランでアレルゲン一覧を受け取ります。",
+          "en": "Alex, Priya, and Marco receive the allergen chart at a small restaurant."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "プリヤには木の実類のアレルギーがあり、アーモンドも食べられません。",
+          "en": "Priya has a tree-nut allergy and cannot eat almonds."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "注文する前にアレルゲン一覧を見ましょう。",
+          "en": "Before ordering, let us look at the allergen chart."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "料理名の横にアレルゲンの記号があり、下に凡例があります。",
+          "en": "An allergen symbol appears beside each dish, with a key below."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "すみません。この記号は何を意味しますか。",
+          "en": "Excuse me. What does this symbol mean?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "この記号は木の実類です。灰色の印は原材料ではなく、微量混入の可能性を示します。",
+          "en": "That symbol means tree nuts. The gray mark indicates possible traces, rather than an ingredient."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ほうじ茶プリンの横には灰色の印と赤い注意書きがあります。",
+          "en": "The roasted-tea pudding has a gray mark and a red warning note."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "ここには木の実類の微量混入の可能性があると書いてあります。",
+          "en": "It says here that traces of tree nuts may be present."
+        },
+        {
+          "speaker": "Server",
+          "ja": "菓子を作る厨房では、同じ作業台でヘーゼルナッツのケーキも作ります。",
+          "en": "The pastry kitchen also makes hazelnut cake on the same work table."
+        },
+        {
+          "speaker": "Priya",
+          "ja": "この表示なら、私は別のデザートにします。",
+          "en": "With this marking, I will choose a different dessert."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "プリヤさん、選ぶ前に木の実類アレルギーがあると店員に伝えてください。",
+          "en": "Priya, tell the server you have a tree-nut allergy before choosing."
+        },
+        {
+          "speaker": "Priya",
+          "ja": "私は木の実類にアレルギーがあります。主菜の原材料を教えてください。",
+          "en": "I have a tree-nut allergy. Please tell me the main dishes’ ingredients."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "ソースと付け合わせについても聞きましょう。",
+          "en": "Let us ask about the sauce and side dish too."
+        },
+        {
+          "speaker": "Server",
+          "ja": "鶏料理のソースにはピスタチオが入っています。牛肉とじゃがいもの料理には木の実類を使っていません。",
+          "en": "The chicken sauce contains pistachios. The beef and potatoes dish does not use tree nuts."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "料理を運ぶ前に厨房に確認していただけますか。",
+          "en": "Could you confirm it with the kitchen before bringing the dish?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "厨房に確認しました。牛肉とじゃがいもの調理には木の実類を使っていません。",
+          "en": "I checked with the kitchen. Tree nuts are not used in preparing the beef and potatoes."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "プリヤは牛肉料理と季節の果物を選び、店員は注文にアレルギーを書きます。",
+          "en": "Priya chooses the beef dish and seasonal fruit, and the server writes the allergy on the order."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "料理を運ぶときにもアレルギーを伝えてください。",
+          "en": "Please mention the allergy again when bringing the dishes."
+        }
+      ],
+      "speaking": {
+        "role": "Group member reading and explaining an allergen chart",
+        "partnerRole": "Server and friend with a tree-nut allergy",
+        "opening": "こちらがアレルゲン一覧です。",
+        "goal": "Read the symbol and key, distinguish ingredient from trace marking, state the tree-nut allergy, ask about sauce/side dishes and kitchen preparation, and relay the findings to the group.",
+        "closure": "料理を運ぶときにもアレルギーを伝えてください。"
+      },
+      "stableId": "master-travel-lunch:4:ja-en"
+    },
+    {
+      "n": 5,
+      "sourceEnglishTitle": "Hidden Chicken Stock in the Vegetarian Soup",
+      "sourceEnglishObjective": "Tell the cook what you ordered and what you were told, and propose a fair fix for your vegetarian friend.",
+      "title": "野菜スープの鶏だしを確認する",
+      "objective": "Tell the cook that a vegetarian friend was served soup described as vegetable-based but made with chicken stock, explain what was eaten, and propose a fair replacement and bill correction.",
+      "focus": "ベジタリアン means vegetarian. 野菜だし and 鶏だし distinguish vegetable and chicken stock directly. ラード is lard; 植物油 is vegetable oil. 注文時に…と言われました reports what the server said without changing the term.",
+      "scene": "Tomás discovers chicken stock in a soup described as vegetable-based; his friend speaks with the cook.",
+      "cards": [
+        {
+          "ja": "野菜だし",
+          "en": "vegetable stock",
+          "kind": "term"
+        },
+        {
+          "ja": "鶏だし",
+          "en": "chicken stock",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアン",
+          "en": "vegetarian",
+          "kind": "term"
+        },
+        {
+          "ja": "料理人",
+          "en": "cook",
+          "kind": "term"
+        },
+        {
+          "ja": "行き違い",
+          "en": "misunderstanding",
+          "kind": "term"
+        },
+        {
+          "ja": "おわび",
+          "en": "apology",
+          "kind": "term"
+        },
+        {
+          "ja": "かぼちゃのスープ",
+          "en": "pumpkin soup",
+          "kind": "term"
+        },
+        {
+          "ja": "野菜炒め",
+          "en": "stir-fried vegetables",
+          "kind": "term"
+        },
+        {
+          "ja": "きのこ",
+          "en": "mushrooms",
+          "kind": "term"
+        },
+        {
+          "ja": "豆腐",
+          "en": "tofu",
+          "kind": "term"
+        },
+        {
+          "ja": "ラード",
+          "en": "lard",
+          "kind": "term"
+        },
+        {
+          "ja": "植物油",
+          "en": "vegetable oil",
+          "kind": "term"
+        },
+        {
+          "ja": "味付け",
+          "en": "seasoning",
+          "kind": "term"
+        },
+        {
+          "ja": "値引き",
+          "en": "discount",
+          "kind": "term"
+        },
+        {
+          "ja": "肉なし",
+          "en": "without meat",
+          "kind": "term"
+        },
+        {
+          "ja": "野菜だしだと聞いて、このスープを注文しました。",
+          "en": "We ordered this soup because we were told it used vegetable stock.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "友人はベジタリアンで、鶏肉も鶏だしも食べません。",
+          "en": "My friend is vegetarian and does not eat chicken or chicken stock.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "気付いたときには、もう半分食べていました。",
+          "en": "He had already eaten half when we noticed.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理人に伝わっていなかったのですね。行き違いは分かりました。",
+          "en": "I understand the cook was not told. It was a misunderstanding.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "肉も鶏だしも使わない別の料理を作っていただけますか。",
+          "en": "Could you make another dish without meat or chicken stock?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "野菜炒めにはラードと植物油のどちらを使いますか。",
+          "en": "Do you use lard or vegetable oil for the stir-fried vegetables?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スープ代をお会計から外していただけますか。",
+          "en": "Could you remove the soup from the bill?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "きのこと豆腐の野菜炒めはどうですか。",
+          "en": "How about stir-fried vegetables with mushrooms and tofu?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "昼、友人のトマスと私は家庭料理の店に入ります。",
+          "en": "At noon, my friend Tomás and I enter a home-style restaurant."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トマスはベジタリアンなので、肉なしの料理を店員に尋ねました。",
+          "en": "Tomás is vegetarian, so we asked the server for dishes without meat."
+        },
+        {
+          "speaker": "Server",
+          "ja": "かぼちゃのスープは野菜だしです。",
+          "en": "The pumpkin soup uses vegetable stock."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トマスが半分ほど食べたところで、だしが鶏の味だと気付き、スプーンを置きます。",
+          "en": "After eating about half, Tomás notices the stock tastes like chicken and puts down his spoon."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "料理人の方とお話しできますか。",
+          "en": "May I speak with the cook?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "友人はベジタリアンで、鶏肉も鶏だしも食べません。",
+          "en": "My friend is vegetarian and does not eat chicken or chicken stock."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "野菜だしだと聞いて、このスープを注文しました。",
+          "en": "We ordered this soup because we were told it used vegetable stock."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "気付いたときには、もう半分食べていました。",
+          "en": "He had already eaten half when we noticed."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "申し訳ありません。実際には鶏だしを使いました。ベジタリアンの注文だと聞いていませんでした。",
+          "en": "I am sorry. I actually used chicken stock. I was not told it was a vegetarian order."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "料理人に伝わっていなかったのですね。行き違いは分かりました。",
+          "en": "I understand the cook was not told. It was a misunderstanding."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "おわびします。別の料理をお作りしましょうか。",
+          "en": "I apologize. Shall I make another dish?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "肉も鶏だしも使わない別の料理を作っていただけますか。",
+          "en": "Could you make another dish without meat or chicken stock?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "野菜炒めにはラードと植物油のどちらを使いますか。",
+          "en": "Do you use lard or vegetable oil for the stir-fried vegetables?"
+        },
+        {
+          "speaker": "Cook",
+          "ja": "今日は植物油です。きのこと豆腐の野菜炒めを作れます。",
+          "en": "Today we use vegetable oil. I can make stir-fried vegetables with mushrooms and tofu."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "ありがとうございます。スープ代をお会計から外していただけますか。",
+          "en": "Thank you. Could you remove the soup from the bill?"
+        },
+        {
+          "speaker": "Cook",
+          "ja": "はい。スープ代を外します。",
+          "en": "Yes. I will remove the soup charge."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "トマス、きのこと豆腐の野菜炒めはどうですか。",
+          "en": "Tomás, how about stir-fried vegetables with mushrooms and tofu?"
+        },
+        {
+          "speaker": "Tomás",
+          "ja": "それをお願いします。ありがとうございます。",
+          "en": "I will have that. Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Guest explaining a vegetarian stock misunderstanding",
+        "partnerRole": "Restaurant cook and vegetarian friend",
+        "opening": "どうなさいましたか。",
+        "goal": "State the vegetarian need and what the server said, explain that half the soup was eaten, ask about chicken stock, lard versus oil, request a meat-free replacement, and propose removing the soup charge.",
+        "closure": "スープ代をお会計から外していただけますか。"
+      },
+      "stableId": "master-travel-lunch:5:ja-en"
+    },
+    {
+      "n": 6,
+      "sourceEnglishTitle": "Paella Sold Out: Choosing a Substitute for Six",
+      "sourceEnglishObjective": "Compare the dishes still available and agree with the waiter and your group on what will replace the paella.",
+      "title": "売り切れの料理に代わる昼食を決める",
+      "objective": "Compare still-available shared lunch dishes for six people by wait, portion size, price, and kitchen closing time; agree on two substitutes with the server and group.",
+      "focus": "売り切れ means sold out. 待ち時間 and 閉店時間 frame the time choice. 二人前から and 取り分ける explain portion minimums and sharing. ～より軽い and ～のほうが時間がかかる compare dishes.",
+      "scene": "Emma and five friends arrive late for lunch; the shared rice dish they wanted is sold out.",
+      "cards": [
+        {
+          "ja": "売り切れ",
+          "en": "sold out",
+          "kind": "term"
+        },
+        {
+          "ja": "鯛めし",
+          "en": "sea-bream rice",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きうどん",
+          "en": "stir-fried udon",
+          "kind": "term"
+        },
+        {
+          "ja": "イカ墨パスタ",
+          "en": "squid-ink pasta",
+          "kind": "term"
+        },
+        {
+          "ja": "鍋料理",
+          "en": "hot-pot dish",
+          "kind": "term"
+        },
+        {
+          "ja": "大皿",
+          "en": "sharing platter",
+          "kind": "term"
+        },
+        {
+          "ja": "おこげ",
+          "en": "crispy rice crust",
+          "kind": "term"
+        },
+        {
+          "ja": "魚のだし",
+          "en": "fish stock",
+          "kind": "term"
+        },
+        {
+          "ja": "青のりと紅しょうが",
+          "en": "dried seaweed and pickled ginger",
+          "kind": "term"
+        },
+        {
+          "ja": "待ち時間",
+          "en": "waiting time",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房の閉店時間",
+          "en": "kitchen closing time",
+          "kind": "term"
+        },
+        {
+          "ja": "二人前から",
+          "en": "from two portions",
+          "kind": "term"
+        },
+        {
+          "ja": "軽い",
+          "en": "light",
+          "kind": "term"
+        },
+        {
+          "ja": "食べごたえがある",
+          "en": "filling",
+          "kind": "term"
+        },
+        {
+          "ja": "取り分ける",
+          "en": "to share out",
+          "kind": "term"
+        },
+        {
+          "ja": "すみません。鯛めしの待ち時間はどのくらいですか。",
+          "en": "Excuse me. How long is the wait for sea-bream rice?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "イカ墨パスタは焼きうどんより時間がかかりますか。",
+          "en": "Will the squid-ink pasta take longer than the stir-fried udon?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "焼きうどんは鍋料理より軽いですよね。",
+          "en": "The stir-fried udon is lighter than the hot pot, right?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "鯛めしは何人前から注文できますか。",
+          "en": "From how many portions can we order the sea-bream rice?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "厨房が閉まる前に間に合いますか。",
+          "en": "Will it be ready before the kitchen closes?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二つの料理を頼んで、みんなで取り分けてもいいですか。",
+          "en": "Can we order two dishes and share them among everyone?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "焼きうどんを四人前、鯛めしを二人前お願いします。",
+          "en": "Four portions of stir-fried udon and two portions of sea-bream rice, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二分で決めましょう。",
+          "en": "Let us decide in two minutes.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "午後二時十分、エマと友人五人は昼食のために海辺の店に座ります。",
+          "en": "At two ten, Emma and five friends sit down at a seaside restaurant for lunch."
+        },
+        {
+          "speaker": "Server",
+          "ja": "申し訳ありません。最後の大皿の炊き込みご飯は売り切れました。",
+          "en": "I am sorry. The last large platter of mixed rice has sold out."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウルは隣のテーブルの大皿を見て、残念そうにします。",
+          "en": "Raul sees the large platter at the next table and looks disappointed."
+        },
+        {
+          "speaker": "Server",
+          "ja": "厨房は三時に閉まります。もうすぐ注文を決めてください。",
+          "en": "The kitchen closes at three. Please decide soon."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "厨房が閉まる前に間に合いますか。",
+          "en": "Will it be ready before the kitchen closes?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "焼きうどんは二十分、鯛めしは二十五分ほどです。",
+          "en": "The stir-fried udon takes about twenty minutes; the sea-bream rice about twenty-five."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "イカ墨パスタは焼きうどんより時間がかかりますか。",
+          "en": "Will the squid-ink pasta take longer than the stir-fried udon?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。イカ墨パスタは三十五分ほどかかります。",
+          "en": "Yes. The squid-ink pasta takes about thirty-five minutes."
+        },
+        {
+          "speaker": "Raul",
+          "ja": "そんなに待つのは長すぎます。",
+          "en": "That is too long to wait."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "ラウル、二分で決めましょう。",
+          "en": "Raul, let us decide in two minutes."
+        },
+        {
+          "speaker": "Server",
+          "ja": "鍋料理は一番食べごたえがあります。",
+          "en": "The hot pot is the most filling dish."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "焼きうどんは鍋料理より軽いですよね。",
+          "en": "The stir-fried udon is lighter than the hot pot, right?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。青のりと紅しょうがも付いています。",
+          "en": "Yes. It also comes with dried seaweed and pickled ginger."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "鯛めしは何人前から注文できますか。",
+          "en": "From how many portions can we order the sea-bream rice?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "二人前からです。大皿でお出しします。",
+          "en": "From two portions. We serve it on a large platter."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "焼きうどんと鯛めしを頼んで、みんなで取り分けてもいいですか。",
+          "en": "Can we order stir-fried udon and sea-bream rice and share them among everyone?"
+        },
+        {
+          "speaker": "Raul",
+          "ja": "はい。鯛めしにはおこげもあるとうれしいです。",
+          "en": "Yes. I would like crispy rice crust with the sea-bream rice."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "焼きうどんを四人前、鯛めしを二人前お願いします。",
+          "en": "Four portions of stir-fried udon and two portions of sea-bream rice, please."
+        }
+      ],
+      "speaking": {
+        "role": "Group host choosing substitutes for a sold-out shared dish",
+        "partnerRole": "Server and five lunch companions",
+        "opening": "申し訳ありません。大皿の炊き込みご飯は売り切れました。",
+        "goal": "Compare the waits and portions for available dishes, check kitchen closing, calm the group, agree on two shareable substitutes, and place the order in Japanese.",
+        "closure": "焼きうどんを四人前、鯛めしを二人前お願いします。"
+      },
+      "stableId": "master-travel-lunch:6:ja-en"
+    }
+  ]
+}

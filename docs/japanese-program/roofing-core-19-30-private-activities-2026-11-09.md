@@ -1,0 +1,5 @@
+# Japanese Roofing Core 19–30 private activities — 2026-11-09
+
+Core 19–30 now has 72 authored Japanese→English See, Recall, Hear, Type, Say, and Write activities tied to exact aligned card or Reader pairs. The scope covers sidewall flashing, ridge caps, fall-protection vocabulary, anchors and lifelines, footing/weather, heat and heat exhaustion, falling debris, repair records, penetration checks, cleanup, punch lists, and closeout. The Core 24 prompts retain the direct clinical terms for dizziness and heat exhaustion. The deterministic validator checks source hashes, stable IDs, response kinds, exact pairs, and audio requirements.
+
+The private sidecars now cover Foundation 1–10 and Core 1–30: 40 lessons and 240 activities. Every activity remains `readyForLearner:false`; all sidecars remain `reviewed:false`, `registered:false`, and `audioListeningReviewed:false`. Master 1–20 still needs authored activities. Qualified Japanese and roofing-domain review, dictionary resolution, recorded-audio listening decisions, runtime/offline integration, and web/native acceptance remain open. No published lesson or learner progress changes here.

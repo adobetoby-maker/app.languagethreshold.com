@@ -81,6 +81,7 @@ def main():
         raise ValueError("Full-course text coverage is incomplete")
     flags = []
     decoded = 0
+    accepted_pilots = 0
     for text, variants in manifest["clips"].items():
         if set(variants) != set(VOICES):
             raise ValueError(f"Missing voice for {text}")
@@ -90,6 +91,7 @@ def main():
                     or type(record["listeningReviewed"]) is not bool):
                 raise ValueError(f"Clip identity or review gate changed: {text} · {gender}")
             path = args.audio_root / record["name"]
+            accepted_pilots += record["listeningReviewed"] is True
             data = path.read_bytes()
             if len(data) != record["bytes"] or hashlib.sha256(data).hexdigest() != record["sha256"]:
                 raise ValueError(f"Changed clip: {path}")
@@ -108,7 +110,8 @@ def main():
                 flags.append({"text": text, "gender": gender, "file": record["name"],
                               "issues": issues, "signal": measurement})
     report = {"course": "Japanese Foreman", "manifestSHA256": hashlib.sha256(manifest_bytes).hexdigest(),
-              "decodedFiles": decoded, "flaggedFiles": len(flags), "flags": flags,
+              "decodedFiles": decoded, "acceptedPilotClips": accepted_pilots,
+              "pendingClips": decoded - accepted_pilots, "flaggedFiles": len(flags), "flags": flags,
               "listeningReviewed": False, "registered": False}
     output = args.report or args.audio_root / "signal-screen.json"
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")

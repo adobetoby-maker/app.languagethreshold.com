@@ -30,21 +30,23 @@ def render_lesson(stage, number, rows, manifest_hash):
             "<style>body{font:16px system-ui,sans-serif;max-width:950px;margin:auto;padding:20px;background:#102031;color:#fff}section{border:1px solid #586b80;border-radius:12px;padding:15px;margin:14px 0}audio{width:100%}select,textarea,button,input{font:inherit;padding:8px}textarea{width:95%}small,code{overflow-wrap:anywhere;word-break:break-all;color:#c7d5df}a{color:#eecb8a}button{cursor:pointer}</style>",
             "<p><a href='index.html'>← All lessons</a></p>", f"<h1>Japanese Foreman · {safe(stage.title())} {number}</h1>",
             "<p>Private recordings awaiting fluent listening. Previously approved pilot bytes are marked accepted; choose accept or retake for each new voice. Exported decisions do not change app playback, lesson review, or manifest flags.</p>",
+            "<p>Rows marked speakingSource are longer source-linked roleplay briefs for private inspection. No learner playback route is assigned to those briefs.</p>",
             f"<p>Manifest SHA-256: <code>{safe(manifest_hash)}</code></p>",
             "<label>Reviewer <input id='reviewer'></label>"]
     decisions = []
     for index, (text, surfaces, gender, record) in enumerate(rows):
         accepted = record["listeningReviewed"] is True
         body.extend((f"<section><h2>{safe(text)} · {safe(gender)}</h2>",
-                     f"<p>Lesson use: {safe(', '.join(surfaces))}</p>",
+                     f"<p>Course surfaces: {safe(', '.join(surfaces))}</p>",
                      f"<audio controls preload='none' src='../{safe(record['name'])}'></audio>",
                      f"<p><small>{safe(record['voice'])} · {safe(record['durationSeconds'])} s · SHA-256 {safe(record['sha256'])}</small></p>",
                      f"<label>Decision <select id='decision-{index}'><option value=''>Choose</option><option value='accept'{' selected' if accepted else ''}>Accept</option><option value='retake'>Retake</option></select></label> ",
                      f"<label>Notes <textarea id='note-{index}' rows='2'></textarea></label></section>"))
-        decisions.append({"text": text, "surfaces": surfaces, "gender": gender, "file": record["name"], "sha256": record["sha256"]})
+        decisions.append({"text": text, "surfaces": surfaces, "gender": gender, "file": record["name"],
+                          "sha256": record["sha256"], "optional": surfaces == ["speakingSource"]})
     serialized = json.dumps(decisions, ensure_ascii=False).replace("</", "<\\/")
     body.append("<button id='export'>Download decisions JSON</button><script>const clips=" + serialized + ";")
-    body.append("document.getElementById('export').onclick=()=>{const decisions=clips.map((clip,i)=>({...clip,decision:document.getElementById(`decision-${i}`).value,note:document.getElementById(`note-${i}`).value}));if(decisions.some(x=>!x.decision)){alert('Choose a decision for every clip.');return;}const data={reviewer:document.getElementById('reviewer').value,manifestSHA256:'" + manifest_hash + "',decisions};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='japanese-foreman-" + stage + "-" + str(number) + "-listening-decisions.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};</script></html>")
+    body.append("document.getElementById('export').onclick=()=>{const decisions=clips.map((clip,i)=>({...clip,decision:document.getElementById(`decision-${i}`).value,note:document.getElementById(`note-${i}`).value}));if(decisions.some(x=>!x.decision&&!x.optional)){alert('Choose a decision for every playback clip.');return;}const data={reviewer:document.getElementById('reviewer').value,manifestSHA256:'" + manifest_hash + "',decisions};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='japanese-foreman-" + stage + "-" + str(number) + "-listening-decisions.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};</script></html>")
     return "\n".join(body)
 
 
@@ -70,6 +72,7 @@ def main():
         raise ValueError("Full-course scope or release gate changed")
     if set(manifest["clips"]) != set(inventory["strings"]):
         raise ValueError("Full-course text coverage is incomplete")
+    optional_inspection = sum(value["surfaces"] == ["speakingSource"] for value in inventory["strings"].values()) * 2
     accepted_pilots = 0
     for text, variants in manifest["clips"].items():
         if set(variants) != set(GENERATOR.VOICES):
@@ -96,7 +99,8 @@ def main():
              "<title>Japanese Foreman private listening review</title><style>body{font:16px system-ui,sans-serif;max-width:800px;margin:auto;padding:20px;background:#102031;color:#fff}a{color:#eecb8a}</style>",
              "<h1>Japanese Foreman · 60 private lesson listening sheets</h1>",
              "<p>Recordings and decisions are private. Only the byte-identical clips imported from the earlier approved Foreman pilot sheets retain their listening decisions.</p>",
-             f"<p>{accepted_pilots} previously approved pilot clips; {len(inventory['strings']) * 2 - accepted_pilots} clips still need a listening decision.</p>"]
+             "<p>Twenty source-linked Japanese roleplay briefs were also recorded for private inspection; these are not assigned to learner playback.</p>",
+             f"<p>{accepted_pilots} previously approved pilot clips; {len(inventory['strings']) * 2 - optional_inspection - accepted_pilots} playback candidates still need a listening decision; {optional_inspection} source-brief clips are optional inspection material.</p>"]
     placements = 0
     for stage, module, count in STAGES:
         index.append(f"<h2>{safe(stage.title())}</h2><ul>")
@@ -116,7 +120,8 @@ def main():
     (output / "index.html").write_text("\n".join(index))
     print(json.dumps({"lessons": 60, "distinctClips": len(inventory["strings"]) * 2,
                       "lessonClipPlacements": placements, "acceptedPilotClips": accepted_pilots,
-                      "pendingClips": len(inventory["strings"]) * 2 - accepted_pilots,
+                      "pendingPlaybackClips": len(inventory["strings"]) * 2 - optional_inspection - accepted_pilots,
+                      "optionalInspectionClips": optional_inspection,
                       "listeningReviewed": False, "index": str(output / "index.html")}))
 
 

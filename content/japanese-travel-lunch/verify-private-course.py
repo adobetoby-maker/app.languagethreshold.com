@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify cross-batch identity and structure of the private Foundation/Core draft."""
+"""Verify cross-batch identity and structure of the private Japanese Lunch draft."""
 import hashlib
 import json
 import re
@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 COURSE = ROOT / 'content/japanese-travel-lunch'
 MODES = {'see', 'recall', 'hear', 'type', 'say', 'write'}
-stages = {'foundation': {}, 'core': {}}
+stages = {'foundation': {}, 'core': {}, 'master': {}}
 all_ids = set()
 all_activity_ids = set()
 cards = readers = activities = 0
@@ -20,7 +20,7 @@ def sha(path):
 
 
 for path in sorted(COURSE.glob('*-draft.json')):
-    match = re.fullmatch(r'(foundation|core)-(\d+)-(\d+)-draft\.json', path.name)
+    match = re.fullmatch(r'(foundation|core|master)-(\d+)-(\d+)-draft\.json', path.name)
     assert match, f'unexpected course draft: {path.name}'
     stage, first, last = match.group(1), int(match.group(2)), int(match.group(3))
     draft = json.loads(path.read_text())
@@ -36,13 +36,15 @@ for path in sorted(COURSE.glob('*-draft.json')):
     by_id = {}
     for lesson in draft['lessons']:
         n = lesson['n']
-        lid = f'{"foundation-travel-lunch" if stage == "foundation" else "travel-lunch"}:{n}:ja-en'
+        module = {'foundation': 'foundation-travel-lunch', 'core': 'travel-lunch', 'master': 'master-travel-lunch'}[stage]
+        lid = f'{module}:{n}:ja-en'
         assert lesson['stableId'] == lid and lid not in all_ids
         assert n not in stages[stage]
         all_ids.add(lid)
         stages[stage][n] = lesson
         by_id[lid] = lesson
-        assert len(lesson['cards']) >= 12 and len(lesson['reader']) >= 8
+        minimum = (20, 14) if stage == 'master' else (12, 8)
+        assert len(lesson['cards']) >= minimum[0] and len(lesson['reader']) >= minimum[1]
         assert all(lesson['speaking'][field].strip() for field in ('role', 'partnerRole', 'opening', 'goal', 'closure'))
         cards += len(lesson['cards'])
         readers += len(lesson['reader'])
@@ -67,5 +69,6 @@ for path in sorted(COURSE.glob('*-draft.json')):
 
 assert sorted(stages['foundation']) == list(range(1, 11))
 assert sorted(stages['core']) == list(range(1, 31))
-assert batches == 13 and len(all_ids) == 40 and (cards, readers, activities) == (640, 409, 240)
-print(f'Japanese Lunch private Foundation/Core: {batches} batches, {len(all_ids)} unique lessons, {cards} cards, {readers} Reader turns, {activities} six-mode activities; release flags closed')
+assert sorted(stages['master']) == [1, 2, 3]
+assert batches == 14 and len(all_ids) == 43 and (cards, readers, activities) == (704, 455, 258)
+print(f'Japanese Lunch private F10/C30/M3: {batches} batches, {len(all_ids)} unique lessons, {cards} cards, {readers} Reader turns, {activities} six-mode activities; release flags closed')

@@ -17,6 +17,18 @@ export interface PracticeSentence {
   meaning: string;
 }
 
+export function kanaPatternNote(word: string): string | null {
+  const hasSmallTsu = /[っッ]/u.test(word);
+  const hasContractedSound = /[ゃゅょャュョ]/u.test(word);
+  if (hasSmallTsu && hasContractedSound)
+    return "Small っ/ッ doubles the next consonant; small ゃ/ゅ/ょ or ャ/ュ/ョ joins the preceding sound. Say and write each as part of this word.";
+  if (hasSmallTsu)
+    return "Small っ/ッ doubles the next consonant, as in きっぷ (kippu). Say and write it as part of the word.";
+  if (hasContractedSound)
+    return "Small ゃ/ゅ/ょ or ャ/ュ/ョ joins the preceding sound, as in しゃ (sha). Say and write it as part of the word.";
+  return null;
+}
+
 export const HIRAGANA_GROUPS: CharGroup[] = [
   {
     id: "h-vowels",

@@ -80,11 +80,11 @@
     },
     {
       "path": "content/french-travel-breakfast/master-4-6-draft.json",
-      "sha256": "d830e7f3664f329540623315059a4b7d97f08fa2fa1141e1bbc2efdcf4633685"
+      "sha256": "2675de87e1145759bdbd3253014e42577fa45207229e872e12f91641f650cb0a"
     },
     {
       "path": "content/french-travel-breakfast/master-7-9-draft.json",
-      "sha256": "8a6b294ad2ef25d4f0fff84f21ed5d4c1672afab3f362b277a25a9f3356acc77"
+      "sha256": "d376f10d93130352cd8ed7c8defb64adc2f8cb5cf9677b12519d118c7c3bc7b0"
     }
   ],
   "stageCounts": {
@@ -13139,9 +13139,9 @@
         },
         {
           "id": "master:4:word:14",
-          "targetFrench": "le plan d’urgence personnel",
-          "supportEnglish": "the emergency plan",
-          "sourceEnglish": "the emergency plan",
+          "targetFrench": "l’auto-injecteur d’épinéphrine",
+          "supportEnglish": "the epinephrine auto-injector",
+          "sourceEnglish": "the epinephrine auto-injector",
           "kind": "term"
         },
         {
@@ -13292,17 +13292,17 @@
         },
         {
           "id": "master:4:line:17",
-          "targetFrench": "Elif décide de ne rien manger au buffet et suit son autre plan pour le petit-déjeuner.",
-          "supportEnglish": "Elif decides not to eat buffet food and uses her alternative breakfast plan."
+          "targetFrench": "Elif décide de ne rien manger au buffet et vérifie que son auto-injecteur d’épinéphrine est dans son sac.",
+          "supportEnglish": "Elif decides not to eat buffet food and checks that her epinephrine auto-injector is in her bag."
         },
         {
           "id": "master:4:line:18",
-          "targetFrench": "Sam remercie Rémi d’avoir vérifié et demande à l’hôtel de mettre le tableau à jour.",
-          "supportEnglish": "Sam thanks Rémi for checking and asks the hotel to update the chart."
+          "targetFrench": "Sam explique à Rémi que si Elif a une réaction allergique, ils suivront les consignes de son médecin pour l’auto-injecteur et appelleront une ambulance.",
+          "supportEnglish": "Sam explains to Rémi that if Elif has an allergic reaction, they will follow her doctor’s instructions for the auto-injector and call an ambulance."
         }
       ],
       "speaking": {
-        "openingFrench": "Avant de choisir, vérifions la date du tableau. Pourriez-vous nous montrer l’étiquette actuelle et expliquer la préparation ? Si vous ne pouvez pas confirmer, nous ne prendrons rien au buffet.",
+        "openingFrench": "Avant de choisir, vérifions la date du tableau et l’étiquette actuelle. Elif a son auto-injecteur d’épinéphrine. Pourriez-vous nous expliquer les ingrédients et la préparation ?",
         "instructionEnglish": "Read the dated chart with staff, ask about current labels, ingredients, preparation and cross-contact, then summarize what staff say."
       },
       "candidateModeInputs": {
@@ -14765,9 +14765,9 @@
         },
         {
           "id": "master:8:word:4",
-          "targetFrench": "l’allergie grave",
-          "supportEnglish": "the serious allergy",
-          "sourceEnglish": "the serious allergy",
+          "targetFrench": "l’anaphylaxie",
+          "supportEnglish": "the anaphylaxis",
+          "sourceEnglish": "the anaphylaxis",
           "kind": "term"
         },
         {
@@ -14835,9 +14835,9 @@
         },
         {
           "id": "master:8:word:14",
-          "targetFrench": "l’étiquette actuelle",
-          "supportEnglish": "the current label",
-          "sourceEnglish": "the current label",
+          "targetFrench": "l’antihistaminique",
+          "supportEnglish": "the antihistamine",
+          "sourceEnglish": "the antihistamine",
           "kind": "term"
         },
         {
@@ -14973,18 +14973,18 @@
         },
         {
           "id": "master:8:line:14",
-          "targetFrench": "La boulangère en apporte un, mais son étiquette reste peu claire sur le matériel partagé.",
-          "supportEnglish": "The baker brings one, but its label is also unclear about shared equipment."
+          "targetFrench": "Kenji se souvient qu’il a eu une anaphylaxie après avoir mangé du nougat l’année dernière.",
+          "supportEnglish": "Kenji remembers that he had anaphylaxis after eating nougat last year."
         },
         {
           "id": "master:8:line:15",
-          "targetFrench": "Kenji décide de ne pas commander de nourriture à ce comptoir.",
-          "supportEnglish": "Kenji decides not to order food from this counter."
+          "targetFrench": "Il a avec lui son antihistaminique et son auto-injecteur d’adrénaline, comme son médecin le lui a indiqué.",
+          "supportEnglish": "He carries his antihistamine and his epinephrine auto-injector, as his doctor instructed him."
         },
         {
           "id": "master:8:line:16",
-          "targetFrench": "Il pose des questions sur une boisson, notamment sur ses ingrédients et les ustensiles utilisés.",
-          "supportEnglish": "He asks about a drink, including how its ingredients and utensils are handled."
+          "targetFrench": "Kenji décide de ne pas commander de nourriture à ce comptoir ; Ana connaît les consignes du médecin : si des symptômes apparaissent, utiliser l’auto-injecteur et appeler le 112.",
+          "supportEnglish": "Kenji decides not to order food from this counter; Ana knows the doctor’s instructions: if symptoms appear, use the auto-injector and call 112."
         },
         {
           "id": "master:8:line:17",
@@ -14998,7 +14998,7 @@
         }
       ],
       "speaking": {
-        "openingFrench": "Merci de votre gentillesse, mais n’enlevez pas seulement les amandes. Kenji a une allergie grave. Pouvez-vous nous montrer les ingrédients et expliquer la préparation ? Si ce n’est pas clair, nous ne commanderons pas.",
+        "openingFrench": "Merci de votre gentillesse, mais n’enlevez pas seulement les amandes. Kenji a déjà eu une anaphylaxie. Avez-vous une étiquette avec les ingrédients ? Sinon, nous ne commanderons pas.",
         "instructionEnglish": "Thank the baker, explain the preparation question, and ask for current information."
       },
       "candidateModeInputs": {

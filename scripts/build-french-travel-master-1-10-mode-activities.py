@@ -69,11 +69,11 @@ PLAN = {
     },
     8: {
         "see": ("Find what the current label says about tree nuts and cross-contact.", "line:10"),
-        "recall": ("Recall the French term for a serious allergy.", "word:4"),
+        "recall": ("Recall the French term for anaphylaxis.", "word:4"),
         "hear": ("Listen for the direct statement about a serious tree-nut allergy.", "word:18"),
         "type": ("Type the question about a packaged product with a current label.", "word:22"),
         "say": ("Ask the baker not to scrape the almonds off the pastry.", "word:16"),
-        "write": ("Write Kenji's decision about ordering food from this counter.", "line:15"),
+        "write": ("Write Kenji's decision and Ana's response to symptoms.", "line:15"),
     },
     9: {
         "see": ("Find what Daniel cannot read on the menu board from the register.", "line:11"),

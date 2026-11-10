@@ -30,9 +30,9 @@ def duration(path):
     return value
 
 
-def verify(allow_partial=False):
+def verify(allow_partial=False, output=OUTPUT):
     inventory, source_sha = GENERATOR['source']()
-    manifest_path = OUTPUT / 'manifest.json'
+    manifest_path = output / 'manifest.json'
     manifest = json.loads(manifest_path.read_text())
     identity = {
         'schema': 1, 'state': 'private-unreviewed-full-course-recordings',
@@ -57,7 +57,7 @@ def verify(allow_partial=False):
             raise ValueError(f'Unexpected voice: {key}')
         for gender, clip in record['voices'].items():
             name = f'fr-breakfast-{key[:20]}-{gender}.mp3'
-            path = OUTPUT / name
+            path = output / name
             data = path.read_bytes()
             if (clip.get('name'), clip.get('text'), clip.get('voice'), clip.get('locale'),
                 clip.get('sha256'), clip.get('bytes'), clip.get('durationSeconds'),
@@ -103,8 +103,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--allow-partial', action='store_true')
     parser.add_argument('--coverage-report', type=Path)
+    parser.add_argument('--output', type=Path, default=OUTPUT)
     args = parser.parse_args()
-    report = verify(args.allow_partial)
+    report = verify(args.allow_partial, args.output)
     if args.coverage_report:
         args.coverage_report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({key: value for key, value in report.items() if key != 'lessonCoverage'},

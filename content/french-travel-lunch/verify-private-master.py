@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DRAFTS = (
     ROOT / 'content/french-travel-lunch/master-1-5-draft.json',
     ROOT / 'content/french-travel-lunch/master-6-10-draft.json',
+    ROOT / 'content/french-travel-lunch/master-11-15-draft.json',
 )
 MODES = ('see', 'recall', 'hear', 'type', 'say', 'write')
 

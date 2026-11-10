@@ -1,0 +1,1080 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/master-travel-lunch.json",
+    "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 11,
+      "stableId": "master-travel-lunch:11:fr-en",
+      "sourceTitleEnglish": "Keeping a Tired Group Going After the Kitchens Close",
+      "sourceObjectiveEnglish": "Encourage a hungry, tired group and commit to a clear plan for finding food during the afternoon closure.",
+      "sourceSpeakingEnglish": "You are leading a walking group in Granada, and the AI is Paco, a bar owner whose kitchen is closed: ask about the nearby food options, then encourage your group with ¡ánimo! and commit to a clear plan using the future (encontraremos, iremos).",
+      "title": "Keep the Group Moving After Kitchens Close",
+      "objective": "Encourage a tired, hungry group and commit to a clear plan for finding food during this afternoon closure.",
+      "focus": "Use on trouvera, nous irons and attendez-moi to promise a next step and keep the group together.",
+      "scene": "Maya leads a walking group past a café whose kitchen has closed for the afternoon.",
+      "cards": [
+        {
+          "fr": "la boulangerie",
+          "en": "the bakery",
+          "kind": "term"
+        },
+        {
+          "fr": "un sandwich",
+          "en": "a sandwich",
+          "kind": "term"
+        },
+        {
+          "fr": "une épicerie",
+          "en": "a grocery shop",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine est fermée",
+          "en": "the kitchen is closed",
+          "kind": "phrase"
+        },
+        {
+          "fr": "deux rues plus loin",
+          "en": "two streets farther",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la faim",
+          "en": "hunger",
+          "kind": "term"
+        },
+        {
+          "fr": "la fatigue",
+          "en": "tiredness",
+          "kind": "term"
+        },
+        {
+          "fr": "un banc",
+          "en": "a bench",
+          "kind": "term"
+        },
+        {
+          "fr": "à l’ombre",
+          "en": "in the shade",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la dernière commande",
+          "en": "the last order",
+          "kind": "term"
+        },
+        {
+          "fr": "Courage, on y est presque !",
+          "en": "Come on, we are almost there!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Dans dix minutes, on trouvera quelque chose à manger.",
+          "en": "In ten minutes, we will find something to eat.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous irons d’abord à la boulangerie.",
+          "en": "We will go to the bakery first.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La boulangerie est-elle encore ouverte ?",
+          "en": "Is the bakery still open?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Attendez-moi ici, à l’ombre.",
+          "en": "Wait for me here, in the shade.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je reviens tout de suite.",
+          "en": "I will be right back.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Group member",
+          "fr": "J’ai faim et je suis fatigué. La cuisine est fermée ?",
+          "en": "I am hungry and tired. Is the kitchen closed?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, pour cet après-midi. Courage, on y est presque !",
+          "en": "Yes, for this afternoon. Come on, we are almost there!"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi, y a-t-il une boulangerie encore ouverte près d’ici ?",
+          "en": "Excuse me, is there a bakery still open nearby?"
+        },
+        {
+          "speaker": "Café owner",
+          "fr": "Oui, elle est deux rues plus loin. Elle ferme dans une heure.",
+          "en": "Yes, it is two streets farther. It closes in an hour."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. La boulangerie vend-elle des sandwichs ?",
+          "en": "Thank you. Does the bakery sell sandwiches?"
+        },
+        {
+          "speaker": "Café owner",
+          "fr": "Oui. Il y a aussi une épicerie à côté.",
+          "en": "Yes. There is also a grocery shop next door."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous irons d’abord à la boulangerie. Dans dix minutes, on trouvera quelque chose à manger.",
+          "en": "We will go to the bakery first. In ten minutes, we will find something to eat."
+        },
+        {
+          "speaker": "Group member",
+          "fr": "D’accord. On vous suit.",
+          "en": "All right. We will follow you."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Attendez-moi ici, à l’ombre. Je reviens tout de suite avec l’adresse.",
+          "en": "Wait for me here, in the shade. I will be right back with the address."
+        }
+      ],
+      "speaking": {
+        "role": "Walking-group leader",
+        "partnerRole": "Café owner and tired group",
+        "opening": "Courage, on y est presque !",
+        "goal": "Ask the café owner what is open, encourage the group and commit to the nearby bakery plan with a clear time and meeting point.",
+        "closure": "Nous irons d’abord à la boulangerie.",
+        "wordBank": [
+          "la boulangerie",
+          "un sandwich",
+          "une épicerie",
+          "la cuisine est fermée",
+          "deux rues plus loin",
+          "la faim",
+          "la fatigue",
+          "un banc",
+          "à l’ombre",
+          "la dernière commande",
+          "Courage, on y est presque !",
+          "Dans dix minutes, on trouvera quelque chose à manger.",
+          "Nous irons d’abord à la boulangerie.",
+          "La boulangerie est-elle encore ouverte ?",
+          "Attendez-moi ici, à l’ombre.",
+          "Je reviens tout de suite."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for bakery.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the ten-minute promise.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the encouragement.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for tiredness.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the bakery is open.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the plan to go to the bakery first.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The bakery availability, closing time and ten-minute travel are fictional scene facts. Review future tense and encouragement register."
+    },
+    {
+      "n": 12,
+      "stableId": "master-travel-lunch:12:fr-en",
+      "sourceTitleEnglish": "One Table, Three Registers: Lunch with a Chilean Family",
+      "sourceObjectiveEnglish": "Switch between usted and tú as you talk with grandparents, cousins and the host during a family lunch.",
+      "sourceSpeakingEnglish": "You are a guest at a Sunday lunch in Santiago, and the AI plays grandmother Doña Eliana, cousin Matías and host Valentina: talk with each of them, using usted with the grandmother and tú with the others, and soften requests with quisiera, ¿le molestaría...? and ¿me pasas...?",
+      "title": "Switch Register at a Family Lunch",
+      "objective": "Use formal vous with a grandmother and informal tu with a cousin and host during a family lunch.",
+      "focus": "Choose vous, pourriez-vous and cela vous dérangerait-il with the grandmother; use tu and tu peux with peers.",
+      "scene": "Maya joins a Sunday lunch hosted by Claire with Claire’s grandmother and cousin Julien.",
+      "cards": [
+        {
+          "fr": "la grand-mère",
+          "en": "the grandmother",
+          "kind": "term"
+        },
+        {
+          "fr": "le cousin",
+          "en": "the cousin",
+          "kind": "term"
+        },
+        {
+          "fr": "l’hôte",
+          "en": "the host",
+          "kind": "term"
+        },
+        {
+          "fr": "une invitation",
+          "en": "an invitation",
+          "kind": "term"
+        },
+        {
+          "fr": "une recette",
+          "en": "a recipe",
+          "kind": "term"
+        },
+        {
+          "fr": "le pain",
+          "en": "the bread",
+          "kind": "term"
+        },
+        {
+          "fr": "une quiche",
+          "en": "a quiche",
+          "kind": "term"
+        },
+        {
+          "fr": "une salade",
+          "en": "a salad",
+          "kind": "term"
+        },
+        {
+          "fr": "un peu plus",
+          "en": "a little more",
+          "kind": "phrase"
+        },
+        {
+          "fr": "vous",
+          "en": "you (formal or plural)",
+          "kind": "term"
+        },
+        {
+          "fr": "tu",
+          "en": "you (informal singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "Madame, pourriez-vous me donner la recette ?",
+          "en": "Madam, could you give me the recipe?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Julien, tu peux me passer le pain ?",
+          "en": "Julien, can you pass me the bread?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Claire, merci pour ton invitation.",
+          "en": "Claire, thank you for your invitation.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cela vous dérangerait-il si je prenais encore un peu de quiche ?",
+          "en": "Would you mind if I had a little more quiche?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Julien, tu as préparé la salade ?",
+          "en": "Julien, did you prepare the salad?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Claire",
+          "fr": "Maya, bienvenue à notre déjeuner de famille.",
+          "en": "Maya, welcome to our family lunch."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Claire, merci pour ton invitation.",
+          "en": "Claire, thank you for your invitation."
+        },
+        {
+          "speaker": "Grandmother",
+          "fr": "Je vous en prie. Goûtez la quiche.",
+          "en": "You are welcome. Try the quiche."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Madame, elle est délicieuse. Pourriez-vous me donner la recette ?",
+          "en": "Madam, it is delicious. Could you give me the recipe?"
+        },
+        {
+          "speaker": "Grandmother",
+          "fr": "Avec plaisir. Vous voulez encore un peu de quiche ?",
+          "en": "With pleasure. Would you like a little more quiche?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, merci. Cela vous dérangerait-il si j’en prenais encore un peu ?",
+          "en": "Yes, thank you. Would you mind if I had a little more?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Julien, tu peux me passer le pain ?",
+          "en": "Julien, can you pass me the bread?"
+        },
+        {
+          "speaker": "Julien",
+          "fr": "Bien sûr. Tu veux aussi de la salade ?",
+          "en": "Of course. Do you also want salad?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. Tu l’as préparée ?",
+          "en": "Yes. Did you make it?"
+        },
+        {
+          "speaker": "Julien",
+          "fr": "Oui, avec Claire.",
+          "en": "Yes, with Claire."
+        }
+      ],
+      "speaking": {
+        "role": "Guest at a family lunch",
+        "partnerRole": "Grandmother, cousin and host",
+        "opening": "Claire, merci pour ton invitation.",
+        "goal": "Thank the host using tu, request the recipe and more quiche using vous with the grandmother, and ask the cousin for bread using tu.",
+        "closure": "Merci à tous pour ce déjeuner.",
+        "wordBank": [
+          "la grand-mère",
+          "le cousin",
+          "l’hôte",
+          "une invitation",
+          "une recette",
+          "le pain",
+          "une quiche",
+          "une salade",
+          "un peu plus",
+          "vous",
+          "tu",
+          "Madame, pourriez-vous me donner la recette ?",
+          "Julien, tu peux me passer le pain ?",
+          "Claire, merci pour ton invitation.",
+          "Cela vous dérangerait-il si je prenais encore un peu de quiche ?",
+          "Julien, tu as préparé la salade ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the formal or plural French you.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the softened recipe request to the grandmother.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the informal bread request.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for cousin.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Thank the host informally.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a formal request for more quiche.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The family relationship and chosen register are specific to this fictional scene. Review register, conditional softeners and natural family address."
+    },
+    {
+      "n": 13,
+      "stableId": "master-travel-lunch:13:fr-en",
+      "sourceTitleEnglish": "Burn from a Sizzling Skillet: Telling the Manager",
+      "sourceObjectiveEnglish": "Narrate an injury in order with clear times and ask the manager to record it and point you to medical help.",
+      "sourceSpeakingEnglish": "You are Ben's companion, and the AI is Lorena, the restaurant manager: tell her what happened in order with time markers like a las dos y cuarto, en ese momento, después and al rato, ask her to record it in her log, and ask where the nearest clinic is.",
+      "title": "Describe a Skillet Burn to the Manager",
+      "objective": "Narrate a burn in time order, ask the manager to record it, and ask where medical help is available.",
+      "focus": "Use à quatorze heures quinze, à ce moment-là, ensuite and un peu plus tard for ordered past narration.",
+      "scene": "At lunch, a hot cast-iron skillet handle burns Ben’s palm; Maya tells the restaurant manager what happened.",
+      "cards": [
+        {
+          "fr": "une brûlure",
+          "en": "a burn",
+          "kind": "term"
+        },
+        {
+          "fr": "une poêle en fonte",
+          "en": "a cast-iron skillet",
+          "kind": "term"
+        },
+        {
+          "fr": "la poignée",
+          "en": "the handle",
+          "kind": "term"
+        },
+        {
+          "fr": "une cloque",
+          "en": "a blister",
+          "kind": "term"
+        },
+        {
+          "fr": "la paume de la main",
+          "en": "the palm of the hand",
+          "kind": "term"
+        },
+        {
+          "fr": "une rougeur",
+          "en": "redness",
+          "kind": "term"
+        },
+        {
+          "fr": "une sensation de brûlure",
+          "en": "a burning sensation",
+          "kind": "term"
+        },
+        {
+          "fr": "une serviette",
+          "en": "a napkin",
+          "kind": "term"
+        },
+        {
+          "fr": "l’eau du robinet",
+          "en": "tap water",
+          "kind": "term"
+        },
+        {
+          "fr": "le registre des incidents",
+          "en": "the incident log",
+          "kind": "term"
+        },
+        {
+          "fr": "la responsable",
+          "en": "the manager (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "un centre médical",
+          "en": "a medical center",
+          "kind": "term"
+        },
+        {
+          "fr": "À quatorze heures quinze, on nous a apporté la poêle chaude.",
+          "en": "At a quarter past two, they brought us the hot skillet.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À ce moment-là, Ben a touché la poignée sans serviette.",
+          "en": "At that moment, Ben touched the handle without a napkin.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ensuite, nous avons mis sa main sous l’eau du robinet.",
+          "en": "Afterward, we put his hand under tap water.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Un peu plus tard, une cloque est apparue sur sa paume.",
+          "en": "A little later, a blister appeared on his palm.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous le noter dans votre registre des incidents ?",
+          "en": "Can you record it in your incident log?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Où se trouve le centre médical le plus proche ?",
+          "en": "Where is the nearest medical center?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Madame, je voudrais vous expliquer ce qui est arrivé à Ben.",
+          "en": "Madam, I would like to explain what happened to Ben."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Je vous écoute. Quand cela s’est-il produit ?",
+          "en": "I am listening. When did it happen?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "À quatorze heures quinze, on nous a apporté une poêle en fonte chaude.",
+          "en": "At a quarter past two, they brought us a hot cast-iron skillet."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "À ce moment-là, Ben a touché la poignée sans serviette.",
+          "en": "At that moment, Ben touched the handle without a napkin."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Que s’est-il passé ensuite ?",
+          "en": "What happened next?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ensuite, nous avons mis sa main sous l’eau du robinet. Un peu plus tard, une cloque est apparue sur sa paume.",
+          "en": "Afterward, we put his hand under tap water. A little later, a blister appeared on his palm."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Je vois la rougeur et la cloque.",
+          "en": "I see the redness and blister."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pouvez-vous le noter dans votre registre des incidents ?",
+          "en": "Can you record it in your incident log?"
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Oui, je vais noter l’heure et les faits.",
+          "en": "Yes, I will record the time and facts."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Où se trouve le centre médical le plus proche ?",
+          "en": "Where is the nearest medical center?"
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Il est à deux rues d’ici.",
+          "en": "It is two streets from here."
+        }
+      ],
+      "speaking": {
+        "role": "Companion reporting an injury",
+        "partnerRole": "Restaurant manager",
+        "opening": "Madame, je voudrais vous expliquer ce qui est arrivé à Ben.",
+        "goal": "State the exact time, hot handle, burn and blister in order; ask for an incident record and the nearest medical center.",
+        "closure": "Merci de noter les faits et de m’indiquer le centre médical.",
+        "wordBank": [
+          "une brûlure",
+          "une poêle en fonte",
+          "la poignée",
+          "une cloque",
+          "la paume de la main",
+          "une rougeur",
+          "une sensation de brûlure",
+          "une serviette",
+          "l’eau du robinet",
+          "le registre des incidents",
+          "la responsable",
+          "un centre médical",
+          "À quatorze heures quinze, on nous a apporté la poêle chaude.",
+          "À ce moment-là, Ben a touché la poignée sans serviette.",
+          "Ensuite, nous avons mis sa main sous l’eau du robinet.",
+          "Un peu plus tard, une cloque est apparue sur sa paume.",
+          "Pouvez-vous le noter dans votre registre des incidents ?",
+          "Où se trouve le centre médical le plus proche ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the direct French term for a burn.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the exact time sentence.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the blister on the palm.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for incident log.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the manager to record the incident.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question asking for the nearest medical center.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and medical/domain review required for the burn terms and narrated event. The event and manager response are fictional; no learner-facing AI medical caution is inserted."
+    },
+    {
+      "n": 14,
+      "stableId": "master-travel-lunch:14:fr-en",
+      "sourceTitleEnglish": "Near Miss: The Peanut Sauce Nobody Mentioned",
+      "sourceObjectiveEnglish": "Talk through an allergen near miss with the server without blame and agree what both sides will check next time.",
+      "sourceSpeakingEnglish": "You are Grace's friend, and the AI is Verónica, the restaurant manager: talk through the peanut sauce near miss without blaming Andrés, using casi, por poco and si no hubiera preguntado, podría haber..., and agree on what both sides will check next time.",
+      "title": "Discuss a Peanut-Sauce Near Miss",
+      "objective": "Explain that a guest nearly ate peanut sauce, discuss the missed ingredient without blame and agree on checks for next time.",
+      "focus": "Use presque, si elle n’avait pas demandé and elle aurait pu to express a near miss and hypothetical consequence.",
+      "scene": "At lunch, Grace asks about a sauce just before eating; Maya and the manager discuss the unmentioned peanuts.",
+      "cards": [
+        {
+          "fr": "une cacahuète",
+          "en": "a peanut",
+          "kind": "term"
+        },
+        {
+          "fr": "une sauce aux cacahuètes",
+          "en": "peanut sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "une allergie aux cacahuètes",
+          "en": "a peanut allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "un auto-injecteur d’adrénaline",
+          "en": "an epinephrine auto-injector",
+          "kind": "term"
+        },
+        {
+          "fr": "un ingrédient non signalé",
+          "en": "an unmentioned ingredient",
+          "kind": "term"
+        },
+        {
+          "fr": "une note sur la commande",
+          "en": "a note on the order",
+          "kind": "term"
+        },
+        {
+          "fr": "une vérification",
+          "en": "a check",
+          "kind": "term"
+        },
+        {
+          "fr": "une confirmation",
+          "en": "a confirmation",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat de remplacement",
+          "en": "a replacement dish",
+          "kind": "term"
+        },
+        {
+          "fr": "une réaction grave",
+          "en": "a serious reaction",
+          "kind": "term"
+        },
+        {
+          "fr": "Elle a failli manger la sauce aux cacahuètes.",
+          "en": "She very nearly ate the peanut sauce.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Grace a demandé juste à temps.",
+          "en": "Grace asked just in time.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si elle n’avait pas demandé, elle aurait pu avoir une réaction grave.",
+          "en": "If she had not asked, she could have had a serious reaction.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous ne cherchons pas à accuser quelqu’un.",
+          "en": "We are not trying to blame anyone.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La prochaine fois, nous confirmerons les ingrédients.",
+          "en": "Next time, we will confirm the ingredients.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous noterons l’allergie sur la commande.",
+          "en": "We will note the allergy on the order.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous proposer un plat de remplacement ?",
+          "en": "Could you offer a replacement dish?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Grace a failli manger la sauce aux cacahuètes.",
+          "en": "Grace very nearly ate the peanut sauce."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Je comprends. La sauce contenait des cacahuètes qui n’étaient pas mentionnées.",
+          "en": "I understand. The sauce contained peanuts that were not mentioned."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Grace a demandé juste à temps. Elle a une allergie aux cacahuètes.",
+          "en": "Grace asked just in time. She has a peanut allergy."
+        },
+        {
+          "speaker": "Grace",
+          "fr": "J’ai mon auto-injecteur d’adrénaline avec moi.",
+          "en": "I have my epinephrine auto-injector with me."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Je suis désolée. La note sur la commande ne mentionnait pas cette sauce.",
+          "en": "I am sorry. The note on the order did not mention this sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Si elle n’avait pas demandé, elle aurait pu avoir une réaction grave.",
+          "en": "If she had not asked, she could have had a serious reaction."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Que pouvons-nous vérifier la prochaine fois ?",
+          "en": "What can we check next time?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous confirmerons les ingrédients avant de commander. Nous ne cherchons pas à accuser quelqu’un.",
+          "en": "We will confirm the ingredients before ordering. We are not trying to blame anyone."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Et nous noterons l’allergie sur la commande et confirmerons la sauce avec la cuisine.",
+          "en": "And we will note the allergy on the order and confirm the sauce with the kitchen."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Pourriez-vous proposer un plat de remplacement ?",
+          "en": "Thank you. Could you offer a replacement dish?"
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Oui, je vais vous présenter une autre option.",
+          "en": "Yes, I will present another option."
+        }
+      ],
+      "speaking": {
+        "role": "Friend discussing a near miss",
+        "partnerRole": "Restaurant manager",
+        "opening": "Grace a failli manger la sauce aux cacahuètes.",
+        "goal": "Describe the unmentioned peanut sauce, state the possible serious reaction, agree on ingredient and order-note checks, and request a replacement.",
+        "closure": "La prochaine fois, nous confirmerons les ingrédients.",
+        "wordBank": [
+          "une cacahuète",
+          "une sauce aux cacahuètes",
+          "une allergie aux cacahuètes",
+          "un auto-injecteur d’adrénaline",
+          "un ingrédient non signalé",
+          "une note sur la commande",
+          "une vérification",
+          "une confirmation",
+          "un plat de remplacement",
+          "une réaction grave",
+          "Elle a failli manger la sauce aux cacahuètes.",
+          "Grace a demandé juste à temps.",
+          "Si elle n’avait pas demandé, elle aurait pu avoir une réaction grave.",
+          "Nous ne cherchons pas à accuser quelqu’un.",
+          "La prochaine fois, nous confirmerons les ingrédients.",
+          "Nous noterons l’allergie sur la commande.",
+          "Pourriez-vous proposer un plat de remplacement ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for epinephrine auto-injector.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say Grace nearly ate the sauce.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the hypothetical serious reaction.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for a peanut allergy.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say the group is not trying to blame anyone.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write what the group will confirm next time.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and food-allergy/domain review required. Check the near-miss timeline and meaning of auto-injecteur d’adrénaline. Keep direct clinical terms in teaching text; factual review notes remain internal."
+    },
+    {
+      "n": 15,
+      "stableId": "master-travel-lunch:15:fr-en",
+      "sourceTitleEnglish": "Gas Smell at the Food Truck Park: Clear and Call",
+      "sourceObjectiveEnglish": "Alert a vendor to a gas smell, move people away with short commands, and report it clearly on an emergency call.",
+      "sourceSpeakingEnglish": "You are a visitor at the food truck park, and the AI plays vendor Mauricio and then Daniela, the 911 operator: warn Mauricio, move people back with commands like ¡aléjense! and ¡no fumen!, and report the location clearly using si + present → future.",
+      "title": "Report a Gas Smell at a Food-Truck Area",
+      "objective": "Alert a vendor to a gas smell, move people back with short commands and give a clear emergency-call location.",
+      "focus": "Use éloignez-vous, ne fumez pas and si + present with future to describe the location and possible hazard.",
+      "scene": "At a food-truck area, Maya notices a strong gas smell near a vendor’s vehicle and calls emergency services.",
+      "cards": [
+        {
+          "fr": "une odeur de gaz",
+          "en": "a gas smell",
+          "kind": "term"
+        },
+        {
+          "fr": "une fuite de gaz",
+          "en": "a gas leak",
+          "kind": "term"
+        },
+        {
+          "fr": "une bonbonne de gaz",
+          "en": "a gas cylinder",
+          "kind": "term"
+        },
+        {
+          "fr": "un tuyau",
+          "en": "a hose",
+          "kind": "term"
+        },
+        {
+          "fr": "une flamme",
+          "en": "a flame",
+          "kind": "term"
+        },
+        {
+          "fr": "une étincelle",
+          "en": "a spark",
+          "kind": "term"
+        },
+        {
+          "fr": "un briquet",
+          "en": "a lighter",
+          "kind": "term"
+        },
+        {
+          "fr": "un camion-restaurant",
+          "en": "a food truck",
+          "kind": "term"
+        },
+        {
+          "fr": "les secours",
+          "en": "emergency services",
+          "kind": "term"
+        },
+        {
+          "fr": "un opérateur",
+          "en": "an operator",
+          "kind": "term"
+        },
+        {
+          "fr": "l’entrée principale",
+          "en": "the main entrance",
+          "kind": "term"
+        },
+        {
+          "fr": "le parking",
+          "en": "the parking lot",
+          "kind": "term"
+        },
+        {
+          "fr": "Il y a une forte odeur de gaz près de votre camion.",
+          "en": "There is a strong gas smell near your truck.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Éloignez-vous du camion, s’il vous plaît !",
+          "en": "Move away from the truck, please!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ne fumez pas et n’utilisez pas de briquet !",
+          "en": "Do not smoke or use a lighter!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’appelle les secours.",
+          "en": "I am calling emergency services.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous sommes près de l’entrée principale du parking.",
+          "en": "We are near the main entrance to the parking lot.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si quelqu’un allume une flamme, il y aura un danger.",
+          "en": "If someone lights a flame, there will be danger.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Monsieur, il y a une forte odeur de gaz près de votre camion.",
+          "en": "Sir, there is a strong gas smell near your truck."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Je sens l’odeur aussi.",
+          "en": "I smell it too."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Éloignez-vous du camion, s’il vous plaît ! Ne fumez pas et n’utilisez pas de briquet !",
+          "en": "Move away from the truck, please! Do not smoke or use a lighter!"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Je vais prévenir les autres personnes.",
+          "en": "I will alert the other people."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "J’appelle les secours.",
+          "en": "I am calling emergency services."
+        },
+        {
+          "speaker": "Operator",
+          "fr": "Quelle est votre adresse exacte ?",
+          "en": "What is your exact address?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous sommes près de l’entrée principale du parking, à côté des camions-restaurants de la place Victor.",
+          "en": "We are near the main entrance to the parking lot, next to the food trucks at Place Victor."
+        },
+        {
+          "speaker": "Operator",
+          "fr": "Que se passe-t-il ?",
+          "en": "What is happening?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il y a une forte odeur de gaz près d’un camion. Si quelqu’un allume une flamme, il y aura un danger.",
+          "en": "There is a strong gas smell near a truck. If someone lights a flame, there will be danger."
+        },
+        {
+          "speaker": "Operator",
+          "fr": "Je note votre emplacement et les faits.",
+          "en": "I am recording your location and the facts."
+        }
+      ],
+      "speaking": {
+        "role": "Visitor reporting a gas smell",
+        "partnerRole": "Vendor and emergency operator",
+        "opening": "Il y a une forte odeur de gaz près de votre camion.",
+        "goal": "Alert the vendor, tell nearby people to move back and avoid smoking, then report the food-truck area’s exact fictional location to the operator.",
+        "closure": "Nous sommes près de l’entrée principale du parking.",
+        "wordBank": [
+          "une odeur de gaz",
+          "une fuite de gaz",
+          "une bonbonne de gaz",
+          "un tuyau",
+          "une flamme",
+          "une étincelle",
+          "un briquet",
+          "un camion-restaurant",
+          "les secours",
+          "un opérateur",
+          "l’entrée principale",
+          "le parking",
+          "Il y a une forte odeur de gaz près de votre camion.",
+          "Éloignez-vous du camion, s’il vous plaît !",
+          "Ne fumez pas et n’utilisez pas de briquet !",
+          "J’appelle les secours.",
+          "Nous sommes près de l’entrée principale du parking.",
+          "Si quelqu’un allume une flamme, il y aura un danger."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for gas smell.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the command to move away from the truck.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the no-smoking instruction.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for emergency services.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "State the exact fictional location to the operator.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a sentence saying you are calling emergency services.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and gas/emergency-domain review required. The fictional location and event are scene facts, not an assertion that a particular gas condition was confirmed. No unsourced learner-facing caution is added."
+    }
+  ],
+  "internalReviewNotes": [
+    "Master 11–15 preserve the Spanish Master learning purposes with French scenes and grammar. Direct burn, peanut allergy, epinephrine and emergency terms remain in teaching content.",
+    "Qualified French and relevant medical, allergen and gas/emergency-domain review remain required; all lessons are private and unregistered."
+  ]
+}

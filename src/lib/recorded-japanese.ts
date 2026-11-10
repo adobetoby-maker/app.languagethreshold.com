@@ -9,11 +9,15 @@ type Clip = {
   bytes: number;
   durationSeconds: number;
   sha256: string;
+  listeningReviewed: boolean;
 };
 type Manifest = {
   version: number;
   locale: string;
+  sourceModule: string;
+  sourceLesson: number;
   listeningReviewed: boolean;
+  listeningReview: { reviewer: string; decision: string };
   voices: Record<Gender, string>;
   entries: Record<string, Record<Gender, Clip>>;
 };
@@ -26,11 +30,13 @@ export function recordedJapanesePath(
   manifest: Manifest = pilot as Manifest,
 ): string | null {
   if (manifest.version !== 1 || manifest.locale !== "ja-JP" || locale !== "ja-JP" || manifest.listeningReviewed !== true) return null;
+  if (manifest.sourceModule !== "foundation-japanese-basics" || manifest.sourceLesson !== 1) return null;
+  if (manifest.listeningReview?.reviewer !== "owner" || manifest.listeningReview?.decision !== "accepted-all-pilot-clips") return null;
   const gender = (Object.keys(manifest.voices) as Gender[]).find((candidate) => manifest.voices[candidate] === voiceName);
   if (!gender) return null;
   const key = text.normalize("NFC").trim().replace(/\s+/gu, " ").toLocaleLowerCase("ja-JP");
   const clip = manifest.entries[key]?.[gender];
-  if (!clip || clip.voice !== voiceName || clip.locale !== locale) return null;
+  if (!clip || clip.listeningReviewed !== true || clip.voice !== voiceName || clip.locale !== locale) return null;
   if (clip.spokenText !== text.normalize("NFC").replace(/\s+/gu, "")) return null;
   if (!/^ja-101-[a-f0-9]{20}-(?:female|male)\.mp3$/.test(clip.name) || !clip.name.endsWith(`-${gender}.mp3`)) return null;
   if (!Number.isFinite(clip.durationSeconds) || clip.durationSeconds <= 0.1 || clip.durationSeconds >= 120) return null;

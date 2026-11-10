@@ -15,7 +15,7 @@ test("private French Lunch Foundation content is source-pinned and remains unreg
   assert.equal(candidate.nativeLanguage, stage.nativeLanguage);
   assert.equal(candidate.reviewed, false);
   assert.equal(candidate.registered, false);
-  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2", "3"]);
+  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 10 }, (_, index) => String(index + 1)));
 });
 
 for (const [number, candidateLesson] of Object.entries(candidate.lessons)) {

@@ -58,4 +58,4 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 19 | conversation complication | Preserve clarity when a French scene changes unexpectedly |
 | 20 | final transfer portfolio | Compare baseline and final French speech with a stable rubric |
 
-French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining five Master lessons, their audio, or their native/web runtime exist.
+French-specific exceptions, register, and regional models need qualified French review during authoring. The [Master 16–17 regional audio source audit](fr-001-regional-audio-source-audit-2026-11-10.md) records candidates and reuse constraints without importing recordings. The map is not a claim that the remaining five Master lessons, their audio, or their native/web runtime exist.

@@ -113,7 +113,7 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
    assert.equal(lesson.evidenceRequirement.source, 'learner-saved-recording-or-instructor-observation');
    assert.equal(lesson.evidenceRequirement.minimumPriorities, 2);
   }
-  if (lesson.n === 16 && stage === 'master' || lesson.n === 17 && stage === 'master') {
+  if (stage === 'master' && (lesson.n === 16 || lesson.n === 17)) {
    assert.equal(lesson.practice.hear.reviewedAudioRequired, true);
    assert.equal(lesson.regionalAudioEvidence.speakerRegionProvenanceReviewed, false);
    assert.equal(lesson.regionalAudioEvidence.phoneticContrastReviewed, false);

@@ -15,8 +15,8 @@
       "n": 16,
       "sourceSpanishLesson": 16,
       "title": "Compare a word across regional voices",
-      "objective": "Identify the same French word in two named voices and describe only the consonant difference actually heard.",
-      "focus": "Keep one reference model for your own production. In a regional comparison, first confirm that both recordings say the same word, then identify the speakers and listen to the /ʁ/ in its word context. A region label does not establish an audible contrast. Until the candidate recordings pass speaker-provenance and listening review, use the transcript and discussion, not a scored regional listening question.",
+      "objective": "Identify the same French word in two voices and describe how each voice pronounces /ʁ/.",
+      "focus": "Listen for /ʁ/ in rue and croire. Identify the word before comparing the voices, describe the sound in each recording, and keep the message meaning clear.",
       "words": [
         { "fr": "voix", "en": "voice", "kind": "term" },
         { "fr": "région", "en": "region", "kind": "term" },
@@ -48,17 +48,17 @@
         "scene": "Discussing two recordings of the same French word with a pronunciation tutor",
         "roles": ["learner", "tutor"],
         "opening": "J'ai vérifié que les deux voix prononcent le même mot.",
-        "goals": ["Name the word shared by the recordings.", "Identify each speaker from reviewed provenance before describing a region.", "Describe the consonant heard in each recording without inventing a difference."],
-        "complication": "The tutor asks whether a file label alone proves the speaker's origin; explain what evidence is still needed.",
+        "goals": ["Name the word shared by the recordings.", "Identify each speaker by name before comparing the recordings.", "Describe how each voice pronounces /ʁ/ in the shared word."],
+        "complication": "The tutor plays the recordings in reverse order; identify each voice before comparing the consonant.",
         "closure": "Je garde un modèle clair et je note seulement ce que j'entends."
       },
       "practice": {
         "see": { "prompt": "Find the shared word, the listening order, and the limited claim in the model phrases.", "wordRefs": ["Deux voix prononcent le même mot.", "Je vérifie le mot avant de comparer les voix.", "Je décris seulement la consonne que j'entends."] },
         "recall": { "prompt": "Recall the sentence that puts word identification before voice comparison.", "answerRef": "Je vérifie le mot avant de comparer les voix." },
-        "hear": { "prompt": "When the two same-word recordings and speaker provenance are reviewed, identify the word in each and describe the /ʁ/ you actually hear; until then this regional Hear task is unavailable.", "choices": ["croire", "rue"], "audioRequired": true, "reviewedAudioRequired": true },
+        "hear": { "prompt": "Identify croire in each recording and compare how each voice pronounces /ʁ/.", "choices": ["croire", "rue"], "audioRequired": true, "reviewedAudioRequired": true },
         "type": { "prompt": "Type the French sentence about describing only the consonant you hear.", "answerRef": "Je décris seulement la consonne que j'entends." },
         "say": { "prompt": "Tell the tutor that two voices pronounce the same word, without claiming a regional difference.", "answerRef": "Deux voix prononcent le même mot." },
-        "write": { "prompt": "Write a comparison record naming the shared word, both voices, and the exact sound observation; leave a region unassigned when provenance is missing.", "requiredRefs": ["voix", "région", "mot", "modèle"] }
+        "write": { "prompt": "Write the shared word, name both voices, and describe the /ʁ/ you hear in each recording.", "requiredRefs": ["voix", "région", "mot", "modèle"] }
       },
       "regionalAudioEvidence": {
         "candidateWords": ["croire"],
@@ -73,8 +73,8 @@
       "n": 17,
       "sourceSpanishLesson": 17,
       "title": "Recognize a word across vowel variants",
-      "objective": "Recognize the same French word in identified voices while keeping its meaning clear across a possible vowel difference.",
-      "focus": "Use the same word and its context before comparing vowel quality. The private Paris and Avignon candidates for pain have named regional descriptions, but their labels do not establish a teachable nasal-vowel contrast. Until qualified listening review confirms the waveforms and reuse terms, work from the transcript and discuss the possible comparison without a scored Hear question.",
+      "objective": "Recognize pain in two voices and explain its meaning in a lunch message.",
+      "focus": "Use the lunch message to identify pain in both voices. Listen to the nasal vowel in each pronunciation, then confirm that both messages refer to bread.",
       "words": [
         { "fr": "pain", "en": "bread", "kind": "term" },
         { "fr": "voyelle", "en": "vowel", "kind": "term" },
@@ -106,17 +106,17 @@
         "scene": "Confirming a lunch message after hearing two voices say pain",
         "roles": ["listener", "friend"],
         "opening": "J'ai entendu le même mot dans les deux messages.",
-        "goals": ["Identify pain as the shared word.", "Confirm that both messages concern bread for lunch.", "Ask for the meeting time without inferring a speaker's region from the vowel alone."],
-        "complication": "The friend asks whether the two vowel realizations have been reviewed; distinguish an observation from an unverified regional label.",
+        "goals": ["Identify pain as the shared word.", "Confirm that both messages concern bread for lunch.", "Ask for the meeting time and confirm the lunch plan."],
+        "complication": "The friend changes the meeting time; repeat the new time and confirm who brings the bread.",
         "closure": "J'ai compris le message : nous apportons du pain pour midi."
       },
       "practice": {
         "see": { "prompt": "Find the shared food word, the context clue, and the unchanged meaning in the model phrases.", "wordRefs": ["Mes amis parlent du pain pour le déjeuner.", "Le contexte m'aide à comprendre le message.", "Je compare la voyelle sans changer le sens du mot."] },
         "recall": { "prompt": "Recall the sentence about recognizing the word when the speaker changes.", "answerRef": "Je reconnais le mot même si la voix change." },
-        "hear": { "prompt": "When both original recordings have passed qualified listening and rights review, identify pain in each voice and compare only the vowel feature actually audible; until then this regional Hear task is unavailable.", "choices": ["pain", "voyelle"], "audioRequired": true, "reviewedAudioRequired": true },
+        "hear": { "prompt": "Identify pain in each recording and compare how the nasal vowel sounds in the two voices.", "choices": ["pain", "voyelle"], "audioRequired": true, "reviewedAudioRequired": true },
         "type": { "prompt": "Type the French sentence about using context to understand the message.", "answerRef": "Le contexte m'aide à comprendre le message." },
         "say": { "prompt": "Explain that you recognize the same word even when the voice changes.", "answerRef": "Je reconnais le mot même si la voix change." },
-        "write": { "prompt": "Write the shared word and message meaning, then separate what you heard from any regional label that has not been reviewed.", "requiredRefs": ["pain", "voyelle", "message", "contexte"] }
+        "write": { "prompt": "Write the shared word, explain its meaning in the lunch message, and describe the vowel in each voice.", "requiredRefs": ["pain", "voyelle", "message", "contexte"] }
       },
       "regionalAudioEvidence": {
         "candidateWords": ["pain"],

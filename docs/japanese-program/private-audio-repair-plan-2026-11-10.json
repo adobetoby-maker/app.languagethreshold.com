@@ -1,0 +1,392 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "state": "private-repair-plan",
+  "sourceCourseReportSha256": "2ca69a795951636baf2062b411f73471fef986dfc703d1848d81829456454d9c",
+  "sourceSignalReportSha256": "9a7e88943ab9c549c5295d88913aa023b3c417c83cfcd7dab4ade0d9376307a6",
+  "manifestSetSha256": "4d869e6a6a0924a296ed9c510e9181f7d58d4070fc723458cb29e4445fcfe2f9",
+  "flaggedRecordings": 12,
+  "withSameTextVoiceAlternative": 7,
+  "withoutAlternative": 5,
+  "listeningReviewed": false,
+  "registered": false,
+  "repairs": [
+    {
+      "text": "です",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-1",
+        "file": "foundation-1-complete/ja-101-36c7185f86fcf0b45b00-female.mp3",
+        "sha256": "8944e23030953030279c5767d54a0f1f874ca5ef15c94b5e28652ec650dfdd81",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "です",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [],
+      "nextStep": "bounded-private-retake"
+    },
+    {
+      "text": "ほん",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-2",
+        "file": "foundation-2/ja-101-d2815033823ea8355636-female.mp3",
+        "sha256": "9814366be26bd81b1ed4f86fb3ae398a2373c4f9471124eea13e634c366db79f",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "ほん",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "core-11",
+          "file": "core-11/ja-101-d2815033823ea8355636-female.mp3",
+          "sha256": "e345c93f01340197f493eb1a073195161759810e610201a73cff43a7611aaf4e",
+          "bytes": 4896,
+          "durationSeconds": 1.224,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        },
+        {
+          "lesson": "core-8",
+          "file": "core-8/ja-101-d2815033823ea8355636-female.mp3",
+          "sha256": "16f19c008f654a01de9ec280f23254b29559825a0912d8fff86b72c57ffdbbee",
+          "bytes": 4512,
+          "durationSeconds": 1.128,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        },
+        {
+          "lesson": "master-17",
+          "file": "master-17/ja-101-d2815033823ea8355636-female.mp3",
+          "sha256": "9d3c06992a85ec93d9c6945ccef72a1e10b2f1f973785dcee4d8390ce58dfdef",
+          "bytes": 3264,
+          "durationSeconds": 0.816,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "ほん",
+      "voice": "ja-JP-Chirp3-HD-Charon",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-2",
+        "file": "foundation-2/ja-101-d2815033823ea8355636-male.mp3",
+        "sha256": "4413f459174c5ed5fe0254ffbb0fae11794118a1f0672a35f90c1cb260f085cd",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "ほん",
+        "voice": "ja-JP-Chirp3-HD-Charon",
+        "gender": "male"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "core-11",
+          "file": "core-11/ja-101-d2815033823ea8355636-male.mp3",
+          "sha256": "fbc7db0c5595b0b9ab7761afccfe988707dfd9d7f20ce6703cb1b75b8ececea5",
+          "bytes": 4032,
+          "durationSeconds": 1.008,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        },
+        {
+          "lesson": "core-8",
+          "file": "core-8/ja-101-d2815033823ea8355636-male.mp3",
+          "sha256": "a9ff147e8df692793ff5b889d11b27642b25a725a60777eb3c4a091320935e42",
+          "bytes": 4416,
+          "durationSeconds": 1.104,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "いす",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-7",
+        "file": "foundation-7/ja-101-cab7ce5b7f57325d92c4-female.mp3",
+        "sha256": "78a1c9b04144cde94ce75ed26a1cfd21545f02b8afbd0559106a4d21586917cc",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "いす",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "foundation-6",
+          "file": "foundation-6/ja-101-cab7ce5b7f57325d92c4-female.mp3",
+          "sha256": "5d547ba4234e0f30126e9db0fa3487601351e7b063c9218c18fd9481efcebc95",
+          "bytes": 4224,
+          "durationSeconds": 1.056,
+          "spokenText": "いす",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "と",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-7",
+        "file": "foundation-7/ja-101-427566260604d16fb4a9-female.mp3",
+        "sha256": "f6ad987c1a03afafe5da0b13796cab6f30b33319e13e098623d3d5dbdb049e42",
+        "bytes": 1056,
+        "durationSeconds": 0.264,
+        "spokenText": "と",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [],
+      "nextStep": "bounded-private-retake"
+    },
+    {
+      "text": "さん",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-8",
+        "file": "foundation-8/ja-101-93663a351728650fd9e9-female.mp3",
+        "sha256": "074aa9089bfcc6c8651608172efd733b1dd183e0978ba6524aac051b5826849e",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "さん",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "foundation-4",
+          "file": "foundation-4/ja-101-93663a351728650fd9e9-female.mp3",
+          "sha256": "a2f322352910edf40f562e0e01c348383ea40360a4f7de19ee19d9e92f1e1323",
+          "bytes": 3744,
+          "durationSeconds": 0.936,
+          "spokenText": "さん",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "ご",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "foundation-8",
+        "file": "foundation-8/ja-101-a01669e6ccf908c0900f-female.mp3",
+        "sha256": "976535078f273b7ee9da4a1306ce41e341bca7d70568e25772c5040ede7a6c18",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "ご",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [],
+      "nextStep": "bounded-private-retake"
+    },
+    {
+      "text": "へ",
+      "voice": "ja-JP-Chirp3-HD-Charon",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "core-7",
+        "file": "core-7/ja-101-58c25b81f1d2466d10db-male.mp3",
+        "sha256": "3642beafa9cd5491ed0d68d2ba39e9933ae9e9be35dca41a22ea1d71b2bb7587",
+        "bytes": 1056,
+        "durationSeconds": 0.264,
+        "spokenText": "へ",
+        "voice": "ja-JP-Chirp3-HD-Charon",
+        "gender": "male"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [],
+      "nextStep": "bounded-private-retake"
+    },
+    {
+      "text": "はん",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "core-10",
+        "file": "core-10/ja-101-1871c098ed228f77de14-female.mp3",
+        "sha256": "c4c93ba4e5375fb7ea9b4cf9d290606a1bb24984133c693feb6857393822f048",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "はん",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [],
+      "nextStep": "bounded-private-retake"
+    },
+    {
+      "text": "に",
+      "voice": "ja-JP-Chirp3-HD-Charon",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "core-25",
+        "file": "core-25/ja-101-5f945f18ef58973201d6-male.mp3",
+        "sha256": "a3de4816c783fa638cd6ed12b0d7b8fc86d7f21bfa3a54676dea92929c8f85e9",
+        "bytes": 1152,
+        "durationSeconds": 0.288,
+        "spokenText": "に",
+        "voice": "ja-JP-Chirp3-HD-Charon",
+        "gender": "male"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "core-18",
+          "file": "core-18/ja-101-5f945f18ef58973201d6-male.mp3",
+          "sha256": "e335b2252230e23b8cce8cf18a8ac13d1fc6b09c1676f1b2a147904fc43b9c47",
+          "bytes": 3456,
+          "durationSeconds": 0.864,
+          "spokenText": "に",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        },
+        {
+          "lesson": "core-24",
+          "file": "core-24/ja-101-5f945f18ef58973201d6-male.mp3",
+          "sha256": "a09ef801ccc4a8ba9aac55ec8f9a8782bd5526a483e61188676220cf6097c561",
+          "bytes": 4992,
+          "durationSeconds": 1.248,
+          "spokenText": "に",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        },
+        {
+          "lesson": "foundation-8",
+          "file": "foundation-8/ja-101-5f945f18ef58973201d6-male.mp3",
+          "sha256": "77266136e19b58f6b8525c8a469c44026ba8bdb7f007bf3dc24365561203f63f",
+          "bytes": 3456,
+          "durationSeconds": 0.864,
+          "spokenText": "に",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "を",
+      "voice": "ja-JP-Chirp3-HD-Aoede",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "core-25",
+        "file": "core-25/ja-101-98aa8c57ac91533629ca-female.mp3",
+        "sha256": "92ef7c9b52f686dd4028a365a208d721a1d90f27b0100cd171c805b0f4ec7fef",
+        "bytes": 1344,
+        "durationSeconds": 0.336,
+        "spokenText": "を",
+        "voice": "ja-JP-Chirp3-HD-Aoede",
+        "gender": "female"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "core-23",
+          "file": "core-23/ja-101-98aa8c57ac91533629ca-female.mp3",
+          "sha256": "f76c6f41403c56ad3b21838e0637e3388b026f8bc1f8c4aca98e97e07375acb7",
+          "bytes": 3744,
+          "durationSeconds": 0.936,
+          "spokenText": "を",
+          "voice": "ja-JP-Chirp3-HD-Aoede",
+          "gender": "female"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    },
+    {
+      "text": "ほん",
+      "voice": "ja-JP-Chirp3-HD-Charon",
+      "issues": [
+        "very-quiet",
+        "little-active-signal"
+      ],
+      "original": {
+        "lesson": "master-17",
+        "file": "master-17/ja-101-d2815033823ea8355636-male.mp3",
+        "sha256": "1543cc1f1df10fffc159b6a96acf154caeb03e6384215554eb7d885822f57912",
+        "bytes": 1152,
+        "durationSeconds": 0.288,
+        "spokenText": "ほん",
+        "voice": "ja-JP-Chirp3-HD-Charon",
+        "gender": "male"
+      },
+      "sameTextVoiceUnflaggedAlternatives": [
+        {
+          "lesson": "core-11",
+          "file": "core-11/ja-101-d2815033823ea8355636-male.mp3",
+          "sha256": "fbc7db0c5595b0b9ab7761afccfe988707dfd9d7f20ce6703cb1b75b8ececea5",
+          "bytes": 4032,
+          "durationSeconds": 1.008,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        },
+        {
+          "lesson": "core-8",
+          "file": "core-8/ja-101-d2815033823ea8355636-male.mp3",
+          "sha256": "a9ff147e8df692793ff5b889d11b27642b25a725a60777eb3c4a091320935e42",
+          "bytes": 4416,
+          "durationSeconds": 1.104,
+          "spokenText": "ほん",
+          "voice": "ja-JP-Chirp3-HD-Charon",
+          "gender": "male"
+        }
+      ],
+      "nextStep": "listen-to-alternatives"
+    }
+  ]
+}

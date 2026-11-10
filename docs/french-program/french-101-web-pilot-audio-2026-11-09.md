@@ -1,0 +1,9 @@
+# French 101 accepted pilot audio — private web candidate
+
+This draft branch stacks on the private French 101 form/runtime candidate at `c6b57849c22481b35d5bed68761dd72040fbe838`. It imports the owner's accepted Foundation 1 pilot for the exact French→English pair: five source words and phrases, each in `fr-FR-Chirp3-HD-Aoede` and `fr-FR-Chirp3-HD-Charon`, ten MP3s totaling about 76 KiB. The pinned private source SHA-256 is `6eca43a19dc9ed6090eef417d58be728e90ff91a26798555c14422b59f5261d3`.
+
+`scripts/import-french101-audio-pilot.py` checks the private owner decision, source words, both voices, exact text, locale, file names, byte counts, SHA-256 hashes, and measured durations before copying. `src/lib/recorded-french.ts` resolves only the five imported texts for the selected French HD voice and `fr-FR` locale; a different text, punctuation, voice, locale, pair, or review state falls through to the existing speech path. It does not borrow Spanish recordings. The public manifest and TypeScript manifest are identical, and the test rechecks their files and current source hash.
+
+The two focused tests pass, and TypeScript checking passes. In a 390×844 Chromium run against the local web server, both selected voice paths resolved; the female MP3 returned HTTP 200, `audio/mpeg`, and the pinned 2,784 bytes. Altered punctuation resolved to no recording, and the page reported no script errors. This confirms asset routing in the draft checkout, not a production or listening-quality check.
+
+The French 101 curriculum remains `reviewed:false` and `registered:false`. Its full-course private recordings still need individual listening review; this pilot acceptance does not approve them. This branch stays draft and is not a completed course or a production audio release. No lesson ID, saved learner progress, V3/V4 identity, or native bundle changes here.

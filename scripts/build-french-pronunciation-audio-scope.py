@@ -25,6 +25,7 @@ SCOPES = {
     "core-13-15": (("core-13-15-draft.json",), BASE / "private-audio-scope-core-13-15-fr-en.json", {"core": list(range(13, 16))}),
     "core-16-18": (("core-16-18-draft.json",), BASE / "private-audio-scope-core-16-18-fr-en.json", {"core": list(range(16, 19))}),
     "core-19-30": (("core-19-20-draft.json", "core-21-23-draft.json", "core-24-26-draft.json", "core-27-30-draft.json"), BASE / "private-audio-scope-core-19-30-fr-en.json", {"core": list(range(19, 31))}),
+    "master-reference-1-20": (("master-1-3-draft.json", "master-4-6-draft.json", "master-7-9-draft.json", "master-10-12-draft.json", "master-13-15-draft.json", "master-16-17-draft.json", "master-18-20-draft.json"), BASE / "private-audio-scope-master-reference-1-20-fr-en.json", {"master": list(range(1, 21))}),
 }
 
 
@@ -52,12 +53,15 @@ def build(scope="foundation-core-1-6"):
         assert (draft["moduleId"], draft["targetLanguage"], draft["nativeLanguage"]) == (
             "french-sound-like-a-native", "French", "English"
         )
-        assert draft["stage"] in ("foundation", "core")
+        assert draft["stage"] in expected_lessons
         assert not any(draft[gate] for gate in ("reviewed", "runtimeRegistered", "audioPublished"))
         source_files.append({"path": f"content/french-pronunciation/{filename}", "sha256": sha(raw)})
         for lesson in draft["lessons"]:
             stage = draft["stage"]
             assert lesson["id"] == f"{stage}-french-sound-like-a-native:{lesson['n']}:fr-en"
+            if stage == "master" and lesson["n"] in (16, 17):
+                assert lesson["regionalAudioEvidence"]["hearPlayable"] is False
+                assert lesson["practice"]["hear"]["reviewedAudioRequired"] is True
             assert lesson["id"] not in seen_ids
             seen_ids.add(lesson["id"])
             stage_lessons[stage].append(lesson["id"])
@@ -86,7 +90,8 @@ def build(scope="foundation-core-1-6"):
         "recordingsGenerated": False,
         "listeningReviewed": False,
         "includedFields": ["cards[].fr", "reader[].fr", "speaking.opening", "speaking.closure"],
-        "excludedFields": ["English support", "English practice prompts", "unwritten conversation replies"],
+        "excludedFields": ["English support", "English practice prompts", "unwritten conversation replies"] +
+            (["Master 16–17 regional paired-speaker Hear contrasts"] if "master" in expected_lessons else []),
         "stageLessons": dict(stage_lessons),
         "counts": {
             "lessons": len(seen_ids),

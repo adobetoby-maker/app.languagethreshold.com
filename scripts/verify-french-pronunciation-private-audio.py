@@ -68,9 +68,13 @@ def verify(audio_root, inventory_path=INVENTORY):
     assert {path.name for path in audio_root.glob("*.mp3")} == expected
     assert len(expected) == inventory["counts"]["twoVoiceClips"]
     stages = inventory["stageLessons"]
-    scope = "private Foundation 1–10 and Core 1–6 only" if "foundation" in stages else (
-        f"private Core {int(stages['core'][0].split(':')[1])}–{int(stages['core'][-1].split(':')[1])} only"
-    )
+    if "foundation" in stages:
+        scope = "private Foundation 1–10 and Core 1–6 only"
+    elif "master" in stages:
+        assert "Master 16–17 regional paired-speaker Hear contrasts" in inventory["excludedFields"]
+        scope = "private Master 1–20 reference models only; regional Hear contrasts excluded"
+    else:
+        scope = f"private Core {int(stages['core'][0].split(':')[1])}–{int(stages['core'][-1].split(':')[1])} only"
     return {
         "schema": 1,
         "moduleId": inventory["moduleId"],

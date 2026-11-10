@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DRAFTS = (
     ROOT / "content/french-travel-lunch/core-1-5-draft.json",
     ROOT / "content/french-travel-lunch/core-6-10-draft.json",
+    ROOT / "content/french-travel-lunch/core-11-15-draft.json",
 )
 MODES = ("see", "recall", "hear", "type", "say", "write")
 
@@ -98,14 +99,14 @@ def validate(draft, source_bytes, expected_numbers):
 if __name__ == "__main__":
     drafts = [json.loads(path.read_text()) for path in DRAFTS]
     source_bytes = (ROOT / drafts[0]["source"]["path"]).read_bytes()
-    first = validate(drafts[0], source_bytes, range(1, 6))
-    second = validate(drafts[1], source_bytes, range(6, 11))
-    all_lessons = drafts[0]["lessons"] + drafts[1]["lessons"]
-    require([lesson["n"] for lesson in all_lessons] == list(range(1, 11)),
+    results = [validate(draft, source_bytes, range(1 + 5 * index, 6 + 5 * index))
+               for index, draft in enumerate(drafts)]
+    all_lessons = [lesson for draft in drafts for lesson in draft["lessons"]]
+    require([lesson["n"] for lesson in all_lessons] == list(range(1, 16)),
             "Core lessons are not contiguous")
-    require(len({lesson["stableId"] for lesson in all_lessons}) == 10,
+    require(len({lesson["stableId"] for lesson in all_lessons}) == 15,
             "Core lesson IDs overlap")
-    print(json.dumps({"lessons": 10, "cards": first["cards"] + second["cards"],
-                      "readerTurns": first["readerTurns"] + second["readerTurns"],
-                      "modeActivities": first["modeActivities"] + second["modeActivities"],
+    print(json.dumps({"lessons": 15, "cards": sum(result["cards"] for result in results),
+                      "readerTurns": sum(result["readerTurns"] for result in results),
+                      "modeActivities": sum(result["modeActivities"] for result in results),
                       "reviewed": False, "registered": False}))

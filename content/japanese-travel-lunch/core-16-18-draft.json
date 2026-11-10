@@ -1,0 +1,517 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      16,
+      17,
+      18
+    ]
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "sourceEnglishTitle": "Order at a workers' canteen",
+      "sourceEnglishSkills": "follow a tray line, choose set courses, pay first, and find a seat",
+      "sourceEnglishScenario": "At a workers' canteen, follow the line, choose a first and second course, and pay at the register before sitting.",
+      "title": "Following the workplace lunch line",
+      "objective": "Follow a workplace canteen tray line, choose two courses, ask about advance payment, and find an open seat.",
+      "focus": "列はどこからですか asks where the queue starts; 列の最後 means its end, where a new arrival joins. レジで先に払いますか asks whether payment comes first. 主菜 means main course. 席は空いていますか asks whether a seat is free.",
+      "scene": "Sam eats at a workplace canteen with a tray service line.",
+      "cards": [
+        {
+          "ja": "職場の食堂",
+          "en": "workplace canteen",
+          "kind": "term"
+        },
+        {
+          "ja": "トレー",
+          "en": "tray",
+          "kind": "term"
+        },
+        {
+          "ja": "列",
+          "en": "line / queue",
+          "kind": "term"
+        },
+        {
+          "ja": "列の最後",
+          "en": "end of the line",
+          "kind": "term"
+        },
+        {
+          "ja": "箸",
+          "en": "chopsticks",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "最初の料理",
+          "en": "first course",
+          "kind": "term"
+        },
+        {
+          "ja": "主菜",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "ja": "煮込み料理",
+          "en": "stewed dish",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "空いている席",
+          "en": "open seat",
+          "kind": "term"
+        },
+        {
+          "ja": "列はどこからですか",
+          "en": "Where does the line start?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "定食には何が付きますか",
+          "en": "What comes with the set meal?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "最初の料理はスープをお願いします",
+          "en": "Soup for the first course, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "レジで先に払いますか",
+          "en": "Do we pay first at the register?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この席は空いていますか",
+          "en": "Is this seat free?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。列はどこからですか。",
+          "en": "Excuse me. Where does the line start?"
+        },
+        {
+          "speaker": "Worker",
+          "ja": "あちらからです。トレーを取ってください。",
+          "en": "Over there. Please take a tray."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "日替わり定食には何が付きますか。",
+          "en": "What comes with the daily set meal?"
+        },
+        {
+          "speaker": "Worker",
+          "ja": "スープと主菜と飲み物が付きます。",
+          "en": "It includes soup, a main course, and a drink."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "最初の料理は何にしますか。",
+          "en": "What would you like for the first course?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スープをお願いします。主菜は鶏の煮込みでお願いします。",
+          "en": "Soup, please. For the main course, the chicken stew."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レジで先に払いますか。",
+          "en": "Do we pay first at the register?"
+        },
+        {
+          "speaker": "Worker",
+          "ja": "はい、席に着く前にお願いします。",
+          "en": "Yes, before taking a seat, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "分かりました。この席は空いていますか。",
+          "en": "Understood. Is this seat free?"
+        },
+        {
+          "speaker": "Worker",
+          "ja": "はい、空いています。",
+          "en": "Yes, it is."
+        }
+      ],
+      "speaking": {
+        "role": "Guest in a workplace canteen",
+        "partnerRole": "Canteen worker",
+        "opening": "トレーを取って、列にお並びください。",
+        "goal": "Find the start of the line, ask what comes with the set meal, choose soup and a main dish, ask whether to pay first, and check an open seat.",
+        "closure": "この席は空いていますか。"
+      },
+      "stableId": "travel-lunch:16:ja-en"
+    },
+    {
+      "n": 17,
+      "sourceEnglishTitle": "Bring a child to lunch",
+      "sourceEnglishSkills": "ask about children's portions, plain dishes, high chairs, and sharing an adult plate",
+      "sourceEnglishScenario": "Your picky six-year-old will only eat plain pasta; ask the kitchen what they can prepare and how it will be priced.",
+      "title": "Lunch with a child and a baby",
+      "objective": "Ask for a high chair, a small plain pasta portion for a child, its price, and an extra plate to share an adult meal.",
+      "focus": "子ども用 means for children. ソースなし means without sauce; バターを少し means a little butter. 取り皿 is an extra small plate for sharing. 〜を作れますか asks whether the kitchen can prepare it.",
+      "scene": "Ana brings her six-year-old child and baby to a lunch restaurant.",
+      "cards": [
+        {
+          "ja": "ベビーチェア",
+          "en": "high chair",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども用メニュー",
+          "en": "children’s menu",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども用の量",
+          "en": "child-size portion",
+          "kind": "term"
+        },
+        {
+          "ja": "小さめ",
+          "en": "small",
+          "kind": "term"
+        },
+        {
+          "ja": "パスタ",
+          "en": "pasta",
+          "kind": "term"
+        },
+        {
+          "ja": "ソースなし",
+          "en": "without sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "バターを少し",
+          "en": "a little butter",
+          "kind": "term"
+        },
+        {
+          "ja": "取り皿",
+          "en": "extra sharing plate",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "六歳",
+          "en": "six years old",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーチェアはありますか",
+          "en": "Do you have a high chair?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "子ども用の量はありますか",
+          "en": "Do you have child-size portions?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ソースなしのパスタを作れますか",
+          "en": "Can you make plain pasta without sauce?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "バターを少しだけお願いします",
+          "en": "Just a little butter, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "小さめのパスタはいくらですか",
+          "en": "How much is the small pasta portion?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "取り皿を一枚お願いします",
+          "en": "One extra plate for sharing, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Ana",
+          "ja": "赤ちゃん用のベビーチェアはありますか。",
+          "en": "Do you have a high chair for the baby?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, we do."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "子ども用の量はありますか。",
+          "en": "Do you have child-size portions?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "小さめのパスタを作れます。",
+          "en": "We can make a smaller pasta portion."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "六歳の子はソースなしのパスタを食べます。",
+          "en": "My six-year-old eats pasta without sauce."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "バターを少しだけお願いします。",
+          "en": "Just a little butter, please."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "小さめのパスタはいくらですか。",
+          "en": "How much is the small pasta portion?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "六百円です。",
+          "en": "It is 600 yen."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "赤ちゃんと私の料理を分けます。取り皿を一枚お願いします。",
+          "en": "I will share my meal with the baby. One extra plate, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Parent ordering lunch for children",
+        "partnerRole": "Server",
+        "opening": "お子様は何名様ですか。",
+        "goal": "Ask for a high chair, child-size plain pasta without sauce with a little butter, its price, and an extra plate to share.",
+        "closure": "取り皿を一枚お願いします。"
+      },
+      "stableId": "travel-lunch:17:ja-en"
+    },
+    {
+      "n": 18,
+      "sourceEnglishTitle": "Call ahead about access",
+      "sourceEnglishSkills": "ask about step-free entry, restrooms, quiet tables, and space for mobility aids",
+      "sourceEnglishScenario": "Call a lunch spot to ask whether it has step-free access and a table that fits a wheelchair.",
+      "title": "Calling ahead about access",
+      "objective": "Ask by phone about step-free entry, ramp location, wheelchair-usable restroom, walker space, and a quiet table before reserving.",
+      "focus": "段差なく入れますか asks whether one can enter without steps. 車いすで使えるトイレ asks whether the restroom can be used with a wheelchair. 歩行器 means walker. 〜のスペースはありますか asks whether space is available.",
+      "scene": "Ana phones a restaurant before bringing her parents to lunch.",
+      "cards": [
+        {
+          "ja": "段差",
+          "en": "step / level difference",
+          "kind": "term"
+        },
+        {
+          "ja": "段差のない入口",
+          "en": "step-free entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "スロープ",
+          "en": "ramp",
+          "kind": "term"
+        },
+        {
+          "ja": "正面玄関",
+          "en": "main entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "en": "restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "車いす",
+          "en": "wheelchair",
+          "kind": "term"
+        },
+        {
+          "ja": "歩行器",
+          "en": "walker",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "hallway / passage",
+          "kind": "term"
+        },
+        {
+          "ja": "スペース",
+          "en": "space",
+          "kind": "term"
+        },
+        {
+          "ja": "静かな席",
+          "en": "quiet table",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "段差なく入れますか",
+          "en": "Can we enter without steps?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スロープはどこですか",
+          "en": "Where is the ramp?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "車いすで使えるトイレはありますか",
+          "en": "Is there a wheelchair-usable restroom?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "席に車いすのスペースはありますか",
+          "en": "Is there room for a wheelchair at the table?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "静かな席はありますか",
+          "en": "Is there a quiet table?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "父は車いすを使います",
+          "en": "My father uses a wheelchair",
+          "kind": "phrase"
+        },
+        {
+          "ja": "母は歩行器を使います",
+          "en": "My mother uses a walker",
+          "kind": "phrase"
+        },
+        {
+          "ja": "四人で一時に予約したいです",
+          "en": "I would like to reserve for four at one o’clock",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Ana",
+          "ja": "こんにちは。入口から段差なく入れますか。",
+          "en": "Hello. Can we enter without steps?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、スロープがあります。",
+          "en": "Yes, there is a ramp."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "スロープはどこですか。",
+          "en": "Where is the ramp?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "正面玄関の右側です。",
+          "en": "To the right of the main entrance."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "車いすで使えるトイレはありますか。",
+          "en": "Is there a wheelchair-usable restroom?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, there is."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "父は車いすを使います。母は歩行器を使います。",
+          "en": "My father uses a wheelchair. My mother uses a walker."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "席に車いすのスペースはありますか。静かな席もありますか。",
+          "en": "Is there room for a wheelchair at the table? Is there a quiet table too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。窓の近くに静かな席をご用意できます。",
+          "en": "Yes. We can prepare a quiet table near the window."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "では、四人で一時に予約したいです。",
+          "en": "Then I would like to reserve for four at one o’clock."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Guest phoning ahead about access",
+        "partnerRole": "Restaurant staff",
+        "opening": "お電話ありがとうございます。",
+        "goal": "Ask about step-free entry, ramp location, restroom use with a wheelchair, room for a walker and wheelchair, and a quiet table; reserve for four.",
+        "closure": "四人で一時に予約したいです。"
+      },
+      "stableId": "travel-lunch:18:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

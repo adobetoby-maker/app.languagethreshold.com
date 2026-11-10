@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–15 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–18 draft
 
 This is an unregistered, unreviewed Foundation stage draft. It maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -14,4 +14,6 @@ Core 10–12 covers a timed museum lunch, a delayed/missing order with a bill co
 
 Core 13–15 covers specific praise for a cook, a low-pressure invitation with an authored decline branch, and a midpoint lunch review that directly states a nut allergy and asks about nuts. It adds 46 cards, 31 main Reader turns plus two alternate decline turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-13-15.py` for that batch. The combined draft has 25 lessons, 372 cards, 248 main Reader turns, and 150 mode activities. The nut-allergy wording and kitchen-response scene require qualified Japanese and domain review; no generic medical caveat appears in the teaching text.
 
-Remaining work includes Core 16–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 16–18 covers a tray-line workplace canteen, a child-size plain pasta order, and direct questions about step-free entry and mobility-aid space. It adds 53 cards, 31 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-16-18.py` for that batch. The combined draft has 28 lessons, 425 cards, 279 main Reader turns, and 168 mode activities. The venue’s access answers are fictional scene content; qualified Japanese and accessibility review remain open.
+
+Remaining work includes Core 19–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

@@ -3,7 +3,7 @@
 
 import argparse
 import array
-from collections import Counter
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import html
@@ -109,29 +109,46 @@ def build(workers):
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(screen, jobs))
     flags = [row for row in results if row['issues']]
+    by_text_voice = defaultdict(list)
+    for row in results:
+        by_text_voice[(row['text'], row['gender'])].append(row)
+    alternatives = []
+    for row in flags:
+        candidates = [other for other in by_text_voice[(row['text'], row['gender'])]
+                      if other['sha256'] != row['sha256'] and not other['issues']]
+        if candidates:
+            alternatives.append({'flagged': row, 'signalCleanCandidates': candidates})
     counts = Counter(issue for row in flags for issue in row['issues'])
     summary = {'schema': 1, 'moduleId': 'french-sound-like-a-native',
                'pairKey': 'French:English', 'scope': 'private-decoded-signal-screen',
                'manifestSha256ByBatch': manifest_hashes,
                'filesDecoded': len(results), 'flaggedFiles': len(flags),
+               'flaggedFilesWithSignalCleanExactTextVoiceAlternative': len(alternatives),
                'issueCounts': dict(sorted(counts.items())),
                'privateReport': str(PRIVATE_REPORT), 'privateReviewSheet': str(PRIVATE_SHEET),
                'listeningReviewed': False, 'runtimeRegistered': False}
-    return summary, flags
+    return summary, flags, alternatives
 
 
-def sheet(flags):
+def sheet(flags, alternatives):
     rows = []
+    alternatives_by_digest = {row['flagged']['sha256']: row['signalCleanCandidates']
+                              for row in alternatives}
     for row in flags:
         path = AUDIO / row['batch'] / row['filename']
         metrics = row['signal']
+        other_takes = ''.join(
+            '<p>Signal-clean alternative: ' + html.escape(candidate['voice']) +
+            ' · ' + html.escape(candidate['batch']) + '</p><audio controls preload="none" src="' +
+            html.escape((AUDIO / candidate['batch'] / candidate['filename']).as_uri(), quote=True) +
+            '"></audio>' for candidate in alternatives_by_digest.get(row['sha256'], []))
         rows.append('<section><h2 lang="fr">' + html.escape(row['text']) + '</h2><p>' +
                     html.escape(row['voice']) + ' · ' + html.escape(', '.join(row['issues'])) +
                     '</p><audio controls preload="none" src="' +
                     html.escape(path.as_uri(), quote=True) + '"></audio><p>Leading ' +
                     str(metrics['leadingSilenceSeconds']) + ' s; trailing ' +
                     str(metrics['trailingSilenceSeconds']) + ' s; peak ' + str(metrics['peak']) +
-                    '; RMS ' + str(metrics['rms']) + '.</p></section>')
+                    '; RMS ' + str(metrics['rms']) + '.</p>' + other_takes + '</section>')
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" '
             'content="width=device-width,initial-scale=1"><title>French pronunciation signal review</title>'
             '<style>body{font:16px system-ui;max-width:850px;margin:auto;padding:1rem}'
@@ -148,12 +165,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if not 1 <= args.workers <= 8:
         raise SystemExit('--workers must be 1–8')
-    summary, flags = build(args.workers)
+    summary, flags, alternatives = build(args.workers)
     encoded = json.dumps(summary, ensure_ascii=False, indent=2) + '\n'
     if args.check_report:
         assert SUMMARY.read_text() == encoded, 'Committed signal summary is stale'
     else:
         SUMMARY.write_text(encoded)
-        PRIVATE_REPORT.write_text(json.dumps({**summary, 'flags': flags}, ensure_ascii=False, indent=2) + '\n')
-        PRIVATE_SHEET.write_text(sheet(flags))
+        PRIVATE_REPORT.write_text(json.dumps({**summary, 'flags': flags, 'alternatives': alternatives}, ensure_ascii=False, indent=2) + '\n')
+        PRIVATE_SHEET.write_text(sheet(flags, alternatives))
     print(json.dumps({key: summary[key] for key in ('filesDecoded', 'flaggedFiles', 'issueCounts')}, ensure_ascii=False))

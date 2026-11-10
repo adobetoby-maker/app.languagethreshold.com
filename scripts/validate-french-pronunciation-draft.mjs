@@ -16,6 +16,7 @@ const coreDrafts = [
   '../content/french-pronunciation/core-7-10-draft.json',
   '../content/french-pronunciation/core-11-12-draft.json',
   '../content/french-pronunciation/core-13-15-draft.json',
+  '../content/french-pronunciation/core-16-18-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
@@ -35,7 +36,7 @@ for (const draft of [...foundationDrafts, ...coreDrafts]) {
   for (const gate of ['reviewed', 'runtimeRegistered', 'audioPublished']) assert.equal(draft[gate], false);
 }
 assert.deepEqual(foundationDrafts.map(draft => draft.lessons.length), [3, 2, 3, 2]);
-assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3, 3, 4, 2, 3]);
+assert.deepEqual(coreDrafts.map(draft => draft.lessons.length), [3, 3, 4, 2, 3, 3]);
 for (const draft of foundationDrafts) assert.equal(draft.stage, 'foundation');
 for (const draft of coreDrafts) assert.equal(draft.stage, 'core');
 
@@ -82,4 +83,4 @@ for (const [stage, drafts, total] of [['foundation', foundationDrafts, 10], ['co
   }
  }
 }
-console.log('French pronunciation F1–10 + C1–15 private draft: 25 source-mapped IDs, 250 cards, 100 Reader lines, 25 speaking scenes, 150 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–10 + C1–18 private draft: 28 source-mapped IDs, 280 cards, 112 Reader lines, 28 speaking scenes, 168 practice prompts; all release gates closed.');

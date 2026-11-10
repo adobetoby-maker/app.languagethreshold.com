@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:16:fr-en",
+      "n": 16,
+      "sourceSpanishLesson": 16,
+      "title": "Contrast nasal vowels with spoken n and m",
+      "objective": "Hear a nasal vowel without a following nasal consonant in bon and nom, then compare the spoken n or m in bonne, une, and pomme.",
+      "focus": "In bon and nom, the written n or m marks a nasal vowel without a final /n/ or /m/. In bonne and pomme, the consonant is spoken after an oral vowel. Compare un and une using one speaker model; the exact nasal vowel in un varies by region.",
+      "words": [
+        { "fr": "bon", "en": "good (masculine singular)", "kind": "term" },
+        { "fr": "bonne", "en": "good (feminine singular)", "kind": "term" },
+        { "fr": "nom", "en": "name", "kind": "term" },
+        { "fr": "pomme", "en": "apple", "kind": "term" },
+        { "fr": "un", "en": "a; one (masculine)", "kind": "term" },
+        { "fr": "une", "en": "a; one (feminine)", "kind": "term" },
+        { "fr": "C'est un bon gâteau.", "en": "It's a good cake.", "kind": "phrase" },
+        { "fr": "Je prends une bonne pomme.", "en": "I'll take a good apple.", "kind": "phrase" },
+        { "fr": "Quel est votre nom ?", "en": "What is your name?", "kind": "phrase" },
+        { "fr": "Une pomme et un gâteau, s'il vous plaît.", "en": "An apple and a cake, please.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Au marché, une vendeuse propose un bon gâteau et une pomme.", "en": "At the market, a vendor offers a good cake and an apple." },
+        { "fr": "Je choisis une bonne pomme et je demande le prix du gâteau.", "en": "I choose a good apple and ask the price of the cake." },
+        { "fr": "Pour garder ma commande de côté, la vendeuse me demande mon nom.", "en": "To set my order aside, the vendor asks for my name." },
+        { "fr": "Je lui dis mon nom et elle répète : « Une pomme et un gâteau. »", "en": "I tell her my name and she repeats, 'An apple and a cake.'" }
+      ],
+      "speaking": {
+        "scene": "Setting aside an order at a market stall",
+        "roles": ["customer", "market vendor"],
+        "opening": "Bonjour, je prends une bonne pomme et un gâteau.",
+        "goals": ["Order one apple and one cake.", "Give your name for the held order.", "Confirm that you chose the good apple."],
+        "closure": "Merci, voici mon nom pour la commande."
+      },
+      "practice": {
+        "see": { "prompt": "Compare bon with bonne and nom with pomme: mark the nasal vowel or the spoken final /n/ or /m/; then read un and une.", "wordRefs": ["bon", "bonne", "nom", "pomme", "un", "une"] },
+        "recall": { "prompt": "Recall the French phrase for 'a good apple' before revealing it.", "answerRef": "Je prends une bonne pomme." },
+        "hear": { "prompt": "Listen for bon or bonne in the recorded market phrase.", "choices": ["bon", "bonne"], "audioRequired": true },
+        "type": { "prompt": "Type the French question for 'What is your name?'", "answerRef": "Quel est votre nom ?" },
+        "say": { "prompt": "Order one apple and one cake from the vendor.", "answerRef": "Une pomme et un gâteau, s'il vous plaît." },
+        "write": { "prompt": "Write two French sentences about the apple, the cake, and the name on the order.", "requiredRefs": ["pomme", "bon", "nom"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:17:fr-en",
+      "n": 17,
+      "sourceSpanishLesson": 17,
+      "title": "Keep /pʁ/ and /bʁ/ together",
+      "objective": "Produce French /pʁ/ and /bʁ/ in a tourist-office exchange without inserting a vowel between the consonants.",
+      "focus": "Begin prix, prêt, and prendre with /pʁ/; begin bras, brochure, and bruit with /bʁ/. Move from the initial stop into the /ʁ/ of the same syllable, then continue into the word and phrase.",
+      "words": [
+        { "fr": "prix", "en": "price", "kind": "term" },
+        { "fr": "prêt", "en": "ready (masculine singular)", "kind": "term" },
+        { "fr": "prendre", "en": "to take", "kind": "term" },
+        { "fr": "bras", "en": "arm", "kind": "term" },
+        { "fr": "brochure", "en": "brochure", "kind": "term" },
+        { "fr": "bruit", "en": "noise", "kind": "term" },
+        { "fr": "Quel est le prix de la visite ?", "en": "What is the price of the tour?", "kind": "phrase" },
+        { "fr": "Je suis prêt à prendre la brochure.", "en": "I am ready to take the brochure.", "kind": "phrase" },
+        { "fr": "Je porte le sac sous le bras.", "en": "I carry the bag under my arm.", "kind": "phrase" },
+        { "fr": "Il y a du bruit dans la rue.", "en": "There is noise in the street.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À l'office de tourisme, je demande le prix d'une visite guidée.", "en": "At the tourist office, I ask the price of a guided tour." },
+        { "fr": "L'employée me tend une brochure, mais le bruit de la rue couvre sa voix.", "en": "The employee hands me a brochure, but street noise covers her voice." },
+        { "fr": "Je me rapproche, prêt à prendre la brochure et à écouter son explication.", "en": "I move closer, ready to take the brochure and listen to her explanation." },
+        { "fr": "Puis je glisse la brochure dans le sac que je porte sous le bras.", "en": "Then I slip the brochure into the bag I carry under my arm." }
+      ],
+      "speaking": {
+        "scene": "Asking about a guided tour at a tourist office",
+        "roles": ["visitor", "tourist-office employee"],
+        "opening": "Bonjour, quel est le prix de la visite ?",
+        "goals": ["Ask the price of a guided tour.", "Request the brochure because street noise covered the answer.", "Say you are ready to take the brochure."],
+        "closure": "Merci, je prends la brochure."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the /pʁ/ onset in prix, prêt, prendre and the /bʁ/ onset in bras, brochure, bruit.", "wordRefs": ["prix", "prêt", "prendre", "bras", "brochure", "bruit"] },
+        "recall": { "prompt": "Recall the French question asking the price of the tour before revealing it.", "answerRef": "Quel est le prix de la visite ?" },
+        "hear": { "prompt": "Listen for prix or bruit in the recorded tourist-office phrase.", "choices": ["prix", "bruit"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'There is noise in the street.'", "answerRef": "Il y a du bruit dans la rue." },
+        "say": { "prompt": "Tell the employee you are ready to take the brochure.", "answerRef": "Je suis prêt à prendre la brochure." },
+        "write": { "prompt": "Write two French sentences about the tour price and the brochure despite street noise.", "requiredRefs": ["prix", "brochure", "bruit"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:18:fr-en",
+      "n": 18,
+      "sourceSpanishLesson": 18,
+      "title": "Join /tʁ/ and /dʁ/ in directions",
+      "objective": "Move from French /t/ or /d/ into /ʁ/ in useful station words and a direction request.",
+      "focus": "Keep /tʁ/ together in train, trois, and trajet; compare /dʁ/ at the start of droit and drapeau and inside adresse. Do not insert a vowel between the consonants.",
+      "words": [
+        { "fr": "train", "en": "train", "kind": "term" },
+        { "fr": "trois", "en": "three", "kind": "term" },
+        { "fr": "trajet", "en": "journey; route", "kind": "term" },
+        { "fr": "droit", "en": "straight; right (masculine singular)", "kind": "term" },
+        { "fr": "drapeau", "en": "flag", "kind": "term" },
+        { "fr": "adresse", "en": "address", "kind": "term" },
+        { "fr": "Le train part dans trois minutes.", "en": "The train leaves in three minutes.", "kind": "phrase" },
+        { "fr": "Ce trajet est direct.", "en": "This route is direct.", "kind": "phrase" },
+        { "fr": "Allez tout droit vers le drapeau bleu.", "en": "Go straight toward the blue flag.", "kind": "phrase" },
+        { "fr": "J'ai l'adresse de la gare.", "en": "I have the station's address.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À la gare, je vérifie l'adresse du lieu de rendez-vous.", "en": "At the station, I check the address of the meeting place." },
+        { "fr": "Trois trains sont annoncés, mais un seul suit le trajet direct.", "en": "Three trains are announced, but only one takes the direct route." },
+        { "fr": "Un agent me dit d'aller tout droit vers le drapeau bleu près du quai.", "en": "A staff member tells me to go straight toward the blue flag near the platform." },
+        { "fr": "Je trouve le bon train et je monte avant le départ.", "en": "I find the right train and board before departure." }
+      ],
+      "speaking": {
+        "scene": "Finding a direct train by a marked platform",
+        "roles": ["traveler", "station attendant"],
+        "opening": "Bonjour, je cherche le train pour ce trajet direct.",
+        "goals": ["Ask which of the three trains takes the direct route.", "Ask whether to walk straight toward the blue flag.", "Confirm the station address."],
+        "closure": "Merci, je vais tout droit vers le bon train."
+      },
+      "practice": {
+        "see": { "prompt": "Group train, trois, trajet by /tʁ/ and droit, drapeau, adresse by /dʁ/; find the cluster's place in each word.", "wordRefs": ["train", "trois", "trajet", "droit", "drapeau", "adresse"] },
+        "recall": { "prompt": "Recall the French phrase meaning 'go straight toward the blue flag' before revealing it.", "answerRef": "Allez tout droit vers le drapeau bleu." },
+        "hear": { "prompt": "Listen for train or drapeau in the recorded station phrase.", "choices": ["train", "drapeau"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The train leaves in three minutes.'", "answerRef": "Le train part dans trois minutes." },
+        "say": { "prompt": "Tell the attendant you have the station's address.", "answerRef": "J'ai l'adresse de la gare." },
+        "write": { "prompt": "Write two French sentences identifying the direct route and the blue flag near the platform.", "requiredRefs": ["trajet", "droit", "drapeau"] }
+      }
+    }
+  ]
+}

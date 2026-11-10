@@ -1,6 +1,6 @@
 # FR-001 Core and Master purpose map · planning evidence
 
-Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core [1–3](../../content/french-pronunciation/core-1-3-draft.json), [4–6](../../content/french-pronunciation/core-4-6-draft.json), [7–10](../../content/french-pronunciation/core-7-10-draft.json), [11–12](../../content/french-pronunciation/core-11-12-draft.json), and [13–15](../../content/french-pronunciation/core-13-15-draft.json) have private authored drafts; the other 35 rows remain **planned mappings**, not authored, reviewed, or registered lessons.
+Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core [1–3](../../content/french-pronunciation/core-1-3-draft.json), [4–6](../../content/french-pronunciation/core-4-6-draft.json), [7–10](../../content/french-pronunciation/core-7-10-draft.json), [11–12](../../content/french-pronunciation/core-11-12-draft.json), [13–15](../../content/french-pronunciation/core-13-15-draft.json), and [16–18](../../content/french-pronunciation/core-16-18-draft.json) have private authored drafts; the other 32 rows remain **planned mappings**, not authored, reviewed, or registered lessons.
 
 | Core | Spanish lesson purpose | French target to author |
 | --- | --- | --- |
@@ -19,9 +19,9 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 13 | x and names | French `x` in common words and names; source-pinned variants (authored draft) |
 | 14 | closed syllables | Final consonants that are spoken or silent in French words (authored draft) |
 | 15 | initial es clusters | French word-initial /s/ clusters without inserted vowels (authored draft) |
-| 16 | nasal place change | Spoken /n/ and /m/ versus nasalized vowel spellings |
-| 17 | pr/br clusters | French /pʁ/ and /bʁ/ in contextual words |
-| 18 | tr/dr clusters | French /tʁ/ and /dʁ/ in contextual words |
+| 16 | nasal place change | Spoken /n/ and /m/ versus nasalized vowel spellings (authored draft) |
+| 17 | pr/br clusters | French /pʁ/ and /bʁ/ in contextual words (authored draft) |
+| 18 | tr/dr clusters | French /tʁ/ and /dʁ/ in contextual words (authored draft) |
 | 19 | cr/gr clusters | French /kʁ/ and /gʁ/ in contextual words |
 | 20 | clusters with l | French /pl bl fl kl gl/ in contextual words |
 | 21 | finding syllables | Spoken French syllables, elision, and resyllabification |
@@ -58,4 +58,4 @@ Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f
 | 19 | conversation complication | Preserve clarity when a French scene changes unexpectedly |
 | 20 | final transfer portfolio | Compare baseline and final French speech with a stable rubric |
 
-French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining 35 lessons, their audio, or their native/web runtime exist.
+French-specific exceptions, register, and regional models need qualified French review during authoring. The map is not a claim that the remaining 32 lessons, their audio, or their native/web runtime exist.

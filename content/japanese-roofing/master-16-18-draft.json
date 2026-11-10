@@ -237,7 +237,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "おはようございます。こちらが建築許可証です。固定方法と水切り板金についてご説明します。是正が必要な箇所を教えていただけますか。",
-        "goal": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for."
+        "goal": "Greet the city inspector politely, present the permit, explain the observed fastening and flashing method, ask for the exact correction, and state the re-inspection plan."
       },
       "modes": {
         "see": "Identify the permit, inspection card, step flashing, and correction notice.",
@@ -471,7 +471,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "本日の作業時間は午前七時から午後三時半です。東側で十四スクエアを施工し、野地板を三枚交換しました。使用資材と未完了項目も報告します。",
-        "goal": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto."
+        "goal": "Give the office manager a concise end-of-day report with hours, roofing squares completed, rotten-deck repair, materials used, photo evidence and open items. Use Japanese report connectors naturally."
       },
       "modes": {
         "see": "Identify the daily report, replaced deck sheets, material list, and attached photos.",
@@ -705,7 +705,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "こんにちは、メンドーサ・ルーフィングのロヘリオです。雨のため開始日を変更したいのですが、金曜日に開始してもよろしいでしょうか。八時に到着できます。",
-        "goal": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time."
+        "goal": "Answer a homeowner's return call about the rain delay, propose a new day and arrival time politely, recover from the dropped call, and confirm the revised appointment in writing."
       },
       "modes": {
         "see": "Identify the text, phone call, voicemail, and confirmed appointment.",

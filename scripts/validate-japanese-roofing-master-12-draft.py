@@ -45,7 +45,8 @@ def main():
     assert lesson["stableId"] == "master-roofing:12:ja-en" and lesson["reviewed"] is False
     assert lesson["sourceEnglishObjective"] == src["objectiveEnglishSource"]
     assert lesson["sourceEnglishSpeaking"] == src["speakingEnglishSource"]
-    assert lesson["speaking"]["sourceEnglish"] == src["speakingEnglishSource"]
+    assert "sourceEnglish" not in lesson["speaking"]
+    assert lesson["speaking"]["goalEn"].strip()
     assert [(c["sourceEnglish"], c["kind"]) for c in lesson["cards"]] == [
         (w["en"], w["kind"]) for w in src["words"]]
     assert [line["sourceEnglish"] for line in lesson["reader"]] == src["readingEnglish"]

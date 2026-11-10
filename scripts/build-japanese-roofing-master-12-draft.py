@@ -40,7 +40,7 @@ def build():
         "forms": [{"base": form["base"], "exampleJa": form["exampleJa"],
                    "exampleEn": form["exampleEn"], "sourceEnglish": anchor}
                   for anchor, form in zip(src["verbs"], author["forms"])],
-        "speaking": {**author["speaking"], "sourceEnglish": src["speakingEnglishSource"]},
+        "speaking": author["speaking"],
         "modes": author["modes"],
     }
     out = {

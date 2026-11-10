@@ -237,7 +237,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "十時十五分から二十分の間に、フリオが屋根からはしごへ降りる途中で足を滑らせ、約八フィート墜落しました。救急隊員が十時三十分に到着しました。",
-        "goal": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next."
+        "goal": "Report a worker's fall to the supervisor in time order. State what happened, the observed injury, the call for help, and what the incident report will record without inventing an exact time."
       },
       "modes": {
         "see": "Identify the roof edge, ladder, lifeline, and injured worker.",
@@ -480,7 +480,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "シングル材の束が歩道に落ち、危うく歩行者に当たるところでした。原因を一緒に確認し、再発しないよう変更点を決めましょう。",
-        "goal": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again."
+        "goal": "Discuss a falling-bundle near-miss with the crew. Describe what happened and what could have happened, invite the worker's account, and agree on a concrete prevention change without assigning blame."
       },
       "modes": {
         "see": "Identify the sliding bundle, sidewalk, pedestrian, and toe board.",
@@ -718,7 +718,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "作業班へ、雷雨の警報です。未施工の区画に防水シートを掛け、資材を地上へ降ろしてください。雷が鳴ったので全員すぐに降りてください。",
-        "goal": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos)."
+        "goal": "Use short, clear Japanese radio calls to announce the storm alert, assign tarp and loose-material tasks, confirm receipt, and direct the crew down when thunder is heard."
       },
       "modes": {
         "see": "Identify the radar, open roof section, tarp, and loose materials.",

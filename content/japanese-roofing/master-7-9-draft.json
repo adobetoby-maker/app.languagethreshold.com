@@ -237,7 +237,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "火曜日の夜にひょうが降りました。西側の十フィート四方の区画では衝突痕を十二個数えました。雨どいを含む工事範囲を確認しましょう。",
-        "goal": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work."
+        "goal": "Walk an insurance adjuster through the observed hail marks. Give the storm time, test-square location, counts and measurements clearly, then discuss the proposed scope of work."
       },
       "modes": {
         "see": "Identify the hail hits, chalk circles, test square, and dented gutter.",
@@ -471,7 +471,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "お急ぎなのは分かりますが、雷の中での作業や下葺き材を省くことはできません。屋根を防水シートで覆い、雷雨が過ぎたら再開します。",
-        "goal": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative."
+        "goal": "Respond to a homeowner who asks the crew to work during a storm and omit underlayment. Decline both requests politely and directly, explain why the crew will not do either, and offer the tarp-and-return alternative."
       },
       "modes": {
         "see": "Identify the wet roof, lightning, underlayment, and tarp.",
@@ -705,7 +705,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "この段を個別に一緒に見てほしいです。叱るためではありません。三段ごとに露出幅を測り、この四段を直しましょう。",
-        "goal": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix."
+        "goal": "Speak privately with a worker about a crooked course. Ask what happened, describe the exposure and alignment, request a specific measurement-based correction, and confirm the plan."
       },
       "modes": {
         "see": "Find the crooked course and changing exposure.",

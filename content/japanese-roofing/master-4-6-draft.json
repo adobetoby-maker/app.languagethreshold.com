@@ -237,7 +237,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "まずメーカーの施工仕様書を読みましょう。各段に一枚ずつ段差水切りを取り付け、仕様書の最小重ね幅と指定固定具を確認してください。",
-        "goal": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet."
+        "goal": "Read the relevant manufacturer instructions before installing flashing. Explain the order, specified fasteners and overlap, and confirm that the crew will follow the sheet."
       },
       "modes": {
         "see": "Find the spec sheet, step flashing, sidewall, and pipe boot.",
@@ -471,7 +471,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "シングル材を撤去したとき、腐朽した木材が見つかりました。写真をお見せし、合板三枚の交換と追加費用を変更注文書でご説明します。",
-        "goal": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order."
+        "goal": "Tell the homeowner about rotten deck found during tear-off. Show the photos, explain the proposed repair, added cost and time, and request authorization on the change order politely."
       },
       "modes": {
         "see": "Identify the soft deck, damaged plywood, photo, and change order.",
@@ -709,7 +709,7 @@
       "speaking": {
         "role": "roofing crew member",
         "opening": "仕入先から納品不足の連絡がありました。代替品の仕様書と色の写真をお送りします。承認いただければ、明日納品し、作業計画を変更します。",
-        "goal": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a."
+        "goal": "Ask the supplier what is missing and when it may arrive. Compare the proposed substitute with the contracted product, request its specification, and explain the approval and delivery plan."
       },
       "modes": {
         "see": "Identify the substitute shingle, two pallets, and color photo.",

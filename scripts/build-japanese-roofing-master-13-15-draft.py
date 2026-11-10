@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content/japanese-roofing"
 SOURCE = CONTENT / "source-english-master-13-15.json"
 AUTHOR = CONTENT / "author-master-13-15.json"
+GOALS = CONTENT / "author-master-speaking-goals-ja-en.json"
 OUTPUT = CONTENT / "master-13-15-draft.json"
 SOURCE_FILES = (
     "src/data/master-roofing-curriculum.ts",
@@ -49,7 +50,7 @@ def build():
             "forms": [{"base": base, "exampleJa": example, **verb}
                       for verb, (base, example) in zip(src["verbs"], a["verbs"])],
             "speaking": {"role": "roofing crew member", "opening": a["speaking"],
-                         "goal": src["speakingEnglishSource"]},
+                         "goal": json.loads(GOALS.read_text())[str(n)]},
             "modes": a["modes"],
         })
     return json.dumps(out, ensure_ascii=False, indent=2) + "\n"

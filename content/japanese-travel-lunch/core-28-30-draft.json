@@ -1,0 +1,545 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      28,
+      29,
+      30
+    ]
+  },
+  "lessons": [
+    {
+      "n": 28,
+      "sourceEnglishTitle": "Share a table with strangers",
+      "sourceEnglishSkills": "ask to join a communal table, chat about the food, and respect others' space",
+      "sourceEnglishScenario": "At a crowded market hall, ask to join strangers at a shared table and chat about what they ordered.",
+      "title": "相席で会話を始める",
+      "objective": "Ask to join strangers at a crowded market-hall table, make brief conversation about their food, and leave their space clear.",
+      "focus": "相席 means sharing a table. この席は空いていますか asks if a seat is free; ここに座ってもいいですか asks permission to sit. おすすめはありますか invites a food recommendation.",
+      "scene": "At a busy market hall, a traveler joins a shared table and asks a couple about the food from a nearby stall.",
+      "cards": [
+        {
+          "ja": "相席",
+          "en": "shared table",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "椅子",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "ja": "市場のフードホール",
+          "en": "market hall",
+          "kind": "term"
+        },
+        {
+          "ja": "屋台",
+          "en": "stall",
+          "kind": "term"
+        },
+        {
+          "ja": "トレー",
+          "en": "tray",
+          "kind": "term"
+        },
+        {
+          "ja": "料理",
+          "en": "dish",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きそば",
+          "en": "yakisoba noodles",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "かばん",
+          "en": "bag",
+          "kind": "term"
+        },
+        {
+          "ja": "場所",
+          "en": "space",
+          "kind": "term"
+        },
+        {
+          "ja": "紙ナプキン",
+          "en": "napkin",
+          "kind": "term"
+        },
+        {
+          "ja": "すみません。この席は空いていますか。",
+          "en": "Excuse me, is this seat free?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここに座ってもいいですか。",
+          "en": "May I sit here?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何を注文されたのですか。",
+          "en": "What did you order?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お料理がおいしそうですね。",
+          "en": "Your dish looks delicious.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "あちらの屋台のおすすめはありますか。",
+          "en": "Would you recommend something from that stall?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "相席させていただき、ありがとうございました。",
+          "en": "Thank you very much for sharing the table.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "昼どきの市場は混んでいて、空いているテーブルがありません。",
+          "en": "The market is crowded at lunchtime, and there are no empty tables."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私は年配の二人の隣に空いた椅子がある相席のテーブルを見つけます。",
+          "en": "I find an empty chair beside an older couple at a shared table."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "すみません。この席は空いていますか。ここに座ってもいいですか。",
+          "en": "Excuse me, is this seat free? May I sit here?"
+        },
+        {
+          "speaker": "Woman",
+          "ja": "はい、どうぞ。座ってください。",
+          "en": "Yes, please sit down."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私は二人の場所をふさがないように、かばんを椅子の下に置きます。",
+          "en": "I put my bag under the chair so I do not take up their space."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "お料理がおいしそうですね。何を注文されたのですか。",
+          "en": "Your dish looks delicious. What did you order?"
+        },
+        {
+          "speaker": "Man",
+          "ja": "奥の屋台の焼きそばです。辛口ソースもあります。",
+          "en": "It is yakisoba from the stall in the back. They also have a spicy sauce."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "あちらの屋台のおすすめはありますか。",
+          "en": "Would you recommend something from that stall?"
+        },
+        {
+          "speaker": "Man",
+          "ja": "焼きそばがおすすめです。",
+          "en": "I recommend the yakisoba."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "相席させていただき、ありがとうございました。ごゆっくりどうぞ。",
+          "en": "Thank you for sharing the table. Enjoy the rest of your meal."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking to join a shared market-hall table",
+        "partnerRole": "Couple already seated",
+        "opening": "すみません。この席は空いていますか。",
+        "goal": "Ask to sit, keep your bag out of others’ space, ask what the neighbors ordered, request a stall recommendation, and thank them.",
+        "closure": "相席させていただき、ありがとうございました。"
+      },
+      "stableId": "travel-lunch:28:ja-en"
+    },
+    {
+      "n": 29,
+      "sourceEnglishTitle": "Leave after a long delay",
+      "sourceEnglishSkills": "explain that you must go, pay for what you had, and part without a scene",
+      "sourceEnglishScenario": "After 40 minutes without your main course, explain you must leave, pay for your drinks, and part courteously.",
+      "title": "長い遅れのあとで丁寧に帰る",
+      "objective": "Explain a 40-minute wait for the main course and a departure deadline, ask to cancel the unprepared dish, pay for drinks, and leave courteously.",
+      "focus": "四十分待っています states a forty-minute wait. 料理がまだできていなければ、注文を取り消せますか asks to cancel if the dish is not ready. 飲み物だけのお会計をお願いします limits the bill to drinks.",
+      "scene": "Ana must leave for a train after her main course has not arrived for forty minutes.",
+      "cards": [
+        {
+          "ja": "主菜",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "遅れ",
+          "en": "delay",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drinks",
+          "kind": "term"
+        },
+        {
+          "ja": "炭酸飲料",
+          "en": "sodas",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "すみません。主菜を四十分待っています。",
+          "en": "Excuse me, I have been waiting forty minutes for the main course.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "申し訳ありませんが、もう行かなければなりません。",
+          "en": "I am sorry, but I have to leave now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理がまだできていなければ、注文を取り消せますか。",
+          "en": "If the dish is not ready, can you cancel the order?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "飲み物だけのお会計をお願いします。",
+          "en": "Could I have the bill for only the drinks?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お気になさらないでください。あなたのせいではありません。",
+          "en": "Please do not worry. It is not your fault.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アナは主菜を待って四十分になりますが、まだ届きません。",
+          "en": "Ana has waited forty minutes for her main course, but it has not arrived."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "すみません。主菜を四十分待っています。",
+          "en": "Excuse me, I have been waiting forty minutes for the main course."
+        },
+        {
+          "speaker": "Server",
+          "ja": "今日は混んでいて、厨房で遅れが出ています。",
+          "en": "It is crowded today, and the kitchen is delayed."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "申し訳ありませんが、三時の電車があるので、もう行かなければなりません。",
+          "en": "I am sorry, but I have a train at three and must leave now."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "料理がまだできていなければ、注文を取り消せますか。",
+          "en": "If the dish is not ready, can you cancel the order?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "確認します。まだ作り始めていないので、取り消します。",
+          "en": "I will check. It has not been started yet, so I will cancel it."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "ありがとうございます。飲み物だけのお会計をお願いします。",
+          "en": "Thank you. The bill for the drinks only, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "炭酸飲料二つ分のお会計です。",
+          "en": "This is the bill for two sodas."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アナはカードで飲み物代を払います。",
+          "en": "Ana pays for the drinks by card."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "お気になさらないでください。あなたのせいではありません。",
+          "en": "Please do not worry. It is not your fault."
+        }
+      ],
+      "speaking": {
+        "role": "Guest leaving after a delayed main course",
+        "partnerRole": "Restaurant server",
+        "opening": "申し訳ありません。お待たせしています。",
+        "goal": "State the forty-minute delay, explain the train deadline, ask to cancel an unprepared main dish, request the drinks-only bill, and part courteously.",
+        "closure": "お気になさらないでください。あなたのせいではありません。"
+      },
+      "stableId": "travel-lunch:29:ja-en"
+    },
+    {
+      "n": 30,
+      "sourceEnglishTitle": "Lunch threshold",
+      "sourceEnglishSkills": "complete a casual lunch with a special need, a declined upsell, a charge dispute, a local custom, and an extended conversation without English",
+      "sourceEnglishScenario": "Host a long lunch for a mixed group—one child, one severe allergy, a contested charge—from finding a table to a memorable farewell.",
+      "title": "昼食を最初から最後まで進める",
+      "objective": "Host a mixed group in Japanese: find a table and child’s chair, state a severe peanut allergy and ask the kitchen about ingredients, decline an upsell, discuss after-meal customs, dispute a charge, and split the bill.",
+      "focus": "五人席 and 子ども用の椅子 ask for a group table and child’s chair. 重度のピーナッツアレルギー names the clinical need directly. 注文していない料金があります challenges a charge; 別々にお会計できますか asks to split the bill.",
+      "scene": "A host brings four companions, including a child and a friend with a severe peanut allergy, to a long lunch.",
+      "cards": [
+        {
+          "ja": "五人席",
+          "en": "table for five",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども用の椅子",
+          "en": "child’s chair",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "重度のピーナッツアレルギー",
+          "en": "severe peanut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツ",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily lunch special",
+          "kind": "term"
+        },
+        {
+          "ja": "食後の会話",
+          "en": "after-meal conversation",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "五人席と子ども用の椅子をお願いします。",
+          "en": "A table for five and a child’s chair, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "友人には重度のピーナッツアレルギーがあります。",
+          "en": "My friend has a severe peanut allergy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理にピーナッツは入っていますか。近くで使っていますか。",
+          "en": "Does this dish contain peanuts or are peanuts used nearby?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "結構です。全員、日替わり定食でお願いします。",
+          "en": "No, thank you. Just the daily special for everyone.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "注文していない料金があると思います。",
+          "en": "I think there is a charge for something we did not order.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々にお会計できますか。",
+          "en": "Can you split the bill for us?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食後に少し話してもいいですか。",
+          "en": "May we talk for a little while after eating?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "チップは含まれていますか。",
+          "en": "Is the tip included?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Host",
+          "ja": "五人席と子ども用の椅子をお願いします。",
+          "en": "A table for five and a child’s chair, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "こちらへどうぞ。お子さまの椅子もお持ちします。",
+          "en": "This way, please. I will bring the child’s chair."
+        },
+        {
+          "speaker": "Host",
+          "ja": "友人には重度のピーナッツアレルギーがあります。この料理の原材料を厨房に確認していただけますか。",
+          "en": "My friend has a severe peanut allergy. Could you check this dish’s ingredients with the kitchen?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "この料理にピーナッツは入っていますか。近くで使っていますか。",
+          "en": "Does this dish contain peanuts or are peanuts used nearby?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "厨房に確認しました。この日替わり定食にはピーナッツを使っていません。近くでも使っていません。",
+          "en": "I checked with the kitchen. This daily set meal does not use peanuts, and they are not used nearby."
+        },
+        {
+          "speaker": "Server",
+          "ja": "こちらの高いワインもいかがですか。",
+          "en": "Would you also like this expensive wine?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "結構です。全員、日替わり定食でお願いします。",
+          "en": "No, thank you. Just the daily special for everyone."
+        },
+        {
+          "speaker": "Host",
+          "ja": "食後に少し話してもいいですか。",
+          "en": "May we talk for a little while after eating?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。お時間のご都合に合わせてお過ごしください。",
+          "en": "Yes. Please stay as your time allows."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私たちは旅行、家族、明日の予定について一時間ほど日本語で話します。",
+          "en": "We talk in Japanese for about an hour about the trip, family, and tomorrow’s plans."
+        },
+        {
+          "speaker": "Host",
+          "ja": "お会計をお願いします。注文していないデザート二つの料金があると思います。",
+          "en": "The bill, please. I think there is a charge for two desserts we did not order."
+        },
+        {
+          "speaker": "Server",
+          "ja": "確認しました。デザート代を取り消しました。",
+          "en": "I checked and removed the dessert charge."
+        },
+        {
+          "speaker": "Host",
+          "ja": "ありがとうございます。別々にお会計できますか。",
+          "en": "Thank you. Can you split the bill for us?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい、できます。",
+          "en": "Yes, we can."
+        },
+        {
+          "speaker": "Host",
+          "ja": "チップは含まれていますか。",
+          "en": "Is the tip included?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "この店ではチップはいただいていません。",
+          "en": "This restaurant does not take tips."
+        },
+        {
+          "speaker": "Host",
+          "ja": "丁寧に対応してくださって、ありがとうございました。",
+          "en": "Thank you for taking such good care of us."
+        }
+      ],
+      "speaking": {
+        "role": "Host leading a mixed-group lunch entirely in Japanese",
+        "partnerRole": "Restaurant server and companions",
+        "opening": "いらっしゃいませ。何名さまですか。",
+        "goal": "Get a table for five and child’s chair, state the severe peanut allergy directly and ask ingredient/nearby-use questions, decline an upsell, keep an extended after-meal conversation in Japanese, dispute the dessert charge, and split the bill.",
+        "closure": "丁寧に対応してくださって、ありがとうございました。"
+      },
+      "stableId": "travel-lunch:30:ja-en"
+    }
+  ]
+}

@@ -31,7 +31,10 @@ def main():
     assert manifest['lessonId'] == 'foundation-travel-lunch:1:ja-en'
     assert manifest['locale'] == 'ja-JP' and manifest['voices'] == VOICES
     assert manifest['sourceSHA256'] == scope['normalizedTextSHA256']
-    assert manifest['listeningReviewed'] is False
+    assert isinstance(manifest['listeningReviewed'], bool)
+    if manifest['listeningReviewed']:
+        assert manifest['listeningReview']['reviewer'] == 'owner'
+        assert manifest['listeningReview']['decision'] == 'accepted-all-pilot-clips'
     assert len(manifest['clips']) == 5
     filenames = set()
     durations = []
@@ -44,7 +47,7 @@ def main():
             assert clip['name'] == expected_name and clip['voice'] == VOICES[gender] and clip['locale'] == 'ja-JP'
             assert clip['displayText'] == scope['texts'][key]['displayText']
             assert clip['spokenText'] == scope['texts'][key]['spokenText']
-            assert clip['listeningReviewed'] is False
+            assert clip['listeningReviewed'] is manifest['listeningReviewed']
             file = args.output / clip['name']
             data = file.read_bytes()
             assert len(data) == clip['bytes'] and len(data) > 500 and sha(data) == clip['sha256']
@@ -54,7 +57,7 @@ def main():
             filenames.add(file.name)
     actual = {p.name for p in args.output.glob('*.mp3')}
     assert actual == filenames and len(filenames) == 10
-    print(f'Japanese Lunch private F1 pilot: 5 exact texts, 10 two-voice MP3s, {sum(durations):.3f}s total; listening review closed')
+    print(f'Japanese Lunch private F1 pilot: 5 exact texts, 10 two-voice MP3s, {sum(durations):.3f}s total; listening reviewed: {manifest["listeningReviewed"]}')
 
 
 if __name__ == '__main__':

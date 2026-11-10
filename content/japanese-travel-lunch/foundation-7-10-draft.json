@@ -1,0 +1,559 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "foundation-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-lunch.json",
+    "curriculumSha256": "980cd2974e3c4e023a1da2258ed9e32dc1e8e39e8ef87c6913bc0ed094a37dbc",
+    "sourceLessonNumbers": [
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "title": "Questions about the lunch special",
+      "objective": "Ask what a lunch special contains, how much it costs, and which dish staff recommend.",
+      "focus": "何 asks what, どこ asks where, and どちら asks which of two choices. 〜が入っていますか asks what ingredients a dish contains. いくらですか asks the price; おすすめ asks for a recommendation.",
+      "scene": "Sam compares two lunch specials at a counter.",
+      "cards": [
+        {
+          "ja": "何",
+          "en": "what",
+          "kind": "term"
+        },
+        {
+          "ja": "どこ",
+          "en": "where",
+          "kind": "term"
+        },
+        {
+          "ja": "どちら",
+          "en": "which one of two",
+          "kind": "term"
+        },
+        {
+          "ja": "いくら",
+          "en": "how much (price)",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "本日の定食",
+          "en": "today’s set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "入っています",
+          "en": "is included / is in it",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何が入っていますか",
+          "en": "What is in it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いくらですか",
+          "en": "How much is it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どちらがおすすめですか",
+          "en": "Which do you recommend?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "本日の定食には何が入っていますか",
+          "en": "What is in today’s set meal?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "魚が入っています",
+          "en": "It contains fish",
+          "kind": "phrase"
+        },
+        {
+          "ja": "八百円です",
+          "en": "It is 800 yen",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お水はどこですか",
+          "en": "Where is the water?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "本日の定食には何が入っていますか。",
+          "en": "What is in today’s set meal?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "魚とごはんとみそしるが入っています。",
+          "en": "It includes fish, rice, and miso soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いくらですか。",
+          "en": "How much is it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "八百円です。",
+          "en": "It is 800 yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お水はどこですか。",
+          "en": "Where is the water?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あちらです。",
+          "en": "It is over there."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カレーと定食では、どちらがおすすめですか。",
+          "en": "Which do you recommend, the curry or the set meal?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "本日の定食がおすすめです。",
+          "en": "I recommend today’s set meal."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、定食をお願いします。",
+          "en": "Then the set meal, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Guest comparing lunch specials",
+        "partnerRole": "Counter staff",
+        "opening": "本日の定食がございます。",
+        "goal": "Ask what today’s set meal contains, its price, where the water is, and which of two dishes the staff recommend.",
+        "closure": "では、本日の定食をお願いします。"
+      },
+      "stableId": "foundation-travel-lunch:7:ja-en",
+      "sourceEnglishObjective": "Ask what a dish has, where things are, what it costs and which one to choose.",
+      "sourceObjectiveSha256": "7efef8c2408bcae0eec779e7d917649b9a8dad49d2d5eac5741cfa7213105dce"
+    },
+    {
+      "n": 8,
+      "title": "What I do not eat",
+      "objective": "Say what you do not eat, ask for less heat, request more food, and decline an offer politely.",
+      "focus": "〜は食べません states what you do not eat. 一切食べません emphasizes not eating it at all. 辛さ控えめ asks for less spice. もう一皿 means another plate; 結構です politely declines an offer.",
+      "scene": "Sam explains a food preference and asks for a milder lunch.",
+      "cards": [
+        {
+          "ja": "豚肉",
+          "en": "pork",
+          "kind": "term"
+        },
+        {
+          "ja": "食べません",
+          "en": "do not eat",
+          "kind": "phrase"
+        },
+        {
+          "ja": "一切食べません",
+          "en": "do not eat at all",
+          "kind": "phrase"
+        },
+        {
+          "ja": "辛さ",
+          "en": "spiciness",
+          "kind": "term"
+        },
+        {
+          "ja": "控えめ",
+          "en": "moderate / reduced",
+          "kind": "term"
+        },
+        {
+          "ja": "辛さ控えめでお願いします",
+          "en": "Less spicy, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう一皿",
+          "en": "one more plate",
+          "kind": "term"
+        },
+        {
+          "ja": "もう一皿お願いします",
+          "en": "One more plate, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "結構です",
+          "en": "No, thank you / that is enough",
+          "kind": "phrase"
+        },
+        {
+          "ja": "豚肉は食べません",
+          "en": "I do not eat pork",
+          "kind": "phrase"
+        },
+        {
+          "ja": "豚肉は一切食べません",
+          "en": "I do not eat pork at all",
+          "kind": "phrase"
+        },
+        {
+          "ja": "辛いですか",
+          "en": "Is it spicy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "少しだけ",
+          "en": "just a little",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "豚肉の料理はいかがですか。",
+          "en": "How about the pork dish?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。でも、豚肉は食べません。",
+          "en": "Thank you, but I do not eat pork."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "では、野菜の料理はいかがですか。",
+          "en": "Then how about a vegetable dish?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。辛さ控えめでお願いします。",
+          "en": "Yes. Less spicy, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ごはんをもう一皿いかがですか。",
+          "en": "Would you like another plate of rice?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、もう一皿お願いします。",
+          "en": "Yes, one more plate, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "飲み物もいかがですか。",
+          "en": "Would you like a drink too?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "結構です。ありがとうございます。",
+          "en": "No, thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Guest stating a food preference",
+        "partnerRole": "Server",
+        "opening": "豚肉の料理はいかがですか。",
+        "goal": "Say you do not eat pork, ask for less spice and another plate of rice, and decline a drink politely.",
+        "closure": "結構です。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:8:ja-en",
+      "sourceEnglishObjective": "Say what you don't eat, ask for more or less, and decline an offer politely.",
+      "sourceObjectiveSha256": "72d8a80907f24a8bec61f5d6b8f8051255f0845f8a74aa96b6d6b45ef647a034"
+    },
+    {
+      "n": 9,
+      "title": "Bill, ice, and takeout",
+      "objective": "Ask politely for a glass with ice, food to go, the bill, and separate payments.",
+      "focus": "〜をお願いします makes a polite request. 氷入り means with ice; 持ち帰り means takeout. お会計 is the bill/payment; 別々に払えますか asks to pay separately. おつりは結構です means keep the change.",
+      "scene": "Sam finishes lunch and asks to take the remaining food away.",
+      "cards": [
+        {
+          "ja": "氷",
+          "en": "ice",
+          "kind": "term"
+        },
+        {
+          "ja": "氷入り",
+          "en": "with ice",
+          "kind": "term"
+        },
+        {
+          "ja": "水",
+          "en": "water",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeout / to go",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill / payment",
+          "kind": "term"
+        },
+        {
+          "ja": "別々に",
+          "en": "separately",
+          "kind": "term"
+        },
+        {
+          "ja": "おつり",
+          "en": "change (money)",
+          "kind": "term"
+        },
+        {
+          "ja": "氷入りの水をお願いします",
+          "en": "Water with ice, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "持ち帰りでお願いします",
+          "en": "To go, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に払えますか",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おつりは結構です",
+          "en": "Keep the change",
+          "kind": "phrase"
+        },
+        {
+          "ja": "袋をお願いします",
+          "en": "A bag, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "氷入りの水をお願いします。",
+          "en": "Water with ice, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Certainly, here you are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "残りは持ち帰りでお願いします。",
+          "en": "The rest to go, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "袋に入れますね。",
+          "en": "I will put it in a bag."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お会計をお願いします。",
+          "en": "The bill, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "二千円です。",
+          "en": "It is 2,000 yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "別々に払えますか。",
+          "en": "Can we pay separately?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、できます。",
+          "en": "Yes, you can."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest finishing lunch",
+        "partnerRole": "Server and cashier",
+        "opening": "ほかにご注文はございますか。",
+        "goal": "Ask for water with ice and the remaining food to go, then request the bill, separate payments, and say to keep the change.",
+        "closure": "お会計をお願いします。"
+      },
+      "stableId": "foundation-travel-lunch:9:ja-en",
+      "sourceEnglishObjective": "Ask a server politely for the bill, ice, food to go and separate checks.",
+      "sourceObjectiveSha256": "97c1bad9760249b7e96f0370d8204adc26f9ec506a72f3d4edff8d4af2e75ab2"
+    },
+    {
+      "n": 10,
+      "title": "Reading a menu and asking for help",
+      "objective": "Recognize familiar katakana menu words, say you do not understand, ask for slower speech, and ask for a vegetarian option.",
+      "focus": "Katakana loanwords such as サラダ, スープ, and デザート are useful menu clues. 分かりません says you do not understand; ゆっくり話してください asks someone to speak slowly. 〜向けの料理 asks for a dish suited to a group.",
+      "scene": "Sam studies an unfamiliar lunch menu and asks the server to explain it.",
+      "cards": [
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアン",
+          "en": "vegetarian",
+          "kind": "term"
+        },
+        {
+          "ja": "料理",
+          "en": "dish / cooking",
+          "kind": "term"
+        },
+        {
+          "ja": "向け",
+          "en": "intended for / suited to",
+          "kind": "term"
+        },
+        {
+          "ja": "分かりません",
+          "en": "I do not understand",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう一度お願いします",
+          "en": "One more time, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ゆっくり話してください",
+          "en": "Please speak slowly",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ベジタリアン向けの料理はありますか",
+          "en": "Do you have a vegetarian option?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これは何ですか",
+          "en": "What is this?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サラダをお願いします",
+          "en": "Salad, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありがとうございます",
+          "en": "Thank you very much",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。これは何ですか。",
+          "en": "Excuse me. What is this?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "本日のスープです。",
+          "en": "It is today’s soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません、分かりません。",
+          "en": "Sorry, I do not understand."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ゆっくり話してください。",
+          "en": "Please speak slowly."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。これは野菜のスープです。",
+          "en": "Certainly. This is vegetable soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ベジタリアン向けの料理はありますか。",
+          "en": "Do you have a vegetarian option?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。野菜のサラダがあります。",
+          "en": "Yes. We have a vegetable salad."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、サラダをお願いします。",
+          "en": "Then salad, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Guest reading an unfamiliar menu",
+        "partnerRole": "Server",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "Say you do not understand, ask the server to speak more slowly, and ask whether a vegetarian option is available.",
+        "closure": "サラダをお願いします。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:10:ja-en",
+      "sourceEnglishObjective": "Recognize cognates on a menu and get help when you don't understand.",
+      "sourceObjectiveSha256": "e9decb06c12b42af7bcf187dbc616936568b0e8718a8b741062059c9f7c142ed"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

@@ -15,7 +15,7 @@ def sha(path):
 
 lesson_ids = set()
 total_cards = total_reader = total_activities = 0
-for start, end in ((1, 3), (4, 6)):
+for start, end in ((1, 3), (4, 6), (7, 10)):
     course = DIR / f'foundation-{start}-{end}-draft.json'
     activities_path = DIR / f'private-mode-activities-foundation-{start}-{end}.json'
     draft = json.loads(course.read_text())
@@ -70,5 +70,5 @@ for start, end in ((1, 3), (4, 6)):
         assert len({a['sourceRef'] for a in rows}) >= 5
     total_activities += len(mode_data['activities'])
 
-assert len(lesson_ids) == 6
-print(f'Japanese Lunch F1–6: {len(lesson_ids)} source-pinned lessons, {total_cards} cards, {total_reader} Reader lines, {total_activities} distinct six-mode activities; release flags closed')
+assert len(lesson_ids) == 10
+print(f'Japanese Lunch F1–10: {len(lesson_ids)} source-pinned lessons, {total_cards} cards, {total_reader} Reader lines, {total_activities} distinct six-mode activities; release flags closed')

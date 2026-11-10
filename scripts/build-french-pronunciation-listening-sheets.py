@@ -29,9 +29,9 @@ def document(title, body):
     )
 
 
-def build(audio_root):
-    evidence = VERIFY(audio_root)
-    inventory = json.loads(INVENTORY.read_text())
+def build(audio_root, inventory_path=INVENTORY):
+    evidence = VERIFY(audio_root, inventory_path)
+    inventory = json.loads(inventory_path.read_text())
     manifest = json.loads((audio_root / "manifest.json").read_text())
     by_lesson = defaultdict(list)
     for row in inventory["texts"]:
@@ -40,8 +40,8 @@ def build(audio_root):
             if row["sha256"] not in by_lesson[lesson_id]:
                 by_lesson[lesson_id].append(row["sha256"])
     items = []
-    for stage in ("foundation", "core"):
-        for lesson_id in inventory["stageLessons"][stage]:
+    for stage, lesson_ids in inventory["stageLessons"].items():
+        for lesson_id in lesson_ids:
             number = int(lesson_id.split(":")[1])
             title = f"French pronunciation {stage.title()} {number} listening review"
             body = ["<p>Private recordings. Listen to both voices for exact wording and natural pronunciation. These clips are not approved for learner playback.</p>"]
@@ -74,8 +74,9 @@ def build(audio_root):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio-root", type=Path, default=DEFAULT_AUDIO)
+    parser.add_argument("--inventory", type=Path, default=INVENTORY)
     args = parser.parse_args()
-    print(json.dumps(build(args.audio_root), ensure_ascii=False))
+    print(json.dumps(build(args.audio_root, args.inventory), ensure_ascii=False))
 
 
 if __name__ == "__main__":

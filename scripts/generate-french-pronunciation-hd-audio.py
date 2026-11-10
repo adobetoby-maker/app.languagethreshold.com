@@ -40,6 +40,7 @@ def atomic_json(path, value):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--inventory", type=Path, default=INVENTORY)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--project", help="Google quota/billing project; required for paid synthesis")
     parser.add_argument("--generate", action="store_true", help="Issue paid Cloud TTS requests")
@@ -50,7 +51,7 @@ def main():
     if args.generate and not args.project:
         parser.error("--project is required with --generate")
 
-    inventory = json.loads(INVENTORY.read_text())
+    inventory = json.loads(args.inventory.read_text())
     if (inventory["pairKey"], inventory["locale"], inventory["state"]) != (
         "French:English", "fr-FR", "private-audio-scope-unsynthesized"
     ):

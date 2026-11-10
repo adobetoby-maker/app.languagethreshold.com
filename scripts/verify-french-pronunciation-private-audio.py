@@ -25,8 +25,8 @@ def duration(path):
     return round(float(process.stdout.strip()), 3)
 
 
-def verify(audio_root):
-    inventory = json.loads(INVENTORY.read_text())
+def verify(audio_root, inventory_path=INVENTORY):
+    inventory = json.loads(inventory_path.read_text())
     manifest_path = audio_root / "manifest.json"
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
@@ -36,8 +36,8 @@ def verify(audio_root):
         "female": "fr-FR-Chirp3-HD-Aoede", "male": "fr-FR-Chirp3-HD-Charon"
     }
     assert manifest["sourceExactTextSha256"] == inventory["exactTextSha256"]
-    assert inventory["counts"]["lessons"] == 16
-    assert inventory["counts"]["uniqueExactTexts"] == 236
+    assert inventory["counts"]["lessons"] == sum(len(ids) for ids in inventory["stageLessons"].values())
+    assert inventory["counts"]["uniqueExactTexts"] == len(inventory["texts"])
     assert manifest["listeningReviewed"] is manifest["registered"] is False
     assert inventory["listeningReviewed"] is inventory["registered"] is False
     for source in inventory["sourceFiles"]:
@@ -66,17 +66,19 @@ def verify(audio_root):
             sizes.append(len(data))
     assert set(manifest["clips"]) == {row["sha256"] for row in inventory["texts"]}
     assert {path.name for path in audio_root.glob("*.mp3")} == expected
-    assert len(expected) == inventory["counts"]["twoVoiceClips"] == 472
+    assert len(expected) == inventory["counts"]["twoVoiceClips"]
+    stages = inventory["stageLessons"]
+    scope = "private Foundation 1–10 and Core 1–6 only" if "foundation" in stages else "private Core 7–10 only"
     return {
         "schema": 1,
         "moduleId": inventory["moduleId"],
         "pairKey": "French:English", "locale": "fr-FR",
-        "scope": "private Foundation 1–10 and Core 1–6 only",
+        "scope": scope,
         "audioDirectory": str(audio_root),
         "sourceExactTextSha256": inventory["exactTextSha256"],
         "manifestSha256": sha(manifest_bytes),
         "quotaProject": manifest["quotaProject"],
-        "lessons": 16, "uniqueExactTexts": 236, "verifiedClips": len(expected),
+        "lessons": inventory["counts"]["lessons"], "uniqueExactTexts": inventory["counts"]["uniqueExactTexts"], "verifiedClips": len(expected),
         "totalBytes": sum(sizes), "totalDurationSeconds": round(sum(lengths), 3),
         "minimumDurationSeconds": min(lengths), "maximumDurationSeconds": max(lengths),
         "textVoiceHashDurationVerified": True,
@@ -86,16 +88,18 @@ def verify(audio_root):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--inventory", type=Path, default=INVENTORY)
     parser.add_argument("--audio-root", type=Path, default=DEFAULT_AUDIO)
+    parser.add_argument("--report", type=Path, default=REPORT)
     parser.add_argument("--write-report", action="store_true")
     parser.add_argument("--check-report", action="store_true")
     args = parser.parse_args()
-    report = verify(args.audio_root)
+    report = verify(args.audio_root, args.inventory)
     encoded = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     if args.write_report:
-        REPORT.write_text(encoded)
+        args.report.write_text(encoded)
     if args.check_report:
-        assert REPORT.read_text() == encoded, "Private audio evidence is stale"
+        assert args.report.read_text() == encoded, "Private audio evidence is stale"
     print(json.dumps({"verifiedClips": report["verifiedClips"], "uniqueExactTexts": report["uniqueExactTexts"], "listeningReviewed": False}, ensure_ascii=False))
 
 

@@ -18,13 +18,18 @@ FILES = (
 )
 BASE = ROOT / "content/french-pronunciation"
 OUTPUT = BASE / "private-audio-scope-fr-en.json"
+SCOPES = {
+    "foundation-core-1-6": (FILES, OUTPUT, {"foundation": list(range(1, 11)), "core": list(range(1, 7))}),
+    "core-7-10": (("core-7-10-draft.json",), BASE / "private-audio-scope-core-7-10-fr-en.json", {"core": list(range(7, 11))}),
+}
 
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def build():
+def build(scope="foundation-core-1-6"):
+    files, _, expected_lessons = SCOPES[scope]
     occurrences = defaultdict(list)
     source_files = []
     stage_lessons = defaultdict(list)
@@ -36,7 +41,7 @@ def build():
         occurrences[text].append({"lessonId": lesson["id"], "field": field})
         field_counts[field.split("[")[0]] += 1
 
-    for filename in FILES:
+    for filename in files:
         path = BASE / filename
         raw = path.read_bytes()
         draft = json.loads(raw)
@@ -61,8 +66,7 @@ def build():
             for field in ("opening", "closure"):
                 add(lesson["speaking"][field], lesson, f"speaking.{field}")
 
-    assert [item.split(":")[1] for item in stage_lessons["foundation"]] == [str(n) for n in range(1, 11)]
-    assert [item.split(":")[1] for item in stage_lessons["core"]] == [str(n) for n in range(1, 7)]
+    assert {stage: [int(item.split(":")[1]) for item in ids] for stage, ids in stage_lessons.items()} == expected_lessons
     texts = sorted(occurrences)
     characters = sum(len(text) for text in texts)
     return {
@@ -105,12 +109,14 @@ def build():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--scope", choices=SCOPES, default="foundation-core-1-6")
     args = parser.parse_args()
-    encoded = json.dumps(build(), ensure_ascii=False, indent=2) + "\n"
+    encoded = json.dumps(build(args.scope), ensure_ascii=False, indent=2) + "\n"
+    output = SCOPES[args.scope][1]
     if args.check:
-        assert OUTPUT.read_text() == encoded, "French pronunciation audio scope is stale"
+        assert output.read_text() == encoded, "French pronunciation audio scope is stale"
     else:
-        OUTPUT.write_text(encoded)
+        output.write_text(encoded)
     print("French pronunciation private audio scope verified")
 
 

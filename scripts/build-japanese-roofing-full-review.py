@@ -24,7 +24,7 @@ def safe(value):
 def render_lesson(stage, number, rows, manifest_hash):
     body = ["<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>",
             f"<title>Japanese Roofing {safe(stage)} {number} listening review</title>",
-            "<style>body{font:16px system-ui,sans-serif;max-width:950px;margin:auto;padding:20px;background:#102031;color:#fff}section{border:1px solid #586b80;border-radius:12px;padding:15px;margin:14px 0}audio{width:100%}select,textarea,button,input{font:inherit;padding:8px}textarea{width:95%}small{overflow-wrap:anywhere;color:#c7d5df}a{color:#eecb8a}button{cursor:pointer}</style>",
+            "<style>body{font:16px system-ui,sans-serif;max-width:950px;margin:auto;padding:20px;background:#102031;color:#fff}section{border:1px solid #586b80;border-radius:12px;padding:15px;margin:14px 0}audio{width:100%}select,textarea,button,input{font:inherit;padding:8px}textarea{width:95%}small,code{overflow-wrap:anywhere;word-break:break-all;color:#c7d5df}a{color:#eecb8a}button{cursor:pointer}</style>",
             "<p><a href='index.html'>← All lessons</a></p>", f"<h1>Japanese Roofing · {safe(stage.title())} {number}</h1>",
             "<p>Private recordings awaiting fluent listening. Choose accept or retake for every voice. Exported decisions do not change app playback, lesson review, or manifest flags.</p>",
             f"<p>Manifest SHA-256: <code>{safe(manifest_hash)}</code></p>",

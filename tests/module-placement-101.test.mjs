@@ -49,6 +49,18 @@ test("Spanish 101: all 120 actual lesson answers pass Foundation, Core and Maste
     assert.equal(result.complete, true);
     assert.equal(result.start, null);
     assert.equal(result.credit.length, 60);
+    const completedSentences = Object.fromEntries(
+      questions.map((question) => [
+        question.id,
+        question.type === "typed"
+          ? question.prompt.replace("____", question.answer)
+          : question.answer,
+      ]),
+    );
+    const sentenceResult = app.placementResult(data.blocks, completedSentences);
+    assert.equal(sentenceResult.complete, true);
+    assert.equal(sentenceResult.start, null);
+    assert.equal(sentenceResult.credit.length, 60);
   } finally {
     globalThis.fetch = originalFetch;
   }

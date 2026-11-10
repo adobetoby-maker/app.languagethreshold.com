@@ -4,6 +4,7 @@ The public entry point is `/exams?target=Spanish&native=English`. The welcome sc
 
 ## Behavior
 
+- Typed checks accept either the missing word/phrase or the correct completed sentence. Exact sentence matching preserves the answer and accents; arbitrary text containing the answer does not pass.
 - Placement results show submitted-answer counts, per-block overall and typed scores, and the lesson answer for rejected responses. Coverage limits are labeled as untested material, not failed placement.
 - Placement uses existing authored lesson vocabulary and contextual cloze checks in five-lesson blocks. It estimates the first block to revisit, continuing from Foundation through Core and Master where those stages exist. The estimate is lesson-relative, not a CEFR proficiency rating.
 - Post-Core tests cover all 30 Core lessons with 60 questions, continue after wrong answers, show a score and direct links to lessons to revisit, and allow unlimited fresh attempts.
@@ -27,7 +28,7 @@ The audit reads public static content from this checkout, makes no service calls
 
 - TypeScript and lint checks passed.
 - Production build and Vercel artifact/private-bank scan passed.
-- All 2,942 unit tests passed with compiler-cache access.
+- All 2,946 unit tests passed with compiler-cache access.
 - Guest flows verified on desktop and iPhone-sized Chromium: placement recommendation, all 60 post-Core questions, results, fresh retake and no horizontal overflow. No real users or exam sessions were created.
 
 Run the saved guest regression against a local app with public Supabase configuration:

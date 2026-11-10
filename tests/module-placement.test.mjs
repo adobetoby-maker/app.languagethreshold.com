@@ -26,6 +26,21 @@ const lessons = Array.from({ length: 15 }, (_, i) => ({
 const blocks = placementBlocks(lessons, "test-seed");
 const answers = (bs) =>
   Object.fromEntries(bs.flatMap((b) => b.questions.map((q) => [q.id, q.answer])));
+test("typed placement accepts the missing word or the correct completed sentence", () => {
+  const question = {
+    id: "cloze",
+    lesson: 0,
+    type: "typed",
+    prompt: "Yo ____ español.",
+    answer: "hablo",
+  };
+  assert.equal(placementCorrect(question, "hablo"), true);
+  assert.equal(placementCorrect(question, "Yo hablo español."), true);
+  assert.equal(placementCorrect(question, "YO HABLO ESPAÑOL"), true);
+  assert.equal(placementCorrect(question, "Yo no hablo español."), false);
+  assert.equal(placementCorrect(question, "Yo estudio español."), false);
+  assert.equal(placementCorrect({ ...question, answer: "hablé" }, "Yo hable español."), false);
+});
 test("checks cover every lesson and keep stage-local numbers, stable draw and shuffled options", () => {
   assert.equal(blocks.length, 3);
   assert.equal(blocks.flatMap((b) => b.questions).length, 30);

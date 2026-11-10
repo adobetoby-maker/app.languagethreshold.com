@@ -319,7 +319,7 @@ export function FreeSpanishExams({
               </fieldset>
             ) : (
               <label className="mb-4 block">
-                Type the missing word or phrase. Accents matter.
+                Type the missing word, phrase, or completed sentence. Accents matter.
                 <input
                   className="mt-2 min-h-12 w-full rounded-xl border border-border bg-background p-3"
                   key={question.id}

@@ -1,0 +1,7 @@
+# French→English Lunch & Casual Dining
+
+Foundation 1–3 are private source-mapped lessons at `foundation-1-3-draft.json`. They map Spanish Lunch's greeting and pronunciation, number/time/quantity, and food/place-description purposes to French scenes. Lesson 2 uses euros and counted lunch items. Lesson 3 teaches French *être*, availability and location expressions without importing the Spanish *ser/estar* contrast as French grammar. Stable IDs use `foundation-travel-lunch:{n}:fr-en` and do not overlap the Spanish or Japanese progress identities.
+
+The three lessons have contextual French/English cards, aligned Reader dialogues, specific speaking scenes and card-backed See, Recall, Hear, Type, Say and Write prompts. The [source validator](verify-private-foundation.py) checks the pinned Spanish Foundation file's hash, exact English learning purposes, stage-local IDs, card/Reader/speaking ownership, six distinct prompts per lesson and closed release flags. Run `python3 content/french-travel-lunch/verify-private-foundation.py` from the app checkout.
+
+This is **3/60 authored draft lessons**. French review, the remaining 7 Foundation, 30 Core and 20 Master lessons, dictionary senses, recorded audio, runtime/Reader/speaking/offline integration, browser/phone and independent V4 acceptance remain open. All `reviewed`, `registered` and `readyForLearner` flags are false; no learner progress or public course changes.

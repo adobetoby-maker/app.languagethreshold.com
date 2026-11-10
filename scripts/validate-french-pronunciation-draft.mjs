@@ -7,6 +7,8 @@ const source = JSON.parse(sourceBytes);
 const drafts = [
   '../content/french-pronunciation/foundation-1-3-draft.json',
   '../content/french-pronunciation/foundation-4-5-draft.json',
+  '../content/french-pronunciation/foundation-6-8-draft.json',
+  '../content/french-pronunciation/foundation-9-10-draft.json',
 ].map(path => JSON.parse(readFileSync(new URL(path, import.meta.url))));
 const modes = ['see', 'recall', 'hear', 'type', 'say', 'write'];
 
@@ -20,6 +22,8 @@ for (const draft of drafts) {
 }
 assert.equal(drafts[0].lessons.length, 3);
 assert.equal(drafts[1].lessons.length, 2);
+assert.equal(drafts[2].lessons.length, 3);
+assert.equal(drafts[3].lessons.length, 2);
 const lessons = drafts.flatMap(draft => draft.lessons);
 
 const ids = new Set();
@@ -61,4 +65,4 @@ for (const [index, lesson] of lessons.entries()) {
     assert(french.has(ref), `${lesson.id} ${mode} unknown answer reference: ${ref}`);
   }
 }
-console.log('French pronunciation F1–5 private draft: 5 source-mapped IDs, 50 cards, 20 Reader lines, 5 speaking scenes, 30 practice prompts; all release gates closed.');
+console.log('French pronunciation F1–10 private draft: 10 source-mapped IDs, 100 cards, 40 Reader lines, 10 speaking scenes, 60 practice prompts; all release gates closed.');

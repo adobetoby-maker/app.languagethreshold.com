@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
+  "sourceSha256": "c3cb9ad054463ca4f6e8287be92e694d41e20e25a418bb9ca4403a0027e391fd",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 4,
+      "stableLessonKey": "master-french-basics:4",
+      "modes": {
+        "see": {"prompt": "Read Noé’s opening question and identify what responsibility he is asking about.", "targetText": "Noé : Qui est responsable de la réunion de cet après-midi ?"},
+        "recall": {"prompt": "Recall Maya’s continuing role, without assuming she can attend today.", "targetText": "Maya est responsable de la réunion."},
+        "hear": {"prompt": "Listen for the phrase that identifies who is in charge of the meeting.", "targetText": "responsable de", "recordedAudio": false},
+        "type": {"prompt": "Type the fact that Maya does not feel well today, using ne…pas.", "targetText": "Elle ne se sent pas bien aujourd’hui."},
+        "say": {"prompt": "Clarify aloud that Maya leads the meeting but Léa substitutes this afternoon.", "targetText": "Si j’ai bien compris, Maya dirige la réunion, mais Léa remplace Maya cet après-midi."},
+        "write": {"prompt": "Write the sentence identifying Maya’s meeting role independently of availability.", "targetText": "Maya est responsable de la réunion."}
+      }
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "master-french-basics:5",
+      "modes": {
+        "see": {"prompt": "Read Maya’s morning observation and identify the binder’s earlier location.", "targetText": "Maya : Ce matin, il y avait un classeur sur la grande table."},
+        "recall": {"prompt": "Recall what now occupies the binder’s place on the table.", "targetText": "Maintenant, il y a deux livres à sa place."},
+        "hear": {"prompt": "Listen for the noun naming the binder that seemed to be missing.", "targetText": "classeur", "recordedAudio": false},
+        "type": {"prompt": "Type the possible change in the room using a déplacé.", "targetText": "Quelqu’un a déplacé le classeur."},
+        "say": {"prompt": "State aloud the binder’s verified current position under the table.", "targetText": "Il se trouve sous la table, près de la fenêtre."},
+        "write": {"prompt": "Write the morning observation with il y avait for the earlier state.", "targetText": "Ce matin, il y avait un classeur sur la table."}
+      }
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "master-french-basics:6",
+      "modes": {
+        "see": {"prompt": "Read Léa’s correction and identify room B as the intended room.", "targetText": "Léa : Pardon, je voulais dire la salle B, pas la salle D."},
+        "recall": {"prompt": "Recall the polite correction that replaces room D with room B.", "targetText": "Pardon, je voulais dire la salle B, pas la salle D."},
+        "hear": {"prompt": "Listen for the polite request to repeat information at the desk.", "targetText": "pourriez-vous répéter", "recordedAudio": false},
+        "type": {"prompt": "Type the corrected meeting time, contrasting 15:30 with 14:30.", "targetText": "La réunion commence à quinze heures trente, pas à quatorze heures trente."},
+        "say": {"prompt": "Check aloud what the clerk recorded, using si je comprends bien.", "targetText": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?"},
+        "write": {"prompt": "Write the room-and-time confirmation question without claiming a booking yet.", "targetText": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?"}
+      }
+    }
+  ]
+}

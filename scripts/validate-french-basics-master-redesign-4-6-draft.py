@@ -48,4 +48,10 @@ for x in d['lessons']:
   if c['type']=='write':assert any(c['answer'].casefold() in line.casefold() for line in r['target'])
  all_new_en+=r['native']
 assert len(all_new_en)==len(set(all_new_en))==36
+master4, master6 = d['lessons'][0], d['lessons'][2]
+assert 'avant quinze heures pour préparer la salle.' in master4['grammar']['model']['availability']
+assert 'avant quinze heures pour préparer la salle.' in master4['reading']['target'][7]
+assert 'reste à confirmer' in master6['grammar']['model']['close']
+assert any('n’est pas encore confirmée' in line for line in master6['reading']['target'])
+assert 'pending' in master6['speaking']['closure']
 print('French 101 Master 4–6 redesign: 60 cards, 36 new aligned French/English Reader pairs, stable IDs, source hashes and no earlier English-line reuse; review/runtime/audio pending')

@@ -58,4 +58,11 @@ for x in d['lessons']:
   if c['type']=='write':assert any(c['answer'].casefold() in line.casefold() for line in r['target'])
  all_new_en+=r['native']
 assert len(all_new_en)==len(set(all_new_en))==24
+capstone = d['lessons'][1]
+close = capstone['grammar']['model']['close']
+assert 'plan provisoire' in capstone['scene']
+assert 'Hugo vérifiera la grande salle' in close
+assert 'Camille préviendra les participants après confirmation' in close
+assert 'without claiming a booking before confirmation' in capstone['speaking']['closure']
+assert 'No; room availability still needs confirmation.' in {check['answer'] for check in capstone['checks']}
 print('French 101 Master 19–20 redesign: 40 cards, 24 new aligned French/English Reader pairs, stable IDs, source hashes and no earlier English-line reuse; review/runtime/audio pending')

@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "french-basics:1",
+      "modes": {
+        "see": {"prompt": "Read the library sentence. Identify the nous ending on the regular -er verb parler.", "targetText": "Nous parlons à la bibliothèque."},
+        "recall": {"prompt": "Recall the sentence saying Luis works in the afternoon; keep the third-person -e ending.", "targetText": "Luis travaille l'après-midi."},
+        "hear": {"prompt": "Listen for the time word meaning ‘today’ in the lesson question.", "targetText": "aujourd'hui", "recordedAudio": false},
+        "type": {"prompt": "Type the sentence saying Ana listens to the teacher; include the accent in écoute.", "targetText": "Ana écoute la professeure."},
+        "say": {"prompt": "Ask a classmate aloud whether they are studying with us today.", "targetText": "Est-ce que tu étudies avec nous aujourd'hui ?"},
+        "write": {"prompt": "Write that the students practice at home, with the plural -ent ending.", "targetText": "Les étudiants pratiquent à la maison."}
+      }
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "french-basics:2",
+      "modes": {
+        "see": {"prompt": "Read the cafeteria sentence. Identify the regular -er plural ending in mangent.", "targetText": "Les amis mangent à la cafétéria."},
+        "recall": {"prompt": "Recall the sentence saying Luis understands the question; comprendre is irregular.", "targetText": "Luis comprend la question."},
+        "hear": {"prompt": "Listen for the noun meaning ‘water’ in the lunch exchange.", "targetText": "eau", "recordedAudio": false},
+        "type": {"prompt": "Type the full sentence ‘I eat bread and drink water’, keeping mange and bois distinct.", "targetText": "Je mange du pain et je bois de l'eau."},
+        "say": {"prompt": "Ask aloud whether your classmate drinks coffee or water.", "targetText": "Tu bois du café ou de l'eau ?"},
+        "write": {"prompt": "Write that we read the menu together, using the irregular form lisons.", "targetText": "Nous lisons le menu ensemble."}
+      }
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "french-basics:3",
+      "modes": {
+        "see": {"prompt": "Read the message sentence. Identify écrivons as an irregular form, separate from the finir pattern.", "targetText": "Nous écrivons des messages en français."},
+        "recall": {"prompt": "Recall the je form of regular -ir verb finir from the lesson’s grammar model.", "targetText": "je finis"},
+        "hear": {"prompt": "Listen for the preposition meaning ‘near’ in the location sentence.", "targetText": "près", "recordedAudio": false},
+        "type": {"prompt": "Type the nous form of finir, including the -iss- stem used in the regular plural.", "targetText": "nous finissons"},
+        "say": {"prompt": "Ask aloud whether your classmate is writing to family today.", "targetText": "Tu écris à ta famille aujourd'hui ?"},
+        "write": {"prompt": "Write that your friends receive a letter, using the irregular plural reçoivent.", "targetText": "Mes amis reçoivent une lettre."}
+      }
+    }
+  ]
+}

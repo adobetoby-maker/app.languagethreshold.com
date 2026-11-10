@@ -13,9 +13,10 @@ import {
 
 const load = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const inputs = {
-  foundation: load('content/french-basics/private-runtime-foundation-1-10.json'),
-  core: load('content/french-basics/private-runtime-core-1-30.json'),
-  master: load('content/french-basics/private-runtime-master-1-20.json'),
+  foundation: load('content/french-basics/private-runtime-foundation-1-10-authored-modes.json'),
+  foundationGrammar: load('content/french-basics/private-foundation-grammar-briefs-fr-en.json'),
+  core: load('content/french-basics/private-runtime-core-1-30-authored-modes.json'),
+  master: load('content/french-basics/private-runtime-master-1-20-authored-modes.json'),
 };
 const pair = { target: 'French', native: 'English' };
 
@@ -33,6 +34,10 @@ test('private catalog and cache serve only the exact French-to-English pair', ()
   assert.deepEqual(candidate.catalog.map(module => module.id), FRENCH_101_STAGE_IDS);
   assert.ok(candidate.catalog.every(module => module.authoredPair?.target === 'French' && module.authoredPair?.native === 'English'));
   assert.deepEqual(FRENCH_101_STAGE_IDS.map(id => candidate.stage(id, pair)?.lessons.length), [10, 30, 20]);
+  assert.equal(candidate.foundationGrammar(1, pair)?.stableLessonKey, 'foundation-french-basics:1');
+  assert.equal(candidate.foundationGrammar(10, pair)?.stableLessonKey, 'foundation-french-basics:10');
+  assert.equal(candidate.foundationGrammar(1, { target: 'French', native: 'Spanish' }), null);
+  assert.equal(candidate.foundationGrammar(11, pair), null);
   assert.equal(candidate.stage('foundation-french-basics', pair), candidate.stage('foundation-french-basics', pair));
   for (const id of FRENCH_101_STAGE_IDS) {
     assert.equal(candidate.stage(id, { target: 'Spanish', native: 'English' }), null);
@@ -54,6 +59,10 @@ test('all six-mode sidecars, Reader, cards, dictionary and speaking remain lesso
       const sidecar = candidate.activity(id, n, pair);
       assert.equal(sidecar?.stableLessonKey, `${id}:${n}`);
       assert.deepEqual(Object.keys(sidecar.modes).sort(), ['hear', 'recall', 'say', 'see', 'type', 'write']);
+      for (const mode of ['hear', 'recall', 'say', 'see', 'type', 'write']) {
+        assert.ok(sidecar.modes[mode].authoredPrompt.prompt.trim(), `${id}/${n} ${mode}`);
+        assert.ok(sidecar.modes[mode].authoredPrompt.targetText.trim(), `${id}/${n} ${mode}`);
+      }
       assert.ok(sidecar.reader && sidecar.cards.length && sidecar.dictionaryEntries.length && sidecar.speaking);
     }
     assert.equal(candidate.activity(id, 0, pair), null);
@@ -71,4 +80,16 @@ test('the private adapter rejects a wrong pair or altered progress identity', ()
   const accidentallyReleased = structuredClone(inputs);
   accidentallyReleased.foundation.registered = true;
   assert.throws(() => inspectPrivateFrench101(accidentallyReleased), /private, unreviewed/);
+  const countOnly = structuredClone(inputs);
+  delete countOnly.core.support[24].modes.write.authoredPrompt;
+  assert.throws(() => inspectPrivateFrench101(countOnly), /missing an authored write activity at 25/);
+  const wrongSource = structuredClone(inputs);
+  wrongSource.master.support[10].modes.recall.authoredPrompt.targetText = 'Une phrase sans lien avec cette leçon.';
+  assert.throws(() => inspectPrivateFrench101(wrongSource), /target is absent from lesson source at 11/);
+  const repeatedPrompt = structuredClone(inputs);
+  repeatedPrompt.foundation.support[0].modes.write.authoredPrompt.prompt = repeatedPrompt.foundation.support[0].modes.see.authoredPrompt.prompt;
+  assert.throws(() => inspectPrivateFrench101(repeatedPrompt), /repeats an authored prompt at 1/);
+  const wrongGrammarTurn = structuredClone(inputs);
+  wrongGrammarTurn.foundationGrammar.lessons[0].examples[0].readerTurn = 2;
+  assert.throws(() => inspectPrivateFrench101(wrongGrammarTurn), /grammar Reader pair changed at 1/);
 });

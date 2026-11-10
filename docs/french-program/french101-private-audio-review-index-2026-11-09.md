@@ -1,0 +1,11 @@
+# French 101 private full-course audio review index — 2026-11-09
+
+`scripts/build-french101-private-audio-review-index.py` checks the local private manifests and every referenced MP3's byte count and SHA-256 before generating `/Users/drive/lt-audio/french-101/full-course-review-index-2026-11-09.html`. It also matches all 60 manifest source hashes to the current private stage fixtures and the form-gap manifest to its eight current form fixtures. It requires the exact French→English pair, `fr-FR` Aoede/Charon voices, stable Foundation/Core/Master module and lesson scopes, positive recorded duration, an existing worksheet, and `registered:false` for every full-lesson manifest.
+
+Current verified inventory: 10 Foundation + 30 Core + 20 Master manifests, 1,285 unique lesson strings, and 2,570 voice files. The separate form-practice gap contains 71 strings and 142 voice files. All referenced files pass size and SHA-256 checks. The index links all 60 lesson worksheets, the form-gap worksheet, and the separate retake/level candidate reviews.
+
+During this audit the gap manifest's Master form-fixture hash was stale. Its 71 exact strings, prompt placements, and clip keys still matched the current eight-fixture inventory; all 142 existing clips passed text, voice, hash, and positive-duration verification. The private manifest was repinned without synthesis or review-status change. Future source edits fail the index until their audio inventory is checked again.
+
+Full-course listening acceptance is **0 of 60 lessons and 0 of 2,570 lesson voice clips** in these manifests; the form gap is **0 of 142**. The previously owner-approved French pilot is a separate manifest and must not be counted as approval of the full-lesson recordings. Signal retake and level candidates also remain unapproved and uninstalled. This index is evidence and a review aid, not audio playback registration or a production release.
+
+Regenerate with `python3 scripts/build-french101-private-audio-review-index.py`; use `--check` to detect stale index content after any manifest review or retake decision. Qualified French listening review, correction/retake decisions, and exact playback/phone/native acceptance remain open.

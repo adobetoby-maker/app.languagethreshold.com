@@ -1,0 +1,2294 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-master-1-20.json",
+  "sourceSha256": "c3cb9ad054463ca4f6e8287be92e694d41e20e25a418bb9ca4403a0027e391fd",
+  "counts": {
+    "lessons": 20,
+    "alignedReaderPrompts": 96,
+    "newAuthoredContrasts": 0,
+    "totalPrompts": 96,
+    "grammarModels": 20
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "master-french-basics:1",
+      "grammarModel": {
+        "peer": "Je te présente Camille. Elle vient de Lyon.",
+        "formal": "Je vous présente Camille, notre nouvelle camarade.",
+        "reason": "Elle nous rejoint parce qu’elle veut pratiquer la conversation."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-af7598020f45ca18",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "sourceEnglishLine": "Student: Of course. I would like to introduce Camille, who comes from Lyon.",
+          "sourceFrenchSpeaker": "Élève",
+          "sourceEnglishSpeaker": "Student",
+          "audioDisplayText": "Élève : Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "focus": "formal-introduction",
+          "frenchAnswer": "Bien sûr. Je vous présente Camille, qui vient de Lyon.",
+          "englishPrompt": "Of course. I would like to introduce Camille, who comes from Lyon.",
+          "knownFrenchVariants": [
+            "Bien sûr. Je vous présente Camille, qui vient de Lyon."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-fdb2583ad43e1d8a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "sourceEnglishLine": "Student: Because she wants to practise conversation and share her experience.",
+          "sourceFrenchSpeaker": "Élève",
+          "sourceEnglishSpeaker": "Student",
+          "audioDisplayText": "Élève : Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "focus": "reason-parce-que",
+          "frenchAnswer": "Parce qu’elle veut pratiquer la conversation et partager son expérience.",
+          "englishPrompt": "Because she wants to practise conversation and share her experience.",
+          "knownFrenchVariants": [
+            "Parce qu’elle veut pratiquer la conversation et partager son expérience."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-493a11a53a73bc13",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "sourceEnglishLine": "Classmate: Can you introduce her to our coordinator more formally?",
+          "sourceFrenchSpeaker": "Camarade",
+          "sourceEnglishSpeaker": "Classmate",
+          "audioDisplayText": "Camarade : Tu peux la présenter à notre responsable plus formellement ?",
+          "focus": "informal-tu",
+          "frenchAnswer": "Tu peux la présenter à notre responsable plus formellement ?",
+          "englishPrompt": "Can you introduce her to our coordinator more formally?",
+          "knownFrenchVariants": [
+            "Tu peux la présenter à notre responsable plus formellement ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-88f31deeeba39407",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "sourceEnglishLine": "Student: Ma’am, I would like to introduce Camille, our new project colleague.",
+          "sourceFrenchSpeaker": "Élève",
+          "sourceEnglishSpeaker": "Student",
+          "audioDisplayText": "Élève : Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "focus": "formal-vous",
+          "frenchAnswer": "Madame, je vous présente Camille, notre nouvelle collègue de projet.",
+          "englishPrompt": "Ma’am, I would like to introduce Camille, our new project colleague.",
+          "knownFrenchVariants": [
+            "Madame, je vous présente Camille, notre nouvelle collègue de projet."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "master-french-basics:2",
+      "grammarModel": {
+        "required": "Il faut un cahier grand format pour le cours.",
+        "missing": "Il nous manque un cahier grand format.",
+        "substitute": "Peut-on utiliser deux cahiers ordinaires à la place ?",
+        "confirmation": "Cela convient-il pour le travail en groupe ?"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-6457800a8dbf722a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "sourceEnglishLine": "Léa: I already have the two pens in my bag.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : J’ai déjà les deux stylos dans mon sac.",
+          "focus": "inside-dans",
+          "frenchAnswer": "J’ai déjà les deux stylos dans mon sac.",
+          "englishPrompt": "I already have the two pens in my bag.",
+          "knownFrenchVariants": [
+            "J’ai déjà les deux stylos dans mon sac."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-1c3d9c477d32bde3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "sourceEnglishLine": "Noé: Is the notebook on the table large enough?",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Le cahier qui est sur la table est-il assez grand ?",
+          "focus": "on-top-sur",
+          "frenchAnswer": "Le cahier qui est sur la table est-il assez grand ?",
+          "englishPrompt": "Is the notebook on the table large enough?",
+          "knownFrenchVariants": [
+            "Le cahier qui est sur la table est-il assez grand ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-0ccf39e9950bcea8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "sourceEnglishLine": "Léa: No, it is a small notebook; we are missing the large format.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Non, c’est un petit cahier ; il nous manque le grand format.",
+          "focus": "missing-il-manque",
+          "frenchAnswer": "Non, c’est un petit cahier ; il nous manque le grand format.",
+          "englishPrompt": "No, it is a small notebook; we are missing the large format.",
+          "knownFrenchVariants": [
+            "Non, c’est un petit cahier ; il nous manque le grand format."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e67df8c3008e4b7b",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "sourceEnglishLine": "Noé: Can we use them instead of the large notebook?",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Peut-on les utiliser à la place du grand cahier ?",
+          "focus": "substitute-a-la-place",
+          "frenchAnswer": "Peut-on les utiliser à la place du grand cahier ?",
+          "englishPrompt": "Can we use them instead of the large notebook?",
+          "knownFrenchVariants": [
+            "Peut-on les utiliser à la place du grand cahier ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "master-french-basics:3",
+      "grammarModel": {
+        "total": "Il y a quatre personnes, mais seulement trois cahiers.",
+        "recipient": "Je donne un cahier à Ana ; je lui donne aussi un crayon.",
+        "group": "Je leur distribue les crayons.",
+        "compromise": "Ana utilisera le dictionnaire d’abord, puis Hugo le prendra."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-a236eb6477cb15f3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "sourceEnglishLine": "Maya: There are four of us, but there are only three notebooks.",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "focus": "total-il-y-a",
+          "frenchAnswer": "Nous sommes quatre, mais il n’y a que trois cahiers.",
+          "englishPrompt": "There are four of us, but there are only three notebooks.",
+          "knownFrenchVariants": [
+            "Nous sommes quatre, mais il n’y a que trois cahiers."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-f8ded3e35f4297f7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Hugo : Il nous en faut un de plus avant de commencer.",
+          "sourceEnglishLine": "Hugo: We need one more before we begin.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Il nous en faut un de plus avant de commencer.",
+          "focus": "need-il-nous-faut",
+          "frenchAnswer": "Il nous en faut un de plus avant de commencer.",
+          "englishPrompt": "We need one more before we begin.",
+          "knownFrenchVariants": [
+            "Il nous en faut un de plus avant de commencer."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-01450217e8574df1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "sourceEnglishLine": "Maya: Thank you. I will give her a pencil as well.",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Merci. Je lui donnerai aussi un crayon.",
+          "focus": "recipient-lui",
+          "frenchAnswer": "Merci. Je lui donnerai aussi un crayon.",
+          "englishPrompt": "Thank you. I will give her a pencil as well.",
+          "knownFrenchVariants": [
+            "Merci. Je lui donnerai aussi un crayon."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-1f37ea7a39523b71",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "sourceEnglishLine": "Maya: I will distribute them to the group; each person will have one.",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Je les distribue au groupe ; chacun en aura un.",
+          "focus": "each-chacun",
+          "frenchAnswer": "Je les distribue au groupe ; chacun en aura un.",
+          "englishPrompt": "I will distribute them to the group; each person will have one.",
+          "knownFrenchVariants": [
+            "Je les distribue au groupe ; chacun en aura un."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-227509f1650a26a2",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "sourceEnglishLine": "Hugo: After that, she will pass it to me and I will check the words.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Ensuite, elle me le passera et je vérifierai les mots.",
+          "focus": "two-pronouns-me-le",
+          "frenchAnswer": "Ensuite, elle me le passera et je vérifierai les mots.",
+          "englishPrompt": "After that, she will pass it to me and I will check the words.",
+          "knownFrenchVariants": [
+            "Ensuite, elle me le passera et je vérifierai les mots."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonKey": "master-french-basics:4",
+      "grammarModel": {
+        "role": "Maya est responsable de la réunion.",
+        "state": "Elle ne se sent pas bien aujourd’hui.",
+        "availability": "Léa sera là avant quinze heures pour préparer la salle.",
+        "repair": "Si j’ai bien compris, Maya dirige la réunion, mais Léa remplace Maya cet après-midi."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-a574cd0d2650a71a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Noé : Qui est responsable de la réunion de cet après-midi ?",
+          "sourceEnglishLine": "Noé: Who is responsible for this afternoon’s meeting?",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Qui est responsable de la réunion de cet après-midi ?",
+          "focus": "role-question",
+          "frenchAnswer": "Qui est responsable de la réunion de cet après-midi ?",
+          "englishPrompt": "Who is responsible for this afternoon’s meeting?",
+          "knownFrenchVariants": [
+            "Qui est responsable de la réunion de cet après-midi ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b84f4b4c78388075",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Léa : Maya en est responsable depuis le début du projet.",
+          "sourceEnglishLine": "Léa: Maya has been responsible for it since the project began.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Maya en est responsable depuis le début du projet.",
+          "focus": "ongoing-role",
+          "frenchAnswer": "Maya en est responsable depuis le début du projet.",
+          "englishPrompt": "Maya has been responsible for it since the project began.",
+          "knownFrenchVariants": [
+            "Maya en est responsable depuis le début du projet."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-cda1dcb58cf6b20e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Léa : Pas forcément : elle ne se sent pas bien aujourd’hui.",
+          "sourceEnglishLine": "Léa: Not necessarily: she does not feel well today.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Pas forcément : elle ne se sent pas bien aujourd’hui.",
+          "focus": "temporary-condition",
+          "frenchAnswer": "Pas forcément : elle ne se sent pas bien aujourd’hui.",
+          "englishPrompt": "Not necessarily: she does not feel well today.",
+          "knownFrenchVariants": [
+            "Pas forcément : elle ne se sent pas bien aujourd’hui."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-9997929781755768",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Noé : Si j’ai bien compris, tu ouvres la séance et Maya reste responsable du projet.",
+          "sourceEnglishLine": "Noé: If I understood correctly, you open the meeting and Maya remains responsible for the project.",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Si j’ai bien compris, tu ouvres la séance et Maya reste responsable du projet.",
+          "focus": "role-versus-availability",
+          "frenchAnswer": "Si j’ai bien compris, tu ouvres la séance et Maya reste responsable du projet.",
+          "englishPrompt": "If I understood correctly, you open the meeting and Maya remains responsible for the project.",
+          "knownFrenchVariants": [
+            "Si j’ai bien compris, tu ouvres la séance et Maya reste responsable du projet."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "master-french-basics:5",
+      "grammarModel": {
+        "before": "Ce matin, il y avait un classeur sur la table.",
+        "now": "Maintenant, il y a deux livres à sa place.",
+        "change": "Quelqu’un a déplacé le classeur.",
+        "resolved": "Il se trouve sous la table, près de la fenêtre."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-9c9a0aa84be4fd52",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Maya : Ce matin, il y avait un classeur sur la grande table.",
+          "sourceEnglishLine": "Maya: This morning there was a binder on the large table.",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Ce matin, il y avait un classeur sur la grande table.",
+          "focus": "past-il-y-avait",
+          "frenchAnswer": "Ce matin, il y avait un classeur sur la grande table.",
+          "englishPrompt": "This morning there was a binder on the large table.",
+          "knownFrenchVariants": [
+            "Ce matin, il y avait un classeur sur la grande table."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-3031621085ad2cd6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Noé : Maintenant, deux livres se trouvent à sa place.",
+          "sourceEnglishLine": "Noé: Now two books are in its place.",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Maintenant, deux livres se trouvent à sa place.",
+          "focus": "now-se-trouvent",
+          "frenchAnswer": "Maintenant, deux livres se trouvent à sa place.",
+          "englishPrompt": "Now two books are in its place.",
+          "knownFrenchVariants": [
+            "Maintenant, deux livres se trouvent à sa place."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2497627b63420384",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Maya : Quelqu’un a donc déplacé le classeur ?",
+          "sourceEnglishLine": "Maya: So has someone moved the binder?",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Quelqu’un a donc déplacé le classeur ?",
+          "focus": "completed-deplace",
+          "frenchAnswer": "Quelqu’un a donc déplacé le classeur ?",
+          "englishPrompt": "So has someone moved the binder?",
+          "knownFrenchVariants": [
+            "Quelqu’un a donc déplacé le classeur ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-af06b15e709d0dd1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 8,
+          "sourceFrenchLine": "Noé : Oui, il se trouve sous la table, près de la fenêtre.",
+          "sourceEnglishLine": "Noé: Yes, it is under the table, near the window.",
+          "sourceFrenchSpeaker": "Noé",
+          "sourceEnglishSpeaker": "Noé",
+          "audioDisplayText": "Noé : Oui, il se trouve sous la table, près de la fenêtre.",
+          "focus": "verified-location",
+          "frenchAnswer": "Oui, il se trouve sous la table, près de la fenêtre.",
+          "englishPrompt": "Yes, it is under the table, near the window.",
+          "knownFrenchVariants": [
+            "Oui, il se trouve sous la table, près de la fenêtre."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b5dc0b60218a0269",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Maya : Hier, il était sur l’étagère ; il a donc changé de place deux fois.",
+          "sourceEnglishLine": "Maya: Yesterday it was on the shelf; it has therefore changed places twice.",
+          "sourceFrenchSpeaker": "Maya",
+          "sourceEnglishSpeaker": "Maya",
+          "audioDisplayText": "Maya : Hier, il était sur l’étagère ; il a donc changé de place deux fois.",
+          "focus": "past-etre-location",
+          "frenchAnswer": "Hier, il était sur l’étagère ; il a donc changé de place deux fois.",
+          "englishPrompt": "Yesterday it was on the shelf; it has therefore changed places twice.",
+          "knownFrenchVariants": [
+            "Hier, il était sur l’étagère ; il a donc changé de place deux fois."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "master-french-basics:6",
+      "grammarModel": {
+        "repair": "Pardon, je voulais dire la salle B, pas la salle D.",
+        "time": "La réunion commence à quinze heures trente, pas à quatorze heures trente.",
+        "check": "Si je comprends bien, vous avez noté la salle B à quinze heures trente ?",
+        "close": "La salle B à quinze heures trente reste à confirmer ; j’attends votre réponse écrite."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-0e246a04b4592357",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Léa : Bonjour, je voudrais réserver la salle B pour demain.",
+          "sourceEnglishLine": "Léa: Hello, I would like to reserve room B for tomorrow.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Bonjour, je voudrais réserver la salle B pour demain.",
+          "focus": "polite-conditional",
+          "frenchAnswer": "Bonjour, je voudrais réserver la salle B pour demain.",
+          "englishPrompt": "Hello, I would like to reserve room B for tomorrow.",
+          "knownFrenchVariants": [
+            "Bonjour, je voudrais réserver la salle B pour demain."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-fc0e83456caeddbf",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Léa : Pardon, je voulais dire la salle B, pas la salle D.",
+          "sourceEnglishLine": "Léa: Sorry, I meant room B, not room D.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Pardon, je voulais dire la salle B, pas la salle D.",
+          "focus": "repair-je-voulais-dire",
+          "frenchAnswer": "Pardon, je voulais dire la salle B, pas la salle D.",
+          "englishPrompt": "Sorry, I meant room B, not room D.",
+          "knownFrenchVariants": [
+            "Pardon, je voulais dire la salle B, pas la salle D."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-cabb68f1459302a8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Agent : Pourriez-vous répéter l’heure, s’il vous plaît ?",
+          "sourceEnglishLine": "Clerk: Could you repeat the time, please?",
+          "sourceFrenchSpeaker": "Agent",
+          "sourceEnglishSpeaker": "Clerk",
+          "audioDisplayText": "Agent : Pourriez-vous répéter l’heure, s’il vous plaît ?",
+          "focus": "request-pourriez-vous",
+          "frenchAnswer": "Pourriez-vous répéter l’heure, s’il vous plaît ?",
+          "englishPrompt": "Could you repeat the time, please?",
+          "knownFrenchVariants": [
+            "Pourriez-vous répéter l’heure, s’il vous plaît ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-6743381831544136",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Léa : Si je comprends bien, la réservation n’est pas encore confirmée ?",
+          "sourceEnglishLine": "Léa: If I understand correctly, the reservation is not yet confirmed?",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Si je comprends bien, la réservation n’est pas encore confirmée ?",
+          "focus": "check-si-je-comprends",
+          "frenchAnswer": "Si je comprends bien, la réservation n’est pas encore confirmée ?",
+          "englishPrompt": "If I understand correctly, the reservation is not yet confirmed?",
+          "knownFrenchVariants": [
+            "Si je comprends bien, la réservation n’est pas encore confirmée ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-c3af1b9102514fdf",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Léa : Pourriez-vous me confirmer la salle et l’heure par écrit ?",
+          "sourceEnglishLine": "Léa: Could you confirm the room and time to me in writing?",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Pourriez-vous me confirmer la salle et l’heure par écrit ?",
+          "focus": "written-confirmation",
+          "frenchAnswer": "Pourriez-vous me confirmer la salle et l’heure par écrit ?",
+          "englishPrompt": "Could you confirm the room and time to me in writing?",
+          "knownFrenchVariants": [
+            "Pourriez-vous me confirmer la salle et l’heure par écrit ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonKey": "master-french-basics:7",
+      "grammarModel": {
+        "habit": "D’habitude, je révisais le mardi après le cours.",
+        "exception": "Cette semaine, le cours a lieu jeudi.",
+        "proposal": "Au lieu de mardi, révisons ensemble vendredi.",
+        "confirmation": "Vendredi à dix-sept heures me convient."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-77d4c1da78fcaac1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : D’habitude, je révisais le mardi après notre cours de langue.",
+          "sourceEnglishLine": "Camille: I usually reviewed on Tuesdays after our language class.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : D’habitude, je révisais le mardi après notre cours de langue.",
+          "focus": "habit-imparfait",
+          "frenchAnswer": "D’habitude, je révisais le mardi après notre cours de langue.",
+          "englishPrompt": "I usually reviewed on Tuesdays after our language class.",
+          "knownFrenchVariants": [
+            "D’habitude, je révisais le mardi après notre cours de langue."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-8daf39d6fc5efee7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Hugo : Exactement. Mardi, je dois préparer une présentation au lieu de réviser.",
+          "sourceEnglishLine": "Hugo: Exactly. On Tuesday I have to prepare a presentation instead of reviewing.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Exactement. Mardi, je dois préparer une présentation au lieu de réviser.",
+          "focus": "instead-au-lieu-de",
+          "frenchAnswer": "Exactement. Mardi, je dois préparer une présentation au lieu de réviser.",
+          "englishPrompt": "Exactly. On Tuesday I have to prepare a presentation instead of reviewing.",
+          "knownFrenchVariants": [
+            "Exactement. Mardi, je dois préparer une présentation au lieu de réviser."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-9170ead196399bc8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Hugo : Et si nous révisions ensemble vendredi après le cours ?",
+          "sourceEnglishLine": "Hugo: What if we reviewed together on Friday after class?",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Et si nous révisions ensemble vendredi après le cours ?",
+          "focus": "proposal-conditional",
+          "frenchAnswer": "Et si nous révisions ensemble vendredi après le cours ?",
+          "englishPrompt": "What if we reviewed together on Friday after class?",
+          "knownFrenchVariants": [
+            "Et si nous révisions ensemble vendredi après le cours ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-f3ce313d7b9ccd20",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 8,
+          "sourceFrenchLine": "Hugo : Nous pourrions commencer à dix-sept heures à la bibliothèque.",
+          "sourceEnglishLine": "Hugo: We could start at five o’clock at the library.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Nous pourrions commencer à dix-sept heures à la bibliothèque.",
+          "focus": "could-conditional",
+          "frenchAnswer": "Nous pourrions commencer à dix-sept heures à la bibliothèque.",
+          "englishPrompt": "We could start at five o’clock at the library.",
+          "knownFrenchVariants": [
+            "Nous pourrions commencer à dix-sept heures à la bibliothèque."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-093d622d366c8e7f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 12,
+          "sourceFrenchLine": "Hugo : C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.",
+          "sourceEnglishLine": "Hugo: It is confirmed: Friday at five o’clock, at the library.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.",
+          "focus": "confirmed-time",
+          "frenchAnswer": "C’est confirmé : vendredi à dix-sept heures, à la bibliothèque.",
+          "englishPrompt": "It is confirmed: Friday at five o’clock, at the library.",
+          "knownFrenchVariants": [
+            "C’est confirmé : vendredi à dix-sept heures, à la bibliothèque."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "master-french-basics:8",
+      "grammarModel": {
+        "request": "Elle demande de confirmer le rendez-vous avant midi.",
+        "conflict": "Je ne suis pas disponible mardi à quinze heures.",
+        "proposal": "Pourrions-nous nous voir mercredi à neuf heures ?",
+        "confirmation": "Je confirme notre rendez-vous mercredi à neuf heures."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-a346b9e75a5c6362",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi.",
+          "sourceEnglishLine": "Coordinator: Hello Camille, please confirm the appointment before noon.",
+          "sourceFrenchSpeaker": "Coordinatrice",
+          "sourceEnglishSpeaker": "Coordinator",
+          "audioDisplayText": "Coordinatrice : Bonjour Camille, merci de confirmer le rendez-vous avant midi.",
+          "focus": "deadline-request",
+          "frenchAnswer": "Bonjour Camille, merci de confirmer le rendez-vous avant midi.",
+          "englishPrompt": "Hello Camille, please confirm the appointment before noon.",
+          "knownFrenchVariants": [
+            "Bonjour Camille, merci de confirmer le rendez-vous avant midi."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-53d9c0c876fe8929",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Camille : Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.",
+          "sourceEnglishLine": "Camille: She asks for confirmation before noon, but Tuesday at three does not work for me.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.",
+          "focus": "conflict-description",
+          "frenchAnswer": "Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas.",
+          "englishPrompt": "She asks for confirmation before noon, but Tuesday at three does not work for me.",
+          "knownFrenchVariants": [
+            "Elle demande une confirmation avant midi, mais mardi à quinze heures ne me convient pas."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-534bc980658b36ba",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Camille : Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?",
+          "sourceEnglishLine": "Camille: I am unavailable Tuesday at three; could we meet Wednesday at nine?",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?",
+          "focus": "conditional-alternative",
+          "frenchAnswer": "Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?",
+          "englishPrompt": "I am unavailable Tuesday at three; could we meet Wednesday at nine?",
+          "knownFrenchVariants": [
+            "Je ne suis pas disponible mardi à quinze heures ; pourrions-nous nous voir mercredi à neuf heures ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-fef0ed58af960202",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Camille : Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.",
+          "sourceEnglishLine": "Camille: Thank you, and I confirm our appointment for Wednesday at nine.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.",
+          "focus": "written-confirmation",
+          "frenchAnswer": "Je vous remercie et confirme notre rendez-vous mercredi à neuf heures.",
+          "englishPrompt": "Thank you, and I confirm our appointment for Wednesday at nine.",
+          "knownFrenchVariants": [
+            "Je vous remercie et confirme notre rendez-vous mercredi à neuf heures."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "master-french-basics:9",
+      "grammarModel": {
+        "comparison": "La lampe A est plus légère que la lampe B.",
+        "tradeoff": "La lampe B est moins chère, mais son autonomie est plus courte.",
+        "choice": "Je préfère la lampe A parce que sa batterie dure plus longtemps.",
+        "fallback": "Cependant, elle est épuisée ; choisissons la lampe C."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-b9da51d5b2025a24",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Hugo : La lampe A est plus légère que la lampe B.",
+          "sourceEnglishLine": "Hugo: Lamp A is lighter than lamp B.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : La lampe A est plus légère que la lampe B.",
+          "focus": "comparison-plus",
+          "frenchAnswer": "La lampe A est plus légère que la lampe B.",
+          "englishPrompt": "Lamp A is lighter than lamp B.",
+          "knownFrenchVariants": [
+            "La lampe A est plus légère que la lampe B."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-f3c2cb848f1032b8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Hugo : La lampe B est moins chère, mais sa batterie dure moins longtemps.",
+          "sourceEnglishLine": "Hugo: Lamp B is less expensive, but its battery lasts less time.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : La lampe B est moins chère, mais sa batterie dure moins longtemps.",
+          "focus": "comparison-moins",
+          "frenchAnswer": "La lampe B est moins chère, mais sa batterie dure moins longtemps.",
+          "englishPrompt": "Lamp B is less expensive, but its battery lasts less time.",
+          "knownFrenchVariants": [
+            "La lampe B est moins chère, mais sa batterie dure moins longtemps."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-55b6bee5ec01440f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Hugo : La lampe C est aussi solide que la lampe A, mais un peu plus lourde.",
+          "sourceEnglishLine": "Hugo: Lamp C is as sturdy as lamp A, but a little heavier.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : La lampe C est aussi solide que la lampe A, mais un peu plus lourde.",
+          "focus": "comparison-aussi",
+          "frenchAnswer": "La lampe C est aussi solide que la lampe A, mais un peu plus lourde.",
+          "englishPrompt": "Lamp C is as sturdy as lamp A, but a little heavier.",
+          "knownFrenchVariants": [
+            "La lampe C est aussi solide que la lampe A, mais un peu plus lourde."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-0aba10e948b4ede6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Ana : Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "sourceEnglishLine": "Ana: However, its battery life is still better than lamp B’s.",
+          "sourceFrenchSpeaker": "Ana",
+          "sourceEnglishSpeaker": "Ana",
+          "audioDisplayText": "Ana : Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "focus": "better-meilleure",
+          "frenchAnswer": "Cependant, son autonomie reste meilleure que celle de la lampe B.",
+          "englishPrompt": "However, its battery life is still better than lamp B’s.",
+          "knownFrenchVariants": [
+            "Cependant, son autonomie reste meilleure que celle de la lampe B."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonKey": "master-french-basics:10",
+      "grammarModel": {
+        "clue": "Celle-ci porte les initiales de Nadia.",
+        "contrast": "L’autre écharpe appartient peut-être à Camille.",
+        "question": "Est-ce que cette écharpe vous appartient ?",
+        "return": "Oui, c’est la mienne ; merci de me l’avoir rendue."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-8aee18fbb4137710",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Ana : Celle-ci est bleue et porte les initiales N. D. sur son étiquette.",
+          "sourceEnglishLine": "Ana: This one is blue and has the initials N. D. on its label.",
+          "sourceFrenchSpeaker": "Ana",
+          "sourceEnglishSpeaker": "Ana",
+          "audioDisplayText": "Ana : Celle-ci est bleue et porte les initiales N. D. sur son étiquette.",
+          "focus": "demonstrative-celle-ci",
+          "frenchAnswer": "Celle-ci est bleue et porte les initiales N. D. sur son étiquette.",
+          "englishPrompt": "This one is blue and has the initials N. D. on its label.",
+          "knownFrenchVariants": [
+            "Celle-ci est bleue et porte les initiales N. D. sur son étiquette."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-a17bdeb83be6003e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Hugo : Nadia a une écharpe bleue, mais vérifions avant de la lui rendre.",
+          "sourceEnglishLine": "Hugo: Nadia has a blue scarf, but let us check before returning it to her.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Nadia a une écharpe bleue, mais vérifions avant de la lui rendre.",
+          "focus": "two-pronouns-la-lui",
+          "frenchAnswer": "Nadia a une écharpe bleue, mais vérifions avant de la lui rendre.",
+          "englishPrompt": "Nadia has a blue scarf, but let us check before returning it to her.",
+          "knownFrenchVariants": [
+            "Nadia a une écharpe bleue, mais vérifions avant de la lui rendre."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ad1f159a61a651b9",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Ana : Nadia, est-ce que cette écharpe bleue vous appartient ?",
+          "sourceEnglishLine": "Ana: Nadia, does this blue scarf belong to you?",
+          "sourceFrenchSpeaker": "Ana",
+          "sourceEnglishSpeaker": "Ana",
+          "audioDisplayText": "Ana : Nadia, est-ce que cette écharpe bleue vous appartient ?",
+          "focus": "ownership-appartenir",
+          "frenchAnswer": "Nadia, est-ce que cette écharpe bleue vous appartient ?",
+          "englishPrompt": "Nadia, does this blue scarf belong to you?",
+          "knownFrenchVariants": [
+            "Nadia, est-ce que cette écharpe bleue vous appartient ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e1257260525f4fa7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 8,
+          "sourceFrenchLine": "Nadia : Oui, c’est la mienne ; regardez, mes initiales sont sur l’étiquette.",
+          "sourceEnglishLine": "Nadia: Yes, it is mine; look, my initials are on the label.",
+          "sourceFrenchSpeaker": "Nadia",
+          "sourceEnglishSpeaker": "Nadia",
+          "audioDisplayText": "Nadia : Oui, c’est la mienne ; regardez, mes initiales sont sur l’étiquette.",
+          "focus": "possessive-la-mienne",
+          "frenchAnswer": "Oui, c’est la mienne ; regardez, mes initiales sont sur l’étiquette.",
+          "englishPrompt": "Yes, it is mine; look, my initials are on the label.",
+          "knownFrenchVariants": [
+            "Oui, c’est la mienne ; regardez, mes initiales sont sur l’étiquette."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-82404f7f19e632ae",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Camille : Oui, la mienne a une petite couture rouge près du bord.",
+          "sourceEnglishLine": "Camille: Yes, mine has a small red seam near the edge.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Oui, la mienne a une petite couture rouge près du bord.",
+          "focus": "feminine-la-mienne",
+          "frenchAnswer": "Oui, la mienne a une petite couture rouge près du bord.",
+          "englishPrompt": "Yes, mine has a small red seam near the edge.",
+          "knownFrenchVariants": [
+            "Oui, la mienne a une petite couture rouge près du bord."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonKey": "master-french-basics:11",
+      "grammarModel": {
+        "preference": "Nadia préfère un café sans lait de vache.",
+        "unavailable": "Nous n’avons plus de lait d’avoine.",
+        "alternative": "Le lait de soja vous conviendrait-il au lieu du lait d’avoine ?",
+        "confirmation": "Un café au lait de soja pour Nadia et un thé nature pour Hugo."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-bb57d3c44f92b756",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Hugo : Je voudrais un thé nature, sans sucre.",
+          "sourceEnglishLine": "Hugo: I would like a plain tea, without sugar.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Je voudrais un thé nature, sans sucre.",
+          "focus": "without-sans",
+          "frenchAnswer": "Je voudrais un thé nature, sans sucre.",
+          "englishPrompt": "I would like a plain tea, without sugar.",
+          "knownFrenchVariants": [
+            "Je voudrais un thé nature, sans sucre."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4ec9422720b99859",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Serveuse : Préférez-vous le lait d’avoine pour le goût ou évitez-vous le lait de vache ?",
+          "sourceEnglishLine": "Server: Do you prefer oat milk for the taste, or are you avoiding cow’s milk?",
+          "sourceFrenchSpeaker": "Serveuse",
+          "sourceEnglishSpeaker": "Server",
+          "audioDisplayText": "Serveuse : Préférez-vous le lait d’avoine pour le goût ou évitez-vous le lait de vache ?",
+          "focus": "preference-or-restriction",
+          "frenchAnswer": "Préférez-vous le lait d’avoine pour le goût ou évitez-vous le lait de vache ?",
+          "englishPrompt": "Do you prefer oat milk for the taste, or are you avoiding cow’s milk?",
+          "knownFrenchVariants": [
+            "Préférez-vous le lait d’avoine pour le goût ou évitez-vous le lait de vache ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-25d77c9952e78354",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Serveuse : Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?",
+          "sourceEnglishLine": "Server: Would a coffee with soy milk work for you instead of oat milk?",
+          "sourceFrenchSpeaker": "Serveuse",
+          "sourceEnglishSpeaker": "Server",
+          "audioDisplayText": "Serveuse : Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?",
+          "focus": "alternative-au-lieu-de",
+          "frenchAnswer": "Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?",
+          "englishPrompt": "Would a coffee with soy milk work for you instead of oat milk?",
+          "knownFrenchVariants": [
+            "Un café au lait de soja vous conviendrait-il au lieu du lait d’avoine ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e6d8f20c98113fc8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Hugo : Mon thé reste sans sucre, n’est-ce pas ?",
+          "sourceEnglishLine": "Hugo: My tea is still without sugar, right?",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Mon thé reste sans sucre, n’est-ce pas ?",
+          "focus": "confirm-without-sugar",
+          "frenchAnswer": "Mon thé reste sans sucre, n’est-ce pas ?",
+          "englishPrompt": "My tea is still without sugar, right?",
+          "knownFrenchVariants": [
+            "Mon thé reste sans sucre, n’est-ce pas ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4e964e0853e7b72c",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 12,
+          "sourceFrenchLine": "Nadia : C’est bien notre commande ; apportez-lui le thé et servez-moi le café au lait de soja.",
+          "sourceEnglishLine": "Nadia: That is our order; please bring him the tea and serve me the coffee with soy milk.",
+          "sourceFrenchSpeaker": "Nadia",
+          "sourceEnglishSpeaker": "Nadia",
+          "audioDisplayText": "Nadia : C’est bien notre commande ; apportez-lui le thé et servez-moi le café au lait de soja.",
+          "focus": "recipient-lui-moi",
+          "frenchAnswer": "C’est bien notre commande ; apportez-lui le thé et servez-moi le café au lait de soja.",
+          "englishPrompt": "That is our order; please bring him the tea and serve me the coffee with soy milk.",
+          "knownFrenchVariants": [
+            "C’est bien notre commande ; apportez-lui le thé et servez-moi le café au lait de soja."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonKey": "master-french-basics:12",
+      "grammarModel": {
+        "constraint": "Léa ne peut pas venir à quatorze heures.",
+        "permission": "Nous avons le droit de réserver la petite salle après seize heures.",
+        "condition": "Si elle est prise, nous travaillerons à la bibliothèque.",
+        "sequence": "D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-4a6fd151e5cae5a7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : Nous devons préparer la présentation avant vendredi.",
+          "sourceEnglishLine": "Camille: We must prepare the presentation before Friday.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Nous devons préparer la présentation avant vendredi.",
+          "focus": "obligation-devons",
+          "frenchAnswer": "Nous devons préparer la présentation avant vendredi.",
+          "englishPrompt": "We must prepare the presentation before Friday.",
+          "knownFrenchVariants": [
+            "Nous devons préparer la présentation avant vendredi."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-73b631ec496271da",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Léa : Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures.",
+          "sourceEnglishLine": "Léa: I cannot come at two; my class ends at three.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures.",
+          "focus": "ability-negation",
+          "frenchAnswer": "Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures.",
+          "englishPrompt": "I cannot come at two; my class ends at three.",
+          "knownFrenchVariants": [
+            "Je ne peux pas venir à quatorze heures ; mon cours finit à quinze heures."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-7dcad1b03422ff02",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Léa : Avons-nous le droit de la réserver pour une heure ?",
+          "sourceEnglishLine": "Léa: Are we allowed to book it for one hour?",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Avons-nous le droit de la réserver pour une heure ?",
+          "focus": "permission-droit-de",
+          "frenchAnswer": "Avons-nous le droit de la réserver pour une heure ?",
+          "englishPrompt": "Are we allowed to book it for one hour?",
+          "knownFrenchVariants": [
+            "Avons-nous le droit de la réserver pour une heure ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2013602ea9ad70af",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Hugo : Si la petite salle est prise, nous irons à la bibliothèque.",
+          "sourceEnglishLine": "Hugo: If the small room is occupied, we will go to the library.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Si la petite salle est prise, nous irons à la bibliothèque.",
+          "focus": "condition-si",
+          "frenchAnswer": "Si la petite salle est prise, nous irons à la bibliothèque.",
+          "englishPrompt": "If the small room is occupied, we will go to the library.",
+          "knownFrenchVariants": [
+            "Si la petite salle est prise, nous irons à la bibliothèque."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-f09e4ed5a1507e50",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Camille : D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives.",
+          "sourceEnglishLine": "Camille: First we will choose the sources; then we will prepare the slides.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives.",
+          "focus": "sequence-d-abord-ensuite",
+          "frenchAnswer": "D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives.",
+          "englishPrompt": "First we will choose the sources; then we will prepare the slides.",
+          "knownFrenchVariants": [
+            "D’abord, nous choisirons les sources ; ensuite, nous préparerons les diapositives."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 13,
+      "stableLessonKey": "master-french-basics:13",
+      "grammarModel": {
+        "required": "Il faut vérifier les légendes avant d’imprimer les affiches.",
+        "optional": "Si nous avons le temps, nous ajouterons une photo.",
+        "owner": "Camille vérifie les légendes.",
+        "done": "La tâche est terminée quand la coordinatrice approuve le texte."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-7e360e23101e9931",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Coordinatrice : L’exposition ouvre vendredi ; les affiches doivent être prêtes jeudi soir.",
+          "sourceEnglishLine": "Coordinator: The exhibition opens Friday; the posters must be ready Thursday evening.",
+          "sourceFrenchSpeaker": "Coordinatrice",
+          "sourceEnglishSpeaker": "Coordinator",
+          "audioDisplayText": "Coordinatrice : L’exposition ouvre vendredi ; les affiches doivent être prêtes jeudi soir.",
+          "focus": "deadline",
+          "frenchAnswer": "L’exposition ouvre vendredi ; les affiches doivent être prêtes jeudi soir.",
+          "englishPrompt": "The exhibition opens Friday; the posters must be ready Thursday evening.",
+          "knownFrenchVariants": [
+            "L’exposition ouvre vendredi ; les affiches doivent être prêtes jeudi soir."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b5df7cae26a48105",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Coordinatrice : Il faut vérifier les légendes et imprimer quatre affiches lisibles.",
+          "sourceEnglishLine": "Coordinator: You must check the captions and print four readable posters.",
+          "sourceFrenchSpeaker": "Coordinatrice",
+          "sourceEnglishSpeaker": "Coordinator",
+          "audioDisplayText": "Coordinatrice : Il faut vérifier les légendes et imprimer quatre affiches lisibles.",
+          "focus": "required-il-faut",
+          "frenchAnswer": "Il faut vérifier les légendes et imprimer quatre affiches lisibles.",
+          "englishPrompt": "You must check the captions and print four readable posters.",
+          "knownFrenchVariants": [
+            "Il faut vérifier les légendes et imprimer quatre affiches lisibles."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-735a5035fdf2da1b",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Hugo : Nous devons vérifier les légendes avant d’imprimer les affiches.",
+          "sourceEnglishLine": "Hugo: We must check the captions before printing the posters.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Nous devons vérifier les légendes avant d’imprimer les affiches.",
+          "focus": "dependency-avant-de",
+          "frenchAnswer": "Nous devons vérifier les légendes avant d’imprimer les affiches.",
+          "englishPrompt": "We must check the captions before printing the posters.",
+          "knownFrenchVariants": [
+            "Nous devons vérifier les légendes avant d’imprimer les affiches."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-19d27834be1840aa",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 8,
+          "sourceFrenchLine": "Hugo : Après votre validation, j’imprimerai les quatre affiches.",
+          "sourceEnglishLine": "Hugo: After your approval, I will print the four posters.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Après votre validation, j’imprimerai les quatre affiches.",
+          "focus": "after-validation",
+          "frenchAnswer": "Après votre validation, j’imprimerai les quatre affiches.",
+          "englishPrompt": "After your approval, I will print the four posters.",
+          "knownFrenchVariants": [
+            "Après votre validation, j’imprimerai les quatre affiches."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-977314e19e07ea62",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 12,
+          "sourceFrenchLine": "Camille : Nous ajouterons la photo seulement si les tâches obligatoires sont terminées.",
+          "sourceEnglishLine": "Camille: We will add the photograph only if the required tasks are finished.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Nous ajouterons la photo seulement si les tâches obligatoires sont terminées.",
+          "focus": "optional-si",
+          "frenchAnswer": "Nous ajouterons la photo seulement si les tâches obligatoires sont terminées.",
+          "englishPrompt": "We will add the photograph only if the required tasks are finished.",
+          "knownFrenchVariants": [
+            "Nous ajouterons la photo seulement si les tâches obligatoires sont terminées."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "master-french-basics:14",
+      "grammarModel": {
+        "routine": "D’habitude, nous installions le projecteur avant la répétition.",
+        "interruption": "Soudain, il est tombé en panne.",
+        "completed": "Nous avons déjà distribué les documents.",
+        "next": "Nous répéterons sans écran, puis nous demanderons un autre appareil."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-57e2b21c69f113ed",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : D’habitude, nous installions le projecteur avant la répétition du matin.",
+          "sourceEnglishLine": "Camille: Usually, we set up the projector before the morning rehearsal.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : D’habitude, nous installions le projecteur avant la répétition du matin.",
+          "focus": "habit-imparfait",
+          "frenchAnswer": "D’habitude, nous installions le projecteur avant la répétition du matin.",
+          "englishPrompt": "Usually, we set up the projector before the morning rehearsal.",
+          "knownFrenchVariants": [
+            "D’habitude, nous installions le projecteur avant la répétition du matin."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b1965196cea21b3e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Camille : Aujourd’hui, nous avons d’abord distribué les documents.",
+          "sourceEnglishLine": "Camille: Today, we first handed out the documents.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Aujourd’hui, nous avons d’abord distribué les documents.",
+          "focus": "completed-passe-compose",
+          "frenchAnswer": "Aujourd’hui, nous avons d’abord distribué les documents.",
+          "englishPrompt": "Today, we first handed out the documents.",
+          "knownFrenchVariants": [
+            "Aujourd’hui, nous avons d’abord distribué les documents."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4276e5e316ea4332",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Camille : Soudain, l’image a disparu et l’appareil s’est éteint.",
+          "sourceEnglishLine": "Camille: Suddenly, the image disappeared and the device switched off.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Soudain, l’image a disparu et l’appareil s’est éteint.",
+          "focus": "sudden-event",
+          "frenchAnswer": "Soudain, l’image a disparu et l’appareil s’est éteint.",
+          "englishPrompt": "Suddenly, the image disappeared and the device switched off.",
+          "knownFrenchVariants": [
+            "Soudain, l’image a disparu et l’appareil s’est éteint."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-c2f8d69c63329cb0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Camille : La répétition a donc été interrompue avant la deuxième partie.",
+          "sourceEnglishLine": "Camille: The rehearsal was therefore interrupted before the second part.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : La répétition a donc été interrompue avant la deuxième partie.",
+          "focus": "interruption",
+          "frenchAnswer": "La répétition a donc été interrompue avant la deuxième partie.",
+          "englishPrompt": "The rehearsal was therefore interrupted before the second part.",
+          "knownFrenchVariants": [
+            "La répétition a donc été interrompue avant la deuxième partie."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-c416e25cb7911589",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Coordinatrice : Je vais demander un appareil de remplacement pour cet après-midi.",
+          "sourceEnglishLine": "Coordinator: I will request a replacement device for this afternoon.",
+          "sourceFrenchSpeaker": "Coordinatrice",
+          "sourceEnglishSpeaker": "Coordinator",
+          "audioDisplayText": "Coordinatrice : Je vais demander un appareil de remplacement pour cet après-midi.",
+          "focus": "revised-future",
+          "frenchAnswer": "Je vais demander un appareil de remplacement pour cet après-midi.",
+          "englishPrompt": "I will request a replacement device for this afternoon.",
+          "knownFrenchVariants": [
+            "Je vais demander un appareil de remplacement pour cet après-midi."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "master-french-basics:15",
+      "grammarModel": {
+        "closure": "L’entrée principale est fermée aujourd’hui.",
+        "route": "Passez devant la fontaine, puis tournez à droite après le café.",
+        "check": "Pouvez-vous me redire le trajet ?",
+        "repair": "Non, ne tournez pas avant le café ; tournez juste après."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-421dc01514b88024",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Accueil : L’entrée principale est fermée ; utilisez l’entrée latérale.",
+          "sourceEnglishLine": "Reception: The main entrance is closed; use the side entrance.",
+          "sourceFrenchSpeaker": "Accueil",
+          "sourceEnglishSpeaker": "Reception",
+          "audioDisplayText": "Accueil : L’entrée principale est fermée ; utilisez l’entrée latérale.",
+          "focus": "alternate-imperative",
+          "frenchAnswer": "L’entrée principale est fermée ; utilisez l’entrée latérale.",
+          "englishPrompt": "The main entrance is closed; use the side entrance.",
+          "knownFrenchVariants": [
+            "L’entrée principale est fermée ; utilisez l’entrée latérale."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b00dc1367d3a393b",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Accueil : Passez devant la fontaine et continuez jusqu’au café.",
+          "sourceEnglishLine": "Reception: Walk past the fountain and continue to the café.",
+          "sourceFrenchSpeaker": "Accueil",
+          "sourceEnglishSpeaker": "Reception",
+          "audioDisplayText": "Accueil : Passez devant la fontaine et continuez jusqu’au café.",
+          "focus": "route-imperative",
+          "frenchAnswer": "Passez devant la fontaine et continuez jusqu’au café.",
+          "englishPrompt": "Walk past the fountain and continue to the café.",
+          "knownFrenchVariants": [
+            "Passez devant la fontaine et continuez jusqu’au café."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e31f83fc796350a0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Accueil : Tournez à droite juste après le café, pas avant.",
+          "sourceEnglishLine": "Reception: Turn right just after the café, not before it.",
+          "sourceFrenchSpeaker": "Accueil",
+          "sourceEnglishSpeaker": "Reception",
+          "audioDisplayText": "Accueil : Tournez à droite juste après le café, pas avant.",
+          "focus": "turn-after-not-before",
+          "frenchAnswer": "Tournez à droite juste après le café, pas avant.",
+          "englishPrompt": "Turn right just after the café, not before it.",
+          "knownFrenchVariants": [
+            "Tournez à droite juste après le café, pas avant."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-23634ca253ab398d",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Visiteur : Je passe devant la fontaine, puis je tourne à droite avant le café.",
+          "sourceEnglishLine": "Visitor: I walk past the fountain, then I turn right before the café.",
+          "sourceFrenchSpeaker": "Visiteur",
+          "sourceEnglishSpeaker": "Visitor",
+          "audioDisplayText": "Visiteur : Je passe devant la fontaine, puis je tourne à droite avant le café.",
+          "focus": "incorrect-route",
+          "frenchAnswer": "Je passe devant la fontaine, puis je tourne à droite avant le café.",
+          "englishPrompt": "I walk past the fountain, then I turn right before the café.",
+          "knownFrenchVariants": [
+            "Je passe devant la fontaine, puis je tourne à droite avant le café."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-7fa59901b8893e7f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Accueil : Presque : tournez juste après le café, puis traversez la cour.",
+          "sourceEnglishLine": "Reception: Almost: turn just after the café, then cross the courtyard.",
+          "sourceFrenchSpeaker": "Accueil",
+          "sourceEnglishSpeaker": "Reception",
+          "audioDisplayText": "Accueil : Presque : tournez juste après le café, puis traversez la cour.",
+          "focus": "route-repair",
+          "frenchAnswer": "Presque : tournez juste après le café, puis traversez la cour.",
+          "englishPrompt": "Almost: turn just after the café, then cross the courtyard.",
+          "knownFrenchVariants": [
+            "Presque : tournez juste après le café, puis traversez la cour."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonKey": "master-french-basics:16",
+      "grammarModel": {
+        "now": "Je suis en train de vérifier la dernière légende.",
+        "dependency": "Nous devons la corriger avant d’imprimer.",
+        "plan": "Nous allons imprimer demain matin.",
+        "change": "Comme la correction prend plus de temps, nous n’imprimerons pas ce soir."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-f027ed87664e3e58",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Hugo : Es-tu en train d’imprimer l’affiche maintenant ?",
+          "sourceEnglishLine": "Hugo: Are you printing the poster right now?",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Es-tu en train d’imprimer l’affiche maintenant ?",
+          "focus": "now-en-train-de",
+          "frenchAnswer": "Es-tu en train d’imprimer l’affiche maintenant ?",
+          "englishPrompt": "Are you printing the poster right now?",
+          "knownFrenchVariants": [
+            "Es-tu en train d’imprimer l’affiche maintenant ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-0bab44166b67e44a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Camille : Non, je suis en train de vérifier la dernière légende.",
+          "sourceEnglishLine": "Camille: No, I am checking the final caption right now.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Non, je suis en train de vérifier la dernière légende.",
+          "focus": "progressive-answer",
+          "frenchAnswer": "Non, je suis en train de vérifier la dernière légende.",
+          "englishPrompt": "No, I am checking the final caption right now.",
+          "knownFrenchVariants": [
+            "Non, je suis en train de vérifier la dernière légende."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2d1f49525f287bd5",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Camille : Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.",
+          "sourceEnglishLine": "Camille: No, we must check the date before sending the file to the printer.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.",
+          "focus": "dependency-avant-de",
+          "frenchAnswer": "Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie.",
+          "englishPrompt": "No, we must check the date before sending the file to the printer.",
+          "knownFrenchVariants": [
+            "Non, il faut vérifier la date avant d’envoyer le fichier à l’imprimerie."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-12388d3773fcf542",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Camille : Nous allons corriger le fichier ce soir et imprimer demain matin.",
+          "sourceEnglishLine": "Camille: We are going to correct the file tonight and print tomorrow morning.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Nous allons corriger le fichier ce soir et imprimer demain matin.",
+          "focus": "near-future-aller",
+          "frenchAnswer": "Nous allons corriger le fichier ce soir et imprimer demain matin.",
+          "englishPrompt": "We are going to correct the file tonight and print tomorrow morning.",
+          "knownFrenchVariants": [
+            "Nous allons corriger le fichier ce soir et imprimer demain matin."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-47e374b8e2ee5710",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Hugo : Alors je vais prévenir la coordinatrice du nouveau délai.",
+          "sourceEnglishLine": "Hugo: Then I am going to tell the coordinator about the new deadline.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Alors je vais prévenir la coordinatrice du nouveau délai.",
+          "focus": "revised-plan",
+          "frenchAnswer": "Alors je vais prévenir la coordinatrice du nouveau délai.",
+          "englishPrompt": "Then I am going to tell the coordinator about the new deadline.",
+          "knownFrenchVariants": [
+            "Alors je vais prévenir la coordinatrice du nouveau délai."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonKey": "master-french-basics:17",
+      "grammarModel": {
+        "objects": "Ce dossier bleu est pour Nadia ; le dossier vert est pour Camille.",
+        "recipient": "Je vais lui donner le dossier bleu, à Nadia.",
+        "repair": "Non, par “lui”, je voulais dire Nadia.",
+        "contrast": "Celui-ci est bleu ; celui-là est vert."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-3c87752688e67c31",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.",
+          "sourceEnglishLine": "Léa: Yes. This one, the blue one, goes to Nadia; that one, the green one, to Camille.",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.",
+          "focus": "demonstrative-celui-ci",
+          "frenchAnswer": "Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille.",
+          "englishPrompt": "Yes. This one, the blue one, goes to Nadia; that one, the green one, to Camille.",
+          "knownFrenchVariants": [
+            "Oui. Celui-ci, le bleu, doit aller à Nadia ; celui-là, le vert, à Camille."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-9a46ad3bf05112b6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Hugo : Je vais lui donner le bleu dès qu’elle arrivera.",
+          "sourceEnglishLine": "Hugo: I will give her the blue one as soon as she arrives.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Je vais lui donner le bleu dès qu’elle arrivera.",
+          "focus": "ambiguous-lui",
+          "frenchAnswer": "Je vais lui donner le bleu dès qu’elle arrivera.",
+          "englishPrompt": "I will give her the blue one as soon as she arrives.",
+          "knownFrenchVariants": [
+            "Je vais lui donner le bleu dès qu’elle arrivera."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e403ccab99146498",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Léa : Par “lui”, veux-tu dire Nadia ou Camille ?",
+          "sourceEnglishLine": "Léa: By “her,” do you mean Nadia or Camille?",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Par “lui”, veux-tu dire Nadia ou Camille ?",
+          "focus": "referent-check",
+          "frenchAnswer": "Par “lui”, veux-tu dire Nadia ou Camille ?",
+          "englishPrompt": "By “her,” do you mean Nadia or Camille?",
+          "knownFrenchVariants": [
+            "Par “lui”, veux-tu dire Nadia ou Camille ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-94c6d9813b83e8cc",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Hugo : Je voulais dire Nadia ; je lui donnerai le dossier bleu.",
+          "sourceEnglishLine": "Hugo: I meant Nadia; I will give the blue folder to her.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Je voulais dire Nadia ; je lui donnerai le dossier bleu.",
+          "focus": "named-repair",
+          "frenchAnswer": "Je voulais dire Nadia ; je lui donnerai le dossier bleu.",
+          "englishPrompt": "I meant Nadia; I will give the blue folder to her.",
+          "knownFrenchVariants": [
+            "Je voulais dire Nadia ; je lui donnerai le dossier bleu."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-5b2a2fc21e134c35",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Léa : Et les copies numériques, peux-tu les leur envoyer ce soir ?",
+          "sourceEnglishLine": "Léa: And the digital copies, can you send them to both of them tonight?",
+          "sourceFrenchSpeaker": "Léa",
+          "sourceEnglishSpeaker": "Léa",
+          "audioDisplayText": "Léa : Et les copies numériques, peux-tu les leur envoyer ce soir ?",
+          "focus": "plural-recipient-leur",
+          "frenchAnswer": "Et les copies numériques, peux-tu les leur envoyer ce soir ?",
+          "englishPrompt": "And the digital copies, can you send them to both of them tonight?",
+          "knownFrenchVariants": [
+            "Et les copies numériques, peux-tu les leur envoyer ce soir ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonKey": "master-french-basics:18",
+      "grammarModel": {
+        "departure": "Nous sommes partis à neuf heures.",
+        "interruption": "Il a commencé à pleuvoir après notre arrivée.",
+        "change": "Nous sommes entrés par la porte du jardin parce que la cour était fermée.",
+        "end": "Finalement, nous avons vu l’exposition avant de rentrer."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-b72d38d7a887a2b9",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : Hier, notre groupe est parti pour le musée à neuf heures.",
+          "sourceEnglishLine": "Camille: Yesterday our group left for the museum at nine o’clock.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Hier, notre groupe est parti pour le musée à neuf heures.",
+          "focus": "departure-past",
+          "frenchAnswer": "Hier, notre groupe est parti pour le musée à neuf heures.",
+          "englishPrompt": "Yesterday our group left for the museum at nine o’clock.",
+          "knownFrenchVariants": [
+            "Hier, notre groupe est parti pour le musée à neuf heures."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-53feb0f88eb1d031",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "sourceFrenchLine": "Hugo : Nous avons pris le bus et sommes arrivés avant l’ouverture.",
+          "sourceEnglishLine": "Hugo: We took the bus and arrived before opening time.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Nous avons pris le bus et sommes arrivés avant l’ouverture.",
+          "focus": "arrival-past",
+          "frenchAnswer": "Nous avons pris le bus et sommes arrivés avant l’ouverture.",
+          "englishPrompt": "We took the bus and arrived before opening time.",
+          "knownFrenchVariants": [
+            "Nous avons pris le bus et sommes arrivés avant l’ouverture."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e76dfdde3598035b",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Hugo : Puis la pluie a commencé et la cour a été fermée aux visiteurs.",
+          "sourceEnglishLine": "Hugo: Then the rain began and the courtyard was closed to visitors.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Puis la pluie a commencé et la cour a été fermée aux visiteurs.",
+          "focus": "interruption-past",
+          "frenchAnswer": "Puis la pluie a commencé et la cour a été fermée aux visiteurs.",
+          "englishPrompt": "Then the rain began and the courtyard was closed to visitors.",
+          "knownFrenchVariants": [
+            "Puis la pluie a commencé et la cour a été fermée aux visiteurs."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b5d17587fe1e6b73",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Camille : Nous sommes entrés et avons laissé nos manteaux au vestiaire.",
+          "sourceEnglishLine": "Camille: We went in and left our coats at the cloakroom.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Nous sommes entrés et avons laissé nos manteaux au vestiaire.",
+          "focus": "entry-past",
+          "frenchAnswer": "Nous sommes entrés et avons laissé nos manteaux au vestiaire.",
+          "englishPrompt": "We went in and left our coats at the cloakroom.",
+          "knownFrenchVariants": [
+            "Nous sommes entrés et avons laissé nos manteaux au vestiaire."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-08fee785fff76664",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 11,
+          "sourceFrenchLine": "Camille : Finalement, nous sommes rentrés en bus vers seize heures.",
+          "sourceEnglishLine": "Camille: Finally, we went home by bus around four o’clock.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Finalement, nous sommes rentrés en bus vers seize heures.",
+          "focus": "return-past",
+          "frenchAnswer": "Finalement, nous sommes rentrés en bus vers seize heures.",
+          "englishPrompt": "Finally, we went home by bus around four o’clock.",
+          "knownFrenchVariants": [
+            "Finalement, nous sommes rentrés en bus vers seize heures."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 19,
+      "stableLessonKey": "master-french-basics:19",
+      "grammarModel": {
+        "habit": "Avant, je venais à vélo chaque mardi.",
+        "event": "Un jour, un orage a éclaté pendant le trajet.",
+        "result": "Depuis cet incident, je prends le bus quand la météo annonce de la pluie.",
+        "nuance": "Par beau temps, je viens encore à vélo."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-be72e6d0b9f56cc0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : Avant, je venais au cours à vélo presque tous les mardis.",
+          "sourceEnglishLine": "Camille: Before, I came to class by bicycle almost every Tuesday.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Avant, je venais au cours à vélo presque tous les mardis.",
+          "focus": "habit-imparfait",
+          "frenchAnswer": "Avant, je venais au cours à vélo presque tous les mardis.",
+          "englishPrompt": "Before, I came to class by bicycle almost every Tuesday.",
+          "knownFrenchVariants": [
+            "Avant, je venais au cours à vélo presque tous les mardis."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e0baeb8f52881014",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "sourceFrenchLine": "Camille : Oui, je partais à huit heures et j’arrivais avant les autres.",
+          "sourceEnglishLine": "Camille: Yes, I used to leave at eight and arrive before the others.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Oui, je partais à huit heures et j’arrivais avant les autres.",
+          "focus": "repeated-background",
+          "frenchAnswer": "Oui, je partais à huit heures et j’arrivais avant les autres.",
+          "englishPrompt": "Yes, I used to leave at eight and arrive before the others.",
+          "knownFrenchVariants": [
+            "Oui, je partais à huit heures et j’arrivais avant les autres."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-97a5fcd4869b3136",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "sourceFrenchLine": "Camille : Un mardi, un orage a éclaté alors que je traversais le parc.",
+          "sourceEnglishLine": "Camille: One Tuesday, a thunderstorm broke out while I was crossing the park.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Un mardi, un orage a éclaté alors que je traversais le parc.",
+          "focus": "single-event-passe-compose",
+          "frenchAnswer": "Un mardi, un orage a éclaté alors que je traversais le parc.",
+          "englishPrompt": "One Tuesday, a thunderstorm broke out while I was crossing the park.",
+          "knownFrenchVariants": [
+            "Un mardi, un orage a éclaté alors que je traversais le parc."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-a2f30a91609c9ad4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 7,
+          "sourceFrenchLine": "Camille : Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.",
+          "sourceEnglishLine": "Camille: No, I stopped under shelter and informed the teacher.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.",
+          "focus": "completed-response",
+          "frenchAnswer": "Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur.",
+          "englishPrompt": "No, I stopped under shelter and informed the teacher.",
+          "knownFrenchVariants": [
+            "Non, je me suis arrêtée à l’abri et j’ai prévenu le professeur."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ea02afcee1beeeda",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 9,
+          "sourceFrenchLine": "Camille : Quand la météo annonce de la pluie, je prends le bus.",
+          "sourceEnglishLine": "Camille: When the forecast calls for rain, I take the bus.",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Quand la météo annonce de la pluie, je prends le bus.",
+          "focus": "current-routine",
+          "frenchAnswer": "Quand la météo annonce de la pluie, je prends le bus.",
+          "englishPrompt": "When the forecast calls for rain, I take the bus.",
+          "knownFrenchVariants": [
+            "Quand la météo annonce de la pluie, je prends le bus."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonKey": "master-french-basics:20",
+      "grammarModel": {
+        "open": "Nous devons préparer l’atelier de jeudi.",
+        "clarify": "De combien de places avons-nous besoin ?",
+        "compare": "La petite salle est plus calme, mais elle a moins de places.",
+        "close": "Hugo vérifiera la grande salle auprès de l’accueil ; Camille préviendra les participants après confirmation."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-275bc7a54f35f903",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "sourceFrenchLine": "Camille : Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?",
+          "sourceEnglishLine": "Camille: Hi Hugo, can we finalize Thursday’s workshop?",
+          "sourceFrenchSpeaker": "Camille",
+          "sourceEnglishSpeaker": "Camille",
+          "audioDisplayText": "Camille : Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?",
+          "focus": "purpose-opening",
+          "frenchAnswer": "Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?",
+          "englishPrompt": "Hi Hugo, can we finalize Thursday’s workshop?",
+          "knownFrenchVariants": [
+            "Bonjour Hugo, pouvons-nous finaliser l’atelier de jeudi ?"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-33413d7632973326",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "sourceFrenchLine": "Hugo : La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.",
+          "sourceEnglishLine": "Hugo: The small room is quieter, but it can hold only twelve people.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.",
+          "focus": "criteria-comparison",
+          "frenchAnswer": "La petite salle est plus calme, mais elle ne peut accueillir que douze personnes.",
+          "englishPrompt": "The small room is quieter, but it can hold only twelve people.",
+          "knownFrenchVariants": [
+            "La petite salle est plus calme, mais elle ne peut accueillir que douze personnes."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-5186585917813a96",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "sourceFrenchLine": "Hugo : Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.",
+          "sourceEnglishLine": "Hugo: I just received a message: the large room is no longer available Thursday morning.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.",
+          "focus": "changed-plan",
+          "frenchAnswer": "Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin.",
+          "englishPrompt": "I just received a message: the large room is no longer available Thursday morning.",
+          "knownFrenchVariants": [
+            "Je viens de recevoir un message : la grande salle n’est plus disponible jeudi matin."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-844cbd191b115fd8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 8,
+          "sourceFrenchLine": "Hugo : Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "sourceEnglishLine": "Hugo: Last Friday, two participants missed the morning session.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "focus": "relevant-past",
+          "frenchAnswer": "Vendredi dernier, deux participants ont manqué la séance du matin.",
+          "englishPrompt": "Last Friday, two participants missed the morning session.",
+          "knownFrenchVariants": [
+            "Vendredi dernier, deux participants ont manqué la séance du matin."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e89bece615979f42",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 10,
+          "sourceFrenchLine": "Hugo : Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.",
+          "sourceEnglishLine": "Hugo: I will check its availability with reception, and you will notify the participants.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.",
+          "focus": "task-owners",
+          "frenchAnswer": "Je demanderai sa disponibilité à l’accueil et tu préviendras les participants.",
+          "englishPrompt": "I will check its availability with reception, and you will notify the participants.",
+          "knownFrenchVariants": [
+            "Je demanderai sa disponibilité à l’accueil et tu préviendras les participants."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-9d9fea9944e50345",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 12,
+          "sourceFrenchLine": "Hugo : D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire.",
+          "sourceEnglishLine": "Hugo: Agreed: we are aiming for Thursday afternoon; I will confirm the room, then you will announce the time.",
+          "sourceFrenchSpeaker": "Hugo",
+          "sourceEnglishSpeaker": "Hugo",
+          "audioDisplayText": "Hugo : D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire.",
+          "focus": "closing-confirmation",
+          "frenchAnswer": "D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire.",
+          "englishPrompt": "Agreed: we are aiming for Thursday afternoon; I will confirm the room, then you will announce the time.",
+          "knownFrenchVariants": [
+            "D’accord : nous visons jeudi après-midi ; je confirme la salle, puis tu annonces l’horaire."
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

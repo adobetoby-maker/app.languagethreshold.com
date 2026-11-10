@@ -1,0 +1,436 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 18,
+    "newAuthoredContrasts": 6,
+    "totalPrompts": 24,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 10,
+      "stableLessonKey": "french-basics:10",
+      "grammarModel": {
+        "one": "Il est une heure.",
+        "eight": "Il est huit heures du matin.",
+        "schedule": "Le cours commence à neuf heures.",
+        "question": "À quelle heure arrives-tu à la maison ?"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-789a1809122a4aef",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "il-est-clock",
+          "frenchAnswer": "Il est huit heures du matin.",
+          "englishPrompt": "It is eight in the morning.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Il est huit heures du matin."
+          ]
+        },
+        {
+          "id": "form-fr-en-f9bbebb550150192",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "a-scheduled-hour",
+          "frenchAnswer": "Le cours commence à neuf heures.",
+          "englishPrompt": "Class starts at nine.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le cours commence à neuf heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-5750bcd9ae6ce92f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "a-one-hour",
+          "frenchAnswer": "Le déjeuner est à une heure.",
+          "englishPrompt": "Lunch is at one.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Le déjeuner est à une heure."
+          ]
+        },
+        {
+          "id": "form-fr-en-94e43bbaa699c7db",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "a-afternoon",
+          "frenchAnswer": "J’étudie à trois heures de l’après-midi.",
+          "englishPrompt": "I study at three in the afternoon.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’étudie à trois heures de l’après-midi."
+          ]
+        },
+        {
+          "id": "form-fr-en-098e53de72dd0b1a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "a-closing-hour",
+          "frenchAnswer": "La bibliothèque ferme à six heures.",
+          "englishPrompt": "The library closes at six.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "La bibliothèque ferme à six heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-08be50e7cfc4c850",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "a-quelle-heure",
+          "frenchAnswer": "À quelle heure arrives-tu à la maison ?",
+          "englishPrompt": "What time do you arrive home?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "À quelle heure arrives-tu à la maison ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-a6f03d33c365ebb7",
+          "source": "authored-draft-contrast",
+          "focus": "singular-clock-hour",
+          "frenchAnswer": "Il est une heure.",
+          "englishPrompt": "It is one o'clock.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Il est une heure."
+          ]
+        },
+        {
+          "id": "form-fr-en-c2fe9349f4e8be2f",
+          "source": "authored-draft-contrast",
+          "focus": "plural-hour-singular-verb",
+          "frenchAnswer": "Il est deux heures.",
+          "englishPrompt": "It is two o'clock.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Il est deux heures."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonKey": "french-basics:11",
+      "grammarModel": {
+        "one": "J’aime la musique.",
+        "many": "Ana aime les livres.",
+        "we": "Nous aimons étudier ensemble.",
+        "negative": "Luis n’aime pas le café."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-61c305163670466b",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "j-aime",
+          "frenchAnswer": "J’aime la musique.",
+          "englishPrompt": "I like music.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’aime la musique."
+          ]
+        },
+        {
+          "id": "form-fr-en-7f7ec5e0235a0116",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "third-person-aime",
+          "frenchAnswer": "Ana aime les livres.",
+          "englishPrompt": "Ana likes books.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana aime les livres."
+          ]
+        },
+        {
+          "id": "form-fr-en-b94e3d497df7e58e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "nous-aimons-infinitive",
+          "frenchAnswer": "Nous aimons étudier ensemble.",
+          "englishPrompt": "We like studying together.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous aimons étudier ensemble."
+          ]
+        },
+        {
+          "id": "form-fr-en-f136800840e7e3b2",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "negated-aime",
+          "frenchAnswer": "Luis n’aime pas le café.",
+          "englishPrompt": "Luis does not like coffee.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis n’aime pas le café."
+          ]
+        },
+        {
+          "id": "form-fr-en-7fb1babffa35e9f0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "tu-aimes",
+          "frenchAnswer": "Tu aimes ces chansons ?",
+          "englishPrompt": "Do you like these songs?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu aimes ces chansons ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-55b07b5479211359",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "j-aime-infinitive",
+          "frenchAnswer": "Oui, j’aime écouter de la musique à la maison.",
+          "englishPrompt": "Yes, I like listening to music at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Oui, j’aime écouter de la musique à la maison."
+          ]
+        },
+        {
+          "id": "form-fr-en-eb0aa15e9e3a4899",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-aimez",
+          "frenchAnswer": "Vous aimez la musique ?",
+          "englishPrompt": "Do you like music?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous aimez la musique ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-fc4a9218e04a37b0",
+          "source": "authored-draft-contrast",
+          "focus": "plural-ils-aiment",
+          "frenchAnswer": "Ils aiment les livres.",
+          "englishPrompt": "They like books.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils aiment les livres."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonKey": "french-basics:12",
+      "grammarModel": {
+        "I": "Je veux visiter ma famille.",
+        "Ana": "Ana veut se reposer à la maison.",
+        "we": "Nous voulons manger ensemble.",
+        "they": "Mes amis veulent aller au parc."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-9caab345c509ad0f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "je-veux",
+          "frenchAnswer": "Je veux rendre visite à ma famille.",
+          "englishPrompt": "I want to visit my family.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je veux rendre visite à ma famille."
+          ]
+        },
+        {
+          "id": "form-fr-en-61d432c4f8f6a9cc",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "third-person-veut",
+          "frenchAnswer": "Ana veut se reposer à la maison.",
+          "englishPrompt": "Ana wants to rest at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana veut se reposer à la maison."
+          ]
+        },
+        {
+          "id": "form-fr-en-724ccfe9eaf65ed9",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "nous-voulons",
+          "frenchAnswer": "Nous voulons manger ensemble.",
+          "englishPrompt": "We want to eat together.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous voulons manger ensemble."
+          ]
+        },
+        {
+          "id": "form-fr-en-d5f45850ef0cb7e3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "third-person-veut-buy",
+          "frenchAnswer": "Luis veut acheter un livre.",
+          "englishPrompt": "Luis wants to buy a book.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis veut acheter un livre."
+          ]
+        },
+        {
+          "id": "form-fr-en-ce275ba50e4d60d4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "plural-veulent",
+          "frenchAnswer": "Mes amis veulent aller au parc.",
+          "englishPrompt": "My friends want to go to the park.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Mes amis veulent aller au parc."
+          ]
+        },
+        {
+          "id": "form-fr-en-8d1b3b9cb9c55448",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "tu-veux",
+          "frenchAnswer": "Tu veux étudier avant de sortir ?",
+          "englishPrompt": "Do you want to study before going out?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu veux étudier avant de sortir ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-6d28db1948c309f3",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-voulez",
+          "frenchAnswer": "Vous voulez manger ensemble ?",
+          "englishPrompt": "Do you want to eat together?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous voulez manger ensemble ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-8803ed3f45fa8918",
+          "source": "authored-draft-contrast",
+          "focus": "plural-elles-veulent",
+          "frenchAnswer": "Elles veulent aller au parc.",
+          "englishPrompt": "They want to go to the park.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Elles veulent aller au parc."
+          ]
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

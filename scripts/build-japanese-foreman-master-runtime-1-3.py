@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / 'content/japanese-construction-foreman'
 SOURCE = CONTENT / 'master-translation-1-3-draft.json'
+READER_SOURCE = CONTENT / 'master-original-reader-1-3-draft.json'
 OUTPUT = CONTENT / 'master-runtime-pilot-1-3-ja-en.json'
 COURSE_ID = 'master-construction-foreman-ja-en'
 MODES = ['see', 'recall', 'hear', 'type', 'say', 'write']
@@ -15,15 +16,18 @@ BLOCKER = ('Master 2 garage-deck/deicing-water source concern: the English claim
            'rebar mat lets water reach steel may be technically wrong for exposure from above. '
            'Qualified structural/concrete review must resolve English and Japanese before release.')
 DETAILS = {
-  1: {'title': 'Explain why shores stay', 'focus': 'Sequence まず → その後 → ですから and explain that site-specific engineer approval controls shore removal.',
-      'summary': 'Explain why shores remain, answer a new carpenter’s question, then request a teach-back.',
-      'role': 'A new carpenter who asks why the shores cannot yet be removed.', 'answers': ['スラブ', '支柱', '構造技術者']},
-  2: {'title': 'Check the specified concrete cover', 'focus': 'Explain plan-specific cover, chairs and measurement. Do not teach the disputed water/rebar-height claim as fact.',
-      'summary': 'Use the structural sheet to explain cover and chairs, check measurements, and ask the trainee to teach back the approved procedure.',
-      'role': 'A trainee who asks about rebar chairs and the cover shown on the structural sheet.', 'answers': ['かぶり厚さ', '鉄筋用チェア', '構造図']},
-  3: {'title': 'Teach a harness inspection sequence', 'focus': 'Use 〜前に for timing and 〜たら/〜場合 for conditional damage and escalation; follow the qualified site procedure.',
-      'summary': 'Guide a new worker through pre-use inspection, correct missed checks, then request a teach-back.',
-      'role': 'A new worker practicing a site-approved harness and lanyard inspection.', 'answers': ['点検', '縫い目', '破損']},
+  1: {'title': 'Explain why shores stay', 'focus': 'Sequence まず → その後 → ですから while separating known records from engineer confirmation.',
+      'summary': 'Discuss what is known, what remains uncertain, and whom to ask before a decision.',
+      'role': 'A new carpenter who asks what must be confirmed about the shores.',
+      'openingLine': '支柱について、どの点を確認したいですか。'},
+  2: {'title': 'Check the specified concrete cover', 'focus': 'Locate plan-specific cover notes; route technical interpretation to the structural engineer.',
+      'summary': 'Find the relevant drawing note and identify questions for the structural engineer.',
+      'role': 'A trainee who asks where the drawing specifies concrete cover.',
+      'openingLine': 'この構造図のどの注記を確認しましょうか。'},
+  3: {'title': 'Teach a harness inspection sequence', 'focus': 'Use 〜前に and 〜たら to ask about a checklist without prescribing an unapproved safety procedure.',
+      'summary': 'Practice explaining a checklist and record unknown items for the qualified safety contact.',
+      'role': 'A new worker who asks about an inspection checklist.',
+      'openingLine': '点検表で分からないところはありますか。'},
 }
 
 def stable_id(prefix, *parts):
@@ -32,9 +36,14 @@ def stable_id(prefix, *parts):
 
 def build():
     draft = json.loads(SOURCE.read_text())
+    reader_draft = json.loads(READER_SOURCE.read_text())
     assert (draft['moduleId'], draft['target'], draft['native'], draft['stage']) == ('construction-foreman', 'Japanese', 'English', 'master')
     assert draft['state'] == 'translation-draft' and draft['reviewed'] is False
     assert [x['n'] for x in draft['lessons']] == [1, 2, 3]
+    assert reader_draft['state'] == 'original-contextual-reader-draft' and reader_draft['reviewed'] is False
+    assert (reader_draft['target'], reader_draft['native'], reader_draft['courseId']) == ('Japanese', 'English', COURSE_ID)
+    assert reader_draft['sourceEnglishSubsetSha256'] == draft['englishSubsetSHA256']
+    assert [x['n'] for x in reader_draft['lessons']] == [1, 2, 3]
     lessons, cards, dictionary, seen = [], [], [], set()
     for source in draft['lessons']:
         n = source['n']; detail = DETAILS[n]
@@ -48,23 +57,27 @@ def build():
                 seen.add(pair)
                 cards.append({'id': card_id, 'courseId': COURSE_ID, 'target': pair[0], 'native': pair[1], 'kind': term['kind'], 'firstLesson': n})
                 dictionary.append({'id': stable_id('dict-ja-en', COURSE_ID, *pair), 'courseId': COURSE_ID, 'target': pair[0], 'native': pair[1], 'kind': term['kind'], 'firstLesson': n})
-        phrases = [x for x in source['terms'] if x['kind'] == 'phrase' and x['en'] != DISPUTED_ENGLISH]
-        assert len(phrases) == 8 - (n == 2)
-        sentences = [{'target': x['ja'], 'native': x['en']} for x in phrases]
+        reader = reader_draft['lessons'][n - 1]
+        sentences = reader['sentences']
+        source_phrase_targets = {term['ja'] for term in source['terms'] if term['kind'] == 'phrase'}
+        assert 6 <= len(sentences) <= 10
+        assert all(line['target'] and line['native'] and line['target'] not in source_phrase_targets for line in sentences)
+        assert DISPUTED_ENGLISH not in [line['native'] for line in sentences]
         checks = []
-        for line, answer in zip(sentences, detail['answers']):
+        for answer in reader['checkAnswers']:
+            line = next(line for line in sentences if answer in line['target'])
             assert line['target'].count(answer) == 1, (n, answer)
             checks.append({'prompt': line['target'].replace(answer, '____', 1), 'hint': line['native'], 'answer': answer,
-                           'explanation': f'{answer} appears in this lesson’s source phrase.'})
+                           'explanation': f'{answer} appears in this lesson’s reading.'})
         grammar_examples = [{'es': ja, 'en': en} for ja, en in zip(source['grammarExamplesJapanese'], source['grammarExamplesEnglish'])]
         assert len(grammar_examples) == 2
         lessons.append({'id': lesson_id, 'n': n, 'title': detail['title'], 'objective': source['objectiveEnglish'],
                         'sourceObjective': source['objectiveEnglish'], 'words': words, 'modes': MODES,
-                        'reader': {'id': f'reader-{lesson_id}', 'title': detail['title'], 'state': 'phrase-sequence-draft', 'sentences': sentences},
+                        'reader': {'id': f'reader-{lesson_id}', 'title': reader['title'], 'state': 'original-contextual-draft', 'sentences': sentences},
                         'grammar': {'focus': detail['focus'], 'teachingJapanese': source['grammarTeachingJapanese'],
                                     'teachingNotesEnglish': source['teachingNotesEnglish'], 'examples': grammar_examples},
                         'speaking': {'id': f'speak-{lesson_id}', 'summary': detail['summary'],
-                                     'sourceSpeakingJapanese': source['speakingJapanese'], 'openingLine': phrases[0]['ja'],
+                                     'sourceSpeakingJapanese': source['speakingJapanese'], 'openingLine': detail['openingLine'],
                                      'partnerRole': detail['role'], 'locale': 'ja-JP'},
                         'checks': checks, 'technicalSourceBlockers': [BLOCKER] if n == 2 else [], 'reviewed': False})
     return {'version': 1, 'state': 'private-runtime-draft', 'reviewed': False, 'courseId': COURSE_ID,

@@ -14,7 +14,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:16",
       "n": 16,
-      "title": "Present scaffold records to a safety officer",
+      "title": "A question in the scaffold log",
       "objective": "安全コンプライアンス担当者に対し、丁寧で正確な言葉づかいで、足場の点検担当者、会社の安全計画で定める点検頻度、記録の保管場所を説明する。",
       "sourceObjective": "Walk a safety compliance officer through scaffold inspections and records using formal, precise language.",
       "sourceTitle": "Safety Compliance Officer Walks the Scaffold",
@@ -169,20 +169,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:16",
-        "title": "Present scaffold records to a safety officer",
-        "state": "phrase-sequence-draft",
+        "title": "A question in the scaffold log",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "カリージョさん、こちらが今月の点検記録簿です。",
-            "native": "Here is this month's inspection log, Officer Carrillo."
+            "target": "安全担当のカリージョさんが現場で足場の記録について尋ねました。",
+            "native": "At the site, safety contact Carrillo asked about the scaffold records."
           },
           {
-            "target": "ご指摘のとおりです。このタグには署名が入っていません。",
-            "native": "You're right; this tag is missing the signature."
+            "target": "職長は、手元の点検記録簿を開いて見せました。",
+            "native": "The foreman opened the inspection log he had and showed it."
           },
           {
-            "target": "是正措置は本日記録し、メールでお送りします。",
-            "native": "The corrective action is documented today, and I'll email it to you."
+            "target": "二人は、記録に書かれた日付を一緒に確認しました。",
+            "native": "Together they checked the dates written in the log."
+          },
+          {
+            "target": "カリージョさんは、一枚のタグに署名がないことに気づきました。",
+            "native": "Carrillo noticed that one tag had no signature."
+          },
+          {
+            "target": "職長は、その点を記録し、確認すると答えました。",
+            "native": "The foreman recorded that point and said he would check it."
+          },
+          {
+            "target": "足場の北面についても、どの記録を見るべきか質問が出ました。",
+            "native": "A question also came up about which record covered the north face of the scaffold."
+          },
+          {
+            "target": "職長は、その場で点検の合否を判断しませんでした。",
+            "native": "The foreman did not decide the inspection outcome on the spot."
+          },
+          {
+            "target": "二人は、担当者から回答を得るために確認事項をまとめました。",
+            "native": "They listed questions to get an answer from the responsible person."
           }
         ]
       },
@@ -217,28 +237,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:16",
         "summary": "Show a safety officer where records are kept and note a missing signature without interpreting regulatory compliance.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは安全コンプライアンス担当者のイネス・カリージョです。北面の足場を一緒に歩きながら、誰が点検するのか、点検頻度は安全計画でどう定められているか、記録はどこに残るのかを説明してください。丁寧語（です・ます）で話し、「〜されています」「〜に記入されます」のような受身形を使いましょう。",
-        "openingLine": "カリージョさん、こちらが今月の点検記録簿です。",
+        "openingLine": "手元の記録をご覧ください。確認が必要な点は記録します。",
         "partnerRole": "A safety compliance officer who asks to see the inspection record.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "カリージョさん、こちらが今月の____です。",
-          "hint": "Here is this month's inspection log, Officer Carrillo.",
+          "prompt": "職長は、手元の____を開いて見せました。",
+          "hint": "The foreman opened the inspection log he had and showed it.",
           "answer": "点検記録簿",
-          "explanation": "点検記録簿 appears in this lesson’s source phrase."
+          "explanation": "点検記録簿 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "ご指摘のとおりです。このタグには____が入っていません。",
-          "hint": "You're right; this tag is missing the signature.",
+          "prompt": "カリージョさんは、一枚のタグに____がないことに気づきました。",
+          "hint": "Carrillo noticed that one tag had no signature.",
           "answer": "署名",
-          "explanation": "署名 appears in this lesson’s source phrase."
+          "explanation": "署名 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____は本日記録し、メールでお送りします。",
-          "hint": "The corrective action is documented today, and I'll email it to you.",
-          "answer": "是正措置",
-          "explanation": "是正措置 appears in this lesson’s source phrase."
+          "prompt": "足場の____についても、どの記録を見るべきか質問が出ました。",
+          "hint": "A question also came up about which record covered the north face of the scaffold.",
+          "answer": "北面",
+          "explanation": "北面 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -249,7 +269,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:17",
       "n": 17,
-      "title": "Write a factual pump-delay log",
+      "title": "Writing what happened to the pump",
       "objective": "実施した作業、作業できなかった時間とその原因、連絡した相手、今後の対応を、明確な書き言葉で事実に基づいて作業日誌にまとめる。",
       "sourceObjective": "Write the daily log in clear written Spanish: work done, lost hours and cause, who was notified and next steps.",
       "sourceTitle": "Daily Log After the Pump Truck No-Show",
@@ -404,32 +424,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:17",
-        "title": "Write a factual pump-delay log",
-        "state": "phrase-sequence-draft",
+        "title": "Writing what happened to the pump",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ポンプ車の予定時刻は7:00でしたが、到着しませんでした。",
-            "native": "The pump truck was scheduled for 7:00 and did not arrive."
+            "target": "朝、職長はコンクリートポンプ車を待っていました。",
+            "native": "In the morning, the foreman was waiting for the concrete pump truck."
           },
           {
-            "target": "なお、配車センターへは3回電話しました。",
-            "native": "It should be noted that dispatch was called 3 times."
+            "target": "予定時刻の7時になっても、車は現場に着きませんでした。",
+            "native": "The truck had not reached the site by its scheduled time of seven."
           },
           {
-            "target": "しかし、生コン工場は出発前に生コン車の出荷を止めました。",
-            "native": "However, the plant held the trucks before they left."
+            "target": "職長は、配車センターへの電話の時刻をメモしました。",
+            "native": "The foreman noted the times of his calls to dispatch."
           },
           {
-            "target": "また、作業班は型枠を点検し、打設箇所を清掃しました。",
-            "native": "In addition, the crew checked the formwork and cleaned the pour area."
+            "target": "作業班は、待つ間に型枠を確認し、打設場所を片づけました。",
+            "native": "While they waited, the crew checked the formwork and tidied the pour area."
           },
           {
-            "target": "8:15、エレナ・クルス氏に電話で連絡しました。",
-            "native": "Elena Cruz was notified by phone at 8:15."
+            "target": "職長は、実際に行った作業と待っていた時間を分けて作業日誌に書きました。",
+            "native": "The foreman entered completed work and waiting time separately in the daily log."
           },
           {
-            "target": "クルスさん、発注者へ転送していただけるよう、作業日誌をお送りします。",
-            "native": "Elena, I'm sending you the log so you can forward it to the owner."
+            "target": "遅れの理由については、まだ確認できていないと記しました。",
+            "native": "He noted that the reason for the delay was still unconfirmed."
+          },
+          {
+            "target": "エレナさんに連絡した時刻も、記録と照らし合わせました。",
+            "native": "He checked the recorded time of his call to Elena as well."
+          },
+          {
+            "target": "次の予定は、関係者からの確認を待って追記することにしました。",
+            "native": "He decided to add the next schedule after receiving confirmation from the relevant people."
           }
         ]
       },
@@ -463,28 +491,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:17",
         "summary": "Report the pump no-show, calls, work completed and notified contact in a Japanese daily-log style.",
         "sourceSpeakingJapanese": "あなたは職長です。AIはプロジェクトマネージャーのエレナ・クルスです。ポンプ車が来なかった件について、作業内容、ロス時間と原因、通知した相手、今後の対応を作業日誌の形で読み上げてください。「ため」「したがって」「しかし」「なお」を使い、丁寧語で話しましょう。",
-        "openingLine": "ポンプ車の予定時刻は7:00でしたが、到着しませんでした。",
+        "openingLine": "到着時刻と確認できた作業内容を分けてご報告します。",
         "partnerRole": "A project manager who asks which facts and notifications are documented.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "____の予定時刻は7:00でしたが、到着しませんでした。",
-          "hint": "The pump truck was scheduled for 7:00 and did not arrive.",
-          "answer": "ポンプ車",
-          "explanation": "ポンプ車 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "なお、____へは3回電話しました。",
-          "hint": "It should be noted that dispatch was called 3 times.",
+          "prompt": "職長は、____への電話の時刻をメモしました。",
+          "hint": "The foreman noted the times of his calls to dispatch.",
           "answer": "配車センター",
-          "explanation": "配車センター appears in this lesson’s source phrase."
+          "explanation": "配車センター appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "しかし、____は出発前に生コン車の出荷を止めました。",
-          "hint": "However, the plant held the trucks before they left.",
-          "answer": "生コン工場",
-          "explanation": "生コン工場 appears in this lesson’s source phrase."
+          "prompt": "職長は、実際に行った作業と待っていた時間を分けて____に書きました。",
+          "hint": "The foreman entered completed work and waiting time separately in the daily log.",
+          "answer": "作業日誌",
+          "explanation": "作業日誌 appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "____については、まだ確認できていないと記しました。",
+          "hint": "He noted that the reason for the delay was still unconfirmed.",
+          "answer": "遅れの理由",
+          "explanation": "遅れの理由 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -495,7 +523,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:18",
       "n": 18,
-      "title": "Request a new inspection time",
+      "title": "Three messages about one inspection",
       "objective": "丁寧な電話とチャットの表現を使い、検査機関に電話して検査日程の変更を依頼し、作業班にはチャットで、協力業者には電話と留守番電話で変更をはっきり伝える。",
       "sourceObjective": "Reschedule by phone, text the crew and leave clear voicemails using polite phone and text conventions.",
       "sourceTitle": "Inspection Moved: Calls, Texts and Voicemails",
@@ -644,32 +672,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:18",
-        "title": "Request a new inspection time",
-        "state": "phrase-sequence-draft",
+        "title": "Three messages about one inspection",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "検査員の到着予定時間帯を確認していただけますでしょうか。",
-            "native": "Could you confirm the inspector's arrival window for me?"
+            "target": "市の担当者から、断熱検査の日程に変更があると連絡が入りました。",
+            "native": "A city contact said the insulation inspection schedule had changed."
           },
           {
-            "target": "検査員に10時前にご到着いただくことは可能でしょうか。",
-            "native": "Would it be possible for the inspector to arrive before 10:00?"
+            "target": "職長のミゲルさんは、新しい到着予定時間帯を尋ねました。",
+            "native": "Miguel, the foreman, asked for the new arrival window."
           },
           {
-            "target": "確認番号をお伝えいただけますでしょうか。",
-            "native": "Could you give me the confirmation number, please?"
+            "target": "担当者は、時刻をまだ確認中だと答えました。",
+            "native": "The contact said the time was still being confirmed."
           },
           {
-            "target": "オスカル、ミゲルだけど。トラックで出る前に電話して。",
-            "native": "Óscar, it's Miguel; call me before you head out with the truck."
+            "target": "ミゲルさんは、確認番号が出たら知らせてほしいと丁寧に頼みました。",
+            "native": "Miguel politely asked to be told when a confirmation number was available."
           },
           {
-            "target": "ごめん、オスカル。もう荷積み済みなのは分かってる。",
-            "native": "Sorry, Óscar, I know you already loaded the truck."
+            "target": "作業班のグループチャットには、日程変更と時刻未定を短く書きました。",
+            "native": "In the crew group chat, he briefly wrote that the date had changed and the time was unconfirmed."
           },
           {
-            "target": "イバラさん、ありがとうございました。確認のメールをお待ちしております。",
-            "native": "Thank you very much, Lorena; I'll look out for your email confirmation."
+            "target": "オスカルさんには、出発前に連絡がほしいと留守番電話に残しました。",
+            "native": "He left Óscar a voicemail asking him to call before leaving."
+          },
+          {
+            "target": "ミゲルさんは、電話、チャット、留守番電話で伝えた内容を見比べました。",
+            "native": "Miguel compared what he had said by phone, chat, and voicemail."
+          },
+          {
+            "target": "確定した時刻は、返信を受けてから改めて伝えることにしました。",
+            "native": "He decided to share a confirmed time only after receiving a reply."
           }
         ]
       },
@@ -705,28 +741,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:18",
         "summary": "Ask the scheduler about an arrival window, leave a named voicemail and send a concise crew update after confirmation.",
         "sourceSpeakingJapanese": "あなたは職長です。最初にAIは市の日程担当者のロレナ・イバラです。検査の新しい到着予定時間帯を確認してください。次に、石膏ボード工事の協力業者オスカル・フエンテスに電話します。留守番電話にメッセージを残す場合は名前を先に言い、チャットでは短く数字を使って作業班に伝えてください。電話では「〜の者ですが」「〜していただけますでしょうか」「〜は可能でしょうか」の形を使ってください。",
-        "openingLine": "検査員の到着予定時間帯を確認していただけますでしょうか。",
+        "openingLine": "新しい到着予定時間帯を確認していただけますか。",
         "partnerRole": "A city scheduling contact who can confirm a new inspection window.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "検査員の____を確認していただけますでしょうか。",
-          "hint": "Could you confirm the inspector's arrival window for me?",
+          "prompt": "職長のミゲルさんは、新しい____を尋ねました。",
+          "hint": "Miguel, the foreman, asked for the new arrival window.",
           "answer": "到着予定時間帯",
-          "explanation": "到着予定時間帯 appears in this lesson’s source phrase."
+          "explanation": "到着予定時間帯 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "検査員に____にご到着いただくことは可能でしょうか。",
-          "hint": "Would it be possible for the inspector to arrive before 10:00?",
-          "answer": "10時前",
-          "explanation": "10時前 appears in this lesson’s source phrase."
+          "prompt": "作業班の____には、日程変更と時刻未定を短く書きました。",
+          "hint": "In the crew group chat, he briefly wrote that the date had changed and the time was unconfirmed.",
+          "answer": "グループチャット",
+          "explanation": "グループチャット appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____をお伝えいただけますでしょうか。",
-          "hint": "Could you give me the confirmation number, please?",
-          "answer": "確認番号",
-          "explanation": "確認番号 appears in this lesson’s source phrase."
+          "prompt": "オスカルさんには、出発前に連絡がほしいと____に残しました。",
+          "hint": "He left Óscar a voicemail asking him to call before leaving.",
+          "answer": "留守番電話",
+          "explanation": "留守番電話 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [

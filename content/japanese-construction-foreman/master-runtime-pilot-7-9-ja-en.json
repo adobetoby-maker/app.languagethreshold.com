@@ -14,7 +14,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:7",
       "n": 7,
-      "title": "Report a weekend leak accurately",
+      "title": "Records after the weekend leak",
       "objective": "Tell an insurance adjuster what happened over the weekend and give clear quantities, times and locations.",
       "sourceObjective": "Tell an insurance adjuster what happened over the weekend and give clear quantities, times and locations.",
       "words": [
@@ -167,36 +167,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:7",
-        "title": "Report a weekend leak accurately",
-        "state": "phrase-sequence-draft",
+        "title": "Records after the weekend leak",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "土曜日に、仮設の給水管の継手が破損しました。",
-            "native": "On Saturday a coupling on the temporary line broke."
+            "target": "月曜日の朝、保険の担当者が現場に来ました。",
+            "native": "On Monday morning, an insurance representative came to the site."
           },
           {
-            "target": "日曜日の6時10分に、警備員が止水弁を閉めました。",
-            "native": "The guard shut the valve on Sunday at 6:10."
+            "target": "職長は、週末に見つかった水漏れについて説明しました。",
+            "native": "The foreman described the leak found over the weekend."
           },
           {
-            "target": "キッチンとダイニングの石膏ボード24枚が損傷しました。",
-            "native": "24 sheets of drywall were damaged in the kitchen and dining room."
+            "target": "警備員の報告書には、発見した時刻が記録されています。",
+            "native": "The security guard’s report records the time of discovery."
           },
           {
-            "target": "床に置いてあったタイル9箱も濡れました。",
-            "native": "9 boxes of tile that were on the floor also got wet."
+            "target": "二人は、報告書と現場の写真を見比べました。",
+            "native": "They compared the report with photographs of the site."
           },
           {
-            "target": "7時30分に到着し、すべてを写真に撮りました。",
-            "native": "I arrived at 7:30 and took photos of everything."
+            "target": "職長は、石膏ボードとタイルの箱があった場所を示しました。",
+            "native": "The foreman showed where the drywall and boxes of tile had been."
           },
           {
-            "target": "こちらが、正確な時刻を記載した警備員の報告書です。",
-            "native": "Here is the guard's report with the exact times."
+            "target": "担当者は、確認できた数量を尋ねました。",
+            "native": "The representative asked for the quantities that had been confirmed."
           },
           {
-            "target": "損傷した材料の購入時の請求書をお送りしましょうか。",
-            "native": "Do you want me to send you the invoices for the damaged material?"
+            "target": "職長は、確認済みの数字と未確認の数字を分けて伝えました。",
+            "native": "The foreman distinguished confirmed figures from those still unverified."
+          },
+          {
+            "target": "最後に、追加で必要な記録を一緒にリストにしました。",
+            "native": "Finally, they made a list of additional records needed."
           }
         ]
       },
@@ -219,28 +223,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:7",
         "summary": "Tell an adjuster what was recorded, where materials were damaged, and which report and invoices are available.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは保険鑑定人のシルビア・ナバロとして話します。週末に何が起きたかを「〜ました」の形で説明してください。時刻、数量、場所は数字を使って正確に伝えてください。確認していない事実を述べず、自分の権限を超える約束はしないでください。",
-        "openingLine": "土曜日に、仮設の給水管の継手が破損しました。",
+        "openingLine": "確認済みの記録から順にご説明します。",
         "partnerRole": "An insurance adjuster who asks for exact times, locations and records.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "土曜日に、仮設の給水管の____が破損しました。",
-          "hint": "On Saturday a coupling on the temporary line broke.",
-          "answer": "継手",
-          "explanation": "継手 appears in this lesson’s source phrase."
+          "prompt": "警備員の____には、発見した時刻が記録されています。",
+          "hint": "The security guard’s report records the time of discovery.",
+          "answer": "報告書",
+          "explanation": "報告書 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "日曜日の6時10分に、警備員が____を閉めました。",
-          "hint": "The guard shut the valve on Sunday at 6:10.",
-          "answer": "止水弁",
-          "explanation": "止水弁 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "キッチンとダイニングの____24枚が損傷しました。",
-          "hint": "24 sheets of drywall were damaged in the kitchen and dining room.",
+          "prompt": "職長は、____とタイルの箱があった場所を示しました。",
+          "hint": "The foreman showed where the drywall and boxes of tile had been.",
           "answer": "石膏ボード",
-          "explanation": "石膏ボード appears in this lesson’s source phrase."
+          "explanation": "石膏ボード appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "担当者は、確認できた____を尋ねました。",
+          "hint": "The representative asked for the quantities that had been confirmed.",
+          "answer": "数量",
+          "explanation": "数量 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -251,7 +255,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:8",
       "n": 8,
-      "title": "Keep the guardrail in place",
+      "title": "A question about the roof edge",
       "objective": "Refuse an owner's rep's request to remove the guardrail, explain the risk and offer a safe way to keep the schedule.",
       "sourceObjective": "Refuse an owner's rep's request to remove the guardrail, explain the risk and offer a safe way to keep the schedule.",
       "words": [
@@ -404,28 +408,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:8",
-        "title": "Keep the guardrail in place",
-        "state": "phrase-sequence-draft",
+        "title": "A question about the roof edge",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ペーニャさん、申し訳ありませんが、仮設の手すりは外せません。",
-            "native": "I'm sorry, Mr. Peña, but the guardrail doesn't come down."
+            "target": "朝の会議で、屋上の設備について話し合いました。",
+            "native": "At the morning meeting, they discussed the rooftop equipment."
           },
           {
-            "target": "墜落防止措置なしで上がらせることはお勧めしません。",
-            "native": "I don't recommend that they go up without fall protection."
+            "target": "発注者の担当者は、搬入経路を尋ねました。",
+            "native": "The owner’s representative asked about the delivery route."
           },
           {
-            "target": "みなさん、仮設の手すりは外さないでください。そのままの位置に残します。",
-            "native": "Guys, don't remove the guardrail; it stays where it is."
+            "target": "職長は、端に手すりがあることを図面で示しました。",
+            "native": "The foreman showed the guardrail at the edge on the drawing."
           },
           {
-            "target": "急ぎたいお気持ちはわかりますが、作業員を危険にさらすわけにはいきません。",
-            "native": "I understand the rush, but I'm not going to put my people at risk."
+            "target": "担当者は、手すりを動かせるか質問しました。",
+            "native": "The representative asked whether the guardrail could be moved."
           },
           {
-            "target": "手すりをそのままにして、予定している揚重作業まで待つことを提案します。",
-            "native": "I suggest we wait for the planned lift with the protection in place."
+            "target": "職長は、その場で決められないと答えました。",
+            "native": "The foreman answered that he could not decide that on the spot."
+          },
+          {
+            "target": "二人は、安全担当者に確認する事項を記録しました。",
+            "native": "They recorded the questions to take to the safety contact."
+          },
+          {
+            "target": "クレーンの計画についても、担当者からの確認が必要です。",
+            "native": "The crane plan also needs confirmation from the responsible personnel."
+          },
+          {
+            "target": "会議の終わりに、未承認の案を承認済みの計画と分けて記しました。",
+            "native": "At the end of the meeting, they marked the unapproved idea separately from the approved plan."
           }
         ]
       },
@@ -451,28 +467,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:8",
         "summary": "Explain that the guardrail stays and route lifting and fall-protection plans through qualified site safety personnel.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは発注者側の担当者リカルド・ペーニャを演じます。仮設の手すりを外してほしいという依頼に対し、「〜ないでください」「〜ことはお勧めしません」を使い、丁寧にはっきり断ってください。墜落の危険を説明し、手すりを外さずに予定している揚重作業まで待つことを提案してください。急ぎたい気持ちに理解を示しつつ、作業員を危険にさらさないと伝えてください。",
-        "openingLine": "ペーニャさん、申し訳ありませんが、仮設の手すりは外せません。",
+        "openingLine": "その変更はここで決めず、安全担当者に確認します。",
         "partnerRole": "An owner representative who asks for an HVAC lift while a guardrail is in place.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ペーニャさん、申し訳ありませんが、仮設の____は外せません。",
-          "hint": "I'm sorry, Mr. Peña, but the guardrail doesn't come down.",
+          "prompt": "発注者の担当者は、____を尋ねました。",
+          "hint": "The owner’s representative asked about the delivery route.",
+          "answer": "搬入経路",
+          "explanation": "搬入経路 appears in this lesson’s Reader scene."
+        },
+        {
+          "prompt": "職長は、端に____があることを図面で示しました。",
+          "hint": "The foreman showed the guardrail at the edge on the drawing.",
           "answer": "手すり",
-          "explanation": "手すり appears in this lesson’s source phrase."
+          "explanation": "手すり appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "____なしで上がらせることはお勧めしません。",
-          "hint": "I don't recommend that they go up without fall protection.",
-          "answer": "墜落防止措置",
-          "explanation": "墜落防止措置 appears in this lesson’s source phrase."
-        },
-        {
-          "prompt": "みなさん、仮設の手すりは外さないでください。そのままの____に残します。",
-          "hint": "Guys, don't remove the guardrail; it stays where it is.",
-          "answer": "位置",
-          "explanation": "位置 appears in this lesson’s source phrase."
+          "prompt": "二人は、____に確認する事項を記録しました。",
+          "hint": "They recorded the questions to take to the safety contact.",
+          "answer": "安全担当者",
+          "explanation": "安全担当者 appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [
@@ -483,7 +499,7 @@
     {
       "id": "master-construction-foreman-ja-en:lesson:9",
       "n": 9,
-      "title": "Give masonry feedback clearly",
+      "title": "A careful masonry conversation",
       "objective": "Give a veteran mason specific feedback on out-of-plumb block and agree on what you want to see tomorrow.",
       "sourceObjective": "Give a veteran mason specific feedback on out-of-plumb block and agree on what you want to see tomorrow.",
       "words": [
@@ -636,36 +652,40 @@
       ],
       "reader": {
         "id": "reader-master-construction-foreman-ja-en:lesson:9",
-        "title": "Give masonry feedback clearly",
-        "state": "phrase-sequence-draft",
+        "title": "A careful masonry conversation",
+        "state": "original-contextual-draft",
         "sentences": [
           {
-            "target": "ロヘリオさん、この角は垂直から1インチ近くずれています。",
-            "native": "Rogelio, the corner is almost 1 inch out of plumb."
+            "target": "昼前、職長はロヘリオと壁の前で話しました。",
+            "native": "Before noon, the foreman spoke with Rogelio in front of the wall."
           },
           {
-            "target": "段ごとに垂直を確認することをお勧めします。",
-            "native": "I recommend you check plumb on every course."
+            "target": "二人は、現場の測定記録を一緒に見ました。",
+            "native": "They looked at the site’s measurement record together."
           },
           {
-            "target": "これはケビンを責める話ではありません。この壁を任されているのはロヘリオさんです。",
-            "native": "This isn't about blaming Kevin; you're the one running the wall."
+            "target": "職長は、気になった箇所を記録の上で示しました。",
+            "native": "The foreman pointed out the area of concern in the record."
           },
           {
-            "target": "ケビンには、ロヘリオさんの隣で作業して、ロヘリオさんから学んでもらいたいと思っています。",
-            "native": "I'd rather have Kevin work next to you and learn from you."
+            "target": "ロヘリオは、どの測定値を確認すべきか尋ねました。",
+            "native": "Rogelio asked which measurement they should check."
           },
           {
-            "target": "ロヘリオさんはこれまでずっと良い仕事をしてくれています。だからこそ、率直にお伝えしています。",
-            "native": "Your work has always been good; that's why I'm telling you straight."
+            "target": "職長は、推測で結論を出さずに再確認したいと答えました。",
+            "native": "The foreman said he wanted to check again rather than draw a conclusion from a guess."
           },
           {
-            "target": "ケビン、垂直から外れているものを見つけたら、私に教えてほしいです。",
-            "native": "Kevin, I want you to tell me if you see anything out of plumb."
+            "target": "二人は、確認した数値とまだ不明な点を分けて書きました。",
+            "native": "They wrote the confirmed figures separately from the unresolved questions."
           },
           {
-            "target": "明日は、昼食前にこの角を私に見せてほしいです。",
-            "native": "Tomorrow I want you to show me the corner before lunch."
+            "target": "職長は、ロヘリオを責めるための会話ではないと伝えました。",
+            "native": "The foreman said the conversation was not about blaming Rogelio."
+          },
+          {
+            "target": "最後に、担当者と次の確認の時間を決めました。",
+            "native": "Finally, they set a time for the next check with the responsible person."
           }
         ]
       },
@@ -688,28 +708,28 @@
         "id": "speak-master-construction-foreman-ja-en:lesson:9",
         "summary": "Tell the mason what was measured, request course-by-course checking, and arrange a follow-up inspection.",
         "sourceSpeakingJapanese": "あなたは職長です。AIは熟練のブロック工ロヘリオ・デュランを演じます。角の垂直のずれについて、ロヘリオさんに具体的で敬意のあるフィードバックをしてください。「〜てほしいです」と「〜ことをお勧めします」を使い、明日の昼食前に角を見せてもらうことを確認してください。",
-        "openingLine": "ロヘリオさん、この角は垂直から1インチ近くずれています。",
+        "openingLine": "測定記録を一緒に確認しましょう。",
         "partnerRole": "A mason who receives direct feedback and confirms the next measurement.",
         "locale": "ja-JP"
       },
       "checks": [
         {
-          "prompt": "ロヘリオさん、この角は垂直から____近くずれています。",
-          "hint": "Rogelio, the corner is almost 1 inch out of plumb.",
-          "answer": "1インチ",
-          "explanation": "1インチ appears in this lesson’s source phrase."
+          "prompt": "二人は、現場の____を一緒に見ました。",
+          "hint": "They looked at the site’s measurement record together.",
+          "answer": "測定記録",
+          "explanation": "測定記録 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "段ごとに____を確認することをお勧めします。",
-          "hint": "I recommend you check plumb on every course.",
-          "answer": "垂直",
-          "explanation": "垂直 appears in this lesson’s source phrase."
+          "prompt": "ロヘリオは、どの____を確認すべきか尋ねました。",
+          "hint": "Rogelio asked which measurement they should check.",
+          "answer": "測定値",
+          "explanation": "測定値 appears in this lesson’s Reader scene."
         },
         {
-          "prompt": "これはケビンを____話ではありません。この壁を任されているのはロヘリオさんです。",
-          "hint": "This isn't about blaming Kevin; you're the one running the wall.",
+          "prompt": "職長は、ロヘリオを____ための会話ではないと伝えました。",
+          "hint": "The foreman said the conversation was not about blaming Rogelio.",
           "answer": "責める",
-          "explanation": "責める appears in this lesson’s source phrase."
+          "explanation": "責める appears in this lesson’s Reader scene."
         }
       ],
       "technicalSourceBlockers": [

@@ -1597,6 +1597,22 @@ export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
     },
   },
   {
+    base: "travel-lunch",
+    language: "French",
+    nativeLanguage: "English",
+    tradeLabel: "Lunch & Casual Dining",
+    foundation: {
+      moduleId: "foundation-travel-lunch-fr",
+      blurb: "Ten draft beginner lessons for greetings, amounts, questions and polite lunch requests in French.",
+      userRole: "Beginner traveler learning French for lunch",
+      challengePrompts: [
+        "Greet a server in French and ask for the menu.",
+        "Give a group size, order lunch and confirm the price in euros.",
+        "Ask about the daily special and where to find the restroom.",
+      ],
+    },
+  },
+  {
     base: "travel-markets-souvenirs",
     language: "Spanish",
     foundation: {

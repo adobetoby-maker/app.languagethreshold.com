@@ -1,9 +1,20 @@
 import core from "./french-travel-lunch-core.json" with { type: "json" };
+import foundation from "./core60/fr/foundation-travel-lunch-fr.json" with { type: "json" };
 import type { LessonWord, ModuleCurriculum } from "./curriculum.ts";
 import { r, sp, wm } from "./curriculum-helpers.ts";
 
 /** Draft source for the exact French→English Lunch Core. No release flag is changed here. */
 export const FRENCH_LUNCH_CORE_VERSION = "french-travel-lunch-core-fr-en-v1-draft";
+export const FRENCH_LUNCH_FOUNDATION_VERSION = "french-travel-lunch-foundation-fr-en-v1-draft";
+
+export function frenchLunchFoundationLesson(
+  n: number,
+  target = "French",
+  native = "English",
+) {
+  if (target !== "French" || native !== "English") return null;
+  return foundation.lessons.find((lesson) => lesson.n === n) ?? null;
+}
 
 export function frenchLunchCoreLesson(
   n: number,

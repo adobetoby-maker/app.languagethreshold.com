@@ -1,4 +1,4 @@
-# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–3 draft
+# Japanese→English Lunch & Casual Dining, private Foundation 1–10 and Core 1–6 draft
 
 This is an unregistered, unreviewed Foundation stage draft. It maps all ten source objectives from `src/data/core60/es/foundation-travel-lunch.json` without borrowing Spanish vocabulary or grammar. Stable IDs are `foundation-travel-lunch:1:ja-en` through `:10:ja-en`. The source file and each objective are pinned by SHA-256 in the three lesson batches.
 
@@ -6,4 +6,6 @@ The lessons teach daytime greetings and lunch words, yen/prices with Japanese co
 
 Core 1–3 maps the exact English title, skill, and scenario strings from `src/data/travel-zone.ts` and pins the aligned Spanish Reader source at `public/lesson-content/es/travel-lunch.json`. The Japanese scenes choose a local lunch place, clarify a fixed-price lunch set, and order takoyaki at a street stall. They add 48 cards, 29 bilingual Reader turns, three speaking scenes, and 18 distinct six-mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core.py` for the source hashes, source goals, Reader pairing, exact card references, mode diversity, and closed flags. These checks establish structure and source identity, not Japanese fluency approval.
 
-Remaining work includes Core 4–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.
+Core 4–6 continues the same source mapping with a made-to-order sandwich, today’s special, and a comparison of noodle, rice, and soup dishes. It adds 48 cards, 34 Reader turns, three speaking scenes, and 18 distinct mode prompts. Run `python3 content/japanese-travel-lunch/verify-private-core-4-6.py` for that batch. The combined draft has 16 lessons, 231 cards, 154 Reader turns, and 96 mode activities.
+
+Remaining work includes Core 7–30, Master 1–20, qualified Japanese review, contextual dictionary senses, recorded and listened audio, exact-pair runtime/Reader/speaking/offline integration, browser/phone/native acceptance, and production verification. `reviewed`, `registered`, and `readyForLearner` remain false; no learner progress keys or production assets change.

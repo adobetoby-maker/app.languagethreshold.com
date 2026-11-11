@@ -7,6 +7,26 @@ const STAGES = [
   ["master-travel-lunch-fr", 20],
 ] as const;
 const MODES = ["see", "recall", "hear", "type", "say", "write"] as const;
+const PINNED_SOURCE_HASHES: Record<string, string> = {
+  "content/french-travel-lunch/foundation-1-3-draft.json": "c685153c7d1581fa58624f2d774a8a80c78ab4b941f273f2a7a8fc0c6d647385",
+  "content/french-travel-lunch/foundation-4-10-draft.json": "3417074d7398c07f02dde920661ce98f7ca7969d558436fbc14a1b390f62ea76",
+  "content/french-travel-lunch/core-1-5-draft.json": "8a9efdbaaa6a0f58a88e2d44c3065437aca47eeb8d114a15bd0d04c52c3a9a5d",
+  "content/french-travel-lunch/core-6-10-draft.json": "3e6830181e6e1b7590f29c9e6c4086569ec999500f5e9c6f5cfc59c1fc8ef57e",
+  "content/french-travel-lunch/core-11-15-draft.json": "ce9f0a21540dc21c3e9e70047f1a0469057a97a0005f55197eafa1d80429c92d",
+  "content/french-travel-lunch/core-16-20-draft.json": "6c045464d1af55d44fcd853a3f3e5bd3b366ad9b29f7388ac56d52b2dba65d9d",
+  "content/french-travel-lunch/core-21-25-draft.json": "58409024a57e5de54f7284e1c5f4b7d9bc5a664d98bf0f8cd209bad982f83f13",
+  "content/french-travel-lunch/core-26-30-draft.json": "43065579efd649001cc2450c21d32ca1243e4e2c5bac398219585affc5965423",
+  "content/french-travel-lunch/master-1-5-draft.json": "802c8178beb929663fe9c9ecd85930eb91f72d2e7755120d69a1fad304ab81d0",
+  "content/french-travel-lunch/master-6-10-draft.json": "1715128d15925a41cb0fe601e237d5e4b5e191236f26d76fc815ff1d5154b8fb",
+  "content/french-travel-lunch/master-11-15-draft.json": "d53e5fc1dacd1b72aad737d478947a189463505fe546921092f0a4bb50ff3ce0",
+  "content/french-travel-lunch/master-16-20-draft.json": "5e79a97bb029a32f879d6efffb62fd9fdf001098da64af896cb9bb63e7e088e8",
+};
+const PINNED_CONTENT_HASHES: Record<string, string> = {
+  "content/french-travel-lunch/foundation-lesson-content-candidate.json": "c1775aa0b19ed39aed1d5ecd302b9a14bf520440a8f871a45acff0099e577a47",
+  "content/french-travel-lunch/core-lesson-content-candidate.json": "3d6b2fcc68bfcfd3626181923dc8e626f680e96c85d7a47a464810117de5598b",
+  "content/french-travel-lunch/master-lesson-content-candidate.json": "80be06e9eb4fa369be419cf87f996012e9a574f1c99d272382f1275b6593cb80",
+};
+const PINNED_DICTIONARY_HASH = "c174fc58addccbe7bee08c4cbc8c014d506a625732ebea2ebce2b0ab3de445ed";
 type Mode = typeof MODES[number];
 type Card = { id: string; fr: string; en: string; kind: string; dictionaryId: string };
 type ReaderLine = { speaker: string; fr: string; en: string };
@@ -34,7 +54,6 @@ export type PrivateFrenchTravelLunchCandidate = {
 };
 
 const nonempty = (value: unknown): value is string => typeof value === "string" && Boolean(value.trim());
-const hash = (value: string) => /^[0-9a-f]{64}$/.test(value);
 function privateLessonId(moduleId: string, n: number): string | null {
   const stage = STAGES.find(([id]) => id === moduleId);
   if (!stage || !Number.isInteger(n) || n < 1 || n > stage[1]) return null;
@@ -50,12 +69,13 @@ export function inspectPrivateFrenchTravelLunch(candidate: PrivateFrenchTravelLu
       candidate.cardCount !== 948 || candidate.readerTurnCount !== 556 ||
       candidate.passageLineCount !== 587 || candidate.activityCount !== 360 ||
       candidate.lessons.length !== 60 || candidate.sourceFiles.length !== 12 ||
-      candidate.contentFiles.length !== 3 || !hash(candidate.dictionarySha256))
+      candidate.contentFiles.length !== 3 || candidate.dictionarySha256 !== PINNED_DICTIONARY_HASH)
     throw new Error("Wrong French Lunch pair, source counts, or private release gate");
   const sources = new Map(candidate.sourceFiles.map(file => [file.path, file.sha256]));
   const contents = new Map(candidate.contentFiles.map(file => [file.path, file.sha256]));
   if (sources.size !== 12 || contents.size !== 3 ||
-      [...sources.values(), ...contents.values()].some(value => !hash(value)))
+      [...sources].some(([path, value]) => PINNED_SOURCE_HASHES[path] !== value) ||
+      [...contents].some(([path, value]) => PINNED_CONTENT_HASHES[path] !== value))
     throw new Error("French Lunch source identities changed");
 
   const lessons = new Map<string, Lesson>();

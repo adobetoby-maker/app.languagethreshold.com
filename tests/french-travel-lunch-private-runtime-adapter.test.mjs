@@ -60,6 +60,16 @@ test("private French Lunch adapter fails closed on pair, gate and content change
   const wrongDictionary = structuredClone(candidate);
   wrongDictionary.lessons[0].cards[0].dictionaryId = "Spanish:other";
   assert.throws(() => inspectPrivateFrenchTravelLunch(wrongDictionary), /dictionary links/);
+
+  const changedSource = structuredClone(candidate);
+  changedSource.sourceFiles[0].sha256 = "a".repeat(64);
+  assert.throws(() => inspectPrivateFrenchTravelLunch(changedSource), /source identities changed/);
+  const changedContent = structuredClone(candidate);
+  changedContent.contentFiles[0].sha256 = "b".repeat(64);
+  assert.throws(() => inspectPrivateFrenchTravelLunch(changedContent), /source identities changed/);
+  const changedDictionary = structuredClone(candidate);
+  changedDictionary.dictionarySha256 = "c".repeat(64);
+  assert.throws(() => inspectPrivateFrenchTravelLunch(changedDictionary), /private release gate/);
   const wrongReader = structuredClone(candidate);
   wrongReader.lessons[0].reader[0].fr = "";
   assert.throws(() => inspectPrivateFrenchTravelLunch(wrongReader), /Reader/);

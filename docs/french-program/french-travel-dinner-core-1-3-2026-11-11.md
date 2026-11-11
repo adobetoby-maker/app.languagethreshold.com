@@ -1,0 +1,7 @@
+# French Dinner Core 1–3 private draft
+
+The first three Core lessons now cover booking a dinner table, arriving and discussing a wait, and ordering an apéritif. Each has authored French cards, aligned Reader dialogue, a speaking scene, and prompts for all six practice modes. The apéritif lesson asks whether small bites are included; it does not assume a universal restaurant practice.
+
+Source ownership is pinned to `src/data/travel-zone.ts` SHA-256 `8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8` and `public/lesson-content/es/travel-dinner.json` SHA-256 `6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895` at revision `70cd3dd900b84e5052abe7a8f9e3a397f3000e8e`. The stable French IDs are `travel-dinner:1:fr-en` through `travel-dinner:3:fr-en`. `verify-private-core-1-3.py` checks the hashes, exact English source objectives, pair, IDs, teaching structures, and closed release gates.
+
+This brings French Dinner authored drafts to Foundation 10/10 and Core 3/30, with Master 0/20. The Core batch remains `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`. Its wording needs qualified French review, and the remaining Core and Master lessons, dictionary, runtime, offline, audio, browser, and native acceptance remain open. Foundation audio is scoped separately and unchanged by this batch. No learner progress or live registration changes.

@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "travel-dinner:1:fr-en",
+      "sourceTitleEnglish": "Reserve a dinner table",
+      "sourceObjectiveEnglish": "book a date, time, party size, seating preference, and occasion",
+      "sourceSpeakingEnglish": "Call for a dinner reservation and ask for an outdoor table without assuming it is available.",
+      "title": "Reserve a Dinner Table",
+      "objective": "Call for a dinner reservation, state the date, time, party size and occasion, and ask whether terrace seating is available.",
+      "focus": "Use je voudrais réserver to make a polite request, pour samedi and à vingt heures for date and time, and au nom de for the reservation name. Est-ce que vous avez une table en terrasse ? asks about availability without presuming a table exists.",
+      "scene": "Sam phones a restaurant in Lyon to reserve a birthday dinner for four.",
+      "cards": [
+        {"fr": "une réservation", "en": "a reservation", "kind": "term"},
+        {"fr": "une table", "en": "a table", "kind": "term"},
+        {"fr": "la terrasse", "en": "the terrace", "kind": "term"},
+        {"fr": "le dîner", "en": "dinner", "kind": "term"},
+        {"fr": "samedi", "en": "Saturday", "kind": "term"},
+        {"fr": "quatre personnes", "en": "four people", "kind": "phrase"},
+        {"fr": "un anniversaire", "en": "a birthday", "kind": "term"},
+        {"fr": "le nom", "en": "the name", "kind": "term"},
+        {"fr": "le numéro de téléphone", "en": "the phone number", "kind": "term"},
+        {"fr": "une table au calme", "en": "a quiet table", "kind": "phrase"},
+        {"fr": "Je voudrais faire une réservation.", "en": "I would like to make a reservation.", "kind": "phrase"},
+        {"fr": "Nous serons quatre personnes.", "en": "There will be four of us.", "kind": "phrase"},
+        {"fr": "Est-ce que vous avez une table en terrasse ?", "en": "Do you have a table on the terrace?", "kind": "phrase"},
+        {"fr": "Pourrais-je réserver pour samedi ?", "en": "Could I book for Saturday?", "kind": "phrase"},
+        {"fr": "C'est pour un anniversaire.", "en": "It's for a birthday.", "kind": "phrase"},
+        {"fr": "À quelle heure avez-vous une table ?", "en": "At what time do you have a table?", "kind": "phrase"},
+        {"fr": "C'est au nom de Sam.", "en": "It's under Sam's name.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Restaurant Le Jardin, bonsoir.", "en": "Le Jardin restaurant, good evening."},
+        {"speaker": "Sam", "fr": "Bonsoir. Je voudrais faire une réservation pour samedi.", "en": "Good evening. I would like to make a reservation for Saturday."},
+        {"speaker": "Camille", "fr": "Bien sûr. Pour combien de personnes ?", "en": "Of course. For how many people?"},
+        {"speaker": "Sam", "fr": "Nous serons quatre personnes. C'est pour un anniversaire.", "en": "There will be four of us. It's for a birthday."},
+        {"speaker": "Camille", "fr": "À quelle heure souhaitez-vous dîner ?", "en": "What time would you like to dine?"},
+        {"speaker": "Sam", "fr": "À vingt heures. Est-ce que vous avez une table en terrasse ?", "en": "At 8 p.m. Do you have a table on the terrace?"},
+        {"speaker": "Camille", "fr": "Je vais vérifier. Il reste une table en terrasse.", "en": "I'll check. One terrace table remains."},
+        {"speaker": "Sam", "fr": "Parfait. C'est au nom de Sam. Je vous donne mon numéro de téléphone.", "en": "Perfect. It's under Sam's name. I'll give you my phone number."},
+        {"speaker": "Camille", "fr": "Votre réservation est confirmée pour samedi à vingt heures. À bientôt !", "en": "Your reservation is confirmed for Saturday at 8 p.m. See you soon!"}
+      ],
+      "speaking": {
+        "role": "Caller reserving dinner",
+        "partnerRole": "Restaurant host",
+        "opening": "Restaurant Le Jardin, bonsoir.",
+        "goal": "Book a Saturday dinner for four at 8 p.m., mention a birthday, and ask whether an outdoor table is available.",
+        "closure": "Votre réservation est confirmée. À samedi !",
+        "wordBank": ["une réservation", "la terrasse", "samedi", "quatre personnes", "un anniversaire", "Je voudrais faire une réservation.", "Nous serons quatre personnes.", "Est-ce que vous avez une table en terrasse ?", "C'est pour un anniversaire."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for reservation.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask to book for Saturday.", "sourceCard": 14, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about terrace seating.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French phrase for four people.", "sourceCard": 6, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Say that you would like to make a reservation.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write that the dinner is for a birthday.", "sourceCard": 15, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "stableId": "travel-dinner:2:fr-en",
+      "sourceTitleEnglish": "Arrive and speak with the host",
+      "sourceObjectiveEnglish": "give the reservation name, handle a wait, and discuss seating",
+      "sourceSpeakingEnglish": "Arrive early, confirm the booking, and decide whether to wait at the bar.",
+      "title": "Arrive and Confirm the Reservation",
+      "objective": "Give the reservation name, understand a short wait, and discuss whether to wait at the bar or request another table.",
+      "focus": "J'ai une réservation au nom de ... identifies the booking. Il faut attendre quinze minutes states the wait; pouvons-nous attendre au bar ? asks permission. Je préférerais une table près de la fenêtre is a polite seating preference, conditional on availability.",
+      "scene": "Sam and Léa arrive early; Camille checks the list and offers a place to wait.",
+      "cards": [
+        {"fr": "la réservation", "en": "the reservation", "kind": "term"},
+        {"fr": "la personne à l'accueil", "en": "the host at reception", "kind": "phrase"},
+        {"fr": "le nom", "en": "the name", "kind": "term"},
+        {"fr": "la table", "en": "the table", "kind": "term"},
+        {"fr": "l'attente", "en": "the wait", "kind": "term"},
+        {"fr": "le bar", "en": "the bar", "kind": "term"},
+        {"fr": "la fenêtre", "en": "the window", "kind": "term"},
+        {"fr": "la liste", "en": "the list", "kind": "term"},
+        {"fr": "la terrasse", "en": "the terrace", "kind": "term"},
+        {"fr": "une boisson", "en": "a drink", "kind": "term"},
+        {"fr": "une table pour deux", "en": "a table for two", "kind": "phrase"},
+        {"fr": "J'ai une réservation au nom de Smith.", "en": "I have a reservation under Smith's name.", "kind": "phrase"},
+        {"fr": "Combien de temps faut-il attendre ?", "en": "How long is the wait?", "kind": "phrase"},
+        {"fr": "Pouvons-nous attendre au bar ?", "en": "Can we wait at the bar?", "kind": "phrase"},
+        {"fr": "Y a-t-il une table près de la fenêtre ?", "en": "Is there a table near the window?", "kind": "phrase"},
+        {"fr": "Excusez-moi, pourriez-vous répéter ?", "en": "Excuse me, could you repeat that?", "kind": "phrase"},
+        {"fr": "Je préférerais une table en terrasse.", "en": "I would prefer a table on the terrace.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonsoir. J'ai une réservation au nom de Smith.", "en": "Good evening. I have a reservation under Smith's name."},
+        {"speaker": "Camille", "fr": "Bonsoir. Je vérifie la liste. Vous êtes un peu en avance.", "en": "Good evening. I'm checking the list. You're a little early."},
+        {"speaker": "Sam", "fr": "Oui. Combien de temps faut-il attendre ?", "en": "Yes. How long is the wait?"},
+        {"speaker": "Camille", "fr": "Il faut attendre quinze minutes. Votre table n'est pas encore prête.", "en": "There is a fifteen-minute wait. Your table is not ready yet."},
+        {"speaker": "Léa", "fr": "Pouvons-nous attendre au bar avec une boisson ?", "en": "Can we wait at the bar with a drink?"},
+        {"speaker": "Camille", "fr": "Oui, bien sûr. Je vous appellerai quand la table sera prête.", "en": "Yes, of course. I'll call you when the table is ready."},
+        {"speaker": "Sam", "fr": "Y a-t-il une table près de la fenêtre ?", "en": "Is there a table near the window?"},
+        {"speaker": "Camille", "fr": "Je vais vérifier si elle est libre. Je vous donne ce numéro pour l'attente.", "en": "I'll check whether one is free. I'll give you this number for the wait."},
+        {"speaker": "Sam", "fr": "Merci. Nous attendrons au bar.", "en": "Thank you. We'll wait at the bar."}
+      ],
+      "speaking": {
+        "role": "Arriving dinner guest",
+        "partnerRole": "Restaurant host",
+        "opening": "Bonsoir. Vous avez une réservation ?",
+        "goal": "Give your reservation name, ask about the wait, and decide whether to wait at the bar.",
+        "closure": "Je vous appelle dès que votre table est prête.",
+        "wordBank": ["la réservation", "l'attente", "le bar", "la fenêtre", "J'ai une réservation au nom de Smith.", "Combien de temps faut-il attendre ?", "Pouvons-nous attendre au bar ?", "Y a-t-il une table près de la fenêtre ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for the wait.", "sourceCard": 5, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, give the host your reservation name.", "sourceCard": 12, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about waiting at the bar.", "sourceCard": 14, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for window.", "sourceCard": 7, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask how long the wait will be.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking whether there is a table near the window.", "sourceCard": 15, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableId": "travel-dinner:3:fr-en",
+      "sourceTitleEnglish": "Order aperitivo",
+      "sourceObjectiveEnglish": "ask about drinks, nonalcoholic choices, and included snacks",
+      "sourceSpeakingEnglish": "Join the local pre-dinner custom and ask how it works.",
+      "title": "Order an Apéritif",
+      "objective": "Ask about apéritif drinks, alcohol-free choices, and whether small bites are included.",
+      "focus": "Un apéritif is a drink before dinner; the food offered with it varies by place. Ask est-ce que les amuse-bouches sont compris ? rather than assuming they are. Sans alcool identifies a nonalcoholic choice, and je voudrais ... is a polite order.",
+      "scene": "Sam and Léa ask Camille how the restaurant serves apéritifs before dinner.",
+      "cards": [
+        {"fr": "l'apéritif", "en": "the aperitif / pre-dinner drink", "kind": "term"},
+        {"fr": "une boisson", "en": "a drink", "kind": "term"},
+        {"fr": "la carte des boissons", "en": "the drink menu", "kind": "term"},
+        {"fr": "la bière", "en": "the beer", "kind": "term"},
+        {"fr": "le vin blanc", "en": "the white wine", "kind": "term"},
+        {"fr": "un soda", "en": "a soda", "kind": "term"},
+        {"fr": "l'eau gazeuse", "en": "the sparkling water", "kind": "term"},
+        {"fr": "le jus d'orange", "en": "the orange juice", "kind": "term"},
+        {"fr": "les olives", "en": "the olives", "kind": "term"},
+        {"fr": "les amuse-bouches", "en": "the small bites / appetizers", "kind": "term"},
+        {"fr": "la serveuse", "en": "the server", "kind": "term"},
+        {"fr": "Pourriez-vous m'apporter la carte des boissons ?", "en": "Could you bring me the drink menu?", "kind": "phrase"},
+        {"fr": "Avez-vous quelque chose sans alcool ?", "en": "Do you have something without alcohol?", "kind": "phrase"},
+        {"fr": "Est-ce que les amuse-bouches sont compris ?", "en": "Are the small bites included?", "kind": "phrase"},
+        {"fr": "Je voudrais un apéritif, s'il vous plaît.", "en": "I would like an aperitif, please.", "kind": "phrase"},
+        {"fr": "Comment se passe l'apéritif ici ?", "en": "How does the aperitif work here?", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Bonsoir. Vous souhaitez prendre un apéritif avant le dîner ?", "en": "Good evening. Would you like an aperitif before dinner?"},
+        {"speaker": "Sam", "fr": "Oui. Comment se passe l'apéritif ici ?", "en": "Yes. How does the aperitif work here?"},
+        {"speaker": "Camille", "fr": "Vous choisissez une boisson sur la carte.", "en": "You choose a drink from the menu."},
+        {"speaker": "Léa", "fr": "Pourriez-vous m'apporter la carte des boissons ?", "en": "Could you bring me the drink menu?"},
+        {"speaker": "Sam", "fr": "Avez-vous quelque chose sans alcool ?", "en": "Do you have something without alcohol?"},
+        {"speaker": "Camille", "fr": "Oui : du jus d'orange, un soda ou de l'eau gazeuse.", "en": "Yes: orange juice, soda, or sparkling water."},
+        {"speaker": "Léa", "fr": "Est-ce que les amuse-bouches sont compris ?", "en": "Are the small bites included?"},
+        {"speaker": "Camille", "fr": "Ce soir, nous servons des olives avec les boissons.", "en": "Tonight, we serve olives with the drinks."},
+        {"speaker": "Sam", "fr": "Très bien. Je voudrais une bière et Léa prendra de l'eau gazeuse.", "en": "Very well. I would like a beer, and Léa will have sparkling water."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Vous souhaitez prendre un apéritif avant le dîner ?",
+        "goal": "Ask how the apéritif works, request the drink menu, ask for a nonalcoholic choice, and check whether small bites are included.",
+        "closure": "Merci. Je vous apporte la carte des boissons.",
+        "wordBank": ["l'apéritif", "la carte des boissons", "l'eau gazeuse", "les amuse-bouches", "Pourriez-vous m'apporter la carte des boissons ?", "Avez-vous quelque chose sans alcool ?", "Est-ce que les amuse-bouches sont compris ?", "Comment se passe l'apéritif ici ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for aperitif.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask how the aperitif works here.", "sourceCard": 16, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about alcohol-free choices.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for sparkling water.", "sourceCard": 7, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask whether small bites are included.", "sourceCard": 14, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite request for the drink menu.", "sourceCard": 12, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified French review is required for restaurant register, naturalness, form examples and variant answers before release.",
+    "The French apéritif scene preserves the source question about included snacks while making no universal claim that snacks are included.",
+    "The Core source lives in travel-zone.ts and the Spanish passage/word source lives in public/lesson-content/es/travel-dinner.json; this draft remains private and unregistered."
+  ]
+}

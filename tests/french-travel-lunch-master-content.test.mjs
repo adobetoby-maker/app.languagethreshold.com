@@ -9,8 +9,8 @@ const sourceBytes = readFileSync(sourcePath);
 const sources = JSON.parse(sourceBytes).lessons;
 const candidate = JSON.parse(readFileSync("content/french-travel-lunch/master-lesson-content-candidate.json"));
 
-test("private French Lunch Master 1–2 pin their source and keep review gates closed", () => {
-  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2"]);
+test("private French Lunch Master 1–3 pin their source and keep review gates closed", () => {
+  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2", "3"]);
   assert.equal(candidate.sourceDraftSha256["master-1-5-draft.json"], createHash("sha256").update(sourceBytes).digest("hex"));
   assert.equal(candidate.module, "master-travel-lunch");
   assert.equal(candidate.reviewed, false);
@@ -29,8 +29,13 @@ for (const [number, item] of Object.entries(candidate.lessons)) {
     ];
     for (const word of item.supplementalWords ?? []) {
       assert.equal(word.kind, "term");
-      assert.ok(Number.isInteger(word.sourceReaderIndex));
-      assert.ok(source.reader[word.sourceReaderIndex - 1]?.fr.includes(word.sourceReaderText ?? word.es));
+      if (word.sourceReaderIndex) {
+        assert.ok(Number.isInteger(word.sourceReaderIndex));
+        assert.ok(source.reader[word.sourceReaderIndex - 1]?.fr.includes(word.sourceReaderText ?? word.es));
+      } else {
+        assert.ok(Number.isInteger(word.sourceCardIndex));
+        assert.ok(source.cards[word.sourceCardIndex - 1]?.fr.includes(word.sourceCardText ?? word.es));
+      }
     }
     assert.deepEqual(validateLessonContent({ passage: item.passage, words, verbs: item.verbs }, {
       language: "French", nativeLanguage: "English",

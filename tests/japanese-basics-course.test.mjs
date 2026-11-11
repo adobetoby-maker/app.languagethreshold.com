@@ -138,3 +138,17 @@ test("Japanese checks exercise the newly taught forms", () => {
       `${stage}/${n} checks come from distinct dialogue lines`);
   }
 });
+
+test("Master 14 teaches a daily sequence before the changed plan", () => {
+  const lesson = read("public/lesson-content/ja/master-japanese-basics.json").lessons[14];
+  const lines = lesson.passage.target;
+  assert.equal(lines.length, 18);
+  for (const marker of ["ふだん", "まず", "それから", "さいごに", "おくれています", "まっていました"])
+    assert.ok(lines.some((line) => line.includes(marker)), `Master 14 includes ${marker}`);
+  assert.ok(lines.indexOf(lines.find((line) => line.includes("ふだん"))) <
+    lines.indexOf(lines.find((line) => line.includes("おくれています"))));
+  const preserved = read("content/japanese-basics/private-delayed-meeting-extension-ja-en.json");
+  assert.equal(preserved.reviewed, false);
+  assert.equal(preserved.registered, false);
+  assert.equal(preserved.sourceLessonNumber, 14);
+});

@@ -21,11 +21,11 @@
     },
     {
       "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
-      "sha256": "670680e5a2489d8c5037cc4949dac03e1210585336faae8cc90f52218f6171c8"
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
     },
     {
       "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
-      "sha256": "aa0d9653a46a0cde8c9b88f737246b2b6eaa36ebd1be551fce085bad6f1d9084"
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
     }
   ],
   "lessonCount": 60,
@@ -5087,42 +5087,84 @@
       "contentVersion": "japanese-101-ja-en-v1-draft",
       "targetLanguage": "Japanese",
       "instructionLanguage": "English",
-      "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
+      "focus": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting.",
       "readingId": "master-japanese-basics-lesson-14",
       "activities": [
         {
-          "id": "form-ja-en-6a8e519ea63ba162:recognize",
-          "sourcePromptId": "form-ja-en-6a8e519ea63ba162",
+          "id": "form-ja-en-235062d82bb143af:recognize",
+          "sourcePromptId": "form-ja-en-235062d82bb143af",
           "mode": "recognize-meaning",
-          "cue": "きょうは えきで ともだちに あう よていです。",
-          "answer": "I plan to meet a friend at the station today.",
-          "focus": "scheduled-yotei",
+          "cue": "ふだんは あさ しちじに おきます。",
+          "answer": "I usually get up at seven in the morning.",
+          "focus": "usual-routine-fudan",
           "sourceDialogueTurn": 1
         },
         {
-          "id": "form-ja-en-6a8e519ea63ba162:produce",
-          "sourcePromptId": "form-ja-en-6a8e519ea63ba162",
+          "id": "form-ja-en-235062d82bb143af:produce",
+          "sourcePromptId": "form-ja-en-235062d82bb143af",
           "mode": "produce-target",
-          "cue": "I plan to meet a friend at the station today.",
-          "answer": "きょうは えきで ともだちに あう よていです。",
+          "cue": "I usually get up at seven in the morning.",
+          "answer": "ふだんは あさ しちじに おきます。",
           "knownJapaneseVariants": [
-            "きょうは えきで ともだちに あう よていです。"
+            "ふだんは あさ しちじに おきます。"
           ],
-          "focus": "scheduled-yotei",
+          "focus": "usual-routine-fudan",
           "sourceDialogueTurn": 1
         },
         {
-          "id": "form-ja-en-bb3f128813c1323f:recognize",
-          "sourcePromptId": "form-ja-en-bb3f128813c1323f",
+          "id": "form-ja-en-6e3080062b60d00a:recognize",
+          "sourcePromptId": "form-ja-en-6e3080062b60d00a",
+          "mode": "recognize-meaning",
+          "cue": "まず、かおを あらって、あさごはんを たべます。",
+          "answer": "First, I wash my face and eat breakfast.",
+          "focus": "sequence-mazu",
+          "sourceDialogueTurn": 3
+        },
+        {
+          "id": "form-ja-en-6e3080062b60d00a:produce",
+          "sourcePromptId": "form-ja-en-6e3080062b60d00a",
+          "mode": "produce-target",
+          "cue": "First, I wash my face and eat breakfast.",
+          "answer": "まず、かおを あらって、あさごはんを たべます。",
+          "knownJapaneseVariants": [
+            "まず、かおを あらって、あさごはんを たべます。"
+          ],
+          "focus": "sequence-mazu",
+          "sourceDialogueTurn": 3
+        },
+        {
+          "id": "form-ja-en-5a8711b33c9b3218:recognize",
+          "sourcePromptId": "form-ja-en-5a8711b33c9b3218",
+          "mode": "recognize-meaning",
+          "cue": "でも、きょうは えきで ともだちに あう よていです。",
+          "answer": "But today I plan to meet a friend at the station.",
+          "focus": "changed-plan-yotei",
+          "sourceDialogueTurn": 7
+        },
+        {
+          "id": "form-ja-en-5a8711b33c9b3218:produce",
+          "sourcePromptId": "form-ja-en-5a8711b33c9b3218",
+          "mode": "produce-target",
+          "cue": "But today I plan to meet a friend at the station.",
+          "answer": "でも、きょうは えきで ともだちに あう よていです。",
+          "knownJapaneseVariants": [
+            "でも、きょうは えきで ともだちに あう よていです。"
+          ],
+          "focus": "changed-plan-yotei",
+          "sourceDialogueTurn": 7
+        },
+        {
+          "id": "form-ja-en-b281e81e401f273f:recognize",
+          "sourcePromptId": "form-ja-en-b281e81e401f273f",
           "mode": "recognize-meaning",
           "cue": "でも、でんしゃが おくれています。",
           "answer": "But the train is delayed.",
           "focus": "delay-result-state",
-          "sourceDialogueTurn": 4
+          "sourceDialogueTurn": 10
         },
         {
-          "id": "form-ja-en-bb3f128813c1323f:produce",
-          "sourcePromptId": "form-ja-en-bb3f128813c1323f",
+          "id": "form-ja-en-b281e81e401f273f:produce",
+          "sourcePromptId": "form-ja-en-b281e81e401f273f",
           "mode": "produce-target",
           "cue": "But the train is delayed.",
           "answer": "でも、でんしゃが おくれています。",
@@ -5130,62 +5172,20 @@
             "でも、でんしゃが おくれています。"
           ],
           "focus": "delay-result-state",
-          "sourceDialogueTurn": 4
+          "sourceDialogueTurn": 10
         },
         {
-          "id": "form-ja-en-319363a2b64e6ef9:recognize",
-          "sourcePromptId": "form-ja-en-319363a2b64e6ef9",
-          "mode": "recognize-meaning",
-          "cue": "では、あるいて えきへ いきます。",
-          "answer": "Then I will walk to the station.",
-          "focus": "movement-te-ikimasu",
-          "sourceDialogueTurn": 5
-        },
-        {
-          "id": "form-ja-en-319363a2b64e6ef9:produce",
-          "sourcePromptId": "form-ja-en-319363a2b64e6ef9",
-          "mode": "produce-target",
-          "cue": "Then I will walk to the station.",
-          "answer": "では、あるいて えきへ いきます。",
-          "knownJapaneseVariants": [
-            "では、あるいて えきへ いきます。"
-          ],
-          "focus": "movement-te-ikimasu",
-          "sourceDialogueTurn": 5
-        },
-        {
-          "id": "form-ja-en-54d789eeef6126a3:recognize",
-          "sourcePromptId": "form-ja-en-54d789eeef6126a3",
-          "mode": "recognize-meaning",
-          "cue": "はい、「すこし おそく なります」と かきます。",
-          "answer": "Yes, I will write, “I will be a little late.”",
-          "focus": "quoted-message-to",
-          "sourceDialogueTurn": 7
-        },
-        {
-          "id": "form-ja-en-54d789eeef6126a3:produce",
-          "sourcePromptId": "form-ja-en-54d789eeef6126a3",
-          "mode": "produce-target",
-          "cue": "Yes, I will write, “I will be a little late.”",
-          "answer": "はい、「すこし おそく なります」と かきます。",
-          "knownJapaneseVariants": [
-            "はい、「すこし おそく なります」と かきます。"
-          ],
-          "focus": "quoted-message-to",
-          "sourceDialogueTurn": 7
-        },
-        {
-          "id": "form-ja-en-35a8d735980003c7:recognize",
-          "sourcePromptId": "form-ja-en-35a8d735980003c7",
+          "id": "form-ja-en-e2fe935c347bd01c:recognize",
+          "sourcePromptId": "form-ja-en-e2fe935c347bd01c",
           "mode": "recognize-meaning",
           "cue": "そのあと えきに つきました。ともだちは まっていました。",
           "answer": "After that, I arrived at the station. My friend was waiting.",
           "focus": "past-progressive-matteimashita",
-          "sourceDialogueTurn": 9
+          "sourceDialogueTurn": 14
         },
         {
-          "id": "form-ja-en-35a8d735980003c7:produce",
-          "sourcePromptId": "form-ja-en-35a8d735980003c7",
+          "id": "form-ja-en-e2fe935c347bd01c:produce",
+          "sourcePromptId": "form-ja-en-e2fe935c347bd01c",
           "mode": "produce-target",
           "cue": "After that, I arrived at the station. My friend was waiting.",
           "answer": "そのあと えきに つきました。ともだちは まっていました。",
@@ -5193,7 +5193,7 @@
             "そのあと えきに つきました。ともだちは まっていました。"
           ],
           "focus": "past-progressive-matteimashita",
-          "sourceDialogueTurn": 9
+          "sourceDialogueTurn": 14
         }
       ],
       "reviewed": false

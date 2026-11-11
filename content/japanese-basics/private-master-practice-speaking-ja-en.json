@@ -3,19 +3,19 @@
   "registered": false,
   "reviewed": false,
   "sourceFile": "content/japanese-basics/master.json",
-  "sourceSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
+  "sourceSha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621",
   "extensionsFile": "content/japanese-basics/master-extensions.json",
-  "extensionsSha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7",
+  "extensionsSha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9",
   "practiceFile": "src/data/japanese-basics-practice.json",
-  "practiceSha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683",
+  "practiceSha256": "7399de8cd7644f7517fe9c02bb74a4477e2aec9650305fd0f5781d3df28793c5",
   "authoredSpeakingSources": [
     {
       "path": "content/japanese-basics/private-master-1-10-speaking-missions-ja-en.json",
-      "sha256": "50d2569ef96664100d48b31c7b377d6747686bece3f02a396500e8ebbd9ec1ab"
+      "sha256": "afad8eeda19159ddd4506e9e368b90dee2646927efd2f6cd8f53708ae26866ea"
     },
     {
       "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
-      "sha256": "cd2edd70d8722276b325200a5b8c7a3f3146ae98f3a9bb570a85b84b9bc66ce6"
+      "sha256": "27591479d2d61c2879ed3e44af957cb006c151dfae49e7adbf633b0b53156891"
     }
   ],
   "authoredSpeakingCoverage": [
@@ -1118,85 +1118,95 @@
     "14": {
       "stage": "master",
       "reading": {
-        "title": "A delayed train before meeting a friend",
+        "title": "A usual weekday and a delayed train before meeting a friend",
         "target": [
-          "きょうは えきで ともだちに あう よていです。",
+          "ふだんは あさ しちじに おきます。",
+          "あさは まず なにを しますか。",
+          "まず、かおを あらって、あさごはんを たべます。",
+          "それから、しごとに いきます。",
+          "しごとの あとは どう しますか。",
+          "ふだんは うちに かえります。",
+          "でも、きょうは えきで ともだちに あう よていです。",
           "いつ あう よていですか。",
           "ごご さんじの よていです。",
           "でも、でんしゃが おくれています。",
           "では、あるいて えきへ いきます。",
           "ともだちに メッセージを かきますか。",
           "はい、「すこし おそく なります」と かきます。",
-          "それは いいですね。",
           "そのあと えきに つきました。ともだちは まっていました。",
-          "あるいて えきへ いきました。",
-          "すこし おそく なりました。",
-          "ともだちは えきの まえで まっていました。",
-          "さんじはんに ともだちに あいました。"
+          "さんじはんに ともだちに あいました。",
+          "「おそく なって すみません」と いいました。",
+          "ともだちは 「だいじょうぶです」と いいました。",
+          "さいごに ともだちと はなして、うちに かえりました。"
         ],
         "native": [
-          "I plan to meet a friend at the station today.",
+          "I usually get up at seven in the morning.",
+          "What do you do first in the morning?",
+          "First, I wash my face and eat breakfast.",
+          "Then I go to work.",
+          "What do you do after work?",
+          "I usually go home.",
+          "But today I plan to meet a friend at the station.",
           "When do you plan to meet?",
           "It is planned for three in the afternoon.",
           "But the train is delayed.",
           "Then I will walk to the station.",
           "Will you write a message to your friend?",
           "Yes, I will write, “I will be a little late.”",
-          "That is good.",
           "After that, I arrived at the station. My friend was waiting.",
-          "I walked to the station.",
-          "I was a little late.",
-          "My friend was waiting in front of the station.",
-          "I met my friend at three thirty."
+          "I met my friend at three thirty.",
+          "I said, “Sorry I am late.”",
+          "My friend said, “It is all right.”",
+          "Finally, I talked with my friend and went home."
         ]
       },
       "grammar": {
-        "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
+        "focus": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting.",
         "examples": [
           {
-            "es": "きょうは えきで ともだちに あう よていです。",
-            "en": "I plan to meet a friend at the station today."
+            "es": "ふだんは あさ しちじに おきます。",
+            "en": "I usually get up at seven in the morning."
           },
           {
-            "es": "いつ あう よていですか。",
-            "en": "When do you plan to meet?"
+            "es": "あさは まず なにを しますか。",
+            "en": "What do you do first in the morning?"
           }
         ]
       },
-      "speaking": "Role-play: Update a friend about a delayed train before a station meeting. State the planned 15:00 meeting and the ongoing train delay Describe walking to the station and quote a short late-arrival message Report the completed arrival and that the friend was waiting. The train delay changes the route and the meeting arrival time. Clarify the sequence from delay and message to arrival.",
-      "openingLine": "きょうは えきで ともだちに あう よていです。",
-      "partnerRole": "Update a friend about a delayed train before a station meeting",
+      "speaking": "Role-play: Explain a usual weekday and today’s delayed station meeting to a friend. Sequence at least three usual actions from morning to after work Contrast the usual trip home with today’s planned meeting Explain the train delay, quote the message, and recap the arrival and waiting. A delayed train changes the plan after the usual workday. Describe the final meeting and trip home in order.",
+      "openingLine": "ふだんは あさ しちじに おきます。",
+      "partnerRole": "Explain a usual weekday and today’s delayed station meeting to a friend",
       "checks": [
         {
-          "prompt": "そのあと えきに つきました。ともだちは ____。",
-          "hint": "After that, I arrived at the station. My friend was waiting.",
-          "answer": "まっていました",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
-        },
-        {
-          "prompt": "きょうは えきで ともだちに あう ____。",
-          "hint": "I plan to meet a friend at the station today.",
-          "answer": "よていです",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
+          "prompt": "____、しごとに いきます。",
+          "hint": "Then I go to work.",
+          "answer": "それから",
+          "explanation": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting."
         },
         {
           "prompt": "でも、でんしゃが ____。",
           "hint": "But the train is delayed.",
           "answer": "おくれています",
-          "explanation": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'"
+          "explanation": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting."
+        },
+        {
+          "prompt": "そのあと えきに つきました。ともだちは ____。",
+          "hint": "After that, I arrived at the station. My friend was waiting.",
+          "answer": "まっていました",
+          "explanation": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting."
         }
       ],
       "authoredSpeakingMission": {
         "stableLessonKey": "master-japanese-basics:14",
-        "role": "Update a friend about a delayed train before a station meeting",
-        "opening": "きょうは えきで ともだちに あう よていです。",
+        "role": "Explain a usual weekday and today’s delayed station meeting to a friend",
+        "opening": "ふだんは あさ しちじに おきます。",
         "objectives": [
-          "State the planned 15:00 meeting and the ongoing train delay",
-          "Describe walking to the station and quote a short late-arrival message",
-          "Report the completed arrival and that the friend was waiting"
+          "Sequence at least three usual actions from morning to after work",
+          "Contrast the usual trip home with today’s planned meeting",
+          "Explain the train delay, quote the message, and recap the arrival and waiting"
         ],
-        "complication": "The train delay changes the route and the meeting arrival time.",
-        "closure": "Clarify the sequence from delay and message to arrival."
+        "complication": "A delayed train changes the plan after the usual workday.",
+        "closure": "Describe the final meeting and trip home in order."
       }
     },
     "15": {

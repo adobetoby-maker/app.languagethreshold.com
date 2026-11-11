@@ -3,8 +3,8 @@
   "pairKey": "Japanese:English",
   "registered": false,
   "reviewed": false,
-  "sourceSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
-  "authoredSha256": "7d54505964fef8f2d1fa1271cdac1ca3285c100a5a3b61b25b788b6304081570",
+  "sourceSha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621",
+  "authoredSha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4",
   "lessonCount": 20,
   "activityCount": 120,
   "lessons": [
@@ -666,45 +666,45 @@
       "modes": {
         "see": {
           "id": "ja101:master:14:see",
-          "prompt": "Read the delay statement. Identify おくれています as the present state of the train.",
-          "sourceDialogueTurn": 4,
-          "targetText": "でも、でんしゃが おくれています。",
-          "nativeText": "But the train is delayed."
+          "prompt": "Read the usual morning routine. Identify ふだんは as the marker for what usually happens.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ふだんは あさ しちじに おきます。",
+          "nativeText": "I usually get up at seven in the morning."
         },
         "recall": {
           "id": "ja101:master:14:recall",
-          "prompt": "Recall the planned meeting sentence, including the friend, station, and よていです.",
-          "sourceDialogueTurn": 1,
-          "targetText": "きょうは えきで ともだちに あう よていです。",
-          "nativeText": "I plan to meet a friend at the station today."
+          "prompt": "Recall the first steps in the morning routine, beginning with まず and keeping the action sequence.",
+          "sourceDialogueTurn": 3,
+          "targetText": "まず、かおを あらって、あさごはんを たべます。",
+          "nativeText": "First, I wash my face and eat breakfast."
         },
         "hear": {
           "id": "ja101:master:14:hear",
-          "prompt": "Listen to the two-sentence ending and choose the meaning that the speaker arrived while the friend was waiting.",
-          "sourceDialogueTurn": 9,
-          "targetText": "そのあと えきに つきました。ともだちは まっていました。",
-          "nativeText": "After that, I arrived at the station. My friend was waiting."
+          "prompt": "Listen to the changed plan and choose the meaning that the train is delayed now.",
+          "sourceDialogueTurn": 10,
+          "targetText": "でも、でんしゃが おくれています。",
+          "nativeText": "But the train is delayed."
         },
         "type": {
           "id": "ja101:master:14:type",
-          "prompt": "Type the full reply that quotes 'I will be a little late'; keep the Japanese corner quotes and と.",
-          "sourceDialogueTurn": 7,
+          "prompt": "Type the message that quotes 'I will be a little late'; keep the Japanese corner quotes and と.",
+          "sourceDialogueTurn": 13,
           "targetText": "はい、「すこし おそく なります」と かきます。",
           "nativeText": "Yes, I will write, “I will be a little late.”"
         },
         "say": {
           "id": "ja101:master:14:say",
-          "prompt": "Say the changed plan to walk to the station, using あるいて and destination へ.",
-          "sourceDialogueTurn": 5,
+          "prompt": "Say the new plan to walk to the station, using あるいて and destination へ.",
+          "sourceDialogueTurn": 11,
           "targetText": "では、あるいて えきへ いきます。",
           "nativeText": "Then I will walk to the station."
         },
         "write": {
           "id": "ja101:master:14:write",
-          "prompt": "Write the answer giving the planned meeting time as three in the afternoon.",
-          "sourceDialogueTurn": 3,
-          "targetText": "ごご さんじの よていです。",
-          "nativeText": "It is planned for three in the afternoon."
+          "prompt": "Write the arrival and waiting sentence, preserving the past forms つきました and まっていました.",
+          "sourceDialogueTurn": 14,
+          "targetText": "そのあと えきに つきました。ともだちは まっていました。",
+          "nativeText": "After that, I arrived at the station. My friend was waiting."
         }
       }
     },

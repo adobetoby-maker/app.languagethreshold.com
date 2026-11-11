@@ -55,7 +55,7 @@ def build():
             "lessonIds": expected, "placements": sum(map(len, placements.values())),
             "uniqueTexts": len(texts), "proposedClips": len(texts) * len(VOICES),
             "submittedCharacters": sum(len(row["spokenText"]) for row in texts) * len(VOICES),
-            "texts": texts, "recordingsGenerated": False, "listeningReviewed": False,
+            "texts": texts, "recordingsBundled": False, "listeningReviewed": False,
             "registered": False}
 
 

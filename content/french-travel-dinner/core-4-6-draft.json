@@ -1,0 +1,602 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "travel-dinner:4:fr-en",
+      "sourceTitleEnglish": "Understand courses",
+      "sourceObjectiveEnglish": "ask about course order, portion size, sharing, and pacing",
+      "sourceSpeakingEnglish": "Plan a multi-course dinner without ordering far too much food.",
+      "title": "Understand the Order of Courses",
+      "objective": "Ask how dishes are served, whether portions are large, what can be shared, and how to pace a multi-course meal.",
+      "focus": "Une entrée comes before le plat principal; le dessert follows. Est-ce que nous pouvons partager ce plat ? asks whether sharing is possible. Apportez les plats à notre rythme asks for a pace that suits the table.",
+      "scene": "At a restaurant in Lyon, Maya and Jules plan dinner with their server before ordering.",
+      "cards": [
+        {
+          "fr": "une entrée",
+          "en": "a starter",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat principal",
+          "en": "the main course",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "une portion",
+          "en": "a portion",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat",
+          "en": "a dish",
+          "kind": "term"
+        },
+        {
+          "fr": "le menu",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "fr": "partager",
+          "en": "to share",
+          "kind": "term"
+        },
+        {
+          "fr": "le service",
+          "en": "the service",
+          "kind": "term"
+        },
+        {
+          "fr": "Dans quel ordre servez-vous les plats ?",
+          "en": "In what order do you serve the courses?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La portion est-elle grande ?",
+          "en": "Is the portion large?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvons-nous partager ce plat ?",
+          "en": "Can we share this dish?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien de plats conseillez-vous pour deux personnes ?",
+          "en": "How many dishes do you recommend for two people?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pour commencer, nous prendrons une entrée.",
+          "en": "To start, we will have a starter.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Apportez les plats à notre rythme, s’il vous plaît.",
+          "en": "Please bring the dishes at our pace.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je n’ai pas compris. Pourriez-vous répéter ?",
+          "en": "I did not understand. Could you repeat?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonsoir. Dans quel ordre servez-vous les plats ?",
+          "en": "Good evening. In what order do you serve the courses?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Nous servons d’abord l’entrée, puis le plat principal et enfin le dessert.",
+          "en": "We serve the starter first, then the main course and finally dessert."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Combien de plats conseillez-vous pour deux personnes ?",
+          "en": "How many dishes do you recommend for two people?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Une entrée à partager et un plat principal chacun suffisent souvent.",
+          "en": "A starter to share and one main course each are often enough."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La portion de ce plat est-elle grande ?",
+          "en": "Is the portion of this dish large?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Oui, elle est assez grande.",
+          "en": "Yes, it is fairly large."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Pouvons-nous partager ce plat ?",
+          "en": "Can we share this dish?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Bien sûr. Je peux apporter deux assiettes.",
+          "en": "Of course. I can bring two plates."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Alors, nous partagerons l’entrée. Apportez les plats à notre rythme, s’il vous plaît.",
+          "en": "Then we will share the starter. Please bring the dishes at our pace."
+        }
+      ],
+      "speaking": {
+        "role": "Guest planning a multi-course dinner",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir. Avez-vous choisi vos plats ?",
+        "goal": "Ask the course order and portion size, decide what to share, and request a comfortable pace.",
+        "closure": "Très bien. Je vous apporterai d’abord l’entrée.",
+        "wordBank": [
+          "une entrée",
+          "le plat principal",
+          "une portion",
+          "partager",
+          "Dans quel ordre servez-vous les plats ?",
+          "La portion est-elle grande ?",
+          "Pouvons-nous partager ce plat ?",
+          "Combien de plats conseillez-vous pour deux personnes ?",
+          "Apportez les plats à notre rythme, s’il vous plaît."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for main course.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask in what order the courses are served.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for a question about sharing a dish.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for a portion.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask how many dishes the server recommends for two.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Request that the dishes arrive at your table’s pace.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "stableId": "travel-dinner:5:fr-en",
+      "sourceTitleEnglish": "Ask for a wine recommendation",
+      "sourceObjectiveEnglish": "describe taste and budget and pair wine with the meal",
+      "sourceSpeakingEnglish": "Ask for a local bottle within a clear price range and understand the recommendation.",
+      "title": "Ask for a Wine Recommendation",
+      "objective": "Describe a preferred wine style, give a clear bottle budget, ask for a local recommendation with dinner, and confirm the suggested price.",
+      "focus": "Je cherche un vin rouge léger describes style; pas trop sucré rules out a sweet wine. Mon budget est de ... euros gives a price range. À combien est la bouteille ? confirms the bottle price before ordering.",
+      "scene": "Maya asks Élise to suggest a local wine for the roast chicken, within a clear budget.",
+      "cards": [
+        {
+          "fr": "la carte des vins",
+          "en": "the wine list",
+          "kind": "term"
+        },
+        {
+          "fr": "un vin rouge",
+          "en": "a red wine",
+          "kind": "term"
+        },
+        {
+          "fr": "un vin blanc",
+          "en": "a white wine",
+          "kind": "term"
+        },
+        {
+          "fr": "une bouteille",
+          "en": "a bottle",
+          "kind": "term"
+        },
+        {
+          "fr": "un verre de vin",
+          "en": "a glass of wine",
+          "kind": "term"
+        },
+        {
+          "fr": "le budget",
+          "en": "the budget",
+          "kind": "term"
+        },
+        {
+          "fr": "un vin local",
+          "en": "a local wine",
+          "kind": "term"
+        },
+        {
+          "fr": "sec",
+          "en": "dry",
+          "kind": "term"
+        },
+        {
+          "fr": "souple",
+          "en": "smooth / mellow",
+          "kind": "term"
+        },
+        {
+          "fr": "fruité",
+          "en": "fruity",
+          "kind": "term"
+        },
+        {
+          "fr": "sucré",
+          "en": "sweet",
+          "kind": "term"
+        },
+        {
+          "fr": "Quel vin conseillez-vous avec le poulet ?",
+          "en": "What wine do you recommend with the chicken?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je cherche un vin rouge léger.",
+          "en": "I am looking for a light red wine.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je préfère un vin sec, pas trop sucré.",
+          "en": "I prefer a dry wine, not too sweet.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mon budget est de quarante euros pour la bouteille.",
+          "en": "My budget is forty euros for the bottle.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À combien est la bouteille ?",
+          "en": "How much is the bottle?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourrions-nous commander un verre pour goûter ce vin ?",
+          "en": "Could we order a glass to try this wine?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Pourriez-vous nous apporter la carte des vins ?",
+          "en": "Could you bring us the wine list?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Bien sûr. Qu’allez-vous manger ?",
+          "en": "Of course. What are you going to eat?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Du poulet rôti. Quel vin local conseillez-vous avec le poulet ?",
+          "en": "Roast chicken. What local wine do you recommend with chicken?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Ce vin rouge de la région est léger et fruité.",
+          "en": "This local red wine is light and fruity."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je préfère un vin sec, pas trop sucré.",
+          "en": "I prefer a dry wine, not too sweet."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Il est sec et accompagne bien le poulet.",
+          "en": "It is dry and goes well with the chicken."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Mon budget est de quarante euros pour la bouteille. À combien est celle-ci ?",
+          "en": "My budget is forty euros for the bottle. How much is this one?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Cette bouteille coûte trente-six euros.",
+          "en": "This bottle costs thirty-six euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Nous prendrons cette bouteille.",
+          "en": "Thank you. We will have this bottle."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing a bottle of wine",
+        "partnerRole": "Restaurant server",
+        "opening": "Avez-vous une préférence pour le vin ?",
+        "goal": "Describe a dry, light red wine, set a forty-euro bottle budget, ask for a local pairing, and confirm the price.",
+        "closure": "Je vous apporte la bouteille.",
+        "wordBank": [
+          "la carte des vins",
+          "un vin rouge",
+          "une bouteille",
+          "le budget",
+          "un vin local",
+          "sec",
+          "Quel vin conseillez-vous avec le poulet ?",
+          "Je cherche un vin rouge léger.",
+          "Mon budget est de quarante euros pour la bouteille.",
+          "À combien est la bouteille ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for a wine list.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask what wine goes with the chicken.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question asking the bottle price.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for a local wine.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "State a forty-euro budget for a bottle.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Describe the dry wine style you prefer.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "stableId": "travel-dinner:6:fr-en",
+      "sourceTitleEnglish": "Choose the chef's specialties",
+      "sourceObjectiveEnglish": "ask what the kitchen does best, what is seasonal, and what sold out",
+      "sourceSpeakingEnglish": "Tell the server you want the dish that best represents the region tonight.",
+      "title": "Choose the Chef's Specialties",
+      "objective": "Ask what the kitchen recommends, what is seasonal, and what has sold out; choose a regional specialty.",
+      "focus": "La spécialité de la maison names a house specialty; de saison describes ingredients available in season. Est-ce que ... est épuisé ? asks whether a dish has sold out. Je voudrais un plat typique de la région asks for a representative regional dish.",
+      "scene": "At a restaurant in Provence, Jules asks which local dish best represents the region tonight.",
+      "cards": [
+        {
+          "fr": "la spécialité de la maison",
+          "en": "the house specialty",
+          "kind": "term"
+        },
+        {
+          "fr": "les produits de saison",
+          "en": "seasonal ingredients",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat principal",
+          "en": "the main course",
+          "kind": "term"
+        },
+        {
+          "fr": "une entrée",
+          "en": "a starter",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine",
+          "en": "the kitchen / cuisine",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat régional",
+          "en": "a regional dish",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "fr": "épuisé",
+          "en": "sold out",
+          "kind": "term"
+        },
+        {
+          "fr": "le poisson du jour",
+          "en": "the fish of the day",
+          "kind": "term"
+        },
+        {
+          "fr": "Que recommande la cuisine ce soir ?",
+          "en": "What does the kitchen recommend tonight?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Qu’est-ce qui est de saison en ce moment ?",
+          "en": "What is in season right now?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Est-ce que le poisson du jour est épuisé ?",
+          "en": "Has the fish of the day sold out?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais un plat typique de la région.",
+          "en": "I would like a typical dish from the region.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous me décrire cette spécialité ?",
+          "en": "Could you describe this specialty to me?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quelle est la spécialité de la maison ?",
+          "en": "What is the house specialty?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Jules",
+          "fr": "Bonsoir. Quelle est la spécialité de la maison ?",
+          "en": "Good evening. What is the house specialty?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Ce soir, c’est la daube provençale.",
+          "en": "Tonight, it is Provençal beef stew."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Pourriez-vous me décrire cette spécialité ?",
+          "en": "Could you describe this specialty to me?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "C’est un plat de bœuf mijoté au vin, servi avec des légumes.",
+          "en": "It is beef simmered in wine, served with vegetables."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Qu’est-ce qui est de saison en ce moment ?",
+          "en": "What is in season right now?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Les courges et les champignons sont de saison.",
+          "en": "Squash and mushrooms are in season."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Est-ce que le poisson du jour est épuisé ?",
+          "en": "Has the fish of the day sold out?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Oui, il est épuisé. Nous avons encore la daube.",
+          "en": "Yes, it has sold out. We still have the stew."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Je voudrais un plat typique de la région. Je prendrai la daube, s’il vous plaît.",
+          "en": "I would like a typical dish from the region. I will have the stew, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing a regional dinner",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir. Voulez-vous entendre nos suggestions du jour ?",
+        "goal": "Ask the house specialty and seasonal ingredients, check what has sold out, and choose a representative regional dish.",
+        "closure": "Très bien. Je note la daube provençale.",
+        "wordBank": [
+          "la spécialité de la maison",
+          "les produits de saison",
+          "un plat régional",
+          "épuisé",
+          "Que recommande la cuisine ce soir ?",
+          "Qu’est-ce qui est de saison en ce moment ?",
+          "Est-ce que le poisson du jour est épuisé ?",
+          "Je voudrais un plat typique de la région.",
+          "Pourriez-vous me décrire cette spécialité ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for the house specialty.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask what the kitchen recommends tonight.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about seasonal ingredients.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for a regional dish.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the fish of the day has sold out.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Request a typical dish from the region.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified French review is required for naturalness, menu register, variant answers, and pronunciation before release.",
+    "Food and wine examples are scene-specific; this draft makes no universal claim about restaurant menus or prices.",
+    "The Core source objectives and Spanish passage/word source are pinned in source metadata; all learner-facing material remains unregistered."
+  ]
+}

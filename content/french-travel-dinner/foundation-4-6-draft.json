@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "foundation-travel-dinner:4:fr-en",
+      "sourceTitleEnglish": "Have, There Is, Need and Want",
+      "sourceObjectiveEnglish": "Say what you have, need and want at the table and ask if there is a table or a wait.",
+      "sourceSpeakingEnglish": "Ask the host if there is a table for your group, say you have a reservation, and ask if you have to wait.",
+      "title": "A Table, a Reservation, and What You Need",
+      "objective": "Ask whether a table is available, say what you have and need, and request a dish or drink in French.",
+      "focus": "Use il y a for “there is,” nous avons for “we have,” and nous avons besoin de for “we need.” Je voudrais is a polite request, while faut-il attendre ? asks whether waiting is necessary. After besoin de, say d'une chaise or de pain as the noun requires.",
+      "scene": "Sam's party arrives early; Camille checks the terrace and brings another chair.",
+      "cards": [
+        {"fr": "le vin rouge", "en": "the red wine", "kind": "term"},
+        {"fr": "le vin blanc", "en": "the white wine", "kind": "term"},
+        {"fr": "la carte des vins", "en": "the wine list", "kind": "term"},
+        {"fr": "l'entrée", "en": "the starter / appetizer", "kind": "term"},
+        {"fr": "le plat principal", "en": "the main course", "kind": "term"},
+        {"fr": "le dessert", "en": "the dessert", "kind": "term"},
+        {"fr": "le pain", "en": "the bread", "kind": "term"},
+        {"fr": "la chaise", "en": "the chair", "kind": "term"},
+        {"fr": "les glaçons", "en": "the ice cubes", "kind": "term"},
+        {"fr": "Est-ce qu'il y a une table pour deux ?", "en": "Is there a table for two?", "kind": "phrase"},
+        {"fr": "Nous avons une réservation au nom de Smith.", "en": "We have a reservation under Smith's name.", "kind": "phrase"},
+        {"fr": "Nous avons besoin d'une chaise, s'il vous plaît.", "en": "We need a chair, please.", "kind": "phrase"},
+        {"fr": "Je voudrais le vin rouge de la maison.", "en": "I would like the house red wine.", "kind": "phrase"},
+        {"fr": "Faut-il attendre longtemps ?", "en": "Do we have to wait long?", "kind": "phrase"},
+        {"fr": "Nous voudrions une entrée à partager.", "en": "We would like a starter to share.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonsoir. Est-ce qu'il y a une table pour deux ?", "en": "Good evening. Is there a table for two?"},
+        {"speaker": "Camille", "fr": "Oui, il y a une table en terrasse.", "en": "Yes, there is a table on the terrace."},
+        {"speaker": "Sam", "fr": "Nous avons une réservation au nom de Smith. Faut-il attendre longtemps ?", "en": "We have a reservation under Smith's name. Do we have to wait long?"},
+        {"speaker": "Camille", "fr": "Non, la table est prête. Il vous faut autre chose ?", "en": "No, the table is ready. Do you need anything else?"},
+        {"speaker": "Sam", "fr": "Nous avons besoin d'une chaise, s'il vous plaît.", "en": "We need a chair, please."},
+        {"speaker": "Camille", "fr": "Bien sûr. Voici la chaise et la carte des vins.", "en": "Of course. Here is the chair and the wine list."},
+        {"speaker": "Sam", "fr": "Je voudrais le vin rouge de la maison. Nous voudrions une entrée à partager.", "en": "I would like the house red wine. We would like a starter to share."},
+        {"speaker": "Camille", "fr": "Très bien. Je vous apporte aussi du pain.", "en": "Very well. I'll also bring you some bread."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant host",
+        "opening": "Bonsoir. Vous avez une réservation ?",
+        "goal": "Ask if there is a table for your party, say you have a reservation, ask whether you must wait, and request a chair.",
+        "closure": "Votre table est prête. Je vous apporte une chaise.",
+        "wordBank": ["la chaise", "la carte des vins", "Est-ce qu'il y a une table pour deux ?", "Nous avons une réservation au nom de Smith.", "Nous avons besoin d'une chaise, s'il vous plaît.", "Faut-il attendre longtemps ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for the wine list.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask if there is a table for two.", "sourceCard": 10, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the request for another chair.", "sourceCard": 12, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for dessert.", "sourceCard": 6, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the host that you have a reservation.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking if you must wait long.", "sourceCard": 14, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "stableId": "foundation-travel-dinner:5:fr-en",
+      "sourceTitleEnglish": "Go, Do and Can",
+      "sourceObjectiveEnglish": "Say where you are going, what you plan to do and ask what you can do at dinner.",
+      "sourceSpeakingEnglish": "Tell the host you are going to wait at the bar and that you are going to celebrate something, then ask if you can make a toast.",
+      "title": "Where We Are Going and What We Can Do",
+      "objective": "Say where you will wait, what you plan to celebrate, and ask what is possible at dinner.",
+      "focus": "Use aller + infinitive for a near-future plan: je vais attendre, nous allons fêter. Pouvoir asks what is possible: est-ce qu'on peut porter un toast ? Faire names an action, while sans ail states a precise ingredient omission.",
+      "scene": "Sam and Léa wait at the bar before an anniversary dinner.",
+      "cards": [
+        {"fr": "le bar", "en": "the bar", "kind": "term"},
+        {"fr": "les toilettes", "en": "the restroom", "kind": "term"},
+        {"fr": "la cuisine", "en": "the kitchen", "kind": "term"},
+        {"fr": "la cheffe", "en": "the chef", "kind": "term"},
+        {"fr": "un toast", "en": "a toast (with drinks)", "kind": "term"},
+        {"fr": "le temps passé à table après le repas", "en": "the time spent talking at the table after the meal", "kind": "phrase", "note": "French can describe this custom rather than borrowing Spanish sobremesa."},
+        {"fr": "le parking", "en": "the parking lot", "kind": "term"},
+        {"fr": "le taxi", "en": "the taxi", "kind": "term"},
+        {"fr": "l'anniversaire de mariage", "en": "the wedding anniversary", "kind": "term"},
+        {"fr": "Je vais attendre au bar.", "en": "I'm going to wait at the bar.", "kind": "phrase"},
+        {"fr": "Nous allons fêter notre anniversaire de mariage.", "en": "We're going to celebrate our wedding anniversary.", "kind": "phrase"},
+        {"fr": "Est-ce qu'on peut porter un toast ?", "en": "Can we make a toast?", "kind": "phrase"},
+        {"fr": "Pouvez-vous préparer le poisson sans ail ?", "en": "Can you prepare the fish without garlic?", "kind": "phrase"},
+        {"fr": "Je vais appeler la serveuse.", "en": "I'm going to call the server.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Votre table sera prête dans dix minutes.", "en": "Your table will be ready in ten minutes."},
+        {"speaker": "Sam", "fr": "Je vais attendre au bar avec Léa.", "en": "I'm going to wait at the bar with Léa."},
+        {"speaker": "Camille", "fr": "Bien sûr. Vous fêtez quelque chose ce soir ?", "en": "Of course. Are you celebrating something tonight?"},
+        {"speaker": "Léa", "fr": "Nous allons fêter notre anniversaire de mariage.", "en": "We're going to celebrate our wedding anniversary."},
+        {"speaker": "Sam", "fr": "Est-ce qu'on peut porter un toast à table ?", "en": "Can we make a toast at the table?"},
+        {"speaker": "Camille", "fr": "Oui, bien sûr. Je vous apporterai des verres.", "en": "Yes, of course. I'll bring you glasses."},
+        {"speaker": "Léa", "fr": "Pouvez-vous préparer le poisson sans ail ?", "en": "Can you prepare the fish without garlic?"},
+        {"speaker": "Camille", "fr": "Je vais demander à la cheffe.", "en": "I'm going to ask the chef."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant host",
+        "opening": "Votre table sera prête dans dix minutes.",
+        "goal": "Say you will wait at the bar, explain that you are celebrating an anniversary, and ask whether you can make a toast.",
+        "closure": "Bien sûr. Je vous appelle quand la table est prête.",
+        "wordBank": ["le bar", "un toast", "l'anniversaire de mariage", "Je vais attendre au bar.", "Nous allons fêter notre anniversaire de mariage.", "Est-ce qu'on peut porter un toast ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for the parking lot.", "sourceCard": 7, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say that you will wait at the bar.", "sourceCard": 10, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the plan to celebrate a wedding anniversary.", "sourceCard": 11, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for taxi.", "sourceCard": 8, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask if your party can make a toast.", "sourceCard": 12, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a request for fish without garlic.", "sourceCard": 13, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "stableId": "foundation-travel-dinner:6:fr-en",
+      "sourceTitleEnglish": "Present Tense",
+      "sourceObjectiveEnglish": "Say what you and others eat, drink and share using present-tense verbs.",
+      "sourceSpeakingEnglish": "Tell a dining companion what you eat and drink, ask what they eat, and say what you are sharing.",
+      "title": "What We Eat, Drink, and Share",
+      "objective": "Say what you eat and drink, ask a companion what they eat, and describe a shared dish in the French present tense.",
+      "focus": "With manger, je mange and tu manges have different spellings but the same spoken ending; nous mangeons keeps the soft g. Partager gives nous partageons. Boire is irregular: je bois, tu bois. Use vous mangez with someone you address formally.",
+      "scene": "Sam and Léa compare dinner choices and order a shared salad.",
+      "cards": [
+        {"fr": "le poisson", "en": "the fish (as food)", "kind": "term"},
+        {"fr": "la viande", "en": "the meat", "kind": "term"},
+        {"fr": "les fruits de mer", "en": "the seafood", "kind": "term"},
+        {"fr": "la salade", "en": "the salad", "kind": "term"},
+        {"fr": "la soupe", "en": "the soup", "kind": "term"},
+        {"fr": "le poulet", "en": "the chicken", "kind": "term"},
+        {"fr": "les légumes", "en": "the vegetables", "kind": "term"},
+        {"fr": "les crevettes", "en": "the shrimp", "kind": "term"},
+        {"fr": "le fromage", "en": "the cheese", "kind": "term"},
+        {"fr": "l'apéritif", "en": "the pre-dinner drink", "kind": "term"},
+        {"fr": "Je bois de l'eau gazeuse, merci.", "en": "I'll have sparkling water, thank you.", "kind": "phrase"},
+        {"fr": "Tu manges des fruits de mer ?", "en": "Do you eat seafood?", "kind": "phrase"},
+        {"fr": "Nous partageons la salade.", "en": "We're sharing the salad.", "kind": "phrase"},
+        {"fr": "Qu'est-ce qu'il y a dans la soupe ?", "en": "What's in the soup?", "kind": "phrase"},
+        {"fr": "Vous faites griller le poisson ?", "en": "Do you grill the fish?", "kind": "phrase"},
+        {"fr": "Ici, on dîne très tard.", "en": "People eat dinner very late here.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Léa", "fr": "Tu manges des fruits de mer ce soir ?", "en": "Are you eating seafood tonight?"},
+        {"speaker": "Sam", "fr": "Non, je mange du poisson et des légumes.", "en": "No, I'm eating fish and vegetables."},
+        {"speaker": "Léa", "fr": "Moi, je bois de l'eau gazeuse. Et toi ?", "en": "I'm having sparkling water. And you?"},
+        {"speaker": "Sam", "fr": "Je bois aussi de l'eau. Nous partageons la salade ?", "en": "I'm also having water. Shall we share the salad?"},
+        {"speaker": "Léa", "fr": "Oui. Qu'est-ce qu'il y a dans la soupe ?", "en": "Yes. What's in the soup?"},
+        {"speaker": "Camille", "fr": "Il y a des légumes et du fromage.", "en": "There are vegetables and cheese."},
+        {"speaker": "Sam", "fr": "Vous faites griller le poisson ?", "en": "Do you grill the fish?"},
+        {"speaker": "Camille", "fr": "Oui. Ici, on dîne très tard, mais la cuisine est déjà ouverte.", "en": "Yes. People eat dinner very late here, but the kitchen is already open."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Dining companion",
+        "opening": "Tu manges quoi ce soir ?",
+        "goal": "Say what you eat and drink, ask what your companion eats, and propose sharing a salad.",
+        "closure": "D'accord, nous partageons la salade.",
+        "wordBank": ["le poisson", "les fruits de mer", "la salade", "la soupe", "Je bois de l'eau gazeuse, merci.", "Tu manges des fruits de mer ?", "Nous partageons la salade."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for seafood.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask if your companion eats seafood.", "sourceCard": 12, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the plan to share a salad.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for shrimp.", "sourceCard": 8, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Say that you are drinking sparkling water.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking what is in the soup.", "sourceCard": 14, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified French review is required for naturalness, local restaurant register, and variant answers before release.",
+    "Foundation 5 renders the source's culture-specific sobremesa as an explanatory French phrase rather than borrowing a Spanish term. The dinner speaking task preserves the bar/celebration/toast outcome.",
+    "Foundation 6 teaches the French present tense through manger, partager, and irregular boire rather than reproducing Spanish conjugation classes."
+  ]
+}

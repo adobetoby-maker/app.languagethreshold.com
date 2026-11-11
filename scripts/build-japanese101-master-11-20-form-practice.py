@@ -14,7 +14,7 @@ SELECTED = {
     11: [(1, "want-action-tai"), (6, "contains-result-state"), (7, "not-contained-teimasen"), (8, "two-item-order")],
     12: [(2, "condition-nara"), (3, "permission-te-mo-ii"), (6, "prohibition-te-wa-ikemasen"), (7, "suggestion-mashou")],
     13: [(1, "obligation-naito"), (2, "obligation-nakereba"), (6, "permission-question"), (8, "completed-dekimashita")],
-    14: [(1, "scheduled-yotei"), (4, "delay-result-state"), (5, "movement-te-ikimasu"), (7, "quoted-message-to"), (9, "past-progressive-matteimashita")],
+    14: [(1, "usual-routine-fudan"), (3, "sequence-mazu"), (7, "changed-plan-yotei"), (10, "delay-result-state"), (14, "past-progressive-matteimashita")],
     15: [(1, "direction-te-kudasai"), (2, "turn-te-kudasai"), (4, "existence-floor-ni"), (5, "action-floor-de"), (7, "potential-ikemasu")],
     16: [(1, "now-yondeimasu"), (3, "intention-tsumori"), (4, "schedule-yotei"), (7, "not-yet-teimasen")],
     17: [(1, "ownership-context"), (4, "permission-show"), (7, "handover-te-kudasai"), (8, "clarification-question")],

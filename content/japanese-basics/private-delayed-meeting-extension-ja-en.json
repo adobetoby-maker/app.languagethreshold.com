@@ -1,0 +1,50 @@
+{
+  "schema": "japanese101-private-delayed-meeting-extension-v1",
+  "pairKey": "Japanese:English",
+  "candidateId": "japanese-basics-extension:delayed-meeting",
+  "sourceMasterSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
+  "sourceExtensionsSha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7",
+  "sourceLessonNumber": 14,
+  "sourceLesson": {
+    "title": "Handle a delayed meeting",
+    "focus": "Explain an intended meeting, ask when it is planned, then adapt after a train delay. Use ～て いきます for how you go, ～ています for an ongoing or resulting state, and 「…」と to quote a short message. おそく なります means 'will become late' in this context. At the end, the account moves to the completed arrival: ～ていました is the past of ～ています, so まっていました means 'was waiting.'",
+    "scene": "A delayed train before meeting a friend",
+    "inherit": [
+      16,
+      19,
+      30
+    ],
+    "dialogue": [
+      "きょうは えきで ともだちに あう よていです。|I plan to meet a friend at the station today.",
+      "いつ あう よていですか。|When do you plan to meet?",
+      "ごご さんじの よていです。|It is planned for three in the afternoon.",
+      "でも、でんしゃが おくれています。|But the train is delayed.",
+      "では、あるいて えきへ いきます。|Then I will walk to the station.",
+      "ともだちに メッセージを かきますか。|Will you write a message to your friend?",
+      "はい、「すこし おそく なります」と かきます。|Yes, I will write, “I will be a little late.”",
+      "それは いいですね。|That is good.",
+      "そのあと えきに つきました。ともだちは まっていました。|After that, I arrived at the station. My friend was waiting."
+    ],
+    "terms": [
+      "まっていました|was waiting",
+      "おくれています|is delayed",
+      "おそく なります|will be late",
+      "つきました|arrived",
+      "よていです|planned; scheduled",
+      "でんしゃ|train"
+    ],
+    "checkAnswers": [
+      "まっていました",
+      "よていです",
+      "おくれています"
+    ]
+  },
+  "sourceExtensionTurns": [
+    "あるいて えきへ いきました。|I walked to the station.",
+    "すこし おそく なりました。|I was a little late.",
+    "ともだちは えきの まえで まっていました。|My friend was waiting in front of the station.",
+    "さんじはんに ともだちに あいました。|I met my friend at three thirty."
+  ],
+  "reviewed": false,
+  "registered": false
+}

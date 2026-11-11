@@ -13,8 +13,8 @@ const PINNED_FORM_SOURCES: Record<string, string> = {
   "content/japanese-basics/private-form-practice-core-1-10-ja-en.json": "c25bf31e6954ca50575fe9bd23152863fbb3fd355e393b6a461828c2687d8b6f",
   "content/japanese-basics/private-form-practice-core-11-20-ja-en.json": "c24de5cb74d9902f95df593ac526e5a7731aef82d3b4b50bbd0adf3247a99a43",
   "content/japanese-basics/private-form-practice-core-21-30-ja-en.json": "5c3a07230f23357d7dcbba053c1e998a3a034ecb976faafbc6e0f5ad31a0d5d4",
-  "content/japanese-basics/private-form-practice-master-1-10-ja-en.json": "670680e5a2489d8c5037cc4949dac03e1210585336faae8cc90f52218f6171c8",
-  "content/japanese-basics/private-form-practice-master-11-20-ja-en.json": "aa0d9653a46a0cde8c9b88f737246b2b6eaa36ebd1be551fce085bad6f1d9084",
+  "content/japanese-basics/private-form-practice-master-1-10-ja-en.json": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e",
+  "content/japanese-basics/private-form-practice-master-11-20-ja-en.json": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d",
 };
 type Pair = { target: string; native: string };
 type Activity = {

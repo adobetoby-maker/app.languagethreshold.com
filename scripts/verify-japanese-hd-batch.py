@@ -23,7 +23,7 @@ def spoken(value):
     return "".join(unicodedata.normalize("NFC", value).split())
 
 
-def verify(module, number, folder):
+def verify(module, number, folder, inventory_path=None):
     if module not in ("foundation-japanese-basics", "japanese-basics", "master-japanese-basics"):
         raise ValueError("Unsupported Japanese 101 module")
     source = json.loads((ROOT / "public/lesson-content/ja" / f"{module}.json").read_text(encoding="utf-8"))
@@ -32,12 +32,16 @@ def verify(module, number, folder):
     lesson = source["lessons"][str(number)]
     values = [*lesson["passage"]["target"], *(word["es"] for word in lesson["words"])]
     expected = {normalized(value): spoken(value) for value in values}
+    lesson_text_sha = hashlib.sha256(json.dumps(expected, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-    inventory = json.loads((ROOT / "docs/japanese-program/audio-inventory.json").read_text(encoding="utf-8"))
+    inventory = json.loads((inventory_path or ROOT / "docs/japanese-program/audio-inventory.json").read_text(encoding="utf-8"))
     if manifest.get("scope") != {"module": module, "lesson": number}:
         raise ValueError("Wrong lesson scope")
-    if manifest.get("sourceSHA256") != inventory["normalizedTextSHA256"]:
-        raise ValueError("Stale source inventory")
+    provenance = manifest.get("sourceSHA256")
+    if not isinstance(provenance, str) or len(provenance) != 64 or any(c not in "0123456789abcdef" for c in provenance):
+        raise ValueError("Invalid source inventory fingerprint")
+    if manifest.get("lessonTextSHA256", lesson_text_sha) != lesson_text_sha:
+        raise ValueError("Stale lesson text fingerprint")
     if manifest.get("locale") != "ja-JP" or manifest.get("voices") != VOICES:
         raise ValueError("Wrong locale or voice identity")
     if manifest.get("listeningReviewed") is not False:
@@ -74,7 +78,9 @@ def verify(module, number, folder):
     return {"module": module, "lesson": number, "texts": len(expected), "clips": len(durations),
             "spokenCharacters": sum(len(value) for value in expected.values()) * len(VOICES),
             "bytes": bytes_total, "durationSecondsMin": min(durations), "durationSecondsMax": max(durations),
-            "sourceSHA256": manifest["sourceSHA256"], "listeningReviewed": False}
+            "sourceSHA256": provenance, "lessonTextSHA256": lesson_text_sha,
+            "inventoryFingerprintCurrent": provenance == inventory["normalizedTextSHA256"],
+            "listeningReviewed": False}
 
 
 if __name__ == "__main__":
@@ -82,5 +88,6 @@ if __name__ == "__main__":
     parser.add_argument("--module", required=True)
     parser.add_argument("--lesson", required=True, type=int)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--inventory", type=Path, help="Exact source inventory; defaults to the checked-in course inventory")
     args = parser.parse_args()
-    print(json.dumps(verify(args.module, args.lesson, args.output), ensure_ascii=False))
+    print(json.dumps(verify(args.module, args.lesson, args.output, args.inventory), ensure_ascii=False))

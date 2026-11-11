@@ -29,7 +29,12 @@ def spoken(text):
     return "".join(unicodedata.normalize("NFC", text).split())
 
 
-def collect():
+def lesson_text_hash(keys, entries):
+    selected = {key: entries[key] for key in keys}
+    return hashlib.sha256(json.dumps(selected, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
+def collect(inventory_path):
     entries = {}
     for path in sorted((ROOT / "public/lesson-content/ja").glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -40,7 +45,7 @@ def collect():
                 entries.setdefault(normalized(text), spoken(text))
             for word in lesson["words"]:
                 entries.setdefault(normalized(word["es"]), spoken(word["es"]))
-    report = json.loads((ROOT / "docs/japanese-program/audio-inventory.json").read_text())
+    report = json.loads(inventory_path.read_text())
     fingerprint = hashlib.sha256(json.dumps(entries, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     if fingerprint != report["normalizedTextSHA256"] or len(entries) != report["uniqueTexts"]:
         raise ValueError("Japanese audio inventory is stale")
@@ -90,6 +95,8 @@ def main():
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--module", help="Exact Japanese 101 stage module for a private lesson batch")
     parser.add_argument("--lesson", type=int, help="Stage-local lesson number for --module")
+    parser.add_argument("--inventory", type=Path, default=ROOT / "docs/japanese-program/audio-inventory.json",
+                        help="Exact source inventory; defaults to the checked-in course inventory")
     args = parser.parse_args()
     if not 1 <= args.limit <= 20:
         raise SystemExit("--limit must be between 1 and 20")
@@ -100,18 +107,22 @@ def main():
     if args.module and args.output.expanduser().resolve() == DEFAULT_OUTPUT.resolve():
         raise SystemExit("Use a separate --output directory for an unreviewed lesson batch")
     os.umask(0o077)
-    entries, fingerprint = collect()
+    entries, fingerprint = collect(args.inventory)
     selected = lesson_keys(args.module, args.lesson) if args.module else pilot_keys()
+    selected_hash = lesson_text_hash(selected, entries)
     scope = {"module": args.module, "lesson": args.lesson} if args.module else None
     manifest_path = args.output / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.is_file() else {
         "schema": 1, "locale": "ja-JP", "voices": VOICES, "clips": {},
-        "sourceSHA256": fingerprint, "scope": scope, "listeningReviewed": False,
+        "sourceSHA256": fingerprint, "lessonTextSHA256": selected_hash,
+        "scope": scope, "listeningReviewed": False,
     }
     if manifest["locale"] != "ja-JP" or manifest["voices"] != VOICES:
         raise ValueError("Existing manifest voice identity mismatch")
     if scope and (manifest.get("scope") != scope or manifest.get("sourceSHA256") != fingerprint):
         raise ValueError("Existing lesson batch scope or source fingerprint mismatch")
+    if manifest.get("lessonTextSHA256", selected_hash) != selected_hash:
+        raise ValueError("Existing lesson text fingerprint mismatch")
     if scope and (manifest.get("listeningReviewed") is not False or set(manifest["clips"]) - set(selected)):
         raise ValueError("Lesson batch has accepted or out-of-scope clips")
     jobs = []

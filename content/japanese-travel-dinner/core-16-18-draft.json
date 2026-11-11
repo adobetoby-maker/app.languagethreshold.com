@@ -1,0 +1,739 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "travel-dinner:16:ja-en",
+      "sourceTitleEnglish": "Fix a lost reservation",
+      "sourceObjectiveEnglish": "show your confirmation, ask what the restaurant can offer, and accept or decline an alternative",
+      "sourceSpeakingEnglish": "The host can't find your anniversary booking; show your confirmation and negotiate a solution.",
+      "title": "Fix a lost reservation",
+      "objective": "Show your reservation confirmation, ask what the restaurant can offer, and accept or decline an alternative table.",
+      "focus": "Use 「〜の名前で予約しています」 to give the booking name, 「こちらが〜です」 to present the confirmation, and 「〜ていただけますか」 to ask politely what seating is available.",
+      "scene": "You arrive at 8 for your anniversary, but the host cannot find your reservation. You say it is under the name Miller and open your email to show the confirmation. The host sees the confirmation number, apologizes for the mistake, and offers a table on the terrace now or a table inside in 30 minutes. You don't want to wait, so you accept the terrace table.",
+      "forms": [
+        {
+          "base": "探す",
+          "polite": "探します",
+          "question": "探しますか",
+          "meaning": "to look for"
+        },
+        {
+          "base": "見つける",
+          "polite": "見つけます",
+          "question": "見つけますか",
+          "meaning": "to find"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "確認",
+          "en": "confirmation",
+          "kind": "term",
+          "readingKana": "かくにん"
+        },
+        {
+          "ja": "確認番号",
+          "en": "confirmation number",
+          "kind": "term",
+          "readingKana": "かくにんばんごう"
+        },
+        {
+          "ja": "メール",
+          "en": "email",
+          "kind": "term"
+        },
+        {
+          "ja": "スクリーンショット",
+          "en": "screenshot",
+          "kind": "term"
+        },
+        {
+          "ja": "案内係",
+          "en": "host",
+          "kind": "term",
+          "readingKana": "あんないがかり"
+        },
+        {
+          "ja": "リスト",
+          "en": "list",
+          "kind": "term"
+        },
+        {
+          "ja": "順番待ちリスト",
+          "en": "waiting list",
+          "kind": "term",
+          "readingKana": "じゅんばんまちリスト"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "テラス",
+          "en": "terrace",
+          "kind": "term"
+        },
+        {
+          "ja": "記念日",
+          "en": "anniversary",
+          "kind": "term",
+          "readingKana": "きねんび"
+        },
+        {
+          "ja": "間違い",
+          "en": "mistake",
+          "kind": "term",
+          "readingKana": "まちがい"
+        },
+        {
+          "ja": "ミラーの名前で予約しています。",
+          "en": "I have a reservation under the name Miller.",
+          "kind": "phrase",
+          "readingKana": "ミラーのなまえでよやくしています。"
+        },
+        {
+          "ja": "こちらが予約確認です。",
+          "en": "Here is my confirmation.",
+          "kind": "phrase",
+          "readingKana": "こちらがよやくかくにんです。"
+        },
+        {
+          "ja": "今夜はどのようなお席をご用意いただけますか。",
+          "en": "What can you offer us tonight?",
+          "kind": "phrase",
+          "readingKana": "こんやはどのようなおせきをごよういいただけますか。"
+        },
+        {
+          "ja": "どのくらい待ちますか。",
+          "en": "How long do we have to wait?",
+          "kind": "phrase",
+          "readingKana": "どのくらいまちますか。"
+        },
+        {
+          "ja": "大丈夫です。テラスのお席でお願いします。",
+          "en": "That's fine, we'll take the table on the terrace.",
+          "kind": "phrase",
+          "readingKana": "だいじょうぶです。テラスのおせきでおねがいします。"
+        },
+        {
+          "ja": "いいえ、結構です。店内のお席が空くまで待ちます。",
+          "en": "No, thank you, we prefer to wait for the table inside.",
+          "kind": "phrase",
+          "readingKana": "いいえ、けっこうです。てんないのおせきがあくまでまちます。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "こんばんは。妻と二人で、今夜8時に記念日の予約をしています。",
+          "en": "Good evening. My wife and I have an anniversary reservation for 8 tonight."
+        },
+        {
+          "speaker": "Host",
+          "ja": "申し訳ありません。リストにご予約が見つかりません。",
+          "en": "I am sorry. I cannot find your reservation on the list."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ミラーの名前で予約しています。",
+          "en": "I have a reservation under the name Miller."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "こちらが予約確認のメールです。確認番号もあります。",
+          "en": "Here is my confirmation email. It also has the confirmation number."
+        },
+        {
+          "speaker": "Host",
+          "ja": "確認番号を拝見しました。こちらの手違いです。申し訳ございません。",
+          "en": "I have checked the confirmation number. This was our mistake. I apologize."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "今夜はどのようなお席をご用意いただけますか。",
+          "en": "What seating can you offer us tonight?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "今すぐならテラスのお席、店内のお席は30分後にご案内できます。",
+          "en": "We can seat you on the terrace now, or inside in 30 minutes."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "待たずに座りたいので、大丈夫です。テラスのお席でお願いします。",
+          "en": "We would rather not wait, so that is fine; we will take the terrace table."
+        },
+        {
+          "speaker": "Host",
+          "ja": "かしこまりました。こちらへどうぞ。",
+          "en": "Certainly. This way, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest with a lost anniversary reservation at a restaurant",
+        "partnerRole": "Host who cannot find the booking and offers an alternative",
+        "opening": "ミラーの名前で予約しています。",
+        "goal": "The host can't find your anniversary booking; show your confirmation and negotiate a solution.",
+        "closure": "大丈夫です。テラスのお席でお願いします。",
+        "wordBank": [
+          "予約",
+          "確認",
+          "確認番号",
+          "メール",
+          "スクリーンショット",
+          "案内係",
+          "リスト",
+          "順番待ちリスト",
+          "テーブル",
+          "テラス",
+          "記念日",
+          "間違い",
+          "ミラーの名前で予約しています。",
+          "こちらが予約確認です。",
+          "今夜はどのようなお席をご用意いただけますか。",
+          "どのくらい待ちますか。",
+          "大丈夫です。テラスのお席でお願いします。",
+          "いいえ、結構です。店内のお席が空くまで待ちます。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "reservation",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "confirmation number",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "What can you offer us tonight?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "mistake",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Here is my confirmation.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "How long do we have to wait?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft; Opus 5.5 found source-order and restaurant-register gaps. Self-corrected dialogue and card/Reader/speaking alignment. Qualified Japanese and restaurant review still required."
+    },
+    {
+      "n": 17,
+      "stableId": "travel-dinner:17:ja-en",
+      "sourceTitleEnglish": "Ask about the dress code",
+      "sourceObjectiveEnglish": "learn what diners wear, whether jackets are required, and what smart casual means locally",
+      "sourceSpeakingEnglish": "Call the restaurant to ask whether shorts are acceptable and what diners usually wear.",
+      "title": "Ask about the dress code",
+      "objective": "Ask whether the restaurant has a dress code, what smart casual means there, whether a jacket is required, whether shorts are allowed, and what guests usually wear to dinner.",
+      "focus": "Ask what smart casual means at this restaurant and whether jackets or shorts are allowed. 着る is used for tops; 履く is used for pants and shoes.",
+      "scene": "The guest calls the restaurant about tonight's reservation to ask about the dress code. The receptionist says that the dining room asks for smart casual. The guest asks what that means, and the receptionist explains that most guests wear a collared shirt and long pants, but a jacket is not required. The guest asks whether shorts are allowed. The receptionist says not in the dining room, but yes on the terrace, and sandals are fine too. The guest decides to wear long pants and closed-toe shoes.",
+      "forms": [
+        {
+          "base": "着る",
+          "polite": "着ます",
+          "question": "着ますか",
+          "meaning": "to wear (tops)"
+        },
+        {
+          "base": "履く",
+          "polite": "履きます",
+          "question": "履きますか",
+          "meaning": "to wear (pants and shoes)"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "ドレスコード",
+          "en": "dress code",
+          "kind": "term"
+        },
+        {
+          "ja": "スマートカジュアル",
+          "en": "smart casual",
+          "kind": "term"
+        },
+        {
+          "ja": "ジャケット",
+          "en": "jacket",
+          "kind": "term"
+        },
+        {
+          "ja": "ネクタイ",
+          "en": "tie",
+          "kind": "term"
+        },
+        {
+          "ja": "襟付きシャツ",
+          "en": "collared shirt",
+          "kind": "term",
+          "readingKana": "えりつきシャツ"
+        },
+        {
+          "ja": "長ズボン",
+          "en": "long pants",
+          "kind": "term",
+          "readingKana": "ながズボン"
+        },
+        {
+          "ja": "ショートパンツ",
+          "en": "shorts",
+          "kind": "term"
+        },
+        {
+          "ja": "サンダル",
+          "en": "sandals",
+          "kind": "term"
+        },
+        {
+          "ja": "つま先の出ない靴",
+          "en": "closed-toe shoes",
+          "kind": "term",
+          "readingKana": "つまさきのでないくつ"
+        },
+        {
+          "ja": "ダイニングルーム",
+          "en": "dining room",
+          "kind": "term"
+        },
+        {
+          "ja": "テラス",
+          "en": "terrace",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "ドレスコードはございますか。",
+          "en": "Do you have a dress code?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ジャケットは必要ですか。",
+          "en": "Is a jacket required?",
+          "kind": "phrase",
+          "readingKana": "ジャケットはひつようですか。"
+        },
+        {
+          "ja": "ここでスマートカジュアルとはどういう意味ですか。",
+          "en": "What does smart casual mean here?",
+          "kind": "phrase",
+          "readingKana": "ここでスマートカジュアルとはどういういみですか。"
+        },
+        {
+          "ja": "ショートパンツで行ってもよろしいですか。",
+          "en": "Can I go in shorts?",
+          "kind": "phrase",
+          "readingKana": "ショートパンツでいってもよろしいですか。"
+        },
+        {
+          "ja": "お客さまは、ディナーにはどんな服を着ることが多いですか。",
+          "en": "What do guests usually wear to dinner?",
+          "kind": "phrase",
+          "readingKana": "おきゃくさまは、ディナーにはどんなふくをきることがおおいですか。"
+        },
+        {
+          "ja": "恐れ入りますが、もう少し詳しく説明していただけますか。",
+          "en": "Excuse me, can you explain a little more?",
+          "kind": "phrase",
+          "readingKana": "おそれいりますが、もうすこしくわしくせつめいしていただけますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "今夜の予約のことで、お電話しました。",
+          "en": "I'm calling about my reservation for tonight."
+        },
+        {
+          "speaker": "Receptionist",
+          "ja": "はい、今夜のご予約ですね。",
+          "en": "Yes, tonight's reservation, correct?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ドレスコードはございますか。",
+          "en": "Do you have a dress code?"
+        },
+        {
+          "speaker": "Receptionist",
+          "ja": "はい。ダイニングルームでは、スマートカジュアルをお願いしております。",
+          "en": "Yes. In the dining room, we ask for smart casual."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ここでスマートカジュアルとはどういう意味ですか。",
+          "en": "What does smart casual mean here?"
+        },
+        {
+          "speaker": "Receptionist",
+          "ja": "ほとんどのお客さまは、襟付きシャツと長ズボンをお召しです。ただ、ジャケットは必要ありません。",
+          "en": "Almost all guests wear a collared shirt and long pants, but a jacket is not required."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ショートパンツで行ってもよろしいですか。",
+          "en": "Can I go in shorts?"
+        },
+        {
+          "speaker": "Receptionist",
+          "ja": "ダイニングルームではご遠慮いただいております。テラスでしたら、ショートパンツもサンダルも大丈夫です。",
+          "en": "Not in the dining room. On the terrace, both shorts and sandals are fine."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。では、長ズボンとつま先の出ない靴を履いて行きます。",
+          "en": "Thank you. Then I will wear long pants and closed-toe shoes."
+        }
+      ],
+      "speaking": {
+        "role": "Guest calling the restaurant about the dress code",
+        "partnerRole": "Receptionist explaining smart casual and answering the question about shorts",
+        "opening": "今夜の予約のことで、お電話しました。ドレスコードはございますか。",
+        "goal": "Call the restaurant to ask whether shorts are acceptable and what diners usually wear.",
+        "closure": "ありがとうございます。では、長ズボンとつま先の出ない靴を履いて伺います。",
+        "wordBank": [
+          "ドレスコード",
+          "スマートカジュアル",
+          "ジャケット",
+          "ネクタイ",
+          "襟付きシャツ",
+          "長ズボン",
+          "ショートパンツ",
+          "サンダル",
+          "つま先の出ない靴",
+          "ダイニングルーム",
+          "テラス",
+          "予約",
+          "ドレスコードはございますか。",
+          "ジャケットは必要ですか。",
+          "ここでスマートカジュアルとはどういう意味ですか。",
+          "ショートパンツで行ってもよろしいですか。",
+          "お客さまは、ディナーにはどんな服を着ることが多いですか。",
+          "恐れ入りますが、もう少し詳しく説明していただけますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "smart casual",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "dining room",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can I go in shorts?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "terrace",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "What do guests usually wear to dinner?",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Excuse me, can you explain a little more?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft; Opus 5.5 found kana, clothing-verb and terrace-policy wording gaps. Self-corrected. Qualified Japanese and restaurant review still required."
+    },
+    {
+      "n": 18,
+      "stableId": "travel-dinner:18:ja-en",
+      "sourceTitleEnglish": "Bring children to dinner",
+      "sourceObjectiveEnglish": "ask about early seatings, a children's menu, and what the kitchen can adapt",
+      "sourceSpeakingEnglish": "Ask whether a 7 p.m. table works with two tired children and what the kitchen can make for them.",
+      "title": "Bring children to dinner",
+      "objective": "Ask for a 7 p.m. table for two adults and two children, ask about the first seating, a children's menu, and what the kitchen can adapt, and tell the restaurant about a nut allergy.",
+      "focus": "Asking for a 7 p.m. table for a family, asking about the first seating and a children's menu, asking for a small portion and sauce on the side, requesting a high chair, and stating a nut allergy.",
+      "scene": "A guest calls a downtown restaurant to make a reservation for the family. The waiter says the first seating at 7 is quieter and that the restaurant has no children's menu, but the kitchen can make small portions. The guest asks for the sauce on the side, and the waiter agrees and says a high chair will be brought for the little girl. The guest says the daughter is allergic to nuts and asks the waiter to tell the chef.",
+      "forms": [
+        {
+          "base": "用意する",
+          "polite": "用意します",
+          "question": "用意しますか",
+          "meaning": "to prepare"
+        },
+        {
+          "base": "伝える",
+          "polite": "伝えます",
+          "question": "伝えますか",
+          "meaning": "to tell, pass on"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども",
+          "en": "children",
+          "kind": "term",
+          "readingKana": "こども"
+        },
+        {
+          "ja": "最初の回",
+          "en": "first seating",
+          "kind": "term",
+          "readingKana": "さいしょのかい"
+        },
+        {
+          "ja": "お子様メニュー",
+          "en": "children's menu",
+          "kind": "term",
+          "readingKana": "おこさまメニュー"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term",
+          "readingKana": "ちゅうぼう"
+        },
+        {
+          "ja": "小盛り",
+          "en": "small portion",
+          "kind": "term",
+          "readingKana": "こもり"
+        },
+        {
+          "ja": "ソースは別添え",
+          "en": "sauce on the side",
+          "kind": "term",
+          "readingKana": "ソースはべつぞえ"
+        },
+        {
+          "ja": "ベビーチェア",
+          "en": "high chair",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "7時に大人2名と子ども2名のお席はありますか。",
+          "en": "Do you have a table at 7 for 2 adults and 2 children?",
+          "kind": "phrase",
+          "readingKana": "しちじにおとなにめいとこどもにめいのおせきはありますか。"
+        },
+        {
+          "ja": "お子様メニューはありますか。",
+          "en": "Do you have a children's menu?",
+          "kind": "phrase",
+          "readingKana": "おこさまメニューはありますか。"
+        },
+        {
+          "ja": "小盛りにしていただけますか。",
+          "en": "Can the kitchen make a small portion?",
+          "kind": "phrase",
+          "readingKana": "こもりにしていただけますか。"
+        },
+        {
+          "ja": "ソースは別添えにしていただけますか。",
+          "en": "Can you serve the sauce on the side?",
+          "kind": "phrase",
+          "readingKana": "ソースはべつぞえにしていただけますか。"
+        },
+        {
+          "ja": "娘はナッツにアレルギーがあります。",
+          "en": "My daughter is allergic to nuts.",
+          "kind": "phrase",
+          "readingKana": "むすめはナッツにアレルギーがあります。"
+        },
+        {
+          "ja": "小盛りにしてご用意できます。",
+          "en": "The kitchen can prepare small portions.",
+          "kind": "phrase",
+          "readingKana": "こもりにしてごよういできます。"
+        },
+        {
+          "ja": "お嬢さん用にベビーチェアもお持ちします。",
+          "en": "We will also bring a high chair for your daughter.",
+          "kind": "phrase",
+          "readingKana": "おじょうさんようにベビーチェアもおもちします。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "今夜の予約をお願いしたいのですが。",
+          "en": "I would like to make a reservation for tonight."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "7時に大人2名と子ども2名のお席はありますか。",
+          "en": "Do you have a table at 7 for two adults and two children?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "はい。最初の回は7時からで、比較的静かです。",
+          "en": "Yes. The first seating starts at 7 and is relatively quiet."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "子どもたちは疲れてしまうと思います。",
+          "en": "I think the children will be tired."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お子様メニューはありますか。",
+          "en": "Do you have a children's menu?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "お子様メニューはございませんが、小盛りにしてご用意できます。",
+          "en": "We do not have a children's menu, but the kitchen can prepare small portions."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ソースは別添えにしていただけますか。",
+          "en": "Can you serve the sauce on the side?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "もちろんです。お嬢さん用にベビーチェアもお持ちします。",
+          "en": "Of course. We will also bring a high chair for your daughter."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "娘はナッツにアレルギーがあります。シェフにお伝えいただけますか。",
+          "en": "My daughter is allergic to nuts. Could you tell the chef?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "かしこまりました。シェフにお伝えします。",
+          "en": "Certainly. I will tell the chef."
+        }
+      ],
+      "speaking": {
+        "role": "Guest calling a restaurant to reserve a 7 p.m. table for two adults and two children",
+        "partnerRole": "Waiter answering about the first seating, the children's menu, sauce on the side, and the high chair",
+        "opening": "予約をお願いしたいのですが。",
+        "goal": "Ask whether a 7 p.m. table works with two tired children and what the kitchen can make for them.",
+        "closure": "娘はナッツにアレルギーがあります。シェフにお伝えいただけますか。",
+        "wordBank": [
+          "予約",
+          "テーブル",
+          "子ども",
+          "最初の回",
+          "お子様メニュー",
+          "厨房",
+          "小盛り",
+          "ソースは別添え",
+          "ベビーチェア",
+          "アレルギー",
+          "シェフ",
+          "7時に大人2名と子ども2名のお席はありますか。",
+          "お子様メニューはありますか。",
+          "小盛りにしていただけますか。",
+          "ソースは別添えにしていただけますか。",
+          "娘はナッツにアレルギーがあります。",
+          "小盛りにしてご用意できます。",
+          "お嬢さん用にベビーチェアもお持ちします。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "reservation",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "children's menu",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can you serve the sauce on the side?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "high chair",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Do you have a children's menu?",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "My daughter is allergic to nuts.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft; Opus 5.5 found seating, sauce, forms and allergy-turn sequencing gaps. Self-corrected with direct nut-allergy language. Qualified Japanese and restaurant review still required."
+    }
+  ]
+}

@@ -32,3 +32,5 @@ The source-pinned [Core 10–12 checkpoint](travel-dinner-core-10-12-2026-11-11.
 ## November 11 Core 13–15 extension
 
 The [Core 13–15 checkpoint](travel-dinner-core-13-15-2026-11-11.md) adds gratitude, bill/service, and dinner midpoint review with direct allergy and shared-pan vocabulary. Owner-only review extends to Foundation 10 + Core 15 = 25 lessons. New audio has not yet been generated or approved.
+
+Core 13–15 private audio scope adds 65 exact strings and 130 technically verified ja-JP Aoede/Charon candidates (zero signal flags). The listening worksheet is `/Users/drive/lt-audio/japanese-travel-dinner/core-13-15/listening-review.html`; every clip remains `listeningReviewed:false` and unavailable to learners.

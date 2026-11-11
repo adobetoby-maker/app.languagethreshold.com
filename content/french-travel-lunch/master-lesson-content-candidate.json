@@ -7,7 +7,8 @@
   "registered": false,
   "sourceDraftSha256": {
     "master-1-5-draft.json": "802c8178beb929663fe9c9ecd85930eb91f72d2e7755120d69a1fad304ab81d0",
-    "master-6-10-draft.json": "1715128d15925a41cb0fe601e237d5e4b5e191236f26d76fc815ff1d5154b8fb"
+    "master-6-10-draft.json": "1715128d15925a41cb0fe601e237d5e4b5e191236f26d76fc815ff1d5154b8fb",
+    "master-11-15-draft.json": "d53e5fc1dacd1b72aad737d478947a189463505fe546921092f0a4bb50ff3ce0"
   },
   "lessons": {
     "1": {
@@ -1591,6 +1592,747 @@
           "example": {
             "target": "Oui. Allons-y.",
             "native": "Yes. Let us go."
+          }
+        }
+      ]
+    },
+    "11": {
+      "stableId": "master-travel-lunch:11:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        10,
+        4,
+        5,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "supplementalWords": [
+        {
+          "es": "la cuisine",
+          "en": "the kitchen",
+          "kind": "term",
+          "sourceCardIndex": 4
+        },
+        {
+          "es": "l’après-midi",
+          "en": "the afternoon",
+          "kind": "term",
+          "sourceReaderIndex": 2,
+          "sourceReaderText": "après-midi"
+        },
+        {
+          "es": "une heure",
+          "en": "an hour",
+          "kind": "term",
+          "sourceReaderIndex": 4,
+          "sourceReaderText": "une heure"
+        },
+        {
+          "es": "dix minutes",
+          "en": "ten minutes",
+          "kind": "term",
+          "sourceCardIndex": 12
+        },
+        {
+          "es": "l’adresse",
+          "en": "the address",
+          "kind": "term",
+          "sourceReaderIndex": 9,
+          "sourceReaderText": "adresse"
+        }
+      ],
+      "passage": {
+        "title": "Keep the Group Moving After Kitchens Close",
+        "target": [
+          "J’ai faim et je suis fatigué. La cuisine est fermée ?",
+          "Oui, pour cet après-midi. Courage, on y est presque !",
+          "Excusez-moi, y a-t-il une boulangerie encore ouverte près d’ici ?",
+          "Oui, elle est deux rues plus loin. Elle ferme dans une heure.",
+          "Merci. La boulangerie vend-elle des sandwichs ?",
+          "Oui. Il y a aussi une épicerie à côté.",
+          "Nous irons d’abord à la boulangerie. Dans dix minutes, on trouvera quelque chose à manger.",
+          "D’accord. On vous suit.",
+          "Attendez-moi ici, à l’ombre. Je reviens tout de suite avec l’adresse.",
+          "La faim et la fatigue se font sentir après la dernière commande.",
+          "Le groupe attend sur un banc à l’ombre.",
+          "La boulangerie est deux rues plus loin ; elle vend des sandwichs."
+        ],
+        "native": [
+          "I am hungry and tired. Is the kitchen closed?",
+          "Yes, for this afternoon. Come on, we are almost there!",
+          "Excuse me, is there a bakery still open nearby?",
+          "Yes, it is two streets farther. It closes in an hour.",
+          "Thank you. Does the bakery sell sandwiches?",
+          "Yes. There is also a grocery shop next door.",
+          "We will go to the bakery first. In ten minutes, we will find something to eat.",
+          "All right. We will follow you.",
+          "Wait for me here, in the shade. I will be right back with the address.",
+          "Hunger and tiredness set in after the last order.",
+          "The group waits on a bench in the shade.",
+          "The bakery is two streets farther away; it sells sandwiches."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "être",
+          "native": "to be",
+          "forms": {
+            "je": "suis",
+            "tu": "es",
+            "il_elle_on": "est",
+            "nous": "sommes",
+            "vous": "êtes",
+            "ils_elles": "sont"
+          },
+          "example": {
+            "target": "J’ai faim et je suis fatigué. La cuisine est fermée ?",
+            "native": "I am hungry and tired. Is the kitchen closed?"
+          }
+        },
+        {
+          "infinitive": "fermer",
+          "native": "to close",
+          "forms": {
+            "je": "ferme",
+            "tu": "fermes",
+            "il_elle_on": "ferme",
+            "nous": "fermons",
+            "vous": "fermez",
+            "ils_elles": "ferment"
+          },
+          "example": {
+            "target": "Oui, elle est deux rues plus loin. Elle ferme dans une heure.",
+            "native": "Yes, it is two streets farther. It closes in an hour."
+          }
+        },
+        {
+          "infinitive": "vendre",
+          "native": "to sell",
+          "forms": {
+            "je": "vends",
+            "tu": "vends",
+            "il_elle_on": "vend",
+            "nous": "vendons",
+            "vous": "vendez",
+            "ils_elles": "vendent"
+          },
+          "example": {
+            "target": "Merci. La boulangerie vend-elle des sandwichs ?",
+            "native": "Thank you. Does the bakery sell sandwiches?"
+          }
+        },
+        {
+          "infinitive": "suivre",
+          "native": "to follow",
+          "forms": {
+            "je": "suis",
+            "tu": "suis",
+            "il_elle_on": "suit",
+            "nous": "suivons",
+            "vous": "suivez",
+            "ils_elles": "suivent"
+          },
+          "example": {
+            "target": "D’accord. On vous suit.",
+            "native": "All right. We will follow you."
+          }
+        },
+        {
+          "infinitive": "revenir",
+          "native": "to come back",
+          "forms": {
+            "je": "reviens",
+            "tu": "reviens",
+            "il_elle_on": "revient",
+            "nous": "revenons",
+            "vous": "revenez",
+            "ils_elles": "reviennent"
+          },
+          "example": {
+            "target": "Attendez-moi ici, à l’ombre. Je reviens tout de suite avec l’adresse.",
+            "native": "Wait for me here, in the shade. I will be right back with the address."
+          }
+        }
+      ]
+    },
+    "12": {
+      "stableId": "master-travel-lunch:12:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "supplementalWords": [
+        {
+          "es": "le déjeuner de famille",
+          "en": "the family lunch",
+          "kind": "term",
+          "sourceReaderIndex": 1,
+          "sourceReaderText": "déjeuner de famille"
+        },
+        {
+          "es": "Madame",
+          "en": "Madam",
+          "kind": "term",
+          "sourceCardIndex": 12
+        }
+      ],
+      "passage": {
+        "title": "Switch Register at a Family Lunch",
+        "target": [
+          "Maya, bienvenue à notre déjeuner de famille.",
+          "Claire, merci pour ton invitation.",
+          "Je vous en prie. Goûtez la quiche.",
+          "Madame, elle est délicieuse. Pourriez-vous me donner la recette ?",
+          "Avec plaisir. Vous voulez encore un peu de quiche ?",
+          "Oui, merci. Cela vous dérangerait-il si j’en prenais encore un peu ?",
+          "Julien, tu peux me passer le pain ?",
+          "Bien sûr. Tu veux aussi de la salade ?",
+          "Oui. Tu l’as préparée ?",
+          "Oui, avec Claire.",
+          "La grand-mère apprécie la quiche, tandis que le cousin passe le pain.",
+          "À la grand-mère, Maya dit vous ; à son cousin Julien, elle dit tu."
+        ],
+        "native": [
+          "Maya, welcome to our family lunch.",
+          "Claire, thank you for your invitation.",
+          "You are welcome. Try the quiche.",
+          "Madam, it is delicious. Could you give me the recipe?",
+          "With pleasure. Would you like a little more quiche?",
+          "Yes, thank you. Would you mind if I had a little more?",
+          "Julien, can you pass me the bread?",
+          "Of course. Do you also want salad?",
+          "Yes. Did you make it?",
+          "Yes, with Claire.",
+          "The grandmother likes the quiche, while the cousin passes the bread.",
+          "Maya uses formal vous with the grandmother and informal tu with her cousin Julien."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "goûter",
+          "native": "to taste",
+          "forms": {
+            "je": "goûte",
+            "tu": "goûtes",
+            "il_elle_on": "goûte",
+            "nous": "goûtons",
+            "vous": "goûtez",
+            "ils_elles": "goûtent"
+          },
+          "example": {
+            "target": "Je vous en prie. Goûtez la quiche.",
+            "native": "You are welcome. Try the quiche."
+          }
+        },
+        {
+          "infinitive": "vouloir",
+          "native": "to want",
+          "forms": {
+            "je": "veux",
+            "tu": "veux",
+            "il_elle_on": "veut",
+            "nous": "voulons",
+            "vous": "voulez",
+            "ils_elles": "veulent"
+          },
+          "example": {
+            "target": "Avec plaisir. Vous voulez encore un peu de quiche ?",
+            "native": "With pleasure. Would you like a little more quiche?"
+          }
+        },
+        {
+          "infinitive": "pouvoir",
+          "native": "to be able to",
+          "forms": {
+            "je": "peux",
+            "tu": "peux",
+            "il_elle_on": "peut",
+            "nous": "pouvons",
+            "vous": "pouvez",
+            "ils_elles": "peuvent"
+          },
+          "example": {
+            "target": "Julien, tu peux me passer le pain ?",
+            "native": "Julien, can you pass me the bread?"
+          }
+        },
+        {
+          "infinitive": "apprécier",
+          "native": "to appreciate",
+          "forms": {
+            "je": "apprécie",
+            "tu": "apprécies",
+            "il_elle_on": "apprécie",
+            "nous": "apprécions",
+            "vous": "appréciez",
+            "ils_elles": "apprécient"
+          },
+          "example": {
+            "target": "La grand-mère apprécie la quiche, tandis que le cousin passe le pain.",
+            "native": "The grandmother likes the quiche, while the cousin passes the bread."
+          }
+        },
+        {
+          "infinitive": "passer",
+          "native": "to pass",
+          "forms": {
+            "je": "passe",
+            "tu": "passes",
+            "il_elle_on": "passe",
+            "nous": "passons",
+            "vous": "passez",
+            "ils_elles": "passent"
+          },
+          "example": {
+            "target": "La grand-mère apprécie la quiche, tandis que le cousin passe le pain.",
+            "native": "The grandmother likes the quiche, while the cousin passes the bread."
+          }
+        }
+      ]
+    },
+    "13": {
+      "stableId": "master-travel-lunch:13:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "supplementalWords": [],
+      "passage": {
+        "title": "Describe a Skillet Burn to the Manager",
+        "target": [
+          "Madame, je voudrais vous expliquer ce qui est arrivé à Ben.",
+          "Je vous écoute. Quand cela s’est-il produit ?",
+          "À quatorze heures quinze, on nous a apporté une poêle en fonte chaude.",
+          "À ce moment-là, Ben a touché la poignée sans serviette.",
+          "Que s’est-il passé ensuite ?",
+          "Ensuite, nous avons mis sa main sous l’eau du robinet. Un peu plus tard, une cloque est apparue sur sa paume.",
+          "Je vois la rougeur et la cloque.",
+          "Pouvez-vous le noter dans votre registre des incidents ?",
+          "Oui, je vais noter l’heure et les faits.",
+          "Où se trouve le centre médical le plus proche ?",
+          "Il est à deux rues d’ici.",
+          "Maya décrit la brûlure sur la paume de la main de Ben et rapporte sa sensation de brûlure."
+        ],
+        "native": [
+          "Madam, I would like to explain what happened to Ben.",
+          "I am listening. When did it happen?",
+          "At a quarter past two, they brought us a hot cast-iron skillet.",
+          "At that moment, Ben touched the handle without a napkin.",
+          "What happened next?",
+          "Afterward, we put his hand under tap water. A little later, a blister appeared on his palm.",
+          "I see the redness and blister.",
+          "Can you record it in your incident log?",
+          "Yes, I will record the time and facts.",
+          "Where is the nearest medical center?",
+          "It is two streets from here.",
+          "Maya describes the burn on Ben’s palm and reports his burning sensation."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "écouter",
+          "native": "to listen",
+          "forms": {
+            "je": "écoute",
+            "tu": "écoutes",
+            "il_elle_on": "écoute",
+            "nous": "écoutons",
+            "vous": "écoutez",
+            "ils_elles": "écoutent"
+          },
+          "example": {
+            "target": "Je vous écoute. Quand cela s’est-il produit ?",
+            "native": "I am listening. When did it happen?"
+          }
+        },
+        {
+          "infinitive": "voir",
+          "native": "to see",
+          "forms": {
+            "je": "vois",
+            "tu": "vois",
+            "il_elle_on": "voit",
+            "nous": "voyons",
+            "vous": "voyez",
+            "ils_elles": "voient"
+          },
+          "example": {
+            "target": "Je vois la rougeur et la cloque.",
+            "native": "I see the redness and blister."
+          }
+        },
+        {
+          "infinitive": "pouvoir",
+          "native": "to be able to",
+          "forms": {
+            "je": "peux",
+            "tu": "peux",
+            "il_elle_on": "peut",
+            "nous": "pouvons",
+            "vous": "pouvez",
+            "ils_elles": "peuvent"
+          },
+          "example": {
+            "target": "Pouvez-vous le noter dans votre registre des incidents ?",
+            "native": "Can you record it in your incident log?"
+          }
+        },
+        {
+          "infinitive": "aller",
+          "native": "to go",
+          "forms": {
+            "je": "vais",
+            "tu": "vas",
+            "il_elle_on": "va",
+            "nous": "allons",
+            "vous": "allez",
+            "ils_elles": "vont"
+          },
+          "example": {
+            "target": "Oui, je vais noter l’heure et les faits.",
+            "native": "Yes, I will record the time and facts."
+          }
+        },
+        {
+          "infinitive": "décrire",
+          "native": "to describe",
+          "forms": {
+            "je": "décris",
+            "tu": "décris",
+            "il_elle_on": "décrit",
+            "nous": "décrivons",
+            "vous": "décrivez",
+            "ils_elles": "décrivent"
+          },
+          "example": {
+            "target": "Maya décrit la brûlure sur la paume de la main de Ben et rapporte sa sensation de brûlure.",
+            "native": "Maya describes the burn on Ben’s palm and reports his burning sensation."
+          }
+        }
+      ]
+    },
+    "14": {
+      "stableId": "master-travel-lunch:14:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "supplementalWords": [
+        {
+          "es": "la cuisine",
+          "en": "the kitchen",
+          "kind": "term",
+          "sourceReaderIndex": 9,
+          "sourceReaderText": "cuisine"
+        },
+        {
+          "es": "les ingrédients",
+          "en": "the ingredients",
+          "kind": "term",
+          "sourceCardIndex": 15
+        }
+      ],
+      "passage": {
+        "title": "Discuss a Peanut-Sauce Near Miss",
+        "target": [
+          "Grace a failli manger la sauce aux cacahuètes.",
+          "Je comprends. La sauce contenait des cacahuètes qui n’étaient pas mentionnées.",
+          "Grace a demandé juste à temps. Elle a une allergie aux cacahuètes.",
+          "J’ai mon auto-injecteur d’adrénaline avec moi.",
+          "Je suis désolée. La note sur la commande ne mentionnait pas cette sauce.",
+          "Si elle n’avait pas demandé, elle aurait pu avoir une réaction grave.",
+          "Que pouvons-nous vérifier la prochaine fois ?",
+          "Nous confirmerons les ingrédients avant de commander. Nous ne cherchons pas à accuser quelqu’un.",
+          "Et nous noterons l’allergie sur la commande et confirmerons la sauce avec la cuisine.",
+          "Merci. Pourriez-vous proposer un plat de remplacement ?",
+          "Oui, je vais vous présenter une autre option.",
+          "Les cacahuètes étaient l’ingrédient non signalé dans la sauce."
+        ],
+        "native": [
+          "Grace very nearly ate the peanut sauce.",
+          "I understand. The sauce contained peanuts that were not mentioned.",
+          "Grace asked just in time. She has a peanut allergy.",
+          "I have my epinephrine auto-injector with me.",
+          "I am sorry. The note on the order did not mention this sauce.",
+          "If she had not asked, she could have had a serious reaction.",
+          "What can we check next time?",
+          "We will confirm the ingredients before ordering. We are not trying to blame anyone.",
+          "And we will note the allergy on the order and confirm the sauce with the kitchen.",
+          "Thank you. Could you offer a replacement dish?",
+          "Yes, I will present another option.",
+          "The peanuts were the unmentioned ingredient in the sauce."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "comprendre",
+          "native": "to understand",
+          "forms": {
+            "je": "comprends",
+            "tu": "comprends",
+            "il_elle_on": "comprend",
+            "nous": "comprenons",
+            "vous": "comprenez",
+            "ils_elles": "comprennent"
+          },
+          "example": {
+            "target": "Je comprends. La sauce contenait des cacahuètes qui n’étaient pas mentionnées.",
+            "native": "I understand. The sauce contained peanuts that were not mentioned."
+          }
+        },
+        {
+          "infinitive": "avoir",
+          "native": "to have",
+          "forms": {
+            "je": "ai",
+            "tu": "as",
+            "il_elle_on": "a",
+            "nous": "avons",
+            "vous": "avez",
+            "ils_elles": "ont"
+          },
+          "example": {
+            "target": "Grace a demandé juste à temps. Elle a une allergie aux cacahuètes.",
+            "native": "Grace asked just in time. She has a peanut allergy."
+          }
+        },
+        {
+          "infinitive": "être",
+          "native": "to be",
+          "forms": {
+            "je": "suis",
+            "tu": "es",
+            "il_elle_on": "est",
+            "nous": "sommes",
+            "vous": "êtes",
+            "ils_elles": "sont"
+          },
+          "example": {
+            "target": "Je suis désolée. La note sur la commande ne mentionnait pas cette sauce.",
+            "native": "I am sorry. The note on the order did not mention this sauce."
+          }
+        },
+        {
+          "infinitive": "pouvoir",
+          "native": "to be able to",
+          "forms": {
+            "je": "peux",
+            "tu": "peux",
+            "il_elle_on": "peut",
+            "nous": "pouvons",
+            "vous": "pouvez",
+            "ils_elles": "peuvent"
+          },
+          "example": {
+            "target": "Que pouvons-nous vérifier la prochaine fois ?",
+            "native": "What can we check next time?"
+          }
+        },
+        {
+          "infinitive": "chercher",
+          "native": "to seek / try",
+          "forms": {
+            "je": "cherche",
+            "tu": "cherches",
+            "il_elle_on": "cherche",
+            "nous": "cherchons",
+            "vous": "cherchez",
+            "ils_elles": "cherchent"
+          },
+          "example": {
+            "target": "Nous confirmerons les ingrédients avant de commander. Nous ne cherchons pas à accuser quelqu’un.",
+            "native": "We will confirm the ingredients before ordering. We are not trying to blame anyone."
+          }
+        }
+      ]
+    },
+    "15": {
+      "stableId": "master-travel-lunch:15:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "supplementalWords": [],
+      "passage": {
+        "title": "Report a Gas Smell at a Food-Truck Area",
+        "target": [
+          "Monsieur, il y a une forte odeur de gaz près de votre camion.",
+          "Je sens l’odeur aussi.",
+          "Éloignez-vous du camion, s’il vous plaît ! Ne fumez pas et n’utilisez pas de briquet !",
+          "Je vais prévenir les autres personnes.",
+          "J’appelle les secours.",
+          "Quelle est votre adresse exacte ?",
+          "Nous sommes près de l’entrée principale du parking, à côté des camions-restaurants de la place Victor.",
+          "Que se passe-t-il ?",
+          "Il y a une forte odeur de gaz près d’un camion. Si quelqu’un allume une flamme, il y aura un danger.",
+          "Je note votre emplacement et les faits.",
+          "Une odeur de gaz peut signaler une fuite de gaz près d’une bonbonne de gaz ou d’un tuyau.",
+          "L’opérateur note la possibilité d’une étincelle près du camion-restaurant."
+        ],
+        "native": [
+          "Sir, there is a strong gas smell near your truck.",
+          "I smell it too.",
+          "Move away from the truck, please! Do not smoke or use a lighter!",
+          "I will alert the other people.",
+          "I am calling emergency services.",
+          "What is your exact address?",
+          "We are near the main entrance to the parking lot, next to the food trucks at Place Victor.",
+          "What is happening?",
+          "There is a strong gas smell near a truck. If someone lights a flame, there will be danger.",
+          "I am recording your location and the facts.",
+          "A gas smell can indicate a gas leak near a gas cylinder or hose.",
+          "The operator notes the possibility of a spark near the food truck."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "sentir",
+          "native": "to smell / feel",
+          "forms": {
+            "je": "sens",
+            "tu": "sens",
+            "il_elle_on": "sent",
+            "nous": "sentons",
+            "vous": "sentez",
+            "ils_elles": "sentent"
+          },
+          "example": {
+            "target": "Je sens l’odeur aussi.",
+            "native": "I smell it too."
+          }
+        },
+        {
+          "infinitive": "utiliser",
+          "native": "to use",
+          "forms": {
+            "je": "utilise",
+            "tu": "utilises",
+            "il_elle_on": "utilise",
+            "nous": "utilisons",
+            "vous": "utilisez",
+            "ils_elles": "utilisent"
+          },
+          "example": {
+            "target": "Éloignez-vous du camion, s’il vous plaît ! Ne fumez pas et n’utilisez pas de briquet !",
+            "native": "Move away from the truck, please! Do not smoke or use a lighter!"
+          }
+        },
+        {
+          "infinitive": "appeler",
+          "native": "to call",
+          "forms": {
+            "je": "appelle",
+            "tu": "appelles",
+            "il_elle_on": "appelle",
+            "nous": "appelons",
+            "vous": "appelez",
+            "ils_elles": "appellent"
+          },
+          "example": {
+            "target": "J’appelle les secours.",
+            "native": "I am calling emergency services."
+          }
+        },
+        {
+          "infinitive": "être",
+          "native": "to be",
+          "forms": {
+            "je": "suis",
+            "tu": "es",
+            "il_elle_on": "est",
+            "nous": "sommes",
+            "vous": "êtes",
+            "ils_elles": "sont"
+          },
+          "example": {
+            "target": "Quelle est votre adresse exacte ?",
+            "native": "What is your exact address?"
+          }
+        },
+        {
+          "infinitive": "noter",
+          "native": "to record",
+          "forms": {
+            "je": "note",
+            "tu": "notes",
+            "il_elle_on": "note",
+            "nous": "notons",
+            "vous": "notez",
+            "ils_elles": "notent"
+          },
+          "example": {
+            "target": "Je note votre emplacement et les faits.",
+            "native": "I am recording your location and the facts."
           }
         }
       ]

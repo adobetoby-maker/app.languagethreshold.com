@@ -4,13 +4,13 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { MASTER_CONTENT_LIMITS, validateLessonContent } from "../src/lib/lesson-content-core.ts";
 
-const sourcePaths = ["master-1-5-draft.json", "master-6-10-draft.json"];
+const sourcePaths = ["master-1-5-draft.json", "master-6-10-draft.json", "master-11-15-draft.json"];
 const sourceFiles = Object.fromEntries(sourcePaths.map((name) => [name, readFileSync(`content/french-travel-lunch/${name}`)]));
 const sources = Object.fromEntries(sourcePaths.flatMap((name) => JSON.parse(sourceFiles[name]).lessons.map((lesson) => [String(lesson.n), lesson])));
 const candidate = JSON.parse(readFileSync("content/french-travel-lunch/master-lesson-content-candidate.json"));
 
-test("private French Lunch Master 1–10 pin their sources and keep review gates closed", () => {
-  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 10 }, (_, index) => String(index + 1)));
+test("private French Lunch Master 1–15 pin their sources and keep review gates closed", () => {
+  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 15 }, (_, index) => String(index + 1)));
   for (const name of sourcePaths) {
     assert.equal(candidate.sourceDraftSha256[name], createHash("sha256").update(sourceFiles[name]).digest("hex"));
   }
@@ -78,4 +78,19 @@ test("Master 7 and 8 retain the exact bill and food-poisoning language", () => {
   assert.match(food, /poisson cru/);
   assert.match(food, /sans réfrigération/);
   assert.match(food, /intoxication alimentaire/);
+});
+
+test("Master 13–15 retain direct burn, peanut-allergy, epinephrine, and gas terms", () => {
+  const burn = candidate.lessons["13"].passage.target.join(" ");
+  assert.match(burn, /brûlure/);
+  assert.match(burn, /cloque/);
+  assert.match(burn, /centre médical/);
+  const peanut = candidate.lessons["14"].passage.target.join(" ");
+  assert.match(peanut, /allergie aux cacahuètes/);
+  assert.match(peanut, /auto-injecteur d’adrénaline/);
+  assert.match(peanut, /réaction grave/);
+  const gas = candidate.lessons["15"].passage.target.join(" ");
+  assert.match(gas, /odeur de gaz/);
+  assert.match(gas, /fuite de gaz/);
+  assert.match(gas, /les secours/);
 });

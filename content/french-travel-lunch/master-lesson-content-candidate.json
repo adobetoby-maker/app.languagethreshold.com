@@ -144,6 +144,162 @@
           }
         }
       ]
+    },
+    "2": {
+      "stableId": "master-travel-lunch:2:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "supplementalWords": [
+        {
+          "es": "le serveur",
+          "en": "the server",
+          "kind": "term",
+          "sourceReaderIndex": 6
+        },
+        {
+          "es": "le repas",
+          "en": "the meal",
+          "kind": "term",
+          "sourceReaderIndex": 3
+        },
+        {
+          "es": "la table",
+          "en": "the table",
+          "kind": "term",
+          "sourceReaderIndex": 3,
+          "sourceReaderText": "à table"
+        }
+      ],
+      "passage": {
+        "title": "Explain a Café’s Lunch Rhythm",
+        "target": [
+          "Pourquoi la cuisine ferme-t-elle à seize heures ?",
+          "Dans ce café, le service du midi se termine à seize heures.",
+          "Est-ce qu’on reste à table après le repas ?",
+          "Ici, oui : on peut rester à table pour discuter.",
+          "Alors, si nous arrivons après, pouvons-nous encore prendre un café ?",
+          "Je pense que oui. Je vais vérifier les horaires avec le serveur.",
+          "Excusez-moi. À quelle heure prenez-vous la dernière commande ?",
+          "À quinze heures trente. La cuisine ferme à seize heures.",
+          "La cuisine rouvre-t-elle ce soir ?",
+          "Oui, le service du soir commence à dix-neuf heures. La terrasse reste ouverte pour les cafés cet après-midi.",
+          "Femke, nous pouvons prendre un café sur la terrasse, puis revenir ce soir.",
+          "Ici, on déjeune jusqu’à quinze heures."
+        ],
+        "native": [
+          "Why does the kitchen close at four p.m.?",
+          "At this café, lunch service ends at four p.m.",
+          "Do people stay at the table after the meal?",
+          "Here, yes: we can stay at the table to talk.",
+          "So if we arrive later, can we still have a coffee?",
+          "I think so. I will check the hours with the server.",
+          "Excuse me. At what time do you take the last order?",
+          "At three thirty. The kitchen closes at four.",
+          "Does the kitchen reopen this evening?",
+          "Yes, evening service starts at seven. The terrace stays open for coffee this afternoon.",
+          "Femke, we can have coffee on the terrace, then come back this evening.",
+          "Here, people have lunch until three p.m."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "fermer",
+          "native": "to close",
+          "forms": {
+            "je": "ferme",
+            "tu": "fermes",
+            "il_elle_on": "ferme",
+            "nous": "fermons",
+            "vous": "fermez",
+            "ils_elles": "ferment"
+          },
+          "example": {
+            "target": "Pourquoi la cuisine ferme-t-elle à seize heures ?",
+            "native": "Why does the kitchen close at four p.m.?"
+          }
+        },
+        {
+          "infinitive": "rester",
+          "native": "to remain / stay",
+          "forms": {
+            "je": "reste",
+            "tu": "restes",
+            "il_elle_on": "reste",
+            "nous": "restons",
+            "vous": "restez",
+            "ils_elles": "restent"
+          },
+          "example": {
+            "target": "Est-ce qu’on reste à table après le repas ?",
+            "native": "Do people stay at the table after the meal?"
+          }
+        },
+        {
+          "infinitive": "pouvoir",
+          "native": "to be able to",
+          "forms": {
+            "je": "peux",
+            "tu": "peux",
+            "il_elle_on": "peut",
+            "nous": "pouvons",
+            "vous": "pouvez",
+            "ils_elles": "peuvent"
+          },
+          "example": {
+            "target": "Ici, oui : on peut rester à table pour discuter.",
+            "native": "Here, yes: we can stay at the table to talk."
+          }
+        },
+        {
+          "infinitive": "prendre",
+          "native": "to take / order",
+          "forms": {
+            "je": "prends",
+            "tu": "prends",
+            "il_elle_on": "prend",
+            "nous": "prenons",
+            "vous": "prenez",
+            "ils_elles": "prennent"
+          },
+          "example": {
+            "target": "Excusez-moi. À quelle heure prenez-vous la dernière commande ?",
+            "native": "Excuse me. At what time do you take the last order?"
+          }
+        },
+        {
+          "infinitive": "rouvrir",
+          "native": "to reopen",
+          "forms": {
+            "je": "rouvre",
+            "tu": "rouvres",
+            "il_elle_on": "rouvre",
+            "nous": "rouvrons",
+            "vous": "rouvrez",
+            "ils_elles": "rouvrent"
+          },
+          "example": {
+            "target": "La cuisine rouvre-t-elle ce soir ?",
+            "native": "Does the kitchen reopen this evening?"
+          }
+        }
+      ]
     }
   }
 }

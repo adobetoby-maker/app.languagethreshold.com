@@ -19,6 +19,16 @@ test("owner-accepted pilot is available; an unreviewed manifest remains gated", 
   assert.equal(manifest.listeningReview.decision, "accepted-all-pilot-clips");
   assert.match(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP"), /female\.mp3$/);
   assert.equal(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP", unreviewedFixture), null);
+  for (const mutate of [
+    copy => { copy.sourceModule = "foundation-spanish-basics"; },
+    copy => { copy.sourceLesson = 2; },
+    copy => { copy.listeningReview.decision = "pending"; },
+    copy => { copy.entries["こんにちは。"].female.listeningReviewed = false; },
+  ]) {
+    const changed = structuredClone(manifest);
+    mutate(changed);
+    assert.equal(recordedJapanesePath("こんにちは。", "ja-JP-Chirp3-HD-Aoede", "ja-JP", changed), null);
+  }
 });
 
 test("public clips and the lookup manifest match exact Foundation 1 source and hashes", () => {

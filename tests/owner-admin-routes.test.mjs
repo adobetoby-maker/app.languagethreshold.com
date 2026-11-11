@@ -25,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';export {Route as frenchDrafts} from '@/routes/api.owner-french-drafts';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';export {Route as frenchDrafts} from '@/routes/api.owner-french-drafts';export {Route as frenchDinnerDrafts} from '@/routes/api.owner-french-dinner-drafts';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -102,6 +102,7 @@ const reads = [
   ["activity", "/api/owner-activity?page=0"],
   ["japaneseDrafts", "/api/owner-japanese-drafts"],
   ["frenchDrafts", "/api/owner-french-drafts"],
+  ["frenchDinnerDrafts", "/api/owner-french-dinner-drafts"],
 ];
 const writes = [
   [
@@ -205,6 +206,29 @@ test("platform owner can inspect 60 unregistered French Lunch drafts without int
         data.lessons.filter((lesson) => lesson.stage === stage).length),
       [10, 30, 20],
     );
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
+    assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
+  }));
+
+test("platform owner can inspect 22 unregistered French Dinner drafts without internal notes", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.frenchDinnerDrafts.server.handlers.GET({
+      request: req("/api/owner-french-dinner-drafts"),
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "French:English");
+    assert.equal(data.courseId, "travel-dinner");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.equal(data.lessons.length, 22);
+    assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:fr-en");
+    assert.equal(data.lessons.at(-1).stableId, "travel-dinner:12:fr-en");
+    assert.deepEqual(["foundation", "core"].map((stage) =>
+      data.lessons.filter((lesson) => lesson.stage === stage).length), [10, 12]);
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
     assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
   }));

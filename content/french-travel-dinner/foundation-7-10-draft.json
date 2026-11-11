@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "foundation-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "foundation-travel-dinner:7:fr-en",
+      "sourceTitleEnglish": "Questions",
+      "sourceObjectiveEnglish": "Ask the server what, which, how, where and how much about dishes, wine and the restaurant.",
+      "sourceSpeakingEnglish": "Ask the server what they recommend, how a dish is prepared, and how much a bottle of wine costs.",
+      "title": "Ask About the Menu and the Price",
+      "objective": "Ask a server what they recommend, how a dish is prepared, and how much a bottle costs.",
+      "focus": "Use qu'est-ce que for “what,” quel or quelle before a noun for “which,” comment for “how,” où for “where,” and combien for “how much.” In a polite restaurant question, you can also use est-ce que before the subject and verb.",
+      "scene": "Sam asks Camille about the daily dish, the fish preparation, and a bottle of wine.",
+      "cards": [
+        {"fr": "quoi ?", "en": "what?", "kind": "phrase"},
+        {"fr": "qui ?", "en": "who?", "kind": "phrase"},
+        {"fr": "où ?", "en": "where?", "kind": "phrase"},
+        {"fr": "quand ?", "en": "when?", "kind": "phrase"},
+        {"fr": "combien ?", "en": "how much?", "kind": "phrase"},
+        {"fr": "comment ?", "en": "how?", "kind": "phrase"},
+        {"fr": "pourquoi ?", "en": "why?", "kind": "phrase"},
+        {"fr": "quel plat ?", "en": "which dish?", "kind": "phrase"},
+        {"fr": "le plat du jour", "en": "the dish of the day", "kind": "term"},
+        {"fr": "la spécialité locale", "en": "the local specialty", "kind": "term"},
+        {"fr": "Qu'est-ce que vous recommandez ?", "en": "What do you recommend?", "kind": "phrase"},
+        {"fr": "Quelle est la spécialité locale ?", "en": "What is the local specialty?", "kind": "phrase"},
+        {"fr": "Combien coûte cette bouteille ?", "en": "How much does this bottle cost?", "kind": "phrase"},
+        {"fr": "Comment préparez-vous le poisson ?", "en": "How do you prepare the fish?", "kind": "phrase"},
+        {"fr": "Où sont les toilettes ?", "en": "Where are the restrooms?", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Qu'est-ce que vous recommandez ce soir ?", "en": "What do you recommend tonight?"},
+        {"speaker": "Camille", "fr": "Le plat du jour est le poisson.", "en": "The dish of the day is the fish."},
+        {"speaker": "Sam", "fr": "Comment préparez-vous le poisson ?", "en": "How do you prepare the fish?"},
+        {"speaker": "Camille", "fr": "Nous le faisons griller avec des légumes.", "en": "We grill it with vegetables."},
+        {"speaker": "Sam", "fr": "Quelle est la spécialité locale ?", "en": "What is the local specialty?"},
+        {"speaker": "Camille", "fr": "C'est le gratin de la maison.", "en": "It's the house gratin."},
+        {"speaker": "Sam", "fr": "Combien coûte cette bouteille de vin ?", "en": "How much does this bottle of wine cost?"},
+        {"speaker": "Camille", "fr": "Elle coûte trente euros. Où voulez-vous vous asseoir ?", "en": "It costs thirty euros. Where would you like to sit?"}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir. Avez-vous choisi votre plat ?",
+        "goal": "Ask what the server recommends, how the fish is prepared, and how much a bottle of wine costs.",
+        "closure": "Je vous laisse regarder la carte.",
+        "wordBank": ["comment ?", "combien ?", "le plat du jour", "la spécialité locale", "Qu'est-ce que vous recommandez ?", "Combien coûte cette bouteille ?", "Comment préparez-vous le poisson ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French question word for where.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask what the server recommends.", "sourceCard": 11, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about a bottle's price.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French question word for how.", "sourceCard": 6, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask how the fish is prepared.", "sourceCard": 14, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking for the local specialty.", "sourceCard": 12, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "stableId": "foundation-travel-dinner:8:fr-en",
+      "sourceTitleEnglish": "No, Never and How Much",
+      "sourceObjectiveEnglish": "Say not yet, nothing more, another one, more or less while ordering and finishing dinner.",
+      "sourceSpeakingEnglish": "Tell the server you are not ready yet, then ask for another drink and say you want nothing more after dessert.",
+      "title": "Not Yet, Another Glass, and Nothing More",
+      "objective": "Say you are not ready yet, ask for another drink, request less spice, and finish an order.",
+      "focus": "Use ne ... pas encore for “not yet,” ne ... rien for “nothing,” ne ... jamais for “never,” and ne ... personne for “nobody.” Encore can mean “another/more” in a request; moins means “less.” Keep the two parts of each negative around the verb in careful speech.",
+      "scene": "Sam needs more time, orders another drink, and closes the meal after dessert.",
+      "cards": [
+        {"fr": "rien", "en": "nothing", "kind": "term"},
+        {"fr": "personne", "en": "nobody", "kind": "term", "note": "With ne ... personne, this means nobody; une personne means a person."},
+        {"fr": "jamais", "en": "never", "kind": "term"},
+        {"fr": "pas encore", "en": "not yet", "kind": "phrase"},
+        {"fr": "encore", "en": "more / again", "kind": "term", "note": "In encore un verre, it means another glass."},
+        {"fr": "moins", "en": "less", "kind": "term"},
+        {"fr": "un autre", "en": "another one", "kind": "phrase"},
+        {"fr": "le pourboire", "en": "the tip", "kind": "term"},
+        {"fr": "la monnaie", "en": "the change (money)", "kind": "term"},
+        {"fr": "Pas encore, merci.", "en": "Not yet, thank you.", "kind": "phrase"},
+        {"fr": "Nous ne voulons rien d'autre, merci.", "en": "We don't want anything else, thank you.", "kind": "phrase"},
+        {"fr": "Encore un verre de vin blanc, s'il vous plaît.", "en": "Another glass of white wine, please.", "kind": "phrase"},
+        {"fr": "Moins épicé, s'il vous plaît.", "en": "Less spicy, please.", "kind": "phrase"},
+        {"fr": "Je ne bois jamais d'alcool.", "en": "I never drink alcohol.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Vous êtes prêts à commander ?", "en": "Are you ready to order?"},
+        {"speaker": "Sam", "fr": "Pas encore, merci. Nous regardons la carte.", "en": "Not yet, thank you. We're looking at the menu."},
+        {"speaker": "Camille", "fr": "Vous souhaitez encore quelque chose à boire ?", "en": "Would you like anything else to drink?"},
+        {"speaker": "Sam", "fr": "Encore un verre de vin blanc, s'il vous plaît.", "en": "Another glass of white wine, please."},
+        {"speaker": "Léa", "fr": "Pour moi, de l'eau. Je ne bois jamais d'alcool.", "en": "Water for me. I never drink alcohol."},
+        {"speaker": "Sam", "fr": "Et le plat, moins épicé, s'il vous plaît.", "en": "And the dish, less spicy, please."},
+        {"speaker": "Camille", "fr": "Bien sûr. Après le dessert, vous désirez autre chose ?", "en": "Of course. After dessert, would you like anything else?"},
+        {"speaker": "Sam", "fr": "Nous ne voulons rien d'autre, merci.", "en": "We don't want anything else, thank you."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Vous êtes prêts à commander ?",
+        "goal": "Say you are not ready yet, ask for another drink, and say you want nothing else after dessert.",
+        "closure": "Très bien, je vous apporte l'addition.",
+        "wordBank": ["pas encore", "encore", "moins", "Pas encore, merci.", "Nous ne voulons rien d'autre, merci.", "Encore un verre de vin blanc, s'il vous plaît.", "Moins épicé, s'il vous plaît."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for never.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say you are not ready yet.", "sourceCard": 10, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the request for another glass of wine.", "sourceCard": 12, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for the tip.", "sourceCard": 8, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask for the dish to be less spicy.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write that your party wants nothing else.", "sourceCard": 11, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "stableId": "foundation-travel-dinner:9:fr-en",
+      "sourceTitleEnglish": "Polite Requests and Commands",
+      "sourceObjectiveEnglish": "Ask the server politely for the check, a photo and items at the table.",
+      "sourceSpeakingEnglish": "Ask the server politely for a glass of water and the check, and ask if you can pay by card.",
+      "title": "Polite Requests at the Table",
+      "objective": "Politely ask a server for water, the bill, a photo, and table items, then ask to pay by card.",
+      "focus": "Pourriez-vous ... ? is a polite request. With vous, a direct instruction uses the -ez form: apportez, attendez, passez. Add s'il vous plaît to a request or instruction. Payer par carte means paying by card.",
+      "scene": "Sam asks Camille for water and the bill before paying.",
+      "cards": [
+        {"fr": "l'addition", "en": "the bill / check", "kind": "term"},
+        {"fr": "la carte bancaire", "en": "the bank card", "kind": "term"},
+        {"fr": "les espèces", "en": "cash", "kind": "term"},
+        {"fr": "le reçu", "en": "the receipt", "kind": "term"},
+        {"fr": "le sel", "en": "the salt", "kind": "term"},
+        {"fr": "le poivre", "en": "the pepper", "kind": "term"},
+        {"fr": "le verre", "en": "the glass", "kind": "term"},
+        {"fr": "le couteau", "en": "the knife", "kind": "term"},
+        {"fr": "la photo", "en": "the photo", "kind": "term"},
+        {"fr": "Pourriez-vous nous apporter l'addition, s'il vous plaît ?", "en": "Could you bring us the bill, please?", "kind": "phrase"},
+        {"fr": "Pourriez-vous prendre une photo de nous ?", "en": "Could you take a photo of us?", "kind": "phrase"},
+        {"fr": "Apportez-moi un verre d'eau, s'il vous plaît.", "en": "Bring me a glass of water, please.", "kind": "phrase"},
+        {"fr": "Excusez-moi, pourriez-vous me passer le sel ?", "en": "Excuse me, could you pass me the salt?", "kind": "phrase"},
+        {"fr": "Attendez un instant, s'il vous plaît.", "en": "Wait a moment, please.", "kind": "phrase"},
+        {"fr": "Est-ce que je peux payer par carte ?", "en": "Can I pay by card?", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Excusez-moi, pourriez-vous me passer le sel ?", "en": "Excuse me, could you pass me the salt?"},
+        {"speaker": "Camille", "fr": "Bien sûr. Vous voulez aussi de l'eau ?", "en": "Of course. Would you also like water?"},
+        {"speaker": "Sam", "fr": "Oui. Apportez-moi un verre d'eau, s'il vous plaît.", "en": "Yes. Bring me a glass of water, please."},
+        {"speaker": "Camille", "fr": "Voici l'eau. Vous désirez autre chose ?", "en": "Here is the water. Would you like anything else?"},
+        {"speaker": "Sam", "fr": "Pourriez-vous prendre une photo de nous ?", "en": "Could you take a photo of us?"},
+        {"speaker": "Camille", "fr": "Bien sûr. Voilà la photo.", "en": "Of course. Here is the photo."},
+        {"speaker": "Sam", "fr": "Pourriez-vous nous apporter l'addition, s'il vous plaît ? Est-ce que je peux payer par carte ?", "en": "Could you bring us the bill, please? Can I pay by card?"},
+        {"speaker": "Camille", "fr": "Oui, vous pouvez payer par carte. Je vous apporte aussi le reçu.", "en": "Yes, you can pay by card. I'll also bring you the receipt."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Vous désirez autre chose ?",
+        "goal": "Ask politely for water and the bill, then ask if you can pay by card.",
+        "closure": "Oui, vous pouvez payer par carte.",
+        "wordBank": ["l'addition", "la carte bancaire", "le verre", "Pourriez-vous nous apporter l'addition, s'il vous plaît ?", "Apportez-moi un verre d'eau, s'il vous plaît.", "Est-ce que je peux payer par carte ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for the bill.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask for a glass of water.", "sourceCard": 12, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the polite request for the bill.", "sourceCard": 10, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for receipt.", "sourceCard": 4, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask if you can pay by card.", "sourceCard": 15, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite request for a photo.", "sourceCard": 11, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 10,
+      "stableId": "foundation-travel-dinner:10:fr-en",
+      "sourceTitleEnglish": "Words You Already Know and Getting Help",
+      "sourceObjectiveEnglish": "Spot dinner cognates and use survival phrases to get help when you don't understand.",
+      "sourceSpeakingEnglish": "Tell the server you don't understand, ask them to repeat more slowly, and ask how to say a dish in Spanish.",
+      "title": "French Cognates and Getting Help",
+      "objective": "Recognize useful French dinner cognates and ask for repetition or a translation when you do not understand.",
+      "focus": "French -tion words such as recommandation often resemble English -tion words; spécialité and ingrédient are also recognizable, but their French pronunciation differs. Say je ne comprends pas, pourriez-vous répéter plus lentement ?, and comment dit-on ce plat en français ? to ask for help.",
+      "scene": "Sam asks Camille to repeat a dish name, then states a peanut allergy while discussing ingredients.",
+      "cards": [
+        {"fr": "la célébration", "en": "the celebration", "kind": "term"},
+        {"fr": "la recommandation", "en": "the recommendation", "kind": "term"},
+        {"fr": "l'option", "en": "the option", "kind": "term"},
+        {"fr": "la spécialité", "en": "the specialty", "kind": "term"},
+        {"fr": "l'ingrédient", "en": "the ingredient", "kind": "term"},
+        {"fr": "l'allergie", "en": "the allergy", "kind": "term"},
+        {"fr": "le restaurant", "en": "the restaurant", "kind": "term"},
+        {"fr": "l'urgence", "en": "the emergency", "kind": "term"},
+        {"fr": "le chocolat", "en": "the chocolate", "kind": "term"},
+        {"fr": "Je ne comprends pas. Pourriez-vous parler plus lentement ?", "en": "I don't understand. Could you speak more slowly?", "kind": "phrase"},
+        {"fr": "Pourriez-vous répéter, s'il vous plaît ?", "en": "Could you repeat that, please?", "kind": "phrase"},
+        {"fr": "Comment dit-on ce plat en français ?", "en": "How do you say this dish in French?", "kind": "phrase"},
+        {"fr": "Je suis allergique aux cacahuètes.", "en": "I'm allergic to peanuts.", "kind": "phrase"},
+        {"fr": "Parlez-vous anglais ?", "en": "Do you speak English?", "kind": "phrase"},
+        {"fr": "J'ai besoin d'aide, s'il vous plaît.", "en": "I need help, please.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Voici notre spécialité du soir. C'est une recommandation de la cheffe.", "en": "Here is our evening specialty. It's a recommendation from the chef."},
+        {"speaker": "Sam", "fr": "Je ne comprends pas. Pourriez-vous parler plus lentement ?", "en": "I don't understand. Could you speak more slowly?"},
+        {"speaker": "Camille", "fr": "Bien sûr. Je peux répéter le nom du plat.", "en": "Of course. I can repeat the name of the dish."},
+        {"speaker": "Sam", "fr": "Comment dit-on ce plat en français ?", "en": "How do you say this dish in French?"},
+        {"speaker": "Camille", "fr": "On dit « gratin de légumes ».", "en": "We say “vegetable gratin.”"},
+        {"speaker": "Sam", "fr": "Merci. Je suis allergique aux cacahuètes. Quels sont les ingrédients ?", "en": "Thank you. I'm allergic to peanuts. What are the ingredients?"},
+        {"speaker": "Camille", "fr": "Je vais vous donner la liste des ingrédients.", "en": "I'll give you the ingredient list."},
+        {"speaker": "Sam", "fr": "Merci. J'ai aussi besoin d'aide pour choisir une option.", "en": "Thank you. I also need help choosing an option."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Voici notre spécialité du soir.",
+        "goal": "Say you do not understand, ask the server to repeat more slowly, and ask how to say a dish in French.",
+        "closure": "Bien sûr, je vais répéter plus lentement.",
+        "wordBank": ["la spécialité", "l'ingrédient", "l'allergie", "Je ne comprends pas. Pourriez-vous parler plus lentement ?", "Pourriez-vous répéter, s'il vous plaît ?", "Comment dit-on ce plat en français ?", "Je suis allergique aux cacahuètes."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French cognate for recommendation.", "sourceCard": 2, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask the server to repeat.", "sourceCard": 11, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the sentence stating a peanut allergy.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for ingredient.", "sourceCard": 5, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Say that you do not understand and ask for slower speech.", "sourceCard": 10, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking how to say this dish in French.", "sourceCard": 12, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified French review remains required for pronunciation, register, naturalness, cognate guidance, and variant responses.",
+    "Foundation 10 retains the source's direct peanut-allergy vocabulary and ingredient question. Any factual/domain review belongs here, outside the learner-facing cards and Reader.",
+    "The source asks how to say a dish in Spanish; the French equivalent asks how to say it in French while preserving the same help-seeking task."
+  ]
+}

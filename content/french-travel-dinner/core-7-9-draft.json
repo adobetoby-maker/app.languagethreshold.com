@@ -1,0 +1,667 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "travel-dinner:7:fr-en",
+      "sourceTitleEnglish": "Order seafood or meat",
+      "sourceObjectiveEnglish": "ask about preparation, doneness, bones, sides, and price by weight",
+      "sourceSpeakingEnglish": "Order a fish priced by weight and confirm the estimated total before agreeing.",
+      "title": "Order Seafood or Meat by Doneness and Price",
+      "objective": "Ask how seafood or meat is prepared, how well the meat is cooked, whether fish has bones, which sides are included, and the estimated price when fish is sold by weight.",
+      "focus": "Le poisson entier is a whole fish; les arêtes are fish bones. Au kilo means priced per kilogram, while le poids approximatif and le prix total estimé distinguish weight from the estimated total. Comment préparez-vous le poisson ? asks about preparation; À combien reviendrait ce poisson ? checks the likely total before ordering. Je voudrais la viande à point, s’il vous plaît gives a meat-doneness preference.",
+      "scene": "At a coastal restaurant, Maya asks about a whole grilled fish sold by the kilo, chooses salad instead of rice, and confirms the estimated total.",
+      "cards": [
+        {
+          "fr": "le poisson entier",
+          "en": "whole fish",
+          "kind": "term"
+        },
+        {
+          "fr": "les produits de la mer",
+          "en": "seafood",
+          "kind": "term"
+        },
+        {
+          "fr": "grillé",
+          "en": "grilled",
+          "kind": "term"
+        },
+        {
+          "fr": "les arêtes",
+          "en": "fish bones",
+          "kind": "term"
+        },
+        {
+          "fr": "l’accompagnement",
+          "en": "side dish",
+          "kind": "term"
+        },
+        {
+          "fr": "au kilo",
+          "en": "priced per kilogram",
+          "kind": "term"
+        },
+        {
+          "fr": "le poids approximatif",
+          "en": "approximate weight",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix total estimé",
+          "en": "estimated total price",
+          "kind": "term"
+        },
+        {
+          "fr": "une salade",
+          "en": "a salad",
+          "kind": "term"
+        },
+        {
+          "fr": "du riz",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "fr": "un filet",
+          "en": "a fillet",
+          "kind": "term"
+        },
+        {
+          "fr": "une viande à point",
+          "en": "medium-cooked meat",
+          "kind": "term"
+        },
+        {
+          "fr": "Comment préparez-vous le poisson ?",
+          "en": "How do you prepare the fish?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il des arêtes ?",
+          "en": "Does it have bones?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quels accompagnements sont compris ?",
+          "en": "Which side dishes are included?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien coûte le kilo, à peu près ?",
+          "en": "How much does a kilo cost, more or less?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À combien reviendrait ce poisson ?",
+          "en": "What would this fish cost in total?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prendrai la salade en accompagnement.",
+          "en": "I will have the salad as the side dish.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais la viande à point, s’il vous plaît.",
+          "en": "I would like the meat medium, please.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonsoir. Comment préparez-vous le poisson entier ?",
+          "en": "Good evening. How do you prepare the whole fish?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Nous le faisons griller. Il est vendu au kilo.",
+          "en": "We grill it. It is sold by the kilogram."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Y a-t-il des arêtes ?",
+          "en": "Does it have bones?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Oui, c’est un poisson entier avec des arêtes.",
+          "en": "Yes, it is a whole fish with bones."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quels accompagnements sont compris ?",
+          "en": "Which side dishes are included?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Vous pouvez choisir du riz ou une salade.",
+          "en": "You can choose rice or a salad."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je prendrai la salade. Combien coûte le kilo, à peu près ?",
+          "en": "I will have the salad. How much does a kilo cost, more or less?"
+        },
+        {
+          "speaker": "Friend",
+          "fr": "Et pour moi, je voudrais la viande à point, s’il vous plaît.",
+          "en": "And for me, I would like the meat medium, please."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Il est à trente euros le kilo. Celui-ci pèse environ un kilo.",
+          "en": "It is thirty euros per kilogram. This one weighs about one kilogram."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Donc, à combien reviendrait ce poisson ?",
+          "en": "So what would this fish cost in total?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Le prix total estimé est de trente euros.",
+          "en": "The estimated total price is thirty euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Très bien, je le prends avec la salade.",
+          "en": "All right, I will take it with the salad."
+        }
+      ],
+      "speaking": {
+        "role": "Guest ordering a whole fish by weight",
+        "partnerRole": "Restaurant server",
+        "opening": "Nous avons un poisson entier grillé, vendu au kilo.",
+        "goal": "Ask about preparation, bones, side dishes, price per kilo, and estimated total before ordering.",
+        "closure": "Très bien. Un poisson grillé avec une salade.",
+        "wordBank": [
+          "le poisson entier",
+          "les arêtes",
+          "l’accompagnement",
+          "au kilo",
+          "le prix total estimé",
+          "une salade",
+          "Comment préparez-vous le poisson ?",
+          "Y a-t-il des arêtes ?",
+          "Combien coûte le kilo, à peu près ?",
+          "À combien reviendrait ce poisson ?",
+          "Je voudrais la viande à point, s’il vous plaît."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for fish bones.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask how the fish is prepared.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about which sides are included.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the question asking roughly how much a kilo costs.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the whole fish has bones.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask what this fish would cost in total.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "stableId": "travel-dinner:8:fr-en",
+      "sourceTitleEnglish": "Handle allergies at dinner",
+      "sourceObjectiveEnglish": "state a restriction, ask about cross-contact realistically, and choose an alternative",
+      "sourceSpeakingEnglish": "Work with the server to find a safer option without treating the AI as medical advice.",
+      "title": "State a Peanut Allergy and Ask About Cross-Contact",
+      "objective": "State a peanut allergy, ask about ingredients and a shared fryer, and choose grilled chicken without sauce after the server checks with the kitchen.",
+      "focus": "J’ai une allergie aux arachides states a peanut allergy. Ce plat contient-il des arachides ? asks about an ingredient; Y a-t-il un risque de contamination croisée avec des arachides ? asks about cross-contact. Utilisez-vous la même friteuse pour d’autres plats ? asks whether foods share a fryer. Je prendrai le poulet grillé, sans sauce names the chosen alternative.",
+      "scene": "Maya tells Élise about a peanut allergy, asks about sauce ingredients and the shared fryer, then orders grilled chicken without sauce after the kitchen replies.",
+      "cards": [
+        {
+          "fr": "une allergie aux arachides",
+          "en": "a peanut allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "les arachides",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "fr": "les fruits de mer",
+          "en": "shellfish",
+          "kind": "term"
+        },
+        {
+          "fr": "les ingrédients",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "fr": "la contamination croisée",
+          "en": "cross-contact / cross-contamination",
+          "kind": "term"
+        },
+        {
+          "fr": "la friteuse",
+          "en": "fryer",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "un autre plat",
+          "en": "another dish",
+          "kind": "term"
+        },
+        {
+          "fr": "une autre option",
+          "en": "another option",
+          "kind": "term"
+        },
+        {
+          "fr": "le poulet grillé",
+          "en": "grilled chicken",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "J’ai une allergie aux arachides.",
+          "en": "I have a peanut allergy.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ce plat contient-il des arachides ?",
+          "en": "Does this dish contain peanuts?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il un risque de contamination croisée avec des arachides ?",
+          "en": "Is there a risk of peanut cross-contact?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Utilisez-vous la même friteuse pour d’autres plats ?",
+          "en": "Do you use the same fryer for other dishes?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous demander au cuisinier, s’il vous plaît ?",
+          "en": "Can you ask the cook, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prendrai le poulet grillé, sans sauce.",
+          "en": "I will have the grilled chicken, without sauce.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pour le dessert, je reposerai la question avant de commander.",
+          "en": "For dessert, I will ask again before ordering.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quelle option sans arachides me conseillez-vous ?",
+          "en": "What option without peanuts do you recommend?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "J’ai une allergie aux arachides. Ce plat contient-il des arachides ?",
+          "en": "I have a peanut allergy. Does this dish contain peanuts?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Je vais vérifier les ingrédients de la sauce.",
+          "en": "I will check the sauce ingredients."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "La sauce ne contient pas d’arachides.",
+          "en": "The sauce does not contain peanuts."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Y a-t-il un risque de contamination croisée avec des arachides ?",
+          "en": "Is there a risk of peanut cross-contact?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Utilisez-vous la même friteuse pour d’autres plats ?",
+          "en": "Do you use the same fryer for other dishes?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Je vais demander au cuisinier et je reviens.",
+          "en": "I will ask the cook and come back."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Le cuisinier utilise la même friteuse pour plusieurs plats.",
+          "en": "The cook uses the same fryer for several dishes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quelle option sans arachides me conseillez-vous ?",
+          "en": "What option without peanuts do you recommend?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le poulet grillé, sans sauce, est une autre option.",
+          "en": "Grilled chicken without sauce is another option."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Je note le poulet grillé, sans sauce.",
+          "en": "I have noted the grilled chicken, without sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pour le dessert, je reposerai la question avant de commander.",
+          "en": "For dessert, I will ask again before ordering."
+        }
+      ],
+      "speaking": {
+        "role": "Guest discussing a peanut allergy",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir. Avez-vous choisi votre plat ?",
+        "goal": "State a peanut allergy, ask whether the dish contains peanuts, ask about cross-contact and the fryer, and order grilled chicken without sauce after hearing the answer.",
+        "closure": "Je note le poulet grillé, sans sauce.",
+        "wordBank": [
+          "une allergie aux arachides",
+          "les arachides",
+          "les ingrédients",
+          "la contamination croisée",
+          "la friteuse",
+          "la sauce",
+          "le poulet grillé",
+          "J’ai une allergie aux arachides.",
+          "Ce plat contient-il des arachides ?",
+          "Utilisez-vous la même friteuse pour d’autres plats ?",
+          "Je prendrai le poulet grillé, sans sauce.",
+          "Quelle option sans arachides me conseillez-vous ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for cross-contact in this food-allergy dialogue.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, state a peanut allergy.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about a shared fryer.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the question asking whether this dish contains peanuts.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether there is a risk of peanut cross-contact.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the order for grilled chicken without sauce.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "stableId": "travel-dinner:9:fr-en",
+      "sourceTitleEnglish": "Control the meal's pace",
+      "sourceObjectiveEnglish": "ask to slow down, speed up, hold a course, or take a break",
+      "sourceSpeakingEnglish": "The next course arrived too quickly; ask the server to pause service.",
+      "title": "Change the Pace of Dinner",
+      "objective": "Ask the server to slow down, hold the next course, take a short break, and resume when the table is ready.",
+      "focus": "Plus doucement, s’il vous plaît asks for a slower pace. Pourriez-vous apporter la suite plus tard ? moves the next course later; attendez avant de servir le plat principal asks staff to hold the main course. Nous sommes prêts pour le dessert maintenant resumes service after a break. The same request can be reversed with Pourriez-vous accélérer un peu le service ?",
+      "scene": "Maya and Jules are still eating the starter when the next course is already on its way. They ask Élise to pause service and later say they are ready for dessert.",
+      "cards": [
+        {
+          "fr": "l’entrée",
+          "en": "starter / appetizer",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat principal",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "fr": "la suite",
+          "en": "the next course / what follows",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "fr": "le rythme",
+          "en": "pace / rhythm",
+          "kind": "term"
+        },
+        {
+          "fr": "une pause",
+          "en": "a break",
+          "kind": "term"
+        },
+        {
+          "fr": "le service",
+          "en": "service",
+          "kind": "term"
+        },
+        {
+          "fr": "le vin",
+          "en": "wine",
+          "kind": "term"
+        },
+        {
+          "fr": "l’addition",
+          "en": "bill / check",
+          "kind": "term"
+        },
+        {
+          "fr": "Plus doucement, s’il vous plaît.",
+          "en": "More slowly, please.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous apporter la suite plus tard ?",
+          "en": "Could you bring the next course later?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Attendez avant de servir le plat principal, s’il vous plaît.",
+          "en": "Please wait before serving the main course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvons-nous faire une courte pause ?",
+          "en": "Can we take a short break?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous sommes prêts pour le dessert maintenant.",
+          "en": "We are ready for dessert now.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il nous faut plus de temps entre les plats.",
+          "en": "We need more time between courses.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous accélérer un peu le service ?",
+          "en": "Could you speed up service a little?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Élise",
+          "fr": "Voici l’entrée et votre vin.",
+          "en": "Here are the starter and your wine."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Merci. Nous commençons à peine l’entrée.",
+          "en": "Thank you. We are only just starting the starter."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Le plat principal arrive déjà.",
+          "en": "The main course is already on its way."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oh, nous mangeons encore l’entrée. Plus doucement, s’il vous plaît.",
+          "en": "Oh, we are still eating the starter. More slowly, please."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourriez-vous apporter la suite plus tard ?",
+          "en": "Could you bring the next course later?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Bien sûr. Je vais attendre avant de servir le plat principal.",
+          "en": "Of course. I will wait before serving the main course."
+        },
+        {
+          "speaker": "Jules",
+          "fr": "Pouvons-nous faire une courte pause après le plat ?",
+          "en": "Can we take a short break after the main course?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Oui. Dites-moi quand vous serez prêts pour la suite.",
+          "en": "Yes. Tell me when you are ready for what follows."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous sommes prêts pour le dessert maintenant.",
+          "en": "We are ready for dessert now."
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Très bien. Je vous apporte la carte des desserts.",
+          "en": "Very well. I will bring you the dessert menu."
+        }
+      ],
+      "speaking": {
+        "role": "Guest changing the meal's pace",
+        "partnerRole": "Restaurant server",
+        "opening": "Voici le plat principal.",
+        "goal": "Explain that the table is still eating the starter, ask to hold the main course, take a short break, and resume with dessert.",
+        "closure": "D’accord. Je reprendrai le service quand vous serez prêts.",
+        "wordBank": [
+          "l’entrée",
+          "le plat principal",
+          "la suite",
+          "le dessert",
+          "le rythme",
+          "une pause",
+          "Plus doucement, s’il vous plaît.",
+          "Pourriez-vous apporter la suite plus tard ?",
+          "Pouvons-nous faire une courte pause ?",
+          "Nous sommes prêts pour le dessert maintenant."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for the main course.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say 'more slowly, please.'",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to bring the next course later.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the phrase asking for a short break.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server to wait before serving the main course.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write that the table is ready for dessert now.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ]
+}

@@ -102,7 +102,36 @@ def retake_records(root, path, course_by_path):
     return result
 
 
-def build(root, audit_path, retakes_path):
+def level_records(path, retakes_path, course_by_path):
+    if path is None:
+        return {}
+    data = json.loads(path.read_text())
+    if (data.get("pairKey") != "French:English" or data.get("locale") != "fr-FR"
+            or data.get("listeningReviewed") is not False or data.get("registered") is not False
+            or data.get("sourceRetakeManifestSHA256") != sha256(retakes_path)):
+        raise ValueError("Level manifest pair, gate, or retake source changed")
+    result = defaultdict(list)
+    for candidate in data["candidates"]:
+        original = course_by_path.get(candidate["originalPath"])
+        if (not original or candidate["spokenText"] != original["spokenText"]
+                or candidate["voice"] != original["voice"]
+                or candidate["listeningReviewed"] is not False):
+            raise ValueError("Level candidate source text, voice, or review changed")
+        if candidate["sourcePath"] not in (candidate["originalPath"], candidate["retakePath"]):
+            raise ValueError("Level candidate source is not its original or retake")
+        row = {"path": str(path.parent / candidate["name"]), "sha256": candidate["sha256"],
+               "bytes": candidate["bytes"], "durationSeconds": candidate["signal"]["durationSeconds"],
+               "spokenText": candidate["spokenText"], "voice": candidate["voice"], "locale": "fr-FR",
+               "sourcePath": candidate["sourcePath"], "originalPath": candidate["originalPath"]}
+        verify_audio(row)
+        row["signal"] = decode(Path(row["path"]))
+        if row["signal"] != candidate["signal"]:
+            raise ValueError("Level candidate signal changed")
+        result[(original["spokenText"], original["voice"], original["locale"])].append(row)
+    return result
+
+
+def build(root, audit_path, retakes_path, level_path=None):
     records, manifest_sha = course_records(root)
     report = json.loads(audit_path.read_text())
     if (report["course"] != "French 101" or report["manifestSetSHA256"] != manifest_sha
@@ -116,6 +145,7 @@ def build(root, audit_path, retakes_path):
         by_sha[row["sha256"]].append(row)
         by_text_voice[(row["spokenText"], row["voice"], row["locale"])].append(row)
     retakes = retake_records(root, retakes_path, by_path)
+    levels = level_records(level_path, retakes_path, by_path)
     flagged_sha = set()
     flags_by_sha = {}
     for flag in report["flags"]:
@@ -166,6 +196,9 @@ def build(root, audit_path, retakes_path):
                                        for row in placements],
                 "candidateKind": kind, "candidate": selected,
                 "priorRetake": retake if kind == "unresolved" else None,
+                **({"levelCandidates": [row for row in levels.get(key, [])
+                                         if row["originalPath"] in {p["path"] for p in placements}]}
+                   if level_path and kind == "unresolved" else {}),
                 "listeningReviewed": False, "replacementApplied": False,
             })
             counts[kind] += 1
@@ -175,6 +208,7 @@ def build(root, audit_path, retakes_path):
         "courseManifestSetSHA256": manifest_sha,
         "signalReportSHA256": sha256(audit_path),
         "retakeManifestSHA256": sha256(retakes_path),
+        **({"levelManifestSHA256": sha256(level_path)} if level_path else {}),
         "flaggedUniqueFiles": len(flagged_sha),
         "flaggedTextVoiceIdentities": len(candidates),
         "affectedPlacements": sum(len(row["affectedPlacements"]) for row in candidates),
@@ -202,6 +236,10 @@ def sheet(index, output):
         elif row["priorRetake"]:
             target = html.escape(os.path.relpath(row["priorRetake"]["path"], output), quote=True)
             item += f'<h3>Retake still flagged</h3><audio controls preload="none" src="{target}"></audio>'
+        for level in row.get("levelCandidates", []):
+            target = html.escape(os.path.relpath(level["path"], output), quote=True)
+            item += (f'<h3>Level-adjusted comparison, not selected</h3>'
+                     f'<audio controls preload="none" src="{target}"></audio>')
         rows.append(item + "</section>")
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" '
             'content="width=device-width,initial-scale=1"><title>French 101 signal repair options</title>'
@@ -217,6 +255,8 @@ def main():
     parser.add_argument("--audio-root", type=Path, required=True)
     parser.add_argument("--signal-report", type=Path, required=True)
     parser.add_argument("--retake-manifest", type=Path, required=True)
+    parser.add_argument("--level-manifest", type=Path,
+                        help="Optional private level candidates for side-by-side review only")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
@@ -224,7 +264,8 @@ def main():
     output = args.output.resolve()
     if not output.is_relative_to(root) or output == root:
         raise ValueError("Repair report must stay in a separate private French 101 folder")
-    index = build(root, args.signal_report.resolve(), args.retake_manifest.resolve())
+    index = build(root, args.signal_report.resolve(), args.retake_manifest.resolve(),
+                  args.level_manifest.resolve() if args.level_manifest else None)
     manifest = json.dumps(index, ensure_ascii=False, indent=2) + "\n"
     review = sheet(index, output)
     if args.check:

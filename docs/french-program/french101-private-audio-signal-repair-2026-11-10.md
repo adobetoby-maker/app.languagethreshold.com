@@ -6,6 +6,8 @@ The [private manifest](/Users/drive/lt-audio/french-101/signal-repair-options-20
 
 The nine unresolved identities reduce to seven unique text/voice requests: Aoede `ans`, `ou`, `oui`; Charon `ans`, `il`, `ou`, `te`. Two `il` and two `oui` source hashes account for the duplicate requests. Existing retakes of these words remain below the signal thresholds, so another blind one-word synthesis batch is not justified. A qualified French listener should assess the selected alternatives in context and decide how to record the seven unresolved pronunciations. Short written forms can have context-dependent pronunciation; exact written text alone does not approve a clip.
 
+A second [private comparison sheet](/Users/drive/lt-audio/french-101/signal-repair-with-level-2026-11-10/review.html) adds previously generated level-adjusted candidates beside the original and retake for those unresolved placements. Its [manifest](/Users/drive/lt-audio/french-101/signal-repair-with-level-2026-11-10/manifest.json) has SHA-256 `59d5896a2b85c494204923484a716bd298f4499a2d24271fc3ecb56c8cfa9820`. Eight of nine unresolved placements have an exact-text, exact-voice, exact-source level candidate; all eight pass the signal thresholds, representing seven distinct candidate file hashes. Charon `ans` has no level candidate. Its original hash is also attached to Charon `il`, so the `il` level candidate is deliberately excluded from `ans`. This sheet makes the options easier to hear; gain may amplify noise or an incorrect pronunciation, so every candidate remains unselected and `listeningReviewed:false`.
+
 Rebuild and verify without paid synthesis:
 
 ```sh
@@ -14,6 +16,12 @@ python3 scripts/build-french101-signal-repair-candidates.py \
   --signal-report /Users/drive/lt-audio/french-101/signal-audit-current-2026-11-10.json \
   --retake-manifest /Users/drive/lt-audio/french-101/signal-retakes-all-2026-11-09/manifest.json \
   --output /Users/drive/lt-audio/french-101/signal-repair-options-2026-11-10 --check
+python3 scripts/build-french101-signal-repair-candidates.py \
+  --audio-root /Users/drive/lt-audio/french-101 \
+  --signal-report /Users/drive/lt-audio/french-101/signal-audit-current-2026-11-10.json \
+  --retake-manifest /Users/drive/lt-audio/french-101/signal-retakes-all-2026-11-09/manifest.json \
+  --level-manifest /Users/drive/lt-audio/french-101/signal-level-all-2026-11-09/manifest.json \
+  --output /Users/drive/lt-audio/french-101/signal-repair-with-level-2026-11-10 --check
 ```
 
 All full-course manifests remain `listeningReviewed:false` and `registered:false`; no playback, progress, or production files changed. The owner's earlier pilot acceptance covers the distinct pilot clips, not these full-course candidates.

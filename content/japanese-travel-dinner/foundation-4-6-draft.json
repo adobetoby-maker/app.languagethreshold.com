@@ -1,0 +1,633 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "foundation-travel-dinner:4:ja-en",
+      "sourceTitleEnglish": "Have, There Is, Need and Want",
+      "sourceObjectiveEnglish": "Say what you have, need and want at the table and ask if there is a table or a wait.",
+      "sourceSpeakingEnglish": "Ask the host if there is a table for your group, say you have a reservation, and ask if you have to wait.",
+      "title": "Tables, Reservations, Needs, and Wants",
+      "objective": "Ask whether a table is available, state a reservation, say what the group needs, and ask whether there will be a wait.",
+      "focus": "席はありますか asks whether seats are available; 予約があります states that you have a reservation. いすが必要です says a chair is needed, while 〜がほしいです expresses wanting an item. 待たなければなりませんか asks whether waiting is necessary. These functions replace the Spanish tener/hay/querer pattern.",
+      "scene": "Sam arrives with a party of two and asks the host about their reservation and a chair.",
+      "cards": [
+        {
+          "ja": "赤ワイン",
+          "en": "red wine",
+          "kind": "term",
+          "readingKana": "あかワイン"
+        },
+        {
+          "ja": "白ワイン",
+          "en": "white wine",
+          "kind": "term",
+          "readingKana": "しろワイン"
+        },
+        {
+          "ja": "ワインリスト",
+          "en": "wine list",
+          "kind": "term"
+        },
+        {
+          "ja": "前菜",
+          "en": "starter / appetizer",
+          "kind": "term",
+          "readingKana": "ぜんさい"
+        },
+        {
+          "ja": "メイン料理",
+          "en": "main course",
+          "kind": "term",
+          "readingKana": "メインりょうり"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "いす",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "ja": "こおり",
+          "en": "ice",
+          "kind": "term"
+        },
+        {
+          "ja": "二人の席はありますか。",
+          "en": "Is there a table for two?",
+          "kind": "phrase",
+          "readingKana": "ふたりのせきはありますか。"
+        },
+        {
+          "ja": "スミスの名前で予約しています。",
+          "en": "We have a reservation under Smith.",
+          "kind": "phrase",
+          "readingKana": "スミスのなまえでよやくしています。"
+        },
+        {
+          "ja": "いすが一つ必要です。",
+          "en": "We need one chair.",
+          "kind": "phrase",
+          "readingKana": "いすがひとつひつようです。"
+        },
+        {
+          "ja": "赤ワインがほしいです。",
+          "en": "I would like red wine.",
+          "kind": "phrase",
+          "readingKana": "あかワインがほしいです。"
+        },
+        {
+          "ja": "長く待たなければなりませんか。",
+          "en": "Do we have to wait long?",
+          "kind": "phrase",
+          "readingKana": "ながくまたなければなりませんか。"
+        },
+        {
+          "ja": "前菜を一つ、分けて食べたいです。",
+          "en": "We want one starter to share.",
+          "kind": "phrase",
+          "readingKana": "ぜんさいをひとつ、わけてたべたいです。"
+        },
+        {
+          "ja": "予約があります。",
+          "en": "We have a reservation.",
+          "kind": "phrase",
+          "readingKana": "よやくがあります。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "こんばんは。二人の席はありますか。",
+          "en": "Good evening. Is there a table for two?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "ご予約はありますか。",
+          "en": "Do you have a reservation?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。スミスの名前で予約しています。",
+          "en": "Yes. We have a reservation under Smith."
+        },
+        {
+          "speaker": "Host",
+          "ja": "確認します。少しお待ちください。",
+          "en": "I will check. Please wait a moment."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "長く待たなければなりませんか。",
+          "en": "Do we have to wait long?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "いいえ。すぐにご案内できます。",
+          "en": "No. I can seat you soon."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いすが一つ必要です。",
+          "en": "We need one chair."
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい、いすを一つお持ちします。",
+          "en": "Yes, I will bring one chair."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。前菜を一つ、分けて食べたいです。",
+          "en": "Thank you. We would like one starter to share."
+        }
+      ],
+      "speaking": {
+        "role": "Guest asking for a table",
+        "partnerRole": "Restaurant host",
+        "opening": "こんばんは。ご予約はありますか。",
+        "goal": "Ask for a table for two, give the reservation name, request a chair, and ask about the wait.",
+        "closure": "すぐにご案内します。",
+        "wordBank": [
+          "二人の席はありますか。",
+          "スミスの名前で予約しています。",
+          "いすが一つ必要です。",
+          "長く待たなければなりませんか。",
+          "予約があります。",
+          "前菜を一つ、分けて食べたいです。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese term for a starter.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask if there is a table for two.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the statement that there is a reservation under Smith.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese term for white wine.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether you must wait long.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Request one chair.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "stableId": "foundation-travel-dinner:5:ja-en",
+      "sourceTitleEnglish": "Go, Do and Can",
+      "sourceObjectiveEnglish": "Say where you are going, what you plan to do and ask what you can do at dinner.",
+      "sourceSpeakingEnglish": "Tell the host you are going to wait at the bar and that you are going to celebrate something, then ask if you can make a toast.",
+      "title": "Plans, Possibility, and a Toast",
+      "objective": "Say where you will wait, describe a celebration plan, and ask whether a toast or a food change is possible.",
+      "focus": "バーで待ちます states where you will wait; 〜する予定です marks a plan. 乾杯してもいいですか asks permission for a toast, while できますか asks whether the kitchen can make a dish a certain way. 食後のおしゃべり describes conversation after dinner without treating Spanish sobremesa as a Japanese loanword.",
+      "scene": "At an anniversary dinner, Sam and Lea wait at the bar, ask about a garlic-free fish, and make a toast.",
+      "cards": [
+        {
+          "ja": "バー",
+          "en": "bar",
+          "kind": "term"
+        },
+        {
+          "ja": "お手洗い",
+          "en": "restroom",
+          "kind": "term",
+          "readingKana": "おてあらい"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term",
+          "readingKana": "ちゅうぼう"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "乾杯",
+          "en": "toast",
+          "kind": "term",
+          "readingKana": "かんぱい"
+        },
+        {
+          "ja": "食後のおしゃべり",
+          "en": "after-dinner conversation at the table",
+          "kind": "term",
+          "readingKana": "しょくごのおしゃべり"
+        },
+        {
+          "ja": "駐車場",
+          "en": "parking lot",
+          "kind": "term",
+          "readingKana": "ちゅうしゃじょう"
+        },
+        {
+          "ja": "タクシー",
+          "en": "taxi",
+          "kind": "term"
+        },
+        {
+          "ja": "記念日",
+          "en": "anniversary",
+          "kind": "term",
+          "readingKana": "きねんび"
+        },
+        {
+          "ja": "バーで待ちます。",
+          "en": "I will wait at the bar.",
+          "kind": "phrase",
+          "readingKana": "バーでまちます。"
+        },
+        {
+          "ja": "記念日を祝う予定です。",
+          "en": "We plan to celebrate our anniversary.",
+          "kind": "phrase",
+          "readingKana": "きねんびをいわうよていです。"
+        },
+        {
+          "ja": "乾杯してもいいですか。",
+          "en": "May we make a toast?",
+          "kind": "phrase",
+          "readingKana": "かんぱいしてもいいですか。"
+        },
+        {
+          "ja": "魚をにんにくなしで作れますか。",
+          "en": "Can you make the fish without garlic?",
+          "kind": "phrase",
+          "readingKana": "さかなをにんにくなしでつくれますか。"
+        },
+        {
+          "ja": "店員さんを呼びます。",
+          "en": "I will call the server.",
+          "kind": "phrase",
+          "readingKana": "てんいんさんをよびます。"
+        },
+        {
+          "ja": "食後に少しおしゃべりします。",
+          "en": "We will chat a little after dinner.",
+          "kind": "phrase",
+          "readingKana": "しょくごにすこしおしゃべりします。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Host",
+          "ja": "お席の準備ができるまで、バーでお待ちください。",
+          "en": "Please wait at the bar until the table is ready."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、バーで待ちます。",
+          "en": "Yes, I will wait at the bar."
+        },
+        {
+          "speaker": "Host",
+          "ja": "今日は何かのお祝いですか。",
+          "en": "Are you celebrating something today?"
+        },
+        {
+          "speaker": "Lea",
+          "ja": "はい。記念日を祝う予定です。",
+          "en": "Yes. We plan to celebrate our anniversary."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "乾杯してもいいですか。",
+          "en": "May we make a toast?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "もちろんです。お飲み物をお持ちします。",
+          "en": "Of course. I will bring drinks."
+        },
+        {
+          "speaker": "Lea",
+          "ja": "魚をにんにくなしで作れますか。",
+          "en": "Can you make the fish without garlic?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。食後に少しおしゃべりします。",
+          "en": "Thank you. We will chat a little after dinner."
+        }
+      ],
+      "speaking": {
+        "role": "Guest planning an anniversary dinner",
+        "partnerRole": "Restaurant host",
+        "opening": "お席の準備ができるまで、バーでお待ちください。",
+        "goal": "Say you will wait at the bar, explain the anniversary plan, ask to toast, and ask whether the fish can be made without garlic.",
+        "closure": "お飲み物をお持ちします。",
+        "wordBank": [
+          "バーで待ちます。",
+          "記念日を祝う予定です。",
+          "乾杯してもいいですか。",
+          "魚をにんにくなしで作れますか。",
+          "食後のおしゃべり",
+          "店員さんを呼びます。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese expression for a toast.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say you will wait at the bar.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the anniversary plan.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese term for kitchen.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether you may make a toast.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask whether the fish can be made without garlic.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "stableId": "foundation-travel-dinner:6:ja-en",
+      "sourceTitleEnglish": "Present Tense",
+      "sourceObjectiveEnglish": "Say what you and others eat, drink and share using present-tense verbs.",
+      "sourceSpeakingEnglish": "Tell a dining companion what you eat and drink, ask what they eat, and say what you are sharing.",
+      "title": "What We Eat, Drink, and Share",
+      "objective": "Use Japanese polite present forms to say what people eat and drink, ask about seafood and soup, and say what the group shares.",
+      "focus": "食べます and 飲みます are polite non-past verbs for eating and drinking. 分けます says the group shares; 食べますか forms a question with か. Japanese does not have separate Spanish -ar/-er/-ir verb classes, and context tells whether a non-past form describes a habit or a current choice. 魚介類 means seafood broadly, while 貝類 is specifically shellfish.",
+      "scene": "At dinner, Sam and Lea discuss seafood, sparkling water, a shared salad, and a soup ingredient.",
+      "cards": [
+        {
+          "ja": "魚",
+          "en": "fish as food",
+          "kind": "term",
+          "readingKana": "さかな"
+        },
+        {
+          "ja": "牛肉",
+          "en": "beef",
+          "kind": "term",
+          "readingKana": "ぎゅうにく"
+        },
+        {
+          "ja": "貝類",
+          "en": "shellfish",
+          "kind": "term",
+          "readingKana": "かいるい"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "鶏肉",
+          "en": "chicken meat",
+          "kind": "term",
+          "readingKana": "とりにく"
+        },
+        {
+          "ja": "野菜",
+          "en": "vegetables",
+          "kind": "term",
+          "readingKana": "やさい"
+        },
+        {
+          "ja": "えび",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "食前酒",
+          "en": "pre-dinner drink / aperitif",
+          "kind": "term",
+          "readingKana": "しょくぜんしゅ"
+        },
+        {
+          "ja": "炭酸水を飲みます。",
+          "en": "I will drink sparkling water.",
+          "kind": "phrase",
+          "readingKana": "たんさんすいをのみます。"
+        },
+        {
+          "ja": "魚介類を食べますか。",
+          "en": "Do you eat seafood?",
+          "kind": "phrase",
+          "readingKana": "ぎょかいるいをたべますか。"
+        },
+        {
+          "ja": "サラダを分けます。",
+          "en": "We will share the salad.",
+          "kind": "phrase",
+          "readingKana": "サラダをわけます。"
+        },
+        {
+          "ja": "スープには何が入っていますか。",
+          "en": "What is in the soup?",
+          "kind": "phrase",
+          "readingKana": "スープにはなにがはいっていますか。"
+        },
+        {
+          "ja": "魚を焼きますか。",
+          "en": "Do you grill the fish?",
+          "kind": "phrase",
+          "readingKana": "さかなをやきますか。"
+        },
+        {
+          "ja": "ここでは夕食を遅く食べます。",
+          "en": "People eat dinner late here.",
+          "kind": "phrase",
+          "readingKana": "ここではゆうしょくをおそくたべます。"
+        },
+        {
+          "ja": "魚介類",
+          "en": "seafood",
+          "kind": "term",
+          "readingKana": "ぎょかいるい"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "私は炭酸水を飲みます。",
+          "en": "I will drink sparkling water."
+        },
+        {
+          "speaker": "Lea",
+          "ja": "私は食前酒を飲みます。",
+          "en": "I will have an aperitif."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "魚介類を食べますか。",
+          "en": "Do you eat seafood?"
+        },
+        {
+          "speaker": "Lea",
+          "ja": "はい。でも今日は魚を食べます。",
+          "en": "Yes. But today I will eat fish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サラダを分けますか。",
+          "en": "Shall we share the salad?"
+        },
+        {
+          "speaker": "Lea",
+          "ja": "はい、サラダを分けます。",
+          "en": "Yes, we will share the salad."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スープには何が入っていますか。",
+          "en": "What is in the soup?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "野菜と鶏肉が入っています。",
+          "en": "It contains vegetables and chicken."
+        },
+        {
+          "speaker": "Lea",
+          "ja": "魚を焼きますか。",
+          "en": "Do you grill the fish?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい、焼きます。",
+          "en": "Yes, we do."
+        }
+      ],
+      "speaking": {
+        "role": "Guest discussing dinner choices",
+        "partnerRole": "Dining companion and server",
+        "opening": "お飲み物は何になさいますか。",
+        "goal": "Say what you will drink, ask whether your companion eats seafood, agree to share a salad, and ask about the soup and fish.",
+        "closure": "ご注文を承りました。",
+        "wordBank": [
+          "魚",
+          "貝類",
+          "食前酒",
+          "炭酸水を飲みます。",
+          "魚介類を食べますか。",
+          "サラダを分けます。",
+          "スープには何が入っていますか。",
+          "魚を焼きますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese term for shellfish.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask whether your companion eats seafood.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the plan to share the salad.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese term for vegetables.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say you will drink sparkling water.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask what is in the soup.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified Japanese review is required for polite register, counters, kanji readings, restaurant usage, and variant answers.",
+    "The source functions of have/exist/need/want, plan/can, and present-tense eat/drink/share are preserved through Japanese-specific grammar, not Spanish conjugation labels.",
+    "Dinner scenes are fictional; no meal, ingredient, or restaurant claim is presented as universal."
+  ]
+}

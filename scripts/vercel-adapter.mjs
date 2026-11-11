@@ -140,6 +140,11 @@ writeFileSync(
         headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
         dest: "/trade-packs/$1",
       },
+      {
+        src: "/speaking-partners\\.v1\\.json",
+        dest: "/speaking-partners.v1.json",
+        headers: { "cache-control": "public, max-age=3600" },
+      },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
       {

@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 // Built by TAC — 2026-10-20
 // The run rules of scripts/build-lesson-content.mts: --lessons parsing and checks, which lessons a
 // run calls (missing vs forced), the cli / api provider choice, and that the cli provider needs no
@@ -376,7 +377,7 @@ test("a cli reply is read like a tool call, and the retry prompt carries the rej
 
 // ─── The script (dry runs and flags that fail before any call) ──────────────
 
-const SCRIPT = new URL("../scripts/build-lesson-content.mts", import.meta.url).pathname;
+const SCRIPT = fileURLToPath(new URL("../scripts/build-lesson-content.mts", import.meta.url));
 function runScript(args, extraEnv = {}) {
   const env = { ...process.env };
   delete env.ANTHROPIC_API_KEY;
@@ -445,7 +446,7 @@ test("script: the api provider still requires ANTHROPIC_API_KEY (and stops befor
 
 // roofing/es is verbs-only, so a fake CLI needs only valid verbs. They are copied from the
 // committed roofing file and tagged per lesson, so new content is told apart from the old.
-const ROOFING_FILE = new URL("../public/lesson-content/es/roofing.json", import.meta.url).pathname;
+const ROOFING_FILE = fileURLToPath(new URL("../public/lesson-content/es/roofing.json", import.meta.url));
 const FAKE_MODEL = "claude-opus-5-5";
 
 function makeFakeCli(dir) {

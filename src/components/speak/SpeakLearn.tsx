@@ -1,3 +1,6 @@
+import { SpeakingPartnerPicker } from "./SpeakingPartnerPicker";
+import { speakingPartner } from "@/data/speaking-partners";
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import { SpeakingConversationControls } from "./SpeakingConversationControls";
 import { SpeakTutorDock, type SpeakTutorSelection } from "./SpeakTutorDock";
 import { LongPressWordText } from "./LongPressWordText";
@@ -119,6 +122,23 @@ export function SpeakLearn() {
     clear,
   } = useSpeak();
   const language = state.selectedLanguage;
+  const partnerStore = useLearnerDeviceStore(
+    `speaking-partner:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
+  );
+  const [partnerId, setPartnerId] = useState("open");
+  useEffect(() => {
+    const saved = partnerStore.read();
+    setPartnerId(speakingPartner(typeof saved === "string" ? saved : undefined)[0]);
+  }, [partnerStore]);
+  const changePartner = (id: string) => {
+    if (id === partnerId) return;
+    cancel();
+    stopOwned();
+    clear();
+    setPartnerId(id);
+    partnerStore.write(id);
+  };
+
   // Saved speaking practice advances the next session, never a running session.
   const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce(
     (sum, seconds) => sum + (seconds ?? 0),
@@ -187,6 +207,7 @@ export function SpeakLearn() {
       accent,
       voiceURI,
       surface,
+      partnerId,
     ]),
     speakingAuth,
   );
@@ -340,7 +361,7 @@ export function SpeakLearn() {
     }
   };
 
-  const streamReply = async (userText: string) => {
+  const streamReply = async (userText: string, startConversation = false) => {
     const lease = capture();
     if (!lease.isCurrent() || abortRef.current) return;
     setThinking(true);
@@ -356,7 +377,7 @@ export function SpeakLearn() {
     const timeout = window.setTimeout(() => {
       if (!current()) return;
       setThinking(false);
-      setTypedTurn(userText);
+      setTypedTurn(startConversation ? "" : userText);
       setConversationError(
         "The reply took too long. Send your answer again, or reset the conversation.",
       );
@@ -389,6 +410,9 @@ export function SpeakLearn() {
         headers,
         body: JSON.stringify({
           mode: "chat",
+          partnerRoleId: partnerId,
+          moduleId: state.activeModuleId ?? undefined,
+          startConversation,
           language,
           level: state.level,
           nativeLanguage: state.nativeLanguage,
@@ -414,7 +438,7 @@ export function SpeakLearn() {
           /* ignore */
         }
         if (!current()) return;
-        setTypedTurn(userText);
+        setTypedTurn(startConversation ? "" : userText);
         setConversationError(msg);
         toast("Conversation paused", { description: msg });
         setThinking(false);
@@ -422,7 +446,7 @@ export function SpeakLearn() {
       }
       if (!res.body) throw new Error("The partner returned no reply. Please try again.");
 
-      const aiTurn = addTurn("ai", "");
+      let aiTurnId: string | null = null;
       const reader = res.body.getReader();
       const disposeReader = () => {
         void reader.cancel().catch(() => {});
@@ -459,7 +483,8 @@ export function SpeakLearn() {
             const delta = parsed?.choices?.[0]?.delta?.content as string | undefined;
             if (delta) {
               full += delta;
-              appendToTurn(aiTurn.id, delta);
+              if (aiTurnId) appendToTurn(aiTurnId, delta);
+              else aiTurnId = addTurn("ai", delta).id;
             }
           } catch {
             buf = line + "\n" + buf;
@@ -474,13 +499,15 @@ export function SpeakLearn() {
       if (!full.trim()) throw new Error("The partner returned no reply. Please try again.");
       if (full.trim()) {
         if (currentAutomaticReplyAudio.current) speakAloud(full);
-        incrementExchanges();
-        awardExchange();
+        if (!startConversation) {
+          incrementExchanges();
+          awardExchange();
+        }
       }
     } catch (e: unknown) {
       if (!current()) return;
       setThinking(false);
-      setTypedTurn(userText);
+      setTypedTurn(startConversation ? "" : userText);
       setConversationError(
         "Could not finish the reply. Send your answer again, or reset the conversation.",
       );
@@ -718,9 +745,8 @@ export function SpeakLearn() {
       >
         {isEmpty && !interim ? (
           <div className="flex h-full flex-col items-center justify-center text-center">
-            <p className="font-serif text-2xl text-foreground/70">Your conversation begins here</p>
-            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Tap the microphone or pick a topic chip to start speaking {language}.
+            <p className="px-2 py-2 text-sm text-muted-foreground">
+              Your partner’s reply will appear here.
             </p>
           </div>
         ) : (
@@ -868,6 +894,13 @@ export function SpeakLearn() {
                     <option value="browser">Browser dictation</option>
                   </select>
                 </label>
+                <SpeakingPartnerPicker
+                  value={partnerId}
+                  onChange={changePartner}
+                  moduleId={state.activeModuleId ?? ""}
+                  category={getModule(state.activeModuleId)?.category ?? ""}
+                  disabled={thinking || micActive || audioCaptureBusy}
+                />
                 <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
 
                 <ChallengePanel
@@ -1028,6 +1061,25 @@ export function SpeakLearn() {
           className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-y-auto"
           aria-label="Free conversation practice"
         >
+          {isEmpty && (
+            <SpeakingPartnerPicker
+              value={partnerId}
+              onChange={changePartner}
+              moduleId={state.activeModuleId ?? ""}
+              category={getModule(state.activeModuleId)?.category ?? ""}
+              disabled={thinking || micActive || audioCaptureBusy}
+            />
+          )}
+          {isEmpty && (
+            <button
+              type="button"
+              disabled={thinking || !conversationAllowed}
+              onClick={() => gated(() => streamReply("Begin the conversation.", true))}
+              className="min-h-11 shrink-0 rounded-xl border border-border bg-card px-4 py-2 font-semibold"
+            >
+              Let partner start
+            </button>
+          )}
           {transcript}
           {conversationError && (
             <p role="alert" className="shrink-0 text-sm text-foreground">

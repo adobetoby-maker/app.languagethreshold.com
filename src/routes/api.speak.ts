@@ -1,3 +1,5 @@
+import { speakingPartnerInstructions } from "../data/speaking-partners";
+import { getModule, moduleSupportsLearningPair } from "../data/modules";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { PocketTutorCardSchema, pocketTutorPrompt } from "@/lib/speak-pocket-tutor";
 import { withSpeakingProvider, SpeakingProviderError } from "../lib/speaking-provider";
@@ -40,6 +42,9 @@ const TranslationLineSchema = z.object({
 });
 
 const BodySchema = z.object({
+  partnerRoleId: z.string().max(60).optional(),
+  moduleId: z.string().max(100).optional(),
+  startConversation: z.boolean().optional(),
   mode: z.enum(["chat", "tip", "challenge", "mission", "translate", "lookup"]),
   word: z.string().trim().min(1).max(80).optional(),
   sentence: z.string().max(1200).optional(),
@@ -124,7 +129,7 @@ function chatSystemPrompt(
     `You are a warm, fluent ${language} conversation partner.`,
     `The learner is at ${level} level. Speak naturally but clearly.`,
     `Keep responses to 2-3 sentences unless asked for more.`,
-    `You love talking about food, travel, daily life, culture, and the places where ${language} is spoken.`,
+    `Choose topics relevant to the selected relationship and course; follow the learner when they change the subject.`,
     `Always respond in ${language}. Be encouraging and patient. Avoid markdown — write plain conversational text.`,
     `The learner's native language is ${nativeLanguage}. Only use it for a brief clarification when the learner asks or communication has completely broken down.`,
   ].join(" ");
@@ -932,7 +937,24 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
-        const chatMessages = payload.messages;
+        const selectedModule = getModule(payload.moduleId);
+        const compatibleModule =
+          selectedModule &&
+          moduleSupportsLearningPair(
+            selectedModule,
+            payload.language as Parameters<typeof moduleSupportsLearningPair>[1],
+            nativeLanguage as Parameters<typeof moduleSupportsLearningPair>[2],
+          )
+            ? selectedModule
+            : undefined;
+        const chatMessages = payload.startConversation
+          ? [
+              {
+                role: "user" as const,
+                content: "Begin the roleplay with your first relevant question.",
+              },
+            ]
+          : payload.messages;
         try {
           return await withSpeakingProvider(request, KEY, async (client, options) => {
             const stream = await client.messages.create(
@@ -940,12 +962,15 @@ export const Route = createFileRoute("/api/speak")({
                 model: "claude-haiku-5-5",
                 max_tokens: 700,
                 thinking: { type: "disabled" },
-                system: chatSystemPrompt(
-                  payload.language,
-                  payload.level,
-                  nativeLanguage,
-                  payload.userVocabWords,
-                ),
+                system:
+                  speakingPartnerInstructions(payload.partnerRoleId, compatibleModule) +
+                  "\n" +
+                  chatSystemPrompt(
+                    payload.language,
+                    payload.level,
+                    nativeLanguage,
+                    payload.userVocabWords,
+                  ),
                 messages: chatMessages,
                 stream: true,
               },

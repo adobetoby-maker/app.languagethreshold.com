@@ -14,6 +14,16 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "or-cleaning",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "OR Cleaning Crew · Spanish",
+    foundation: { blurb: "Ten beginner Spanish lessons for OR cleaning teams." },
+    master: {
+      blurb: "Twenty Spanish lessons for training, reporting and difficult OR cleaning shifts.",
+    },
+  },
+  {
     base: "place-directions",
     language: "Spanish",
     tradeLabel: "Place & Directions",

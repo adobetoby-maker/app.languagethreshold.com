@@ -1,3 +1,4 @@
+import { orCleaningLesson } from "@/data/or-cleaning";
 import { placeLesson } from "@/data/place-directions";
 import { soundLesson } from "@/data/sound-like-a-native";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
@@ -145,7 +146,12 @@ export function LessonReader({
     japaneseBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage)
       ? `seed-ja-${moduleId}-lesson-${lessonNumber}`
       : null;
+  const cleaningReaderId =
+    lessonNumber && orCleaningLesson(moduleId, lessonNumber, language, state.nativeLanguage)
+      ? `seed-${language === "English" ? "en" : "es"}-${moduleId}-lesson-${lessonNumber}`
+      : null;
   const fullReaderId =
+    cleaningReaderId ??
     japaneseReaderId ??
     basicsReaderId ??
     militaryReaderId ??

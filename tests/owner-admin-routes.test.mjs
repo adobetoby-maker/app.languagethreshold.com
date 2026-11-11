@@ -176,9 +176,9 @@ test("platform owner can inspect only the unregistered Japanese Dinner draft", (
     assert.equal(data.reviewed, false);
     assert.equal(data.registered, false);
     assert.equal(data.audioRegistered, false);
-    assert.equal(data.lessons.length, 22);
+    assert.equal(data.lessons.length, 25);
     assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:ja-en");
-    assert.equal(data.lessons.at(-1).stableId, "travel-dinner:12:ja-en");
+    assert.equal(data.lessons.at(-1).stableId, "travel-dinner:15:ja-en");
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
     assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));
   }));

@@ -53,6 +53,7 @@ async function dinnerDrafts() {
     import("../../content/japanese-travel-dinner/core-5-6-draft.json"),
     import("../../content/japanese-travel-dinner/core-7-9-draft.json"),
     import("../../content/japanese-travel-dinner/core-10-12-draft.json"),
+    import("../../content/japanese-travel-dinner/core-13-15-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -95,9 +96,9 @@ async function dinnerDrafts() {
     });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (ids.size !== lessons.length || lessons.length !== 22 || lessons.some((lesson) => lesson.reviewed !== false) ||
+  if (ids.size !== lessons.length || lessons.length !== 25 || lessons.some((lesson) => lesson.reviewed !== false) ||
       lessons.filter((lesson) => lesson.stage === "foundation").length !== 10 ||
-      lessons.filter((lesson) => lesson.stage === "core").length !== 12)
+      lessons.filter((lesson) => lesson.stage === "core").length !== 15)
     throw new Error("Japanese Dinner draft lesson inventory changed");
   return lessons;
 }

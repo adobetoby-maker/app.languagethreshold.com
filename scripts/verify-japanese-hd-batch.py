@@ -23,7 +23,7 @@ def spoken(value):
     return "".join(unicodedata.normalize("NFC", value).split())
 
 
-def verify(module, number, folder):
+def verify(module, number, folder, inventory_path=None):
     if module not in ("foundation-japanese-basics", "japanese-basics", "master-japanese-basics"):
         raise ValueError("Unsupported Japanese 101 module")
     source = json.loads((ROOT / "public/lesson-content/ja" / f"{module}.json").read_text(encoding="utf-8"))
@@ -33,7 +33,7 @@ def verify(module, number, folder):
     values = [*lesson["passage"]["target"], *(word["es"] for word in lesson["words"])]
     expected = {normalized(value): spoken(value) for value in values}
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-    inventory = json.loads((ROOT / "docs/japanese-program/audio-inventory.json").read_text(encoding="utf-8"))
+    inventory = json.loads((inventory_path or ROOT / "docs/japanese-program/audio-inventory.json").read_text(encoding="utf-8"))
     if manifest.get("scope") != {"module": module, "lesson": number}:
         raise ValueError("Wrong lesson scope")
     if manifest.get("sourceSHA256") != inventory["normalizedTextSHA256"]:
@@ -82,5 +82,6 @@ if __name__ == "__main__":
     parser.add_argument("--module", required=True)
     parser.add_argument("--lesson", required=True, type=int)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--inventory", type=Path, help="Exact source inventory; defaults to the checked-in course inventory")
     args = parser.parse_args()
-    print(json.dumps(verify(args.module, args.lesson, args.output), ensure_ascii=False))
+    print(json.dumps(verify(args.module, args.lesson, args.output, args.inventory), ensure_ascii=False))
